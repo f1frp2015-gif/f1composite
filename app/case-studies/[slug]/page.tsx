@@ -141,7 +141,20 @@ const caseStudyImages: Record<string, string> = {
   "chemical-plant-platform": "/images/case-studies/frp-chemical-plant-access-platform.jpg",
   "fenestration-residential": "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
   "solar-farm-mounting": "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
-  "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
+  "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.jpg",
+};
+
+const caseStudyContentImages: Record<string, { src: string; alt: string }[]> = {
+  "water-treatment-cable-tray": [
+    {
+      src: "/images/case-studies/frp-water-treatment-plant-aeration-basin-piping-system.jpg",
+      alt: "Aerial view of water treatment aeration basins with FRP cable tray and piping system installed across walkways",
+    },
+    {
+      src: "/images/case-studies/frp-water-treatment-plant-walkway-handrail-installation.jpg",
+      alt: "FRP handrail and walkway system installed at municipal water treatment facility with corrosion-resistant railing",
+    },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -227,6 +240,24 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             <h2 className="mb-[13px] text-f24 font-bold text-t1">Our Solution</h2>
             <p className="mb-[34px] text-f15 leading-golden text-t2">{cs.solution}</p>
+
+            {/* Content images — inserted between solution and results */}
+            {caseStudyContentImages[slug] && (
+              <div className="mb-[34px] grid gap-[21px] sm:grid-cols-2">
+                {caseStudyContentImages[slug].map((img) => (
+                  <div key={img.src} className="overflow-hidden rounded-[8px]">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={620}
+                      height={465}
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
 
             <h2 className="mb-[13px] text-f24 font-bold text-t1">Results</h2>
             <p className="mb-[34px] text-f15 leading-golden text-t2">{cs.results}</p>
