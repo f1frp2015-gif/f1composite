@@ -37,10 +37,10 @@ const spacerTypes = [
 ];
 
 const windowTypes = [
-  { id: "fixed", label: "Fixed light", frameRatio: 0.15 },
-  { id: "casement", label: "Casement / Tilt-turn", frameRatio: 0.25 },
-  { id: "sliding", label: "Sliding door", frameRatio: 0.20 },
-  { id: "entrance", label: "Entrance door (glazed)", frameRatio: 0.40 },
+  { id: "fixed", label: "Fixed light", sashWidth: 0 },
+  { id: "casement", label: "Casement / Tilt-turn", sashWidth: 30 },
+  { id: "sliding", label: "Sliding door", sashWidth: 40 },
+  { id: "entrance", label: "Entrance door (glazed)", sashWidth: 50 },
 ];
 
 /* ══════════════════════════════════════════════════════
@@ -55,24 +55,33 @@ function calcUw(
   Uf: number,
   Ug: number,
   psi: number,
+  sashWidth: number,
 ) {
-  const Aw = width * height; // total window area (mm²)
-  const glassW = width - 2 * frameWidth;
-  const glassH = height - 2 * frameWidth;
+  // All dimensions in mm, convert to m for calculation
+  const W = width / 1000; // m
+  const H = height / 1000; // m
+  const fw = frameWidth / 1000; // m
+  const sw = sashWidth / 1000; // m
+  const totalFrameW = fw + sw; // total frame + sash width in m
+
+  const Aw = W * H; // total window area (m²)
+  const glassW = W - 2 * totalFrameW;
+  const glassH = H - 2 * totalFrameW;
 
   if (glassW <= 0 || glassH <= 0) return null;
 
-  const Ag = glassW * glassH; // glass area
-  const Af = Aw - Ag; // frame area
-  const lg = 2 * (glassW + glassH); // glass perimeter
+  const Ag = glassW * glassH; // glass area (m²)
+  const Af = Aw - Ag; // frame area (m²)
+  const lg = 2 * (glassW + glassH); // glass perimeter (m)
 
+  // EN ISO 10077-1: Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af)
   const Uw = (Ag * Ug + Af * Uf + lg * psi) / (Ag + Af);
   return {
-    Uw: Math.round(Uw * 100) / 100,
-    Ag: Ag / 1e6, // m²
-    Af: Af / 1e6,
+    Uw: Math.round(Uw * 1000) / 1000,
+    Ag,
+    Af,
     glassRatio: Math.round((Ag / Aw) * 100),
-    lg: lg / 1000, // m
+    lg,
   };
 }
 
@@ -104,15 +113,16 @@ export default function UValueCalculator() {
   const selFrame = frameSystems.find((f) => f.id === frame)!;
   const selGlass = glassConfigs.find((g) => g.id === glass)!;
   const selSpacer = spacerTypes.find((s) => s.id === spacer)!;
+  const selWinType = windowTypes.find((w) => w.id === winType)!;
 
   const result = useMemo(
-    () => calcUw(width, height, selFrame.width, selFrame.Uf, selGlass.Ug, selSpacer.psi),
-    [width, height, selFrame, selGlass, selSpacer],
+    () => calcUw(width, height, selFrame.width, selFrame.Uf, selGlass.Ug, selSpacer.psi, selWinType.sashWidth),
+    [width, height, selFrame, selGlass, selSpacer, selWinType],
   );
 
-  // Compare with aluminium no-break baseline
+  // Compare with aluminium no-break baseline (fixed light, aluminium spacer)
   const baseline = useMemo(
-    () => calcUw(width, height, 65, 5.9, selGlass.Ug, 0.08),
+    () => calcUw(width, height, 65, 5.9, selGlass.Ug, 0.08, 0),
     [width, height, selGlass],
   );
 
@@ -211,6 +221,9 @@ export default function UValueCalculator() {
                     <option key={w.id} value={w.id}>{w.label}</option>
                   ))}
                 </select>
+                <span className="mt-[4px] block text-[11px] text-t3">
+                  Sash width: {selWinType.sashWidth} mm {selWinType.sashWidth === 0 ? "(no sash)" : ""}
+                </span>
               </div>
             </div>
 
