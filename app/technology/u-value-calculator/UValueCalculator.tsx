@@ -8,10 +8,10 @@ import SectionTag from "@/components/ui/SectionTag";
    ══════════════════════════════════════════════════════ */
 
 const frameSystems = [
-  { id: "frp-60", label: "F1 FRP 60-Series (60 mm, 3-chamber)", Uf: 1.5, width: 70 },
-  { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 4-chamber)", Uf: 1.2, width: 75 },
-  { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 5-chamber)", Uf: 1.0, width: 80 },
-  { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 6-chamber)", Uf: 0.85, width: 85 },
+  { id: "frp-60", label: "F1 FRP 60-Series (60 mm, 2-chamber)", Uf: 1.5, width: 60 },
+  { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, width: 70 },
+  { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, width: 80 },
+  { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, width: 90 },
   { id: "alu-no-break", label: "Aluminium (no thermal break)", Uf: 5.9, width: 65 },
   { id: "alu-break", label: "Aluminium (polyamide break)", Uf: 3.2, width: 70 },
   { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, width: 70 },

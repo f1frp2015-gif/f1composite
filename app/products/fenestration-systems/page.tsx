@@ -24,42 +24,42 @@ const systemSeries = [
   {
     name: "60-Series",
     frameDepth: "60 mm",
-    chambers: 3,
+    chambers: 2,
     kValue: "1.4 - 1.6 W/m\u00B2K",
     glassRange: "24 - 36 mm",
     applications: "Residential windows, light commercial projects, renovation and retrofit",
     description:
-      "The 60-series is our entry-level fenestration system, designed for residential and light commercial applications where thermal performance must exceed aluminum but project budgets are tightly controlled. The 60 mm frame depth accommodates double-glazed insulating glass units with cavities up to 16 mm, delivering whole-window K-values of 1.4 to 1.6 W/m\u00B2K depending on glass specification. Despite being our most compact system, the 60-series leverages the inherently low thermal conductivity of pultruded FRP (approximately 0.3 W/mK, compared to 160 W/mK for aluminum) to achieve thermal performance that aluminum systems can only match with complex multi-chamber thermal break inserts. The three-chamber frame design provides structural rigidity sufficient for window units up to 1,800 mm in height without steel reinforcement, eliminating the hidden thermal bridge that steel-reinforced PVC frames introduce.",
+      "The 60-series is our entry-level fenestration system, designed for residential and light commercial applications where thermal performance must exceed aluminum but project budgets are tightly controlled. The 60 mm frame depth accommodates double-glazed insulating glass units with cavities up to 16 mm, delivering whole-window K-values of 1.4 to 1.6 W/m\u00B2K depending on glass specification. Despite being our most compact system, the 60-series leverages the inherently low thermal conductivity of pultruded FRP (approximately 0.3 W/mK, compared to 160 W/mK for aluminum) to achieve thermal performance that aluminum systems can only match with complex multi-chamber thermal break inserts. The two-chamber frame design provides structural rigidity sufficient for window units up to 1,800 mm in height without steel reinforcement, eliminating the hidden thermal bridge that steel-reinforced PVC frames introduce.",
   },
   {
     name: "70-Series",
     frameDepth: "70 mm",
-    chambers: 4,
+    chambers: 3,
     kValue: "1.1 - 1.3 W/m\u00B2K",
     glassRange: "28 - 44 mm",
     applications: "Residential, commercial, passive house compatible",
     description:
-      "Our 70-series system is the workhorse of our fenestration range, balancing high thermal performance with broad architectural applicability. The 70 mm frame depth and four-chamber internal geometry accommodate triple-glazed insulating glass units with argon or krypton gas fills, achieving whole-window K-values of 1.1 to 1.3 W/m\u00B2K. This places the 70-series within the performance envelope required by most passive house certification bodies when combined with appropriate glazing. The profile set includes fixed-light frames, tilt-and-turn sash profiles, casement sash profiles, and dedicated mullion and transom sections that allow fabricators to build complex window wall configurations from a single system. All profiles feature a co-pultruded EPDM gasket channel that provides a continuous weatherseal without the need for secondary gasket adhesion, improving long-term air-tightness and simplifying fabrication.",
+      "Our 70-series system is the workhorse of our fenestration range, balancing high thermal performance with broad architectural applicability. The 70 mm frame depth and three-chamber internal geometry accommodate triple-glazed insulating glass units with argon or krypton gas fills, achieving whole-window K-values of 1.1 to 1.3 W/m\u00B2K. This places the 70-series within the performance envelope required by most passive house certification bodies when combined with appropriate glazing. The profile set includes fixed-light frames, tilt-and-turn sash profiles, casement sash profiles, and dedicated mullion and transom sections that allow fabricators to build complex window wall configurations from a single system. All profiles feature a co-pultruded EPDM gasket channel that provides a continuous weatherseal without the need for secondary gasket adhesion, improving long-term air-tightness and simplifying fabrication.",
   },
   {
     name: "80-Series",
     frameDepth: "80 mm",
-    chambers: 5,
+    chambers: 3,
     kValue: "0.9 - 1.1 W/m\u00B2K",
     glassRange: "36 - 52 mm",
     applications: "High-performance commercial, curtain wall, near-zero-energy buildings",
     description:
-      "The 80-series targets high-performance commercial and near-zero-energy building projects where fenestration thermal performance is a critical factor in achieving energy compliance. The 80 mm frame depth with five internal chambers provides exceptional thermal isolation, and the increased glazing rebate depth accommodates quadruple-glazed units or triple-glazed units with wide cavities for maximum gas-fill performance. We engineer the 80-series profiles with a hybrid fiber architecture that combines unidirectional E-glass roving for longitudinal stiffness with +/- 45-degree multiaxial fabric for corner rigidity and impact resistance. This architecture allows the 80-series to span larger openings without supplementary steel reinforcement, maintaining the thermal integrity that makes FRP fenestration superior to aluminum and PVC alternatives. The 80-series also includes a dedicated curtain wall framing system with pressure-equalized drainage and structural silicone glazing compatibility.",
+      "The 80-series targets high-performance commercial and near-zero-energy building projects where fenestration thermal performance is a critical factor in achieving energy compliance. The 80 mm frame depth with three internal chambers provides exceptional thermal isolation, and the increased glazing rebate depth accommodates quadruple-glazed units or triple-glazed units with wide cavities for maximum gas-fill performance. We engineer the 80-series profiles with a hybrid fiber architecture that combines unidirectional E-glass roving for longitudinal stiffness with +/- 45-degree multiaxial fabric for corner rigidity and impact resistance. This architecture allows the 80-series to span larger openings without supplementary steel reinforcement, maintaining the thermal integrity that makes FRP fenestration superior to aluminum and PVC alternatives. The 80-series also includes a dedicated curtain wall framing system with pressure-equalized drainage and structural silicone glazing compatibility.",
   },
   {
     name: "90-Series",
     frameDepth: "90 mm",
-    chambers: 6,
+    chambers: 3,
     kValue: "0.8 - 0.95 W/m\u00B2K",
     glassRange: "44 - 60 mm",
     applications: "Ultra-low-energy buildings, arctic and extreme climate zones, institutional projects",
     description:
-      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and six-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.8 W/m\u00B2K with appropriate glazing selection. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
+      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and three-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.8 W/m\u00B2K with appropriate glazing selection. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
   },
 ];
 
