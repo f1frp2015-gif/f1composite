@@ -327,6 +327,9 @@ export default function FenestrationSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Related resources</h2>
           <div className="flex flex-col gap-[13px] sm:flex-row sm:gap-[34px]">
+            <LinkArrow href="/technology/u-value-calculator">
+              Window U-value calculator
+            </LinkArrow>
             <LinkArrow href="/industries/construction">
               FRP in construction
             </LinkArrow>

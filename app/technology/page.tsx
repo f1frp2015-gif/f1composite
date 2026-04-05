@@ -51,6 +51,13 @@ const areas = [
       "Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections. EN 13706 and ASTM compliant.",
     href: "/technology/calculator",
   },
+  {
+    tag: "Tool",
+    title: "Window U-Value Calculator",
+    description:
+      "Calculate whole-window thermal transmittance (Uw) per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double, triple, and quadruple glazing.",
+    href: "/technology/u-value-calculator",
+  },
 ];
 
 export default function TechnologyPage() {
@@ -84,12 +91,12 @@ export default function TechnologyPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/frp-material-engineering-analysis.jpg"
-              alt="Engineering analysis and material science formulas for FRP composite design"
+              src="/images/technology/frp-profile-engineering-drawing-3d-render.jpg"
+              alt="Pultruded FRP profile with engineering cross-section drawings showing dimensional tolerances and 3D render"
               width={1280}
-              height={600}
+              height={640}
               sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
+              className="h-auto w-full object-contain bg-white"
               priority
             />
           </div>
@@ -102,7 +109,7 @@ export default function TechnologyPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Four Pillars of Our Technical Capability
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
             Each discipline reinforces the others — precise process control enables
             superior material performance, validated by comprehensive testing, and
             made accessible through our know-how transfer programs.
