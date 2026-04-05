@@ -18,6 +18,7 @@ export const mainNav = [
       { label: "Quality & Testing", href: "/technology/quality-testing" },
       { label: "KNOWHOW Services", href: "/technology/knowhow-services" },
       { label: "FRP Calculator", href: "/technology/calculator" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     ],
   },
   {
@@ -26,13 +27,15 @@ export const mainNav = [
     children: [
       { label: "Construction", href: "/industries/construction" },
       { label: "Infrastructure", href: "/industries/infrastructure" },
-      { label: "Energy", href: "/industries/energy" },
+      { label: "Energy & Power", href: "/industries/energy" },
       { label: "Marine", href: "/industries/marine" },
       { label: "Industrial", href: "/industries/industrial" },
+      { label: "Vehicle", href: "/industries/vehicle" },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Resources", href: "/resources" },
+  { label: "Ask AI", href: "/ask" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -54,9 +57,10 @@ export const footerNav = {
   industries: [
     { label: "Construction", href: "/industries/construction" },
     { label: "Infrastructure", href: "/industries/infrastructure" },
-    { label: "Energy", href: "/industries/energy" },
+    { label: "Energy & Power", href: "/industries/energy" },
     { label: "Marine", href: "/industries/marine" },
     { label: "Industrial", href: "/industries/industrial" },
+    { label: "Vehicle", href: "/industries/vehicle" },
   ],
   company: [
     { label: "About Us", href: "/about" },
