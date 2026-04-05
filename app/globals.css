@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand colors */
+  --color-teal: #00a199;
+  --color-teal-text: #00857e;
+  --color-teal-bg: rgba(0,161,153,0.04);
+  --color-teal-bg2: rgba(0,161,153,0.08);
+  --color-teal-border: rgba(0,161,153,0.18);
+  --color-deep: #031697;
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg2: #f6f7fa;
+
+  /* Text */
+  --color-t1: #0d0f24;
+  --color-t2: #4b4f6a;
+  --color-t3: #6e7189;
+
+  /* Borders */
+  --color-border-default: rgba(13,15,36,0.06);
+  --color-border-hover: rgba(0,161,153,0.15);
+
+  /* Font family */
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+
+  /* Golden ratio typography scale */
+  --text-f11: 11px;
+  --text-f11--line-height: 1.4;
+  --text-f11--letter-spacing: 0.05em;
+
+  --text-f13: 13px;
+  --text-f13--line-height: 1.618;
+
+  --text-f15: 15px;
+  --text-f15--line-height: 1.618;
+
+  --text-f19: 19px;
+  --text-f19--line-height: 1.618;
+
+  --text-f24: 24px;
+  --text-f24--line-height: 1.25;
+
+  --text-f31: 31px;
+  --text-f31--line-height: 1.2;
+
+  /* Fibonacci spacing */
+  --spacing-fib-5: 5px;
+  --spacing-fib-8: 8px;
+  --spacing-fib-13: 13px;
+  --spacing-fib-21: 21px;
+  --spacing-fib-34: 34px;
+  --spacing-fib-55: 55px;
+  --spacing-fib-89: 89px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Brand gradient */
+  --grad: linear-gradient(135deg, #031697 0%, #00a199 40%, #5bb030 72%, #a0d44a 100%);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-t1);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Golden ratio line height utility */
+.leading-golden {
+  line-height: 1.618;
+}
+
+/* Brand gradient bar */
+.gradient-bar {
+  background: var(--grad);
+}
+
+/* Card hover gradient top bar */
+.card-topbar {
+  height: 2px;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.34s ease;
+}
+
+.group:hover .card-topbar {
+  transform: scaleX(1);
 }

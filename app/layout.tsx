@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
@@ -14,11 +15,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "F1 Composite — Pultruded FRP Profiles",
-    template: "%s | F1 Composite — Pultruded FRP Profiles",
+    default: "F1 Composite — Pultruded FRP Profiles Manufacturer",
+    template: "%s | F1 Composite",
   },
   description:
-    "Global pultruded FRP composite profile solutions provider. Engineered structural profiles, fenestration systems, and custom pultrusions for construction, infrastructure, energy, and marine industries.",
+    "Leading pultruded FRP profile manufacturer. I-beams, channels, angles, custom pultrusions & fenestration. ISO 9001 certified, 30+ countries.",
   metadataBase: new URL("https://f1composite.com"),
   openGraph: {
     type: "website",
@@ -84,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      )}
       <body className="min-h-screen font-sans antialiased">
         <JsonLd data={orgSchema} />
         <Navbar />
