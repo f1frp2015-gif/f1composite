@@ -7,9 +7,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About F1 Composite — Pultruded FRP Profiles Manufacturer in China",
   description:
-    "F1 Composite Co., Ltd — founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, serving global markets with pultruded FRP profiles.",
+    "F1 Composite: 5 manufacturing bases, 370 pultrusion lines, 150,000 tons annual capacity. ISO 9001 certified FRP profiles manufacturer headquartered in China, exporting to 30+ countries.",
 };
 
 const milestones = [
@@ -106,36 +106,70 @@ export default function AboutPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Our Story</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-f31 font-extrabold leading-[1.2] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
             From engineering roots to global reach
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite began in 2008 when a group of FRP engineers recognized a gap in
-                the market: manufacturers who truly understood the science behind pultrusion
-                were rare, and those willing to share that knowledge with clients were rarer
-                still.
+                F1 Composite is the international brand of Chongqing FengDu New Material
+                Co., Ltd — one of China&apos;s largest vertically integrated pultrusion
+                manufacturers. We operate five production bases with 370 pultrusion lines,
+                serving global markets with the same engineering team and production
+                facilities that supply China&apos;s domestic infrastructure.
               </p>
               <p>
-                We built our company around a different philosophy — that the best way to grow
-                is to make our customers more capable. Our KNOWHOW services, launched in 2015,
-                formalized this belief into a structured offering that helps clients design,
-                specify, and deploy pultruded profiles with confidence.
+                F1 Composite was created to give overseas clients what they need beyond
+                the factory floor: English-language engineering support, international
+                quality documentation, application consulting, and responsive project
+                management. When you work with F1, you work directly with the manufacturer.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Today, F1 Composite is headquartered in China with a catalogue of over 200
-                pultruded profile types. We serve architects, engineers, distributors, and OEMs
-                across five continents — from standard structural shapes to fully custom
-                fenestration systems.
+                Today, F1 Composite serves architects, engineers, distributors, and OEMs
+                across 30+ countries — from standard structural profiles to PHI-certified
+                fenestration systems. Our Fengdu Passive GFRP 90 Series window frame holds
+                Passive House Institute certification (Component-ID 2491wi03), demonstrating
+                the engineering depth behind every product we deliver.
               </p>
               <p>
-                What has not changed is our founding conviction: deep polymer expertise,
-                shared openly, creates the strongest partnerships.
+                What sets us apart is not manufacturing scale alone — it is the combination
+                of deep polymer expertise, proactive technical support, and a genuine
+                commitment to making our clients more capable in specifying and deploying
+                pultruded FRP.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Production Capacity */}
+      <section className="bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Production Scale</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
+            Manufacturing at scale, engineered to precision
+          </h2>
+          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+            Our own production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
+          </p>
+          <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { value: "5", label: "Manufacturing Bases", detail: "Nationwide production network" },
+              { value: "370", label: "Pultrusion Lines", detail: "Continuous production capacity" },
+              { value: "150,000", label: "Tons / Year", detail: "Annual profile output" },
+              { value: "1,000+", label: "Die Sets", detail: "Custom tooling library" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[8px] border border-border-default bg-white p-[34px] text-center"
+              >
+                <span className="text-[clamp(32px,4vw,48px)] font-extrabold text-teal">{stat.value}</span>
+                <p className="mt-[5px] text-f15 font-bold text-t1">{stat.label}</p>
+                <p className="mt-[4px] text-f13 text-t3">{stat.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -193,6 +227,17 @@ export default function AboutPage() {
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <LinkArrow href="/technology">Explore Our Technology</LinkArrow>
                 <LinkArrow href="/contact">Get in Touch</LinkArrow>
+                <a
+                  href="https://www.youtube.com/@F1Composites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-[5px] text-f15 font-semibold text-teal-text transition-colors hover:text-teal"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  Watch on YouTube →
+                </a>
               </div>
             </div>
           </div>

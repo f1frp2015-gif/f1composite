@@ -29,7 +29,7 @@ const guides = [
   {
     title: "Fire Performance of FRP Composites",
     description:
-      "Overview of fire reaction and fire resistance properties of pultruded FRP profiles, including phenolic resin options and intumescent coating systems.",
+      "Overview of fire reaction and fire resistance properties of pultruded FRP profiles, including fire-retardant resin options and intumescent coating systems.",
     status: "Coming Soon",
   },
   {

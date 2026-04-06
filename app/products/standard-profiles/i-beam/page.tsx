@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import LinkArrow from "@/components/ui/LinkArrow";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP I-Beam Profiles — Wide Flange";
+const pageTitle = "FRP I-Beam Profiles — Pultruded Fiberglass Wide Flange Beams";
 const pageDescription =
-  "Pultruded FRP I-beam profiles from 76×38 mm to 305×305 mm. Up to 75% lighter than steel, corrosion-free. Full size chart and specifications.";
+  "Pultruded FRP I-beam structural profiles from 76×38 mm to 305×305 mm. Fiberglass wide flange beams 75% lighter than steel, corrosion-free. Full size chart, specifications, and load tables.";
 const pagePath = "/products/standard-profiles/i-beam";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -41,7 +41,7 @@ const faqItems = [
   {
     question: "What resin systems are available for I-beams?",
     answer:
-      "We offer I-beams in isophthalic polyester for general structural use, vinyl ester for aggressive chemical or marine environments, phenolic for fire performance (low smoke, low toxicity), and epoxy on request for maximum mechanical performance.",
+      "We offer I-beams in isophthalic polyester for general structural use, vinyl ester for aggressive chemical or marine environments, polyurethane for high toughness and fast cure, and epoxy on request for maximum mechanical performance.",
   },
   {
     question: "Can FRP I-beams be used as primary structural members?",
@@ -90,7 +90,7 @@ export default function IBeamPage() {
                 Structural I-beams engineered for performance
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Our pultruded FRP I-beams replicate standard steel wide-flange geometry while delivering up to 75% weight reduction. Unidirectional E-glass roving in the flanges provides maximum flexural stiffness, combined with continuous strand mat in the web for shear resistance. Available in polyester, vinyl ester, phenolic, and epoxy resin systems.
+                Our pultruded FRP I-beams replicate standard steel wide-flange geometry while delivering up to 75% weight reduction. Unidirectional E-glass roving in the flanges provides maximum flexural stiffness, combined with continuous strand mat in the web for shear resistance. Available in polyester, vinyl ester, polyurethane, and epoxy resin systems.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">75% lighter than steel</span>

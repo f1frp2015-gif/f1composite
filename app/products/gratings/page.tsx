@@ -8,9 +8,9 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Gratings";
+const pageTitle = "FRP Grating — Molded & Pultruded Fiberglass Grating Panels";
 const pageDescription =
-  "Molded and pultruded FRP gratings with anti-slip surfaces. Corrosion-proof, lightweight, high load capacity. Ideal for marine, chemical, industrial, and infrastructure platforms.";
+  "Molded and pultruded fiberglass grating with anti-slip surfaces. FRP grating panels for marine, chemical, industrial platforms. Corrosion-proof, lightweight, load capacity to 500 kN/m². Get specifications and pricing.";
 const pagePath = "/products/gratings";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -107,7 +107,7 @@ const faqItems = [
   {
     question: "What fire performance ratings do your gratings achieve?",
     answer:
-      "Our standard isophthalic polyester gratings achieve ASTM E84 Class 1 fire rating with a flame spread index of 25 or less. For applications requiring enhanced fire performance such as offshore platforms, tunnels, and transit infrastructure, we offer gratings in phenolic resin that achieve flame spread indices below 10 and generate significantly lower smoke density and toxic gas emission. We can provide gratings tested to IMO Resolution MSC.307(88) for marine applications and EN 13501-1 Euroclass ratings for European building projects.",
+      "Our standard isophthalic polyester gratings achieve ASTM E84 Class 1 fire rating with a flame spread index of 25 or less. For applications requiring enhanced fire performance such as offshore platforms, tunnels, and transit infrastructure, we offer gratings in fire-retardant resin formulations that achieve flame spread indices below 10 and generate significantly lower smoke density and toxic gas emission. We can provide gratings tested to IMO Resolution MSC.307(88) for marine applications and EN 13501-1 Euroclass ratings for European building projects.",
   },
 ];
 
@@ -144,8 +144,8 @@ export default function GratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
             <Image
-              src="/images/products/plank-grating.png"
-              alt="FRP plank grating panel showing anti-slip surface and cross-section"
+              src="/images/products/frp-grating-industrial.jpg"
+              alt="Industrial facility with grating platforms, walkways, and stairways — typical FRP grating applications"
               fill
               sizes="100vw"
               className="object-cover"

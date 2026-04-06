@@ -108,7 +108,7 @@ export default function IndustrialPage() {
           {
             question: "Which resin systems are common for industrial FRP?",
             answer:
-              "Industrial FRP commonly uses isophthalic polyester for general duty, vinyl ester for aggressive chemical service, and phenolic systems where fire and smoke performance is important.",
+              "Industrial FRP commonly uses isophthalic polyester for general duty, vinyl ester for aggressive chemical service, and polyurethane systems for high toughness and fast-cure applications.",
           },
           {
             question: "What is the main lifecycle benefit of FRP in corrosive plants?",
@@ -122,7 +122,7 @@ export default function IndustrialPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Chemical Exposure Destroys Steel Infrastructure From the Inside Out
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -156,7 +156,7 @@ export default function IndustrialPage() {
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Chemical, Water, Food, and Pharmaceutical Processing
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -244,7 +244,7 @@ export default function IndustrialPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Industrial Projects
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">

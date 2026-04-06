@@ -13,9 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "FRP vs Steel, Aluminium & Concrete Comparison";
+const pageTitle = "FRP vs Steel vs Aluminium — Structural Material Comparison";
 const pageDescription =
-  "Compare FRP vs steel, aluminium, timber & concrete: density, tensile strength, corrosion resistance, thermal conductivity, maintenance cost.";
+  "FRP vs steel cost and performance comparison: weight, tensile strength, corrosion resistance, thermal conductivity, lifecycle cost. Why fiberglass profiles outperform traditional materials.";
 const pagePath = "/technology/frp-vs-traditional-materials";
 const publishedAt = "2024-03-22";
 const updatedAt = "2026-04-02";

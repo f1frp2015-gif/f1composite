@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Technology",
+  title: "Pultrusion Technology & FRP Engineering Know-How",
   description:
-    "Pultrusion technology, FRP material advantages, quality testing standards, and engineering know-how for fiber-reinforced polymer profiles.",
+    "Pultrusion manufacturing process, FRP vs steel comparison, quality testing to EN 13706 & ASTM standards, and composite material engineering expertise. Technical resources for engineers.",
   path: "/technology",
   image: "/technology/opengraph-image",
 });

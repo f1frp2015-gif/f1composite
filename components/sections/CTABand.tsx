@@ -17,7 +17,7 @@ export default function CTABand() {
           Send your drawing, profile requirement, or application brief and start a
           qualified RFQ with F1 Composite
         </h2>
-        <p className="mx-auto mt-[13px] max-w-[560px] text-f15 leading-golden text-white/80">
+        <p className="mx-auto mt-[13px] max-w-[800px] text-f15 leading-golden text-white/80">
           Share dimensions, quantities, resin requirements, application environment,
           and target delivery timing for a faster technical review.
         </p>

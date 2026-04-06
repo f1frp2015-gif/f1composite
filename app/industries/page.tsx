@@ -7,9 +7,9 @@ import { industries } from "@/content/data/industries";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Industries",
+  title: "Industries Served — FRP Profiles for Construction, Marine & Energy",
   description:
-    "FRP composite profiles for construction, infrastructure, energy, marine and industrial sectors. Corrosion-free, lightweight solutions.",
+    "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors. Corrosion-resistant fiberglass solutions replacing steel and aluminium worldwide.",
   path: "/industries",
   image: "/industries/opengraph-image",
 });
@@ -38,6 +38,11 @@ const icons: Record<string, React.ReactNode> = {
   factory: (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V8l4 3V3h4v8l4-3v13m2-10v10m3-7v7" />
+    </svg>
+  ),
+  vehicle: (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 17h.01M16 17h.01M3 11l1.5-5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.4L21 11M3 11h18M3 11v6a1 1 0 001 1h1a2 2 0 104 0h6a2 2 0 104 0h1a1 1 0 001-1v-6" />
     </svg>
   ),
 };

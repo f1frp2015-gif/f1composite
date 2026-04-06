@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
-export const runtime = "edge";
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
+
+const NOTIFY_EMAILS = [
+  "Doris.li@f1composite.com",
+  "f1frp2015@gmail.com",
+];
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
@@ -37,17 +45,38 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Log submission (placeholder for future email/CRM integration)
-  console.log("--- Contact Form Submission ---");
-  console.log("Name:", name);
-  console.log("Company:", company || "(not provided)");
-  console.log("Email:", email);
-  console.log("Phone:", phone || "(not provided)");
-  console.log("Country:", country);
-  console.log("Inquiry Type:", inquiryType);
-  console.log("Message:", message);
-  console.log("Timestamp:", new Date().toISOString());
-  console.log("-------------------------------");
+  const timestamp = new Date().toISOString();
+
+  // Send notification email via Resend
+  const { error } = await getResend().emails.send({
+    from: "F1 Composite Inquiry <inquiry@f1composite.com>",
+    to: NOTIFY_EMAILS,
+    replyTo: email!,
+    subject: `[Inquiry] ${inquiryType} from ${name} — ${country}`,
+    html: `
+      <div style="font-family: -apple-system, sans-serif; max-width: 600px; color: #1a1a1a;">
+        <h2 style="color: #00A199; margin-bottom: 24px;">New Inquiry from f1composite.com</h2>
+        <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+          <tr><td style="padding: 8px 12px; font-weight: 600; width: 120px; vertical-align: top;">Name</td><td style="padding: 8px 12px;">${name}</td></tr>
+          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Company</td><td style="padding: 8px 12px;">${company || "—"}</td></tr>
+          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Email</td><td style="padding: 8px 12px;"><a href="mailto:${email}" style="color: #00A199;">${email}</a></td></tr>
+          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Phone</td><td style="padding: 8px 12px;">${phone || "—"}</td></tr>
+          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${country}</td></tr>
+          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${inquiryType}</td></tr>
+          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${message}</td></tr>
+        </table>
+        <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${timestamp} via f1composite.com contact form</p>
+      </div>
+    `,
+  });
+
+  if (error) {
+    console.error("Resend error:", error);
+    return NextResponse.json(
+      { message: "Your inquiry was received but email notification failed. Our team will still follow up." },
+      { status: 200 },
+    );
+  }
 
   return NextResponse.json({
     message:

@@ -10,6 +10,6 @@ export default function OpenGraphImage() {
     description:
       "60, 70, 80, and 90-series frame systems designed for passive-house, commercial, and extreme-climate envelope performance.",
     accent: "#13756f",
-    chips: ["0.8 W/m2K", "Passive-house ready", "Corrosion free"],
+    chips: ["0.78 W/m2K", "Passive-house ready", "Corrosion free"],
   });
 }

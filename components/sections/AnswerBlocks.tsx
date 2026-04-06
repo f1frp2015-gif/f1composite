@@ -37,11 +37,11 @@ export default function AnswerBlocks({
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <JsonLd data={schema} />
         <SectionTag>{tag}</SectionTag>
-        <h2 className="mt-[13px] max-w-[640px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+        <h2 className="mt-[13px] max-w-[900px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           {title}
         </h2>
         {description ? (
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
             {description}
           </p>
         ) : null}

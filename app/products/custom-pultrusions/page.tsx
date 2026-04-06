@@ -8,9 +8,9 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "Custom Pultrusions";
+const pageTitle = "Custom Pultrusion Services — Bespoke Fiberglass Profiles";
 const pageDescription =
-  "Bespoke pultruded FRP profiles engineered to your specifications. Max cross-section 600x300mm, min wall 1.5mm. E-glass, carbon, aramid fibers in polyester, vinyl ester, epoxy, or phenolic resins.";
+  "Custom pultruded FRP profiles engineered to your specifications. Cross-sections up to 600×300mm, E-glass, carbon, aramid fibers. In-house die design, 4-8 week tooling, 500m MOQ. Get a quote.";
 const pagePath = "/products/custom-pultrusions";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -36,7 +36,7 @@ const processSteps = [
   {
     number: "03",
     title: "Tooling Manufacture",
-    duration: "3–6 weeks",
+    duration: "4–8 weeks",
     brief: "CNC-machined steel dies, guide plates, and preformers — all designed and built in-house.",
   },
   {
@@ -108,7 +108,7 @@ const faqItems = [
   {
     question: "What lead time should we expect from inquiry to first delivery?",
     answer:
-      "For a new custom profile with no existing tooling, the typical lead time from approved design to first delivery is 6 to 10 weeks. This includes tooling manufacture (3-6 weeks), trial run and validation (1-2 weeks), and production of the first order (1-2 weeks). We can compress this timeline for urgent projects by running parallel workstreams, though expedited fees may apply. Repeat orders with existing tooling typically ship within 2 to 4 weeks.",
+      "For a new custom profile with no existing tooling, the typical lead time from approved design to first delivery is 6 to 10 weeks. This includes tooling manufacture (4-8 weeks), trial run and validation (1-2 weeks), and production of the first order (1-2 weeks). We can compress this timeline for urgent projects by running parallel workstreams, though expedited fees may apply. Repeat orders with existing tooling typically ship within 2 to 4 weeks.",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function CustomPultrusionsPage() {
       <PageHeader
         tag="Custom Pultrusions"
         title="Bespoke FRP Profiles Engineered to Your Specification"
-        description="When standard profiles do not meet your requirements, our custom pultrusion capability delivers precisely engineered fiber-reinforced polymer (FRP) cross-sections with dedicated tooling and validated mechanical performance."
+        description="Over 800 custom FRP geometries delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products" },
@@ -150,47 +150,21 @@ export default function CustomPultrusionsPage() {
         ]}
       />
 
-      {/* Hero: Text + Engineering Drawing */}
-      <section className="bg-white py-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="grid gap-[34px] lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div>
-              <p className="text-f19 leading-golden text-t2">
-                Pultrusion is uniquely suited to producing complex constant-cross-section profiles in virtually unlimited lengths. We have engineered over 800 custom geometries across construction, infrastructure, energy, and marine industries.
-              </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
-                Cross-sections up to 600 x 300 mm, wall thicknesses as fine as 1.5 mm, combining E-glass, carbon, basalt, and aramid fibers in polyester, vinyl ester, epoxy, and phenolic resins.
-              </p>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
-              <Image
-                src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
-                alt="Custom pultruded FRP profile with engineering drawing and dimensional tolerances"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain"
-                priority
-              />
-            </div>
-          </div>
+      {/* Engineering Drawing */}
+      <section className="bg-white py-[13px]">
+        <div className="mx-auto max-w-[800px] px-[34px]">
+          <Image
+            src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
+            alt="Custom pultruded FRP profile with engineering drawing and dimensional tolerances"
+            width={800}
+            height={555}
+            sizes="(max-width: 800px) 100vw, 800px"
+            className="h-auto w-full"
+            priority
+          />
         </div>
       </section>
 
-      {/* Process Schematic */}
-      <section className="bg-white pt-[21px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
-            <Image
-              src="/images/products/custom-pultrusion-design-to-production-process.png"
-              alt="Custom pultrusion engineering schematic — design to production process flow"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
 
 
       {/* 5-Step Process */}

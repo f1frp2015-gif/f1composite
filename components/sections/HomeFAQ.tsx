@@ -23,7 +23,7 @@ const items = [
   {
     question: "Which resin systems are available?",
     answer:
-      "Typical options include isophthalic polyester for general structural use, vinyl ester for chemically aggressive or marine environments, and phenolic systems where fire performance is a key requirement.",
+      "Typical options include isophthalic polyester for general structural use, vinyl ester for chemically aggressive or marine environments, and polyurethane systems for high toughness and fast-cure applications.",
   },
   {
     question: "What should buyers prepare before requesting a quote?",
@@ -65,7 +65,7 @@ export default function HomeFAQ() {
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <JsonLd data={schema} />
         <SectionTag>FAQ</SectionTag>
-        <h2 className="mt-[8px] max-w-[540px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+        <h2 className="mt-[8px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           Common questions from engineers and buyers
         </h2>
 

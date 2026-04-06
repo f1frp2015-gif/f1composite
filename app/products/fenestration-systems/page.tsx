@@ -8,9 +8,9 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "Fenestration Systems";
+const pageTitle = "FRP Window Frames — Pultruded Fiberglass Fenestration Systems";
 const pageDescription =
-  "Pultruded FRP window and door frame systems: 60/70/80/90-series. K-values as low as 0.8 W/m\u00B2K, zero thermal bridging, corrosion-free. Superior alternative to aluminum and PVC fenestration.";
+  "Pultruded fiberglass window and door frame systems: 60/70/80/90-series. U-values as low as 0.78 W/m\u00B2K, zero thermal bridging. Superior alternative to aluminum and PVC window frames. Passive House certified.";
 const pagePath = "/products/fenestration-systems";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -55,11 +55,11 @@ const systemSeries = [
     name: "90-Series",
     frameDepth: "90 mm",
     chambers: 3,
-    kValue: "0.8 - 0.95 W/m\u00B2K",
+    kValue: "0.78 - 0.95 W/m\u00B2K",
     glassRange: "44 - 60 mm",
     applications: "Ultra-low-energy buildings, arctic and extreme climate zones, institutional projects",
     description:
-      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and three-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.8 W/m\u00B2K with appropriate glazing selection. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
+      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and three-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.78 W/m\u00B2K with appropriate glazing selection. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function FenestrationSystemsPage() {
           material: ["Glass fiber", "FRP composite", "Vinyl ester resin"],
           additionalProperty: [
             { name: "Series", value: "60/70/80/90-series" },
-            { name: "Frame K-value", value: "As low as 0.8 W/m²K" },
+            { name: "Frame K-value", value: "As low as 0.78 W/m²K" },
           ],
         })}
       />
@@ -189,7 +189,7 @@ export default function FenestrationSystemsPage() {
               and manufacture pultruded GRP (glass-reinforced polymer) frame profiles that
               exploit the unique combination of structural strength, thermal insulation, and
               environmental durability that only fiber-composite materials can deliver. Our
-              fenestration systems achieve whole-window K-values as low as 0.8 W/m{"\u00B2"}K,
+              fenestration systems achieve whole-window K-values as low as 0.78 W/m{"\u00B2"}K,
               without the thermal break inserts, steel reinforcement, or multi-material
               laminations that aluminum and PVC systems require to approach similar performance.
             </p>

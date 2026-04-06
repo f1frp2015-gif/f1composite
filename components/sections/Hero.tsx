@@ -2,10 +2,10 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const stats = [
+  { value: "5", label: "Manufacturing Bases" },
+  { value: "370", label: "Pultrusion Lines" },
+  { value: "150K", label: "Tons / Year" },
   { value: "30+", label: "Countries" },
-  { value: "200+", label: "Profiles" },
-  { value: "15+", label: "Years" },
-  { value: "1 Day", label: "RFQ Response" },
 ];
 
 export default function Hero() {
@@ -35,7 +35,7 @@ export default function Hero() {
             <span className="text-teal">Empowering Global Projects</span>
           </h1>
 
-          <p className="mt-[21px] max-w-[540px] text-f19 leading-golden text-white/75">
+          <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
             Integrated fiber reinforcement, resin engineering, and precision tooling — delivering FRP profiles that replace steel and aluminium worldwide.
           </p>
 

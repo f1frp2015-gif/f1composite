@@ -13,23 +13,28 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "F1 Composite — Pultruded FRP Profiles Manufacturer",
+    title: "Pultruded FRP Profiles Manufacturer — Fiberglass Structural Shapes | F1 Composite",
     description:
-      "Pultruded FRP profiles manufacturer. I-beams, channels, angles, custom pultrusions & fenestration. ISO 9001, 30+ countries. Get a quote.",
+      "Leading pultruded FRP profiles manufacturer. Fiberglass I-beams, channels, angles, custom pultrusions, fenestration systems & gratings. ISO 9001 certified, 370 pultrusion lines, shipping to 30+ countries.",
     path: "/",
     image: "/opengraph-image",
   }),
   keywords: [
     "pultruded FRP profiles",
-    "FRP manufacturer",
-    "fiberglass structural profiles",
-    "pultruded fiberglass shapes",
-    "FRP I-beam",
+    "FRP profiles manufacturer",
+    "fiberglass structural shapes",
+    "pultruded fiberglass profiles",
+    "FRP I beam",
     "FRP channel",
+    "FRP angle",
     "composite profiles manufacturer",
-    "FRP fenestration",
-    "FRP gratings",
-    "custom pultrusion",
+    "custom pultrusion services",
+    "fiberglass window frames",
+    "FRP grating",
+    "FRP vs steel",
+    "corrosion resistant structural profiles",
+    "fiberglass profiles supplier",
+    "pultruded profiles EN 13706",
   ],
 };
 

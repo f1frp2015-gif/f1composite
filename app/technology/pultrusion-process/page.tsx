@@ -13,9 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "Pultrusion Process — How FRP Profiles Are Made";
+const pageTitle = "What Is Pultrusion? — How Pultruded FRP Profiles Are Made";
 const pageDescription =
-  "Guide to the pultrusion process: fiber creel, resin impregnation, heated die forming, pull mechanism. Injection vs open-bath methods compared.";
+  "Complete guide to the pultrusion manufacturing process: fiber creel, resin impregnation, heated die forming, and pull mechanism. How fiberglass structural profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-04-02";
@@ -186,7 +186,7 @@ const faqItems = [
   },
   {
     question: "What types of fibers and resins are used?",
-    answer: "Fibers: E-glass (most common), ECR-glass (chemical resistance), carbon (stiffness), aramid (impact). Resins: isophthalic polyester (general structural), vinyl ester (chemical/corrosion resistance), epoxy (highest properties, carbon fiber), phenolic (fire/smoke/toxicity performance for rail and tunnel applications).",
+    answer: "Fibers: E-glass (most common), ECR-glass (chemical resistance), carbon (stiffness), aramid (impact). Resins: isophthalic polyester (general structural), vinyl ester (chemical/corrosion resistance), epoxy (highest properties, carbon fiber), polyurethane (high toughness, fast cure).",
   },
   {
     question: "What are the advantages of pultrusion over hand lay-up or filament winding?",

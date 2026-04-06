@@ -7,9 +7,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Case Studies",
+  title: "FRP Case Studies — Pultruded Profile Projects Worldwide",
   description:
-    "Real-world FRP composite profile projects by F1 Composite. Bridge decks, building facades, industrial platforms, and marine structures — with quantified outcomes.",
+    "Real-world pultruded FRP projects: bridge deck replacement, marine walkways, chemical plant platforms, fiberglass window installations, and solar farm mounting structures — with quantified outcomes.",
   path: "/case-studies",
   image: "/case-studies/opengraph-image",
 });

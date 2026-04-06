@@ -29,7 +29,7 @@ const advantages = [
     metric: "0",
     unit: "conductivity",
     title: "Dielectric & Thermal Break",
-    description: "Electrically insulating. Thermal conductivity 1/200th of steel.",
+    description: "Electrically insulating. Thermal conductivity 1/170th of steel.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-[32px] w-[32px]">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round" />
@@ -53,7 +53,7 @@ const advantages = [
     metric: "4",
     unit: "resin systems",
     title: "Engineered for Environment",
-    description: "Polyester, vinyl ester, epoxy, phenolic — matched to your chemical and thermal exposure.",
+    description: "Polyester, vinyl ester, epoxy, polyurethane — matched to your chemical and thermal exposure.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-[32px] w-[32px]">
         <path d="M9 3h6v8l4 8H5l4-8V3z" strokeLinecap="round" strokeLinejoin="round" />
@@ -81,7 +81,7 @@ export default function ValueProposition() {
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="text-center">
           <SectionTag>Why FRP</SectionTag>
-          <h2 className="mx-auto mt-[8px] max-w-[520px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+          <h2 className="mx-auto mt-[8px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
             Material advantages over steel and aluminium
           </h2>
         </div>

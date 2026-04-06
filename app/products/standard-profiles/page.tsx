@@ -7,9 +7,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Standard FRP Profiles",
+  title: "Standard Pultruded FRP Structural Profiles — Fiberglass Shapes",
   description:
-    "Stock pultruded FRP structural profiles: I-beams, channels, angles, square tubes, tubes, flat bars, and round rods. ISO certified, 75% lighter than steel.",
+    "Stock pultruded fiberglass structural shapes: FRP I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. ISO 9001 certified, 75% lighter than steel, ready to ship.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });

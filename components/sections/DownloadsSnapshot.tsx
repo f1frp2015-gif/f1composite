@@ -29,7 +29,7 @@ export default function DownloadsSnapshot() {
         <div className="flex flex-col gap-[21px] md:flex-row md:items-end md:justify-between">
           <div>
             <SectionTag>Downloads &amp; Resources</SectionTag>
-            <h2 className="mt-[13px] max-w-[520px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+            <h2 className="mt-[13px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
               Technical resources for engineers and procurement teams
             </h2>
           </div>

@@ -4,6 +4,9 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
+import dynamic from "next/dynamic";
+
+const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"));
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -15,11 +18,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "F1 Composite — Pultruded FRP Profiles Manufacturer",
+    default: "F1 Composite — Pultruded FRP Profiles & Fiberglass Structural Shapes Manufacturer",
     template: "%s | F1 Composite",
   },
   description:
-    "Leading pultruded FRP profile manufacturer. I-beams, channels, angles, custom pultrusions & fenestration. ISO 9001 certified, 30+ countries.",
+    "Leading pultruded FRP profiles and fiberglass structural shapes manufacturer. I-beams, channels, angles, custom pultrusions, fenestration window frames & gratings. ISO 9001, EN 13706, 30+ countries.",
   metadataBase: new URL("https://f1composite.com"),
   openGraph: {
     type: "website",
@@ -76,6 +79,9 @@ const orgSchema = {
     "FRP Fenestration Systems",
     "FRP Gratings",
   ],
+  sameAs: [
+    "https://www.youtube.com/@F1Composites",
+  ],
 };
 
 export default function RootLayout({
@@ -93,6 +99,7 @@ export default function RootLayout({
         <Navbar />
         <main className="pt-[55px]">{children}</main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   );

@@ -59,7 +59,7 @@ export default function GlobalTrust() {
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="text-center">
           <SectionTag>Trusted Worldwide</SectionTag>
-          <h2 className="mx-auto mt-[8px] max-w-[480px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+          <h2 className="mx-auto mt-[8px] max-w-[700px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
             Export-ready supply chain for global projects
           </h2>
         </div>

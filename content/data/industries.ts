@@ -23,8 +23,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "energy",
-    title: "Energy",
-    description: "Electrically insulating and UV-resistant profiles for power and renewable energy installations.",
+    title: "Energy & Power",
+    description: "Dielectric, UV-resistant FRP profiles for substations, transmission, renewables, and power infrastructure.",
     icon: "bolt",
     href: "/industries/energy",
   },
@@ -41,5 +41,12 @@ export const industries: Industry[] = [
     description: "Chemical-resistant structural systems for processing plants and manufacturing facilities.",
     icon: "factory",
     href: "/industries/industrial",
+  },
+  {
+    slug: "vehicle",
+    title: "Vehicle",
+    description: "Lightweight, high-strength FRP profiles for commercial vehicles, rail, and specialty transport applications.",
+    icon: "vehicle",
+    href: "/industries/vehicle",
   },
 ];

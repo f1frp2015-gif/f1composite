@@ -11,9 +11,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Energy",
+  title: "FRP for Energy & Power",
   description:
-    "FRP profiles for energy: insulating cable ladders, UV-resistant solar frames, non-magnetic transformer spacers, wind turbine components.",
+    "FRP profiles for substations, transmission cross-arms, cable trays, solar mounting, wind turbines, and transformer spacers. Non-conductive, non-magnetic, maintenance-free.",
   path: "/industries/energy",
   image: "/industries/energy/opengraph-image",
 });
@@ -37,7 +37,17 @@ const faqs = [
   {
     question: "How do FRP profiles perform in high-temperature environments near transformers?",
     answer:
-      "Standard pultruded FRP profiles with polyester resin retain full mechanical properties at continuous operating temperatures up to 120 degrees Celsius. For applications near transformers, switchgear, or other heat-generating equipment, we offer profiles with vinyl ester or phenolic resin systems rated for continuous operation at 150 to 180 degrees Celsius. Our transformer spacer and standoff profiles are specifically formulated to maintain dimensional stability and dielectric performance under combined thermal and electrical stress over a 30+ year service life.",
+      "Standard pultruded FRP profiles with polyester resin retain full mechanical properties at continuous operating temperatures up to 120 degrees Celsius. For applications near transformers, switchgear, or other heat-generating equipment, we offer profiles with high-temperature vinyl ester resin systems rated for continuous operation at 150 to 180 degrees Celsius. Our transformer spacer and standoff profiles are specifically formulated to maintain dimensional stability and dielectric performance under combined thermal and electrical stress over a 30+ year service life.",
+  },
+  {
+    question: "How do FRP cross-arms compare to wood and steel in transmission lines?",
+    answer:
+      "FRP cross-arms weigh 60-70% less than wood equivalents, do not rot or attract woodpeckers, and maintain consistent dielectric properties over 50+ years. Unlike wood, FRP does not absorb moisture, so its insulation value remains stable in rain, fog, and high-humidity conditions. Compared to steel cross-arms, FRP eliminates the need for separate post insulators and grounding systems. Lifecycle cost analysis typically shows 30-40% savings over wood and 50%+ savings over steel when maintenance, replacement, and outage costs are included.",
+  },
+  {
+    question: "Can FRP replace steel in substation structural frameworks?",
+    answer:
+      "FRP is increasingly used for substation bus support structures, equipment stands, lightning mast poles, and cable trench covers. The non-conductive property eliminates touch potential and step potential hazards during fault events — a significant safety advantage over grounded steel structures. FRP substation structures also eliminate induced currents and magnetic interference that affect protection relays and metering equipment. For seismic zones, the 75% weight reduction versus steel significantly reduces foundation requirements and improves earthquake resilience.",
   },
 ];
 
@@ -64,9 +74,9 @@ export default function EnergyPage() {
     <>
       <JsonLd data={webPageSchema} />
       <PageHeader
-        tag="Industries / Energy"
-        title="FRP Composite Profiles for the Energy Sector"
-        description="Fiber-reinforced polymer (FRP) profiles combine electrical insulation, UV resistance, and non-magnetic properties to solve critical material challenges across power generation, transmission, and renewable energy installations."
+        tag="Industries / Energy & Power"
+        title="FRP Composite Profiles for Energy & Electric Power"
+        description="Fiber-reinforced polymer (FRP) profiles combine electrical insulation, UV resistance, and non-magnetic properties for substations, transmission lines, power generation, and renewable energy installations."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
@@ -122,7 +132,7 @@ export default function EnergyPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Material Limitations in Modern Energy Infrastructure
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -156,7 +166,7 @@ export default function EnergyPage() {
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Power, Renewables, and Energy Infrastructure
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -180,7 +190,7 @@ export default function EnergyPage() {
                 FRP profiles serve as structural spacers, coil supports, and insulating standoffs within power transformers and switchgear enclosures. These components must simultaneously provide mechanical support, electrical insulation, and thermal stability under the combined stress of electromagnetic forces, heat generation, and dielectric loading.
               </p>
               <p>
-                Our transformer-grade FRP profiles are pultruded from E-glass reinforcement in high-temperature vinyl ester or phenolic resin systems, providing continuous operating temperature ratings of 150 to 180 degrees Celsius. Dielectric strength exceeds 16 kV/mm perpendicular to the fiber direction, with arc resistance of over 180 seconds per ASTM D495. These properties are maintained throughout a design life of 30+ years under continuous thermal and electrical stress.
+                Our transformer-grade FRP profiles are pultruded from E-glass reinforcement in high-temperature vinyl ester resin systems, providing continuous operating temperature ratings of 150 to 180 degrees Celsius. Dielectric strength exceeds 16 kV/mm perpendicular to the fiber direction, with arc resistance of over 180 seconds per ASTM D495. These properties are maintained throughout a design life of 30+ years under continuous thermal and electrical stress.
               </p>
               <p>
                 The non-magnetic nature of FRP eliminates eddy current heating that steel spacers would generate in the intense magnetic fields within transformer cores. This reduces parasitic losses and prevents localized hot spots that degrade insulating oil and adjacent paper insulation. Transformer manufacturers who have switched from steel to FRP spacers report measurable improvements in transformer efficiency and reduced dissolved gas levels in oil analysis.
@@ -209,6 +219,14 @@ export default function EnergyPage() {
                 For floating solar installations on reservoirs and retention ponds, FRP&apos;s corrosion immunity and lightweight density make it the preferred framing material. A floating solar array framed in FRP weighs approximately 30% less than an equivalent aluminum-framed system, reducing pontoon buoyancy requirements and enabling higher panel density per float unit.
               </p>
 
+              <h3 className="mt-[34px] text-f19 font-bold text-t1">Substation Structures and Transmission Cross-Arms</h3>
+              <p>
+                Pultruded FRP I-beams, channels, and angles serve as bus support structures, equipment stands, and cable trench covers in substations from 33 kV to 500 kV. The inherent non-conductivity eliminates touch and step potential hazards during fault events. For a typical 220 kV substation, this removes $200,000-$500,000 in grounding infrastructure.
+              </p>
+              <p>
+                FRP transmission line cross-arms replace wood and steel from 11 kV to 220 kV. Unlike wood, FRP does not absorb moisture — maintaining full insulation value in rain, fog, and ice conditions. FRP cross-arms weigh 60-70% less than wood, last 50+ years with zero maintenance, and eliminate the 15-25 year replacement cycle and associated planned outages.
+              </p>
+
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
@@ -229,7 +247,7 @@ export default function EnergyPage() {
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Continuous operating temperature to 180 degrees Celsius</strong> with phenolic resin systems for transformer applications</span>
+                  <span><strong className="text-t1">Continuous operating temperature to 180 degrees Celsius</strong> with high-temperature vinyl ester resin systems for transformer applications</span>
                 </li>
               </ul>
             </div>
@@ -241,7 +259,7 @@ export default function EnergyPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Energy Applications
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">

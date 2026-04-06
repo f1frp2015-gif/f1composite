@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "What fire ratings are available for FRP in ship interior applications?",
     answer:
-      "Our marine-interior FRP profiles and panels are formulated to meet IMO Resolution MSC.307(88) — the FTP Code for fire testing of marine materials. Specific products achieve surface spread of flame ratings per IMO Part 5 (limited flame spread), smoke and toxicity ratings per IMO Part 2, and non-combustibility where required per IMO Part 1 using phenolic resin systems. These certifications enable FRP to be used in passenger vessel cabins, corridors, stairways, and public spaces per SOLAS Chapter II-2 fire safety requirements. Classification society type approvals from Lloyd's Register, DNV, and Bureau Veritas are available.",
+      "Our marine-interior FRP profiles and panels are formulated to meet IMO Resolution MSC.307(88) — the FTP Code for fire testing of marine materials. Specific products achieve surface spread of flame ratings per IMO Part 5 (limited flame spread), smoke and toxicity ratings per IMO Part 2, and non-combustibility where required per IMO Part 1 using fire-retardant resin systems. These certifications enable FRP to be used in passenger vessel cabins, corridors, stairways, and public spaces per SOLAS Chapter II-2 fire safety requirements. Classification society type approvals from Lloyd's Register, DNV, and Bureau Veritas are available.",
   },
   {
     question: "What is the weight savings of FRP versus steel in offshore platform structures?",
@@ -122,7 +122,7 @@ export default function MarinePage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Saltwater Is the Most Aggressive Corrosion Environment for Structural Materials
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -159,7 +159,7 @@ export default function MarinePage() {
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Docks, Offshore Platforms, Vessels, and Coastal Infrastructure
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
@@ -241,7 +241,7 @@ export default function MarinePage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[640px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Marine Projects
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">

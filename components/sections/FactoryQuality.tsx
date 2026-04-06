@@ -10,7 +10,7 @@ const checkpoints = [
   {
     title: "Resin and fiber architecture selection",
     description:
-      "Isophthalic polyester, vinyl ester, phenolic, and application-specific reinforcement schedules.",
+      "Isophthalic polyester, vinyl ester, polyurethane, and application-specific reinforcement schedules.",
   },
   {
     title: "In-process quality control",

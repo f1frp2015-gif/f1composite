@@ -12,10 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Use realistic dates per section instead of a single dynamic timestamp.
   // Update these when content actually changes.
   const DATES = {
-    home: "2026-03-29",
-    products: "2026-03-15",
-    technology: "2026-03-10",
-    industries: "2026-03-01",
+    home: "2026-04-05",
+    products: "2026-04-05",
+    technology: "2026-04-05",
+    industries: "2026-04-05",
     caseStudies: "2026-02-20",
     resources: "2026-03-25",
     blog: latestBlogUpdate,

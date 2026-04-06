@@ -53,7 +53,7 @@ export default function SocialProof() {
     <section className="bg-white py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <SectionTag>Proven Results</SectionTag>
-        <h2 className="mt-[13px] max-w-[540px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+        <h2 className="mt-[13px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           Real projects, measurable outcomes
         </h2>
 

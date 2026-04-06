@@ -61,6 +61,46 @@ function renderArticleContent(content: string) {
       );
     }
 
+    const linkBlockMatch = paragraph.match(/^\[(.+?)\]\((.+?)\)$/);
+    if (linkBlockMatch) {
+      return (
+        <p key={index} className="my-[21px]">
+          <a
+            href={linkBlockMatch[2]}
+            target={linkBlockMatch[2].startsWith("/") ? undefined : "_blank"}
+            rel={linkBlockMatch[2].startsWith("/") ? undefined : "noopener noreferrer"}
+            className="inline-flex items-center gap-[8px] rounded-[6px] border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+              <path d="M4 14V2h8l2 3v9H4z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              <path d="M6 9h4M6 11h3" stroke="currentColor" strokeWidth="1.2" />
+            </svg>
+            {linkBlockMatch[1]}
+          </a>
+        </p>
+      );
+    }
+
+    const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
+    if (videoMatch) {
+      return (
+        <figure key={index} className="my-[21px] overflow-hidden rounded-[8px] border border-border-default bg-black">
+          <video
+            src={videoMatch[1]}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full"
+          />
+          {videoMatch[2] && (
+            <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f13 leading-golden text-t2">
+              {videoMatch[2]}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
+
     return (
       <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
         {paragraph}
@@ -157,7 +197,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <a
                       href={post.coverAttribution.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-teal-text hover:underline"
                     >
                       {post.coverAttribution.creator}
@@ -166,7 +206,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <a
                       href={post.coverAttribution.licenseHref}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-teal-text hover:underline"
                     >
                       {post.coverAttribution.license}
@@ -219,7 +259,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <a
                       href={post.supportingAttribution.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-teal-text hover:underline"
                     >
                       {post.supportingAttribution.creator}
@@ -228,7 +268,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <a
                       href={post.supportingAttribution.licenseHref}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-teal-text hover:underline"
                     >
                       {post.supportingAttribution.license}
@@ -247,7 +287,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       key={link.href}
                       href={link.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="block text-f13 leading-golden text-teal-text hover:underline"
                     >
                       {link.label} ↗
