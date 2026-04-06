@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
+        has: [{ type: "host", value: "f1composite.com" }],
+        destination: "https://www.f1composite.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
         has: [{ type: "host", value: "f1frp.com" }],
         destination: "https://www.f1composite.com/:path*",
         permanent: true,
