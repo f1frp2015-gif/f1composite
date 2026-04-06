@@ -80,6 +80,18 @@ export function buildProductSchema({
       name: "F1 Composite",
       url: SITE_URL,
     },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "F1 Composite",
+      },
+    },
     material,
     additionalProperty: additionalProperty.map((item) => ({
       "@type": "PropertyValue",

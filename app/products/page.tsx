@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SolutionCard from "@/components/ui/SolutionCard";
@@ -11,9 +10,9 @@ import { productCategories } from "@/content/data/products";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Products",
+  title: "Pultruded FRP Profiles & Fiberglass Structural Shapes",
   description:
-    "Pultruded FRP profiles, custom pultrusions, fenestration systems, and gratings engineered for strength, corrosion resistance, and dimensional stability. Browse our full product range.",
+    "Browse pultruded FRP profiles: fiberglass I-beams, channels, angles, tubes, custom pultrusion shapes, fenestration window frames, and FRP gratings. Corrosion-free, 75% lighter than steel, EN 13706 certified.",
   path: "/products",
   image: "/products/opengraph-image",
 });
@@ -59,7 +58,7 @@ export default function ProductsPage() {
       "Pultruded FRP profiles, custom pultrusions, fenestration systems, and gratings engineered for industrial and infrastructure projects.",
     url: absoluteUrl("/products"),
     hasPart: productCategories.map((cat) => ({
-      "@type": "Product",
+      "@type": "WebPage",
       name: cat.title,
       url: absoluteUrl(cat.href),
       description: cat.description,
@@ -79,30 +78,14 @@ export default function ProductsPage() {
         ]}
       />
 
-      {/* Hero Image */}
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
-            <Image
-              src="/images/products/pultruded-frp-structural-profiles-overview-engineering-drawing.png"
-              alt="Pultruded FRP structural profiles overview — I-beam, channel, flat bar, angle, and square tube with engineering dimensions"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Product Categories */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Product Range</SectionTag>
-          <h2 className="mt-[8px] max-w-[560px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+          <h2 className="mt-[8px] max-w-[800px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded FRP Profiles
           </h2>
-          <p className="mt-[8px] max-w-[520px] text-f15 leading-golden text-t2">
+          <p className="mt-[8px] max-w-[800px] text-f15 leading-golden text-t2">
             Pultrusion technology unlocks new possibilities for advanced composite materials — stronger, lighter, and built to last.
           </p>
 
@@ -124,7 +107,7 @@ export default function ProductsPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why FRP</SectionTag>
-          <h2 className="mt-[21px] max-w-[560px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+          <h2 className="mt-[21px] max-w-[800px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The material advantage
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-3">
@@ -148,7 +131,7 @@ export default function ProductsPage() {
             <div>
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Thermal insulation built in</h3>
               <p className="text-f15 leading-golden text-t2">
-                Glass-fiber-reinforced polymers conduct heat at 1/200th the rate
+                Glass-fiber-reinforced polymers conduct heat at 1/170th the rate
                 of aluminum. That thermal break is structural, not added, making
                 FRP ideal for fenestration and building envelope applications.
               </p>
@@ -168,7 +151,7 @@ export default function ProductsPage() {
           <h2 className="text-f24 font-bold text-t1">
             Can&apos;t find what you need?
           </h2>
-          <p className="mx-auto mt-[13px] max-w-[480px] text-f15 leading-golden text-t2">
+          <p className="mx-auto mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
             If your application demands a unique cross-section, specific resin
             chemistry, or non-standard fiber architecture, our custom pultrusion
             line can deliver it. We also welcome technical inquiries at any
@@ -191,7 +174,7 @@ export default function ProductsPage() {
               <h2 className="text-f19 font-bold text-t1">
                 Understand how we manufacture
               </h2>
-              <p className="mt-[5px] max-w-[420px] text-f15 leading-golden text-t2">
+              <p className="mt-[5px] max-w-[640px] text-f15 leading-golden text-t2">
                 Learn about pultrusion, our primary manufacturing process, and
                 the quality controls that guarantee repeatable mechanical
                 performance.
