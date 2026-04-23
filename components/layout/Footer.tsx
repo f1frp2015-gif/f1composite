@@ -9,6 +9,7 @@ const columns = [
   { title: "Products", links: footerNav.products },
   { title: "Technology", links: footerNav.technology },
   { title: "Industries", links: footerNav.industries },
+  { title: "Resources", links: footerNav.resources },
   { title: "Company", links: footerNav.company },
 ];
 
@@ -54,7 +55,7 @@ export default function Footer() {
   return (
     <footer className="bg-bg2">
       <div className="mx-auto max-w-[1280px] px-[34px] py-[55px]">
-        <div className="grid gap-[34px] md:grid-cols-[1.618fr_1fr_1fr_1fr_1fr]">
+        <div className="grid gap-[34px] md:grid-cols-[1.618fr_1fr_1fr_1fr_1fr_1fr]">
           {/* Brand column */}
           <div>
             <Image
@@ -71,6 +72,10 @@ export default function Footer() {
               </a>
               <a href="tel:+8613883333993" className="block text-f13 text-teal-text hover:text-teal">
                 +86 138 8333 3993
+              </a>
+              <p className="pt-[8px] text-f13 font-semibold text-t1">Technical Service</p>
+              <a href="mailto:f1frp2015@gmail.com" className="block text-f13 text-teal-text hover:text-teal">
+                f1frp2015@gmail.com
               </a>
               <a
                 href="https://wa.me/8613883333993"

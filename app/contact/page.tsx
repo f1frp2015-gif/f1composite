@@ -32,13 +32,21 @@ export default function ContactPage() {
         addressLocality: "Chongqing",
         addressCountry: "CN",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        email: "Doris.li@f1composite.com",
-        telephone: "+86-138-8333-3993",
-        contactType: "sales",
-        availableLanguage: ["English", "Chinese"],
-      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          email: "Doris.li@f1composite.com",
+          telephone: "+86-138-8333-3993",
+          contactType: "sales",
+          availableLanguage: ["English", "Chinese"],
+        },
+        {
+          "@type": "ContactPoint",
+          email: "f1frp2015@gmail.com",
+          contactType: "technical support",
+          availableLanguage: ["English", "Chinese"],
+        },
+      ],
     },
   };
 
@@ -82,13 +90,24 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Email</h3>
+                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Sales Email</h3>
                   <a
                     href="mailto:Doris.li@f1composite.com"
                     className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
                   >
                     Doris.li@f1composite.com
                   </a>
+                </div>
+
+                <div>
+                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Technical Service</h3>
+                  <a
+                    href="mailto:f1frp2015@gmail.com"
+                    className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
+                  >
+                    f1frp2015@gmail.com
+                  </a>
+                  <p className="mt-[4px] text-f13 text-t3">For engineering questions, drawing reviews, and post-sales support.</p>
                 </div>
 
                 <div>

@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  { year: "2008", event: "F1 Composite founded by a team of FRP engineers" },
-  { year: "2012", event: "First export shipment — profiles delivered to Southeast Asia" },
-  { year: "2015", event: "KNOWHOW technical services launched for custom profile development" },
-  { year: "2018", event: "Catalogue reaches 100+ standard pultruded profile types" },
-  { year: "2020", event: "Fenestration systems division established" },
-  { year: "2023", event: "200+ engineered profiles serving five continents" },
+  { year: "2015", event: "F1 Composite founded by a team of FRP engineers" },
+  { year: "2017", event: "First export shipment — profiles delivered to Southeast Asia" },
+  { year: "2019", event: "KNOWHOW technical services launched for custom profile development" },
+  { year: "2021", event: "Catalogue reaches 100+ standard pultruded profile types" },
+  { year: "2023", event: "Fenestration systems division established; PHI component certification achieved" },
+  { year: "2025", event: "200+ engineered profiles serving five continents; Qinling Antarctic Station delivered" },
 ];
 
 const certifications = [
@@ -36,7 +36,7 @@ export default function AboutPage() {
     url: absoluteUrl("/"),
     description:
       "Founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, serving global markets with pultruded FRP profiles.",
-    foundingDate: "2008",
+    foundingDate: "2015",
     address: {
       "@type": "PostalAddress",
       streetAddress: "No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area",
