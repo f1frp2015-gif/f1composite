@@ -369,7 +369,7 @@ F1 Composite manufactures pultruded FRP cable tray systems in ladder, solid-bott
     standards: ["AASHTO LRFD", "EN 1991-2", "BD 90/05", "ASTM D7290"],
     coverImage: "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
     coverAlt: "FRP bridge deck replacement project using lightweight composite panels",
-    supportingImage: "/images/case-studies/frp-bridge.png",
+    supportingImage: "/images/case-studies/frp-bridge.jpg",
     supportingAlt: "Composite bridge concept illustration for FRP deck applications",
     supportingCaption:
       "The main value of FRP bridge decks is system-level: lower dead load, faster installation, less corrosion maintenance, and reduced closure time.",

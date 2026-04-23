@@ -98,7 +98,7 @@ const profileFamily: Array<{
     summary:
       "Pultruded fiberglass window frames and FRP window profiles — frame, sash, mullion, transom, glazing bead. Whole-window U-values down to 0.78 W/m²·K. PHI passive house certified. Direct replacement for aluminum and PVC window systems.",
     href: "/products/fenestration-systems",
-    image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.png",
+    image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
   },
   {
     slug: "custom",
