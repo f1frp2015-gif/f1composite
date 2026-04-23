@@ -151,14 +151,33 @@ export default function ProfileCalculator() {
   const reqWx = srcWx * (srcMat.sigma / tgtMat.sigma);
   // Equal stiffness: I_target = I_source * (E_source / E_target)
   const reqIx = srcIx * (srcMat.E / tgtMat.E);
-  // Scale factor (approximate: assuming similar shape, scale h by cube root ratio)
-  const stiffnessScale = Math.pow(srcMat.E / tgtMat.E, 1 / 3);
-  const suggestedH = Math.round(eqH * stiffnessScale);
-  const suggestedB = Math.round(eqB * stiffnessScale);
+
+  // Geometrically similar scaling (all dimensions scaled by k):
+  //   I scales as k^4  →  equal stiffness requires k = (E_src / E_tgt)^(1/4)
+  //   W scales as k^3  →  equal strength  requires k = (σ_src / σ_tgt)^(1/3)
+  const stiffnessScale = Math.pow(srcMat.E / tgtMat.E, 1 / 4);
+  const strengthScale = Math.pow(srcMat.sigma / tgtMat.sigma, 1 / 3);
+
+  const stiffH = Math.round(eqH * stiffnessScale);
+  const stiffB = Math.round(eqB * stiffnessScale);
+  const stiffTw = Math.max(1, Math.round(eqTw * stiffnessScale));
+  const stiffTf = Math.max(1, Math.round(eqTf * stiffnessScale));
+
+  const strengthH = Math.round(eqH * strengthScale);
+  const strengthB = Math.round(eqB * strengthScale);
+  const strengthTw = Math.max(1, Math.round(eqTw * strengthScale));
+  const strengthTf = Math.max(1, Math.round(eqTf * strengthScale));
+
+  // For FRP the governing design scale is the larger of the two — whichever demands more material.
+  const governingScale = Math.max(stiffnessScale, strengthScale);
+  const governingCriterion = stiffnessScale >= strengthScale ? "Stiffness (EI)" : "Strength (σW)";
 
   const srcWeight = (srcArea / 1e6) * srcMat.density;
-  const tgtAreaApprox = calcArea(eqShape, suggestedH, suggestedB, Math.round(eqTw * stiffnessScale), Math.round(eqTf * stiffnessScale));
-  const tgtWeight = (tgtAreaApprox / 1e6) * tgtMat.density;
+  const stiffArea = calcArea(eqShape, stiffH, stiffB, stiffTw, stiffTf);
+  const strengthArea = calcArea(eqShape, strengthH, strengthB, strengthTw, strengthTf);
+  const stiffWeight = (stiffArea / 1e6) * tgtMat.density;
+  const strengthWeight = (strengthArea / 1e6) * tgtMat.density;
+  const tgtWeight = governingScale === stiffnessScale ? stiffWeight : strengthWeight;
   const weightSaving = srcWeight > 0 ? ((1 - tgtWeight / srcWeight) * 100) : 0;
 
   const inputClass = "w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal";
@@ -180,7 +199,7 @@ export default function ProfileCalculator() {
             onClick={() => setMode("equivalence")}
             className={`rounded-[6px] px-[21px] py-[8px] text-f13 font-semibold transition-colors ${mode === "equivalence" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
-            Steel → FRP Equivalence
+            Steel / Aluminum → FRP Equivalence
           </button>
         </div>
 
@@ -477,16 +496,41 @@ export default function ProfileCalculator() {
                 </table>
               </div>
 
-              {/* Suggested dimensions */}
+              {/* Suggested dimensions — equal stiffness AND equal strength */}
+              <div className="grid gap-[8px] sm:grid-cols-2">
+                <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
+                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Stiffness (EI)</div>
+                  <div className="mt-[8px] grid grid-cols-2 gap-[8px] text-f13">
+                    <div>H: <span className="font-bold text-t1">{stiffH} mm</span></div>
+                    <div>B: <span className="font-bold text-t1">{stiffB} mm</span></div>
+                  </div>
+                  <p className="mt-[5px] text-f11 text-t3">
+                    k = (E_src/E_tgt)<sup>1/4</sup> = ×{stiffnessScale.toFixed(2)}
+                  </p>
+                </div>
+                <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
+                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Strength (σW)</div>
+                  <div className="mt-[8px] grid grid-cols-2 gap-[8px] text-f13">
+                    <div>H: <span className="font-bold text-t1">{strengthH} mm</span></div>
+                    <div>B: <span className="font-bold text-t1">{strengthB} mm</span></div>
+                  </div>
+                  <p className="mt-[5px] text-f11 text-t3">
+                    k = (σ_src/σ_tgt)<sup>1/3</sup> = ×{strengthScale.toFixed(2)}
+                  </p>
+                </div>
+              </div>
+
+              {/* Governing criterion callout */}
               <div className="rounded-[6px] bg-teal/10 border border-teal/20 p-[13px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Suggested FRP Dimensions (Equal Stiffness)</div>
-                <div className="mt-[8px] grid grid-cols-2 gap-[8px] text-f15">
-                  <div>H: <span className="font-bold text-t1">{suggestedH} mm</span></div>
-                  <div>B: <span className="font-bold text-t1">{suggestedB} mm</span></div>
+                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Governing Criterion</div>
+                <div className="mt-[5px] text-f15 font-bold text-t1">
+                  {governingCriterion} — use ×{governingScale.toFixed(2)}
                 </div>
                 <p className="mt-[5px] text-f11 text-t3">
-                  Scale factor ×{stiffnessScale.toFixed(2)} applied to match flexural stiffness (EI).
-                  Strength check may allow smaller dimensions.
+                  The FRP profile must satisfy <em>both</em> limits; the larger scale factor governs.
+                  {srcMat.group === "Metal" && srcMat.label.includes("luminium")
+                    ? " For aluminium, the stiffness and strength criteria are often comparable — check both before committing to a size."
+                    : " For steel, stiffness almost always governs because FRP modulus is ~1/10 of steel."}
                 </p>
               </div>
 
@@ -498,7 +542,7 @@ export default function ProfileCalculator() {
                 </div>
                 <div className="rounded-[6px] bg-white p-[13px] text-center">
                   <div className="text-f19 font-extrabold text-teal">{tgtWeight.toFixed(2)}</div>
-                  <div className="text-f11 text-t3">FRP (kg/m)</div>
+                  <div className="text-f11 text-t3">FRP — governing (kg/m)</div>
                 </div>
                 <div className="rounded-[6px] bg-teal/10 border border-teal/20 p-[13px] text-center">
                   <div className="text-f19 font-extrabold text-teal">{weightSaving.toFixed(0)}%</div>
@@ -507,8 +551,8 @@ export default function ProfileCalculator() {
               </div>
 
               <p className="text-f11 text-t3">
-                Based on equal-stiffness substitution per EN 13706-3, GB/T 31539-2015, and ASCE Pre-Standard methodology.
-                FRP profiles governed by deflection (E·I), not yield strength. Consult F1 Composite engineering for project-specific verification.
+                Based on geometrically similar scaling with both equal-stiffness (EI) and equal-strength (σW) checks per EN 13706-3, GB/T 31539-2015, and ASCE Pre-Standard methodology.
+                FRP profiles from steel are typically deflection-governed; from aluminum, strength and stiffness can be comparable — the calculator flags whichever limit is the larger scale factor. Consult F1 Composite engineering for project-specific verification.
               </p>
             </div>
           </div>

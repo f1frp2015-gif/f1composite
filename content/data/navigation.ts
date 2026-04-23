@@ -3,16 +3,18 @@ export const mainNav = [
     label: "Products",
     href: "/products",
     children: [
+      { label: "All Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Standard Profiles", href: "/products/standard-profiles" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
-      { label: "Gratings", href: "/products/gratings" },
+      { label: "Gratings & Decks", href: "/products/gratings" },
     ],
   },
   {
     label: "Technology",
     href: "/technology",
     children: [
+      { label: "What is FRP?", href: "/what-is-frp" },
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Quality & Testing", href: "/technology/quality-testing" },
@@ -45,14 +47,16 @@ export const footerNav = {
     { label: "Standard Profiles", href: "/products/standard-profiles" },
     { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
     { label: "Fenestration Systems", href: "/products/fenestration-systems" },
-    { label: "Gratings", href: "/products/gratings" },
+    { label: "Gratings & Decks", href: "/products/gratings" },
     { label: "All Products", href: "/products" },
   ],
   technology: [
+    { label: "What is FRP?", href: "/what-is-frp" },
     { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
     { label: "FRP vs Traditional", href: "/technology/frp-vs-traditional-materials" },
     { label: "Quality & Testing", href: "/technology/quality-testing" },
-    { label: "KNOWHOW Services", href: "/technology/knowhow-services" },
+    { label: "FRP Calculator", href: "/technology/calculator" },
+    { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
   ],
   industries: [
     { label: "Construction", href: "/industries/construction" },
@@ -62,11 +66,16 @@ export const footerNav = {
     { label: "Industrial", href: "/industries/industrial" },
     { label: "Vehicle", href: "/industries/vehicle" },
   ],
-  company: [
-    { label: "About Us", href: "/about" },
+  resources: [
     { label: "Case Studies", href: "/case-studies" },
     { label: "Blog", href: "/resources/blog" },
+    { label: "Technical Data", href: "/resources/technical-data" },
+    { label: "Design Guides", href: "/resources/design-guides" },
     { label: "Downloads", href: "/resources/downloads" },
+    { label: "Ask AI", href: "/ask" },
+  ],
+  company: [
+    { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
 };
