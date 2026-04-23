@@ -15,7 +15,7 @@ export default function InnerCTA({ title = "Ready to discuss your project?" }: I
         </p>
         <div className="mt-[21px] flex justify-center gap-[13px]">
           <Button href="/contact">Request a Quote</Button>
-          <Button href="/products" variant="secondary">
+          <Button href="/pultruded-frp-profiles" variant="secondary">
             Browse Products
           </Button>
         </div>

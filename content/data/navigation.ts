@@ -1,9 +1,8 @@
 export const mainNav = [
   {
     label: "Products",
-    href: "/products",
+    href: "/pultruded-frp-profiles",
     children: [
-      { label: "All Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Standard Profiles", href: "/products/standard-profiles" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
@@ -48,7 +47,7 @@ export const footerNav = {
     { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
     { label: "Fenestration Systems", href: "/products/fenestration-systems" },
     { label: "Gratings & Decks", href: "/products/gratings" },
-    { label: "All Products", href: "/products" },
+    { label: "All Products", href: "/pultruded-frp-profiles" },
   ],
   technology: [
     { label: "What is FRP?", href: "/what-is-frp" },

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
@@ -140,6 +141,10 @@ export default function StandardProfilesPage() {
           </div>
         </div>
       </section>
+
+      <AskAICard
+        prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
+      />
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />
     </>

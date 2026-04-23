@@ -369,6 +369,39 @@ export default function ProfileCalculator() {
                 </div>
               </div>
 
+              {/* Send-to-engineer actions */}
+              <div className="grid gap-[8px] sm:grid-cols-2">
+                <a
+                  href={`mailto:f1frp2015@gmail.com?subject=${encodeURIComponent("FRP Profile Calc — Engineering Review Request")}&body=${encodeURIComponent(
+                    `Please review this preliminary FRP profile calculation:\n\n` +
+                    `Material: ${mat.label}\n` +
+                    `Profile: ${shape}, H=${dimH}mm, B=${dimB}mm, tw=${dimTw}mm, tf=${dimTf}mm\n` +
+                    `Span: ${span}mm, Load type: ${lt.label}, Load: ${load} ${isDistributed ? "kN/m" : "kN"}\n` +
+                    `Deflection limit: L/${deflLimit}\n\n` +
+                    `Calculator output:\n` +
+                    `- Ix = ${(Ix/1e4).toFixed(1)} cm⁴\n` +
+                    `- Wx = ${(Wx/1e3).toFixed(1)} cm³\n` +
+                    `- Bending stress: ${sigma_max.toFixed(1)} MPa (${stressOk ? "OK" : "EXCEEDS LIMIT"})\n` +
+                    `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS LIMIT"})\n` +
+                    `- Weight: ${weightPerM.toFixed(2)} kg/m\n\n` +
+                    `Application context (please add): ____\n` +
+                    `Project location / standard / corrosion environment: ____\n\n` +
+                    `Thanks.`
+                  )}`}
+                  className="rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                >
+                  📧 Email engineer for review
+                </a>
+                <a
+                  href={`/ask?prefill=${encodeURIComponent(
+                    `I just used the FRP profile calculator. Material: ${mat.label}. ${shape} ${dimH}×${dimB}mm spanning ${span}mm under ${load} ${isDistributed ? "kN/m" : "kN"}. Bending stress ${sigma_max.toFixed(1)} MPa, deflection ${defl.toFixed(1)} mm. Is this sized correctly, or should I adjust? What FRP grade and resin would you recommend for [my application]?`
+                  )}`}
+                  className="rounded-[6px] border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-teal-text transition-colors hover:bg-teal/20"
+                >
+                  💬 Discuss results with AI
+                </a>
+              </div>
+
               <p className="text-f11 text-t3">
                 Reference: EN 13706-3, GB/T 31539-2015, ASTM D3917, ASCE Pre-Standard for LRFD of FRP Structures. Results are for preliminary sizing only — always verify with project-specific engineering analysis.
               </p>

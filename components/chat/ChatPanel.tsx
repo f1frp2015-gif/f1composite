@@ -62,13 +62,15 @@ const transport = new DefaultChatTransport({ api: "/api/chat" });
 
 interface ChatPanelProps {
   fullPage?: boolean;
+  initialPrompt?: string;
 }
 
-export default function ChatPanel({ fullPage = false }: ChatPanelProps) {
+export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanelProps) {
   const [input, setInput] = useState("");
   const { messages, sendMessage, status, stop, error } = useChat({ transport });
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const initialPromptSentRef = useRef(false);
 
   const isLoading = status === "submitted" || status === "streaming";
 
@@ -79,6 +81,14 @@ export default function ChatPanel({ fullPage = false }: ChatPanelProps) {
   useEffect(() => {
     if (!isLoading) inputRef.current?.focus();
   }, [isLoading]);
+
+  // Auto-send initialPrompt from URL ?prefill= once on mount.
+  useEffect(() => {
+    if (initialPrompt && !initialPromptSentRef.current && messages.length === 0) {
+      initialPromptSentRef.current = true;
+      sendMessage({ text: initialPrompt });
+    }
+  }, [initialPrompt, messages.length, sendMessage]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

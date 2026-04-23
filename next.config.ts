@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/products",
+        destination: "/pultruded-frp-profiles",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "f1composite.com" }],
         destination: "https://www.f1composite.com/:path*",

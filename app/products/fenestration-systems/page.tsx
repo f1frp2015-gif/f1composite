@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -411,6 +412,10 @@ export default function FenestrationSystemsPage() {
           <FAQ items={faqItems} />
         </div>
       </section>
+
+      <AskAICard
+        prefill="I'm specifying FRP fenestration for a [residential/commercial/passive house] project in [climate zone / country]. Window types needed: [casement/sliding/fixed]. Target U-value [W/m²K]. Which series (65/70/80/90/140) fits, and what's the typical cost vs aluminum?"
+      />
 
       <InnerCTA title="Specify FRP fenestration for your next building project" />
     </>

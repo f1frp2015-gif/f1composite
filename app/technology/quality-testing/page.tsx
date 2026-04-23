@@ -477,7 +477,7 @@ export default function QualityTestingPage() {
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <LinkArrow href="/products">View Our Product Range</LinkArrow>
+            <LinkArrow href="/pultruded-frp-profiles">View Our Product Range</LinkArrow>
             <LinkArrow href="/about">About F1 Composite</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion Process Details</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs Traditional Materials</LinkArrow>

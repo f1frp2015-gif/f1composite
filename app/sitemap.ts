@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE, lastModified: DATES.home, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/pultruded-frp-profiles`, lastModified: "2026-04-14", changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/what-is-frp`, lastModified: "2026-04-14", changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE}/products`, lastModified: DATES.products, changeFrequency: "weekly", priority: 0.9 },
+    // /products redirects 301 to /pultruded-frp-profiles (see next.config.ts)
     { url: `${BASE}/products/standard-profiles`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/standard-profiles/i-beam`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/standard-profiles/angle`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },

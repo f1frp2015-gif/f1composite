@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -363,6 +364,10 @@ export default function GratingsPage() {
           <FAQ items={faqItems} />
         </div>
       </section>
+
+      <AskAICard
+        prefill="I need FRP gratings/deck for [marine/chemical/industrial] application. Span [mm], live load [kN/m²], required slip resistance [R10/R11/R13], chemical exposure [list]. Molded or pultruded — which fits, and what's the panel size / weight?"
+      />
 
       <InnerCTA title="Need FRP gratings or deck panels for your next project?" />
     </>

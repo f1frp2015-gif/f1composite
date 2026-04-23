@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -386,7 +387,11 @@ export default function CustomPultrusionsPage() {
         </div>
       </section>
 
-      <InnerCTA title="Have a custom profile requirement? Let\u2019s engineer it together." />
+      <AskAICard
+        prefill="I need a custom pultruded FRP cross-section. Dimensions roughly [HxW mm], wall thickness [t mm], environment is [chemical/UV/load], target quantity [meters]. Is this feasible, and what's the tooling cost + lead time?"
+      />
+
+      <InnerCTA title="Have a custom profile requirement? Let&rsquo;s engineer it together." />
     </>
   );
 }

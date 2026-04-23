@@ -41,7 +41,7 @@ export default function Hero() {
             <Button href="/contact" className="bg-teal !text-white hover:!bg-teal-text">
               Get a Quote
             </Button>
-            <Button href="/products" className="border border-white/30 bg-transparent !text-white hover:!bg-white/10">
+            <Button href="/pultruded-frp-profiles" className="border border-white/30 bg-transparent !text-white hover:!bg-white/10">
               Explore Products
             </Button>
           </div>

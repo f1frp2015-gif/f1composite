@@ -10,7 +10,12 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/ask",
 });
 
-export default function AskPage() {
+interface AskPageProps {
+  searchParams: Promise<{ prefill?: string }>;
+}
+
+export default async function AskPage({ searchParams }: AskPageProps) {
+  const { prefill } = await searchParams;
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -44,7 +49,7 @@ export default function AskPage() {
         </div>
 
         <div className="overflow-hidden rounded-[12px] border border-border-default bg-white shadow-sm">
-          <ChatPanel fullPage />
+          <ChatPanel fullPage initialPrompt={prefill} />
         </div>
       </div>
     </>

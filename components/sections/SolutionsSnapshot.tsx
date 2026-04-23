@@ -58,7 +58,7 @@ export default function SolutionsSnapshot() {
               Pultrusion technology unlocks new possibilities for advanced composite materials — stronger, lighter, and built to last.
             </p>
           </div>
-          <LinkArrow href="/products" className="hidden sm:inline-flex">
+          <LinkArrow href="/pultruded-frp-profiles" className="hidden sm:inline-flex">
             All products
           </LinkArrow>
         </div>
@@ -79,7 +79,7 @@ export default function SolutionsSnapshot() {
         </div>
 
         <div className="mt-[21px] sm:hidden">
-          <LinkArrow href="/products">All products</LinkArrow>
+          <LinkArrow href="/pultruded-frp-profiles">All products</LinkArrow>
         </div>
       </div>
     </section>
