@@ -266,7 +266,7 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
       "A detailed comparison of molded FRP grating and hot-dip galvanized steel grating across weight, corrosion resistance, installation cost, and lifecycle economics.",
     ogChips: ["Grating", "Lifecycle cost", "Corrosion resistance"],
     relatedLinks: [
-      { label: "Gratings", href: "/products/gratings" },
+      { label: "Gratings & Decks", href: "/products/gratings" },
       { label: "Industrial", href: "/industries/industrial" },
       { label: "Marine", href: "/industries/marine" },
     ],
@@ -1825,6 +1825,147 @@ The Intertek AS 2047 test results for GFRP turn-and-tilt windows and lift-slidin
 Australia's construction industry is moving toward higher energy efficiency standards, demanding greater coastal durability, and increasingly adopting international high-performance building methodologies. GFRP fenestration is the material system best aligned with all three of these trends simultaneously — offering thermal conductivity 500 times lower than aluminum, inherent corrosion immunity, Passivhaus-certifiable performance, and now verified AS 2047 compliance.
 
 The question for the Australian market is not whether GFRP fenestration will arrive. It is which manufacturers, distributors, and installers will move first to capture the emerging demand.`,
+  },
+  {
+    slug: "frp-window-profiles-powder-coating-aluminium-finish",
+    title: "Powder-Coated FRP Window Profiles: How to Get an Aluminium-Grade Finish with Superior Thermal Performance",
+    category: "Fenestration",
+    date: "2026-04-11",
+    updatedAt: "2026-04-11",
+    readTime: "9 min",
+    excerpt:
+      "Pultruded FRP window profiles can now achieve the same sleek, metallic finish as aluminium frames through architectural-grade powder coating — without sacrificing the thermal insulation, corrosion resistance, and dimensional stability that make fiberglass window frames superior.",
+    authorName: "F1 Composite Fenestration Engineering Team",
+    authorRole: "Window system surface finishing and coating specialists",
+    reviewedBy: "Coatings and Surface Engineering Group",
+    standards: ["ISO 10077-2", "EN 12206-1", "AAMA 2604", "Qualicoat Class 2", "GSB Master"],
+    coverImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
+    coverAlt: "Pultruded FRP profiles entering a Gema powder coating oven on a factory production line",
+    supportingImage: "/images/blog/frp-profile-powder-coating-booth-spray-line.webp",
+    supportingAlt: "Automated powder coating spray booth applying architectural finish to pultruded FRP window profiles",
+    supportingCaption:
+      "Automated spray booth applying low-temperature powder coating to pultruded FRP profiles. The electrostatic application process delivers uniform 60–120 μm coating thickness across complex profile geometries.",
+    highlights: [
+      "Architectural powder coating on FRP matches aluminium aesthetics",
+      "Thermal conductivity remains 500x lower than aluminium after coating",
+      "Qualicoat and AAMA 2604 rated durability — 20+ year exterior finish life",
+    ],
+    ogDescription:
+      "How powder-coated pultruded FRP window profiles achieve aluminium-grade metallic finishes while delivering U-values as low as 0.78 W/m²K. Process, standards, and specification guide.",
+    ogChips: ["Fenestration", "Surface finishing", "FRP vs aluminium"],
+    relatedLinks: [
+      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "FRP vs Aluminium Frames", href: "/resources/blog/frp-vs-aluminium-window-frames-comparison" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+    ],
+    content: `For decades, aluminium has dominated the architectural fenestration market not because of its thermal performance — which is poor — but because of its finish. The anodised or powder-coated surface of an aluminium window frame delivers a precision, consistency, and visual sophistication that architects and building owners expect. That aesthetic monopoly is now over. Pultruded FRP window profiles can achieve the exact same architectural-grade finish through modern powder coating technology, while retaining the thermal insulation, dimensional stability, and corrosion resistance that make fiberglass window frames the superior engineering choice.
+
+This article explains the powder coating process for pultruded FRP profiles, the standards that govern it, and why powder-coated FRP fenestration systems are displacing aluminium in projects that demand both high aesthetics and high thermal performance.
+
+## Why Surface Finish Matters in Fenestration Specification
+
+When architects specify window frames, thermal performance is only half the decision. The other half is visual — colour consistency across hundreds of window units, surface smoothness, gloss uniformity, and long-term weathering behaviour. Aluminium window frames have historically won this half of the argument, because anodising and powder coating on metal substrates are mature, well-standardised processes.
+
+FRP window profiles, despite their superior thermal conductivity of approximately 0.3 W/mK compared to 160 W/mK for aluminium, have sometimes been perceived as limited in surface finish options. Early pultruded profiles relied on gel coat or wet-spray paint systems that could not match the consistency of factory-applied powder coating on aluminium. That gap has now closed.
+
+## Powder Coating Process for Pultruded FRP Profiles
+
+Powder coating FRP profiles requires a modified process compared to metal substrates, because FRP is non-conductive and cannot be electrostatically grounded in the same way as aluminium. The adapted process involves several critical steps.
+
+**1. Surface preparation**
+
+The pultruded FRP profile surface is prepared using controlled abrasion with fine-grit media, typically 180 to 320 grit aluminium oxide. This creates a mechanical key for the powder to adhere to. The surface veil layer on quality pultruded profiles provides a resin-rich, fibre-free substrate that holds abrasion marks uniformly. After abrasion, the profile is cleaned with solvent wipe to remove dust and any release agent residue from the pultrusion die.
+
+**2. Primer application**
+
+A specially formulated adhesion promoter or primer is applied to the prepared surface. This primer is designed for thermoset composite substrates and serves two functions: it enhances the mechanical bond between the powder coating and the FRP surface, and it provides a conductive layer that allows electrostatic powder deposition in the next stage. Some advanced primer systems incorporate conductive particles that make the FRP surface behave electrically like a metal substrate during powder application.
+
+**3. Electrostatic powder application**
+
+With the conductive primer in place, standard electrostatic powder coating equipment can be used. Polyester or polyester-TGIC powder in any RAL, NCS, or custom colour is applied to the primed profile using conventional corona or tribo-charge spray guns. The powder particles are attracted to the grounded, primed surface just as they would be to an aluminium extrusion.
+
+**4. Thermal curing**
+
+The coated profiles are cured in a convection oven using low-temperature powder coating technology specifically developed for composite substrates. Unlike conventional powder coating on metals that cures at 180 to 200 degrees C, low-temperature powder systems cure at 120 to 150 degrees C, making them compatible with high-Tg pultruded FRP profiles. This is a critical distinction: only FRP profiles formulated with high glass transition temperature (Tg) resin systems can withstand even low-temperature powder curing without dimensional distortion. Standard polyester resin profiles with Tg values below 120 degrees C are not suitable for powder coating. Our fenestration-grade profiles are manufactured with high-Tg resin matrices that maintain full dimensional stability throughout the low-temperature cure cycle. It is important to note that polyurethane resin-based pultruded profiles cannot currently be powder coated — their Tg characteristics are not compatible with powder cure temperatures. For polyurethane-matrix profiles, we offer high-performance liquid coating systems (two-component polyurethane topcoats) that achieve comparable visual and durability results, though with a different application process.
+
+**5. Quality inspection**
+
+The finished coating is inspected for thickness (typically 60 to 120 micrometres), adhesion (cross-hatch test per ISO 2409), gloss uniformity, and colour consistency against the specified RAL or custom standard. The inspection protocol matches or exceeds the requirements applied to powder-coated aluminium extrusions.
+
+## Coating Performance Standards
+
+Powder-coated FRP window profiles can be certified to the same architectural coating standards as aluminium frames.
+
+**Qualicoat Class 2** requires the coating to pass accelerated weathering tests equivalent to approximately 20 years of exterior exposure in a European climate, including gloss retention, colour stability, and adhesion after weathering cycles. Our powder coating process on pultruded FRP profiles achieves Qualicoat Class 2 requirements.
+
+**AAMA 2604** is the North American equivalent for high-performance exterior coatings, requiring 10-year South Florida exposure testing. Fluoropolymer-modified polyester powders on FRP profiles meet AAMA 2604 requirements, and AAMA 2605 (the highest tier) can be achieved with PVDF-based powder systems.
+
+**GSB Master** is a pan-European quality mark for coated architectural profiles, requiring consistent batch-to-batch colour and gloss within tight tolerances. The dimensional stability of pultruded FRP profiles actually makes GSB compliance easier than on aluminium, because FRP profiles do not exhibit the thermal expansion that can cause powder thickness variation on long aluminium extrusions.
+
+## FRP vs Aluminium: Finish Equivalent, Performance Superior
+
+With architectural-grade powder coating, the visual comparison between FRP and aluminium window profiles is now indistinguishable to the eye. Side-by-side, a powder-coated FRP fixed window frame and a powder-coated aluminium fixed window frame in the same RAL colour are identical in appearance. But the performance underneath the coating is dramatically different.
+
+| Property | Powder-coated FRP | Powder-coated aluminium |
+|---|---|---|
+| Frame U-value (Uf) | 0.8 – 1.5 W/m²K | 2.5 – 5.0 W/m²K |
+| Thermal conductivity | 0.3 W/mK | 160 W/mK |
+| Coefficient of thermal expansion | 8 × 10⁻⁶/°C | 23 × 10⁻⁶/°C |
+| Condensation risk | Very low | High without thermal break |
+| Corrosion in coastal environments | Immune | Requires anodising or coating maintenance |
+| Weight | ~1.9 g/cm³ | ~2.7 g/cm³ |
+| Coating adhesion on substrate | Excellent (mechanical + chemical bond) | Excellent (oxide layer bond) |
+
+The thermal conductivity difference is the decisive factor. Aluminium conducts heat at more than 500 times the rate of FRP. No amount of thermal break design in an aluminium frame can match the inherent thermal insulation of a solid FRP profile. And the powder coating layer, at 60 to 120 micrometres thick, has no measurable impact on the thermal performance of either substrate.
+
+## Colour Options and Architectural Flexibility
+
+Powder-coated pultruded FRP window profiles are available in the full RAL Classic range of over 200 colours, as well as NCS, BS, and custom colour matching. In addition to solid colours, the following finish types are available on FRP substrates.
+
+**Metallic finishes** — aluminium-effect, bronze, champagne, and other metallic colours that replicate anodised aluminium appearances. These are the finishes most relevant to projects where FRP is replacing aluminium and visual continuity with existing aluminium elements is required.
+
+**Textured finishes** — fine texture, sand texture, and structured coatings that replicate the appearance of architectural-grade coated aluminium from premium European systems.
+
+**Dual-colour systems** — different colours on the interior and exterior faces of the window frame, matching the dual-colour capability of high-end aluminium systems. This is achieved by masking and two-pass coating, or by using co-pultruded profiles with different surface treatments on each face.
+
+**Matt, satin, and high-gloss** — gloss levels from 10 GU (deep matt) to 90 GU (high gloss) are achievable on FRP substrates, matching the full aesthetic range of aluminium powder coating.
+
+## Powder Coating vs Liquid Coating: Two Paths to Aluminium-Grade Finish
+
+Not all pultruded FRP profiles can be powder coated. The critical factor is the glass transition temperature (Tg) of the resin matrix. Low-temperature powder coating systems cure at 120 to 150 degrees C, which means only profiles manufactured with high-Tg resin formulations — typically modified polyester or vinyl ester systems with Tg values exceeding 150 degrees C — are suitable candidates.
+
+**Polyurethane resin-based pultruded profiles cannot currently be powder coated.** The Tg characteristics of polyurethane matrix systems are not compatible with powder cure temperatures, even low-temperature formulations. For polyurethane-matrix FRP fenestration profiles, we offer an alternative: high-performance liquid coating systems.
+
+**Liquid coating for PUR-matrix profiles** uses two-component polyurethane or fluoropolymer topcoats applied by automated spray line. The visual result is equivalent to powder coating — full RAL colour range, metallic and textured finishes, gloss levels from matt to high-gloss. Liquid coatings cure at ambient to 80 degrees C, well within the safe operating range for polyurethane-matrix profiles. The trade-off is a marginally thinner coating build (40 to 80 micrometres versus 60 to 120 for powder) and a two-coat application process (primer plus topcoat), but the durability and appearance meet the same architectural standards.
+
+When specifying, confirm the resin system of the FRP profile with the manufacturer before selecting the coating method. Our engineering team advises on the optimal coating route for each profile and resin combination.
+
+## Why the Substrate Matters More Than the Coating
+
+A common misconception in fenestration specification is that the coating determines the frame's long-term appearance. In reality, the substrate underneath determines whether the coating stays where it was applied.
+
+Aluminium window frames expand and contract significantly with temperature changes. The coefficient of thermal expansion for aluminium is 23 × 10⁻⁶ per degree C, meaning a 3-metre aluminium frame experiences approximately 2 mm of length change over a 30 degree C temperature swing. This cyclic dimensional movement stresses the coating-to-substrate bond and is the primary cause of coating micro-cracking and edge lifting on aluminium frames after 10 to 15 years of service.
+
+Pultruded FRP window profiles have a coefficient of thermal expansion of approximately 8 × 10⁻⁶ per degree C — close to that of glass (9 × 10⁻⁶ per degree C) and roughly one-third that of aluminium. This means the FRP substrate moves less, stresses the coating less, and maintains coating adhesion for longer. In accelerated weathering tests, powder coatings on FRP substrates consistently outperform identical coatings on aluminium substrates in adhesion retention after thermal cycling.
+
+## Specification Guide for Architects
+
+When specifying powder-coated FRP window profiles for a project, consider the following.
+
+**Colour specification.** Specify RAL number, gloss level (matt, satin, or gloss), and whether metallic or solid finish is required. Provide a physical colour sample for custom colours. The same colour specification process used for aluminium frames applies to FRP.
+
+**Standard reference.** Specify Qualicoat Class 2 for European projects, AAMA 2604 or AAMA 2605 for North American projects. These standards apply identically to FRP and aluminium substrates.
+
+**Dual-colour requirement.** If interior and exterior colours differ, specify both and confirm the frame system supports dual-finish (our 70-series and above support dual-colour powder coating).
+
+**Warranty.** We offer a 15-year coating warranty on powder-coated fenestration profiles, covering colour stability, gloss retention, and adhesion. This matches or exceeds the standard warranty offered by major aluminium window system brands.
+
+## The Bottom Line
+
+The aesthetic argument for aluminium window frames is no longer valid. Powder-coated pultruded FRP window profiles deliver identical visual results, verified by the same international coating standards, on a substrate that is thermally, structurally, and dimensionally superior. For passive house projects, near-zero-energy buildings, and any application where frame U-value matters, specifying FRP fenestration with architectural-grade powder coating gives architects and building owners everything aluminium offers visually, with everything aluminium cannot offer thermally.
+
+At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are available with factory-applied low-temperature powder coating (for high-Tg resin systems) or high-performance liquid coating (for polyurethane-matrix profiles) in any RAL colour. Both coating routes are certified to Qualicoat Class 2 and AAMA 2604 standards. Contact our fenestration team to request colour samples and specification documents for your project.`,
   },
 ];
 

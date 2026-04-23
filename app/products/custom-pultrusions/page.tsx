@@ -4,9 +4,9 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Custom Pultrusion Services — Bespoke Fiberglass Profiles";
 const pageDescription =
@@ -113,8 +113,63 @@ const faqItems = [
 ];
 
 export default function CustomPultrusionsPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Custom fiberglass pultrusion services",
+    name: "Custom Pultrusion Services",
+    description:
+      "End-to-end custom pultruded FRP profile design, tooling, and production — cross-sections up to 600×300 mm, tolerances per EN 13706 / ASTM D3917, MOQ 500 m first run / 200 m repeat.",
+    url: absoluteUrl(pagePath),
+    provider: {
+      "@id": `https://www.f1composite.com/#organization`,
+    },
+    areaServed: [
+      { "@type": "Continent", name: "Europe" },
+      { "@type": "Continent", name: "North America" },
+      { "@type": "Continent", name: "Asia" },
+      { "@type": "Continent", name: "Oceania" },
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Custom pultrusion capabilities",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Cross-section design and FEA validation",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "In-house steel die manufacturing",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Pilot production and sample approval",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Series production with EN 13706 / ASTM D3917 QA",
+          },
+        },
+      ],
+    },
+    termsOfService: absoluteUrl("/terms"),
+  };
+
   return (
     <>
+      <JsonLd data={serviceSchema} />
       <JsonLd
         data={buildProductSchema({
           name: "Custom Pultruded FRP Profiles",
@@ -136,6 +191,8 @@ export default function CustomPultrusionsPage() {
           additionalProperty: [
             { name: "Maximum cross-section", value: "600 × 300 mm" },
             { name: "Minimum wall thickness", value: "1.5 mm" },
+            { name: "Minimum order quantity", value: "500 m first run / 200 m repeat" },
+            { name: "Typical tooling lead time", value: "3–6 weeks" },
           ],
         })}
       />
@@ -289,23 +346,38 @@ export default function CustomPultrusionsPage() {
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Related resources</h2>
-          <div className="flex flex-col gap-[13px] sm:flex-row sm:gap-[34px]">
-            <LinkArrow href="/products/standard-profiles">
-              Browse standard profiles
-            </LinkArrow>
-            <LinkArrow href="/technology/pultrusion-process">
-              How pultrusion works
-            </LinkArrow>
-            <LinkArrow href="/case-studies">
-              View project case studies
-            </LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        groups={[
+          {
+            title: "Related FRP products",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/standard-profiles", label: "Standard FRP profiles" },
+              { href: "/products/fenestration-systems", label: "FRP fenestration systems" },
+              { href: "/products/gratings", label: "FRP gratings" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/construction", label: "Construction systems" },
+              { href: "/industries/energy", label: "EV battery trays & solar" },
+              { href: "/industries/vehicle", label: "Rail & transport profiles" },
+              { href: "/case-studies", label: "Project case studies" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
+              { href: "/technology/knowhow-services", label: "KNOWHOW transfer services" },
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
@@ -122,18 +122,41 @@ export default function FlatBarPage() {
         </div>
       </section>
 
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/standard-profiles">All standard profiles</LinkArrow>
-            <LinkArrow href="/products/custom-pultrusions">Need a custom size?</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel comparison</LinkArrow>
-            <LinkArrow href="/industries/industrial">Industrial applications</LinkArrow>
-            <LinkArrow href="/industries/energy">Energy applications</LinkArrow>
-            <LinkArrow href="/contact">Request a quotation</LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        background="white"
+        groups={[
+          {
+            title: "Related FRP profiles",
+            links: [
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam profiles" },
+              { href: "/products/standard-profiles/channel", label: "FRP channel profiles" },
+              { href: "/products/standard-profiles/angle", label: "FRP angle profiles" },
+              { href: "/products/standard-profiles/rod", label: "FRP round rod" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/industrial", label: "Wear strips & stiffeners" },
+              { href: "/industries/energy", label: "Solar module clamps" },
+              { href: "/industries/infrastructure", label: "Splice plates" },
+              { href: "/industries/construction", label: "Rooftop supports" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
+              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/resources/technical-data", label: "Data sheets" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Need engineering data or a quotation for flat bar profiles?" />
     </>

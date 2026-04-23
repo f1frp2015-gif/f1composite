@@ -4,13 +4,14 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Grating — Molded & Pultruded Fiberglass Grating Panels";
+const pageTitle =
+  "FRP Gratings & Decks — Molded, Pultruded & Structural Deck Panels";
 const pageDescription =
-  "Molded and pultruded fiberglass grating with anti-slip surfaces. FRP grating panels for marine, chemical, industrial platforms. Corrosion-proof, lightweight, load capacity to 500 kN/m². Get specifications and pricing.";
+  "Molded and pultruded fiberglass gratings plus FRP structural deck panels. Anti-slip surfaces for marine, chemical, and infrastructure platforms. Deck panels for pedestrian bridges and bridge deck replacement. Corrosion-proof, lightweight, full load tables and specifications.";
 const pagePath = "/products/gratings";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -57,6 +58,19 @@ const gratingTypes = [
       { label: "Standard colors", value: "Grey (RAL 7035), Safety yellow (RAL 1023)" },
     ],
   },
+  {
+    name: "Structural Deck Panels",
+    description:
+      "FRP structural deck panels are pultruded, closed-top composite planks engineered as a continuous walking or driving surface. Unlike open-mesh gratings, deck panels provide a fully sealed top face that carries point loads without requiring a separate cover plate — making them the preferred specification for pedestrian bridge decks, observation platforms, elevated walkways, and FRP bridge deck replacement projects. Each plank incorporates internal webs that give the panel superior flexural stiffness relative to its depth, enabling longer clear spans than conventional molded grating. Deck panels are supplied with integrally pigmented UV-stable surfaces and a gritted anti-slip top, with interlocking tongue-and-groove joints that distribute wheel loads across adjacent planks and eliminate trip hazards. Typical applications include pedestrian bridges (5–12 m spans), vehicular access decks rated for light and medium vehicles, offshore helideck surrounds, solar farm walkways, and stadium platform decks where a clean architectural appearance is required alongside corrosion immunity.",
+    specs: [
+      { label: "Panel depth", value: "40 mm, 50 mm, 75 mm, 100 mm" },
+      { label: "Panel width", value: "305 mm, 500 mm, 610 mm" },
+      { label: "Maximum span", value: "Up to 3.6 m (100 mm panel, pedestrian load)" },
+      { label: "Joint system", value: "Tongue-and-groove interlock, bonded and/or bolted" },
+      { label: "Load classes", value: "AASHTO H-5 / H-10 / H-20 available for vehicular" },
+      { label: "Resin systems", value: "Isophthalic polyester, vinyl ester, polyurethane" },
+    ],
+  },
 ];
 
 const loadRatings = [
@@ -90,6 +104,16 @@ const antiSlipGrades = [
 
 const faqItems = [
   {
+    question: "What is the difference between FRP gratings and FRP deck panels?",
+    answer:
+      "FRP gratings are open-mesh panels formed by bi-directional glass fiber (molded) or by interlocking pultruded bearing bars (pultruded). They provide high drainage, light transmission, and reduced wind load, but small objects can fall through the mesh. FRP deck panels (also called structural deck planks) are closed-top pultruded planks with internal webs and an integrally sealed top surface — they carry concentrated loads without requiring a cover plate, span longer than gratings of equivalent depth, and are the preferred specification for pedestrian bridge decks, vehicular access platforms, and FRP bridge deck replacement projects.",
+  },
+  {
+    question: "What spans can FRP deck panels achieve?",
+    answer:
+      "F1 Composite pultruded FRP deck panels span up to 3.6 m under pedestrian load with a 100 mm panel depth. Shorter spans of 1.2–2.4 m are typical for panels rated to AASHTO H-10 or H-20 vehicular load. For longer pedestrian bridge decks, multiple panels are spliced with tongue-and-groove joints and supported on intermediate FRP or steel cross-beams. Full span/load/deflection tables are available on request for project-specific design.",
+  },
+  {
     question: "How do FRP gratings compare to steel gratings in terms of weight and load capacity?",
     answer:
       "FRP gratings weigh approximately 25-35% of an equivalent steel grating, which dramatically reduces structural support requirements, transport costs, and installation labor. A standard 38 mm molded FRP grating weighs approximately 18 kg/m\u00B2 compared to 55-65 kg/m\u00B2 for a comparable hot-dip galvanized steel grating. In terms of load capacity, FRP gratings are designed to the same load class specifications as steel, though the lower elastic modulus of FRP means that deflection often governs the design, particularly at longer spans.",
@@ -116,26 +140,26 @@ export default function GratingsPage() {
     <>
       <JsonLd
         data={buildProductSchema({
-          name: "FRP Gratings",
+          name: "FRP Gratings & Decks",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/plank-grating.png",
-          category: "FRP Gratings",
-          material: ["Glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Phenolic resin"],
+          category: "FRP Gratings & Structural Deck Panels",
+          material: ["Glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Phenolic resin", "Polyurethane resin"],
           additionalProperty: [
-            { name: "Configurations", value: "Molded, pultruded, and solid-top cover plates" },
-            { name: "Use Cases", value: "Marine, chemical, industrial, and infrastructure platforms" },
+            { name: "Configurations", value: "Molded gratings, pultruded gratings, solid-top cover plates, structural deck panels" },
+            { name: "Use Cases", value: "Marine, chemical, industrial platforms, pedestrian bridge decks, vehicular access decks" },
           ],
         })}
       />
       <PageHeader
-        tag="Gratings"
-        title="FRP Gratings for Industrial & Marine Environments"
-        description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings that eliminate the maintenance cycle of steel. Molded, pultruded, and solid-top configurations for every load class and environment."
+        tag="Gratings & Decks"
+        title="FRP Gratings & Structural Deck Panels"
+        description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings and structural deck panels — molded and pultruded gratings, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products" },
-          { label: "Gratings" },
+          { label: "Gratings & Decks" },
         ]}
       />
 
@@ -160,13 +184,14 @@ export default function GratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="max-w-[780px]">
             <p className="text-f19 leading-golden text-t2">
-              FRP (fiber-reinforced polymer) gratings, also known as GRP (glass-reinforced
-              polymer) gratings, deliver the structural performance of steel gratings at a
-              fraction of the weight and with zero corrosion risk. At F1 Composite, we
-              manufacture both molded and pultruded grating systems alongside solid-top cover
-              plates, providing a complete platform flooring solution for industrial plants,
-              offshore platforms, marine vessels, wastewater treatment facilities, and public
-              infrastructure.
+              FRP (fiber-reinforced polymer) gratings and structural deck panels, also known
+              as GRP (glass-reinforced polymer) gratings and FRP decking, deliver the
+              structural performance of steel at a fraction of the weight and with zero
+              corrosion risk. At F1 Composite, we manufacture molded and pultruded grating
+              systems, solid-top cover plates, and pultruded structural deck panels — a
+              complete platform and decking solution for industrial plants, offshore
+              platforms, marine vessels, wastewater treatment facilities, pedestrian bridges,
+              and FRP bridge deck replacement projects.
             </p>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
               The economic case for FRP gratings extends far beyond the initial material cost.
@@ -187,9 +212,9 @@ export default function GratingsPage() {
       {/* Grating Types */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Grating Types</SectionTag>
+          <SectionTag>Product Configurations</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Three configurations for every application
+            Four configurations for every application
           </h2>
 
           <div className="mt-[34px] space-y-[34px]">
@@ -297,23 +322,40 @@ export default function GratingsPage() {
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Related resources</h2>
-          <div className="flex flex-col gap-[13px] sm:flex-row sm:gap-[34px]">
-            <LinkArrow href="/industries/marine">
-              Marine industry solutions
-            </LinkArrow>
-            <LinkArrow href="/industries/industrial">
-              Industrial applications
-            </LinkArrow>
-            <LinkArrow href="/contact">
-              Request a quotation
-            </LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        background="white"
+        groups={[
+          {
+            title: "Related FRP products",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam support" },
+              { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
+              { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/marine", label: "Marine & offshore gratings" },
+              { href: "/industries/industrial", label: "Chemical plant platforms" },
+              { href: "/case-studies/coastal-marina-walkway", label: "Coastal marina case study" },
+              { href: "/case-studies/chemical-plant-platform", label: "Chemical plant case study" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings — full comparison" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/quality-testing", label: "Fire & slip testing (BS 476 / AS 4586)" },
+              { href: "/resources/technical-data", label: "Load tables & data sheets" },
+              { href: "/resources/design-guides", label: "Grating design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       {/* FAQ */}
       <section className="bg-bg2 py-[89px]">
@@ -322,7 +364,7 @@ export default function GratingsPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need gratings for your next project?" />
+      <InnerCTA title="Need FRP gratings or deck panels for your next project?" />
     </>
   );
 }

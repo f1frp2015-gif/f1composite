@@ -34,36 +34,100 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 function renderArticleContent(content: string) {
-  return content.split("\n\n").map((paragraph, index) => {
+  const blocks = content.split("\n\n");
+  const result: React.ReactNode[] = [];
+  let i = 0;
+
+  while (i < blocks.length) {
+    const paragraph = blocks[i];
+    const index = i;
+
+    // Table: collect consecutive blocks that start with |
+    if (paragraph.startsWith("|")) {
+      const tableLines: string[] = [];
+      let j = i;
+      while (j < blocks.length) {
+        const block = blocks[j];
+        if (block.startsWith("|")) {
+          block.split("\n").forEach((line) => {
+            if (line.trim()) tableLines.push(line.trim());
+          });
+          j++;
+        } else {
+          break;
+        }
+      }
+      i = j;
+
+      // Parse: first line = headers, second = separator (skip), rest = rows
+      const headerCells = tableLines[0].split("|").filter((c) => c.trim()).map((c) => c.trim());
+      const dataRows = tableLines.slice(2).map((line) =>
+        line.split("|").filter((c) => c.trim()).map((c) => c.trim())
+      );
+
+      result.push(
+        <div key={index} className="my-[21px] overflow-x-auto">
+          <table className="w-full border-collapse text-left">
+            <thead>
+              <tr className="border-b-2 border-border-default">
+                {headerCells.map((cell, ci) => (
+                  <th key={ci} className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    {cell}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {dataRows.map((row, ri) => (
+                <tr key={ri} className="border-b border-border-default">
+                  {row.map((cell, ci) => (
+                    <td key={ci} className={`py-[13px] pr-[21px] text-f15 ${ci === 0 ? "font-medium text-t1" : "text-t2"}`}>
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      continue;
+    }
+
+    i++;
+
     if (paragraph.startsWith("## ")) {
-      return (
+      result.push(
         <h2 key={index} className="mb-[13px] mt-[34px] text-f24 font-bold text-t1">
           {paragraph.replace("## ", "")}
         </h2>
       );
+      continue;
     }
 
     if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
-      return (
+      result.push(
         <h3 key={index} className="mb-[8px] mt-[21px] text-f15 font-bold text-t1">
           {paragraph.replace(/\*\*/g, "")}
         </h3>
       );
+      continue;
     }
 
     if (paragraph.startsWith("**")) {
       const parts = paragraph.split("**");
-      return (
+      result.push(
         <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
           <strong className="text-t1">{parts[1]}</strong>
           {parts.slice(2).join("**")}
         </p>
       );
+      continue;
     }
 
     const linkBlockMatch = paragraph.match(/^\[(.+?)\]\((.+?)\)$/);
     if (linkBlockMatch) {
-      return (
+      result.push(
         <p key={index} className="my-[21px]">
           <a
             href={linkBlockMatch[2]}
@@ -79,11 +143,12 @@ function renderArticleContent(content: string) {
           </a>
         </p>
       );
+      continue;
     }
 
     const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
     if (videoMatch) {
-      return (
+      result.push(
         <figure key={index} className="my-[21px] overflow-hidden rounded-[8px] border border-border-default bg-black">
           <video
             src={videoMatch[1]}
@@ -99,14 +164,17 @@ function renderArticleContent(content: string) {
           )}
         </figure>
       );
+      continue;
     }
 
-    return (
+    result.push(
       <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
         {paragraph}
       </p>
     );
-  });
+  }
+
+  return result;
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

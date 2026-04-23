@@ -18,6 +18,29 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/energy/opengraph-image",
 });
 
+const answerItems = [
+  {
+    question: "Why use FRP in energy applications?",
+    answer:
+      "FRP is used in energy applications because it provides electrical insulation, corrosion resistance, low weight, and good long-term performance in outdoor and high-voltage environments.",
+  },
+  {
+    question: "Where is FRP commonly used in the energy sector?",
+    answer:
+      "Common uses include cable trays, ladders, transformer spacers, insulating supports, solar mounting elements, wind turbine components, and substation structures.",
+  },
+  {
+    question: "What is the main safety advantage of FRP in power facilities?",
+    answer:
+      "The main safety advantage is that FRP is non-conductive, so it does not create the same fault-current and grounding issues that metallic support systems can introduce.",
+  },
+  {
+    question: "Why is FRP attractive for renewable energy projects?",
+    answer:
+      "FRP is attractive for renewables because it combines UV durability, low maintenance, corrosion resistance, and reduced structural weight over long service periods.",
+  },
+];
+
 const faqs = [
   {
     question: "What dielectric strength do FRP profiles provide for electrical insulation?",
@@ -70,9 +93,23 @@ export default function EnergyPage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Energy & Power"
         title="FRP Composite Profiles for Energy & Electric Power"
@@ -104,28 +141,8 @@ export default function EnergyPage() {
         tag="Energy Answers"
         title="Short answers for power, cable management, and renewables"
         description="These answer blocks are tuned for electrical, renewable, and utility contexts where insulation, UV stability, and non-magnetic behavior matter."
-        items={[
-          {
-            question: "Why use FRP in energy applications?",
-            answer:
-              "FRP is used in energy applications because it provides electrical insulation, corrosion resistance, low weight, and good long-term performance in outdoor and high-voltage environments.",
-          },
-          {
-            question: "Where is FRP commonly used in the energy sector?",
-            answer:
-              "Common uses include cable trays, ladders, transformer spacers, insulating supports, solar mounting elements, wind turbine components, and substation structures.",
-          },
-          {
-            question: "What is the main safety advantage of FRP in power facilities?",
-            answer:
-              "The main safety advantage is that FRP is non-conductive, so it does not create the same fault-current and grounding issues that metallic support systems can introduce.",
-          },
-          {
-            question: "Why is FRP attractive for renewable energy projects?",
-            answer:
-              "FRP is attractive for renewables because it combines UV durability, low maintenance, corrosion resistance, and reduced structural weight over long service periods.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -301,7 +318,7 @@ export default function EnergyPage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
 

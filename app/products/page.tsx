@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import SolutionCard from "@/components/ui/SolutionCard";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -12,7 +14,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pultruded FRP Profiles & Fiberglass Structural Shapes",
   description:
-    "Browse pultruded FRP profiles: fiberglass I-beams, channels, angles, tubes, custom pultrusion shapes, fenestration window frames, and FRP gratings. Corrosion-free, 75% lighter than steel, EN 13706 certified.",
+    "Browse pultruded FRP profiles: fiberglass I-beams, channels, angles, tubes, custom pultrusion shapes, fenestration window frames, FRP gratings, and structural deck panels. Corrosion-free, 75% lighter than steel, EN 13706 certified.",
   path: "/products",
   image: "/products/opengraph-image",
 });
@@ -55,7 +57,7 @@ export default function ProductsPage() {
     "@type": "CollectionPage",
     name: "F1 Composite Products",
     description:
-      "Pultruded FRP profiles, custom pultrusions, fenestration systems, and gratings engineered for industrial and infrastructure projects.",
+      "Pultruded FRP profiles, custom pultrusions, fenestration systems, gratings, and structural deck panels engineered for industrial and infrastructure projects.",
     url: absoluteUrl("/products"),
     hasPart: productCategories.map((cat) => ({
       "@type": "WebPage",
@@ -186,6 +188,81 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Deep-dive product hubs",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles (hub)" },
+              { href: "/products/standard-profiles", label: "Standard FRP profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+              { href: "/products/fenestration-systems", label: "FRP window frames" },
+              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+            ],
+          },
+          {
+            title: "Industries served",
+            links: [
+              { href: "/industries/construction", label: "Construction & building envelopes" },
+              { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
+              { href: "/industries/energy", label: "Energy & solar" },
+              { href: "/industries/marine", label: "Marine & offshore" },
+              { href: "/industries/industrial", label: "Industrial & chemical" },
+              { href: "/industries/vehicle", label: "Vehicle & rail" },
+            ],
+          },
+          {
+            title: "Technology & resources",
+            links: [
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+              { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel / aluminum" },
+              { href: "/resources/technical-data", label: "Data sheets & test certificates" },
+              { href: "/resources/design-guides", label: "Engineering design guides" },
+              { href: "/case-studies", label: "Project case studies" },
+            ],
+          },
+        ]}
+      />
+
+      <AnswerBlocks
+        tag="Buyer FAQ"
+        title="Specifying pultruded FRP profiles — quick answers"
+        description="Short reference answers for procurement managers and specifying engineers comparing F1 Composite with Strongwell, Fiberline, Creative Pultrusions, Exel Composites, and other pultrusion manufacturers."
+        items={[
+          {
+            question: "What size range is available for standard pultruded FRP profiles?",
+            answer:
+              "FRP I-beams 76×38 to 305×305 mm; channels 38×13 to 305×89 mm; angles 25×25 to 152×152 mm; square tubes 25×25 to 240×240 mm; round tubes 25 to 150 mm OD; flat bars 12×3 to 305×25 mm; rods 6 to 50 mm diameter. Custom profiles up to 600×300 mm cross-section.",
+          },
+          {
+            question: "What is the minimum order quantity?",
+            answer:
+              "Stock standard profiles: no MOQ. Custom profiles (existing tooling): 200 m. Custom profiles (new tooling): 500 m first run, 200 m repeat. Gratings: typically 50 m² per order. Fenestration projects: typically 500+ linear meters.",
+          },
+          {
+            question: "How does lead time work?",
+            answer:
+              "Stock standard profiles: 2–4 weeks. Custom profiles (existing tooling): 4–6 weeks. Custom profiles (new tooling): 6–10 weeks total — 1–2 weeks cross-section approval, 3–6 weeks die manufacturing, 1 week sample approval, 1–2 weeks first production batch.",
+          },
+          {
+            question: "What standards are products manufactured to?",
+            answer:
+              "EN 13706-1/2/3 (structural grades E17 and E23), ASTM D3917 (dimensional tolerance ±0.25 mm), ISO 9001:2015 (quality system). Fire-rated products qualified to BS 476 Part 7, ASTM E84, or EN 45545-2 depending on application. Fenestration 90-series is PHI (Passive House Institute) certified.",
+          },
+          {
+            question: "Do you supply matching FRP hardware and accessories?",
+            answer:
+              "Yes. Stainless steel A2/A4 bolts with oversized washers, FRP bolts for non-conductive assemblies, FRP clip systems for grating attachment, adhesive kits (methacrylate and epoxy), and phenolic fire-rated gaskets are supplied with F1 Composite projects.",
+          },
+          {
+            question: "How does F1 Composite compare with Western pultrusion suppliers?",
+            answer:
+              "F1 Composite manufactures to the same EN 13706 and ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, Creative Pultrusions (SuperStrut®), Exel Composites, and Top Glass. Differentiators: 370 pultrusion lines (largest China-based capacity), direct-from-factory export pricing, and 3–6 week custom tooling.",
+          },
+        ]}
+      />
 
       <InnerCTA title="Ready to specify FRP for your next project?" />
     </>

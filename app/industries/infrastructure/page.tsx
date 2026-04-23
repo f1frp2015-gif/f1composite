@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
@@ -17,6 +18,29 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/industries/infrastructure",
   image: "/industries/infrastructure/opengraph-image",
 });
+
+const answerItems = [
+  {
+    question: "Why use FRP in infrastructure projects?",
+    answer:
+      "FRP is used in infrastructure projects because it reduces dead load, resists corrosion from de-icing salts and coastal exposure, and lowers lifecycle maintenance compared with steel and reinforced concrete.",
+  },
+  {
+    question: "Where is FRP used in infrastructure?",
+    answer:
+      "Common infrastructure uses include bridge decks, pedestrian bridges, utility poles, cable trays, handrails, guardrails, and walkway structures in corrosive or weight-sensitive environments.",
+  },
+  {
+    question: "How long can FRP infrastructure components last?",
+    answer:
+      "Properly specified FRP infrastructure components are commonly designed for 75 to 100 years of service life, with far lower corrosion-related maintenance than steel alternatives.",
+  },
+  {
+    question: "What is the main economic advantage of FRP for bridge rehabilitation?",
+    answer:
+      "The main economic advantage is lifecycle savings: FRP bridge and access components reduce maintenance shutdowns, coatings, and replacement cycles while also lowering installation cost through lighter weight.",
+  },
+];
 
 const faqs = [
   {
@@ -60,9 +84,23 @@ export default function InfrastructurePage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Infrastructure"
         title="FRP Composite Profiles for Infrastructure"
@@ -94,28 +132,8 @@ export default function InfrastructurePage() {
         tag="Infrastructure Answers"
         title="Direct answers for bridge, walkway, and utility asset teams"
         description="These short answers are written to be easy for engineers, owners, and answer engines to quote when evaluating FRP for infrastructure applications."
-        items={[
-          {
-            question: "Why use FRP in infrastructure projects?",
-            answer:
-              "FRP is used in infrastructure projects because it reduces dead load, resists corrosion from de-icing salts and coastal exposure, and lowers lifecycle maintenance compared with steel and reinforced concrete.",
-          },
-          {
-            question: "Where is FRP used in infrastructure?",
-            answer:
-              "Common infrastructure uses include bridge decks, pedestrian bridges, utility poles, cable trays, handrails, guardrails, and walkway structures in corrosive or weight-sensitive environments.",
-          },
-          {
-            question: "How long can FRP infrastructure components last?",
-            answer:
-              "Properly specified FRP infrastructure components are commonly designed for 75 to 100 years of service life, with far lower corrosion-related maintenance than steel alternatives.",
-          },
-          {
-            question: "What is the main economic advantage of FRP for bridge rehabilitation?",
-            answer:
-              "The main economic advantage is lifecycle savings: FRP bridge and access components reduce maintenance shutdowns, coatings, and replacement cycles while also lowering installation cost through lighter weight.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -280,9 +298,46 @@ export default function InfrastructurePage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "FRP profiles for infrastructure",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beams for bridges" },
+              { href: "/products/standard-profiles/channel", label: "FRP channels for stringers" },
+              { href: "/products/gratings", label: "FRP gratings & bridge deck panels" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusions for infrastructure" },
+              { href: "/products/standard-profiles/rod", label: "FRP rods for soil nails & rock bolts" },
+            ],
+          },
+          {
+            title: "Technical reference",
+            links: [
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+              { href: "/technology/pultrusion-process", label: "Pultrusion process" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel / concrete" },
+              { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings — detailed" },
+              { href: "/resources/design-guides", label: "Bridge & handrail design guides" },
+              { href: "/resources/technical-data", label: "Load tables & data sheets" },
+            ],
+          },
+          {
+            title: "Proof & related industries",
+            links: [
+              { href: "/case-studies/european-bridge-deck", label: "European bridge deck case study" },
+              { href: "/case-studies/water-treatment-cable-tray", label: "Water treatment cable tray case study" },
+              { href: "/industries/construction", label: "Construction sector" },
+              { href: "/industries/marine", label: "Marine & offshore" },
+              { href: "/industries/energy", label: "Energy & solar" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Planning an infrastructure project with FRP?" />
     </>

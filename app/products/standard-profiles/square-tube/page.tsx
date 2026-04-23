@@ -5,7 +5,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Square Tubes — SHS & RHS Profiles";
@@ -140,18 +140,40 @@ export default function SquareTubePage() {
         </div>
       </section>
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/standard-profiles">All standard profiles</LinkArrow>
-            <LinkArrow href="/products/custom-pultrusions">Need a custom size?</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel comparison</LinkArrow>
-            <LinkArrow href="/industries/infrastructure">Infrastructure applications</LinkArrow>
-            <LinkArrow href="/industries/construction">Construction applications</LinkArrow>
-            <LinkArrow href="/contact">Request a quotation</LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        groups={[
+          {
+            title: "Related FRP profiles",
+            links: [
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam profiles" },
+              { href: "/products/standard-profiles/channel", label: "FRP channel profiles" },
+              { href: "/products/standard-profiles/tube", label: "FRP round tube" },
+              { href: "/products/standard-profiles/flat-bar", label: "FRP flat bar" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/infrastructure", label: "Infrastructure trusses" },
+              { href: "/industries/construction", label: "Construction columns" },
+              { href: "/industries/energy", label: "Solar racking posts" },
+              { href: "/industries/industrial", label: "Industrial frames" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
+              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/resources/technical-data", label: "Data sheets" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
@@ -137,6 +139,82 @@ export default function TechnologyPage() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Product references",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/standard-profiles", label: "Standard FRP structural profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusions" },
+              { href: "/products/fenestration-systems", label: "FRP window frames" },
+              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+            ],
+          },
+          {
+            title: "Deeper technical reading",
+            links: [
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+              { href: "/technology/pultrusion-process", label: "Pultrusion process (6 stages)" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
+              { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
+              { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
+              { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings" },
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
+              { href: "/resources/design-guides", label: "Engineering design guides" },
+            ],
+          },
+          {
+            title: "Applications & proof",
+            links: [
+              { href: "/industries", label: "All industries served" },
+              { href: "/case-studies", label: "Case studies (30+ countries)" },
+              { href: "/resources/blog", label: "Engineering blog" },
+              { href: "/resources/technical-data", label: "Technical data sheets" },
+              { href: "/ask", label: "Ask the AI engineering assistant" },
+            ],
+          },
+        ]}
+      />
+
+      <AnswerBlocks
+        tag="Engineering quick answers"
+        title="FRP engineering — short technical answers"
+        description="Concise, citation-ready responses to the questions our engineering team is asked most often. For deeper context, see the pultrusion process, FRP vs traditional materials, and quality testing pages."
+        items={[
+          {
+            question: "What design code governs pultruded FRP structures?",
+            answer:
+              "In North America, ASCE/SEI 74-23 (Pre-Standard for LRFD of Pultruded FRP Structures) is the primary reference. In Europe, EN 13706-1/2/3 defines grades E17 and E23 and test methods. Additional references include the EUROCOMP Design Code and ACI 440 guidelines for FRP rebar.",
+          },
+          {
+            question: "What tolerance can pultrusion achieve?",
+            answer:
+              "Dimensional tolerance is typically ±0.25 mm on cross-section (EN 13706 / ASTM D3917), straightness 1.5 mm/m, and twist 2°/m. F1 Composite verifies every production run with SPC monitoring and dimensional inspection per ASTM D3917.",
+          },
+          {
+            question: "What fiber content is typical in pultruded FRP?",
+            answer:
+              "45–65% glass fiber by weight in general structural profiles, verified by burn-off testing per ASTM D2584. Unidirectional-dominant sections (e.g. flat bar, rod) can reach 70% glass for maximum stiffness-to-weight.",
+          },
+          {
+            question: "What is the typical elastic modulus of pultruded FRP?",
+            answer:
+              "Longitudinal elastic modulus is 17–28 GPa for E-glass/polyester pultruded profiles, compared with 200 GPa for steel and 69 GPa for aluminum. Because modulus is lower, deflection (L/360 limit) typically governs FRP design rather than strength.",
+          },
+          {
+            question: "How are FRP profiles connected on site?",
+            answer:
+              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding — thermoset FRP cannot be welded or heated.",
+          },
+          {
+            question: "What fire performance can FRP achieve?",
+            answer:
+              "Standard polyester FRP is self-extinguishing (UL 94 V-0). With fire-retardant additives, FRP achieves ASTM E84 Class I surface burning. Phenolic-resin pultruded profiles achieve Class 1 surface spread of flame (BS 476 Part 7), low smoke, and low toxicity — qualified for rail interiors per EN 45545-2 and offshore applications.",
+          },
+        ]}
+      />
 
       <InnerCTA title="Need technical guidance for your FRP project?" />
     </>

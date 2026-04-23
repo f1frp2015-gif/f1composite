@@ -18,6 +18,29 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/marine/opengraph-image",
 });
 
+const answerItems = [
+  {
+    question: "Why use FRP in marine environments?",
+    answer:
+      "FRP is used in marine environments because it is immune to saltwater corrosion, much lighter than steel, and requires far less maintenance on docks, offshore platforms, and vessel structures.",
+  },
+  {
+    question: "Where is FRP commonly used in marine projects?",
+    answer:
+      "Common marine uses include dock framing, walkways, gratings, handrails, offshore secondary structures, coastal boardwalks, and interior vessel components.",
+  },
+  {
+    question: "How does FRP compare with marine-grade steel or stainless steel?",
+    answer:
+      "FRP avoids the pitting, crevice corrosion, and coating maintenance issues that still affect marine-grade steels and stainless steels in splash-zone or salt-laden service.",
+  },
+  {
+    question: "What is a major economic reason to specify FRP offshore?",
+    answer:
+      "A major economic reason is that lower weight and lower corrosion maintenance can reduce topside structural cost, installation complexity, and long-term offshore service campaigns.",
+  },
+];
+
 const faqs = [
   {
     question: "How does FRP resist saltwater corrosion compared to stainless steel?",
@@ -60,9 +83,23 @@ export default function MarinePage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Marine"
         title="FRP Composite Profiles for Marine Applications"
@@ -94,28 +131,8 @@ export default function MarinePage() {
         tag="Marine Answers"
         title="Quick answers for docks, offshore structures, and vessels"
         description="These direct answer blocks help buyers and search engines understand why FRP is frequently selected for saltwater and coastal applications."
-        items={[
-          {
-            question: "Why use FRP in marine environments?",
-            answer:
-              "FRP is used in marine environments because it is immune to saltwater corrosion, much lighter than steel, and requires far less maintenance on docks, offshore platforms, and vessel structures.",
-          },
-          {
-            question: "Where is FRP commonly used in marine projects?",
-            answer:
-              "Common marine uses include dock framing, walkways, gratings, handrails, offshore secondary structures, coastal boardwalks, and interior vessel components.",
-          },
-          {
-            question: "How does FRP compare with marine-grade steel or stainless steel?",
-            answer:
-              "FRP avoids the pitting, crevice corrosion, and coating maintenance issues that still affect marine-grade steels and stainless steels in splash-zone or salt-laden service.",
-          },
-          {
-            question: "What is a major economic reason to specify FRP offshore?",
-            answer:
-              "A major economic reason is that lower weight and lower corrosion maintenance can reduce topside structural cost, installation complexity, and long-term offshore service campaigns.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -281,9 +298,21 @@ export default function MarinePage() {
                 Read case study →
               </span>
             </Link>
+            <Link
+              href="/technology/frp-vs-steel-gratings"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Steel Gratings</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Saltwater corrosion resistance, slip resistance on wet decks, weight, and 30-year lifecycle cost compared between FRP and galvanized steel gratings.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read comparison →
+              </span>
+            </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
 

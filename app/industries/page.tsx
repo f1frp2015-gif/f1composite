@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { industries } from "@/content/data/industries";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
@@ -101,6 +102,40 @@ export default function IndustriesPage() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Product families for every sector",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/standard-profiles", label: "Standard structural profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+              { href: "/products/fenestration-systems", label: "FRP window frames" },
+              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+            ],
+          },
+          {
+            title: "Technical reference",
+            links: [
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel / aluminum" },
+              { href: "/technology/pultrusion-process", label: "Pultrusion process" },
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
+            ],
+          },
+          {
+            title: "Proof & resources",
+            links: [
+              { href: "/case-studies", label: "Case studies in 30+ countries" },
+              { href: "/resources/blog", label: "Engineering blog" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/resources/technical-data", label: "Data sheets" },
+              { href: "/ask", label: "Ask the AI engineering assistant" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Not sure which FRP solution fits your project?" />
     </>

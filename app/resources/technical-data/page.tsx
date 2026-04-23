@@ -20,6 +20,21 @@ export default function TechnicalDataPage() {
     description:
       "Mechanical properties, density, glass content, and reference test standards for pultruded E-glass polyester FRP profiles.",
     url: absoluteUrl("/resources/technical-data"),
+    creator: {
+      "@type": "Organization",
+      name: "F1 Composite",
+      url: absoluteUrl("/"),
+      legalName: "FengDu New Material",
+    },
+    license: absoluteUrl("/terms"),
+    isAccessibleForFree: true,
+    keywords: [
+      "FRP mechanical properties",
+      "pultruded fiberglass specifications",
+      "E-glass polyester data sheet",
+      "ASTM D638 tensile strength",
+      "ASTM D790 flexural modulus",
+    ],
   };
 
   return (

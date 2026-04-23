@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const SITE_URL = "https://f1composite.com";
+const SITE_URL = "https://www.f1composite.com";
 
 interface PageMetadataOptions {
   title: string;
@@ -76,27 +76,67 @@ export function buildProductSchema({
       name: "F1 Composite",
     },
     manufacturer: {
+      "@id": `${SITE_URL}/#organization`,
       "@type": "Organization",
       name: "F1 Composite",
       url: SITE_URL,
     },
+    isRelatedTo: {
+      "@type": "Product",
+      name: "Pultruded FRP Profiles",
+      url: absoluteUrl("/pultruded-frp-profiles"),
+    },
     offers: {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
+      url: absoluteUrl("/contact"),
+      priceCurrency: "USD",
+      lowPrice: "5",
+      highPrice: "300",
+      offerCount: "100",
       availability: "https://schema.org/InStock",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "USD",
+      itemCondition: "https://schema.org/NewCondition",
+      businessFunction: "http://purl.org/goodrelations/v1#Sell",
+      eligibleQuantity: {
+        "@type": "QuantitativeValue",
+        unitText: "linear meter",
       },
       seller: {
+        "@id": `${SITE_URL}/#organization`,
         "@type": "Organization",
         name: "F1 Composite",
       },
     },
     material,
-    additionalProperty: additionalProperty.map((item) => ({
-      "@type": "PropertyValue",
-      name: item.name,
-      value: item.value,
-    })),
+    hasMeasurement: [
+      {
+        "@type": "QuantitativeValue",
+        propertyID: "density",
+        value: "1.9",
+        unitText: "g/cm^3",
+      },
+      {
+        "@type": "QuantitativeValue",
+        propertyID: "thermal conductivity",
+        value: "0.3",
+        unitText: "W/(m·K)",
+      },
+    ],
+    additionalProperty: [
+      {
+        "@type": "PropertyValue",
+        name: "Manufacturing standard",
+        value: "EN 13706 / ASTM D3917",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Quality system",
+        value: "ISO 9001:2015",
+      },
+      ...additionalProperty.map((item) => ({
+        "@type": "PropertyValue",
+        name: item.name,
+        value: item.value,
+      })),
+    ],
   };
 }

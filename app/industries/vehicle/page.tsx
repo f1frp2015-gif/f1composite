@@ -18,6 +18,29 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/vehicle/opengraph-image",
 });
 
+const answerItems = [
+  {
+    question: "Why use FRP in vehicle construction?",
+    answer:
+      "FRP is 75% lighter than steel with comparable strength, does not corrode, and requires no protective coatings. This reduces vehicle weight, extends service life, and lowers maintenance costs across the vehicle lifecycle.",
+  },
+  {
+    question: "Where is FRP used in vehicles?",
+    answer:
+      "Body framing members, floor cross-beams, roof bows, side pillars, cable conduits, interior panel supports, luggage rack structures, exterior cladding supports, and underframe components.",
+  },
+  {
+    question: "Is FRP suitable for electric vehicles?",
+    answer:
+      "Yes. The weight savings extend battery range, and the electrical insulation property provides inherent isolation between battery systems and vehicle structure — reducing high-voltage safety engineering complexity.",
+  },
+  {
+    question: "Does FRP meet fire safety standards for rail?",
+    answer:
+      "Yes. Phenolic and modified acrylic resin FRP profiles meet EN 45545-2 fire, smoke, and toxicity requirements for rail vehicle interior and exterior applications.",
+  },
+];
+
 const faqs = [
   {
     question: "How much weight can FRP profiles save in vehicle applications?",
@@ -60,9 +83,23 @@ export default function VehiclePage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Vehicle"
         title="FRP Composite Profiles for Vehicle & Transport"
@@ -94,28 +131,8 @@ export default function VehiclePage() {
         tag="Vehicle Answers"
         title="Short answers for transport engineers and vehicle designers"
         description="Quick-reference answers for evaluating FRP profiles in vehicle body structures, rail interiors, and specialty transport."
-        items={[
-          {
-            question: "Why use FRP in vehicle construction?",
-            answer:
-              "FRP is 75% lighter than steel with comparable strength, does not corrode, and requires no protective coatings. This reduces vehicle weight, extends service life, and lowers maintenance costs across the vehicle lifecycle.",
-          },
-          {
-            question: "Where is FRP used in vehicles?",
-            answer:
-              "Body framing members, floor cross-beams, roof bows, side pillars, cable conduits, interior panel supports, luggage rack structures, exterior cladding supports, and underframe components.",
-          },
-          {
-            question: "Is FRP suitable for electric vehicles?",
-            answer:
-              "Yes. The weight savings extend battery range, and the electrical insulation property provides inherent isolation between battery systems and vehicle structure — reducing high-voltage safety engineering complexity.",
-          },
-          {
-            question: "Does FRP meet fire safety standards for rail?",
-            answer:
-              "Yes. Phenolic and modified acrylic resin FRP profiles meet EN 45545-2 fire, smoke, and toxicity requirements for rail vehicle interior and exterior applications.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -266,7 +283,7 @@ export default function VehiclePage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
 

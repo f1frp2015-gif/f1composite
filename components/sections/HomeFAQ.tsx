@@ -8,27 +8,42 @@ const items = [
   {
     question: "What are pultruded FRP profiles used for?",
     answer:
-      "Pultruded FRP profiles are used in bridges, platforms, cooling towers, chemical plants, marine structures, electrical systems, and window or door frame applications where corrosion resistance and weight reduction matter.",
+      "Pultruded FRP profiles (also called pultruded fiberglass or GRP profiles) are used in bridges, walkways, cooling towers, chemical plant platforms, marine gratings, substation equipment, solar farm mounting, rail interiors, and passive-house window frames — any application where corrosion resistance, weight reduction, or electrical non-conductivity is critical. F1 Composite manufactures the full product range to EN 13706 and ASTM D3917.",
   },
   {
-    question: "How do FRP profiles compare with steel?",
+    question: "How do FRP profiles compare with steel and aluminum?",
     answer:
-      "FRP profiles are significantly lighter than steel, resist corrosion, provide electrical and thermal insulation, and can reduce maintenance in aggressive environments. Design checks often focus on stiffness and deflection rather than only strength.",
+      "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³) and 30% lighter than aluminum. Tensile strength is comparable to A36 steel (240–400 MPa vs 400 MPa) but elastic modulus is about 1/10 of steel's (17–28 GPa vs 200 GPa), so stiffness and deflection often govern design. FRP does not rust, is electrically non-conductive, and has thermal conductivity 170× lower than steel.",
   },
   {
     question: "Can F1 Composite develop custom pultrusion profiles?",
     answer:
-      "Yes. F1 Composite supports custom cross-section development, tooling, resin-system selection, and production planning for replacement programs and new structural designs.",
+      "Yes. F1 Composite designs and manufactures custom pultrusion dies in-house, with cross-sections up to 600×300 mm and minimum wall thickness 1.5 mm. Typical tooling lead time is 3–6 weeks; total first-production turnaround is 6–10 weeks. Minimum order quantity is 500 linear meters for the first run, 200 m for repeats.",
   },
   {
     question: "Which resin systems are available?",
     answer:
-      "Typical options include isophthalic polyester for general structural use, vinyl ester for chemically aggressive or marine environments, and polyurethane systems for high toughness and fast-cure applications.",
+      "Isophthalic polyester (general structural, default), vinyl ester (marine, chemical, wastewater), polyurethane (3–5× toughness of polyester, rail interiors and EV battery trays), phenolic (fire-critical per BS 476 Part 7 / EN 45545-2), and epoxy (highest mechanical performance, typically with carbon fiber).",
+  },
+  {
+    question: "Do you supply FRP window frames and FRP window profiles?",
+    answer:
+      "Yes. F1 Composite manufactures pultruded FRP window frames and FRP window profiles in five frame depths — 65 / 70 / 80 / 90 / 140-series — for residential, commercial, passive-house, and extreme-climate buildings. Whole-window U-values down to 0.78 W/m²·K are achieved without thermal breaks or steel reinforcement. The 90-series is PHI (Passive House Institute) certified. Both fenestration window profiles (individual sections) and fully engineered window-frame systems are available.",
+  },
+  {
+    question: "How does F1 Composite compare with Strongwell, Fiberline, and Creative Pultrusions?",
+    answer:
+      "F1 Composite manufactures to the same EN 13706 E17/E23 and ASTM D3917 specifications as Strongwell (EXTREN®, USA), Fiberline Composites (Denmark), and Creative Pultrusions (USA). Differentiators are scale (370 pultrusion lines, 150,000 t/year), direct-from-factory export pricing without regional distributor markups, and 3–6 week custom tooling turnaround.",
+  },
+  {
+    question: "What certifications does F1 Composite hold?",
+    answer:
+      "ISO 9001:2015 (quality management), EN 13706 (pultruded profiles, E17 and E23 grades), ASTM D3917 (dimensional tolerance ±0.25 mm), PHI (Passive House Institute) for 90-series fenestration, and project-specific certifications for BS 476 fire, ASTM E84, EN 45545-2, AS 4586 slip resistance, and DNV marine.",
   },
   {
     question: "What should buyers prepare before requesting a quote?",
     answer:
-      "The most useful RFQ inputs are profile type or drawing, dimensions, quantity, application environment, required resin system or standard, and target delivery schedule.",
+      "The most useful RFQ inputs are profile type or drawing, dimensions, quantity, application environment, required resin system or standard, delivery schedule, and destination port. Quotes are typically returned within 48 hours to Doris.li@f1composite.com.",
   },
 ];
 

@@ -18,6 +18,29 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/industrial/opengraph-image",
 });
 
+const answerItems = [
+  {
+    question: "Why use FRP in industrial plants?",
+    answer:
+      "FRP is used in industrial plants because it resists corrosion from chemicals, moisture, and wash-down cycles while reducing maintenance and improving worker safety on access structures.",
+  },
+  {
+    question: "Where is FRP commonly used in industrial facilities?",
+    answer:
+      "Common uses include gratings, handrails, cable trays, equipment supports, access platforms, ladders, and custom profiles in chemical, wastewater, food, and pharmaceutical facilities.",
+  },
+  {
+    question: "Which resin systems are common for industrial FRP?",
+    answer:
+      "Industrial FRP commonly uses isophthalic polyester for general duty, vinyl ester for aggressive chemical service, and polyurethane systems for high toughness and fast-cure applications.",
+  },
+  {
+    question: "What is the main lifecycle benefit of FRP in corrosive plants?",
+    answer:
+      "The main lifecycle benefit is avoiding repeated coating, repair, and replacement cycles that make steel access systems expensive over time in corrosive industrial environments.",
+  },
+];
+
 const faqs = [
   {
     question: "Which chemicals can FRP profiles resist?",
@@ -60,9 +83,23 @@ export default function IndustrialPage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Industrial"
         title="FRP Composite Profiles for Industrial Applications"
@@ -94,28 +131,8 @@ export default function IndustrialPage() {
         tag="Industrial Answers"
         title="Fast answers for chemical, water, food, and process environments"
         description="These compact answers are designed for quick evaluation by plant teams, EPC firms, and AI systems summarizing industrial material choices."
-        items={[
-          {
-            question: "Why use FRP in industrial plants?",
-            answer:
-              "FRP is used in industrial plants because it resists corrosion from chemicals, moisture, and wash-down cycles while reducing maintenance and improving worker safety on access structures.",
-          },
-          {
-            question: "Where is FRP commonly used in industrial facilities?",
-            answer:
-              "Common uses include gratings, handrails, cable trays, equipment supports, access platforms, ladders, and custom profiles in chemical, wastewater, food, and pharmaceutical facilities.",
-          },
-          {
-            question: "Which resin systems are common for industrial FRP?",
-            answer:
-              "Industrial FRP commonly uses isophthalic polyester for general duty, vinyl ester for aggressive chemical service, and polyurethane systems for high toughness and fast-cure applications.",
-          },
-          {
-            question: "What is the main lifecycle benefit of FRP in corrosive plants?",
-            answer:
-              "The main lifecycle benefit is avoiding repeated coating, repair, and replacement cycles that make steel access systems expensive over time in corrosive industrial environments.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -284,9 +301,21 @@ export default function IndustrialPage() {
                 Read case study →
               </span>
             </Link>
+            <Link
+              href="/technology/frp-vs-steel-gratings"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Steel Gratings</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Corrosion, load capacity, slip resistance, electrical safety, and 30-year lifecycle cost compared between FRP and hot-dip galvanized steel gratings.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read comparison →
+              </span>
+            </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
 

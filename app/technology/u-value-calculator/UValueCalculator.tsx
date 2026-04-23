@@ -8,15 +8,15 @@ import SectionTag from "@/components/ui/SectionTag";
    ══════════════════════════════════════════════════════ */
 
 const frameSystems = [
-  { id: "frp-60", label: "F1 FRP 60-Series (60 mm, 2-chamber)", Uf: 1.5, width: 60 },
-  { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, width: 70 },
-  { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, width: 80 },
-  { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, width: 90 },
-  { id: "alu-no-break", label: "Aluminium (no thermal break)", Uf: 5.9, width: 65 },
-  { id: "alu-break", label: "Aluminium (polyamide break)", Uf: 3.2, width: 70 },
-  { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, width: 70 },
-  { id: "pvc-steel", label: "PVC Steel-reinforced", Uf: 1.8, width: 70 },
-  { id: "timber", label: "Timber (softwood, 68 mm)", Uf: 1.4, width: 75 },
+  { id: "frp-65", label: "F1 FRP 65-Series (65 mm, 2-chamber)", Uf: 1.4, depth: 65, faceWidth: 54 },
+  { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, depth: 70, faceWidth: 58 },
+  { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, depth: 80, faceWidth: 65 },
+  { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, depth: 90, faceWidth: 72 },
+  { id: "alu-no-break", label: "Aluminium (no thermal break)", Uf: 5.9, depth: 65, faceWidth: 50 },
+  { id: "alu-break", label: "Aluminium (polyamide break)", Uf: 3.2, depth: 70, faceWidth: 55 },
+  { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, depth: 70, faceWidth: 62 },
+  { id: "pvc-steel", label: "PVC Steel-reinforced", Uf: 1.8, depth: 70, faceWidth: 65 },
+  { id: "timber", label: "Timber (softwood, 68 mm)", Uf: 1.4, depth: 75, faceWidth: 65 },
 ];
 
 const glassConfigs = [
@@ -38,9 +38,9 @@ const spacerTypes = [
 
 const windowTypes = [
   { id: "fixed", label: "Fixed light", sashWidth: 0 },
-  { id: "casement", label: "Casement / Tilt-turn", sashWidth: 30 },
-  { id: "sliding", label: "Sliding door", sashWidth: 40 },
-  { id: "entrance", label: "Entrance door (glazed)", sashWidth: 50 },
+  { id: "casement", label: "Casement / Tilt-turn", sashWidth: 58 },
+  { id: "sliding", label: "Sliding door", sashWidth: 70 },
+  { id: "entrance", label: "Entrance door (glazed)", sashWidth: 85 },
 ];
 
 /* ══════════════════════════════════════════════════════
@@ -51,7 +51,7 @@ const windowTypes = [
 function calcUw(
   width: number,
   height: number,
-  frameWidth: number,
+  faceWidth: number,
   Uf: number,
   Ug: number,
   psi: number,
@@ -60,9 +60,9 @@ function calcUw(
   // All dimensions in mm, convert to m for calculation
   const W = width / 1000; // m
   const H = height / 1000; // m
-  const fw = frameWidth / 1000; // m
-  const sw = sashWidth / 1000; // m
-  const totalFrameW = fw + sw; // total frame + sash width in m
+  const fw = faceWidth / 1000; // projected frame face width (m)
+  const sw = sashWidth / 1000; // projected sash face width (m)
+  const totalFrameW = fw + sw; // total projected width from window edge to glass (m)
 
   const Aw = W * H; // total window area (m²)
   const glassW = W - 2 * totalFrameW;
@@ -116,13 +116,13 @@ export default function UValueCalculator() {
   const selWinType = windowTypes.find((w) => w.id === winType)!;
 
   const result = useMemo(
-    () => calcUw(width, height, selFrame.width, selFrame.Uf, selGlass.Ug, selSpacer.psi, selWinType.sashWidth),
+    () => calcUw(width, height, selFrame.faceWidth, selFrame.Uf, selGlass.Ug, selSpacer.psi, selWinType.sashWidth),
     [width, height, selFrame, selGlass, selSpacer, selWinType],
   );
 
   // Compare with aluminium no-break baseline (fixed light, aluminium spacer)
   const baseline = useMemo(
-    () => calcUw(width, height, 65, 5.9, selGlass.Ug, 0.08, 0),
+    () => calcUw(width, height, 50, 5.9, selGlass.Ug, 0.08, 0),
     [width, height, selGlass],
   );
 
@@ -171,7 +171,7 @@ export default function UValueCalculator() {
                   </optgroup>
                 </select>
                 <span className="mt-[4px] block text-[11px] text-t3">
-                  U<sub>f</sub> = {selFrame.Uf} W/m²K
+                  U<sub>f</sub> = {selFrame.Uf} W/m²K · face {selFrame.faceWidth} mm
                 </span>
               </div>
 
@@ -389,7 +389,8 @@ export default function UValueCalculator() {
                 <tr className="border-b-2 border-border-default text-left">
                   <th className="pb-[8px] pr-[21px] font-bold text-t1">Frame Material</th>
                   <th className="pb-[8px] pr-[21px] font-bold text-t1">U<sub>f</sub> (W/m²K)</th>
-                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Frame Width (mm)</th>
+                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Profile Depth (mm)</th>
+                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Face Width (mm)</th>
                   <th className="pb-[8px] font-bold text-t1">Thermal Break Required</th>
                 </tr>
               </thead>
@@ -401,7 +402,8 @@ export default function UValueCalculator() {
                   >
                     <td className="py-[8px] pr-[21px] text-t1">{f.label}</td>
                     <td className="py-[8px] pr-[21px] font-medium text-t1">{f.Uf}</td>
-                    <td className="py-[8px] pr-[21px] text-t2">{f.width}</td>
+                    <td className="py-[8px] pr-[21px] text-t2">{f.depth}</td>
+                    <td className="py-[8px] pr-[21px] text-t2">{f.faceWidth}</td>
                     <td className="py-[8px] text-t2">
                       {f.id.startsWith("frp") || f.id === "timber"
                         ? "No — inherently insulating"

@@ -3,7 +3,7 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
@@ -119,15 +119,41 @@ export default function RodPage() {
         </div>
       </section>
 
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="flex flex-col gap-[13px] sm:flex-row sm:gap-[34px]">
-            <LinkArrow href="/products/standard-profiles">All standard profiles</LinkArrow>
-            <LinkArrow href="/products/custom-pultrusions">Need a custom size?</LinkArrow>
-            <LinkArrow href="/contact">Request a quotation</LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        background="white"
+        groups={[
+          {
+            title: "Related FRP profiles",
+            links: [
+              { href: "/products/standard-profiles/tube", label: "FRP round tube" },
+              { href: "/products/standard-profiles/flat-bar", label: "FRP flat bar" },
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam profiles" },
+              { href: "/products/standard-profiles/square-tube", label: "FRP square tube" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/infrastructure", label: "Soil nails & rock bolts" },
+              { href: "/industries/marine", label: "Marine tie-rods" },
+              { href: "/industries/industrial", label: "Industrial tie-rods" },
+              { href: "/industries/energy", label: "Solar tracker shafts" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
+              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/resources/technical-data", label: "Data sheets" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Need engineering data or a quotation for round rods?" />
     </>

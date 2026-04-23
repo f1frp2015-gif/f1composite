@@ -507,8 +507,18 @@ export default function FrpVsTraditionalPage() {
       {/* ── Cross-links and FAQ ── */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
+          <SectionTag>Deeper Comparisons</SectionTag>
+          <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific comparison pages</h2>
+          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+            This page covers the big-picture comparison across five materials. For specific applications, dedicated pages go deeper into numbers, standards, and decision criteria.
+          </p>
+          <div className="mt-[21px] flex flex-wrap gap-[21px]">
+            <LinkArrow href="/technology/frp-vs-aluminum-windows">FRP vs aluminum window frames</LinkArrow>
+            <LinkArrow href="/technology/frp-vs-pvc-windows">FRP vs PVC window frames</LinkArrow>
+            <LinkArrow href="/technology/frp-vs-steel-gratings">FRP vs steel gratings</LinkArrow>
+          </div>
+
+          <h2 className="mt-[55px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
             <LinkArrow href="/products">View Our Product Range</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">How Pultrusion Works</LinkArrow>

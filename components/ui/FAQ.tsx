@@ -7,9 +7,10 @@ export interface FAQItem {
 
 interface FAQProps {
   items: FAQItem[];
+  suppressSchema?: boolean;
 }
 
-export default function FAQ({ items }: FAQProps) {
+export default function FAQ({ items, suppressSchema = false }: FAQProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -25,7 +26,7 @@ export default function FAQ({ items }: FAQProps) {
 
   return (
     <div className="mt-[55px]">
-      <JsonLd data={schema} />
+      {!suppressSchema && <JsonLd data={schema} />}
       <h2 className="mb-[21px] text-f24 font-bold text-t1">Frequently Asked Questions</h2>
       <div className="space-y-[13px]">
         {items.map((item, i) => (

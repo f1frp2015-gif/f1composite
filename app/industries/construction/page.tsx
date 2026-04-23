@@ -13,10 +13,33 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP for Construction",
   description:
-    "FRP profiles for construction: corrosion-free facades, thermally broken window frames, lightweight cladding support. Outperforms steel and aluminum.",
+    "FRP profiles for construction: corrosion-free facades, FRP window frames and FRP window profiles, thermally broken fenestration systems, lightweight cladding support. Outperforms steel, aluminum, and PVC.",
   path: "/industries/construction",
   image: "/industries/construction/opengraph-image",
 });
+
+const answerItems = [
+  {
+    question: "Why use FRP in construction?",
+    answer:
+      "FRP is used in construction because it combines low thermal conductivity, corrosion resistance, and high specific strength, making it well suited to facades, fenestration, and lightweight support structures.",
+  },
+  {
+    question: "Can FRP replace aluminium in window and facade systems?",
+    answer:
+      "Yes. FRP can replace aluminium in many window, curtain wall, and facade support applications where thermal bridging, corrosion, or galvanic compatibility are major design constraints.",
+  },
+  {
+    question: "What is the main thermal advantage of FRP?",
+    answer:
+      "The main thermal advantage is that FRP is inherently insulating, so it can provide structural framing without the separate thermal break assemblies required by aluminium systems.",
+  },
+  {
+    question: "Where is FRP most valuable in buildings?",
+    answer:
+      "FRP is most valuable in thermally demanding envelopes, coastal buildings, corrosive environments, and modular systems where lower weight and lower maintenance improve project economics.",
+  },
+];
 
 const faqs = [
   {
@@ -47,7 +70,7 @@ export default function ConstructionPage() {
     "@type": "WebPage",
     name: "FRP Composite Profiles for Construction",
     description:
-      "FRP profiles for construction: corrosion-free facades, thermally broken window frames, lightweight cladding support. Outperforms steel and aluminum.",
+      "FRP profiles for construction: corrosion-free facades, FRP window frames and FRP window profiles, thermally broken fenestration systems, lightweight cladding support. Outperforms steel, aluminum, and PVC.",
     url: absoluteUrl("/industries/construction"),
     about: {
       "@type": "Thing",
@@ -60,9 +83,23 @@ export default function ConstructionPage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [...answerItems, ...faqs].map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Construction"
         title="FRP Composite Profiles for Construction"
@@ -94,28 +131,8 @@ export default function ConstructionPage() {
         tag="Construction Answers"
         title="Short answers for facade, envelope, and framing decisions"
         description="These answer blocks make the construction use case easier to quote, summarize, and reuse in search and AI-generated responses."
-        items={[
-          {
-            question: "Why use FRP in construction?",
-            answer:
-              "FRP is used in construction because it combines low thermal conductivity, corrosion resistance, and high specific strength, making it well suited to facades, fenestration, and lightweight support structures.",
-          },
-          {
-            question: "Can FRP replace aluminium in window and facade systems?",
-            answer:
-              "Yes. FRP can replace aluminium in many window, curtain wall, and facade support applications where thermal bridging, corrosion, or galvanic compatibility are major design constraints.",
-          },
-          {
-            question: "What is the main thermal advantage of FRP?",
-            answer:
-              "The main thermal advantage is that FRP is inherently insulating, so it can provide structural framing without the separate thermal break assemblies required by aluminium systems.",
-          },
-          {
-            question: "Where is FRP most valuable in buildings?",
-            answer:
-              "FRP is most valuable in thermally demanding envelopes, coastal buildings, corrosive environments, and modular systems where lower weight and lower maintenance improve project economics.",
-          },
-        ]}
+        items={answerItems}
+        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -276,9 +293,33 @@ export default function ConstructionPage() {
                 View case studies →
               </span>
             </Link>
+            <Link
+              href="/technology/frp-vs-aluminum-windows"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Aluminum Windows</h3>
+              <p className="text-f13 leading-golden text-t2">
+                U-value, thermal bridging, condensation, and passive-house suitability compared between pultruded FRP and thermally-broken aluminum frames.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read comparison →
+              </span>
+            </Link>
+            <Link
+              href="/technology/frp-vs-pvc-windows"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs PVC Windows</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Thermal performance, structural capacity, UV stability, and fire safety compared between pultruded FRP and triple-chamber uPVC window frames.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read comparison →
+              </span>
+            </Link>
           </div>
 
-          <FAQ items={faqs} />
+          <FAQ items={faqs} suppressSchema />
         </div>
       </section>
 

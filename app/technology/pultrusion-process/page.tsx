@@ -290,9 +290,39 @@ export default function PultrusionProcessPage() {
     citation: referencedStandards,
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How pultruded FRP profiles are manufactured",
+    description:
+      "Six-stage continuous process that converts E-glass roving and thermoset resin into constant-cross-section fiberglass structural profiles.",
+    image: absoluteUrl("/technology/pultrusion-process/opengraph-image"),
+    totalTime: "PT3H",
+    supply: [
+      { "@type": "HowToSupply", name: "E-glass / carbon / aramid roving" },
+      { "@type": "HowToSupply", name: "Continuous strand mat (CSM) and surfacing veil" },
+      { "@type": "HowToSupply", name: "Thermoset resin (polyester, vinyl ester, polyurethane, or epoxy)" },
+    ],
+    tool: [
+      { "@type": "HowToTool", name: "Creel rack (50–300 spool capacity)" },
+      { "@type": "HowToTool", name: "Chrome-plated steel pultrusion die (100–200 °C, 3-zone control)" },
+      { "@type": "HowToTool", name: "Resin injection chamber (3–8 bar)" },
+      { "@type": "HowToTool", name: "Reciprocating or caterpillar puller (up to 100 kN)" },
+      { "@type": "HowToTool", name: "Flying cut-off saw (diamond-tipped blade)" },
+    ],
+    step: processStages.map((stage) => ({
+      "@type": "HowToStep",
+      position: stage.step,
+      name: stage.title,
+      text: `${stage.subtitle}. ${stage.detail.join(" ")}`,
+      url: `${absoluteUrl(pagePath)}#step-${stage.step}`,
+    })),
+  };
+
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={howToSchema} />
       <PageHeader
         tag="Pultrusion Process"
         title="How Pultruded FRP Profiles Are Manufactured"

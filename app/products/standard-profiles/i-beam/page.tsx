@@ -5,7 +5,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP I-Beam Profiles — Pultruded Fiberglass Wide Flange Beams";
@@ -157,20 +157,41 @@ export default function IBeamPage() {
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Related</h2>
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/standard-profiles">All standard profiles</LinkArrow>
-            <LinkArrow href="/products/custom-pultrusions">Need a custom size?</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel comparison</LinkArrow>
-            <LinkArrow href="/industries/infrastructure">Infrastructure applications</LinkArrow>
-            <LinkArrow href="/industries/construction">Construction applications</LinkArrow>
-            <LinkArrow href="/contact">Request a quotation</LinkArrow>
-          </div>
-        </div>
-      </section>
+      <RelatedLinks
+        groups={[
+          {
+            title: "Related FRP profiles",
+            links: [
+              { href: "/products/standard-profiles/channel", label: "FRP channel profiles" },
+              { href: "/products/standard-profiles/angle", label: "FRP angle profiles" },
+              { href: "/products/standard-profiles/square-tube", label: "FRP square tube" },
+              { href: "/products/standard-profiles/flat-bar", label: "FRP flat bar" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+            ],
+          },
+          {
+            title: "Applications",
+            links: [
+              { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
+              { href: "/industries/construction", label: "Construction & rooftops" },
+              { href: "/industries/energy", label: "Energy & solar mounting" },
+              { href: "/industries/marine", label: "Marine & offshore" },
+              { href: "/case-studies/european-bridge-deck", label: "Bridge deck case study" },
+            ],
+          },
+          {
+            title: "Technical resources",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
+              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/resources/technical-data", label: "Data sheets & test certificates" },
+              { href: "/resources/design-guides", label: "Design guides (ASCE / EN 13706)" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
+      />
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">
