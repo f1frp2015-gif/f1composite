@@ -44,6 +44,20 @@ const cards: ExploreCard[] = [
       "Get fast, specific answers to FRP design, specification, or procurement questions — powered by our full product knowledge base.",
     href: "/ask",
   },
+  {
+    eyebrow: "AI Sourcing",
+    title: "AI Sourcing Assistant — describe → spec",
+    description:
+      "Skip the brochure. Describe your project; AI returns the recommended profile family, resin, certifications, and a comparable case study.",
+    href: "/ai/sourcing",
+  },
+  {
+    eyebrow: "AI Passive House",
+    title: "AI Passive House Window Selector",
+    description:
+      "Climate class + target U-value + window type → AI matches you to the right F1 FRP series (PHI Component-ID 2491wi03, phA arctic).",
+    href: "/ai/passive-house",
+  },
 ];
 
 export default function ExploreSection() {

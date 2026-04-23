@@ -79,6 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/resources/downloads`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/about`, lastModified: DATES.static, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/ask`, lastModified: "2026-04-04", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/ai/sourcing`, lastModified: "2026-04-23", changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/ai/passive-house`, lastModified: "2026-04-23", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/contact`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.8 },
     { url: `${BASE}/privacy`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },
