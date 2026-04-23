@@ -16,6 +16,36 @@ export const metadata: Metadata = buildPageMetadata({
 
 const caseStudies = [
   {
+    slug: "qinling-station-antarctic-passive-windows",
+    title: "Qinling Station, Antarctic Ross Sea — PHI Class A+ Passive FRP Windows",
+    industry: "Construction",
+    location: "Ross Sea, Antarctica",
+    year: "2024",
+    image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.jpg",
+    excerpt:
+      "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class, −60 °C design low, 45 m/s katabatic wind loading.",
+  },
+  {
+    slug: "yancheng-talent-apartment-fenestration",
+    title: "Yancheng Talent Apartment — Large-Scale FRP Fenestration Supply",
+    industry: "Construction",
+    location: "Yancheng, Jiangsu, China",
+    year: "2024",
+    image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.jpg",
+    excerpt:
+      "Supplied the complete pultruded FRP fenestration package — 65-series casement (inward and outward), 90-series sliding, and matching facade frames — across ~20 residential and commercial buildings of a coastal talent-housing development.",
+  },
+  {
+    slug: "factory-access-staircase",
+    title: "F1 Factory FRP Access Staircase",
+    industry: "Industrial",
+    location: "Chongqing, China",
+    year: "2024",
+    image: "/images/case-studies/frp-factory-access-staircase-hero.jpg",
+    excerpt:
+      "F1 Composite's own Chongqing production base — staircase and elevated platform built end-to-end from our pultruded FRP profiles, live reference for visiting customers.",
+  },
+  {
     slug: "european-bridge-deck",
     title: "European Bridge Deck Replacement",
     industry: "Infrastructure",

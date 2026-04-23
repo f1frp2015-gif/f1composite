@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 
-const BASE = "https://f1composite.com";
+const BASE = "https://www.f1composite.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestBlogUpdate =
@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: BASE, lastModified: DATES.home, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${BASE}/pultruded-frp-profiles`, lastModified: "2026-04-14", changeFrequency: "weekly", priority: 0.95 },
+    { url: `${BASE}/what-is-frp`, lastModified: "2026-04-14", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products`, lastModified: DATES.products, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/products/standard-profiles`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/standard-profiles/i-beam`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
@@ -45,6 +47,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/technology`, lastModified: DATES.technology, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/technology/pultrusion-process`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/frp-vs-traditional-materials`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/technology/frp-vs-aluminum-windows`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/technology/frp-vs-steel-gratings`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/technology/frp-vs-pvc-windows`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/quality-testing`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/knowhow-services`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/calculator`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
@@ -63,6 +68,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/case-studies/fenestration-residential`, lastModified: DATES.caseStudies, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/solar-farm-mounting`, lastModified: DATES.caseStudies, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/water-treatment-cable-tray`, lastModified: "2026-04-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/case-studies/qinling-station-antarctic-passive-windows`, lastModified: "2026-04-22", changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/case-studies/yancheng-talent-apartment-fenestration`, lastModified: "2026-04-22", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/case-studies/factory-access-staircase`, lastModified: "2026-04-22", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/resources`, lastModified: DATES.resources, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/resources/technical-data`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/resources/design-guides`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.6 },
