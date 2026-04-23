@@ -489,11 +489,11 @@ export default function PultrusionProcessPage() {
 
           <div className="mt-[34px] overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/resin-formulation-laboratory-testing.jpg"
-              alt="Resin formulation and laboratory testing for composite materials"
+              src="/images/technology/production-line-pultrusion-krauss-maffei.jpg"
+              alt="F1 Composite pultrusion production line with Krauss Maffei pullers"
               sizes="(max-width: 1280px) 100vw, 1280px"
-              width={1280}
-              height={600}
+              width={2560}
+              height={1920}
               className="h-auto w-full object-cover"
             />
           </div>
