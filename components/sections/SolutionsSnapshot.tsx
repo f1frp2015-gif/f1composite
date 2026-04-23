@@ -71,7 +71,9 @@ export default function SolutionsSnapshot() {
               title={product.title}
               description={product.description}
               href={product.href}
-              icon={icons[product.icon]}
+              image={product.image}
+              imageAlt={`${product.title} — F1 Composite`}
+              imageScale={product.imageScale}
             />
           ))}
         </div>
