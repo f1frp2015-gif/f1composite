@@ -43,9 +43,10 @@ const orgSchema = {
   alternateName: [
     "F1 Composites",
     "FengDu New Material",
-    "Chongqing Xianju New Material Co., Ltd",
+    "Chongqing FengDu New Material",
+    "风渡新材料",
   ],
-  legalName: "Chongqing Xianju New Material Co., Ltd",
+  legalName: "Chongqing FengDu New Material Co., Ltd",
   url: "https://www.f1composite.com",
   logo: {
     "@type": "ImageObject",
