@@ -56,12 +56,8 @@ export const footerNav = {
     { label: "What is FRP?", href: "/what-is-frp" },
     { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
     { label: "FRP vs Traditional", href: "/technology/frp-vs-traditional-materials" },
-    { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-    { label: "FRP vs PVC Windows", href: "/technology/frp-vs-pvc-windows" },
-    { label: "FRP vs Steel Gratings", href: "/technology/frp-vs-steel-gratings" },
     { label: "Quality & Testing", href: "/technology/quality-testing" },
-    { label: "FRP Calculator", href: "/technology/calculator" },
-    { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+    { label: "All Technology", href: "/technology" },
   ],
   industries: [
     { label: "Construction", href: "/industries/construction" },
