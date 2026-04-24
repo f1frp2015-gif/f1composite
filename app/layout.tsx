@@ -42,11 +42,12 @@ const orgSchema = {
   name: "F1 Composite",
   alternateName: [
     "F1 Composites",
+    "F1 Composite Co., Ltd",
     "FengDu New Material",
     "Chongqing FengDu New Material",
     "风渡新材料",
   ],
-  legalName: "Chongqing FengDu New Material Co., Ltd",
+  legalName: "F1 Composite Co., Ltd",
   url: "https://www.f1composite.com",
   logo: {
     "@type": "ImageObject",
@@ -56,7 +57,7 @@ const orgSchema = {
   },
   image: "https://www.f1composite.com/opengraph-image",
   description:
-    "Global pultruded FRP profiles manufacturer. 5 production bases, 370 pultrusion lines, 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Serving 30+ countries with structural profiles, fenestration systems, gratings, and custom pultrusions.",
+    "F1 Composite Co., Ltd — international contracting entity for pultruded FRP profiles, with manufacturing at our Chongqing FengDu New Material Co., Ltd factory (风渡新材料). 5 production bases, 370 pultrusion lines, 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Serving 30+ countries with structural profiles, fenestration systems, gratings, and custom pultrusions.",
   foundingDate: "2015",
   foundingLocation: {
     "@type": "Place",

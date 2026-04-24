@@ -24,7 +24,7 @@ export default function TechnicalDataPage() {
       "@type": "Organization",
       name: "F1 Composite",
       url: absoluteUrl("/"),
-      legalName: "FengDu New Material",
+      legalName: "F1 Composite Co., Ltd",
     },
     license: absoluteUrl("/terms"),
     isAccessibleForFree: true,

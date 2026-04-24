@@ -112,17 +112,20 @@ export default function AboutPage() {
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite is the international brand of Chongqing FengDu New Material
-                Co., Ltd — one of China&apos;s largest vertically integrated pultrusion
-                manufacturers. We operate five production bases with 370 pultrusion lines,
-                serving global markets with the same engineering team and production
-                facilities that supply China&apos;s domestic infrastructure.
+                F1 Composite Co., Ltd is the international contracting entity behind
+                one of China&apos;s largest vertically integrated pultrusion manufacturers.
+                All overseas orders are contracted and invoiced under F1 Composite Co., Ltd;
+                manufacturing takes place at our Chongqing FengDu New Material Co., Ltd
+                (风渡新材料) factory. We operate five production bases with 370 pultrusion
+                lines, serving global markets with the same engineering team and
+                production facilities that supply China&apos;s domestic infrastructure.
               </p>
               <p>
-                F1 Composite was created to give overseas clients what they need beyond
-                the factory floor: English-language engineering support, international
-                quality documentation, application consulting, and responsive project
-                management. When you work with F1, you work directly with the manufacturer.
+                F1 Composite Co., Ltd was set up to give overseas clients what they need
+                beyond the factory floor: one contracting counterparty, English-language
+                engineering support, international quality documentation, application
+                consulting, and responsive project management. When you work with F1,
+                you work directly with the manufacturer group — no distributor, no broker.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
