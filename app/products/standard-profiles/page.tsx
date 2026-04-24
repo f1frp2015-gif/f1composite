@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
@@ -144,6 +145,50 @@ export default function StandardProfilesPage() {
 
       <AskAICard
         prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
+      />
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Product range",
+            links: [
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beams" },
+              { href: "/products/standard-profiles/channel", label: "FRP channels" },
+              { href: "/products/standard-profiles/angle", label: "FRP angles" },
+              { href: "/products/standard-profiles/square-tube", label: "FRP square tubes" },
+              { href: "/products/standard-profiles/tube", label: "FRP round tubes" },
+              { href: "/products/standard-profiles/flat-bar", label: "FRP flat bars" },
+              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+            ],
+          },
+          {
+            title: "Industries using standard profiles",
+            links: [
+              { href: "/industries/construction", label: "Construction & building envelopes" },
+              { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
+              { href: "/industries/energy", label: "Energy, solar & transmission" },
+              { href: "/industries/marine", label: "Marine & coastal structures" },
+              { href: "/industries/industrial", label: "Industrial platforms & plants" },
+              { href: "/industries/vehicle", label: "Vehicle & rail" },
+              { href: "/case-studies/european-bridge-deck", label: "Case: Netherlands bridge deck" },
+              { href: "/case-studies/solar-farm-mounting", label: "Case: 50 MW solar mounting" },
+              { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
+            ],
+          },
+          {
+            title: "Technology & resources",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
+              { href: "/technology/calculator", label: "FRP load & deflection calculator" },
+              { href: "/resources/technical-data", label: "Load tables & data sheets" },
+              { href: "/resources/design-guides", label: "Design guides" },
+              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
+            ],
+          },
+        ]}
       />
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroPreload from "@/components/HeroPreload";
 import Hero from "@/components/sections/Hero";
 import SolutionsSnapshot from "@/components/sections/SolutionsSnapshot";
+import IndustriesSnapshot from "@/components/sections/IndustriesSnapshot";
 import ValueProposition from "@/components/sections/ValueProposition";
 import FactoryQuality from "@/components/sections/FactoryQuality";
 import SocialProof from "@/components/sections/SocialProof";
@@ -50,6 +51,7 @@ export default function HomePage() {
       <HeroPreload />
       <Hero />
       <SolutionsSnapshot />
+      <IndustriesSnapshot />
       <ValueProposition />
       <FactoryQuality />
       <SocialProof />

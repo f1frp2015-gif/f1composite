@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
@@ -254,6 +255,44 @@ export default function FrpVsSteelGratingsPage() {
           </Link>
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "FRP grating products",
+            links: [
+              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam supports" },
+              { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
+              { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+            ],
+          },
+          {
+            title: "Industries & projects",
+            links: [
+              { href: "/industries/marine", label: "Marine & offshore platforms" },
+              { href: "/industries/industrial", label: "Chemical plant & processing platforms" },
+              { href: "/industries/infrastructure", label: "Water treatment & infrastructure" },
+              { href: "/case-studies/coastal-marina-walkway", label: "Case: UK coastal marina walkway" },
+              { href: "/case-studies/chemical-plant-platform", label: "Case: Saudi petrochemical platforms" },
+              { href: "/case-studies/water-treatment-cable-tray", label: "Case: Thailand water treatment plant" },
+              { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
+            ],
+          },
+          {
+            title: "Standards & resources",
+            links: [
+              { href: "/technology/quality-testing", label: "Quality testing (BS 476 / AS 4586 R11)" },
+              { href: "/technology/calculator", label: "FRP load & deflection calculator" },
+              { href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison", label: "Blog: FRP vs steel grating lifecycle cost" },
+              { href: "/resources/blog/frp-fire-resistance-ratings-guide", label: "Blog: FRP fire resistance ratings" },
+              { href: "/resources/technical-data", label: "Load tables & data sheets" },
+              { href: "/resources/design-guides", label: "Grating design guides" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Specifying gratings for a corrosive, electrical, or wet environment?" />
     </>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
@@ -264,6 +265,41 @@ export default function FrpVsPvcWindowsPage() {
           </Link>
         </div>
       </section>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "FRP fenestration products",
+            links: [
+              { href: "/products/fenestration-systems", label: "FRP fenestration systems (65/70/80/90/140)" },
+              { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
+              { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+            ],
+          },
+          {
+            title: "Applications & projects",
+            links: [
+              { href: "/industries/construction", label: "Construction & building envelopes" },
+              { href: "/ai/passive-house", label: "Passive House window selector (AI)" },
+              { href: "/case-studies/fenestration-residential", label: "Case: German PHI residential tower" },
+              { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Case: Yancheng coastal residential" },
+              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Case: Qinling Antarctic PHI A+ windows" },
+            ],
+          },
+          {
+            title: "Deeper reading",
+            links: [
+              { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: Thermal performance of FRP fenestration" },
+              { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
+              { href: "/resources/blog/frp-window-profiles-powder-coating-aluminium-finish", label: "Blog: FRP with aluminium-look finish" },
+              { href: "/resources/design-guides", label: "Fenestration design guides" },
+              { href: "/resources/downloads", label: "Data sheets & certificates" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Selecting window frames for a passive house, commercial, or premium residential project?" />
     </>
