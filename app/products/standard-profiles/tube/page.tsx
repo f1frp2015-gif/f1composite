@@ -3,14 +3,38 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
+import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Round Tubes — Circular Hollow Sections";
+const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
 const pageDescription =
-  "Pultruded FRP round tubes from 25 mm to 150 mm OD. Ideal for handrails, guardrails, and structural applications. Corrosion-free, lightweight.";
+  "Pultruded FRP round tubes 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917 certified. Handrails, guardrails, conduit, antenna masts. Free samples to 30+ countries.";
 const pagePath = "/products/standard-profiles/tube";
+
+const faqItems = [
+  {
+    question: "What are pultruded FRP round tubes used for?",
+    answer:
+      "Pultruded FRP round tubes are used for handrail systems, guardrails, structural columns, antenna masts, electrical conduit, insulating stand-offs, and fluid-conveying applications. Their non-conductive, corrosion-free, lightweight properties make them the standard alternative to galvanized steel and stainless tubing in marine, chemical plant, electrical, and offshore environments.",
+  },
+  {
+    question: "FRP round tube vs FRP square tube — which should I use?",
+    answer:
+      "Round tubes are preferred for handrails, antennas, columns under axial load, and any application requiring smooth interior bore (e.g. conduit, fluid passage). Square tubes (SHS) provide higher torsional rigidity, easier bolted connections, and flat bearing surfaces — choose them for trusses, frames, free-standing structures, and solar racking posts. Both are available in equivalent size ranges.",
+  },
+  {
+    question: "Can FRP round tubes be used outdoors with UV exposure?",
+    answer:
+      "Yes. F1 Composite pultruded round tubes are produced with a UV-stable polyester or vinyl ester resin and a polyester surface veil that protects against UV degradation. For aggressive UV environments (desert, tropical, alpine), we recommend pigmented vinyl ester with a polyurethane topcoat — design life of 50+ years with negligible mechanical loss.",
+  },
+  {
+    question: "What's the load capacity of FRP handrail tubes?",
+    answer:
+      "Pultruded FRP handrail tubes (e.g. CHS 50×5) typically meet or exceed the 200 lbs (890 N) horizontal load requirement of OSHA 1910.29 and EN ISO 14122-3 when supported at standard 1.5 m post spacing. Full handrail load tables and bolt-down baseplate details are available on request — get a quote for project-specific calculations.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -156,6 +180,12 @@ export default function TubePage() {
           },
         ]}
       />
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqItems} />
+        </div>
+      </section>
 
       <InnerCTA title="Need engineering data or a quotation for round tube profiles?" />
     </>

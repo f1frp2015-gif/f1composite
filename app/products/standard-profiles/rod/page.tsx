@@ -3,14 +3,38 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
+import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Round Rods — Solid Circular Sections";
+const pageTitle = "FRP Round Rod — Pultruded Fiberglass Solid Rod Manufacturer";
 const pageDescription =
-  "Pultruded FRP solid round rods from 6 mm to 50 mm diameter. 65-70% unidirectional glass. Soil nails, rock bolts, marine tie-rods.";
+  "Pultruded FRP round rods Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive, EN 13706 certified. Soil nails, rock bolts, FRP rebar, marine tie-rods. Quote in 24h.";
 const pagePath = "/products/standard-profiles/rod";
+
+const faqItems = [
+  {
+    question: "What are pultruded FRP round rods used for?",
+    answer:
+      "Pultruded FRP solid round rods are used for soil nails, rock bolts, ground anchors, marine tie-rods, FRP rebar in concrete, electrical insulator cores, antenna masts, and tooling shafts. The combination of high tensile strength, non-magnetic and non-conductive properties, and zero corrosion makes them the standard choice in environments where steel cannot survive.",
+  },
+  {
+    question: "What is the tensile strength of FRP round rods?",
+    answer:
+      "Pultruded FRP round rods with 65–70% unidirectional glass roving have axial tensile strength of 700–1100 MPa — significantly higher than mild steel (400 MPa) on a strength-per-weight basis. Modulus is 40–55 GPa. Specific values depend on resin system and fiber loading; full datasheets available on request.",
+  },
+  {
+    question: "Are FRP rods non-magnetic and non-conductive?",
+    answer:
+      "Yes. Glass-reinforced pultruded FRP rods are electrically non-conductive (volume resistivity > 10¹² Ω·cm), magnetically transparent, and RF-transparent. This makes them the preferred choice for MRI room reinforcement, transformer spacers, electrified railway tie-rods, and antenna structural elements where steel would short, arc, or distort EM fields.",
+  },
+  {
+    question: "Can FRP round rods be used as rebar in concrete?",
+    answer:
+      "Yes. Sand-coated or helically wound FRP rods are used as non-corrosive concrete reinforcement, particularly in marine structures, bridge decks, parking decks, and chemically aggressive slabs. They eliminate corrosion-induced concrete spalling, extending service life to 75+ years. Bond strength is comparable to deformed steel rebar when surface treatment is specified correctly.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -154,6 +178,12 @@ export default function RodPage() {
           },
         ]}
       />
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqItems} />
+        </div>
+      </section>
 
       <InnerCTA title="Need engineering data or a quotation for round rods?" />
     </>

@@ -4,17 +4,41 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Standard Pultruded FRP Structural Profiles — Fiberglass Shapes",
+  title: "Standard FRP Profiles — Pultruded Fiberglass Structural Shapes",
   description:
-    "Stock pultruded fiberglass structural shapes: FRP I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. ISO 9001 certified, 75% lighter than steel, ready to ship.",
+    "Stock pultruded fiberglass structural shapes: FRP I-beams, channels, angles, square tubes, round tubes, flat bars, rods. EN 13706 / ASTM D3917, 75% lighter than steel, 6 m stock lengths. Free samples.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });
+
+const faqItems = [
+  {
+    question: "Which FRP profile do I need for my application?",
+    answer:
+      "For walkways, platforms, and bridges → FRP I-beam (max stiffness). For framing, cable trays, modular skids → FRP channel. For stiffeners, bracing, ledgers → FRP angle. For trusses, columns, frames → FRP square tube (max torsional rigidity). For handrails, antennas, conduits → FRP round tube. For splice plates and rebar → FRP flat bar or round rod. Use our AI sourcing assistant or request a 24-hour engineering review.",
+  },
+  {
+    question: "Are F1 Composite standard profiles certified to EN 13706 and ASTM D3917?",
+    answer:
+      "Yes. All standard pultruded FRP profiles are produced under ISO 9001:2015 quality management and tested to EN 13706 (Reinforced plastics composites — Specifications for pultruded profiles) and ASTM D3917 (Standard Specification for Dimensional Tolerance of Pultruded Shapes). Mill test certificates are issued per production batch and full third-party test reports are available on request.",
+  },
+  {
+    question: "What are typical lead times for stock FRP profiles?",
+    answer:
+      "Common standard profiles (I-beams, channels, angles, square tubes, round tubes, flat bars, rods in popular sizes) ship from stock in 2–4 weeks for full-container orders, including ocean freight booking. Less-common sizes are produced on a 4–6 week lead time. Custom pultruded profiles requiring new tooling take 6–10 weeks total (3–6 weeks die fabrication + production).",
+  },
+  {
+    question: "Can FRP profiles be cut, drilled, and bolted on-site?",
+    answer:
+      "Yes. Pultruded FRP profiles can be cut with a circular saw and carbide-tipped or diamond blade, drilled with carbide bits, and joined with stainless or FRP fasteners. Use of standard steel tools is acceptable; coolant is not required. We supply free fabrication guidelines covering bolt hole edge distances, post-cut sealing of cut edges, and recommended fastener torques.",
+  },
+];
 
 const profileTypes: Array<{
   slug: string;
@@ -189,6 +213,13 @@ export default function StandardProfilesPage() {
             ],
           },
         ]}
+      />
+
+      <AnswerBlocks
+        tag="Buyer FAQ"
+        title="Standard FRP profiles — frequently asked questions"
+        description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminium options."
+        items={faqItems}
       />
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />

@@ -3,14 +3,38 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
+import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Flat Bars — Solid Rectangular Sections";
+const pageTitle = "FRP Flat Bar — Pultruded Fiberglass Flat Bar Manufacturer";
 const pageDescription =
-  "Pultruded FRP flat bars from 12×3 mm to 305×25 mm. High-modulus options up to 70% glass content. Tolerances ±0.25 mm thickness.";
+  "Pultruded FRP flat bars 12×3 mm — 305×25 mm. ±0.25 mm tolerance, up to 70% glass content, EN 13706 / ASTM D3917 certified. Stiffeners, splice plates, rebar. Free samples to 30+ countries.";
 const pagePath = "/products/standard-profiles/flat-bar";
+
+const faqItems = [
+  {
+    question: "What are pultruded FRP flat bars used for?",
+    answer:
+      "FRP flat bars are used as stiffeners, splice plates, wear strips, spacer elements, and rebar replacements in corrosive environments. High-modulus pultruded flat bars (up to 70% glass content) are also used in concrete reinforcement and pre-stressed structural applications where steel rebar would corrode.",
+  },
+  {
+    question: "How does FRP flat bar compare to steel flat bar?",
+    answer:
+      "Pultruded FRP flat bar is approximately 75% lighter than equivalent steel flat bar (1.9 g/cm³ vs 7.85 g/cm³), does not rust, and is non-conductive and non-magnetic. Tensile strength is comparable to mild steel (240–400 MPa for FRP vs 400 MPa for A36), so per kilogram FRP is stronger. Stiffness is roughly 1/10 that of steel, so deflection often governs design.",
+  },
+  {
+    question: "What tolerances do F1 Composite flat bars hold?",
+    answer:
+      "Standard tolerances are ±0.25 mm on thickness and ±0.5 mm on width, in line with EN 13706 and ASTM D3917. Lengths are typically supplied at 6 m (or per cut order) with ±5 mm length tolerance. Tighter tolerances are available for precision applications on request.",
+  },
+  {
+    question: "Can FRP flat bars replace steel rebar in concrete?",
+    answer:
+      "Yes. Pultruded FRP flat bars and rods with 65–70% unidirectional glass roving are used as non-corrosive reinforcement in concrete, especially in marine structures, parking decks, MRI rooms, and chemically exposed slabs. They eliminate corrosion-induced cracking and have a 50–100 year design life. Sand-coated or helically wound surfaces improve concrete bond.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -157,6 +181,12 @@ export default function FlatBarPage() {
           },
         ]}
       />
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqItems} />
+        </div>
+      </section>
 
       <InnerCTA title="Need engineering data or a quotation for flat bar profiles?" />
     </>

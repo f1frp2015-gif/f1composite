@@ -11,9 +11,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Marine",
+  title: "FRP Profiles for Marine — Pultruded Fiberglass for Saltwater Structures",
   description:
-    "FRP profiles for marine: corrosion-proof docks, offshore gratings, ship interiors, walkways. Withstands continuous saltwater exposure.",
+    "Pultruded FRP profiles and gratings for marine: corrosion-proof docks, offshore platforms, ship interiors, walkways, tie-rods. 50+ year life in continuous saltwater. EN 13706, ISO 9001 certified.",
   path: "/industries/marine",
   image: "/industries/marine/opengraph-image",
 });

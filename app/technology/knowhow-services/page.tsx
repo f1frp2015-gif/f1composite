@@ -8,9 +8,9 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Know-How & Technology Transfer Services";
+const pageTitle = "Pultrusion Technology Transfer & Consulting — Turnkey FRP Line Setup";
 const pageDescription =
-  "Pultrusion consulting, technology transfer, and turnkey line installation. From feasibility to production handover.";
+  "Pultrusion technology transfer, consulting, and turnkey FRP line installation. Feasibility study, die design, production commissioning, ISO 9001 / EN 13706 quality system handover. 30+ years operations expertise.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
 const updatedAt = "2026-04-02";

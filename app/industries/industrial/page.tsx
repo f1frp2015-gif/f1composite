@@ -11,9 +11,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Industrial",
+  title: "FRP Profiles for Industrial Plants — Chemical-Resistant Pultruded Fiberglass",
   description:
-    "FRP profiles for industrial use: chemical-resistant gratings, fire-retardant structural profiles for water treatment, food processing, pharma.",
+    "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. Water treatment, food processing, pharma, wash-down zones. EN 13706 certified.",
   path: "/industries/industrial",
   image: "/industries/industrial/opengraph-image",
 });
