@@ -231,7 +231,7 @@ export default function FrpVsSteelGratingsPage() {
             Heavy vehicle traffic in dry, non-corrosive environments
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel's higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP's lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
+            Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
           </p>
         </div>
       </section>

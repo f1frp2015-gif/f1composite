@@ -86,7 +86,7 @@ export default function TubePage() {
         description="Circular hollow section pultruded FRP tubes from 25 mm to 150 mm OD."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Round Tube" },
         ]}

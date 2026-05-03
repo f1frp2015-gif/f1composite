@@ -74,7 +74,7 @@ export default function AnglePage() {
         description="Equal and unequal-leg pultruded FRP L-profiles from 25×25 mm to 152×152 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Angle" },
         ]}

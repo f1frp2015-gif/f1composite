@@ -87,7 +87,7 @@ export default function FlatBarPage() {
         description="Solid rectangular pultruded FRP bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Flat Bar" },
         ]}

@@ -223,7 +223,7 @@ export default function FrpVsAluminumWindowsPage() {
             Large spans and fully recyclable systems
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            This page argues FRP is better for energy-focused projects — but aluminum remains the right choice in three contexts. <strong className="text-t1">Large spans:</strong> aluminum's higher elastic modulus (69 GPa vs FRP's 23–28 GPa) allows longer clear-span mullions on curtain walls above 3 m without intermediate supports. <strong className="text-t1">End-of-life recyclability:</strong> aluminum recycles infinitely at ~5% of primary production energy; thermoset FRP does not. <strong className="text-t1">Tight budget, mild climate:</strong> if Uw = 1.4 W/m²·K is sufficient, a standard thermally-broken aluminum system is lower first-cost.
+            This page argues FRP is better for energy-focused projects — but aluminum remains the right choice in three contexts. <strong className="text-t1">Large spans:</strong> aluminum&apos;s higher elastic modulus (69 GPa vs FRP&apos;s 23–28 GPa) allows longer clear-span mullions on curtain walls above 3 m without intermediate supports. <strong className="text-t1">End-of-life recyclability:</strong> aluminum recycles infinitely at ~5% of primary production energy; thermoset FRP does not. <strong className="text-t1">Tight budget, mild climate:</strong> if Uw = 1.4 W/m²·K is sufficient, a standard thermally-broken aluminum system is lower first-cost.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             For residential and commercial envelopes targeting Uw ≤ 1.0 W/m²·K in climates where condensation, corrosion, or thermal bridging are design drivers, FRP wins decisively.

@@ -121,7 +121,7 @@ export default function StandardProfilesPage() {
         description="Seven core profile geometries engineered to replace steel and aluminium — corrosion-free, 75% lighter, ISO 9001 certified."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles" },
         ]}
       />

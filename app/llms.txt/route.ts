@@ -375,7 +375,7 @@ Major global pultrusion manufacturers include Strongwell (EXTREN®, USA), Fiberl
 - Homepage: https://www.f1composite.com
 - Pultruded FRP Profiles Hub: https://www.f1composite.com/pultruded-frp-profiles
 - What is FRP? (deep guide): https://www.f1composite.com/what-is-frp
-- Products: https://www.f1composite.com/products
+- Products: https://www.f1composite.com/pultruded-frp-profiles
 - Standard Profiles: https://www.f1composite.com/products/standard-profiles
 - Custom Pultrusions: https://www.f1composite.com/products/custom-pultrusions
 - Fenestration Systems: https://www.f1composite.com/products/fenestration-systems

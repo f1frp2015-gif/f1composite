@@ -78,7 +78,7 @@ export default function ChannelPage() {
         description="Pultruded FRP U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Channel" },
         ]}

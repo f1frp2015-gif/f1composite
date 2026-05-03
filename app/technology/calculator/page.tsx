@@ -82,7 +82,7 @@ export default function CalculatorPage() {
               <h3 className="mt-[34px] text-f19 font-bold text-t1">How to interpret the results</h3>
               <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
                 <li>
-                  <strong className="text-t1">Deflection governs most FRP designs.</strong> FRP has tensile strength comparable to structural steel but elastic modulus is only 17–28 GPa — roughly 1/10 of steel's 200 GPa. Members sized to match steel on strength will therefore deflect about 10× more. Always check the L/240 or L/360 limit first; if deflection passes, stress almost always passes too.
+                  <strong className="text-t1">Deflection governs most FRP designs.</strong> FRP has tensile strength comparable to structural steel but elastic modulus is only 17–28 GPa — roughly 1/10 of steel&apos;s 200 GPa. Members sized to match steel on strength will therefore deflect about 10× more. Always check the L/240 or L/360 limit first; if deflection passes, stress almost always passes too.
                 </li>
                 <li>
                   <strong className="text-t1">Equivalent section is deeper, not heavier.</strong> When replacing a W6×12 steel beam with FRP at equal deflection, expect a deeper FRP section (e.g. 203×102 instead of 152×76) but installed weight still drops by 70–75% because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel.

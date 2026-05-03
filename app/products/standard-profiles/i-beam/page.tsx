@@ -59,7 +59,7 @@ export default function IBeamPage() {
         description="Wide flange pultruded FRP I-beams from 76×38 mm to 305×305 mm. Up to 75% weight reduction versus steel with full corrosion resistance."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "I-Beam" },
         ]}

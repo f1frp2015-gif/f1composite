@@ -79,7 +79,7 @@ export default function SquareTubePage() {
         description="Pultruded FRP SHS and RHS profiles from 25×25 mm to 240×240 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Square Tube" },
         ]}

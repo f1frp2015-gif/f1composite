@@ -152,7 +152,7 @@ export default function FenestrationSystemsPage() {
         description="Pultruded fiberglass window frames for passive house, low-energy, and extreme-climate buildings. Our 65/70/80/90/140-series fenestration systems deliver the thermal insulation, structural integrity, and dimensional stability that aluminum and PVC cannot match."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Fenestration Systems" },
         ]}
       />

@@ -29,12 +29,12 @@ export default function Hero() {
             className="font-extrabold tracking-[-0.03em] text-white"
             style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
           >
-            Pultrusion Technology{" "}
-            <span className="text-teal">Empowering Global Projects</span>
+            Pultruded FRP Profiles Manufacturer{" "}
+            <span className="text-teal">for Global Engineering Projects</span>
           </h1>
 
           <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            Integrated fiber reinforcement, resin engineering, and precision tooling — delivering FRP profiles that replace steel and aluminium worldwide.
+            F1 Composite manufactures pultruded FRP profiles, fiberglass structural shapes, custom pultrusions, FRP window frames, gratings, and deck panels to EN 13706 / ASTM D3917 for global engineering projects.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">

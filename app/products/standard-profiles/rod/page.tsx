@@ -85,7 +85,7 @@ export default function RodPage() {
         description="Solid circular pultruded FRP rods from 6 mm to 50 mm diameter. Non-magnetic, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles", href: "/products/standard-profiles" },
           { label: "Round Rod" },
         ]}

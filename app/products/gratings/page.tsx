@@ -159,7 +159,7 @@ export default function GratingsPage() {
         description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings and structural deck panels — molded and pultruded gratings, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/products" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Gratings & Decks" },
         ]}
       />
