@@ -2,6 +2,7 @@
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useMemo } from "react";
 
 function renderMarkdown(text: string) {
@@ -58,8 +59,6 @@ const SUGGESTIONS = [
   "FRP window frame thermal performance data",
 ];
 
-const transport = new DefaultChatTransport({ api: "/api/chat" });
-
 interface ChatPanelProps {
   fullPage?: boolean;
   initialPrompt?: string;
@@ -67,6 +66,33 @@ interface ChatPanelProps {
 
 export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanelProps) {
   const [input, setInput] = useState("");
+  const pathname = usePathname();
+  const pathnameRef = useRef(pathname);
+  useEffect(() => {
+    pathnameRef.current = pathname;
+  }, [pathname]);
+
+  const transport = useMemo(
+    () =>
+      new DefaultChatTransport({
+        api: "/api/chat",
+        prepareSendMessagesRequest: ({ messages, body }) => ({
+          body: {
+            ...body,
+            messages,
+            pageContext:
+              typeof window !== "undefined"
+                ? {
+                    path: pathnameRef.current ?? null,
+                    title: document.title || undefined,
+                  }
+                : undefined,
+          },
+        }),
+      }),
+    [],
+  );
+
   const { messages, sendMessage, status, stop, error } = useChat({ transport });
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);

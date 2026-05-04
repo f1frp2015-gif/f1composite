@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { prefillForCaseStudy } from "@/lib/aiPrefill";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -481,6 +483,17 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      <AskAICard
+        title={`Have a similar project to ${cs.title.split("—")[0].trim()}?`}
+        description="Open the FRP Engineering Advisor with this case study loaded as context. Ask about specs, profile families, resin selection, or how to build your own RFQ."
+        prefill={prefillForCaseStudy({
+          title: cs.title,
+          slug,
+          industry: cs.industry,
+          location: cs.location,
+        })}
+      />
 
       <InnerCTA title="Interested in a similar solution?" />
     </>

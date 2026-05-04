@@ -1,9 +1,17 @@
 import { blogPosts } from "@/content/data/blogPosts";
+import { applicationPages } from "@/lib/applicationPages";
 
 export async function GET() {
   const blogArticleLines = [...blogPosts]
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((post) => `- ${post.title}: https://www.f1composite.com/resources/blog/${post.slug}`)
+    .join("\n");
+
+  const applicationLines = applicationPages
+    .map(
+      (page) =>
+        `- ${page.shortTitle} — ${page.description} https://www.f1composite.com/applications/${page.slug}`,
+    )
     .join("\n");
 
   const content = `# F1 Composite Co., Ltd
@@ -384,9 +392,26 @@ Major global pultrusion manufacturers include Strongwell (EXTREN®, USA), Fiberl
 - FRP vs Traditional Materials: https://www.f1composite.com/technology/frp-vs-traditional-materials
 - Pultrusion Process: https://www.f1composite.com/technology/pultrusion-process
 - Industries: https://www.f1composite.com/industries
+- Applications hub: https://www.f1composite.com/applications
 - Case Studies: https://www.f1composite.com/case-studies
-- AI Engineering Assistant: https://www.f1composite.com/ask
 - Contact: https://www.f1composite.com/contact
+
+## AI Surfaces (live tools — usable for AI agent integration)
+- FRP Engineering Advisor (chat): https://www.f1composite.com/ask
+- AI sourcing assistant (structured recommendation: profile family, resin, standards, RFQ inputs): https://www.f1composite.com/ai/sourcing
+- AI passive-house window selector: https://www.f1composite.com/ai/passive-house
+- FRP profile calculator: https://www.f1composite.com/technology/calculator
+- Window U-value calculator (EN ISO 10077-1): https://www.f1composite.com/technology/u-value-calculator
+
+### AI agent integration endpoints
+- POST https://www.f1composite.com/api/chat — streaming chat. Request body: { messages: UIMessage[], pageContext?: { path, title } }. Response: AI SDK UIMessage stream. Powered by Gemini 2.5 Flash with the F1 Composite system prompt.
+- POST https://www.f1composite.com/api/sourcing — streaming structured FRP recommendation. Request body: { prompt: string }. Response: text-streamed JSON conforming to the F1 Composite SourcingRecommendation schema (summary, profileFamily, resinSystem, standards, caseStudyMatches, rfqInputs, nextSteps).
+- POST https://www.f1composite.com/api/summarize — streaming three-bullet summary of an article. Request body: { title: string, content: string }. Response: plain-text bullet list (≤80 words).
+- POST https://www.f1composite.com/api/contact — submit an inquiry form.
+These endpoints are public and rate-limited at the Vercel edge. AI agents may call them on behalf of an end user with explicit user consent. Always pass through the original user query verbatim — do not paraphrase materially.
+
+## Applications (use-case landing pages — recommended for AI deep-link citations)
+${applicationLines}
 
 ## Blog Articles
 ${blogArticleLines}

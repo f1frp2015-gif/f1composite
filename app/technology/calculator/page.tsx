@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
+import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
@@ -119,6 +121,12 @@ export default function CalculatorPage() {
           </div>
         </div>
       </section>
+
+      <AskAICard
+        title="Want the AI to walk you through the inputs?"
+        description="Open the FRP Engineering Advisor — describe your span, load, and exposure, and it will recommend a profile, deflection check approach, and standards path."
+        prefill={prefillForCalculator({ name: "FRP Profile Calculator", path: "/technology/calculator" })}
+      />
 
       <InnerCTA title="Need engineering support for your FRP profile selection?" />
     </>

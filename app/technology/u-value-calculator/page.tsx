@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
+import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import UValueCalculator from "./UValueCalculator";
@@ -135,6 +137,12 @@ export default function UValueCalculatorPage() {
           </Link>
         </div>
       </section>
+
+      <AskAICard
+        title="Want help spec'ing a passive house window?"
+        description="Open the FRP Engineering Advisor with your climate zone and U-value target — it will match an F1 Composite series, suggest glazing, and outline the certification path."
+        prefill={prefillForCalculator({ name: "U-Value Calculator", path: "/technology/u-value-calculator" })}
+      />
 
       <InnerCTA title="Need help selecting the right frame and glass for your project?" />
     </>
