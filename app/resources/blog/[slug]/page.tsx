@@ -5,9 +5,12 @@ import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
 import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
+import AskAICard from "@/components/ai/AskAICard";
+import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { prefillForBlog } from "@/lib/aiPrefill";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -300,6 +303,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
 
+            <div className="mt-[34px] max-w-[800px]">
+              <ArticleSummarizer title={post.title} content={post.content} />
+            </div>
+
             <article className="prose-f1 mt-[34px] max-w-[800px]">
               {renderArticleContent(post.content)}
             </article>
@@ -415,6 +422,12 @@ export default async function BlogPostPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      <AskAICard
+        title={`Have questions about "${post.title}"?`}
+        description="Open the FRP Engineering Advisor with the article context already loaded. Ask about specs, standards, profile families, or how to apply this to your project."
+        prefill={prefillForBlog({ title: post.title, slug: post.slug })}
+      />
 
       <InnerCTA />
     </>

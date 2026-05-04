@@ -6,8 +6,10 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
+import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { prefillForHub } from "@/lib/aiPrefill";
 
 const pageTitle =
   "Pultruded FRP Profiles — Fiberglass Structural Shapes Manufacturer";
@@ -611,6 +613,12 @@ export default function PultrudedFRPProfilesHubPage() {
         description="Short answers for specifying engineers, procurement managers, and contractors evaluating pultruded fiberglass profiles."
         items={faqItems}
         suppressSchema
+      />
+
+      <AskAICard
+        title="Not sure which profile family fits your project?"
+        description="Describe your application and the FRP Engineering Advisor will recommend the right product family, resin system, standards, and quote path."
+        prefill={prefillForHub()}
       />
 
       <InnerCTA title="Specify pultruded FRP profiles for your next project" />

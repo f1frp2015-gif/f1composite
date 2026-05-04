@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { readdirSync, statSync, existsSync } from "node:fs";
-import { join, extname, basename, dirname } from "node:path";
+import { join, extname, basename } from "node:path";
 import sharp from "sharp";
 
 const ROOT = "public/images";

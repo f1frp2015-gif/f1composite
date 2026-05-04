@@ -6,8 +6,10 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
+import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
 const pageTitle =
   "What is FRP? Complete Guide to Fiberglass Reinforced Polymer Composites";
@@ -681,6 +683,12 @@ export default function WhatIsFrpPage() {
           items={faqItems}
         />
       </div>
+
+      <AskAICard
+        title="Ready to apply this to your project?"
+        description="Open the FRP Engineering Advisor and get a profile family, resin system, and standards mapped to what you're building."
+        prefill={prefillForWhatIsFRP()}
+      />
 
       <InnerCTA title="Talk to our FRP engineers about your project" />
     </>
