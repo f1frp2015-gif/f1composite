@@ -117,8 +117,8 @@ export default function StandardProfilesPage() {
       <JsonLd data={itemListSchema} />
       <PageHeader
         tag="Standard Profiles"
-        title="Pultruded FRP Structural Profiles"
-        description="Seven core profile geometries engineered to replace steel and aluminium — corrosion-free, 75% lighter, ISO 9001 certified."
+        title="Standard FRP profiles catalog — stock pultruded structural shapes"
+        description="Stock I-beams, channels, angles, tubes, flat bars, and rods for engineers who already know the profile geometry. For the complete product family, start from the pultruded FRP profiles hub."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -220,6 +220,7 @@ export default function StandardProfilesPage() {
         title="Standard FRP profiles — frequently asked questions"
         description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminium options."
         items={faqItems}
+        suppressSchema
       />
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />

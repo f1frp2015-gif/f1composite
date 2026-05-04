@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Pultruded FRP Profiles Manufacturer — Fiberglass Structural Shapes | F1 Composite",
     description:
-      "Leading pultruded FRP profiles manufacturer. Fiberglass I-beams, channels, angles, custom pultrusions, FRP window frames & window profiles, gratings & deck panels. ISO 9001 certified, 370 pultrusion lines, shipping to 30+ countries.",
+      "Pultruded FRP profiles manufacturer for structural shapes, custom pultrusions, FRP windows and gratings. EN 13706, ASTM D3917, ISO 9001, global export.",
     path: "/",
     image: "/opengraph-image",
   }),

@@ -4,9 +4,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import SourcingWizard from "./SourcingWizard";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI Sourcing Assistant — FRP Profile Selection by Application",
+  title: "AI FRP Profile Sourcing Assistant — Application-Based Specification",
   description:
-    "Describe your application — environment, load, standards, geography — and get an instant AI-generated FRP specification: profile family, resin system, certifications, similar case studies, and quote-ready summary.",
+    "AI FRP profile sourcing assistant for engineers and buyers. Enter application, environment, load and standards to get a profile family, resin system and quote path.",
   path: "/ai/sourcing",
 });
 
@@ -59,9 +59,9 @@ export default function SourcingPage() {
               AI-Native Sourcing
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-              Describe your application.
+              AI FRP Profile Sourcing Assistant
               <br />
-              Get a spec, a comparison, and a quote path.
+              Application-based specification and quote path
             </h1>
             <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
               Skip the brochure-browsing. Tell our AI what you&rsquo;re building, and it returns:

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
+import { applicationPages } from "@/lib/applicationPages";
 
 const BASE = "https://www.f1composite.com";
 
@@ -27,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: post.updatedAt,
     changeFrequency: "monthly" as const,
     priority: 0.6,
+  }));
+
+  const applicationEntries = applicationPages.map((page) => ({
+    url: `${BASE}/applications/${page.slug}`,
+    lastModified: "2026-05-03",
+    changeFrequency: "monthly" as const,
+    priority: 0.78,
   }));
 
   return [
@@ -61,6 +69,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/industries/marine`, lastModified: DATES.industries, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/industries/industrial`, lastModified: DATES.industries, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/industries/vehicle`, lastModified: "2026-04-04", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/applications`, lastModified: "2026-05-03", changeFrequency: "monthly", priority: 0.85 },
+    ...applicationEntries,
     { url: `${BASE}/case-studies`, lastModified: DATES.caseStudies, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/case-studies/european-bridge-deck`, lastModified: DATES.caseStudies, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/coastal-marina-walkway`, lastModified: DATES.caseStudies, changeFrequency: "monthly", priority: 0.7 },
