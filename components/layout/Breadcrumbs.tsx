@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: i + 1,
       name: item.label,
-      ...(item.href ? { item: `https://f1composite.com${item.href}` } : {}),
+      ...(item.href ? { item: `https://www.f1composite.com${item.href}` } : {}),
     })),
   };
 
