@@ -66,11 +66,10 @@ interface ChatPanelProps {
 
 export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanelProps) {
   const [input, setInput] = useState("");
-  const pathname = usePathname();
-  const pathnameRef = useRef(pathname);
-  useEffect(() => {
-    pathnameRef.current = pathname;
-  }, [pathname]);
+  // Touch usePathname so the panel re-renders on route changes; we read
+  // the live pathname/title from window at send-time inside the transport,
+  // which keeps the closure free of React refs.
+  usePathname();
 
   const transport = useMemo(
     () =>
@@ -83,7 +82,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             pageContext:
               typeof window !== "undefined"
                 ? {
-                    path: pathnameRef.current ?? null,
+                    path: window.location.pathname,
                     title: document.title || undefined,
                   }
                 : undefined,
