@@ -12,7 +12,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 const pageTitle =
   "FRP Window Frames — Pultruded Fiberglass Fenestration Systems";
 const pageDescription =
-  "Pultruded fiberglass window frames — 65/70/80/90/140-series FRP fenestration systems. Frame U-values from 0.78 W/m\u00B2\u00B7K, zero thermal bridging. Superior alternative to aluminum and PVC window frames. PHI (Passive House Institute) certified.";
+  "Pultruded FRP window frames and fenestration profiles for passive house and low-energy buildings. 65-140 series, U-values down to 0.78 W/m2K.";
 const pagePath = "/products/fenestration-systems";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -132,7 +132,8 @@ export default function FenestrationSystemsPage() {
       <JsonLd
         data={buildProductSchema({
           name: "Pultruded FRP Window Frames",
-          description: pageDescription,
+          description:
+            "Pultruded FRP window frames and fenestration profiles for passive house and low-energy buildings. 65-140 series, U-values down to 0.78 W/m2K.",
           path: pagePath,
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.png",
           category: "FRP Window Frames and Fenestration Systems",
@@ -409,7 +410,7 @@ export default function FenestrationSystemsPage() {
       {/* FAQ */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} />
+          <FAQ items={faqItems} suppressSchema />
         </div>
       </section>
 

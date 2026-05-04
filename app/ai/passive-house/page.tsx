@@ -7,7 +7,7 @@ import PassiveHouseWizard from "./PassiveHouseWizard";
 export const metadata: Metadata = buildPageMetadata({
   title: "AI Passive House Window Selector — PHI-Certified FRP Fenestration",
   description:
-    "Input your climate zone, target U-value, and window type — get an AI-recommended F1 Composite FRP fenestration series with PHI Component-ID, U_w calc guidance, and matching case studies.",
+    "AI passive house FRP window selector for PHI-certified fenestration. Match climate zone, U-value target and window type to the right F1 Composite series.",
   path: "/ai/passive-house",
 });
 
@@ -32,9 +32,9 @@ export default function PassiveHousePage() {
               PHI Component-ID 2491wi03 · Class A+ / phA
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-              Tell us your climate.
+              AI Passive House FRP Window Selector
               <br />
-              We&rsquo;ll spec the FRP window.
+              Match climate, U-value target, and series
             </h1>
             <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
               Passive house fenestration has strict thermal, acoustic, and airtightness targets by

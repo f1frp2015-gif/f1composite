@@ -12,7 +12,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 const pageTitle =
   "FRP Gratings & Decks — Molded, Pultruded & Structural Deck Panels";
 const pageDescription =
-  "Molded and pultruded fiberglass gratings plus FRP structural deck panels. Anti-slip surfaces for marine, chemical, and infrastructure platforms. Deck panels for pedestrian bridges and bridge deck replacement. Corrosion-proof, lightweight, full load tables and specifications.";
+  "FRP gratings, molded gratings, pultruded gratings and structural deck panels for chemical plants, marine platforms and bridge decks.";
 const pagePath = "/products/gratings";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -361,7 +361,7 @@ export default function GratingsPage() {
       {/* FAQ */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} />
+          <FAQ items={faqItems} suppressSchema />
         </div>
       </section>
 

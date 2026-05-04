@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "Pultruded FRP Profiles — Fiberglass Structural Shapes Manufacturer";
 const pageDescription =
-  "Pultruded FRP profiles manufacturer — fiberglass I-beams, channels, angles, tubes, FRP window frames & window profiles, gratings & deck panels, and custom pultrusions. EN 13706 / ASTM D3917, 370 lines, 150,000 t/year, 30+ countries.";
+  "Pultruded FRP profiles manufacturer for structural shapes, window frames, gratings and custom pultrusions. EN 13706, ASTM D3917, 370 lines, global export.";
 const pagePath = "/pultruded-frp-profiles";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -150,6 +150,39 @@ const resinOptions: Array<{ system: string; use: string; notes: string }> = [
   },
 ];
 
+const applicationLinks = [
+  {
+    href: "/applications/frp-cable-tray-supports",
+    title: "FRP cable tray supports",
+    description:
+      "Non-conductive pultruded channels, angles, and brackets for substations, tunnels, and corrosive cable routing.",
+  },
+  {
+    href: "/applications/frp-cooling-tower-profiles",
+    title: "FRP cooling tower profiles",
+    description:
+      "Vinyl ester beams, tubes, louvers, and access members for wet, chlorinated, and high-humidity cooling tower structures.",
+  },
+  {
+    href: "/applications/frp-bridge-deck-panels",
+    title: "FRP bridge deck panels",
+    description:
+      "Closed-top deck planks, gratings, and support profiles for pedestrian bridges and lightweight deck replacement.",
+  },
+  {
+    href: "/applications/frp-solar-mounting-profiles",
+    title: "FRP solar mounting profiles",
+    description:
+      "UV-stable pultruded beams, channels, and posts for solar farms where weight, corrosion, and electrical isolation matter.",
+  },
+  {
+    href: "/applications/frp-chemical-plant-platforms",
+    title: "FRP chemical plant platforms",
+    description:
+      "Corrosion-proof beams, gratings, stair treads, and handrails for acid splash zones and process access platforms.",
+  },
+];
+
 const comparisonRows: Array<{
   property: string;
   frp: string;
@@ -268,27 +301,14 @@ export default function PultrudedFRPProfilesHubPage() {
     })),
   };
 
-  const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Pultruded FRP Profile Family",
-    itemListElement: profileFamily.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: absoluteUrl(item.href),
-      name: item.name,
-    })),
-  };
-
   return (
     <>
       <JsonLd data={collectionSchema} />
-      <JsonLd data={itemListSchema} />
 
       <PageHeader
         tag="Pultruded FRP Profiles"
-        title="Pultruded FRP profiles manufacturer — complete fiberglass structural range"
-        description="F1 Composite manufactures the full family of pultruded fiberglass reinforced polymer profiles: structural shapes (I-beam, channel, angle, tube, flat bar, rod), FRP window frames and window profiles (65 / 70 / 80 / 90 / 140-series fenestration), gratings and deck panels, and custom cross-sections up to 600×300 mm. Made to EN 13706 and ASTM D3917 across 5 production bases and 370 pultrusion lines."
+        title="Pultruded FRP profiles manufacturer — complete product hub"
+        description="F1 Composite manufactures the full pultruded fiberglass profile range: standard structural shapes, custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards, applications, and quote path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },
@@ -387,6 +407,35 @@ export default function PultrudedFRPProfilesHubPage() {
                     Explore →
                   </span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Application entry points</SectionTag>
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+            Start from the structure you need to replace
+          </h2>
+          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
+            Engineers often search by application before they know the profile geometry.
+            These pages translate common use cases into resin systems, profile families,
+            standards, and RFQ inputs.
+          </p>
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
+            {applicationLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-[8px] border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
+              >
+                <h3 className="text-f19 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f15 leading-golden text-t2">{item.description}</p>
+                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text">
+                  View application →
+                </span>
               </Link>
             ))}
           </div>
@@ -561,6 +610,7 @@ export default function PultrudedFRPProfilesHubPage() {
         title="Pultruded FRP profiles — frequently asked questions"
         description="Short answers for specifying engineers, procurement managers, and contractors evaluating pultruded fiberglass profiles."
         items={faqItems}
+        suppressSchema
       />
 
       <InnerCTA title="Specify pultruded FRP profiles for your next project" />
