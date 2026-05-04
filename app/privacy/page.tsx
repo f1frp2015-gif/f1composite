@@ -4,7 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "F1 Composite privacy policy. How we collect, use, and protect your personal information when you visit f1composite.com.",
+    "F1 Composite privacy policy: how we collect, use, store, and protect your personal information when you visit f1composite.com or contact us.",
 };
 
 export default function PrivacyPage() {

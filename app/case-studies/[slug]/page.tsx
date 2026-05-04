@@ -216,34 +216,34 @@ const caseStudyImages: Record<string, string> = {
   "chemical-plant-platform": "/images/case-studies/frp-chemical-plant-access-platform.jpg",
   "fenestration-residential": "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
   "solar-farm-mounting": "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
-  "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.jpg",
-  "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.jpg",
-  "yancheng-talent-apartment-fenestration": "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.jpg",
-  "qinling-station-antarctic-passive-windows": "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.jpg",
+  "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
+  "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.webp",
+  "yancheng-talent-apartment-fenestration": "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
+  "qinling-station-antarctic-passive-windows": "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
 };
 
 const caseStudyContentImages: Record<string, { src: string; alt: string }[]> = {
   "factory-access-staircase": [
     {
-      src: "/images/case-studies/frp-factory-staircase-structural-view.jpg",
+      src: "/images/case-studies/frp-factory-staircase-structural-view.webp",
       alt: "Side view of FRP I-beam stringers and pultruded structural profiles forming the staircase frame inside F1 Composite's Chongqing factory",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-platform-handrail.jpg",
+      src: "/images/case-studies/frp-factory-staircase-platform-handrail.webp",
       alt: "Elevated platform with safety-orange pultruded FRP handrails and guardrails installed above the pultrusion line",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-grating-treads.jpg",
+      src: "/images/case-studies/frp-factory-staircase-grating-treads.webp",
       alt: "Anti-slip molded FRP grating stair treads and platform panels in corrosive factory environment",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-assembly-detail.jpg",
+      src: "/images/case-studies/frp-factory-staircase-assembly-detail.webp",
       alt: "Bolted connection detail between pultruded FRP profiles and 316L stainless steel fasteners — no welding required",
     },
   ],
   "water-treatment-cable-tray": [
     {
-      src: "/images/case-studies/frp-water-treatment-plant-aeration-basin-piping-system.jpg",
+      src: "/images/case-studies/frp-water-treatment-plant-aeration-basin-piping-system.webp",
       alt: "Aerial view of water treatment aeration basins with FRP cable tray and piping system installed across walkways",
     },
     {

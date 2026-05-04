@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP for Construction",
   description:
-    "FRP profiles for construction: corrosion-free facades, FRP window frames and FRP window profiles, thermally broken fenestration systems, lightweight cladding support. Outperforms steel, aluminum, and PVC.",
+    "FRP profiles for construction: corrosion-free facades, PHI-certified FRP window frames, thermally broken fenestration, and lightweight cladding support.",
   path: "/industries/construction",
   image: "/industries/construction/opengraph-image",
 });

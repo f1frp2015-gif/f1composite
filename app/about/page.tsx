@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "About F1 Composite — Pultruded FRP Profiles Manufacturer in China",
   description:
-    "F1 Composite: 5 manufacturing bases, 370 pultrusion lines, 150,000 tons annual capacity. ISO 9001 certified FRP profiles manufacturer headquartered in China, exporting to 30+ countries.",
+    "F1 Composite: 5 manufacturing bases, 370 pultrusion lines, 150,000 t/year. ISO 9001 FRP profiles manufacturer in China, exporting to 30+ countries.",
 };
 
 const milestones = [

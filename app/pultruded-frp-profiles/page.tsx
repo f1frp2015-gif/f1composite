@@ -48,7 +48,7 @@ const profileFamily: Array<{
     summary:
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
     href: "/products/standard-profiles/channel",
-    image: "/images/products/channel/frp-channel-photo.png",
+    image: "/images/products/channel/frp-channel-photo.webp",
   },
   {
     slug: "angle",
@@ -58,7 +58,7 @@ const profileFamily: Array<{
     summary:
       "Equal and unequal-leg angles for stiffeners, bracing, ledger supports, and frame connectors. Isophthalic polyester or vinyl ester resin.",
     href: "/products/standard-profiles/angle",
-    image: "/images/products/angle/frp-angle-photo.png",
+    image: "/images/products/angle/frp-angle-photo.webp",
   },
   {
     slug: "square-tube",
@@ -68,7 +68,7 @@ const profileFamily: Array<{
     summary:
       "Superior torsional rigidity for columns, trusses, and free-standing frames. Also used for guardrails and solar racking posts.",
     href: "/products/standard-profiles/square-tube",
-    image: "/images/products/square-tube/frp-square-tube-photo.png",
+    image: "/images/products/square-tube/frp-square-tube-photo.webp",
   },
   {
     slug: "tube",

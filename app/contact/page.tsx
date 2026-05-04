@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
 import ContactForm from "@/components/ContactForm";
+import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -179,6 +180,12 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[860px] px-[34px]">
+          <LegalEntityNote />
         </div>
       </section>
     </>

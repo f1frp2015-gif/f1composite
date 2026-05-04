@@ -7,7 +7,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Technical Data",
   description:
-    "Mechanical properties, chemical resistance data, and specification sheets for F1 Composite pultruded FRP profiles.",
+    "Mechanical properties, chemical resistance, fire performance, and specification sheets for F1 Composite pultruded FRP profiles per EN 13706 and ASTM.",
   path: "/resources/technical-data",
   image: "/resources/technical-data/opengraph-image",
 });

@@ -135,7 +135,7 @@ export default function FenestrationSystemsPage() {
           description:
             "Pultruded FRP window frames and fenestration profiles for passive house and low-energy buildings. 65-140 series, U-values down to 0.78 W/m2K.",
           path: pagePath,
-          image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.png",
+          image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
           category: "FRP Window Frames and Fenestration Systems",
           material: ["E-glass roving", "Continuous strand mat", "Vinyl ester resin", "Isophthalic polyester resin"],
           additionalProperty: [
@@ -188,7 +188,7 @@ export default function FenestrationSystemsPage() {
             </div>
             <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
               <Image
-                src="/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.png"
+                src="/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp"
                 alt="FRP window and door frame 80-series tilt and turn system"
                 width={400}
                 height={400}
@@ -212,7 +212,7 @@ export default function FenestrationSystemsPage() {
             </div>
             <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
               <Image
-                src="/images/products/window-door/frp-window-door-frame-140-series-sliding.png"
+                src="/images/products/window-door/frp-window-door-frame-140-series-sliding.webp"
                 alt="FRP window and door frame 140-series sliding system"
                 width={400}
                 height={400}

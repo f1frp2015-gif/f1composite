@@ -11,7 +11,7 @@ const featuredCases = [
     location: "Ross Sea, Antarctica",
     description:
       "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class.",
-    image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.jpg",
+    image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     metrics: [
       { value: "phA / A+", label: "PHI Class" },
       { value: "−60°C", label: "Design Low" },
@@ -25,7 +25,7 @@ const featuredCases = [
     location: "Chongqing, China",
     description:
       "F1 Composite's own production base — staircase and platform built entirely from our pultruded FRP profiles. 18 months of live, walkable reference for visiting customers.",
-    image: "/images/case-studies/frp-factory-access-staircase-hero.jpg",
+    image: "/images/case-studies/frp-factory-access-staircase-hero.webp",
     metrics: [
       { value: "68%", label: "Weight Reduction" },
       { value: "0", label: "Maintenance Cost" },
@@ -39,7 +39,7 @@ const featuredCases = [
     location: "Yancheng, Jiangsu, China",
     description:
       "Complete FRP fenestration package — 65-series casement (inward + outward), 90-series sliding, and matching facade frames — across ~20 residential and commercial buildings in a coastal talent-housing development.",
-    image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.jpg",
+    image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
     metrics: [
       { value: "~20", label: "Buildings Glazed" },
       { value: "1.6", label: "U-Value (W/m²K)" },

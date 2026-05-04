@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pultrusion Technology & FRP Engineering Know-How",
   description:
-    "Pultrusion manufacturing process, FRP vs steel comparison, quality testing to EN 13706 & ASTM standards, and composite material engineering expertise. Technical resources for engineers.",
+    "Pultrusion process, FRP vs steel comparisons, quality testing to EN 13706 and ASTM, and composite engineering know-how — technical resources for specifiers.",
   path: "/technology",
   image: "/technology/opengraph-image",
 });
