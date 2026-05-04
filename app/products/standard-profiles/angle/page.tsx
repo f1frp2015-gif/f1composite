@@ -59,7 +59,7 @@ export default function AnglePage() {
           name: "FRP Angle Profiles",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/angle/frp-angle-profile-100x100x10mm.png",
+          image: "/images/products/angle/frp-angle-profile-100x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
           additionalProperty: [

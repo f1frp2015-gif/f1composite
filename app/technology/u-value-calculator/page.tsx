@@ -9,7 +9,7 @@ import UValueCalculator from "./UValueCalculator";
 export const metadata: Metadata = buildPageMetadata({
   title: "Window U-Value Calculator — FRP Frame & Glass Configuration",
   description:
-    "Calculate whole-window U-value (Uw) per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double, triple, and quadruple glazing configurations.",
+    "Calculate whole-window U-value (Uw) per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double-, triple-, or quad-glazing.",
   path: "/technology/u-value-calculator",
 });
 

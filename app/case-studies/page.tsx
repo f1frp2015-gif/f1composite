@@ -9,7 +9,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Case Studies — Pultruded Profile Projects Worldwide",
   description:
-    "Real-world pultruded FRP projects: bridge deck replacement, marine walkways, chemical plant platforms, fiberglass window installations, and solar farm mounting structures — with quantified outcomes.",
+    "Real pultruded FRP projects: bridge decks, marine walkways, chemical platforms, FRP windows, and solar mounting — with quantified outcomes.",
   path: "/case-studies",
   image: "/case-studies/opengraph-image",
 });
@@ -21,7 +21,7 @@ const caseStudies = [
     industry: "Construction",
     location: "Ross Sea, Antarctica",
     year: "2024",
-    image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.jpg",
+    image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     excerpt:
       "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class, −60 °C design low, 45 m/s katabatic wind loading.",
   },
@@ -31,7 +31,7 @@ const caseStudies = [
     industry: "Construction",
     location: "Yancheng, Jiangsu, China",
     year: "2024",
-    image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.jpg",
+    image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
     excerpt:
       "Supplied the complete pultruded FRP fenestration package — 65-series casement (inward and outward), 90-series sliding, and matching facade frames — across ~20 residential and commercial buildings of a coastal talent-housing development.",
   },
@@ -41,7 +41,7 @@ const caseStudies = [
     industry: "Industrial",
     location: "Chongqing, China",
     year: "2024",
-    image: "/images/case-studies/frp-factory-access-staircase-hero.jpg",
+    image: "/images/case-studies/frp-factory-access-staircase-hero.webp",
     excerpt:
       "F1 Composite's own Chongqing production base — staircase and elevated platform built end-to-end from our pultruded FRP profiles, live reference for visiting customers.",
   },

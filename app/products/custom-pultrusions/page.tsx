@@ -176,7 +176,7 @@ export default function CustomPultrusionsPage() {
           name: "Custom Pultruded FRP Profiles",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/custom-profiles-overview.png",
+          image: "/images/products/custom-profiles-overview.webp",
           category: "Custom Pultruded FRP Profiles",
           material: [
             "E-glass fiber",

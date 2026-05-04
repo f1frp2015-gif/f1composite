@@ -10,7 +10,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Industries Served — FRP Profiles for Construction, Marine & Energy",
   description:
-    "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors. Corrosion-resistant fiberglass solutions replacing steel and aluminium worldwide.",
+    "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors — corrosion-resistant fiberglass replacing steel.",
   path: "/industries",
   image: "/industries/opengraph-image",
 });

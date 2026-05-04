@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profiles for Industrial Plants — Chemical-Resistant Pultruded Fiberglass",
   description:
-    "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. Water treatment, food processing, pharma, wash-down zones. EN 13706 certified.",
+    "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
   path: "/industries/industrial",
   image: "/industries/industrial/opengraph-image",
 });

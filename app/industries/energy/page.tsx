@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP for Energy & Power",
   description:
-    "FRP profiles for substations, transmission cross-arms, cable trays, solar mounting, wind turbines, and transformer spacers. Non-conductive, non-magnetic, maintenance-free.",
+    "FRP profiles for substations, cross-arms, cable trays, solar mounting, and transformer spacers — non-conductive, non-magnetic, maintenance-free.",
   path: "/industries/energy",
   image: "/industries/energy/opengraph-image",
 });

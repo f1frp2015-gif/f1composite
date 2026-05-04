@@ -4,7 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "F1 Composite terms of service. Terms and conditions governing the use of f1composite.com and our products and services.",
+    "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services.",
 };
 
 export default function TermsPage() {

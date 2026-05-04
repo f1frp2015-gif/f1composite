@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import ChatPanel from "@/components/chat/ChatPanel";
+import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Engineering Advisor",
   description:
-    "Ask our AI advisor about FRP profile selection, material comparison, specifications, and applications. Get instant engineering guidance for pultruded composite projects.",
+    "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
   path: "/ask",
 });
 
@@ -50,6 +51,10 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
         <div className="overflow-hidden rounded-[12px] border border-border-default bg-white shadow-sm">
           <ChatPanel fullPage initialPrompt={prefill} />
+        </div>
+
+        <div className="mt-[21px]">
+          <LegalEntityNote variant="compact" />
         </div>
       </div>
     </>

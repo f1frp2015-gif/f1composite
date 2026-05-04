@@ -6,7 +6,7 @@ import SourcingWizard from "./SourcingWizard";
 export const metadata: Metadata = buildPageMetadata({
   title: "AI FRP Profile Sourcing Assistant — Application-Based Specification",
   description:
-    "AI FRP profile sourcing assistant for engineers and buyers. Enter application, environment, load and standards to get a profile family, resin system and quote path.",
+    "AI FRP sourcing assistant for engineers. Describe application, environment, and standards to get a profile family, resin system, and quote path.",
   path: "/ai/sourcing",
 });
 

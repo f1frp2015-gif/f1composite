@@ -40,6 +40,6 @@ export const productCategories: ProductCategory[] = [
     description: "70/80/90-series window and door frame systems with superior thermal insulation.",
     icon: "fenestration",
     href: "/products/fenestration-systems",
-    image: "/images/products/fenestration-systems-cover.jpg",
+    image: "/images/products/fenestration-systems-cover.webp",
   },
 ];

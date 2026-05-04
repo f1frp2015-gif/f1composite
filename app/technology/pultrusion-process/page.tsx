@@ -366,7 +366,7 @@ export default function PultrusionProcessPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/pultrusion-manufacturing-production-line.jpg"
+              src="/images/technology/pultrusion-manufacturing-production-line.webp"
               alt="Pultrusion manufacturing production line with engineer"
               width={1280}
               height={600}
@@ -519,7 +519,7 @@ export default function PultrusionProcessPage() {
 
           <div className="mt-[34px] overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/production-line-pultrusion-krauss-maffei.jpg"
+              src="/images/technology/production-line-pultrusion-krauss-maffei.webp"
               alt="F1 Composite pultrusion production line with Krauss Maffei pullers"
               sizes="(max-width: 1280px) 100vw, 1280px"
               width={2560}

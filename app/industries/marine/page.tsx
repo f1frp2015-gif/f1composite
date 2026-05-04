@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profiles for Marine — Pultruded Fiberglass for Saltwater Structures",
   description:
-    "Pultruded FRP profiles and gratings for marine: corrosion-proof docks, offshore platforms, ship interiors, walkways, tie-rods. 50+ year life in continuous saltwater. EN 13706, ISO 9001 certified.",
+    "Pultruded FRP profiles and gratings for marine: docks, offshore platforms, walkways, tie-rods. 50+ year life in saltwater. EN 13706, ISO 9001.",
   path: "/industries/marine",
   image: "/industries/marine/opengraph-image",
 });

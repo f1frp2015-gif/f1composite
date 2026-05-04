@@ -29,6 +29,18 @@ export function buildPageMetadata({
   path,
   image = "/opengraph-image",
 }: PageMetadataOptions): Metadata {
+  if (process.env.NODE_ENV !== "production") {
+    if (description.length < 120 || description.length > 160) {
+      console.warn(
+        `[seo] description for ${path} is ${description.length} chars (target 120-160): "${description.slice(0, 80)}..."`,
+      );
+    }
+    if (title.length > 60) {
+      console.warn(
+        `[seo] title for ${path} is ${title.length} chars (target ≤60): "${title}"`,
+      );
+    }
+  }
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 

@@ -9,7 +9,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Blog",
   description:
-    "Technical articles, industry insights, and FRP composite engineering knowledge from the F1 Composite team.",
+    "Technical articles on pultruded FRP profiles: passive house fenestration, bridge decks, marine walkways, EN 13706 / ASTM standards, and engineering know-how.",
   path: "/resources/blog",
 });
 

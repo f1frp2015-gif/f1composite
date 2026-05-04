@@ -270,12 +270,81 @@ DO NOT append more than one intent block per message.
 - Always provide a complete, thorough answer in a single response. Do not truncate or ask "would you like me to continue?".
 - Respond ONLY in English. If a user writes in another language, reply in English and politely note that this advisor operates in English only.`;
 
+type IntentSignal =
+  | "high_quote"
+  | "spec_compare"
+  | "tech_data"
+  | "education"
+  | "sourcing_china"
+  | "smalltalk"
+  | "unknown";
+
+function detectIntent(text: string): IntentSignal {
+  const t = text.toLowerCase();
+  if (/\b(quote|rfq|price|pricing|moq|lead time|order|buy|purchase|contract)\b/.test(t)) {
+    return "high_quote";
+  }
+  if (/\b(vs|versus|compare|difference|alternative|replace)\b/.test(t)) {
+    return "spec_compare";
+  }
+  if (/\b(deflection|modulus|tensile|u[- ]?value|astm|en 13706|iso|datasheet|spec|standard)\b/.test(t)) {
+    return "tech_data";
+  }
+  if (/\b(china|chinese supplier|factory direct|oem|trader|manufacturer)\b/.test(t)) {
+    return "sourcing_china";
+  }
+  if (/\b(what is|how does|introduction|explain|guide|learn)\b/.test(t)) {
+    return "education";
+  }
+  if (t.split(/\s+/).filter(Boolean).length <= 3) {
+    return "smalltalk";
+  }
+  return "unknown";
+}
+
+function extractLastUserText(messages: UIMessage[]): string {
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const m = messages[i];
+    if (m.role !== "user") continue;
+    const parts = (m as { parts?: Array<{ type: string; text?: string }> }).parts;
+    if (!parts) continue;
+    return parts
+      .filter((p) => p.type === "text" && typeof p.text === "string")
+      .map((p) => p.text!)
+      .join(" ")
+      .trim();
+  }
+  return "";
+}
+
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json();
+  const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
+    await req.json();
+
+  const lastUserText = extractLastUserText(messages);
+  if (lastUserText) {
+    const intent = detectIntent(lastUserText);
+    console.log(
+      JSON.stringify({
+        evt: "chat_query",
+        ts: new Date().toISOString(),
+        intent,
+        turn: messages.filter((m) => m.role === "user").length,
+        page: pageContext?.path ?? null,
+        pageTitle: pageContext?.title ?? null,
+        len: lastUserText.length,
+        preview: lastUserText.slice(0, 240),
+      }),
+    );
+  }
+
+  const pageContextBlock = pageContext?.path
+    ? `\n\n## Current page context\nThe user is currently viewing: ${pageContext.title ?? "(untitled)"} (${pageContext.path}). When they say "this page" or "this product", refer to that URL. Prefer answers that reference and link to that page.`
+    : "";
 
   const result = streamText({
     model: google("gemini-2.5-flash"),
-    system: SYSTEM_PROMPT,
+    system: SYSTEM_PROMPT + pageContextBlock,
     messages: await convertToModelMessages(messages),
     maxOutputTokens: 8192,
   });

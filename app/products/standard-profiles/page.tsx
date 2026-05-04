@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Standard FRP Profiles — Pultruded Fiberglass Structural Shapes",
   description:
-    "Stock pultruded fiberglass structural shapes: FRP I-beams, channels, angles, square tubes, round tubes, flat bars, rods. EN 13706 / ASTM D3917, 75% lighter than steel, 6 m stock lengths. Free samples.",
+    "Stock pultruded FRP structural shapes: I-beams, channels, angles, tubes, flat bars, rods. EN 13706, ASTM D3917, 6 m lengths.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });
@@ -61,7 +61,7 @@ const profileTypes: Array<{
     slug: "angle",
     name: "Angle",
     subtitle: "L-Profiles",
-    image: "/images/products/angle/frp-angle-photo.png",
+    image: "/images/products/angle/frp-angle-photo.webp",
     sizes: "25×25 mm — 152×152 mm",
     brief: "Equal and unequal-leg options. Ideal as stiffeners, bracing, and ledger supports.",
   },
@@ -69,7 +69,7 @@ const profileTypes: Array<{
     slug: "channel",
     name: "Channel",
     subtitle: "U-Profiles",
-    image: "/images/products/channel/frp-channel-photo.png",
+    image: "/images/products/channel/frp-channel-photo.webp",
     sizes: "38×13 mm — 305×89 mm",
     brief: "Versatile open-section framing for cable management and modular assemblies.",
   },
@@ -77,7 +77,7 @@ const profileTypes: Array<{
     slug: "square-tube",
     name: "Square Tube",
     subtitle: "SHS & RHS Profiles",
-    image: "/images/products/square-tube/frp-square-tube-photo.png",
+    image: "/images/products/square-tube/frp-square-tube-photo.webp",
     sizes: "25×25 mm — 240×240 mm",
     brief: "Superior torsional rigidity for columns, trusses, and frame structures.",
   },

@@ -64,7 +64,7 @@ export default function SquareTubePage() {
           name: "FRP Square and Rectangular Tubes",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/square-tube/frp-square-tube-100x100x6mm.png",
+          image: "/images/products/square-tube/frp-square-tube-100x100x6mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
           additionalProperty: [

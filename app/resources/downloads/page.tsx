@@ -8,7 +8,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Downloads",
   description:
-    "Download F1 Composite product catalogs, certification documents, CAD files, and technical brochures.",
+    "Download F1 Composite product catalogs, EN 13706 declarations, ISO 9001 certificates, CAD files, and technical brochures for pultruded FRP profiles.",
   path: "/resources/downloads",
   image: "/resources/downloads/opengraph-image",
 });
