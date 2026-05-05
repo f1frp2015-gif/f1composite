@@ -2304,6 +2304,312 @@ That repositioning is what F1 Composite calls transverse-reinforced architecture
 
 For specifiers who have been holding a project specification open for a fibreglass option that does not require an aesthetic compromise, the option is now available. F1 Composite supplies the 65/70/80/90 Series fenestration profiles in transverse-reinforced architecture with factory-applied powder coating to AAMA 2604, AAMA 2605, or Qualicoat Class 1/Class 2 standards. Sample finishes are available in any RAL or NCS reference; project-specific colour matching to existing curtain-wall finishes is provided on request.`,
   },
+  {
+    slug: "how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide",
+    title: "How to Source Pultruded FRP Profiles Directly from China — 2026 Buyer's Guide",
+    category: "Procurement Guide",
+    date: "2026-05-05",
+    updatedAt: "2026-05-05",
+    readTime: "12 min",
+    excerpt:
+      "A buyer's guide for sourcing pultruded FRP profiles directly from a Chinese manufacturer in 2026: how to qualify factories, what MOQ and lead times to expect, RFQ checklist, EN 13706 / ASTM D3917 verification, Incoterms, container loading, and how to avoid the 5 most common procurement mistakes.",
+    authorName: "F1 Composite Export Team",
+    authorRole: "Direct factory export specialists",
+    reviewedBy: "Sales & Engineering",
+    standards: ["EN 13706", "ASTM D3917", "ISO 9001", "Incoterms 2020"],
+    coverImage: "/images/blog/frp-specification-procurement.jpg",
+    coverAlt: "FRP profile procurement and sourcing process from China factory",
+    supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
+    supportingAlt: "FRP cost benchmarking and lifecycle analysis worksheet",
+    supportingCaption:
+      "Direct-from-factory pricing in China typically runs 30-50% below regional distributor pricing in the US/EU — but the savings only materialise when the procurement process is set up correctly.",
+    highlights: [
+      "How to qualify a Chinese FRP manufacturer in 4 steps",
+      "MOQ, lead time, and Incoterms benchmarks (2026)",
+      "RFQ checklist that gets a real quote in 48 hours",
+    ],
+    ogDescription:
+      "Practical buyer's guide for sourcing pultruded FRP profiles direct from China in 2026 — MOQ, lead times, Incoterms, RFQ checklist, factory qualification.",
+    ogChips: ["Procurement", "China sourcing", "Buyer's guide"],
+    relatedLinks: [
+      { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
+      { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
+      { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
+      { label: "Contact F1 Composite", href: "/contact" },
+    ],
+    sourceLinks: [
+      { label: "EN 13706 — Pultruded profiles specification", href: "https://www.cencenelec.eu" },
+      { label: "ASTM D3917 — Dimensional tolerance of pultruded shapes", href: "https://www.astm.org/d3917" },
+      { label: "Incoterms 2020 — ICC", href: "https://iccwbo.org/business-solutions/incoterms-rules/" },
+    ],
+    content: `Sourcing pultruded FRP profiles directly from a Chinese manufacturer can cut your delivered cost by 30–50% versus buying from a regional distributor in North America, the UK, or Europe. The catch: the savings only materialise when the procurement process is set up correctly. Buyers who treat FRP like a commodity steel section — issue an RFQ, take the lowest bid, hope for the best — frequently end up with profiles that fail incoming inspection, miss the project schedule, or cost more in landed terms than a domestic source would have.
+
+This guide walks through the procurement process F1 Composite has refined across 30+ countries of direct-from-factory export. The framework applies whether you buy from us or from a peer Chinese pultrusion factory.
+
+## Why source from China in 2026
+
+The FRP pultrusion industry now has three roughly comparable centres of capacity: North America (Strongwell, Creative Pultrusions, Liberty Pultrusions, Fibergrate), Europe (Fiberline, Exel Composites, Topglass), and China (a handful of large factories — including F1 Composite, with 5 production bases and 370 pultrusion lines — plus a long tail of regional players).
+
+The structural quality benchmark for all three regions is the same: EN 13706 E17/E23 grades and ASTM D3917 dimensional tolerance. Factories that hold ISO 9001 and produce to these standards in China deliver mechanical properties indistinguishable from US or European peers in third-party laboratory testing.
+
+Where China sources differ is on three commercial axes:
+
+1. **Direct factory pricing.** Without distributor margin, a 200×100×10 FRP I-beam landed in Rotterdam from a Chinese factory typically lands at $24–32/m versus $40–55/m from a European distributor.
+2. **Custom tooling speed.** Tooling lead time at major Chinese factories is 3–6 weeks versus 8–12 weeks at most US/EU peers, driven by larger in-house tooling shops.
+3. **Capacity for large orders.** A single Chinese factory can run 50,000–150,000 t/year. Stocking-distributor inventory in the US or EU rarely supports a single-project order above 30 tonnes without long lead times.
+
+The trade-offs are sea freight time (25–40 days to most ports), Incoterms complexity, and the overhead of qualifying a factory you cannot visit easily.
+
+## Step 1: Qualify the factory before requesting a quote
+
+The single biggest procurement mistake is treating an FRP RFQ like a steel RFQ — sending it to ten suppliers and comparing line-item prices. FRP varies meaningfully between factories on fibre architecture, resin chemistry, and surface finish. A 30% price difference between two Chinese suppliers on the same nominal profile usually reflects a real difference in product, not just margin.
+
+Before you send any RFQ, qualify the factory on four points:
+
+**(a) Manufacturing standards.** Ask for the certificate scope of EN 13706 (E17 and/or E23 grade, which profile families are covered) and ISO 9001:2015. A factory that lists "EN 13706" without a grade or scope is a flag. Major Chinese pultrusion factories — F1 Composite included — publish the actual certificate scope on their website or send it on request.
+
+**(b) Mechanical test capability.** Ask whether the factory operates an in-house mechanical test lab and whether they will issue a Mill Test Certificate (MTC) per batch. Tested values should be referenced against ASTM D638 (tensile), ASTM D790 (flexural), ASTM D695 (compressive), and ASTM D2344 (interlaminar shear). A factory without an in-house lab is not necessarily disqualified — but you will need third-party testing on first article, which adds 2–3 weeks.
+
+**(c) Existing export markets.** Ask which countries the factory actively exports to. A factory exporting to the US, Germany, the Netherlands, Australia, or Saudi Arabia has been through customs documentation, port-of-entry inspection, and project-level QC at scale. A factory whose export experience is concentrated in a single low-regulation market is higher risk.
+
+**(d) Custom tooling capability.** If your project needs anything beyond stock standard profiles, the factory must operate its own tooling shop. Outsourced tooling adds 3–4 weeks and, more importantly, removes the manufacturer's ability to debug a die that is producing dimension-out profiles in the first run.
+
+A 20-minute video call with the factory technical contact answering these four questions filters out 60–70% of the suppliers a first-time buyer might consider.
+
+## Step 2: The RFQ checklist that gets a real quote in 48 hours
+
+A vague RFQ ("please quote pultruded FRP profile, 100×100, vinyl ester, 5000m") generates a vague quote. The factory will assume the cheapest possible interpretation of every undefined parameter, which means your apples-to-apples comparison across suppliers is impossible.
+
+Send this seven-line RFQ instead:
+
+| Field | Example |
+| --- | --- |
+| Profile | I-beam, 200×100×10 mm; or custom drawing attached |
+| Quantity | 5,000 linear meters |
+| Resin system | Isophthalic polyester / vinyl ester / polyurethane / phenolic |
+| Standard | EN 13706 E23 / ASTM D3917 / both |
+| Surface finish | Standard veil / synthetic veil + UV / powder-coat ready |
+| Application & environment | e.g. coastal walkway, salt-spray, 25-year design life |
+| Delivery terms | FOB Shanghai / CIF Rotterdam / DAP project site, target arrival date |
+
+Major Chinese factories — F1 Composite, Strongwell-equivalent peers — return a fully-spec'd quote within 48 business hours when the RFQ has these seven lines. Factories that take 5–10 days to respond to a complete RFQ are operationally weak; this usually predicts schedule slips on the actual production order too.
+
+## Step 3: Understand MOQ, lead time, and tooling economics
+
+Stock standard profiles (I-beam, channel, angle, flat bar, square tube, round tube in common sizes) carry no MOQ at major Chinese factories — you can order one piece, and it ships from inventory. Pricing is unit-based, with mild volume breaks at 1,000 m / 5,000 m / 20,000 m.
+
+Custom profiles (any cross-section that is not in the standard catalogue) require dedicated tooling and have an MOQ for the first run:
+
+| Order type | Typical MOQ | Tooling lead time | Production lead time |
+| --- | --- | --- | --- |
+| Stock standard profile | None / 1 piece | None | 1–3 weeks (from inventory) |
+| Custom profile, first run | 500 linear meters | 3–6 weeks | 4–6 weeks after tooling |
+| Custom profile, repeat order | 200 linear meters | None (re-use existing die) | 3–4 weeks |
+| Large project order (30+ tonnes) | None | None / project-specific | 4–8 weeks |
+
+Tooling is amortised on the first run. F1 Composite includes tooling cost in the per-meter price for a first run of 500–1,000 m at no separate tooling charge; for runs below MOQ or where the buyer wants to own the tooling, tooling is quoted separately ($3,000–$15,000 typical depending on profile complexity).
+
+The single biggest scheduling mistake is not allowing for tooling lead time on the first run. Plan 3–6 weeks tooling + 4–6 weeks production + 25–40 days sea freight = approximately 10–14 weeks from PO to project site for a custom profile shipped CIF to Europe. Stock profiles cut this to 6–8 weeks.
+
+## Step 4: Incoterms and freight — what FOB, CIF, and DAP actually cost
+
+Most Chinese FRP factories quote in three Incoterms:
+
+**FOB Shanghai / Ningbo / Shenzhen.** The factory delivers the goods to the export port and clears Chinese customs. The buyer arranges sea freight, destination port handling, import duty, and inland delivery. FOB is the lowest factory-quoted price but the highest buyer overhead. Use FOB only if you have an established freight forwarder.
+
+**CIF [destination port].** The factory arranges and pays for sea freight and basic insurance to the destination port. The buyer handles customs at destination and inland delivery. This is the most common mid-market Incoterms — the factory's freight pricing is competitive because they ship containers daily.
+
+**DAP [project site].** The factory arranges everything to the project site, including destination customs, inland trucking, and unloading. DAP is roughly 8–15% above CIF but eliminates buyer-side logistics overhead. Best for project-based buyers with no in-house import logistics.
+
+A 40' high-cube container holds approximately 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Ocean freight from Shanghai to Rotterdam runs $1,200–2,500 per 40HC in 2026 (down sharply from 2021–2022 peaks). Ocean freight to LA/Long Beach runs $1,800–3,500 per 40HC. Insurance is typically 0.3–0.5% of cargo value.
+
+Container loading: pultruded FRP profiles are usually packed in wooden crates or steel-banded bundles, with ends protected against impact damage. Bundle weight is held at 100–150 kg per bundle for forklift handling. Long profiles (over 12 m) require open-top containers or specialised flat-rack equipment, which adds cost — keep cut lengths at 6 m or 12 m where possible.
+
+## Step 5: Quality verification at receipt
+
+When the container arrives, three checks catch 95% of quality issues before they affect the project:
+
+1. **Mill Test Certificate matches the order.** Cross-reference batch numbers on the certificate against batch numbers stamped on the profiles. Tested mechanical values should meet or exceed EN 13706 E17 or E23 thresholds (whichever was specified).
+2. **Dimensional spot-check on 3-5 random pieces per cross-section.** ASTM D3917 tolerance is ±0.25 mm on width and depth, ±0.5% on length. A digital caliper and a 5-meter tape measure are sufficient.
+3. **Surface inspection for veil coverage.** No exposed glass fibres, no resin starvation patches, no surface cracks. A veil-deficient surface will weather poorly even if the structural performance is fine.
+
+If issues are found, photograph and send to the factory within 48 hours. Established Chinese factories — F1 Composite included — replace defective material at factory cost. Documenting the issue at receipt rather than after installation is what activates the warranty.
+
+## Five common procurement mistakes
+
+**Mistake 1: Spec'ing only by dimensions, not by mechanical class.** Two profiles with the same 200×100×10 dimensions can have 30% different stiffness depending on fibre architecture. Always specify EN 13706 E17 or E23, or specify minimum tested mechanical values.
+
+**Mistake 2: Mixing resin systems on a single project.** Polyester and vinyl ester profiles cannot be bonded with the same adhesives; their thermal expansion coefficients differ slightly. Pick one resin system for a project and document it on the BOM.
+
+**Mistake 3: Ignoring UV protection.** "Pultruded FRP is UV-resistant" is true at the resin level and false at the surface level. Outdoor profiles need a synthetic veil + UV-stabilised resin or a coating. Specify this in the RFQ.
+
+**Mistake 4: Underestimating lead time on first runs.** Custom tooling + production + sea freight is 10–14 weeks. Buyers planning around 8 weeks routinely miss project schedules.
+
+**Mistake 5: Not asking for a sample before the production order.** Reputable Chinese factories ship 0.5–2 m sample pieces free or at nominal cost via DHL/FedEx air. A 5–7 day air sample is the cheapest way to verify surface quality and dimensions before committing to a 30-tonne order.
+
+## Bottom line
+
+Sourcing pultruded FRP profiles directly from a qualified Chinese manufacturer is, in 2026, a standard procurement pattern across construction, infrastructure, energy, and marine projects worldwide. The savings versus regional distributors are real and the quality gap is largely closed at the top tier of Chinese factories. What is not standardised is the buyer-side process — and that is where most of the avoidable risk sits.
+
+If you want a starting point for your own RFQ, F1 Composite returns full quotes within 48 business hours through [our contact form](/contact) or, for application-driven sourcing, through the [AI Sourcing Assistant](/ai/sourcing) that turns a free-form application description into a spec recommendation, certifications, and a quote path.`,
+  },
+  {
+    slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
+    title: "FRP Profile Cost Benchmarks, MOQ, and Lead Times — 2026 Reference",
+    category: "Procurement Reference",
+    date: "2026-05-05",
+    updatedAt: "2026-05-05",
+    readTime: "9 min",
+    excerpt:
+      "2026 reference benchmarks for pultruded FRP profile pricing, MOQ, custom tooling lead times, container freight rates, and Incoterms cost deltas — calibrated against direct-from-factory China sourcing.",
+    authorName: "F1 Composite Sales Operations",
+    authorRole: "Direct export pricing & logistics",
+    reviewedBy: "Export Operations",
+    standards: ["EN 13706", "ASTM D3917", "Incoterms 2020"],
+    coverImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
+    coverAlt: "Pultruded FRP profile cost benchmarks and lead time reference 2026",
+    supportingImage: "/images/blog/frp-specification-procurement.jpg",
+    supportingAlt: "Pultruded FRP procurement specification reference",
+    supportingCaption:
+      "Pricing benchmarks below are direct-from-factory FOB China for 2026; regional distributor pricing typically runs 50–100% above these levels.",
+    highlights: [
+      "Per-meter pricing for 12 standard profile cross-sections",
+      "Tooling cost and amortisation logic for custom profiles",
+      "Container freight benchmarks to US, EU, ME, AU ports",
+    ],
+    ogDescription:
+      "2026 benchmarks: pultruded FRP per-meter pricing, MOQ, custom tooling lead times, container freight, and Incoterms cost deltas direct from China.",
+    ogChips: ["Cost benchmarks", "Lead times", "MOQ"],
+    relatedLinks: [
+      { label: "Buyer's Guide: Sourcing FRP from China", href: "/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide" },
+      { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
+      { label: "All Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
+      { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
+    ],
+    sourceLinks: [
+      { label: "Drewry World Container Index", href: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry" },
+      { label: "Incoterms 2020 — ICC", href: "https://iccwbo.org/business-solutions/incoterms-rules/" },
+    ],
+    content: `Pricing for pultruded FRP profiles is harder to benchmark than steel or aluminium because the major distributors do not publish list prices and the per-meter cost varies significantly with resin system, fibre architecture, and surface finish. This reference collects 2026 direct-from-factory FOB China benchmarks for the most common profile families, updated against active F1 Composite quotes and observed market pricing.
+
+All pricing is FOB China (Shanghai or Ningbo) in USD, polyester resin, standard veil finish, EN 13706 E23 grade, MTC included, packed in wooden crates ready for 40HC container loading. Vinyl ester adds 15–25%; polyurethane adds 20–35%; phenolic adds 40–60%. Powder-coat finish adds $4–8/m.
+
+## Standard profile pricing (FOB China, 2026)
+
+| Profile | Size | Weight (kg/m) | FOB China price ($/m) |
+| --- | --- | --- | --- |
+| FRP I-beam | 100×50×6 | 1.6 | 6.5 – 8.5 |
+| FRP I-beam | 152×76×6.4 | 2.9 | 9.0 – 12.0 |
+| FRP I-beam | 200×100×10 | 5.8 | 18 – 24 |
+| FRP I-beam | 305×305×12.7 | 16.0 | 55 – 75 |
+| FRP channel | 100×50×6 | 1.4 | 5.5 – 7.5 |
+| FRP channel | 200×60×8 | 3.2 | 11 – 15 |
+| FRP angle | 50×50×6 | 1.0 | 3.5 – 5.5 |
+| FRP angle | 100×100×10 | 3.4 | 10 – 13 |
+| FRP square tube | 50×50×4 | 1.1 | 4.5 – 6.5 |
+| FRP square tube | 100×100×6 | 3.2 | 12 – 16 |
+| FRP round tube | OD 50, wall 4 | 1.0 | 4.5 – 6.0 |
+| FRP flat bar | 50×6 | 0.6 | 2.0 – 3.0 |
+
+Volume breaks: 1,000 m order → list pricing. 5,000 m → roughly -5%. 20,000 m → roughly -10%. 50,000 m → roughly -15% with annual contract terms.
+
+Compare these against typical regional distributor pricing — UK/EU distributors quote $14–18/m on a 200×60×8 channel where FOB China is $11–15. The delivered-cost gap (FOB China + sea freight + import duty + inland) is typically 30–40% below regional distributor pricing on profile orders above 5 tonnes.
+
+## Grating and deck panel pricing
+
+| Product | Description | FOB China price |
+| --- | --- | --- |
+| FRP moulded grating | 38 × 38 mm mesh, 38 mm thick, polyester | $35–50 / m² |
+| FRP moulded grating | 38 × 38 mm mesh, 50 mm thick, vinyl ester | $55–75 / m² |
+| FRP pultruded grating | I-bar 25 mm pitch | $65–90 / m² |
+| FRP deck panel | 600 mm × 25 mm, polyurethane core | $45–65 / m² |
+
+Grating pricing is per square meter of grating panel, including standard end banding and lifting cuts. Custom panel cuts add $2–5 / m².
+
+## Fenestration profile pricing
+
+| Series | Frame depth | Application | FOB China price |
+| --- | --- | --- | --- |
+| 65 Series | 65 mm | Residential casement, U_w 1.4–1.6 | $8–12 / m |
+| 70 Series | 70 mm | Commercial casement, dual-glazed | $10–14 / m |
+| 80 Series | 80 mm | High-perf residential, U_w 1.0–1.2 | $14–20 / m |
+| 90 Series | 90 mm | Passivhaus-certified, U_w 0.78 | $22–32 / m |
+| 140 Series | 140 mm | Extreme-climate / curtain wall | $35–50 / m |
+
+Fenestration profile pricing assumes raw profile only (no glazing, hardware, or assembly). PHI-certified 90 Series runs at the upper end of its range; non-PHI 90 Series equivalents are 15–20% below.
+
+## Custom pultrusion tooling cost
+
+Tooling cost depends on cross-section complexity, not size:
+
+| Profile complexity | Tooling cost | Tooling lead time |
+| --- | --- | --- |
+| Simple solid (rod, flat bar variant) | $2,500 – $4,500 | 2–3 weeks |
+| Standard structural (I, C, L, square tube) | $4,500 – $9,000 | 3–4 weeks |
+| Hollow with dividers (multi-cavity tube) | $9,000 – $18,000 | 4–6 weeks |
+| Fenestration profile family | $25,000 – $45,000 per profile | 6–8 weeks |
+| Multi-cavity asymmetric custom | $15,000 – $35,000 | 5–8 weeks |
+
+For first-run orders of 500–1,000 m (the typical custom MOQ), F1 Composite folds tooling into the per-meter price at no separate tooling charge. Tooling becomes a separate line item only when the buyer wants to own the die or when first-run quantity is below MOQ.
+
+## Lead time benchmarks
+
+| Order type | Tooling | Production | Sea freight | Total to EU/US |
+| --- | --- | --- | --- | --- |
+| Stock standard profile | — | 1–3 weeks (from inventory) | 25–40 days | 5–8 weeks |
+| Custom profile, first run | 3–6 weeks | 4–6 weeks | 25–40 days | 11–16 weeks |
+| Custom profile, repeat | — | 3–4 weeks | 25–40 days | 7–10 weeks |
+| Large stocking order (30+ tonnes) | — | 4–8 weeks | 25–40 days | 8–14 weeks |
+| PHI-certified 90 Series fenestration | — | 5–8 weeks | 25–40 days | 9–14 weeks |
+
+Air freight (DHL/FedEx) cuts transit to 5–7 days but costs 8–15× sea freight per kilogram — only economic for samples or schedule-critical small orders under 200 kg.
+
+## Container freight benchmarks (40' high-cube, 2026)
+
+| Origin | Destination | $ per 40HC |
+| --- | --- | --- |
+| Shanghai / Ningbo | Rotterdam / Hamburg | 1,200 – 2,500 |
+| Shanghai / Ningbo | Felixstowe / London Gateway | 1,400 – 2,700 |
+| Shanghai / Ningbo | Los Angeles / Long Beach | 1,800 – 3,500 |
+| Shanghai / Ningbo | New York / Savannah | 2,500 – 4,500 |
+| Shanghai / Ningbo | Jebel Ali (UAE) | 900 – 1,800 |
+| Shanghai / Ningbo | Sydney / Melbourne | 1,500 – 2,800 |
+| Shanghai / Ningbo | Santos (Brazil) | 2,800 – 4,800 |
+
+A 40HC packs 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Per-tonne sea freight to Rotterdam runs $55–140; per-tonne to LA runs $80–195. On a 200×100×10 I-beam at 5.8 kg/m, freight adds approximately $0.50–1.10 / m landed in Rotterdam.
+
+Insurance: 0.3–0.5% of cargo value, typically included in CIF terms.
+
+## Incoterms cost deltas
+
+Quoted as a percentage above the FOB China price for the same physical shipment:
+
+| Incoterms | Delta vs FOB China | What it includes |
+| --- | --- | --- |
+| FOB Shanghai | baseline | Goods to export port, Chinese customs cleared |
+| CFR / CIF [destination port] | +6 to +12% | Adds sea freight (and insurance for CIF) |
+| DAP [project site] | +14 to +22% | Adds destination customs, inland trucking |
+| DDP [project site] | +18 to +30% | Adds destination import duty |
+
+DDP is the most expensive Incoterm because the factory takes on import-side tax and customs risk, which factories price conservatively. Most experienced buyers run CIF or DAP unless they have no in-house customs capability.
+
+## Putting the benchmarks to work
+
+For a typical project — 5 tonnes of 200×100×10 FRP I-beam (≈ 860 m), polyester resin, EN 13706 E23, shipped CIF Rotterdam — the 2026 benchmark math is:
+
+- Profile: 860 m × $20/m = $17,200
+- Container freight (1 × 40HC): $1,800 average
+- Insurance: $90 average
+- Total CIF Rotterdam: ≈ $19,100, or ~$22.20/m landed
+
+The same project sourced from a UK distributor at $42–48/m delivered would cost £36,000+ ($45,000+). Direct-from-factory savings: ~58% on the same profile to the same standard.
+
+## Caveats
+
+These benchmarks shift quarter-to-quarter on three drivers: glass fibre raw material cost (currently stable), resin cost (polyester/vinyl ester moved -3% in Q1 2026 versus Q4 2025), and container freight (volatile — check the [Drewry World Container Index](https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry) for current spot rates).
+
+For a project-specific quote calibrated against current pricing, F1 Composite returns full quotes within 48 business hours through [the contact form](/contact) or describe the application in the [AI Sourcing Assistant](/ai/sourcing) for a spec + price path in one response.`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(

@@ -4,15 +4,44 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
+import FAQ from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profile Engineering Calculator",
+  title: "Free FRP Profile Calculator — Beam Deflection, Stress & Steel/Aluminium Equivalence",
   description:
-    "Calculate FRP beam deflection, stress, and equivalent strength vs steel and aluminium. Based on EN 13706 and ASTM D3917 standards.",
+    "Free online calculator for pultruded FRP profiles: beam deflection, bending stress, and equivalent FRP section to replace steel or aluminium. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23. No login required.",
   path: "/technology/calculator",
 });
+
+const calculatorFaqs = [
+  {
+    question: "Is this FRP profile calculator free?",
+    answer:
+      "Yes. The FRP profile calculator is fully free, runs in your browser without login or sign-up, and is available worldwide. F1 Composite publishes it as an engineering reference for specifiers selecting pultruded FRP profiles.",
+  },
+  {
+    question: "Which standards does the FRP calculator follow?",
+    answer:
+      "Calculations follow Euler-Bernoulli beam theory using elastic modulus and stress allowables typical for pultruded E-glass / isophthalic polyester profiles manufactured to EN 13706 E23 and ASTM D3917. Allowable stress (70 MPa) incorporates the safety factors of ASCE/SEI 74-23 Pre-Standard for LRFD of Pultruded FRP Structures, including creep, moisture, UV, and temperature de-rating.",
+  },
+  {
+    question: "Can I use this calculator for vinyl ester, polyurethane, or phenolic FRP profiles?",
+    answer:
+      "The default elastic modulus (23 GPa) and allowable stress (70 MPa) reflect standard E-glass / polyester EN 13706 E23 properties. Vinyl ester and polyurethane FRP have similar modulus and slightly different allowable stress; phenolic FRP has lower modulus. For non-default resin systems, contact F1 Composite engineering for project-specific values.",
+  },
+  {
+    question: "Does this calculator handle local buckling and connections?",
+    answer:
+      "No. The calculator solves global deflection and bending stress only. Local web/flange buckling per EN 13706 Annex G or ASCE 74-23 Chapter 3, and connection detailing per ASCE 74-23 Chapter 8, must be checked separately. F1 Composite engineering supports project-specific buckling and connection review.",
+  },
+  {
+    question: "Why does FRP need a deeper section than steel for the same deflection?",
+    answer:
+      "FRP elastic modulus is 23–28 GPa versus steel's 200 GPa — about 1/8 to 1/10 of steel. To match steel's deflection, the FRP section needs roughly 8–10× the second moment of area, which is achieved by going deeper (deflection scales with depth cubed). Even at deeper section, FRP installed weight is 70–75% lower than the steel it replaces because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel.",
+  },
+];
 
 export default function CalculatorPage() {
   return (
@@ -50,9 +79,9 @@ export default function CalculatorPage() {
         }}
       />
       <PageHeader
-        tag="Engineering Tool"
-        title="FRP Profile Calculator"
-        description="Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections. Based on EN 13706, ASTM D3917, and ASCE Pre-Standard for FRP composites."
+        tag="Free Engineering Tool"
+        title="Free FRP Profile Calculator"
+        description="Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections — instantly, free, no login. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23 Pre-Standard for pultruded FRP."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -119,6 +148,8 @@ export default function CalculatorPage() {
               </ul>
             </div>
           </div>
+
+          <FAQ items={calculatorFaqs} />
         </div>
       </section>
 

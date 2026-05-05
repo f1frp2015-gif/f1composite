@@ -5,15 +5,44 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
+import FAQ from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import UValueCalculator from "./UValueCalculator";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Window U-Value Calculator — FRP Frame & Glass Configuration",
+  title: "Free Window U-Value Calculator — FRP Frame & Glass Configuration (Passive House Ready)",
   description:
-    "Calculate whole-window U-value (Uw) per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double-, triple-, or quad-glazing.",
+    "Free online whole-window U-value calculator per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double / triple / quadruple glazing. Passive House (U_w ≤ 0.80) and PHI compliance check. No login required.",
   path: "/technology/u-value-calculator",
 });
+
+const uValueFaqs = [
+  {
+    question: "Is this U-value calculator free, and does it follow PHI / Passive House standards?",
+    answer:
+      "Yes — the calculator is fully free, runs in your browser, and follows EN ISO 10077-1 for whole-window U-value (U_w). It supports the Passive House U_w ≤ 0.80 W/m²·K target check used by Passivhaus Institut (PHI) climate-class certification. F1 Composite's PHI-certified 90 Series fenestration achieves U_w 0.78 W/m²·K — verifiable in the calculator using a typical 90 mm FRP frame and triple-glazing input.",
+  },
+  {
+    question: "Why do FRP frames out-perform thermally broken aluminium on U-value?",
+    answer:
+      "FRP thermal conductivity is approximately 0.3 W/m·K — roughly 1/170 of aluminium (160 W/m·K) and 1/3 of PVC. Even thermally broken aluminium with polyamide isolators retains a metallic continuous path that limits frame U-value to roughly 1.6–2.5 W/m²·K. Pultruded FRP frames achieve frame U-value of 0.9–1.4 W/m²·K with no thermal break required, because the entire frame is intrinsically insulating.",
+  },
+  {
+    question: "What inputs does the calculator need?",
+    answer:
+      "Frame type (FRP, aluminium, PVC, timber), frame depth (65/70/80/90/140 mm series), glazing configuration (double / triple / quadruple, glass thickness, gas fill), spacer type (aluminium or warm-edge), frame/glass area ratio, and unit dimensions. The calculator returns U_w whole-window, frame and glass component U-values, and a Passive House compliance check.",
+  },
+  {
+    question: "Can the calculator help me select a window for my climate zone?",
+    answer:
+      "Yes. PHI climate classes (Arctic, Cold, Cool-Temperate, Warm-Temperate, Warm) have different U_w requirements. The calculator flags whether the configuration meets the standard target for each PHI class. For Passive House certification specifically, F1 Composite's 90 Series is PHI Component-ID 2491wi03 at U_w 0.78 — the calculator confirms this against EN ISO 10077-1 inputs.",
+  },
+  {
+    question: "How does this compare with NFRC simulation in the US/Canada?",
+    answer:
+      "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM rather than the simplified EN ISO 10077-1 approach. Results typically agree within ±5% for symmetric frame profiles. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
+  },
+];
 
 export default function UValueCalculatorPage() {
   return (
@@ -51,9 +80,9 @@ export default function UValueCalculatorPage() {
         }}
       />
       <PageHeader
-        tag="Engineering Tool"
-        title="Window U-Value Calculator"
-        description="Calculate the whole-window thermal transmittance (Uw) per EN ISO 10077-1. Select frame material, glazing configuration, spacer type, and window dimensions to compare thermal performance across materials."
+        tag="Free Engineering Tool"
+        title="Free Window U-Value Calculator"
+        description="Calculate whole-window U-value (U_w) per EN ISO 10077-1 — instantly, free, no login. Compare FRP, aluminium, PVC, and timber frames against Passive House (U_w ≤ 0.80) targets."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -120,6 +149,8 @@ export default function UValueCalculatorPage() {
               </ul>
             </div>
           </div>
+
+          <FAQ items={uValueFaqs} />
         </div>
       </section>
 

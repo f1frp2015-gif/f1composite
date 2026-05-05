@@ -30,11 +30,11 @@ export default function Hero() {
             style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
           >
             Pultruded FRP Profiles Manufacturer{" "}
-            <span className="text-teal">for Global Engineering Projects</span>
+            <span className="text-teal">Direct from China</span>
           </h1>
 
           <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            F1 Composite manufactures pultruded FRP profiles, fiberglass structural shapes, custom pultrusions, FRP window frames, gratings, and deck panels to EN 13706 / ASTM D3917 for global engineering projects.
+            Fiberglass structural shapes, FRP window profiles, gratings, and custom pultrusions — direct factory export to 30+ countries. EN 13706 / ASTM D3917 / ISO 9001, 370 pultrusion lines, no distributor markup.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">

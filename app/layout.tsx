@@ -43,9 +43,6 @@ const orgSchema = {
   alternateName: [
     "F1 Composites",
     "F1 Composite Co., Ltd",
-    "FengDu New Material",
-    "Chongqing FengDu New Material",
-    "风渡新材料",
   ],
   legalName: "F1 Composite Co., Ltd",
   url: "https://www.f1composite.com",
@@ -57,7 +54,7 @@ const orgSchema = {
   },
   image: "https://www.f1composite.com/opengraph-image",
   description:
-    "F1 Composite Co., Ltd — international contracting entity for pultruded FRP profiles, with manufacturing at our Chongqing FengDu New Material Co., Ltd factory (风渡新材料). 5 production bases, 370 pultrusion lines, 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Serving 30+ countries with structural profiles, fenestration systems, gratings, and custom pultrusions.",
+    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer based in Chongqing, China. Direct factory export to 30+ countries with 5 production bases, 370 pultrusion lines, and 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
   foundingDate: "2015",
   foundingLocation: {
     "@type": "Place",
@@ -119,13 +116,51 @@ const orgSchema = {
     "ASCE/SEI 74-23 LRFD",
     "Passive House Fenestration",
   ],
-  makesOffer: {
-    "@type": "Offer",
-    itemOffered: {
-      "@type": "Service",
-      name: "Custom pultrusion tooling and manufacturing",
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Custom pultrusion tooling and manufacturing",
+      },
     },
+    {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: "5",
+      highPrice: "300",
+      offerCount: "200",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        unitText: "linear meter",
+      },
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      businessFunction: "http://purl.org/goodrelations/v1#Sell",
+      itemOffered: {
+        "@type": "Product",
+        name: "Pultruded FRP Profiles — direct from China factory",
+        category: "Pultruded FRP Profiles",
+      },
+      eligibleRegion: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "United Kingdom" },
+        { "@type": "Country", name: "Germany" },
+        { "@type": "Country", name: "Netherlands" },
+        { "@type": "Country", name: "Australia" },
+        { "@type": "Country", name: "Saudi Arabia" },
+        { "@type": "Country", name: "United Arab Emirates" },
+      ],
+    },
+  ],
+  brand: {
+    "@type": "Brand",
+    name: "F1 Composite",
   },
+  naics: "326199",
+  keywords:
+    "pultruded FRP profiles manufacturer, FRP profiles supplier China, fiberglass structural shapes factory, FRP I beam manufacturer, FRP window frames supplier, FRP grating wholesale, custom pultrusion services, pultruded fiberglass China export",
   hasCredential: [
     {
       "@type": "EducationalOccupationalCredential",

@@ -4,9 +4,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import SourcingWizard from "./SourcingWizard";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI FRP Profile Sourcing Assistant — Application-Based Specification",
+  title: "Free FRP Sourcing Assistant — Get China Factory Pricing & Spec in 60 Seconds",
   description:
-    "AI FRP sourcing assistant for engineers. Describe application, environment, and standards to get a profile family, resin system, and quote path.",
+    "Free AI-powered FRP sourcing tool. Describe your application — environment, load, standards, geography — and get an instant FRP specification, recommended resin system, applicable certifications, similar case studies, and a direct path to a 48-hour quote from F1 Composite (China factory). No login.",
   path: "/ai/sourcing",
 });
 
@@ -42,11 +42,24 @@ export default function SourcingPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "F1 Composite AI Sourcing Assistant",
+    name: "Free FRP Sourcing Assistant — F1 Composite",
     url: absoluteUrl("/ai/sourcing"),
     description:
-      "AI-powered FRP profile sourcing assistant — describe application, get spec recommendation, certifications, and case studies in one response.",
-    applicationCategory: "Engineering Tool",
+      "Free AI-powered FRP profile sourcing assistant — describe application, get spec recommendation, certifications, case studies, and direct factory-quote path in one response. No login required.",
+    applicationCategory: "EngineeringApplication",
+    operatingSystem: "Web",
+    isAccessibleForFree: true,
+    inLanguage: "en",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    creator: {
+      "@id": "https://www.f1composite.com/#organization",
+      "@type": "Organization",
+      name: "F1 Composite",
+    },
   };
 
   return (
@@ -56,17 +69,18 @@ export default function SourcingPage() {
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
             <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
-              AI-Native Sourcing
+              Free · AI-Native Sourcing · No Login
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-              AI FRP Profile Sourcing Assistant
+              Free FRP Sourcing Assistant
               <br />
-              Application-based specification and quote path
+              <span className="text-teal-text">Get a spec + China factory price path.</span>
             </h1>
             <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
-              Skip the brochure-browsing. Tell our AI what you&rsquo;re building, and it returns:
-              recommended FRP profile family, resin system, applicable standards (EN 13706 / ASTM /
-              GB), comparable case studies, and the right contact for next step.
+              Skip the brochure-browsing. Tell our AI what you&rsquo;re building, and it returns —
+              free, in seconds — the recommended FRP profile family, resin system, applicable
+              standards (EN 13706 / ASTM / GB), comparable case studies, and a direct path to a
+              48-hour quote from F1 Composite&rsquo;s China factory.
             </p>
           </div>
 
