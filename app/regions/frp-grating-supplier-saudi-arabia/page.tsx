@@ -115,11 +115,40 @@ export default function SaudiGratingPage() {
     })),
   };
 
+  const regionalManufacturerSchema = {
+    "@context": "https://schema.org",
+    "@type": "Manufacturer",
+    "@id": absoluteUrl(pagePath) + "#regional-manufacturer",
+    name: "F1 Composite — FRP Grating Supplier for Saudi Arabia",
+    url: absoluteUrl(pagePath),
+    parentOrganization: { "@id": "https://www.f1composite.com/#organization" },
+    areaServed: { "@type": "Country", name: "Saudi Arabia", addressCountry: "SA" },
+    knowsAbout: [
+      "Aramco SAES-W-018 standard",
+      "SABIC procurement specifications",
+      "Maaden vendor requirements",
+      "Royal Commission for Jubail and Yanbu project specs",
+      "Petrochemical FRP grating ASTM E84 Class 1",
+      "CIF Jebel Ali / DAP project-site delivery",
+    ],
+    makesOffer: {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Product",
+        name: "Pultruded and moulded FRP gratings",
+        url: absoluteUrl("/products/gratings"),
+      },
+      areaServed: { "@type": "Country", name: "Saudi Arabia" },
+    },
+    availableLanguage: ["en", "ar"],
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
       <JsonLd data={productSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={regionalManufacturerSchema} />
 
       <PageHeader
         tag="Saudi Arabia"

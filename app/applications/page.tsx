@@ -3,7 +3,8 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
 import InnerCTA from "@/components/sections/InnerCTA";
-import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { applicationPages } from "@/lib/applicationPages";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -14,8 +15,30 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function ApplicationsPage() {
+  const applicationsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "FRP Applications by Use Case",
+    url: absoluteUrl("/applications"),
+    description:
+      "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, solar mounting and chemical plant platforms.",
+    isPartOf: { "@id": "https://www.f1composite.com/#organization" },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: applicationPages.length,
+      itemListElement: applicationPages.map((page, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        url: absoluteUrl(`/applications/${page.slug}`),
+        name: page.shortTitle,
+        description: page.description,
+      })),
+    },
+  };
+
   return (
     <>
+      <JsonLd data={applicationsSchema} />
       <PageHeader
         tag="Applications"
         title="FRP applications by structure and environment"

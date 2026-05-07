@@ -77,20 +77,26 @@ const faqs = [
 export default function EnergyPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for the Energy Sector",
     description:
       "FRP profiles for energy: insulating cable ladders, UV-resistant solar frames, non-magnetic transformer spacers, wind turbine components.",
     url: absoluteUrl("/industries/energy"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for energy applications",
+    serviceType: "Pultruded FRP profile supply for energy and power applications",
+    category: "Energy",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Solar EPCs, utility engineers, transmission line designers, renewable energy developers",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Netherlands" },
+    ],
   };
 
   const faqSchema = {

@@ -114,11 +114,40 @@ export default function AustraliaSolarPage() {
     })),
   };
 
+  const regionalManufacturerSchema = {
+    "@context": "https://schema.org",
+    "@type": "Manufacturer",
+    "@id": absoluteUrl(pagePath) + "#regional-manufacturer",
+    name: "F1 Composite — Pultruded FRP Solar Mounting Supplier for Australia",
+    url: absoluteUrl(pagePath),
+    parentOrganization: { "@id": "https://www.f1composite.com/#organization" },
+    areaServed: { "@type": "Country", name: "Australia", addressCountry: "AU" },
+    knowsAbout: [
+      "AS/NZS 1170.2 wind loading",
+      "AS/NZS 4256 fenestration glazing",
+      "Clean Energy Council approved component lists",
+      "AS 4773 polymer composites for structural use",
+      "CIF Sydney / Melbourne / Brisbane / Fremantle delivery",
+      "Coastal salt-spray UV-stable resin systems",
+    ],
+    makesOffer: {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Product",
+        name: "Pultruded FRP solar mounting profiles",
+        url: absoluteUrl("/applications/frp-solar-mounting-profiles"),
+      },
+      areaServed: { "@type": "Country", name: "Australia" },
+    },
+    availableLanguage: ["en"],
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
       <JsonLd data={productSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={regionalManufacturerSchema} />
 
       <PageHeader
         tag="Australia"
