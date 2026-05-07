@@ -67,20 +67,25 @@ const faqs = [
 export default function VehiclePage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for Vehicle and Transport Applications",
     description:
       "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars, and specialty transport.",
     url: absoluteUrl("/industries/vehicle"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for vehicle and transport applications",
+    serviceType: "Pultruded FRP profile supply for vehicle and transport OEMs",
+    category: "Vehicle",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Truck and trailer OEMs, rail vehicle manufacturers, bus body builders, specialty transport fabricators",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Netherlands" },
+    ],
   };
 
   const faqSchema = {

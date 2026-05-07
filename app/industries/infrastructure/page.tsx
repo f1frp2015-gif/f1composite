@@ -68,20 +68,27 @@ const faqs = [
 export default function InfrastructurePage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for Infrastructure",
     description:
       "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails, utility poles. 75+ year design life, zero corrosion.",
     url: absoluteUrl("/industries/infrastructure"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for infrastructure projects",
+    serviceType: "Pultruded FRP profile supply for transportation and utility infrastructure",
+    category: "Infrastructure",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Civil engineers, transportation authorities, utility owners, infrastructure contractors",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "United Arab Emirates" },
+    ],
   };
 
   const faqSchema = {

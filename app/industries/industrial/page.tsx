@@ -67,20 +67,26 @@ const faqs = [
 export default function IndustrialPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for Industrial Applications",
     description:
       "FRP profiles for industrial use: chemical-resistant gratings, fire-retardant structural profiles for water treatment, food processing, pharma.",
     url: absoluteUrl("/industries/industrial"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for industrial processing",
+    serviceType: "Pultruded FRP profile supply for industrial process facilities",
+    category: "Industrial",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Process plant engineers, EPC contractors, chemical and water-treatment facility operators",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "Australia" },
+    ],
   };
 
   const faqSchema = {

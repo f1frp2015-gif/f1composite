@@ -288,18 +288,21 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   const caseStudySchema = {
     "@context": "https://schema.org",
-    "@type": "CaseStudy",
+    "@type": "Article",
+    headline: cs.title,
     name: cs.title,
     url: absoluteUrl(`/case-studies/${slug}`),
+    mainEntityOfPage: absoluteUrl(`/case-studies/${slug}`),
     description: cs.results,
-    about: cs.industry,
-    datePublished: cs.year,
-    locationCreated: cs.location,
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    articleSection: "Case Study",
+    about: [
+      { "@type": "Thing", name: cs.industry },
+      ...cs.products.map((p) => ({ "@type": "Product", name: p })),
+    ],
+    contentLocation: { "@type": "Place", name: cs.location },
+    datePublished: `${cs.year}-01-01`,
+    author: { "@type": "Organization", "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@type": "Organization", "@id": "https://www.f1composite.com/#organization" },
     image: absoluteUrl(`/case-studies/${slug}/opengraph-image`),
   };
 

@@ -114,11 +114,42 @@ export default function UAECableTrayPage() {
     })),
   };
 
+  const regionalManufacturerSchema = {
+    "@context": "https://schema.org",
+    "@type": "Manufacturer",
+    "@id": absoluteUrl(pagePath) + "#regional-manufacturer",
+    name: "F1 Composite — FRP Cable Tray Supplier for UAE Oil & Gas",
+    url: absoluteUrl(pagePath),
+    parentOrganization: { "@id": "https://www.f1composite.com/#organization" },
+    areaServed: { "@type": "Country", name: "United Arab Emirates", addressCountry: "AE" },
+    knowsAbout: [
+      "ADNOC vendor specifications",
+      "DUSUP procurement requirements",
+      "Emirates Steel vendor approval",
+      "NEMA VE-1 / IEC 61537 cable tray standards",
+      "ASTM E84 Class 1 fire performance",
+      "ESMA conformity (UAE) / IECEx where applicable",
+      "Vinyl ester sour-service durability",
+      "CIF Jebel Ali / DAP project-site delivery",
+    ],
+    makesOffer: {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Product",
+        name: "Pultruded FRP cable tray and ladder",
+        url: absoluteUrl("/applications/frp-cable-tray-supports"),
+      },
+      areaServed: { "@type": "Country", name: "United Arab Emirates" },
+    },
+    availableLanguage: ["en", "ar"],
+  };
+
   return (
     <>
       <JsonLd data={webPageSchema} />
       <JsonLd data={productSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={regionalManufacturerSchema} />
 
       <PageHeader
         tag="UAE / Oil & Gas"

@@ -67,20 +67,27 @@ const faqs = [
 export default function ConstructionPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for Construction",
     description:
       "FRP profiles for construction: corrosion-free facades, FRP window frames and FRP window profiles, thermally broken fenestration systems, lightweight cladding support. Outperforms steel, aluminum, and PVC.",
     url: absoluteUrl("/industries/construction"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for the construction industry",
+    serviceType: "Pultruded FRP profile supply for the construction industry",
+    category: "Construction",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Architects, structural engineers, facade contractors, fenestration fabricators",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "United Kingdom" },
+    ],
   };
 
   const faqSchema = {

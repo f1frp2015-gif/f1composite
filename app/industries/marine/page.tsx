@@ -67,20 +67,26 @@ const faqs = [
 export default function MarinePage() {
   const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Service",
     name: "FRP Composite Profiles for Marine Applications",
     description:
       "FRP profiles for marine: corrosion-proof docks, offshore gratings, ship interiors, walkways. Withstands continuous saltwater exposure.",
     url: absoluteUrl("/industries/marine"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for marine environments",
+    serviceType: "Pultruded FRP profile supply for marine and offshore environments",
+    category: "Marine",
+    provider: { "@id": "https://www.f1composite.com/#organization" },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Marina operators, offshore platform contractors, naval architects, port engineers",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    areaServed: [
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "United Kingdom" },
+    ],
   };
 
   const faqSchema = {
