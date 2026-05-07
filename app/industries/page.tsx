@@ -3,9 +3,29 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import FAQ from "@/components/ui/FAQ";
+import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { industries } from "@/content/data/industries";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+
+const faqs = [
+  {
+    question: "Which industry has the longest project lead time, and why?",
+    answer:
+      "Construction (fenestration) and Infrastructure (bridge deck) typically run 6-12 months because of mock-up testing and code-stamping requirements. Industrial process equipment can ship in 6-10 weeks once resin is qualified.",
+  },
+  {
+    question: "Which standards apply to which industry?",
+    answer:
+      "Construction: AS 2047, PHI, NFRC. Infrastructure: AASHTO, ASCE Pre-Standard, EN 13706. Energy: AS/NZS 1170, IEC 61730, IBC. Marine: IMO, ISO 12215, ABS. Industrial: customer-specific (Aramco SAES-W-018, SABIC PSPC, ADNOC). Vehicle: OEM-specific.",
+  },
+  {
+    question: "Do you have references in my industry?",
+    answer:
+      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — sales@f1composite.com.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Industries Served — FRP Profiles for Construction, Marine & Energy",
@@ -75,6 +95,20 @@ export default function IndustriesPage() {
         ]}
       />
 
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>Industries Served by Pultruded FRP</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>
+              F1 Composite supplies pultruded fiberglass profiles to six industries where corrosion, weight, electrical neutrality, or radio transparency drive the material decision. Each industry has its own qualification standards, procurement language, and typical failure modes — we publish the engineering and specification context for each so that procurement teams and engineers can move from concept to qualified supplier without re-discovering the wheel.
+            </p>
+            <p>
+              The case for FRP is rarely &quot;lighter than steel&quot; alone — every industry has a specific reason. <strong>Construction</strong>: thermal break (FRP frames have 1/200th the thermal conductivity of aluminum), making them the structural choice for passive house and high-performance fenestration. <strong>Infrastructure</strong>: lifecycle cost — a 50-year service life with no recoating eliminates roughly $15-25/m² per year of maintenance cost on rail and marine cable trays. <strong>Energy</strong>: corrosion resistance in coastal salt-spray environments where aluminum pits and steel needs continuous coating renewal. <strong>Marine</strong>: corrosion resistance plus dimensional stability under sustained UV and salt exposure. <strong>Industrial</strong>: chemical resistance — the scenario where FRP wins outright is when the alternative is exotic alloys (Hastelloy, duplex stainless) priced at 5-10× FRP. <strong>Vehicle</strong>: weight reduction directly translates to fuel economy or payload capacity, plus electrical isolation in hybrid powertrains.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
@@ -136,6 +170,36 @@ export default function IndustriesPage() {
           },
         ]}
       />
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>Regional Supplier Pages</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>For procurement teams in regions with local supplier compliance requirements:</p>
+            <ul className="list-disc space-y-[8px] pl-[21px]">
+              <li>
+                <Link href="/regions/frp-grating-supplier-saudi-arabia" className="text-teal-text hover:underline">
+                  FRP Grating Supplier in Saudi Arabia
+                </Link>{" "}
+                — Aramco SAES-W-018, SABIC, ADNOC procurement
+              </li>
+              <li>
+                <Link href="/regions/pultruded-frp-solar-mounting-australia" className="text-teal-text hover:underline">
+                  Pultruded FRP Solar Mounting in Australia
+                </Link>{" "}
+                — AS/NZS 1170, NCC, Clean Energy Council
+              </li>
+              <li>
+                <Link href="/regions/frp-cable-tray-uae-oil-gas" className="text-teal-text hover:underline">
+                  FRP Cable Tray for UAE Oil &amp; Gas
+                </Link>{" "}
+                — ADNOC, ESMA conformity, IECEx where applicable
+              </li>
+            </ul>
+          </div>
+          <FAQ items={faqs} />
+        </div>
+      </section>
 
       <InnerCTA title="Not sure which FRP solution fits your project?" />
     </>

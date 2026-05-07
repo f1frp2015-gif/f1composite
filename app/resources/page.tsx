@@ -1,8 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import FAQ from "@/components/ui/FAQ";
+import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+
+const faqs = [
+  {
+    question: "Are these design guides written for a specific code, or are they general?",
+    answer:
+      "Where a section interacts with a code (e.g. AS 2047 for fenestration in Australia, ASCE 7 for wind loading, ASTM E84 for surface burning), we cite the code and provide the engineering interpretation. The mechanical property data is code-neutral but reported under the standard test method.",
+  },
+  {
+    question: "Are CAD files in the Downloads section license-free?",
+    answer:
+      "Standard-profile DWG/STEP files are free for commercial use in projects specifying F1 Composite material. Custom-pultrusion drawings are released under NDA tied to the qualifying RFQ.",
+  },
+  {
+    question: "Do you publish failure / lessons-learned data?",
+    answer:
+      "Yes. The blog includes incident retrospectives — UV degradation in unprotected solar racks, galvanic corrosion in mixed FRP-aluminum window assemblies, creep failure in undersized handrails. These are written from real returns, anonymized.",
+  },
+  {
+    question: "Can engineers request a topic?",
+    answer:
+      "Yes — write to sales@f1composite.com with the subject 'Resource Request' and the technical question. We publish about one new long-form article per week and prioritize topics with multiple inbound asks.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Resources",
@@ -105,6 +130,20 @@ export default function ResourcesPage() {
         ]}
       />
 
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>Engineering Knowledge for Specifying Pultruded FRP</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>
+              Pultruded fiberglass composites behave differently from steel, aluminum, and timber — the material is anisotropic, stiffness-driven rather than strength-driven, and creep-sensitive under sustained load. Engineers who have specified FRP successfully have one thing in common: they treated the material as a discipline of its own, not as &quot;lighter steel.&quot; This Resources hub is built around that principle. Every document below is written for engineers, fabricators, and procurement teams who need to make defensible specification decisions, not marketing claims.
+            </p>
+            <p>
+              We publish four document classes, each serving a different decision moment in the FRP project lifecycle: Technical Data for populating structural models and qualifying substitutions; Design Guides for connection details, load tables, and corrosion-zone language; Blog for long-form technical articles and industry insights; Downloads for catalogs, certifications, CAD libraries, and approval-package templates that distributors and fabricators pull when preparing customer submittals.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[21px] md:grid-cols-2">
@@ -122,6 +161,21 @@ export default function ResourcesPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>How to Use This Hub</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>
+              If you are <strong>specifying</strong> FRP for the first time, start with the Blog post &quot;What is Pultrusion?&quot; and the Technical Data sheet for your closest standard profile. If you are <strong>comparing</strong> FRP against aluminum, steel, or PVC, the Technology section&apos;s vs-pages give like-for-like cost, weight, lifetime, and embodied-carbon comparisons. If you are <strong>buying</strong>, head straight to Downloads for the certification package your QA team will request, then the Design Guides for connection details your fabricator will need.
+            </p>
+            <p>
+              For requirements that don&apos;t map to any document here, our engineering team responds to specification questions within one business day at sales@f1composite.com — many of the documents on this site started as a customer question we answered well enough to publish.
+            </p>
+          </div>
+          <FAQ items={faqs} />
         </div>
       </section>
     </>
