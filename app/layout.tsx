@@ -140,8 +140,23 @@ const orgSchema = {
       businessFunction: "http://purl.org/goodrelations/v1#Sell",
       itemOffered: {
         "@type": "Product",
+        "@id": "https://www.f1composite.com/pultruded-frp-profiles#product",
         name: "Pultruded FRP Profiles — direct from China factory",
         category: "Pultruded FRP Profiles",
+        url: "https://www.f1composite.com/pultruded-frp-profiles",
+        brand: { "@type": "Brand", name: "F1 Composite" },
+        offers: {
+          "@type": "AggregateOffer",
+          url: "https://www.f1composite.com/contact",
+          priceCurrency: "USD",
+          lowPrice: "5",
+          highPrice: "300",
+          offerCount: "200",
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          businessFunction: "http://purl.org/goodrelations/v1#Sell",
+          seller: { "@id": "https://www.f1composite.com/#organization" },
+        },
       },
       eligibleRegion: [
         { "@type": "Country", name: "United States" },
