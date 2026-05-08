@@ -2,8 +2,33 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
+import FAQ from "@/components/ui/FAQ";
+import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+
+const faqs = [
+  {
+    question: "Are CAD files for use only with F1 Composite material?",
+    answer:
+      "Standard profile CAD files (DWG/STEP/IFC) are free for use in projects that specify F1 Composite material. They include our profile shape and our generic notes; they do not contain proprietary tooling geometry. Custom pultrusion CAD files are released only after a qualifying RFQ and under NDA.",
+  },
+  {
+    question: "How do I get a project-specific MTC?",
+    answer:
+      "After purchase, your sales contact issues an MTC tied to the production batch and shipment. The sample MTC available here lets your QA team review the format in advance.",
+  },
+  {
+    question: "Are documents available in languages other than English?",
+    answer:
+      "Catalogs are available in English; Arabic and Spanish translations are issued for projects in the GCC and Latin America on request. Certifications are in English (the issuing authority's language) — contact us if a notarized translation is required.",
+  },
+  {
+    question: "Why do certain documents ask for a project name before download?",
+    answer:
+      "Certification documents are issued at a specific revision and may need to be re-issued mid-project if the underlying standard updates. Capturing the project name lets us push a revised certification to you automatically.",
+  },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Downloads",
@@ -80,6 +105,20 @@ export default function DownloadsPage() {
         ]}
       />
 
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>Specification, Certification, and CAD Documents</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>
+              The Downloads center holds every document a specifier, fabricator, or QA team needs to evaluate, qualify, and procure pultruded FRP profiles from F1 Composite. All documents below are current and stamped with revision date and document number. Distributors preparing customer submittal packages and engineers building approval drawings typically pull from this set.
+            </p>
+            <p>
+              We organize documents into five categories. <strong>Product Catalogs</strong> cover standard profiles, custom pultrusion capabilities, fenestration systems for AS 2047 / PHI / NFRC, and pultruded gratings. <strong>Certifications</strong> include ISO 9001:2015, EN 13706 Grade E23 conformity, CE Marking under EAD 130026-00-0304, ASTM E84 Class 1 surface burning, and Aramco SAES-W-018 vendor approval. <strong>CAD Libraries</strong> ship standard profiles in DWG, DXF, STEP, plus BIM (IFC, Revit RFA) for fenestration and structural families, and connection detail typical drawings. <strong>Approval-Package Templates</strong> include submittal package, mock-up testing protocol for fenestration projects, MTC sample, and First Article Inspection (FAI) report sample. <strong>Sustainability and Compliance</strong> covers verified EPD, REACH SVHC declaration, RoHS conformity, and California Proposition 65 statement.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
@@ -105,6 +144,21 @@ export default function DownloadsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[900px] px-[34px]">
+          <SectionTag>How Specifiers Use This Set</SectionTag>
+          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+            <p>
+              Most engineers building an approval package combine three downloads: (1) the product catalog page covering the chosen profile family, (2) the relevant certification (ISO 9001 + EN 13706 grade declaration is the typical default), and (3) the connection detail typical drawing. Procurement adds the sustainability and REACH declarations for European projects. QA teams add the MTC sample and FAI report sample to set their incoming inspection criteria.
+            </p>
+            <p>
+              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to sales@f1composite.com with the project name and we can release within one business day.
+            </p>
+          </div>
+          <FAQ items={faqs} />
         </div>
       </section>
 

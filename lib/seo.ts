@@ -93,11 +93,6 @@ export function buildProductSchema({
       name: "F1 Composite",
       url: SITE_URL,
     },
-    isRelatedTo: {
-      "@type": "Product",
-      name: "Pultruded FRP Profiles",
-      url: absoluteUrl("/pultruded-frp-profiles"),
-    },
     offers: {
       "@type": "AggregateOffer",
       url: absoluteUrl("/contact"),
