@@ -7,7 +7,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Standard FRP Profiles — Pultruded Fiberglass Structural Shapes",
@@ -115,6 +115,23 @@ export default function StandardProfilesPage() {
   return (
     <>
       <JsonLd data={itemListSchema} />
+      <JsonLd
+        data={buildProductSchema({
+          name: "Pultruded FRP Standard Structural Profiles",
+          description:
+            "Stock pultruded FRP structural shapes — I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. EN 13706 and ASTM D3917 compliant, ISO 9001 manufactured, 6 m standard lengths.",
+          path: "/products/standard-profiles",
+          image: "/images/products/i-beam/frp-i-beam-cover.jpg",
+          category: "Pultruded FRP Structural Profiles",
+          material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
+          additionalProperty: [
+            { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
+            { name: "Size Range", value: "12×3 mm to 305×305 mm" },
+            { name: "Standard Length", value: "6 m (custom lengths on request)" },
+            { name: "Lead Time (stock sizes)", value: "2–4 weeks" },
+          ],
+        })}
+      />
       <PageHeader
         tag="Standard Profiles"
         title="Standard FRP profiles catalog — stock pultruded structural shapes"

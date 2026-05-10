@@ -49,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/products/standard-profiles/square-tube`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/standard-profiles/tube`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/standard-profiles/flat-bar`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/products/standard-profiles/rod`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/custom-pultrusions`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fenestration-systems`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/gratings`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
