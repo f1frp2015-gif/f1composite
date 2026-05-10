@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "F1 Composite privacy policy: how we collect, use, store, and protect your personal information when you visit f1composite.com or contact us.",
+  alternates: { canonical: absoluteUrl("/privacy") },
 };
 
 export default function PrivacyPage() {

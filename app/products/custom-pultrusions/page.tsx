@@ -168,9 +168,43 @@ export default function CustomPultrusionsPage() {
     termsOfService: absoluteUrl("/terms"),
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to develop a custom pultruded FRP profile — from inquiry to series production",
+    description:
+      "F1 Composite's five-stage process for engineering, tooling, validating, and producing a bespoke pultruded FRP profile to EN 13706 / ASTM D3917 specifications.",
+    totalTime: "P10W",
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "USD",
+      value: "5000-40000",
+    },
+    supply: [
+      { "@type": "HowToSupply", name: "Application drawing or geometry brief (loads, environment, length, finish)" },
+      { "@type": "HowToSupply", name: "Reinforcement (E-glass, S-glass, carbon, basalt, or aramid roving + mat)" },
+      { "@type": "HowToSupply", name: "Resin system (polyester, vinyl ester, epoxy, polyurethane, or phenolic)" },
+    ],
+    tool: [
+      { "@type": "HowToTool", name: "CNC-machined chrome-plated steel pultrusion die" },
+      { "@type": "HowToTool", name: "FEA simulation for fiber architecture and section optimization" },
+      { "@type": "HowToTool", name: "Pultrusion line with EN 13706 / ASTM D3917 process control" },
+      { "@type": "HowToTool", name: "In-house mechanical test lab (ASTM D638, D790, D695, D2344)" },
+    ],
+    step: processSteps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.brief,
+      url: `${absoluteUrl(pagePath)}#step-${s.number}`,
+      timeRequired: s.duration,
+    })),
+  };
+
   return (
     <>
       <JsonLd data={serviceSchema} />
+      <JsonLd data={howToSchema} />
       <JsonLd
         data={buildProductSchema({
           name: "Custom Pultruded FRP Profiles",

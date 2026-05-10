@@ -15,6 +15,15 @@ interface AskPageProps {
   searchParams: Promise<{ prefill?: string }>;
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+    { "@type": "ListItem", position: 2, name: "FRP Engineering Advisor" },
+  ],
+};
+
 export default async function AskPage({ searchParams }: AskPageProps) {
   const { prefill } = await searchParams;
   const schema = {
@@ -35,6 +44,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
       <div className="mx-auto max-w-[800px] px-[21px] pt-[34px] pb-[21px]">
         <div className="mb-[21px] text-center">
           <div className="mx-auto mb-[13px] flex h-[48px] w-[48px] items-center justify-center rounded-full bg-teal">

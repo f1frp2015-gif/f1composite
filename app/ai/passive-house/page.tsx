@@ -4,6 +4,16 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import PassiveHouseWizard from "./PassiveHouseWizard";
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+    { "@type": "ListItem", position: 2, name: "AI Tools" },
+    { "@type": "ListItem", position: 3, name: "Passive House Window Selector" },
+  ],
+};
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Free Passive House Window Selector — PHI-Certified FRP Frame Tool (U_w 0.78)",
   description:
@@ -38,6 +48,7 @@ export default function PassiveHousePage() {
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">

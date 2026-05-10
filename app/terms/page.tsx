@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services.",
+  alternates: { canonical: absoluteUrl("/terms") },
 };
 
 export default function TermsPage() {

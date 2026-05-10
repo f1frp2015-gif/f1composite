@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with F1 Composite for quotations, technical consultation, or partnership inquiries. Our engineering team responds within one business day.",
+  alternates: { canonical: absoluteUrl("/contact") },
 };
 
 export default function ContactPage() {

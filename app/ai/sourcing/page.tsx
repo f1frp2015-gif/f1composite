@@ -3,6 +3,16 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import SourcingWizard from "./SourcingWizard";
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+    { "@type": "ListItem", position: 2, name: "AI Tools" },
+    { "@type": "ListItem", position: 3, name: "FRP Sourcing Assistant" },
+  ],
+};
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Free FRP Sourcing Assistant — Get China Factory Pricing & Spec in 60 Seconds",
   description:
@@ -65,6 +75,7 @@ export default function SourcingPage() {
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
