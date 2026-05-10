@@ -10,6 +10,7 @@ import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { authorSlugByName } from "@/lib/authors";
 import { prefillForBlog } from "@/lib/aiPrefill";
 
 interface PageProps {
@@ -188,6 +189,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  const authorSlug = authorSlugByName(post.authorName);
+  const authorHref = authorSlug ? `/about/authors/${authorSlug}` : undefined;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -202,6 +206,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       "@type": "Person",
       name: post.authorName,
       jobTitle: post.authorRole,
+      ...(authorHref ? { url: absoluteUrl(authorHref) } : {}),
       worksFor: {
         "@type": "Organization",
         name: "F1 Composite",
@@ -242,6 +247,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         updatedAt={post.updatedAt}
         authorName={post.authorName}
         authorRole={post.authorRole}
+        authorHref={authorHref}
         reviewedBy={post.reviewedBy}
         standards={post.standards}
       />

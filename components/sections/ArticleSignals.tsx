@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 type ArticleSignalsProps = {
   publishedAt: string;
   updatedAt: string;
   authorName: string;
   authorRole: string;
+  authorHref?: string;
   reviewedBy?: string;
   standards?: string[];
 };
@@ -20,6 +23,7 @@ export default function ArticleSignals({
   updatedAt,
   authorName,
   authorRole,
+  authorHref,
   reviewedBy,
   standards = [],
 }: ArticleSignalsProps) {
@@ -49,7 +53,16 @@ export default function ArticleSignals({
                 <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                   Author
                 </p>
-                <p className="mt-[5px] text-f15 font-semibold text-t1">{authorName}</p>
+                {authorHref ? (
+                  <Link
+                    href={authorHref}
+                    className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors hover:text-teal"
+                  >
+                    {authorName}
+                  </Link>
+                ) : (
+                  <p className="mt-[5px] text-f15 font-semibold text-t1">{authorName}</p>
+                )}
                 <p className="mt-[3px] text-f13 text-t2">{authorRole}</p>
               </div>
               <div>
