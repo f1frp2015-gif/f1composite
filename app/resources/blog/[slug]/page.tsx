@@ -199,8 +199,13 @@ export default async function BlogPostPage({ params }: PageProps) {
       absoluteUrl(`/resources/blog/${slug}/opengraph-image`),
     ],
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: post.authorName,
+      jobTitle: post.authorRole,
+      worksFor: {
+        "@type": "Organization",
+        name: "F1 Composite",
+      },
     },
     editor: {
       "@type": "Organization",
