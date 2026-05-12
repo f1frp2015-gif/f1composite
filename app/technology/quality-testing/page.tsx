@@ -294,10 +294,10 @@ export default function QualityTestingPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/quality-control-inspection-testing.jpg"
-              alt="Quality control inspection and testing in composites manufacturing"
-              width={1280}
-              height={600}
+              src="/images/technology/f1-composite-quality-testing-laboratory.webp"
+              alt="F1 Composite quality-testing chemist performing wet-chemistry titration on a pultruded composite sample in a controlled laboratory environment"
+              width={2000}
+              height={810}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-cover"
             />
