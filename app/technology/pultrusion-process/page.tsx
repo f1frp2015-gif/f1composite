@@ -366,10 +366,10 @@ export default function PultrusionProcessPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/pultrusion-manufacturing-production-line.webp"
-              alt="Pultrusion manufacturing production line with engineer"
-              width={1280}
-              height={600}
+              src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+              alt="Inside an F1 Composite pultrusion plant — multiple parallel continuous pultrusion lines in production"
+              width={2000}
+              height={788}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-cover"
             />
@@ -519,11 +519,11 @@ export default function PultrusionProcessPage() {
 
           <div className="mt-[34px] overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/production-line-pultrusion-krauss-maffei.webp"
-              alt="F1 Composite pultrusion production line with Krauss Maffei pullers"
+              src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
+              alt="F1 Composite pultrusion plant floor — finished pultruded profiles on inspection tables alongside fibre-handling and pulling equipment"
               sizes="(max-width: 1280px) 100vw, 1280px"
-              width={2560}
-              height={1920}
+              width={2000}
+              height={832}
               className="h-auto w-full object-cover"
             />
           </div>
