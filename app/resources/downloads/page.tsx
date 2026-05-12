@@ -40,6 +40,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const downloads = [
   {
+    title: "Wind Energy Pultruded Laminate — Mechanical Data Sheet",
+    format: "PDF",
+    size: "13 KB",
+    description: "GFRP (WE-G80) and CFRP (WE-C100) pultruded spar-cap laminates for wind turbine rotor blades. Tension-tension S-N fatigue per ISO 13003, full static envelope per ISO 527-5 / 14125 / 14126 / 14130 and ASTM D7078, with characteristic values per DNVGL-ST-0376 and GL 2010. Independent DNV·GL-accredited laboratory testing.",
+    file: "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf",
+  },
+  {
     title: "PU-GF Pultruded Profile — Mechanical Data Sheet",
     format: "PDF",
     size: "8 KB",
