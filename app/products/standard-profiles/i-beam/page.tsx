@@ -184,7 +184,7 @@ export default function IBeamPage() {
             title: "Technical resources",
             links: [
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets & test certificates" },
               { href: "/resources/design-guides", label: "Design guides (ASCE / EN 13706)" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },

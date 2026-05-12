@@ -237,7 +237,7 @@ Append:
 - 📧 [f1frp2015@gmail.com](mailto:f1frp2015@gmail.com)
 - Include: application environment, load case, drawing or sketch, target standard
 
-For self-service, try the [FRP Calculator](/technology/calculator) (beam analysis + steel/aluminum→FRP equivalence) or [U-Value Calculator](/technology/u-value-calculator).
+For self-service, try the [FRP Profile Calculator](/frp-profile-calculator) (beam analysis + steel/aluminum→FRP equivalence) or [U-Value Calculator](/technology/u-value-calculator).
 \`\`\`
 
 ### Low-intent signals (research / education)

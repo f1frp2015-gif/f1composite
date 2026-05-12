@@ -400,7 +400,7 @@ Major global pultrusion manufacturers include Strongwell (EXTREN®, USA), Fiberl
 - FRP Engineering Advisor (chat): https://www.f1composite.com/ask
 - AI sourcing assistant (structured recommendation: profile family, resin, standards, RFQ inputs): https://www.f1composite.com/ai/sourcing
 - AI passive-house window selector: https://www.f1composite.com/ai/passive-house
-- FRP profile calculator: https://www.f1composite.com/technology/calculator
+- FRP profile calculator: https://www.f1composite.com/frp-profile-calculator
 - Window U-value calculator (EN ISO 10077-1): https://www.f1composite.com/technology/u-value-calculator
 
 ### AI agent integration endpoints

@@ -165,7 +165,7 @@ export default function ChannelPage() {
             title: "Technical resources",
             links: [
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/technology/calculator", label: "Deflection & load calculator" },
+              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },

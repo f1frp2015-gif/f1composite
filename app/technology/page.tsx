@@ -51,7 +51,7 @@ const areas = [
     title: "FRP Profile Calculator",
     description:
       "Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections. EN 13706 and ASTM compliant.",
-    href: "/technology/calculator",
+    href: "/frp-profile-calculator",
   },
   {
     tag: "Tool",

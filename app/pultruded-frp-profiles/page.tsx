@@ -598,7 +598,7 @@ export default function PultrudedFRPProfilesHubPage() {
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel / aluminum / timber</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
-            <LinkArrow href="/technology/calculator">Deflection & load calculator</LinkArrow>
+            <LinkArrow href="/frp-profile-calculator">Deflection & load calculator</LinkArrow>
             <LinkArrow href="/resources/technical-data">Data sheets &amp; mechanical data</LinkArrow>
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>
             <LinkArrow href="/resources/downloads">Downloads</LinkArrow>

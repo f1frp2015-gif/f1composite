@@ -284,7 +284,7 @@ export default function FrpVsSteelGratingsPage() {
             title: "Standards & resources",
             links: [
               { href: "/technology/quality-testing", label: "Quality testing (BS 476 / AS 4586 R11)" },
-              { href: "/technology/calculator", label: "FRP load & deflection calculator" },
+              { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
               { href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison", label: "Blog: FRP vs steel grating lifecycle cost" },
               { href: "/resources/blog/frp-fire-resistance-ratings-guide", label: "Blog: FRP fire resistance ratings" },
               { href: "/resources/technical-data", label: "Load tables & data sheets" },

@@ -23,7 +23,7 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
   - /products/gratings
   - /pultruded-frp-profiles (hub)
   - /applications/{frp-cable-tray-supports, frp-cooling-tower-profiles, frp-bridge-deck-panels, frp-solar-mounting-profiles, frp-chemical-plant-platforms}
-  - /technology/calculator, /technology/u-value-calculator, /technology/pultrusion-process, /technology/quality-testing, /technology/frp-vs-traditional-materials
+  - /frp-profile-calculator, /technology/u-value-calculator, /technology/pultrusion-process, /technology/quality-testing, /technology/frp-vs-traditional-materials
   - /resources/technical-data, /resources/design-guides, /resources/blog
   - /contact, /ask
 - Case studies: only reference these slugs (and only if the application genuinely matches):

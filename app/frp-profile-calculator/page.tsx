@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Free FRP Profile Calculator — Beam Deflection, Stress & Steel/Aluminium Equivalence",
   description:
     "Free online calculator for pultruded FRP profiles: beam deflection, bending stress, and equivalent FRP section to replace steel or aluminium. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23. No login required.",
-  path: "/technology/calculator",
+  path: "/frp-profile-calculator",
 });
 
 const calculatorFaqs = [
@@ -53,7 +53,7 @@ export default function CalculatorPage() {
           name: "FRP Profile Engineering Calculator",
           applicationCategory: "EngineeringApplication",
           operatingSystem: "Web",
-          url: absoluteUrl("/technology/calculator"),
+          url: absoluteUrl("/frp-profile-calculator"),
           browserRequirements: "Requires JavaScript. Requires HTML5.",
           inLanguage: "en",
           isAccessibleForFree: true,
@@ -85,7 +85,7 @@ export default function CalculatorPage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
-          { label: "Calculator" },
+          { label: "FRP Profile Calculator" },
         ]}
       />
 
@@ -156,7 +156,7 @@ export default function CalculatorPage() {
       <AskAICard
         title="Want the AI to walk you through the inputs?"
         description="Open the FRP Engineering Advisor — describe your span, load, and exposure, and it will recommend a profile, deflection check approach, and standards path."
-        prefill={prefillForCalculator({ name: "FRP Profile Calculator", path: "/technology/calculator" })}
+        prefill={prefillForCalculator({ name: "FRP Profile Calculator", path: "/frp-profile-calculator" })}
       />
 
       <InnerCTA title="Need engineering support for your FRP profile selection?" />

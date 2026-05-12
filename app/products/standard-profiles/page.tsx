@@ -223,7 +223,7 @@ export default function StandardProfilesPage() {
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
-              { href: "/technology/calculator", label: "FRP load & deflection calculator" },
+              { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
               { href: "/resources/technical-data", label: "Load tables & data sheets" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },

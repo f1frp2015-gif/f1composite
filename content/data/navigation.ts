@@ -18,7 +18,7 @@ export const mainNav = [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Quality & Testing", href: "/technology/quality-testing" },
       { label: "KNOWHOW Services", href: "/technology/knowhow-services" },
-      { label: "FRP Calculator", href: "/technology/calculator" },
+      { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
       { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     ],
   },
