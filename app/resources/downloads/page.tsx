@@ -47,6 +47,27 @@ const downloads = [
     file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf",
   },
   {
+    title: "PHI Component Certificate — 90-Series GFRP Window",
+    format: "PDF",
+    size: "0.4 MB",
+    description: "Passive House Institute (PHI) component certification for the 90-series pultruded GFRP window. Component-ID 2491wi03, phA arctic climate class. Issued by PHI Darmstadt.",
+    file: "/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf",
+  },
+  {
+    title: "Intertek AS 2047 Test Report — Turn-and-Tilt GFRP Window",
+    format: "PDF",
+    size: "3 MB",
+    description: "Intertek Report No. 240821010SHF-001. Full AS 2047-2014 / AS/NZS 4420.1-2016 performance test on a pultruded GFRP turn-and-tilt window. Air infiltration, water penetration (600 Pa), structural at 3000 Pa. IAS-accredited Intertek Shanghai Fengxian lab.",
+    file: "/downloads/intertek-report-240821010SHF-001-turn-tilt-window.pdf",
+  },
+  {
+    title: "Intertek AS 2047 Test Report — Lift-Sliding GFRP Door",
+    format: "PDF",
+    size: "2.8 MB",
+    description: "Intertek Report No. 240821010SHF-002. Full AS 2047-2014 / AS/NZS 4420.1-2016 performance test on a 3000 × 2400 mm 140-Series pultruded GFRP lift-sliding door. Tested Oct 2024, issued Dec 2024 at IAS-accredited Intertek Shanghai Fengxian.",
+    file: "/downloads/intertek-report-240821010SHF-002-lift-sliding-door.pdf",
+  },
+  {
     title: "Product Catalog 2024",
     format: "PDF",
     size: "12 MB",
