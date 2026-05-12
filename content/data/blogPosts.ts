@@ -2657,70 +2657,47 @@ For a project-specific quote calibrated against current pricing, F1 Composite re
       { label: "Downloads", href: "/resources/downloads" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
-    content: `Glass-fibre pultruded laminates are still the structural backbone of most medium-length wind blades in commercial production today. F1 Composite's WE-G80 is the high glass-content version of this family — a unidirectional pultruded laminate engineered for spar caps in blades where stiffness-to-cost dominates the design rather than absolute mass. This article focuses on the property that most defines a wind-blade GFRP laminate: tension-tension fatigue endurance over the 10⁷-cycle design life that certification bodies require.
+    content: `Glass-fibre pultruded laminates still carry the spar caps of most medium-length wind blades in commercial production today. WE-G80 is F1 Composite's high glass-content version of this family, a unidirectional pultruded laminate built for blades where stiffness-to-cost dominates the design rather than absolute mass. The article below works through the tension-tension fatigue endurance that certification bodies require over a 10⁷-cycle design life.
 
 ## Why GFRP still wins on most blades
 
-A wind blade is a fatigue machine. Over a 25-year service life a typical 70-metre rotor sees on the order of 10⁹ load cycles at varying amplitude. Most of those cycles are well below the static failure stress, but they accumulate. The right material for the spar cap is therefore not the one with the highest static strength — it is the one with the most efficient fatigue endurance per dollar of installed laminate. For blades up to roughly 80 metres, high glass-content pultruded GFRP wins this calculation. CFRP pays back its premium only when the blade is long enough that the mass penalty of glass exceeds the cost of carbon.
+A wind blade has to survive enormous numbers of fatigue cycles. Over a 25-year life a typical 70-metre rotor sees on the order of 10⁹ load cycles at varying amplitude, most of them well below static failure stress but accumulating damage all the same. What the spar cap actually needs is fatigue endurance per dollar of installed laminate, not raw static strength. For blades up to roughly 80 metres, high glass-content pultruded GFRP wins this calculation. CFRP only pays back its premium once the blade is long enough that the mass penalty of glass exceeds the cost of carbon.
 
-## What WE-G80 actually is
+## What WE-G80 is
 
-WE-G80 is a continuous pultruded laminate using boron-free E-glass roving in a bisphenol-A epoxy matrix. Cure is tuned for high-speed pultrusion at production scale, and the panel is pulled to wind-blade spar-cap geometry directly off the line. Independent third-party testing places the laminate's physical properties at the high end of what continuous pultrusion can hold:
+WE-G80 is a continuous pultruded laminate using boron-free E-glass roving in a bisphenol-A epoxy matrix. The cure schedule is tuned for high-speed pultrusion at production scale, and the panel is pulled to spar-cap geometry directly off the line. Independent third-party testing puts the laminate's physical properties at the high end of what continuous pultrusion can hold: fibre mass content (Wf) of about 85.3 % per ISO 1172, fibre volume content (Vf) around 72.5 %, and laminate density of 2.17 g/cm³ per ISO 1183-1.
 
-- Fibre mass content (W<sub>f</sub>): ≈ 85.3 %, per ISO 1172
-- Fibre volume content (V<sub>f</sub>): ≈ 72.5 %
-- Laminate density: 2.17 g/cm³ per ISO 1183-1
+That fibre volume fraction is roughly ten percentage points above commodity GFRP pultrusion, and it is the structural reason WE-G80 reaches the stiffness numbers it does. Every additional percentage point of fibre volume buys longitudinal modulus almost linearly.
 
-That fibre volume fraction is roughly 10 percentage points above commodity GFRP pultrusion and is the structural reason WE-G80 reaches the stiffness numbers it does. Every additional percentage point of fibre volume buys longitudinal modulus almost linearly.
+## ISO 13003 fatigue and the design line
 
-## The fatigue test that matters — ISO 13003
+For a wind-blade GFRP laminate, tension-tension fatigue per ISO 13003 is the defining test. It runs at load ratio R = σmin / σmax = 0.1 (always in tension, never compressive), sine wave at 5 Hz, 23 °C / 50 % RH, on waisted dog-bone specimens cut from the production panel. Specimens are loaded at varied stress amplitudes from roughly 10³ to 10⁷ cycles, and the S-N relationship is fitted as σa = A · N^(−1/m), with two regression statistics: the slope exponent m and the stress-amplitude intercept A at N = 1.
 
-For a wind-blade GFRP laminate, tension-tension fatigue per ISO 13003 is the defining test. The test runs at load ratio R = σ<sub>min</sub>/σ<sub>max</sub> = 0.1 (always in tension, never going compressive), sine wave at 5 Hz, 23 °C / 50 % RH, on waisted dog-bone specimens cut from the production panel. Specimens are loaded at varied stress amplitudes from roughly 10³ to 10⁷ cycles, and the S-N relationship is fitted as:
+For WE-G80 the laboratory returns slope exponent m = 8.51, intercept A = 957 MPa, coefficient of correlation −0.993, and goodness of fit 0.985. The slope of 8.51 sits at the upper edge of what wind-grade pultruded GFRP returns in the international literature. A generic E-glass / polyester pultruded laminate typically slopes around 8.0 to 8.3; structural steel under tension-tension fatigue slopes around 3 to 5, and a lower slope means faster fatigue degradation.
 
-σ<sub>a</sub> = A · N<sup>−1/m</sup>
+For certification, the 50 % survival fit is not the design input. Certification bodies require a one-sided 95 % survival, 95 % confidence design line that captures both the inherent scatter of the laminate and the finite sample size of the test panel. WE-G80's P95 / 95 % S-N curve is σa = 861 · N^(−0.1175). Read at the canonical wind-blade design lives:
 
-with two regression statistics — the slope exponent m and the stress-amplitude intercept A at N = 1.
-
-For WE-G80 the laboratory returns:
-
-- Slope exponent m: 8.51
-- A: 957 MPa
-- Coefficient of correlation: −0.993
-- Goodness of fit: 0.985
-
-The slope of 8.51 is the headline number. For comparison, a generic E-glass / polyester pultruded laminate typically slopes around 8.0 – 8.3; structural steel under tension-tension fatigue slopes around 3 – 5 (lower slope = faster fatigue degradation). WE-G80's value sits at the upper edge of what wind-grade pultruded GFRP returns in international literature.
-
-## Reading the P95 design line
-
-For certification, the 50 % survival fit is not the design input. Certification bodies want a one-sided 95 % survival, 95 % confidence design line that captures both the inherent scatter of the laminate and the finite sample size of the test panel. WE-G80's P95 / 95 % S-N curve is:
-
-σ<sub>a</sub> = 861 · N<sup>−0.1175</sup>
-
-Read at the canonical wind-blade design lives:
-
-| Cycles N | P95 σ<sub>a</sub> (MPa) | P95 σ<sub>max</sub> (MPa) |
+| Cycles N | P95 σa (MPa) | P95 σmax (MPa) |
 |---|---|---|
 | 10⁶ | 169.8 | 377.2 |
 | 10⁷ | 129.5 | 287.8 |
 | 10⁸ | 98.8 | 219.6 |
 
-At 10⁷ cycles — the design life used in most wind-blade certification — the design line predicts σ<sub>a</sub> ≈ 130 MPa with a corresponding maximum stress of 288 MPa. This is the input that goes into the layup calculation, before environmental partial safety factors are applied on top.
+At 10⁷ cycles, the design life used in most wind-blade certification, the P95 curve predicts σa around 130 MPa with a corresponding maximum stress of 288 MPa. That value goes into the layup calculation before environmental partial safety factors are applied on top.
 
-## How designers actually use the curve
+## Using the curve in practice
 
-Three notes for engineers approaching WE-G80 for the first time:
+Engineers approaching WE-G80 for the first time usually take three working notes from these numbers. The first is to drive the layup from the P95 line. The 50 % fit is for engineering reference and material comparisons; certification bodies will not accept it as a design input.
 
-1. **Drive the layup from the P95 line, not the 50 % fit.** The 50 % fit is for engineering reference and material selection comparisons. The P95 line is the design input.
-2. **Layer environmental and geometric partial factors on top of the P95 stress.** The S-N curve is dry, room-temperature, axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies the γ<sub>Mb</sub> and γ<sub>Mc</sub> factors for matrix-dominated and fibre-dominated modes. GL 2010 has equivalent factors with slightly different naming.
-3. **Treat the slope exponent m as a stability indicator, not just a regression output.** A panel that returns m below ~7.5 is signalling a fibre / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 confirms the pultrusion process is consolidating the laminate cleanly.
+The second is that environmental and geometric partial factors apply on top of the P95 stress. The S-N curve was measured dry, room-temperature, and axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies the γMb and γMc factors for matrix-dominated and fibre-dominated failure modes; GL 2010 has equivalent factors under slightly different names.
+
+The third is to read the slope exponent m as a process quality indicator rather than just a regression output. A panel that returns m below about 7.5 usually has a fibre / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 says the pultrusion process is consolidating the laminate cleanly.
 
 ## When to step up to CFRP
 
-GFRP keeps the lead in spar caps up to about 80 m blade length. Beyond that, the laminate thickness needed to carry the moment grows faster than the blade-shell geometry can accommodate, and the mass penalty of glass becomes the binding constraint. At that point WE-C100, the carbon / epoxy grade in the same family, takes over. The static characteristic values for WE-C100 — full envelope per ISO 527-5, 14125, 14126, 14130 and ASTM D7078, with characteristic values per DNVGL-ST-0376 — are covered in the [companion article on CFRP pultruded spar caps](/resources/blog/cfrp-pultruded-spar-cap-static-design-wind-blade).
+GFRP keeps the lead in spar caps up to about 80 m blade length. Past that, the laminate thickness needed to carry the moment grows faster than the blade-shell geometry can accommodate, and the mass penalty of glass becomes the binding constraint. WE-C100, the carbon / epoxy grade in the same family, takes over from there. The static characteristic values for WE-C100, with the full data per ISO 527-5, 14125, 14126, 14130 and ASTM D7078 plus characteristic values per DNVGL-ST-0376, are covered in the [companion article on CFRP pultruded spar caps](/resources/blog/cfrp-pultruded-spar-cap-static-design-wind-blade).
 
-## Download the data sheet
-
-The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ cycles) plus the static envelope for WE-C100 are published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification, custom blade layups, or larger panel formats, contact F1 Composite engineering through [the contact form](/contact).`,
+The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ cycles) plus the static data for WE-C100 are published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification or custom blade layups, contact F1 Composite engineering through [the contact form](/contact).`,
   },
   {
     slug: "cfrp-pultruded-spar-cap-static-design-wind-blade",
@@ -2772,24 +2749,19 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
       { label: "Downloads", href: "/resources/downloads" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
-    content: `Carbon-fibre pultruded laminates take over from glass once wind blades pass roughly 80 metres in length. At that scale the spar cap has to carry more bending moment than a glass laminate can deliver at acceptable thickness, and the mass saving of carbon — combined with its higher modulus — outweighs the higher per-kilogram price. F1 Composite's WE-C100 is the unidirectional carbon / epoxy grade in this family, intended specifically for spar caps in the long-blade segment. This article unpacks the full static mechanical envelope and, more importantly, explains how blade designers should read the characteristic value R<sub>k</sub> that DNVGL-ST-0376 requires as the design input.
+    content: `Carbon-fibre pultruded laminates take over from glass once wind blades pass roughly 80 metres in length. At that scale the spar cap has to carry more bending moment than a glass laminate can deliver at acceptable thickness, and the mass saving of carbon combined with its higher modulus outweighs the higher per-kilogram price. WE-C100 is F1 Composite's unidirectional carbon / epoxy grade in this family, built for the spar caps of long blades. The article below walks through the full static mechanical data and explains how blade designers should read the characteristic value Rk that DNVGL-ST-0376 requires as the design input.
 
-## What WE-C100 actually is
+## What WE-C100 is
 
-WE-C100 is a continuous pultruded unidirectional laminate using 48K industrial-grade carbon roving in a wind-grade epoxy matrix. The "100" denotes the grade family target tensile modulus class; the production panel is pulled to spar-cap geometry directly off the line. Independent third-party laboratory testing places the laminate's physical properties at:
+WE-C100 is a continuous pultruded unidirectional laminate using 48K industrial-grade carbon roving in a wind-grade epoxy matrix. The "100" denotes the grade family target tensile modulus class; the production panel is pulled to spar-cap geometry directly off the line. Independent third-party laboratory testing puts the laminate's physical properties at fibre mass content (Wf) around 70.4 % per ISO 14127, fibre volume content (Vf) around 62.3 %, laminate density of 1.58 g/cm³ per ISO 1183-1, and glass transition temperature (Tg) of about 116 °C measured as the DSC half-step per ISO 11357-2.
 
-- Fibre mass content (W<sub>f</sub>): ≈ 70.4 % per ISO 14127
-- Fibre volume content (V<sub>f</sub>): ≈ 62.3 %
-- Laminate density: 1.58 g/cm³ per ISO 1183-1
-- Glass transition temperature (T<sub>g</sub>): ≈ 116 °C, DSC half-step per ISO 11357-2
+For reference, WE-C100's density at 1.58 g/cm³ is around 27 % lower than the WE-G80 GFRP at 2.17 g/cm³, while its 0° tensile modulus more than triples (147 GPa versus 45 GPa). Both numbers feed the trade-off that justifies the carbon premium in long blades.
 
-For reference: WE-C100's density at 1.58 g/cm³ is ~27 % lower than the WE-G80 GFRP at 2.17 g/cm³, while 0° tensile modulus more than triples (≈ 147 vs ≈ 45 GPa). Both numbers feed directly into the trade-off that justifies the carbon premium in long blades.
+## The full static data
 
-## The full static envelope
+WE-C100 has been characterised across the complete static range a blade design body needs. All testing was conducted at 23 °C / 50 % RH after at least 24 h of conditioning, on production-grade panels, in a DNV·GL-accredited laboratory. Average values and DNVGL-ST-0376 characteristic values from the test panel:
 
-WE-C100 is characterised across the complete static envelope a blade design body needs. All testing was conducted at 23 °C / 50 % RH after at least 24 h of conditioning, on production-grade panels, in a DNV·GL-accredited laboratory. Average values and DNVGL-ST-0376 characteristic values from the test panel:
-
-| Property | Standard | Avg | R<sub>k</sub> (DNVGL-ST-0376) |
+| Property | Standard | Avg | Rk (DNVGL-ST-0376) |
 |---|---|---|---|
 | 0° Tensile strength | ISO 527-5:2021 | 1920 MPa | 1690 MPa |
 | 0° Tensile modulus | ISO 527-5:2021 | 147 GPa | 142 GPa |
@@ -2800,46 +2772,32 @@ WE-C100 is characterised across the complete static envelope a blade design body
 | 0° Compressive modulus | ISO 14126 | 135 GPa | 128 GPa |
 | 90° Compressive strength | ISO 14126 | 164 MPa | 162 MPa |
 | V-notched rail shear (90°) | ASTM D7078 | 73.0 MPa | 70.9 MPa |
-| In-plane shear modulus G₁₂ | ASTM D7078 | 5.16 GPa | 4.88 GPa |
+| In-plane shear modulus G12 | ASTM D7078 | 5.16 GPa | 4.88 GPa |
 | Interlaminar shear strength | ISO 14130 | 70.2 MPa | 66.4 MPa |
 | 0° Flexural strength | ISO 14125 | 1760 MPa | 1550 MPa |
 | 0° Flexural modulus | ISO 14125 | 139 GPa | 135 GPa |
 
-## What R<sub>k</sub> means and why it matters
+## What Rk is and why it matters
 
-R<sub>k</sub> is not the average. It is a one-sided 95 % survival, 95 % confidence statistical tolerance bound calculated per the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method. The calculation accounts for two sources of uncertainty at once: the panel-to-panel scatter measured across the test specimens (typically captured as coefficient of variation, CoV) and the finite sample size of the test programme (captured as a k-factor that shrinks toward unity as n → ∞).
+Rk is not the average. It is a one-sided 95 % survival, 95 % confidence statistical tolerance bound calculated per the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method. The calculation accounts for two sources of uncertainty at once: the panel-to-panel scatter measured across the test specimens (typically captured as coefficient of variation, CoV) and the finite sample size of the test programme (captured as a k-factor that shrinks toward unity as n increases).
 
-The form of the calculation is:
+The form is Rk = X̄ · (1 − kn · CoV), where X̄ is the panel mean, CoV is the coefficient of variation of the n tests, and kn is the one-sided tolerance factor from DNVGL-ST-0376 Section 5 for the chosen survival and confidence levels. For WE-C100, the gap from average to Rk is about 12 % on 0° tensile strength (1920 to 1690 MPa), 9 % on 0° compressive strength (1480 to 1350 MPa), 12 % on 0° flexural strength (1760 to 1550 MPa), 5 % on interlaminar shear strength (70.2 to 66.4 MPa), and only 1 % on 90° compressive strength (164 to 162 MPa).
 
-R<sub>k</sub> = X̄ · (1 − k<sub>n</sub> · CoV)
+The narrowest gap, on 90° compression, says the laminate scatter in that test was exceptionally tight, so the statistical penalty almost disappears. The wider gaps on 0° tension and 0° flexure reflect a modest CoV of around 4 to 5 % that any real production laminate carries.
 
-where X̄ is the panel mean, CoV is the coefficient of variation of the n tests, and k<sub>n</sub> is the one-sided tolerance factor from DNVGL-ST-0376 Section 5 for the chosen survival and confidence levels.
+## How designers apply Rk
 
-For WE-C100, the gap from average to R<sub>k</sub> is:
+The first and most important point is to build the laminate model on Rk, not the average. Averages are useful for engineering judgment and grade-to-grade comparison; they are not allowed as design inputs in any wind-blade certification scheme, and a blade certified on averages will not survive a notified-body review.
 
-- 0° tensile strength: 1920 → 1690 MPa (12 % reduction)
-- 0° compressive strength: 1480 → 1350 MPa (9 % reduction)
-- 0° flexural strength: 1760 → 1550 MPa (12 % reduction)
-- 90° compressive strength: 164 → 162 MPa (1 % reduction — very tight CoV)
-- Interlaminar shear strength: 70.2 → 66.4 MPa (5 % reduction)
+The second is that environmental and partial safety factors apply on top of Rk. DNVGL-ST-0376 specifies separate γ factors for matrix-dominated and fibre-dominated failure modes (γMb) and for compressive failure (γMc), then layers environmental knock-downs for humidity, temperature, and UV. The Rk column is the starting point for design stress, not the design stress itself.
 
-The narrowest gap, in the 90° compression case, is the tell — the laminate scatter in that test was exceptionally tight, so the statistical penalty almost disappears. The wider gaps in 0° tension and 0° flexure reflect modest CoV (≈ 4 – 5 %) that any real production laminate carries.
-
-## How designers actually use R<sub>k</sub>
-
-Three notes for engineers approaching WE-C100 for the first time:
-
-1. **Build the laminate model on R<sub>k</sub>, not on the average.** Averages are useful for engineering judgment and comparison between grades. They are not allowed as design inputs in any wind-blade certification scheme. A blade certified on averages will not survive a notified-body review.
-2. **Apply environmental and partial safety factors on top of R<sub>k</sub>.** DNVGL-ST-0376 specifies separate γ factors for matrix-dominated and fibre-dominated failure modes (γ<sub>Mb</sub>) and for compressive failure (γ<sub>Mc</sub>), then layers environmental knock-downs for humidity, temperature, and UV. The R<sub>k</sub> column is the starting point, not the design stress.
-3. **Treat 90° compression as the discipline test.** Pultruded UD laminates are strongly orthotropic; 0° properties are dominated by the fibre, but 90° properties are matrix- and interface-controlled. A high and tight 90° compression result (164 MPa with R<sub>k</sub> = 162 MPa, CoV ≈ 0.5 %) is the cleanest signal that the pultrusion process is consolidating the matrix without micro-voids or interface defects.
+The third is to read 90° compression as the cleanest process quality test on the laminate. Pultruded UD laminates are strongly orthotropic; 0° properties are dominated by the fibre, while 90° properties are matrix- and interface-controlled. A high and tight 90° compression result (164 MPa with Rk = 162 MPa, CoV around 0.5 %) tells you the pultrusion process is consolidating the matrix without micro-voids or interface defects.
 
 ## When to step back to GFRP
 
-The carbon premium only earns its keep when the blade is long enough that the mass saving of carbon, multiplied across the full spar-cap stack, beats the cost differential. For most blades up to ~80 m, the high glass-content WE-G80 GFRP grade is the structurally and economically right answer; its fatigue envelope is covered in the [companion article on GFRP pultruded spar caps](/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade).
+The carbon premium only earns its keep when the blade is long enough that the mass saving of carbon, multiplied across the full spar-cap stack, beats the cost differential. For most blades up to about 80 m, the high glass-content WE-G80 GFRP grade is the right answer both structurally and economically. Its fatigue data is covered in the [companion article on GFRP pultruded spar caps](/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade).
 
-## Download the data sheet
-
-The complete static envelope for WE-C100 — all 15 mechanical properties with their R<sub>k</sub> values — plus the WE-G80 fatigue table is published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification, custom blade layups, or larger panel formats, contact F1 Composite engineering through [the contact form](/contact).`,
+The complete static data for WE-C100 (all 15 mechanical properties with their Rk values) plus the WE-G80 fatigue table is published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification or custom blade layups, contact F1 Composite engineering through [the contact form](/contact).`,
   },
   {
     slug: "pultruded-frp-offshore-fishery-solar-mounts-and-frames",
@@ -2849,17 +2807,17 @@ The complete static envelope for WE-C100 — all 15 mechanical properties with t
     updatedAt: "2026-05-12",
     readTime: "9 min",
     excerpt:
-      "Offshore, tidal-flat, and wind-solar-fishery PV plants stack salt, humidity, UV, and vibration into the harshest service envelope in the solar industry. Pultruded FRP profiles solve both the mounting structure and the module frame with a single material story: corrosion-immune, electrically insulating, and engineered for a 25-year maintenance-free life.",
+      "Offshore, tidal-flat, and wind-solar-fishery PV plants expose mounts and module frames to salt, humidity, UV, and constant vibration. Pultruded FRP covers both the mounting structure and the module frame on intrinsic corrosion immunity, dielectric performance, and a 25-year maintenance-free life.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
     reviewedBy: "Materials Comparison Desk",
     standards: ["EN 13706", "ASTM D3917", "ASTM G154", "ASTM B117", "IEC 61215"],
     coverImage: "/images/blog/frp-pultruded-offshore-fishery-solar-mount.webp",
-    coverAlt: "Wind-solar-fishery hybrid plant with PV arrays over saline water and an offshore wind turbine in the distance — the service envelope for pultruded FRP solar mounts and module frames",
+    coverAlt: "Wind-solar-fishery hybrid plant with PV arrays over saline water and an offshore wind turbine in the distance, the operating environment for pultruded FRP solar mounts and module frames",
     supportingImage: "/images/blog/frp-coastal-infrastructure-supporting.jpg",
-    supportingAlt: "Coastal infrastructure exposed to salt spray and UV — the same corrosion drivers that govern offshore and fishery PV mounting selection",
+    supportingAlt: "Coastal infrastructure exposed to salt spray and UV, the same corrosion drivers that govern offshore and fishery PV mounting selection",
     supportingCaption:
-      "Offshore, tidal, and fishery PV plants share the same failure factors with coastal infrastructure: chloride attack, galvanic couples, UV, and inaccessible maintenance windows. Pultruded FRP profiles convert these from recurring opex into a one-time material decision.",
+      "Offshore, tidal, and fishery PV plants face the same failure factors as coastal infrastructure: chloride attack, galvanic couples, UV, and inaccessible maintenance windows. Pultruded FRP turns these from recurring opex into a one-time material decision.",
     highlights: [
       "Zero recoating cycle across a 25-year design life",
       "Density ~1.9 g/cm³ — about a quarter of carbon steel",
@@ -2874,36 +2832,57 @@ The complete static envelope for WE-C100 — all 15 mechanical properties with t
       { label: "Marine Applications", href: "/industries/marine" },
       { label: "FRP vs Steel for Structural Profiles", href: "/resources/blog/frp-vs-steel-structural-profiles" },
     ],
-    content: `Photovoltaic plants built on water — offshore arrays, tidal-flat farms, and wind-solar-fishery hybrid sites — collapse the corrosion safety margin that mainland EPCs rely on. Salt spray, full-time humidity, UV at sea-surface intensity, wave-induced vibration, and biological loading from fish and bird waste all act simultaneously on the same steel and aluminium that worked perfectly inland. The result is a service envelope where conventional hot-dip galvanised mounts and anodised aluminium frames give up their nameplate life by 30 to 50 percent. Pultruded fiber reinforced polymer (FRP) profiles, by contrast, are corrosion-immune by chemistry rather than by coating, and they solve both the mounting structure and the module frame with one material story.
-\n\n## Three water-side scenarios, one set of failure drivers
-\n\nOffshore floating, tidal-flat, and fishery-PV sites differ in elevation and in tenants below the array — open sea, intertidal mud, or aquaculture ponds — but they share the same dominant corrosion drivers.
-\n\n| Scenario | Service condition | Dominant degradation drivers |
+    content: `Photovoltaic plants built on water collapse the corrosion safety margin that mainland EPCs rely on. Salt spray, full-time humidity, UV at sea-surface intensity, wave-induced vibration, and biological loading from fish and bird waste all act on the same steel and aluminium that worked perfectly inland. Conventional hot-dip galvanised mounts and anodised aluminium frames give up 30 to 50 percent of their nameplate life in this environment. Pultruded fiber reinforced polymer (FRP) profiles are corrosion-immune by chemistry rather than by coating, and they cover both the mounting structure and the module frame.
+
+## Three water-side scenarios, one set of failure drivers
+
+Offshore floating, tidal-flat, and fishery-PV sites differ in elevation and in what sits below the array, whether that is open sea, intertidal mud, or aquaculture ponds. The dominant corrosion drivers converge on the same short list.
+
+| Scenario | Service condition | Dominant degradation drivers |
 |---|---|---|
 | Offshore / floating PV | Permanent immersion, tidal cycling, swell | Salt spray, chloride attack, anodic current, biofouling |
-| Tidal-flat PV | Alternating wet and dry, sediment scour | High humidity plus chloride, sand abrasion, wet-dry cycles |
-| Wind-solar-fishery hybrid | Fish or shrimp pond surface, freshwater-saline mix | Ammonia and H₂S from biology, UV, fish and bird waste, wind-induced vibration |
-\n\nIn corrosion terms these three converge on the same factor stack: **chloride plus moisture plus UV plus vibration plus localised acid or alkaline attack.** That stack is the worst environment any 25-year solar warranty has to survive.
-\n\n## Why galvanised steel and aluminium under-deliver on water
-\n\n**Hot-dip galvanised steel mounts** corrode at the C5-M coastal grade at roughly 50 to 200 µm of zinc loss per year. A typical 60 to 85 µm zinc layer is consumed in five to eight years; the red rust that follows stains module glass, drops shading patches across cells, and forces unplanned coating renewal far from shore.
-\n\n**Aluminium module frames and mounts** pit aggressively in salt environments. When the same array bolts stainless fasteners and copper grounding cables to aluminium, a galvanic couple forms and the aluminium becomes the sacrificial anode. Designs scoped for a five-year inspection cycle are usually re-scoped to two or three years in service, eating the IRR projected at financial close.
-\n\n**Stainless steel (304 / 316)** is often proposed as the fix, but 304 is open to stress-corrosion cracking under chloride loading and 316L pushes the bill of materials past the budget for most utility-scale projects on the water.
-\n\nIndustry experience: where a coastal or floating PV plant inherits a mainland mounting specification unchanged, the operations and maintenance line in its LCOE is routinely understated by more than 30 percent.
-\n\n## How pultruded FRP solves the structural side
-\n\nGlass-fiber-reinforced thermoset polymer profiles produced by pultrusion meet the structural demands of marine-class PV plants on their intrinsic chemistry, not on a coating.
-\n\n**1. Chloride immunity.** A pultruded E-glass plus vinyl ester or polyurethane composite does not react with Cl⁻ or SO₄²⁻. No sacrificial coating is required, no cathodic protection circuit is required, and there is no zinc-loss rate to budget against.
-\n\n**2. Specific strength.** Pultruded FRP delivers longitudinal tensile strength on the order of 600 MPa with a density of about 1.9 g/cm³ — roughly a quarter of carbon steel. The reduced dead load relaxes the design of pontoons, piles, and lifting equipment.
-\n\n**3. Dielectric performance.** Volume resistivity above 10¹² Ω·cm means FRP profiles can run alongside HV cabling without inducing stray-current corrosion in adjacent steel, and they remove an entire class of safety-case complications around DC-side grounding faults.
-\n\n**4. Fatigue under combined wind and wave loading.** With no metallic crack-initiation sites, FRP cross-sections retain more than 90 percent of their static strength after 10⁷ load cycles — a margin that aluminium and high-strength steel cannot match in chloride service.
-\n\nF1 Composite produces the full set of structural members typical of an offshore or fishery PV plant: I-beams, channels, angles, square tube, round tube, and custom hat sections for purlins, rafters, struts, posts, walkways, and cable trays. All of them ship with the same corrosion profile.
-\n\n## How pultruded FRP solves the module-frame side
-\n\nThe module frame is the second weather-exposed structure on every panel, and it has historically been an aluminium extrusion. On water, the case for replacing the aluminium frame with a pultruded FRP frame is increasingly clear in three dimensions.
-\n\n**Thermal expansion match to the glass.** FRP frames have a longitudinal coefficient of thermal expansion near 6 × 10⁻⁶/°C, compared with about 23 × 10⁻⁶/°C for aluminium. The narrower mismatch with the glass reduces silicone seal cycling on bifacial double-glass modules and extends the rated edge-seal life.
-\n\n**Mass reduction at the module level.** Replacing an aluminium frame with a pultruded FRP frame typically removes 0.6 to 1.2 kg from a 630 W or 700 W module, easing two-person installation on floating walkways and pond catwalks.
-\n\n**UV and chemistry endurance.** Accelerated weathering per ASTM G154 shows colour shift ΔE below 3 after 3000 hours of UV-A exposure on a properly stabilised polyurethane or polyester pultruded frame, with no chalking on the public-facing surface — performance aluminium anodisation cannot match in fishery environments rich in nitrogen and sulphur volatiles.
-\n\nAt F1 Composite we manufacture pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
-\n\n## Reading LCOE the right way
-\n\nThe purchase-price comparison between FRP and galvanised steel is not the comparison that matters; the lifecycle comparison is.
-\n\n| Dimension | Galvanised steel or anodised aluminium | Pultruded FRP |
+| Tidal-flat PV | Alternating wet and dry, sediment scour | High humidity with chloride, sand abrasion, wet-dry cycles |
+| Wind-solar-fishery hybrid | Pond surface, freshwater-saline mix | Ammonia and H₂S from biology, UV, fish and bird waste, wind vibration |
+
+In corrosion terms the three sites converge on chloride plus moisture plus UV plus vibration plus localised acid or alkaline attack. That combination is the worst environment any 25-year solar warranty has to survive.
+
+## Why galvanised steel and aluminium fall short on water
+
+Hot-dip galvanised steel mounts corrode at the C5-M coastal grade at roughly 50 to 200 µm of zinc loss per year. A typical 60 to 85 µm zinc layer is consumed in five to eight years, and the red rust that follows stains module glass, drops shading patches across cells, and forces unplanned coating renewal far from shore.
+
+Aluminium module frames and mounts pit aggressively in salt environments. When the same array bolts stainless fasteners and copper grounding cables to aluminium, a galvanic couple forms and the aluminium becomes the sacrificial anode. Designs scoped for a five-year inspection cycle are usually re-scoped to two or three years in service, eating the IRR projected at financial close.
+
+Stainless steel is often proposed as the fix. 304 is open to stress-corrosion cracking under chloride loading, and 316L pushes the bill of materials past the budget for most utility-scale projects on the water. Where a coastal or floating PV plant inherits a mainland mounting specification unchanged, the operations and maintenance line in its LCOE is routinely understated by more than 30 percent.
+
+## How pultruded FRP carries the structure
+
+Glass-fibre-reinforced thermoset polymer profiles produced by pultrusion meet the structural demands of marine-class PV plants on intrinsic chemistry rather than on a coating. A pultruded E-glass plus vinyl ester or polyurethane composite does not react with Cl⁻ or SO₄²⁻. There is no sacrificial coating to renew, no cathodic protection circuit to power, and no zinc-loss rate to budget against.
+
+Specific strength is the second argument. Pultruded FRP delivers longitudinal tensile strength on the order of 600 MPa at a density of about 1.9 g/cm³, roughly a quarter of carbon steel. The reduced dead load relaxes the design of pontoons, piles, and lifting equipment.
+
+Dielectric performance is the third. Volume resistivity above 10¹² Ω·cm means FRP profiles can run alongside HV cabling without inducing stray-current corrosion in adjacent steel, and they remove an entire class of safety-case complications around DC-side grounding faults.
+
+The fourth is fatigue behaviour under combined wind and wave loading. With no metallic crack-initiation sites, FRP cross-sections retain more than 90 percent of their static strength after 10⁷ load cycles. Aluminium and high-strength steel cannot match that margin in chloride service.
+
+F1 Composite produces the full set of structural members typical of an offshore or fishery PV plant: I-beams, channels, angles, square tube, round tube, and custom hat sections for purlins, rafters, struts, posts, walkways, and cable trays.
+
+## How pultruded FRP replaces the aluminium module frame
+
+The module frame is the second weather-exposed structure on every panel, and historically it has been an aluminium extrusion. On water, three properties of pultruded FRP make the substitution straightforward.
+
+FRP frames have a longitudinal coefficient of thermal expansion near 6 × 10⁻⁶/°C, compared with about 23 × 10⁻⁶/°C for aluminium. The narrower mismatch with the glass reduces silicone seal cycling on bifacial double-glass modules and extends the rated edge-seal life.
+
+Replacing an aluminium frame with a pultruded FRP frame typically removes 0.6 to 1.2 kg from a 630 W or 700 W module, which makes two-person installation on floating walkways and pond catwalks substantially easier.
+
+Accelerated weathering per ASTM G154 shows colour shift ΔE below 3 after 3000 hours of UV-A exposure on a properly stabilised polyurethane or polyester pultruded frame, with no chalking on the public-facing surface. Aluminium anodisation cannot match that in fishery environments rich in nitrogen and sulphur volatiles.
+
+F1 Composite manufactures pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
+
+## LCOE over 25 years
+
+The purchase-price comparison between FRP and galvanised steel is the wrong place to anchor the decision. The lifecycle comparison reads differently.
+
+| Dimension | Galvanised steel or anodised aluminium | Pultruded FRP |
 |---|---|---|
 | Real coastal service life | 8 to 12 years | 25 years, maintenance-free |
 | Coating renewal cycle | 5 to 8 years | None required |
@@ -2911,20 +2890,24 @@ The complete static envelope for WE-C100 — all 15 mechanical properties with t
 | Mass at equivalent section | Reference | Roughly one quarter of steel, 70 percent of aluminium |
 | Site cutting and drilling | Cold-work then re-protect | Cold-work, no re-protection required |
 | Maintenance opex over 25 years | Adds 30 percent plus to LCOE | Removed from the opex line |
-\n\nThis is the same conclusion drawn in the broader [FRP vs steel structural comparison](/resources/blog/frp-vs-steel-structural-profiles): on water, the more aggressive the environment and the more expensive the maintenance access, the harder the FRP case becomes to refuse.
-\n\n## Where to apply pultruded FRP across the plant
-\n\nReading the cover image as a system, the corrosion-exposed surfaces of an offshore or fishery PV plant split into four substitution zones.
-\n\n- **Distant wind turbine area.** Wind and wave coupling drives vibration into the support frame. Specify pultruded FRP main beams and braces to remove metallic fatigue-crack initiation from the load path.
-- **PV array above the water surface.** The bifacial modules and their mounts sit in the salt-spray zone year-round. Specify pultruded FRP purlins, rafters, and module frames.
-- **Piles entering the water.** The intertidal band is the highest-corrosion-rate part of any steel pile. Specify pultruded FRP posts or FRP-jacketed concrete piles.
-- **High-voltage transmission run.** Replace porcelain insulators and steel cross-arms with pultruded FRP cross-arms; the dielectric performance is intrinsic.
-\n\nReplacing the metallic exposure surface across the plant turns the 25-year warranty from a financial-model assumption into a material-level fact.
-\n\n## What F1 Composite delivers
-\n\n- Three resin chemistries — vinyl ester for the most aggressive marine service, polyurethane for high-impact and UV-driven applications, polyester for cost-sensitive structural use
-- The full structural family — I-beams, channels, angles, square tube, round tube, plus custom pultruded module frame profiles and cable tray supports
-- Surface options — PVF/PVDF capping films for the most demanding UV exposure, conductive surface treatments to dissipate static bird-waste loading
-- Engineering support — section sizing, EN 13706 grading, qualification testing to ASTM G154 and ASTM B117, and project-specific layup design
-\n\nFor a project-specific FRP solar mounting specification, full pultruded section drawings, or a comparative LCOE model for your site, contact F1 Composite engineering through [the contact form](/contact) or browse the [FRP solar mounting application page](/applications/frp-solar-mounting-profiles).`,
+
+This is the same conclusion drawn in the broader [FRP vs steel structural comparison](/resources/blog/frp-vs-steel-structural-profiles). On water, the more aggressive the environment and the more expensive the maintenance access, the harder the FRP case is to refuse.
+
+## Substitution map for a hybrid PV plant
+
+Reading the cover image as a system, the corrosion-exposed surfaces of an offshore or fishery PV plant split into four substitution zones.
+
+**Wind turbine support area.** Wind and wave coupling drives vibration into the support frame. Pultruded FRP main beams and braces remove metallic fatigue-crack initiation from the load path.
+
+**PV array above the water surface.** The bifacial modules and their mounts sit in the salt-spray zone year-round. Pultruded FRP purlins, rafters, and module frames handle the exposure on chemistry alone.
+
+**Piles entering the water.** The intertidal band is the highest-corrosion-rate part of any steel pile. Pultruded FRP posts or FRP-jacketed concrete piles take that band out of the failure path.
+
+**High-voltage transmission run.** Pultruded FRP cross-arms replace porcelain insulators and steel cross-arms in one step. The dielectric performance is intrinsic to the material.
+
+Replacing the metallic exposure surface across the plant turns the 25-year warranty from a financial-model assumption into a material-level fact.
+
+For a project-specific FRP solar mounting specification, full pultruded section drawings, or a comparative LCOE model, contact F1 Composite engineering through [the contact form](/contact) or browse the [FRP solar mounting application page](/applications/frp-solar-mounting-profiles).`,
   },
 ];
 
