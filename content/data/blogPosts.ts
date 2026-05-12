@@ -2629,12 +2629,20 @@ For a project-specific quote calibrated against current pricing, F1 Composite re
       "ISO 1172",
       "ISO 1183-1",
     ],
-    coverImage: "/images/industries/frp-energy-solar-power-installation.jpg",
-    coverAlt: "Renewable energy installation — context image for GFRP pultruded composite laminates used in wind turbine blade spar caps",
-    supportingImage: "/images/case-studies/frp-bridge.jpg",
-    supportingAlt: "Pultruded GFRP unidirectional laminate concept illustration",
+    coverImage: "/images/blog/wind-onshore-farm-green-fields.webp",
+    coverAlt: "Onshore wind farm spread across open fields — typical service environment for medium-length GFRP-spar-cap blades",
+    coverAttribution: pexelsCredit(
+      "Merictuna",
+      "https://www.pexels.com/photo/expansive-wind-farm-in-lush-green-fields-31390206/",
+    ),
+    supportingImage: "/images/blog/wind-onshore-farm-scotland.webp",
+    supportingAlt: "Onshore wind farm under open sky — GFRP-spar-cap blades in service",
     supportingCaption:
-      "Pultruded GFRP UD laminates anchor the spar cap of most medium-length wind blades because they combine continuous fibre alignment, exceptional fatigue performance, and a cost-per-kilogram that carbon cannot match.",
+      "Pultruded GFRP UD laminates anchor the spar cap of most medium-length onshore wind blades because they combine continuous fibre alignment, exceptional fatigue performance, and a cost-per-kilogram that carbon cannot match.",
+    supportingAttribution: pexelsCredit(
+      "Peechie247",
+      "https://www.pexels.com/photo/photograph-of-white-windmills-under-a-blue-sky-4877226/",
+    ),
     highlights: [
       "WE-G80 fibre mass content ≈ 85 %, density 2.17 g/cm³",
       "Tension-tension fatigue per ISO 13003 — slope exponent m = 8.51",
@@ -2736,12 +2744,20 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
       "ASTM D7078",
       "ISO 11357-2",
     ],
-    coverImage: "/images/industries/frp-energy-solar-power-installation.jpg",
-    coverAlt: "Renewable energy installation — context image for CFRP pultruded composite laminates used in long wind turbine blade spar caps",
-    supportingImage: "/images/case-studies/frp-bridge.jpg",
-    supportingAlt: "Pultruded CFRP unidirectional laminate concept illustration",
+    coverImage: "/images/blog/wind-offshore-turbine-speedboat.webp",
+    coverAlt: "Offshore wind turbine with crew transfer vessel showing the structural scale that drives CFRP-spar-cap selection in long blades",
+    coverAttribution: pexelsCredit(
+      "Donny Tang",
+      "https://www.pexels.com/photo/offshore-wind-turbine-and-speedboat-at-sea-34041284/",
+    ),
+    supportingImage: "/images/blog/wind-offshore-single-turbine.webp",
+    supportingAlt: "Solitary offshore wind turbine in calm sea — long-blade context for CFRP pultruded spar-cap laminates",
     supportingCaption:
-      "For wind blades above ~80 m, pultruded CFRP becomes the structurally and economically right answer for the spar cap. Lower density and higher modulus together outweigh the carbon premium.",
+      "For wind blades above ~80 m — typically the offshore class — pultruded CFRP becomes the structurally and economically right answer for the spar cap. Lower density and higher modulus together outweigh the carbon premium.",
+    supportingAttribution: pexelsCredit(
+      "Lange X",
+      "https://www.pexels.com/photo/solitary-wind-turbine-in-open-sea-31636924/",
+    ),
     highlights: [
       "WE-C100 0° tensile 1920 MPa, modulus 147 GPa, density 1.58 g/cm³",
       "Full static envelope: tension, compression, V-notch shear, ILSS, flexure",
