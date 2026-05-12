@@ -40,6 +40,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const downloads = [
   {
+    title: "Pultruded FRP Window & Door Catalog",
+    format: "PDF",
+    size: "830 KB",
+    description: "Full F1 Composite fenestration catalog — 70/80/90/140 series window and door frame profiles. Material comparison vs aluminium / PVC-U / pine, profile specifications, recommended glazing builds and U-values, energy-code matching for EN 14351-1, PHI passive-house, AS 2047 and NFRC. Includes sub-frame range and custom-pultrusion options.",
+    file: "/downloads/f1composite-frp-window-door-catalog.pdf",
+  },
+  {
     title: "Wind Energy Pultruded Laminate — Mechanical Data Sheet",
     format: "PDF",
     size: "13 KB",
