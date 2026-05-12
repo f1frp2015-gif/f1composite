@@ -2611,14 +2611,118 @@ These benchmarks shift quarter-to-quarter on three drivers: glass fibre raw mate
 For a project-specific quote calibrated against current pricing, F1 Composite returns full quotes within 48 business hours through [the contact form](/contact) or describe the application in the [AI Sourcing Assistant](/ai/sourcing) for a spec + price path in one response.`,
   },
   {
-    slug: "pultruded-spar-cap-laminates-wind-blades-gfrp-cfrp",
-    title: "Pultruded Spar-Cap Laminates for Wind Turbine Blades — GFRP and CFRP Performance Data",
+    slug: "gfrp-pultruded-spar-cap-fatigue-wind-blade",
+    title: "GFRP Pultruded Spar-Cap Laminate for Wind Blades — Fatigue Performance and Design Use",
+    category: "Energy",
+    date: "2026-05-12",
+    updatedAt: "2026-05-12",
+    readTime: "8 min",
+    excerpt:
+      "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. This article unpacks the tension-tension S-N fatigue envelope per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
+    authorName: "Yifan Liu, Application Engineer",
+    authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
+    reviewedBy: "Composites Engineering Review Group",
+    standards: [
+      "DNVGL-ST-0376",
+      "GL 2010",
+      "ISO 13003",
+      "ISO 1172",
+      "ISO 1183-1",
+    ],
+    coverImage: "/images/industries/frp-energy-solar-power-installation.jpg",
+    coverAlt: "Renewable energy installation — context image for GFRP pultruded composite laminates used in wind turbine blade spar caps",
+    supportingImage: "/images/case-studies/frp-bridge.jpg",
+    supportingAlt: "Pultruded GFRP unidirectional laminate concept illustration",
+    supportingCaption:
+      "Pultruded GFRP UD laminates anchor the spar cap of most medium-length wind blades because they combine continuous fibre alignment, exceptional fatigue performance, and a cost-per-kilogram that carbon cannot match.",
+    highlights: [
+      "WE-G80 fibre mass content ≈ 85 %, density 2.17 g/cm³",
+      "Tension-tension fatigue per ISO 13003 — slope exponent m = 8.51",
+      "At 10⁷ cycles P95 σa ≈ 130 MPa, σmax ≈ 288 MPa",
+    ],
+    ogDescription:
+      "GFRP pultruded spar-cap laminate for wind turbine blades: ISO 13003 fatigue, P95 S-N design line, DNVGL-ST-0376 characteristic methodology. Download the F1 Composite Wind Energy Laminate datasheet.",
+    ogChips: ["Wind energy", "GFRP spar cap", "Fatigue S-N"],
+    relatedLinks: [
+      { label: "Energy & Power", href: "/industries/energy" },
+      { label: "CFRP Spar-Cap Laminate (Static)", href: "/resources/blog/cfrp-pultruded-spar-cap-static-design-wind-blade" },
+      { label: "Downloads", href: "/resources/downloads" },
+      { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
+    ],
+    content: `Glass-fibre pultruded laminates are still the structural backbone of most medium-length wind blades in commercial production today. F1 Composite's WE-G80 is the high glass-content version of this family — a unidirectional pultruded laminate engineered for spar caps in blades where stiffness-to-cost dominates the design rather than absolute mass. This article focuses on the property that most defines a wind-blade GFRP laminate: tension-tension fatigue endurance over the 10⁷-cycle design life that certification bodies require.
+
+## Why GFRP still wins on most blades
+
+A wind blade is a fatigue machine. Over a 25-year service life a typical 70-metre rotor sees on the order of 10⁹ load cycles at varying amplitude. Most of those cycles are well below the static failure stress, but they accumulate. The right material for the spar cap is therefore not the one with the highest static strength — it is the one with the most efficient fatigue endurance per dollar of installed laminate. For blades up to roughly 80 metres, high glass-content pultruded GFRP wins this calculation. CFRP pays back its premium only when the blade is long enough that the mass penalty of glass exceeds the cost of carbon.
+
+## What WE-G80 actually is
+
+WE-G80 is a continuous pultruded laminate using boron-free E-glass roving in a bisphenol-A epoxy matrix. Cure is tuned for high-speed pultrusion at production scale, and the panel is pulled to wind-blade spar-cap geometry directly off the line. Independent third-party testing places the laminate's physical properties at the high end of what continuous pultrusion can hold:
+
+- Fibre mass content (W<sub>f</sub>): ≈ 85.3 %, per ISO 1172
+- Fibre volume content (V<sub>f</sub>): ≈ 72.5 %
+- Laminate density: 2.17 g/cm³ per ISO 1183-1
+
+That fibre volume fraction is roughly 10 percentage points above commodity GFRP pultrusion and is the structural reason WE-G80 reaches the stiffness numbers it does. Every additional percentage point of fibre volume buys longitudinal modulus almost linearly.
+
+## The fatigue test that matters — ISO 13003
+
+For a wind-blade GFRP laminate, tension-tension fatigue per ISO 13003 is the defining test. The test runs at load ratio R = σ<sub>min</sub>/σ<sub>max</sub> = 0.1 (always in tension, never going compressive), sine wave at 5 Hz, 23 °C / 50 % RH, on waisted dog-bone specimens cut from the production panel. Specimens are loaded at varied stress amplitudes from roughly 10³ to 10⁷ cycles, and the S-N relationship is fitted as:
+
+σ<sub>a</sub> = A · N<sup>−1/m</sup>
+
+with two regression statistics — the slope exponent m and the stress-amplitude intercept A at N = 1.
+
+For WE-G80 the laboratory returns:
+
+- Slope exponent m: 8.51
+- A: 957 MPa
+- Coefficient of correlation: −0.993
+- Goodness of fit: 0.985
+
+The slope of 8.51 is the headline number. For comparison, a generic E-glass / polyester pultruded laminate typically slopes around 8.0 – 8.3; structural steel under tension-tension fatigue slopes around 3 – 5 (lower slope = faster fatigue degradation). WE-G80's value sits at the upper edge of what wind-grade pultruded GFRP returns in international literature.
+
+## Reading the P95 design line
+
+For certification, the 50 % survival fit is not the design input. Certification bodies want a one-sided 95 % survival, 95 % confidence design line that captures both the inherent scatter of the laminate and the finite sample size of the test panel. WE-G80's P95 / 95 % S-N curve is:
+
+σ<sub>a</sub> = 861 · N<sup>−0.1175</sup>
+
+Read at the canonical wind-blade design lives:
+
+| Cycles N | P95 σ<sub>a</sub> (MPa) | P95 σ<sub>max</sub> (MPa) |
+|---|---|---|
+| 10⁶ | 169.8 | 377.2 |
+| 10⁷ | 129.5 | 287.8 |
+| 10⁸ | 98.8 | 219.6 |
+
+At 10⁷ cycles — the design life used in most wind-blade certification — the design line predicts σ<sub>a</sub> ≈ 130 MPa with a corresponding maximum stress of 288 MPa. This is the input that goes into the layup calculation, before environmental partial safety factors are applied on top.
+
+## How designers actually use the curve
+
+Three notes for engineers approaching WE-G80 for the first time:
+
+1. **Drive the layup from the P95 line, not the 50 % fit.** The 50 % fit is for engineering reference and material selection comparisons. The P95 line is the design input.
+2. **Layer environmental and geometric partial factors on top of the P95 stress.** The S-N curve is dry, room-temperature, axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies the γ<sub>Mb</sub> and γ<sub>Mc</sub> factors for matrix-dominated and fibre-dominated modes. GL 2010 has equivalent factors with slightly different naming.
+3. **Treat the slope exponent m as a stability indicator, not just a regression output.** A panel that returns m below ~7.5 is signalling a fibre / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 confirms the pultrusion process is consolidating the laminate cleanly.
+
+## When to step up to CFRP
+
+GFRP keeps the lead in spar caps up to about 80 m blade length. Beyond that, the laminate thickness needed to carry the moment grows faster than the blade-shell geometry can accommodate, and the mass penalty of glass becomes the binding constraint. At that point WE-C100, the carbon / epoxy grade in the same family, takes over. The static characteristic values for WE-C100 — full envelope per ISO 527-5, 14125, 14126, 14130 and ASTM D7078, with characteristic values per DNVGL-ST-0376 — are covered in the [companion article on CFRP pultruded spar caps](/resources/blog/cfrp-pultruded-spar-cap-static-design-wind-blade).
+
+## Download the data sheet
+
+The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ cycles) plus the static envelope for WE-C100 are published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification, custom blade layups, or larger panel formats, contact F1 Composite engineering through [the contact form](/contact).`,
+  },
+  {
+    slug: "cfrp-pultruded-spar-cap-static-design-wind-blade",
+    title: "CFRP Pultruded Spar-Cap Laminate for Wind Blades — Static Characteristic Values per DNVGL-ST-0376",
     category: "Energy",
     date: "2026-05-12",
     updatedAt: "2026-05-12",
     readTime: "9 min",
     excerpt:
-      "Pultruded GFRP and CFRP laminates are the spar-cap of choice in modern wind blades. This article summarises F1 Composite's WE-G80 and WE-C100 grades — fatigue S-N data, static characteristic values per DNVGL-ST-0376, and how blade designers should read the numbers.",
+      "WE-C100 is F1 Composite's unidirectional carbon / epoxy pultruded laminate for the spar caps of long wind blades. This article unpacks the full static mechanical envelope — tension, compression, shear, flexure, ILSS — and explains how the DNVGL-ST-0376 characteristic value Rₖ differs from the panel average and why blade designers must build the layup on Rₖ, not on the mean.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
     reviewedBy: "Composites Engineering Review Group",
@@ -2628,62 +2732,98 @@ For a project-specific quote calibrated against current pricing, F1 Composite re
       "ISO 527-5",
       "ISO 14125",
       "ISO 14126",
-      "ISO 13003",
+      "ISO 14130",
+      "ASTM D7078",
+      "ISO 11357-2",
     ],
     coverImage: "/images/industries/frp-energy-solar-power-installation.jpg",
-    coverAlt: "Renewable energy installation — context image for FRP pultruded composite laminates used in wind turbine blade spar caps",
+    coverAlt: "Renewable energy installation — context image for CFRP pultruded composite laminates used in long wind turbine blade spar caps",
     supportingImage: "/images/case-studies/frp-bridge.jpg",
-    supportingAlt: "Pultruded composite laminate concept illustration",
+    supportingAlt: "Pultruded CFRP unidirectional laminate concept illustration",
     supportingCaption:
-      "Pultruded UD laminates dominate modern wind blade spar caps because they combine continuous fibre alignment, low scrap, and tight thickness tolerances at production scale.",
+      "For wind blades above ~80 m, pultruded CFRP becomes the structurally and economically right answer for the spar cap. Lower density and higher modulus together outweigh the carbon premium.",
     highlights: [
-      "Two grade families: WE-G80 GFRP and WE-C100 CFRP, both pultruded UD",
-      "Tested by a DNV·GL-accredited laboratory to ISO and ASTM methods",
-      "Characteristic values reported per DNVGL-ST-0376 (Dec 2015)",
+      "WE-C100 0° tensile 1920 MPa, modulus 147 GPa, density 1.58 g/cm³",
+      "Full static envelope: tension, compression, V-notch shear, ILSS, flexure",
+      "Characteristic values Rₖ reported per DNVGL-ST-0376 (Dec 2015)",
     ],
     ogDescription:
-      "GFRP and CFRP pultruded spar-cap laminates for wind blades: fatigue S-N and static characteristic values per DNVGL-ST-0376. Download the F1 Composite Wind Energy Laminate datasheet.",
-    ogChips: ["Wind energy", "Spar cap", "DNVGL-ST-0376"],
+      "CFRP pultruded spar-cap laminate for long wind blades: full ISO/ASTM static envelope with DNVGL-ST-0376 characteristic values. Download the F1 Composite Wind Energy Laminate datasheet.",
+    ogChips: ["Wind energy", "CFRP spar cap", "Characteristic values"],
     relatedLinks: [
       { label: "Energy & Power", href: "/industries/energy" },
+      { label: "GFRP Spar-Cap Laminate (Fatigue)", href: "/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade" },
       { label: "Downloads", href: "/resources/downloads" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
-    content: `Modern wind blades from roughly 60 metres upward use pultruded composite laminates in the spar cap — the load-bearing element that carries flap-wise bending from rotor to root. Pultrusion replaced earlier hand-laid prepreg laminates because it delivers continuous unidirectional fibre alignment, tight thickness tolerance, almost zero scrap, and a cost-per-kilogram that the prepreg route cannot match at modern blade scale. F1 Composite supplies pultruded laminates for this application in two grade families: WE-G80 glass / epoxy and WE-C100 carbon / epoxy.
+    content: `Carbon-fibre pultruded laminates take over from glass once wind blades pass roughly 80 metres in length. At that scale the spar cap has to carry more bending moment than a glass laminate can deliver at acceptable thickness, and the mass saving of carbon — combined with its higher modulus — outweighs the higher per-kilogram price. F1 Composite's WE-C100 is the unidirectional carbon / epoxy grade in this family, intended specifically for spar caps in the long-blade segment. This article unpacks the full static mechanical envelope and, more importantly, explains how blade designers should read the characteristic value R<sub>k</sub> that DNVGL-ST-0376 requires as the design input.
 
-## Why pultruded UD laminates won the spar cap
+## What WE-C100 actually is
 
-A spar cap is, structurally, a deep beam flange — a stack of long unidirectional plies bonded into the shell with a wind-grade epoxy adhesive. The performance demands are narrow but extreme: high longitudinal stiffness, high tensile and compressive strength along the fibre, fatigue endurance across 10⁷ cycles or more, dimensional stability through resin cure, and surfaces compatible with structural adhesives. Pultrusion matches all five. Modulus and strength reach close to theoretical for the chosen fibre, plies arrive precisely aligned, and thickness is held to fractions of a millimetre over hundreds of metres.
+WE-C100 is a continuous pultruded unidirectional laminate using 48K industrial-grade carbon roving in a wind-grade epoxy matrix. The "100" denotes the grade family target tensile modulus class; the production panel is pulled to spar-cap geometry directly off the line. Independent third-party laboratory testing places the laminate's physical properties at:
 
-## WE-G80 — glass / epoxy grade
+- Fibre mass content (W<sub>f</sub>): ≈ 70.4 % per ISO 14127
+- Fibre volume content (V<sub>f</sub>): ≈ 62.3 %
+- Laminate density: 1.58 g/cm³ per ISO 1183-1
+- Glass transition temperature (T<sub>g</sub>): ≈ 116 °C, DSC half-step per ISO 11357-2
 
-WE-G80 is the high glass-content GFRP option, engineered for the spar caps of medium-length blades where stiffness-to-cost is the dominant driver rather than absolute mass. Boron-free E-glass roving carries the load; a bisphenol-A epoxy matrix gives the laminate its thermal and chemical stability. Independent testing places fibre mass content at about 85 %, fibre volume content at about 72 %, and laminate density near 2.17 g/cm³ — values at the upper edge of what continuous pultrusion can hold.
+For reference: WE-C100's density at 1.58 g/cm³ is ~27 % lower than the WE-G80 GFRP at 2.17 g/cm³, while 0° tensile modulus more than triples (≈ 147 vs ≈ 45 GPa). Both numbers feed directly into the trade-off that justifies the carbon premium in long blades.
 
-The defining test for a wind-blade GFRP laminate is tension-tension fatigue, run per ISO 13003 at load ratio R = 0.1 to characterise the S-N relationship over six decades of cycle life. WE-G80 returns a slope exponent m = 8.51 with a stress-amplitude intercept A = 957 MPa at N = 1, a correlation coefficient of −0.993, and a goodness-of-fit of 0.985 — well within the range that a certification body will accept for design use. At 10⁷ cycles — the typical fatigue design life referenced in wind-blade certification — the P95 / 95 % confidence design line predicts a stress amplitude of about 130 MPa with a corresponding maximum stress of 288 MPa.
+## The full static envelope
 
-## WE-C100 — carbon / epoxy grade
+WE-C100 is characterised across the complete static envelope a blade design body needs. All testing was conducted at 23 °C / 50 % RH after at least 24 h of conditioning, on production-grade panels, in a DNV·GL-accredited laboratory. Average values and DNVGL-ST-0376 characteristic values from the test panel:
 
-WE-C100 is the unidirectional CFRP grade, intended for the spar caps of long blades where bending stiffness and lightweight govern the design and where the CFRP premium pays for itself through structural mass reduction. Reinforcement is 48K industrial-grade carbon roving; the matrix is a wind-grade epoxy system. Fibre mass content sits at about 70 %, fibre volume content at about 62 %, and laminate density at 1.58 g/cm³. The DSC-determined glass transition temperature, measured by the half-step method per ISO 11357-2, is approximately 116 °C.
+| Property | Standard | Avg | R<sub>k</sub> (DNVGL-ST-0376) |
+|---|---|---|---|
+| 0° Tensile strength | ISO 527-5:2021 | 1920 MPa | 1690 MPa |
+| 0° Tensile modulus | ISO 527-5:2021 | 147 GPa | 142 GPa |
+| 0° Tensile strain at break | ISO 527-5:2021 | 1.23 % | 1.14 % |
+| 90° Tensile strength | ISO 527-5:2021 | 63.8 MPa | 58.5 MPa |
+| 90° Tensile modulus | ISO 527-5:2021 | 8.42 GPa | 7.85 GPa |
+| 0° Compressive strength | ISO 14126 | 1480 MPa | 1350 MPa |
+| 0° Compressive modulus | ISO 14126 | 135 GPa | 128 GPa |
+| 90° Compressive strength | ISO 14126 | 164 MPa | 162 MPa |
+| V-notched rail shear (90°) | ASTM D7078 | 73.0 MPa | 70.9 MPa |
+| In-plane shear modulus G₁₂ | ASTM D7078 | 5.16 GPa | 4.88 GPa |
+| Interlaminar shear strength | ISO 14130 | 70.2 MPa | 66.4 MPa |
+| 0° Flexural strength | ISO 14125 | 1760 MPa | 1550 MPa |
+| 0° Flexural modulus | ISO 14125 | 139 GPa | 135 GPa |
 
-The static mechanical envelope, all tested at 23 °C / 50 % RH on production-grade panels, is consistent with industrial CFRP pultrusion in the international market. 0° tensile strength averages 1920 MPa with modulus 147 GPa and strain-to-break of 1.23 %. 0° compressive strength averages 1480 MPa with modulus 135 GPa. 0° flexural strength averages 1760 MPa with modulus 139 GPa. In-plane shear modulus G₁₂ is 5.16 GPa, V-notched rail shear strength 73 MPa, and interlaminar shear strength 70 MPa. Each property is reported alongside its characteristic value Rₖ derived using the DNVGL-ST-0376 statistical method.
+## What R<sub>k</sub> means and why it matters
 
-## Characteristic values, not averages
+R<sub>k</sub> is not the average. It is a one-sided 95 % survival, 95 % confidence statistical tolerance bound calculated per the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method. The calculation accounts for two sources of uncertainty at once: the panel-to-panel scatter measured across the test specimens (typically captured as coefficient of variation, CoV) and the finite sample size of the test programme (captured as a k-factor that shrinks toward unity as n → ∞).
 
-For wind-blade certification, average values are not the right input to laminate analysis. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies that design properties be expressed as characteristic values — a one-sided 95 % survival, 95 % confidence tolerance bound that captures both the panel-to-panel scatter and the sample size. The right-most column of every results table in F1 Composite's [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf) reports Rₖ DNVGL-ST-0376 alongside the panel average. The older GL 2010 characteristic value is available on request and typically tracks within a few percent.
+The form of the calculation is:
 
-For WE-C100 the gap from average to Rₖ is about 12 % in 0° tension (1920 → 1690 MPa) and about 12 % in 0° flexure (1760 → 1550 MPa). These are the numbers a blade designer feeds into the layup model, before applying environmental partial safety factors γ for matrix-dominated and fibre-dominated failure modes.
+R<sub>k</sub> = X̄ · (1 − k<sub>n</sub> · CoV)
 
-## How to use the data
+where X̄ is the panel mean, CoV is the coefficient of variation of the n tests, and k<sub>n</sub> is the one-sided tolerance factor from DNVGL-ST-0376 Section 5 for the chosen survival and confidence levels.
 
-Three notes for designers approaching these grades for the first time:
+For WE-C100, the gap from average to R<sub>k</sub> is:
 
-1. **Build the spar-cap model on Rₖ, not on average.** Average values are reference points; characteristic values are design inputs. A blade certified on averages will not survive a notified body review.
-2. **Apply environmental knock-downs separately.** The DNVGL-ST-0376 characteristic value is dry, room-temperature, statistical. Service conditions (humidity, elevated temperature, freeze-thaw, marine atmosphere) require additional partial factors layered on top.
-3. **Tie procurement to a lot-traceable MTC.** A datasheet is engineering reference. Project compliance is established by the Material Test Certificate issued at point of order, which carries the laminate panel ID and traceable fibre and resin batch numbers.
+- 0° tensile strength: 1920 → 1690 MPa (12 % reduction)
+- 0° compressive strength: 1480 → 1350 MPa (9 % reduction)
+- 0° flexural strength: 1760 → 1550 MPa (12 % reduction)
+- 90° compressive strength: 164 → 162 MPa (1 % reduction — very tight CoV)
+- Interlaminar shear strength: 70.2 → 66.4 MPa (5 % reduction)
+
+The narrowest gap, in the 90° compression case, is the tell — the laminate scatter in that test was exceptionally tight, so the statistical penalty almost disappears. The wider gaps in 0° tension and 0° flexure reflect modest CoV (≈ 4 – 5 %) that any real production laminate carries.
+
+## How designers actually use R<sub>k</sub>
+
+Three notes for engineers approaching WE-C100 for the first time:
+
+1. **Build the laminate model on R<sub>k</sub>, not on the average.** Averages are useful for engineering judgment and comparison between grades. They are not allowed as design inputs in any wind-blade certification scheme. A blade certified on averages will not survive a notified-body review.
+2. **Apply environmental and partial safety factors on top of R<sub>k</sub>.** DNVGL-ST-0376 specifies separate γ factors for matrix-dominated and fibre-dominated failure modes (γ<sub>Mb</sub>) and for compressive failure (γ<sub>Mc</sub>), then layers environmental knock-downs for humidity, temperature, and UV. The R<sub>k</sub> column is the starting point, not the design stress.
+3. **Treat 90° compression as the discipline test.** Pultruded UD laminates are strongly orthotropic; 0° properties are dominated by the fibre, but 90° properties are matrix- and interface-controlled. A high and tight 90° compression result (164 MPa with R<sub>k</sub> = 162 MPa, CoV ≈ 0.5 %) is the cleanest signal that the pultrusion process is consolidating the matrix without micro-voids or interface defects.
+
+## When to step back to GFRP
+
+The carbon premium only earns its keep when the blade is long enough that the mass saving of carbon, multiplied across the full spar-cap stack, beats the cost differential. For most blades up to ~80 m, the high glass-content WE-G80 GFRP grade is the structurally and economically right answer; its fatigue envelope is covered in the [companion article on GFRP pultruded spar caps](/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade).
 
 ## Download the data sheet
 
-The full numerical envelope — fatigue S-N tables for WE-G80, complete static characteristic values for WE-C100, fibre content, density, Tg, and the standards bibliography — is published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification, custom layups, or larger panel formats, contact F1 Composite engineering through [the contact form](/contact).`,
+The complete static envelope for WE-C100 — all 15 mechanical properties with their R<sub>k</sub> values — plus the WE-G80 fatigue table is published as a single 4-page PDF: [Wind Energy Pultruded Laminate Data Sheet](/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf). For project-specific qualification, custom blade layups, or larger panel formats, contact F1 Composite engineering through [the contact form](/contact).`,
   },
 ];
 

@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/resources/blog/pultruded-spar-cap-laminates-wind-blades-gfrp-cfrp",
+        destination: "/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "f1composite.com" }],
         destination: "https://www.f1composite.com/:path*",
