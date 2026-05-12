@@ -40,6 +40,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const downloads = [
   {
+    title: "PU-GF Pultruded Profile — Mechanical Data Sheet",
+    format: "PDF",
+    size: "8 KB",
+    description: "Mechanical performance summary for PU-GF (polyurethane / E-glass) pultruded composite, 80 mm structural section. Tensile, compressive, flexural, ILSS, and water absorption against GB/T, ISO, and ASTM standards. Independent third-party laboratory testing.",
+    file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf",
+  },
+  {
     title: "Product Catalog 2024",
     format: "PDF",
     size: "12 MB",
@@ -135,12 +142,23 @@ export default function DownloadsPage() {
                 </div>
                 <h3 className="mb-[8px] text-f15 font-bold text-t1">{dl.title}</h3>
                 <p className="mb-[13px] text-f13 leading-golden text-t2">{dl.description}</p>
-                <Link
-                  href="/contact"
-                  className="text-f13 font-semibold text-teal-text hover:underline"
-                >
-                  Request download →
-                </Link>
+                {dl.file ? (
+                  <a
+                    href={dl.file}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-f13 font-semibold text-teal-text hover:underline"
+                  >
+                    Download PDF →
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="text-f13 font-semibold text-teal-text hover:underline"
+                  >
+                    Request download →
+                  </Link>
+                )}
               </div>
             ))}
           </div>
