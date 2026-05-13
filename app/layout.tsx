@@ -33,6 +33,14 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION && {
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+    }),
+    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION && {
+      other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION },
+    }),
+  },
 };
 
 const orgSchema = {

@@ -184,6 +184,48 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Our Manufacturing</SectionTag>
+          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Where your order is actually made
+          </h2>
+          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
+            F1 Composite is the international contracting entity. Every overseas order is invoiced under F1 Composite Co., Ltd; the profiles themselves are pultruded at our Chongqing FengDu New Material manufacturing facility — 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
+          </p>
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="relative aspect-[1.618] bg-bg2">
+                <Image
+                  src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                  alt="Aerial view of the F1 Composite pultrusion production line and material handling bay at our Chongqing factory"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t2">
+                Aerial view — production line and material handling bay, Chongqing manufacturing base.
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="relative aspect-[1.618] bg-bg2">
+                <Image
+                  src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
+                  alt="F1 Composite pultrusion plant floor showing roving creels, resin impregnation, and heated die positions"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t2">
+                Plant floor — roving creels, resin impregnation, heated die positions on a working line.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[860px] px-[34px]">
           <LegalEntityNote />
