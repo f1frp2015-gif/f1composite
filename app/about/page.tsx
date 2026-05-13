@@ -17,7 +17,7 @@ const milestones = [
   { year: "2015", event: "F1 Composite founded by a team of FRP engineers" },
   { year: "2017", event: "First export shipment — profiles delivered to Southeast Asia" },
   { year: "2019", event: "KNOWHOW technical services launched for custom profile development" },
-  { year: "2021", event: "Catalogue reaches 100+ standard pultruded profile types" },
+  { year: "2021", event: "Catalog reaches 100+ standard pultruded profile types" },
   { year: "2023", event: "Fenestration systems division established; PHI component certification achieved" },
   { year: "2025", event: "200+ engineered profiles serving five continents; Qinling Antarctic Station delivered" },
 ];

@@ -260,7 +260,7 @@ export default function FrpVsAluminumWindowsPage() {
               { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
               { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
           },
           {
@@ -276,7 +276,7 @@ export default function FrpVsAluminumWindowsPage() {
           {
             title: "Deeper reading",
             links: [
-              { href: "/resources/blog/frp-vs-aluminium-window-frames-comparison", label: "Blog: FRP vs aluminium full comparison" },
+              { href: "/resources/blog/frp-vs-aluminum-window-frames-comparison", label: "Blog: FRP vs aluminum full comparison" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: FRP fenestration thermal performance" },
               { href: "/resources/design-guides", label: "Fenestration design guides" },

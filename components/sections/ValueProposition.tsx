@@ -82,7 +82,7 @@ export default function ValueProposition() {
         <div className="text-center">
           <SectionTag>Why FRP</SectionTag>
           <h2 className="mx-auto mt-[8px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
-            Material advantages over steel and aluminium
+            Material advantages over steel and aluminum
           </h2>
         </div>
 

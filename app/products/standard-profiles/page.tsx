@@ -220,7 +220,7 @@ export default function StandardProfilesPage() {
           {
             title: "Technology & resources",
             links: [
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
               { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
@@ -235,7 +235,7 @@ export default function StandardProfilesPage() {
       <AnswerBlocks
         tag="Buyer FAQ"
         title="Standard FRP profiles — frequently asked questions"
-        description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminium options."
+        description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminum options."
         items={faqItems}
         suppressSchema
       />

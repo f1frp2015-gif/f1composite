@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "Which FRP grating standards do Saudi EPC contractors typically specify?",
     answer:
-      "The standards stack typically referenced on Saudi project specifications: ASTM E84 (Class 1 / Class A flame spread, FSI ≤ 25), EN 13501-1 (B-s1,d0 where European standards apply), ASTM F3125/F3125M for slip resistance, ASTM D635 for self-extinguishing behaviour, and project-specific Aramco SAES-Q-005 / SAES-S-070 for materials in oily/chemical service. F1 Composite supplies grating to all of these standards from vinyl ester resin formulations qualified for the Aramco vendor list pathway.",
+      "The standards stack typically referenced on Saudi project specifications: ASTM E84 (Class 1 / Class A flame spread, FSI ≤ 25), EN 13501-1 (B-s1,d0 where European standards apply), ASTM F3125/F3125M for slip resistance, ASTM D635 for self-extinguishing behavior, and project-specific Aramco SAES-Q-005 / SAES-S-070 for materials in oily/chemical service. F1 Composite supplies grating to all of these standards from vinyl ester resin formulations qualified for the Aramco vendor list pathway.",
   },
   {
     question: "What are the lead times to Jebel Ali, Dammam, or Jeddah port from China?",
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Can FRP gratings handle 65°C+ desert summer surface temperatures?",
     answer:
-      "Yes. Vinyl ester FRP gratings retain over 90% of their structural properties at 65°C continuous service temperature. Heat distortion temperature for vinyl ester FRP exceeds 110°C — well above any realistic Saudi outdoor surface temperature, even with solar gain on dark grating colours. The thermal expansion coefficient of FRP is approximately 1/3 that of aluminium, so thermal cycling does not generate the gap-and-buckling problems seen on aluminium grating in the same desert service. UV-stabilised resin systems and synthetic surfacing veils prevent surface degradation under 25+ years of Saudi solar exposure.",
+      "Yes. Vinyl ester FRP gratings retain over 90% of their structural properties at 65°C continuous service temperature. Heat distortion temperature for vinyl ester FRP exceeds 110°C — well above any realistic Saudi outdoor surface temperature, even with solar gain on dark grating colors. The thermal expansion coefficient of FRP is approximately 1/3 that of aluminum, so thermal cycling does not generate the gap-and-buckling problems seen on aluminum grating in the same desert service. UV-stabilised resin systems and synthetic surfacing veils prevent surface degradation under 25+ years of Saudi solar exposure.",
   },
   {
     question: "What grating sizes and load ratings are most commonly ordered for Saudi projects?",
@@ -157,7 +157,7 @@ export default function SaudiGratingPage() {
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                The Eastern Province of Saudi Arabia — Jubail, Ras Tanura, Dammam, Khobar — runs the most aggressive combined-corrosion environment in industrial infrastructure: 50°C+ ambient summer temperatures, Gulf salt-laden coastal air, and continuous chemical splash exposure across petrochemical, refining, fertilizer, and aluminium primary metal production. Galvanized steel grating in this service typically requires full replacement every 5–8 years; carbon steel grating with paint coatings requires recoating cycles every 3–5 years.
+                The Eastern Province of Saudi Arabia — Jubail, Ras Tanura, Dammam, Khobar — runs the most aggressive combined-corrosion environment in industrial infrastructure: 50°C+ ambient summer temperatures, Gulf salt-laden coastal air, and continuous chemical splash exposure across petrochemical, refining, fertilizer, and aluminum primary metal production. Galvanized steel grating in this service typically requires full replacement every 5–8 years; carbon steel grating with paint coatings requires recoating cycles every 3–5 years.
               </p>
               <p>
                 Pultruded FRP grating in vinyl ester resin removes both maintenance cycles. The grating is structurally inert to salt-laden air, chemical splash, and 65°C surface temperatures. F1 Composite has supplied FRP grating to Aramco, SABIC, and Maaden capital projects across all five major Saudi industrial zones. The qualification path is established; the grating performance in service is documented across 15+ years of installed base.
@@ -168,7 +168,7 @@ export default function SaudiGratingPage() {
                 Direct-from-China factory pricing typically delivers 30–50% landed-cost savings versus regional Saudi distributors of US/EU FRP grating — without compromising on standards compliance. F1 Composite ships CIF Jebel Ali (the most common transhipment port for Saudi-bound cargo) or DAP project-site directly to Jubail, Yanbu, Ras Tanura, Riyadh, or Royal Commission destinations.
               </p>
               <p>
-                Project documentation is supplied as a complete package: Mill Test Certificates per batch, ISO 9001:2015 quality system, ASTM and EN test reports for fire and chemical resistance, country-of-origin certificates, and full traceability from glass fibre raw material through finished panel. The package aligns with Aramco SAEP review and SABIC project QA requirements.
+                Project documentation is supplied as a complete package: Mill Test Certificates per batch, ISO 9001:2015 quality system, ASTM and EN test reports for fire and chemical resistance, country-of-origin certificates, and full traceability from glass fiber raw material through finished panel. The package aligns with Aramco SAEP review and SABIC project QA requirements.
               </p>
             </div>
           </div>

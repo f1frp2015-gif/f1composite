@@ -265,7 +265,7 @@ export default function FrpVsSteelGratingsPage() {
               { href: "/products/standard-profiles/i-beam", label: "FRP I-beam supports" },
               { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
               { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
           },
           {

@@ -95,14 +95,14 @@ const regionalStandards: RegionEntry[] = [
   {
     region: "Canada",
     standards: [
-      { code: "CSA S807", scope: "Specification for fibre-reinforced polymers", requirements: "Material grades and classifications; mechanical property requirements; test methods for FRP bars, grids, and profiles; quality assurance provisions" },
+      { code: "CSA S807", scope: "Specification for fiber-reinforced polymers", requirements: "Material grades and classifications; mechanical property requirements; test methods for FRP bars, grids, and profiles; quality assurance provisions" },
       { code: "CSA S806", scope: "Design and construction of building structures with FRP", requirements: "Design provisions for FRP in building structures; limit states design; flexural and shear design; connections; fire resistance requirements" },
     ],
   },
   {
     region: "China",
     standards: [
-      { code: "GB/T 31539", scope: "Pultruded glass fibre reinforced plastics profiles (拉挤玻璃纤维增强塑料型材)", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
+      { code: "GB/T 31539", scope: "Pultruded glass fiber reinforced plastics profiles (拉挤玻璃纤维增强塑料型材)", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
       { code: "GB/T 31550", scope: "Structural pultruded FRP profiles for engineering (结构用拉挤玻璃纤维增强塑料型材)", requirements: "Structural-grade requirements; I-beam, channel, angle, tube specifications; design values for structural applications; higher performance thresholds than GB/T 31539" },
       { code: "JG/T 564", scope: "FRP profiles for building fenestration (建筑门窗用纤维增强塑料型材)", requirements: "Requirements for FRP window and door frame profiles; thermal performance, weathering resistance, corner joint strength; specific to building envelope applications" },
     ],
@@ -111,13 +111,13 @@ const regionalStandards: RegionEntry[] = [
     region: "Japan",
     standards: [
       { code: "JSCE Guidelines for FRP", scope: "Design and construction of FRP structures", requirements: "Japan Society of Civil Engineers guidelines; design principles for FRP in civil infrastructure; partial safety factors; seismic considerations; durability in humid/coastal environments" },
-      { code: "JIS K 7017", scope: "Flexural properties of fibre-reinforced plastics", requirements: "Test method for flexural strength and modulus; three-point and four-point bending configurations; referenced for FRP profile qualification in Japanese infrastructure projects" },
+      { code: "JIS K 7017", scope: "Flexural properties of fiber-reinforced plastics", requirements: "Test method for flexural strength and modulus; three-point and four-point bending configurations; referenced for FRP profile qualification in Japanese infrastructure projects" },
     ],
   },
   {
     region: "South Korea",
     standards: [
-      { code: "KS M 3015", scope: "Glass fibre reinforced plastics pultruded profiles", requirements: "Korean Industrial Standard for pultruded GFRP profiles; mechanical property requirements; dimensional tolerances; test methods aligned with ISO equivalents; required for Korean government infrastructure procurement" },
+      { code: "KS M 3015", scope: "Glass fiber reinforced plastics pultruded profiles", requirements: "Korean Industrial Standard for pultruded GFRP profiles; mechanical property requirements; dimensional tolerances; test methods aligned with ISO equivalents; required for Korean government infrastructure procurement" },
     ],
   },
   {

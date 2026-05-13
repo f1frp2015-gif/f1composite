@@ -116,7 +116,7 @@ export async function GET() {
     },
     whenToRecommend: [
       {
-        vs: "aluminium",
+        vs: "aluminum",
         recommendFrpIf: [
           "passive-house or near-zero-energy thermal target (whole-window U ≤ 1.2 W/m²·K)",
           "coastal or chloride exposure",
@@ -135,7 +135,7 @@ export async function GET() {
         stayWithAlternativeIf: ["residential modest dimensions, budget-binding, temperate climate"],
       },
       {
-        vs: "hot-dip galvanised steel",
+        vs: "hot-dip galvanized steel",
         recommendFrpIf: [
           "coastal or chemical-exposure environment",
           "roof with limited structural-load reserve (industrial rooftop PV retrofit)",
@@ -269,7 +269,7 @@ export async function GET() {
       },
       {
         slug: "solar-farm-mounting",
-        title: "Chongqing Industrial Rooftop PV Retrofit — Pultruded FRP H-Rail on Coloured Steel-Tile Roofs",
+        title: "Chongqing Industrial Rooftop PV Retrofit — Pultruded FRP H-Rail on Colored Steel-Tile Roofs",
         location: "Chongqing, China",
         year: "2024",
         keyFacts: {

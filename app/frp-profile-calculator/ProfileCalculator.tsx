@@ -19,8 +19,8 @@ const materials: Record<string, { label: string; E: number; sigma: number; densi
   "steel-s355": { label: "Steel S355 (EN 10025)", E: 210, sigma: 355, density: 7.85, group: "Metal" },
   "steel-q235": { label: "Steel Q235 (GB/T 700)", E: 206, sigma: 235, density: 7.85, group: "Metal" },
   "steel-q345": { label: "Steel Q345 (GB/T 1591)", E: 206, sigma: 345, density: 7.85, group: "Metal" },
-  "alu-6061": { label: "Aluminium 6061-T6", E: 69, sigma: 276, density: 2.7, group: "Metal" },
-  "alu-6063": { label: "Aluminium 6063-T5", E: 69, sigma: 186, density: 2.7, group: "Metal" },
+  "alu-6061": { label: "Aluminum 6061-T6", E: 69, sigma: 276, density: 2.7, group: "Metal" },
+  "alu-6063": { label: "Aluminum 6063-T5", E: 69, sigma: 186, density: 2.7, group: "Metal" },
 };
 
 const loadTypes = [
@@ -233,7 +233,7 @@ export default function ProfileCalculator() {
                       <option value="steel-q235">Q235 (GB/T 700)</option>
                       <option value="steel-q345">Q345 (GB/T 1591)</option>
                     </optgroup>
-                    <optgroup label="Aluminium">
+                    <optgroup label="Aluminum">
                       <option value="alu-6061">6061-T6</option>
                       <option value="alu-6063">6063-T5</option>
                     </optgroup>
@@ -427,7 +427,7 @@ export default function ProfileCalculator() {
                       <option value="steel-q235">Q235 (GB/T 700)</option>
                       <option value="steel-q345">Q345 (GB/T 1591)</option>
                     </optgroup>
-                    <optgroup label="Aluminium">
+                    <optgroup label="Aluminum">
                       <option value="alu-6061">6061-T6</option>
                       <option value="alu-6063">6063-T5</option>
                     </optgroup>
@@ -562,7 +562,7 @@ export default function ProfileCalculator() {
                 <p className="mt-[5px] text-f11 text-t3">
                   The FRP profile must satisfy <em>both</em> limits; the larger scale factor governs.
                   {srcMat.group === "Metal" && srcMat.label.includes("luminium")
-                    ? " For aluminium, the stiffness and strength criteria are often comparable — check both before committing to a size."
+                    ? " For aluminum, the stiffness and strength criteria are often comparable — check both before committing to a size."
                     : " For steel, stiffness almost always governs because FRP modulus is ~1/10 of steel."}
                 </p>
               </div>

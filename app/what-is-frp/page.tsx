@@ -40,7 +40,7 @@ const faqItems = [
   {
     question: "What does FRP stand for?",
     answer:
-      "FRP stands for Fiber Reinforced Polymer (sometimes written Fibre Reinforced Plastic). It refers to a composite material made of a polymer matrix — typically polyester, vinyl ester, polyurethane, epoxy, or phenolic resin — reinforced with high-strength fibers, most commonly E-glass. FRP is also called GRP (Glass Reinforced Polymer) in British and European usage.",
+      "FRP stands for Fiber Reinforced Polymer (sometimes written Fiber Reinforced Plastic). It refers to a composite material made of a polymer matrix — typically polyester, vinyl ester, polyurethane, epoxy, or phenolic resin — reinforced with high-strength fibers, most commonly E-glass. FRP is also called GRP (Glass Reinforced Polymer) in British and European usage.",
   },
   {
     question: "Is FRP the same as fiberglass?",
@@ -115,7 +115,7 @@ export default function WhatIsFrpPage() {
       {
         "@type": "Thing",
         name: "Fiber-Reinforced Polymer",
-        sameAs: "https://en.wikipedia.org/wiki/Fibre-reinforced_plastic",
+        sameAs: "https://en.wikipedia.org/wiki/Fiber-reinforced_plastic",
       },
       {
         "@type": "Thing",
@@ -540,7 +540,7 @@ export default function WhatIsFrpPage() {
             <li>
               <strong className="text-t1">Upfront cost.</strong> Per meter, FRP is
               50–100% more expensive than carbon steel. Lifecycle economics
-              favour FRP in corrosive environments, but marginal-environment
+              favor FRP in corrosive environments, but marginal-environment
               projects may not justify the premium.
             </li>
             <li>

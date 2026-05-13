@@ -87,13 +87,13 @@ const caseStudies = [
   },
   {
     slug: "solar-farm-mounting",
-    title: "Chongqing Rooftop PV Retrofit — Pultruded FRP H-Rail on Industrial Coloured Steel-Tile Roofs",
+    title: "Chongqing Rooftop PV Retrofit — Pultruded FRP H-Rail on Industrial Colored Steel-Tile Roofs",
     industry: "Energy",
     location: "Chongqing, China",
     year: "2024",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
     excerpt:
-      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanised steel, keeping the retrofit inside the original roof's as-designed live-load reserve while eliminating the rooftop corrosion and recoating cycle.",
+      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanized steel, keeping the retrofit inside the original roof's as-designed live-load reserve while eliminating the rooftop corrosion and recoating cycle.",
   },
   {
     slug: "water-treatment-cable-tray",

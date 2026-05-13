@@ -337,7 +337,7 @@ export default function PultrudedFRPProfilesHubPage() {
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Compared to conventional materials, pultruded fiberglass reinforced
-                polymer (also called GRP — glass reinforced polymer — or fibre
+                polymer (also called GRP — glass reinforced polymer — or fiber
                 reinforced plastic) is approximately{" "}
                 <strong className="text-t1">75% lighter than steel</strong>,{" "}
                 <strong className="text-t1">corrosion-immune</strong>,{" "}

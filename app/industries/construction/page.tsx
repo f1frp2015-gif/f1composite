@@ -25,14 +25,14 @@ const answerItems = [
       "FRP is used in construction because it combines low thermal conductivity, corrosion resistance, and high specific strength, making it well suited to facades, fenestration, and lightweight support structures.",
   },
   {
-    question: "Can FRP replace aluminium in window and facade systems?",
+    question: "Can FRP replace aluminum in window and facade systems?",
     answer:
-      "Yes. FRP can replace aluminium in many window, curtain wall, and facade support applications where thermal bridging, corrosion, or galvanic compatibility are major design constraints.",
+      "Yes. FRP can replace aluminum in many window, curtain wall, and facade support applications where thermal bridging, corrosion, or galvanic compatibility are major design constraints.",
   },
   {
     question: "What is the main thermal advantage of FRP?",
     answer:
-      "The main thermal advantage is that FRP is inherently insulating, so it can provide structural framing without the separate thermal break assemblies required by aluminium systems.",
+      "The main thermal advantage is that FRP is inherently insulating, so it can provide structural framing without the separate thermal break assemblies required by aluminum systems.",
   },
   {
     question: "Where is FRP most valuable in buildings?",

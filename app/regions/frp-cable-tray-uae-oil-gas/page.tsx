@@ -40,12 +40,12 @@ const faqs = [
   {
     question: "How does FRP cable tray weight reduction affect installation cost on UAE process plants?",
     answer:
-      "Pultruded FRP cable tray weighs approximately 50% of equivalent galvanized steel cable tray and 70% of aluminium cable tray at the same load class. On a typical UAE process platform with 2,000+ linear meters of cable tray, this is 8–12 tonnes of weight reduction. The installation impact is direct: longer span between supports (5 m typical for FRP vs 3 m for steel), faster manual installation (2-person lift versus mechanical lift for many sizes), reduced support steel quantity, and reduced rigging requirements. Total installed cost is typically 10–18% below galvanized steel for medium-to-large project quantities, even with FRP material cost being higher per linear meter.",
+      "Pultruded FRP cable tray weighs approximately 50% of equivalent galvanized steel cable tray and 70% of aluminum cable tray at the same load class. On a typical UAE process platform with 2,000+ linear meters of cable tray, this is 8–12 tonnes of weight reduction. The installation impact is direct: longer span between supports (5 m typical for FRP vs 3 m for steel), faster manual installation (2-person lift versus mechanical lift for many sizes), reduced support steel quantity, and reduced rigging requirements. Total installed cost is typically 10–18% below galvanized steel for medium-to-large project quantities, even with FRP material cost being higher per linear meter.",
   },
   {
-    question: "Does FRP cable tray meet UAE Civil Defence fire safety requirements?",
+    question: "Does FRP cable tray meet UAE Civil Defense fire safety requirements?",
     answer:
-      "Yes. F1 Composite FRP cable tray is supplied with ASTM E84 Class 1 / Class A flame spread (FSI ≤ 25, smoke developed ≤ 450) using fire-retardant resin formulations. Higher-performance fire-rated grades meet EN 13501-1 B-s1,d0 and BS 476 Part 7 Class 1 for projects requiring full European or UK fire spec compliance. UAE Civil Defence (DCD / Abu Dhabi CD) generally accepts the ASTM E84 Class 1 specification for non-life-safety installations and the EN 13501-1 B-s1,d0 specification for buildings and life-safety routes. Fire performance certificates are supplied with each shipment.",
+      "Yes. F1 Composite FRP cable tray is supplied with ASTM E84 Class 1 / Class A flame spread (FSI ≤ 25, smoke developed ≤ 450) using fire-retardant resin formulations. Higher-performance fire-rated grades meet EN 13501-1 B-s1,d0 and BS 476 Part 7 Class 1 for projects requiring full European or UK fire spec compliance. UAE Civil Defense (DCD / Abu Dhabi CD) generally accepts the ASTM E84 Class 1 specification for non-life-safety installations and the EN 13501-1 B-s1,d0 specification for buildings and life-safety routes. Fire performance certificates are supplied with each shipment.",
   },
   {
     question: "What lead times and ports apply for UAE oil and gas FRP cable tray orders?",

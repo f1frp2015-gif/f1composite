@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "FRP vs Steel vs Aluminium — Structural Material Comparison";
+const pageTitle = "FRP vs Steel vs Aluminum — Structural Material Comparison";
 const pageDescription =
   "FRP vs steel cost and performance comparison: weight, tensile strength, corrosion resistance, thermal conductivity, lifecycle cost. Why fiberglass profiles outperform traditional materials.";
 const pagePath = "/technology/frp-vs-traditional-materials";
@@ -35,13 +35,13 @@ export const metadata: Metadata = buildPageMetadata({
    Materials — color & label
    ═══════════════════════════════════════════════════════ */
 
-const materials = ["FRP", "Steel", "Aluminium", "Timber", "Concrete"] as const;
+const materials = ["FRP", "Steel", "Aluminum", "Timber", "Concrete"] as const;
 type Material = (typeof materials)[number];
 
 const matColors: Record<Material, string> = {
   FRP: "bg-teal",
   Steel: "bg-slate-500",
-  Aluminium: "bg-blue-400",
+  Aluminum: "bg-blue-400",
   Timber: "bg-amber-600",
   Concrete: "bg-stone-400",
 };
@@ -49,7 +49,7 @@ const matColors: Record<Material, string> = {
 const matLabels: Record<Material, string> = {
   FRP: "Pultruded FRP (E-glass/polyester)",
   Steel: "Structural Steel (A36/S275)",
-  Aluminium: "Aluminium (6061-T6)",
+  Aluminum: "Aluminum (6061-T6)",
   Timber: "Structural Softwood",
   Concrete: "Reinforced Concrete (C30/37)",
 };
@@ -66,16 +66,16 @@ interface CompRow {
 }
 
 const comparisonData: CompRow[] = [
-  { property: "Density", unit: "g/cm³", values: { FRP: "1.8 – 2.1", Steel: "7.85", Aluminium: "2.70", Timber: "0.4 – 0.6", Concrete: "2.40" }, frpHighlight: true },
-  { property: "Tensile Strength", unit: "MPa", values: { FRP: "350 – 700", Steel: "400 – 550", Aluminium: "260 – 310", Timber: "50 – 100", Concrete: "2 – 5" } },
-  { property: "Elastic Modulus", unit: "GPa", values: { FRP: "20 – 40", Steel: "200", Aluminium: "69", Timber: "8 – 14", Concrete: "30" } },
-  { property: "Strength-to-Weight", values: { FRP: "Excellent", Steel: "Moderate", Aluminium: "Good", Timber: "Good", Concrete: "Poor" }, frpHighlight: true },
-  { property: "Corrosion Resistance", values: { FRP: "Immune", Steel: "Poor — requires coating", Aluminium: "Moderate — pitting", Timber: "Poor — rots", Concrete: "Moderate — rebar corrodes" }, frpHighlight: true },
-  { property: "Thermal Conductivity", unit: "W/m·K", values: { FRP: "0.3 – 0.5", Steel: "50", Aluminium: "167", Timber: "0.1 – 0.2", Concrete: "1.7" }, frpHighlight: true },
-  { property: "Electrical Insulation", values: { FRP: "Excellent", Steel: "None", Aluminium: "None", Timber: "Moderate (dry)", Concrete: "Poor (wet)" }, frpHighlight: true },
-  { property: "Maintenance (30 yr)", values: { FRP: "Minimal — no painting", Steel: "High — repaint 8–15 yr", Aluminium: "Low–moderate", Timber: "High — reseal 3–5 yr", Concrete: "Moderate — crack repair" }, frpHighlight: true },
-  { property: "Lifecycle Cost (30 yr)", values: { FRP: "Lowest", Steel: "High", Aluminium: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
-  { property: "CO₂ Footprint", unit: "kg CO₂/kg", values: { FRP: "3.1 – 5.0", Steel: "1.8 – 2.5", Aluminium: "8.0 – 12.0", Timber: "0.3 – 0.5", Concrete: "0.1 – 0.2" } },
+  { property: "Density", unit: "g/cm³", values: { FRP: "1.8 – 2.1", Steel: "7.85", Aluminum: "2.70", Timber: "0.4 – 0.6", Concrete: "2.40" }, frpHighlight: true },
+  { property: "Tensile Strength", unit: "MPa", values: { FRP: "350 – 700", Steel: "400 – 550", Aluminum: "260 – 310", Timber: "50 – 100", Concrete: "2 – 5" } },
+  { property: "Elastic Modulus", unit: "GPa", values: { FRP: "20 – 40", Steel: "200", Aluminum: "69", Timber: "8 – 14", Concrete: "30" } },
+  { property: "Strength-to-Weight", values: { FRP: "Excellent", Steel: "Moderate", Aluminum: "Good", Timber: "Good", Concrete: "Poor" }, frpHighlight: true },
+  { property: "Corrosion Resistance", values: { FRP: "Immune", Steel: "Poor — requires coating", Aluminum: "Moderate — pitting", Timber: "Poor — rots", Concrete: "Moderate — rebar corrodes" }, frpHighlight: true },
+  { property: "Thermal Conductivity", unit: "W/m·K", values: { FRP: "0.3 – 0.5", Steel: "50", Aluminum: "167", Timber: "0.1 – 0.2", Concrete: "1.7" }, frpHighlight: true },
+  { property: "Electrical Insulation", values: { FRP: "Excellent", Steel: "None", Aluminum: "None", Timber: "Moderate (dry)", Concrete: "Poor (wet)" }, frpHighlight: true },
+  { property: "Maintenance (30 yr)", values: { FRP: "Minimal — no painting", Steel: "High — repaint 8–15 yr", Aluminum: "Low–moderate", Timber: "High — reseal 3–5 yr", Concrete: "Moderate — crack repair" }, frpHighlight: true },
+  { property: "Lifecycle Cost (30 yr)", values: { FRP: "Lowest", Steel: "High", Aluminum: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
+  { property: "CO₂ Footprint", unit: "kg CO₂/kg", values: { FRP: "3.1 – 5.0", Steel: "1.8 – 2.5", Aluminum: "8.0 – 12.0", Timber: "0.3 – 0.5", Concrete: "0.1 – 0.2" } },
 ];
 
 /* ═══════════════════════════════════════════════════════
@@ -106,7 +106,7 @@ const barCharts: BarChart[] = [
     bars: [
       { material: "FRP", value: "1.9", pct: 24 },
       { material: "Steel", value: "7.85", pct: 100 },
-      { material: "Aluminium", value: "2.70", pct: 34 },
+      { material: "Aluminum", value: "2.70", pct: 34 },
       { material: "Timber", value: "0.5", pct: 6 },
       { material: "Concrete", value: "2.40", pct: 31 },
     ],
@@ -118,7 +118,7 @@ const barCharts: BarChart[] = [
     bars: [
       { material: "FRP", value: "525", pct: 75 },
       { material: "Steel", value: "475", pct: 68 },
-      { material: "Aluminium", value: "285", pct: 41 },
+      { material: "Aluminum", value: "285", pct: 41 },
       { material: "Timber", value: "75", pct: 11 },
       { material: "Concrete", value: "3.5", pct: 1 },
     ],
@@ -130,7 +130,7 @@ const barCharts: BarChart[] = [
     bars: [
       { material: "FRP", value: "0.4", pct: 0.24 },
       { material: "Steel", value: "50", pct: 30 },
-      { material: "Aluminium", value: "167", pct: 100 },
+      { material: "Aluminum", value: "167", pct: 100 },
       { material: "Timber", value: "0.15", pct: 0.09 },
       { material: "Concrete", value: "1.7", pct: 1 },
     ],
@@ -142,7 +142,7 @@ const barCharts: BarChart[] = [
     bars: [
       { material: "FRP", value: "30", pct: 15 },
       { material: "Steel", value: "200", pct: 100 },
-      { material: "Aluminium", value: "69", pct: 35 },
+      { material: "Aluminum", value: "69", pct: 35 },
       { material: "Timber", value: "11", pct: 6 },
       { material: "Concrete", value: "30", pct: 15 },
     ],
@@ -166,7 +166,7 @@ const propertyCards: PropertyCard[] = [
     icon: "75%",
     headline: "FRP is 75 % lighter than steel at equivalent structural capacity",
     detail: [
-      "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70 % of aluminium (2.70 g/cm³). An FRP profile replacing a steel section of equivalent structural capacity weighs 70–80 % less.",
+      "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70 % of aluminum (2.70 g/cm³). An FRP profile replacing a steel section of equivalent structural capacity weighs 70–80 % less.",
       "This weight reduction cascades: lighter members require smaller foundations, lower-capacity cranes (or no crane at all — many FRP profiles can be carried by two workers), fewer transport loads, and less energy during installation. For bridge decks, building facades, and offshore platforms, weight savings translate directly into cost savings and expanded design possibilities.",
     ],
   },
@@ -200,10 +200,10 @@ const propertyCards: PropertyCard[] = [
   {
     title: "Thermal Insulation",
     icon: "500×",
-    headline: "500× lower thermal conductivity than aluminium — no thermal bridging",
+    headline: "500× lower thermal conductivity than aluminum — no thermal bridging",
     detail: [
-      "FRP has a thermal conductivity of 0.3–0.5 W/m·K — roughly 100× lower than steel and 400× lower than aluminium. This makes FRP an inherent thermal break.",
-      "In fenestration applications, FRP frames eliminate the thermal bridging that is the primary source of energy loss through metal-framed openings. A building envelope using FRP framing instead of aluminium can reduce heating and cooling energy consumption by 15–30 % at opening locations. In cold stores, LNG facilities, and cryogenic environments, FRP prevents the condensation and ice formation that plagues steel structures.",
+      "FRP has a thermal conductivity of 0.3–0.5 W/m·K — roughly 100× lower than steel and 400× lower than aluminum. This makes FRP an inherent thermal break.",
+      "In fenestration applications, FRP frames eliminate the thermal bridging that is the primary source of energy loss through metal-framed openings. A building envelope using FRP framing instead of aluminum can reduce heating and cooling energy consumption by 15–30 % at opening locations. In cold stores, LNG facilities, and cryogenic environments, FRP prevents the condensation and ice formation that plagues steel structures.",
     ],
   },
   {
@@ -230,7 +230,7 @@ const propertyCards: PropertyCard[] = [
     headline: "Higher per-kg carbon, but lower per functional unit due to 75 % weight savings",
     detail: [
       "Embodied carbon of pultruded FRP (3.1–5.0 kg CO₂/kg) is higher than steel (1.8–2.5 kg CO₂/kg) per kilogram. However, because FRP is 75 % lighter for equivalent structural capacity, the CO₂ per functional unit (per meter of railing, per m² of grating) is often comparable to or lower than steel.",
-      "When avoided emissions from eliminated maintenance cycles and reduced transport energy are included in a full LCA, FRP frequently achieves a net carbon advantage over 30–50 year service periods. Aluminium carries the highest embodied carbon at 8–12 kg CO₂/kg, reflecting enormous smelting energy.",
+      "When avoided emissions from eliminated maintenance cycles and reduced transport energy are included in a full LCA, FRP frequently achieves a net carbon advantage over 30–50 year service periods. Aluminum carries the highest embodied carbon at 8–12 kg CO₂/kg, reflecting enormous smelting energy.",
     ],
   },
 ];
@@ -246,7 +246,7 @@ const faqItems = [
   },
   {
     question: "What are the advantages of fiberglass over aluminum?",
-    answer: "FRP does not corrode in salt spray, acidic, or alkaline environments — unlike aluminium, which suffers pitting and galvanic corrosion. FRP is electrically non-conductive and thermally insulating, ideal for window frames (eliminating thermal bridging) and electrical enclosures. FRP also has lower embodied energy per kilogram when lifecycle impacts are considered.",
+    answer: "FRP does not corrode in salt spray, acidic, or alkaline environments — unlike aluminum, which suffers pitting and galvanic corrosion. FRP is electrically non-conductive and thermally insulating, ideal for window frames (eliminating thermal bridging) and electrical enclosures. FRP also has lower embodied energy per kilogram when lifecycle impacts are considered.",
   },
   {
     question: "What are the main advantages of pultrusion over traditional materials?",
@@ -303,7 +303,7 @@ export default function FrpVsTraditionalPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Material Comparison"
-        title="FRP vs Steel, Aluminium, Timber & Concrete"
+        title="FRP vs Steel, Aluminum, Timber & Concrete"
         description="Property-by-property comparison with visual charts to help engineers select the right material for their application."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -325,8 +325,8 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/technology/frp-vs-steel-aluminium-timber-concrete-material-comparison.jpg"
-              alt="FRP vs steel, aluminium, timber and concrete — material surface textures side by side for structural comparison"
+              src="/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg"
+              alt="FRP vs steel, aluminum, timber and concrete — material surface textures side by side for structural comparison"
               width={1280}
               height={500}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -345,7 +345,7 @@ export default function FrpVsTraditionalPage() {
             The Case for Fiber-Reinforced Polymers
           </h2>
           <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
-            Steel rusts. Aluminium conducts heat and electricity. Timber rots and burns.
+            Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
             Concrete cracks under tension. Pultruded FRP composites were engineered to
             overcome all of these limitations simultaneously.
           </p>

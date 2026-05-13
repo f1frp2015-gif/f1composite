@@ -348,7 +348,7 @@ export default function GratingsPage() {
             title: "Technical resources",
             links: [
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings — full comparison" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminium, concrete" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/quality-testing", label: "Fire & slip testing (BS 476 / AS 4586)" },
               { href: "/resources/technical-data", label: "Load tables & data sheets" },
               { href: "/resources/design-guides", label: "Grating design guides" },

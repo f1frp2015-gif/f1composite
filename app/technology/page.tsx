@@ -29,7 +29,7 @@ const areas = [
     tag: "Materials",
     title: "FRP vs Traditional Materials",
     description:
-      "Fiber-reinforced polymers outperform steel, aluminium, timber, and concrete across weight, corrosion resistance, electrical insulation, and lifecycle cost. See the full property-by-property comparison.",
+      "Fiber-reinforced polymers outperform steel, aluminum, timber, and concrete across weight, corrosion resistance, electrical insulation, and lifecycle cost. See the full property-by-property comparison.",
     href: "/technology/frp-vs-traditional-materials",
   },
   {
@@ -50,14 +50,14 @@ const areas = [
     tag: "Tool",
     title: "FRP Profile Calculator",
     description:
-      "Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections. EN 13706 and ASTM compliant.",
+      "Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminum sections. EN 13706 and ASTM compliant.",
     href: "/frp-profile-calculator",
   },
   {
     tag: "Tool",
     title: "Window U-Value Calculator",
     description:
-      "Calculate whole-window thermal transmittance (Uw) per EN ISO 10077-1. Compare FRP, aluminium, PVC, and timber frames with double, triple, and quadruple glazing.",
+      "Calculate whole-window thermal transmittance (Uw) per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with double, triple, and quadruple glazing.",
     href: "/technology/u-value-calculator",
   },
 ];

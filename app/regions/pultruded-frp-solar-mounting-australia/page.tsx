@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "Pultruded FRP Solar Mounting in Australia — Fiberglass Solar Racking Supplier";
 const pageDescription =
-  "Pultruded FRP solar mounting structures for Australian utility-scale, commercial, and rooftop solar. Direct-from-China factory supplier — corrosion-proof fiberglass racking, AS/NZS-compliant, lower foundation cost than aluminium, 25-year UV-stable.";
+  "Pultruded FRP solar mounting structures for Australian utility-scale, commercial, and rooftop solar. Direct-from-China factory supplier — corrosion-proof fiberglass racking, AS/NZS-compliant, lower foundation cost than aluminum, 25-year UV-stable.";
 const pagePath = "/regions/pultruded-frp-solar-mounting-australia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -23,9 +23,9 @@ export const metadata: Metadata = buildPageMetadata({
 
 const faqs = [
   {
-    question: "Why specify FRP instead of aluminium for solar mounting in Australia?",
+    question: "Why specify FRP instead of aluminum for solar mounting in Australia?",
     answer:
-      "FRP solves three problems aluminium does not: (1) coastal corrosion in NSW, QLD, WA, and TAS coastal solar farms, where aluminium 6063-T5 still suffers pitting under salt fog despite anodising; (2) bimetallic corrosion at steel-pile / aluminium-rail interfaces, which is the dominant failure mode on Australian solar farms over 10 years; (3) foundation cost — FRP is 30-35% lighter than aluminium 6063, so pile loads, helical-pile depth, and concrete pad volume all reduce. The 25-year UV stability of pultruded FRP with synthetic surfacing veils is independently documented; aluminium does not have a UV-degradation pathway, but it does have a salt-corrosion pathway that FRP simply does not.",
+      "FRP solves three problems aluminum does not: (1) coastal corrosion in NSW, QLD, WA, and TAS coastal solar farms, where aluminum 6063-T5 still suffers pitting under salt fog despite anodising; (2) bimetallic corrosion at steel-pile / aluminum-rail interfaces, which is the dominant failure mode on Australian solar farms over 10 years; (3) foundation cost — FRP is 30-35% lighter than aluminum 6063, so pile loads, helical-pile depth, and concrete pad volume all reduce. The 25-year UV stability of pultruded FRP with synthetic surfacing veils is independently documented; aluminum does not have a UV-degradation pathway, but it does have a salt-corrosion pathway that FRP simply does not.",
   },
   {
     question: "Does FRP solar mounting comply with Australian standards (AS/NZS)?",
@@ -33,9 +33,9 @@ const faqs = [
       "Yes. F1 Composite supplies FRP solar mounting profiles to AS/NZS 1170.2 (wind loads, including Region C/D cyclonic), AS 4100 / AS 1664 design philosophy (referenced for FRP per the Composites Industry Association guidelines), and AS/NZS 4680 for connection hardware. UV stability is qualified per AS 4674 weathering equivalence. For projects requiring Clean Energy Council (CEC) listed components, F1 Composite participates in the project-specific qualification pathway through tier-1 Australian solar EPCs.",
   },
   {
-    question: "What weight delta does FRP deliver on solar mounting versus aluminium 6063?",
+    question: "What weight delta does FRP deliver on solar mounting versus aluminum 6063?",
     answer:
-      "Pultruded FRP density is 1.9 g/cm³ versus aluminium 6063 at 2.70 g/cm³ — a 30% weight reduction at equivalent cross-section. For a typical Australian utility-scale tracker, the rail-and-purlin assembly weight drops from ~9.5 kg/m² (aluminium) to ~6.6 kg/m² (FRP). Across a 50 MW solar farm this is ~250 tonnes of structural weight removed from the foundation system. Helical-pile penetration depth typically reduces by 0.5–1.0 m and pile centres can stretch 5–10%, both of which compound into significant foundation cost savings.",
+      "Pultruded FRP density is 1.9 g/cm³ versus aluminum 6063 at 2.70 g/cm³ — a 30% weight reduction at equivalent cross-section. For a typical Australian utility-scale tracker, the rail-and-purlin assembly weight drops from ~9.5 kg/m² (aluminum) to ~6.6 kg/m² (FRP). Across a 50 MW solar farm this is ~250 tonnes of structural weight removed from the foundation system. Helical-pile penetration depth typically reduces by 0.5–1.0 m and pile centers can stretch 5–10%, both of which compound into significant foundation cost savings.",
   },
   {
     question: "How does FRP perform under Australian UV exposure over 25 years?",
@@ -48,9 +48,9 @@ const faqs = [
       "Sea freight from Shanghai or Ningbo to Sydney, Melbourne, Brisbane, Adelaide, Fremantle, or Port Kembla runs 18–28 days. F1 Composite typically quotes CIF or DAP to the project staging area. Stock standard FRP solar mounting profiles ship in 5–7 weeks PO-to-port; custom-designed solar mounting profiles add 3–5 weeks for tooling. For multi-MW projects, container forecasting begins 8 weeks before first installation to avoid storage at port. A typical 50 MW solar farm requires 25–35 × 40HC containers of FRP profiles.",
   },
   {
-    question: "Is FRP solar mounting cost-competitive with aluminium and galvanized steel?",
+    question: "Is FRP solar mounting cost-competitive with aluminum and galvanized steel?",
     answer:
-      "On per-kilogram material cost, FRP is 1.5–2.0× aluminium 6063 in 2026. On per-installed-MW cost — the only comparison that matters at the project level — FRP is roughly cost-neutral with aluminium when foundation savings are included, and 8–15% above galvanized steel. FRP wins clearly over both alternatives in coastal Australian projects (where galvanized steel needs heavier coatings and aluminium suffers chloride pitting), in projects with a 30+ year design life, and in projects where O&M cost over the asset lifecycle is the optimisation target, not up-front installed cost alone.",
+      "On per-kilogram material cost, FRP is 1.5–2.0× aluminum 6063 in 2026. On per-installed-MW cost — the only comparison that matters at the project level — FRP is roughly cost-neutral with aluminum when foundation savings are included, and 8–15% above galvanized steel. FRP wins clearly over both alternatives in coastal Australian projects (where galvanized steel needs heavier coatings and aluminum suffers chloride pitting), in projects with a 30+ year design life, and in projects where O&M cost over the asset lifecycle is the optimization target, not up-front installed cost alone.",
   },
 ];
 
@@ -123,7 +123,7 @@ export default function AustraliaSolarPage() {
       <PageHeader
         tag="Australia"
         title="Pultruded FRP Solar Mounting for Australian Projects"
-        description="Direct-from-factory fiberglass solar racking and mounting profiles for Australian utility-scale, commercial, and rooftop solar. AS/NZS 1170.2 wind compliant, 25-year UV-stable, 30% lighter than aluminium 6063. CIF or DAP to all major Australian ports."
+        description="Direct-from-factory fiberglass solar racking and mounting profiles for Australian utility-scale, commercial, and rooftop solar. AS/NZS 1170.2 wind compliant, 25-year UV-stable, 30% lighter than aluminum 6063. CIF or DAP to all major Australian ports."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/pultruded-frp-solar-mounting-australia" },
@@ -151,20 +151,20 @@ export default function AustraliaSolarPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why FRP for Australian Solar</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            The aluminium-vs-galvanized-steel debate misses the corrosion failure mode that wins on 30-year asset life
+            The aluminum-vs-galvanized-steel debate misses the corrosion failure mode that wins on 30-year asset life
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Australian utility-scale solar has converged on two mounting material defaults: galvanized steel for inland projects (lower up-front cost, accept 25-year hot-dip galv life) and aluminium 6063 for coastal projects (lighter, no galvanic-pair failure with steel piles, but susceptible to chloride pitting). Both work — and both leave structural-cost optimisations on the table at the 30-year asset life that financed solar increasingly demands.
+                Australian utility-scale solar has converged on two mounting material defaults: galvanized steel for inland projects (lower up-front cost, accept 25-year hot-dip galv life) and aluminum 6063 for coastal projects (lighter, no galvanic-pair failure with steel piles, but susceptible to chloride pitting). Both work — and both leave structural-cost optimisations on the table at the 30-year asset life that financed solar increasingly demands.
               </p>
               <p>
-                Pultruded FRP solar mounting is a third path. It is 30% lighter than aluminium 6063 — directly reducing helical-pile depth and concrete foundation volume — and immune to both chloride corrosion and galvanic-pair failure with steel piles. F1 Composite supplies the profile family directly from factory, ex-China, to all major Australian ports, with project-specific designs reviewed against AS/NZS 1170.2 wind loads (Regions A through D, including cyclonic).
+                Pultruded FRP solar mounting is a third path. It is 30% lighter than aluminum 6063 — directly reducing helical-pile depth and concrete foundation volume — and immune to both chloride corrosion and galvanic-pair failure with steel piles. F1 Composite supplies the profile family directly from factory, ex-China, to all major Australian ports, with project-specific designs reviewed against AS/NZS 1170.2 wind loads (Regions A through D, including cyclonic).
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                The cost story is project-dependent. On per-kilogram material cost, FRP is more expensive than aluminium 6063 and considerably more expensive than galvanized steel. On per-installed-MW cost — including foundation, transport, installation labour, and 25-year O&M — FRP is roughly cost-neutral with aluminium and 8–15% above galvanized steel. Where FRP wins clearly: coastal sites, 30+ year design lives, and projects that financially model O&M cost over the asset lifecycle.
+                The cost story is project-dependent. On per-kilogram material cost, FRP is more expensive than aluminum 6063 and considerably more expensive than galvanized steel. On per-installed-MW cost — including foundation, transport, installation labor, and 25-year O&M — FRP is roughly cost-neutral with aluminum and 8–15% above galvanized steel. Where FRP wins clearly: coastal sites, 30+ year design lives, and projects that financially model O&M cost over the asset lifecycle.
               </p>
               <p>
                 The supply path matters too. Direct from F1 Composite&apos;s 5 production bases in China, FOB Shanghai or Ningbo with sea freight 18–28 days to Sydney, Melbourne, Brisbane, Adelaide, Fremantle, or Port Kembla. Project-spec FRP profiles ship in 11–16 weeks total (tooling + production + freight) for new cross-sections; existing tooled cross-sections cut this to 5–8 weeks.
@@ -176,7 +176,7 @@ export default function AustraliaSolarPage() {
 
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>FRP vs Aluminium 6063</SectionTag>
+          <SectionTag>FRP vs Aluminum 6063</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Material comparison at a typical solar mounting cross-section
           </h2>
@@ -186,7 +186,7 @@ export default function AustraliaSolarPage() {
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Pultruded FRP (E-glass / polyester)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Aluminium 6063-T5</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Aluminum 6063-T5</th>
                   <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Galvanized Steel</th>
                 </tr>
               </thead>
@@ -265,7 +265,7 @@ export default function AustraliaSolarPage() {
               href="/technology/frp-vs-traditional-materials"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">FRP vs Steel & Aluminium</h3>
+              <h3 className="text-f15 font-bold text-t1">FRP vs Steel & Aluminum</h3>
               <p className="mt-[5px] text-f13 leading-golden text-t2">Mechanical, corrosion, and lifecycle comparison across the three structural material families.</p>
             </Link>
           </div>

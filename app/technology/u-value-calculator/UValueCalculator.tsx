@@ -12,8 +12,8 @@ const frameSystems = [
   { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, depth: 70, faceWidth: 58 },
   { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, depth: 80, faceWidth: 65 },
   { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, depth: 90, faceWidth: 72 },
-  { id: "alu-no-break", label: "Aluminium (no thermal break)", Uf: 5.9, depth: 65, faceWidth: 50 },
-  { id: "alu-break", label: "Aluminium (polyamide break)", Uf: 3.2, depth: 70, faceWidth: 55 },
+  { id: "alu-no-break", label: "Aluminum (no thermal break)", Uf: 5.9, depth: 65, faceWidth: 50 },
+  { id: "alu-break", label: "Aluminum (polyamide break)", Uf: 3.2, depth: 70, faceWidth: 55 },
   { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, depth: 70, faceWidth: 62 },
   { id: "pvc-steel", label: "PVC Steel-reinforced", Uf: 1.8, depth: 70, faceWidth: 65 },
   { id: "timber", label: "Timber (softwood, 68 mm)", Uf: 1.4, depth: 75, faceWidth: 65 },
@@ -30,7 +30,7 @@ const glassConfigs = [
 ];
 
 const spacerTypes = [
-  { id: "alu", label: "Aluminium spacer", psi: 0.08 },
+  { id: "alu", label: "Aluminum spacer", psi: 0.08 },
   { id: "steel", label: "Steel spacer", psi: 0.06 },
   { id: "warm-basic", label: "Warm-edge (standard)", psi: 0.04 },
   { id: "warm-premium", label: "Warm-edge (premium / TGI / Swisspacer)", psi: 0.03 },
@@ -120,7 +120,7 @@ export default function UValueCalculator() {
     [width, height, selFrame, selGlass, selSpacer, selWinType],
   );
 
-  // Compare with aluminium no-break baseline (fixed light, aluminium spacer)
+  // Compare with aluminum no-break baseline (fixed light, aluminum spacer)
   const baseline = useMemo(
     () => calcUw(width, height, 50, 5.9, selGlass.Ug, 0.08, 0),
     [width, height, selGlass],
@@ -329,11 +329,11 @@ export default function UValueCalculator() {
                 {baseline && improvement > 0 && (
                   <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
                     <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-teal">
-                      vs Aluminium (no break)
+                      vs Aluminum (no break)
                     </h4>
                     <p className="text-f13 text-t2">
                       <strong className="text-teal">{improvement}% better</strong> thermal
-                      performance compared to an aluminium frame without thermal break
+                      performance compared to an aluminum frame without thermal break
                       (U<sub>w</sub> = {baseline.Uw.toFixed(2)} W/m²K).
                     </p>
                   </div>

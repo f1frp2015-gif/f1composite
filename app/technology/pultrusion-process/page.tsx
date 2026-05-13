@@ -520,7 +520,7 @@ export default function PultrusionProcessPage() {
           <div className="mt-[34px] overflow-hidden rounded-[8px]">
             <Image
               src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
-              alt="F1 Composite pultrusion plant floor — finished pultruded profiles on inspection tables alongside fibre-handling and pulling equipment"
+              alt="F1 Composite pultrusion plant floor — finished pultruded profiles on inspection tables alongside fiber-handling and pulling equipment"
               sizes="(max-width: 1280px) 100vw, 1280px"
               width={2000}
               height={832}

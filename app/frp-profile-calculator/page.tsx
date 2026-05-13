@@ -9,9 +9,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free FRP Profile Calculator — Beam Deflection, Stress & Steel/Aluminium Equivalence",
+  title: "Free FRP Profile Calculator — Beam Deflection, Stress & Steel/Aluminum Equivalence",
   description:
-    "Free online calculator for pultruded FRP profiles: beam deflection, bending stress, and equivalent FRP section to replace steel or aluminium. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23. No login required.",
+    "Free online calculator for pultruded FRP profiles: beam deflection, bending stress, and equivalent FRP section to replace steel or aluminum. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23. No login required.",
   path: "/frp-profile-calculator",
 });
 
@@ -58,12 +58,12 @@ export default function CalculatorPage() {
           inLanguage: "en",
           isAccessibleForFree: true,
           description:
-            "Structural calculator for pultruded FRP profiles. EN 13706 / ASTM D3917 compliant. Beam deflection, bending stress, and steel/aluminium equivalence.",
+            "Structural calculator for pultruded FRP profiles. EN 13706 / ASTM D3917 compliant. Beam deflection, bending stress, and steel/aluminum equivalence.",
           featureList: [
             "Beam deflection calculation (simply supported, cantilever)",
             "Bending stress check per EN 13706",
             "FRP-to-steel equivalent section finder",
-            "FRP-to-aluminium equivalent section finder",
+            "FRP-to-aluminum equivalent section finder",
             "Weight comparison across materials",
           ],
           offers: {
@@ -81,7 +81,7 @@ export default function CalculatorPage() {
       <PageHeader
         tag="Free Engineering Tool"
         title="Free FRP Profile Calculator"
-        description="Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminium sections — instantly, free, no login. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23 Pre-Standard for pultruded FRP."
+        description="Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminum sections — instantly, free, no login. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23 Pre-Standard for pultruded FRP."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -97,7 +97,7 @@ export default function CalculatorPage() {
             How to use the FRP profile calculator
           </h2>
           <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
-            This calculator solves three recurring questions in FRP structural selection: how much a pultruded FRP beam will deflect under a given load, whether bending stress stays within design allowables, and what cross-section is needed to replace a steel or aluminium member at the same deflection. All formulas follow Euler-Bernoulli beam theory with E and σ values typical for pultruded E-glass / isophthalic polyester profiles manufactured to EN 13706 E23 and ASTM D3917.
+            This calculator solves three recurring questions in FRP structural selection: how much a pultruded FRP beam will deflect under a given load, whether bending stress stays within design allowables, and what cross-section is needed to replace a steel or aluminum member at the same deflection. All formulas follow Euler-Bernoulli beam theory with E and σ values typical for pultruded E-glass / isophthalic polyester profiles manufactured to EN 13706 E23 and ASTM D3917.
           </p>
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">

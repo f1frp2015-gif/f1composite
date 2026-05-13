@@ -51,7 +51,7 @@ const faqItems = [
   {
     question: "Can FRP channels be bolted to dissimilar materials?",
     answer:
-      "Yes. The non-conductive nature of FRP eliminates galvanic corrosion risk when bolted to aluminium, stainless steel, or other metals — a common failure mode in traditional multi-material assemblies.",
+      "Yes. The non-conductive nature of FRP eliminates galvanic corrosion risk when bolted to aluminum, stainless steel, or other metals — a common failure mode in traditional multi-material assemblies.",
   },
 ];
 
