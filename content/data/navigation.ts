@@ -34,8 +34,17 @@ export const mainNav = [
       { label: "Vehicle", href: "/industries/vehicle" },
     ],
   },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "Blog", href: "/resources/blog" },
+      { label: "Downloads", href: "/resources/downloads" },
+      { label: "Technical Data", href: "/resources/technical-data" },
+      { label: "Design Guides", href: "/resources/design-guides" },
+    ],
+  },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Resources", href: "/resources" },
   { label: "Ask AI", href: "/ask" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
