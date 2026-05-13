@@ -74,21 +74,41 @@ const caseStudyData: Record<
     ],
   },
   "chemical-plant-platform": {
-    title: "Chemical Processing Plant Access Platforms",
+    title: "Baotou Industrial Park Fenestration — Pultruded GFRP-PU Windows for Severe-Cold, Chemical-Exposure Manufacturing Buildings",
     industry: "Industrial",
-    location: "Saudi Arabia",
-    year: "2023",
-    products: ["Gratings & Decks", "Standard Profiles", "Custom Pultrusions"],
+    location: "Baotou, Inner Mongolia, China",
+    year: "2024",
+    products: ["Fenestration Systems"],
     challenge:
-      "A petrochemical complex in Saudi Arabia required replacement of corroding steel access platforms across 12 processing units. The existing platforms suffered rapid degradation from chemical splash, high humidity, and temperatures exceeding 50°C.",
+      "In early 2024 an industrial complex on the outskirts of Baotou, Inner Mongolia, broke ground on a multi-building production campus combining manufacturing workshops, ancillary chemical-handling buildings, freight-logistics yards, rooftop photovoltaic arrays, and a separate administrative and welfare block. The site presents two structural envelope problems that rarely show up in the same project. The first is climate: Baotou sits inside China's severe-cold (严寒) climate zone, with winter design lows around −25 °C and a 200-day-plus heating season. The national energy code for severe-cold-zone industrial buildings imposes a window U-value ceiling well below what conventional aluminium-with-thermal-break fenestration can deliver without exotic glazing assemblies, and the operating cost of under-performing windows compounds across 200 heating days each year. The second is chemistry: several of the manufacturing buildings handle chemical reagents, process volatiles, acid mists, and chloride aerosols as part of normal operation. Aluminium frames exposed to this environment pit at the anodised surface, suffer galvanic corrosion at fastener interfaces, and require coating renewal on cycles measured in single-digit years — not acceptable on a 30-year industrial asset where window replacement requires production downtime. PVC frames cannot deliver the structural span needed for the tall workshop apertures (typical industrial window heights here exceed 2.5 m) and embrittle under sustained UV at the high-altitude continental climate. Steel frames meet structural requirements but conduct heat dramatically and rust without intensive coating maintenance under chemical exposure. The owner's specification therefore required a single window-frame material that could simultaneously meet severe-cold-zone thermal performance, chemical-exposure durability, the structural span demands of an industrial workshop facade, and a near-zero-maintenance operating profile across a 25-to-30-year asset life.",
     solution:
-      "F1 Composite supplied vinyl ester resin FRP gratings and structural profiles engineered for the specific chemical environment. Each platform was pre-assembled in modular sections for rapid on-site installation during scheduled shutdowns.",
+      "F1 Composite Co., Ltd, manufactured at our Yancheng manufacturing facility (Chongqing FengDu New Material Co., Ltd.), supplied pultruded glass-fibre-reinforced polyurethane (GFRP-PU) window-frame profiles to the Baotou industrial campus across both the chemical-exposure manufacturing buildings and the administrative and welfare block. The package combined 70-series and 80-series casement and tilt-and-turn profiles for the workshop facade apertures, 90-series sliding profiles for the larger administrative-building openings, and matching subframe sections at the workshop curtain-wall integration line. The GFRP-PU pultruded frame addresses both envelope problems through a single material chemistry rather than through two parallel design compromises. On the cold-climate side, the frame has an intrinsic thermal conductivity around 0.3 W/m·K, roughly five hundred times less conductive than aluminium across the frame depth, with no metallic thermal break, no polyamide insert, and no aging interface that can creep or delaminate over the project's 200-cycle-per-year freeze-thaw exposure. Paired with a 5 + 12 Ar + 5 Low-E + 12 Ar + 5 Low-E triple-pane insulating glass build, the verified whole-window U-value sits comfortably below the severe-cold-zone industrial-building specification ceiling, with substantial margin for the worst-case envelope orientation. On the chemical-exposure side, the glass-fibre-reinforced thermoset polyurethane chemistry is inert to acid mists, alkali splashes, chloride aerosols, and the volatile process atmospheres encountered around the manufacturing workshops. The frame does not anodise, does not pit, does not need cathodic protection, and does not require a coating-renewal maintenance cycle. The same frame profile that solves the thermal problem also solves the chemistry problem — a single material specification across the entire site, not a workshop-grade variant plus an office-grade variant. Profiles were factory-finished in matched dark frame colour with co-extruded EPDM gasketing, reinforced corner joints, and pre-installed mounting brackets calibrated to the site's pre-set anchor lines. Delivery was scheduled in two waves to track the campus's overlapping civil-works critical paths without lifting-equipment surges.",
     results:
-      "All 12 platforms were replaced within a 3-week shutdown window. The FRP system eliminates corrosion entirely, projecting zero structural maintenance over 30+ years. The lightweight panels reduced crane requirements by 60%.",
+      "The F1 Composite GFRP-PU fenestration package delivered the two performance contributions the project specification had treated as separate constraints, but in one material decision. First, weather resistance and maintenance-free service under chemical exposure: the GFRP-PU frame is inert to the acid-mist, alkali-splash, and chloride-aerosol environment the manufacturing buildings produce in normal operation, and the projected maintenance cycle eliminates the recoating, fastener-isolation, and inspection-shutdown work that would have been mandatory with aluminium or steel frames across a 30-year operating window. Second, thermal performance for the severe-cold-zone heating season: the pultruded GFRP-PU frame paired with the triple-pane Low-E glazing brings whole-window U-value below the Baotou severe-cold-zone industrial specification ceiling with substantial margin, removing the metallic thermal-bridge surface that would otherwise dominate the building's envelope heat loss across the 200-day heating season. For F1 Composite, the Baotou campus validates the GFRP-PU pultruded fenestration system in the dual-constraint scenario that most aluminium-and-PVC inquiries on Chinese industrial projects map onto: continental severe-cold climate plus chemical-exposure operating environment plus a multi-decade asset horizon. One window-frame material across the entire site, no operational maintenance budget allocated to envelope corrosion control, and no thermal-bridge penalty on the heating-cost line.",
     stats: [
-      { value: "12", label: "Platforms Replaced" },
-      { value: "0", label: "Maintenance Cost" },
-      { value: "30yr+", label: "Design Life" },
+      { value: "Baotou", label: "Inner Mongolia, China" },
+      { value: "严寒 A", label: "Severe-cold climate zone" },
+      { value: "−25 °C", label: "Winter design low" },
+      { value: "0.3 W/m·K", label: "GFRP-PU frame conductivity" },
+      { value: "0", label: "Coating renewal cycle" },
+      { value: "25–30 yr", label: "Maintenance-free design life" },
+    ],
+    downloads: [
+      {
+        label: "3-Star Green Building Material Cert (PDF)",
+        href: "/downloads/f1composite-3star-green-building-cert-frp-windows-2025.pdf",
+        description: "CABR-01(02)-(2025)-CGP-035 — 3-Star Green Building Material rating for the 65/70/80/90-series pultruded GFRP-PU window family supplied to this project.",
+      },
+      {
+        label: "EPD & Carbon Footprint Analysis (PDF)",
+        href: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
+        description: "Environmental Product Declaration and life-cycle carbon-footprint analysis for the pultruded GFRP composite profile range, including chemical-resistance and durability data.",
+      },
+      {
+        label: "FRP Window & Door Catalog (PDF)",
+        href: "/downloads/f1composite-frp-window-door-catalog.pdf",
+        description: "Full 65/70/80/90/140-series fenestration catalog with profile specifications, glazing builds, and U-value matrix.",
+      },
     ],
   },
   "fenestration-residential": {
@@ -235,7 +255,7 @@ const caseStudyData: Record<
 const caseStudyImages: Record<string, string> = {
   "european-bridge-deck": "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
   "coastal-marina-walkway": "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
-  "chemical-plant-platform": "/images/case-studies/frp-chemical-plant-access-platform.jpg",
+  "chemical-plant-platform": "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
   "fenestration-residential": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
   "solar-farm-mounting": "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",

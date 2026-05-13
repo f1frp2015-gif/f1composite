@@ -67,13 +67,13 @@ const caseStudies = [
   },
   {
     slug: "chemical-plant-platform",
-    title: "Chemical Processing Plant Access Platforms",
+    title: "Baotou Industrial Park Fenestration — Severe-Cold-Climate GFRP-PU Windows under Chemical Exposure",
     industry: "Industrial",
-    location: "Saudi Arabia",
-    year: "2023",
-    image: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
+    location: "Baotou, Inner Mongolia, China",
+    year: "2024",
+    image: "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
     excerpt:
-      "Delivered acid-resistant FRP grating and structural profiles for elevated access platforms across 12 chemical processing units.",
+      "Supplied 70/80/90-series pultruded GFRP-PU window-frame profiles across an industrial manufacturing campus combining chemical-exposure workshops with an administrative and welfare block. The GFRP-PU frame solves the severe-cold-zone (−25 °C design low, 200-day heating season) thermal-bridge problem and the chemical-aerosol corrosion problem in one material specification.",
   },
   {
     slug: "fenestration-residential",
