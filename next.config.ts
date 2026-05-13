@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 31-day TTL on the Vercel image optimizer cache. Our images use
+    // descriptive content-based filenames, so a new image gets a new path
+    // and there is no need to invalidate the optimizer cache between
+    // deploys for the same path.
+    minimumCacheTTL: 2_678_400,
+    // Allowlist of <Image quality={...}> values. Required from Next 16.
+    qualities: [60, 75, 85],
   },
   async redirects() {
     return [
