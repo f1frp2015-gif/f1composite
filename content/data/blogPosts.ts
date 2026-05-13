@@ -2033,14 +2033,14 @@ The test specimen was not a downsized engineering sample. It was a fully assembl
 | Sealing | EPDM gaskets (Haida JT5091/JT5071/JT5052/JT5011) + brush seal (Hebei Lidejia) + 166 neutral silicone (German Weiss) |
 | Installation | Fixed by screws every 300 mm, sealed with silicone — typical for an Australian timber- or steel-frame opening |
 
-Two practical points matter here. First, **there was no internal steel reinforcement**. Aluminium 140-series sliding door systems at this size invariably require a steel reinforcement insert in the mullion to meet wind load deflection limits. The GFRP system passed without one — the pultruded profile carries its own load. Second, **the door was tested with German Roto Lift hardware, not a generic locally-fitted alternative**. This is the same hardware platform used by leading European and Australian premium aluminium suppliers, so the comparison is like-for-like.
+Two practical points matter here. First, there was no internal steel reinforcement. Aluminium 140-series sliding door systems at this size invariably require a steel insert in the mullion to meet wind load deflection limits. The GFRP system passed without one; the pultruded profile carries its own load. Second, the door was tested with German Roto Lift hardware, not a generic locally-fitted alternative. This is the same hardware platform used by leading European and Australian premium aluminium suppliers, so the comparison is like-for-like.
 
 ## Test 1 — Serviceability Wind Pressure (AS/NZS 4420.1-2016 Section 3)
 
 **Applied:** ±1200 Pa.
 **Result:** Mullion deflection 1/376 at +1200 Pa, 1/389 at −1200 Pa. Stile (handle side) 1/822 at +1200 Pa, 1/1009 at −1200 Pa. Verdict: Pass.
 
-What this means: AS/NZS 4420.1 requires that for windows and sliding doors, no structural member shall deflect more than span/250 at serviceability design wind pressure. The mullion ratio of 1/376 sits **33% inside the limit** — the door is not just passing, it is well within margin. The stile ratio of 1/822 is more than three times stiffer than required.
+What this means: AS/NZS 4420.1 requires that for windows and sliding doors, no structural member shall deflect more than span/250 at serviceability design wind pressure. The mullion ratio of 1/376 sits 33 % inside the limit, so the door is well within margin. The stile ratio of 1/822 is more than three times stiffer than required.
 
 For Australian wind region mapping under AS 4055-2021:
 
@@ -2052,7 +2052,7 @@ For Australian wind region mapping under AS 4055-2021:
 | N4 (exposed Sydney/Brisbane suburbs) | ~1200 Pa | At rated limit, sized headroom from ultimate test |
 | N5 (cyclonic-adjacent) | ~1500 Pa | Requires re-engineering or stronger glazing — out of scope of this test |
 
-For practical purposes, the 140 Series is a clean fit for **N1, N2, N3, and edge-of-N4 projects** without redesign. This covers the bulk of Australian residential and most non-cyclonic commercial buildings.
+For practical purposes, the 140 Series is a clean fit for N1, N2, N3, and edge-of-N4 projects without redesign. This covers the bulk of Australian residential and most non-cyclonic commercial buildings.
 
 **The mullion behaviour is the diagnostic finding.** In a sliding door, the mullion (the central vertical member where two sash meet) is the most loaded element under wind pressure because each sash transfers half of the door's wind load into it. A 2220 mm span mullion deflecting only 5.9 mm at 1200 Pa is a structurally efficient result that aluminium 140-series systems typically achieve only with a steel insert. The GFRP mullion does it as a single pultruded section.
 
@@ -2061,7 +2061,7 @@ For practical purposes, the 140 Series is a clean fit for **N1, N2, N3, and edge
 **Required:** Initial movement ≤ 180 N. Maintain movement ≤ 110 N.
 **Result:** Initial open 99 N / close 97 N. Maintain open 63 N / close 61 N. Verdict: Pass.
 
-The 99 N initial-movement result is approximately **45% below the 180 N AS 2047 limit** for a 7.2 m² door. To put 99 N in physical terms: it is the force required to lift roughly 10 kg, or to push a typical office chair across carpet. Most adults — including users with reduced upper-body strength — operate this door without effort.
+The 99 N initial-movement result is approximately 45 % below the 180 N AS 2047 limit for a 7.2 m² door. To put 99 N in physical terms, it is the force required to lift roughly 10 kg or to push a typical office chair across carpet. Most adults, including users with reduced upper-body strength, operate this door without effort.
 
 This matters in two specific Australian regulatory contexts:
 
@@ -2102,7 +2102,7 @@ AS 2047-2014 does not mandate a single water penetration pressure for all slidin
 | 300 Pa | Heavy rain at 95 km/h | N3 exposed coastal residential |
 | 450 Pa | Cyclonic conditions | C1+ tropical zones |
 
-The 140 Series at 200 Pa is **suitable for N1 and N2 exposure with appropriate awning or recess detailing, and for N3 exposure when installed under a verandah, balcony soffit, or eaves overhang of at least 600 mm** — which describes the vast majority of well-detailed Australian residential design. It is not appropriate for fully exposed coastal facades in N3+ without further sheltering.
+The 140 Series at 200 Pa is suitable for N1 and N2 exposure with appropriate awning or recess detailing, and for N3 exposure when installed under a verandah, balcony soffit, or eaves overhang of at least 600 mm. That covers the vast majority of well-detailed Australian residential design. It is not appropriate for fully exposed coastal facades in N3+ without further sheltering.
 
 Water overflow at 300 Pa was localised to the slider track, not the frame head, jambs, or glazing seals. This is consistent with the AS 2047 sliding door class: the slider track is the inherent weak point of any lift-sliding system, and 200 Pa is industry-typical even for premium aluminium systems. Vantage, Capral, and Stegbar 140-series sliding doors generally rate at 150–300 Pa depending on configuration and accessory threshold drainage.
 
@@ -2113,7 +2113,7 @@ For projects requiring 300+ Pa water rating, a tilt-slide system (different hard
 **Applied:** ±3000 Pa.
 **Result:** No collapse. No significant breakage. No permanent deformation. No operational malfunction after pressure release. Verdict: Pass.
 
-Ultimate strength testing applies pressure 2.5 × the serviceability design pressure (1200 × 2.5 = 3000 Pa) to verify that the system has structural reserve beyond design. The 140 Series held 3000 Pa in both directions with no failure mode, and crucially, **operated normally after the test was released.**
+Ultimate strength testing applies pressure 2.5 × the serviceability design pressure (1200 × 2.5 = 3000 Pa) to verify that the system has structural reserve beyond design. The 140 Series held 3000 Pa in both directions with no failure mode, and it operated normally after the test was released.
 
 Operational survivability post-ultimate is the practical metric. A door that does not collapse but binds shut after a storm requires a callback and a frame replacement; a door that operates normally after surviving 158 km/h gust pressure is a door that can be left in service. The Roto Lift hardware combined with the GFRP frame's elastic recovery (no permanent set after the test) delivered this.
 
@@ -2136,7 +2136,7 @@ The most useful comparison for an Australian specifier is against the establishe
 | Steel reinforcement required | Yes (mullion) | Yes (mullion) | Yes (mullion) | **No** |
 | Coastal corrosion service life | 15–25 years (marine grade) | 20–30 years (marine grade) | 15–25 years (marine grade) | **40+ years (immune)** |
 
-The 140 Series GFRP system matches or beats the leading Australian aluminium systems on every line **except** maximum ultimate wind and maximum width — both of which are addressable by the heavier F1 Composite 160 Series. Where it pulls ahead is on operating force, frame U-value, air tightness, and the absence of any internal steel reinforcement (which is a long-term corrosion liability in coastal aluminium installations).
+The 140 Series GFRP system matches or beats the leading Australian aluminium systems on every line except maximum ultimate wind and maximum width, both of which are addressable by the heavier F1 Composite 160 Series. Where it pulls ahead is on operating force, frame U-value, air tightness, and the absence of any internal steel reinforcement, which is a long-term corrosion liability in coastal aluminium installations.
 
 ## What an Australian Specifier Should Take Away
 
@@ -2618,7 +2618,7 @@ For a project-specific quote calibrated against current pricing, F1 Composite re
     updatedAt: "2026-05-12",
     readTime: "8 min",
     excerpt:
-      "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. This article unpacks the tension-tension S-N fatigue envelope per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
+      "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. The article walks the tension-tension S-N fatigue data per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
     reviewedBy: "Composites Engineering Review Group",
@@ -2691,7 +2691,7 @@ Engineers approaching WE-G80 for the first time usually take three working notes
 
 The second is that environmental and geometric partial factors apply on top of the P95 stress. The S-N curve was measured dry, room-temperature, and axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies the γMb and γMc factors for matrix-dominated and fibre-dominated failure modes; GL 2010 has equivalent factors under slightly different names.
 
-The third is to read the slope exponent m as a process quality indicator rather than just a regression output. A panel that returns m below about 7.5 usually has a fibre / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 says the pultrusion process is consolidating the laminate cleanly.
+The third is to read the slope exponent m as a process quality indicator, not only as a regression output. A panel that returns m below about 7.5 usually has a fibre / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 says the pultrusion process is consolidating the laminate cleanly.
 
 ## When to step up to CFRP
 
@@ -2707,7 +2707,7 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
     updatedAt: "2026-05-12",
     readTime: "9 min",
     excerpt:
-      "WE-C100 is F1 Composite's unidirectional carbon / epoxy pultruded laminate for the spar caps of long wind blades. This article unpacks the full static mechanical envelope — tension, compression, shear, flexure, ILSS — and explains how the DNVGL-ST-0376 characteristic value Rₖ differs from the panel average and why blade designers must build the layup on Rₖ, not on the mean.",
+      "WE-C100 is F1 Composite's unidirectional carbon / epoxy pultruded laminate for the spar caps of long wind blades. The article walks the full static mechanical data (tension, compression, shear, flexure, ILSS) and explains how the DNVGL-ST-0376 characteristic value Rk differs from the panel average, and why blade designers must build the layup on Rk rather than the mean.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
     reviewedBy: "Composites Engineering Review Group",
@@ -2737,11 +2737,11 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
     ),
     highlights: [
       "WE-C100 0° tensile 1920 MPa, modulus 147 GPa, density 1.58 g/cm³",
-      "Full static envelope: tension, compression, V-notch shear, ILSS, flexure",
-      "Characteristic values Rₖ reported per DNVGL-ST-0376 (Dec 2015)",
+      "Full static data: tension, compression, V-notch shear, ILSS, flexure",
+      "Characteristic values Rk reported per DNVGL-ST-0376 (Dec 2015)",
     ],
     ogDescription:
-      "CFRP pultruded spar-cap laminate for long wind blades: full ISO/ASTM static envelope with DNVGL-ST-0376 characteristic values. Download the F1 Composite Wind Energy Laminate datasheet.",
+      "CFRP pultruded spar-cap laminate for long wind blades: full ISO and ASTM static data with DNVGL-ST-0376 characteristic values. Download the F1 Composite Wind Energy Laminate datasheet.",
     ogChips: ["Wind energy", "CFRP spar cap", "Characteristic values"],
     relatedLinks: [
       { label: "Energy & Power", href: "/industries/energy" },
