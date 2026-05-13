@@ -211,15 +211,15 @@ export default function ContactPage() {
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
-                  src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
-                  alt="F1 Composite pultrusion plant floor showing roving creels, resin impregnation, and heated die positions"
+                  src="/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"
+                  alt="F1 Composite pultrusion hall — wide-angle view of multiple Krauss Maffei pultrusion lines running in parallel, with downstream cutting and handling tables"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
               <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t2">
-                Plant floor — roving creels, resin impregnation, heated die positions on a working line.
+                Pultrusion hall — multiple Krauss Maffei lines running in parallel with downstream cutting and handling tables.
               </figcaption>
             </figure>
           </div>
