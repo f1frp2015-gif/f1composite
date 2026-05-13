@@ -40,6 +40,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const downloads = [
   {
+    title: "FRP Profile Design Manual — 2026 Edition",
+    format: "PDF",
+    size: "734 KB",
+    description: "24-page engineering reference for F1 Composite pultruded structural profiles. Covers equal angle (50–152 mm), square box (50–101 mm), channel (100–254 mm), tube and top rail, and wide flange beam (152–305 mm), with full dimensions, section properties, E23-grade material data per EN 13706-2, point-load and UDL mid-span deflection tables across 500 mm to 6 m spans, chemical resistance, BS 476 fire performance, MSDS, handling, and maintenance. Doc no. DOC-PF-2026-EN Rev. A.",
+    file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
+  },
+  {
     title: "Pultruded FRP Window & Door Catalog",
     format: "PDF",
     size: "830 KB",
