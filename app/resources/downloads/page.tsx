@@ -82,6 +82,20 @@ const downloads = [
     file: "/downloads/intertek-report-240821010SHF-002-lift-sliding-door.pdf",
   },
   {
+    title: "3-Star Green Building Material Certificate — Pultruded GFRP Windows",
+    format: "PDF",
+    size: "115 KB",
+    description: "Certificate No. CABR-01(02)-(2025)-CGP-035. 3-Star (highest tier) rating under the Chinese Green Building Material assessment framework T/CECS 10026-2019 and CABR/CC-TD-CGP-09:2024. Covers F1 Composite 65/70/80/90-series tilt-and-turn pultruded GFRP-polyurethane windows for cold, hot-summer-cold-winter, and hot-summer-warm-winter climate zones. Issued by China Academy of Building Research Co., Ltd. (CABR), valid 2025-06-05 to 2030-06-04.",
+    file: "/downloads/f1composite-3star-green-building-cert-frp-windows-2025.pdf",
+  },
+  {
+    title: "EPD & Carbon Footprint — Pultruded GFRP Composite Profiles",
+    format: "PDF",
+    size: "142 KB",
+    description: "Environmental Product Declaration and product carbon footprint analysis for F1 Composite pultruded GFRP composite profile products, with 1 m² functional unit. Calculation reference CABR-CFC-01(02)-2025(20030)1, cradle-to-gate 33,934.34 g CO₂e/m², distribution 254.59 g, cradle-to-grave 36,099.32 g. Standards: GB/T 24025-2009 (ISO 14025-aligned Type III EPD), GB/T 32161-2015, ISO 14067, PAS 2050. Issued by China Academy of Building Research Co., Ltd. (CABR) Certification Centre on April 30, 2025.",
+    file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
+  },
+  {
     title: "Product Catalog 2024",
     format: "PDF",
     size: "12 MB",
