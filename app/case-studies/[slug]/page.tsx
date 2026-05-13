@@ -150,21 +150,41 @@ const caseStudyData: Record<
     ],
   },
   "solar-farm-mounting": {
-    title: "Solar Farm Mounting Structure",
+    title: "Chongqing Industrial Rooftop PV Retrofit — Pultruded FRP H-Rail Mounting on Colored Steel-Tile Roofs",
     industry: "Energy",
-    location: "Australia",
-    year: "2023",
+    location: "Chongqing, China",
+    year: "2024",
     products: ["Custom Pultrusions", "Standard Profiles"],
     challenge:
-      "A 50MW solar installation in Australia needed mounting structures that could withstand extreme UV exposure, cyclonic wind loads, and high temperatures while being lighter than aluminum to reduce foundation costs across thousands of mounting points.",
+      "An industrial-park owner in Chongqing committed in 2024 to retrofit rooftop photovoltaic arrays onto a group of existing factory buildings, with the dual aim of carbon-reducing the campus and monetising idle roof area. Two project-specific constraints made conventional galvanised-steel and aluminium PV-rail systems a poor fit. The first is structural reserve. The factory buildings were originally designed for a generic-industrial roof live load of about 0.5 kN/m² — the prevailing Chinese pre-2012 industrial-roof reserve — with no provision for the added permanent dead load of a PV array. A modern monocrystalline module installation with conventional galvanised-steel rail adds in the order of 15 – 20 kg/m² of permanent load once panels, rail, clamps, and ballast are included. That is a meaningful fraction of the original roof's live-load reserve, and the structural-review consultant flagged it as the binding constraint on retrofit feasibility. The owner needed a rail system materially lighter than galvanised steel, ideally lighter than aluminium too, to keep roof loading inside the as-designed reserve without commissioning a structural-reinforcement scope that would have eliminated the project's payback case. The second constraint is the rooftop environment. Chongqing is a humid sub-tropical city — annual humidity above 80 %, frequent dew condensation (the city is known as 雾都, the fog city), and ambient acid-rain exposure from the Yangtze River basin's industrial corridor. On a coloured steel-tile (彩钢瓦) industrial roof, the daytime surface temperature can exceed 70 °C in summer and drop near freezing in winter, with hundreds of daily thermal cycles across the rail-roof interface. Galvanised steel rail in that environment is subject to accelerated zinc loss and requires a coating-renewal cycle on a 5 – 8 year schedule — uneconomic across a PV asset designed for 25-year operation, and operationally awkward because every coating renewal demands taking the panel rows off the rail. Aluminium rail solves the corrosion side but pits at the anodised surface in the acid-rain humidity profile and forms a galvanic couple with the stainless-steel clamp fasteners and the copper grounding wire.",
     solution:
-      "F1 Composite engineered UV-stabilized FRP mounting profiles using polyester resin with enhanced UV inhibitors. The custom cross-sections were optimized for the specific panel geometry and wind load requirements, achieving a 35% weight reduction versus aluminum equivalents.",
+      "F1 Composite Co., Ltd, manufactured at our Yancheng manufacturing facility (Chongqing FengDu New Material Co., Ltd.), supplied pultruded glass-fibre-reinforced polymer (GFRP) H-section composite rail for the Chongqing rooftop PV retrofit, paired with a matched accessory kit covering mid-clamps, end-clamps, splice plates, and Jiaochi-type (角驰) roof clamps that engage the standing seams of the existing coloured steel-tile (彩钢瓦) roof without penetrating the roof membrane. The pultruded H-rail addresses both project constraints through one material decision. On the structural-reserve side, the GFRP composite rail has a density of about 1.9 g/cm³ against carbon steel at 7.85 g/cm³ and aluminium 6063 at 2.70 g/cm³. In a typical rooftop PV layout the rail line-mass drops from 4 – 6 kg per linear metre for galvanised steel C-section, or 1.5 – 2.5 kg/m for aluminium extrusion, to roughly 1.0 – 1.5 kg/m for the pultruded GFRP H-rail — roughly three-quarters off the rail's contribution to roof dead load compared to galvanised steel. Across a typical 1 MW rooftop array spanning around 2,000 linear metres of rail, that translates to roughly 7 – 10 tonnes of dead load removed against a steel-rail baseline. The roof's as-designed live-load reserve is preserved, the structural-reinforcement scope is taken off the project critical path, and the PV addition becomes structurally feasible without re-engineering the building. On the rooftop weather-exposure side, GFRP pultruded rail does not anodise, does not pit, does not require a zinc-renewal cycle, and does not form a galvanic couple with the stainless-steel clamp fasteners or the copper grounding wire that runs alongside the array. The accessory kit was finalised across two production batches against the project's installation sequence, with a published clamp-and-bolt schedule (M6 × 12 for rail splices, M8 × 25 for mid- and end-clamps and T-bolts, M8 × 30 for Jiaochi roof clamps) that matched the installer's standard rooftop kit. Profiles were factory-cut to length at the F1 Yancheng line and palletised in rail-direction sequence for direct ground-level rooftop hoisting.",
     results:
-      "The FRP mounting system reduced structural dead load by 35%, enabling smaller foundations across 50,000+ mounting points. The non-conductive nature of FRP eliminated electrical grounding requirements, saving additional installation time and cost.",
+      "The Chongqing factory rooftop retrofit completed its PV-array commissioning inside the as-designed roof live-load reserve, without a structural-reinforcement scope and without taking the original factory roof off operation. The pultruded GFRP H-rail delivered the two performance contributions the project specification had originally been split across two competing rail materials: weight reduction first, and rooftop weather durability second. On the weight-reduction side, the GFRP rail line-mass at roughly 1.0 – 1.5 kg/m against the galvanised-steel baseline of 4 – 6 kg/m removed roughly 75 % of the rail's contribution to the array's permanent dead load — the structural reserve calculation closed comfortably inside code. On the rooftop weather side, the GFRP rail eliminates the recoating cycle that would otherwise have required taking the array panels off the rail every 5 – 8 years for zinc renewal under galvanised steel, and eliminates the pitting/galvanic-couple maintenance burden that an aluminium-rail specification would have inherited under the local humidity and acid-rain profile. For F1 Composite, the project validates the pultruded GFRP rail system in the rooftop-PV retrofit segment where structural reserve and weather durability are jointly binding constraints. The rooftop-retrofit segment is one of the largest single addressable PV growth markets in China through 2030 — and the structural-reserve constraint that limited rooftop PV uptake under steel-rail assumptions is a constraint the GFRP rail materially relaxes.",
     stats: [
-      { value: "50MW", label: "Installation Capacity" },
-      { value: "35%", label: "Weight Reduction" },
-      { value: "50,000+", label: "Mounting Points" },
+      { value: "~75 %", label: "Rail dead-load reduction vs steel" },
+      { value: "1.9 g/cm³", label: "GFRP rail density" },
+      { value: "0", label: "Coating renewal cycle" },
+      { value: "25 yr+", label: "Design service life" },
+      { value: "Jiaochi", label: "Non-penetrating roof clamp" },
+      { value: "1.0 – 1.5", label: "Rail mass (kg/m)" },
+    ],
+    downloads: [
+      {
+        label: "FRP Profile Design Manual — 2026 Edition (PDF)",
+        href: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
+        description: "24-page engineering reference for F1 Composite pultruded structural profiles — Equal Angle, Square Box, Channel, Tube/Top Rail, Wide Flange Beam — with full deflection tables, E23-grade material data, chemical resistance, and fire performance.",
+      },
+      {
+        label: "EPD & Carbon Footprint Analysis (PDF)",
+        href: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
+        description: "Environmental Product Declaration and carbon-footprint analysis for the pultruded GFRP composite profile range — cradle-to-grave 36.1 kg CO₂e/m².",
+      },
+      {
+        label: "PU-GF Pultruded Mechanical Data Sheet (PDF)",
+        href: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf",
+        description: "Mechanical performance summary for PU-GF pultruded composite — tensile, compressive, flexural, ILSS, water absorption per GB/T, ISO, and ASTM standards.",
+      },
     ],
   },
   "qinling-station-antarctic-passive-windows": {
@@ -257,7 +277,7 @@ const caseStudyImages: Record<string, string> = {
   "coastal-marina-walkway": "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
   "chemical-plant-platform": "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
   "fenestration-residential": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
-  "solar-farm-mounting": "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
+  "solar-farm-mounting": "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
   "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.webp",
   "yancheng-talent-apartment-fenestration": "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",

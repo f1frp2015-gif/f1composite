@@ -87,13 +87,13 @@ const caseStudies = [
   },
   {
     slug: "solar-farm-mounting",
-    title: "Solar Farm Mounting Structure",
+    title: "Chongqing Rooftop PV Retrofit — Pultruded FRP H-Rail on Industrial Coloured Steel-Tile Roofs",
     industry: "Energy",
-    location: "Australia",
-    year: "2023",
-    image: "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
+    location: "Chongqing, China",
+    year: "2024",
+    image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
     excerpt:
-      "Engineered lightweight, UV-stable FRP mounting profiles for a 50MW solar installation, reducing structural dead load by 35% versus aluminium.",
+      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanised steel, keeping the retrofit inside the original roof's as-designed live-load reserve while eliminating the rooftop corrosion and recoating cycle.",
   },
   {
     slug: "water-treatment-cable-tray",
