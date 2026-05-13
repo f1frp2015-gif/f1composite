@@ -92,21 +92,41 @@ const caseStudyData: Record<
     ],
   },
   "fenestration-residential": {
-    title: "High-Performance Fenestration — Residential Tower",
+    title: "Wanhua Yantai Zero-Carbon Community — Pultruded GFRP-PU Passive House Windows at Production Scale",
     industry: "Construction",
-    location: "Germany",
-    year: "2024",
+    location: "Yantai, Shandong, China",
+    year: "2022",
     products: ["Fenestration Systems"],
     challenge:
-      "A 24-story residential tower in Germany required window frame profiles that could achieve Passivhaus-certified thermal performance while providing the structural integrity needed for high-rise wind loads.",
+      "Wanhua Chemical — the world's largest MDI (methylene diphenyl diisocyanate) producer and the upstream polyurethane resin supplier for the GFRP-PU pultrusion industry — committed in 2021 to build the first end-to-end zero-carbon employee residential community on its Yantai industrial campus in Shandong Province. The complex spans 112,815 m² of above-ground floor area inside the Yantai Economic and Technological Development Zone, comprising mid- and high-rise employee dormitories and supporting facilities. The specification required simultaneous compliance with two of China's tightest residential energy standards: the National Near-Zero Energy Building Design Standard and Shandong Province's Passive Ultra-Low Energy Residential Building standard. The performance targets were demanding: total primary energy consumption for heating, cooling, and lighting capped at 50 kWh per square metre per year; envelope thermal transmittance significantly tighter than national code; and Passivhaus-class airtightness verified by N50 blower-door testing. The window package was the binding constraint. Aluminium-thermal-break frames would have created continuous metallic conductive paths across the envelope and aged the polyamide thermal-break inserts under the project's full thermal-cycle range. PVC frames could not deliver the structural span needed across the tall double-skin facade openings on the stair towers. The specification called for whole-window U-values below 1.0 W/m²·K — a level conventional aluminium-with-thermal-break systems cannot reach without exotic glazing assemblies, and a level that prior production-scale Chinese residential projects had repeatedly missed. The project owner also imposed a supply-chain integrity constraint: as Wanhua is itself the polyurethane raw-material producer, the window-frame material had to fit the polyurethane composite story end-to-end, with traceable resin chemistry and embodied-carbon transparency from the same supplier ecosystem.",
     solution:
-      "F1 Composite supplied 90-series pultruded FRP window frame profiles with integrated thermal breaks. The profiles achieve U-values below 0.8 W/m²K with zero thermal bridging — impossible with aluminum frames without complex thermal break inserts.",
+      "F1 Composite Co., Ltd, manufactured at our Yancheng manufacturing facility (Chongqing FengDu New Material Co., Ltd.), supplied pultruded glass-fibre-reinforced polyurethane (GFRP-PU) window-frame profiles for the 13,657 m² employee-dormitory portion of the project. The profile package combined three F1 Composite fenestration series: 65-series inward-opening casement and tilt-and-turn for the smaller dormitory window openings, 90-series sliding for the larger balcony openings, and matching facade-frame sections at the stair-tower curtain-wall apertures. The pultruded frames were paired with a five-pane insulating glass unit — 5 mm single-silver Low-E plus 16 mm argon plus 5 mm single-silver Low-E plus 16 mm argon plus 5 mm Low-E — to achieve a verified whole-window U-value of 0.99 W/m²·K, comfortably inside the project's 1.0 W/m²·K specification. Critically, the GFRP-PU pultruded frame eliminates the metallic thermal break entirely. Where an aluminium-with-thermal-break frame must interrupt heat flow through polyamide thermal-break inserts that age, creep under cyclic loading, and ultimately delaminate at the metal-polymer interface, the GFRP-PU frame is a single continuous material with intrinsic thermal conductivity around 0.3 W/m·K — roughly five hundred times less conductive than aluminium across the frame depth, with no joint, no insert, and no aging interface. The pultruded-profile chemistry uses Wanhua polyurethane resin, closing the supply loop: the same Wanhua chemistry that produced the project's polyurethane sandwich wall insulation also supplied the resin matrix for the GFRP-PU window frames. Profiles were factory-finished in matched dark frame colour with co-extruded EPDM gasket channels and reinforced corner joints, then delivered to site in modular palletised units for direct installation onto pre-set bracketry. Production scheduling tracked against eight months of overlapping site civil works to keep the fenestration installation on project critical path without lifting-equipment surges.",
     results:
-      "The building achieved Passivhaus certification with 40% energy savings versus conventional aluminum fenestration. The FRP frames eliminated thermal bridging completely, contributing to a 15% reduction in heating demand beyond the baseline model.",
+      "The Wanhua Zero-Carbon Community completed its 13,657 m² employee-dormitory envelope with the F1 Composite GFRP-PU fenestration system as the principal aperture component. Building-envelope verification at handover returned a comprehensive building energy-saving rate of 61.11 % against the national baseline (the near-zero-energy threshold in the underlying standard sits at 60 %); an envelope-only energy-saving rate of 47.56 %; a renewable-energy utilization rate of 51.81 %; and an airtightness measurement of N50 = 1.0 air changes per hour at 50 Pa — meeting Passivhaus airtightness inside a Chinese-code residential project. Total complex energy savings, when combined with the polyurethane wall insulation, ground-source heat pump array, rooftop photovoltaic system, and solar hot-water plant, are projected at more than 2,000 tonnes of CO₂ reduction per year across the 112,815 m² development. The project is referenced in the Wanhua Chemical 2022 sustainability portfolio as the company's first end-to-end zero-carbon community and stands as the largest single-site deployment of pultruded GFRP-PU fenestration in any Chinese residential project to date. For F1 Composite, the project validates the GFRP-PU pultruded fenestration system at production residential scale: 13,657 m² of envelope is a fundamentally different qualification surface than a research-station or prototype installation, and the verified 0.99 W/m²·K whole-window U-value combined with N50 = 1.0 airtightness now serves as the primary reference point for inquiries on near-zero-energy and passive-house residential developments across the temperate-cold and hot-summer-cold-winter climate zones.",
     stats: [
-      { value: "2,400", label: "Window Units" },
-      { value: "0.8", label: "U-Value (W/m²K)" },
-      { value: "40%", label: "Energy Savings" },
+      { value: "112,815 m²", label: "Total project area" },
+      { value: "13,657 m²", label: "F1 fenestration envelope" },
+      { value: "0.99 W/m²K", label: "Whole-window U-value" },
+      { value: "61.11 %", label: "Energy-saving rate" },
+      { value: "N50 = 1.0", label: "Airtightness (Passivhaus)" },
+      { value: "2,000+ t/yr", label: "CO₂ reduction" },
+    ],
+    downloads: [
+      {
+        label: "3-Star Green Building Material Cert (PDF)",
+        href: "/downloads/f1composite-3star-green-building-cert-frp-windows-2025.pdf",
+        description: "CABR-01(02)-(2025)-CGP-035 — 3-Star Green Building Material rating for the 65/70/80/90-series pultruded GFRP-PU window family used on this project.",
+      },
+      {
+        label: "EPD & Carbon Footprint Analysis (PDF)",
+        href: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
+        description: "Environmental Product Declaration and life-cycle carbon-footprint analysis for the pultruded GFRP composite profile range — cradle-to-grave 36.1 kg CO₂e/m².",
+      },
+      {
+        label: "FRP Window & Door Catalog (PDF)",
+        href: "/downloads/f1composite-frp-window-door-catalog.pdf",
+        description: "Full 65/70/80/90/140-series fenestration catalog with profile specifications, glazing builds, and U-value matrix.",
+      },
     ],
   },
   "solar-farm-mounting": {
@@ -216,7 +236,7 @@ const caseStudyImages: Record<string, string> = {
   "european-bridge-deck": "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
   "coastal-marina-walkway": "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
   "chemical-plant-platform": "/images/case-studies/frp-chemical-plant-access-platform.jpg",
-  "fenestration-residential": "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
+  "fenestration-residential": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
   "solar-farm-mounting": "/images/case-studies/frp-solar-farm-mounting-structure.jpg",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
   "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.webp",
@@ -251,6 +271,16 @@ const caseStudyContentImages: Record<string, { src: string; alt: string }[]> = {
     {
       src: "/images/case-studies/frp-water-treatment-plant-walkway-handrail-installation.jpg",
       alt: "FRP handrail and walkway system installed at municipal water treatment facility with corrosion-resistant railing",
+    },
+  ],
+  "fenestration-residential": [
+    {
+      src: "/images/case-studies/frp-wanhua-yantai-passive-house-building.webp",
+      alt: "Wanhua Yantai Zero-Carbon Community — close view of a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
+    },
+    {
+      src: "/images/case-studies/frp-wanhua-yantai-residential-tower-courtyard.webp",
+      alt: "Ground-level courtyard at the Wanhua Yantai Zero-Carbon Community — residents and staff in the landscaped quad between dormitory buildings, with floor-to-ceiling pultruded GFRP-PU windows above",
     },
   ],
 };

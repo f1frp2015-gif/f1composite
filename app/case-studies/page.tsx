@@ -77,13 +77,13 @@ const caseStudies = [
   },
   {
     slug: "fenestration-residential",
-    title: "High-Performance Fenestration — Residential Tower",
+    title: "Wanhua Yantai Zero-Carbon Community — GFRP-PU Passive House Windows",
     industry: "Construction",
-    location: "Germany",
-    year: "2024",
-    image: "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
+    location: "Yantai, Shandong, China",
+    year: "2022",
+    image: "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
     excerpt:
-      "Supplied 90-series FRP window frame profiles for a 24-story residential development, achieving Passivhaus-certified thermal performance.",
+      "Supplied 65 / 90-series pultruded GFRP-PU window-frame profiles for the 13,657 m² employee-dormitory envelope of Wanhua Chemical's first end-to-end zero-carbon community. Whole-window U = 0.99 W/m²·K, N50 = 1.0 airtightness, 61.11 % comprehensive energy-saving rate verified at handover.",
   },
   {
     slug: "solar-farm-mounting",
