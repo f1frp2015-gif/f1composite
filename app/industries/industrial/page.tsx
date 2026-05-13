@@ -212,7 +212,7 @@ export default function IndustrialPage() {
                 The non-porous surface of pultruded FRP prevents bacterial harbor that occurs in the pits and crevices of corroding steel. Independent laboratory testing per ASTM E2180 (antimicrobial surface test) confirms that our smooth-surface FRP profiles support less than 0.1% bacterial retention after standard CIP cleaning cycles — compared to 2% to 5% retention on corroded steel surfaces cleaned by the same protocol. This difference is significant for HACCP compliance and for meeting microbial count targets in production zone environmental monitoring programs.
               </p>
               <p>
-                We supply food-grade FRP structural profiles for equipment support frames, conveyor support structures, and mezzanine framing in production areas. Our food-grade gratings with sealed top surfaces serve as floor systems in wet processing areas, providing both drainage and anti-slip safety. All food-grade profiles are available in light colors (white, cream, light gray) that facilitate visual cleanliness inspection.
+                We supply food-grade FRP structural profiles for equipment support frames, conveyor support structures, and mezzanine framing in production areas. Our food-grade gratings with sealed top surfaces serve as floor systems in wet processing areas, providing both drainage and anti-slip safety. All food-grade profiles are available in light colors (white, cream, light gray) that make visual cleanliness inspection easier.
               </p>
               <LinkArrow href="/products/custom-pultrusions">
                 Explore custom industrial profiles

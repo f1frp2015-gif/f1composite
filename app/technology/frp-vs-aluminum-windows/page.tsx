@@ -276,7 +276,7 @@ export default function FrpVsAluminumWindowsPage() {
           {
             title: "Deeper reading",
             links: [
-              { href: "/resources/blog/frp-vs-aluminium-window-frames-comparison", label: "Blog: FRP vs aluminium deep dive" },
+              { href: "/resources/blog/frp-vs-aluminium-window-frames-comparison", label: "Blog: FRP vs aluminium full comparison" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: FRP fenestration thermal performance" },
               { href: "/resources/design-guides", label: "Fenestration design guides" },

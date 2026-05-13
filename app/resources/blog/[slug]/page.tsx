@@ -225,6 +225,10 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.excerpt,
     mainEntityOfPage: absoluteUrl(`/resources/blog/${slug}`),
     citation: [...post.standards, ...(post.sourceLinks?.map((link) => link.href) ?? [])],
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".prose-f1 p:first-of-type"],
+    },
   };
 
   return (

@@ -50,7 +50,7 @@ const faqs = [
   {
     question: "Is FRP solar mounting cost-competitive with aluminium and galvanized steel?",
     answer:
-      "On per-kilogram material cost, FRP is 1.5–2.0× aluminium 6063 in 2026. On per-installed-MW cost — the only comparison that matters at the project level — FRP is roughly cost-neutral with aluminium when foundation savings are included, and 8–15% above galvanized steel. FRP wins clearly over both alternatives in coastal Australian projects (where galvanized steel needs heavier coatings and aluminium suffers chloride pitting), in projects with a 30+ year design life, and in projects where O&M cost over the asset lifecycle is being optimised rather than just up-front installed cost.",
+      "On per-kilogram material cost, FRP is 1.5–2.0× aluminium 6063 in 2026. On per-installed-MW cost — the only comparison that matters at the project level — FRP is roughly cost-neutral with aluminium when foundation savings are included, and 8–15% above galvanized steel. FRP wins clearly over both alternatives in coastal Australian projects (where galvanized steel needs heavier coatings and aluminium suffers chloride pitting), in projects with a 30+ year design life, and in projects where O&M cost over the asset lifecycle is the optimisation target, not up-front installed cost alone.",
   },
 ];
 

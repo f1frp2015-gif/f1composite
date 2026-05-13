@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
 import InnerCTA from "@/components/sections/InnerCTA";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo";
 import { authors } from "@/lib/authors";
 
@@ -15,9 +16,50 @@ export const metadata: Metadata = buildPageMetadata({
   path: pagePath,
 });
 
+const authorsCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.f1composite.com/about/authors#collection",
+  url: "https://www.f1composite.com/about/authors",
+  name: "F1 Composite Authors",
+  description:
+    "Named experts who author F1 Composite engineering content across application engineering, R&D, and industry research.",
+  isPartOf: { "@id": "https://www.f1composite.com/#website" },
+  publisher: { "@id": "https://www.f1composite.com/#organization" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.f1composite.com/" },
+      { "@type": "ListItem", position: 2, name: "About", item: "https://www.f1composite.com/about" },
+      { "@type": "ListItem", position: 3, name: "Authors", item: "https://www.f1composite.com/about/authors" },
+    ],
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: authors.length,
+    itemListElement: authors.map((author, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Person",
+        "@id": `https://www.f1composite.com/about/authors/${author.slug}#person`,
+        name: author.fullName,
+        jobTitle: author.jobTitle,
+        knowsAbout: author.knowsAbout,
+        url: `https://www.f1composite.com/about/authors/${author.slug}`,
+        worksFor: { "@id": "https://www.f1composite.com/#organization" },
+        ...(author.linkedinUrl || author.orcidUrl
+          ? { sameAs: [author.linkedinUrl, author.orcidUrl].filter(Boolean) as string[] }
+          : {}),
+      },
+    })),
+  },
+};
+
 export default function AuthorsIndexPage() {
   return (
     <>
+      <JsonLd data={authorsCollectionSchema} />
       <PageHeader
         tag="Authors"
         title="The named experts behind F1 Composite content"

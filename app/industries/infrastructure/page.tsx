@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "How do FRP bridge decks compare to concrete in load-carrying capacity?",
     answer:
-      "Pultruded FRP bridge decks are engineered to carry HL-93 highway loading per AASHTO LRFD specifications, the same design loads applied to concrete decks. A typical FRP deck panel weighs between 80 and 100 kg/m2, compared to 500-600 kg/m2 for a 200mm reinforced concrete deck. This 80% weight reduction directly increases the live load capacity of existing bridges during rehabilitation, or allows lighter substructures in new construction. FRP decks have been independently load-tested to failure loads exceeding 3.5 times their design capacity, confirming robust safety factors.",
+      "Pultruded FRP bridge decks are engineered to carry HL-93 highway loading per AASHTO LRFD specifications, the same design loads applied to concrete decks. A typical FRP deck panel weighs between 80 and 100 kg/m2, compared to 500-600 kg/m2 for a 200mm reinforced concrete deck. This 80% weight reduction directly increases the live load capacity of existing bridges during rehabilitation, or allows lighter substructures in new construction. FRP decks have been independently load-tested to failure loads exceeding 3.5 times their design capacity, confirming generous safety margins.",
   },
   {
     question: "What is the expected service life of FRP in infrastructure applications?",

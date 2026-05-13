@@ -200,6 +200,27 @@ const orgSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.f1composite.com/#website",
+  url: "https://www.f1composite.com",
+  name: "F1 Composite",
+  alternateName: "F1 Composite Co., Ltd",
+  description:
+    "Pultruded FRP profiles manufacturer — fiberglass structural shapes, FRP window frames, gratings & decks, and custom pultrusions to EN 13706 and ASTM D3917.",
+  inLanguage: "en",
+  publisher: { "@id": "https://www.f1composite.com/#organization" },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://www.f1composite.com/ask?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -212,6 +233,7 @@ export default function RootLayout({
       )}
       <body className="min-h-screen font-sans antialiased">
         <JsonLd data={orgSchema} />
+        <JsonLd data={websiteSchema} />
         <Navbar />
         <main className="pt-[55px]">{children}</main>
         <Footer />

@@ -217,7 +217,7 @@ export default function MarinePage() {
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Walkways, Gratings, and Access Platforms</h3>
               <p>
-                FRP gratings are the single most widely adopted FRP product in marine applications worldwide. Our molded and pultruded gratings serve dock surfaces, platform walkways, vessel deck areas, and coastal access structures. Marine-grade FRP gratings with vinyl ester resin provide permanent corrosion resistance in splash zones, tidal areas, and submerged installations.
+                FRP gratings are the most widely adopted FRP product in marine applications worldwide. Our molded and pultruded gratings serve dock surfaces, platform walkways, vessel deck areas, and coastal access structures. Marine-grade FRP gratings with vinyl ester resin provide permanent corrosion resistance in splash zones, tidal areas, and submerged installations.
               </p>
               <p>
                 Anti-slip surfaces are critical in marine environments where wet, oily, and salt-crusted conditions create fall hazards. Our marine gratings incorporate bonded silica grit surfaces that achieve pendulum test values (PTV) exceeding 55 in wet conditions — significantly exceeding the HSE threshold of 36 for low-slip risk. This slip resistance is permanent, embedded in the grating surface rather than applied as a coating that can wear off.

@@ -4,6 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
 import InnerCTA from "@/components/sections/InnerCTA";
 import FAQ from "@/components/ui/FAQ";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo";
 import { applicationPages } from "@/lib/applicationPages";
 
@@ -37,9 +38,40 @@ const faqs = [
   },
 ];
 
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.f1composite.com/applications#collection",
+  url: "https://www.f1composite.com/applications",
+  name: "FRP Applications by Structure and Environment",
+  description:
+    "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, solar mounting, and chemical plant platforms.",
+  isPartOf: { "@id": "https://www.f1composite.com/#website" },
+  publisher: { "@id": "https://www.f1composite.com/#organization" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.f1composite.com/" },
+      { "@type": "ListItem", position: 2, name: "Applications", item: "https://www.f1composite.com/applications" },
+    ],
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "FRP Application Guides",
+    numberOfItems: applicationPages.length,
+    itemListElement: applicationPages.map((page, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://www.f1composite.com/applications/${page.slug}`,
+      name: page.shortTitle,
+    })),
+  },
+};
+
 export default function ApplicationsPage() {
   return (
     <>
+      <JsonLd data={collectionSchema} />
       <PageHeader
         tag="Applications"
         title="FRP applications by structure and environment"
@@ -95,7 +127,7 @@ export default function ApplicationsPage() {
                 <strong>What is the fire performance requirement?</strong> ASTM E84 Class 1 is achievable; Class 1 with smoke-developed index &lt;50 requires a specific resin system; full FRA (Fire Reaction Approval) per IMO requires further. We classify our standard profiles by fire class on every datasheet.
               </li>
               <li>
-                <strong>What is the connection ecosystem?</strong> Are you mating to existing carbon steel (galvanic isolation needed), to other FRP (bolted or bonded), or to concrete (chemical anchor + epoxy bedding)? The application detail pages cover the typical connection sets.
+                <strong>What connections are involved?</strong> Are you mating to existing carbon steel (galvanic isolation needed), to other FRP (bolted or bonded), or to concrete (chemical anchor + epoxy bedding)? The application detail pages cover the typical connection sets.
               </li>
             </ol>
             <p>

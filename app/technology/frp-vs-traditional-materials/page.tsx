@@ -193,7 +193,7 @@ const propertyCards: PropertyCard[] = [
     icon: "0",
     headline: "Zero corrosion — no rust, no coating, no maintenance for 50+ years",
     detail: [
-      "Corrosion resistance is the single most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments — requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
+      "Corrosion resistance is the most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments — requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
       "FRP is inherently immune to electrochemical corrosion because it contains no metal. Vinyl ester and epoxy resin systems resist a wide range of acids, alkalis, solvents, and salt solutions at elevated temperatures. In chemical plants, wastewater facilities, marine structures, and coastal buildings, FRP profiles can serve for 50+ years with zero corrosion-related maintenance — an economic advantage that often justifies the higher initial cost within 5–10 years.",
     ],
   },
