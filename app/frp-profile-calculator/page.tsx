@@ -9,9 +9,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free FRP Profile Calculator — Beam Deflection, Stress & Steel/Aluminum Equivalence",
+  title: "Free FRP Profile Calculator — LRFD/ASD · EN, GB, ASCE Codes",
   description:
-    "Free online calculator for pultruded FRP profiles: beam deflection, bending stress, and equivalent FRP section to replace steel or aluminum. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23. No login required.",
+    "Pultruded FRP design tool: LRFD/ASD bending, shear, Timoshenko deflection, steel/aluminum equivalence. EN 13706, GB 50608, ASCE 74-23. Free.",
   path: "/frp-profile-calculator",
 });
 
@@ -24,22 +24,32 @@ const calculatorFaqs = [
   {
     question: "Which standards does the FRP calculator follow?",
     answer:
-      "Calculations follow Euler-Bernoulli beam theory using elastic modulus and stress allowables typical for pultruded E-glass / isophthalic polyester profiles manufactured to EN 13706 E23 and ASTM D3917. Allowable stress (70 MPa) incorporates the safety factors of ASCE/SEI 74-23 Pre-Standard for LRFD of Pultruded FRP Structures, including creep, moisture, UV, and temperature de-rating.",
+      "The calculator supports four design frameworks: LRFD per ASCE/SEI 74-23 (US official FRP standard, 2024 — superseding the 2010 ACMA Pre-Standard); the partial-factor method per CEN/TS 19101:2022 (the Eurocode-track Technical Specification for FRP structures); LRFD per GB 50608-2020 (China FRP application code) together with CECS 692:2020 for pultruded profiles; and legacy ASD using a 2.5 bending / 3.0 shear factor of safety. Material specifications include EN 13706-3 (E17/E23 minimum-modulus grades) and ASTM D3917 (dimensional tolerance).",
+  },
+  {
+    question: "Does the calculator handle orthotropic FRP properties?",
+    answer:
+      "Yes. For every FRP grade the calculator reports the longitudinal modulus E_L (fiber direction), transverse modulus E_T (typically 0.25–0.35 × E_L for E-glass pultruded), and in-plane shear modulus G_LT (typically 3–4 GPa). Deflection includes a Timoshenko shear correction driven by the E_L / G_LT ratio — for short-span FRP beams this can add 15–25% on top of pure bending deflection.",
+  },
+  {
+    question: "How are environmental knockdowns applied?",
+    answer:
+      "FRP characteristic strengths are multiplied by an environmental factor selected from the dropdown: 1.00 indoor dry, 0.85 outdoor exposed (UV + humidity), 0.80 wet / immersion, 0.75 mild chemical exposure (per CECS 692:2020 Annex), and 0.70 elevated temperature 30–60°C (approaching glass transition per ASCE/SEI 74-23 §3.5.4). Metals are unaffected. For acid resistance class selection, see CECS 692:2020 Annex.",
   },
   {
     question: "Can I use this calculator for vinyl ester, polyurethane, or phenolic FRP profiles?",
     answer:
-      "The default elastic modulus (23 GPa) and allowable stress (70 MPa) reflect standard E-glass / polyester EN 13706 E23 properties. Vinyl ester and polyurethane FRP have similar modulus and slightly different allowable stress; phenolic FRP has lower modulus. For non-default resin systems, contact F1 Composite engineering for project-specific values.",
+      "The EN 13706 E17/E23 and GB 50608 Class I/II material properties reflect E-glass / polyester pultruded profiles. Vinyl ester and polyurethane FRP have similar modulus and slightly different strength; phenolic FRP has lower modulus and significantly better fire performance. For non-default resin systems, contact F1 Composite engineering for project-specific characteristic values.",
   },
   {
-    question: "Does this calculator handle local buckling and connections?",
+    question: "Does this calculator handle local buckling, lateral-torsional buckling, and connections?",
     answer:
-      "No. The calculator solves global deflection and bending stress only. Local web/flange buckling per EN 13706 Annex G or ASCE 74-23 Chapter 3, and connection detailing per ASCE 74-23 Chapter 8, must be checked separately. F1 Composite engineering supports project-specific buckling and connection review.",
+      "Not as full design checks. The calculator flags an outstanding-flange b/t advisory when slenderness exceeds 18 (typical limit for E-glass pultruded), prompting a dedicated local-buckling review per ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6. Lateral-torsional buckling, web crippling, and bolted/bonded connection design (ASCE/SEI 74-23 Ch.8) are out of scope — these need a dedicated tool such as PulCalc 3.x or project-specific engineering. F1 Composite engineering supports these checks on request.",
   },
   {
     question: "Why does FRP need a deeper section than steel for the same deflection?",
     answer:
-      "FRP elastic modulus is 23–28 GPa versus steel's 200 GPa — about 1/8 to 1/10 of steel. To match steel's deflection, the FRP section needs roughly 8–10× the second moment of area, which is achieved by going deeper (deflection scales with depth cubed). Even at deeper section, FRP installed weight is 70–75% lower than the steel it replaces because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel.",
+      "FRP elastic modulus is 17–28 GPa versus steel's 200 GPa — about 1/8 to 1/10 of steel. To match steel's deflection, the FRP section needs roughly 8–10× the second moment of area, achieved by going deeper (deflection scales with depth cubed). Even at deeper section, FRP installed weight is 70–75% lower than the steel it replaces because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel.",
   },
 ];
 
@@ -58,12 +68,18 @@ export default function CalculatorPage() {
           inLanguage: "en",
           isAccessibleForFree: true,
           description:
-            "Structural calculator for pultruded FRP profiles. EN 13706 / ASTM D3917 compliant. Beam deflection, bending stress, and steel/aluminum equivalence.",
+            "Structural calculator for pultruded FRP profiles with LRFD and ASD support. Aligned to EN 13706, GB 50608-2020 / CECS 692:2020, ASCE/SEI 74-23, and CEN/TS 19101:2022. Bending, shear, Timoshenko-corrected deflection, orthotropic E_L/E_T/G_LT properties, environmental knockdown, and steel/aluminum equivalence.",
           featureList: [
-            "Beam deflection calculation (simply supported, cantilever)",
-            "Bending stress check per EN 13706",
-            "FRP-to-steel equivalent section finder",
-            "FRP-to-aluminum equivalent section finder",
+            "LRFD design method — ASCE/SEI 74-23, CEN/TS 19101:2022, GB 50608-2020",
+            "ASD legacy allowable-stress method (FS 2.5 bending / 3.0 shear)",
+            "Orthotropic FRP properties — E_L, E_T, G_LT, F_tL, F_vLT",
+            "Environmental knockdown factor — indoor / outdoor / wet / chemical / hot",
+            "Bending stress check with resistance factor",
+            "Shear stress check (V / A_web)",
+            "Timoshenko-corrected deflection (bending + shear)",
+            "Outstanding-flange b/t local-buckling advisory",
+            "Simply supported, cantilever, UDL, point load support",
+            "FRP-to-steel and FRP-to-aluminum equivalent section finder",
             "Weight comparison across materials",
           ],
           offers: {
@@ -81,7 +97,7 @@ export default function CalculatorPage() {
       <PageHeader
         tag="Free Engineering Tool"
         title="Free FRP Profile Calculator"
-        description="Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminum sections — instantly, free, no login. Based on EN 13706, ASTM D3917, and ASCE/SEI 74-23 Pre-Standard for pultruded FRP."
+        description="LRFD and ASD design checks for pultruded FRP — bending, shear, Timoshenko-corrected deflection, orthotropic E_L/E_T/G_LT, environmental knockdown, and steel/aluminum equivalence. Switch between EN 13706, GB 50608-2020 / CECS 692:2020, ASCE/SEI 74-23, and CEN/TS 19101:2022. Free, no login."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -97,29 +113,26 @@ export default function CalculatorPage() {
             How to use the FRP profile calculator
           </h2>
           <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
-            This calculator solves three recurring questions in FRP structural selection: how much a pultruded FRP beam will deflect under a given load, whether bending stress stays within design allowables, and what cross-section is needed to replace a steel or aluminum member at the same deflection. All formulas follow Euler-Bernoulli beam theory with E and σ values typical for pultruded E-glass / isophthalic polyester profiles manufactured to EN 13706 E23 and ASTM D3917.
+            This calculator solves three recurring questions in FRP structural selection: whether a pultruded FRP beam satisfies bending and shear at factored load, whether deflection at service load meets the L/n limit (including the Timoshenko shear correction that matters for short-span FRP beams), and what cross-section is needed to replace a steel or aluminum member at equal stiffness or equal strength — whichever governs. Select the design framework (ASCE/SEI 74-23 LRFD, CEN/TS 19101:2022 partial-factor, GB 50608-2020 LRFD, or legacy ASD) and an environmental class; the calculator applies the appropriate resistance factor and FRP environmental knockdown to characteristic strengths.
           </p>
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">
             <div>
               <h3 className="text-f19 font-bold text-t1">Input example — walkway beam</h3>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                A pedestrian walkway requires a 3 m simply-supported FRP beam carrying 5 kN/m uniformly distributed live load plus 1 kN/m self-weight. Engineers typically select an FRP I-beam and check two limits: deflection under service load (usually L/360 = 8.3 mm for walkways per IBC 1604.3) and bending stress under factored load (usually ≤ 70 MPa for pultruded FRP E23, which incorporates creep and moisture safety factors beyond the EN 13706 minimum of 170 MPa tensile).
-              </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
-                Enter span = 3000 mm, load = 6 kN/m (combined), and select an FRP I-beam with second moment of area I ≈ 1.8 × 10⁷ mm⁴ (typical for 152×76 pultruded section). The calculator returns maximum deflection near 7 mm and maximum bending stress near 55 MPa — both within allowables, confirming the section is adequate.
+                A pedestrian walkway requires a 3 m simply-supported FRP beam carrying 5 kN/m UDL live plus 1 kN/m self-weight (6 kN/m service). With LRFD ASCE/SEI 74-23 (γ = 1.4, φ_b = 0.65) and outdoor exposure (Ω_E = 0.85), an EN 13706 E23 I-beam 152×76 (I ≈ 1.8×10⁷ mm⁴) returns bending stress near 75 MPa vs ~132 MPa allowable (E23 240 × 0.65 × 0.85), service deflection near 7 mm = L/430 with a Timoshenko shear contribution of ~12% — within the L/360 walkway limit per IBC 1604.3 / GB 50352. Comfortable margin on strength, deflection-governed as expected.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">How to interpret the results</h3>
               <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
                 <li>
-                  <strong className="text-t1">Deflection governs most FRP designs.</strong> FRP has tensile strength comparable to structural steel but elastic modulus is only 17–28 GPa — roughly 1/10 of steel&apos;s 200 GPa. Members sized to match steel on strength will therefore deflect about 10× more. Always check the L/240 or L/360 limit first; if deflection passes, stress almost always passes too.
+                  <strong className="text-t1">Deflection almost always governs.</strong> FRP E_L is 17–28 GPa — roughly 1/10 of steel. Members sized for steel-equivalent strength deflect about 10× more. Check L/240 or L/360 first; if it passes, the bending and shear checks usually pass too. The Timoshenko shear-deflection share (shown below the load summary) is non-trivial for short-span beams because FRP G_LT is only ~1/6 of E_L.
                 </li>
                 <li>
-                  <strong className="text-t1">Equivalent section is deeper, not heavier.</strong> When replacing a W6×12 steel beam with FRP at equal deflection, expect a deeper FRP section (e.g. 203×102 instead of 152×76) but installed weight still drops by 70–75% because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel.
+                  <strong className="text-t1">Equivalent section is deeper, not heavier.</strong> Replacing a W6×12 (152×76) steel beam at equal deflection typically needs a 203×102 FRP I-beam — but installed weight still drops 70–75% because FRP density is 1.9 g/cm³ vs 7.85 g/cm³ for steel.
                 </li>
                 <li>
-                  <strong className="text-t1">Allowable stress is low for a reason.</strong> The 70 MPa allowable used here includes combined safety factors for creep rupture (≈ 0.3× short-term strength), moisture absorption, UV degradation, and temperature sensitivity. These are built into ASCE/SEI 74-23 Pre-Standard for Pultruded FRP Structures.
+                  <strong className="text-t1">Why allowables look low.</strong> Allowable strength = φ × F_char × Ω_E. The resistance factor (φ_b = 0.65 in ASCE/SEI 74-23, 1/γ_M ≈ 0.67 in CEN/TS 19101, 1/γ_R ≈ 0.63 in GB 50608) already covers creep, moisture, and material variability; Ω_E (0.70–1.00) adds long-term environmental knockdown for outdoor/wet/hot/chemical service. Together they explain why the design allowable is 25–40% of the characteristic strength reported by the material spec.
                 </li>
               </ul>
             </div>
@@ -128,23 +141,28 @@ export default function CalculatorPage() {
               <h3 className="text-f19 font-bold text-t1">Common specification mistakes</h3>
               <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
                 <li>
-                  <strong className="text-t1">Using steel allowables for FRP.</strong> FRP must never be designed using AISC 360 allowable stresses. Pultruded profiles follow ASCE/SEI 74-23 (North America) or EN 13706 / Eurocomp Design Code (Europe), which use different resistance factors and explicitly cap long-term stress at 20–30% of ultimate.
+                  <strong className="text-t1">Using steel allowables for FRP.</strong> FRP must never be designed using AISC 360, Eurocode 3, or GB 50017 steel allowables. Pultruded profiles follow ASCE/SEI 74-23 (US), CEN/TS 19101:2022 (Europe), or GB 50608-2020 with CECS 692:2020 (China). All three use distinctly different resistance factors and explicitly cap long-term stress at 20–35% of ultimate.
                 </li>
                 <li>
-                  <strong className="text-t1">Ignoring local buckling.</strong> Thin-walled FRP sections can buckle locally under compression well before reaching the calculated bending capacity. Web and flange slenderness limits from EN 13706 Annex G or ASCE 74-23 Chapter 3 must be checked separately — this calculator does not include local buckling.
+                  <strong className="text-t1">Ignoring local buckling.</strong> Thin-walled FRP sections can buckle locally before reaching calculated bending capacity. The calculator flags an outstanding-flange b/t advisory (limit ≈ 18 for E-glass pultruded), but a full check per ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6 is still required — for compression-governed members the limit tightens further.
                 </li>
                 <li>
-                  <strong className="text-t1">Treating FRP as isotropic.</strong> Pultruded FRP is strongly orthotropic: longitudinal (fiber direction) tensile strength is 4–5× the transverse value. Any connection transferring load in the transverse direction (drilled holes, notches, brackets) needs special detailing per ASCE 74-23 Chapter 8.
+                  <strong className="text-t1">Treating FRP as isotropic.</strong> Pultruded FRP is strongly orthotropic: longitudinal tensile strength (F_tL) is 4–5× the transverse value, and E_T is only 25–35% of E_L. Connections that load in the transverse direction (drilled holes, notches, brackets) need special detailing per ASCE/SEI 74-23 Ch.8 or CECS 692:2020 §7.
+                </li>
+                <li>
+                  <strong className="text-t1">Skipping shear deflection.</strong> Because G_LT is only ~3 GPa, FRP shear deflection can contribute 15–25% of total mid-span deflection on short spans. The calculator applies the Timoshenko correction automatically and reports the shear share — pure Euler-Bernoulli (Δ = 5wL⁴/384EI) under-predicts.
                 </li>
               </ul>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Referenced standards</h3>
               <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
-                <li>EN 13706-2: Reinforced plastic composites — Specifications for pultruded profiles — Methods of test and general requirements</li>
-                <li>EN 13706-3: Reinforced plastic composites — Pultruded profiles — Specific requirements (E17 and E23 grades)</li>
-                <li>ASTM D3917: Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes</li>
-                <li>ASCE/SEI 74-23: Pre-Standard for LRFD of Pultruded FRP Structures</li>
-                <li>Eurocomp Design Code and Handbook — Structural Design of Polymer Composites</li>
+                <li><strong>EN 13706-2/-3:2002</strong> — Reinforced plastic composites — Pultruded profiles — General requirements and Specific requirements (E17 / E23 minimum-modulus grades)</li>
+                <li><strong>ASTM D3917</strong> — Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes</li>
+                <li><strong>ASCE/SEI 74-23</strong> — Standard for the Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (2024, supersedes the 2010 ACMA Pre-Standard)</li>
+                <li><strong>CEN/TS 19101:2022</strong> — Design of fibre-polymer composite structures (Eurocode-track Technical Specification preparing prEN 19101)</li>
+                <li><strong>GB 50608-2020</strong> — 纤维增强复合材料工程应用技术标准 (Technical Standard for the Engineering Application of Fiber-Reinforced Composite Materials)</li>
+                <li><strong>CECS 692:2020</strong> — 拉挤型材结构技术规程 (Technical Regulation for Structures of Pultruded Profiles)</li>
+                <li><strong>Eurocomp Design Code and Handbook</strong> — Structural Design of Polymer Composites (companion to CEN/TS 19101)</li>
               </ul>
             </div>
           </div>
