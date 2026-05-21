@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return buildPageMetadata({
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle ?? post.title,
+    description: post.ogDescription ?? post.excerpt,
     path: `/resources/blog/${slug}`,
     image: `/resources/blog/${slug}/opengraph-image`,
   });

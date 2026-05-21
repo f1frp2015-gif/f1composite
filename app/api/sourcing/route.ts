@@ -40,31 +40,48 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
 Return ONLY the schema-compliant object. Never include markdown, prose preamble, or chat-style framing.`;
 
 export async function POST(req: Request) {
-  const { prompt }: { prompt: string } = await req.json();
+  try {
+    const { prompt }: { prompt: string } = await req.json();
 
-  if (!prompt || typeof prompt !== "string" || prompt.trim().length < 10) {
-    return new Response(
-      JSON.stringify({ error: "Provide an application description of at least 10 characters." }),
-      { status: 400, headers: { "Content-Type": "application/json" } },
+    if (!prompt || typeof prompt !== "string" || prompt.trim().length < 10) {
+      return new Response(
+        JSON.stringify({ error: "Provide an application description of at least 10 characters." }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    console.log(
+      JSON.stringify({
+        evt: "sourcing_query",
+        ts: new Date().toISOString(),
+        len: prompt.length,
+        preview: prompt.slice(0, 240),
+      }),
+    );
+
+    const result = streamObject({
+      model: google("gemini-2.5-flash"),
+      schema: sourcingRecommendationSchema,
+      system: SYSTEM_PROMPT,
+      prompt: prompt.trim(),
+      maxOutputTokens: 4096,
+    });
+
+    return result.toTextStreamResponse();
+  } catch (err) {
+    console.error(
+      JSON.stringify({
+        evt: "sourcing_error",
+        ts: new Date().toISOString(),
+        err: err instanceof Error ? `${err.name}: ${err.message}` : String(err),
+      }),
+    );
+    return Response.json(
+      {
+        error:
+          "Sourcing assistant temporarily unavailable. Please retry, or describe your project at /contact for a human reply within 24h.",
+      },
+      { status: 503 },
     );
   }
-
-  console.log(
-    JSON.stringify({
-      evt: "sourcing_query",
-      ts: new Date().toISOString(),
-      len: prompt.length,
-      preview: prompt.slice(0, 240),
-    }),
-  );
-
-  const result = streamObject({
-    model: google("gemini-2.5-flash"),
-    schema: sourcingRecommendationSchema,
-    system: SYSTEM_PROMPT,
-    prompt: prompt.trim(),
-    maxOutputTokens: 4096,
-  });
-
-  return result.toTextStreamResponse();
 }

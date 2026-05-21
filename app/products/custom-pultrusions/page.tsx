@@ -9,9 +9,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Custom Pultrusion Services — Bespoke Fiberglass Profiles";
+const pageTitle = "Custom Pultrusion Services — Bespoke FRP Profiles";
 const pageDescription =
-  "Custom pultruded FRP profiles engineered to your specifications. Cross-sections up to 600×300mm, E-glass, carbon, aramid fibers. In-house die design, 4-8 week tooling, 500m MOQ. Get a quote.";
+  "Custom FRP profiles to spec. 600×300mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500m MOQ. ASTM E84 Class A available. DDP USA · Section 301 pre-quoted · 24h reply.";
 const pagePath = "/products/custom-pultrusions";
 
 export const metadata: Metadata = buildPageMetadata({

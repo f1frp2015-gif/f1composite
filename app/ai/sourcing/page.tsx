@@ -14,9 +14,9 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free FRP Sourcing Assistant — Get China Factory Pricing & Spec in 60 Seconds",
+  title: "Free FRP Sourcing Assistant — Spec + 48h Quote",
   description:
-    "Free AI-powered FRP sourcing tool. Describe your application — environment, load, standards, geography — and get an instant FRP specification, recommended resin system, applicable certifications, similar case studies, and a direct path to a 48-hour quote from F1 Composite (China factory). No login.",
+    "Describe your FRP project — environment, load, standards. Get an AI spec with resin, certifications, case studies, and a 48h quote from F1 Composite. ASTM/EN compliant. DDP USA ready.",
   path: "/ai/sourcing",
 });
 

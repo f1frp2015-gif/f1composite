@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Gratings & Decks — Molded, Pultruded & Structural Deck Panels";
+  "FRP Gratings & Decks — Molded, Pultruded, Deck Panels";
 const pageDescription =
-  "FRP gratings, molded gratings, pultruded gratings and structural deck panels for chemical plants, marine platforms and bridge decks.";
+  "FRP gratings — molded, pultruded, deck panels for chemical, marine, bridge decks. ASTM E84 Class A, slip-rated. DDP USA · Section 301 pre-quoted · 24h reply.";
 const pagePath = "/products/gratings";
 
 export const metadata: Metadata = buildPageMetadata({

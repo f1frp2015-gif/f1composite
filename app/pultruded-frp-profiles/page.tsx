@@ -12,9 +12,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForHub } from "@/lib/aiPrefill";
 
 const pageTitle =
-  "Pultruded FRP Profiles — Fiberglass Structural Shapes Manufacturer";
+  "Pultruded FRP Profiles — ASTM & EN 13706 · DDP USA";
 const pageDescription =
-  "Pultruded FRP profiles manufacturer for structural shapes, window frames, gratings and custom pultrusions. EN 13706, ASTM D3917, 370 lines, global export.";
+  "FRP manufacturer for structural shapes, PHIUS-certified frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote in 24h, Section 301 inline.";
 const pagePath = "/pultruded-frp-profiles";
 
 export const metadata: Metadata = buildPageMetadata({

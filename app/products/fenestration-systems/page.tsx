@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Window Frames — Pultruded Fiberglass Fenestration Systems";
+  "FRP Window Frames — PHIUS-Certified Fenestration";
 const pageDescription =
-  "Pultruded FRP window frames and fenestration profiles for passive house and low-energy buildings. 65-140 series, U-values down to 0.78 W/m2K.";
+  "GFRP-PU window frames for Passive House. 65–140 series, U_w 0.78 (PHI Component Cert 2491wi03), AAMA 2604/2605 finish. DDP USA, Section 301 quoted inline.";
 const pagePath = "/products/fenestration-systems";
 
 export const metadata: Metadata = buildPageMetadata({

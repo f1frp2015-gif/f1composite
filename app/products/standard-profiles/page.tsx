@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Standard FRP Profiles — Pultruded Fiberglass Structural Shapes",
+  title: "Standard FRP Profiles — Pultruded Structural Shapes",
   description:
-    "Stock pultruded FRP structural shapes: I-beams, channels, angles, tubes, flat bars, rods. EN 13706, ASTM D3917, 6 m lengths.",
+    "Pultruded FRP structural shapes: I-beams, channels, angles, tubes, flat bars, rods. ASTM E84 · EN 13706 · 6 m lengths. DDP USA, Section 301 inline · 24h quote.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });

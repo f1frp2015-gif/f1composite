@@ -16,9 +16,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Pultruded FRP Profiles Manufacturer & Supplier from China | F1 Composite",
+    title: "Pultruded FRP Profiles — ASTM, EN 13706 · DDP USA",
     description:
-      "Pultruded FRP profiles manufacturer and direct factory supplier from China. Fiberglass I-beams, channels, angles, custom pultrusions, FRP window frames, gratings & deck panels. ISO 9001, EN 13706, 370 pultrusion lines, exporting to 30+ countries.",
+      "Pultruded FRP profiles direct from F1 factory. I-beams, custom pultrusions, PHIUS-certified frames, gratings. ASTM E84 · EN 13706. DDP USA, Section 301 pre-quoted.",
     path: "/",
     image: "/opengraph-image",
   }),

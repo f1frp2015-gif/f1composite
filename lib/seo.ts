@@ -23,24 +23,49 @@ export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }
 
+// TEMP 2026-05-21: 硬阻断暂时降级为 warning,待 ~55 页 Title/Desc 全量修完后恢复 throw
+// 触发条件: 设 SEO_STRICT=1 重启 throw 模式;否则仅 warn
+const SEO_STRICT = process.env.SEO_STRICT === "1";
+
+function enforceSeoLimits(
+  path: string,
+  title: string,
+  description: string,
+) {
+  const violations: string[] = [];
+  if (title.length > 60) {
+    violations.push(
+      `title is ${title.length} chars (max 60): "${title}"`,
+    );
+  }
+  if (description.length < 120) {
+    violations.push(
+      `description is ${description.length} chars (min 120): "${description.slice(0, 80)}..."`,
+    );
+  }
+  if (description.length > 160) {
+    violations.push(
+      `description is ${description.length} chars (max 160): "${description.slice(0, 80)}..."`,
+    );
+  }
+  if (violations.length === 0) return;
+  const msg = `[seo] ${path}\n  - ${violations.join("\n  - ")}`;
+  if (!SEO_STRICT) {
+    console.warn(msg);
+    return;
+  }
+  throw new Error(
+    `${msg}\n\nUnset SEO_STRICT to downgrade to warning (use only after batch-cleaning all violations).`,
+  );
+}
+
 export function buildPageMetadata({
   title,
   description,
   path,
   image = "/opengraph-image",
 }: PageMetadataOptions): Metadata {
-  if (process.env.NODE_ENV !== "production") {
-    if (description.length < 120 || description.length > 160) {
-      console.warn(
-        `[seo] description for ${path} is ${description.length} chars (target 120-160): "${description.slice(0, 80)}..."`,
-      );
-    }
-    if (title.length > 60) {
-      console.warn(
-        `[seo] title for ${path} is ${title.length} chars (target ≤60): "${title}"`,
-      );
-    }
-  }
+  enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 
@@ -49,6 +74,10 @@ export function buildPageMetadata({
     description,
     alternates: {
       canonical: url,
+      languages: {
+        "en-US": url,
+        "x-default": url,
+      },
     },
     openGraph: {
       title,

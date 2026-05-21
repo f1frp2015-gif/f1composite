@@ -24,6 +24,7 @@ const pexelsCredit = (creator: string, href: string): ImageAttribution => ({
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   category: string;
   date: string;
   updatedAt: string;
@@ -54,6 +55,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "what-is-pultrusion",
     title: "What Is Pultrusion? A Complete Guide to the FRP Manufacturing Process",
+    seoTitle: "What Is FRP Pultrusion? A Manufacturing Guide",
     category: "Process Guide",
     date: "2024-01-15",
     updatedAt: "2026-03-28",
@@ -119,6 +121,7 @@ At F1 Composite, we operate multiple pultrusion lines equipped for both open-bat
   {
     slug: "frp-vs-steel-structural-profiles",
     title: "FRP vs Steel for Structural Profiles: A Data-Driven Comparison",
+    seoTitle: "FRP vs Steel Structural Profiles — Data Comparison",
     category: "Material Comparison",
     date: "2024-02-20",
     updatedAt: "2026-03-28",
@@ -185,6 +188,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
   {
     slug: "frp-fenestration-thermal-performance",
     title: "Why FRP Window Frames Outperform Aluminum in Thermal Insulation",
+    seoTitle: "FRP vs Aluminum Windows — Thermal Performance",
     category: "Fenestration",
     date: "2024-03-10",
     updatedAt: "2026-03-28",
@@ -241,6 +245,7 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
   {
     slug: "frp-grating-vs-steel-grating-cost-comparison",
     title: "FRP Grating vs Steel Grating: Cost, Weight, and Lifecycle Comparison",
+    seoTitle: "FRP vs Steel Grating — Cost & Lifecycle Compared",
     category: "Industrial Systems",
     date: "2024-04-15",
     updatedAt: "2026-04-01",
@@ -301,6 +306,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
   {
     slug: "frp-cable-tray-specifications-advantages",
     title: "FRP Cable Tray Systems: Specifications, Standards, and Engineering Advantages",
+    seoTitle: "FRP Cable Tray Systems — Specs & Engineering Guide",
     category: "Electrical Infrastructure",
     date: "2024-05-20",
     updatedAt: "2026-04-01",
@@ -357,6 +363,7 @@ F1 Composite manufactures pultruded FRP cable tray systems in ladder, solid-bott
   {
     slug: "frp-bridge-deck-design-guide",
     title: "FRP Bridge Deck Design: Engineering Considerations and Specification Guide",
+    seoTitle: "FRP Bridge Deck Design — Engineering Guide",
     category: "Infrastructure",
     date: "2024-06-15",
     updatedAt: "2026-04-01",
@@ -415,6 +422,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
   {
     slug: "frp-vs-aluminum-window-frames-comparison",
     title: "FRP vs Aluminum Window Frames: Thermal, Structural, and Lifecycle Performance",
+    seoTitle: "FRP vs Aluminum Windows — AAMA 2604 & PHIUS Data",
     category: "Fenestration",
     date: "2024-07-10",
     updatedAt: "2026-04-01",
@@ -437,8 +445,8 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       "Supports slim profiles with lower condensation risk",
     ],
     ogDescription:
-      "Aluminum conducts heat at 160 W/m·K while FRP is around 0.3 W/m·K. Compare frame U-values, structural capacity, and lifecycle performance for fenestration engineers.",
-    ogChips: ["Window frames", "Thermal bridging", "Lifecycle performance"],
+      "FRP vs aluminum windows for US projects: U-value, AAMA 2604/2605 finishes, PHIUS U_w 0.78 (Cert 2491wi03), structural and lifecycle data side-by-side for spec engineers.",
+    ogChips: ["AAMA 2604/2605", "PHIUS-ready", "U_w 0.78"],
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
@@ -471,6 +479,7 @@ F1 Composite develops pultruded FRP frame systems for high-performance envelope 
   {
     slug: "pultrusion-industry-questions-2026",
     title: "The 7 Questions the Pultrusion Industry Cares About Most in 2026",
+    seoTitle: "7 Key Questions Pultrusion Industry Asks in 2026",
     category: "Industry Insight",
     date: "2026-01-22",
     updatedAt: "2026-03-31",
@@ -539,6 +548,7 @@ At F1 Composite, we see the strongest opportunities where project teams stop ask
   {
     slug: "engineers-most-asked-questions-pultruded-frp",
     title: "The 10 Questions Engineers Ask Most Before Specifying Pultruded FRP",
+    seoTitle: "10 Questions Engineers Ask Before Specifying FRP",
     category: "Engineering FAQ",
     date: "2025-11-14",
     updatedAt: "2026-03-26",
@@ -619,6 +629,7 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
   {
     slug: "biggest-pain-point-pultrusion-qualification-speed",
     title: "The Biggest Pain Point in Pultrusion Today: Qualification Speed, Not Capability",
+    seoTitle: "Pultrusion's #1 Pain Point — Qualification Speed",
     category: "Industry Analysis",
     date: "2026-03-18",
     updatedAt: "2026-04-02",
@@ -770,6 +781,7 @@ At F1 Composite, we read peer activity as a reminder that the market is getting 
   {
     slug: "what-industry-associations-are-prioritizing-pultrusion-2026",
     title: "What Industry Associations Are Prioritizing for Pultrusion in 2026",
+    seoTitle: "Industry Associations' Pultrusion Priorities 2026",
     category: "Standards & Market Access",
     date: "2026-03-21",
     updatedAt: "2026-04-01",
@@ -863,6 +875,7 @@ At F1 Composite, we see association activity as a practical roadmap. It tells us
   {
     slug: "what-jec-world-and-camx-reveal-about-pultrusion-2026",
     title: "What JEC World and CAMX Reveal About the Direction of Pultrusion",
+    seoTitle: "JEC World & CAMX — Pultrusion's Direction in 2026",
     category: "Global Exhibitions",
     date: "2026-03-26",
     updatedAt: "2026-03-31",
@@ -941,6 +954,7 @@ At F1 Composite, we treat international exhibitions as a calibration tool. They 
   {
     slug: "what-high-end-technical-forums-reveal-about-pultrusion-2026",
     title: "What High-End Technical Forums Reveal About Pultrusion in 2026",
+    seoTitle: "Technical Forums Reveal Pultrusion Trends 2026",
     category: "Technical Forums",
     date: "2026-03-30",
     updatedAt: "2026-04-02",
@@ -1026,6 +1040,7 @@ At F1 Composite, we pay close attention to technical forums because they reveal 
   {
     slug: "recent-pultrusion-patents-and-new-technology-paths-2026",
     title: "Recent Pultrusion Patents and the New Technology Paths They Point To",
+    seoTitle: "Recent Pultrusion Patents & New Technology Paths",
     category: "Patent Watch",
     date: "2026-04-02",
     updatedAt: "2026-04-02",
@@ -1121,6 +1136,7 @@ At F1 Composite, we view patent activity as one input into a broader technology 
   {
     slug: "frp-replacing-steel-coastal-infrastructure",
     title: "Why Pultruded FRP Profiles Are Replacing Steel in Coastal Infrastructure",
+    seoTitle: "FRP Profiles Replace Steel in Coastal Infrastructure",
     category: "Lifecycle Analysis",
     date: "2026-04-03",
     updatedAt: "2026-04-03",
@@ -1231,6 +1247,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
   {
     slug: "frp-fenestration-passivhaus-certification",
     title: "FRP Fenestration: How Pultruded Window Frames Achieve Passivhaus Certification",
+    seoTitle: "PHIUS-Certified GFRP Window Frames — U_w 0.78, Cert 2491wi03",
     category: "Thermal Performance",
     date: "2026-04-03",
     updatedAt: "2026-04-03",
@@ -1261,8 +1278,8 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       "Frame U_f = 0.78 W/(m²·K) uniform across all sections, no thermal break needed",
     ],
     ogDescription:
-      "How pultruded FRP window frames achieve Passivhaus certification: thermal conductivity, U-value analysis, CTE compatibility, and the certification pathway.",
-    ogChips: ["Passivhaus", "Fenestration", "Thermal performance"],
+      "F1's 90 Series PHI Component Cert 2491wi03 — U_w 0.78 W/m²·K, phB class. Drop-in PHIUS-compliant frames for US Passive House projects. RAL custom AAMA 2604 finish.",
+    ogChips: ["PHIUS · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
@@ -1363,6 +1380,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
   {
     slug: "thermoset-frp-recycling-breakthrough",
     title: "Thermoset FRP Is Now Recyclable: How Chemical Degradation Recovers Glass Fibers and Resin",
+    seoTitle: "Thermoset FRP Recyclability via Chemical Recovery",
     category: "Sustainability",
     date: "2026-04-06",
     updatedAt: "2026-04-06",
@@ -1463,6 +1481,7 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
   {
     slug: "frp-fire-resistance-ratings-guide",
     title: "Fire Resistance of FRP Profiles: Ratings, Resin Chemistry, and Real-World Applications",
+    seoTitle: "ASTM E84 Class A FRP — Fire Resistance Guide",
     category: "Technical Guide",
     date: "2026-04-06",
     updatedAt: "2026-04-06",
@@ -1485,8 +1504,8 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
       "Glass fibers are inherently non-combustible",
     ],
     ogDescription:
-      "Understanding FRP fire resistance: how resin chemistry, flame retardants, and char formation enable pultruded profiles to achieve Euroclass B and ASTM Class 1 fire ratings.",
-    ogChips: ["Fire safety", "Technical guide", "Standards"],
+      "How FRP profiles achieve ASTM E84 Class A / Class 1 fire ratings (FSI ≤ 25, SDI ≤ 450). Resin chemistry, flame retardants, US code references, third-party test report scope.",
+    ogChips: ["ASTM E84 Class A", "FSI ≤ 25", "US fire code"],
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Standard Profiles", href: "/products/standard-profiles" },
@@ -1582,6 +1601,7 @@ For engineers and architects specifying structural profiles in fire-regulated ap
   {
     slug: "frp-impact-resistance-vs-steel-aluminum",
     title: "Pultruded FRP vs Steel, Aluminum, PVC, and Wood: Impact Resistance Under 3-Point Bending Drop Test",
+    seoTitle: "FRP vs Steel, Aluminum, PVC & Wood — Impact Test",
     category: "Material Science",
     date: "2026-04-06",
     updatedAt: "2026-04-06",
@@ -1690,6 +1710,7 @@ For engineers designing structures that must survive impact events and remain in
   {
     slug: "gfrp-fenestration-australian-market-as2047",
     title: "GFRP Fenestration Passes AS 2047: What It Means for the Australian Window and Door Market",
+    seoTitle: "GFRP Fenestration Passes AS 2047 — Australia Market",
     category: "Market Analysis",
     date: "2026-04-06",
     updatedAt: "2026-04-06",
@@ -1829,6 +1850,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
   {
     slug: "frp-window-profiles-powder-coating-aluminum-finish",
     title: "Powder-Coated FRP Window Profiles: How to Get an Aluminum-Grade Finish with Superior Thermal Performance",
+    seoTitle: "Powder-Coated FRP Windows — Aluminum-Grade Finish",
     category: "Fenestration",
     date: "2026-04-11",
     updatedAt: "2026-04-11",
@@ -1970,6 +1992,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
   {
     slug: "frp-lift-sliding-door-as2047-engineering",
     title: "FRP Lift-Sliding Door — AS 2047 Engineering Deep-Dive on a 3m × 2.4m Pultruded GFRP Patio Door",
+    seoTitle: "FRP Lift-Sliding Door — AS 2047 Engineering Guide",
     category: "Engineering Deep-Dive",
     date: "2026-04-30",
     updatedAt: "2026-04-30",
@@ -2163,6 +2186,7 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
   {
     slug: "frp-window-finish-transverse-reinforcement",
     title: "The Surface Finish Question — How Transverse-Reinforced Pultrusion Removes Glass-Fiber Telegraph from FRP Window Profiles",
+    seoTitle: "FRP Surface Finish — Transverse-Reinforced Profiles",
     category: "Material Innovation",
     date: "2026-04-30",
     updatedAt: "2026-04-30",
@@ -2307,6 +2331,7 @@ For specifiers who have been holding a project specification open for a fibregla
   {
     slug: "how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide",
     title: "How to Source Pultruded FRP Profiles Directly from China — 2026 Buyer's Guide",
+    seoTitle: "Sourcing FRP from China — 2026 US Buyer's Guide",
     category: "Procurement Guide",
     date: "2026-05-05",
     updatedAt: "2026-05-05",
@@ -2329,8 +2354,8 @@ For specifiers who have been holding a project specification open for a fibregla
       "RFQ checklist that gets a real quote in 48 hours",
     ],
     ogDescription:
-      "Practical buyer's guide for sourcing pultruded FRP profiles direct from China in 2026 — MOQ, lead times, Incoterms, RFQ checklist, factory qualification.",
-    ogChips: ["Procurement", "China sourcing", "Buyer's guide"],
+      "US buyer's guide: sourcing pultruded FRP from China in 2026. RFQ checklist, Section 301 transparency, EN 13706 / ASTM verification, DDP USA, lead times, factory qualification.",
+    ogChips: ["Section 301 transparent", "DDP USA", "US Buyer's Guide"],
     relatedLinks: [
       { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
@@ -2456,6 +2481,7 @@ If you want a starting point for your own RFQ, F1 Composite returns full quotes 
   {
     slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
     title: "FRP Profile Cost Benchmarks, MOQ, and Lead Times — 2026 Reference",
+    seoTitle: "FRP Cost vs Strongwell/Bedford/CPI — 2026 Data",
     category: "Procurement Reference",
     date: "2026-05-05",
     updatedAt: "2026-05-05",
@@ -2478,8 +2504,8 @@ If you want a starting point for your own RFQ, F1 Composite returns full quotes 
       "Container freight benchmarks to US, EU, ME, AU ports",
     ],
     ogDescription:
-      "2026 benchmarks: pultruded FRP per-meter pricing, MOQ, custom tooling lead times, container freight, and Incoterms cost deltas direct from China.",
-    ogChips: ["Cost benchmarks", "Lead times", "MOQ"],
+      "2026 FRP price benchmarks: F1 China vs Strongwell, Creative Pultrusions, Bedford. DDP USA landed cost with Section 301, MOQ, tooling, container freight — direct comparison.",
+    ogChips: ["DDP USA landed cost", "vs Strongwell/CPI", "2026 benchmark"],
     relatedLinks: [
       { label: "Buyer's Guide: Sourcing FRP from China", href: "/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide" },
       { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
@@ -2613,6 +2639,7 @@ For a project-specific quote calibrated against current pricing, F1 Composite re
   {
     slug: "gfrp-pultruded-spar-cap-fatigue-wind-blade",
     title: "GFRP Pultruded Spar-Cap Laminate for Wind Blades — Fatigue Performance and Design Use",
+    seoTitle: "GFRP Spar-Cap for Wind Blades — Fatigue Performance",
     category: "Energy",
     date: "2026-05-12",
     updatedAt: "2026-05-12",
@@ -2702,6 +2729,7 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
   {
     slug: "cfrp-pultruded-spar-cap-static-design-wind-blade",
     title: "CFRP Pultruded Spar-Cap Laminate for Wind Blades — Static Characteristic Values per DNVGL-ST-0376",
+    seoTitle: "CFRP Spar-Cap for Wind Blades — DNVGL-ST-0376 Data",
     category: "Energy",
     date: "2026-05-12",
     updatedAt: "2026-05-12",
@@ -2802,6 +2830,7 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
   {
     slug: "pultruded-frp-offshore-fishery-solar-mounts-and-frames",
     title: "Pultruded FRP for Offshore, Tidal, and Fishery-PV Solar Mounts and Module Frames",
+    seoTitle: "FRP for Offshore, Tidal & Fishery-PV Solar Mounts",
     category: "Energy",
     date: "2026-05-12",
     updatedAt: "2026-05-12",

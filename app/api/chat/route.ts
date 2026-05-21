@@ -318,36 +318,57 @@ function extractLastUserText(messages: UIMessage[]): string {
 }
 
 export async function POST(req: Request) {
-  const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
-    await req.json();
+  try {
+    const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
+      await req.json();
 
-  const lastUserText = extractLastUserText(messages);
-  if (lastUserText) {
-    const intent = detectIntent(lastUserText);
-    console.log(
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return Response.json({ error: "messages array is required" }, { status: 400 });
+    }
+
+    const lastUserText = extractLastUserText(messages);
+    if (lastUserText) {
+      const intent = detectIntent(lastUserText);
+      console.log(
+        JSON.stringify({
+          evt: "chat_query",
+          ts: new Date().toISOString(),
+          intent,
+          turn: messages.filter((m) => m.role === "user").length,
+          page: pageContext?.path ?? null,
+          pageTitle: pageContext?.title ?? null,
+          len: lastUserText.length,
+          preview: lastUserText.slice(0, 240),
+        }),
+      );
+    }
+
+    const pageContextBlock = pageContext?.path
+      ? `\n\n## Current page context\nThe user is currently viewing: ${pageContext.title ?? "(untitled)"} (${pageContext.path}). When they say "this page" or "this product", refer to that URL. Prefer answers that reference and link to that page.`
+      : "";
+
+    const result = streamText({
+      model: google("gemini-2.5-flash"),
+      system: SYSTEM_PROMPT + pageContextBlock,
+      messages: await convertToModelMessages(messages),
+      maxOutputTokens: 8192,
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (err) {
+    console.error(
       JSON.stringify({
-        evt: "chat_query",
+        evt: "chat_error",
         ts: new Date().toISOString(),
-        intent,
-        turn: messages.filter((m) => m.role === "user").length,
-        page: pageContext?.path ?? null,
-        pageTitle: pageContext?.title ?? null,
-        len: lastUserText.length,
-        preview: lastUserText.slice(0, 240),
+        err: err instanceof Error ? `${err.name}: ${err.message}` : String(err),
       }),
     );
+    return Response.json(
+      {
+        error:
+          "AI assistant temporarily unavailable. Please retry, or reach Doris.li@f1composite.com / +86 138 8333 3993 for an immediate response.",
+      },
+      { status: 503 },
+    );
   }
-
-  const pageContextBlock = pageContext?.path
-    ? `\n\n## Current page context\nThe user is currently viewing: ${pageContext.title ?? "(untitled)"} (${pageContext.path}). When they say "this page" or "this product", refer to that URL. Prefer answers that reference and link to that page.`
-    : "";
-
-  const result = streamText({
-    model: google("gemini-2.5-flash"),
-    system: SYSTEM_PROMPT + pageContextBlock,
-    messages: await convertToModelMessages(messages),
-    maxOutputTokens: 8192,
-  });
-
-  return result.toUIMessageStreamResponse();
 }
