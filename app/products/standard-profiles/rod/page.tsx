@@ -10,7 +10,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Round Rod — Pultruded Fiberglass Solid Rod Manufacturer";
 const pageDescription =
-  "Pultruded FRP round rods Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive, EN 13706 certified. Soil nails, rock bolts, FRP rebar, marine tie-rods. Quote in 24h.";
+  "Pultruded FRP rods Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive. Soil nails, rock bolts, rebar, tie-rods. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/rod";
 
 const faqItems = [

@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Square Tube — Pultruded Fiberglass SHS & RHS Manufacturer";
+const pageTitle = "FRP Square Tube — Pultruded SHS & RHS Manufacturer";
 const pageDescription =
-  "Pultruded FRP square and rectangular hollow sections 25×25 mm — 240×240 mm. EN 13706 / ASTM D3917, 75% lighter than steel, dielectric, corrosion-free. Trusses, columns, frames. Free samples.";
+  "Pultruded FRP SHS/RHS 25×25 — 240×240 mm. EN 13706 / ASTM D3917, 75% lighter than steel, dielectric, corrosion-free. Trusses, columns, frames. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/square-tube";
 
 export const metadata: Metadata = buildPageMetadata({

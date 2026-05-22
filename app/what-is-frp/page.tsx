@@ -12,9 +12,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
 const pageTitle =
-  "What is FRP? Complete Guide to Fiberglass Reinforced Polymer Composites";
+  "What is FRP? Complete Guide to Fiberglass Composites";
 const pageDescription =
-  "FRP (fiberglass reinforced polymer) composites explained — materials, pultrusion process, properties, standards (EN 13706, ASTM D3917), applications, and how advanced composites compare with steel and aluminum.";
+  "FRP (fiberglass reinforced polymer) explained — materials, pultrusion, properties, standards (EN 13706, ASTM E84, D3917), applications, vs steel & aluminum.";
 const pagePath = "/what-is-frp";
 
 export const metadata: Metadata = buildPageMetadata({

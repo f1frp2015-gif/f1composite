@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "Pultruded FRP Solar Mounting in Australia — Fiberglass Solar Racking Supplier";
+  "FRP Solar Mounting Australia — Fiberglass Racking Supplier";
 const pageDescription =
-  "Pultruded FRP solar mounting structures for Australian utility-scale, commercial, and rooftop solar. Direct-from-China factory supplier — corrosion-proof fiberglass racking, AS/NZS-compliant, lower foundation cost than aluminum, 25-year UV-stable.";
+  "Pultruded FRP solar racking for AU utility, commercial, rooftop. Corrosion-proof, AS/NZS-compliant, lower foundation cost than aluminum, 25-yr UV-stable.";
 const pagePath = "/regions/pultruded-frp-solar-mounting-australia";
 
 export const metadata: Metadata = buildPageMetadata({

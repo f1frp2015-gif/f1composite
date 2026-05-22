@@ -26,6 +26,8 @@ const caseStudyData: Record<
   string,
   {
     title: string;
+    seoTitle?: string;
+    seoDescription?: string;
     industry: string;
     location: string;
     year: string;
@@ -39,6 +41,8 @@ const caseStudyData: Record<
 > = {
   "european-bridge-deck": {
     title: "European Bridge Deck Replacement",
+    seoDescription:
+      "FRP bridge deck — Netherlands. 1,200 m² custom pultruded panels, 40% lighter than steel, 100-yr design life, project finished 2 weeks ahead of schedule.",
     industry: "Infrastructure",
     location: "Netherlands",
     year: "2023",
@@ -57,6 +61,8 @@ const caseStudyData: Record<
   },
   "coastal-marina-walkway": {
     title: "Coastal Marina Walkway System",
+    seoDescription:
+      "Marine FRP walkway case study — UK marina. 500 m pultruded structural + molded grating system, 60% lifecycle savings vs steel/timber, 50-year design life.",
     industry: "Marine",
     location: "United Kingdom",
     year: "2022",
@@ -75,6 +81,9 @@ const caseStudyData: Record<
   },
   "chemical-plant-platform": {
     title: "Baotou Industrial Park Fenestration — Pultruded GFRP-PU Windows for Severe-Cold, Chemical-Exposure Manufacturing Buildings",
+    seoTitle: "Baotou Industrial Fenestration — GFRP-PU Windows",
+    seoDescription:
+      "Industrial fenestration — Baotou Inner Mongolia. Pultruded GFRP-PU 70/80/90, severe-cold (−25°C) + chemical exposure, 25–30 yr maintenance-free.",
     industry: "Industrial",
     location: "Baotou, Inner Mongolia, China",
     year: "2024",
@@ -113,6 +122,9 @@ const caseStudyData: Record<
   },
   "fenestration-residential": {
     title: "Wanhua Yantai Zero-Carbon Community — Pultruded GFRP-PU Passive House Windows at Production Scale",
+    seoTitle: "Wanhua Yantai Zero-Carbon — GFRP-PU Passive Windows",
+    seoDescription:
+      "Passive House — Wanhua Yantai zero-carbon community. 112,815 m², GFRP-PU 70/80/90, U_w < 1.0, China near-zero-energy + ultra-low-energy compliant.",
     industry: "Construction",
     location: "Yantai, Shandong, China",
     year: "2022",
@@ -151,6 +163,9 @@ const caseStudyData: Record<
   },
   "solar-farm-mounting": {
     title: "Chongqing Industrial Rooftop PV Retrofit — Pultruded FRP H-Rail Mounting on Colored Steel-Tile Roofs",
+    seoTitle: "Chongqing PV Rooftop Retrofit — FRP H-Rail Mounting",
+    seoDescription:
+      "Rooftop PV retrofit case study — Chongqing. Pultruded FRP H-rail on colored steel-tile roofs, 30% lighter than aluminum, corrosion-proof, 25-yr asset alignment.",
     industry: "Energy",
     location: "Chongqing, China",
     year: "2024",
@@ -189,6 +204,9 @@ const caseStudyData: Record<
   },
   "qinling-station-antarctic-passive-windows": {
     title: "Qinling Station, Antarctic Ross Sea — PHI Class A+ Passive FRP Windows",
+    seoTitle: "Qinling Antarctic Station — PHI Class A+ FRP Windows",
+    seoDescription:
+      "Antarctic research station — Qinling Ross Sea. PHI-certified GFRP-PU windows for −60 °C ambient, 45 m/s katabatic winds, polar passive house.",
     industry: "Construction",
     location: "Ross Sea, Antarctica",
     year: "2024",
@@ -215,6 +233,9 @@ const caseStudyData: Record<
   },
   "yancheng-talent-apartment-fenestration": {
     title: "Yancheng Talent Apartment — Large-Scale FRP Fenestration Supply",
+    seoTitle: "Yancheng Talent Apartment — FRP Fenestration Supply",
+    seoDescription:
+      "Coastal residential case study — Yancheng Jiangsu. ~20 mid-rise buildings, salt-air-exposed coast, GFRP-PU casements/sliders, U_w < 1.6, 14-month phased supply.",
     industry: "Construction",
     location: "Yancheng, Jiangsu, China",
     year: "2024",
@@ -234,6 +255,9 @@ const caseStudyData: Record<
   },
   "factory-access-staircase": {
     title: "F1 Factory FRP Access Staircase — Built With Our Own Profiles",
+    seoTitle: "F1 Factory FRP Access Staircase — Self-Built",
+    seoDescription:
+      "Industrial FRP staircase — F1 Chongqing pultrusion line. Non-corroding, fire-rated, electrically isolating, replaces galvanized steel with 18-mo recoat.",
     industry: "Industrial",
     location: "Chongqing, China",
     year: "2024",
@@ -253,6 +277,9 @@ const caseStudyData: Record<
   },
   "water-treatment-cable-tray": {
     title: "Municipal Water Treatment Plant — Cable Tray & Handrail System",
+    seoTitle: "Water Treatment FRP Cable Tray & Handrail — Thailand",
+    seoDescription:
+      "120,000 m³/day Thai water treatment — FRP cable tray + handrail replacing 8-yr-corroded galvanized steel. Chlorine, 85–95% RH, 25-yr zero-maintenance.",
     industry: "Infrastructure",
     location: "Thailand",
     year: "2024",
@@ -333,9 +360,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const cs = caseStudyData[slug];
   if (!cs) return { title: "Case Study" };
+  const title = cs.seoTitle ?? cs.title;
+  const description =
+    cs.seoDescription ??
+    `${cs.industry} case study in ${cs.location}. ${cs.results.slice(0, 110)}`.slice(0, 155);
   return buildPageMetadata({
-    title: cs.title,
-    description: `${cs.title} — ${cs.industry} project in ${cs.location}. ${cs.results.slice(0, 120)}...`,
+    title,
+    description,
     path: `/case-studies/${slug}`,
     image: `/case-studies/${slug}/opengraph-image`,
   });

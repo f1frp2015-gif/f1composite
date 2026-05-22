@@ -9,9 +9,9 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs PVC Window Frames — Thermal Performance, Durability, and Structural Capacity";
+const pageTitle = "FRP vs PVC Windows — Thermal, Durability, Structural";
 const pageDescription =
-  "FRP vs PVC (uPVC) window frames compared: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and suitable applications. When to choose each.";
+  "FRP vs uPVC window frames: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and matching applications. When to choose each.";
 const pagePath = "/technology/frp-vs-pvc-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";

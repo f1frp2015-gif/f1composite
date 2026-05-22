@@ -10,9 +10,9 @@ import { authors } from "@/lib/authors";
 const pagePath = "/about/authors";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "F1 Composite Authors — Engineering, R&D, and Industry Research",
+  title: "F1 Composite Authors — Engineering, R&D, Research",
   description:
-    "Meet the named experts behind F1 Composite engineering content: application engineers, R&D leads, and industry researchers who write our technical articles, case studies, and procurement guides.",
+    "Named experts behind F1 Composite content: application engineers, R&D leads, industry researchers writing articles, case studies, procurement guides.",
   path: pagePath,
 });
 

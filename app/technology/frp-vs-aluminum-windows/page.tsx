@@ -9,9 +9,9 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs Aluminum Window Frames — Thermal Performance, Cost, and PHI Suitability";
+const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost, PHIUS Data";
 const pageDescription =
-  "FRP vs aluminum window frames: U-value, thermal bridging, condensation, lifecycle cost, and passive house certification compared. Why pultruded fiberglass frames outperform thermally-broken aluminum.";
+  "FRP vs aluminum windows: U-value, thermal bridging, condensation, lifecycle cost, PHIUS suitability. Why pultruded FRP outperforms thermally-broken aluminum.";
 const pagePath = "/technology/frp-vs-aluminum-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";

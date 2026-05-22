@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Marine — Pultruded Fiberglass for Saltwater Structures",
+  title: "FRP for Marine — Saltwater Structures & Docks",
   description:
     "Pultruded FRP profiles and gratings for marine: docks, offshore platforms, walkways, tie-rods. 50+ year life in saltwater. EN 13706, ISO 9001.",
   path: "/industries/marine",

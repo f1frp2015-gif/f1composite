@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Cable Tray Supplier in UAE — Pultruded Fiberglass Cable Tray for ADNOC, DUSUP & Oil & Gas";
+  "FRP Cable Tray Supplier UAE — ADNOC / DUSUP Oil & Gas";
 const pageDescription =
-  "FRP cable tray supplier in the UAE — direct from China factory. Pultruded fiberglass cable trays and ladders for ADNOC, DUSUP, Emirates Steel, and oil & gas projects. NEMA VE-1 / IEC 61537 compliant, 25-year H₂S/sour-service durability, Jebel Ali / Khalifa Port delivery.";
+  "FRP cable trays & ladders for UAE oil & gas — ADNOC, DUSUP, Emirates Steel. NEMA VE-1 / IEC 61537, 25-yr H₂S/sour-service. Jebel Ali / Khalifa Port delivery.";
 const pagePath = "/regions/frp-cable-tray-uae-oil-gas";
 
 export const metadata: Metadata = buildPageMetadata({

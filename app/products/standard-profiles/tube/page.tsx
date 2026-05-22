@@ -10,7 +10,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
 const pageDescription =
-  "Pultruded FRP round tubes 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917 certified. Handrails, guardrails, conduit, antenna masts. Free samples to 30+ countries.";
+  "Pultruded FRP round tubes 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917. Handrails, guardrails, conduit, antenna masts. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/tube";
 
 const faqItems = [

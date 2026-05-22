@@ -227,8 +227,13 @@ export default async function BlogPostPage({ params }: PageProps) {
     citation: [...post.standards, ...(post.sourceLinks?.map((link) => link.href) ?? [])],
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".prose-f1 p:first-of-type"],
+      cssSelector: ["h1", "aside[aria-label='Article summary'] blockquote", ".prose-f1 p:first-of-type"],
     },
+    ...(post.answerBox
+      ? {
+          abstract: post.answerBox,
+        }
+      : {}),
   };
 
   return (
@@ -301,6 +306,20 @@ export default async function BlogPostPage({ params }: PageProps) {
                 ) : null}
               </figcaption>
             </figure>
+
+            {post.answerBox ? (
+              <aside
+                aria-label="Article summary"
+                className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
+              >
+                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-teal-text">
+                  TL;DR
+                </p>
+                <blockquote className="mt-[8px] text-f15 leading-golden text-t1">
+                  {post.answerBox}
+                </blockquote>
+              </aside>
+            ) : null}
 
             <div className="mt-[21px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">

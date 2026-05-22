@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
@@ -74,7 +75,9 @@ export default function ContactPage() {
               <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
                 Fill out the form and we will respond within one business day
               </h2>
-              <ContactForm />
+              <Suspense fallback={<div className="text-f13 text-t3">Loading form…</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
 
             {/* Company Info */}

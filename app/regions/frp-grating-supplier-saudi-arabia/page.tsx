@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Grating Supplier in Saudi Arabia — Pultruded Fiberglass Gratings for Aramco, SABIC & Petrochemical Plants";
+  "FRP Grating Supplier Saudi Arabia — Aramco, SABIC, Maaden";
 const pageDescription =
-  "FRP grating supplier and direct-from-China factory for Saudi Arabia. Vinyl ester pultruded and moulded fiberglass gratings for Aramco, SABIC, Maaden, and Royal Commission projects. Jebel Ali / Dammam port delivery, ASTM E84 fire-rated, anti-slip, EN 13706.";
+  "Vinyl ester FRP gratings for Saudi petrochemical: Aramco, SABIC, Maaden, Royal Commission. ASTM E84 fire-rated, anti-slip, EN 13706. Jebel Ali / Dammam.";
 const pagePath = "/regions/frp-grating-supplier-saudi-arabia";
 
 export const metadata: Metadata = buildPageMetadata({

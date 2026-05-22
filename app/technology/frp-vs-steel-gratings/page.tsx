@@ -9,9 +9,9 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs Steel Gratings — Corrosion, Weight, Slip Resistance, and Electrical Safety";
+const pageTitle = "FRP vs Steel Gratings — Corrosion, Slip, Safety";
 const pageDescription =
-  "FRP vs steel gratings compared: load capacity, corrosion, weight, slip resistance, electrical conductivity, and lifecycle cost. Why pultruded and molded fiberglass gratings replace galvanized steel in corrosive environments.";
+  "FRP vs steel gratings: load, corrosion, weight, slip, electrical safety, lifecycle cost. Why pultruded/molded FRP replaces galvanized steel in harsh service.";
 const pagePath = "/technology/frp-vs-steel-gratings";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";

@@ -15,9 +15,9 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free Passive House Window Selector — PHI-Certified FRP Frame Tool (U_w 0.78)",
+  title: "Free Passive House Window Selector — PHIUS FRP Tool",
   description:
-    "Free AI-powered passive house window selector. Enter your climate zone, target U-value, and window type — get the PHI-certified F1 Composite FRP fenestration series (Component-ID 2491wi03, U_w 0.78), U_w calc guidance, and matching case studies. No login.",
+    "AI selector for PHIUS / Passive House windows. Enter climate + U-value → get F1's PHI-certified FRP series (Cert 2491wi03, U_w 0.78) + case studies.",
   path: "/ai/passive-house",
 });
 

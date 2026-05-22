@@ -10,7 +10,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Angle — Pultruded Fiberglass L-Profile Manufacturer";
 const pageDescription =
-  "Pultruded FRP angle (L-section) profiles 25×25 mm — 152×152 mm, equal and unequal legs. EN 13706 / ASTM D3917, corrosion-free, thermal expansion matches concrete. Bracing, ledgers, stiffeners. Free samples.";
+  "Pultruded FRP angle (L) profiles 25×25 — 152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301 inline.";
 const pagePath = "/products/standard-profiles/angle";
 
 export const metadata: Metadata = buildPageMetadata({

@@ -23,9 +23,7 @@ export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }
 
-// TEMP 2026-05-21: 硬阻断暂时降级为 warning,待 ~55 页 Title/Desc 全量修完后恢复 throw
-// 触发条件: 设 SEO_STRICT=1 重启 throw 模式;否则仅 warn
-const SEO_STRICT = process.env.SEO_STRICT === "1";
+const SEO_LENIENT = process.env.SEO_LENIENT === "1";
 
 function enforceSeoLimits(
   path: string,
@@ -50,12 +48,12 @@ function enforceSeoLimits(
   }
   if (violations.length === 0) return;
   const msg = `[seo] ${path}\n  - ${violations.join("\n  - ")}`;
-  if (!SEO_STRICT) {
+  if (SEO_LENIENT) {
     console.warn(msg);
     return;
   }
   throw new Error(
-    `${msg}\n\nUnset SEO_STRICT to downgrade to warning (use only after batch-cleaning all violations).`,
+    `${msg}\n\nSet SEO_LENIENT=1 to downgrade to warning (use only as a temporary escape hatch).`,
   );
 }
 

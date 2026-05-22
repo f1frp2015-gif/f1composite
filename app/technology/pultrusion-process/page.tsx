@@ -15,7 +15,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "What Is Pultrusion? — How Pultruded FRP Profiles Are Made";
 const pageDescription =
-  "Complete guide to the pultrusion manufacturing process: fiber creel, resin impregnation, heated die forming, and pull mechanism. How fiberglass structural profiles are produced at scale.";
+  "Pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism. How pultruded FRP structural profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-04-02";

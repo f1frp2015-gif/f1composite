@@ -14,7 +14,7 @@ import { prefillForHub } from "@/lib/aiPrefill";
 const pageTitle =
   "Pultruded FRP Profiles — ASTM & EN 13706 · DDP USA";
 const pageDescription =
-  "FRP manufacturer for structural shapes, PHIUS-certified frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote in 24h, Section 301 inline.";
+  "FRP manufacturer for structural, PHIUS frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote 24h, Section 301 inline.";
 const pagePath = "/pultruded-frp-profiles";
 
 export const metadata: Metadata = buildPageMetadata({

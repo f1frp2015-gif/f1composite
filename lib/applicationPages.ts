@@ -16,7 +16,7 @@ export interface ApplicationPage {
 export const applicationPages: ApplicationPage[] = [
   {
     slug: "frp-cable-tray-supports",
-    title: "FRP Cable Tray Supports - Pultruded Fiberglass Channels and Brackets",
+    title: "FRP Cable Tray Supports — Channels & Brackets",
     shortTitle: "FRP cable tray supports",
     description:
       "FRP cable tray supports using pultruded channels, angles and brackets for substations, tunnels, wastewater plants and corrosive industrial cable routing.",
@@ -50,7 +50,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cooling-tower-profiles",
-    title: "FRP Cooling Tower Profiles - Corrosion-Resistant Pultruded Members",
+    title: "FRP Cooling Tower Profiles — Corrosion-Resistant",
     shortTitle: "FRP cooling tower profiles",
     description:
       "Pultruded FRP cooling tower profiles for wet, chlorinated and high-humidity structures: beams, tubes, louvers, handrails and access members.",
@@ -118,7 +118,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-solar-mounting-profiles",
-    title: "FRP Solar Mounting Profiles - Lightweight Pultruded PV Structures",
+    title: "FRP Solar Mounting Profiles — Lightweight PV Racking",
     shortTitle: "FRP solar mounting profiles",
     description:
       "FRP solar mounting profiles for PV farms where lightweight, corrosion resistance, UV stability and electrical isolation matter.",

@@ -10,7 +10,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP I-Beam Profiles — Pultruded Fiberglass Wide Flange Beams";
 const pageDescription =
-  "Pultruded FRP I-beam structural profiles from 76×38 mm to 305×305 mm. Fiberglass wide flange beams 75% lighter than steel, corrosion-free. Full size chart, specifications, and load tables.";
+  "Pultruded FRP I-beam 76×38 — 305×305 mm. Wide-flange, 75% lighter than steel, corrosion-free, ASTM E84 Class A. Size chart, load tables. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/i-beam";
 
 export const metadata: Metadata = buildPageMetadata({

@@ -16,7 +16,7 @@ const breadcrumbSchema = {
 export const metadata: Metadata = buildPageMetadata({
   title: "Free FRP Sourcing Assistant — Spec + 48h Quote",
   description:
-    "Describe your FRP project — environment, load, standards. Get an AI spec with resin, certifications, case studies, and a 48h quote from F1 Composite. ASTM/EN compliant. DDP USA ready.",
+    "Describe your FRP project — environment, load, standards. AI returns spec, resin, certifications, case studies + 48h quote. ASTM/EN compliant, DDP USA.",
   path: "/ai/sourcing",
 });
 

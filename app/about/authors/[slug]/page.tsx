@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const author = authorsBySlug[slug];
   if (!author) return {};
+  const desc = author.seoDescription
+    ?? `${author.name} — ${author.jobTitle.slice(0, 110)}`.slice(0, 155);
   return buildPageMetadata({
     title: `${author.fullName} — F1 Composite`,
-    description: `${author.fullName}. ${author.jobTitle}. ${author.bio.slice(0, 80)}...`,
+    description: desc,
     path: `/about/authors/${author.slug}`,
   });
 }

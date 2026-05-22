@@ -15,7 +15,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Quality & Testing — Certifications & Standards";
 const pageDescription =
-  "ISO 9001 certified, EN 13706 and ASTM compliant. Global FRP pultrusion standards comparison across EU, USA, China, Canada, UK, Japan, Korea, and Middle East. Full mechanical testing on every production run.";
+  "ISO 9001, EN 13706, ASTM compliant. Global FRP pultrusion standards across EU, US, CN, CA, UK, JP, KR, ME. Full mechanical testing on every batch.";
 const pagePath = "/technology/quality-testing";
 const publishedAt = "2024-04-05";
 const updatedAt = "2026-04-02";

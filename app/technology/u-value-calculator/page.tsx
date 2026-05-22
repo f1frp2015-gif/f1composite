@@ -10,9 +10,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import UValueCalculator from "./UValueCalculator";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free Window U-Value Calculator — FRP Frame & Glass Configuration (Passive House Ready)",
+  title: "Free Window U-Value Calculator — PHIUS-Ready Tool",
   description:
-    "Free online whole-window U-value calculator per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with double / triple / quadruple glazing. Passive House (U_w ≤ 0.80) and PHI compliance check. No login required.",
+    "Free U-value calculator per EN ISO 10077-1. Compare FRP, aluminum, PVC, timber + double/triple/quadruple glazing. PHIUS check (U_w ≤ 0.80). No login.",
   path: "/technology/u-value-calculator",
 });
 

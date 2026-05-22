@@ -10,7 +10,7 @@ import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Flat Bar — Pultruded Fiberglass Flat Bar Manufacturer";
 const pageDescription =
-  "Pultruded FRP flat bars 12×3 mm — 305×25 mm. ±0.25 mm tolerance, up to 70% glass content, EN 13706 / ASTM D3917 certified. Stiffeners, splice plates, rebar. Free samples to 30+ countries.";
+  "Pultruded FRP flat bars 12×3 — 305×25 mm. ±0.25 mm tolerance, 70% glass, EN 13706 / ASTM D3917. Stiffeners, splice plates, rebar. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/flat-bar";
 
 const faqItems = [

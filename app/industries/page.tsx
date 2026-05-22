@@ -28,7 +28,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Industries Served — FRP Profiles for Construction, Marine & Energy",
+  title: "Industries Served — FRP for Construction, Marine, Energy",
   description:
     "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors — corrosion-resistant fiberglass replacing steel.",
   path: "/industries",

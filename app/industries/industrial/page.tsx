@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Industrial Plants — Chemical-Resistant Pultruded Fiberglass",
+  title: "FRP for Industrial Plants — Chemical-Resistant Pultruded",
   description:
     "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
   path: "/industries/industrial",

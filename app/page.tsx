@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Pultruded FRP Profiles — ASTM, EN 13706 · DDP USA",
     description:
-      "Pultruded FRP profiles direct from F1 factory. I-beams, custom pultrusions, PHIUS-certified frames, gratings. ASTM E84 · EN 13706. DDP USA, Section 301 pre-quoted.",
+      "Pultruded FRP direct from F1 factory. I-beams, custom, PHIUS frames, gratings. ASTM E84 · EN 13706. DDP USA, Section 301 pre-quoted, 24h reply.",
     path: "/",
     image: "/opengraph-image",
   }),

@@ -11,7 +11,7 @@ import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Custom Pultrusion Services — Bespoke FRP Profiles";
 const pageDescription =
-  "Custom FRP profiles to spec. 600×300mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500m MOQ. ASTM E84 Class A available. DDP USA · Section 301 pre-quoted · 24h reply.";
+  "Custom FRP profiles to spec. 600×300mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500m MOQ. ASTM E84 Class A. DDP USA · Section 301 pre-quoted · 24h.";
 const pagePath = "/products/custom-pultrusions";
 
 export const metadata: Metadata = buildPageMetadata({
