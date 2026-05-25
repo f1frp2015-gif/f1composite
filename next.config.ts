@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // Word-order typo seen in shared links and audit notes.
+        source: "/frp-pultruded-profiles",
+        destination: "/pultruded-frp-profiles",
+        permanent: true,
+      },
+      {
         source: "/technology/calculator",
         destination: "/frp-profile-calculator",
         permanent: true,

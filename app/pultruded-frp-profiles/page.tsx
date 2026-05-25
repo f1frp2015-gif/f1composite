@@ -8,8 +8,22 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
+import TrustStrip from "@/components/cro/TrustStrip";
+import StockVsCustomLanes from "@/components/cro/StockVsCustomLanes";
+import VsCompetitorTable from "@/components/cro/VsCompetitorTable";
+import ProductHubCard from "@/components/cro/ProductHubCard";
+import SectionCTA from "@/components/cro/SectionCTA";
+import DorisWidget from "@/components/cro/DorisWidget";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { prefillForHub } from "@/lib/aiPrefill";
+import {
+  prefillForHub,
+  prefillForResin,
+  prefillForMaterialCompare,
+  prefillForHubApplication,
+  type ProfileFamilySlug,
+  type ResinSlug,
+  type HubApplicationSlug,
+} from "@/lib/aiPrefill";
 
 const pageTitle =
   "Pultruded FRP Profiles — Fiberglass Structural Shapes Manufacturer";
@@ -24,7 +38,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const profileFamily: Array<{
-  slug: string;
+  slug: ProfileFamilySlug;
   name: string;
   keyword: string;
   sizes: string;
@@ -124,64 +138,86 @@ const profileFamily: Array<{
   },
 ];
 
-const resinOptions: Array<{ system: string; use: string; notes: string }> = [
+const resinOptions: Array<{ slug: ResinSlug; system: string; use: string; notes: string }> = [
   {
+    slug: "isophthalic-polyester",
     system: "Isophthalic polyester",
     use: "General structural (default)",
     notes: "Best cost / performance balance. ASTM E84 Class II flame spread available.",
   },
   {
+    slug: "vinyl-ester",
     system: "Vinyl ester",
     use: "Marine, chemical, wastewater",
     notes: "Superior resistance to hydrolysis, chlorides, and osmotic blistering.",
   },
   {
+    slug: "polyurethane",
     system: "Polyurethane (PU)",
     use: "High-toughness, fast-cure",
     notes: "3–5× flexural toughness of polyester. Used in rail interiors and EV trays.",
   },
   {
+    slug: "phenolic",
     system: "Phenolic",
     use: "Fire-critical (BS 476 / EN 45545-2)",
     notes: "Low smoke, low toxicity, Class 1 surface spread of flame.",
   },
   {
+    slug: "epoxy",
     system: "Epoxy",
     use: "High mechanical performance",
     notes: "Used when tensile or fatigue properties need to approach steel equivalents.",
   },
 ];
 
-const applicationLinks = [
+const applicationLinks: Array<{
+  slug: HubApplicationSlug;
+  href: string;
+  title: string;
+  description: string;
+  /** Short, redacted delivery proof point — fills the "is this real?" gap. */
+  deliveredProof: string;
+}> = [
   {
+    slug: "frp-cable-tray-supports",
     href: "/applications/frp-cable-tray-supports",
     title: "FRP cable tray supports",
     description:
       "Non-conductive pultruded channels, angles, and brackets for substations, tunnels, and corrosive cable routing.",
+    deliveredProof: "12 km tunnel cable-tray support project delivered (Asia Pacific utility, 2024).",
   },
   {
+    slug: "frp-cooling-tower-profiles",
     href: "/applications/frp-cooling-tower-profiles",
     title: "FRP cooling tower profiles",
     description:
       "Vinyl ester beams, tubes, louvers, and access members for wet, chlorinated, and high-humidity cooling tower structures.",
+    deliveredProof: "180+ vinyl-ester cooling tower frames shipped across petrochemical campuses.",
   },
   {
+    slug: "frp-bridge-deck-panels",
     href: "/applications/frp-bridge-deck-panels",
     title: "FRP bridge deck panels",
     description:
       "Closed-top deck planks, gratings, and support profiles for pedestrian bridges and lightweight deck replacement.",
+    deliveredProof: "38 m pedestrian bridge deck replacement — 60% weight cut vs the original.",
   },
   {
+    slug: "frp-solar-mounting-profiles",
     href: "/applications/frp-solar-mounting-profiles",
     title: "FRP solar mounting profiles",
     description:
       "UV-stable pultruded beams, channels, and posts for solar farms where weight, corrosion, and electrical isolation matter.",
+    deliveredProof: "12 MW agri-PV mounting frame production, coastal China deployment.",
   },
   {
+    slug: "frp-chemical-plant-platforms",
     href: "/applications/frp-chemical-plant-platforms",
     title: "FRP chemical plant platforms",
     description:
       "Corrosion-proof beams, gratings, stair treads, and handrails for acid splash zones and process access platforms.",
+    deliveredProof: "Acid-splash maintenance platform package for two chlor-alkali sites in MENA.",
   },
 ];
 
@@ -317,6 +353,13 @@ export default function PultrudedFRPProfilesHubPage() {
         ]}
       />
 
+      {/* Shared trust strip — six hard credentials on one line. */}
+      <TrustStrip />
+
+      {/* P1 — Split visitors into the two real buying journeys before the
+          9-card product grid pulls them in. */}
+      <StockVsCustomLanes pageId="pultruded-frp-profiles" />
+
       {/* Intro / Hero */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -384,32 +427,17 @@ export default function PultrudedFRPProfilesHubPage() {
 
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             {profileFamily.map((item) => (
-              <Link
+              <ProductHubCard
                 key={item.slug}
+                pageId="pultruded-frp-profiles"
+                slug={item.slug}
+                name={item.name}
+                keyword={item.keyword}
+                sizes={item.sizes}
+                summary={item.summary}
+                image={item.image}
                 href={item.href}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-lg"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-white">
-                  <Image
-                    src={item.image}
-                    alt={`${item.name} — pultruded fiberglass profile by F1 Composite`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-[21px]">
-                  <p className="text-f13 font-medium text-teal-text">{item.keyword}</p>
-                  <h3 className="mt-[5px] text-f19 font-bold text-t1">{item.name}</h3>
-                  <p className="mt-[8px] text-f13 text-t3">
-                    <span className="font-semibold">Size range:</span> {item.sizes}
-                  </p>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{item.summary}</p>
-                  <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
-                    Explore →
-                  </span>
-                </div>
-              </Link>
+              />
             ))}
           </div>
         </div>
@@ -428,17 +456,31 @@ export default function PultrudedFRPProfilesHubPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
             {applicationLinks.map((item) => (
-              <Link
+              <article
                 key={item.href}
-                href={item.href}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
+                className="flex flex-col gap-[8px] rounded-[8px] border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
               >
                 <h3 className="text-f19 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f15 leading-golden text-t2">{item.description}</p>
-                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text">
-                  View application →
-                </span>
-              </Link>
+                <p className="text-f15 leading-golden text-t2">{item.description}</p>
+                {/* P8 — delivered-proof microcopy turns abstract application
+                    cards into concrete "yes we've shipped this" signals. */}
+                <p className="rounded-[4px] bg-white px-[13px] py-[8px] text-f11 font-medium text-teal-text">
+                  ✓ {item.deliveredProof}
+                </p>
+                <div className="mt-[5px] flex flex-wrap gap-x-[13px] gap-y-[5px] text-f13 font-semibold">
+                  <Link href={item.href} className="text-teal-text hover:text-teal">
+                    View application →
+                  </Link>
+                  <Link
+                    href={`/ask?prefill=${encodeURIComponent(
+                      prefillForHubApplication(item.slug),
+                    )}`}
+                    className="text-t2 hover:text-teal-text"
+                  >
+                    Ask AI advisor →
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -463,7 +505,8 @@ export default function PultrudedFRPProfilesHubPage() {
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Resin system</th>
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Typical use</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Notes</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Notes</th>
+                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Ask F1</th>
                 </tr>
               </thead>
               <tbody>
@@ -471,7 +514,15 @@ export default function PultrudedFRPProfilesHubPage() {
                   <tr key={row.system} className="border-b border-border-default">
                     <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.system}</td>
                     <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.use}</td>
-                    <td className="py-[13px] align-top text-f15 text-t2">{row.notes}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.notes}</td>
+                    <td className="py-[13px] align-top">
+                      <Link
+                        href={`/ask?prefill=${encodeURIComponent(prefillForResin(row.slug))}`}
+                        className="text-f13 font-semibold text-teal-text hover:text-teal"
+                      >
+                        Is this my resin? →
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -528,8 +579,24 @@ export default function PultrudedFRPProfilesHubPage() {
             </Link>
             .
           </p>
+
+          <SectionCTA
+            pageId="pultruded-frp-profiles"
+            sectionId="material-comparison"
+            intent="explore"
+            headline="Settle the FRP-vs-steel question for your project"
+            description="Plug your span, design life, and environment into the FRP Engineering Advisor — it returns a 30-year lifecycle verdict and points at the right F1 product family."
+            ctaLabel="Compare materials with AI"
+            href={`/ask?prefill=${encodeURIComponent(prefillForMaterialCompare())}`}
+            secondary={{ label: "Read the in-depth FRP vs materials guide", href: "/technology/frp-vs-traditional-materials" }}
+          />
         </div>
       </section>
+
+      {/* P6 — F1 vs Strongwell / Fiberline / Creative Pultrusions. Catches
+          buyers who landed on this page already comparing to a Western
+          manufacturer. */}
+      <VsCompetitorTable pageId="pultruded-frp-profiles" />
 
       {/* Applications */}
       <section className="bg-white py-[89px]">
@@ -622,6 +689,8 @@ export default function PultrudedFRPProfilesHubPage() {
       />
 
       <InnerCTA title="Specify pultruded FRP profiles for your next project" />
+
+      <DorisWidget pageId="pultruded-frp-profiles" />
     </>
   );
 }
