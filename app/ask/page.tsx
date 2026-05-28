@@ -4,15 +4,31 @@ import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Engineering Advisor",
-  description:
-    "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
-  path: "/ask",
-});
-
 interface AskPageProps {
   searchParams: Promise<{ prefill?: string }>;
+}
+
+// /ask is reached two ways:
+//   • Bare /ask — the canonical, indexable advisor landing page.
+//   • /ask?prefill=... — context-rich CTAs from product/blog/calculator pages.
+// The prefilled variants are transient deep links, not unique pages worth
+// indexing. We return noindex (follow) on them so Google stops listing them
+// under "Alternate page with proper canonical tag" in GSC. Canonical still
+// points at the bare /ask so any signal consolidates correctly.
+export async function generateMetadata({
+  searchParams,
+}: AskPageProps): Promise<Metadata> {
+  const base = buildPageMetadata({
+    title: "FRP Engineering Advisor",
+    description:
+      "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
+    path: "/ask",
+  });
+  const { prefill } = await searchParams;
+  if (prefill) {
+    return { ...base, robots: { index: false, follow: true } };
+  }
+  return base;
 }
 
 const breadcrumbSchema = {
