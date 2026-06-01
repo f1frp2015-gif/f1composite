@@ -8,9 +8,11 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
+    // Drop the "AI Tools" intermediate — there is no /ai hub page, so it had
+    // no `item` URL and GSC flagged "Missing field item in itemListElement".
+    // Last item may omit `item` per schema.org spec.
     { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-    { "@type": "ListItem", position: 2, name: "AI Tools" },
-    { "@type": "ListItem", position: 3, name: "Passive House Window Selector" },
+    { "@type": "ListItem", position: 2, name: "Passive House Window Selector" },
   ],
 };
 

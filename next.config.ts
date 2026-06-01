@@ -30,6 +30,18 @@ const nextConfig: NextConfig = {
         destination: "/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade",
         permanent: true,
       },
+      // British → American slug normalization (commit 835a240) renamed these
+      // posts. Preserve the indexed URLs so Google's links don't 404.
+      {
+        source: "/resources/blog/frp-window-profiles-powder-coating-aluminium-finish",
+        destination: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish",
+        permanent: true,
+      },
+      {
+        source: "/resources/blog/frp-vs-aluminium-window-frames-comparison",
+        destination: "/resources/blog/frp-vs-aluminum-window-frames-comparison",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "f1composite.com" }],
