@@ -146,6 +146,7 @@ export default function GratingsPage() {
           path: pagePath,
           image: "/images/products/plank-grating.png",
           category: "FRP Gratings & Structural Deck Panels",
+          productLine: "F1-GRID",
           material: ["Glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Phenolic resin", "Polyurethane resin"],
           additionalProperty: [
             { name: "Configurations", value: "Molded gratings, pultruded gratings, solid-top cover plates, structural deck panels" },
@@ -154,7 +155,7 @@ export default function GratingsPage() {
         })}
       />
       <PageHeader
-        tag="Gratings & Decks"
+        tag="Gratings & Decks · F1-GRID"
         title="FRP Gratings & Structural Deck Panels"
         description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings and structural deck panels — molded and pultruded gratings, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[

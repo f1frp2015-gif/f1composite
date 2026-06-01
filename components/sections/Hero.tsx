@@ -29,7 +29,7 @@ export default function Hero() {
             className="font-extrabold tracking-[-0.03em] text-white"
             style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
           >
-            Pultruded FRP Profiles Manufacturer{" "}
+            F1 Composite — Pultruded FRP Profiles Manufacturer{" "}
             <span className="text-teal">Direct from China</span>
           </h1>
 

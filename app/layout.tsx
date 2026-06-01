@@ -63,6 +63,8 @@ const orgSchema = {
   image: "https://www.f1composite.com/opengraph-image",
   description:
     "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer based in Chongqing, China. Direct factory export to 30+ countries with 5 production bases, 370 pultrusion lines, and 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
+  disambiguatingDescription:
+    "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. It is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
   foundingDate: "2015",
   foundingLocation: {
     "@type": "Place",
@@ -180,6 +182,56 @@ const orgSchema = {
   brand: {
     "@type": "Brand",
     name: "F1 Composite",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "F1 Composite — branded pultruded FRP product lines",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "F1-STRUX — Pultruded FRP Structural Profiles",
+          model: "F1-STRUX",
+          category: "Pultruded FRP Structural Profiles (I-beam, channel, angle, tube, flat bar, rod)",
+          url: "https://www.f1composite.com/products/standard-profiles",
+          brand: { "@type": "Brand", name: "F1 Composite" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "F1-GRID — Pultruded & Molded FRP Gratings and Deck Panels",
+          model: "F1-GRID",
+          category: "FRP Gratings, Solid-Top Cover Plates, Structural Deck Panels",
+          url: "https://www.f1composite.com/products/gratings",
+          brand: { "@type": "Brand", name: "F1 Composite" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "F1-THERM — Pultruded Fiberglass Window Frames & Fenestration Profiles",
+          model: "F1-THERM",
+          category: "FRP / GFRP Fenestration Systems (65/70/80/90/140-series)",
+          url: "https://www.f1composite.com/products/fenestration-systems",
+          brand: { "@type": "Brand", name: "F1 Composite" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "F1-FORM — Custom Pultruded FRP Profiles",
+          model: "F1-FORM",
+          category: "Custom Pultrusions up to 600×300 mm cross-section",
+          url: "https://www.f1composite.com/products/custom-pultrusions",
+          brand: { "@type": "Brand", name: "F1 Composite" },
+        },
+      },
+    ],
   },
   naics: "326199",
   keywords:

@@ -17,6 +17,12 @@ interface ProductSchemaOptions {
   category: string;
   material?: string | string[];
   additionalProperty?: Array<{ name: string; value: string }>;
+  /**
+   * Branded product-line token (the F1 Composite equivalent of Strongwell's
+   * EXTREN®). Surfaces as schema.org `model` + a "Product line" property so AI
+   * engines bind the generic product to a citeable, ownable brand name.
+   */
+  productLine?: string;
 }
 
 export function absoluteUrl(path: string) {
@@ -101,6 +107,7 @@ export function buildProductSchema({
   category,
   material,
   additionalProperty = [],
+  productLine,
 }: ProductSchemaOptions) {
   return {
     "@context": "https://schema.org",
@@ -110,6 +117,7 @@ export function buildProductSchema({
     url: absoluteUrl(path),
     image: [absoluteUrl(image)],
     category,
+    ...(productLine && { model: productLine, mpn: productLine }),
     brand: {
       "@type": "Brand",
       name: "F1 Composite",
@@ -156,6 +164,15 @@ export function buildProductSchema({
       },
     ],
     additionalProperty: [
+      ...(productLine
+        ? [
+            {
+              "@type": "PropertyValue",
+              name: "Product line",
+              value: productLine,
+            },
+          ]
+        : []),
       {
         "@type": "PropertyValue",
         name: "Manufacturing standard",

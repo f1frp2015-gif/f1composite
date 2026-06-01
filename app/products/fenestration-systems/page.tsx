@@ -137,6 +137,7 @@ export default function FenestrationSystemsPage() {
           path: pagePath,
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
           category: "FRP Window Frames and Fenestration Systems",
+          productLine: "F1-THERM",
           material: ["E-glass roving", "Continuous strand mat", "Vinyl ester resin", "Isophthalic polyester resin"],
           additionalProperty: [
             { name: "Also known as", value: "FRP window profiles, pultruded fiberglass window frames, GRP window frames" },
@@ -148,7 +149,7 @@ export default function FenestrationSystemsPage() {
         })}
       />
       <PageHeader
-        tag="FRP Window Frames"
+        tag="FRP Window Frames · F1-THERM"
         title="Pultruded FRP Window Frames"
         description="Pultruded fiberglass window frames for passive house, low-energy, and extreme-climate buildings. Our 65/70/80/90/140-series fenestration systems deliver the thermal insulation, structural integrity, and dimensional stability that aluminum and PVC cannot match."
         breadcrumbs={[

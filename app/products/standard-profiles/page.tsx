@@ -123,6 +123,7 @@ export default function StandardProfilesPage() {
           path: "/products/standard-profiles",
           image: "/images/products/i-beam/frp-i-beam-cover.jpg",
           category: "Pultruded FRP Structural Profiles",
+          productLine: "F1-STRUX",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
           additionalProperty: [
             { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
@@ -133,9 +134,9 @@ export default function StandardProfilesPage() {
         })}
       />
       <PageHeader
-        tag="Standard Profiles"
+        tag="Standard Profiles · F1-STRUX"
         title="Standard FRP profiles catalog — stock pultruded structural shapes"
-        description="Stock I-beams, channels, angles, tubes, flat bars, and rods for engineers who already know the profile geometry. For the complete product family, start from the pultruded FRP profiles hub."
+        description="F1-STRUX is F1 Composite's pultruded structural profile line — stock I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the profile geometry. For the complete product family, start from the pultruded FRP profiles hub."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

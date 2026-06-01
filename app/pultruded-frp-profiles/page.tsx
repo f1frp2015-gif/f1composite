@@ -347,6 +347,18 @@ export default function PultrudedFRPProfilesHubPage() {
                 platforms, chemical plants, rail, solar farms, and passive-house
                 window systems worldwide.
               </p>
+              <p className="mt-[13px] text-f15 leading-golden text-t2">
+                F1 Composite organizes its pultruded FRP range into four branded
+                product lines:{" "}
+                <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
+                (structural profiles),{" "}
+                <Link href="/products/gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
+                (gratings &amp; deck panels),{" "}
+                <Link href="/products/fenestration-systems" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
+                (window frames &amp; fenestration), and{" "}
+                <Link href="/products/custom-pultrusions" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
+                (custom pultrusions) — all manufactured in-house to EN 13706 and ASTM D3917.
+              </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E17 / E23</span>
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
