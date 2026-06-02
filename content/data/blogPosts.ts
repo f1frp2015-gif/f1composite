@@ -76,9 +76,13 @@ export const blogPosts: BlogPost[] = [
       "Senior Application Engineer — pultruded FRP structural design and project specification",
     reviewedBy: "Technical Review Board",
     standards: ["API 15HR", "API 15LR", "API 15S", "ISO 14692", "ASTM D2992", "NACE MR0175"],
-    coverImage: "/images/industries/frp-industrial-chemical-plant-facility.jpg",
+    coverImage: "/images/blog/oil-gas-pipeline-industrial-plant.jpg",
     coverAlt:
-      "Industrial oil and gas process facility piping where FRP replaces carbon steel",
+      "Industrial gas pipeline and process piping at an oil and gas plant",
+    coverAttribution: pexelsCredit(
+      "Edoardo Colombo",
+      "https://www.pexels.com/photo/industrial-gas-pipeline-industrial-plant-3229014/",
+    ),
     supportingImage: "/images/products/round-tube/frp-round-tube-80mm-od.jpg",
     supportingAlt:
       "Pultruded FRP round tube, the section form used for low-pressure oilfield line pipe and conduit",
@@ -186,9 +190,13 @@ F1 Composite is a pultrusion manufacturer, so our honest position in oil and gas
       "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Review Board",
     standards: ["MT 558.3", "GB 16413", "MT 113", "ISO 9001"],
-    coverImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
+    coverImage: "/images/blog/coal-mine-underground-tunnel-track.jpg",
     coverAlt:
-      "Pultrusion lines producing FRP pipe suited to anti-static, flame-retardant mine gas drainage",
+      "Illuminated underground coal mine tunnel with haulage track",
+    coverAttribution: pexelsCredit(
+      "I Love Pixel",
+      "https://www.pexels.com/photo/a-track-in-a-mine-14747539/",
+    ),
     supportingImage: "/images/products/round-tube/frp-round-tube-70x60x5mm.jpg",
     supportingAlt:
       "Pultruded GFRP round pipe section used for underground methane drainage lines",
