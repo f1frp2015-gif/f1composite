@@ -83,11 +83,15 @@ export const blogPosts: BlogPost[] = [
       "Edoardo Colombo",
       "https://www.pexels.com/photo/industrial-gas-pipeline-industrial-plant-3229014/",
     ),
-    supportingImage: "/images/products/round-tube/frp-round-tube-80mm-od.jpg",
+    supportingImage: "/images/blog/oil-gas-line-pipe-construction.jpg",
     supportingAlt:
-      "Pultruded FRP round tube, the section form used for low-pressure oilfield line pipe and conduit",
+      "Large-diameter line pipe being installed at a pipeline construction site",
     supportingCaption:
-      "A pultruded round section is strong along its axis and lighter than steel — the right form for sucker rods, conduit, and low-to-moderate-pressure line pipe, not for high-pressure trunklines.",
+      "Against steel line pipe, FRP's advantage is installed cost, not just purchase price — most of the saving sits in lighter handling, fewer joints, and the coating and cathodic protection it never needs.",
+    supportingAttribution: pexelsCredit(
+      "Asad Photo Maldives",
+      "https://www.pexels.com/photo/a-bulldozer-moving-large-pipes-on-a-beach-construction-site-with-a-stunning-sunset-backdrop-bulldozer-moving-large-pipes-on-a-beach-construction-site-during-sunset-24245333/",
+    ),
     highlights: [
       "Filament winding owns high-pressure trunklines; pultrusion owns axial-load and low/medium-pressure pipe",
       "API 15HR/15LR, API 15S, ISO 14692, UL 971, and NACE MR0175 govern the field",
@@ -197,11 +201,15 @@ F1 Composite is a pultrusion manufacturer, so our honest position in oil and gas
       "I Love Pixel",
       "https://www.pexels.com/photo/a-track-in-a-mine-14747539/",
     ),
-    supportingImage: "/images/products/round-tube/frp-round-tube-70x60x5mm.jpg",
+    supportingImage: "/images/blog/composite-drainage-pipes-stacked.jpg",
     supportingAlt:
-      "Pultruded GFRP round pipe section used for underground methane drainage lines",
+      "Stacked composite drainage pipe ready for installation",
     supportingCaption:
-      "A pultruded GFRP drainage line gives a smooth bore, corrosion resistance, and roughly 50-year life at a fraction of steel's weight — but only an anti-static, flame-retardant formulation is allowed underground.",
+      "A pultruded GFRP drainage line is light enough to carry and hang by hand underground and keeps a smooth bore that lowers the energy needed to pull gas from the seam — but only an anti-static, flame-retardant grade is allowed below ground.",
+    supportingAttribution: pexelsCredit(
+      "Sergei Starostin",
+      "https://www.pexels.com/photo/stack-of-pvc-pipes-at-a-construction-site-29301874/",
+    ),
     highlights: [
       "Methane drainage needs anti-static (< 10⁶ Ω) and flame-retardant pipe to prevent ignition",
       "Pultruded GFRP suits DN25–300 at 0.6–1.6 MPa with roughly 50-year service life",
