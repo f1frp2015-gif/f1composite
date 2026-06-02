@@ -42,6 +42,33 @@ const nextConfig: NextConfig = {
         destination: "/resources/blog/frp-vs-aluminum-window-frames-comparison",
         permanent: true,
       },
+      // 2026-06-02: consolidated 5 thin "2026 signal" observation posts into a
+      // single trends briefing. Preserve the indexed URLs.
+      {
+        source: "/resources/blog/what-leading-pultrusion-peers-are-signaling-2026",
+        destination: "/resources/blog/pultrusion-industry-trends-2026",
+        permanent: true,
+      },
+      {
+        source: "/resources/blog/what-industry-associations-are-prioritizing-pultrusion-2026",
+        destination: "/resources/blog/pultrusion-industry-trends-2026",
+        permanent: true,
+      },
+      {
+        source: "/resources/blog/what-jec-world-and-camx-reveal-about-pultrusion-2026",
+        destination: "/resources/blog/pultrusion-industry-trends-2026",
+        permanent: true,
+      },
+      {
+        source: "/resources/blog/what-high-end-technical-forums-reveal-about-pultrusion-2026",
+        destination: "/resources/blog/pultrusion-industry-trends-2026",
+        permanent: true,
+      },
+      {
+        source: "/resources/blog/recent-pultrusion-patents-and-new-technology-paths-2026",
+        destination: "/resources/blog/pultrusion-industry-trends-2026",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "f1composite.com" }],
