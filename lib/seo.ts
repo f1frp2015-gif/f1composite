@@ -23,6 +23,25 @@ interface ProductSchemaOptions {
    * engines bind the generic product to a citeable, ownable brand name.
    */
   productLine?: string;
+  /**
+   * Real catalog price band for THIS product family (per linear meter unless
+   * overridden). Omit for quote-only products — we then emit a price-less
+   * Offer (we sell it, it is in stock, contact for a quote) rather than
+   * asserting a fabricated price. B2B pricing is per-RFQ, so do not invent a
+   * range just to populate the field.
+   */
+  priceRange?: {
+    lowPrice: string;
+    highPrice: string;
+    offerCount?: string;
+    unitText?: string;
+  };
+  /**
+   * Real measured properties for THIS specific product. Omit unless the value
+   * is genuinely representative — do not assert one density / conductivity
+   * across every product family.
+   */
+  measurements?: Array<{ propertyID: string; value: string; unitText: string }>;
 }
 
 export function absoluteUrl(path: string) {
@@ -108,6 +127,8 @@ export function buildProductSchema({
   material,
   additionalProperty = [],
   productLine,
+  priceRange,
+  measurements,
 }: ProductSchemaOptions) {
   return {
     "@context": "https://schema.org",
@@ -128,41 +149,51 @@ export function buildProductSchema({
       name: "F1 Composite",
       url: SITE_URL,
     },
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "5",
-      highPrice: "300",
-      offerCount: "100",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      businessFunction: "http://purl.org/goodrelations/v1#Sell",
-      eligibleQuantity: {
-        "@type": "QuantitativeValue",
-        unitText: "linear meter",
-      },
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
+    offers: priceRange
+      ? {
+          "@type": "AggregateOffer",
+          url: absoluteUrl("/contact"),
+          priceCurrency: "USD",
+          lowPrice: priceRange.lowPrice,
+          highPrice: priceRange.highPrice,
+          ...(priceRange.offerCount && { offerCount: priceRange.offerCount }),
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          businessFunction: "http://purl.org/goodrelations/v1#Sell",
+          eligibleQuantity: {
+            "@type": "QuantitativeValue",
+            unitText: priceRange.unitText ?? "linear meter",
+          },
+          seller: {
+            "@id": `${SITE_URL}/#organization`,
+            "@type": "Organization",
+            name: "F1 Composite",
+          },
+        }
+      : {
+          // Quote-only product. We assert that F1 sells it and it is in stock,
+          // but do NOT fabricate a price — B2B pricing is per-RFQ. Pass a real
+          // `priceRange` to emit an AggregateOffer with actual numbers.
+          "@type": "Offer",
+          url: absoluteUrl("/contact"),
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          businessFunction: "http://purl.org/goodrelations/v1#Sell",
+          seller: {
+            "@id": `${SITE_URL}/#organization`,
+            "@type": "Organization",
+            name: "F1 Composite",
+          },
+        },
     material,
-    hasMeasurement: [
-      {
+    ...(measurements?.length && {
+      hasMeasurement: measurements.map((m) => ({
         "@type": "QuantitativeValue",
-        propertyID: "density",
-        value: "1.9",
-        unitText: "g/cm^3",
-      },
-      {
-        "@type": "QuantitativeValue",
-        propertyID: "thermal conductivity",
-        value: "0.3",
-        unitText: "W/(m·K)",
-      },
-    ],
+        propertyID: m.propertyID,
+        value: m.value,
+        unitText: m.unitText,
+      })),
+    }),
     additionalProperty: [
       ...(productLine
         ? [
