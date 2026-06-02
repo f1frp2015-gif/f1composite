@@ -58,6 +58,190 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+
+  {
+    slug: "pultruded-frp-pipe-oil-and-gas",
+    title: "Pultruded FRP Pipe in Oil and Gas: Where Pultrusion Actually Fits",
+    seoTitle: "Pultruded FRP Pipe in Oil & Gas Piping",
+    answerBox:
+      "In oil and gas piping, pultruded FRP is not the choice for high-pressure trunklines — that is filament winding's job, because hoop stress needs wound fiber at about ±54°. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It runs about 30% cheaper than filament-wound pipe and cuts 25-year lifecycle cost against carbon steel by roughly 65%.",
+    category: "Oil & Gas",
+    date: "2026-06-02",
+    updatedAt: "2026-06-02",
+    readTime: "11 min",
+    excerpt:
+      "Pultruded FRP does not replace filament-wound high-pressure trunklines. It earns its place in oilfield piping where loads are axial or pressure is low to moderate — threaded line pipe, gathering lines, fuel-station double-wall pipe, and continuous sucker rods.",
+    authorName: "Yifan Liu, Application Engineer",
+    authorRole:
+      "Senior Application Engineer — pultruded FRP structural design and project specification",
+    reviewedBy: "Technical Review Board",
+    standards: ["API 15HR", "API 15LR", "API 15S", "ISO 14692", "ASTM D2992", "NACE MR0175"],
+    coverImage: "/images/industries/frp-industrial-chemical-plant-facility.jpg",
+    coverAlt:
+      "Industrial oil and gas process facility piping where FRP replaces carbon steel",
+    supportingImage: "/images/products/round-tube/frp-round-tube-80mm-od.jpg",
+    supportingAlt:
+      "Pultruded FRP round tube, the section form used for low-pressure oilfield line pipe and conduit",
+    supportingCaption:
+      "A pultruded round section is strong along its axis and lighter than steel — the right form for sucker rods, conduit, and low-to-moderate-pressure line pipe, not for high-pressure trunklines.",
+    highlights: [
+      "Filament winding owns high-pressure trunklines; pultrusion owns axial-load and low/medium-pressure pipe",
+      "API 15HR/15LR, API 15S, ISO 14692, UL 971, and NACE MR0175 govern the field",
+      "About 30% cheaper than wound pipe; roughly 65% lower 25-year cost than carbon steel",
+    ],
+    ogDescription:
+      "Where pultruded FRP pipe fits in oil and gas: API 15HR/15LR line pipe, UL 971 fuel-station double-wall, spoolable composite pipe, and continuous sucker rods.",
+    ogChips: ["Oil & gas", "API 15HR / 15LR", "Sucker rods"],
+    relatedLinks: [
+      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Round Tube Profiles", href: "/products/standard-profiles/tube" },
+      { label: "Energy Industry", href: "/industries/energy" },
+    ],
+    sourceLinks: [
+      { label: "NOV STAR Fiberglass Pipe", href: "https://www.nov.com/products/star-fiberglass-pipe" },
+      { label: "Future Pipe Industries — Oil & Gas", href: "https://futurepipe.com/sectors/oil-and-gas/" },
+      {
+        label: "API 15HR vs API 15LR explained (IFGS)",
+        href: "https://www.ifgs.com/blog/what-is-the-difference-between-api-15hr-and-api-15lr/",
+      },
+      { label: "ISO 14692-2:2017 — GRP piping for oil & gas", href: "https://www.iso.org/standard/62257.html" },
+      {
+        label: "Saudi Aramco nonmetallic deployment (Oil & Gas Journal)",
+        href: "https://www.ogj.com/refining-processing/refining/article/17232888/saudi-aramco-details-nonmetallic-products-deployment-in-oil-gas",
+      },
+      {
+        label: "Derakane Resin Selection Guide (INEOS)",
+        href: "https://www.ineos.com/globalassets/ineos-group/businesses/ineos-composites/markets/corrosion/derakane-resin-selection-guide.pdf",
+      },
+    ],
+    content: `Fiber-reinforced polymer pipe has been in oilfield service for decades, but it pays to be precise about where pultrusion belongs. The global FRP/GRP/GRE pipe market was about USD 5.14 billion in 2025, and oil and gas is its largest single segment at roughly 40% — around USD 800 million, growing near 5.4% a year. Most of that money flows to filament-wound and centrifugally cast pipe, not pultrusion. Knowing why is the key to specifying pultruded FRP correctly instead of forcing it into the wrong job.
+
+## Why pultrusion is not a high-pressure trunkline
+
+Internal pressure loads a pipe wall in the hoop direction. The fiber that resists it has to wrap around the circumference, which is exactly what filament winding does: it lays roving at roughly ±54° to the axis, the angle that balances hoop and axial stress for burst. Pultrusion pulls fiber straight down the axis, so its reinforcement is mostly longitudinal. That makes a pultruded tube very strong in tension and compression along its length and comparatively weak against internal pressure.
+
+The practical result is a clean division of labor. High-pressure GRE line pipe to API 15HR (up to about 5,000 psi / 34.5 MPa) and large-diameter platform risers stay with winding, which holds roughly three-quarters of the FRP pipe market for this reason. Pultrusion competes where its axial strength, continuous output, and lower cost matter more than hoop strength.
+
+## The five places pultrusion wins
+
+**1. Threaded line pipe in small bore.** For DN50–150 (2–6 in) line pipe with machined API 8-round threads, pultrusion produces a straight, dimensionally tight section at 0.6–1.8 m/min, far faster than winding at 0.1–0.4 m/min. A surface fabric layer wound at ±55° (pull-winding) adds the hoop capacity these sizes need. Output runs about 30% cheaper than wound pipe at the same diameter.
+
+**2. Low-pressure gathering and injection lines.** Field gathering and water injection at 150–450 psi (1–3 MPa), covered by API 15LR, is high-volume, long-distance work where cost per meter decides the project. Pultrusion's continuous process is built for it.
+
+**3. Double-wall fuel-station pipe.** Underground fuel pipe needs a primary wall and a secondary containment wall. Pultrusion can form both in one pass, and a vinyl-ester system qualified to UL 971 handles gasoline through E100 ethanol with a 30-year warranty.
+
+**4. Spoolable composite line pipe.** Reinforced and pultruded composite line pipe to API 15S ships on reels up to about 3 km long, which removes most of the field joints — the single largest source of FRP pipe failure. NOV's Fiberspar line has more than 12,000 km installed worldwide on that principle.
+
+**5. Continuous composite sucker rods.** This is pultrusion's standout oilfield product, because a sucker rod is loaded almost purely in axial tension and compression, the direction pultruded fiber is strongest. Glass or carbon roving is pultruded continuously, cut to length, and bonded to steel end fittings. John Crane's Series 200 fiberglass rod (now under Endurance Lift Solutions) is rated to 285 °F (140 °C), resists corrosion, and lowers lifting energy in deep rod-pumped wells.
+
+## What the field actually runs on
+
+These applications live or die on standards and resin chemistry, not on marketing.
+
+| Standard | Scope |
+|---|---|
+| API 15HR | High-pressure fiberglass line pipe, 500–5,000 psi |
+| API 15LR | Low-pressure fiberglass line pipe, ≤ 500 psi |
+| API 15S | Spoolable reinforced plastic line pipe |
+| ISO 14692 | GRP piping for oil and gas (four parts) |
+| ASTM D2992 | Long-term hydrostatic design basis (HDB) |
+| NACE MR0175 / ISO 15156 | Materials for sour (H₂S) service |
+
+Resin choice follows the fluid. A bisphenol-A vinyl ester such as Derakane 411 covers general gathering and injection to about 105 °C (220 °F). Sour service with H₂S or CO₂ moves to a novolac vinyl ester such as Derakane 470, with a resin-rich liner of at least 1.5 mm. High-pressure threaded line pipe uses amine- or anhydride-cured epoxy. For sour wells, NACE MR0175 sets the material screen before anything else.
+
+## The number that wins the meeting
+
+Against carbon steel, the case is lifecycle cost, not purchase price. A representative comparison — DN150 (6 in), 5 km, 1.6 MPa, 25-year design life — runs roughly as follows:
+
+| Item (USD/m) | Carbon steel + 3LPE | Pultruded FRP / GRE |
+|---|---|---|
+| Material | 35 | 45 |
+| Coating | 12 | 0 |
+| Installation | 50 | 28 |
+| Cathodic protection, 25 yr | 18 | 0 |
+| Inspection and repair, 25 yr | 35 | 5 |
+| Replacement / patching | 70 | 0 |
+| Total | 220 | 78 |
+
+FRP costs more to buy and about 65% less to own. That math is why Saudi Aramco runs more than 1,000 km of GRE injection line at Ghawar, why Sinopec's Shengli field has replaced over 5,000 km of carbon-steel produced-water line with FRP, and why CNPC's Changqing field has more than 3,500 km of FRP injection pipe in service.
+
+## Where F1 Composite fits
+
+F1 Composite is a pultrusion manufacturer, so our honest position in oil and gas is the pultrusion-shaped part of the problem: custom small-bore profiles and conduit, structural support and cable management for well sites and platforms, and the axial-load products — rod and tube — where pultrusion is genuinely the right process. For high-pressure wound line pipe, we will tell you to specify winding. For the rest, we can quote a section, a resin system matched to the fluid, and a delivery that lands DDP. Start with the fluid, the pressure, and the temperature, and the right process picks itself.`,
+  },
+  {
+    slug: "frp-pipe-for-coal-mine-gas-drainage",
+    title: "Pultruded FRP Pipe for Coal Mine Gas Drainage: Anti-Static and Flame-Retardant by Design",
+    seoTitle: "FRP Pipe for Coal Mine Gas Drainage",
+    answerBox:
+      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, roughly 50-year life, and a fraction of steel's weight. In China alone the segment is about ¥5.2 billion a year.",
+    category: "Coal Mine Safety",
+    date: "2026-06-02",
+    updatedAt: "2026-06-02",
+    readTime: "10 min",
+    excerpt:
+      "Draining methane underground demands a pipe that will not spark and will not carry flame. Pultruded GFRP pipe — anti-static and flame-retardant by formulation — is one of the few cases where pultrusion is the best process, not a compromise.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole:
+      "R&D Lead — composite materials, pultrusion process development, and standards",
+    reviewedBy: "Technical Review Board",
+    standards: ["MT 558.3", "GB 16413", "MT 113", "ISO 9001"],
+    coverImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
+    coverAlt:
+      "Pultrusion lines producing FRP pipe suited to anti-static, flame-retardant mine gas drainage",
+    supportingImage: "/images/products/round-tube/frp-round-tube-70x60x5mm.jpg",
+    supportingAlt:
+      "Pultruded GFRP round pipe section used for underground methane drainage lines",
+    supportingCaption:
+      "A pultruded GFRP drainage line gives a smooth bore, corrosion resistance, and roughly 50-year life at a fraction of steel's weight — but only an anti-static, flame-retardant formulation is allowed underground.",
+    highlights: [
+      "Methane drainage needs anti-static (< 10⁶ Ω) and flame-retardant pipe to prevent ignition",
+      "Pultruded GFRP suits DN25–300 at 0.6–1.6 MPa with roughly 50-year service life",
+      "Joint-seal leakage is the top failure mode — toughened resin and better joints fix it",
+    ],
+    ogDescription:
+      "Why pultruded GFRP is the right pipe for coal-mine gas (methane) drainage: anti-static, flame-retardant, smooth-bore, ~50-year life, DN25–300 at 0.6–1.6 MPa.",
+    ogChips: ["Mine methane", "Anti-static", "Flame-retardant"],
+    relatedLinks: [
+      { label: "Fire Resistance of FRP Profiles", href: "/resources/blog/frp-fire-resistance-ratings-guide" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Round Tube Profiles", href: "/products/standard-profiles/tube" },
+    ],
+    content: `Underground coal mining releases methane, and the gas has to be drained through a piped network before it can build to an explosive concentration. That pipe carries a flammable gas through an environment where one spark can be fatal, so it answers to two requirements most pipe never sees: it must not build a static charge, and it must not sustain a flame. Pultruded glass-fiber pipe meets both at the material level, which is why this is one of the few piping jobs where pultrusion is the first choice rather than a fallback.
+
+## A moderate-pressure, axial-friendly duty
+
+Gas drainage runs at 0.6–1.6 MPa (90–230 psi) in diameters from DN25 to DN300 (1–12 in). That sits squarely inside what pultrusion does well: small to medium bore, moderate pressure, long straight runs, no need for the heavy hoop reinforcement that pushes high-pressure pipe toward filament winding. A pultruded GFRP drainage pipe gives a smooth internal bore that lowers flow resistance and pumping energy, around 50 years of service life, full corrosion resistance against the damp and acidic mine atmosphere, and a fraction of the weight of steel — which matters when every length is carried and hung by hand underground.
+
+## The two safety properties that define the product
+
+**Anti-static.** A pultruded pipe is an insulator by default, so it can accumulate surface charge as gas and dust move through it. In a methane atmosphere, that charge is an ignition source. The fix is a conductive surface — a carbon veil or conductive additive that pulls surface resistance below 10⁶ Ω, low enough to bleed charge to ground instead of releasing it as a spark.
+
+**Flame-retardant.** The resin system has to self-extinguish rather than feed a fire. In China the benchmark is the 45° flame test in GB 16413, paired with the oxygen-index and anti-static methods in MT 113. Clearing both with margin, not just scraping the minimum, is the entry ticket.
+
+## The standards that gate the market
+
+| Standard | What it covers |
+|---|---|
+| MT 558.3 | Underground coal-mine plastic pipe — fiberglass (FRP) section |
+| GB 16413 | Safety performance of FRP products in coal mines — 45° flame test |
+| MT 113 | Flame-retardant and anti-static test methods for mine polymer products |
+
+Mine drainage pipe carries the KW designation (gas drainage) in the Chinese mine-pipe classification, alongside water lines (KS), grout-spray lines (KJ), and ventilation lines (KFZ/KFF). The hardest gate is not the pipe specification at all — it is the mine-safety mark (MA) approval that any product needs before it can be bought for underground use. No MA, no sale, however good the pipe is.
+
+## Where the existing pipe fails
+
+Field studies of non-metallic mine pipe point to a consistent set of failures, and they are where a better product earns its place:
+
+- **Joint-seal leakage**, the largest single failure mode. A leaking joint pulls air into a vacuum drainage line and drops capture efficiency.
+- **Embrittlement and aging** under the combination of high humidity and sustained stress.
+- **Anti-static and flame-retardant performance fading** over years of service.
+- **Mechanical damage** to the wall from underground handling and roof movement.
+
+## Where F1 Composite fits
+
+This application matches what F1 Composite is built to do. Our flame-retardant, low-smoke pultrusion formulations were developed for exactly this kind of duty, and a polyurethane-based pultrusion system adds the toughness and impact resistance that answers the embrittlement and handling-damage failures above. The path to qualify is well defined: build DN50 and DN100 samples to MT 558.3, prove the surface resistance and 45° flame test at a third-party lab, then carry the product through MA approval before it goes underground. For a mine operator weighing a switch from steel or PVC, the case is a lower failure rate and a 50-year life — a total-cost argument, not a price argument. Tell us the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
+  },
   {
     slug: "what-is-pultrusion",
     title: "What Is Pultrusion? A Complete Guide to the FRP Manufacturing Process",
