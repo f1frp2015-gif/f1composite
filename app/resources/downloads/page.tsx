@@ -40,6 +40,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const downloads = [
   {
+    title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",
+    format: "PDF",
+    size: "991 KB",
+    description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two qualified families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service), ≥25-year life, qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0, ≥50-year design life, qualified to MT 558.2, GB 16413, MT 113, ISO 4589-2, ASTM E84 Class I. Edition 2026.06, Rev v1.3.",
+    file: "/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf",
+  },
+  {
     title: "FRP Profile Design Manual — 2026 Edition",
     format: "PDF",
     size: "734 KB",

@@ -64,18 +64,18 @@ export const blogPosts: BlogPost[] = [
     title: "Pultruded FRP Pipe in Oil and Gas: Where Pultrusion Actually Fits",
     seoTitle: "Pultruded FRP Pipe in Oil & Gas Piping",
     answerBox:
-      "In oil and gas piping, pultruded FRP is not the choice for high-pressure trunklines — that is filament winding's job, because hoop stress needs wound fiber at about ±54°. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It runs about 30% cheaper than filament-wound pipe and cuts 25-year lifecycle cost against carbon steel by roughly 65%.",
+      "In oil and gas piping, pultruded FRP is not the choice for high-pressure trunklines — that is filament winding's job, because hoop stress needs wound fiber at about ±54°. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It runs about 30% cheaper than filament-wound pipe and cuts 25-year lifecycle cost against carbon steel by roughly 65%. F1 Composite ships this as Series 01: pultruded GRE / GRVE surface-gathering pipe in serial production, DN50–DN300, 0.7–3.5 MPa, +140 °C continuous (short-term peak +160 °C), qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, and SY/T 6266.",
     category: "Oil & Gas",
     date: "2026-06-02",
-    updatedAt: "2026-06-02",
-    readTime: "11 min",
+    updatedAt: "2026-06-03",
+    readTime: "12 min",
     excerpt:
       "Pultruded FRP does not replace filament-wound high-pressure trunklines. It earns its place in oilfield piping where loads are axial or pressure is low to moderate — threaded line pipe, gathering lines, fuel-station double-wall pipe, and continuous sucker rods.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole:
       "Senior Application Engineer — pultruded FRP structural design and project specification",
     reviewedBy: "Technical Review Board",
-    standards: ["API 15HR", "API 15LR", "API 15S", "ISO 14692", "ASTM D2992", "NACE MR0175"],
+    standards: ["API 15LR", "API 15HR", "API 15S", "ISO 14692", "NORSOK M-622", "ASTM D2992", "SY/T 6266", "NACE MR0175"],
     coverImage: "/images/blog/oil-gas-pipeline-industrial-plant.jpg",
     coverAlt:
       "Industrial gas pipeline and process piping at an oil and gas plant",
@@ -93,12 +93,12 @@ export const blogPosts: BlogPost[] = [
       "https://www.pexels.com/photo/a-bulldozer-moving-large-pipes-on-a-beach-construction-site-with-a-stunning-sunset-backdrop-bulldozer-moving-large-pipes-on-a-beach-construction-site-during-sunset-24245333/",
     ),
     highlights: [
-      "Filament winding owns high-pressure trunklines; pultrusion owns axial-load and low/medium-pressure pipe",
-      "API 15HR/15LR, API 15S, ISO 14692, UL 971, and NACE MR0175 govern the field",
-      "About 30% cheaper than wound pipe; roughly 65% lower 25-year cost than carbon steel",
+      "F1 Composite Series 01 in serial production: DN50–DN300, 0.7–3.5 MPa, +140 °C continuous, API 15LR / ISO 14692",
+      "Vinyl-ester, epoxy, and polyurethane matrices; 0.5–2.5 mm resin-rich liner — novolac VE for sour H₂S / CO₂ service",
+      "−15% artificial-lift pumping energy vs carbon steel · −75% weight · no cathodic protection · ≥25-year service life",
     ],
     ogDescription:
-      "Where pultruded FRP pipe fits in oil and gas: API 15HR/15LR line pipe, UL 971 fuel-station double-wall, spoolable composite pipe, and continuous sucker rods.",
+      "F1 Composite Series 01 pultruded GRE / GRVE oilfield surface-gathering pipe in serial production — DN50–300, API 15LR, ISO 14692, +140 °C continuous.",
     ogChips: ["Oil & gas", "API 15HR / 15LR", "Sucker rods"],
     relatedLinks: [
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
@@ -173,27 +173,51 @@ Against carbon steel, the case is lifecycle cost, not purchase price. A represen
 
 FRP costs more to buy and about 65% less to own. That math is why Saudi Aramco runs more than 1,000 km of GRE injection line at Ghawar, why Sinopec's Shengli field has replaced over 5,000 km of carbon-steel produced-water line with FRP, and why CNPC's Changqing field has more than 3,500 km of FRP injection pipe in service.
 
-## Where F1 Composite fits
+## F1 Composite Series 01 — in serial production
 
-F1 Composite is a pultrusion manufacturer, so our honest position in oil and gas is the pultrusion-shaped part of the problem: custom small-bore profiles and conduit, structural support and cable management for well sites and platforms, and the axial-load products — rod and tube — where pultrusion is genuinely the right process. For high-pressure wound line pipe, we will tell you to specify winding. For the rest, we can quote a section, a resin system matched to the fluid, and a delivery that lands DDP. Start with the fluid, the pressure, and the temperature, and the right process picks itself.`,
+F1 Composite manufactures pultruded oilfield surface-gathering pipe as a stocked, serial-production line, not a one-off custom run. The product sits in the DN50–DN300 band where pultrusion is genuinely the right process, and it is qualified to the standards the field actually buys against.
+
+**Series 01 — Oilfield Surface Gathering Pipe**
+
+| Spec | Value |
+|---|---|
+| Diameter range | DN50 – DN300 mm |
+| Working pressure | 0.7 – 3.5 MPa · ≤ 500 psi |
+| Working temperature | −40 °C to +140 °C · short-term peak +160 °C |
+| Resin systems | Vinyl-ester · Epoxy · Polyurethane |
+| Resin-rich liner | 0.5 – 2.5 mm · novolac VE for sour service |
+| Surface enhancement | Glass veil · biaxial fabric · carbon veil |
+| Jointing | API 8-round · adhesive · flanged |
+| Service life | ≥ 25 years |
+| Pultrusion speed | 0.6 – 1.2 m/min |
+| Standards | API 15LR · ISO 14692 · NORSOK M-622 · ASTM D2992 · SY/T 6266 |
+| Capacity | 6 plants · 370 pultrusion lines · 150,000 t/yr |
+
+Typical service includes crude-oil surface gathering and high-temperature flowlines, water-flood and steam-flood injection to +140 °C, produced-water transfer and saltwater disposal, sour H₂S / CO₂ produced-water lines (per ISO 14692-2 and NORSOK M-622), geothermal fluid transport, and low-pressure onshore gas gathering. Against carbon steel, the bore is hydraulically smoother — artificial-lift pumping energy drops by up to 15% — and the wall needs no cathodic protection, no external coating, and weighs about 75% less.
+
+The 3-page edition 2026.06 product catalog has the full specification, the resin-selection matrix, and the qualified application list:
+
+[Download the F1 Composite Pipe Catalog 2026 (PDF, 3 pages)](/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf)
+
+For high-pressure wound line pipe we still tell engineers to specify winding. For everything Series 01 covers, send the fluid composition, working pressure, and temperature window, and we can scope a section, a resin matrix, and a DDP delivery against it.`,
   },
   {
     slug: "frp-pipe-for-coal-mine-gas-drainage",
     title: "Pultruded FRP Pipe for Coal Mine Gas Drainage: Anti-Static and Flame-Retardant by Design",
     seoTitle: "FRP Pipe for Coal Mine Gas Drainage",
     answerBox:
-      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, roughly 50-year life, and a fraction of steel's weight. In China alone the segment is about ¥5.2 billion a year.",
+      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, roughly 50-year life, and a fraction of steel's weight. F1 Composite ships this as Series 02: pultruded GFRP CMM drainage pipe in serial production, DN25–DN300, 0.6–1.6 MPa, MT 558.2 / GB 16413 / MT 113 with surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, and UL 94 V-0 / ASTM E84 Class I.",
     category: "Coal Mine Safety",
     date: "2026-06-02",
-    updatedAt: "2026-06-02",
-    readTime: "10 min",
+    updatedAt: "2026-06-03",
+    readTime: "11 min",
     excerpt:
       "Draining methane underground demands a pipe that will not spark and will not carry flame. Pultruded GFRP pipe — anti-static and flame-retardant by formulation — is one of the few cases where pultrusion is the best process, not a compromise.",
     authorName: "Haifeng Gong, Ph.D.",
     authorRole:
       "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Review Board",
-    standards: ["MT 558.3", "GB 16413", "MT 113", "ISO 9001"],
+    standards: ["MT 558.2", "MT 558.3", "GB 16413", "MT 113", "ISO 4589-2", "UL 94 V-0", "ASTM E84", "ISO 9001"],
     coverImage: "/images/blog/coal-mine-underground-tunnel-track.jpg",
     coverAlt:
       "Illuminated underground coal mine tunnel with haulage track",
@@ -211,12 +235,12 @@ F1 Composite is a pultrusion manufacturer, so our honest position in oil and gas
       "https://www.pexels.com/photo/stack-of-pvc-pipes-at-a-construction-site-29301874/",
     ),
     highlights: [
-      "Methane drainage needs anti-static (< 10⁶ Ω) and flame-retardant pipe to prevent ignition",
-      "Pultruded GFRP suits DN25–300 at 0.6–1.6 MPa with roughly 50-year service life",
-      "Joint-seal leakage is the top failure mode — toughened resin and better joints fix it",
+      "F1 Composite Series 02 in serial production: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, UL 94 V-0",
+      "ATH 50 / APP 8 / AOM 3 flame package + conductive carbon-veil outer layer clear MT 558 / GB 16413 / MT 113 in one pull",
+      "≥ 50-year design life · maintenance-free · bell-and-spigot or quick-lock joints replace the leak-prone gasketed steel/PE alternatives",
     ],
     ogDescription:
-      "Why pultruded GFRP is the right pipe for coal-mine gas (methane) drainage: anti-static, flame-retardant, smooth-bore, ~50-year life, DN25–300 at 0.6–1.6 MPa.",
+      "F1 Composite Series 02 pultruded GFRP coal-mine methane drainage pipe in serial production — DN25–300, MT 558, UL 94 V-0, ≤3×10⁸ Ω, 50-yr life.",
     ogChips: ["Mine methane", "Anti-static", "Flame-retardant"],
     relatedLinks: [
       { label: "Fire Resistance of FRP Profiles", href: "/resources/blog/frp-fire-resistance-ratings-guide" },
@@ -254,9 +278,35 @@ Field studies of non-metallic mine pipe point to a consistent set of failures, a
 - **Anti-static and flame-retardant performance fading** over years of service.
 - **Mechanical damage** to the wall from underground handling and roof movement.
 
-## Where F1 Composite fits
+## F1 Composite Series 02 — in serial production
 
-This application matches what F1 Composite is built to do. Our flame-retardant, low-smoke pultrusion formulations were developed for exactly this kind of duty, and a polyurethane-based pultrusion system adds the toughness and impact resistance that answers the embrittlement and handling-damage failures above. The path to qualify is well defined: build DN50 and DN100 samples to MT 558.3, prove the surface resistance and 45° flame test at a third-party lab, then carry the product through MA approval before it goes underground. For a mine operator weighing a switch from steel or PVC, the case is a lower failure rate and a 50-year life — a total-cost argument, not a price argument. Tell us the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
+F1 Composite manufactures pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground against a 50-year design life — a maintenance-free replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
+
+**Series 02 — Mine Methane Drainage Pipe**
+
+| Spec | Value |
+|---|---|
+| Diameter range | DN25 – DN300 mm |
+| Working pressure | 0.6 – 1.6 MPa |
+| Working temperature | −20 °C to +80 °C |
+| Surface resistance | ≤ 3 × 10⁸ Ω (MT 558.2) |
+| LOI / flame class | ≥ 28 % · UL 94 V-0 |
+| Resin systems | Vinyl-ester · Epoxy · Polyurethane |
+| Flame package | ATH 50 / APP 8 / AOM 3 + carbon-veil outer layer |
+| Surface enhancement | Glass veil · biaxial fabric · carbon veil |
+| Jointing | Bell-and-spigot · quick-lock |
+| Service life | ≥ 50 years · maintenance-free |
+| Pultrusion speed | 0.8 – 1.4 m/min |
+| Standards | MT 558.2 · GB 16413 · MT 113 · ISO 4589-2 · UL 94 V-0 · ASTM E84 Class I |
+| Capacity | 6 plants · 370 pultrusion lines · 150,000 t/yr |
+
+The matrix library lets us pick the resin to the duty. Brominated bisphenol-A (or halogen-free FR) vinyl-ester is the primary MT 558 matrix; epoxy and polyurethane variants cover the structural and non-FR runs. The ATH–APP–AOM package gives UL 94 V-0 and LOI ≥ 28% in a single pull, and a conductive carbon-veil outer layer brings surface resistance to ≤ 3 × 10⁸ Ω for the anti-static limit. Beyond methane drainage, Series 02 also covers auxiliary mine-ventilation ducting, acidic mine-water transfer (pH 2 – 6), compressed-air supply mains, outdoor UV-exposed vent and drainage runs, and combined service runs along mine roadways.
+
+The 3-page edition 2026.06 product catalog has the full specification, the resin / flame-package matrix, and the qualified application list:
+
+[Download the F1 Composite Pipe Catalog 2026 (PDF, 3 pages)](/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf)
+
+For a mine operator weighing a switch from steel or PE, the case is a lower failure rate and a 50-year life — a total-cost argument, not a price argument. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
   },
   {
     slug: "what-is-pultrusion",
