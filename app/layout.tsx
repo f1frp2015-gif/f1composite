@@ -100,6 +100,7 @@ const orgSchema = {
     { "@type": "Continent", name: "Asia" },
     { "@type": "Continent", name: "Oceania" },
     { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
     { "@type": "Country", name: "United Kingdom" },
     { "@type": "Country", name: "Australia" },
     { "@type": "Country", name: "Germany" },
@@ -125,6 +126,9 @@ const orgSchema = {
     "ASTM D3917 Pultruded Shapes",
     "ASCE/SEI 74-23 LRFD",
     "Passive House Fenestration",
+    "PHIUS Passive House Fenestration",
+    "NAFS / CSA A440 Fenestration",
+    "NFRC 100 Window U-factor",
   ],
   makesOffer: [
     {
@@ -170,6 +174,7 @@ const orgSchema = {
       },
       eligibleRegion: [
         { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "Canada" },
         { "@type": "Country", name: "United Kingdom" },
         { "@type": "Country", name: "Germany" },
         { "@type": "Country", name: "Netherlands" },

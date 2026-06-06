@@ -166,6 +166,14 @@ export default function UValueCalculatorPage() {
           >
             View Fenestration Systems →
           </Link>
+          <div className="mt-[21px] flex flex-wrap justify-center gap-[21px]">
+            <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">
+              → FRP passive house windows for Canada
+            </Link>
+            <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
+              → FRP for US projects (PHIUS, ASTM)
+            </Link>
+          </div>
         </div>
       </section>
 

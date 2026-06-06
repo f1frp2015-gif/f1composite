@@ -85,4 +85,11 @@ export const footerNav = {
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
+  markets: [
+    { label: "Passive House Windows · Canada", href: "/regions/frp-passive-house-windows-canada" },
+    { label: "FRP for US Projects", href: "/regions/frp-pultrusion-supplier-usa" },
+    { label: "FRP Grating · Saudi Arabia", href: "/regions/frp-grating-supplier-saudi-arabia" },
+    { label: "Solar Mounting · Australia", href: "/regions/pultruded-frp-solar-mounting-australia" },
+    { label: "Cable Tray · UAE", href: "/regions/frp-cable-tray-uae-oil-gas" },
+  ],
 };

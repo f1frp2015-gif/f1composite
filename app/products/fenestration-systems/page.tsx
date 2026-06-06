@@ -394,6 +394,14 @@ export default function FenestrationSystemsPage() {
             ],
           },
           {
+            title: "Source by region",
+            links: [
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada" },
+              { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP pultrusions — United States" },
+              { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "PHI Cert 2491wi03 — Passive House" },
+            ],
+          },
+          {
             title: "Technical resources",
             links: [
               { href: "/technology/u-value-calculator", label: "Window U-value calculator" },

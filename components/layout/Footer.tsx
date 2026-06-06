@@ -108,6 +108,20 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Markets — regional landing pages (sitewide internal links) */}
+        <div className="mt-[34px] flex flex-wrap items-center gap-[21px] border-t border-border-default pt-[21px]">
+          <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Markets</span>
+          {footerNav.markets.map((m) => (
+            <Link
+              key={m.href}
+              href={m.href}
+              className="text-f13 text-t2 transition-colors duration-[0.21s] hover:text-teal-text"
+            >
+              {m.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Certifications */}
         <div className="mt-[34px] flex flex-wrap items-center gap-[21px] border-t border-border-default pt-[21px]">
           <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Certified</span>
