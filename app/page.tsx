@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import HeroPreload from "@/components/HeroPreload";
 import Hero from "@/components/sections/Hero";
 import SolutionsSnapshot from "@/components/sections/SolutionsSnapshot";
 import IndustriesSnapshot from "@/components/sections/IndustriesSnapshot";
@@ -52,7 +51,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <HeroPreload />
       <Hero />
       <SolutionsSnapshot />
       <IndustriesSnapshot />

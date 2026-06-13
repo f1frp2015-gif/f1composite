@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const stats = [
@@ -12,12 +13,13 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-deep">
       {/* Full-bleed background image — static file with preload to eliminate LCP waterfall */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/images/hero/frp-composite-material-hero.webp"
           alt="Fiber reinforced polymer composite material texture"
-          fetchPriority="high"
-          decoding="async"
-          className="h-full w-full object-cover opacity-30"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-deep/50" />
       </div>

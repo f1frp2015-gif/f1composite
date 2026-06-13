@@ -4,14 +4,14 @@ import SectionTag from "@/components/ui/SectionTag";
 import InnerCTA from "@/components/sections/InnerCTA";
 import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About F1 Composite — Pultruded FRP Profiles Manufacturer in China",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About F1 Composite — FRP Profiles Manufacturer, China",
   description:
     "F1 Composite: 5 manufacturing bases, 370 pultrusion lines, 150,000 t/year. ISO 9001 FRP profiles manufacturer in China, exporting to 30+ countries.",
-  alternates: { canonical: absoluteUrl("/about") },
-};
+  path: "/about",
+});
 
 const milestones = [
   { year: "2015", event: "F1 Composite founded by a team of FRP engineers" },

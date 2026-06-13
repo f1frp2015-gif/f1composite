@@ -9,7 +9,6 @@ const FACTS = {
   contracting: "F1 Composite Co., Ltd",
   factory: "Chongqing FengDu New Material Co., Ltd",
   factoryCN: "风渡新材料",
-  legacyName: "Chongqing Xianju New Material Co., Ltd",
 };
 
 export default function LegalEntityNote({
@@ -55,11 +54,12 @@ export default function LegalEntityNote({
           </dd>
         </div>
         <div className="flex flex-col gap-[2px]">
-          <dt className="font-bold text-teal-text">PHI certificate legacy name</dt>
+          <dt className="font-bold text-teal-text">PHI certificate provenance</dt>
           <dd>
-            Some historical PHI certificates and test reports are issued under{" "}
-            {FACTS.legacyName} — this is one of the five production bases in the
-            same group.
+            Some historical PHI certificates and test reports were issued under a
+            legacy production-base name within the same manufacturing group —
+            verifiable via PHI Component-ID 2491wi03. One of our five production
+            bases.
           </dd>
         </div>
       </dl>

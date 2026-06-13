@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { customerReviews } from "@/content/data/reviews";
 
 const SITE_URL = "https://www.f1composite.com";
 
@@ -93,7 +94,11 @@ export function buildPageMetadata({
   const imageUrl = absoluteUrl(image);
 
   return {
-    title,
+    // Emit as `absolute` so the root layout's "%s | F1 Composite" template is
+    // NOT appended. That +15-char suffix pushed many titles past Google's
+    // ~60-char SERP limit; with `absolute`, the rendered <title> equals the
+    // string validated above, so the 60-char guard reflects the real SERP title.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: url,
@@ -220,5 +225,41 @@ export function buildProductSchema({
         value: item.value,
       })),
     ],
+  };
+}
+
+/**
+ * Build a schema.org aggregateRating + review fragment from REAL, verifiable
+ * reviews in content/data/reviews.ts. Returns null when there are no reviews,
+ * so we never emit an empty or fabricated AggregateRating — doing so is a Google
+ * structured-data policy violation and risks a manual action. Once you add ≥1
+ * genuine review, spread the result into an Organization or (better, for SERP
+ * stars) a Product node.
+ */
+export function buildAggregateRating() {
+  if (!customerReviews.length) return null;
+  const count = customerReviews.length;
+  const avg =
+    customerReviews.reduce((sum, r) => sum + r.rating, 0) / count;
+  return {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: avg.toFixed(1),
+      reviewCount: String(count),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: customerReviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Organization", name: r.author },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.rating),
+        bestRating: "5",
+        worstRating: "1",
+      },
+      reviewBody: r.body,
+      datePublished: r.datePublished,
+    })),
   };
 }

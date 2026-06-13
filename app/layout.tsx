@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildAggregateRating } from "@/lib/seo";
 import dynamic from "next/dynamic";
 
 const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"));
@@ -263,6 +264,10 @@ const orgSchema = {
   sameAs: [
     "https://www.youtube.com/@F1Composites",
   ],
+  // Surfaces star ratings in SERP once real reviews exist in
+  // content/data/reviews.ts. Emits nothing while that array is empty — we never
+  // fabricate ratings.
+  ...(buildAggregateRating() ?? {}),
 };
 
 const websiteSchema = {

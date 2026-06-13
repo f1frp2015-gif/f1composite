@@ -10,15 +10,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]
       ?.updatedAt ?? "2026-04-02";
 
-  // Use realistic dates per section instead of a single dynamic timestamp.
-  // Update these when content actually changes.
+  // Hub / navigational pages are continuously refreshed as new content ships,
+  // so tie their lastmod to the freshest real content date (newest blog update)
+  // instead of a hand-maintained constant that silently goes stale. Pages with
+  // their own real cadence (case studies, legal/static) keep explicit dates.
   const DATES = {
-    home: "2026-04-05",
-    products: "2026-04-05",
-    technology: "2026-04-05",
-    industries: "2026-04-05",
-    caseStudies: "2026-02-20",
-    resources: "2026-03-25",
+    home: latestBlogUpdate,
+    products: latestBlogUpdate,
+    technology: latestBlogUpdate,
+    industries: latestBlogUpdate,
+    caseStudies: "2026-04-22",
+    resources: latestBlogUpdate,
     blog: latestBlogUpdate,
     static: "2026-01-15",
   };
