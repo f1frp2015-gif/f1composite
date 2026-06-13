@@ -503,7 +503,7 @@ export default function ProfileCalculator() {
               {/* Send-to-engineer actions */}
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <a
-                  href={`mailto:f1frp2015@gmail.com?subject=${encodeURIComponent("FRP Profile Calc — Engineering Review Request")}&body=${encodeURIComponent(
+                  href={`/contact?source=calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify({ standard: mat.standard, designMethod: dm.label, environment: env.label, material: mat.label, shape, H_mm: dimH, B_mm: dimB, tw_mm: dimTw, tf_mm: dimTf, span_mm: span, load, Ix_cm4: +(Ix / 1e4).toFixed(1), Wx_cm3: +(Wx / 1e3).toFixed(1), bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1), shear_MPa: +tau_max.toFixed(1), shear_allow_MPa: +F_v_allow.toFixed(1), defl_mm: +defl.toFixed(1), weight_kg_m: +weightPerM.toFixed(2) }))}&message=${encodeURIComponent(
                     `Please review this preliminary FRP profile calculation:\n\n` +
                     `Standard: ${mat.standard}\n` +
                     `Design method: ${dm.label}\n` +
@@ -524,7 +524,7 @@ export default function ProfileCalculator() {
                   )}`}
                   className="rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >
-                  📧 Email engineer for review
+                  📧 Send to engineering for a quote
                 </a>
                 <a
                   href={`/ask?prefill=${encodeURIComponent(

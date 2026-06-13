@@ -50,6 +50,7 @@ function buildContactPrefillHref(userPrompt: string, object: SourcingObject | un
   const message = lines.join("\n");
   const params = new URLSearchParams({
     ref: "ai-sourcing",
+    source: "ai-sourcing",
     inquiry_type: "rfq",
     message,
   });

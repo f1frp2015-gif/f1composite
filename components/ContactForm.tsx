@@ -69,6 +69,8 @@ export default function ContactForm() {
   const prefillCountry = searchParams.get("country") ?? "";
   const prefillInquiryType = searchParams.get("inquiry_type") ?? "";
   const prefillMessage = searchParams.get("message") ?? "";
+  const prefillSource = searchParams.get("source") ?? prefillRef ?? "contact";
+  const prefillContext = searchParams.get("context") ?? "";
   const isFromAiSourcing = prefillRef === "ai-sourcing";
 
   if (state.success) {
@@ -84,6 +86,8 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-[21px]">
+      <input type="hidden" name="source" defaultValue={prefillSource} />
+      {prefillContext && <input type="hidden" name="context" defaultValue={prefillContext} />}
       {isFromAiSourcing && (
         <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
           <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact details, and send. We&rsquo;ll reply with a formal quote within 24h.

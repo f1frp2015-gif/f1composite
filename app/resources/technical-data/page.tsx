@@ -226,10 +226,8 @@ export default function TechnicalDataPage() {
                 <p className="mt-[8px] text-f13 leading-golden text-t2">{report.scope}</p>
                 <p className="mt-[13px] text-f11 text-t3">Testing lab: {report.lab}</p>
                 <a
-                  href={`mailto:f1frp2015@gmail.com?subject=${encodeURIComponent(
-                    `Early access request — ${report.title}`
-                  )}&body=${encodeURIComponent(
-                    `Please add me to the pre-publication notification list for:\n\n${report.title}\nStandard: ${report.standard}\nExpected: ${report.eta}\n\nMy project context (briefly): ____\nWhy this data matters for us: ____\n\nThanks.`
+                  href={`/contact?source=technical-data&inquiry_type=technical&message=${encodeURIComponent(
+                    `Early access request — ${report.title}\nStandard: ${report.standard}\nExpected: ${report.eta}\n\nMy project context (briefly): \nWhy this data matters for us: `
                   )}`}
                   className="mt-[13px] inline-block text-f13 font-semibold text-teal-text hover:underline"
                 >
@@ -242,9 +240,9 @@ export default function TechnicalDataPage() {
           <div className="mt-[34px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px]">
             <p className="text-f13 leading-golden text-t2">
               <strong>For specifiers:</strong> If you need a specific test protocol (different
-              chemical, higher temperature, longer duration) to unblock a project decision, email{" "}
-              <a href="mailto:f1frp2015@gmail.com" className="font-semibold text-teal-text hover:underline">
-                f1frp2015@gmail.com
+              chemical, higher temperature, longer duration) to unblock a project decision,{" "}
+              <a href="/contact?source=technical-data&inquiry_type=technical" className="font-semibold text-teal-text hover:underline">
+                request it here
               </a>{" "}
               — we prioritize testing that serves real specification questions. Qualified projects
               can access preliminary data under NDA.

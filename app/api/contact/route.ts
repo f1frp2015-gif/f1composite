@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { insertInquiry, markInquiryEmailed } from "@/lib/db";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -21,6 +22,17 @@ const HTML_ESCAPE: Record<string, string> = {
 function esc(value: string | null | undefined, fallback = "—") {
   const raw = value == null || value === "" ? fallback : String(value);
   return raw.replace(/[&<>"']/g, (c) => HTML_ESCAPE[c]);
+}
+
+// Structured context carried from the calculator / AI sourcing wizard. Stored as
+// JSONB so the cockpit can render the spec. Falls back to { raw } if not JSON.
+function parseContext(raw: string | null): unknown {
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return { raw };
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -60,6 +72,28 @@ export async function POST(request: NextRequest) {
 
   const timestamp = new Date().toISOString();
 
+  // Persist to the database FIRST (best-effort) so a lead is never lost even if
+  // the email step fails. Returns null (and we continue email-only) when
+  // DATABASE_URL is not yet configured.
+  let inquiryId: number | null = null;
+  try {
+    inquiryId = await insertInquiry({
+      name: name!,
+      email: email!,
+      company,
+      phone,
+      country,
+      inquiryType,
+      message: message!,
+      source: (formData.get("source") as string | null) || "contact",
+      context: parseContext(formData.get("context") as string | null),
+      userAgent: request.headers.get("user-agent"),
+      referer: request.headers.get("referer"),
+    });
+  } catch (dbErr) {
+    console.error("Inquiry DB insert failed:", dbErr);
+  }
+
   // Send notification email via Resend
   const { error } = await getResend().emails.send({
     from: "F1 Composite Inquiry <inquiry@f1composite.com>",
@@ -86,9 +120,21 @@ export async function POST(request: NextRequest) {
   if (error) {
     console.error("Resend error:", error);
     return NextResponse.json(
-      { message: "Your inquiry was received but email notification failed. Our team will still follow up." },
+      {
+        message: inquiryId
+          ? "Thank you — your inquiry has been recorded and our team will follow up within one business day."
+          : "Your inquiry was received but email notification failed. Our team will still follow up.",
+      },
       { status: 200 },
     );
+  }
+
+  if (inquiryId != null) {
+    try {
+      await markInquiryEmailed(inquiryId);
+    } catch {
+      // Non-fatal: the row exists; only the email_sent flag failed to update.
+    }
   }
 
   return NextResponse.json({

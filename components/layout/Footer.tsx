@@ -73,9 +73,9 @@ export default function Footer() {
               <a href="tel:+8613883333993" className="block text-f13 text-teal-text hover:text-teal">
                 +86 138 8333 3993
               </a>
-              <p className="pt-[8px] text-f13 font-semibold text-t1">Technical Service</p>
-              <a href="mailto:f1frp2015@gmail.com" className="block text-f13 text-teal-text hover:text-teal">
-                f1frp2015@gmail.com
+              <p className="pt-[8px] text-f13 font-semibold text-t1">Sales &amp; Technical</p>
+              <a href="/contact?source=footer&inquiry_type=rfq" className="block text-f13 font-bold text-teal-text hover:text-teal">
+                Get a Quote / Ask an Engineer →
               </a>
               <a
                 href="https://wa.me/8613883333993"
