@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "My application is not listed here — do you still serve it?",
     answer:
-      "Yes. The five categories above account for ~70% of F1 Composite shipments by volume; the remaining 30% spans industrial enclosures, antenna supports, water-treatment screens, military and rail applications, and more. Custom inquiries: sales@f1composite.com.",
+      "Yes. The five categories above account for ~70% of F1 Composite shipments by volume; the remaining 30% spans industrial enclosures, antenna supports, water-treatment screens, military and rail applications, and more. Custom inquiries: inquiry@f1composite.com.",
   },
   {
     question: "Are the connection details in each application page free to use?",

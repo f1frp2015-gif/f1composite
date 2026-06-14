@@ -47,12 +47,12 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="mb-[13px] text-f19 font-bold text-t1">5. Your Rights</h2>
-              <p>You have the right to access, correct, or delete your personal data. To exercise these rights, contact us at Doris.li@f1composite.com.</p>
+              <p>You have the right to access, correct, or delete your personal data. To exercise these rights, contact us at inquiry@f1composite.com.</p>
             </div>
 
             <div>
               <h2 className="mb-[13px] text-f19 font-bold text-t1">6. Contact</h2>
-              <p>For privacy-related questions, contact:<br />F1 Composite Co., Ltd<br />Email: Doris.li@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
+              <p>For privacy-related questions, contact:<br />F1 Composite Co., Ltd<br />Email: inquiry@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
             </div>
           </div>
         </div>
