@@ -87,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/resources`, lastModified: DATES.resources, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/resources/technical-data`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/resources/design-guides`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/resources/glossary`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/resources/blog`, lastModified: DATES.blog, changeFrequency: "weekly", priority: 0.7 },
     ...blogEntries,
     { url: `${BASE}/resources/downloads`, lastModified: DATES.resources, changeFrequency: "monthly", priority: 0.6 },

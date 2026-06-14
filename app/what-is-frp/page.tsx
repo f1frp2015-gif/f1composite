@@ -670,6 +670,7 @@ export default function WhatIsFrpPage() {
             <LinkArrow href="/products/custom-pultrusions">Custom pultrusion services</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>
+            <LinkArrow href="/resources/glossary">FRP &amp; pultrusion glossary</LinkArrow>
             <LinkArrow href="/ask">Ask the AI engineering assistant</LinkArrow>
           </div>
         </div>
