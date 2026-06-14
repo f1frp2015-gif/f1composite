@@ -10,7 +10,7 @@ import { Resend } from "resend";
  */
 export const NOTIFY_EMAILS: string[] = (
   process.env.INQUIRY_NOTIFY_EMAILS ??
-  "Doris.li@f1composite.com,f1frp2015@gmail.com"
+  "Doris.li@f1composite.com,orion.woo@f1composite.com"
 )
   .split(",")
   .map((s) => s.trim())
