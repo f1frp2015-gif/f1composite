@@ -1,6 +1,12 @@
 import { streamObject } from "ai";
 import { google } from "@ai-sdk/google";
 import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
+import { after } from "next/server";
+import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
+import { insertInquiry, dbConfigured } from "@/lib/db";
+
+// Sourcing prompts shorter than this are throwaway and don't alert the team.
+const SOURCING_NOTIFY_MIN_LEN = 24;
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user describes an FRP project (application, environment, loads, standards, geography). You return a structured recommendation matching the provided schema.
 
@@ -58,6 +64,49 @@ export async function POST(req: Request) {
         preview: prompt.slice(0, 240),
       }),
     );
+
+    // Lead capture: a sourcing submission IS a described project. Alert the team
+    // via after() (post-stream, no latency); persist when an email is present.
+    const trimmedPrompt = prompt.trim();
+    if (trimmedPrompt.length >= SOURCING_NOTIFY_MIN_LEN) {
+      const { email, phone } = extractContact(trimmedPrompt);
+      const userAgent = req.headers.get("user-agent");
+      const referer = req.headers.get("referer");
+      after(async () => {
+        const { ok, error } = await notifyTeam({
+          replyTo: email,
+          subject: `[Sourcing lead] FRP project description (${trimmedPrompt.length} chars)`,
+          html: `
+            <div style="font-family:-apple-system,sans-serif;max-width:640px;color:#1a1a1a;">
+              <h2 style="color:#00A199;margin-bottom:8px;">New AI sourcing request on f1composite.com</h2>
+              <p style="font-size:14px;color:#555;margin:0 0 16px;">A visitor described a project to the sourcing assistant. Follow up with a tailored quote.</p>
+              <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+                <tr><td style="padding:6px 12px;font-weight:600;width:90px;vertical-align:top;">Contact</td><td style="padding:6px 12px;">${email ? `<a href="mailto:${escapeHtml(email)}" style="color:#00A199;">${escapeHtml(email)}</a>` : "<i>not shared</i>"}${phone ? ` · ${escapeHtml(phone)}` : ""}</td></tr>
+              </table>
+              <div style="font-size:14px;border-top:1px solid #eee;padding-top:12px;white-space:pre-wrap;">${escapeHtml(trimmedPrompt)}</div>
+            </div>
+          `,
+        });
+        if (!ok) console.error("Sourcing lead notification FAILED — lead at risk:", error, { email, phone });
+        if (email && dbConfigured()) {
+          try {
+            await insertInquiry({
+              name: "AI sourcing lead",
+              email,
+              phone,
+              inquiryType: "AI sourcing",
+              message: trimmedPrompt.slice(0, 8000),
+              source: "ai-sourcing",
+              context: { kind: "sourcing" },
+              userAgent,
+              referer,
+            });
+          } catch (dbErr) {
+            console.error("Sourcing lead DB insert failed:", dbErr);
+          }
+        }
+      });
+    }
 
     const result = streamObject({
       model: google("gemini-2.5-flash"),

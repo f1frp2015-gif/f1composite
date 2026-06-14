@@ -1,5 +1,8 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { google } from "@ai-sdk/google";
+import { after } from "next/server";
+import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
+import { insertInquiry, dbConfigured } from "@/lib/db";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -317,6 +320,19 @@ function extractLastUserText(messages: UIMessage[]): string {
   return "";
 }
 
+function partsToText(m: UIMessage): string {
+  const parts = (m as { parts?: Array<{ type: string; text?: string }> }).parts;
+  if (!parts) return "";
+  return parts
+    .filter((p) => p.type === "text" && typeof p.text === "string")
+    .map((p) => p.text!)
+    .join(" ")
+    .trim();
+}
+
+// Intents that signal real buying interest — worth alerting the team about.
+const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
+
 export async function POST(req: Request) {
   try {
     const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
@@ -341,6 +357,68 @@ export async function POST(req: Request) {
           preview: lastUserText.slice(0, 240),
         }),
       );
+    }
+
+    // Lead capture: first time a conversation crosses into high buying intent,
+    // alert the team once (via after(), post-stream — no added latency). If the
+    // visitor left an email, also persist a lead row so it appears in the cockpit.
+    if (lastUserText && HIGH_INTENT_SIGNALS.has(detectIntent(lastUserText))) {
+      const userTexts = messages.filter((m) => m.role === "user").map(partsToText);
+      const alreadyAlerted = userTexts
+        .slice(0, -1)
+        .some((t) => HIGH_INTENT_SIGNALS.has(detectIntent(t)));
+      if (!alreadyAlerted) {
+        const { email, phone } = extractContact(userTexts.join("\n"));
+        const page = pageContext?.path ?? null;
+        const userAgent = req.headers.get("user-agent");
+        const referer = req.headers.get("referer");
+        const recent = messages
+          .slice(-14)
+          .map((m) => ({ who: m.role === "user" ? "Visitor" : "AI", text: partsToText(m) }))
+          .filter((r) => r.text);
+        const transcriptText = recent.map((r) => `${r.who}: ${r.text}`).join("\n\n");
+        const transcriptHtml = recent
+          .map(
+            (r) =>
+              `<tr style="background:${r.who === "Visitor" ? "#f9fafb" : "#fff"};"><td style="padding:6px 12px;font-weight:600;width:64px;vertical-align:top;color:#00A199;">${r.who}</td><td style="padding:6px 12px;white-space:pre-wrap;vertical-align:top;">${escapeHtml(r.text)}</td></tr>`,
+          )
+          .join("");
+        after(async () => {
+          const { ok, error } = await notifyTeam({
+            replyTo: email,
+            subject: `[Chat lead] high intent — ${page ?? "f1composite.com"}`,
+            html: `
+              <div style="font-family:-apple-system,sans-serif;max-width:640px;color:#1a1a1a;">
+                <h2 style="color:#00A199;margin-bottom:8px;">High-intent live chat on f1composite.com</h2>
+                <p style="font-size:14px;color:#555;margin:0 0 16px;">A visitor's chat just crossed into buying intent. Reach out while it's warm.</p>
+                <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+                  <tr><td style="padding:6px 12px;font-weight:600;width:90px;vertical-align:top;">Contact</td><td style="padding:6px 12px;">${email ? `<a href="mailto:${escapeHtml(email)}" style="color:#00A199;">${escapeHtml(email)}</a>` : "<i>not shared in chat</i>"}${phone ? ` · ${escapeHtml(phone)}` : ""}</td></tr>
+                  <tr style="background:#f9fafb;"><td style="padding:6px 12px;font-weight:600;vertical-align:top;">Page</td><td style="padding:6px 12px;">${escapeHtml(page ?? "—")}</td></tr>
+                </table>
+                <table style="width:100%;border-collapse:collapse;font-size:14px;border-top:1px solid #eee;">${transcriptHtml}</table>
+              </div>
+            `,
+          });
+          if (!ok) console.error("Chat lead notification FAILED — lead at risk:", error, { email, phone, page });
+          if (email && dbConfigured()) {
+            try {
+              await insertInquiry({
+                name: "AI chat lead",
+                email,
+                phone,
+                inquiryType: "AI chat — high intent",
+                message: transcriptText.slice(0, 8000),
+                source: "ai-chat",
+                context: { page },
+                userAgent,
+                referer,
+              });
+            } catch (dbErr) {
+              console.error("Chat lead DB insert failed:", dbErr);
+            }
+          }
+        });
+      }
     }
 
     const pageContextBlock = pageContext?.path
