@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { insertInquiry, markInquiryEmailed } from "@/lib/db";
+import { NOTIFY_EMAILS } from "@/lib/notify";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
-
-const NOTIFY_EMAILS = [
-  "Doris.li@f1composite.com",
-  "f1frp2015@gmail.com",
-];
 
 const HTML_ESCAPE: Record<string, string> = {
   "&": "&amp;",

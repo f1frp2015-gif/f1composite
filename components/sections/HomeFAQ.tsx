@@ -43,7 +43,7 @@ const items = [
   {
     question: "What should buyers prepare before requesting a quote?",
     answer:
-      "The most useful RFQ inputs are profile type or drawing, dimensions, quantity, application environment, required resin system or standard, delivery schedule, and destination port. Quotes are typically returned within 48 hours to Doris.li@f1composite.com.",
+      "The most useful RFQ inputs are profile type or drawing, dimensions, quantity, application environment, required resin system or standard, delivery schedule, and destination port. Quotes are typically returned within 48 hours to inquiry@f1composite.com.",
   },
 ];
 

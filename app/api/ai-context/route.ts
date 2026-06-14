@@ -35,13 +35,13 @@ export async function GET() {
       contact: {
         sales: {
           name: "Doris Li",
-          email: "Doris.li@f1composite.com",
+          email: "inquiry@f1composite.com",
           phone: "+86-138-8333-3993",
           languages: ["English", "Chinese"],
           areaServed: "Worldwide",
         },
         technical: {
-          email: "f1frp2015@gmail.com",
+          email: "inquiry@f1composite.com",
           languages: ["English", "Chinese"],
         },
       },
