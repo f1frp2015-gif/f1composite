@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "Do you have references in my industry?",
     answer:
-      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — sales@f1composite.com.",
+      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — inquiry@f1composite.com.",
   },
 ];
 

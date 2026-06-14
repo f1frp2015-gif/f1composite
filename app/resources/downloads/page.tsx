@@ -155,7 +155,7 @@ export default function DownloadsPage() {
               Most engineers building an approval package combine three downloads: (1) the product catalog page covering the chosen profile family, (2) the relevant certification (ISO 9001 + EN 13706 grade declaration is the typical default), and (3) the connection detail typical drawing. Procurement adds the sustainability and REACH declarations for European projects. QA teams add the MTC sample and FAI report sample to set their incoming inspection criteria.
             </p>
             <p>
-              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to sales@f1composite.com with the project name and we can release within one business day.
+              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to inquiry@f1composite.com with the project name and we can release within one business day.
             </p>
           </div>
           <FAQ items={faqs} />

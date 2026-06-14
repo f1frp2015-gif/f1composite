@@ -72,7 +72,7 @@ const orgSchema = {
     {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "Doris.li@f1composite.com",
+      email: "inquiry@f1composite.com",
       telephone: "+86-138-8333-3993",
       availableLanguage: ["English", "Chinese"],
       areaServed: ["Worldwide"],
@@ -80,7 +80,7 @@ const orgSchema = {
     {
       "@type": "ContactPoint",
       contactType: "technical support",
-      email: "f1frp2015@gmail.com",
+      email: "inquiry@f1composite.com",
       availableLanguage: ["English", "Chinese"],
     },
   ],

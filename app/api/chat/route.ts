@@ -1,5 +1,7 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { google } from "@ai-sdk/google";
+import { after } from "next/server";
+import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -20,8 +22,8 @@ You help engineers, architects, procurement managers, and project specifiers wit
 - PHI-certified fenestration (Fengdu Passive GFRP 90 Series, Component-ID 2491wi03). Some historical PHI certificates and test reports are issued under the legacy production-base name "Chongqing Xianju New Material Co., Ltd" — this is one of the five production bases in the same group.
 - When asked "are you a manufacturer or trader?", answer: "You contract with F1 Composite Co., Ltd — our international contracting entity. Manufacturing is done at our own Chongqing FengDu New Material factory, not outsourced. Same team, same production lines — you are working directly with the manufacturer group, never through a distributor or broker."
 - Website: https://www.f1composite.com
-- Sales contact: Doris.li@f1composite.com / +86-138-8333-3993 / WhatsApp same number
-- Technical service contact: f1frp2015@gmail.com (engineering questions, drawing reviews, post-sales support)
+- Sales contact: inquiry@f1composite.com / +86-138-8333-3993 / WhatsApp same number
+- Technical service contact: inquiry@f1composite.com (engineering questions, drawing reviews, post-sales support)
 
 ## Products
 
@@ -203,7 +205,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 ## Behavior Rules
 1. Be technically precise. Cite standards and data when possible.
 2. When recommending products, link to relevant pages: /products/standard-profiles, /products/custom-pultrusions, /products/fenestration-systems, /products/gratings
-3. If asked about pricing, explain that pricing depends on profile, quantity, and destination. Encourage them to use the contact form at /contact or email Doris.li@f1composite.com
+3. If asked about pricing, explain that pricing depends on profile, quantity, and destination. Encourage them to use the contact form at /contact or email inquiry@f1composite.com
 4. If you don't know something specific, say so honestly rather than guessing.
 5. Keep answers concise but thorough. Use bullet points for specifications.
 6. Support English and Chinese queries. Respond in the language the user uses.
@@ -220,7 +222,7 @@ Append:
 
 ---
 **Ready for a quotation?** Send your project specs to **Doris Li (Sales Director)**:
-- 📧 [Doris.li@f1composite.com](mailto:Doris.li@f1composite.com)
+- 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
 - 📞 +86 138 8333 3993 (WhatsApp same number)
 - 📝 Or use the [quote form at /contact](/contact) — typical response within 1 business day
 
@@ -234,7 +236,7 @@ Append:
 
 ---
 **Need engineering input?** For drawing review, calculations, or compatibility verification, our **Technical Service team** responds in 24h:
-- 📧 [f1frp2015@gmail.com](mailto:f1frp2015@gmail.com)
+- 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
 - Include: application environment, load case, drawing or sketch, target standard
 
 For self-service, try the [FRP Calculator](/technology/calculator) (beam analysis + steel/aluminum→FRP equivalence) or [U-Value Calculator](/technology/u-value-calculator).
@@ -302,20 +304,25 @@ function detectIntent(text: string): IntentSignal {
   return "unknown";
 }
 
+function partsToText(m: UIMessage): string {
+  const parts = (m as { parts?: Array<{ type: string; text?: string }> }).parts;
+  if (!parts) return "";
+  return parts
+    .filter((p) => p.type === "text" && typeof p.text === "string")
+    .map((p) => p.text!)
+    .join(" ")
+    .trim();
+}
+
 function extractLastUserText(messages: UIMessage[]): string {
   for (let i = messages.length - 1; i >= 0; i--) {
-    const m = messages[i];
-    if (m.role !== "user") continue;
-    const parts = (m as { parts?: Array<{ type: string; text?: string }> }).parts;
-    if (!parts) continue;
-    return parts
-      .filter((p) => p.type === "text" && typeof p.text === "string")
-      .map((p) => p.text!)
-      .join(" ")
-      .trim();
+    if (messages[i].role === "user") return partsToText(messages[i]);
   }
   return "";
 }
+
+// User intents that signal real buying interest — worth alerting the team about.
+const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
 
 export async function POST(req: Request) {
   const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
@@ -336,6 +343,56 @@ export async function POST(req: Request) {
         preview: lastUserText.slice(0, 240),
       }),
     );
+  }
+
+  // Lead capture: the first time a conversation crosses into high buying intent,
+  // alert the team once (via after(), so it runs post-stream and adds no latency
+  // to the reply). One email per conversation — later high-intent turns are
+  // suppressed by checking whether an earlier user turn already qualified.
+  if (lastUserText && HIGH_INTENT_SIGNALS.has(detectIntent(lastUserText))) {
+    const userTexts = messages.filter((m) => m.role === "user").map(partsToText);
+    const alreadyAlerted = userTexts
+      .slice(0, -1)
+      .some((t) => HIGH_INTENT_SIGNALS.has(detectIntent(t)));
+    if (!alreadyAlerted) {
+      const { email, phone } = extractContact(userTexts.join("\n"));
+      const transcript = messages
+        .slice(-14)
+        .map((m) => {
+          const text = partsToText(m);
+          if (!text) return "";
+          const who = m.role === "user" ? "Visitor" : "AI";
+          const bg = m.role === "user" ? "#f9fafb" : "#ffffff";
+          return `<tr style="background:${bg};"><td style="padding:6px 12px;font-weight:600;width:64px;vertical-align:top;color:#00A199;">${who}</td><td style="padding:6px 12px;white-space:pre-wrap;vertical-align:top;">${escapeHtml(text)}</td></tr>`;
+        })
+        .filter(Boolean)
+        .join("");
+      after(async () => {
+        const { ok, error } = await notifyTeam({
+          replyTo: email,
+          subject: `[Chat lead] high intent — ${pageContext?.path ?? "f1composite.com"}`,
+          html: `
+            <div style="font-family:-apple-system,sans-serif;max-width:640px;color:#1a1a1a;">
+              <h2 style="color:#00A199;margin-bottom:8px;">High-intent live chat on f1composite.com</h2>
+              <p style="font-size:14px;color:#555;margin:0 0 16px;">A visitor's chat just crossed into buying intent. Reach out while it's warm.</p>
+              <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+                <tr><td style="padding:6px 12px;font-weight:600;width:90px;vertical-align:top;">Contact</td><td style="padding:6px 12px;">${email ? `<a href="mailto:${escapeHtml(email)}" style="color:#00A199;">${escapeHtml(email)}</a>` : "<i>not shared in chat</i>"}${phone ? ` · ${escapeHtml(phone)}` : ""}</td></tr>
+                <tr style="background:#f9fafb;"><td style="padding:6px 12px;font-weight:600;vertical-align:top;">Page</td><td style="padding:6px 12px;">${escapeHtml(pageContext?.path ?? "—")}</td></tr>
+                <tr><td style="padding:6px 12px;font-weight:600;vertical-align:top;">When</td><td style="padding:6px 12px;">${new Date().toISOString()}</td></tr>
+              </table>
+              <table style="width:100%;border-collapse:collapse;font-size:14px;border-top:1px solid #eee;">${transcript}</table>
+            </div>
+          `,
+        });
+        if (!ok) {
+          console.error("Chat lead notification FAILED — lead at risk:", error, {
+            email,
+            phone,
+            page: pageContext?.path ?? null,
+          });
+        }
+      });
+    }
   }
 
   const pageContextBlock = pageContext?.path

@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "Are these design guides free?",
     answer:
-      "Yes — the design guides on this site are free to use. CAD details and editable specification clauses are released to specifiers actively working on a project that may use F1 Composite material; request them from sales@f1composite.com with the project name.",
+      "Yes — the design guides on this site are free to use. CAD details and editable specification clauses are released to specifiers actively working on a project that may use F1 Composite material; request them from inquiry@f1composite.com with the project name.",
   },
   {
     question: "Can your engineers stamp drawings?",

@@ -67,15 +67,15 @@ export default function Footer() {
             />
             <div className="space-y-[8px]">
               <p className="text-f13 font-semibold text-t1">Doris Li — Sales Director</p>
-              <a href="mailto:Doris.li@f1composite.com" className="block text-f13 text-teal-text hover:text-teal">
-                Doris.li@f1composite.com
+              <a href="mailto:inquiry@f1composite.com" className="block text-f13 text-teal-text hover:text-teal">
+                inquiry@f1composite.com
               </a>
               <a href="tel:+8613883333993" className="block text-f13 text-teal-text hover:text-teal">
                 +86 138 8333 3993
               </a>
               <p className="pt-[8px] text-f13 font-semibold text-t1">Technical Service</p>
-              <a href="mailto:f1frp2015@gmail.com" className="block text-f13 text-teal-text hover:text-teal">
-                f1frp2015@gmail.com
+              <a href="mailto:inquiry@f1composite.com" className="block text-f13 text-teal-text hover:text-teal">
+                inquiry@f1composite.com
               </a>
               <a
                 href="https://wa.me/8613883333993"

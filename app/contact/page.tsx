@@ -25,7 +25,7 @@ export default function ContactPage() {
       "@type": "Organization",
       name: "F1 Composite Co., Ltd",
       url: absoluteUrl("/"),
-      email: "Doris.li@f1composite.com",
+      email: "inquiry@f1composite.com",
       telephone: "+86-138-8333-3993",
       address: {
         "@type": "PostalAddress",
@@ -36,14 +36,14 @@ export default function ContactPage() {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          email: "Doris.li@f1composite.com",
+          email: "inquiry@f1composite.com",
           telephone: "+86-138-8333-3993",
           contactType: "sales",
           availableLanguage: ["English", "Chinese"],
         },
         {
           "@type": "ContactPoint",
-          email: "f1frp2015@gmail.com",
+          email: "inquiry@f1composite.com",
           contactType: "technical support",
           availableLanguage: ["English", "Chinese"],
         },
@@ -93,20 +93,20 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Sales Email</h3>
                   <a
-                    href="mailto:Doris.li@f1composite.com"
+                    href="mailto:inquiry@f1composite.com"
                     className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
                   >
-                    Doris.li@f1composite.com
+                    inquiry@f1composite.com
                   </a>
                 </div>
 
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Technical Service</h3>
                   <a
-                    href="mailto:f1frp2015@gmail.com"
+                    href="mailto:inquiry@f1composite.com"
                     className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
                   >
-                    f1frp2015@gmail.com
+                    inquiry@f1composite.com
                   </a>
                   <p className="mt-[4px] text-f13 text-t3">For engineering questions, drawing reviews, and post-sales support.</p>
                 </div>
@@ -169,10 +169,10 @@ export default function ContactPage() {
                   <p className="mt-[8px] text-f13 leading-golden text-t2">
                     For urgent technical questions or large-volume RFQs, email Doris directly at{" "}
                     <a
-                      href="mailto:Doris.li@f1composite.com"
+                      href="mailto:inquiry@f1composite.com"
                       className="font-semibold text-teal-text hover:text-teal"
                     >
-                      Doris.li@f1composite.com
+                      inquiry@f1composite.com
                     </a>{" "}
                     and reference your project timeline. We prioritize time-sensitive requests.
                   </p>

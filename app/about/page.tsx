@@ -45,7 +45,7 @@ export default function AboutPage() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      email: "Doris.li@f1composite.com",
+      email: "inquiry@f1composite.com",
       telephone: "+86-138-8333-3993",
       contactType: "sales",
       availableLanguage: ["English", "Chinese"],

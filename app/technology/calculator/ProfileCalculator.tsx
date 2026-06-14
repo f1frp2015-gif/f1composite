@@ -372,7 +372,7 @@ export default function ProfileCalculator() {
               {/* Send-to-engineer actions */}
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <a
-                  href={`mailto:f1frp2015@gmail.com?subject=${encodeURIComponent("FRP Profile Calc — Engineering Review Request")}&body=${encodeURIComponent(
+                  href={`mailto:inquiry@f1composite.com?subject=${encodeURIComponent("FRP Profile Calc — Engineering Review Request")}&body=${encodeURIComponent(
                     `Please review this preliminary FRP profile calculation:\n\n` +
                     `Material: ${mat.label}\n` +
                     `Profile: ${shape}, H=${dimH}mm, B=${dimB}mm, tw=${dimTw}mm, tf=${dimTf}mm\n` +

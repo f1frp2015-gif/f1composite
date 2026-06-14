@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Can engineers request a topic?",
     answer:
-      "Yes — write to sales@f1composite.com with the subject 'Resource Request' and the technical question. We publish about one new long-form article per week and prioritize topics with multiple inbound asks.",
+      "Yes — write to inquiry@f1composite.com with the subject 'Resource Request' and the technical question. We publish about one new long-form article per week and prioritize topics with multiple inbound asks.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function ResourcesPage() {
               If you are <strong>specifying</strong> FRP for the first time, start with the Blog post &quot;What is Pultrusion?&quot; and the Technical Data sheet for your closest standard profile. If you are <strong>comparing</strong> FRP against aluminum, steel, or PVC, the Technology section&apos;s vs-pages give like-for-like cost, weight, lifetime, and embodied-carbon comparisons. If you are <strong>buying</strong>, head straight to Downloads for the certification package your QA team will request, then the Design Guides for connection details your fabricator will need.
             </p>
             <p>
-              For requirements that don&apos;t map to any document here, our engineering team responds to specification questions within one business day at sales@f1composite.com — many of the documents on this site started as a customer question we answered well enough to publish.
+              For requirements that don&apos;t map to any document here, our engineering team responds to specification questions within one business day at inquiry@f1composite.com — many of the documents on this site started as a customer question we answered well enough to publish.
             </p>
           </div>
           <FAQ items={faqs} />
