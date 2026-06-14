@@ -91,7 +91,7 @@ const orgSchema = {
     {
       "@type": "ContactPoint",
       contactType: "technical support",
-      email: "inquiry@f1composite.com",
+      email: "f1frp2015@gmail.com",
       availableLanguage: ["English", "Chinese"],
     },
   ],

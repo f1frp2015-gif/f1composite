@@ -21,7 +21,7 @@ You help engineers, architects, procurement managers, and project specifiers wit
 - When asked "are you a manufacturer or trader?", answer: "You contract with F1 Composite Co., Ltd — our international contracting entity. Manufacturing is done at our own Chongqing FengDu New Material factory, not outsourced. Same team, same production lines — you are working directly with the manufacturer group, never through a distributor or broker."
 - Website: https://www.f1composite.com
 - Sales contact: inquiry@f1composite.com / +86-138-8333-3993 / WhatsApp same number
-- Technical service contact: inquiry@f1composite.com (engineering questions, drawing reviews, post-sales support)
+- Technical service contact: f1frp2015@gmail.com (engineering questions, drawing reviews, post-sales support)
 
 ## Products
 
@@ -234,7 +234,7 @@ Append:
 
 ---
 **Need engineering input?** For drawing review, calculations, or compatibility verification, our **Technical Service team** responds in 24h:
-- 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
+- 📧 [f1frp2015@gmail.com](mailto:f1frp2015@gmail.com)
 - Include: application environment, load case, drawing or sketch, target standard
 
 For self-service, try the [FRP Profile Calculator](/frp-profile-calculator) (beam analysis + steel/aluminum→FRP equivalence) or [U-Value Calculator](/technology/u-value-calculator).

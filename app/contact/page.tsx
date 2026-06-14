@@ -45,7 +45,7 @@ export default function ContactPage() {
         },
         {
           "@type": "ContactPoint",
-          email: "inquiry@f1composite.com",
+          email: "f1frp2015@gmail.com",
           contactType: "technical support",
           availableLanguage: ["English", "Chinese"],
         },
@@ -107,10 +107,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Technical Service</h3>
                   <a
-                    href="mailto:inquiry@f1composite.com"
+                    href="mailto:f1frp2015@gmail.com"
                     className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
                   >
-                    inquiry@f1composite.com
+                    f1frp2015@gmail.com
                   </a>
                   <p className="mt-[4px] text-f13 text-t3">For engineering questions, drawing reviews, and post-sales support.</p>
                 </div>
