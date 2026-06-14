@@ -6,46 +6,96 @@ import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useMemo } from "react";
 
 function renderMarkdown(text: string) {
-  return text
-    .split("\n\n")
-    .map((block) => {
-      const trimmed = block.trim();
-      if (!trimmed) return "";
+  const out: string[] = [];
 
-      // Headers
-      if (trimmed.startsWith("### "))
-        return `<h4 class="font-bold text-f14 mt-[10px] mb-[4px]">${trimmed.slice(4)}</h4>`;
-      if (trimmed.startsWith("## "))
-        return `<h3 class="font-bold text-f15 mt-[12px] mb-[4px]">${trimmed.slice(3)}</h3>`;
+  for (const block of text.split("\n\n")) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
+    const lines = trimmed.split("\n");
 
-      // List blocks
-      if (trimmed.match(/^[-*] /m)) {
-        const items = trimmed
-          .split("\n")
-          .filter((l) => l.match(/^[-*] /))
-          .map((l) => `<li class="ml-[16px] mb-[3px] list-disc">${inlineFormat(l.replace(/^[-*] /, ""))}</li>`)
-          .join("");
-        return `<ul class="my-[6px]">${items}</ul>`;
-      }
+    // Horizontal rule — a thin divider instead of literal dashes.
+    if (/^([-*_])\1{2,}$/.test(trimmed)) {
+      out.push('<hr class="my-[10px] border-t border-neutral-200" />');
+      continue;
+    }
 
-      // Numbered list
-      if (trimmed.match(/^\d+\. /m)) {
-        const items = trimmed
-          .split("\n")
-          .filter((l) => l.match(/^\d+\. /))
-          .map((l) => `<li class="ml-[16px] mb-[3px] list-decimal">${inlineFormat(l.replace(/^\d+\. /, ""))}</li>`)
-          .join("");
-        return `<ol class="my-[6px]">${items}</ol>`;
-      }
+    // GFM pipe table: header row followed by a | --- | --- | separator row.
+    if (lines.length >= 2 && lines[0].includes("|") && lines[1].includes("-") && /^[\s|:-]+$/.test(lines[1])) {
+      const toCells = (l: string) =>
+        l.replace(/^\s*\|/, "").replace(/\|\s*$/, "").split("|").map((c) => c.trim());
+      const head = toCells(lines[0]);
+      const body = lines.slice(2).filter((l) => l.includes("|")).map(toCells);
+      const th = head
+        .map(
+          (c) =>
+            `<th class="border-b border-neutral-200 bg-neutral-50 px-[10px] py-[6px] text-left font-semibold text-t1">${inlineFormat(c)}</th>`,
+        )
+        .join("");
+      const rows = body
+        .map(
+          (r) =>
+            "<tr>" +
+            head
+              .map(
+                (_, i) =>
+                  `<td class="border-b border-neutral-100 px-[10px] py-[6px] align-top text-t2">${inlineFormat(r[i] ?? "")}</td>`,
+              )
+              .join("") +
+            "</tr>",
+        )
+        .join("");
+      out.push(
+        `<div class="my-[8px] overflow-x-auto rounded-[6px] border border-neutral-200"><table class="w-full border-collapse bg-white text-f13"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`,
+      );
+      continue;
+    }
 
-      // Paragraph
-      return `<p class="mb-[8px]">${inlineFormat(trimmed.replace(/\n/g, "<br/>"))}</p>`;
-    })
-    .join("");
+    // Headers
+    if (trimmed.startsWith("### ")) {
+      out.push(`<h4 class="font-bold text-f14 mt-[10px] mb-[4px]">${inlineFormat(trimmed.slice(4))}</h4>`);
+      continue;
+    }
+    if (trimmed.startsWith("## ")) {
+      out.push(`<h3 class="font-bold text-f15 mt-[12px] mb-[4px]">${inlineFormat(trimmed.slice(3))}</h3>`);
+      continue;
+    }
+
+    // Bullet list
+    if (trimmed.match(/^[-*] /m)) {
+      const items = trimmed
+        .split("\n")
+        .filter((l) => l.match(/^[-*] /))
+        .map((l) => `<li class="ml-[16px] mb-[3px] list-disc">${inlineFormat(l.replace(/^[-*] /, ""))}</li>`)
+        .join("");
+      out.push(`<ul class="my-[6px]">${items}</ul>`);
+      continue;
+    }
+
+    // Numbered list
+    if (trimmed.match(/^\d+\. /m)) {
+      const items = trimmed
+        .split("\n")
+        .filter((l) => l.match(/^\d+\. /))
+        .map((l) => `<li class="ml-[16px] mb-[3px] list-decimal">${inlineFormat(l.replace(/^\d+\. /, ""))}</li>`)
+        .join("");
+      out.push(`<ol class="my-[6px]">${items}</ol>`);
+      continue;
+    }
+
+    // Paragraph
+    out.push(`<p class="mb-[8px]">${inlineFormat(trimmed).replace(/\n/g, "<br/>")}</p>`);
+  }
+
+  return out.join("");
 }
 
 function inlineFormat(text: string) {
+  // Escape HTML first so technical values like "U < 0.8" render literally and
+  // model output can't inject tags; then apply the small markdown subset.
   return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
     .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     .replace(/`(.*?)`/g, '<code class="bg-neutral-100 px-[4px] py-[1px] rounded text-f13">$1</code>')
