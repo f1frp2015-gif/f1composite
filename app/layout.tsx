@@ -298,9 +298,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
-      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-      )}
       <body className="min-h-screen font-sans antialiased">
         <JsonLd data={orgSchema} />
         <JsonLd data={websiteSchema} />
@@ -308,6 +305,13 @@ export default function RootLayout({
         <main className="pt-[55px]">{children}</main>
         <Footer />
         <ChatWidget />
+        {/* Must live INSIDE <body>. Previously a direct child of <html> before
+            <body>, where Next dropped its inline init script (gtag config +
+            dataLayer) — the loader downloaded but no page_view ever fired, so
+            GA4 reported "data collection isn't active". */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );
