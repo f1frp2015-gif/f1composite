@@ -154,42 +154,36 @@ export function buildProductSchema({
       name: "F1 Composite",
       url: SITE_URL,
     },
-    offers: priceRange
-      ? {
-          "@type": "AggregateOffer",
-          url: absoluteUrl("/contact"),
-          priceCurrency: "USD",
-          lowPrice: priceRange.lowPrice,
-          highPrice: priceRange.highPrice,
-          ...(priceRange.offerCount && { offerCount: priceRange.offerCount }),
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          businessFunction: "http://purl.org/goodrelations/v1#Sell",
-          eligibleQuantity: {
-            "@type": "QuantitativeValue",
-            unitText: priceRange.unitText ?? "linear meter",
-          },
-          seller: {
-            "@id": `${SITE_URL}/#organization`,
-            "@type": "Organization",
-            name: "F1 Composite",
-          },
-        }
-      : {
-          // Quote-only product. We assert that F1 sells it and it is in stock,
-          // but do NOT fabricate a price — B2B pricing is per-RFQ. Pass a real
-          // `priceRange` to emit an AggregateOffer with actual numbers.
-          "@type": "Offer",
-          url: absoluteUrl("/contact"),
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          businessFunction: "http://purl.org/goodrelations/v1#Sell",
-          seller: {
-            "@id": `${SITE_URL}/#organization`,
-            "@type": "Organization",
-            name: "F1 Composite",
-          },
+    // Only emit `offers` when we have a REAL price band. Google Merchant
+    // listings require every Offer to carry `price` or `priceSpecification`; a
+    // price-less Offer is invalid (GSC error: "Either 'price' or
+    // 'priceSpecification' should be specified (in 'offers')") and earns zero
+    // rich-result benefit anyway. B2B pricing here is per-RFQ, so for quote-only
+    // products we omit `offers` entirely — the Product stays valid via
+    // brand / manufacturer / material / measurements. Pass a real `priceRange`
+    // to restore an AggregateOffer with actual numbers.
+    ...(priceRange && {
+      offers: {
+        "@type": "AggregateOffer",
+        url: absoluteUrl("/contact"),
+        priceCurrency: "USD",
+        lowPrice: priceRange.lowPrice,
+        highPrice: priceRange.highPrice,
+        ...(priceRange.offerCount && { offerCount: priceRange.offerCount }),
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        businessFunction: "http://purl.org/goodrelations/v1#Sell",
+        eligibleQuantity: {
+          "@type": "QuantitativeValue",
+          unitText: priceRange.unitText ?? "linear meter",
         },
+        seller: {
+          "@id": `${SITE_URL}/#organization`,
+          "@type": "Organization",
+          name: "F1 Composite",
+        },
+      },
+    }),
     material,
     ...(measurements?.length && {
       hasMeasurement: measurements.map((m) => ({
