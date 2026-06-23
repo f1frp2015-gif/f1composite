@@ -191,7 +191,7 @@ F1 Composite manufactures pultruded oilfield surface-gathering pipe as a stocked
 | Service life | ≥ 25 years |
 | Pultrusion speed | 0.6 – 1.2 m/min |
 | Standards | API 15LR · ISO 14692 · NORSOK M-622 · ASTM D2992 · SY/T 6266 |
-| Capacity | 6 plants · 370 pultrusion lines · 150,000 t/yr |
+| Capacity | FengDu base · 5 sites · 370 pultrusion lines · 150,000 t/yr |
 
 Typical service includes crude-oil surface gathering and high-temperature flowlines, water-flood and steam-flood injection to +140 °C, produced-water transfer and saltwater disposal, sour H₂S / CO₂ produced-water lines (per ISO 14692-2 and NORSOK M-622), geothermal fluid transport, and low-pressure onshore gas gathering. Against carbon steel, the bore is hydraulically smoother — artificial-lift pumping energy drops by up to 15% — and the wall needs no cathodic protection, no external coating, and weighs about 75% less.
 
@@ -298,7 +298,7 @@ F1 Composite manufactures pultruded coal-mine methane drainage pipe as a stocked
 | Service life | ≥ 50 years · maintenance-free |
 | Pultrusion speed | 0.8 – 1.4 m/min |
 | Standards | MT 558.2 · GB 16413 · MT 113 · ISO 4589-2 · UL 94 V-0 · ASTM E84 Class I |
-| Capacity | 6 plants · 370 pultrusion lines · 150,000 t/yr |
+| Capacity | FengDu base · 5 sites · 370 pultrusion lines · 150,000 t/yr |
 
 The matrix library lets us pick the resin to the duty. Brominated bisphenol-A (or halogen-free FR) vinyl-ester is the primary MT 558 matrix; epoxy and polyurethane variants cover the structural and non-FR runs. The ATH–APP–AOM package gives UL 94 V-0 and LOI ≥ 28% in a single pull, and a conductive carbon-veil outer layer brings surface resistance to ≤ 3 × 10⁸ Ω for the anti-static limit. Beyond methane drainage, Series 02 also covers auxiliary mine-ventilation ducting, acidic mine-water transfer (pH 2 – 6), compressed-air supply mains, outdoor UV-exposed vent and drainage runs, and combined service runs along mine roadways.
 
@@ -313,7 +313,7 @@ For a mine operator weighing a switch from steel or PE, the case is a lower fail
     title: "What Is Pultrusion? A Complete Guide to the FRP Manufacturing Process",
     seoTitle: "What Is FRP Pultrusion? A Manufacturing Guide",
     answerBox:
-      "Pultrusion is a continuous FRP manufacturing process: glass or carbon fiber is pulled through a resin bath and a heated die, producing constant-cross-section structural profiles to ±0.25 mm per ASTM D3917. F1 Composite operates 370 pultrusion lines across 5 production bases with 150,000 t/yr capacity.",
+      "Pultrusion is a continuous FRP manufacturing process: glass or carbon fiber is pulled through a resin bath and a heated die, producing constant-cross-section structural profiles to ±0.25 mm per ASTM D3917. F1 Composite exports from its Chongqing FengDu base, which runs 370 pultrusion lines across 5 production sites (150,000 t/yr).",
     category: "Process Guide",
     date: "2024-01-15",
     updatedAt: "2026-03-28",
@@ -2342,7 +2342,7 @@ This guide walks through the procurement process F1 Composite has refined across
 
 ## Why source from China in 2026
 
-The FRP pultrusion industry now has three roughly comparable centers of capacity: North America (Strongwell, Creative Pultrusions, Liberty Pultrusions, Fibergrate), Europe (Fiberline, Exel Composites, Topglass), and China (a handful of large factories — including F1 Composite, with 5 production bases and 370 pultrusion lines — plus a long tail of regional players).
+The FRP pultrusion industry now has three roughly comparable centers of capacity: North America (Strongwell, Creative Pultrusions, Liberty Pultrusions, Fibergrate), Europe (Fiberline, Exel Composites, Topglass), and China (a handful of large factories — including the FengDu base F1 Composite exports from, with 5 production sites and 370 pultrusion lines — plus a long tail of regional players).
 
 The structural quality benchmark for all three regions is the same: EN 13706 E17/E23 grades and ASTM D3917 dimensional tolerance. Factories that hold ISO 9001 and produce to these standards in China deliver mechanical properties indistinguishable from US or European peers in third-party laboratory testing.
 

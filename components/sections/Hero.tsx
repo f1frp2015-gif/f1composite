@@ -36,7 +36,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            Fiberglass structural shapes, FRP window profiles, gratings, and custom pultrusions — direct factory export to 30+ countries. EN 13706 / ASTM D3917 / ISO 9001, 370 pultrusion lines, no distributor markup.
+            Fiberglass structural shapes, FRP window profiles, gratings, and custom pultrusions — direct factory export to 30+ countries. EN 13706 / ASTM D3917 / ISO 9001, 370 pultrusion lines at the FengDu base, no distributor markup.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">

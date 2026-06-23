@@ -63,7 +63,7 @@ const orgSchema = {
   },
   image: "https://www.f1composite.com/opengraph-image",
   description:
-    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer based in Chongqing, China. Direct factory export to 30+ countries with 5 production bases, 370 pultrusion lines, and 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
+    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at its Chongqing FengDu base (5 production sites, 370 pultrusion lines, 150,000 t/year capacity) and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
   disambiguatingDescription:
     "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. It is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
   foundingDate: "2015",

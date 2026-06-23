@@ -274,7 +274,7 @@ const faqItems = [
   {
     question: "How does FRP compare to Strongwell, Fiberline, and Creative Pultrusions?",
     answer:
-      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are scale (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
+      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are the scale of its FengDu manufacturing base (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
   },
   {
     question:
