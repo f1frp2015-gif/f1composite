@@ -313,7 +313,7 @@ For a mine operator weighing a switch from steel or PE, the case is a lower fail
     title: "What Is Pultrusion? A Complete Guide to the FRP Manufacturing Process",
     seoTitle: "What Is FRP Pultrusion? A Manufacturing Guide",
     answerBox:
-      "Pultrusion is a continuous FRP manufacturing process: glass or carbon fiber is pulled through a resin bath and a heated die, producing constant-cross-section structural profiles to ±0.25 mm per ASTM D3917. F1 Composite exports from its Chongqing FengDu base, which runs 370 pultrusion lines across 5 production sites (150,000 t/yr).",
+      "Pultrusion is a continuous FRP manufacturing process: glass or carbon fiber is pulled through a resin bath and a heated die, producing constant-cross-section structural profiles to ±0.25 mm per ASTM D3917. F1 Composite exports direct from the Chongqing FengDu base of its manufacturing partner, which runs 370 pultrusion lines across 5 production sites (150,000 t/yr).",
     category: "Process Guide",
     date: "2024-01-15",
     updatedAt: "2026-03-28",
@@ -2015,7 +2015,7 @@ The test specimen was not a downsized engineering sample. It was a fully assembl
 | Frame dimensions | 3000 mm (W) × 2400 mm (H) × 140 mm (depth) |
 | Sash dimensions (each leaf) | 1487 mm (W) × 2296 mm (H) × 60 mm (thickness) |
 | Glazing | 39 mm IGU — 5 mm Low-E + 12 mm Argon + 5 mm Low-E + 12 mm Argon + 5 mm Tempered (CSG Holding) |
-| Profile material | Glass Fiber Reinforced Polyurethane Composite — pultruded by Chongqing FengDu New Materials Co., Ltd. (the manufacturing arm behind the F1 Composite international brand) |
+| Profile material | Glass Fiber Reinforced Polyurethane Composite — pultruded by Chongqing FengDu New Materials Co., Ltd. (the manufacturing partner whose products F1 Composite exports under the F1 Composite international brand) |
 | Reinforcement | None (pultruded GFRP is structurally self-sufficient at this size) |
 | Hardware | German Roto Push-Pull Patio Lift series |
 | Sealing | EPDM gaskets (Haida JT5091/JT5071/JT5052/JT5011) + brush seal (Hebei Lidejia) + 166 neutral silicone (German Weiss) |

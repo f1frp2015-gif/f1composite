@@ -164,7 +164,7 @@ export default function UsaRegionPage() {
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite Co., Ltd is the international contracting entity for the Chongqing FengDu New Material manufacturing group: 5 production bases, 370 pultrusion lines, 150,000 tons/year capacity, 1,000+ existing die sets. Production happens at our own factories, not outsourced. You contract with F1 Composite and receive material direct from the group&rsquo;s own production lines — no distributor markup, no trading-company opacity.
+                F1 Composite Co., Ltd is the international contracting and export entity for its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd (风渡新材料): 5 production bases, 370 pultrusion lines, 150,000 tons/year capacity, 1,000+ existing die sets. Production happens on the partner's own pultrusion lines, not outsourced to a third-party job shop. You contract with F1 Composite and receive material direct from the group&rsquo;s own production lines — no distributor markup, no trading-company opacity.
               </p>
               <p>
                 For Passive House projects specifically: our 90 Series GFRP-PU window frame system holds <strong>PHI Component Certificate 2491wi03</strong> (U_w = 0.78 W/m²·K, phB class) — recognized across PHIUS projects in the United States and Canada. Drop-in replacement for aluminum or fiberglass frames on any PHIUS-certifying building, with architectural-grade powder coating in any RAL color via AAMA 2604 / 2605 systems.

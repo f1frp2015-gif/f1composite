@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
@@ -19,7 +20,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "F1 Composite — Pultruded FRP Profiles & Fiberglass Structural Shapes Manufacturer",
+    default: "F1 Composite — Pultruded FRP Profiles Manufacturer",
     template: "%s | F1 Composite",
   },
   description:
@@ -63,7 +64,7 @@ const orgSchema = {
   },
   image: "https://www.f1composite.com/opengraph-image",
   description:
-    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at its Chongqing FengDu base (5 production sites, 370 pultrusion lines, 150,000 t/year capacity) and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
+    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at the Chongqing FengDu base of its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd (5 production sites, 370 pultrusion lines, 150,000 t/year capacity), and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
   disambiguatingDescription:
     "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. It is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
   foundingDate: "2015",
@@ -299,12 +300,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={dmSans.variable}>
       <body className="min-h-screen font-sans antialiased">
+        {/* Preconnect to the analytics origin so the first GA hit doesn't pay an
+            extra DNS+TLS round trip. React 19 hoists this <link> into <head>. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Skip-to-content link (WCAG 2.4.1) — visually hidden until focused. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-[16px] focus:top-[10px] focus:z-[100] focus:rounded-[6px] focus:bg-white focus:px-[16px] focus:py-[8px] focus:text-t1 focus:shadow-lg focus:outline focus:outline-2 focus:outline-teal"
+        >
+          Skip to content
+        </a>
         <JsonLd data={orgSchema} />
         <JsonLd data={websiteSchema} />
         <Navbar />
-        <main className="pt-[55px]">{children}</main>
+        <main id="main" className="pt-[55px]">{children}</main>
         <Footer />
         <ChatWidget />
+        {/* Field RUM for Core Web Vitals (LCP/INP/CLS) — privacy-safe, no cookies.
+            Requires Speed Insights enabled in the Vercel project dashboard. */}
+        <SpeedInsights />
         {/* Must live INSIDE <body>. Previously a direct child of <html> before
             <body>, where Next dropped its inline init script (gtag config +
             dataLayer) — the loader downloaded but no page_view ever fired, so

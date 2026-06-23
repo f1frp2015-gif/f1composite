@@ -20,6 +20,8 @@ export const mainNav = [
       { label: "KNOWHOW Services", href: "/technology/knowhow-services" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
       { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
+      { label: "Passive House AI Advisor", href: "/ai/passive-house" },
     ],
   },
   {
@@ -32,6 +34,7 @@ export const mainNav = [
       { label: "Marine", href: "/industries/marine" },
       { label: "Industrial", href: "/industries/industrial" },
       { label: "Vehicle", href: "/industries/vehicle" },
+      { label: "Applications", href: "/applications" },
     ],
   },
   {
@@ -73,6 +76,7 @@ export const footerNav = {
     { label: "Marine", href: "/industries/marine" },
     { label: "Industrial", href: "/industries/industrial" },
     { label: "Vehicle", href: "/industries/vehicle" },
+    { label: "Applications", href: "/applications" },
   ],
   resources: [
     { label: "Case Studies", href: "/case-studies" },
@@ -82,6 +86,8 @@ export const footerNav = {
     { label: "Glossary", href: "/resources/glossary" },
     { label: "Downloads", href: "/resources/downloads" },
     { label: "Ask AI", href: "/ask" },
+    { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
+    { label: "Passive House AI Advisor", href: "/ai/passive-house" },
   ],
   company: [
     { label: "About Us", href: "/about" },

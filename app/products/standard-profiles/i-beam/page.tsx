@@ -77,6 +77,14 @@ export default function IBeamPage() {
             { name: "Size Range", value: "76×38 mm to 305×305 mm" },
             { name: "Benefit", value: "Up to 75% lighter than steel" },
           ],
+          // Typed QuantitativeValue specs so AI answer engines can cite the
+          // numbers directly (family ranges for standard pultruded profiles).
+          measurements: [
+            { propertyID: "tensileStrength", value: "240-400", unitText: "MPa" },
+            { propertyID: "flexuralStrength", value: "200-350", unitText: "MPa" },
+            { propertyID: "flexuralModulus", value: "12-20", unitText: "GPa" },
+            { propertyID: "density", value: "1.8-2.1", unitText: "g/cm³" },
+          ],
         })}
       />
 

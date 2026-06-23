@@ -19,7 +19,7 @@ export default function LegalEntityNote({
     return (
       <p className={`text-f13 leading-golden text-t3 ${className}`}>
         Contracting entity: <span className="font-medium text-t2">{FACTS.contracting}</span>.
-        Manufactured at our own {FACTS.factory} factory ({FACTS.factoryCN}).
+        Manufactured by our long-term manufacturing partner {FACTS.factory} ({FACTS.factoryCN}) — direct from factory, no trading middleman.
       </p>
     );
   }
@@ -28,10 +28,9 @@ export default function LegalEntityNote({
     return (
       <p className={`text-f15 leading-golden text-t2 ${className}`}>
         You contract with <span className="font-bold text-t1">{FACTS.contracting}</span>{" "}
-        — our international contracting entity. Manufacturing happens at our own{" "}
-        <span className="font-bold text-t1">{FACTS.factory}</span> ({FACTS.factoryCN}) factory:
-        same group, same engineering team, same production lines. You are working
-        directly with the manufacturer, never through a distributor or broker.
+        — our international contracting entity. Manufacturing happens at our long-term manufacturing partner{" "}
+        <span className="font-bold text-t1">{FACTS.factory}</span> ({FACTS.factoryCN}):
+        the factory F1 Composite exports from directly — same engineering team, same production lines. You contract with the export entity and receive material straight from the factory, never through a distributor or broker.
       </p>
     );
   }
@@ -49,16 +48,15 @@ export default function LegalEntityNote({
         <div className="flex flex-col gap-[2px]">
           <dt className="font-bold text-teal-text">Manufacturing</dt>
           <dd>
-            {FACTS.factory} ({FACTS.factoryCN}) — same group, same engineering team,
-            same production lines. Not outsourced.
+            {FACTS.factory} ({FACTS.factoryCN}) — our long-term manufacturing partner; the factory F1 Composite exports from directly. Same engineering team, same production lines. Not outsourced to a job shop.
           </dd>
         </div>
         <div className="flex flex-col gap-[2px]">
           <dt className="font-bold text-teal-text">PHI certificate provenance</dt>
           <dd>
             Some historical PHI certificates and test reports were issued under a
-            legacy production-base name within the same manufacturing group —
-            verifiable via PHI Component-ID 2491wi03. One of our five production
+            legacy production-base name within the manufacturing partner's group —
+            verifiable via PHI Component-ID 2491wi03. One of the partner's five production
             bases.
           </dd>
         </div>

@@ -38,7 +38,7 @@ const items = [
   {
     question: "How does F1 Composite compare with Strongwell, Fiberline, and Creative Pultrusions?",
     answer:
-      "F1 Composite manufactures to the same EN 13706 E17/E23 and ASTM D3917 specifications as Strongwell (EXTREN®, USA), Fiberline Composites (Denmark), and Creative Pultrusions (USA). Differentiators are the scale of its FengDu manufacturing base (370 pultrusion lines, 150,000 t/year), direct-from-factory export pricing without regional distributor markups, and 3–6 week custom tooling turnaround.",
+      "F1 Composite manufactures to the same EN 13706 E17/E23 and ASTM D3917 specifications as Strongwell (EXTREN®, USA), Fiberline Composites (Denmark), and Creative Pultrusions (USA). Differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory export pricing without regional distributor markups, and 3–6 week custom tooling turnaround.",
   },
   {
     question: "What certifications does F1 Composite hold?",

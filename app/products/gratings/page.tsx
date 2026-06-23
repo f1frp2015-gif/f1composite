@@ -152,6 +152,11 @@ export default function GratingsPage() {
             { name: "Configurations", value: "Molded gratings, pultruded gratings, solid-top cover plates, structural deck panels" },
             { name: "Use Cases", value: "Marine, chemical, industrial platforms, pedestrian bridge decks, vehicular access decks" },
           ],
+          // Design load classes the grating range is engineered to satisfy
+          // (light pedestrian 5 → heavy industrial 25 kN/m²), as a typed range.
+          measurements: [
+            { propertyID: "loadCapacity", value: "5-25", unitText: "kN/m²" },
+          ],
         })}
       />
       <PageHeader

@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import ChatPanel from "./ChatPanel";
+import dynamic from "next/dynamic";
+
+// Lazy-load the chat panel (which pulls in @ai-sdk/react + ai) only when the
+// user actually opens the widget. Keeps the AI-SDK client code out of the
+// initial bundle on every page where the panel is never opened.
+const ChatPanel = dynamic(() => import("./ChatPanel"));
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);

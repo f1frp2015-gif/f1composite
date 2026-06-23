@@ -360,6 +360,12 @@ export default function FenestrationSystemsPage() {
             { name: "Thermal conductivity", value: "0.3 W/m·K (vs aluminum 160 W/m·K)" },
             { name: "Target climates", value: "Canada, Russia/Siberia, Nordics, Northern US, severe-cold zones" },
           ],
+          // Typed QuantitativeValue specs for AI citation. U_w 0.78 is the
+          // PHI-certified 90-series flagship figure advertised across this page.
+          measurements: [
+            { propertyID: "thermalTransmittance", value: "0.78", unitText: "W/m²·K" },
+            { propertyID: "thermalConductivity", value: "0.3", unitText: "W/m·K" },
+          ],
         })}
       />
       <PageHeader
@@ -385,7 +391,6 @@ export default function FenestrationSystemsPage() {
                 height={400}
                 sizes="(max-width: 768px) 50vw, 20vw"
                 className="w-full rounded-[8px]"
-                priority
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">65-Series</p>
             </div>
@@ -397,7 +402,6 @@ export default function FenestrationSystemsPage() {
                 height={400}
                 sizes="(max-width: 768px) 50vw, 20vw"
                 className="w-full rounded-[8px]"
-                priority
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">70-Series</p>
             </div>
@@ -409,7 +413,6 @@ export default function FenestrationSystemsPage() {
                 height={400}
                 sizes="(max-width: 768px) 50vw, 20vw"
                 className="w-full rounded-[8px]"
-                priority
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">80-Series</p>
             </div>
@@ -421,7 +424,6 @@ export default function FenestrationSystemsPage() {
                 height={400}
                 sizes="(max-width: 768px) 50vw, 20vw"
                 className="w-full rounded-[8px]"
-                priority
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">90-Series</p>
             </div>
@@ -433,7 +435,6 @@ export default function FenestrationSystemsPage() {
                 height={400}
                 sizes="(max-width: 768px) 50vw, 20vw"
                 className="w-full rounded-[8px]"
-                priority
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">140-Series</p>
             </div>

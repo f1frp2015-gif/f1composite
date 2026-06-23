@@ -9,7 +9,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About F1 Composite — FRP Profiles Manufacturer, China",
   description:
-    "F1 Composite: ISO 9001 pultruded FRP manufacturer in China, exporting to 30+ countries from its FengDu base — 370 pultrusion lines, 150,000 t/year.",
+    "F1 Composite: ISO 9001 FRP profiles exporter in China, shipping to 30+ countries direct from its partner's FengDu base — 370 lines, 150,000 t/year.",
   path: "/about",
 });
 
@@ -113,11 +113,11 @@ export default function AboutPage() {
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite Co., Ltd is the international contracting entity behind
+                F1 Composite Co., Ltd is the international contracting and export entity for
                 one of China&apos;s largest vertically integrated pultrusion manufacturers.
                 All overseas orders are contracted and invoiced under F1 Composite Co., Ltd;
-                manufacturing takes place at our Chongqing FengDu New Material Co., Ltd
-                (风渡新材料) factory. We operate five production bases with 370 pultrusion
+                manufacturing takes place at our long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd
+                (风渡新材料). The factory operates five production bases with 370 pultrusion
                 lines, serving global markets with the same engineering team and
                 production facilities that supply China&apos;s domestic infrastructure.
               </p>
@@ -133,7 +133,7 @@ export default function AboutPage() {
               <p>
                 Today, F1 Composite serves architects, engineers, distributors, and OEMs
                 across 30+ countries — from standard structural profiles to PHI-certified
-                fenestration systems. Our Fengdu Passive GFRP 90 Series window frame holds
+                fenestration systems. The Fengdu Passive GFRP 90 Series window frame we export holds
                 Passive House Institute certification (Component-ID 2491wi03), demonstrating
                 the engineering depth behind every product we deliver.
               </p>
@@ -156,7 +156,7 @@ export default function AboutPage() {
             Manufacturing at scale, engineered to precision
           </h2>
           <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
-            Our own production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
+            Our manufacturing partner&apos;s production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
           </p>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[

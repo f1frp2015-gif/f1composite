@@ -16,11 +16,11 @@ export async function GET() {
     entity: {
       legalName: "F1 Composite Co., Ltd",
       brand: "F1 Composite",
-      role: "International contracting entity and manufacturer of pultruded fiber-reinforced polymer (FRP) profiles",
+      role: "International contracting and export entity for pultruded fiber-reinforced polymer (FRP) profiles manufactured by its long-term factory partner — direct-from-factory, not a trading company",
       manufacturingEntity: {
         legalName: "Chongqing FengDu New Material Co., Ltd",
         localName: "风渡新材料",
-        relationship: "Same group as F1 Composite Co., Ltd; manufacturing arm",
+        relationship: "Long-term manufacturing partner of F1 Composite Co., Ltd; F1 Composite is its appointed international export and contracting entity (direct-from-factory, no trading middleman). Independent legal entity — no equity/parent-subsidiary relationship.",
         locations: ["Chongqing, China", "Yancheng, Jiangsu, China"],
       },
       foundingDate: "2015",

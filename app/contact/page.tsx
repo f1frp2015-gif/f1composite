@@ -194,7 +194,7 @@ export default function ContactPage() {
             Where your order is actually made
           </h2>
           <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
-            F1 Composite is the international contracting entity. Every overseas order is invoiced under F1 Composite Co., Ltd; the profiles themselves are pultruded at our Chongqing FengDu New Material manufacturing facility — 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
+            F1 Composite is the international contracting entity. Every overseas order is invoiced under F1 Composite Co., Ltd; the profiles themselves are pultruded at the manufacturing facility we export from — our long-term partner Chongqing FengDu New Material Co., Ltd — with 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">

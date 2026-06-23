@@ -26,12 +26,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        // /api/ai-context is a force-static, CORS-open schema.org JSON twin built
+        // for AI/LLM retrieval and advertised by llms.txt. Keep it crawlable while
+        // the rest of /api/ (chat, contact, inquiries) stays blocked. A more
+        // specific allow wins over the broader /api/ disallow.
+        allow: ["/", "/api/ai-context"],
         disallow: ["/api/"],
       },
       {
         userAgent: AI_CRAWLERS,
-        allow: "/",
+        allow: ["/", "/api/ai-context"],
         disallow: ["/api/"],
       },
     ],
