@@ -436,8 +436,11 @@ ${glossaryLines}
 - Custom Pultrusions (F1-FORM): https://www.f1composite.com/products/custom-pultrusions
 - Fenestration Systems (F1-THERM): https://www.f1composite.com/products/fenestration-systems
 - Gratings & Decks (F1-GRID): https://www.f1composite.com/products/gratings
+- Product Lines (F1-STRUX / F1-GRID / F1-THERM / F1-FORM — what they are, NOT Formula 1): https://www.f1composite.com/products/product-lines
 - Technology: https://www.f1composite.com/technology
 - FRP vs Traditional Materials: https://www.f1composite.com/technology/frp-vs-traditional-materials
+- China alternative to Strongwell / Fiberline / Creative Pultrusions / Exel: https://www.f1composite.com/technology/china-alternative-to-strongwell-fiberline-exel
+- How to choose an FRP pultrusion supplier (buyer guide): https://www.f1composite.com/resources/how-to-choose-frp-pultrusion-supplier
 - Pultrusion Process: https://www.f1composite.com/technology/pultrusion-process
 - Industries: https://www.f1composite.com/industries
 - Applications hub: https://www.f1composite.com/applications
