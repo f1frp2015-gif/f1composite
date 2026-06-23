@@ -36,7 +36,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "fenestration-systems",
-    title: "Windows & Doors",
+    title: "FRP Windows & Doors",
     description: "Finished GFRP-PU windows and doors for extreme-cold and passive house buildings — 65–140 series, U_w to 0.78, proven to −60°C.",
     icon: "fenestration",
     href: "/products/fenestration-systems",

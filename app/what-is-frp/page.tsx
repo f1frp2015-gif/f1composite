@@ -6,6 +6,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
+import Button from "@/components/ui/Button";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
@@ -176,6 +177,17 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             What is FRP?
           </h2>
+          {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
+          <div className="mt-[21px] max-w-[820px] rounded-[8px] border-l-[3px] border-teal bg-bg2 p-[21px]">
+            <p className="text-f15 leading-golden text-t1">
+              <strong>FRP definition:</strong> FRP (fiber reinforced polymer) is a
+              structural composite material made of high-strength glass fibers
+              bonded in a thermoset polymer resin. Also called fiberglass
+              reinforced polymer or GRP, FRP is corrosion-proof, electrically
+              non-conductive, and stronger per kilogram than steel at roughly
+              one-quarter the weight.
+            </p>
+          </div>
           <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
             <strong className="text-t1">FRP (fiber reinforced polymer)</strong> is
             a structural composite material that combines two constituents: a
@@ -211,6 +223,43 @@ export default function WhatIsFrpPage() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      {/* P0 funnel CTA — route informational readers to the commercial pages */}
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px] sm:flex sm:items-center sm:justify-between sm:gap-[34px]">
+            <div>
+              <h2 className="text-f19 font-bold text-t1">
+                Looking for FRP products, not just the theory?
+              </h2>
+              <p className="mt-[8px] max-w-[640px] text-f15 leading-golden text-t2">
+                F1 Composite manufactures pultruded FRP direct from the factory —
+                including{" "}
+                <Link
+                  href="/products/fenestration-systems"
+                  className="font-semibold text-teal-text hover:text-teal"
+                >
+                  FRP windows &amp; window frames
+                </Link>{" "}
+                and the full{" "}
+                <Link
+                  href="/pultruded-frp-profiles"
+                  className="font-semibold text-teal-text hover:text-teal"
+                >
+                  pultruded FRP profiles
+                </Link>{" "}
+                range. Size a section in 30 seconds, or get a DDP quote.
+              </p>
+            </div>
+            <div className="mt-[21px] flex flex-shrink-0 flex-wrap gap-[13px] sm:mt-0">
+              <Button href="/frp-profile-calculator">Size an FRP profile</Button>
+              <Button href="/products/fenestration-systems" variant="secondary">
+                FRP windows &amp; doors
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
