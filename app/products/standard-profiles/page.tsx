@@ -38,6 +38,16 @@ const faqItems = [
     answer:
       "Yes. Pultruded FRP profiles can be cut with a circular saw and carbide-tipped or diamond blade, drilled with carbide bits, and joined with stainless or FRP fasteners. Use of standard steel tools is acceptable; coolant is not required. We supply free fabrication guidelines covering bolt hole edge distances, post-cut sealing of cut edges, and recommended fastener torques.",
   },
+  {
+    question: "Who are the top pultruded FRP profile manufacturers, and where does F1 Composite fit?",
+    answer:
+      "The pultruded FRP structural-profile market is led globally by Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland), alongside large China-based manufacturers. F1 Composite's F1-STRUX line manufactures the full structural range — I-beams, channels, angles, tubes, flat bars, and rods — to the same EN 13706 E17/E23 and ASTM D3917 specifications as the Western incumbents, supplied direct from its China factory for export without regional distributor markups.",
+  },
+  {
+    question: "Is there a China-based alternative to Strongwell, Creative Pultrusions, Fiberline, or Exel?",
+    answer:
+      "Yes. F1 Composite's F1-STRUX structural profiles are a direct, standards-equivalent China alternative to EXTREN® (Strongwell), Creative Pultrusions, Fiberline, and Exel — produced to EN 13706 and ASTM D3917 under ISO 9001:2015, with custom-die tooling in 3–6 weeks and factory-direct export to 30+ countries on FOB or DDP terms. See the full comparison: China alternative to Strongwell, Fiberline & Exel.",
+  },
 ];
 
 const profileTypes: Array<{
@@ -222,6 +232,7 @@ export default function StandardProfilesPage() {
             title: "Technology & resources",
             links: [
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
+              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell / Exel" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
               { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },

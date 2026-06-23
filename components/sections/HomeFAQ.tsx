@@ -16,6 +16,11 @@ const items = [
       "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³) and 30% lighter than aluminum. Tensile strength is comparable to A36 steel (240–400 MPa vs 400 MPa) but elastic modulus is about 1/10 of steel's (17–28 GPa vs 200 GPa), so stiffness and deflection often govern design. FRP does not rust, is electrically non-conductive, and has thermal conductivity 170× lower than steel.",
   },
   {
+    question: "Is F1 Composite related to Formula 1 / Formula One motorsport?",
+    answer:
+      "No. F1 Composite is an industrial pultruded fiberglass (FRP / GRP) profiles manufacturer based in Chongqing, China — it has no connection to Formula 1, the FIA, or motorsport. The name refers to its four industrial product lines: F1-STRUX (pultruded structural profiles), F1-GRID (gratings & deck panels), F1-THERM (fenestration / FRP window profiles), and F1-FORM (custom pultrusions). All products are made to EN 13706 and ASTM D3917 for construction, infrastructure, energy, marine, and industrial use.",
+  },
+  {
     question: "Can F1 Composite develop custom pultrusion profiles?",
     answer:
       "Yes. F1 Composite designs and manufactures custom pultrusion dies in-house, with cross-sections up to 600×300 mm and minimum wall thickness 1.5 mm. Typical tooling lead time is 3–6 weeks; total first-production turnaround is 6–10 weeks. Minimum order quantity is 500 linear meters for the first run, 200 m for repeats.",

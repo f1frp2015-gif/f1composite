@@ -521,6 +521,7 @@ export default function FrpVsTraditionalPage() {
           <h2 className="mt-[55px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles</LinkArrow>
+            <LinkArrow href="/technology/china-alternative-to-strongwell-fiberline-exel">China alternative to Strongwell / Exel</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">How Pultrusion Works</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>
             <LinkArrow href="/technology/knowhow-services">Know-How Transfer Services</LinkArrow>
