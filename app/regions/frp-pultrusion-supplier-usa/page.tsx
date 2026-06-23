@@ -78,7 +78,7 @@ export default function UsaRegionPage() {
     name: "FRP Pultrusions for the United States — ASTM-Compliant Profiles, Gratings & Fenestration",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/industries/frp-construction-passive-house-building.jpg")],
+    image: [absoluteUrl("/images/regions/frp-pultrusion-supplier-usa.jpg")],
     brand: { "@type": "Brand", name: "F1 Composite" },
     manufacturer: {
       "@id": "https://www.f1composite.com/#organization",
@@ -135,8 +135,8 @@ export default function UsaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-construction-passive-house-building.jpg"
-              alt="FRP pultrusion for US infrastructure and Passive House projects"
+              src="/images/regions/frp-pultrusion-supplier-usa.jpg"
+              alt="Pultruded FRP structural profiles — round and square tubes, rods, channels and bars — to EN 13706 / ASTM D3917, supplied factory-direct for US projects"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"

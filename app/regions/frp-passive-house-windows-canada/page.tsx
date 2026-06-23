@@ -79,7 +79,7 @@ export default function CanadaRegionPage() {
     name: "FRP Passive House Windows for Canada — PHIUS-Aligned Fiberglass Window Frames",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/industries/frp-construction-passive-house-building.jpg")],
+    image: [absoluteUrl("/images/regions/frp-passive-house-windows-canada.jpg")],
     brand: { "@type": "Brand", name: "F1 Composite" },
     model: "F1-THERM",
     manufacturer: {
@@ -146,8 +146,8 @@ export default function CanadaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-construction-passive-house-building.jpg"
-              alt="FRP fiberglass passive house windows for Canadian net-zero and step-code buildings"
+              src="/images/regions/frp-passive-house-windows-canada.jpg"
+              alt="Passive-house residential development built with pultruded FRP fiberglass window frames — PHIUS-aligned, net-zero / step-code, no aluminium thermal break"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
