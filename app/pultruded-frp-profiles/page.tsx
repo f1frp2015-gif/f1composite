@@ -276,6 +276,12 @@ const faqItems = [
     answer:
       "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are scale (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
   },
+  {
+    question:
+      "Where can I buy pultruded FRP profiles, and how do I source FRP pultruded profiles from China?",
+    answer:
+      "F1 Composite sells pultruded FRP profiles direct from the factory — no distributor markup — and exports to 30+ countries on FOB or DDP terms. Send your profile geometry (or a drawing), quantity, resin system, and destination port for a quote: stock standard sections ship in 2–4 weeks and custom-die profiles in 6–10 weeks. Buyers sourcing FRP pultruded profiles from China typically request EN 13706 / ASTM D3917 test data, a Barcol-hardness and glass-content report, and a pre-shipment inspection — all supplied by F1 Composite as standard.",
+  },
 ];
 
 export default function PultrudedFRPProfilesHubPage() {

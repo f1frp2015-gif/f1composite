@@ -44,7 +44,7 @@ export default function Hero() {
               Get a Quote
             </Button>
             <Button href="/pultruded-frp-profiles" className="border border-white/30 bg-transparent !text-white hover:!bg-white/10">
-              Explore Products
+              Explore FRP Profiles
             </Button>
           </div>
 
