@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "Which FRP grating standards do Saudi EPC contractors typically specify?",
     answer:
-      "The standards stack typically referenced on Saudi project specifications: ASTM E84 (Class 1 / Class A flame spread, FSI ≤ 25), EN 13501-1 (B-s1,d0 where European standards apply), ASTM F3125/F3125M for slip resistance, ASTM D635 for self-extinguishing behavior, and project-specific Aramco SAES-Q-005 / SAES-S-070 for materials in oily/chemical service. F1 Composite supplies grating to all of these standards from vinyl ester resin formulations qualified for the Aramco vendor list pathway.",
+      "The standards stack typically referenced on Saudi project specifications: ASTM E84 (Class 1 / Class A flame spread, FSI ≤ 25), EN 13501-1 (B-s1,d0 where European standards apply), ASTM F3125/F3125M for slip resistance, ASTM D635 for self-extinguishing behavior, and project-specific Aramco SAES-Q-005 / SAES-S-070 for materials in oily/chemical service. F1 Composite supplies grating to all of these standards using vinyl ester resin formulations built to the specifications referenced on the Aramco vendor-list pathway.",
   },
   {
     question: "What are the lead times to Jebel Ali, Dammam, or Jeddah port from China?",
@@ -50,7 +50,7 @@ const faqs = [
   {
     question: "Does F1 Composite handle Aramco vendor approval and project documentation?",
     answer:
-      "F1 Composite supplies project documentation packages aligned with Aramco SAEP / SAES requirements: Mill Test Certificates per ASTM D790 / D638, third-party test reports for fire and chemical resistance, ISO 9001:2015 quality system certification, country-of-origin certificates, and full traceability from raw material batch to finished grating panel. For Aramco direct-vendor qualification, we work through approved Saudi distributors and project EPC partners (SNC-Lavalin Arabia, KBR Arabian, and several local contractors). For SABIC and Maaden projects, direct-vendor relationships are established.",
+      "F1 Composite supplies project documentation packages aligned with Aramco SAEP / SAES requirements: Mill Test Certificates per ASTM D790 / D638, third-party test reports for fire and chemical resistance, ISO 9001:2015 quality system certification, country-of-origin certificates, and full traceability from raw material batch to finished grating panel. For Aramco-controlled scopes, we supply through approved Saudi distributors and the project's nominated EPC procurement channel rather than claiming a standalone Aramco vendor code. For SABIC and Maaden work, we support qualification through the procurement route the project specifies.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function SaudiGratingPage() {
     name: "FRP Gratings for Saudi Arabia — Pultruded & Moulded Fiberglass",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/industries/frp-industrial-chemical-plant-facility.jpg")],
+    image: [absoluteUrl("/images/regions/frp-grating-saudi-arabia-petrochemical.jpg")],
     brand: { "@type": "Brand", name: "F1 Composite" },
     manufacturer: {
       "@id": "https://www.f1composite.com/#organization",
@@ -136,8 +136,8 @@ export default function SaudiGratingPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-industrial-chemical-plant-facility.jpg"
-              alt="FRP grating in Saudi Arabia petrochemical plant — corrosion-resistant fiberglass gratings"
+              src="/images/regions/frp-grating-saudi-arabia-petrochemical.jpg"
+              alt="Corrosion-resistant vinyl ester FRP grating walkway in a Saudi Arabian petrochemical plant — anti-slip, ASTM E84 fire-rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -160,7 +160,7 @@ export default function SaudiGratingPage() {
                 The Eastern Province of Saudi Arabia — Jubail, Ras Tanura, Dammam, Khobar — runs the most aggressive combined-corrosion environment in industrial infrastructure: 50°C+ ambient summer temperatures, Gulf salt-laden coastal air, and continuous chemical splash exposure across petrochemical, refining, fertilizer, and aluminum primary metal production. Galvanized steel grating in this service typically requires full replacement every 5–8 years; carbon steel grating with paint coatings requires recoating cycles every 3–5 years.
               </p>
               <p>
-                Pultruded FRP grating in vinyl ester resin removes both maintenance cycles. The grating is structurally inert to salt-laden air, chemical splash, and 65°C surface temperatures. F1 Composite has supplied FRP grating to Aramco, SABIC, and Maaden capital projects across all five major Saudi industrial zones. The qualification path is established; the grating performance in service is documented across 15+ years of installed base.
+                Pultruded FRP grating in vinyl ester resin removes both maintenance cycles. The grating is structurally inert to salt-laden air, chemical splash, and 65°C surface temperatures. FRP grating has been specified on Aramco, SABIC, and Maaden capital projects across the major Saudi industrial zones for well over 15 years — the material qualification is established industry-wide, and F1 Composite manufactures to those same specifications. The in-service performance of vinyl ester FRP grating is documented across that installed history.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">

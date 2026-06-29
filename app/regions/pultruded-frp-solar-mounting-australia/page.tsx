@@ -79,7 +79,7 @@ export default function AustraliaSolarPage() {
     name: "Pultruded FRP Solar Mounting Profiles for Australia",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/industries/frp-energy-solar-power-installation.jpg")],
+    image: [absoluteUrl("/images/regions/frp-solar-mounting-australia.jpg")],
     brand: { "@type": "Brand", name: "F1 Composite" },
     manufacturer: {
       "@id": "https://www.f1composite.com/#organization",
@@ -135,8 +135,8 @@ export default function AustraliaSolarPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-energy-solar-power-installation.jpg"
-              alt="Pultruded FRP solar mounting structures for Australian solar farm"
+              src="/images/regions/frp-solar-mounting-australia.jpg"
+              alt="Pultruded FRP solar mounting racking on an Australian ground-mount solar array — corrosion-proof, AS/NZS 1170.2 wind-rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"

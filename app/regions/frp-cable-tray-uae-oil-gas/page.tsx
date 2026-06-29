@@ -79,7 +79,7 @@ export default function UAECableTrayPage() {
     name: "Pultruded FRP Cable Tray for UAE Oil & Gas",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/blog/frp-electrical-insulation-substation.jpg")],
+    image: [absoluteUrl("/images/regions/frp-cable-tray-uae-oil-gas.jpg")],
     brand: { "@type": "Brand", name: "F1 Composite" },
     manufacturer: {
       "@id": "https://www.f1composite.com/#organization",
@@ -135,8 +135,8 @@ export default function UAECableTrayPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/blog/frp-electrical-insulation-substation.jpg"
-              alt="FRP cable tray for UAE oil and gas project — corrosion-resistant pultruded fiberglass cable management"
+              src="/images/regions/frp-cable-tray-uae-oil-gas.jpg"
+              alt="Corrosion-resistant pultruded FRP cable tray and ladder in a UAE oil & gas electrical installation — NEMA VE-1 / IEC 61537, sour-service rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -164,7 +164,7 @@ export default function UAECableTrayPage() {
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers. The 25-year design life is documented across UAE installed base going back to early 2000s ADNOC projects. Maintenance is limited to dust removal during scheduled shutdowns; structural inspection has no findings on cable tray that has been in continuous splash-zone service for over 20 years.
+                Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers, with a 25-year design life. FRP cable management has a UAE track record going back to early-2000s oil &amp; gas projects; in documented installations, maintenance is limited to dust removal during scheduled shutdowns, and structural inspection has reported no findings on tray held in continuous splash-zone service for over 20 years.
               </p>
               <p>
                 F1 Composite supplies FRP cable tray to NEMA VE-1, IEC 61537, ASTM E84 Class 1, and project-specific ADNOC AGES standards directly from China factory. CIF Jebel Ali is the most common Incoterm for staging in Dubai/Sharjah operations; DAP project-site is preferred for ADNOC Onshore (Habshan, Bab, Bu Hasa), ADNOC Refining (Ruwais), and offshore operations via Mussafah Port logistics.
