@@ -8,7 +8,6 @@ interface LegalEntityNoteProps {
 const FACTS = {
   contracting: "F1 Composite Co., Ltd",
   factory: "Chongqing FengDu New Material Co., Ltd",
-  factoryCN: "风渡新材料",
 };
 
 export default function LegalEntityNote({
@@ -19,7 +18,7 @@ export default function LegalEntityNote({
     return (
       <p className={`text-f13 leading-golden text-t3 ${className}`}>
         Contracting entity: <span className="font-medium text-t2">{FACTS.contracting}</span>.
-        Manufactured by our long-term manufacturing partner {FACTS.factory} ({FACTS.factoryCN}) — direct from factory, no trading middleman.
+        Manufactured by our long-term manufacturing partner {FACTS.factory} — direct from the factory, no trading middleman.
       </p>
     );
   }
@@ -29,8 +28,8 @@ export default function LegalEntityNote({
       <p className={`text-f15 leading-golden text-t2 ${className}`}>
         You contract with <span className="font-bold text-t1">{FACTS.contracting}</span>{" "}
         — our international contracting entity. Manufacturing happens at our long-term manufacturing partner{" "}
-        <span className="font-bold text-t1">{FACTS.factory}</span> ({FACTS.factoryCN}):
-        the factory F1 Composite exports from directly — same engineering team, same production lines. You contract with the export entity and receive material straight from the factory, never through a distributor or broker.
+        <span className="font-bold text-t1">{FACTS.factory}</span>:
+        the factory F1 Composite exports from directly. You contract with the export entity and receive material straight from the factory, never through a distributor or broker.
       </p>
     );
   }
@@ -48,7 +47,7 @@ export default function LegalEntityNote({
         <div className="flex flex-col gap-[2px]">
           <dt className="font-bold text-teal-text">Manufacturing</dt>
           <dd>
-            {FACTS.factory} ({FACTS.factoryCN}) — our long-term manufacturing partner; the factory F1 Composite exports from directly. Same engineering team, same production lines. Not outsourced to a job shop.
+            {FACTS.factory} — our long-term manufacturing partner; the factory F1 Composite exports from directly. Not outsourced to a job shop.
           </dd>
         </div>
         <div className="flex flex-col gap-[2px]">

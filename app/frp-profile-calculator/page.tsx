@@ -160,8 +160,8 @@ export default function CalculatorPage() {
                 <li><strong>ASTM D3917</strong> — Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes</li>
                 <li><strong>ASCE/SEI 74-23</strong> — Standard for the Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (2024, supersedes the 2010 ACMA Pre-Standard)</li>
                 <li><strong>CEN/TS 19101:2022</strong> — Design of fibre-polymer composite structures (Eurocode-track Technical Specification preparing prEN 19101)</li>
-                <li><strong>GB 50608-2020</strong> — 纤维增强复合材料工程应用技术标准 (Technical Standard for the Engineering Application of Fiber-Reinforced Composite Materials)</li>
-                <li><strong>CECS 692:2020</strong> — 拉挤型材结构技术规程 (Technical Regulation for Structures of Pultruded Profiles)</li>
+                <li><strong>GB 50608-2020</strong> — Technical Standard for the Engineering Application of Fiber-Reinforced Composite Materials</li>
+                <li><strong>CECS 692:2020</strong> — Technical Regulation for Structures of Pultruded Profiles</li>
                 <li><strong>Eurocomp Design Code and Handbook</strong> — Structural Design of Polymer Composites (companion to CEN/TS 19101)</li>
               </ul>
             </div>

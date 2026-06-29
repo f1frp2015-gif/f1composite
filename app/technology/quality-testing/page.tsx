@@ -102,9 +102,9 @@ const regionalStandards: RegionEntry[] = [
   {
     region: "China",
     standards: [
-      { code: "GB/T 31539", scope: "Pultruded glass fiber reinforced plastics profiles (拉挤玻璃纤维增强塑料型材)", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
-      { code: "GB/T 31550", scope: "Structural pultruded FRP profiles for engineering (结构用拉挤玻璃纤维增强塑料型材)", requirements: "Structural-grade requirements; I-beam, channel, angle, tube specifications; design values for structural applications; higher performance thresholds than GB/T 31539" },
-      { code: "JG/T 564", scope: "FRP profiles for building fenestration (建筑门窗用纤维增强塑料型材)", requirements: "Requirements for FRP window and door frame profiles; thermal performance, weathering resistance, corner joint strength; specific to building envelope applications" },
+      { code: "GB/T 31539", scope: "Pultruded glass fiber reinforced plastics profiles", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
+      { code: "GB/T 31550", scope: "Structural pultruded FRP profiles for engineering", requirements: "Structural-grade requirements; I-beam, channel, angle, tube specifications; design values for structural applications; higher performance thresholds than GB/T 31539" },
+      { code: "JG/T 564", scope: "FRP profiles for building fenestration", requirements: "Requirements for FRP window and door frame profiles; thermal performance, weathering resistance, corner joint strength; specific to building envelope applications" },
     ],
   },
   {

@@ -116,17 +116,16 @@ export default function AboutPage() {
                 F1 Composite Co., Ltd is the international contracting and export entity for
                 one of China&apos;s largest vertically integrated pultrusion manufacturers.
                 All overseas orders are contracted and invoiced under F1 Composite Co., Ltd;
-                manufacturing takes place at our long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd
-                (风渡新材料). The factory operates five production bases with 370 pultrusion
-                lines, serving global markets with the same engineering team and
-                production facilities that supply China&apos;s domestic infrastructure.
+                manufacturing takes place at its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd.
+                That factory operates five production bases with 370 pultrusion
+                lines — the same facilities that supply China&apos;s domestic infrastructure.
               </p>
               <p>
                 F1 Composite Co., Ltd was set up to give overseas clients what they need
                 beyond the factory floor: one contracting counterparty, English-language
                 engineering support, international quality documentation, application
                 consulting, and responsive project management. When you work with F1,
-                you work directly with the manufacturer group — no distributor, no broker.
+                you contract with the export entity and receive material direct from the manufacturing partner&apos;s factory — no distributor, no broker.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
