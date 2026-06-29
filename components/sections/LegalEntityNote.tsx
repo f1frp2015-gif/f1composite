@@ -54,8 +54,8 @@ export default function LegalEntityNote({
           <dt className="font-bold text-teal-text">PHI certificate provenance</dt>
           <dd>
             Some historical PHI certificates and test reports were issued under a
-            legacy production-base name within the manufacturing partner's group —
-            verifiable via PHI Component-ID 2491wi03. One of the partner's five production
+            legacy production-base name used by the manufacturing partner,
+            verifiable via PHI Component-ID 2491wi03 — one of the five production
             bases.
           </dd>
         </div>
