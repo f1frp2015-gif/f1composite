@@ -12,7 +12,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Windows & Doors — Extreme-Cold Fenestration";
+  "FRP Windows, Doors & Window Frames — Extreme Cold";
 const pageDescription =
   "Finished GFRP-PU windows and doors for extreme-cold climates: factory-assembled, leak-tested, U_w 0.78 (PHI 2491wi03), proven to −60°C. Canada, Russia. DDP.";
 const pagePath = "/products/fenestration-systems";
