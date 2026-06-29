@@ -29,39 +29,38 @@ const certifications = [
   "ASTM Standard Test Method Compliance",
 ];
 
+const ORG_ID = "https://www.f1composite.com/#organization";
+
 export default function AboutPage() {
-  const organizationSchema = {
+  // Reference the single canonical Organization entity (defined globally in
+  // layout.tsx with @id #organization) instead of emitting a second, weaker
+  // Organization node here — two Organization nodes on one page fragment the
+  // entity in knowledge graphs. AboutPage points at that one entity and carries
+  // the explicit Formula 1 disambiguation so the page AI cites for
+  // "what is F1 Composite" resolves to the right company.
+  const aboutPageSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "F1 Composite Co., Ltd",
-    url: absoluteUrl("/"),
+    "@type": "AboutPage",
+    "@id": absoluteUrl("/about") + "#aboutpage",
+    url: absoluteUrl("/about"),
+    name: "About F1 Composite — FRP Profiles Manufacturer, China",
     description:
-      "Founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, serving global markets with pultruded FRP profiles.",
-    foundingDate: "2015",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area",
-      addressLocality: "Chongqing",
-      addressCountry: "CN",
+      "F1 Composite Co., Ltd is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China — not affiliated with Formula 1 / Formula One motorsport.",
+    inLanguage: "en",
+    isPartOf: { "@id": "https://www.f1composite.com/#website" },
+    mainEntity: { "@id": ORG_ID },
+    about: {
+      "@id": ORG_ID,
+      "@type": "Organization",
+      name: "F1 Composite",
+      disambiguatingDescription:
+        "Industrial manufacturer and exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "inquiry@f1composite.com",
-      telephone: "+86-138-8333-3993",
-      contactType: "sales",
-      availableLanguage: ["English", "Chinese"],
-    },
-    knowsAbout: [
-      "Pultrusion",
-      "Fiber Reinforced Polymer",
-      "FRP Profiles",
-      "Composite Manufacturing",
-    ],
   };
 
   return (
     <>
-      <JsonLd data={organizationSchema} />
+      <JsonLd data={aboutPageSchema} />
       <PageHeader
         tag="About"
         title="Engineering Composites for the World"
@@ -71,6 +70,25 @@ export default function AboutPage() {
           { label: "About" },
         ]}
       />
+
+      {/* What F1 Composite is — entity disambiguation (industrial FRP, not motorsport) */}
+      <section className="border-b border-border-default bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>What F1 Composite Is</SectionTag>
+          <p className="mt-[21px] max-w-[860px] text-f18 leading-golden text-t1">
+            <strong>F1 Composite is an industrial manufacturer and exporter of pultruded
+            fiberglass (FRP / GRP) profiles</strong> — structural shapes, window frames,
+            gratings, and custom pultrusions for construction and infrastructure.
+          </p>
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+            We are <strong>not affiliated with Formula 1, Formula One motorsport, or the
+            FIA</strong>. The &ldquo;F1&rdquo; in F1 Composite is our composites brand name, not
+            the racing series. F1 Composite Co., Ltd is the international contracting and export
+            entity; manufacturing takes place at our long-term partner factory in Chongqing,
+            China.
+          </p>
+        </div>
+      </section>
 
       {/* Mission & Vision */}
       <section className="bg-bg2 py-[89px]">

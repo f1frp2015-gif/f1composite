@@ -186,10 +186,47 @@ const orgSchema = {
       ],
     },
   ],
-  brand: {
-    "@type": "Brand",
-    name: "F1 Composite",
-  },
+  brand: [
+    {
+      "@type": "Brand",
+      "@id": "https://www.f1composite.com/#brand",
+      name: "F1 Composite",
+      disambiguatingDescription:
+        "Industrial pultruded fiberglass (FRP / GRP) composites brand — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://www.f1composite.com/products/standard-profiles#brand",
+      name: "F1-STRUX",
+      alternateName: "Pultruded FRP Structural Profiles",
+      disambiguatingDescription:
+        "F1-STRUX is F1 Composite's pultruded FRP structural profile line (I-beams, channels, angles, tubes) — an industrial fiberglass product family, not a Formula 1 / motorsport name.",
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://www.f1composite.com/products/gratings#brand",
+      name: "F1-GRID",
+      alternateName: "FRP Gratings & Structural Deck Panels",
+      disambiguatingDescription:
+        "F1-GRID is F1 Composite's FRP grating and deck-panel line — an industrial fiberglass product family, not a Formula 1 / motorsport name.",
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://www.f1composite.com/products/fenestration-systems#brand",
+      name: "F1-THERM",
+      alternateName: "Pultruded Fiberglass Window Frames & Fenestration Profiles",
+      disambiguatingDescription:
+        "F1-THERM is F1 Composite's pultruded fiberglass fenestration / window-profile line — an industrial composite product family, not a Formula 1 / motorsport name.",
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://www.f1composite.com/products/custom-pultrusions#brand",
+      name: "F1-FORM",
+      alternateName: "Custom Pultruded FRP Profiles",
+      disambiguatingDescription:
+        "F1-FORM is F1 Composite's custom pultrusion line — an industrial fiberglass product family, not a Formula 1 / motorsport name.",
+    },
+  ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "F1 Composite — branded pultruded FRP product lines",
@@ -202,7 +239,7 @@ const orgSchema = {
           model: "F1-STRUX",
           category: "Pultruded FRP Structural Profiles (I-beam, channel, angle, tube, flat bar, rod)",
           url: "https://www.f1composite.com/products/standard-profiles",
-          brand: { "@type": "Brand", name: "F1 Composite" },
+          brand: { "@id": "https://www.f1composite.com/products/standard-profiles#brand" },
         },
       },
       {
@@ -213,7 +250,7 @@ const orgSchema = {
           model: "F1-GRID",
           category: "FRP Gratings, Solid-Top Cover Plates, Structural Deck Panels",
           url: "https://www.f1composite.com/products/gratings",
-          brand: { "@type": "Brand", name: "F1 Composite" },
+          brand: { "@id": "https://www.f1composite.com/products/gratings#brand" },
         },
       },
       {
@@ -224,7 +261,7 @@ const orgSchema = {
           model: "F1-THERM",
           category: "FRP / GFRP Fenestration Systems (65/70/80/90/140-series)",
           url: "https://www.f1composite.com/products/fenestration-systems",
-          brand: { "@type": "Brand", name: "F1 Composite" },
+          brand: { "@id": "https://www.f1composite.com/products/fenestration-systems#brand" },
         },
       },
       {
@@ -235,7 +272,7 @@ const orgSchema = {
           model: "F1-FORM",
           category: "Custom Pultrusions up to 600×300 mm cross-section",
           url: "https://www.f1composite.com/products/custom-pultrusions",
-          brand: { "@type": "Brand", name: "F1 Composite" },
+          brand: { "@id": "https://www.f1composite.com/products/custom-pultrusions#brand" },
         },
       },
     ],
