@@ -94,6 +94,42 @@ export default function CalculatorPage() {
           },
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to size a pultruded FRP profile with the F1 Composite calculator",
+          description:
+            "Check bending, shear, and Timoshenko-corrected deflection of a pultruded FRP beam, or find the FRP section that replaces a steel or aluminum member at equal stiffness.",
+          totalTime: "PT3M",
+          step: [
+            {
+              "@type": "HowToStep",
+              position: 1,
+              name: "Pick a design framework and environment",
+              text: "Select LRFD (ASCE/SEI 74-23, CEN/TS 19101:2022, or GB 50608-2020) or legacy ASD, and the service environment, so the calculator applies the right resistance factor and FRP environmental knockdown.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 2,
+              name: "Enter span, load, and section",
+              text: "Enter the span, the service load (UDL or point), and the FRP grade and cross-section (I-beam, channel, angle, square tube, or round tube) — or load a quick-start preset.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 3,
+              name: "Read the bending, shear, and deflection checks",
+              text: "The calculator returns factored bending and shear stress versus allowable, plus Timoshenko-corrected deflection versus the L/n limit. Deflection usually governs for FRP.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 4,
+              name: "Match an F1 profile and request a quote",
+              text: "Use the closest-standard-size suggestion and matching product link, then email the result to F1 Composite engineering for a quote against your spec.",
+            },
+          ],
+        }}
+      />
       <PageHeader
         tag="Free Engineering Tool"
         title="Free FRP Profile Calculator"

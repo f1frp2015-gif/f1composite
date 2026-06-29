@@ -1,7 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, type FormEvent } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 import SectionTag from "@/components/ui/SectionTag";
+
+/** GA4 event helper — never throws if analytics isn't loaded yet. */
+function track(name: string, params?: Record<string, unknown>) {
+  try {
+    sendGAEvent("event", name, params ?? {});
+  } catch {
+    /* GA not ready — non-fatal */
+  }
+}
 
 /* ──────────────────────────────────────────────────────────────────────────
    Material database — orthotropic FRP + isotropic metals
@@ -85,6 +95,120 @@ const profileShapes = [
   { id: "square-tube", label: "Square / Rectangular Tube" },
   { id: "round-tube", label: "Round Tube" },
 ];
+
+/* Calculator shape → live F1 product page, so a finished calculation routes the
+   user straight to the matching product (with the computed spec carried into the
+   RFQ). Slugs are the real /products/standard-profiles/* sub-pages. */
+const PRODUCT_BY_SHAPE: Record<string, { slug: string; family: string }> = {
+  "i-beam": { slug: "i-beam", family: "FRP I-beams & wide-flange profiles" },
+  "channel": { slug: "channel", family: "FRP channels (U-profiles)" },
+  "angle": { slug: "angle", family: "FRP angles (L-profiles)" },
+  "square-tube": { slug: "square-tube", family: "FRP square & rectangular tubes" },
+  "round-tube": { slug: "tube", family: "FRP round tubes" },
+};
+
+/* Discrete F1 catalog depths (mm) for shapes whose standard series is published,
+   used to name the closest stock size. Shapes not listed fall back to the family
+   name without inventing a size. */
+const STANDARD_SIZES: Record<string, { label: string; H: number }[]> = {
+  "i-beam": [
+    { label: "I 76×38×6.4", H: 76 }, { label: "I 100×50×6", H: 100 }, { label: "I 120×60×6", H: 120 },
+    { label: "I 152×76×6.4", H: 152 }, { label: "I 160×80×8", H: 160 }, { label: "I 200×100×10", H: 200 },
+    { label: "I 240×120×12", H: 240 }, { label: "I 300×150×15", H: 300 },
+  ],
+  "square-tube": [
+    { label: "SHS 25×25", H: 25 }, { label: "SHS 38×38", H: 38 }, { label: "SHS 50×50", H: 50 },
+    { label: "SHS 60×60", H: 60 }, { label: "SHS 75×75", H: 75 }, { label: "SHS 100×100", H: 100 },
+    { label: "SHS 120×120", H: 120 }, { label: "SHS 150×150", H: 150 }, { label: "SHS 200×200", H: 200 },
+  ],
+};
+
+function nearestStandardSize(shape: string, H: number): { label: string; H: number } | null {
+  const list = STANDARD_SIZES[shape];
+  if (!list || !Number.isFinite(H)) return null;
+  return list.reduce((best, s) => (Math.abs(s.H - H) < Math.abs(best.H - H) ? s : best));
+}
+
+/* One-click scenarios that pre-load the most common FRP selection problems —
+   lowers activation energy and each maps to a real F1 application. */
+type Preset = {
+  id: string; label: string; shape: string; span: number; load: number; loadType: string;
+  matKey: string; envKey: string; deflLimit: number;
+  dimH: number; dimB: number; dimTw: number; dimTf: number; designMethod: DesignMethod;
+};
+const PRESETS: Preset[] = [
+  { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
+  { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 5, dimTf: 5, designMethod: "lrfd-asce" },
+  { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-e23", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
+  { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
+];
+
+/* Result-moment lead capture — the single-field "email me this" that converts
+   the calc aha-moment without a page jump. POSTs to the same inquiry pipeline as
+   the contact form (source-tagged), with the full computed spec attached. */
+function ResultLeadCapture({ context, summary, source }: { context: Record<string, unknown>; summary: string; source: string }) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+  const [err, setErr] = useState("");
+
+  async function submit(e: FormEvent) {
+    e.preventDefault();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error"); setErr("Enter a valid email address."); return;
+    }
+    setStatus("sending"); setErr("");
+    try {
+      const fd = new FormData();
+      fd.set("name", "FRP Calculator lead");
+      fd.set("email", email);
+      fd.set("country", "(via FRP calculator)");
+      fd.set("inquiry_type", "Calculator quote request");
+      fd.set("message", summary);
+      fd.set("source", source);
+      fd.set("context", JSON.stringify(context));
+      const res = await fetch("/api/contact", { method: "POST", body: fd });
+      if (res.ok) {
+        setStatus("ok");
+        track("calculator_lead", { source });
+      } else {
+        const j = (await res.json().catch(() => ({}))) as { message?: string };
+        setStatus("error");
+        setErr(j?.message || "Could not send — please use the quote button instead.");
+      }
+    } catch {
+      setStatus("error"); setErr("Network error — please use the quote button instead.");
+    }
+  }
+
+  if (status === "ok") {
+    return (
+      <div className="rounded-[6px] border border-teal/30 bg-teal/10 p-[13px] text-f13 text-teal-text">
+        ✓ Sent. Our engineering team has your calculation and will reply with a matching profile and quote within one business day.
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={submit} className="rounded-[6px] border border-teal-border bg-teal-bg p-[13px]">
+      <div className="text-f13 font-semibold text-t1">Email me this result + a matching profile quote</div>
+      <p className="mt-[3px] text-f11 text-t3">Your inputs and results attach automatically — just add your email.</p>
+      <div className="mt-[8px] flex gap-[8px]">
+        <input
+          type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@company.com" aria-label="Your email"
+          className="w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal"
+        />
+        <button
+          type="submit" disabled={status === "sending"}
+          className="whitespace-nowrap rounded-[6px] bg-teal px-[16px] py-[8px] text-f13 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
+        >
+          {status === "sending" ? "Sending…" : "Send"}
+        </button>
+      </div>
+      {status === "error" && <p className="mt-[5px] text-f11 text-red-600">{err}</p>}
+    </form>
+  );
+}
 
 function calcIx(shape: string, h: number, b: number, tw: number, tf: number): number {
   if (shape === "i-beam" || shape === "channel") {
@@ -177,6 +301,59 @@ export default function ProfileCalculator() {
   const [eqB, setEqB] = useState(100);
   const [eqTw, setEqTw] = useState(8);
   const [eqTf, setEqTf] = useState(12);
+  const [copied, setCopied] = useState(false);
+
+  /* Deep-link presets: read ?shape&span&load&... once on mount so blog posts,
+     application pages, and AI agents can link straight into a pre-filled calc. */
+  useEffect(() => {
+    /* One-time seed of state from the URL query (?shape&span&load…) for deep
+       links. window is only available post-mount, so a lazy useState initializer
+       would break SSR/prerender — reading it in an effect is the correct pattern
+       here, and it no-ops (early return) for the common no-query case. */
+    /* eslint-disable react-hooks/set-state-in-effect */
+    const sp = new URLSearchParams(window.location.search);
+    if ([...sp.keys()].length === 0) return;
+    const num = (k: string, set: (n: number) => void) => {
+      const v = sp.get(k);
+      if (v != null && v !== "" && Number.isFinite(+v)) set(+v);
+    };
+    const str = (k: string, set: (s: string) => void, allowed: string[]) => {
+      const v = sp.get(k);
+      if (v && allowed.includes(v)) set(v);
+    };
+    if (sp.get("mode") === "equivalence") setMode("equivalence");
+    str("shape", setShape, profileShapes.map((s) => s.id));
+    str("material", setMatKey, Object.keys(materials));
+    str("env", setEnvKey, envFactors.map((e) => e.id));
+    str("load_type", setLoadType, loadTypes.map((l) => l.id));
+    str("method", (v) => setDesignMethod(v as DesignMethod), Object.keys(designMethods));
+    num("span", setSpan); num("load", setLoad); num("defl", setDeflLimit);
+    num("h", setDimH); num("b", setDimB); num("tw", setDimTw); num("tf", setDimTf);
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, []);
+
+  function applyPreset(p: Preset) {
+    setMode("beam");
+    setShape(p.shape); setSpan(p.span); setLoad(p.load); setLoadType(p.loadType);
+    setMatKey(p.matKey); setEnvKey(p.envKey); setDeflLimit(p.deflLimit);
+    setDimH(p.dimH); setDimB(p.dimB); setDimTw(p.dimTw); setDimTf(p.dimTf);
+    setDesignMethod(p.designMethod);
+    track("calculator_preset", { preset: p.id });
+  }
+
+  function copyShareLink() {
+    const sp = new URLSearchParams({
+      shape, material: matKey, env: envKey, load_type: loadType, method: designMethod,
+      span: String(span), load: String(load), defl: String(deflLimit),
+      h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
+    });
+    const url = `${window.location.origin}/frp-profile-calculator?${sp.toString()}`;
+    navigator.clipboard?.writeText(url).then(
+      () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
+      () => {},
+    );
+    track("calculator_share", { shape });
+  }
 
   /* ── Beam calculation ── */
   const mat = materials[matKey];
@@ -269,6 +446,50 @@ export default function ProfileCalculator() {
   const tgtWeight = governingScale === stiffnessScale ? stiffWeight : strengthWeight;
   const weightSaving = srcWeight > 0 ? ((1 - tgtWeight / srcWeight) * 100) : 0;
 
+  // Shared spec payload for beam-mode RFQ surfaces (quote button + email capture).
+  const specContext = {
+    standard: mat.standard, designMethod: dm.label, environment: env.label, material: mat.label,
+    shape, H_mm: dimH, B_mm: dimB, tw_mm: dimTw, tf_mm: dimTf, span_mm: span, load,
+    Ix_cm4: +(Ix / 1e4).toFixed(1), Wx_cm3: +(Wx / 1e3).toFixed(1),
+    bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1),
+    shear_MPa: +tau_max.toFixed(1), shear_allow_MPa: +F_v_allow.toFixed(1),
+    defl_mm: +defl.toFixed(1), weight_kg_m: +weightPerM.toFixed(2),
+  };
+  const specMessage =
+    `Please review this preliminary FRP profile calculation:\n\n` +
+    `Standard: ${mat.standard}\n` +
+    `Design method: ${dm.label}\n` +
+    `Environment: ${env.label} (×${env.factor})\n` +
+    `Material: ${mat.label}\n` +
+    `Profile: ${shape}, H=${dimH}mm, B=${dimB}mm, tw=${dimTw}mm, tf=${dimTf}mm\n` +
+    `Span: ${span}mm, Load type: ${lt.label}, Service load: ${load} ${isDistributed ? "kN/m" : "kN"}\n` +
+    `Deflection limit: L/${deflLimit}\n\n` +
+    `Calculator output:\n` +
+    `- Ix = ${(Ix / 1e4).toFixed(1)} cm⁴ · Wx = ${(Wx / 1e3).toFixed(1)} cm³ · A_w = ${(Aw / 100).toFixed(1)} cm²\n` +
+    `- Bending (factored): ${sigma_max.toFixed(1)} MPa vs ${F_b_allow.toFixed(1)} MPa allowable (${stressOk ? "OK" : "EXCEEDS"})\n` +
+    `- Shear (factored): ${tau_max.toFixed(1)} MPa vs ${F_v_allow.toFixed(1)} MPa allowable (${shearOk ? "OK" : "EXCEEDS"})\n` +
+    `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS"}); shear share ${deflShearPct.toFixed(1)}%\n` +
+    `- Weight: ${weightPerM.toFixed(2)} kg/m\n` +
+    (slenderWarn ? `- ⚠ Local-buckling advisory: flange b/t = ${slender.toFixed(1)} > ${SLENDERNESS_FLANGE_WARN}\n` : "") +
+    `\nApplication context (please add): ____\n` +
+    `Project location / corrosion environment: ____\n\nThanks.`;
+
+  // Equivalence-mode RFQ payload.
+  const eqFrpH = governingScale === stiffnessScale ? stiffH : strengthH;
+  const eqFrpB = governingScale === stiffnessScale ? stiffB : strengthB;
+  const eqContext = {
+    mode: "equivalence", replacing: srcMat.label, targetFRP: tgtMat.label, shape: eqShape,
+    source_H_mm: eqH, source_B_mm: eqB, governing: governingCriterion,
+    frp_H_mm: eqFrpH, frp_B_mm: eqFrpB, weight_saving_pct: +weightSaving.toFixed(0),
+    source_weight_kg_m: +srcWeight.toFixed(2), frp_weight_kg_m: +tgtWeight.toFixed(2),
+  };
+  const eqMessage =
+    `FRP equivalence — replacing ${srcMat.label} with ${tgtMat.label}:\n\n` +
+    `Source ${eqShape}: H=${eqH}mm, B=${eqB}mm (${srcWeight.toFixed(2)} kg/m)\n` +
+    `FRP equivalent (${governingCriterion} governs): H≈${eqFrpH}mm, B≈${eqFrpB}mm (${tgtWeight.toFixed(2)} kg/m)\n` +
+    `Weight saving: ${weightSaving.toFixed(0)}%\n\n` +
+    `Application / corrosion environment (please add): ____\n\nThanks.`;
+
   const inputClass = "w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal";
   const selectClass = inputClass;
   const labelClass = "block text-f11 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
@@ -326,6 +547,21 @@ export default function ProfileCalculator() {
             {/* Input panel */}
             <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Input Parameters</SectionTag>
+
+              {/* One-click scenario presets — lower activation energy */}
+              <div className="flex flex-wrap items-center gap-[6px]">
+                <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
+                {PRESETS.map((p) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => applyPreset(p)}
+                    className="rounded-full border border-border-default bg-white px-[12px] py-[5px] text-f11 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                  >
+                    {p.label}
+                  </button>
+                ))}
+              </div>
 
               {/* Standard / Design method / Environment */}
               <div className="grid gap-[13px] sm:grid-cols-2">
@@ -500,28 +736,32 @@ export default function ProfileCalculator() {
                 )}
               </div>
 
+              {/* F1 product match — routes a finished calc to the matching product page */}
+              {isFRP && PRODUCT_BY_SHAPE[shape] && (() => {
+                const prod = PRODUCT_BY_SHAPE[shape];
+                const near = nearestStandardSize(shape, dimH);
+                return (
+                  <a
+                    href={`/products/standard-profiles/${prod.slug}?source=calculator`}
+                    onClick={() => track("calculator_product_click", { shape, slug: prod.slug })}
+                    className="block rounded-[6px] border border-teal/30 bg-white p-[13px] transition-colors hover:border-teal"
+                  >
+                    <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">F1 makes this profile</div>
+                    <div className="mt-[3px] text-f13 text-t2">
+                      {near ? (
+                        <>Closest stock size to your {dimH} mm section: <strong className="text-t1">{near.label}</strong>. </>
+                      ) : null}
+                      View the {prod.family} <span aria-hidden>→</span>
+                    </div>
+                  </a>
+                );
+              })()}
+
               {/* Send-to-engineer actions */}
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <a
-                  href={`/contact?source=calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify({ standard: mat.standard, designMethod: dm.label, environment: env.label, material: mat.label, shape, H_mm: dimH, B_mm: dimB, tw_mm: dimTw, tf_mm: dimTf, span_mm: span, load, Ix_cm4: +(Ix / 1e4).toFixed(1), Wx_cm3: +(Wx / 1e3).toFixed(1), bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1), shear_MPa: +tau_max.toFixed(1), shear_allow_MPa: +F_v_allow.toFixed(1), defl_mm: +defl.toFixed(1), weight_kg_m: +weightPerM.toFixed(2) }))}&message=${encodeURIComponent(
-                    `Please review this preliminary FRP profile calculation:\n\n` +
-                    `Standard: ${mat.standard}\n` +
-                    `Design method: ${dm.label}\n` +
-                    `Environment: ${env.label} (×${env.factor})\n` +
-                    `Material: ${mat.label}\n` +
-                    `Profile: ${shape}, H=${dimH}mm, B=${dimB}mm, tw=${dimTw}mm, tf=${dimTf}mm\n` +
-                    `Span: ${span}mm, Load type: ${lt.label}, Service load: ${load} ${isDistributed ? "kN/m" : "kN"}\n` +
-                    `Deflection limit: L/${deflLimit}\n\n` +
-                    `Calculator output:\n` +
-                    `- Ix = ${(Ix / 1e4).toFixed(1)} cm⁴ · Wx = ${(Wx / 1e3).toFixed(1)} cm³ · A_w = ${(Aw / 100).toFixed(1)} cm²\n` +
-                    `- Bending (factored): ${sigma_max.toFixed(1)} MPa vs ${F_b_allow.toFixed(1)} MPa allowable (${stressOk ? "OK" : "EXCEEDS"})\n` +
-                    `- Shear (factored): ${tau_max.toFixed(1)} MPa vs ${F_v_allow.toFixed(1)} MPa allowable (${shearOk ? "OK" : "EXCEEDS"})\n` +
-                    `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS"}); shear share ${deflShearPct.toFixed(1)}%\n` +
-                    `- Weight: ${weightPerM.toFixed(2)} kg/m\n` +
-                    (slenderWarn ? `- ⚠ Local-buckling advisory: flange b/t = ${slender.toFixed(1)} > ${SLENDERNESS_FLANGE_WARN}\n` : "") +
-                    `\nApplication context (please add): ____\n` +
-                    `Project location / corrosion environment: ____\n\nThanks.`
-                  )}`}
+                  href={`/contact?source=calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
+                  onClick={() => track("calculator_quote_click", { shape })}
                   className="rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >
                   📧 Send to engineering for a quote
@@ -530,11 +770,24 @@ export default function ProfileCalculator() {
                   href={`/ask?prefill=${encodeURIComponent(
                     `I just used the FRP profile calculator. Standard: ${mat.standard}. Design method: ${dm.label}. Environment: ${env.label}. Material: ${mat.label}. ${shape} ${dimH}×${dimB}mm spanning ${span}mm under ${load} ${isDistributed ? "kN/m" : "kN"}. Bending ${sigma_max.toFixed(1)}/${F_b_allow.toFixed(1)} MPa, shear ${tau_max.toFixed(1)}/${F_v_allow.toFixed(1)} MPa, deflection ${defl.toFixed(1)} mm (${deflShearPct.toFixed(0)}% shear share). Is this sized correctly? What grade/resin should I specify for [my application]?`
                   )}`}
+                  onClick={() => track("calculator_ai_click", { shape })}
                   className="rounded-[6px] border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-teal-text transition-colors hover:bg-teal/20"
                 >
                   💬 Discuss results with AI
                 </a>
               </div>
+
+              {/* Result-moment email capture — convert at the aha-moment, no page jump */}
+              <ResultLeadCapture source="calculator" summary={specMessage} context={specContext} />
+
+              {/* Shareable deep link — spreads the tool + lets buyers forward the calc */}
+              <button
+                type="button"
+                onClick={copyShareLink}
+                className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+              >
+                {copied ? "✓ Link copied" : "🔗 Copy a shareable link to this calculation"}
+              </button>
 
               <p className="text-f11 text-t3">
                 Reference: EN 13706-3 · GB 50608-2020 / CECS 692:2020 · ASCE/SEI 74-23 · CEN/TS 19101:2022 · ASTM D3917.
@@ -688,6 +941,18 @@ export default function ProfileCalculator() {
                   <div className="text-f11 text-t3">Weight Saving</div>
                 </div>
               </div>
+
+              {/* Product match + result-moment lead capture for the FRP-vs-metal surface */}
+              {PRODUCT_BY_SHAPE[eqShape] && (
+                <a
+                  href={`/products/standard-profiles/${PRODUCT_BY_SHAPE[eqShape].slug}?source=calculator`}
+                  onClick={() => track("calculator_product_click", { shape: eqShape, slug: PRODUCT_BY_SHAPE[eqShape].slug, mode: "equivalence" })}
+                  className="block rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                >
+                  View matching {PRODUCT_BY_SHAPE[eqShape].family} <span aria-hidden>→</span>
+                </a>
+              )}
+              <ResultLeadCapture source="calculator-equivalence" summary={eqMessage} context={eqContext} />
 
               <p className="text-f11 text-t3">
                 Geometrically similar scaling with both equal-stiffness (EI) and equal-strength (σW) checks per

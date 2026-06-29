@@ -177,6 +177,7 @@ export interface InquiryMetrics {
   weekly: { week: string; total: number; won: number; lost: number; pending: number; win_rate: number | null; avg_margin: number | null }[];
   loss_reasons: { loss_reason: string | null; n: number }[];
   by_country: { country: string | null; total: number; won: number; lost: number; win_rate: number | null }[];
+  by_source: { source: string | null; total: number; won: number; lost: number; win_rate: number | null }[];
 }
 
 const winRate = (won: number, lost: number): number | null =>
@@ -223,6 +224,16 @@ export async function inquiryMetrics(opts: { weeks?: number } = {}): Promise<Inq
     FROM inquiries GROUP BY country ORDER BY total DESC LIMIT 30
   `) as { country: string | null; total: number; won: number; lost: number }[];
 
+  // Attribution by lead source (contact / calculator / ai-chat / ai-sourcing …)
+  // so the inquiry→deal value of each acquisition surface — the calculator in
+  // particular — can be measured, not guessed.
+  const sourceRows = (await sql`
+    SELECT source, count(*)::int AS total,
+           count(*) FILTER (WHERE outcome = 'won')::int  AS won,
+           count(*) FILTER (WHERE outcome = 'lost')::int AS lost
+    FROM inquiries GROUP BY source ORDER BY total DESC LIMIT 30
+  `) as { source: string | null; total: number; won: number; lost: number }[];
+
   return {
     decided: totals.won + totals.lost,
     won: totals.won,
@@ -233,5 +244,6 @@ export async function inquiryMetrics(opts: { weeks?: number } = {}): Promise<Inq
     weekly: weeklyRows.map((r) => ({ ...r, win_rate: winRate(r.won, r.lost) })),
     loss_reasons: lossRows,
     by_country: countryRows.map((r) => ({ ...r, win_rate: winRate(r.won, r.lost) })),
+    by_source: sourceRows.map((r) => ({ ...r, win_rate: winRate(r.won, r.lost) })),
   };
 }
