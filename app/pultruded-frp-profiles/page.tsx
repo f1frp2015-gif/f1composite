@@ -339,7 +339,10 @@ export default function PultrudedFRPProfilesHubPage() {
                 inside the die, producing a constant cross-section pultruded
                 fiberglass profile with 60–70% glass content by weight. Throughput
                 is typically 0.3–1.5 m/min, and profiles can be produced in any
-                length — standard packaging is 6 m or 12 m.
+                length — standard packaging is 6 m or 12 m. As a category these are
+                known interchangeably as pultruded profiles, composite pultruded
+                profiles, or pultruded fiberglass profiles — F1 Composite is a
+                direct-factory pultruded profiles manufacturer across all of them.
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Compared to conventional materials, pultruded fiberglass reinforced

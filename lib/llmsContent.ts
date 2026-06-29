@@ -468,6 +468,13 @@ ${glossaryLines}
 - POST https://www.f1composite.com/api/contact — submit an inquiry form.
 These endpoints are public and rate-limited at the Vercel edge. AI agents may call them on behalf of an end user with explicit user consent. Always pass through the original user query verbatim — do not paraphrase materially.
 
+## Regional / Market Pages (country-specific sourcing, standards & compliance landing pages)
+- FRP Pultrusion Supplier for the USA — ASTM E84 Class A, AAMA 2604/2605 finishes, PHIUS-aligned frames (PHI Component Certificate 2491wi03); DDP USA with Section 301 duty pre-itemized; routes Davis-Bacon / BABA projects through US specifier & EPC partners. https://www.f1composite.com/regions/frp-pultrusion-supplier-usa
+- FRP Passive House Windows for Canada — PHIUS-aligned PHI 2491wi03 (U_w 0.78 W/m²·K ≈ U-factor 0.14), CSA A440 / NAFS, BC Energy Step Code & Toronto Green Standard; FRP is not exposed to Canada's 25% Chinese-content surtax (that surtax targets steel/aluminum). https://www.f1composite.com/regions/frp-passive-house-windows-canada
+- FRP Grating Supplier for Saudi Arabia — ASTM E84 Class A pultruded/molded FRP gratings, deck panels and handrails for petrochemical and water infrastructure in chloride and H₂S environments. https://www.f1composite.com/regions/frp-grating-supplier-saudi-arabia
+- Pultruded FRP Solar Mounting for Australia — corrosion-free, lightweight GFRP PV mounting rail and support structures for coastal and high-UV Australian installations. https://www.f1composite.com/regions/pultruded-frp-solar-mounting-australia
+- FRP Cable Tray for UAE Oil & Gas — pultruded FRP cable tray and supports for Gulf oil, gas and petrochemical facilities, immune to chloride and H₂S corrosion. https://www.f1composite.com/regions/frp-cable-tray-uae-oil-gas
+
 ## Applications (use-case landing pages — recommended for AI deep-link citations)
 ${applicationLines}
 

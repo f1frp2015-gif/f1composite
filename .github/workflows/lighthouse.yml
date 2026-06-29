@@ -1,0 +1,34 @@
+name: Lighthouse (manual report)
+
+# Manual only — never runs on push/PR, so it can't turn the required CI red.
+# Run from the Actions tab when you want a Lighthouse perf/SEO/a11y report.
+on:
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Start production server
+        run: |
+          npm run start &
+          npx --yes wait-on http://localhost:3000 --timeout 90000
+      - name: Lighthouse CI (report-only, no hard assertions)
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            http://localhost:3000/
+            http://localhost:3000/what-is-frp
+            http://localhost:3000/products/fenestration-systems
+            http://localhost:3000/pultruded-frp-profiles
+            http://localhost:3000/regions/frp-pultrusion-supplier-usa
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+          runs: 1
