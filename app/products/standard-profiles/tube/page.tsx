@@ -6,6 +6,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
@@ -184,6 +185,17 @@ export default function TubePage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator?shape=round-tube"
+            eyebrow="Free tool · round tube preset"
+            title="Size an FRP round tube — bending, shear &amp; deflection"
+            sub="Opens the FRP profile calculator on a round tube: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+          />
         </div>
       </section>
 

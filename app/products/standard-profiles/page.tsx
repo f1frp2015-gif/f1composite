@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -251,6 +252,17 @@ export default function StandardProfilesPage() {
         items={faqItems}
         suppressSchema
       />
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator"
+            eyebrow="Free tool · no login"
+            title="Size and verify an FRP profile in your browser"
+            sub="Pick a shape — I-beam, channel, angle, square tube, or round tube — enter your span and load, and get bending, shear, and Timoshenko-corrected deflection plus the steel/aluminum-equivalent section, then quote against your spec."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />
     </>

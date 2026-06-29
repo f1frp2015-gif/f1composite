@@ -8,6 +8,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForHub } from "@/lib/aiPrefill";
 
@@ -643,6 +644,17 @@ export default function PultrudedFRPProfilesHubPage() {
         description="Describe your application and the FRP Engineering Advisor will recommend the right product family, resin system, standards, and quote path."
         prefill={prefillForHub()}
       />
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator"
+            eyebrow="Free tool · no login"
+            title="Size a pultruded FRP profile in your browser"
+            sub="Run bending, shear, and Timoshenko-corrected deflection on any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608, or ASD — and find the section that replaces a steel or aluminum member at equal stiffness, then quote against your spec."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Specify pultruded FRP profiles for your next project" />
     </>
