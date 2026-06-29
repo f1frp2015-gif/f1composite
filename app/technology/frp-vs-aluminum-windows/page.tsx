@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost, PHIUS Data";
@@ -285,6 +286,17 @@ export default function FrpVsAluminumWindowsPage() {
           },
         ]}
       />
+
+      <section className="bg-white pb-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/technology/u-value-calculator?frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            eyebrow="Free tool · aluminum vs FRP"
+            title="Compare your aluminum window against FRP"
+            sub="Opens the U-value calculator on a thermally-broken aluminum frame — swap to an F1 FRP frame on the same glazing and watch the whole-window Uw drop, per EN ISO 10077-1."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Specifying windows for a passive house or net-zero project?" />
     </>

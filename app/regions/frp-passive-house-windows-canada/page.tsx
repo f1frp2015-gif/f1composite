@@ -7,6 +7,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP Passive House Windows — Canada Supplier";
@@ -315,6 +316,17 @@ export default function CanadaRegionPage() {
               <p className="mt-[5px] text-f13 leading-golden text-t2">FRP passive windows certified at the arctic ceiling of the standard — Qinling Station.</p>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-bg2 pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            eyebrow="Free tool · cold-climate preset"
+            title="Check a passive-house window U-value for your Canadian climate zone"
+            sub="Opens the U-value calculator pre-loaded with an F1 90-Series passive-house build-up — verify the whole-window Uw against CSA A440 and Passive House targets, then quote DDP Canada, surtax-free."
+          />
         </div>
       </section>
 

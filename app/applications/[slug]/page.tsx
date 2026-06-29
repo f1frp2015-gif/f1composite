@@ -7,8 +7,19 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import AskAICard from "@/components/ai/AskAICard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
+
+/* Pre-filled FRP profile calculator deep links — a typical span / load /
+   environment per application so each page opens the tool already scoped. */
+const PROFILE_CALC_LINK: Record<string, string> = {
+  "frp-cable-tray-supports": "/frp-profile-calculator?shape=channel&span=1500&load=2&env=chemical&material=frp-e23&load_type=udl&defl=200",
+  "frp-cooling-tower-profiles": "/frp-profile-calculator?shape=square-tube&span=2000&load=3&env=chemical&material=frp-e23&load_type=udl&defl=200",
+  "frp-bridge-deck-panels": "/frp-profile-calculator?shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
+  "frp-solar-mounting-profiles": "/frp-profile-calculator?shape=square-tube&span=2200&load=2.5&env=outdoor&material=frp-e23&load_type=udl&defl=180",
+  "frp-chemical-plant-platforms": "/frp-profile-calculator?shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -119,6 +130,17 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href={PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator"}
+            eyebrow="Free tool · pre-filled for this application"
+            title={`Size an FRP profile for ${page.shortTitle}`}
+            sub="Opens the FRP profile calculator pre-loaded with a typical span, load, and environment for this application — bending, shear, and Timoshenko-corrected deflection in one screen, then quote against your spec."
+          />
         </div>
       </section>
 

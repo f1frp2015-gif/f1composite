@@ -9,6 +9,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
@@ -833,6 +834,17 @@ export default function FenestrationSystemsPage() {
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} suppressSchema />
+        </div>
+      </section>
+
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            eyebrow="Free tool · 90-Series preset"
+            title="Check the whole-window U-value of an F1 90-Series window"
+            sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series frame + triple glazing — see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets, then quote against your spec."
+          />
         </div>
       </section>
 
