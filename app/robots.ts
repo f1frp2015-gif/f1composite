@@ -12,6 +12,8 @@ const AI_CRAWLERS = [
   "anthropic-ai",
   "PerplexityBot",
   "Perplexity-User",
+  "Grok",
+  "xAI",
   "Google-Extended",
   "Applebot-Extended",
   "CCBot",
