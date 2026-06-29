@@ -96,10 +96,26 @@ function inlineFormat(text: string) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
+    // Escape quotes too, so a model-supplied link URL can never break out of the
+    // href="" attribute to inject an event handler (e.g. onmouseover=).
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
     .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     .replace(/`(.*?)`/g, '<code class="bg-neutral-100 px-[4px] py-[1px] rounded text-f13">$1</code>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-teal-text underline" target="_blank" rel="noopener">$1</a>');
+    // Validate the href scheme so model output can't smuggle a javascript:/data:
+    // URI; quote-escaping above already blocks attribute breakout.
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_m, label: string, url: string) =>
+      `<a href="${safeHref(url)}" class="text-teal-text underline" target="_blank" rel="noopener noreferrer">${label}</a>`);
+}
+
+// Allow only safe link schemes + same-origin relative/anchor links. By the time
+// this runs, inlineFormat has already entity-escaped any quotes in `url`.
+function safeHref(url: string): string {
+  const u = url.trim();
+  if (/^(https?:|mailto:|tel:)/i.test(u)) return u;
+  if (/^[/#]/.test(u)) return u;
+  return "#";
 }
 
 const SUGGESTIONS = [

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { insertInquiry, markInquiryEmailed } from "@/lib/db";
 import { NOTIFY_EMAILS } from "@/lib/notify";
+import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -32,6 +33,13 @@ function parseContext(raw: string | null): unknown {
 }
 
 export async function POST(request: NextRequest) {
+  // Throttle: a human submits the contact form a handful of times at most.
+  // Caps form-spam, lead-email bombing, and junk DB rows from one source.
+  const rl = rateLimit(request, "contact", { limit: 5, windowMs: 600_000 });
+  if (!rl.ok) {
+    return tooManyRequests(rl, "Too many submissions. Please wait a few minutes and try again.");
+  }
+
   const formData = await request.formData();
 
   const name = formData.get("name") as string | null;

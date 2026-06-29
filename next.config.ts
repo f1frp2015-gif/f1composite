@@ -1,5 +1,29 @@
 import type { NextConfig } from "next";
 
+// Content-Security-Policy. Allowlist is the full set of origins the site loads:
+//   - 'self'                       app pages, /api/* (incl. AI streaming), images, self-hosted next/font
+//   - googletagmanager / *-analytics / doubleclick   Google Analytics 4 (gtag)
+//   - vitals.vercel-insights.com   Vercel Speed Insights beacon
+// script-src/style-src keep 'unsafe-inline' because Next injects inline bootstrap
+// scripts and the GA component an inline gtag-config block; removing it requires a
+// per-request nonce via middleware (future hardening). Even so, object-src 'none',
+// base-uri/form-action 'self' and frame-ancestors 'none' close large attack classes.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net",
+  "font-src 'self'",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://vitals.vercel-insights.com",
+  "frame-src 'self'",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
@@ -94,6 +118,7 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: [
+          { key: "Content-Security-Policy", value: CONTENT_SECURITY_POLICY },
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",

@@ -4,6 +4,7 @@ import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
+import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 
 // Sourcing prompts shorter than this are throwaway and don't alert the team.
 const SOURCING_NOTIFY_MIN_LEN = 24;
@@ -46,6 +47,13 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
 Return ONLY the schema-compliant object. Never include markdown, prose preamble, or chat-style framing.`;
 
 export async function POST(req: Request) {
+  // Throttle: this surface calls Gemini AND fires a lead email per qualifying
+  // prompt, so cap both LLM cost-abuse and notification-inbox bombing per IP.
+  const rl = rateLimit(req, "sourcing", { limit: 8, windowMs: 600_000 });
+  if (!rl.ok) {
+    return tooManyRequests(rl, "Too many requests. Please wait a moment before submitting another project.");
+  }
+
   try {
     const { prompt }: { prompt: string } = await req.json();
 

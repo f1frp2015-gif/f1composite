@@ -3,6 +3,7 @@ import { google } from "@ai-sdk/google";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
+import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -348,6 +349,14 @@ function partsToText(m: UIMessage): string {
 const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
 
 export async function POST(req: Request) {
+  // Throttle: each visitor message is one Gemini call. A real conversation is a
+  // few dozen turns at most; this caps per-IP LLM cost-abuse and chat-lead
+  // email bombing while staying invisible to genuine users.
+  const rl = rateLimit(req, "chat", { limit: 40, windowMs: 300_000 });
+  if (!rl.ok) {
+    return tooManyRequests(rl, "You're sending messages too quickly. Please wait a moment.");
+  }
+
   try {
     const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
       await req.json();
