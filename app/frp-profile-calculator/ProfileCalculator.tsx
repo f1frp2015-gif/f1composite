@@ -1,17 +1,8 @@
 "use client";
 
-import { useState, useEffect, type FormEvent } from "react";
-import { sendGAEvent } from "@next/third-parties/google";
+import { useState, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
-
-/** GA4 event helper — never throws if analytics isn't loaded yet. */
-function track(name: string, params?: Record<string, unknown>) {
-  try {
-    sendGAEvent("event", name, params ?? {});
-  } catch {
-    /* GA not ready — non-fatal */
-  }
-}
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 
 /* ──────────────────────────────────────────────────────────────────────────
    Material database — orthotropic FRP + isotropic metals
@@ -142,73 +133,6 @@ const PRESETS: Preset[] = [
   { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-e23", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
   { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
 ];
-
-/* Result-moment lead capture — the single-field "email me this" that converts
-   the calc aha-moment without a page jump. POSTs to the same inquiry pipeline as
-   the contact form (source-tagged), with the full computed spec attached. */
-function ResultLeadCapture({ context, summary, source }: { context: Record<string, unknown>; summary: string; source: string }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
-  const [err, setErr] = useState("");
-
-  async function submit(e: FormEvent) {
-    e.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setStatus("error"); setErr("Enter a valid email address."); return;
-    }
-    setStatus("sending"); setErr("");
-    try {
-      const fd = new FormData();
-      fd.set("name", "FRP Calculator lead");
-      fd.set("email", email);
-      fd.set("country", "(via FRP calculator)");
-      fd.set("inquiry_type", "Calculator quote request");
-      fd.set("message", summary);
-      fd.set("source", source);
-      fd.set("context", JSON.stringify(context));
-      const res = await fetch("/api/contact", { method: "POST", body: fd });
-      if (res.ok) {
-        setStatus("ok");
-        track("calculator_lead", { source });
-      } else {
-        const j = (await res.json().catch(() => ({}))) as { message?: string };
-        setStatus("error");
-        setErr(j?.message || "Could not send — please use the quote button instead.");
-      }
-    } catch {
-      setStatus("error"); setErr("Network error — please use the quote button instead.");
-    }
-  }
-
-  if (status === "ok") {
-    return (
-      <div className="rounded-[6px] border border-teal/30 bg-teal/10 p-[13px] text-f13 text-teal-text">
-        ✓ Sent. Our engineering team has your calculation and will reply with a matching profile and quote within one business day.
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={submit} className="rounded-[6px] border border-teal-border bg-teal-bg p-[13px]">
-      <div className="text-f13 font-semibold text-t1">Email me this result + a matching profile quote</div>
-      <p className="mt-[3px] text-f11 text-t3">Your inputs and results attach automatically — just add your email.</p>
-      <div className="mt-[8px] flex gap-[8px]">
-        <input
-          type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@company.com" aria-label="Your email"
-          className="w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal"
-        />
-        <button
-          type="submit" disabled={status === "sending"}
-          className="whitespace-nowrap rounded-[6px] bg-teal px-[16px] py-[8px] text-f13 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
-        >
-          {status === "sending" ? "Sending…" : "Send"}
-        </button>
-      </div>
-      {status === "error" && <p className="mt-[5px] text-f11 text-red-600">{err}</p>}
-    </form>
-  );
-}
 
 function calcIx(shape: string, h: number, b: number, tw: number, tf: number): number {
   if (shape === "i-beam" || shape === "channel") {

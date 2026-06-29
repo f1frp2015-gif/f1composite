@@ -79,6 +79,42 @@ export default function UValueCalculatorPage() {
           },
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to calculate a whole-window U-value (Uw) per EN ISO 10077-1",
+          description:
+            "Work out the whole-window thermal transmittance of a window or door and check it against Passive House, nZEB, ENERGY STAR, CSA, and GB targets.",
+          totalTime: "PT2M",
+          step: [
+            {
+              "@type": "HowToStep",
+              position: 1,
+              name: "Choose frame, glass, and spacer",
+              text: "Select the frame system (FRP, aluminum, PVC, or timber), the glazing build-up (double / triple / quadruple), and the edge spacer — or load a quick-start preset.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 2,
+              name: "Enter window type and dimensions",
+              text: "Pick the window type (fixed, casement, sliding, or door) and enter width and height in millimetres; the calculator resolves frame and glass areas automatically.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 3,
+              name: "Read the Uw and standards check",
+              text: "The calculator returns the whole-window Uw per EN ISO 10077-1, the performance rating, the improvement over an aluminum baseline, and a pass/fail check against EU, US, Canada, and China targets.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 4,
+              name: "Match an F1 FRP frame and request a quote",
+              text: "Use the matching F1 fenestration series and request a quote against your Uw spec, or email the result to F1 Composite for a tailored fenestration proposal.",
+            },
+          ],
+        }}
+      />
       <PageHeader
         tag="Free Engineering Tool"
         title="Free Window U-Value Calculator"

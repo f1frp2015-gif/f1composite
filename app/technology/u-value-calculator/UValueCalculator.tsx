@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 
 /* ══════════════════════════════════════════════════════
    Data — Frame systems, glass configs, spacer types
@@ -41,6 +42,24 @@ const windowTypes = [
   { id: "casement", label: "Casement / Tilt-turn", sashWidth: 58 },
   { id: "sliding", label: "Sliding door", sashWidth: 70 },
   { id: "entrance", label: "Entrance door (glazed)", sashWidth: 85 },
+];
+
+/* F1 fenestration product page — the result routes here with the U-value spec
+   carried into the RFQ. There is one fenestration page; the series is named in
+   the message. */
+const FENESTRATION_SLUG = "/products/fenestration-systems";
+const FRP_SERIES: Record<string, string> = {
+  "frp-65": "65-Series", "frp-70": "70-Series", "frp-80": "80-Series", "frp-90": "90-Series",
+};
+
+/* One-click scenarios. The "Aluminum → FRP upgrade" preset starts on an aluminum
+   frame so the visitor sees the thermal gap and the FRP upsell card. */
+type WinPreset = { id: string; label: string; frame: string; glass: string; spacer: string; winType: string; width: number; height: number };
+const PRESETS: WinPreset[] = [
+  { id: "passive", label: "Passive house window", frame: "frp-90", glass: "tg-kr", spacer: "warm-premium", winType: "casement", width: 1200, height: 1400 },
+  { id: "cold", label: "Cold-climate home", frame: "frp-80", glass: "tg-ar", spacer: "warm-basic", winType: "casement", width: 1200, height: 1400 },
+  { id: "commercial", label: "Commercial fixed glazing", frame: "frp-70", glass: "dg-ar-6", spacer: "warm-basic", winType: "fixed", width: 1500, height: 2000 },
+  { id: "upgrade", label: "Aluminum → FRP upgrade", frame: "alu-break", glass: "tg-ar", spacer: "warm-basic", winType: "casement", width: 1200, height: 1400 },
 ];
 
 /* ══════════════════════════════════════════════════════
@@ -131,6 +150,68 @@ export default function UValueCalculator() {
       ? Math.round(((baseline.Uw - result.Uw) / baseline.Uw) * 100)
       : 0;
 
+  const [copied, setCopied] = useState(false);
+
+  /* Deep-link presets: read ?frame&glass&spacer&type&w&h on mount so other pages
+     and AI agents can link into a pre-filled U-value calc. */
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    if ([...sp.keys()].length === 0) return;
+    const str = (k: string, set: (s: string) => void, allowed: string[]) => {
+      const v = sp.get(k);
+      if (v && allowed.includes(v)) set(v);
+    };
+    const num = (k: string, set: (n: number) => void) => {
+      const v = sp.get(k);
+      if (v != null && v !== "" && Number.isFinite(+v)) set(Math.max(200, +v));
+    };
+    str("frame", setFrame, frameSystems.map((f) => f.id));
+    str("glass", setGlass, glassConfigs.map((g) => g.id));
+    str("spacer", setSpacer, spacerTypes.map((s) => s.id));
+    str("type", setWinType, windowTypes.map((w) => w.id));
+    num("w", setWidth); num("h", setHeight);
+  }, []);
+
+  function applyPreset(p: WinPreset) {
+    setFrame(p.frame); setGlass(p.glass); setSpacer(p.spacer); setWinType(p.winType);
+    setWidth(p.width); setHeight(p.height);
+    track("uvalue_preset", { preset: p.id });
+  }
+
+  function copyShareLink() {
+    const sp = new URLSearchParams({
+      frame, glass, spacer, type: winType, w: String(width), h: String(height),
+    });
+    const url = `${window.location.origin}/technology/u-value-calculator?${sp.toString()}`;
+    navigator.clipboard?.writeText(url).then(
+      () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
+      () => {},
+    );
+    track("uvalue_share", { frame });
+  }
+
+  // Shared spec payload for the result-moment RFQ surfaces (only when computable).
+  const rating = result ? getRating(result.Uw) : null;
+  const specContext = result
+    ? {
+        tool: "u-value", frame: selFrame.label, Uf: selFrame.Uf, glass: selGlass.label, Ug: selGlass.Ug,
+        spacer: selSpacer.label, psi: selSpacer.psi, windowType: selWinType.label,
+        width_mm: width, height_mm: height, Uw: result.Uw, rating: rating!.label,
+        glass_ratio_pct: result.glassRatio, vs_aluminum_pct: improvement,
+      }
+    : {};
+  const specMessage = result
+    ? `Please review this whole-window U-value calculation (EN ISO 10077-1):\n\n` +
+      `Frame: ${selFrame.label} (Uf ${selFrame.Uf} W/m²K)\n` +
+      `Glass: ${selGlass.label} (Ug ${selGlass.Ug} W/m²K)\n` +
+      `Spacer: ${selSpacer.label} (Ψg ${selSpacer.psi} W/mK)\n` +
+      `Window: ${selWinType.label}, ${width}×${height} mm, glass ratio ${result.glassRatio}%\n\n` +
+      `Result: Uw = ${result.Uw.toFixed(2)} W/m²K (${rating!.label})` +
+      (improvement > 0 ? `, ${improvement}% better than an aluminum-no-break baseline` : "") +
+      `\n\nProject location / target standard (please add): ____\n` +
+      `Quantities / sizes (please add): ____\n\nThanks.`
+    : "";
+
   const selectClass =
     "w-full rounded-[6px] border border-border-default bg-white px-[12px] py-[10px] text-f13 text-t1 focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
   const labelClass = "block text-f11 font-bold uppercase tracking-[2px] text-t3 mb-[6px]";
@@ -154,6 +235,21 @@ export default function UValueCalculator() {
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_380px]">
           {/* ── Input panel ── */}
           <div className="space-y-[21px] rounded-[8px] border border-border-default bg-white p-[34px]">
+            {/* One-click scenario presets */}
+            <div className="flex flex-wrap items-center gap-[6px]">
+              <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
+              {PRESETS.map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => applyPreset(p)}
+                  className="rounded-full border border-border-default bg-white px-[12px] py-[5px] text-f11 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                >
+                  {p.label}
+                </button>
+              ))}
+            </div>
+
             {/* Row 1: Frame + Glass */}
             <div className="grid gap-[21px] sm:grid-cols-2">
               <div>
@@ -367,6 +463,56 @@ export default function UValueCalculator() {
                     ))}
                   </div>
                 </div>
+
+                {/* F1 fenestration product match — routes a finished calc to the product page */}
+                {(() => {
+                  const series = FRP_SERIES[frame];
+                  return (
+                    <a
+                      href={`${FENESTRATION_SLUG}?source=u-value-calculator`}
+                      onClick={() => track("uvalue_product_click", { frame, isFRP: !!series })}
+                      className="block rounded-[8px] border border-teal/30 bg-white p-[21px] transition-colors hover:border-teal"
+                    >
+                      <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+                        {series ? "F1 makes this frame" : "Switch to F1 FRP"}
+                      </div>
+                      <div className="mt-[4px] text-f13 text-t2">
+                        {series ? (
+                          <>This is the F1 FRP <strong className="text-t1">{series}</strong> fenestration system — request a quote against your U<sub>w</sub> {result.Uw.toFixed(2)} spec. </>
+                        ) : (
+                          <>F1 FRP frames reach U<sub>w</sub> as low as <strong className="text-t1">0.78 W/m²·K</strong> (PHI-certified 90-Series){improvement > 0 ? <> — up to {improvement}% better than your selection</> : null}. </>
+                        )}
+                        View FRP fenestration <span aria-hidden>→</span>
+                      </div>
+                    </a>
+                  );
+                })()}
+
+                {/* Quote CTA carrying the computed U-value spec into the RFQ */}
+                <a
+                  href={`/contact?source=u-value-calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
+                  onClick={() => track("uvalue_quote_click", { frame })}
+                  className="block rounded-[8px] bg-teal px-[16px] py-[12px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                >
+                  📧 Get a fenestration quote
+                </a>
+
+                {/* Result-moment email capture — convert without a page jump */}
+                <ResultLeadCapture
+                  source="u-value-calculator"
+                  inquiryType="Fenestration quote request"
+                  summary={specMessage}
+                  context={specContext}
+                />
+
+                {/* Shareable deep link to this U-value result */}
+                <button
+                  type="button"
+                  onClick={copyShareLink}
+                  className="w-full rounded-[8px] border border-border-default bg-white px-[16px] py-[10px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                >
+                  {copied ? "✓ Link copied" : "🔗 Copy a shareable link to this result"}
+                </button>
               </>
             ) : (
               <div className="rounded-[8px] border border-red-200 bg-red-50 p-[21px] text-f13 text-red-700">
