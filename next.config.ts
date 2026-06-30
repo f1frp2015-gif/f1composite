@@ -19,7 +19,7 @@ const CONTENT_SECURITY_POLICY = [
   "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net",
   "font-src 'self'",
   "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://vitals.vercel-insights.com",
-  "frame-src 'self'",
+  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
 ].join("; ");
