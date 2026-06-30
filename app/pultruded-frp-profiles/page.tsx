@@ -285,6 +285,51 @@ const faqItems = [
   },
 ];
 
+// EN 13706-3 grade table. Modulus rows ARE the grade definition (E17 = 17 GPa,
+// E23 = 23 GPa min full-section flexural modulus); strength / density / glass /
+// hardness are F1 characteristic values per the cited test method.
+const en13706Rows = [
+  { property: "Full-section flexural modulus (grade definition)", method: "EN ISO 14125", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
+  { property: "Axial tensile modulus", method: "EN ISO 527-4", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
+  { property: "Axial tensile strength", method: "EN ISO 527-4", e17: "170 MPa", e23: "240 MPa" },
+  { property: "In-plane shear strength", method: "EN ISO 14130", e17: "25 MPa", e23: "30 MPa" },
+  { property: "Density", method: "EN ISO 1183", e17: "1.9 g/cm³", e23: "1.9 g/cm³" },
+  { property: "Glass content (by weight)", method: "ISO 1172", e17: "60–65%", e23: "65–70%" },
+  { property: "Barcol hardness (cure proxy)", method: "ASTM D2583", e17: "≥ 40", e23: "≥ 40" },
+];
+
+const hubGlossary = [
+  { term: "Pultrusion", def: "A continuous process that pulls fiber reinforcement through a resin bath and a heated die to form a constant cross-section profile — a portmanteau of “pull” and “extrusion.”" },
+  { term: "E-glass roving", def: "Continuous bundles of electrical-grade glass filaments that carry the longitudinal load in a pultruded profile." },
+  { term: "Continuous strand mat (CSM)", def: "A randomly-oriented glass mat layered between rovings to build transverse (cross-direction) strength." },
+  { term: "Surfacing veil", def: "A thin veil at the surface that creates a resin-rich, UV- and corrosion-resistant outer layer." },
+  { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus — 17 GPa (E17) and 23 GPa (E23)." },
+  { term: "ASTM D3917", def: "The dimensional-tolerance standard for pultruded shapes; F1 Composite holds ±0.25 mm." },
+  { term: "Vinyl ester resin", def: "A corrosion-grade matrix for acid, alkali, chlorine, and marine service — a step above general-purpose isophthalic polyester." },
+  { term: "Barcol hardness", def: "A surface-indentation test (ASTM D2583) used as a quick proxy for adequate cure of a pultruded profile." },
+];
+
+const keyFacts = [
+  { label: "Glass content", value: "60–70% by weight" },
+  { label: "Weight vs steel", value: "~75% lighter" },
+  { label: "Grades", value: "EN 13706 E17 / E23" },
+  { label: "Tolerance", value: "ASTM D3917 · ±0.25 mm" },
+  { label: "Corrosion", value: "Immune · zero coating" },
+  { label: "Design life", value: "50–100 years" },
+  { label: "Standard shapes", value: "I-beam, channel, angle, SHS/RHS, tube, rod, flat bar" },
+  { label: "Lead time", value: "Stock 2–4 wk · custom 4–8 wk" },
+];
+
+const hubDownloads = [
+  { title: "FRP Profile Design Manual — 2026 (E23 grade, 24 pp)", file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf" },
+  { title: "PU-GF Pultruded Profile — Mechanical Data Sheet", file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf" },
+  { title: "Wind-Energy Pultruded Laminate — GFRP/CFRP Data Sheet", file: "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf" },
+  { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
+];
+
+const LAST_UPDATED = "2026-06-29";
+const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
+
 export default function PultrudedFRPProfilesHubPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -308,11 +353,51 @@ export default function PultrudedFRPProfilesHubPage() {
       url: absoluteUrl(item.href),
       description: item.summary,
     })),
+    dateModified: LAST_UPDATED,
+    lastReviewed: LAST_UPDATED,
+    reviewedBy: {
+      "@type": "Person",
+      name: REVIEWER.name,
+      jobTitle: REVIEWER.title,
+      url: absoluteUrl(`/about/authors/${REVIEWER.slug}`),
+    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
+  };
+
+  // HowTo — the pultrusion process, as machine-readable steps (GEO).
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How pultruded FRP profiles are made (the pultrusion process)",
+    description:
+      "The continuous pultrusion process that produces constant-cross-section fiberglass structural profiles.",
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Reinforcement creels", text: "E-glass roving, continuous strand mat, and surfacing veil are drawn from creels and arranged to the target fiber architecture." },
+      { "@type": "HowToStep", position: 2, name: "Resin impregnation", text: "The dry reinforcement is saturated in a resin bath (or by direct injection) with polyester, vinyl ester, polyurethane, or phenolic resin chosen for the service environment." },
+      { "@type": "HowToStep", position: 3, name: "Pre-forming and heated die", text: "Pre-formers shape the wet pack, which enters a heated steel die at roughly 100–150 °C where the resin cures into a rigid constant cross-section." },
+      { "@type": "HowToStep", position: 4, name: "Continuous pulling", text: "A pulling system draws the cured profile through the die continuously at about 0.3–1.5 m/min." },
+      { "@type": "HowToStep", position: 5, name: "Cut to length", text: "A flying cut-off saw cuts the profile to length — standard packaging is 6 m or 12 m, with effectively unlimited length available." },
+    ],
+  };
+
+  // DefinedTermSet — on-page glossary, entity-tagged for AI retrieval (GEO).
+  const glossarySchema = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: "Pultruded FRP profiles — glossary",
+    url: absoluteUrl("/resources/glossary"),
+    hasDefinedTerm: hubGlossary.map((g) => ({
+      "@type": "DefinedTerm",
+      name: g.term,
+      description: g.def,
+    })),
   };
 
   return (
     <>
       <JsonLd data={collectionSchema} />
+      <JsonLd data={howToSchema} />
+      <JsonLd data={glossarySchema} />
 
       <PageHeader
         tag="Pultruded FRP Profiles"
@@ -323,6 +408,32 @@ export default function PultrudedFRPProfilesHubPage() {
           { label: "Pultruded FRP Profiles" },
         ]}
       />
+
+      {/* Key facts (TL;DR) + review byline */}
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
+              <h2 className="text-f13 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
+              <p className="text-f12 text-t3">
+                Reviewed by{" "}
+                <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
+                  {REVIEWER.name}
+                </Link>
+                , {REVIEWER.title} · Last updated {LAST_UPDATED}
+              </p>
+            </div>
+            <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
+              {keyFacts.map((f) => (
+                <div key={f.label}>
+                  <dt className="text-f11 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
+                  <dd className="mt-[3px] text-f15 font-semibold text-t1">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
 
       {/* Intro / Hero */}
       <section className="bg-white py-[89px]">
@@ -553,6 +664,65 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
+      {/* EN 13706 grades */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Standards &amp; grades</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            EN 13706 E17 and E23 — what the grades mean
+          </h2>
+          <p className="mt-[21px] max-w-[840px] text-f15 leading-golden text-t2">
+            EN 13706-3 classifies pultruded structural profiles by their minimum
+            full-section flexural modulus:{" "}
+            <strong className="text-t1">grade E17 = 17 GPa</strong> and{" "}
+            <strong className="text-t1">grade E23 = 23 GPa</strong> (the standard also
+            requires the axial tensile modulus to meet the grade number). The grade
+            is a floor, not the typical value — F1 Composite standard structural
+            profiles are produced to <strong className="text-t1">E23</strong>, and
+            high-fiber-content sections run stiffer than the 23 GPa minimum. Each
+            property below is paired with the test method that produces it.
+          </p>
+
+          <div className="mt-[34px] overflow-x-auto">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b-2 border-border-default">
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">E17</th>
+                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text">E23</th>
+                </tr>
+              </thead>
+              <tbody>
+                {en13706Rows.map((row) => (
+                  <tr key={row.property} className="border-b border-border-default">
+                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.property}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t3">{row.method}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.e17}</td>
+                    <td className="py-[13px] align-top text-f15 font-medium text-teal-text">{row.e23}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-[21px] max-w-[840px] text-f13 text-t3">
+            Modulus rows are the EN 13706 grade definition; strength, density, glass
+            content, and hardness are F1 characteristic values per the cited method.
+            Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are
+            published on each{" "}
+            <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
+              shape datasheet
+            </Link>
+            , or compute them live in the{" "}
+            <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:text-teal">
+              FRP profile calculator
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* Applications */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -627,6 +797,54 @@ export default function PultrudedFRPProfilesHubPage() {
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>
             <LinkArrow href="/resources/downloads">Downloads</LinkArrow>
             <LinkArrow href="/about">About F1 Composite</LinkArrow>
+          </div>
+        </div>
+      </section>
+
+      {/* Glossary */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Glossary</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Pultruded FRP terms, defined
+          </h2>
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+            {hubGlossary.map((g) => (
+              <div key={g.term} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">{g.term}</h3>
+                <p className="mt-[6px] text-f13 leading-golden text-t2">{g.def}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-[21px] text-f13 text-t3">
+            Full glossary:{" "}
+            <Link href="/resources/glossary" className="font-semibold text-teal-text hover:text-teal">
+              FRP &amp; pultrusion terminology →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Datasheets & downloads */}
+      <section className="bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <h2 className="mb-[8px] text-f19 font-bold text-t1">Datasheets &amp; design data</h2>
+          <p className="mb-[21px] max-w-[760px] text-f13 text-t2">
+            Published mechanical data and design references for pultruded FRP profiles.
+          </p>
+          <div className="grid gap-[13px] sm:grid-cols-2">
+            {hubDownloads.map((d) => (
+              <a
+                key={d.file}
+                href={d.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-[10px] rounded-[8px] border border-border-default bg-white p-[16px] text-f13 font-medium text-t1 transition-colors hover:border-teal"
+              >
+                <span aria-hidden>⬇</span>
+                <span>{d.title} <span className="text-t3">(PDF)</span></span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
