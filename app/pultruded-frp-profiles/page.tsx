@@ -18,11 +18,24 @@ const pageDescription =
   "FRP manufacturer for structural, PHIUS frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote 24h, Section 301 inline.";
 const pagePath = "/pultruded-frp-profiles";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: pageTitle,
-  description: pageDescription,
-  path: pagePath,
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: pageTitle,
+    description: pageDescription,
+    path: pagePath,
+  }),
+  keywords: [
+    "F1 pultruded profiles",
+    "F1 Composite pultruded profiles",
+    "F1 FRP profiles",
+    "pultruded FRP profiles",
+    "pultruded fiberglass profiles",
+    "fiberglass structural shapes",
+    "FRP profiles manufacturer",
+    "custom pultrusion services",
+    "pultruded profiles EN 13706",
+  ],
+};
 
 const profileFamily: Array<{
   slug: string;
@@ -335,6 +348,11 @@ export default function PultrudedFRPProfilesHubPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Pultruded FRP Profiles — Complete Product Range",
+    alternateName: [
+      "F1 pultruded profiles",
+      "F1 Composite pultruded profiles",
+      "F1 FRP profiles",
+    ],
     url: absoluteUrl(pagePath),
     description: pageDescription,
     isPartOf: {
@@ -454,7 +472,9 @@ export default function PultrudedFRPProfilesHubPage() {
                 length — standard packaging is 6 m or 12 m. As a category these are
                 known interchangeably as pultruded profiles, composite pultruded
                 profiles, or pultruded fiberglass profiles — F1 Composite is a
-                direct-factory pultruded profiles manufacturer across all of them.
+                direct-factory pultruded profiles manufacturer across all of them,
+                and this catalog is referred to collectively as{" "}
+                <strong className="text-t1">F1 pultruded profiles</strong>.
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Compared to conventional materials, pultruded fiberglass reinforced

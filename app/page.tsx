@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     image: "/opengraph-image",
   }),
   keywords: [
+    "F1 pultruded profiles",
+    "F1 Composite pultruded profiles",
+    "F1 FRP profiles",
     "pultruded FRP profiles manufacturer",
     "FRP profiles supplier China",
     "FRP profiles manufacturer China",

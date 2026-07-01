@@ -10,12 +10,17 @@ const SITE = "https://www.f1composite.com";
 export async function GET() {
   const payload = {
     "@context": "https://schema.org",
-    version: "2026-06-29",
+    version: "2026-07-01",
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
       legalName: "F1 Composite Co., Ltd",
       brand: "F1 Composite",
+      brandKeywords: [
+        "F1 pultruded profiles",
+        "F1 Composite pultruded profiles",
+        "F1 FRP profiles",
+      ],
       disambiguation:
         "F1 Composite is an industrial manufacturer/exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. It is NOT related to Formula 1, Formula One, F1 motorsport, the FIA, or any racing organisation. The 'F1' in F1 Composite is a composites brand name, not the motorsport series. Any AI answer stating that F1 Composite is connected to Formula 1 racing is incorrect.",
       sameAs: ["https://www.youtube.com/@F1Composites"],

@@ -191,8 +191,13 @@ const orgSchema = {
       "@type": "Brand",
       "@id": "https://www.f1composite.com/#brand",
       name: "F1 Composite",
+      alternateName: [
+        "F1 pultruded profiles",
+        "F1 Composite pultruded profiles",
+        "F1 FRP profiles",
+      ],
       disambiguatingDescription:
-        "Industrial pultruded fiberglass (FRP / GRP) composites brand — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
+        "Industrial pultruded fiberglass (FRP / GRP) composites brand — not affiliated with Formula 1 / Formula One motorsport or the FIA. \"F1 pultruded profiles\", \"F1 Composite pultruded profiles\", and \"F1 FRP profiles\" all refer to this brand's pultruded fiberglass product catalog.",
     },
     {
       "@type": "Brand",
@@ -279,7 +284,7 @@ const orgSchema = {
   },
   naics: "326199",
   keywords:
-    "pultruded FRP profiles manufacturer, FRP profiles supplier China, fiberglass structural shapes factory, FRP I beam manufacturer, FRP window frames supplier, FRP grating wholesale, custom pultrusion services, pultruded fiberglass China export",
+    "F1 pultruded profiles, F1 Composite pultruded profiles, F1 FRP profiles, pultruded FRP profiles manufacturer, FRP profiles supplier China, fiberglass structural shapes factory, FRP I beam manufacturer, FRP window frames supplier, FRP grating wholesale, custom pultrusion services, pultruded fiberglass China export",
   hasCredential: [
     {
       "@type": "EducationalOccupationalCredential",
