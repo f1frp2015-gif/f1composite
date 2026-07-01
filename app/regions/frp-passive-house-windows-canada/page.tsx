@@ -148,7 +148,7 @@ export default function CanadaRegionPage() {
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/regions/frp-passive-house-windows-canada.jpg"
-              alt="Passive-house residential development built with pultruded FRP fiberglass window frames — PHIUS-aligned, net-zero / step-code, no aluminium thermal break"
+              alt="Interior view through a Canadian window in winter — passive-house-grade fiberglass window frames hold up against snow, ice, and sub-zero cold"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
