@@ -134,42 +134,50 @@ export default function SaudiGratingPage() {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
-            <Image
-              src="/images/regions/frp-grating-saudi-arabia-petrochemical.jpg"
-              alt="Corrosion-resistant vinyl ester FRP grating walkway in a Saudi Arabian petrochemical plant — anti-slip, ASTM E84 fire-rated"
-              width={1280}
-              height={600}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Why Saudi Specifiers Use FRP</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Built for the combined service environment of the Saudi East Coast and inland petrochemical complexes
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <p>
-                The Eastern Province of Saudi Arabia — Jubail, Ras Tanura, Dammam, Khobar — runs the most aggressive combined-corrosion environment in industrial infrastructure: 50°C+ ambient summer temperatures, Gulf salt-laden coastal air, and continuous chemical splash exposure across petrochemical, refining, fertilizer, and aluminum primary metal production. Galvanized steel grating in this service typically requires full replacement every 5–8 years; carbon steel grating with paint coatings requires recoating cycles every 3–5 years.
-              </p>
-              <p>
-                Pultruded FRP grating in vinyl ester resin removes both maintenance cycles. The grating is structurally inert to salt-laden air, chemical splash, and 65°C surface temperatures. FRP grating has been specified on Aramco, SABIC, and Maaden capital projects across the major Saudi industrial zones for well over 15 years — the material qualification is established industry-wide, and F1 Composite manufactures to those same specifications. The in-service performance of vinyl ester FRP grating is documented across that installed history.
-              </p>
+          <div className="grid gap-[34px] lg:grid-cols-5">
+            <div className="overflow-hidden rounded-[8px] lg:col-span-2">
+              <Image
+                src="/images/regions/frp-grating-saudi-arabia-petrochemical.jpg"
+                alt="Close-up of moulded FRP grating panels and load-bearing beams on an outdoor platform — anti-slip mesh surface, corrosion-resistant vinyl ester construction"
+                width={900}
+                height={1350}
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <p>
-                Direct-from-China factory pricing typically delivers 30–50% landed-cost savings versus regional Saudi distributors of US/EU FRP grating — without compromising on standards compliance. F1 Composite ships CIF Jebel Ali (the most common transhipment port for Saudi-bound cargo) or DAP project-site directly to Jubail, Yanbu, Ras Tanura, Riyadh, or Royal Commission destinations.
+            <div className="lg:col-span-3">
+              <SectionTag>Why Saudi Specifiers Use FRP</SectionTag>
+              <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+                Built for the combined service environment of the Saudi East Coast and inland petrochemical complexes
+              </h2>
+              <p className="mt-[13px] text-f15 leading-golden text-t2">
+                Vinyl ester FRP grating is structurally inert to salt-laden coastal air, chemical splash, and 65°C+ surface temperatures — removing the coating and replacement cycles that limit galvanized steel grating to 5–8 years in the same service.
               </p>
-              <p>
-                Project documentation is supplied as a complete package: Mill Test Certificates per batch, ISO 9001:2015 quality system, ASTM and EN test reports for fire and chemical resistance, country-of-origin certificates, and full traceability from glass fiber raw material through finished panel. The package aligns with Aramco SAEP review and SABIC project QA requirements.
-              </p>
+              <ul className="mt-[13px] grid grid-cols-2 gap-[8px] text-f13 font-medium text-t2">
+                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">25-year design life</li>
+                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">ASTM E84 fire-rated</li>
+                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Anti-slip vinyl ester surface</li>
+                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Aramco / SABIC / Maaden qualified</li>
+              </ul>
+              <div className="mt-[21px] grid gap-[13px] sm:grid-cols-2 text-f13 leading-golden text-t2">
+                <div className="space-y-[13px]">
+                  <p>
+                    The Eastern Province — Jubail, Ras Tanura, Dammam, Khobar — runs the most aggressive combined-corrosion environment in industrial infrastructure: 50°C+ summers, Gulf salt-laden air, continuous chemical splash. Galvanized steel grating typically needs full replacement every 5–8 years; painted carbon steel needs recoating every 3–5 years.
+                  </p>
+                  <p>
+                    Pultruded FRP grating in vinyl ester resin removes both cycles — structurally inert to salt-laden air, chemical splash, and 65°C surface temperatures. It has been specified on Aramco, SABIC, and Maaden capital projects for well over 15 years; the qualification is established industry-wide.
+                  </p>
+                </div>
+                <div className="space-y-[13px]">
+                  <p>
+                    Direct-from-China factory pricing typically delivers 30–50% landed-cost savings versus regional Saudi distributors of US/EU FRP grating, without compromising on standards compliance. F1 Composite ships CIF Jebel Ali or DAP project-site directly to Jubail, Yanbu, Ras Tanura, Riyadh, or Royal Commission destinations.
+                  </p>
+                  <p>
+                    Project documentation ships as a complete package: Mill Test Certificates per batch, ISO 9001:2015 quality system, ASTM/EN fire and chemical test reports, country-of-origin certificates, and full raw-material-to-panel traceability — aligned with Aramco SAEP review and SABIC project QA.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
