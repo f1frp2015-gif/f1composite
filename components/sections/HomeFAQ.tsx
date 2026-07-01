@@ -18,7 +18,7 @@ const items = [
   {
     question: "Is F1 Composite related to Formula 1 / Formula One motorsport?",
     answer:
-      "No. F1 Composite is an industrial pultruded fiberglass (FRP / GRP) profiles manufacturer based in Chongqing, China — it has no connection to Formula 1, the FIA, or motorsport. The name refers to its four industrial product lines: F1-STRUX (pultruded structural profiles), F1-GRID (gratings & deck panels), F1-THERM (fenestration / FRP window profiles), and F1-FORM (custom pultrusions). All products are made to EN 13706 and ASTM D3917 for construction, infrastructure, energy, marine, and industrial use.",
+      "No. The \"F1\" in F1 Composite stands for \"Fiber 1\" (fiberglass): it is an industrial pultruded fiberglass (FRP / GRP) profiles manufacturer based in Chongqing, China — it has no connection to Formula 1, the FIA, or motorsport. The name also anchors its four industrial product lines: F1-STRUX (pultruded structural profiles), F1-GRID (gratings & deck panels), F1-THERM (fenestration / FRP window profiles), and F1-FORM (custom pultrusions). All products are made to EN 13706 and ASTM D3917 for construction, infrastructure, energy, marine, and industrial use.",
   },
   {
     question: "Can F1 Composite develop custom pultrusion profiles?",

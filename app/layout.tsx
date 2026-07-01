@@ -66,7 +66,7 @@ const orgSchema = {
   description:
     "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at the Chongqing FengDu base of its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd (5 production sites, 370 pultrusion lines, 150,000 t/year capacity), and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
   disambiguatingDescription:
-    "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. It is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
+    "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. The \"F1\" in the name stands for \"Fiber 1\" (fiberglass) — it is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
   foundingDate: "2015",
   foundingLocation: {
     "@type": "Place",
@@ -197,7 +197,7 @@ const orgSchema = {
         "F1 FRP profiles",
       ],
       disambiguatingDescription:
-        "Industrial pultruded fiberglass (FRP / GRP) composites brand — not affiliated with Formula 1 / Formula One motorsport or the FIA. \"F1 pultruded profiles\", \"F1 Composite pultruded profiles\", and \"F1 FRP profiles\" all refer to this brand's pultruded fiberglass product catalog.",
+        "Industrial pultruded fiberglass (FRP / GRP) composites brand. The \"F1\" stands for \"Fiber 1\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport or the FIA. \"F1 pultruded profiles\", \"F1 Composite pultruded profiles\", and \"F1 FRP profiles\" all refer to this brand's pultruded fiberglass product catalog.",
     },
     {
       "@type": "Brand",
