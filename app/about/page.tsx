@@ -45,7 +45,7 @@ export default function AboutPage() {
     url: absoluteUrl("/about"),
     name: "About F1 Composite — FRP Profiles Manufacturer, China",
     description:
-      "F1 Composite Co., Ltd is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber 1\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
+      "F1 Composite Co., Ltd is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
     inLanguage: "en",
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     mainEntity: { "@id": ORG_ID },
@@ -54,7 +54,7 @@ export default function AboutPage() {
       "@type": "Organization",
       name: "F1 Composite",
       disambiguatingDescription:
-        "Industrial manufacturer and exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The \"F1\" stands for \"Fiber 1\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
+        "Industrial manufacturer and exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
     },
   };
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
             gratings, and custom pultrusions for construction and infrastructure.
           </p>
           <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
-            The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber 1&rdquo;
+            The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
             (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
             <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
             F1 Composite Co., Ltd is the international contracting and export

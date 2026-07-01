@@ -68,7 +68,7 @@ const faqItems = [
   {
     question: "Are F1-STRUX / F1-GRID / F1-THERM / F1-FORM related to Formula 1?",
     answer:
-      "No. These are industrial composite product-line names from F1 Composite, a pultruded FRP (fiberglass) profiles manufacturer in Chongqing, China. The \"F1\" stands for \"Fiber 1\" (fiberglass) — they have no connection to Formula 1, the FIA, or motorsport. The names denote FRP product families used in construction, infrastructure, energy, marine, and industrial applications.",
+      "No. These are industrial composite product-line names from F1 Composite, a pultruded FRP (fiberglass) profiles manufacturer in Chongqing, China. The \"F1\" stands for \"Fiber One\" (fiberglass) — they have no connection to Formula 1, the FIA, or motorsport. The names denote FRP product families used in construction, infrastructure, energy, marine, and industrial applications.",
   },
   {
     question: "Which F1 Composite product line do I need?",
