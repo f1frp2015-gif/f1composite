@@ -136,7 +136,7 @@ export default function UsaRegionPage() {
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/regions/frp-pultrusion-supplier-usa.jpg"
-              alt="Pultruded FRP structural profiles — round and square tubes, rods, channels and bars — to EN 13706 / ASTM D3917, supplied factory-direct for US projects"
+              alt="Dimensioned isometric drawings of pultruded FRP structural profile shapes — channel, flat plate, and angle sections — to EN 13706 / ASTM D3917, supplied factory-direct for US projects"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
