@@ -110,6 +110,125 @@ const orientations = [
   },
 ];
 
+const deflectionStats = [
+  {
+    value: "+74%",
+    label: "Flexural rigidity vs E23 at equal section",
+    detail: "40 GPa vs 23 GPa full-section modulus — same blade, 74% stiffer",
+  },
+  {
+    value: "+20%",
+    label: "Bracket spacing at equal blade section",
+    detail: "Deflection-limited span scales with ∛E — fewer brackets per elevation",
+  },
+  {
+    value: "−17%",
+    label: "Blade thickness at equal bracket spacing",
+    detail: "Same deflection limit met by a thinner, lighter blade — ∝ 1/∛E",
+  },
+];
+
+const fatigueMechanisms = [
+  {
+    title: "Working stress below the damage threshold",
+    body:
+      "Because the blade is sized by deflection, its working bending stress typically lands below 15–20% of the laminate's ultimate strength. At that amplitude, glass-fiber laminates run out past 10⁷ load cycles with no measurable stiffness loss — the gust spectrum of a 50-year facade life sits inside the flat end of the S-N curve, with margin the strength check never touches.",
+  },
+  {
+    title: "No endurance-limit problem, no notch-critical detail",
+    body:
+      "Aluminum has no fatigue endurance limit — its life keeps falling with every decade of cycles, and the governing details on an aluminum shading system are exactly the bad ones: bolt holes, notches, welded tabs, and slotted expansion holes that add fretting on top of cyclic stress. The FRP blade replaces all of them with plain bolted bearing in a fabric-reinforced laminate at low stress ratio.",
+  },
+  {
+    title: "A laminate that arrests damage instead of growing it",
+    body:
+      "Metal fatigue is single-crack propagation: one initiation site at a hole edge, then stable growth to fracture. A multi-layer fabric laminate fails differently — matrix microcracks are arrested at the ±45° stitched layers, delamination fronts are pinned by the through-thickness stitching, and load redistributes around local damage. Degradation is gradual and inspectable, not sudden.",
+  },
+  {
+    title: "Damping that keeps slender blades stable",
+    body:
+      "Slender fins shed vortices and can ring in resonance. The material loss factor of a glass laminate is roughly an order of magnitude above aluminum, which compensates its lower mass in the Scruton-number stability check, cuts resonant amplitude, and eliminates the metallic ring and rattle aluminum arrays develop. We screen slender fin geometries for vortex-induced vibration as part of the engineering package.",
+  },
+  {
+    title: "Full pressure–suction reversal, symmetric response",
+    body:
+      "Gust loading fully reverses: positive pressure on one cycle, suction on the next. The E40 plate is laminated symmetrically about its midplane, so stiffness and strength are identical in both directions, and connections are checked for the reversed reaction — there is no one-way detail to work loose over millions of reversals.",
+  },
+  {
+    title: "No corrosion–fatigue coupling",
+    body:
+      "On steel and aluminum, weathering and fatigue multiply: corrosion pits become crack initiation sites, and fatigue cracks breach coatings to accelerate corrosion. FRP breaks the coupling — there is no electrochemical corrosion to pit the surface, and the resin-rich veil plus PU topcoat handle the daily thermal, wet–dry, and freeze–thaw cycling without a coating–substrate mismatch to craze.",
+  },
+];
+
+const windLoadSteps = [
+  {
+    step: "1 · Peak velocity pressure",
+    detail:
+      "From the project's basic wind speed, terrain exposure, and blade height: q_p(z) to EN 1991-1-4, ASCE 7 components-and-cladding, or GB 50009 — whichever code your facade engineer signs under. High-rise elevations are banded by height so upper-floor blades aren't designed on ground-level pressure.",
+  },
+  {
+    step: "2 · Net pressure coefficient",
+    detail:
+      "Shading blades are open elements attached to the facade: the design coefficient depends on porosity of the array, blade angle, and position on the elevation. Mid-face louvers commonly design around c_p,net ≈ ±1.3; edge and corner zones, and free-standing fin tips, up to ±2.0. Pressure and suction both apply — the load fully reverses.",
+  },
+  {
+    step: "3 · Blade line load",
+    detail:
+      "w = q_p × c_p,net × projected blade width. A 250 mm louver at q_p = 1.0 kPa and c_p,net 2.0 carries 0.5 kN/m — modest in force, but acting on a long thin member where deflection, not strength, decides the section.",
+  },
+  {
+    step: "4 · Governing checks",
+    detail:
+      "Deflection against the specified limit (L/180–L/240 typical for shading) on the continuous multi-span blade; bending and shear at the bracket line — which rarely governs at deflection-limited stress levels; bracket reactions forwarded to the mullion or slab-edge anchor design; and a vortex-shedding screen for slender fins.",
+  },
+  {
+    step: "5 · Zoned layup, not blanket upsizing",
+    detail:
+      "Because the laminate is specified per run, corner-zone blades get a heavier layup or one extra bracket while the field of the elevation stays on the economic section — instead of upsizing every blade on the building to the worst-case coefficient.",
+  },
+];
+
+const spanTable = [
+  { thickness: "10 mm", span10: "≈ 1.1 m", span15: "≈ 0.9 m" },
+  { thickness: "15 mm", span10: "≈ 1.6 m", span15: "≈ 1.4 m" },
+  { thickness: "20 mm", span10: "≈ 2.2 m", span15: "≈ 1.9 m" },
+  { thickness: "25 mm", span10: "≈ 2.7 m", span15: "≈ 2.4 m" },
+];
+
+const connectionDetails = [
+  {
+    title: "Clamped or through-bolted brackets",
+    body:
+      "Blades fix to aluminum, HDG-steel, or FRP brackets with A2/A4 stainless bolts — through-bolted or clamp-plate, per the facade detail. Bearing runs through the multiaxial fabric layers, which is exactly what they are laminated in for: edge distances ≥ 2.5d, oversize washers, controlled torque. Blades arrive factory CNC-drilled to the bracket pattern, so site work is bolt-up only.",
+  },
+  {
+    title: "Fixed points — no slotted holes, no fretting",
+    body:
+      "With a CTE of 7–9 × 10⁻⁶/K, a 4 m blade moves under 2 mm across a 60°C swing — inside normal bolt-hole clearance. Blades therefore fix rigidly, without the slotted expansion holes aluminum needs. That removes the fretting wear, thermal clicking, and locked-slot failures that aluminum shading develops as its slots seize with oxide and grime.",
+  },
+  {
+    title: "Galvanically inert at every interface",
+    body:
+      "FRP forms no corrosion couple with stainless, aluminum, or galvanized steel, so blades mount directly to any substructure without isolation pads or sleeves — one less part, one less failure mode, and no white-rust or run-off staining bleeding down the finished facade.",
+  },
+  {
+    title: "Cut edges with nothing to corrode",
+    body:
+      "Every site cut or drilled hole in coated aluminum breaches the anodizing or PVDF and starts an edge-corrosion front the warranty excludes. An FRP blade has no metallic substrate: factory edges ship sealed as standard, and any site modification is resealed with a brush-applied resin coat in minutes.",
+  },
+  {
+    title: "Two installers, no crane, no hot work",
+    body:
+      "A 250 × 20 mm E40 blade weighs about 10 kg/m — a 3 m blade is a two-person lift from a MEWP or scaffold. No mechanical lifting, no welding permits, no hot work next to installed glazing. Blades machine with standard carbide tooling if the site must adapt, and each blade unbolts individually for replacement without disturbing its neighbors.",
+  },
+  {
+    title: "Maintenance scope: a wash",
+    body:
+      "There is no recoat cycle, no touch-up program for chipped coatings, no torque-recheck driven by slot fretting, and no corrosion inspection interval. The maintenance scope of an FRP shading array is the one the facade already has: periodic cleaning and the standard visual inspection — which matters most on high-rise and coastal work, where every access event is a rope or rig cost.",
+  },
+];
+
 const materialProperties = [
   { property: "Full-section flexural modulus", value: "Up to 40 GPa (E40)", note: "vs 17 / 23 GPa for EN 13706 E17 / E23 standard grades" },
   { property: "Transverse flexural modulus", value: "10 – 14 GPa", note: "Multi-layer multiaxial fabric; roving-only flat sheet runs 5 – 7 GPa" },
@@ -174,6 +293,16 @@ const faqItems = [
     question: "Can the same plate be used for vertical fins and horizontal louvers?",
     answer:
       "Yes — that is the point of the multi-layer fabric architecture. Vertical fins see mostly flatwise wind bending; horizontal louvers add edgewise gravity bending on top of it, a biaxial load case that exposes the transverse weakness of roving-only pultrusions. The E40 plate carries multiple stitched multiaxial fabric layers through its thickness, giving it transverse modulus of 10–14 GPa — roughly double conventional flat sheet — so one blade family serves both orientations across the facade.",
+  },
+  {
+    question: "Do FRP blades fatigue under decades of wind gusting?",
+    answer:
+      "This is where FRP holds a structural advantage over aluminum, which has no fatigue endurance limit — its life keeps falling with cycle count, governed by exactly the details a shading system is full of: bolt holes, notches, and slotted expansion holes with fretting. Because an FRP blade is sized by deflection, its working stress sits below 15–20% of the laminate's ultimate strength, a level at which glass laminates survive beyond 10⁷ cycles without measurable degradation. The multi-layer fabric also arrests matrix cracks rather than propagating them, the laminate is symmetric for full pressure–suction reversal, and material damping roughly an order of magnitude above aluminum suppresses vortex-induced resonance in slender fins.",
+  },
+  {
+    question: "How are the blades fixed to the building?",
+    answer:
+      "With bolted brackets — through-bolted or clamp-plate — in A2/A4 stainless hardware onto aluminum, galvanized-steel, or FRP substructure. Blades ship factory CNC-drilled to your bracket pattern with sealed edges, so site work is bolt-up only: no welding, no hot work near installed glazing, and a 3 m blade at roughly 10 kg/m is a two-person lift. Because FRP's thermal expansion is a third of aluminum's, blades take fixed connections without slotted expansion holes — eliminating fretting wear and thermal clicking — and the material is galvanically inert, so no isolation pads are needed at any interface. Each blade unbolts individually for replacement.",
   },
   {
     question: "What about fire performance?",
@@ -434,6 +563,185 @@ export default function FacadeSunshadePanelsPage() {
                 <h3 className="text-[20px] font-extrabold text-t1">{o.name}</h3>
                 <p className="mt-[5px] text-f13 font-semibold text-teal-text">{o.loads}</p>
                 <p className="mt-[13px] text-f15 leading-golden text-t2">{o.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deflection-governed design */}
+      <section className="bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Deflection-Governed Design</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Stiffness sets the blade — everything else follows
+          </h2>
+          <div className="mt-[21px] max-w-[780px] space-y-[21px]">
+            <p className="text-f15 leading-golden text-t2">
+              A sunshade blade is a continuous beam on bracket supports carrying a wind
+              line-load, and its design is decided by the serviceability check: deflection
+              between brackets, held to L/180–L/240 in most facade specifications — both for
+              appearance down the array and to keep blade tips off the glass line. Beam
+              deflection scales with q·L⁴/(E·I): the load and span are fixed by the
+              architecture, the section by the sightline the architect will accept. The one
+              lever left is E — the modulus of the blade material. That is the entire design
+              case for the E40 plate in one sentence.
+            </p>
+            <p className="text-f15 leading-golden text-t2">
+              The arithmetic is direct. Deflection-limited bracket spacing scales with the
+              cube root of modulus, so moving from a standard E23 pultrusion to the E40
+              plate buys 20% more span from the identical blade — or, holding the bracket
+              grid, the same deflection limit is met by a blade about 17% thinner and
+              lighter. And because stiffness — not strength — sizes the section, the
+              working bending stress ends up at a small fraction of the laminate&apos;s
+              ultimate, which is precisely the margin that makes the fatigue behavior below
+              a non-issue.
+            </p>
+            <p className="text-f15 leading-golden text-t2">
+              One honest caveat belongs here: for horizontal louvers, self-weight is a
+              sustained load, and polymer composites creep under sustained stress. On a thin
+              blade at 2.0 g/cm³ the gravity stress is small, and we verify the sustained
+              case with long-term modulus reduction factors as standard — so the creep
+              deflection over a 50-year life stays invisible, checked rather than assumed.
+            </p>
+          </div>
+
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
+            {deflectionStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+              >
+                <div className="text-[34px] font-extrabold leading-none text-teal-text">
+                  {stat.value}
+                </div>
+                <h3 className="mt-[13px] text-[15px] font-bold text-t1">{stat.label}</h3>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">{stat.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wind-pressure fatigue */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Wind-Pressure Fatigue</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Fifty years of gust cycles, without a fatigue-critical detail
+          </h2>
+          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+            A facade blade sees millions of fully-reversing gust cycles over the building&apos;s
+            life — fatigue, not peak load, is what actually retires metal shading systems.
+            Six mechanisms put the FRP blade on the other side of that problem.
+          </p>
+
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
+            {fatigueMechanisms.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+              >
+                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wind-load calculation */}
+      <section className="bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Wind-Load Design</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            From code wind speed to bracket spacing
+          </h2>
+          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+            The wind design of a shading array is a five-step path from the code to the
+            blade. We run it for every quotation, to EN 1991-1-4, ASCE 7, or GB 50009, and
+            hand the calculation package to your facade engineer.
+          </p>
+
+          <div className="mt-[34px] space-y-[13px]">
+            {windLoadSteps.map((item) => (
+              <div
+                key={item.step}
+                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+              >
+                <div className="flex flex-col gap-[8px] md:flex-row md:items-start md:gap-[34px]">
+                  <h3 className="shrink-0 text-[15px] font-bold text-teal-text md:w-[280px]">
+                    {item.step}
+                  </h3>
+                  <p className="flex-1 text-f15 leading-golden text-t2">{item.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-[55px]">
+            <h3 className="text-[20px] font-extrabold text-t1">
+              Indicative bracket spacing — E40 flat plate louvers
+            </h3>
+            <p className="mt-[8px] max-w-[640px] text-f13 leading-golden text-t2">
+              Deflection-governed spacing for a 250 mm louver at c_p,net = ±2.0
+              (conservative edge-zone value), continuous over three or more brackets,
+              deflection limit L/240. Strength and bracket reactions are verified
+              separately; project values are confirmed by the KNOWHOW calculation package.
+            </p>
+            <div className="mt-[21px] max-w-[640px] overflow-x-auto">
+              <table className="w-full border-collapse text-left">
+                <thead>
+                  <tr className="border-b-2 border-border-default">
+                    <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                      Blade thickness
+                    </th>
+                    <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                      q_p = 1.0 kPa
+                    </th>
+                    <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                      q_p = 1.5 kPa
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {spanTable.map((row) => (
+                    <tr key={row.thickness} className="border-b border-border-default">
+                      <td className="py-[13px] pr-[21px] text-f15 font-semibold text-t1">
+                        {row.thickness}
+                      </td>
+                      <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.span10}</td>
+                      <td className="py-[13px] text-f15 text-t2">{row.span15}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Connections & installation */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Connections & Installation</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Bolted details that stay quiet for the life of the facade
+          </h2>
+          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+            Shading systems are won and lost at the bracket. These are the connection and
+            installation details behind a thin, light, weather-proof, maintenance-free
+            blade array.
+          </p>
+
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
+            {connectionDetails.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+              >
+                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
