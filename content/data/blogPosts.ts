@@ -75,9 +75,13 @@ export const blogPosts: BlogPost[] = [
     authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Review Board",
     standards: ["EN 14024", "EN 13830", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
-    coverImage: "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
+    coverImage: "/images/blog/frp-curtain-wall-facade-blue-glass-grid.webp",
     coverAlt:
-      "Glass curtain wall facade of a residential tower — a thermal break isolator profile sits hidden inside every mullion and transom joint",
+      "Blue glass curtain wall facade grid of mullions and transoms — a thermal break isolator profile sits hidden inside every joint of the framing",
+    coverAttribution: pexelsCredit(
+      "Jan van der Wolf",
+      "https://www.pexels.com/photo/18169294/",
+    ),
     supportingImage: "/images/blog/frp-curtain-wall-thermal-break-isolator-diagram.webp",
     supportingAlt:
       "Curtain wall thermal break diagram: pultruded FRP isolator profile (highlighted) between the aluminum pressure plate and the mullion-transom body, with screw clamping detail and isometric view",
