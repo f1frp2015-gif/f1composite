@@ -793,6 +793,7 @@ export default function FenestrationSystemsPage() {
             title: "Related FRP products",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/facade-sunshade-panels", label: "Facade sunshade panels (E40)" },
               { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
               { href: "/products/standard-profiles", label: "Standard FRP profiles" },
               { href: "/products/gratings", label: "FRP gratings" },
