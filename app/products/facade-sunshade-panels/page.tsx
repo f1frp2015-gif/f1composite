@@ -879,6 +879,7 @@ export default function FacadeSunshadePanelsPage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/resources/blog/frp-thermal-break-profiles-curtain-wall", label: "FRP thermal breaks for curtain walls" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs aluminum, steel & PVC" },
               { href: "/frp-profile-calculator", label: "FRP profile calculator" },
               { href: "/technology/knowhow-services", label: "KNOWHOW engineering services" },
