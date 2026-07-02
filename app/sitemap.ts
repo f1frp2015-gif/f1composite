@@ -54,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/products/standard-profiles/rod`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/custom-pultrusions`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fenestration-systems`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/facade-sunshade-panels`, lastModified: "2026-07-01", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/gratings`, lastModified: DATES.products, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology`, lastModified: DATES.technology, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/technology/pultrusion-process`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
