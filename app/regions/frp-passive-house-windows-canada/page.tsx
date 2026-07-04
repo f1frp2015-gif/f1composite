@@ -284,6 +284,7 @@ export default function CanadaRegionPage() {
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
             <LinkArrow href="/technology/u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/regions/frp-pultrusion-supplier-usa">Sourcing FRP for US projects</LinkArrow>
+            <LinkArrow href="/regions/frp-passive-house-windows-germany">FRP passive house windows — Germany</LinkArrow>
           </div>
 
           <FAQ items={faqs} suppressSchema />

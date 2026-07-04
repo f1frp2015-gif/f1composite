@@ -110,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/regions/frp-cable-tray-uae-oil-gas`, lastModified: "2026-05-05", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/regions/frp-pultrusion-supplier-usa`, lastModified: "2026-05-21", changeFrequency: "monthly", priority: 0.92 },
     { url: `${BASE}/regions/frp-passive-house-windows-canada`, lastModified: "2026-06-06", changeFrequency: "monthly", priority: 0.92 },
+    { url: `${BASE}/regions/frp-passive-house-windows-germany`, lastModified: "2026-07-04", changeFrequency: "monthly", priority: 0.92 },
     { url: `${BASE}/contact`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.8 },
     { url: `${BASE}/privacy`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },

@@ -206,6 +206,9 @@ export default function UValueCalculatorPage() {
             <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">
               → FRP passive house windows for Canada
             </Link>
+            <Link href="/regions/frp-passive-house-windows-germany" className="text-f13 font-semibold text-teal-text hover:underline">
+              → FRP passive house windows for Germany
+            </Link>
             <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
               → FRP for US projects (PHIUS, ASTM)
             </Link>
