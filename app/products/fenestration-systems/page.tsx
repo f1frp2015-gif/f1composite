@@ -174,6 +174,13 @@ const targetRegions = [
     href: "/regions/frp-passive-house-windows-canada",
   },
   {
+    region: "Germany",
+    climate: "GEG 2024 / Effizienzhaus 40 · Passivhaus home market",
+    standards: "EN 14351-1 CE · EN ISO 10077 · PHI Component (Darmstadt)",
+    note: "U_w 0.78 clears GEG, BEG funding (≤ 0.95), and the PHI 0.80 component criterion — and FRP sits outside the EU aluminium anti-dumping duties and CBAM. Dedicated Germany sourcing page available.",
+    href: "/regions/frp-passive-house-windows-germany",
+  },
+  {
     region: "Russia & Siberia",
     climate: "Severe-cold / Far North; −40 to −50°C design lows",
     standards: "GOST 23166 · SP 50.13330 (thermal protection) · УХЛ climatic execution",
@@ -812,6 +819,7 @@ export default function FenestrationSystemsPage() {
             title: "Source by region",
             links: [
               { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada" },
+              { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows — Germany" },
               { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP pultrusions — United States" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "PHI Cert 2491wi03 — Passive House" },
             ],
