@@ -153,6 +153,20 @@ export const glossaryTerms: GlossaryTerm[] = [
     definition:
       "The time to design and machine a new steel die for a custom profile — typically 4–8 weeks, after which production samples follow within 6–10 weeks. Tooling is a one-off cost amortized across the first production run.",
   },
+  {
+    id: "extrusion-plastics",
+    term: "Extrusion (plastics)",
+    category: "The pultrusion process",
+    definition:
+      "A process that pushes heated, unreinforced (or short-fiber-filled) thermoplastic through a die under pressure — used for PVC, aluminum, and short-glass-filled plastic profiles. Unlike pultrusion, extrusion does not pull continuous fiber reinforcement through the die, so extruded profiles cannot match the longitudinal tensile strength or stiffness of pultruded FRP. See a full process and property comparison at /technology/pultrusion-vs-extrusion-filament-winding.",
+  },
+  {
+    id: "filament-winding",
+    term: "Filament winding",
+    category: "The pultrusion process",
+    definition:
+      "A process that winds continuous fiber, wetted with resin, around a rotating mandrel to build up hollow, typically round or tapered shapes such as tanks, pipes, and pressure vessels. Unlike pultrusion, filament winding is not a continuous constant-cross-section process and cannot economically produce open sections like I-beams, channels, or angles. See a full process and property comparison at /technology/pultrusion-vs-extrusion-filament-winding.",
+  },
 
   // ── Mechanical & physical properties ────────────────────────────────────
   {
