@@ -890,6 +890,72 @@ FRP frames do not corrode, do not require protective metal finishing to remain s
 F1 Composite develops pultruded FRP frame systems for high-performance envelope applications where thermal performance and structural stability must be achieved in the same section.`,
   },
   {
+    slug: "frp-windows-hurricane-wind-borne-debris-resistance",
+    title: "FRP Windows in Hurricane and High-Wind Zones: What ASTM E1996 and Miami-Dade NOA Actually Require",
+    seoTitle: "FRP Windows in Hurricane Zones: ASTM E1996 Explained",
+    answerBox:
+      "ASTM E1996 sets the windborne-debris impact levels for hurricane-zone fenestration — large missile (a 9 lb, 2×4 lumber section) and small missile (gravel-sized debris) — tested per ASTM E1886's impact-then-pressure-cycling sequence. Miami-Dade County's HVHZ additionally requires TAS 201/202/203 testing at design wind speeds up to 175 mph. These standards qualify the finished window assembly, not the frame material alone: pultruded FRP's fiber architecture and impact retention at both high and sub-zero temperatures make it a strong structural candidate, but assembly-level NOA/E1996 certification is a project-specific undertaking, not a blanket material claim.",
+    category: "Fenestration",
+    date: "2026-07-05",
+    updatedAt: "2026-07-05",
+    readTime: "6 min",
+    excerpt:
+      "ASTM E1996, AAMA 506, and the Miami-Dade NOA govern what a hurricane-zone window has to survive. Here is what each standard actually tests, and why frame material impact behavior is only part of getting a project certified.",
+    authorName: "Yifan Liu, Application Engineer",
+    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
+    reviewedBy: "Technical Applications Group",
+    standards: ["ASTM E1996", "ASTM E1886", "AAMA 506", "Florida Building Code HVHZ"],
+    coverImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
+    coverAlt: "Pultruded FRP 140-series sliding door and window frame profile detail",
+    supportingImage: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
+    supportingAlt: "PHI-certified pultruded FRP windows installed at Qinling Station, Antarctica",
+    supportingCaption:
+      "The same fiber architecture that keeps F1's 90-series impact-resistant at −40°C and below is the structural starting point for a hurricane-zone assembly — the certification itself still has to be run on the finished unit.",
+    highlights: [
+      "E1996 sets large/small missile impact levels; E1886 defines the test sequence",
+      "Miami-Dade HVHZ (Miami-Dade + Broward) requires TAS 201/202/203 at up to 175 mph",
+      "Frame material impact resistance is necessary but not sufficient — the assembly gets certified, not the material",
+    ],
+    ogDescription:
+      "What ASTM E1996 large-missile impact testing, AAMA 506, and the Miami-Dade NOA actually require from a hurricane-zone window — and where frame material fits in.",
+    ogChips: ["ASTM E1996", "Miami-Dade NOA", "175 mph"],
+    relatedLinks: [
+      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "FRP Lift-Sliding Door — AS 2047 Engineering Deep-Dive", href: "/resources/blog/frp-lift-sliding-door-as2047-engineering" },
+      { label: "FRP Impact Resistance vs Steel & Aluminum", href: "/resources/blog/frp-impact-resistance-vs-steel-aluminum" },
+    ],
+    sourceLinks: [
+      { label: "ASTM E1996-20 — Standard Specification", href: "https://www.astm.org/Standards/E1996.htm" },
+      { label: "FGIA — AAMA 506-23 Voluntary Specification", href: "https://store.fgiaonline.org/AAMA-506-23/" },
+      { label: "Florida Building Code — HVHZ window requirements", href: "https://www.floridabuilding.org/fbc/publications/fact_sheets_0307/windowsystems061506revised.pdf" },
+    ],
+    content: `Every hurricane-zone window specification eventually comes down to the same question: what, exactly, does the window have to survive, and who decides it survived. Three references answer that — ASTM E1996, ASTM E1886, and, for the two counties that enforce it, the Miami-Dade Notice of Acceptance (NOA). None of them certify a frame material. All three certify a finished assembly.
+
+## What ASTM E1996 Actually Sets
+
+ASTM E1996 is the specification that defines windborne-debris impact levels for exterior windows, curtain walls, doors, and impact protective systems in hurricane-prone regions. It does not run the test itself — that is ASTM E1886, which defines the test apparatus, the impact-then-pressure-cycling sequence, and the pass criteria. The two standards are almost always cited together for exactly that reason: E1996 says what has to be survived, E1886 says how survival is measured.
+
+The two missile levels in E1996 are a large missile — a nominal 9 lb section of 2×4 lumber, meant to simulate construction debris and framing members thrown by hurricane-force wind — and a small missile, sized to simulate gravel and roofing aggregate. Large missile is the more demanding requirement and the one most commercial and coastal residential glazing specifications reference.
+
+## AAMA 506 and Where It Sits
+
+AAMA 506 (now AAMA 506-23, aligned to NAFS-22) is FGIA's voluntary specification for impact and cycle testing of fenestration products. It does not replace E1996/E1886 — it is built on them, adding a structured qualification path so a manufacturer's finished window or door line, not just a coupon sample, has a documented basis for claiming compliance across a product family.
+
+## Miami-Dade: The Standard Above the Standard
+
+Miami-Dade County and neighboring Broward County — Florida's High Velocity Hurricane Zone (HVHZ) — require design wind speeds up to 175 mph (Miami-Dade) and 170 mph (Broward) for Risk Category II buildings, and every window, door, shutter, and roof assembly installed there needs a Miami-Dade NOA or an accepted equivalent. HVHZ testing runs under Testing Application Standards TAS 201, 202, and 203: the large-missile protocol fires a 9 lb, 2×4 lumber section at 50 ft/s at the glazing, twice, followed by 9,000 pressure cycles simulating sustained hurricane wind loading. It is a materially stricter protocol than the baseline ASTM sequence, which is why an NOA is treated as the reference standard in the industry rather than just one more regional variant.
+
+## Where Frame Material Actually Matters
+
+None of these standards test frame material in isolation — they test the assembled window or door. But frame material behavior under impact still determines how much margin a design has going into that test. This is where pultruded FRP's structural profile is relevant: F1's higher-performance fenestration series use a hybrid fiber architecture — unidirectional E-glass roving for longitudinal stiffness combined with ±45-degree multiaxial fabric at the corners specifically for impact resistance and corner rigidity — rather than a single fiber orientation optimized for stiffness alone. Aluminum frames dent under large-missile impact; PVC frames can crack, and lose additional impact strength at low temperature. Pultruded FRP retains its impact strength and stiffness across a wide temperature range — the same property that lets F1's 90-series hold PHI Component Certificate 2491wi03 and survive 45 m/s katabatic wind gusts at Qinling Station, Antarctica, is structurally the same impact-retention behavior a hurricane-zone assembly needs at the other end of the temperature scale.
+
+## The Honest Limit of This Argument
+
+Frame material impact resistance is a necessary input, not a finished credential. F1 Composite does not currently hold a Miami-Dade NOA or an ASTM E1996 assembly certification for a hurricane-zone window line — that testing is run on the complete glazed assembly, with the specific glass makeup, anchoring, and hardware a project calls for, and it has to be commissioned per product line and, in HVHZ counties, per NOA renewal cycle. A specifier moving a project into E1996, AAMA 506, or HVHZ territory should treat frame-material impact behavior as the reason to shortlist a system, and assembly-level test certification as the separate, non-negotiable step that has to happen before it ships.
+
+F1 Composite engineers pultruded FRP window and door frame systems for high-wind and extreme-climate projects, and supports project teams through the assembly-level testing and documentation that hurricane-zone and high-velocity-wind-zone specifications require.`,
+  },
+  {
     slug: "pultrusion-industry-questions-2026",
     title: "The 7 Questions the Pultrusion Industry Cares About Most in 2026",
     seoTitle: "7 Key Questions Pultrusion Industry Asks in 2026",

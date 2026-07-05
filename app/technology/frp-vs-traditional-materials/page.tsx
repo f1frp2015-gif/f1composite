@@ -13,9 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "FRP vs Steel vs Aluminum — Structural Material Compare";
+const pageTitle = "FRP vs Steel vs Aluminum: 75% Lighter, No Corrosion";
 const pageDescription =
-  "FRP vs steel and aluminum: weight, tensile strength, corrosion, thermal conductivity, lifecycle cost. Why pultruded FRP outperforms structural metals.";
+  "FRP is 75% lighter than steel, with 4x its strength-to-density ratio and zero corrosion. Compare properties and 30% lifecycle cost savings data.";
 const pagePath = "/technology/frp-vs-traditional-materials";
 const publishedAt = "2024-03-22";
 const updatedAt = "2026-04-02";

@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "FRP Grating Supplier Saudi Arabia — Aramco, SABIC, Maaden";
 const pageDescription =
-  "Vinyl ester FRP gratings for Saudi petrochemical: Aramco, SABIC, Maaden, Royal Commission. ASTM E84 fire-rated, anti-slip, EN 13706. Jebel Ali / Dammam.";
+  "Vinyl ester FRP gratings for Saudi Arabia: Riyadh, Jeddah, Dammam, Jubail. Aramco/SABIC/Maaden-qualified, ASTM E84 fire-rated, EN 13706, 25-yr design life.";
 const pagePath = "/regions/frp-grating-supplier-saudi-arabia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -51,6 +51,16 @@ const faqs = [
     question: "Does F1 Composite handle Aramco vendor approval and project documentation?",
     answer:
       "F1 Composite supplies project documentation packages aligned with Aramco SAEP / SAES requirements: Mill Test Certificates per ASTM D790 / D638, third-party test reports for fire and chemical resistance, ISO 9001:2015 quality system certification, country-of-origin certificates, and full traceability from raw material batch to finished grating panel. For Aramco-controlled scopes, we supply through approved Saudi distributors and the project's nominated EPC procurement channel rather than claiming a standalone Aramco vendor code. For SABIC and Maaden work, we support qualification through the procurement route the project specifies.",
+  },
+  {
+    question: "Do you supply FRP grating to Riyadh, or only the Eastern Province coast?",
+    answer:
+      "Both. The Eastern Province (Dammam, Jubail, Ras Tanura, Khobar) is where the combined heat-salt-chemical service environment makes the FRP-vs-steel case strongest, but Riyadh infrastructure and facility projects specify the same vinyl ester gratings for fire rating, anti-slip surface, and zero-maintenance service life. Riyadh orders typically move DAP project-site via the GCC road network from Jebel Ali, 1–3 days inland once the container clears port.",
+  },
+  {
+    question: "Can F1 Composite ship FRP grating directly into Jeddah?",
+    answer:
+      "Yes. Jeddah Islamic Port receives container traffic from China on a broadly similar transit-time basis to Jebel Ali, so F1 Composite quotes CIF Jeddah alongside CIF Jebel Ali and lets project schedule and total landed cost decide the routing. Jeddah and the Red Sea coastal strip carry the same salt-air corrosion driver as the Gulf coast, so the vinyl ester grating specification for Jeddah projects is the same as for Eastern Province petrochemical sites.",
   },
 ];
 
@@ -228,6 +238,36 @@ export default function SaudiGratingPage() {
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>By City</SectionTag>
+          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
+            FRP grating supply across Riyadh, Jeddah, and the Dammam / Eastern Province corridor
+          </h2>
+          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
+            {[
+              {
+                city: "Dammam & Eastern Province",
+                body: "Jubail, Ras Tanura, Khobar, and Dammam form the primary petrochemical corridor and the toughest combined-corrosion environment on the peninsula. This is where Aramco, SABIC, and Maaden have run vinyl ester FRP grating on capital projects for 15+ years — the standards stack (ASTM E84, EN 13706, SAES-Q-005/S-070) is established here first.",
+              },
+              {
+                city: "Riyadh",
+                body: "Inland infrastructure and industrial-facility projects specify the same vinyl ester grating for fire rating and zero-maintenance service life, even without direct coastal salt exposure — heat and chemical splash resistance are still the driver. Orders move DAP project-site via the GCC road network, 1–3 days inland from Jebel Ali once cleared.",
+              },
+              {
+                city: "Jeddah & Red Sea coast",
+                body: "Jeddah Islamic Port takes container traffic from China on a broadly similar transit-time basis to Jebel Ali, so F1 Composite quotes CIF Jeddah alongside CIF Jebel Ali. The Red Sea coastal strip carries the same salt-air corrosion driver as the Gulf coast, so the grating spec doesn't change — only the routing does.",
+              },
+            ].map((c) => (
+              <div key={c.city} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">{c.city}</h3>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             China factory → Saudi project site
@@ -270,7 +310,7 @@ export default function SaudiGratingPage() {
         </div>
       </section>
 
-      <section className="bg-bg2 py-[55px]">
+      <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
