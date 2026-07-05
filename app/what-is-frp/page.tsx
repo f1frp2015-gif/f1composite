@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import { GuideDownloadGate } from "@/components/sections/GuideDownloadGate";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import Button from "@/components/ui/Button";
@@ -501,6 +502,24 @@ export default function WhatIsFrpPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Gated content download — email captures a real inquiry via the shared
+          /api/contact pipeline; the PDF itself is public (also linked, ungated,
+          from /resources/downloads), so a failed submission still shows a
+          direct link rather than blocking access to a file that was never
+          actually restricted. */}
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="max-w-[640px]">
+            <GuideDownloadGate
+              fileHref="/downloads/f1composite-frp-profile-design-manual-2026.pdf"
+              fileLabel="FRP Profile Design Manual (2026 Edition)"
+              fileDescription="24-page engineering reference: full section properties, point-load and UDL deflection tables (500 mm–6 m spans), E23-grade material data per EN 13706-2, chemical resistance, and fire performance for F1 pultruded profiles."
+              source="what-is-frp-guide-download"
+            />
           </div>
         </div>
       </section>
