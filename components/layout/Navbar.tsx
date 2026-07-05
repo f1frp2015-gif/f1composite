@@ -8,6 +8,7 @@ import { mainNav } from "@/content/data/navigation";
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-[55px] border-b border-border-default bg-white/80 backdrop-blur-md">
@@ -67,9 +68,13 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          className="-mr-[10px] p-[10px] lg:hidden"
+          onClick={() => {
+            setMobileOpen(!mobileOpen);
+            setOpenMobileSection(null);
+          }}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <svg
             className="h-6 w-6 text-t1"
@@ -89,23 +94,48 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-b border-border-default bg-white px-[34px] py-[21px] lg:hidden">
+        <div className="max-h-[calc(100vh-55px)] overflow-y-auto border-b border-border-default bg-white px-[34px] py-[21px] lg:hidden">
           {mainNav.map((item) => (
-            <div key={item.href} className="mb-[8px]">
-              <Link
-                href={item.href}
-                className="block py-[8px] text-f15 font-medium text-t1"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </Link>
-              {"children" in item && item.children && (
+            <div key={item.href} className="mb-[8px] border-b border-border-default/60 pb-[8px] last:mb-0 last:border-b-0 last:pb-0">
+              <div className="flex items-center justify-between">
+                <Link
+                  href={item.href}
+                  className="block flex-1 py-[8px] text-f15 font-medium text-t1"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+                {"children" in item && item.children && (
+                  <button
+                    type="button"
+                    className="p-[10px]"
+                    aria-label={openMobileSection === item.href ? `Collapse ${item.label} menu` : `Expand ${item.label} menu`}
+                    aria-expanded={openMobileSection === item.href}
+                    onClick={() =>
+                      setOpenMobileSection(openMobileSection === item.href ? null : item.href)
+                    }
+                  >
+                    <svg
+                      className={`h-4 w-4 text-t2 transition-transform duration-[0.21s] ${
+                        openMobileSection === item.href ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              {"children" in item && item.children && openMobileSection === item.href && (
                 <div className="ml-[13px]">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block py-[5px] text-f13 text-t2"
+                      className="block py-[8px] text-f13 text-t2"
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
