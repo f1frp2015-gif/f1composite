@@ -60,6 +60,115 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "frp-window-profile-market-suppliers-demand",
+    title: "The FRP Window Profile Market: Demand Drivers, Supplier Landscape, and What Buyers Should Verify",
+    seoTitle: "FRP Window Profile Market — Suppliers & Demand Drivers",
+    answerBox:
+      "The FRP window profile market splits into two businesses: pultruded lineals sold to window fabricators, and finished fiberglass windows. Demand is pulled by energy codes (GEG 2024, BC Step Code, ENERGY STAR, Passive House), aluminum's thermal-bridge ceiling, and uPVC's span and dark-color limits. Supply is concentrated — North American lineal specialists (Tencom, Creative Pultrusions, Inline Fiberglass), vertically integrated window brands with in-house pultrusion (Marvin, Pella), and factory-direct exporters like F1 Composite. Buyers should verify dimensional consistency (ASTM D3917, batch mill certificates), the certification stack (EN 14351-1 / NAFS / PHI), and run staged qualification orders.",
+    category: "Industry Analysis",
+    date: "2026-07-07",
+    updatedAt: "2026-07-07",
+    readTime: "10 min",
+    excerpt:
+      "Search interest in the 'FRP window profile market' is usually a fabricator or specifier trying to answer three practical questions: who actually supplies pultruded window lineals, what is pulling demand, and how do you qualify a supplier you have not worked with. This analysis answers those three questions without the invented market-size numbers that plague this topic.",
+    authorName: "Duowei Wang, Ph.D.",
+    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 13706", "EN 14351-1", "ASTM D3917", "PHI Component Criteria", "NAFS (AAMA/WDMA/CSA 101)"],
+    coverImage: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
+    coverAlt:
+      "Pultruded FRP window frame 70-series profile — the core product of the fiberglass window profile market",
+    supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
+    supportingAlt:
+      "FRP window frame 90-series corner cross-section showing the multi-chamber pultruded profile geometry supplied to window fabricators",
+    supportingCaption:
+      "The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set — frame, sash, mullion, transom, glazing bead — and assemble, glaze, and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
+    highlights: [
+      "Two distinct businesses: lineals for fabricators vs finished fiberglass windows — different buyers, margins, and qualification paths",
+      "Demand is code-pulled: GEG 2024, BC Step Code, ENERGY STAR, and Passive House targets sit below what thermally-broken aluminum reaches comfortably",
+      "Supply is concentrated behind real barriers — die tooling, certification stacks, and fabricator qualification cycles",
+    ],
+    ogDescription:
+      "Who supplies pultruded FRP window profiles, what is pulling demand, and how to qualify a supplier — an industry analysis without invented market-size numbers.",
+    ogChips: ["Window profiles", "Market analysis", "Suppliers"],
+    relatedLinks: [
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
+      { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
+      { label: "Fiberglass Window Reinforcements", href: "/products/window-reinforcement-profiles" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+    ],
+    sourceLinks: [
+      { label: "EPTA — European Pultrusion Technology Association", href: "https://pultruders.org" },
+      { label: "ACMA — American Composites Manufacturers Association", href: "https://acmanet.org" },
+      { label: "Passive House Institute — component database", href: "https://passivehouse.com" },
+      { label: "FGIA — Fenestration & Glazing Industry Alliance", href: "https://fgiaonline.org" },
+    ],
+    content: `Most articles about the "FRP window profile market" open with a market-size figure and a compound annual growth rate. We are not going to do that, because the honest version of those numbers — for a niche segment inside the fenestration industry, tracked by no dedicated analyst service — is that they are estimates stacked on estimates. What a fabricator, specifier, or procurement team actually needs is a working map: what this market sells, who sells it, why demand is growing, and how to qualify a supplier. That map can be drawn from verifiable facts.
+
+## One Market, Two Businesses
+
+The first thing search results blur is that "FRP window profiles" covers two distinct businesses with different buyers.
+
+**Profile (lineal) supply.** A pultruder manufactures the window profile set — frame, sash, mullion, transom, glazing bead — and sells it to window fabricators, who cut, join, glaze, fit hardware, and sell finished windows under their own brand. The buyer is a manufacturing business; the purchase decision runs on dimensional consistency, tooling economics, resin specification, and continuity of supply. This is the business the phrase "window lineals" refers to in North America.
+
+**Finished window supply.** The pultruder (or a window company that owns pultrusion lines) assembles the profiles into complete, glazed, tested window units. The buyer is a developer, contractor, or distributor; the decision runs on certified whole-window performance — U_w values, air-tightness classes, structural test reports — and delivered cost.
+
+Some suppliers do only one of these. A few, including F1 Composite, run both models from the same profile set, which matters for buyers because the certification evidence from the finished-unit business (EN 14351-1, NAFS, PHI component certification) also de-risks the profile-supply relationship: the lineals you are buying are the same sections the supplier certifies windows with.
+
+There is also a third, adjacent product this market includes: [pultruded fiberglass reinforcement cores](/products/window-reinforcement-profiles) that replace galvanized steel inserts inside uPVC window chambers — a component business selling into vinyl window systems rather than competing with them.
+
+## What Is Actually Pulling Demand
+
+Demand for FRP window profiles is code-pulled, not fashion-pulled. Four mechanisms are verifiable:
+
+**Energy codes have moved below aluminum's comfort zone.** Germany's GEG 2024 and the BEG funding thresholds, Canada's BC Energy Step Code upper steps, ENERGY STAR Northern-zone criteria, and the UK's Part L revisions all set whole-window U-values that thermally-broken aluminum reaches only with expensive multi-chamber break assemblies — and Passive House targets (U_w ≤ 0.80 W/m²·K for cold-climate certification) sit below what most aluminum systems reach at all. A pultruded frame conducts heat at roughly 0.3 W/m·K against aluminum's 160, so the FRP frame starts where aluminum systems strain to arrive.
+
+**uPVC's physical limits cap its share of the performance segment.** Above roughly 1.2 m spans, uPVC needs internal steel reinforcement that re-introduces a thermal bridge; dark frame colors on sun-exposed elevations push uPVC toward its softening range; and deep-cold embrittlement makes severe-cold codes cautious about it. Each limit hands the performance tier of the market to stiffer, more temperature-stable frame materials.
+
+**The passive house pipeline is growing from a small base.** Certified-component fenestration — the segment where FRP frames are structurally advantaged — tracks the growth of passive house and near-zero-energy construction in Germany, the Nordics, Canada, and the northern US. The Passive House Institute's public component database is the verifiable proxy: the number of certified window systems, including fiberglass entries such as F1's Component Certificate 2491wi03 at the phA arctic class, grows year over year.
+
+**Trade friction on competing frame materials.** Aluminum extrusions face anti-dumping duties into the EU and, for Chinese material, Canada's 25% surtax on steel and aluminum — measures that do not apply to FRP profiles. This does not create demand by itself, but it shifts relative landed costs at the margin where frame-material decisions are made.
+
+## The Supplier Landscape
+
+Supply is more concentrated than the demand story would suggest, because the barriers are real (more on those below). The landscape, described rather than ranked:
+
+**North American lineal specialists.** Tencom (Ohio) is known for custom fiberglass window and door lineals; Creative Pultrusions (Pennsylvania, part of Creative Composites Group) runs fenestration profiles inside a broad pultrusion program; Inline Fiberglass (Toronto) both sells lineals and manufactures its own finished fiberglass windows. These are established, capable manufacturers serving primarily the North American fabricator base.
+
+**Vertically integrated window brands.** Marvin (Ultrex fiberglass line) and Pella (Impervia line) pultrude for their own finished-window brands rather than selling profiles — they shape the consumer fiberglass-window market but are not lineal suppliers a fabricator can buy from.
+
+**European suppliers.** Europe's pultrusion industry is strong in structural profiles, but dedicated window-lineal supply is thinner than in North America; much of Europe's high-performance window market runs on timber-aluminum hybrids and premium uPVC instead. This is one reason certified fiberglass systems imported into the EU compete on performance rather than against entrenched local FRP suppliers.
+
+**Factory-direct exporters from China.** F1 Composite supplies a five-series fenestration family (65–140 mm frame depths) as both profile sets and finished units, with the certification stack — PHI Component 2491wi03, EN 14351-1, NAFS — carried by the supplier rather than left to the fabricator, exported FOB or DDP. For a fuller like-for-like evaluation against the North American lineal suppliers, see our [comparison page](/technology/china-alternative-to-tencom-creative-pultrusions-windows).
+
+## The Materials Story Inside the Market
+
+Within the market there is a quiet materials migration worth tracking. The volume tier runs on polyester and vinyl ester resins — proven, economic, fully adequate for most residential systems. The performance tier is moving toward [polyurethane pultrusion (GFRP-PU)](/technology/polyurethane-pultrusion-windows): higher transverse strength where hardware screws and corner joints load the profile, thinner walls and higher glass content for slimmer sightlines, and better deep-cold impact behavior. Buyers evaluating suppliers for passive-house or severe-cold programs should ask specifically which resin system the quoted profile runs, because "FRP window profile" spans both tiers.
+
+## Why Supply Stays Concentrated: The Real Barriers
+
+Three barriers keep the supplier list short, and they are the same three things a buyer should probe:
+
+**Tooling.** Every profile in a window system needs its own pultrusion die, and a complete system is a dozen or more dies. That is a capital commitment per system, which is why most pultruders quote windows as custom programs rather than stock catalog items.
+
+**Certification.** A window system without EN 14351-1 / NAFS / PHI evidence is a commodity; with it, it is a specifiable product. Building the certification stack takes tested assemblies, accredited labs, and time — and most lineal-only suppliers leave that burden with the fabricator.
+
+**Fabricator qualification cycles.** A window fabricator switching profile suppliers re-qualifies its whole production line — corner joining, gasket fit, hardware screw retention, finished-unit testing. That switching cost cuts both ways: it protects incumbents, and it means a new supplier must make qualification cheap and evidence-rich to win the business.
+
+## What Buyers Should Verify (Instead of Trusting Market Copy)
+
+If you are entering this market as a buyer, the verification list follows directly from the barriers:
+
+1. **Dimensional consistency, in writing.** ASTM D3917 tolerance class on the drawing, batch mill certificates, and a first-article dimensional report against the die drawing — before production release, not after.
+2. **The certification stack, at the right level.** Component-level (PHI, EN ISO 10077-2 profile data) and unit-level (EN 14351-1, NAFS) evidence, matched to whether you are buying profiles or finished windows.
+3. **Resin system by name.** Polyester, vinyl ester, or polyurethane — specified per profile, not per brochure.
+4. **A staged qualification path.** First-article run, third-party inspection (SGS/BV) if importing, then production volumes. Any supplier confident in run-to-run repeatability will agree to this structure readily.
+
+The FRP window profile market rewards exactly one kind of participant on each side: suppliers who carry verifiable evidence, and buyers who ask for it.`,
+    },
+
+  {
     slug: "frp-thermal-break-profiles-curtain-wall",
     title: "FRP Thermal Break Profiles for Curtain Walls: The Isolator Is a Structural Member, Not a Spacer",
     seoTitle: "FRP Thermal Break Profiles for Curtain Walls",

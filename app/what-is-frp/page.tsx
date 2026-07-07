@@ -204,7 +204,14 @@ export default function WhatIsFrpPage() {
             non-conductive, and thermally insulating. FRP composites are used
             wherever corrosion, weight, electromagnetic transparency, or thermal
             efficiency is critical — from chemical plant platforms and offshore
-            grating to passive-house window systems and pedestrian bridges.
+            grating to{" "}
+            <Link
+              href="/products/fenestration-systems"
+              className="font-semibold text-teal-text hover:text-teal"
+            >
+              FRP windows
+            </Link>{" "}
+            for passive-house buildings and pedestrian bridges.
           </p>
           <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
             When the FRP is produced by the{" "}

@@ -195,6 +195,13 @@ const targetRegions = [
     href: null,
   },
   {
+    region: "United Kingdom",
+    climate: "Part L / Future Homes Standard · growing Passivhaus pipeline",
+    standards: "EN 14351-1 · CE recognised / UKCA · PHI component",
+    note: "Known locally as GRP windows — Part L-ready U-values without steel stiffeners, dark RAL colours without warping risk. Dedicated UK sourcing page available.",
+    href: "/regions/grp-windows-uk",
+  },
+  {
     region: "Northern US",
     climate: "ENERGY STAR Northern climate zone",
     standards: "NFRC 100/200 · AAMA 2604 / 2605 · ASHRAE 90.1",
@@ -802,6 +809,7 @@ export default function FenestrationSystemsPage() {
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/facade-sunshade-panels", label: "Facade sunshade panels (E40)" },
+              { href: "/products/window-reinforcement-profiles", label: "Fiberglass window reinforcements (uPVC cores)" },
               { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
               { href: "/products/standard-profiles", label: "Standard FRP profiles" },
               { href: "/products/gratings", label: "FRP gratings" },
