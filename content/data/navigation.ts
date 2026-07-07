@@ -18,6 +18,7 @@ export const mainNav = [
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Pultrusion vs Extrusion vs Filament Winding", href: "/technology/pultrusion-vs-extrusion-filament-winding" },
+      { label: "Polyurethane Pultrusion Windows", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Quality & Testing", href: "/technology/quality-testing" },
       { label: "KNOWHOW Services", href: "/technology/knowhow-services" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },

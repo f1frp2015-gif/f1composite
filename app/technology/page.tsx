@@ -33,6 +33,13 @@ const areas = [
     href: "/technology/frp-vs-traditional-materials",
   },
   {
+    tag: "Materials",
+    title: "Polyurethane Pultrusion Windows",
+    description:
+      "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness — the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
+    href: "/technology/polyurethane-pultrusion-windows",
+  },
+  {
     tag: "Quality",
     title: "Quality & Testing",
     description:
