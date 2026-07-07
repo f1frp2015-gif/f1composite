@@ -88,6 +88,16 @@ const faqItems = [
       "Not at equal section — and honest suppliers say so. Pultruded fiberglass runs an elastic modulus of 20–28 GPa against steel's ≈ 200 GPa, so a drop-in copy of the steel section would be too flexible. The reinforcement is instead engineered to a target bending stiffness (EI) within the chamber envelope: deeper section, thicker walls, higher glass loading, or a combination. For most sash and mullion chambers there is enough room to reach the required EI; where there is not, we tell you at the drawing stage rather than after tooling.",
   },
   {
+    question: "Can fiberglass reinforcement be used in vinyl windows?",
+    answer:
+      "Yes — vinyl (uPVC) window systems are exactly where pultruded fiberglass reinforcement is used. The fiberglass core slides into the same internal chamber the galvanized steel insert occupies today and is fixed the same way, so the vinyl extrusion itself does not change and the fabrication line needs no retooling beyond a carbide saw blade. The gain is thermal: a steel-reinforced vinyl frame typically loses 0.2–0.4 W/m²·K of U-value to the steel bridge, and the fiberglass core removes that penalty — which is often the difference between a standard vinyl system and one that qualifies for energy-code or passive-house-adjacent projects.",
+  },
+  {
+    question: "What is the alternative to steel reinforcement in uPVC windows?",
+    answer:
+      "There are three established alternatives to galvanized steel reinforcement in uPVC window chambers. Pultruded fiberglass (GRP) cores — the product on this page — replace steel stiffness with an engineered composite section at ≈ 0.3 W/m·K conductivity. Glass-fiber-reinforced thermoplastic composite reinforcements are the same idea executed by several European system houses for their high-thermal lines. And frame-material substitution — moving the whole window to pultruded fiberglass profiles — removes the reinforcement question entirely, since FRP frames carry the loads without any insert. Which route fits depends on whether you are optimizing an existing uPVC system (composite core) or specifying a new high-performance line (FRP frames).",
+  },
+  {
     question: "How do I qualify F1's window reinforcement profiles for my system?",
     answer:
       "Send the chamber drawing (or a physical sample lineal) and the stiffness target — either the steel section currently specified or the deflection criterion itself. F1 returns a proposed composite section with calculated EI, resin recommendation, and tooling quote. Qualification then follows the standard custom-pultrusion path: die in 3–6 weeks, first-article dimensional and flexural reports, then staged production. Batch mill certificates and third-party inspection (SGS/BV) are supported for ongoing supply.",

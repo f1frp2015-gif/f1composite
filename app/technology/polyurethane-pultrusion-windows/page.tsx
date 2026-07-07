@@ -113,7 +113,7 @@ const faqs = [
   {
     question: "Who supplies polyurethane pultruded window profiles?",
     answer:
-      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. F1 Composite manufactures GFRP-PU window profiles on its own continuous pultrusion lines in Chongqing, China, and supplies them two ways: as profile sets (frame, sash, mullion, transom, glazing bead, with EPDM gasketing and fabrication drawings) for local window fabricators, or as complete factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same GFRP-PU profile set sits behind our PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class).",
+      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. F1 Composite manufactures GFRP-PU window profiles on its own continuous pultrusion lines in Chongqing, China, and supplies them two ways: as profile sets — window lineals, in North American trade terms (frame, sash, mullion, transom, glazing bead, with EPDM gasketing and fabrication drawings) — for local window fabricators, or as complete factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same GFRP-PU profile set sits behind our PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class).",
   },
   {
     question: "Are polyurethane pultrusion windows suitable for Passive House projects?",

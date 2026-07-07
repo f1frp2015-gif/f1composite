@@ -36,7 +36,7 @@ const supplyModels = [
     name: "Pultruded profiles for local fabricators",
     tag: "Profile supply · fabricator model",
     description:
-      "For markets with an established window-fabrication base, we ship the pultruded FRP profile set — frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing, reinforced corner kits, and fabrication drawings, so a local fabricator cuts, joins, glazes, and finishes the units to your specification. This is the route many North American projects take through a fabricator-partner. The profiles are identical to those in our finished units; only the assembly location changes. Choose this model when local content, local glazing supply, or local service warranties favor in-country assembly.",
+      "For markets with an established window-fabrication base, we ship the pultruded FRP profile set — known in the North American trade as window lineals: frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing, reinforced corner kits, and fabrication drawings, so a local fabricator cuts, joins, glazes, and finishes the units to your specification. This is the route many North American projects take through a fabricator-partner. The profiles are identical to those in our finished units; only the assembly location changes. Choose this model when local content, local glazing supply, or local service warranties favor in-country assembly.",
   },
 ];
 
@@ -326,9 +326,9 @@ const faqItems = [
       "Condensation forms when an interior surface drops below the dew point. Because the FRP frame conducts heat at roughly 1/500th the rate of aluminum, its interior face and the edge-of-glass stay much warmer on a cold night, raising the condensation resistance factor (CRF). We pair this with warm-edge (non-metallic) IGU spacers and a three-stage EPDM gasket line, so the assembly's condensation point sits well below the design low even in a high-humidity interior. There is no aluminum thermal-break interface to act as a cold strip where water collects.",
   },
   {
-    question: "What is the difference between FRP window frames and FRP window profiles?",
+    question: "What is the difference between FRP window frames, window profiles, and window lineals?",
     answer:
-      "FRP window profiles are the individual pultruded fiberglass sections — frame, sash, mullion, transom, glazing bead — that are cut, joined, glazed, and fitted with hardware. FRP window frames (or finished fenestration units) are the assembled, glazed, leak-tested windows and doors built from those profiles. F1 Composite manufactures the profiles and also assembles them into finished units in our own plant. Both terms refer to the same pultruded fiberglass window product line (65/70/80/90/140-series).",
+      "FRP window profiles are the individual pultruded fiberglass sections — frame, sash, mullion, transom, glazing bead — that are cut, joined, glazed, and fitted with hardware. In the North American window trade these same extruded lengths are called window lineals (fiberglass lineals). FRP window frames (or finished fenestration units) are the assembled, glazed, leak-tested windows and doors built from those profiles. F1 Composite manufactures the profiles/lineals and also assembles them into finished units in our own plant. All three terms refer to the same pultruded fiberglass window product line (65/70/80/90/140-series).",
   },
   {
     question: "How does FRP fenestration compare to aluminum in terms of thermal performance?",
