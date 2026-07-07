@@ -313,6 +313,18 @@ export default function IndustrialPage() {
                 Read comparison →
               </span>
             </Link>
+            <Link
+              href="/case-studies/factory-access-staircase"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Factory Access Staircase</h3>
+              <p className="text-f13 leading-golden text-t2">
+                F1&apos;s own Chongqing pultrusion line staircase, built from our profiles — 18 months zero-maintenance service beside live electrical cabinets and resin vapor.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read case study →
+              </span>
+            </Link>
           </div>
 
           <FAQ items={faqs} suppressSchema />

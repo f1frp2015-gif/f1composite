@@ -553,6 +553,7 @@ At F1 Composite, we operate multiple pultrusion lines equipped for both open-bat
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Standard Profiles", href: "/products/standard-profiles" },
       { label: "Infrastructure", href: "/industries/infrastructure" },
+      { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
     content: `When engineers evaluate materials for structural profiles, steel has been the default choice for over a century. But pultruded fiber reinforced polymer composites are increasingly displacing steel in applications where corrosion resistance, weight reduction, or electrical insulation are critical. This article presents a practical, data-driven comparison.
 
@@ -622,6 +623,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     ],
     content: `Aluminum window frames dominate the global fenestration market. But their fundamental weakness, thermal conductivity of roughly 160 watts per meter-kelvin, creates thermal bridges that undermine building envelope performance. Pultruded FRP window frames, with thermal conductivity around 0.3 watts per meter-kelvin, remove that problem at the material level.
 
@@ -803,6 +805,7 @@ F1 Composite manufactures pultruded FRP cable tray systems in ladder, solid-bott
       { label: "Infrastructure", href: "/industries/infrastructure" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Standard Profiles", href: "/products/standard-profiles" },
+      { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
     content: `Bridge infrastructure worldwide faces a compounding maintenance crisis. Reinforced concrete decks corrode from de-icing salts, freeze-thaw cycles, and increasing traffic loads. Steel decks fatigue at welded connections and require ongoing protective coating programs. Fiber reinforced polymer bridge decks offer a fundamentally different approach: a lightweight, corrosion-immune structural deck system that changes how engineers design, build, and maintain bridge infrastructure.
 
@@ -864,6 +867,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP Thermal Performance", href: "/resources/blog/frp-fenestration-thermal-performance" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     ],
     content: `Aluminum has dominated the commercial window frame market for decades. Its strength, extrudability, and established supply chain make it familiar. But aluminum also has a fundamental engineering weakness that no amount of thermal break design can fully erase: it is highly conductive. Pultruded FRP window frames offer a structurally competitive alternative that solves the thermal bridge problem at the material level.
 
@@ -1448,6 +1452,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
+      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     ],
     content: `The Passivhaus standard sets the most rigorous energy performance requirements in mainstream building certification. Among its criteria, the demands placed on window systems are particularly exacting: installed window U-values must typically fall below 0.85 W/m²·K, and frame components must minimize thermal bridging to a degree that conventional aluminum frames struggle to achieve even with thermal break technology. Pultruded fiber reinforced polymer (FRP) window frames are emerging as one of the most technically credible solutions to this challenge.
 

@@ -13,7 +13,7 @@ const pageDescription =
   "Pultrusion technology transfer, consulting, turnkey FRP line setup. Feasibility, die design, commissioning, ISO 9001 / EN 13706 handover. 30+ years expertise.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
-const updatedAt = "2026-04-02";
+const updatedAt = "2026-07-07";
 const authorName = "F1 Composite Consulting Team";
 const authorRole = "Pultrusion startup, transfer, and commissioning specialists";
 const reviewedBy = "Operations Advisory Board";
@@ -442,6 +442,8 @@ export default function KnowhowServicesPage() {
             <LinkArrow href="/case-studies">Case Studies</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion Process Details</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>
+            <LinkArrow href="/resources/blog/pultrusion-industry-questions-2026">7 Questions the Industry Cares About Most</LinkArrow>
+            <LinkArrow href="/resources/blog/biggest-pain-point-pultrusion-qualification-speed">The Biggest Pain Point in Pultrusion Today</LinkArrow>
           </div>
 
           <FAQ items={faqItems} />

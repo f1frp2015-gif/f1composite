@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
@@ -8,6 +9,13 @@ import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import UValueCalculator from "./UValueCalculator";
+
+// publishedAt = original launch (git: "Add whole-window U-value calculator
+// (EN ISO 10077-1)", 2026-04-05). Bump updatedAt by hand alongside real
+// calculator changes — it's a freshness signal, so it must track actual
+// edits, not just get stamped on every deploy.
+const publishedAt = "2026-04-05";
+const updatedAt = "2026-07-07";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Free Window U-Value Calculator — PHIUS-Ready Tool",
@@ -124,6 +132,15 @@ export default function UValueCalculatorPage() {
           { label: "Technology", href: "/technology" },
           { label: "U-Value Calculator" },
         ]}
+      />
+      <ArticleSignals
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+        authorName="Haifeng Gong, Ph.D."
+        authorRole="R&D Lead — thermal performance and Passivhaus certification work"
+        authorHref="/about/authors/haifeng-gong"
+        reviewedBy="Haifeng Gong, Ph.D."
+        standards={["EN ISO 10077-1", "PHI Passive House U_w ≤ 0.80"]}
       />
 
       <UValueCalculator />
