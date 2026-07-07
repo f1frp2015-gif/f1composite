@@ -65,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/technology/frp-vs-pvc-windows`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/china-alternative-to-strongwell-fiberline-exel`, lastModified: "2026-06-23", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/pultrusion-vs-extrusion-filament-winding`, lastModified: "2026-07-03", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/technology/polyurethane-pultrusion-windows`, lastModified: "2026-07-07", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/quality-testing`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/knowhow-services`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/frp-profile-calculator`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },

@@ -13,9 +13,9 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Windows, Doors & Window Frames — Extreme Cold";
+  "Pultruded Fiberglass & FRP Windows, Doors — Extreme Cold";
 const pageDescription =
-  "Finished GFRP-PU windows and doors for extreme-cold climates: factory-assembled, leak-tested, U_w 0.78 (PHI 2491wi03), proven to −60°C. Canada, Russia. DDP.";
+  "Pultruded fiberglass (GFRP-PU) windows & doors for extreme cold: factory-assembled, leak-tested, U_w 0.78 (PHI 2491wi03), proven to −60°C. Canada, Russia. DDP.";
 const pagePath = "/products/fenestration-systems";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -378,8 +378,8 @@ export default function FenestrationSystemsPage() {
       />
       <PageHeader
         tag="FRP Windows & Doors · F1-THERM"
-        title="Pultruded FRP windows & doors for extreme cold"
-        description="Finished, factory-assembled fiberglass windows and doors — and the pultruded profiles behind them — for Passive House, low-energy, and extreme-cold buildings in Canada, Russia, and the Nordics. Whole-window U-values to 0.78 W/m²·K, proven to −60°C, with no metallic thermal bridge to frost or fail."
+        title="Pultruded fiberglass (FRP) windows & doors for extreme cold"
+        description="Finished, factory-assembled fiberglass windows and doors — and the pultruded fiberglass window profiles behind them — for Passive House, low-energy, and extreme-cold buildings in Canada, Russia, and the Nordics. Whole-window U-values to 0.78 W/m²·K, proven to −60°C, with no metallic thermal bridge to frost or fail."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -455,9 +455,10 @@ export default function FenestrationSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="max-w-[780px]">
             <p className="text-f19 leading-golden text-t2">
-              <strong className="text-t1">FRP windows and doors</strong> are a generational
-              advancement over aluminum and PVC — and F1 Composite supplies them as the
-              finished article. We manufacture the pultruded fiberglass profiles and
+              <strong className="text-t1">Pultruded fiberglass windows and doors</strong> —
+              known interchangeably as FRP, GRP, or pultrusion windows — are a generational
+              advancement over aluminum and PVC, and F1 Composite supplies them as the
+              finished article. We manufacture the pultruded fiberglass window profiles and
               assemble them, in our own plant, into complete window and door units:
               glazed, hardware-fitted, gasketed, and leak-tested before they ship. The
               result is a window that reaches whole-window K-values as low as 0.78
@@ -828,6 +829,7 @@ export default function FenestrationSystemsPage() {
             title: "Technical resources",
             links: [
               { href: "/technology/u-value-calculator", label: "Window U-value calculator" },
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
               { href: "/technology/quality-testing", label: "Quality testing (PHI / BS 476)" },

@@ -1453,6 +1453,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
     ],
     content: `The Passivhaus standard sets the most rigorous energy performance requirements in mainstream building certification. Among its criteria, the demands placed on window systems are particularly exacting: installed window U-values must typically fall below 0.85 W/m²·K, and frame components must minimize thermal bridging to a degree that conventional aluminum frames struggle to achieve even with thermal break technology. Pultruded fiber reinforced polymer (FRP) window frames are emerging as one of the most technically credible solutions to this challenge.
 

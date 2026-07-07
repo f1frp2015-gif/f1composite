@@ -160,6 +160,7 @@ export default function TechnologyPage() {
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
               { href: "/resources/design-guides", label: "Engineering design guides" },
