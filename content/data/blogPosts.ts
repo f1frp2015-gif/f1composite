@@ -60,6 +60,341 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "qualify-chinese-fiberglass-window-profile-supplier",
+    title: "How to Qualify a Chinese Fiberglass Window Profile Supplier: A 9-Point Checklist",
+    seoTitle: "Qualify a Chinese Fiberglass Window Profile Supplier",
+    answerBox:
+      "Qualifying a Chinese fiberglass window profile supplier comes down to nine verifiable checks: legal-entity and factory verification, production capability (own lines and dies), ASTM D3917 tolerance class in writing, material-system verification with coupon tests, the certification stack (EN 14351-1 / NAFS / PHI component), a paid first article with dimensional report, run-to-run consistency evidence across batches, finish qualification (AAMA 2604/2605 coater reports), and commercial terms that pass the logistics test (HS classification, DDP capability, staged-order structure). Any supplier confident in its process will agree to all nine without hesitation.",
+    category: "Industry Analysis",
+    date: "2026-07-07",
+    updatedAt: "2026-07-07",
+    readTime: "11 min",
+    excerpt:
+      "Every window fabricator evaluating a Chinese profile supplier asks the same underlying question: will run number forty look like run number one? This checklist turns that question into nine concrete, verifiable checks — the same ones our own customers put us through — so qualification runs on evidence instead of assurances.",
+    authorName: "Duowei Wang, Ph.D.",
+    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    reviewedBy: "Technical Review Board",
+    standards: ["ASTM D3917", "EN 13706", "EN 14351-1", "NAFS (AAMA/WDMA/CSA 101)", "AAMA 2604 / 2605"],
+    coverImage: "/images/blog/supplier-qualification-facade-inspection.jpg",
+    coverAlt:
+      "Modern facade with an opened awning window in black and white — supplier qualification is about what you verify before the windows are on the building",
+    coverAttribution: pexelsCredit("Hashcode Error", "https://www.pexels.com/photo/36992804/"),
+    supportingImage: "/images/products/window-door/frp-window-frame-65-series-corner-section.webp",
+    supportingAlt:
+      "Pultruded fiberglass window frame corner cross-section — the object every qualification check ultimately points at: chamber geometry, wall thickness, and tolerance",
+    supportingCaption:
+      "Everything on the checklist converges on this object: a profile whose chamber geometry, wall thickness, and critical dimensions match the die drawing — on the first run and on the fortieth.",
+    highlights: [
+      "The single best qualification instrument is a paid first article with a dimensional report against the die drawing — before production release",
+      "Run-to-run consistency is evidenced, not promised: batch mill certificates plus repeat dimensional reports across separated production runs",
+      "A supplier's willingness to accept third-party inspection (SGS/BV) and staged orders is itself a qualification signal",
+    ],
+    ogDescription:
+      "A 9-point checklist for qualifying Chinese fiberglass window profile suppliers: audits, ASTM D3917 tolerances, mill certificates, first articles, staged orders.",
+    ogChips: ["Procurement", "Qualification", "Window profiles"],
+    relatedLinks: [
+      { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
+      { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Quality Testing (EN 13706 / ASTM)", href: "/technology/quality-testing" },
+      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/ddp-tariff-hs-code-guide" },
+    ],
+    sourceLinks: [
+      { label: "FGIA — Fenestration & Glazing Industry Alliance", href: "https://fgiaonline.org" },
+      { label: "Passive House Institute — component database", href: "https://passivehouse.com" },
+      { label: "SGS — supplier audit services", href: "https://www.sgs.com" },
+    ],
+    content: `A window fabricator qualifying a new profile supplier is really asking one question: **will run number forty look like run number one?** Everything else — price, lead time, even certification — is secondary to that, because a lineal that drifts dimensionally between runs breaks corner joints, gasket compression, and hardware alignment across your whole production schedule.
+
+The nine checks below turn that question into evidence. They are ordered the way a real qualification runs: paper first, factory second, product third, commerce last. We publish them knowing our own customers will use them on us — that is rather the point.
+
+## 1. Legal entity and factory verification
+
+Confirm the company you are contracting is the company that owns the factory. In China's export sector, trading companies routinely present factory photos that are not theirs. Ask for the business license (统一社会信用代码 — the unified social credit code is publicly checkable), the factory address, and whether production is in-house or subcontracted. Then verify physically: a third-party audit through SGS or Bureau Veritas costs a few hundred dollars and settles the question. A manufacturer will host the audit readily; an intermediary will negotiate about it.
+
+## 2. Production capability: lines and dies
+
+Pultrusion capacity is countable. Ask how many pultrusion lines the supplier operates, how many window-profile dies it holds, and which frame-depth series exist as standing tooling versus new-die projects. This tells you two things: whether your order competes for line time, and whether your profiles need new tooling (with its 3–6 week lead and amortization cost) or can run on existing dies.
+
+## 3. Tolerance class, in writing
+
+"Good tolerances" is not a specification. The reference standard for pultruded profile dimensional tolerance is **ASTM D3917**; the drawing should state the tolerance class and the critical dimensions it applies to — typically ±0.25 mm class on chamber-critical dimensions for window lineals. If the supplier will not put a D3917 class on the drawing, the tolerances are aspirational.
+
+## 4. Material system verification
+
+The profile's mechanical and thermal behavior lives in its material system: resin type (polyester, vinyl ester, or polyurethane), glass content, and fiber architecture. Ask for the standard datasheet values — and for coupon test reports (tensile per ASTM D638, flexural per D790) from actual production, not brochure numbers. For window profiles specifically, ask which resin runs on which series: a supplier running [polyurethane on its performance tier](/technology/polyurethane-pultrusion-windows) and polyester on the economy tier should say so plainly.
+
+## 5. The certification stack
+
+Certification tells you what has been independently tested. For window profiles and systems the stack has three levels: profile thermal characterization (EN ISO 10077-2 simulation data), unit-level type testing (EN 14351-1 for CE; NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 for North America), and component certification (the PHI component certificate for passive-house work — F1's is 2491wi03, verifiable in the Passive House Institute's public database). Match the level to what you buy: profile buyers need the simulation data and can carry unit testing themselves; finished-unit buyers need the whole stack.
+
+## 6. First article, paid, with a dimensional report
+
+The single best qualification instrument is a **paid first article**: a short production run measured against the die drawing, with the dimensional report delivered before production release. Paying for it matters — it makes the exercise a contractual deliverable rather than a favor, and it entitles you to reject on evidence. Any supplier confident in its die and process will agree readily.
+
+## 7. Run-to-run consistency evidence
+
+Consistency is where fabricators have been burned, and it is evidenced, not promised. Three artifacts to require: batch **mill test certificates** for every production run; repeat dimensional reports on runs separated in time (not consecutive); and gasket-fit continuity — if the gasket channel is co-pultruded, seal fit cannot drift the way secondary-glued gaskets can. This is exactly the anxiety behind the search queries we see comparing established suppliers on "consistency" — the answer is the same for any supplier, Western or Chinese: ask for the run-separated data.
+
+## 8. Finish qualification
+
+Window lineals are architectural surfaces. The finish standard to name is **AAMA 2604 or 2605** (10-year exposure rating); the evidence is the coater's qualification report and, for dark colors, the heat-buildup discussion — dark fiberglass does not carry the warping risk dark uPVC does, but the coating system still needs the rating. Ask for finished samples in your actual RAL color, not the showroom color.
+
+## 9. The commercial and logistics test
+
+Finally, the commerce has to work as smoothly as the product: correct HS classification (fiberglass profiles under 3925.20 / 7019 — see our [DDP, tariffs and HS code guide](/resources/ddp-tariff-hs-code-guide)), genuine DDP capability with duty itemized in the quote, spare-parts and gasket supply policy, and a staged-order structure — first article, pilot order, production volumes — that lets you scale commitment with evidence.
+
+## The meta-signal
+
+There is a tenth check hiding inside the nine: **how the supplier reacts to the checklist itself**. A manufacturer with a controlled process treats these requests as routine paperwork. Evasion on any point — the audit, the D3917 class, the paid first article, the run-separated reports — is data. In our experience the checklist does not just qualify suppliers; it sorts them faster than any factory tour.`,
+  },
+
+  {
+    slug: "fiberglass-window-profile-price-drivers",
+    title: "What Drives the Price of Fiberglass Window Profiles? An Honest Breakdown",
+    seoTitle: "Fiberglass Window Profile Pricing — What Drives Cost",
+    answerBox:
+      "Fiberglass window profile pricing is driven by eight factors: resin system (polyester is the baseline; vinyl ester adds ~10–25%; polyurethane sits at the top of the range), glass content and fiber architecture, section complexity and wall thickness, die tooling amortization (the main reason MOQs exist), surface finish (mill finish vs AAMA 2604/2605 powder coating in custom RAL colors), certification and testing overhead, order volume and scheduling, and logistics terms (EXW vs FOB vs DDP with duty). Published catalog pricing for F1's fenestration profile range spans roughly €8–110 per linear meter depending on series and configuration — but B2B pricing is quoted per RFQ because these eight factors interact.",
+    category: "Industry Analysis",
+    date: "2026-07-07",
+    updatedAt: "2026-07-07",
+    readTime: "9 min",
+    excerpt:
+      "Nobody in this industry publishes how window profile pricing actually works, which leaves buyers comparing quotes they cannot decompose. Here are the eight cost drivers, what each one does to the per-meter number, and why two quotes for 'the same profile' can differ by 40% without anyone cheating.",
+    authorName: "Duowei Wang, Ph.D.",
+    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    reviewedBy: "Technical Review Board",
+    standards: ["ASTM D3917", "EN 13706", "AAMA 2604 / 2605"],
+    coverImage: "/images/blog/window-profile-price-yellow-facade.jpg",
+    coverAlt:
+      "Modern window set in a bright yellow tiled facade — what a window profile costs is decided long before it reaches the wall",
+    coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/photo/18193156/"),
+    supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
+    supportingAlt:
+      "90-series pultruded fiberglass window frame corner section — deeper chambers, thicker walls, and premium resin systems all show up in the per-meter price",
+    supportingCaption:
+      "Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness, and finish are all invisible at thumbnail resolution.",
+    highlights: [
+      "Resin system is the biggest single lever: polyester baseline, vinyl ester +10–25%, polyurethane at the top of the range",
+      "Die amortization — not greed — is why custom-section MOQs exist; standing-die profiles skip that cost entirely",
+      "A 'cheaper' EXW quote routinely loses to a DDP quote once duty, freight, and broker risk are priced in",
+    ],
+    ogDescription:
+      "The eight cost drivers behind fiberglass window profile pricing — resin system, glass content, section complexity, tooling, finish, certification, logistics.",
+    ogChips: ["Pricing", "Procurement", "Window profiles"],
+    relatedLinks: [
+      { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
+      { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/ddp-tariff-hs-code-guide" },
+      { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
+    ],
+    content: `Ask five suppliers to quote "a fiberglass window frame profile" and you will get five numbers spread across a 40% band — and no way to tell whether the spread is quality, margin, or scope. That opacity is not in anyone's long-term interest, least of all ours: an unexplained cheap quote wins orders that end in disputes, and an unexplained expensive quote loses orders it deserved. So here is how the per-meter price of a pultruded window profile is actually built, driver by driver.
+
+## 1. Resin system — the biggest single lever
+
+The matrix resin is the largest material-cost decision in the profile. **Polyester** is the economic baseline and fully adequate for most residential series. **Vinyl ester** adds roughly 10–25% at the profile level and buys better moisture cycling, temperature resistance, and long-term stability. **Polyurethane (GFRP-PU)** sits at the top of the range — the resin itself is the most expensive of the three and it requires dedicated closed-injection equipment — and buys the highest cross-fiber strength, thinner walls, and deep-cold toughness ([the full engineering case is here](/technology/polyurethane-pultrusion-windows)). When two quotes differ sharply, resin system is the first thing to check: they may simply not be quoting the same material.
+
+## 2. Glass content and fiber architecture
+
+More glass means more stiffness per section — and more cost, because glass loading also slows the line and demands tighter process control. Fiber architecture matters as much as quantity: a profile with multiaxial fabric layers for corner-screw retention costs more per meter than a roving-only lay-up of the same weight, and behaves differently in your fabrication line.
+
+## 3. Section complexity and wall thickness
+
+A three-chamber sash profile with co-pultruded gasket channels pulls slower and scraps higher than a plain rectangular tube — pull speed is production cost. Thinner walls (a GFRP-PU specialty) reduce material per meter but demand premium process control, so wall thickness cuts both ways in the price.
+
+## 4. Die tooling and amortization — where MOQs come from
+
+Every profile geometry needs its own pultrusion die (typically 3–6 weeks to fabricate). On a standing-die profile from the supplier's existing library, you pay no tooling. On a custom section, the die cost has to sit somewhere: either as a one-time tooling charge or amortized into the per-meter price with a minimum order quantity. This — not appetite for large orders — is why custom-section MOQs exist, and why the honest answer to "what is your MOQ?" is always "which section?"
+
+## 5. Surface finish
+
+Mill finish (resin-rich veil, unpainted) is the baseline. Architectural powder coating to **AAMA 2604 or 2605** in a custom RAL color adds a real increment — coating line time, masking, and the qualification overhead of the rating itself. Dark and metallic colors price above standard white/grey because of heat-buildup qualification and lower coating-line throughput.
+
+## 6. Certification and testing overhead
+
+A profile shipped with EN ISO 10077-2 thermal simulation data, batch mill certificates, and a PHI-certified system behind it carries the cost of maintaining that evidence — accredited-lab testing, certificate renewals, per-batch QC documentation. This is genuine value, not padding: it is precisely the evidence the [qualification checklist](/resources/blog/qualify-chinese-fiberglass-window-profile-supplier) demands. A quote that undercuts the market by skipping it is cheaper for a reason you will meet later.
+
+## 7. Volume and scheduling
+
+Pultrusion economics reward continuity: a standing order that keeps a die on the line prices below sporadic small runs of the same section, because die changeovers are dead line time. If your volumes are predictable, say so in the RFQ — scheduling certainty is worth real money to a manufacturer and much of it comes back to you.
+
+## 8. Logistics terms — the quiet 15–30%
+
+An EXW-factory price and a DDP-jobsite price are different products. Between them sit sea freight, insurance, customs classification (fiberglass profiles under HS 3925.20 / 7019 — [our tariff guide covers this](/resources/ddp-tariff-hs-code-guide)), import duty and VAT, and broker risk. A "cheaper" EXW quote routinely loses to a DDP quote once those are priced honestly — and the DDP quote tells you the supplier has done this route before.
+
+## So what does it cost?
+
+Published catalog pricing for F1's fenestration profile range spans roughly **€8–110 per linear meter** — a deliberately wide band, because the eight drivers above interact. A 65-series polyester frame profile in mill finish and a 90-series GFRP-PU sash profile in dark AAMA 2605 powder coat are both "fiberglass window profiles," and they sit at opposite ends of that band on merit.
+
+The practical takeaway for buyers: **make quotes decomposable.** Ask every supplier to state resin system, glass content, D3917 tolerance class, finish specification, tooling treatment, and incoterm on the quote itself. The 40% spread will collapse into an explainable comparison — and the suppliers who resist decomposing their number have answered a different question for you.`,
+  },
+
+  {
+    slug: "fabricating-fiberglass-window-lineals-switching-guide",
+    title: "Fabricating Fiberglass Window Lineals: What Changes When You Switch from uPVC or Aluminum",
+    seoTitle: "Fabricating Fiberglass Window Lineals — Switching Guide",
+    answerBox:
+      "Switching a window fabrication line from uPVC or aluminum to fiberglass lineals changes less than most fabricators expect. Cutting moves to carbide or diamond blades with dust extraction (fiberglass machines rather than melts). Corner joining is the biggest process change: mechanical corner keys with adhesive replace uPVC fusion welding — no welders, shorter cycle, but a new QC point at joint squareness. Hardware installation improves: pultruded walls hold screws directly with higher pull-out retention than uPVC without steel. Glazing and gasketing are largely unchanged, and co-pultruded gasket channels remove a gluing step. Most fabricators run mixed uPVC/fiberglass production during transition on the same saws and glazing line.",
+    category: "Fenestration",
+    date: "2026-07-07",
+    updatedAt: "2026-07-07",
+    readTime: "10 min",
+    excerpt:
+      "The question every fabricator asks before ordering the first container of fiberglass lineals: how much of my line do I have to change? Here is the station-by-station answer — cutting, machining, corner joining, hardware, glazing — from the process differences that matter to the ones that only look scary.",
+    authorName: "Yifan Liu",
+    authorRole: "Senior Application Engineer — pultruded FRP structural design",
+    reviewedBy: "Technical Applications Group",
+    standards: ["ASTM D3917", "EN 14351-1", "AAMA 2604 / 2605"],
+    coverImage: "/images/blog/fiberglass-casement-open-fabrication.jpg",
+    coverAlt:
+      "Opened casement window with visible sash, hinge hardware, and frame joinery — every station of window fabrication meets the lineal here",
+    coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
+    supportingImage: "/images/blog/window-corner-joint-interior.jpg",
+    supportingAlt:
+      "Window frame corner joint seen from the interior — the corner is where fiberglass fabrication differs most from uPVC fusion welding",
+    supportingAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
+    supportingCaption:
+      "The corner is the honest test of any window fabrication process. uPVC fuses it; fiberglass joins it mechanically — different process, different QC point, comparable cycle time once the line settles.",
+    highlights: [
+      "Corner joining is the one genuine process change: mechanical keys + adhesive replace fusion welding — no welders on the line",
+      "Screw retention improves outright: pultruded walls hold hardware directly, with no steel insert and no stripped-thread rework",
+      "Saws, glazing line, and hardware stations mostly carry over — mixed uPVC/fiberglass production during transition is normal",
+    ],
+    ogDescription:
+      "What actually changes on a window fabrication line when you switch from uPVC or aluminum to fiberglass lineals: cutting, corner joining, hardware, glazing.",
+    ogChips: ["Fabrication", "Window lineals", "Process"],
+    relatedLinks: [
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
+      { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
+      { label: "Powder-Coated FRP Window Profiles", href: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish" },
+      { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
+    ],
+    content: `Every fabricator considering fiberglass lineals runs the same mental audit: I have saws, welders, corner cleaners, a hardware station, and a glazing line tuned for uPVC (or a machining center tuned for aluminum). How much of that survives the switch?
+
+More than you expect. Here is the station-by-station reality, written for the production manager rather than the brochure reader.
+
+## Cutting: new blades, new dust extraction, same saws
+
+Pultruded fiberglass **machines rather than melts** — the opposite of uPVC's forgiving, chip-welding behavior. Your existing double-miter saws carry over; the blades do not. Specify carbide-tipped blades with a triple-chip grind (or diamond blades for high volume), moderate feed pressure, and let the blade do the work — forcing the feed frays the cut edge and heats the resin.
+
+The genuine change is **dust management**. Fiberglass cutting produces fine glass-and-resin dust, not uPVC swarf: local exhaust ventilation at the saw, sealed dust collection, and standard respiratory PPE at the cutting station are non-negotiable. This is the one workplace change to plan properly rather than improvise — it is routine in every composites shop, but it is new to a vinyl shop.
+
+## Machining: drilling and routing behave better than you fear
+
+Lock cases, drainage slots, and hardware preps rout and drill cleanly with carbide tooling at conventional speeds. Two practical notes: support the exit side of through-holes to prevent breakout (fiberglass is laminar), and expect tooling wear faster than on uPVC — glass is abrasive. CNC machining centers used for aluminum transfer almost directly; only the tooling and feeds change.
+
+## Corner joining: the one real process change
+
+This is the station that actually changes. uPVC corners are **fusion welded** — melted and joined into a monolith, then corner-cleaned. Thermoset fiberglass does not melt, so corners are **joined mechanically**: corner keys or cleats seated in the profile chambers, structural adhesive at the miter, screwed or crimped depending on the system. Reinforced corner kits ship with the lineal set.
+
+What this means on the line: the welders and corner cleaners go idle, replaced by a simpler assembly bench; joint cycle time is comparable once crews settle; and your QC point moves from weld-bead quality to **joint squareness and adhesive coverage**. One genuine advantage over welding: a mechanically joined corner can be checked, and in the worst case disassembled, rather than scrapped.
+
+For aluminum fabricators the story is shorter: you already join mechanically. Fiberglass corners will feel familiar, minus the thermal-break alignment problem — there is no thermal break to align.
+
+## Hardware: an outright improvement
+
+Multi-point locks, hinges, and friction stays screw **directly into the pultruded wall** — no steel reinforcement to find, no stripped threads in soft uPVC, no separate reinforcement-locating step. Pull-out retention in the glass-fiber wall is higher than in unreinforced uPVC, and higher again in [polyurethane-matrix profiles](/technology/polyurethane-pultrusion-windows), which is one reason PU runs on performance-tier lineals. Standard euro-groove hardware platforms fit; your hardware station carries over with revised screw specs.
+
+## Gasketing and glazing: mostly carry-over
+
+If the lineal has **co-pultruded gasket channels** (ours do), gasket insertion is a push-fit step with no gluing and no drift between runs. Glazing is unchanged in kind: same IGU handling, same setting blocks, same toe-and-heel rules — with one pleasant difference. Fiberglass's thermal expansion is close to glass, so glazing pressure and seal compression stay where you set them across the seasons instead of fighting the frame.
+
+## Finish: decide who paints
+
+Fiberglass lineals arrive either mill-finish for post-fabrication painting or **pre-finished to AAMA 2604/2605** in RAL colors ([the finish story is covered here](/resources/blog/frp-window-profiles-powder-coating-aluminum-finish)). Most switching fabricators start with pre-finished lineals — it removes a whole line decision during transition — and revisit in-house finishing at volume.
+
+## The transition plan that actually works
+
+No fabricator switches a line overnight, and none should. The pattern we see succeed: run a **paid first article** through your own stations (cutting, corners, hardware, glazing) as the qualification step; keep uPVC and fiberglass in mixed production on the same saws and glazing line while crews build corner-joint experience; and reserve the fiberglass line for the orders that justify it — passive-house tenders, large sashes, dark colors, coastal exposure — where the lineal's performance premium is priced in.
+
+The honest summary: one station genuinely changes (corners), one improves (hardware), one needs investment (dust extraction), and the rest is blade specs and settling time. The line you own is closer to fiberglass-ready than the brochures — ours included — tend to admit.`,
+  },
+
+  {
+    slug: "aluminum-window-condensation-cold-climate",
+    title: "Why Aluminum Window Frames Stream Water in Cold Climates — the Physics and the Fix",
+    seoTitle: "Why Aluminum Window Frames Condense in Cold Climates",
+    answerBox:
+      "Aluminum window frames condense and frost in cold climates because aluminum conducts heat at ≈160 W/m·K — roughly 500× the rate of insulating frame materials — so the interior frame surface drops below the room air's dew point on cold nights. Thermal breaks help but leave bridges at screw ports, corner keys, and hardware penetrations, and the condensation resistance factor (CRF) of even thermally-broken aluminum sits well below intrinsically insulating frames. The fixes, in order of effect: raise interior surface temperature with a low-conductivity frame material (pultruded fiberglass at ≈0.3 W/m·K keeps the frame face warm to −40°C and below), warm-edge IGU spacers, and managed indoor humidity. Field reference: GFRP-PU frames run condensation-free at a −25°C industrial campus and a −60°C Antarctic station.",
+    category: "Thermal Performance",
+    date: "2026-07-07",
+    updatedAt: "2026-07-07",
+    readTime: "9 min",
+    excerpt:
+      "The service call every cold-climate building manager knows: water pooling on aluminum window sills in January, frost on the frame by February, and a mold remediation quote by spring. This is not a defect — it is the frame material doing exactly what physics says it must. Here is the mechanism, the metric that predicts it, and what actually fixes it.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN ISO 10077-1", "AAMA 1503 (CRF)", "EN ISO 13788"],
+    coverImage: "/images/blog/cold-climate-window-interior.jpg",
+    coverAlt:
+      "Interior view of white-framed windows on an autumn day — the interior frame surface temperature is where the condensation battle is won or lost",
+    coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
+    supportingImage: "/images/blog/winter-night-window-warm-light.jpg",
+    supportingAlt:
+      "Warm-lit window in a dark facade on a winter night — the condition that drives frame condensation: warm humid interior, deep-cold exterior, and the frame in between",
+    supportingAttribution: pexelsCredit("Ayco World", "https://www.pexels.com/photo/34032603/"),
+    supportingCaption:
+      "The design condition that matters: a warm, humidified interior on one side of the frame and a deep-cold night on the other. Whether the interior frame face stays above the dew point is decided almost entirely by the frame material's conductivity.",
+    highlights: [
+      "Condensation is surface-temperature physics: the frame face drops below dew point because aluminum conducts heat 500× faster than insulating frames",
+      "Thermal breaks move the problem rather than solve it — screw ports, corner keys, and hardware penetrations bridge the break",
+      "CRF (AAMA 1503) is the number that predicts the service calls — ask for it before specifying, not after the mold remediation quote",
+    ],
+    ogDescription:
+      "The physics of aluminum window condensation in cold climates — thermal bridging, CRF, dew point — and the frame-material fix, with field data to −60°C.",
+    ogChips: ["Condensation", "Thermal bridging", "Cold climate"],
+    relatedLinks: [
+      { label: "FRP vs Aluminum Window Frames", href: "/technology/frp-vs-aluminum-windows" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Window U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
+      { label: "Why FRP Outperforms Aluminum Thermally", href: "/resources/blog/frp-fenestration-thermal-performance" },
+    ],
+    content: `The failure arrives on a schedule. First cold snap of the year: a call about "leaking windows" that are not leaking — the water pooling on the sill condensed there. Deep winter: frost growing on the interior of the frame itself. Spring: a mold remediation quote for the drywall returns below the windows. Building managers in Winnipeg, Oslo, Harbin, and Ulaanbaatar know this sequence by heart, and it repeats because it is not a defect. It is the frame material obeying physics.
+
+## The mechanism: a race between surface temperature and dew point
+
+Condensation forms on any surface colder than the local air's **dew point**. At 21°C interior temperature and 40% relative humidity — ordinary winter conditions in an occupied building — the dew point sits around 7°C. Any interior surface below 7°C collects water; below 0°C, it grows frost.
+
+The question, then, is what temperature the interior face of a window frame runs on a cold night. That is set almost entirely by the frame material's thermal conductivity — how fast the frame pipes interior heat to the outside. Aluminum conducts at roughly **160 W/m·K**. Pultruded fiberglass conducts at roughly **0.3 W/m·K** — a factor of about 500. Timber and uPVC sit near fiberglass; no practical geometry overcomes a 500× material handicap. On a −20°C night, an unbroken aluminum frame's interior face can run below freezing while the wall beside it sits at 18°C. The frame is not underperforming; it is a heat exchanger doing its job in the wrong application.
+
+## Why thermal breaks help less than the datasheet implies
+
+The industry's answer is the thermal break: a polyamide or polyurethane strip separating the exterior and interior aluminum shells. It works — partially. Three leak paths remain in real assemblies:
+
+**Hardware and fixing penetrations.** Every screw port, corner key, and lock case that crosses the break line re-bridges it in metal. The break is continuous in the extrusion drawing and interrupted in the assembled window.
+
+**Edge-of-frame details.** Sills, thresholds, and coupling mullions are the hardest places to keep the break continuous — which is why cold-climate condensation photographs are so often of sills.
+
+**The arithmetic ceiling.** Even executed perfectly, a thermally-broken aluminum frame reaches U-frame values of roughly 2.5–4.0 W/m²·K. An intrinsically insulating pultruded frame starts below 1.6 and reaches 0.8 without any break at all — because there is no metallic path to interrupt in the first place.
+
+## CRF: the number that predicts the service calls
+
+North American practice has a metric for exactly this: the **Condensation Resistance Factor (CRF, AAMA 1503)** — in essence, a scaled measure of how warm the frame's interior surface stays relative to the temperature difference across it. Higher is better; cold-climate specifications typically demand CRF in the 60s or above. Thermally-broken aluminum systems commonly test in the 45–65 range; insulating-frame systems (fiberglass, uPVC, timber) test meaningfully higher, with the gap widening at the frame-to-glass edge when warm-edge spacers are added. European practice reaches the same verdict through EN ISO 13788's surface-condensation (fRsi) assessment.
+
+If you specify windows for heating-dominated climates, CRF (or fRsi) belongs on the submittal checklist next to U-value — it is the number that predicts the January service calls, and it is available before purchase rather than after.
+
+## What actually fixes it
+
+In order of effect:
+
+**1. Frame material.** Raise the interior surface temperature at the source: a frame that conducts at 0.3 instead of 160 W/m·K keeps its interior face above dew point down to design temperatures no break assembly reaches. This is the structural fix; everything else is mitigation. The [material-by-material comparison is here](/technology/frp-vs-aluminum-windows).
+
+**2. Warm-edge spacers and glazing.** The IGU edge is the second-coldest line in the assembly. Non-metallic warm-edge spacers plus triple glazing lift the edge-of-glass temperature — necessary in any frame material, sufficient in none.
+
+**3. Humidity management.** Ventilation and humidity control move the dew point down. It works, but note what it concedes: lowering winter indoor humidity below ~30% to protect the windows trades occupant comfort for frame physics.
+
+## The field evidence
+
+Theory aside, the condensation question has field answers. F1's GFRP-PU windows run condensation-free on a **−25°C chemical-industry campus in Baotou** — specified precisely because the previous aluminum frames frosted — and at **Qinling Station, Antarctica, against a −60°C design low** ([case study](/case-studies/qinling-station-antarctic-passive-windows)), where a frame-face condensation failure would not be a service call but a station-integrity problem. The same physics that streams water down an aluminum sill in Winnipeg keeps an insulating frame face dry in Antarctica; the only variable that changed is the conductivity of the material in between.
+
+To check where a specific frame and glazing build lands before specifying, run it through our [EN ISO 10077-1 U-value calculator](/technology/u-value-calculator) — it computes the whole-window value and flags the pass/fail against cold-climate program targets.`,
+  },
+
+  {
     slug: "frp-window-profile-market-suppliers-demand",
     title: "The FRP Window Profile Market: Demand Drivers, Supplier Landscape, and What Buyers Should Verify",
     seoTitle: "FRP Window Profile Market — Suppliers & Demand Drivers",

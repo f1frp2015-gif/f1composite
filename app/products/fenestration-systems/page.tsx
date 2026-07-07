@@ -346,6 +346,21 @@ const faqItems = [
       "Complete window and door units are tested to EN 14351-1 for CE marking (air permeability, water tightness, wind resistance, operating forces) and to NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 for North America. Thermal performance is the PHI Component Certificate 2491wi03 (U_w 0.78, phA arctic class), with NFRC 100 and CSA A440.2/.3 simulation on request. Profiles are characterized to EN ISO 10077-2 and EN 14024. For Russia and the EAEU we support GOST 23166 and EAC documentation per project. Every shipment includes the test reports and certificates your submission requires.",
   },
   {
+    question: "Is F1 Composite a window factory or a trading company?",
+    answer:
+      "A manufacturer. F1 Composite pultrudes its window profiles on its own continuous lines (5 production bases, 370 pultrusion lines, 800+ standing die sections) and assembles finished window and door units in its own plant — no subcontracted production behind a trading front. We support third-party factory audits (SGS / Bureau Veritas) as a routine qualification step, and we run OEM / private-label lineal programs for window brands and fabricators who sell under their own name.",
+  },
+  {
+    question: "What is the minimum order quantity for FRP window profiles?",
+    answer:
+      "It depends on which supply model and whether your sections need new tooling. Finished window and door units are quoted per project with no fixed MOQ floor. Profile (lineal) supply on our standing 65/70/80/90/140-series dies follows container-lot economics — mixed sections in one container are routine. Custom sections carry die fabrication (3–6 weeks), so the MOQ follows tooling amortization: either a one-time die charge with a low volume commitment, or the die cost amortized into a larger first order. Qualification orders are deliberately small — a paid first-article run precedes any production commitment.",
+  },
+  {
+    question: "What warranty applies to FRP windows and window profiles?",
+    answer:
+      "Warranty terms are confirmed per project in the supply contract, structured in line with established fiberglass-window industry practice — where frame warranties typically run 10–20 years and finish warranties align with the AAMA 2604/2605 coating exposure ratings (10-year class). Profile-supply programs carry material and dimensional-conformity warranties backed by batch mill certificates. The underlying engineering basis is longer than any warranty document: pultruded FRP frames carry a 60+ year expected service life, with no embrittlement, corrosion, or recoating cycle across it.",
+  },
+  {
     question: "What is the expected service life of FRP window frames?",
     answer:
       "Pultruded FRP window frames have an expected service life exceeding 60 years based on accelerated weathering tests and field performance data from installations dating back to the early 1980s. Unlike PVC, FRP does not become brittle with age, UV, or deep cold, and unlike aluminum, it cannot corrode in snow-belt de-icing-salt environments. The dimensional stability of FRP over temperature cycles (−40°C to +80°C) is superior to PVC, maintaining seal compression and air-tightness throughout the life of the building with no coating-renewal cycle.",
