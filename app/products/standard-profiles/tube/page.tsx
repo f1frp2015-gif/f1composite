@@ -8,6 +8,11 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
 const pageDescription =
@@ -44,7 +49,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/tube/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "CHS 25×3", od: 25, t: 3, weight: "0.3" },
   { model: "CHS 32×3", od: 32, t: 3, weight: "0.4" },
   { model: "CHS 38×3.2", od: 38, t: 3.2, weight: "0.5" },
@@ -64,7 +69,19 @@ const sizes = [
   { model: "CHS 150×8", od: 150, t: 8, weight: "5.4" },
 ];
 
-export default function TubePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("round-tube");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    od: r.dims.OD ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function TubePage() {
+  const sizes = await loadSizes();
   return (
     <>
       <JsonLd

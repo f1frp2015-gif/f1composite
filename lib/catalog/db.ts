@@ -94,7 +94,42 @@ export async function ensureCatalogTables(sqlIn?: NonNullable<ReturnType<typeof 
       updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  // additive migrations (idempotent)
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS resin_family      TEXT`;
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_l_mpa NUMERIC`;
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_t_mpa NUMERIC`;
+  // single-operator back-office settings (admin password hash, etc.)
+  await sql`
+    CREATE TABLE IF NOT EXISTS admin_settings (
+      key        TEXT PRIMARY KEY,
+      value      TEXT NOT NULL,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
   ready = true;
+}
+
+// ── admin settings (key/value) ──────────────────────────────────────────────
+
+export async function getAdminSetting(key: string): Promise<string | null> {
+  const sql = getSql();
+  if (!sql) return null;
+  await ensureCatalogTables(sql);
+  const rows = (await sql`SELECT value FROM admin_settings WHERE key = ${key}`) as {
+    value: string;
+  }[];
+  return rows[0]?.value ?? null;
+}
+
+export async function setAdminSetting(key: string, value: string): Promise<boolean> {
+  const sql = getSql();
+  if (!sql) return false;
+  await ensureCatalogTables(sql);
+  await sql`
+    INSERT INTO admin_settings (key, value) VALUES (${key}, ${value})
+    ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = now()
+  `;
+  return true;
 }
 
 // ── row types ───────────────────────────────────────────────────────────────
@@ -112,6 +147,8 @@ export interface FormulationRow {
   code: string;
   name: string;
   resin: string | null;
+  /** unsaturated_polyester | vinyl_ester | epoxy | polyurethane | phenolic */
+  resin_family: string | null;
   glass_content: string | null;
   density_g_cm3: number | null;
   en13706_grade: string | null;
@@ -124,6 +161,8 @@ export interface FormulationRow {
   flexural_t_mpa: number | null;
   shear_mpa: number | null;
   compressive_l_mpa: number | null;
+  pin_bearing_l_mpa: number | null;
+  pin_bearing_t_mpa: number | null;
   barcol: number | null;
   water_abs_pct: number | null;
   notes: string | null;
@@ -213,9 +252,10 @@ export async function listDownloads(opts: { publishedOnly?: boolean } = {}): Pro
 const TABLE_COLUMNS: Record<string, string[]> = {
   catalog_categories: ["slug", "name", "description", "sort"],
   catalog_formulations: [
-    "code", "name", "resin", "glass_content", "density_g_cm3", "en13706_grade",
-    "fire_rating", "e_l_gpa", "e_t_gpa", "tensile_l_mpa", "tensile_t_mpa",
-    "flexural_l_mpa", "flexural_t_mpa", "shear_mpa", "compressive_l_mpa",
+    "code", "name", "resin", "resin_family", "glass_content", "density_g_cm3",
+    "en13706_grade", "fire_rating", "e_l_gpa", "e_t_gpa", "tensile_l_mpa",
+    "tensile_t_mpa", "flexural_l_mpa", "flexural_t_mpa", "shear_mpa",
+    "compressive_l_mpa", "pin_bearing_l_mpa", "pin_bearing_t_mpa",
     "barcol", "water_abs_pct", "notes",
   ],
   catalog_products: [

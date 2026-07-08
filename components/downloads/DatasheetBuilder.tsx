@@ -22,13 +22,27 @@ interface CatalogProduct {
   weightPerM: number | null;
 }
 
+// More than this many products = a catalog extract → worth an email (lead
+// gate). Single/small TDS pulls stay friction-free.
+const LEAD_GATE_THRESHOLD = 3;
+const LEAD_EMAIL_KEY = "f1_datasheet_lead_email";
+
 export default function DatasheetBuilder() {
   const [categories, setCategories] = useState<CatalogCategory[]>([]);
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [selected, setSelected] = useState<Set<number>>(new Set());
   const [loaded, setLoaded] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailKnown, setEmailKnown] = useState(false);
+  const [gateError, setGateError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    try {
+      if (window.localStorage.getItem(LEAD_EMAIL_KEY)) setEmailKnown(true);
+    } catch {
+      /* storage unavailable — gate will just ask */
+    }
     fetch("/api/catalog")
       .then((r) => r.json())
       .then((json) => {
@@ -72,6 +86,38 @@ export default function DatasheetBuilder() {
   };
 
   const href = `/api/datasheet?ids=${[...selected].join(",")}`;
+  const needsEmail = selected.size > LEAD_GATE_THRESHOLD && !emailKnown;
+
+  async function submitLeadAndDownload() {
+    setGateError("");
+    const trimmed = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
+      setGateError("Please enter a valid work email.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const chosen = products.filter((p) => selected.has(p.id));
+      await fetch("/api/datasheet-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: trimmed,
+          ids: [...selected],
+          models: chosen.map((p) => p.model),
+        }),
+      });
+      try {
+        window.localStorage.setItem(LEAD_EMAIL_KEY, trimmed);
+      } catch {
+        /* fine */
+      }
+      setEmailKnown(true);
+      window.open(href, "_blank", "noopener");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <section className="bg-white py-[55px]" id="datasheet-builder">
@@ -126,8 +172,34 @@ export default function DatasheetBuilder() {
           })}
         </div>
 
-        <div className="mt-[21px] flex items-center gap-[13px]">
-          {selected.size > 0 ? (
+        <div className="mt-[21px] flex flex-wrap items-center gap-[13px]">
+          {selected.size === 0 ? (
+            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
+              Select products to generate a PDF
+            </span>
+          ) : needsEmail ? (
+            <>
+              <input
+                type="email"
+                placeholder="Work email to receive catalog updates"
+                className="w-[280px] rounded-[6px] border border-border-default px-[13px] py-[13px] text-f15"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                onClick={submitLeadAndDownload}
+                disabled={submitting}
+                className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90 disabled:opacity-50"
+              >
+                {submitting ? "Preparing…" : `Get catalog PDF (${selected.size} products) →`}
+              </button>
+              {gateError && <p className="w-full text-f13 text-red-600">{gateError}</p>}
+              <p className="w-full text-f12 text-t3">
+                Multi-product catalog extracts ask for an email so we can send revised data when a
+                spec updates. Single datasheets download freely.
+              </p>
+            </>
+          ) : (
             <a
               href={href}
               target="_blank"
@@ -136,10 +208,6 @@ export default function DatasheetBuilder() {
             >
               Generate PDF ({selected.size} {selected.size === 1 ? "datasheet page" : "products"}) →
             </a>
-          ) : (
-            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
-              Select products to generate a PDF
-            </span>
           )}
           {selected.size > 0 && (
             <button

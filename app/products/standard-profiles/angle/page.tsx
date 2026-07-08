@@ -8,6 +8,11 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP Angle — Pultruded Fiberglass L-Profile Manufacturer";
 const pageDescription =
@@ -21,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/angle/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "L 25×25×3.2", a: 25, b: 25, t: 3.2, weight: "0.3" },
   { model: "L 30×30×4", a: 30, b: 30, t: 4, weight: "0.4" },
   { model: "L 38×38×4.8", a: 38, b: 38, t: 4.8, weight: "0.5" },
@@ -52,7 +57,20 @@ const faqItems = [
   },
 ];
 
-export default function AnglePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("angle");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    a: r.dims.a ?? 0,
+    b: r.dims.b ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function AnglePage() {
+  const sizes = await loadSizes();
   return (
     <>
       <JsonLd

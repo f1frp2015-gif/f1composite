@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
+import { getAllDatasheetPages } from "@/lib/catalog/public";
 
 const BASE = "https://www.f1composite.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const latestBlogUpdate =
     [...blogPosts]
       .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]
@@ -38,6 +39,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.78,
   }));
+
+  // Live catalog datasheets (empty when the DB is unreachable — build-safe).
+  const datasheetPages = await getAllDatasheetPages();
+  const datasheetEntries = datasheetPages.map((d) => ({
+    url: `${BASE}/datasheets/${d.slug}`,
+    lastModified: latestBlogUpdate,
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
+  const datasheetIndexEntry =
+    datasheetPages.length > 0
+      ? [{
+          url: `${BASE}/datasheets`,
+          lastModified: latestBlogUpdate,
+          changeFrequency: "weekly" as const,
+          priority: 0.8,
+        }]
+      : [];
 
   return [
     { url: BASE, lastModified: DATES.home, changeFrequency: "weekly", priority: 1.0 },
@@ -118,5 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.8 },
     { url: `${BASE}/privacy`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, lastModified: DATES.static, changeFrequency: "yearly", priority: 0.3 },
+    ...datasheetIndexEntry,
+    ...datasheetEntries,
   ];
 }

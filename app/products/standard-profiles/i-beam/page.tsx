@@ -9,6 +9,11 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP I-Beam Profiles — Pultruded Fiberglass Wide Flange Beams";
 const pageDescription =
@@ -28,7 +33,10 @@ export const metadata: Metadata = buildPageMetadata({
 // Size + mass are F1 published values. Steel comparison uses standard European
 // section masses (IPE / UC) at the SAME nominal depth — accurate, citable, and
 // the per-size weight delta no competitor publishes inline.
-const sizes = [
+// Historical hardcoded list — now the build-safe fallback when the catalog DB
+// is empty/unreachable, and the source of the editorial steel-comparison
+// columns (steel masses are reference content, not catalog data).
+const fallbackSizes = [
   { model: "I 76×38×6.4", h: 76, b: 38, t: 6.4, weight: "1.2", steel: "IPE 80", steelW: "6.0", saving: "80%" },
   { model: "I 100×50×6", h: 100, b: 50, t: 6, weight: "1.6", steel: "IPE 100", steelW: "8.1", saving: "80%" },
   { model: "I 120×60×6", h: 120, b: 60, t: 6, weight: "2.0", steel: "IPE 120", steelW: "10.4", saving: "81%" },
@@ -39,6 +47,26 @@ const sizes = [
   { model: "I 300×150×15", h: 300, b: 150, t: 15, weight: "13.5", steel: "IPE 300", steelW: "42.2", saving: "68%" },
   { model: "I 305×305×12.7", h: 305, b: 305, t: 12.7, weight: "16.0", steel: "UC 305×305", steelW: "96.9", saving: "83%" },
 ];
+
+const steelByModel = new Map(fallbackSizes.map((s) => [s.model, s]));
+
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("i-beam");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => {
+    const steel = steelByModel.get(r.model);
+    return {
+      model: r.model,
+      h: r.dims.H ?? 0,
+      b: r.dims.B ?? 0,
+      t: r.dims.tw ?? 0,
+      weight: r.weight == null ? "—" : String(r.weight),
+      steel: steel?.steel ?? "—",
+      steelW: steel?.steelW ?? "—",
+      saving: steel?.saving ?? "—",
+    };
+  });
+}
 
 // EN 13706 E23 characteristic values (longitudinal). Modulus rows are the grade
 // definition; the rest are F1 characteristic values per the cited test method.
@@ -125,7 +153,8 @@ const faqItems = [
   },
 ];
 
-export default function IBeamPage() {
+export default async function IBeamPage() {
+  const sizes = await loadSizes();
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",

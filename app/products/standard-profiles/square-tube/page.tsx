@@ -8,6 +8,11 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP Square Tube — Pultruded SHS & RHS Manufacturer";
 const pageDescription =
@@ -21,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/square-tube/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "SHS 25×25×3.2", h: 25, b: 25, t: 3.2, weight: "0.4" },
   { model: "SHS 38×38×4.8", h: 38, b: 38, t: 4.8, weight: "0.9" },
   { model: "RHS 40×20×7", h: 40, b: 20, t: 7, weight: "1.0" },
@@ -57,7 +62,21 @@ const faqItems = [
   },
 ];
 
-export default function SquareTubePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("square-tube");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    // SHS stores side as D; RHS stores H×B
+    h: r.dims.D ?? r.dims.H ?? 0,
+    b: r.dims.D ?? r.dims.B ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function SquareTubePage() {
+  const sizes = await loadSizes();
   return (
     <>
       <JsonLd

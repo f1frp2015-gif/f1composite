@@ -38,10 +38,24 @@ const FIELDS: Record<ResourceKey, FieldDef[]> = {
   formulations: [
     { key: "code", label: "Code", type: "text", required: true, hint: "e.g. E23-ISO" },
     { key: "name", label: "Name", type: "text", required: true },
-    { key: "resin", label: "Resin system", type: "text" },
+    { key: "resin_family", label: "Resin family", type: "select", options: [
+      { value: "", label: "— none —" },
+      { value: "unsaturated_polyester", label: "Unsaturated polyester 不饱和聚酯" },
+      { value: "vinyl_ester", label: "Vinyl ester 乙烯基酯" },
+      { value: "epoxy", label: "Epoxy 环氧" },
+      { value: "polyurethane", label: "Polyurethane 聚氨酯" },
+      { value: "phenolic", label: "Phenolic 酚醛" },
+    ]},
+    { key: "resin", label: "Resin system (display)", type: "text", hint: "e.g. Isophthalic unsaturated polyester" },
     { key: "glass_content", label: "Glass content", type: "text", hint: "e.g. 65–70% by weight" },
     { key: "density_g_cm3", label: "Density (g/cm³)", type: "number" },
-    { key: "en13706_grade", label: "EN 13706 grade", type: "text", hint: "E17 / E23" },
+    { key: "en13706_grade", label: "Grade", type: "select", options: [
+      { value: "", label: "— none —" },
+      { value: "E17", label: "E17 (EN 13706)" },
+      { value: "E23", label: "E23 (EN 13706)" },
+      { value: "E30", label: "E30 (vendor tier — not an EN grade)" },
+      { value: "E40", label: "E40 (ATS 5880 tier — not an EN grade)" },
+    ]},
     { key: "fire_rating", label: "Fire rating", type: "text", hint: "e.g. ASTM E84 Class A" },
     { key: "e_l_gpa", label: "E_L (GPa)", type: "number" },
     { key: "e_t_gpa", label: "E_T (GPa)", type: "number" },
@@ -49,8 +63,10 @@ const FIELDS: Record<ResourceKey, FieldDef[]> = {
     { key: "tensile_t_mpa", label: "Tensile strength T (MPa)", type: "number" },
     { key: "flexural_l_mpa", label: "Flexural strength L (MPa)", type: "number" },
     { key: "flexural_t_mpa", label: "Flexural strength T (MPa)", type: "number" },
-    { key: "shear_mpa", label: "In-plane shear (MPa)", type: "number" },
+    { key: "shear_mpa", label: "Interlaminar shear ILSS (MPa)", type: "number" },
     { key: "compressive_l_mpa", label: "Compressive strength L (MPa)", type: "number" },
+    { key: "pin_bearing_l_mpa", label: "Pin-bearing strength L (MPa)", type: "number" },
+    { key: "pin_bearing_t_mpa", label: "Pin-bearing strength T (MPa)", type: "number" },
     { key: "barcol", label: "Barcol hardness", type: "number" },
     { key: "water_abs_pct", label: "Water absorption (%)", type: "number" },
     { key: "notes", label: "Notes", type: "textarea" },
@@ -82,7 +98,7 @@ const FIELDS: Record<ResourceKey, FieldDef[]> = {
 
 const LIST_COLUMNS: Record<ResourceKey, string[]> = {
   products: ["id", "model", "name", "weight_per_m", "status"],
-  formulations: ["id", "code", "name", "en13706_grade", "density_g_cm3"],
+  formulations: ["id", "code", "resin_family", "en13706_grade", "density_g_cm3"],
   categories: ["id", "slug", "name", "sort"],
   downloads: ["id", "title", "format", "category", "published"],
 };
@@ -218,6 +234,9 @@ export default function AdminApp() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [pwPanel, setPwPanel] = useState(false);
+  const [pwForm, setPwForm] = useState({ current: "", next: "", confirm: "" });
+  const [pwMsg, setPwMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
   const load = useCallback(async (resource: ResourceKey) => {
     const { status, json } = await api(`/api/admin/catalog/${resource}`);
@@ -296,6 +315,25 @@ export default function AdminApp() {
     } else setError(json.error ?? "Save failed");
   }
 
+  async function changePassword(e: React.FormEvent) {
+    e.preventDefault();
+    setPwMsg(null);
+    if (pwForm.next !== pwForm.confirm) {
+      setPwMsg({ ok: false, text: "New passwords do not match" });
+      return;
+    }
+    const { status, json } = await api("/api/admin/password", {
+      method: "POST",
+      body: JSON.stringify({ current: pwForm.current, next: pwForm.next }),
+    });
+    if (status === 200 && json.ok) {
+      setPwForm({ current: "", next: "", confirm: "" });
+      setPwMsg({ ok: true, text: "Password changed. Use the new password from your next sign-in." });
+    } else {
+      setPwMsg({ ok: false, text: json.error ?? "Change failed" });
+    }
+  }
+
   async function remove(row: Row) {
     if (!window.confirm(`Delete ${tab} #${row.id}? This cannot be undone.`)) return;
     const { status, json } = await api(`/api/admin/catalog/${tab}?id=${row.id}`, { method: "DELETE" });
@@ -342,13 +380,56 @@ export default function AdminApp() {
     <div className="mx-auto max-w-[1280px] px-[34px] py-[55px]">
       <div className="mb-[21px] flex items-center justify-between">
         <h1 className="text-f24 font-bold text-t1">Catalog Admin</h1>
-        <button
-          className="text-f13 text-t3 hover:underline"
-          onClick={async () => { await api("/api/admin/logout", { method: "POST" }); setAuthed(false); }}
-        >
-          Sign out
-        </button>
+        <div className="flex items-center gap-[13px]">
+          <button
+            className="text-f13 text-t3 hover:underline"
+            onClick={() => { setPwPanel(!pwPanel); setPwMsg(null); }}
+          >
+            Change password
+          </button>
+          <button
+            className="text-f13 text-t3 hover:underline"
+            onClick={async () => { await api("/api/admin/logout", { method: "POST" }); setAuthed(false); }}
+          >
+            Sign out
+          </button>
+        </div>
       </div>
+
+      {pwPanel && (
+        <form
+          onSubmit={changePassword}
+          className="mb-[21px] flex flex-wrap items-end gap-[13px] rounded-[8px] border border-border-default bg-white p-[21px]"
+        >
+          {([
+            ["current", "Current password"],
+            ["next", "New password (min 10 chars)"],
+            ["confirm", "Confirm new password"],
+          ] as const).map(([key, label]) => (
+            <label key={key} className="text-f12 text-t2">
+              {label}
+              <input
+                type="password"
+                required
+                className="mt-[2px] block w-[220px] rounded-[4px] border border-border-default p-[8px] text-f13 text-t1"
+                value={pwForm[key]}
+                onChange={(e) => setPwForm({ ...pwForm, [key]: e.target.value })}
+              />
+            </label>
+          ))}
+          <button
+            type="submit"
+            className="rounded-[6px] bg-teal-text px-[21px] py-[8px] text-f13 font-semibold text-white"
+          >
+            Update password
+          </button>
+          {pwMsg && (
+            <p className={`w-full text-f13 ${pwMsg.ok ? "text-green-700" : "text-red-600"}`}>
+              {pwMsg.text}
+            </p>
+          )}
+        </form>
+      )}
 
       <div className="mb-[21px] flex gap-[8px]">
         {RESOURCES.map((r) => (

@@ -7,6 +7,11 @@ import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP Round Rod — Pultruded Fiberglass Solid Rod Manufacturer";
 const pageDescription =
@@ -43,7 +48,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/rod/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "Rod Ø6", d: 6, weight: "0.05" },
   { model: "Rod Ø8", d: 8, weight: "0.09" },
   { model: "Rod Ø10", d: 10, weight: "0.14" },
@@ -62,7 +67,18 @@ const sizes = [
   { model: "Rod Ø50", d: 50, weight: "3.57" },
 ];
 
-export default function RodPage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("rod");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    d: r.dims.D ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function RodPage() {
+  const sizes = await loadSizes();
   return (
     <>
       <JsonLd

@@ -1,11 +1,17 @@
-// Minimal self-contained admin auth: one shared password (ADMIN_PASSWORD env)
-// exchanged for an HMAC-signed, expiring httpOnly cookie. No user table, no
-// third-party auth — a single-operator back office. The signing secret is
-// ADMIN_SESSION_SECRET (falls back to a digest of ADMIN_PASSWORD so a single
-// env var is enough to go live).
+// Minimal self-contained admin auth: one shared password exchanged for an
+// HMAC-signed, expiring httpOnly cookie. No user table, no third-party auth —
+// a single-operator back office.
+//
+// Password precedence: a scrypt hash in admin_settings (set via the back
+// office "change password" panel) overrides ADMIN_PASSWORD env. The env var
+// remains the bootstrap credential and the session-signing anchor; changing
+// the password does NOT invalidate existing sessions (they expire naturally).
 
-import { createHmac, createHash, timingSafeEqual } from "node:crypto";
+import { createHmac, createHash, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
+import { getAdminSetting, setAdminSetting } from "@/lib/catalog/db";
+
+const PASSWORD_KEY = "admin_password_scrypt"; // value: salthex:hashhex
 
 export const ADMIN_COOKIE = "f1_admin_session";
 const SESSION_HOURS = 24 * 7;
@@ -24,13 +30,38 @@ export function adminConfigured(): boolean {
   return Boolean(process.env.ADMIN_PASSWORD);
 }
 
-/** Constant-time password check. */
-export function checkPassword(input: string): boolean {
+function scryptHash(password: string, saltHex: string): Buffer {
+  return scryptSync(password, Buffer.from(saltHex, "hex"), 32);
+}
+
+/** Constant-time password check: DB-stored scrypt hash wins over env. */
+export async function checkPassword(input: string): Promise<boolean> {
+  let stored: string | null = null;
+  try {
+    stored = await getAdminSetting(PASSWORD_KEY);
+  } catch {
+    stored = null; // DB unreachable → fall back to env bootstrap credential
+  }
+  if (stored) {
+    const [saltHex, hashHex] = stored.split(":");
+    if (saltHex && hashHex) {
+      const expected = Buffer.from(hashHex, "hex");
+      const actual = scryptHash(input, saltHex);
+      return expected.length === actual.length && timingSafeEqual(actual, expected);
+    }
+  }
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected) return false;
   const a = createHash("sha256").update(input).digest();
   const b = createHash("sha256").update(expected).digest();
   return timingSafeEqual(a, b);
+}
+
+/** Store a new admin password (scrypt, random salt). Returns false if no DB. */
+export async function setPassword(next: string): Promise<boolean> {
+  const salt = randomBytes(16).toString("hex");
+  const hash = scryptHash(next, salt).toString("hex");
+  return setAdminSetting(PASSWORD_KEY, `${salt}:${hash}`);
 }
 
 /** Create the signed session cookie value. */

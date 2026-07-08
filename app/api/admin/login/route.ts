@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ ok: false, error: "Bad request" }, { status: 400 });
   }
-  if (!password || !checkPassword(password)) {
+  if (!password || !(await checkPassword(password))) {
     return NextResponse.json({ ok: false, error: "Wrong password" }, { status: 401 });
   }
   const value = createSessionValue();

@@ -8,6 +8,11 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
+
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
 
 const pageTitle = "FRP Channel — Pultruded C & U Channel Manufacturer";
 const pageDescription =
@@ -21,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/channel/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "U 38×13×4.8", h: 38, b: 13, t: 4.8, weight: "0.4" },
   { model: "U 50×25×5", h: 50, b: 25, t: 5, weight: "0.7" },
   { model: "U 76×25×6.4", h: 76, b: 25, t: 6.4, weight: "1.0" },
@@ -56,7 +61,20 @@ const faqItems = [
   },
 ];
 
-export default function ChannelPage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("channel");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    h: r.dims.H ?? 0,
+    b: r.dims.B ?? 0,
+    t: r.dims.tw ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function ChannelPage() {
+  const sizes = await loadSizes();
   return (
     <>
       <JsonLd

@@ -22,29 +22,169 @@ const categories = [
   { slug: "flat-bar", name: "Flat Bar", description: "Pultruded FRP flat bar / strip.", sort: 7 },
 ];
 
-// Published E23 structural laminate data (from the FRP Profile Design Manual /
-// live product pages). NULL = not published yet → renders as "verify before
-// release" on datasheets. Do NOT fill these with guesses.
-const formulation = {
-  code: "E23-ISO",
-  name: "E23 structural laminate (isophthalic polyester / E-glass)",
-  resin: "Isophthalic unsaturated polyester",
-  glass_content: "65–70% by weight",
-  density_g_cm3: 1.9,
-  en13706_grade: "E23",
-  fire_rating: "ASTM E84 Class A (FSI ≤ 25)",
-  e_l_gpa: 23,
-  e_t_gpa: 7,
-  tensile_l_mpa: 240,
-  tensile_t_mpa: null as number | null,
-  flexural_l_mpa: 240,
-  flexural_t_mpa: null as number | null,
-  shear_mpa: 30,
+// ── formulations ────────────────────────────────────────────────────────────
+//
+// Two data provenances, and they must not be blurred:
+//  - E17 / E23 rows carry the MINIMUM requirements of EN 13706-3:2002 Table 1.
+//    These are standard values — legitimate to publish as guaranteed minimums
+//    for any laminate declared to that grade, regardless of resin family.
+//  - E30 / E40 are NOT EN 13706 grades (EN 13706 defines only E17 and E23).
+//    E30 is a vendor-tier designation above E23; E40 corresponds to the
+//    Austroads ATS 5880 bridge-grade modulus threshold. Only the definitional
+//    full-section modulus is filled; every strength stays NULL → renders
+//    "verify before release" until real test data exists.
+//
+// EN 13706-3:2002 Table 1 minimums:
+//              E23      E17
+//  E_L         23 GPa   17 GPa
+//  E_T          7 GPa    5 GPa
+//  σt,L       240 MPa  170 MPa
+//  σt,T        50 MPa   30 MPa
+//  σf,L       240 MPa  170 MPa
+//  σf,T       100 MPa   70 MPa
+//  pin-bearing L 150 MPa  90 MPa
+//  pin-bearing T  70 MPa  50 MPa
+//  ILSS (L)     25 MPa   15 MPa
+
+interface SeedFormulation {
+  code: string;
+  name: string;
+  resin: string | null;
+  resin_family: string | null;
+  glass_content: string | null;
+  density_g_cm3: number | null;
+  en13706_grade: string | null;
+  fire_rating: string | null;
+  e_l_gpa: number | null;
+  e_t_gpa: number | null;
+  tensile_l_mpa: number | null;
+  tensile_t_mpa: number | null;
+  flexural_l_mpa: number | null;
+  flexural_t_mpa: number | null;
+  shear_mpa: number | null;
+  compressive_l_mpa: number | null;
+  pin_bearing_l_mpa: number | null;
+  pin_bearing_t_mpa: number | null;
+  barcol: number | null;
+  water_abs_pct: number | null;
+  notes: string | null;
+}
+
+const E23_MIN = {
+  e_l_gpa: 23, e_t_gpa: 7,
+  tensile_l_mpa: 240, tensile_t_mpa: 50,
+  flexural_l_mpa: 240, flexural_t_mpa: 100,
+  shear_mpa: 25, pin_bearing_l_mpa: 150, pin_bearing_t_mpa: 70,
+};
+const E17_MIN = {
+  e_l_gpa: 17, e_t_gpa: 5,
+  tensile_l_mpa: 170, tensile_t_mpa: 30,
+  flexural_l_mpa: 170, flexural_t_mpa: 70,
+  shear_mpa: 15, pin_bearing_l_mpa: 90, pin_bearing_t_mpa: 50,
+};
+const NO_MECH = {
+  e_t_gpa: null, tensile_l_mpa: null, tensile_t_mpa: null,
+  flexural_l_mpa: null, flexural_t_mpa: null, shear_mpa: null,
+  pin_bearing_l_mpa: null, pin_bearing_t_mpa: null,
+};
+const BASE = {
   compressive_l_mpa: null as number | null,
   barcol: null as number | null,
   water_abs_pct: null as number | null,
-  notes: "Values per EN 13706-2 E23 grade as published in the F1 FRP Profile Design Manual (DOC-PF-2026-EN Rev. A).",
+  density_g_cm3: null as number | null,
+  fire_rating: null as string | null,
+  glass_content: null as string | null,
 };
+const EN_NOTE = (g: string) =>
+  `Minimum requirements per EN 13706-3:2002 Table 1, grade ${g}. Guaranteed minimums for laminates declared to this grade; replace with measured values where certified test data exists.`;
+
+const formulations: SeedFormulation[] = [
+  // F1's own published E23 laminate — keeps existing code so the 114 seeded
+  // products stay linked. Published values where F1 publishes (ILSS 30 > the
+  // 25 minimum), standard minimums for the transverse values F1 does not.
+  {
+    ...BASE, ...E23_MIN,
+    code: "E23-ISO",
+    name: "E23 · Unsaturated polyester (isophthalic) / E-glass",
+    resin: "Isophthalic unsaturated polyester",
+    resin_family: "unsaturated_polyester",
+    glass_content: "65–70% by weight",
+    density_g_cm3: 1.9,
+    en13706_grade: "E23",
+    fire_rating: "ASTM E84 Class A (FSI ≤ 25)",
+    shear_mpa: 30,
+    notes:
+      "F1-published laminate (FRP Profile Design Manual DOC-PF-2026-EN Rev. A); ILSS 30 MPa published above the EN 13706 minimum of 25 MPa; transverse values are EN 13706-3 Table 1 grade minimums.",
+  },
+  {
+    ...BASE, ...E17_MIN,
+    code: "UP-E17",
+    name: "E17 · Unsaturated polyester / E-glass",
+    resin: "Unsaturated polyester",
+    resin_family: "unsaturated_polyester",
+    en13706_grade: "E17",
+    notes: EN_NOTE("E17"),
+  },
+  {
+    ...BASE, ...E23_MIN,
+    code: "VE-E23",
+    name: "E23 · Vinyl ester / E-glass",
+    resin: "Vinyl ester",
+    resin_family: "vinyl_ester",
+    en13706_grade: "E23",
+    notes: `${EN_NOTE("E23")} Vinyl ester matrix for aggressive chemical / marine service.`,
+  },
+  {
+    ...BASE, ...E23_MIN,
+    code: "EP-E23",
+    name: "E23 · Epoxy / E-glass",
+    resin: "Epoxy",
+    resin_family: "epoxy",
+    en13706_grade: "E23",
+    notes: `${EN_NOTE("E23")} Epoxy matrix for elevated-temperature and fatigue-critical service.`,
+  },
+  {
+    ...BASE, ...E23_MIN,
+    code: "PU-E23",
+    name: "E23 · Polyurethane / E-glass",
+    resin: "Polyurethane",
+    resin_family: "polyurethane",
+    en13706_grade: "E23",
+    notes: `${EN_NOTE("E23")} PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet); replace with measured values per programme.`,
+  },
+  {
+    ...BASE, ...E23_MIN,
+    code: "PH-E23",
+    name: "E23 · Phenolic / E-glass",
+    resin: "Phenolic",
+    resin_family: "phenolic",
+    en13706_grade: "E23",
+    notes: `${EN_NOTE("E23")} Phenolic matrix for fire-critical service (low flame spread / smoke).`,
+  },
+  // Higher-modulus tiers — NOT EN 13706 grades. Definitional modulus only.
+  {
+    ...BASE, ...NO_MECH,
+    code: "HM-E30",
+    name: "E30 · High-modulus laminate (vendor tier)",
+    resin: null,
+    resin_family: null,
+    en13706_grade: "E30",
+    e_l_gpa: 30,
+    notes:
+      "E30 is NOT an EN 13706 grade (the standard defines only E17/E23). Vendor tier: full-section modulus ≥ 30 GPa is definitional; all strengths require programme test data before release.",
+  },
+  {
+    ...BASE, ...NO_MECH,
+    code: "HM-E40",
+    name: "E40 · Bridge-grade laminate (ATS 5880 tier)",
+    resin: null,
+    resin_family: null,
+    en13706_grade: "E40",
+    e_l_gpa: 40,
+    notes:
+      "E40 corresponds to the Austroads ATS 5880 bridge-grade modulus threshold, not an EN 13706 grade. Requires ≥77% glass or hybrid carbon reinforcement; all strengths require programme test data before release.",
+  },
+];
 
 const STANDARDS = "EN 13706 Grade E23 · ASTM E84 Class A";
 
@@ -158,6 +298,7 @@ const downloads: {
 
 export interface SeedResult {
   categories: number;
+  formulations: number;
   formulationId: number;
   products: number;
   downloads: number;
@@ -188,6 +329,11 @@ export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
     size TEXT, description TEXT, file_url TEXT, category TEXT, sort INT NOT NULL DEFAULT 0,
     published BOOLEAN NOT NULL DEFAULT true,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(), updated_at TIMESTAMPTZ NOT NULL DEFAULT now())`;
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS resin_family TEXT`;
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_l_mpa NUMERIC`;
+  await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_t_mpa NUMERIC`;
+  await sql`CREATE TABLE IF NOT EXISTS admin_settings (
+    key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT now())`;
 
   // categories
   const catId = new Map<string, number>();
@@ -201,27 +347,35 @@ export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
     catId.set(c.slug, rows[0].id);
   }
 
-  // formulation
-  const f = formulation;
-  const fRows = (await sql`
-    INSERT INTO catalog_formulations
-      (code, name, resin, glass_content, density_g_cm3, en13706_grade, fire_rating,
-       e_l_gpa, e_t_gpa, tensile_l_mpa, tensile_t_mpa, flexural_l_mpa, flexural_t_mpa,
-       shear_mpa, compressive_l_mpa, barcol, water_abs_pct, notes)
-    VALUES
-      (${f.code}, ${f.name}, ${f.resin}, ${f.glass_content}, ${f.density_g_cm3},
-       ${f.en13706_grade}, ${f.fire_rating}, ${f.e_l_gpa}, ${f.e_t_gpa},
-       ${f.tensile_l_mpa}, ${f.tensile_t_mpa}, ${f.flexural_l_mpa}, ${f.flexural_t_mpa},
-       ${f.shear_mpa}, ${f.compressive_l_mpa}, ${f.barcol}, ${f.water_abs_pct}, ${f.notes})
-    ON CONFLICT (code) DO UPDATE SET
-      name = EXCLUDED.name, resin = EXCLUDED.resin, glass_content = EXCLUDED.glass_content,
-      density_g_cm3 = EXCLUDED.density_g_cm3, en13706_grade = EXCLUDED.en13706_grade,
-      fire_rating = EXCLUDED.fire_rating, e_l_gpa = EXCLUDED.e_l_gpa, e_t_gpa = EXCLUDED.e_t_gpa,
-      tensile_l_mpa = EXCLUDED.tensile_l_mpa, flexural_l_mpa = EXCLUDED.flexural_l_mpa,
-      shear_mpa = EXCLUDED.shear_mpa, notes = EXCLUDED.notes, updated_at = now()
-    RETURNING id
-  `) as { id: number }[];
-  const formulationId = fRows[0].id;
+  // formulations — E23-ISO first so the returned id keeps the 114 products' link
+  let formulationId = 0;
+  for (const f of formulations) {
+    const fRows = (await sql`
+      INSERT INTO catalog_formulations
+        (code, name, resin, resin_family, glass_content, density_g_cm3, en13706_grade,
+         fire_rating, e_l_gpa, e_t_gpa, tensile_l_mpa, tensile_t_mpa, flexural_l_mpa,
+         flexural_t_mpa, shear_mpa, compressive_l_mpa, pin_bearing_l_mpa, pin_bearing_t_mpa,
+         barcol, water_abs_pct, notes)
+      VALUES
+        (${f.code}, ${f.name}, ${f.resin}, ${f.resin_family}, ${f.glass_content},
+         ${f.density_g_cm3}, ${f.en13706_grade}, ${f.fire_rating}, ${f.e_l_gpa}, ${f.e_t_gpa},
+         ${f.tensile_l_mpa}, ${f.tensile_t_mpa}, ${f.flexural_l_mpa}, ${f.flexural_t_mpa},
+         ${f.shear_mpa}, ${f.compressive_l_mpa}, ${f.pin_bearing_l_mpa}, ${f.pin_bearing_t_mpa},
+         ${f.barcol}, ${f.water_abs_pct}, ${f.notes})
+      ON CONFLICT (code) DO UPDATE SET
+        name = EXCLUDED.name, resin = EXCLUDED.resin, resin_family = EXCLUDED.resin_family,
+        glass_content = EXCLUDED.glass_content, density_g_cm3 = EXCLUDED.density_g_cm3,
+        en13706_grade = EXCLUDED.en13706_grade, fire_rating = EXCLUDED.fire_rating,
+        e_l_gpa = EXCLUDED.e_l_gpa, e_t_gpa = EXCLUDED.e_t_gpa,
+        tensile_l_mpa = EXCLUDED.tensile_l_mpa, tensile_t_mpa = EXCLUDED.tensile_t_mpa,
+        flexural_l_mpa = EXCLUDED.flexural_l_mpa, flexural_t_mpa = EXCLUDED.flexural_t_mpa,
+        shear_mpa = EXCLUDED.shear_mpa, pin_bearing_l_mpa = EXCLUDED.pin_bearing_l_mpa,
+        pin_bearing_t_mpa = EXCLUDED.pin_bearing_t_mpa, notes = EXCLUDED.notes,
+        updated_at = now()
+      RETURNING id
+    `) as { id: number }[];
+    if (f.code === "E23-ISO") formulationId = fRows[0].id;
+  }
 
   // products
   const P = buildProducts();
@@ -263,6 +417,7 @@ export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
 
   return {
     categories: catId.size,
+    formulations: formulations.length,
     formulationId,
     products: P.length,
     downloads: downloads.length,
