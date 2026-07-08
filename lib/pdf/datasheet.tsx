@@ -350,6 +350,9 @@ function ProductPage({
           <Text style={styles.small}>Fire: {pdfSafe(formulation.fire_rating) || "—"}</Text>
         </View>
       )}
+      {formulation?.notes ? (
+        <Text style={[styles.small, { marginTop: 4 }]}>Data basis: {pdfSafe(formulation.notes)}</Text>
+      ) : null}
 
       {/* standards & applications */}
       {((product.standards && isDefaultFormulation) || product.applications || product.tolerances) && (

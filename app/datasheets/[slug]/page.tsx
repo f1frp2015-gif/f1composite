@@ -257,6 +257,11 @@ export default async function DatasheetPage({
               <span>Fire: {formulation.fire_rating ?? "—"}</span>
             </div>
           )}
+          {formulation?.notes && (
+            <p className="mt-[8px] text-f13 leading-golden text-t3">
+              Data basis: {formulation.notes}
+            </p>
+          )}
           {(product.standards || product.applications) && (
             <p className="mt-[13px] text-f15 text-t2">
               {product.standards ? `Standards: ${product.standards}. ` : ""}

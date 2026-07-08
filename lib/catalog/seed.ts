@@ -98,6 +98,15 @@ const BASE = {
 const EN_NOTE = (g: string) =>
   `Minimum requirements per EN 13706-3:2002 Table 1, grade ${g}. Guaranteed minimums for laminates declared to this grade; replace with measured values where certified test data exists.`;
 
+// EN 13706 does not specify compressive strength, Barcol hardness or water
+// absorption. Until F1 certified test data lands, these three carry TYPICAL
+// industry values for the resin system (benchmarks: Strongwell EXTREN
+// 500/525/625 coupon data — compressive LW 207 MPa at the E17 tier, Barcol 45,
+// water absorption 0.60% max ASTM D570; E23-tier compressive 240 MPa follows
+// the European design-manual convention of compressive ≈ tensile minimum).
+const TYP_NOTE =
+  "Compressive strength, Barcol hardness and water absorption are not specified by EN 13706 — the figures shown are typical industry values for this resin system, pending F1 certified test data; request certified values before final design.";
+
 const formulations: SeedFormulation[] = [
   // F1's own published E23 laminate — keeps existing code so the 114 seeded
   // products stay linked. Published values where F1 publishes (ILSS 30 > the
@@ -113,8 +122,9 @@ const formulations: SeedFormulation[] = [
     en13706_grade: "E23",
     fire_rating: "ASTM E84 Class A (FSI ≤ 25)",
     shear_mpa: 30,
+    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.6,
     notes:
-      "F1-published laminate (FRP Profile Design Manual DOC-PF-2026-EN Rev. A); ILSS 30 MPa published above the EN 13706 minimum of 25 MPa; transverse values are EN 13706-3 Table 1 grade minimums.",
+      `F1-published laminate (FRP Profile Design Manual DOC-PF-2026-EN Rev. A); ILSS 30 MPa published above the EN 13706 minimum of 25 MPa; transverse values are EN 13706-3 Table 1 grade minimums. ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E17_MIN,
@@ -123,7 +133,8 @@ const formulations: SeedFormulation[] = [
     resin: "Unsaturated polyester",
     resin_family: "unsaturated_polyester",
     en13706_grade: "E17",
-    notes: EN_NOTE("E17"),
+    compressive_l_mpa: 200, barcol: 45, water_abs_pct: 0.6,
+    notes: `${EN_NOTE("E17")} ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -132,7 +143,8 @@ const formulations: SeedFormulation[] = [
     resin: "Vinyl ester",
     resin_family: "vinyl_ester",
     en13706_grade: "E23",
-    notes: `${EN_NOTE("E23")} Vinyl ester matrix for aggressive chemical / marine service.`,
+    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.6,
+    notes: `${EN_NOTE("E23")} Vinyl ester matrix for aggressive chemical / marine service. ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -141,7 +153,8 @@ const formulations: SeedFormulation[] = [
     resin: "Epoxy",
     resin_family: "epoxy",
     en13706_grade: "E23",
-    notes: `${EN_NOTE("E23")} Epoxy matrix for elevated-temperature and fatigue-critical service.`,
+    compressive_l_mpa: 240, barcol: 50, water_abs_pct: 0.5,
+    notes: `${EN_NOTE("E23")} Epoxy matrix for elevated-temperature and fatigue-critical service. ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -150,7 +163,10 @@ const formulations: SeedFormulation[] = [
     resin: "Polyurethane",
     resin_family: "polyurethane",
     en13706_grade: "E23",
-    notes: `${EN_NOTE("E23")} PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet); replace with measured values per programme.`,
+    // Water absorption backed by F1's own PU spec limit (PU-GF TDS F1-TDS-PUGF-001:
+    // spec <= 0.5%, measured 0.099-0.114% on the automotive-grade laminate).
+    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.5,
+    notes: `${EN_NOTE("E23")} PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet); replace with measured values per programme. ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -159,7 +175,10 @@ const formulations: SeedFormulation[] = [
     resin: "Phenolic",
     resin_family: "phenolic",
     en13706_grade: "E23",
-    notes: `${EN_NOTE("E23")} Phenolic matrix for fire-critical service (low flame spread / smoke).`,
+    // Phenolic laminates run slightly below polyester in compressive strength
+    // and absorb more moisture — typical published ranges, not measured F1 data.
+    compressive_l_mpa: 200, barcol: 45, water_abs_pct: 1.0,
+    notes: `${EN_NOTE("E23")} Phenolic matrix for fire-critical service (low flame spread / smoke). ${TYP_NOTE}`,
   },
   // Higher-modulus tiers — NOT EN 13706 grades. Definitional modulus only.
   {
@@ -370,7 +389,9 @@ export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
         tensile_l_mpa = EXCLUDED.tensile_l_mpa, tensile_t_mpa = EXCLUDED.tensile_t_mpa,
         flexural_l_mpa = EXCLUDED.flexural_l_mpa, flexural_t_mpa = EXCLUDED.flexural_t_mpa,
         shear_mpa = EXCLUDED.shear_mpa, pin_bearing_l_mpa = EXCLUDED.pin_bearing_l_mpa,
-        pin_bearing_t_mpa = EXCLUDED.pin_bearing_t_mpa, notes = EXCLUDED.notes,
+        pin_bearing_t_mpa = EXCLUDED.pin_bearing_t_mpa,
+        compressive_l_mpa = EXCLUDED.compressive_l_mpa, barcol = EXCLUDED.barcol,
+        water_abs_pct = EXCLUDED.water_abs_pct, notes = EXCLUDED.notes,
         updated_at = now()
       RETURNING id
     `) as { id: number }[];
