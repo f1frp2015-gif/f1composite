@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import PultrusionAnimation from "./PultrusionAnimation";
 import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
@@ -18,7 +19,7 @@ const pageDescription =
   "Pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism. How pultruded FRP structural profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
 const publishedAt = "2024-03-15";
-const updatedAt = "2026-04-02";
+const updatedAt = "2026-07-08";
 const authorName = "F1 Composite Process Engineering Team";
 const authorRole = "Pultrusion line setup, tooling, and process-control specialists";
 const reviewedBy = "Manufacturing Technology Review Group";
@@ -386,6 +387,16 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Six Stages of Pultrusion
           </h2>
+          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+            Watch the full line in motion — from fiber pay-off to the flying cut-off saw.
+            Every speed in the animation is derived from one line speed, just like a real
+            production line.
+          </p>
+
+          {/* ── Animated line schematic ── */}
+          <div className="mt-[34px]">
+            <PultrusionAnimation />
+          </div>
 
           {/* ── Horizontal flow diagram (desktop: 6 columns, mobile: vertical) ── */}
           <div className="relative mt-[55px]">
@@ -396,7 +407,11 @@ export default function PultrusionProcessPage() {
 
             <div className="grid gap-[34px] lg:grid-cols-6 lg:gap-[13px]">
               {processStages.map((stage) => (
-                <div key={stage.step} className="relative pl-[55px] lg:pl-0">
+                <div
+                  key={stage.step}
+                  id={`step-${stage.step}`}
+                  className="relative scroll-mt-[89px] pl-[55px] lg:pl-0"
+                >
                   {/* Step circle — mobile */}
                   <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f11 font-extrabold text-teal lg:hidden">
                     {stage.step}
