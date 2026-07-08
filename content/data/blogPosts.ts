@@ -342,12 +342,12 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     coverAlt:
       "Interior view of white-framed windows on an autumn day — the interior frame surface temperature is where the condensation battle is won or lost",
     coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
-    supportingImage: "/images/blog/winter-night-window-warm-light.jpg",
+    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
     supportingAlt:
-      "Warm-lit window in a dark facade on a winter night — the condition that drives frame condensation: warm humid interior, deep-cold exterior, and the frame in between",
-    supportingAttribution: pexelsCredit("Ayco World", "https://www.pexels.com/photo/34032603/"),
+      "Icicles and packed frost hanging directly in front of a window on a deep-winter day — the freeze condition under which frame-face condensation becomes frame-face ice",
+    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
     supportingCaption:
-      "The design condition that matters: a warm, humidified interior on one side of the frame and a deep-cold night on the other. Whether the interior frame face stays above the dew point is decided almost entirely by the frame material's conductivity.",
+      "The design condition that matters, seen from the inside: deep cold and ice on one side of the frame, a warm humidified room on the other. Whether the interior frame face stays above the dew point — or grows its own frost — is decided almost entirely by the frame material's conductivity.",
     highlights: [
       "Condensation is surface-temperature physics: the frame face drops below dew point because aluminum conducts heat 500× faster than insulating frames",
       "Thermal breaks move the problem rather than solve it — screw ports, corner keys, and hardware penetrations bridge the break",
@@ -927,8 +927,8 @@ For a mine operator weighing a switch from steel or PE, the case is a lower fail
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
     coverImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
     coverAlt: "Pultrusion production line manufacturing FRP profiles at F1 Composite",
-    supportingImage: "/images/technology/pultrusion-die-resin-impregnation.jpg",
-    supportingAlt: "Resin impregnation and die entry stage in a pultrusion process",
+    supportingImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
+    supportingAlt: "Pultrusion production hall at F1 Composite with continuous lines running FRP profiles",
     supportingCaption:
       "Pultrusion quality depends on keeping fiber architecture, wet-out, die temperature, and pull speed in a validated process window.",
     highlights: [
@@ -1438,9 +1438,8 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM E84"],
     coverImage: "/images/technology/resin-formulation-laboratory-testing.jpg",
     coverAlt: "Resin formulation and process control work in an advanced pultrusion laboratory",
-    supportingImage: "/images/technology/pultrusion-formulation-matrix.jpg",
-    supportingAlt: "Pultrusion process formulation matrix used to balance resin, fiber, and production conditions",
-    supportingImageFit: "contain",
+    supportingImage: "/images/technology/f1-composite-pultrusion-plant-floor.webp",
+    supportingAlt: "F1 Composite pultrusion plant floor with continuous lines producing FRP profiles — where concept, qualification, and production reality meet",
     supportingCaption:
       "The industry's current questions all point in one direction: buyers want less uncertainty between concept, qualification, and production reality.",
     highlights: [
