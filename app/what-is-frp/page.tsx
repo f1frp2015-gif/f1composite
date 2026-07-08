@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import FrpProcessShowcase from "@/components/sections/FrpProcessShowcase";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import { GuideDownloadGate } from "@/components/sections/GuideDownloadGate";
@@ -392,6 +393,8 @@ export default function WhatIsFrpPage() {
           </div>
         </div>
       </section>
+
+      <FrpProcessShowcase />
 
       {/* Pultrusion Process */}
       <section id="pultrusion" className="bg-bg2 py-[55px]">
