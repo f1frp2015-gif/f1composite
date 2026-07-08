@@ -43,10 +43,19 @@ export type BlogPost = {
   coverImage: string;
   coverAlt: string;
   coverImagePosition?: string;
+  /**
+   * "contain" renders the full image letterboxed on the article page instead
+   * of cropping to the 1.618 frame — required for product cross-section
+   * renders whose informative detail sits at the image edge. The blog-index
+   * thumbnail always crops (cover); use coverImagePosition to keep the
+   * cross-section in the thumbnail crop.
+   */
+  coverImageFit?: "contain" | "cover";
   coverAttribution?: ImageAttribution;
   supportingImage: string;
   supportingAlt: string;
   supportingImagePosition?: string;
+  supportingImageFit?: "contain" | "cover";
   supportingCaption: string;
   supportingAttribution?: ImageAttribution;
   highlights: string[];
@@ -82,6 +91,7 @@ export const blogPosts: BlogPost[] = [
     supportingImage: "/images/products/window-door/frp-window-frame-65-series-corner-section.webp",
     supportingAlt:
       "Pultruded fiberglass window frame corner cross-section — the object every qualification check ultimately points at: chamber geometry, wall thickness, and tolerance",
+    supportingImageFit: "contain",
     supportingCaption:
       "Everything on the checklist converges on this object: a profile whose chamber geometry, wall thickness, and critical dimensions match the die drawing — on the first run and on the fortieth.",
     highlights: [
@@ -172,6 +182,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
     supportingAlt:
       "90-series pultruded fiberglass window frame corner section — deeper chambers, thicker walls, and premium resin systems all show up in the per-meter price",
+    supportingImageFit: "contain",
     supportingCaption:
       "Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness, and finish are all invisible at thumbnail resolution.",
     highlights: [
@@ -413,9 +424,12 @@ To check where a specific frame and glazing build lands before specifying, run i
     coverImage: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
     coverAlt:
       "Pultruded FRP window frame 70-series profile — the core product of the fiberglass window profile market",
+    coverImagePosition: "center 62%",
+    coverImageFit: "contain",
     supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
     supportingAlt:
       "FRP window frame 90-series corner cross-section showing the multi-chamber pultruded profile geometry supplied to window fabricators",
+    supportingImageFit: "contain",
     supportingCaption:
       "The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set — frame, sash, mullion, transom, glazing bead — and assemble, glaze, and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
     highlights: [

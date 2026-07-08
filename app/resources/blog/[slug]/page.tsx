@@ -271,9 +271,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   alt={post.coverAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 960px"
-                  className="object-cover"
+                  className={post.coverImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
-                    post.coverImagePosition
+                    post.coverImagePosition && post.coverImageFit !== "contain"
                       ? { objectPosition: post.coverImagePosition }
                       : undefined
                   }
@@ -352,9 +352,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   alt={post.supportingAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 800px"
-                  className="object-cover"
+                  className={post.supportingImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
-                    post.supportingImagePosition
+                    post.supportingImagePosition && post.supportingImageFit !== "contain"
                       ? { objectPosition: post.supportingImagePosition }
                       : undefined
                   }

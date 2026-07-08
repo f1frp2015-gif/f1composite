@@ -45,6 +45,8 @@ const profileFamily: Array<{
   summary: string;
   href: string;
   image: string;
+  /** CSS object-position override for images whose subject sits off-center. */
+  imagePosition?: string;
 }> = [
   {
     slug: "i-beam",
@@ -115,6 +117,9 @@ const profileFamily: Array<{
       "Pultruded fiberglass window frames and FRP window profiles — frame, sash, mullion, transom, glazing bead. Whole-window U-values down to 0.78 W/m²·K. PHI passive house certified. Direct replacement for aluminum and PVC window systems.",
     href: "/products/fenestration-systems",
     image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
+    // Square cross-section render whose informative detail sits low — keep the
+    // multi-chamber section inside the 4:3 crop instead of the default center.
+    imagePosition: "center 68%",
   },
   {
     slug: "custom",
@@ -549,6 +554,11 @@ export default function PultrudedFRPProfilesHubPage() {
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    style={
+                      item.imagePosition
+                        ? { objectPosition: item.imagePosition }
+                        : undefined
+                    }
                   />
                 </div>
                 <div className="p-[21px]">
