@@ -15,7 +15,7 @@ import ProfileCalculator from "./ProfileCalculator";
 // real calculator changes — it's a freshness signal, so it must track
 // actual edits, not just get stamped on every deploy.
 const publishedAt = "2026-05-16";
-const updatedAt = "2026-07-07";
+const updatedAt = "2026-07-08";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Free FRP Profile Calculator — LRFD/ASD · EN, GB, ASCE Codes",
@@ -90,6 +90,7 @@ export default function CalculatorPage() {
             "Simply supported, cantilever, UDL, point load support",
             "FRP-to-steel and FRP-to-aluminum equivalent section finder",
             "Weight comparison across materials",
+            "Interactive 3D cross-section preview with dimension callouts and 2D drawing view",
           ],
           offers: {
             "@type": "Offer",

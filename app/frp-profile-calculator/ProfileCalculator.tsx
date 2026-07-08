@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
+import SectionPreview from "@/components/calculators/section/SectionPreview";
 
 /* ──────────────────────────────────────────────────────────────────────────
    Material database — orthotropic FRP + isotropic metals
@@ -285,6 +286,7 @@ export default function ProfileCalculator() {
   const dm = designMethods[designMethod];
   const env = envFactors.find((e) => e.id === envKey)!;
   const isFRP = mat.group === "FRP";
+  const sectionLook = isFRP ? "frp" : matKey.startsWith("alu") ? "alu" : "steel";
 
   const Ix = calcIx(shape, dimH, dimB, dimTw, dimTf);
   const Wx = calcWx(Ix, dimH, shape, dimB, dimTw);
@@ -325,7 +327,7 @@ export default function ProfileCalculator() {
   const defl = defl_bending * shearCorrection;
   const deflShearPct = ((shearCorrection - 1) * 100);
   const deflRatio = span / (defl || 1);
-  const weightPerM = (area / 1e6) * mat.density;
+  const weightPerM = (area * mat.density) / 1000; // mm² × g/cm³ → kg/m
 
   // Checks
   const stressOk = sigma_max <= F_b_allow;
@@ -362,11 +364,11 @@ export default function ProfileCalculator() {
   const governingScale = Math.max(stiffnessScale, strengthScale);
   const governingCriterion = stiffnessScale >= strengthScale ? "Stiffness (EI)" : "Strength (σW)";
 
-  const srcWeight = (srcArea / 1e6) * srcMat.density;
+  const srcWeight = (srcArea * srcMat.density) / 1000; // mm² × g/cm³ → kg/m
   const stiffArea = calcArea(eqShape, stiffH, stiffB, stiffTw, stiffTf);
   const strengthArea = calcArea(eqShape, strengthH, strengthB, strengthTw, strengthTf);
-  const stiffWeight = (stiffArea / 1e6) * tgtMat.density;
-  const strengthWeight = (strengthArea / 1e6) * tgtMat.density;
+  const stiffWeight = (stiffArea * tgtMat.density) / 1000;
+  const strengthWeight = (strengthArea * tgtMat.density) / 1000;
   const tgtWeight = governingScale === stiffnessScale ? stiffWeight : strengthWeight;
   const weightSaving = srcWeight > 0 ? ((1 - tgtWeight / srcWeight) * 100) : 0;
 
@@ -571,6 +573,9 @@ export default function ProfileCalculator() {
                   </div>
                 )}
               </div>
+
+              {/* Live visual of the section the dims above describe */}
+              <SectionPreview shape={shape} H={dimH} B={dimB} tw={dimTw} tf={dimTf} look={sectionLook} />
 
               {/* Basis line */}
               <p className="text-f11 text-t3">
