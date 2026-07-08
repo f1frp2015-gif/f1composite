@@ -5,7 +5,14 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
+import DatasheetBuilder from "@/components/downloads/DatasheetBuilder";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { listDownloads } from "@/lib/catalog/db";
+
+// DB-driven with an hourly refresh; the hardcoded list below is the fallback
+// when the DB is unreachable so `next build` and the live page never break
+// on a Neon hiccup (build-time prerender runs live queries).
+export const revalidate = 3600;
 
 const faqs = [
   {
@@ -38,7 +45,15 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/resources/downloads/opengraph-image",
 });
 
-const downloads = [
+interface DownloadItem {
+  title: string;
+  format: string;
+  size: string;
+  description: string;
+  file?: string;
+}
+
+const fallbackDownloads: DownloadItem[] = [
   {
     title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",
     format: "PDF",
@@ -147,7 +162,24 @@ const downloads = [
   },
 ];
 
-export default function DownloadsPage() {
+async function loadDownloads(): Promise<DownloadItem[]> {
+  try {
+    const rows = await listDownloads({ publishedOnly: true });
+    if (rows.length === 0) return fallbackDownloads;
+    return rows.map((r) => ({
+      title: r.title,
+      format: r.format,
+      size: r.size ?? "",
+      description: r.description ?? "",
+      file: r.file_url ?? undefined,
+    }));
+  } catch {
+    return fallbackDownloads;
+  }
+}
+
+export default async function DownloadsPage() {
+  const downloads = await loadDownloads();
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -188,6 +220,8 @@ export default function DownloadsPage() {
           </div>
         </div>
       </section>
+
+      <DatasheetBuilder />
 
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

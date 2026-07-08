@@ -33,12 +33,12 @@ export default function robots(): MetadataRoute.Robots {
         // the rest of /api/ (chat, contact, inquiries) stays blocked. A more
         // specific allow wins over the broader /api/ disallow.
         allow: ["/", "/api/ai-context"],
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin"],
       },
       {
         userAgent: AI_CRAWLERS,
         allow: ["/", "/api/ai-context"],
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin"],
       },
     ],
     sitemap: "https://www.f1composite.com/sitemap.xml",
