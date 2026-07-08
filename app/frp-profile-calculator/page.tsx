@@ -8,6 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
+import { BeamDeflection } from "@/components/sections/ConceptAnimations";
 
 // publishedAt = the LRFD/ASD + CN/EU/US-standards rewrite that produced the
 // current feature set (git: "Rewrite FRP profile calculator with LRFD/ASD
@@ -159,6 +160,12 @@ export default function CalculatorPage() {
         reviewedBy="Yifan Liu, Application Engineer"
         standards={["ASCE/SEI 74-23", "CEN/TS 19101:2022", "GB 50608-2020", "EN 13706-3", "ASTM D3917"]}
       />
+
+      <section className="bg-white pt-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <BeamDeflection />
+        </div>
+      </section>
 
       <ProfileCalculator />
 

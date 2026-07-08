@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { ProcessTrio } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Pultrusion vs Extrusion vs Filament Winding";
@@ -169,6 +170,9 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             Confusing the three usually happens at the RFQ stage — a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
           </p>
+          <div className="mt-[21px]">
+            <ProcessTrio />
+          </div>
         </div>
       </section>
 

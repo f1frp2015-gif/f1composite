@@ -8,6 +8,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
+import { HeatFlowFrameComparison } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost, PHIUS Data";
@@ -157,6 +158,9 @@ export default function FrpVsAluminumWindowsPage() {
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page compares FRP and aluminum across the 13 properties that actually drive specification decisions: frame Uf, thermal bridging ψ, coefficient of thermal expansion, condensation resistance, corrosion resistance, lifecycle cost, and PHI certifiability. Every number is sourced from EN ISO 10077-1 calculations, manufacturer datasheets, or third-party certification test reports.
           </p>
+          <div className="mt-[21px]">
+            <HeatFlowFrameComparison />
+          </div>
         </div>
       </section>
 

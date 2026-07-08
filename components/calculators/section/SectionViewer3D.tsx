@@ -15,7 +15,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { Section, MaterialPbr, Annotations, AnnoLine, AnnoLabel } from "./geometry";
 
-/* ── procedural texture maps ───────────────────────────────────────── */
+/* -- procedural texture maps ----------------------------------------- */
 
 const textureCache = new Map<string, THREE.CanvasTexture>();
 
@@ -106,7 +106,7 @@ function buildMaterial(pbr: MaterialPbr): THREE.MeshPhysicalMaterial {
   return mat;
 }
 
-/* ── geometry ──────────────────────────────────────────────────────── */
+/* -- geometry -------------------------------------------------------- */
 
 function ringToPath<T extends THREE.Shape | THREE.Path>(ring: readonly (readonly [number, number])[], path: T): T {
   path.moveTo(ring[0][0], ring[0][1]);
@@ -144,7 +144,7 @@ function buildGeometry(section: Section, depth: number): THREE.ExtrudeGeometry {
   return geo;
 }
 
-/* ── annotation overlay ────────────────────────────────────────────── */
+/* -- annotation overlay ---------------------------------------------- */
 
 const C_DIM = "#00857e";
 const C_FAINT = "#6e7189";
@@ -249,7 +249,7 @@ function escapeXml(s: string): string {
   return s.replace(/[<>&]/g, (c) => (c === "<" ? "&lt;" : c === ">" ? "&gt;" : "&amp;"));
 }
 
-/* ── viewer ────────────────────────────────────────────────────────── */
+/* -- viewer ---------------------------------------------------------- */
 
 export default function SectionViewer3D({
   section,
@@ -279,7 +279,9 @@ export default function SectionViewer3D({
     syncOverlay: () => void;
   } | null>(null);
   const annoRef = useRef<Annotations | undefined>(annotations);
-  annoRef.current = annotations;
+  useEffect(() => {
+    annoRef.current = annotations;
+  }, [annotations]);
 
   // one-time scene setup
   useEffect(() => {

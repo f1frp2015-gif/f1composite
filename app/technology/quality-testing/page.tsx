@@ -7,6 +7,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { TensileFlexuralTest } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 /* ═══════════════════════════════════════════════════════
@@ -428,6 +429,9 @@ export default function QualityTestingPage() {
             mechanical and physical tests required to characterize pultruded FRP profiles.
             All testing equipment is calibrated annually to traceable national standards.
           </p>
+          <div className="mt-[21px] max-w-[760px]">
+            <TensileFlexuralTest />
+          </div>
 
           <div className="mt-[55px] space-y-[34px]">
             {testingProcedures.map((test) => (

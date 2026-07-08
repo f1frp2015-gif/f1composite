@@ -9,12 +9,12 @@ import LinkArrow from "@/components/ui/LinkArrow";
  * process F1 actually runs, so it links to the process page and product hub.
  */
 
-const GRAY = "#94a3b8";
-const DARK = "#475569";
-const TEAL = "#00a199";
-const TEAL_SOFT = "rgba(0,161,153,0.18)";
+export const GRAY = "#94a3b8";
+export const DARK = "#475569";
+export const TEAL = "#00a199";
+export const TEAL_SOFT = "rgba(0,161,153,0.18)";
 
-function PultrusionIcon() {
+export function PultrusionIcon() {
   return (
     <svg viewBox="0 0 120 80" className="h-[104px] w-full" aria-hidden="true">
       {/* converging fiber lines, dashes flowing toward the die */}
@@ -47,7 +47,7 @@ function PultrusionIcon() {
   );
 }
 
-function FilamentWindingIcon() {
+export function FilamentWindingIcon() {
   return (
     <svg viewBox="0 0 120 80" className="h-[104px] w-full" aria-hidden="true">
       {/* mandrel */}

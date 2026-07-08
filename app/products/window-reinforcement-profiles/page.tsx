@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { SteelVsFrpChamberCore } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "Pultruded Fiberglass Window Reinforcements — uPVC Cores";
@@ -164,6 +165,9 @@ export default function WindowReinforcementProfilesPage() {
                 className="h-auto w-full object-cover"
               />
             </div>
+          </div>
+          <div className="mt-[34px]">
+            <SteelVsFrpChamberCore />
           </div>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {whyReplace.map((item) => (
