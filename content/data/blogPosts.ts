@@ -44,11 +44,10 @@ export type BlogPost = {
   coverAlt: string;
   coverImagePosition?: string;
   /**
-   * "contain" renders the full image letterboxed on the article page instead
-   * of cropping to the 1.618 frame — required for product cross-section
-   * renders whose informative detail sits at the image edge. The blog-index
-   * thumbnail always crops (cover); use coverImagePosition to keep the
-   * cross-section in the thumbnail crop.
+   * "contain" renders the full image letterboxed (bg2 backdrop) on both the
+   * article page and the blog-index thumbnail instead of cropping to the
+   * 1.618 frame — required for product cross-section renders whose
+   * informative detail sits at the image edge and must never be truncated.
    */
   coverImageFit?: "contain" | "cover";
   coverAttribution?: ImageAttribution;

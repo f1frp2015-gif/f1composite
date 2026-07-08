@@ -60,9 +60,9 @@ export default function BlogPage() {
                     alt={post.coverAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
+                    className={`${post.coverImageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-[0.34s] group-hover:scale-[1.03]`}
                     style={
-                      post.coverImagePosition
+                      post.coverImagePosition && post.coverImageFit !== "contain"
                         ? { objectPosition: post.coverImagePosition }
                         : undefined
                     }
