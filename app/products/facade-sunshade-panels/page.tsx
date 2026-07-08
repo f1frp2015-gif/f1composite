@@ -8,6 +8,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import JumpNav from "@/components/sections/JumpNav";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Facade Sunshade Panels — E40 Pultruded Plates";
@@ -362,6 +363,19 @@ export default function FacadeSunshadePanelsPage() {
       />
 
       {/* Application & product images */}
+      <JumpNav
+        items={[
+          { href: "#engineering", label: "Blade engineering" },
+          { href: "#plate", label: "The E40 plate" },
+          { href: "#formats", label: "Blade formats" },
+          { href: "#design", label: "Deflection design" },
+          { href: "#windload", label: "Wind load" },
+          { href: "#install", label: "Connections" },
+          { href: "#properties", label: "Properties" },
+          { href: "#faq", label: "FAQ" },
+        ]}
+      />
+
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[21px] md:grid-cols-3">
@@ -446,7 +460,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Why FRP for blade duty */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="engineering" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Blade Engineering</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -473,7 +487,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Inside the E40 laminate */}
-      <section className="bg-white py-[89px]">
+      <section id="plate" className="scroll-mt-[89px] bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Inside The E40 Plate</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -514,7 +528,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Blade formats */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="formats" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Blade Formats</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -570,7 +584,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Deflection-governed design */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="design" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Deflection-Governed Design</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -651,7 +665,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Wind-load calculation */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="windload" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Wind-Load Design</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -722,7 +736,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Connections & installation */}
-      <section className="bg-white py-[89px]">
+      <section id="install" className="scroll-mt-[89px] bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Connections & Installation</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -749,7 +763,7 @@ export default function FacadeSunshadePanelsPage() {
       </section>
 
       {/* Material properties */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="properties" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Material Properties</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -898,7 +912,7 @@ export default function FacadeSunshadePanelsPage() {
       />
 
       {/* FAQ */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="faq" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} suppressSchema />
         </div>

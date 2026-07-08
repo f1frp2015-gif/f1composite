@@ -10,6 +10,7 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
+import JumpNav from "@/components/sections/JumpNav";
 import { WindowOpeningTypes } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
@@ -415,6 +416,18 @@ export default function FenestrationSystemsPage() {
         ]}
       />
 
+      <JumpNav
+        items={[
+          { href: "#supply", label: "Supply models" },
+          { href: "#types", label: "Window types" },
+          { href: "#series", label: "Series 65\u2013140" },
+          { href: "#cold", label: "Cold-climate engineering" },
+          { href: "#markets", label: "Markets & standards" },
+          { href: "#spec", label: "What ships" },
+          { href: "#faq", label: "FAQ" },
+        ]}
+      />
+
       {/* Window & Door Frame Images */}
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -514,7 +527,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* Two ways to buy */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="supply" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>How We Supply</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -543,7 +556,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* Product Types */}
-      <section className="bg-white py-[89px]">
+      <section id="types" className="scroll-mt-[89px] bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Window & Door Types</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -574,7 +587,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* System Series */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="series" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>System Overview</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -614,7 +627,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* Extreme-Cold Engineering */}
-      <section className="bg-white py-[89px]">
+      <section id="cold" className="scroll-mt-[89px] bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Extreme-Cold Engineering</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -641,7 +654,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* Target Regions */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="markets" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Cold-Climate Markets</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -708,7 +721,7 @@ export default function FenestrationSystemsPage() {
       </section>
 
       {/* Finished Unit Specification */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="spec" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Finished Unit Specification</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -875,7 +888,7 @@ export default function FenestrationSystemsPage() {
       />
 
       {/* FAQ */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="faq" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} suppressSchema />
         </div>
