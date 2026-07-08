@@ -542,6 +542,7 @@ The FRP window profile market rewards exactly one kind of participant on each si
     supportingImage: "/images/blog/frp-curtain-wall-thermal-break-isolator-diagram.webp",
     supportingAlt:
       "Curtain wall thermal break diagram: pultruded FRP isolator profile (highlighted) between the aluminum pressure plate and the mullion-transom body, with screw clamping detail and isometric view",
+    supportingImageFit: "contain",
     supportingCaption:
       "The highlighted profile is the isolator: it separates the exterior pressure plate from the interior mullion and transom body, and every load on the glazing — clamp preload, wind pressure and suction, and on transoms the glass dead weight — passes through it. On a transom that load acts across the pultrusion axis, which is exactly where conventional pultrusion is weakest.",
     highlights: [
@@ -1066,6 +1067,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
     coverAlt: "High-performance building facade using FRP fenestration systems",
     supportingImage: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
     supportingAlt: "Pultruded FRP window frame profile section for thermal performance applications",
+    supportingImageFit: "contain",
     supportingCaption:
       "FRP's thermal advantage is built into the material itself, not bolted on as a thermal break insert inside an otherwise conductive frame.",
     highlights: [
@@ -1310,6 +1312,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
     coverAlt: "Modern building facade using high-performance FRP frame systems",
     supportingImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
     supportingAlt: "FRP sliding window and door frame profile detail",
+    supportingImageFit: "contain",
     supportingCaption:
       "The strongest FRP window case is not only low U-value. It is the combination of low thermal conductivity, structural capacity, and thermal movement compatibility with glass.",
     highlights: [
@@ -1368,6 +1371,7 @@ F1 Composite develops pultruded FRP frame systems for high-performance envelope 
     standards: ["ASTM E1996", "ASTM E1886", "AAMA 506", "Florida Building Code HVHZ"],
     coverImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
     coverAlt: "Pultruded FRP 140-series sliding door and window frame profile detail",
+    coverImageFit: "contain",
     supportingImage: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     supportingAlt: "PHI-certified pultruded FRP windows installed at Qinling Station, Antarctica",
     supportingCaption:
@@ -1436,6 +1440,7 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     coverAlt: "Resin formulation and process control work in an advanced pultrusion laboratory",
     supportingImage: "/images/technology/pultrusion-formulation-matrix.jpg",
     supportingAlt: "Pultrusion process formulation matrix used to balance resin, fiber, and production conditions",
+    supportingImageFit: "contain",
     supportingCaption:
       "The industry's current questions all point in one direction: buyers want less uncertainty between concept, qualification, and production reality.",
     highlights: [
