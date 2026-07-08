@@ -7,16 +7,21 @@
 // (pulled via `vercel env pull`). Re-running upserts — safe at any time.
 
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { neon } from "@neondatabase/serverless";
 
 function loadDatabaseUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
-  try {
-    const env = readFileSync(new URL("../.env.production.local", import.meta.url), "utf8");
-    const m = env.match(/^DATABASE_URL="?([^"\n]+)"?$/m);
-    if (m) return m[1];
-  } catch {
-    /* fall through */
+  // tsx may compile this file to CJS where import.meta.url is unavailable, so
+  // resolve relative to the repo root (cwd) instead.
+  for (const file of [".env.production.local", ".env.local"]) {
+    try {
+      const env = readFileSync(join(process.cwd(), file), "utf8");
+      const m = env.match(/^DATABASE_URL="?([^"\n]+)"?$/m);
+      if (m) return m[1];
+    } catch {
+      /* try next */
+    }
   }
   throw new Error("DATABASE_URL not set — run `vercel env pull .env.production.local --environment=production`");
 }
