@@ -46,7 +46,9 @@ export async function GET(request: Request) {
       return NextResponse.json({ ok: false, error: "no matching products" }, { status: 404 });
     }
 
-    const formulationById = new Map(formulations.map((f) => [f.id, f]));
+    // BIGSERIAL ids arrive from the Neon driver as strings — key the map with
+    // Number() so lookups from the parsed ?f= (numeric) ids actually hit.
+    const formulationById = new Map(formulations.map((f) => [Number(f.id), f]));
     // Unknown formulation ids are dropped (never silently swapped for another
     // dataset); empty selection falls back to each product's own formulation.
     const selectedFormulations = formulationIds
@@ -60,7 +62,8 @@ export async function GET(request: Request) {
             {
               product: p,
               formulation:
-                (p.formulation_id != null && formulationById.get(p.formulation_id)) || null,
+                (p.formulation_id != null && formulationById.get(Number(p.formulation_id))) ||
+                null,
             },
           ],
     );

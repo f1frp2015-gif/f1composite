@@ -18,19 +18,21 @@ export async function GET() {
     ]);
     return NextResponse.json({
       ok: true,
-      categories: categories.map((c) => ({ id: c.id, slug: c.slug, name: c.name })),
+      // ids are BIGSERIAL — the Neon driver returns them as strings, so coerce
+      // to numbers here so the client and ?ids=/&f= round-trips stay numeric.
+      categories: categories.map((c) => ({ id: Number(c.id), slug: c.slug, name: c.name })),
       formulations: formulations.map((f) => ({
-        id: f.id,
+        id: Number(f.id),
         code: f.code,
         name: f.name,
         resinFamily: f.resin_family,
         grade: f.en13706_grade,
       })),
       products: products.map((p) => ({
-        id: p.id,
+        id: Number(p.id),
         model: p.model,
         name: p.name,
-        categoryId: p.category_id,
+        categoryId: p.category_id == null ? null : Number(p.category_id),
         designation: p.geometry ? designation(p.geometry) : null,
         weightPerM: p.weight_per_m == null ? null : Number(p.weight_per_m),
       })),
