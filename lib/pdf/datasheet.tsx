@@ -235,6 +235,12 @@ function ProductPage({
   const dims = product.geometry ? dimensionRows(product.geometry) : [];
   const publishedW = num(product.weight_per_m);
   const mech = mechRows(formulation);
+  // product.standards is written for the product's default formulation (e.g.
+  // "EN 13706 Grade E23") — hide it on compare pages rendered with a different
+  // resin system so the page never carries two conflicting grade claims; the
+  // formulation's own grade is printed under the mechanical table.
+  const isDefaultFormulation =
+    !formulation || product.formulation_id == null || formulation.id === product.formulation_id;
 
   return (
     <Page size="A4" style={styles.page}>
@@ -246,7 +252,9 @@ function ProductPage({
         <View>
           <Text style={styles.model}>{pdfSafe(product.model)}</Text>
           <Text style={styles.modelSub}>
-            {pdfSafe([product.name, category?.name].filter(Boolean).join(" · ")) || "Pultruded FRP profile"}
+            {pdfSafe(
+              [product.name, category?.name, formulation?.code].filter(Boolean).join(" · "),
+            ) || "Pultruded FRP profile"}
           </Text>
         </View>
       </View>
@@ -344,10 +352,10 @@ function ProductPage({
       )}
 
       {/* standards & applications */}
-      {(product.standards || product.applications || product.tolerances) && (
+      {((product.standards && isDefaultFormulation) || product.applications || product.tolerances) && (
         <View>
           <Text style={styles.sectionTitle}>Standards, Tolerances & Applications</Text>
-          {product.standards ? (
+          {product.standards && isDefaultFormulation ? (
             <Text style={{ marginBottom: 3 }}>Standards: {pdfSafe(product.standards)}</Text>
           ) : null}
           {product.tolerances ? (
@@ -372,9 +380,16 @@ function ProductPage({
 
 // ── document ────────────────────────────────────────────────────────────────
 
+/** One rendered page: a cross-section paired with the resin system whose
+ *  mechanical dataset it is presented with. The same product may appear on
+ *  several pages when the customer compares formulations. */
+export interface DatasheetPage {
+  product: ProductRow;
+  formulation: FormulationRow | null;
+}
+
 export interface DatasheetData {
-  products: ProductRow[];
-  formulations: Map<number, FormulationRow>;
+  pages: DatasheetPage[];
   categories: Map<number, CategoryRow>;
 }
 
@@ -382,18 +397,27 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
   const now = new Date();
   const generated = now.toISOString().slice(0, 10);
   const docId = `F1-TDS-${generated.replace(/-/g, "")}`;
-  const multi = data.products.length > 1;
+  const multi = data.pages.length > 1;
 
-  // group by category for the cover
+  // cover summaries: pages per category + distinct resin systems compared
   const byCat = new Map<string, number>();
-  for (const p of data.products) {
+  const productIds = new Set<number>();
+  const formulationNames = new Map<string, string>();
+  for (const { product: p, formulation: f } of data.pages) {
     const name = (p.category_id != null && data.categories.get(p.category_id)?.name) || "Uncategorised";
     byCat.set(name, (byCat.get(name) ?? 0) + 1);
+    productIds.add(p.id);
+    if (f) formulationNames.set(f.code, f.name);
   }
+  const first = data.pages[0];
 
   return (
     <Document
-      title={multi ? "F1 Composite — Product Catalog Extract" : `F1 Composite — ${data.products[0]?.model ?? "Datasheet"}`}
+      title={
+        multi
+          ? "F1 Composite — Product Catalog Extract"
+          : `F1 Composite — ${first?.product.model ?? "Datasheet"}${first?.formulation ? ` (${first.formulation.code})` : ""}`
+      }
       author="F1 Composite"
     >
       {multi && (
@@ -410,15 +434,29 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
                 <View key={name} style={styles.row}>
                   <Text style={styles.cellLabel}>{name}</Text>
                   <Text style={styles.cellValue}>
-                    {count} product{count > 1 ? "s" : ""}
+                    {count} page{count > 1 ? "s" : ""}
                   </Text>
                 </View>
               ))}
               <View style={styles.row}>
                 <Text style={[styles.cellLabel, { fontFamily: "Helvetica-Bold" }]}>Total</Text>
-                <Text style={[styles.cellValue, { color: TEAL }]}>{data.products.length}</Text>
+                <Text style={[styles.cellValue, { color: TEAL }]}>
+                  {productIds.size} product{productIds.size > 1 ? "s" : ""} · {data.pages.length} page{data.pages.length > 1 ? "s" : ""}
+                </Text>
               </View>
             </View>
+            {formulationNames.size > 1 && (
+              <View style={{ marginTop: 18, width: 300 }}>
+                <Text style={[styles.small, { fontFamily: "Helvetica-Bold", marginBottom: 3 }]}>
+                  Resin systems compared
+                </Text>
+                {[...formulationNames.entries()].map(([code, name]) => (
+                  <Text key={code} style={styles.small}>
+                    {pdfSafe(code)} — {pdfSafe(name)}
+                  </Text>
+                ))}
+              </View>
+            )}
             <Text style={[styles.small, { marginTop: 28 }]}>
               Generated {generated} · {docId} · www.f1composite.com
             </Text>
@@ -426,11 +464,11 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
           <Footer docId={docId} />
         </Page>
       )}
-      {data.products.map((p) => (
+      {data.pages.map(({ product: p, formulation: f }) => (
         <ProductPage
-          key={p.id}
+          key={`${p.id}-${f?.id ?? "default"}`}
           product={p}
-          formulation={(p.formulation_id != null && data.formulations.get(p.formulation_id)) || null}
+          formulation={f}
           category={(p.category_id != null && data.categories.get(p.category_id)) || null}
           docId={docId}
           generated={generated}

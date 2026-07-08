@@ -1,5 +1,6 @@
-// Local smoke test for the datasheet PDF pipeline — renders a 3-product
-// catalog extract (I-beam / SHS / CHS) from in-memory rows, no DB required.
+// Local smoke test for the datasheet PDF pipeline — renders a 4-page catalog
+// extract (I-beam / SHS / CHS + the I-beam repeated under a second resin
+// system, exercising formulation-compare mode) from in-memory rows, no DB.
 // Run: npx tsx scripts/test-datasheet-pdf.ts /tmp/out.pdf
 
 import { writeFileSync } from "node:fs";
@@ -33,6 +34,15 @@ const formulation: FormulationRow = {
   notes: null,
 };
 
+const formulationVE: FormulationRow = {
+  ...formulation,
+  id: 2,
+  code: "VE-E23",
+  name: "E23 · Vinyl ester / E-glass",
+  resin: "Vinyl ester",
+  resin_family: "vinyl_ester",
+};
+
 const category: CategoryRow = { id: 1, slug: "i-beam", name: "I-Beams / Wide Flange", description: null, sort: 1 };
 
 const products: ProductRow[] = [
@@ -58,8 +68,12 @@ async function main() {
   const out = process.argv[2] ?? "/tmp/datasheet-test.pdf";
   const element = React.createElement(DatasheetDocument, {
     data: {
-      products,
-      formulations: new Map([[1, formulation]]),
+      pages: [
+        { product: products[0], formulation },
+        { product: products[0], formulation: formulationVE },
+        { product: products[1], formulation },
+        { product: products[2], formulation },
+      ],
       categories: new Map([[1, category]]),
     },
   }) as unknown as Parameters<typeof renderToBuffer>[0];

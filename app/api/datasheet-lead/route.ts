@@ -9,7 +9,7 @@ import { insertInquiry } from "@/lib/db";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(request: Request) {
-  let body: { email?: unknown; models?: unknown; ids?: unknown };
+  let body: { email?: unknown; models?: unknown; ids?: unknown; formulations?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -25,15 +25,21 @@ export async function POST(request: Request) {
   const ids = Array.isArray(body.ids)
     ? body.ids.filter((n): n is number => Number.isFinite(n)).slice(0, 150)
     : [];
+  const formulationCodes = Array.isArray(body.formulations)
+    ? body.formulations.filter((c): c is string => typeof c === "string").slice(0, 20)
+    : [];
 
   try {
     await insertInquiry({
       name: email.split("@")[0],
       email,
-      message: `Datasheet Builder catalog download (${models.length || ids.length} products): ${models.join(", ").slice(0, 1500)}`,
+      message:
+        `Datasheet Builder catalog download (${models.length || ids.length} products` +
+        `${formulationCodes.length ? ` × resin systems ${formulationCodes.join("/")}` : ""}): ` +
+        models.join(", ").slice(0, 1500),
       inquiryType: "datasheet-download",
       source: "datasheet-builder",
-      context: { ids, models },
+      context: { ids, models, formulations: formulationCodes },
       userAgent: request.headers.get("user-agent"),
       referer: request.headers.get("referer"),
     });

@@ -1,9 +1,13 @@
 "use client";
 
-// Datasheet Builder: pick any combination of catalog products and generate a
-// live PDF — one page per product, plus a cover when more than one. Data comes
-// from /api/catalog (DB-driven); if the catalog is empty or unreachable the
-// whole block hides itself so the downloads page never degrades.
+// Datasheet Builder: pick any combination of catalog products, then optionally
+// tick one or more resin systems (formulations) — the PDF renders every
+// selected cross-section once per selected resin system, so a customer can
+// compare e.g. polyester vs vinyl ester vs polyurethane data for the same
+// profile. No resin ticked = the standard formulation for each product.
+// Data comes from /api/catalog (DB-driven); if the catalog is empty or
+// unreachable the whole block hides itself so the downloads page never
+// degrades.
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -22,15 +26,42 @@ interface CatalogProduct {
   weightPerM: number | null;
 }
 
-// More than this many products = a catalog extract → worth an email (lead
+interface CatalogFormulation {
+  id: number;
+  code: string;
+  name: string;
+  resinFamily: string | null;
+  grade: string | null;
+}
+
+// More than this many PDF pages = a catalog extract → worth an email (lead
 // gate). Single/small TDS pulls stay friction-free.
 const LEAD_GATE_THRESHOLD = 3;
 const LEAD_EMAIL_KEY = "f1_datasheet_lead_email";
+// Server-side hard limit on pages per PDF (products × resin systems).
+const MAX_PAGES = 120;
+
+const RESIN_FAMILY_LABELS: Record<string, string> = {
+  unsaturated_polyester: "Unsaturated polyester (UP)",
+  vinyl_ester: "Vinyl ester (VE)",
+  epoxy: "Epoxy (EP)",
+  polyurethane: "Polyurethane (PU)",
+  phenolic: "Phenolic (PH)",
+};
+const RESIN_FAMILY_ORDER = [
+  "unsaturated_polyester",
+  "vinyl_ester",
+  "epoxy",
+  "polyurethane",
+  "phenolic",
+];
 
 export default function DatasheetBuilder() {
   const [categories, setCategories] = useState<CatalogCategory[]>([]);
   const [products, setProducts] = useState<CatalogProduct[]>([]);
+  const [formulations, setFormulations] = useState<CatalogFormulation[]>([]);
   const [selected, setSelected] = useState<Set<number>>(new Set());
+  const [selectedF, setSelectedF] = useState<Set<number>>(new Set());
   const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState("");
   const [emailKnown, setEmailKnown] = useState(false);
@@ -49,6 +80,7 @@ export default function DatasheetBuilder() {
         if (json?.ok && Array.isArray(json.products) && json.products.length > 0) {
           setCategories(json.categories);
           setProducts(json.products);
+          if (Array.isArray(json.formulations)) setFormulations(json.formulations);
         }
         setLoaded(true);
       })
@@ -65,6 +97,19 @@ export default function DatasheetBuilder() {
     if (orphans.length) groups.push({ category: null, items: orphans });
     return groups;
   }, [categories, products]);
+
+  const formulationGroups = useMemo(() => {
+    const groups: { label: string; items: CatalogFormulation[] }[] = [];
+    for (const family of RESIN_FAMILY_ORDER) {
+      const items = formulations.filter((f) => f.resinFamily === family);
+      if (items.length) groups.push({ label: RESIN_FAMILY_LABELS[family], items });
+    }
+    const other = formulations.filter(
+      (f) => f.resinFamily == null || !RESIN_FAMILY_ORDER.includes(f.resinFamily),
+    );
+    if (other.length) groups.push({ label: "High-modulus tiers", items: other });
+    return groups;
+  }, [formulations]);
 
   if (!loaded || products.length === 0) return null;
 
@@ -85,8 +130,20 @@ export default function DatasheetBuilder() {
     setSelected(next);
   };
 
-  const href = `/api/datasheet?ids=${[...selected].join(",")}`;
-  const needsEmail = selected.size > LEAD_GATE_THRESHOLD && !emailKnown;
+  const toggleF = (id: number) => {
+    const next = new Set(selectedF);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    setSelectedF(next);
+  };
+
+  // Every selected profile is rendered once per selected resin system.
+  const pageCount = selected.size * Math.max(1, selectedF.size);
+  const overLimit = pageCount > MAX_PAGES;
+  const href =
+    `/api/datasheet?ids=${[...selected].join(",")}` +
+    (selectedF.size > 0 ? `&f=${[...selectedF].join(",")}` : "");
+  const needsEmail = pageCount > LEAD_GATE_THRESHOLD && !emailKnown;
 
   async function submitLeadAndDownload() {
     setGateError("");
@@ -98,6 +155,7 @@ export default function DatasheetBuilder() {
     setSubmitting(true);
     try {
       const chosen = products.filter((p) => selected.has(p.id));
+      const chosenF = formulations.filter((f) => selectedF.has(f.id));
       await fetch("/api/datasheet-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -105,6 +163,7 @@ export default function DatasheetBuilder() {
           email: trimmed,
           ids: [...selected],
           models: chosen.map((p) => p.model),
+          formulations: chosenF.map((f) => f.code),
         }),
       });
       try {
@@ -129,12 +188,16 @@ export default function DatasheetBuilder() {
           Build your own datasheet or catalog PDF
         </h2>
         <p className="mb-[21px] max-w-[700px] text-f15 leading-golden text-t2">
-          Select one profile for a single-page technical data sheet, a whole family, or any mix
-          across families for a multi-page catalog extract — cross-section drawing, exact section
-          properties, and E23 mechanical data on every page, generated live from our engineering
-          database.
+          Pick one profile for a single-page technical data sheet, a whole family, or any mix for a
+          multi-page catalog extract. Then optionally tick one or more resin systems to get the same
+          cross-section rendered with each formulation&apos;s mechanical data — polyester vs vinyl
+          ester vs polyurethane, side by side. Cross-section drawing and exact section properties on
+          every page, generated live from our engineering database.
         </p>
 
+        <h3 className="mb-[13px] text-f15 font-bold text-t1">
+          1 · Select profiles
+        </h3>
         <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
           {byCategory.map(({ category, items }) => {
             const allIn = items.every((p) => selected.has(p.id));
@@ -172,10 +235,52 @@ export default function DatasheetBuilder() {
           })}
         </div>
 
+        {formulationGroups.length > 0 && (
+          <>
+            <h3 className="mb-[8px] mt-[34px] text-f15 font-bold text-t1">
+              2 · Resin system <span className="font-normal text-t3">(optional — one page per profile per system)</span>
+            </h3>
+            <p className="mb-[13px] max-w-[700px] text-f13 text-t3">
+              Leave everything unticked to get each profile&apos;s standard formulation. Tick
+              several to compare mechanical data for the same cross-section across resin systems.
+            </p>
+            <div className="grid gap-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px] md:grid-cols-2 lg:grid-cols-3">
+              {formulationGroups.map(({ label, items }) => (
+                <div key={label}>
+                  <div className="mb-[8px] text-f12 font-bold uppercase tracking-wide text-t3">
+                    {label}
+                  </div>
+                  <div className="space-y-[4px]">
+                    {items.map((f) => (
+                      <label key={f.id} className="flex items-center gap-[8px] text-f13 text-t2">
+                        <input
+                          type="checkbox"
+                          checked={selectedF.has(f.id)}
+                          onChange={() => toggleF(f.id)}
+                        />
+                        <span className="flex-1">{f.name}</span>
+                        {f.grade && (
+                          <span className="rounded-[4px] bg-white px-[6px] py-[1px] text-f11 font-semibold text-teal-text">
+                            {f.grade}
+                          </span>
+                        )}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
         <div className="mt-[21px] flex flex-wrap items-center gap-[13px]">
           {selected.size === 0 ? (
             <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
               Select products to generate a PDF
+            </span>
+          ) : overLimit ? (
+            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
+              {pageCount} pages exceeds the {MAX_PAGES}-page limit — narrow the selection
             </span>
           ) : needsEmail ? (
             <>
@@ -191,11 +296,11 @@ export default function DatasheetBuilder() {
                 disabled={submitting}
                 className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90 disabled:opacity-50"
               >
-                {submitting ? "Preparing…" : `Get catalog PDF (${selected.size} products) →`}
+                {submitting ? "Preparing…" : `Get catalog PDF (${pageCount} pages) →`}
               </button>
               {gateError && <p className="w-full text-f13 text-red-600">{gateError}</p>}
               <p className="w-full text-f12 text-t3">
-                Multi-product catalog extracts ask for an email so we can send revised data when a
+                Multi-page catalog extracts ask for an email so we can send revised data when a
                 spec updates. Single datasheets download freely.
               </p>
             </>
@@ -206,12 +311,15 @@ export default function DatasheetBuilder() {
               rel="noopener"
               className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
             >
-              Generate PDF ({selected.size} {selected.size === 1 ? "datasheet page" : "products"}) →
+              Generate PDF ({pageCount} {pageCount === 1 ? "datasheet page" : "pages"}) →
             </a>
           )}
           {selected.size > 0 && (
             <button
-              onClick={() => setSelected(new Set())}
+              onClick={() => {
+                setSelected(new Set());
+                setSelectedF(new Set());
+              }}
               className="text-f13 text-t3 hover:underline"
             >
               Clear selection
