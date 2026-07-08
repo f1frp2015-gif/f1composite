@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   GRAY,
   DARK,
@@ -135,58 +136,110 @@ export function SteelVsFrpChamberCore() {
   );
 }
 
-/** Tilt-and-turn window motion — the two openings from one handle. */
-export function TiltTurnWindow() {
+/* ---- window opening types ---- */
+
+function OpeningFrame({ children, label, sub }: { children: ReactNode; label: string; sub: string }) {
+  return (
+    <div className="rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+      <svg viewBox="0 0 170 130" className="w-full" aria-label={`${label} window opening animation`}>
+        {children}
+      </svg>
+      <p className="mt-[8px] text-f13 font-bold text-t1">{label}</p>
+      <p className="text-f12 leading-golden text-t2">{sub}</p>
+    </div>
+  );
+}
+
+/** All the ways a window opens — animated opening-type guide. */
+export function WindowOpeningTypes() {
+  const frame = <rect x="45" y="16" width="80" height="100" rx="3" fill="none" stroke={DARK} strokeWidth="3" />;
   return (
     <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
-      <div className="grid gap-[21px] sm:grid-cols-2">
-        {/* Tilt */}
-        <svg viewBox="0 0 220 120" className="w-full" aria-label="Window sash tilting inward at the top for trickle ventilation">
-          <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={DARK}>Tilt — trickle ventilation</text>
-          {/* frame */}
-          <rect x="60" y="20" width="100" height="88" rx="3" fill="none" stroke={DARK} strokeWidth="3" />
-          {/* sash tilting about its bottom edge */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              values="0 110 100; -10 110 100; -10 110 100; 0 110 100"
-              keyTimes="0; 0.35; 0.7; 1"
-              dur="4s"
-              repeatCount="indefinite"
-            />
-            <rect x="68" y="28" width="84" height="72" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5" />
-          </g>
-          {/* air flow out the top */}
-          <path d="M104 24 q6 -8 2 -16 M118 24 q6 -8 2 -16" stroke={GRAY} strokeWidth="1.6" fill="none" strokeLinecap="round">
-            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+      <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
+        {/* Casement — side-hung, swings like a door */}
+        <OpeningFrame label="Casement" sub="Side-hung — swings like a door; full opening, maximum airflow.">
+          {frame}
+          <circle cx="49" cy="28" r="2.4" fill={DARK} />
+          <circle cx="49" cy="104" r="2.4" fill={DARK} />
+          <rect x="53" y="24" width="64" height="84" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5">
+            <animate attributeName="width" values="64;26;26;64" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </rect>
+          <path d="M117 66 q22 0 26 -22" stroke={GRAY} strokeWidth="1.4" fill="none" strokeDasharray="4 3">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.3;0.7;1" dur="4.5s" repeatCount="indefinite" />
           </path>
-        </svg>
+        </OpeningFrame>
 
-        {/* Turn */}
-        <svg viewBox="0 0 220 120" className="w-full" aria-label="Window sash swinging fully inward on side hinges for cleaning and egress">
-          <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={DARK}>Turn — full inward opening</text>
-          <rect x="60" y="20" width="100" height="88" rx="3" fill="none" stroke={DARK} strokeWidth="3" />
-          {/* sash swinging about its left edge (drawn as horizontal top-view arc) */}
+        {/* Awning — top-hung, bottom swings out */}
+        <OpeningFrame label="Awning (top-hung)" sub="Hinged at the top, opens outward — sheds rain while ventilating.">
+          {frame}
+          <circle cx="57" cy="20" r="2.4" fill={DARK} />
+          <circle cx="113" cy="20" r="2.4" fill={DARK} />
+          <rect x="53" y="24" width="64" height="84" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5">
+            <animate attributeName="height" values="84;48;48;84" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </rect>
+          {/* air out the bottom */}
+          <path d="M76 112 q-4 8 -10 10 M96 112 q4 8 10 10" stroke={GRAY} strokeWidth="1.6" fill="none" strokeLinecap="round">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </path>
+        </OpeningFrame>
+
+        {/* Tilt & Turn — two motions from one handle */}
+        <OpeningFrame label="Tilt & Turn" sub="One handle, two openings: tilt to ventilate, turn to clean.">
+          {frame}
+          <rect x="53" y="24" width="64" height="84" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5">
+            {/* phase 1: tilt — top leans in (bottom edge fixed) */}
+            <animate attributeName="y" values="24;42;24;24;24;24" keyTimes="0;0.14;0.28;0.5;0.9;1" dur="7s" repeatCount="indefinite" />
+            <animate attributeName="height" values="84;66;84;84;84;84" keyTimes="0;0.14;0.28;0.5;0.9;1" dur="7s" repeatCount="indefinite" />
+            {/* phase 2: turn — swings on side hinges */}
+            <animate attributeName="width" values="64;64;64;26;26;64" keyTimes="0;0.28;0.5;0.64;0.82;1" dur="7s" repeatCount="indefinite" />
+          </rect>
+          <text x="85" y="12" textAnchor="middle" fontSize="8.5" fill={GRAY}>
+            tilt → turn
+          </text>
+        </OpeningFrame>
+
+        {/* Single hung — bottom sash slides up */}
+        <OpeningFrame label="Single Hung" sub="Fixed top sash; bottom sash slides up. The classic North American style.">
+          {frame}
+          <rect x="53" y="24" width="64" height="40" rx="2" fill="none" stroke={GRAY} strokeWidth="2" />
+          <text x="85" y="46" textAnchor="middle" fontSize="8" fill={GRAY}>fixed</text>
+          <rect x="53" y="66" width="64" height="42" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5">
+            <animate attributeName="y" values="66;36;36;66" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </rect>
+        </OpeningFrame>
+
+        {/* Double hung — both sashes slide */}
+        <OpeningFrame label="Double Hung" sub="Both sashes slide — vent top and bottom at once for convective airflow.">
+          {frame}
+          <rect x="53" y="24" width="64" height="42" rx="2" fill="none" stroke={TEAL} strokeWidth="2.5">
+            <animate attributeName="y" values="24;46;46;24" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </rect>
+          <rect x="53" y="66" width="64" height="42" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5">
+            <animate attributeName="y" values="66;44;44;66" keyTimes="0;0.35;0.65;1" dur="4.5s" repeatCount="indefinite" />
+          </rect>
+        </OpeningFrame>
+
+        {/* Lift & Slide — panel lifts then glides */}
+        <OpeningFrame label="Lift & Slide" sub="Handle lifts the panel off its seals, then it glides — large terrace openings.">
+          <rect x="15" y="34" width="140" height="72" rx="3" fill="none" stroke={DARK} strokeWidth="3" />
+          <rect x="21" y="40" width="62" height="60" rx="2" fill="none" stroke={GRAY} strokeWidth="2" />
           <g>
             <animateTransform
               attributeName="transform"
-              type="rotate"
-              values="0 68 64; 38 68 64; 38 68 64; 0 68 64"
-              keyTimes="0; 0.35; 0.7; 1"
-              dur="4s"
+              type="translate"
+              values="0 0; 0 -3; -58 -3; -58 -3; 0 -3; 0 0"
+              keyTimes="0;0.1;0.4;0.6;0.9;1"
+              dur="6.5s"
               repeatCount="indefinite"
             />
-            <rect x="68" y="28" width="84" height="72" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5" />
+            <rect x="87" y="40" width="62" height="60" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="2.5" />
           </g>
-          {/* hinge dots */}
-          <circle cx="66" cy="34" r="2.5" fill={DARK} />
-          <circle cx="66" cy="94" r="2.5" fill={DARK} />
-        </svg>
+        </OpeningFrame>
       </div>
       <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
-        One handle, two openings: tilt for secure trickle ventilation, turn for cleaning and egress.
-        Multi-point locking pulls the sash into continuous gasket compression in both modes.
+        How each opening type moves. Whatever the motion, the sealing principle in an FRP system is the
+        same: multi-point locking pulls the sash into continuous EPDM gasket compression, and the
+        insulating frame carries no metallic path for heat to escape through.
       </figcaption>
     </figure>
   );

@@ -10,7 +10,7 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { TiltTurnWindow } from "@/components/sections/ConceptAnimations";
+import { WindowOpeningTypes } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
@@ -554,8 +554,8 @@ export default function FenestrationSystemsPage() {
             compression sealing and a continuous insulating frame.
           </p>
 
-          <div className="mt-[34px] max-w-[760px]">
-            <TiltTurnWindow />
+          <div className="mt-[34px]">
+            <WindowOpeningTypes />
           </div>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
