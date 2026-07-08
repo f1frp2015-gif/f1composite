@@ -109,8 +109,8 @@ function calcUw(
    ══════════════════════════════════════════════════════ */
 
 function getRating(Uw: number) {
-  if (Uw <= 0.8) return { label: "Passive House Premium", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.0) return { label: "Passive House / nZEB", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
+  if (Uw <= 0.8) return { label: "Passive House (PHI target)", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
+  if (Uw <= 1.0) return { label: "Near-Passive / nZEB", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
   if (Uw <= 1.3) return { label: "Low-Energy Building", color: "text-teal", bg: "bg-teal/5 border-teal-border" };
   if (Uw <= 1.8) return { label: "Standard Compliant", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
   if (Uw <= 2.5) return { label: "Basic / Renovation", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
@@ -361,7 +361,7 @@ export default function UValueCalculator() {
               U<sub>w</sub> = (A<sub>g</sub>·U<sub>g</sub> + A<sub>f</sub>·U<sub>f</sub> + l<sub>g</sub>·Ψ<sub>g</sub>) / (A<sub>g</sub> + A<sub>f</sub>)
               <br />
               <span className="text-t3/70">
-                Referenced by: IECC / ASHRAE 90.1 (US) · CSA A440 / NEB (Canada) · EPBD (EU) · GB 50189 / GB 50176 (China)
+                Compliance targets compared: IECC / ENERGY STAR (US) · NRCan ENERGY STAR (Canada) · EPBD (EU) · GB 55015 / GB 50189 (China)
               </span>
             </div>
           </div>
@@ -442,15 +442,14 @@ export default function UValueCalculator() {
                   </h4>
                   <div className="space-y-[6px] text-[12px]">
                     {[
-                      { region: "🇪🇺 EU", label: "Passive House", max: 0.80, std: "EN ISO 10077" },
-                      { region: "🇪🇺 EU", label: "nZEB Directive", max: 1.30, std: "EPBD 2024" },
-                      { region: "🇺🇸 US", label: "ENERGY STAR North", max: 1.70, std: "NFRC / IECC" },
-                      { region: "🇺🇸 US", label: "ENERGY STAR South", max: 2.27, std: "NFRC / IECC" },
-                      { region: "🇨🇦 CA", label: "Zone A (Coldest)", max: 1.20, std: "CSA A440 / NEB" },
-                      { region: "🇨🇦 CA", label: "Zone C", max: 1.60, std: "CSA A440 / NEB" },
-                      { region: "🇨🇳 CN", label: "Severe Cold Zone", max: 1.50, std: "GB 50189" },
-                      { region: "🇨🇳 CN", label: "Cold Zone", max: 2.00, std: "GB 50189" },
-                      { region: "🇨🇳 CN", label: "Hot Summer Cold Winter", max: 2.30, std: "GB 50189" },
+                      { region: "🇪🇺 EU", label: "Passive House (PHI, cool-temperate)", max: 0.80, std: "EN ISO 10077" },
+                      { region: "🇪🇺 EU", label: "nZEB (typical member state)", max: 1.30, std: "EPBD" },
+                      { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Northern", max: 1.25, std: "NFRC" },
+                      { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Southern", max: 1.82, std: "NFRC" },
+                      { region: "🇺🇸 US", label: "IECC 2024 Zones 5–6", max: 1.53, std: "IECC/IRC" },
+                      { region: "🇨🇦 CA", label: "ENERGY STAR (all Canada, 2020+)", max: 1.22, std: "NRCan" },
+                      { region: "🇨🇳 CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70, std: "GB 50189" },
+                      { region: "🇨🇳 CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20, std: "GB 50189" },
                     ].map((t) => (
                       <div key={`${t.region}-${t.label}`} className="flex items-center justify-between gap-[4px]">
                         <span className="text-t3 truncate">
@@ -587,29 +586,22 @@ export default function UValueCalculator() {
               </thead>
               <tbody>
                 {[
-                  { region: "Europe", std: "EN ISO 10077-1", zone: "Passive House Premium", uw: "≤ 0.80", note: "PHI certified; whole-window including installation" },
-                  { region: "Europe", std: "EN ISO 10077-1", zone: "Passive House Classic", uw: "≤ 0.85", note: "PHI certified; frame + glass + spacer" },
-                  { region: "Europe", std: "EPBD 2024 / EN 15603", zone: "nZEB (Central Europe)", uw: "≤ 1.30", note: "Near-zero energy building directive; varies by member state" },
+                  { region: "Europe", std: "EN ISO 10077-1 / PHI", zone: "Passive House window (cool-temperate)", uw: "≤ 0.80", note: "PHI component criterion; U_w,installed ≤ 0.85" },
+                  { region: "Europe", std: "EPBD / national codes", zone: "nZEB (Central Europe, typical)", uw: "≤ 1.30", note: "Member-state specific — always check the national annex" },
                   { region: "Europe", std: "EN 14351-1", zone: "CE Marking baseline", uw: "Declared", note: "No max limit — declared value for CE marking" },
-                  { region: "USA", std: "IECC 2024 / ASHRAE 90.1", zone: "Zone 1 (Miami)", uw: "≤ 3.69", note: "Climate Zone 1; very hot humid" },
-                  { region: "USA", std: "IECC 2024 / ASHRAE 90.1", zone: "Zone 4 (New York)", uw: "≤ 1.99", note: "Climate Zone 4; mixed humid" },
-                  { region: "USA", std: "IECC 2024 / ASHRAE 90.1", zone: "Zone 5 (Chicago)", uw: "≤ 1.99", note: "Climate Zone 5; cold" },
-                  { region: "USA", std: "IECC 2024 / ASHRAE 90.1", zone: "Zone 7-8 (Alaska)", uw: "≤ 1.70", note: "Climate Zone 7–8; very cold / subarctic" },
-                  { region: "USA", std: "ENERGY STAR v7.0", zone: "Northern Zone", uw: "≤ 1.70", note: "NFRC-rated; most stringent US program" },
-                  { region: "USA", std: "ENERGY STAR v7.0", zone: "North-Central Zone", uw: "≤ 1.82", note: "NFRC-rated" },
-                  { region: "USA", std: "ENERGY STAR v7.0", zone: "South-Central Zone", uw: "≤ 2.27", note: "NFRC-rated; SHGC also applies" },
-                  { region: "USA", std: "ENERGY STAR v7.0", zone: "Southern Zone", uw: "≤ 2.27", note: "NFRC-rated; SHGC ≤ 0.25 primary" },
-                  { region: "Canada", std: "CSA A440 / NEB 2024", zone: "Zone A (Coldest)", uw: "≤ 1.20", note: "NRCan ENERGY STAR; triple-glazed typical" },
-                  { region: "Canada", std: "CSA A440 / NEB 2024", zone: "Zone B", uw: "≤ 1.40", note: "NRCan ENERGY STAR" },
-                  { region: "Canada", std: "CSA A440 / NEB 2024", zone: "Zone C (Mildest)", uw: "≤ 1.60", note: "NRCan ENERGY STAR; Southern BC / Southern ON" },
-                  { region: "Canada", std: "NBC 2020 / NECB", zone: "Zone 7A (most of Canada)", uw: "≤ 1.60", note: "National Building Code prescriptive" },
-                  { region: "China", std: "GB 50189-2015", zone: "Severe Cold (Harbin)", uw: "≤ 1.50", note: "Public buildings; residential may differ per GB 50176" },
-                  { region: "China", std: "GB 50189-2015", zone: "Cold (Beijing)", uw: "≤ 2.00", note: "Public buildings" },
-                  { region: "China", std: "GB 50189-2015", zone: "Hot Summer Cold Winter (Shanghai)", uw: "≤ 2.30", note: "Public buildings; SHGC also regulated" },
-                  { region: "China", std: "GB 50189-2015", zone: "Hot Summer Warm Winter (Guangzhou)", uw: "≤ 3.00", note: "Public buildings; SHGC primary concern" },
-                  { region: "China", std: "GB/T 8484-2020", zone: "Test method", uw: "—", note: "Standard test method for window thermal performance" },
-                  { region: "China", std: "GB 50176-2016", zone: "Residential (Severe Cold)", uw: "≤ 1.50", note: "Residential building thermal design code" },
-                  { region: "China", std: "GB 50176-2016", zone: "Residential (Cold)", uw: "≤ 2.00", note: "Residential building thermal design code" },
+                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zone 4 (New York)", uw: "≤ 1.70", note: "U ≤ 0.30 Btu/h·ft²·°F; mixed humid" },
+                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 5–6 (Chicago)", uw: "≤ 1.53", note: "U ≤ 0.27 — tightened from 0.30 in IECC 2021" },
+                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 7–8 (Alaska)", uw: "≤ 1.25", note: "U ≤ 0.22 — tightened from 0.30 in IECC 2021" },
+                  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Northern Zone", uw: "≤ 1.25", note: "U ≤ 0.22; SHGC ≥ 0.17 prescriptive path; most stringent US program" },
+                  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "North-Central Zone", uw: "≤ 1.42", note: "U ≤ 0.25; SHGC ≤ 0.40" },
+                  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "South-Central Zone", uw: "≤ 1.59", note: "U ≤ 0.28; SHGC ≤ 0.23" },
+                  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Southern Zone", uw: "≤ 1.82", note: "U ≤ 0.32; SHGC ≤ 0.23 primary" },
+                  { region: "Canada", std: "NRCan ENERGY STAR v5.0", zone: "All Canada (single zone since 2020)", uw: "≤ 1.22", note: "Or Energy Rating ER ≥ 34; former A/B/C climate zones retired" },
+                  { region: "Canada", std: "NBC 2020 / NECB", zone: "Prescriptive, climate-zone dependent", uw: "Varies", note: "See NBC 9.36 / NECB tables for the project climate zone" },
+                  { region: "China", std: "GB 55015-2021", zone: "All zones — mandatory since Apr 2022", uw: "Zone / WWR dependent", note: "General code; supersedes the thermal provisions of GB 50189-2015" },
+                  { region: "China", std: "GB 50189-2015", zone: "Severe Cold A/B, public, WWR ≤ 0.2", uw: "≤ 2.70", note: "Limits tighten with window-to-wall ratio (2.5 / 2.2 …)" },
+                  { region: "China", std: "GB 50189-2015", zone: "Severe Cold C, public, WWR ≤ 0.2", uw: "≤ 2.90", note: "Shape factor ≤ 0.3 column; tightens with WWR" },
+                  { region: "China", std: "GB/T 8484-2020", zone: "Test method", uw: "—", note: "Hot-box test method for window thermal performance" },
                 ].map((row, i) => (
                   <tr key={i} className="border-b border-border-default">
                     <td className="py-[8px] pr-[13px] text-t1 font-medium">{row.region}</td>
@@ -625,9 +617,11 @@ export default function UValueCalculator() {
 
           <div className="mt-[21px] rounded-[6px] bg-bg2 px-[21px] py-[13px] text-[12px] leading-relaxed text-t3">
             <strong>Calculation standard:</strong> This calculator uses the EN ISO 10077-1 simplified method.
-            For NFRC (US/Canada) ratings, use NFRC 100 simulation software (THERM + WINDOW).
-            For Chinese GB compliance, U-values should be verified per GB/T 8484-2020 hot-box test.
-            Values above are indicative — always confirm with the applicable edition and local authority.
+            For NFRC (US/Canada) ratings, use NFRC 100 simulation software (THERM + WINDOW) — NFRC model sizes
+            and boundary conditions differ, so values are not interchangeable.
+            For Chinese compliance, U-values are verified per GB/T 8484-2020 hot-box test against the limits of
+            the mandatory GB 55015-2021. Values above are indicative — always confirm with the applicable edition
+            and local authority.
           </div>
         </div>
       </div>

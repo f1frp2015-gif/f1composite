@@ -37,9 +37,9 @@ const materials: Record<string, Material> = {
   // EN 13706-3 minimum-modulus grades
   "frp-e17": { label: "FRP EN 13706 E17", group: "FRP", standard: "EN 13706-3:2002", E: 17, E_T: 5, G_LT: 3, sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
   "frp-e23": { label: "FRP EN 13706 E23", group: "FRP", standard: "EN 13706-3:2002", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
-  // GB 50608-2020 (China FRP application code) / CECS 692:2020 (pultruded profile regulation)
-  "frp-gb50608-i":  { label: "FRP GB 50608 Class I",  group: "FRP", standard: "GB 50608-2020 / CECS 692:2020", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
-  "frp-gb50608-ii": { label: "FRP GB 50608 Class II", group: "FRP", standard: "GB 50608-2020 / CECS 692:2020", E: 17, E_T: 5, G_LT: 3,   sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
+  // GB 50608-2020 (China FRP application code) / T/CECS 692-2020 (pultruded profile regulation)
+  "frp-gb50608-i":  { label: "FRP GB 50608 Class I",  group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
+  "frp-gb50608-ii": { label: "FRP GB 50608 Class II", group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 17, E_T: 5, G_LT: 3,   sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
   // ASCE/SEI 74-23 (US official FRP design standard, 2024 — supersedes 2010 ACMA Pre-Standard)
   "frp-asce-std":  { label: "FRP ASCE/SEI 74-23 Standard",         group: "FRP", standard: "ASCE/SEI 74-23", E: 17.2, E_T: 5.5, G_LT: 3,   sigma: 207, sigma_c: 207, tau: 31, density: 1.8 },
   "frp-asce-high": { label: "FRP ASCE/SEI 74-23 High-Performance", group: "FRP", standard: "ASCE/SEI 74-23", E: 27.6, E_T: 8.3, G_LT: 4,   sigma: 345, sigma_c: 290, tau: 45, density: 1.9 },
@@ -56,10 +56,14 @@ const materials: Record<string, Material> = {
    Sources: ASCE/SEI 74-23 §1.4 ; CEN/TS 19101:2022 §4 ; GB 50608-2020 §3.3 */
 type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
 
+/* Load factors use the variable-action (live-load-dominated) value of each code
+   family — the calculator's scenarios (walkways, platforms, purlins) are live-
+   load governed, so γ_Q applies: 1.6 (ASCE 7), 1.5 (EN 1990), 1.5 (GB 55001).
+   ASCE 74-23's time-effect factor λ for sustained loads is NOT modeled. */
 const designMethods: Record<DesignMethod, { label: string; phiFlex: number; phiShear: number; loadFactor: number; basis: string }> = {
-  "lrfd-asce":       { label: "LRFD — ASCE/SEI 74-23",            phiFlex: 0.65,   phiShear: 0.65,   loadFactor: 1.4,  basis: "ASCE/SEI 74-23 §1.4 — φ·R_n ≥ γ·Q" },
-  "lrfd-cents19101": { label: "Partial-factor — CEN/TS 19101:2022", phiFlex: 1/1.5,  phiShear: 1/1.5,  loadFactor: 1.35, basis: "CEN/TS 19101 §4 — R_k/γ_M ≥ γ_F·E_k (Eurocode partial-factor)" },
-  "lrfd-gb50608":    { label: "LRFD — GB 50608-2020",              phiFlex: 1/1.6,  phiShear: 1/1.6,  loadFactor: 1.3,  basis: "GB 50608-2020 §3.3 — R_k/γ_R ≥ γ_G·G_k + γ_Q·Q_k" },
+  "lrfd-asce":       { label: "LRFD — ASCE/SEI 74-23",            phiFlex: 0.65,   phiShear: 0.65,   loadFactor: 1.6,  basis: "ASCE/SEI 74-23 — φ·R_n ≥ γ·Q (γ_Q = 1.6 live-dominated; λ not modeled)" },
+  "lrfd-cents19101": { label: "Partial-factor — CEN/TS 19101:2022", phiFlex: 1/1.5,  phiShear: 1/1.5,  loadFactor: 1.5,  basis: "CEN/TS 19101 §4 — R_k/γ_M ≥ γ_F·E_k (γ_Q = 1.5 variable actions, EN 1990)" },
+  "lrfd-gb50608":    { label: "LRFD — GB 50608-2020",              phiFlex: 1/1.6,  phiShear: 1/1.6,  loadFactor: 1.5,  basis: "GB 50608-2020 §3.3 — R_k/γ_R ≥ γ_G·G_k + γ_Q·Q_k (γ_Q = 1.5, GB 55001-2021)" },
   "asd":             { label: "ASD — Allowable Stress (legacy)",   phiFlex: 1/2.5,  phiShear: 1/3.0,  loadFactor: 1.0,  basis: "Allowable Stress Design — σ_allow = F_u / FS (FS≈2.5 bending, 3.0 shear)" },
 };
 
@@ -69,15 +73,19 @@ const envFactors = [
   { id: "indoor-dry", label: "Indoor, dry, ≤30°C",                factor: 1.00, note: "Reference — no knockdown" },
   { id: "outdoor",    label: "Outdoor, exposed (UV + humidity)",  factor: 0.85, note: "Long-term UV + moisture exposure" },
   { id: "wet",        label: "Wet / immersion",                   factor: 0.80, note: "Continuous moisture absorption" },
-  { id: "chemical",   label: "Mild chemical (acid/alkali)",       factor: 0.75, note: "Chemical class — see CECS 692:2020 Annex" },
+  { id: "chemical",   label: "Mild chemical (acid/alkali)",       factor: 0.75, note: "Chemical class — see T/CECS 692-2020 Annex" },
   { id: "hot",        label: "Elevated temp (30–60°C)",           factor: 0.70, note: "Approaching T_g — see ASCE/SEI 74-23 §3.5.4" },
 ];
 
+/* factor_s = load-case constant c in the exact shear-deflection ratio
+   δ_shear/δ_bending = c·E·I / (G·A_v·L²), derived from each case's closed-form
+   δ_s (UDL midspan: wL²/8GA_v ÷ 5wL⁴/384EI → 9.6; midspan point: 12;
+   cantilever tip point: 3; cantilever UDL: 4). */
 const loadTypes = [
-  { id: "udl", label: "Uniform Distributed Load (UDL)", factor_M: 1 / 8, factor_d: 5 / 384, factor_V: 0.5 },
-  { id: "point-mid", label: "Point Load at Midspan", factor_M: 1 / 4, factor_d: 1 / 48, factor_V: 0.5 },
-  { id: "cantilever-point", label: "Cantilever — Point Load at Tip", factor_M: 1, factor_d: 1 / 3, factor_V: 1.0 },
-  { id: "cantilever-udl", label: "Cantilever — Uniform Load", factor_M: 1 / 2, factor_d: 1 / 8, factor_V: 1.0 },
+  { id: "udl", label: "Uniform Distributed Load (UDL)", factor_M: 1 / 8, factor_d: 5 / 384, factor_V: 0.5, factor_s: 9.6 },
+  { id: "point-mid", label: "Point Load at Midspan", factor_M: 1 / 4, factor_d: 1 / 48, factor_V: 0.5, factor_s: 12 },
+  { id: "cantilever-point", label: "Cantilever — Point Load at Tip", factor_M: 1, factor_d: 1 / 3, factor_V: 1.0, factor_s: 3 },
+  { id: "cantilever-udl", label: "Cantilever — Uniform Load", factor_M: 1 / 2, factor_d: 1 / 8, factor_V: 1.0, factor_s: 4 },
 ];
 
 const profileShapes = [
@@ -129,7 +137,7 @@ type Preset = {
   dimH: number; dimB: number; dimTw: number; dimTf: number; designMethod: DesignMethod;
 };
 const PRESETS: Preset[] = [
-  { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
+  { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 240, dimB: 120, dimTw: 12, dimTf: 12, designMethod: "lrfd-asce" },
   { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 5, dimTf: 5, designMethod: "lrfd-asce" },
   { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-e23", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
   { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
@@ -187,17 +195,32 @@ function calcShearArea(shape: string, h: number, b: number, tw: number, tf: numb
   return 0;
 }
 
-// Outstanding-flange slenderness b/t — flagged for local-buckling review when high.
-// Per ASCE/SEI 74-23 Ch.3 and CEN/TS 19101 §6, FRP free flanges typically need b/t ≤ ~18
-// for E-glass / polyester; tighter for compression-governed members.
-function flangeSlenderness(shape: string, b: number, tf: number, tw: number): number {
-  if (shape === "i-beam") return (b / 2) / tf;
-  if (shape === "channel") return b / tf;
-  if (shape === "square-tube" || shape === "round-tube") return b / tw;
-  if (shape === "angle") return b / tw;
-  return 0;
+// Wall-slenderness advisory for local-buckling review. Outstanding (one-edge-
+// supported) elements — I/C flanges, angle legs — use b/t ≤ ~18 per ASCE/SEI
+// 74-23 Ch.3 / CEN/TS 19101 §6 for E-glass pultrusions. Box flats are supported
+// on both edges and round tubes are shells, so both get a separate ~40 advisory
+// limit (D/t for tubes). Round tube deliberately ignores B (hidden input).
+function slendernessCheck(shape: string, h: number, b: number, tw: number, tf: number): { ratio: number; limit: number; label: string } {
+  if (shape === "i-beam") return { ratio: b / 2 / tf, limit: 18, label: "outstanding flange b/t" };
+  if (shape === "channel") return { ratio: b / tf, limit: 18, label: "outstanding flange b/t" };
+  if (shape === "angle") return { ratio: Math.max(h, b) / tw, limit: 18, label: "leg b/t" };
+  if (shape === "square-tube") return { ratio: (Math.max(h, b) - 2 * tw) / tw, limit: 40, label: "box flat-width b/t" };
+  if (shape === "round-tube") return { ratio: h / tw, limit: 40, label: "tube D/t" };
+  return { ratio: 0, limit: 18, label: "b/t" };
 }
-const SLENDERNESS_FLANGE_WARN = 18;
+
+// Numeric-path guard mirroring geometry.ts: reject degenerate dimensions
+// (walls thicker than the section allows) that would otherwise yield silently
+// wrong section properties — e.g. tw > B makes the inner term negative and
+// inflates Ix instead of failing.
+function dimsValid(shape: string, h: number, b: number, tw: number, tf: number): boolean {
+  const pos = (...vals: number[]) => vals.every((v) => Number.isFinite(v) && v > 0);
+  if (shape === "i-beam" || shape === "channel") return pos(h, b, tw, tf) && tf * 2 < h && tw < b;
+  if (shape === "angle") return pos(h, b, tw) && tw < h && tw < b;
+  if (shape === "square-tube") return pos(h, b, tw) && tw * 2 < Math.min(h, b);
+  if (shape === "round-tube") return pos(h, tw) && tw < h / 2;
+  return false;
+}
 
 type Mode = "beam" | "equivalence";
 
@@ -288,6 +311,7 @@ export default function ProfileCalculator() {
   const isFRP = mat.group === "FRP";
   const sectionLook = isFRP ? "frp" : matKey.startsWith("alu") ? "alu" : "steel";
 
+  const dimsOk = dimsValid(shape, dimH, dimB, dimTw, dimTf);
   const Ix = calcIx(shape, dimH, dimB, dimTw, dimTf);
   const Wx = calcWx(Ix, dimH, shape, dimB, dimTw);
   const area = calcArea(shape, dimH, dimB, dimTw, dimTf);
@@ -309,21 +333,26 @@ export default function ProfileCalculator() {
   const sigma_max = Wx > 0 ? M_factored_Nmm / Wx : 0;        // MPa
   const tau_max = Aw > 0 ? V_factored_N / Aw : 0;            // MPa (V/A_web average)
 
-  // Allowables — apply resistance factor + (for FRP) environmental knockdown
+  // Allowables — apply resistance factor + (for FRP) environmental knockdown.
+  // Bending uses min(F_tL, F_cL): pultruded FRP typically fails on the
+  // compression face first (F_cL < F_tL), so tensile strength alone is
+  // unconservative by ~20% on EN 13706 grades.
   const envFac = isFRP ? env.factor : 1.0;
-  const F_b_allow = dm.phiFlex * mat.sigma * envFac;
+  const F_b_char = isFRP ? Math.min(mat.sigma, mat.sigma_c ?? mat.sigma) : mat.sigma;
+  const F_b_allow = dm.phiFlex * F_b_char * envFac;
   const F_v_char = isFRP ? (mat.tau ?? 30) : mat.sigma * 0.6;  // metals ≈ 0.6σy for shear
   const F_v_allow = dm.phiShear * F_v_char * envFac;
 
-  // Deflection — bending part + (for FRP) Timoshenko shear correction.
-  // δ_shear = α · (V·L) / (G·A_w);  for UDL midspan the equivalent constant α ≈ 1/8 (simply supported UDL on the moment-shear integral)
-  // For preliminary tool, use δ_b × [1 + 12·E·I / (k·G·A·L²)]  with k=5/6 (rectangular shear coefficient)
+  // Deflection — bending + shear (Timoshenko). Exact per load case:
+  // δ_shear/δ_bending = c·E·I / (G·A_v·L²) with c = lt.factor_s (9.6 UDL,
+  // 12 midspan point, 3 cantilever tip, 4 cantilever UDL) and A_v = the
+  // shear area already computed (web for I/C, walls for tubes, k = 1).
   const E_mpa = mat.E * 1000;
   const G_mpa = (mat.G_LT ?? mat.E / (2 * 1.3)) * 1000;        // metals: ν≈0.3 → G = E/2.6
   const defl_bending = isDistributed
     ? (lt.factor_d * load * span ** 4) / (E_mpa * Ix)
     : (lt.factor_d * load * 1000 * span ** 3) / (E_mpa * Ix);
-  const shearCorrection = area > 0 ? 1 + (12 * E_mpa * Ix) / ((5 / 6) * G_mpa * area * span ** 2) : 1;
+  const shearCorrection = Aw > 0 && span > 0 ? 1 + (lt.factor_s * E_mpa * Ix) / (G_mpa * Aw * span ** 2) : 1;
   const defl = defl_bending * shearCorrection;
   const deflShearPct = ((shearCorrection - 1) * 100);
   const deflRatio = span / (defl || 1);
@@ -335,21 +364,26 @@ export default function ProfileCalculator() {
   const deflOk = deflRatio >= deflLimit;
 
   // Local-buckling slenderness warning (advisory)
-  const slender = flangeSlenderness(shape, dimB, dimTf, dimTw);
-  const slenderWarn = isFRP && slender > SLENDERNESS_FLANGE_WARN;
+  const slender = slendernessCheck(shape, dimH, dimB, dimTw, dimTf);
+  const slenderWarn = isFRP && dimsOk && slender.ratio > slender.limit;
 
   /* ── Equivalence calculation ── */
   const srcMat = materials[eqSourceMat];
   const tgtMat = materials[eqTargetMat];
+  const eqDimsOk = dimsValid(eqShape, eqH, eqB, eqTw, eqTf);
   const srcIx = calcIx(eqShape, eqH, eqB, eqTw, eqTf);
   const srcWx = calcWx(srcIx, eqH, eqShape, eqB, eqTw);
   const srcArea = calcArea(eqShape, eqH, eqB, eqTw, eqTf);
 
-  const reqWx = srcWx * (srcMat.sigma / tgtMat.sigma);
+  // FRP strength for the equal-strength comparison = min(F_tL, F_cL) — the
+  // compression face governs pultruded bending. Still characteristic-level
+  // (metal yield vs FRP characteristic, no φ/env factors) — disclosed below.
+  const tgtSigma = Math.min(tgtMat.sigma, tgtMat.sigma_c ?? tgtMat.sigma);
+  const reqWx = srcWx * (srcMat.sigma / tgtSigma);
   const reqIx = srcIx * (srcMat.E / tgtMat.E);
 
   const stiffnessScale = Math.pow(srcMat.E / tgtMat.E, 1 / 4);
-  const strengthScale = Math.pow(srcMat.sigma / tgtMat.sigma, 1 / 3);
+  const strengthScale = Math.pow(srcMat.sigma / tgtSigma, 1 / 3);
 
   const stiffH = Math.round(eqH * stiffnessScale);
   const stiffB = Math.round(eqB * stiffnessScale);
@@ -396,7 +430,7 @@ export default function ProfileCalculator() {
     `- Shear (factored): ${tau_max.toFixed(1)} MPa vs ${F_v_allow.toFixed(1)} MPa allowable (${shearOk ? "OK" : "EXCEEDS"})\n` +
     `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS"}); shear share ${deflShearPct.toFixed(1)}%\n` +
     `- Weight: ${weightPerM.toFixed(2)} kg/m\n` +
-    (slenderWarn ? `- ⚠ Local-buckling advisory: flange b/t = ${slender.toFixed(1)} > ${SLENDERNESS_FLANGE_WARN}\n` : "") +
+    (slenderWarn ? `- ⚠ Local-buckling advisory: ${slender.label} = ${slender.ratio.toFixed(1)} > ${slender.limit}\n` : "") +
     `\nApplication context (please add): ____\n` +
     `Project location / corrosion environment: ____\n\nThanks.`;
 
@@ -426,7 +460,7 @@ export default function ProfileCalculator() {
         <option value="frp-e17">EN 13706 Grade E17</option>
         <option value="frp-e23">EN 13706 Grade E23</option>
       </optgroup>
-      <optgroup label="FRP — GB 50608-2020 / CECS 692:2020">
+      <optgroup label="FRP — GB 50608-2020 / T/CECS 692-2020">
         <option value="frp-gb50608-i">GB 50608 Class I (E≈23 GPa)</option>
         <option value="frp-gb50608-ii">GB 50608 Class II (E≈17 GPa)</option>
       </optgroup>
@@ -588,17 +622,25 @@ export default function ProfileCalculator() {
             <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Results</SectionTag>
 
+              {!dimsOk ? (
+                <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+                  Invalid section dimensions — wall thicknesses must fit inside the section
+                  (t_w &lt; B and 2·t_f &lt; H). Results are hidden until the geometry is valid.
+                </div>
+              ) : (<>
+
               {/* Material properties — orthotropic for FRP, isotropic for metals */}
               <div className="rounded-[6px] bg-white p-[13px]">
                 <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">
                   Material Properties {isFRP ? "(orthotropic)" : "(isotropic)"}
                 </div>
                 {isFRP ? (
-                  <div className="mt-[8px] grid grid-cols-6 gap-[8px] text-center">
+                  <div className="mt-[8px] grid grid-cols-7 gap-[8px] text-center">
                     <div><div className="text-f15 font-extrabold text-t1">{mat.E}</div><div className="text-f11 text-t3">E_L (GPa)</div></div>
                     <div><div className="text-f15 font-extrabold text-t1">{mat.E_T}</div><div className="text-f11 text-t3">E_T (GPa)</div></div>
                     <div><div className="text-f15 font-extrabold text-t1">{mat.G_LT}</div><div className="text-f11 text-t3">G_LT (GPa)</div></div>
                     <div><div className="text-f15 font-extrabold text-t1">{mat.sigma}</div><div className="text-f11 text-t3">F_tL (MPa)</div></div>
+                    <div><div className="text-f15 font-extrabold text-t1">{mat.sigma_c}</div><div className="text-f11 text-t3">F_cL (MPa)</div></div>
                     <div><div className="text-f15 font-extrabold text-t1">{mat.tau}</div><div className="text-f11 text-t3">F_vLT (MPa)</div></div>
                     <div><div className="text-f15 font-extrabold text-t1">{mat.density}</div><div className="text-f11 text-t3">ρ (g/cm³)</div></div>
                   </div>
@@ -658,9 +700,9 @@ export default function ProfileCalculator() {
                 )}
                 {slenderWarn && (
                   <div className="border-t border-red-200 pt-[5px] text-red-700">
-                    ⚠ <strong>Local-buckling advisory:</strong> outstanding flange b/t = {slender.toFixed(1)} &gt; {SLENDERNESS_FLANGE_WARN}.
-                    Pultruded FRP free flanges typically need b/t ≤ {SLENDERNESS_FLANGE_WARN} per ASCE/SEI 74-23 Ch.3 / CEN/TS 19101 §6.
-                    Verify per the full local-buckling check or thicken the flange.
+                    ⚠ <strong>Local-buckling advisory:</strong> {slender.label} = {slender.ratio.toFixed(1)} &gt; {slender.limit}.
+                    Pultruded FRP walls typically need {slender.label} ≤ {slender.limit} per ASCE/SEI 74-23 Ch.3 / CEN/TS 19101 §6.
+                    Verify per the full local-buckling check or thicken the wall.
                   </div>
                 )}
               </div>
@@ -718,10 +760,13 @@ export default function ProfileCalculator() {
                 {copied ? "✓ Link copied" : "🔗 Copy a shareable link to this calculation"}
               </button>
 
+              </>)}
+
               <p className="text-f11 text-t3">
-                Reference: EN 13706-3 · GB 50608-2020 / CECS 692:2020 · ASCE/SEI 74-23 · CEN/TS 19101:2022 · ASTM D3917.
-                Calculator performs global bending, average shear, and Timoshenko-corrected deflection only.
-                Local buckling, lateral-torsional buckling, web crippling, and connection design require dedicated analysis — contact F1 Composite engineering.
+                Reference: EN 13706-3 · GB 50608-2020 / T/CECS 692-2020 · ASCE/SEI 74-23 · CEN/TS 19101:2022 · ASTM D3917.
+                Calculator performs global bending (vs min tensile/compressive strength), average shear, and load-case-matched Timoshenko deflection only.
+                Not modeled: local buckling, lateral-torsional buckling, web crippling, long-term creep deflection, the ASCE 74-23 time-effect factor λ,
+                principal-axis bending of single angles, and connection design — these require dedicated analysis; contact F1 Composite engineering.
               </p>
             </div>
           </div>
@@ -807,6 +852,13 @@ export default function ProfileCalculator() {
             <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>FRP Equivalent</SectionTag>
 
+              {!eqDimsOk ? (
+                <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+                  Invalid section dimensions — wall thicknesses must fit inside the section
+                  (t_w &lt; B and 2·t_f &lt; H). Results are hidden until the geometry is valid.
+                </div>
+              ) : (<>
+
               <div className="overflow-x-auto rounded-[6px] bg-white">
                 <table className="w-full text-left text-f13">
                   <thead>
@@ -818,7 +870,7 @@ export default function ProfileCalculator() {
                   </thead>
                   <tbody>
                     <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">E (GPa)</td><td className="px-[13px] py-[8px] font-medium text-t1">{srcMat.E}</td><td className="px-[13px] py-[8px] font-medium text-teal">{tgtMat.E}</td></tr>
-                    <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">σ (MPa)</td><td className="px-[13px] py-[8px] font-medium text-t1">{srcMat.sigma}</td><td className="px-[13px] py-[8px] font-medium text-teal">{tgtMat.sigma}</td></tr>
+                    <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">σ (MPa) — metal σ_y / FRP min(F_tL, F_cL)</td><td className="px-[13px] py-[8px] font-medium text-t1">{srcMat.sigma}</td><td className="px-[13px] py-[8px] font-medium text-teal">{tgtSigma}</td></tr>
                     <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">Density (g/cm³)</td><td className="px-[13px] py-[8px] font-medium text-t1">{srcMat.density}</td><td className="px-[13px] py-[8px] font-medium text-teal">{tgtMat.density}</td></tr>
                     <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">Ix required (cm⁴)</td><td className="px-[13px] py-[8px] font-medium text-t1">{(srcIx / 1e4).toFixed(1)}</td><td className="px-[13px] py-[8px] font-medium text-teal">{(reqIx / 1e4).toFixed(1)}</td></tr>
                     <tr className="border-b border-border-default"><td className="px-[13px] py-[8px] text-t2">Wx required (cm³)</td><td className="px-[13px] py-[8px] font-medium text-t1">{(srcWx / 1e3).toFixed(1)}</td><td className="px-[13px] py-[8px] font-medium text-teal">{(reqWx / 1e3).toFixed(1)}</td></tr>
@@ -883,9 +935,14 @@ export default function ProfileCalculator() {
               )}
               <ResultLeadCapture source="calculator-equivalence" summary={eqMessage} context={eqContext} />
 
+              </>)}
+
               <p className="text-f11 text-t3">
                 Geometrically similar scaling with both equal-stiffness (EI) and equal-strength (σW) checks per
-                EN 13706-3, GB 50608-2020 / CECS 692:2020, ASCE/SEI 74-23, and CEN/TS 19101:2022 methodology.
+                EN 13706-3, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022 methodology.
+                The strength comparison is at characteristic level (metal yield vs FRP min(F_tL, F_cL)) with no
+                resistance or environmental factors, and equal EI does not include FRP shear deflection or creep —
+                treat results as sizing guidance and confirm with the Beam Analysis tab&apos;s factored checks.
                 Steel → FRP substitutions are typically deflection-governed; aluminum → FRP can be either —
                 the calculator flags whichever scale factor is larger. Consult F1 Composite engineering for
                 project-specific verification including local buckling and connection detailing.
