@@ -67,6 +67,11 @@ const faqItems = [
       "F1 Composite's profiles are tested and certified to the same international standards as the Western incumbents — EN 13706 for pultruded profiles (structural grades E17 and E23), ASTM D3917 for dimensional tolerance (±0.25 mm), and mechanical testing to ASTM D638 / D790 / D695, all under ISO 9001:2015. Mill test certificates are issued per production batch and third-party test reports are available on request, so specifying engineers can verify equivalence before purchase.",
   },
   {
+    question: "Is there a Pultex or EXTREN crossover chart to F1-STRUX profiles?",
+    answer:
+      "Yes — the crossover chart on this page maps Strongwell EXTREN® Series 500/525/625 and Creative Pultrusions Pultex® 1500/1525/1625-series to the corresponding F1-STRUX resin system and fire class: general-purpose polyester, fire-retardant polyester (ASTM E84 rated), and fire-retardant vinyl ester respectively, with Fiberline and Exel specs crossing over directly by EN 13706 grade (E17/E23). It is a resin-system crossover rather than a claim of identical mechanicals — for substitution into an existing stamped spec, send the spec sheet and F1 returns a side-by-side datasheet comparison against the exact series named.",
+  },
+  {
     question: "Why source pultruded FRP profiles from China instead of a Western manufacturer?",
     answer:
       "The case for a China alternative is standards-parity at a factory-direct price: identical EN 13706 / ASTM D3917 compliance, the full structural and custom range from one supplier, custom-die tooling in 3–6 weeks, and export to 30+ countries on FOB or DDP terms — without regional distributor markups. For corrosion-critical or weight-critical projects, this lowers landed cost while keeping the same engineering specification.",
@@ -179,6 +184,82 @@ export default function ChinaAlternativePage() {
               FRP vs traditional materials
             </Link>
             .
+          </p>
+        </div>
+      </section>
+
+      {/* Crossover chart */}
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Crossover Chart</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            EXTREN® / Pultex® to F1-STRUX crossover chart
+          </h2>
+          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+            Specifiers often hold an existing spec written around Strongwell
+            EXTREN® or Creative Pultrusions Pultex® series names. The chart
+            below maps those series to the F1-STRUX resin system and fire class
+            they correspond to. It is a <strong className="text-t1">resin-system
+            crossover, not a 1:1 mechanical equivalence</strong> — always compare
+            the actual datasheets side by side for the governing property in
+            your design, and note that some incumbent series carry enhanced
+            mechanical grades above the base standard.
+          </p>
+
+          <div className="mt-[34px] overflow-x-auto">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b-2 border-border-default">
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Incumbent series</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Resin system / fire class</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">F1-STRUX crossover</th>
+                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Verify before substituting</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    series: "EXTREN® Series 500 · Pultex® 1500-series",
+                    resin: "Polyester with surfacing veil, general purpose",
+                    f1: "F1-STRUX polyester (EN 13706 E17/E23, ASTM D3917)",
+                    verify: "Flexural/tensile values and tolerance class per datasheet",
+                  },
+                  {
+                    series: "EXTREN® Series 525 · Pultex® 1525-series",
+                    resin: "Polyester, fire retardant",
+                    f1: "F1-STRUX polyester FR (ASTM E84 flame-spread rated)",
+                    verify: "Flame-spread class and smoke index per test report",
+                  },
+                  {
+                    series: "EXTREN® Series 625 · Pultex® 1625-series",
+                    resin: "Vinyl ester, fire retardant — chemical service",
+                    f1: "F1-STRUX vinyl ester FR (E23)",
+                    verify: "Chemical-resistance chart for the specific service medium",
+                  },
+                  {
+                    series: "Fiberline / Exel EN 13706 grades",
+                    resin: "Specified directly by EN 13706 grade (E17 / E23)",
+                    f1: "F1-STRUX same grade designation — direct spec match",
+                    verify: "Full-section modulus test method per EN 13706-2 Annex D",
+                  },
+                ].map((row) => (
+                  <tr key={row.series} className="border-b border-border-default align-top">
+                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.series}</td>
+                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.resin}</td>
+                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{row.f1}</td>
+                    <td className="py-[13px] text-f13 text-t2">{row.verify}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-[21px] max-w-[900px] text-f13 text-t3">
+            EXTREN® is a registered trademark of Strongwell Corporation; Pultex®
+            of Creative Pultrusions, Inc. Names are used for specification
+            crossover reference only. Send your existing spec sheet and we
+            return a like-for-like F1-STRUX datasheet comparison against the
+            series it names.
           </p>
         </div>
       </section>

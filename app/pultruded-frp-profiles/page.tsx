@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForHub } from "@/lib/aiPrefill";
 
 const pageTitle =
-  "Pultruded FRP Profiles — ASTM & EN 13706 · DDP USA";
+  "Pultruded FRP Profiles & Structural Shapes — EN 13706 DDP";
 const pageDescription =
   "FRP manufacturer for structural, PHIUS frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote 24h, Section 301 inline.";
 const pagePath = "/pultruded-frp-profiles";
@@ -271,6 +271,11 @@ const faqItems = [
       "Yes. F1 Composite manufactures to EN 13706-1/2/3 (European pultruded profile standard, E17 and E23 grades) and ASTM D3917 (dimensional tolerances). Mechanical testing follows ASTM D638 (tensile), D790 (flexural), and D695 (compression). The company holds ISO 9001:2015, and fire-rated products are certified to BS 476, ASTM E84, and EN 45545-2.",
   },
   {
+    question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
+    answer:
+      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06 — most commonly Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates). FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) issued per production batch — the documentation package a PE stamping the spec expects to receive.",
+  },
+  {
     question: "What is the typical lead time for pultruded FRP profiles?",
     answer:
       "Stock standard profiles: 2–4 weeks. Custom profiles using existing tooling: 4–6 weeks. Custom profiles requiring new dies: 6–10 weeks total (3–6 weeks for die manufacturing + trial + production). Fenestration system projects: 6–12 weeks depending on volume.",
@@ -424,8 +429,8 @@ export default function PultrudedFRPProfilesHubPage() {
 
       <PageHeader
         tag="Pultruded FRP Profiles"
-        title="Pultruded FRP profiles manufacturer — complete product hub"
-        description="F1 Composite manufactures the full pultruded fiberglass profile range: standard structural shapes, custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards, applications, and quote path."
+        title="Pultruded FRP profiles & fiberglass structural shapes — complete product hub"
+        description="F1 Composite manufactures the full pultruded fiberglass range: FRP structural shapes (wide flange beams, channels, angles, tubes), custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards (CSI 06 50 00 / 06 51 00), applications, and quote path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },

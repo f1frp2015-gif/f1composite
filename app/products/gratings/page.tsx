@@ -110,6 +110,11 @@ const faqItems = [
       "FRP gratings are open-mesh panels formed by bi-directional glass fiber (molded) or by interlocking pultruded bearing bars (pultruded). They provide high drainage, light transmission, and reduced wind load, but small objects can fall through the mesh. FRP deck panels (also called structural deck planks) are closed-top pultruded planks with internal webs and an integrally sealed top surface — they carry concentrated loads without requiring a cover plate, span longer than gratings of equivalent depth, and are the preferred specification for pedestrian bridge decks, vehicular access platforms, and FRP bridge deck replacement projects.",
   },
   {
+    question: "What CSI MasterFormat section covers FRP gratings?",
+    answer:
+      "In North American construction specifications, fiberglass reinforced gratings are specified under CSI MasterFormat Section 06 74 13 (Fiberglass Reinforced Gratings), within Division 06 — distinct from metal gratings, which sit in Division 05 (05 53 00). Specifying under 06 74 13 keeps the corrosion-resistance, load-deflection, and fire-rating requirements in a section written for composites rather than forcing FRP into a steel-grating spec. F1 supports 06 74 13 submittals with load tables, ASTM E84 flame-spread data, and batch material test reports.",
+  },
+  {
     question: "What spans can FRP deck panels achieve?",
     answer:
       "F1 Composite pultruded FRP deck panels span up to 3.6 m under pedestrian load with a 100 mm panel depth. Shorter spans of 1.2–2.4 m are typical for panels rated to AASHTO H-10 or H-20 vehicular load. For longer pedestrian bridge decks, multiple panels are spliced with tongue-and-groove joints and supported on intermediate FRP or steel cross-beams. Full span/load/deflection tables are available on request for project-specific design.",

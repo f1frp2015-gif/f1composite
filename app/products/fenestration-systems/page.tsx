@@ -346,6 +346,11 @@ const faqItems = [
       "Complete window and door units are tested to EN 14351-1 for CE marking (air permeability, water tightness, wind resistance, operating forces) and to NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 for North America. Thermal performance is the PHI Component Certificate 2491wi03 (U_w 0.78, phA arctic class), with NFRC 100 and CSA A440.2/.3 simulation on request. Profiles are characterized to EN ISO 10077-2 and EN 14024. For Russia and the EAEU we support GOST 23166 and EAC documentation per project. Every shipment includes the test reports and certificates your submission requires.",
   },
   {
+    question: "What CSI MasterFormat section covers fiberglass (FRP) windows?",
+    answer:
+      "In North American project specifications, fiberglass windows are specified under CSI MasterFormat Division 08 (Openings), Section 08 53 00 — Plastic Windows, which covers non-metal framed window systems including pultruded fiberglass. The supporting pultruded profiles themselves fall under Division 06, Section 06 50 00 (Structural Plastics). F1 supports spec-section submittals with the full documentation stack: EN 14351-1 / NAFS test reports, PHI Component Certificate 2491wi03, EN ISO 10077-2 thermal simulation data, and AAMA 2604/2605 finish reports.",
+  },
+  {
     question: "Is F1 Composite a window factory or a trading company?",
     answer:
       "A manufacturer. F1 Composite pultrudes its window profiles on its own continuous lines (5 production bases, 370 pultrusion lines, 800+ standing die sections) and assembles finished window and door units in its own plant — no subcontracted production behind a trading front. We support third-party factory audits (SGS / Bureau Veritas) as a routine qualification step, and we run OEM / private-label lineal programs for window brands and fabricators who sell under their own name.",
