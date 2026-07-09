@@ -107,6 +107,23 @@ const EN_NOTE = (g: string) =>
 const TYP_NOTE =
   "Compressive strength, Barcol hardness and water absorption are not specified by EN 13706 — the figures shown are typical industry values for this resin system, pending F1 certified test data; request certified values before final design.";
 
+// Density and glass content shown on non-published rows are typical for the
+// resin system, not certified F1 values.
+const DG_TYP =
+  "Density and glass content shown are typical for the resin system, not certified F1 values.";
+
+// Fire performance is resin-driven, NOT grade-driven. Standard (non-FR)
+// polyester is NOT Class 1 — only fire-retardant resins (FR polyester / FR
+// vinyl ester) and phenolic reach ASTM E84 Class 1 (flame spread ≤ 25). Every
+// fire class below is the class expected for that resin system and still
+// requires a certified per-profile ASTM E84 test report before it is specified.
+const FIRE_STD = "Standard grade — not fire-retardant (specify an FR grade for ASTM E84 Class 1)";
+const FIRE_FR = "ASTM E84 Class 1 (flame spread ≤ 25), UL94 V-0 — FR resin; certified test report required per profile";
+const FIRE_VE = "ASTM E84 Class 1 (flame spread ≤ 25) + low smoke — FR vinyl ester; certified test report required per profile";
+const FIRE_PH = "ASTM E84 Class 1 (inherent, no additives), low smoke & low toxicity — phenolic; certified test report required per profile";
+const FIRE_PU = "Additive-dependent — specify an FR grade for ASTM E84 Class 1";
+const FIRE_EP = "Not inherently fire-retardant";
+
 const formulations: SeedFormulation[] = [
   // F1's own published E23 laminate — keeps existing code so the 114 seeded
   // products stay linked. Published values where F1 publishes (ILSS 30 > the
@@ -114,37 +131,61 @@ const formulations: SeedFormulation[] = [
   {
     ...BASE, ...E23_MIN,
     code: "E23-ISO",
-    name: "E23 · Unsaturated polyester (isophthalic) / E-glass",
+    name: "E23 · Isophthalic polyester (general purpose) / E-glass",
     resin: "Isophthalic unsaturated polyester",
     resin_family: "unsaturated_polyester",
     glass_content: "65–70% by weight",
     density_g_cm3: 1.9,
     en13706_grade: "E23",
-    fire_rating: "ASTM E84 Class A (FSI ≤ 25)",
+    fire_rating: FIRE_STD,
     shear_mpa: 30,
     compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.6,
     notes:
-      `F1-published laminate (FRP Profile Design Manual DOC-PF-2026-EN Rev. A); ILSS 30 MPa published above the EN 13706 minimum of 25 MPa; transverse values are EN 13706-3 Table 1 grade minimums. ${TYP_NOTE}`,
+      `F1-published general-purpose laminate (FRP Profile Design Manual DOC-PF-2026-EN Rev. A); ILSS 30 MPa published above the EN 13706 minimum of 25 MPa; transverse values are EN 13706-3 Table 1 grade minimums. Standard isophthalic polyester is not fire-retardant — for ASTM E84 Class 1 specify the FR-E23 grade. ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E17_MIN,
     code: "UP-E17",
-    name: "E17 · Unsaturated polyester / E-glass",
-    resin: "Unsaturated polyester",
+    name: "E17 · Isophthalic polyester (general purpose) / E-glass",
+    resin: "Isophthalic unsaturated polyester",
     resin_family: "unsaturated_polyester",
+    glass_content: "55–60% by weight",
+    density_g_cm3: 1.8,
     en13706_grade: "E17",
+    fire_rating: FIRE_STD,
     compressive_l_mpa: 200, barcol: 45, water_abs_pct: 0.6,
-    notes: `${EN_NOTE("E17")} ${TYP_NOTE}`,
+    notes: `${EN_NOTE("E17")} Secondary / lightly-loaded structural grade. ${DG_TYP} ${TYP_NOTE}`,
   },
+  // Rung 2 — fire-retardant polyester (mirrors Strongwell EXTREN 525 /
+  // Creative Pultrusions Pultex 1525 / Bedford IFR). Same profile geometry as
+  // the GP grade; the FR resin is what carries the ASTM E84 Class 1 rating.
+  {
+    ...BASE, ...E23_MIN,
+    code: "FR-E23",
+    name: "E23 · Fire-retardant isophthalic polyester (Class 1) / E-glass",
+    resin: "Fire-retardant isophthalic unsaturated polyester",
+    resin_family: "unsaturated_polyester",
+    glass_content: "60–70% by weight",
+    density_g_cm3: 1.9,
+    en13706_grade: "E23",
+    fire_rating: FIRE_FR,
+    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.6,
+    notes: `${EN_NOTE("E23")} Fire-retardant polyester for fire-code service where chemistry is mild. ${DG_TYP} ${TYP_NOTE}`,
+  },
+  // Rung 3 — fire-retardant vinyl ester (mirrors EXTREN 625 / Pultex 1625 /
+  // Bedford VFR). Premium corrosion + fire.
   {
     ...BASE, ...E23_MIN,
     code: "VE-E23",
-    name: "E23 · Vinyl ester / E-glass",
-    resin: "Vinyl ester",
+    name: "E23 · Vinyl ester (FR, corrosion grade) / E-glass",
+    resin: "Fire-retardant vinyl ester",
     resin_family: "vinyl_ester",
+    glass_content: "60–70% by weight",
+    density_g_cm3: 1.85,
     en13706_grade: "E23",
-    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.6,
-    notes: `${EN_NOTE("E23")} Vinyl ester matrix for aggressive chemical / marine service. ${TYP_NOTE}`,
+    fire_rating: FIRE_VE,
+    compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.5,
+    notes: `${EN_NOTE("E23")} Vinyl ester matrix for aggressive chemical / marine service (strong acids, bleach, solvents, hydrolysis) and higher service temperature. ${DG_TYP} ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -152,9 +193,12 @@ const formulations: SeedFormulation[] = [
     name: "E23 · Epoxy / E-glass",
     resin: "Epoxy",
     resin_family: "epoxy",
+    glass_content: "60–70% by weight",
+    density_g_cm3: 1.9,
     en13706_grade: "E23",
+    fire_rating: FIRE_EP,
     compressive_l_mpa: 240, barcol: 50, water_abs_pct: 0.5,
-    notes: `${EN_NOTE("E23")} Epoxy matrix for elevated-temperature and fatigue-critical service. ${TYP_NOTE}`,
+    notes: `${EN_NOTE("E23")} Epoxy matrix for elevated-temperature and fatigue-critical service (e.g. wind spar caps). ${DG_TYP} ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -162,11 +206,14 @@ const formulations: SeedFormulation[] = [
     name: "E23 · Polyurethane / E-glass",
     resin: "Polyurethane",
     resin_family: "polyurethane",
+    glass_content: "65–75% by weight",
+    density_g_cm3: 1.95,
     en13706_grade: "E23",
+    fire_rating: FIRE_PU,
     // Water absorption backed by F1's own PU spec limit (PU-GF TDS F1-TDS-PUGF-001:
     // spec <= 0.5%, measured 0.099-0.114% on the automotive-grade laminate).
     compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.5,
-    notes: `${EN_NOTE("E23")} PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet); replace with measured values per programme. ${TYP_NOTE}`,
+    notes: `${EN_NOTE("E23")} Tough PU matrix for impact / high-strength thin-wall sections (e.g. window frames); PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet), replace with measured values per programme. ${DG_TYP} ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -174,11 +221,14 @@ const formulations: SeedFormulation[] = [
     name: "E23 · Phenolic / E-glass",
     resin: "Phenolic",
     resin_family: "phenolic",
+    glass_content: "55–65% by weight",
+    density_g_cm3: 1.75,
     en13706_grade: "E23",
+    fire_rating: FIRE_PH,
     // Phenolic laminates run slightly below polyester in compressive strength
     // and absorb more moisture — typical published ranges, not measured F1 data.
     compressive_l_mpa: 200, barcol: 45, water_abs_pct: 1.0,
-    notes: `${EN_NOTE("E23")} Phenolic matrix for fire-critical service (low flame spread / smoke). ${TYP_NOTE}`,
+    notes: `${EN_NOTE("E23")} Phenolic matrix for fire-critical enclosed / occupied service — tunnels, transit interiors, offshore (inherent low flame spread, low smoke & toxicity). ${DG_TYP} ${TYP_NOTE}`,
   },
   // Higher-modulus tiers — NOT EN 13706 grades. Definitional modulus only.
   {
@@ -195,17 +245,21 @@ const formulations: SeedFormulation[] = [
   {
     ...BASE, ...NO_MECH,
     code: "HM-E40",
-    name: "E40 · Bridge-grade laminate (ATS 5880 tier)",
+    name: "E40-equivalent · Bridge-grade laminate (ATS 5880 tier)",
     resin: null,
     resin_family: null,
     en13706_grade: "E40",
     e_l_gpa: 40,
     notes:
-      "E40 corresponds to the Austroads ATS 5880 bridge-grade modulus threshold, not an EN 13706 grade. Requires ≥77% glass or hybrid carbon reinforcement; all strengths require programme test data before release.",
+      "E40 is an \"E40-equivalent\" bridge-grade threshold per Austroads ATS 5880 (full-section modulus ≥ 40 GPa) — NOT an EN 13706 grade (EN 13706 tops out at E23). Benchmark construction: FR vinyl ester + ~77% glass by weight (industry reference: Wagner CFT). Bridge use additionally requires characteristic values per ASTM D7290 and full-section four-point bending per ASTM D6109; all strengths require programme test data before release.",
   },
 ];
 
-const STANDARDS = "EN 13706 Grade E23 · ASTM E84 Class A";
+// Products default to the E23-ISO general-purpose laminate. That base resin is
+// NOT fire-retardant, so the products-level standards line states the structural
+// grade only — an ASTM E84 fire class belongs to the FR / VE / phenolic
+// formulations, not the default general-purpose profile.
+const STANDARDS = "EN 13706 Grade E23";
 
 type SeedProduct = { model: string; cat: string; geometry: unknown; weight: number };
 
