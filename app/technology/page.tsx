@@ -34,6 +34,13 @@ const areas = [
   },
   {
     tag: "Materials",
+    title: "Pultrusion Resin Systems",
+    description:
+      "Polyester, vinyl ester, polyurethane, epoxy, or phenolic? The resin matrix decides corrosion, fire, and temperature behavior. Compare all five systems with an interactive selection matrix and typical property ranges.",
+    href: "/technology/pultrusion-resin-systems",
+  },
+  {
+    tag: "Materials",
     title: "Polyurethane Pultrusion Windows",
     description:
       "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness — the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
@@ -164,6 +171,7 @@ export default function TechnologyPage() {
             links: [
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process (6 stages)" },
+              { href: "/technology/pultrusion-resin-systems", label: "Resin systems: polyester vs vinyl ester vs PU" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },

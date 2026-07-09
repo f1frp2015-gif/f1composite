@@ -583,6 +583,7 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
             <LinkArrow href="/pultruded-frp-profiles">FRP pultruded profiles</LinkArrow>
+            <LinkArrow href="/technology/pultrusion-resin-systems">Resin Systems &amp; Matrix Selection</LinkArrow>
             <LinkArrow href="/technology/knowhow-services">Know-How Transfer Services</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs Traditional Materials</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>

@@ -80,6 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/product-lines`, lastModified: "2026-06-23", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology`, lastModified: DATES.technology, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/technology/pultrusion-process`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/technology/pultrusion-resin-systems`, lastModified: "2026-07-08", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-traditional-materials`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/technology/frp-vs-aluminum-windows`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-steel-gratings`, lastModified: "2026-04-15", changeFrequency: "monthly", priority: 0.85 },
