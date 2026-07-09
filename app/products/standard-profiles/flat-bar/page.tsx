@@ -6,7 +6,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -82,6 +82,7 @@ async function loadSizes(): Promise<typeof fallbackSizes> {
 
 export default async function FlatBarPage() {
   const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
@@ -92,6 +93,7 @@ export default async function FlatBarPage() {
           image: "/images/products/flat-bar/frp-flat-bar-150x15x4mm.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "12×3 mm to 305×25 mm" },
             { name: "Tolerance", value: "±0.25 mm thickness" },

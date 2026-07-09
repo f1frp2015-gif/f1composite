@@ -8,7 +8,15 @@ import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
+
+// Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
+// at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
+// sub-category page's own size table). This hub page doesn't fetch the
+// catalog DB itself, so the band is pinned to these two real extremes rather
+// than derived live; update them if a new size ever pushes past either end.
+const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
+const CATALOG_TOTAL_SKUS = "114";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Standard FRP Profiles — Pultruded Structural Shapes",
@@ -136,6 +144,10 @@ export default function StandardProfilesPage() {
           category: "Pultruded FRP Structural Profiles",
           productLine: "F1-STRUX",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
+          priceRange: (() => {
+            const r = priceRangeFromWeights(CATALOG_WEIGHT_EXTREMES_KG_PER_M, 2.2, 4.5);
+            return r ? { ...r, offerCount: CATALOG_TOTAL_SKUS } : undefined;
+          })(),
           additionalProperty: [
             { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
             { name: "Size Range", value: "12×3 mm to 305×305 mm" },

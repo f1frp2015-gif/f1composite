@@ -7,7 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -71,6 +71,7 @@ async function loadSizes(): Promise<typeof fallbackSizes> {
 
 export default async function AnglePage() {
   const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
@@ -81,6 +82,7 @@ export default async function AnglePage() {
           image: "/images/products/angle/frp-angle-profile-100x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "25×25 mm to 152×152 mm" },
             { name: "Format", value: "Equal-leg and unequal-leg L-profiles" },

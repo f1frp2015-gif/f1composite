@@ -6,7 +6,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -79,6 +79,7 @@ async function loadSizes(): Promise<typeof fallbackSizes> {
 
 export default async function RodPage() {
   const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
@@ -89,6 +90,7 @@ export default async function RodPage() {
           image: "/images/products/round-rod/frp-round-rod-solid.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["Unidirectional glass roving", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Diameter Range", value: "6 mm to 50 mm" },
             { name: "Glass Content", value: "65-70% unidirectional glass" },

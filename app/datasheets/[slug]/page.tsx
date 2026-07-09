@@ -11,7 +11,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import SectionSvg from "@/components/datasheets/SectionSvg";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
 import { sig } from "@/lib/catalog/section";
@@ -98,6 +98,9 @@ export default async function DatasheetPage({
     image: "/opengraph-image",
     category: category?.name ?? "Pultruded FRP profile",
     material: "Glass fiber reinforced polymer (GFRP)",
+    // Same-SKU weight fed through both ends of the standard-profile USD/kg
+    // quoting tier — a real per-model band, not a flat catalog-wide number.
+    priceRange: publishedW != null ? (priceRangeFromWeights([publishedW], 2.2, 4.5) ?? undefined) : undefined,
     ...(publishedW != null && {
       measurements: [{ propertyID: "massPerMetre", value: String(publishedW), unitText: "kg/m" }],
     }),

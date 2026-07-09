@@ -7,7 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -82,6 +82,7 @@ async function loadSizes(): Promise<typeof fallbackSizes> {
 
 export default async function TubePage() {
   const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
@@ -92,6 +93,7 @@ export default async function TubePage() {
           image: "/images/products/round-tube/frp-round-tube-80mm-od.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Outer Diameter Range", value: "25 mm to 150 mm" },
             { name: "Applications", value: "Handrails, guardrails, and conduit applications" },

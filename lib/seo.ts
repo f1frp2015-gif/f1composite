@@ -26,10 +26,12 @@ interface ProductSchemaOptions {
   productLine?: string;
   /**
    * Real catalog price band for THIS product family (per linear meter unless
-   * overridden). Omit for quote-only products — we then emit a price-less
-   * Offer (we sell it, it is in stock, contact for a quote) rather than
-   * asserting a fabricated price. B2B pricing is per-RFQ, so do not invent a
-   * range just to populate the field.
+   * overridden). Omit only when no defensible number exists — an absent
+   * `offers` (and no review/aggregateRating) fails Google's Product
+   * structured-data check ("Either 'offers', 'review', or 'aggregateRating'
+   * should be specified"). Never invent one flat price and reuse it across
+   * different profile families — derive it from real per-SKU data instead,
+   * e.g. via `priceRangeFromWeights()` below.
    */
   priceRange?: {
     lowPrice: string;
@@ -154,14 +156,16 @@ export function buildProductSchema({
       name: "F1 Composite",
       url: SITE_URL,
     },
-    // Only emit `offers` when we have a REAL price band. Google Merchant
-    // listings require every Offer to carry `price` or `priceSpecification`; a
-    // price-less Offer is invalid (GSC error: "Either 'price' or
-    // 'priceSpecification' should be specified (in 'offers')") and earns zero
-    // rich-result benefit anyway. B2B pricing here is per-RFQ, so for quote-only
-    // products we omit `offers` entirely — the Product stays valid via
-    // brand / manufacturer / material / measurements. Pass a real `priceRange`
-    // to restore an AggregateOffer with actual numbers.
+    // Only emit `offers` when we have a REAL price band — never one flat
+    // number reused across unrelated profile families (that's the fabricated
+    // pricing this was fixed to stop asserting). But note brand/manufacturer/
+    // material do NOT make a Product valid on their own: Google requires at
+    // least one of offers / review / aggregateRating, full stop. A Product
+    // with none of the three fails "Either 'offers', 'review', or
+    // 'aggregateRating' should be specified" in GSC. So a missing `priceRange`
+    // here is a real gap, not a safe default — fill it with `priceRangeFromWeights`
+    // (real per-SKU weight × the category's USD/kg quoting tier) whenever the
+    // page has real weight data, or wire in `buildAggregateRating()` instead.
     ...(priceRange && {
       offers: {
         "@type": "AggregateOffer",
@@ -220,6 +224,27 @@ export function buildProductSchema({
       })),
     ],
   };
+}
+
+/**
+ * Derive a defensible per-linear-meter price band from real per-SKU weights
+ * (kg/m, straight off the page's own spec table or DB row) and the internal
+ * FOB-China USD/kg quoting tier for that product category — the tier already
+ * spans the full OEM-to-project channel range, so multiplying by the
+ * lightest and heaviest real SKU on the page gives a real, non-uniform band
+ * instead of one flat price copy-pasted across every profile family.
+ */
+export function priceRangeFromWeights(
+  weightsKgPerM: number[],
+  kgPriceLow: number,
+  kgPriceHigh: number,
+): { lowPrice: string; highPrice: string; offerCount: string } | null {
+  if (weightsKgPerM.length === 0) return null;
+  const wMin = Math.min(...weightsKgPerM);
+  const wMax = Math.max(...weightsKgPerM);
+  const lowPrice = (Math.floor(wMin * kgPriceLow * 10) / 10).toString();
+  const highPrice = Math.ceil(wMax * kgPriceHigh).toString();
+  return { lowPrice, highPrice, offerCount: String(weightsKgPerM.length) };
 }
 
 /**
