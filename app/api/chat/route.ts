@@ -382,9 +382,11 @@ export async function POST(req: Request) {
       );
     }
 
-    // Lead capture: first time a conversation crosses into high buying intent,
-    // alert the team once (via after(), post-stream — no added latency). If the
-    // visitor left an email, also persist a lead row so it appears in the cockpit.
+    // Lead capture: first time a conversation crosses into high buying intent
+    // AND the visitor has shared an email in the chat, alert the team once (via
+    // after(), post-stream — no added latency) and persist a lead row so it
+    // appears in the cockpit. Anonymous high-intent visitors who never left an
+    // email do NOT trigger an inquiry@f1composite.com notification.
     if (lastUserText && HIGH_INTENT_SIGNALS.has(detectIntent(lastUserText))) {
       const userTexts = messages.filter((m) => m.role === "user").map(partsToText);
       const alreadyAlerted = userTexts
@@ -407,6 +409,10 @@ export async function POST(req: Request) {
           )
           .join("");
         after(async () => {
+          // Gate: only email inquiry@f1composite.com when the visitor actually
+          // shared an email in the chat. Anonymous high-intent visitors (Contact:
+          // "not shared in chat") no longer trigger a notification or a lead row.
+          if (!email) return;
           const { ok, error } = await notifyTeam({
             replyTo: email,
             subject: `[Chat lead] high intent — ${page ?? "f1composite.com"}`,
