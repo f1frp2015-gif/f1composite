@@ -16,6 +16,7 @@ export const mainNav = [
     children: [
       { label: "What is FRP?", href: "/what-is-frp" },
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
+      { label: "Resin Systems & Matrix Selection", href: "/technology/pultrusion-resin-systems" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Pultrusion vs Extrusion vs Filament Winding", href: "/technology/pultrusion-vs-extrusion-filament-winding" },
       { label: "Polyurethane Pultrusion Windows", href: "/technology/polyurethane-pultrusion-windows" },
@@ -70,6 +71,7 @@ export const footerNav = {
   technology: [
     { label: "What is FRP?", href: "/what-is-frp" },
     { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
+    { label: "Resin Systems", href: "/technology/pultrusion-resin-systems" },
     { label: "FRP vs Traditional", href: "/technology/frp-vs-traditional-materials" },
     { label: "Pultrusion vs Extrusion", href: "/technology/pultrusion-vs-extrusion-filament-winding" },
     { label: "Quality & Testing", href: "/technology/quality-testing" },
