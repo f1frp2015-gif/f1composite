@@ -152,6 +152,10 @@ export default function GratingsPage() {
           image: "/images/products/plank-grating.png",
           category: "FRP Gratings & Structural Deck Panels",
           productLine: "F1-GRID",
+          // Indicative USD/m² band for the grating range (basis: ~18 kg/m² molded
+          // grating; consistent with published regional grating quotes). Routes to
+          // /contact for a firm price — satisfies Google's "offers required" rule.
+          priceRange: { lowPrice: "35", highPrice: "90", offerCount: "20", unitText: "square meter" },
           material: ["Glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Phenolic resin", "Polyurethane resin"],
           additionalProperty: [
             { name: "Configurations", value: "Molded gratings, pultruded gratings, solid-top cover plates, structural deck panels" },

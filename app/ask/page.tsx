@@ -5,16 +5,19 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 interface AskPageProps {
-  searchParams: Promise<{ prefill?: string }>;
+  searchParams: Promise<{ prefill?: string; q?: string }>;
 }
 
-// /ask is reached two ways:
+// /ask is reached several ways:
 //   • Bare /ask — the canonical, indexable advisor landing page.
 //   • /ask?prefill=... — context-rich CTAs from product/blog/calculator pages.
-// The prefilled variants are transient deep links, not unique pages worth
-// indexing. We return noindex (follow) on them so Google stops listing them
-// under "Alternate page with proper canonical tag" in GSC. Canonical still
-// points at the bare /ask so any signal consolidates correctly.
+//   • /ask?q=... — the sitewide SearchAction target (potentialAction in the
+//     Organization/WebSite JSON-LD advertises /ask?q={search_term_string}).
+// Any query-parametered variant is a transient deep link, not a unique page
+// worth indexing. We return noindex (follow) on ALL param variants so Google
+// stops listing them (incl. the literal {search_term_string} template) under
+// "Alternate page with proper canonical tag". Canonical still points at the
+// bare /ask so any signal consolidates correctly.
 export async function generateMetadata({
   searchParams,
 }: AskPageProps): Promise<Metadata> {
@@ -24,8 +27,8 @@ export async function generateMetadata({
       "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
     path: "/ask",
   });
-  const { prefill } = await searchParams;
-  if (prefill) {
+  const { prefill, q } = await searchParams;
+  if (prefill || q) {
     return { ...base, robots: { index: false, follow: true } };
   }
   return base;

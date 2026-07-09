@@ -338,6 +338,9 @@ export default function FacadeSunshadePanelsPage() {
           path: pagePath,
           image: "/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp",
           category: "FRP Facade Sunshade and Solar Shading Panels",
+          // Indicative per-metre blade band (basis: ~10 kg/m for a 250×20 E40 blade
+          // across the 6–14 kg/m section range). Routes to /contact for a firm quote.
+          priceRange: { lowPrice: "13", highPrice: "63", offerCount: "1", unitText: "linear meter" },
           material: ["E-glass unidirectional roving", "Multiaxial stitched fabrics", "Isophthalic polyester resin", "Vinyl ester resin", "Fire-retardant resin systems"],
           additionalProperty: [
             { name: "Also known as", value: "Brise-soleil blades, solar shading fins, sun louvers, facade shading panels, FRP louver blades" },

@@ -213,6 +213,9 @@ export default function CustomPultrusionsPage() {
           image: "/images/products/custom-profiles-overview.webp",
           category: "Custom Pultruded FRP Profiles",
           productLine: "F1-FORM",
+          // Custom pultrusion spans the full catalog range; indicative per-metre
+          // band to /contact (final price is tooling- and volume-dependent).
+          priceRange: { lowPrice: "5", highPrice: "300", offerCount: "1", unitText: "linear meter" },
           material: [
             "E-glass fiber",
             "S-glass fiber",

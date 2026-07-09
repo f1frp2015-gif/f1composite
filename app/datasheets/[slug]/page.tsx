@@ -90,6 +90,13 @@ export default async function DatasheetPage({
   const dims = product.geometry ? dimensionRows(product.geometry) : [];
   const desig = product.geometry ? designation(product.geometry) : null;
   const publishedW = num(product.weight_per_m);
+  // For the Offer price band only, fall back to the geometry-derived mass per
+  // metre when no published weight exists. This is an INDICATIVE band basis,
+  // not a published spec (published weight stays authoritative for measurements
+  // below), so a profile without a published weight still satisfies Google's
+  // "offers/review/aggregateRating required" rule instead of erroring.
+  const computedW = props?.massPerMetre != null ? Math.round(props.massPerMetre * 100) / 100 : null;
+  const weightForOffer = publishedW ?? computedW;
 
   const schema = buildProductSchema({
     name: `${product.model} pultruded FRP profile`,
@@ -100,7 +107,7 @@ export default async function DatasheetPage({
     material: "Glass fiber reinforced polymer (GFRP)",
     // Same-SKU weight fed through both ends of the standard-profile USD/kg
     // quoting tier — a real per-model band, not a flat catalog-wide number.
-    priceRange: publishedW != null ? (priceRangeFromWeights([publishedW], 2.2, 4.5) ?? undefined) : undefined,
+    priceRange: weightForOffer != null ? (priceRangeFromWeights([weightForOffer], 2.2, 4.5) ?? undefined) : undefined,
     ...(publishedW != null && {
       measurements: [{ propertyID: "massPerMetre", value: String(publishedW), unitText: "kg/m" }],
     }),

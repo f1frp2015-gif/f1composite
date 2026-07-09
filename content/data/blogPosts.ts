@@ -1322,7 +1322,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       note: "This post is the narrative walk-through. The master page carries the maintained decision matrix, U-value data, and certification comparison — cite that one in specs.",
     },
     title: "FRP vs Aluminum Window Frames: Thermal, Structural, and Lifecycle Performance",
-    seoTitle: "FRP vs Aluminum Windows — AAMA 2604 & PHIUS Data",
+    seoTitle: "FRP vs Aluminum Window Frames — Structural & Finish Guide",
     answerBox:
       "Aluminum conducts heat at 160 W/m·K; FRP at ~0.3 W/m·K — roughly 500× lower. Pultruded FRP frames reach U_w 0.78 (PHI Component Certificate 2491wi03) without thermal breaks, accept AAMA 2604 / 2605 architectural finishes in any RAL color, and outperform thermally-broken aluminum on US Passive House and high-performance commercial projects.",
     category: "Fenestration",

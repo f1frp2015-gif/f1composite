@@ -19,9 +19,9 @@ const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
 const CATALOG_TOTAL_SKUS = "114";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Standard FRP Profiles — Pultruded Structural Shapes",
+  title: "FRP Profile Size Chart — I-Beam, Channel, Angle & Tube",
   description:
-    "Pultruded FRP structural shapes: I-beams, channels, angles, tubes, flat bars, rods. ASTM E84 · EN 13706 · 6 m lengths. DDP USA, Section 301 inline · 24h quote.",
+    "FRP profile dimensions, weights & section data: I-beams, channels, angles, tubes, flat bars, rods. 114 stock sizes to EN 13706 · 6 m · DDP USA · 24h quote.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });
@@ -158,8 +158,8 @@ export default function StandardProfilesPage() {
       />
       <PageHeader
         tag="Standard Profiles · F1-STRUX"
-        title="Standard FRP profiles catalog — stock pultruded structural shapes"
-        description="F1-STRUX is F1 Composite's pultruded structural profile line — stock I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the profile geometry. For the complete product family, start from the pultruded FRP profiles hub."
+        title="FRP profile size & weight catalog — stock dimensions and section data"
+        description="Dimensions, per-metre weights and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the shape and need the numbers. For the complete product family and applications, start from the pultruded FRP profiles hub."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

@@ -386,6 +386,9 @@ export default function FenestrationSystemsPage() {
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
           category: "FRP Windows, Doors and Fenestration Systems",
           productLine: "F1-THERM",
+          // Indicative per-metre profile band across the 65–140 series; finished
+          // units are quoted per opening. Routes to /contact for a project quote.
+          priceRange: { lowPrice: "12", highPrice: "120", offerCount: "5", unitText: "linear meter" },
           material: ["E-glass roving", "Continuous strand mat", "Polyurethane resin", "Vinyl ester resin", "Isophthalic polyester resin"],
           additionalProperty: [
             { name: "Also known as", value: "FRP windows and doors, pultruded fiberglass window frames, GRP windows, fiberglass fenestration" },
