@@ -471,9 +471,14 @@ export default function UValueCalculator() {
           spacer type, and window dimensions.
         </p>
 
-        <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_380px]">
-          {/* ── Input panel ── */}
-          <div className="space-y-[21px] rounded-[8px] border border-border-default bg-white p-[34px]">
+        {/* Explicit grid placement (not source order) drives the layout: inputs
+            top-left, results span the right, the result-context cards fill the
+            space under the inputs. This balances the two columns (killing the old
+            blank area) while keeping the DOM order inputs → result → context, so
+            the single-column mobile stack still leads with the result. */}
+        <div className="mt-[34px] grid items-start gap-[21px] lg:grid-cols-[1fr_380px]">
+          {/* ── A · Input panel (top-left) ── */}
+          <div className="space-y-[21px] rounded-[8px] border border-border-default bg-white p-[34px] lg:col-start-1 lg:row-start-1">
             {/* One-click scenario presets */}
             <div className="flex flex-wrap items-center gap-[6px]">
               <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
@@ -605,8 +610,8 @@ export default function UValueCalculator() {
             </div>
           </div>
 
-          {/* ── Results panel ── */}
-          <div className="space-y-[13px]">
+          {/* ── B · Results panel (right column, spans both left rows) ── */}
+          <div className="space-y-[13px] lg:col-start-2 lg:row-start-1 lg:row-span-2">
             {result ? (
               <>
                 {/* Main result */}
@@ -658,48 +663,6 @@ export default function UValueCalculator() {
                       <dd className="font-medium text-t1">{selSpacer.psi} W/mK</dd>
                     </div>
                   </dl>
-                </div>
-
-                {/* Comparison */}
-                {baseline && improvement > 0 && (
-                  <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
-                    <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-teal">
-                      vs Aluminum (no break)
-                    </h4>
-                    <p className="text-f13 text-t2">
-                      <strong className="text-teal">{improvement}% better</strong> thermal
-                      performance compared to an aluminum frame without thermal break
-                      (U<sub>w</sub> = {baseline.Uw.toFixed(2)} W/m²K).
-                    </p>
-                  </div>
-                )}
-
-                {/* Standards compliance */}
-                <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                  <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-t3">
-                    Standards Compliance
-                  </h4>
-                  <div className="space-y-[6px] text-[12px]">
-                    {[
-                      { region: "🇪🇺 EU", label: "Passive House (PHI, cool-temperate)", max: 0.80, std: "EN ISO 10077" },
-                      { region: "🇪🇺 EU", label: "nZEB (typical member state)", max: 1.30, std: "EPBD" },
-                      { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Northern", max: 1.25, std: "NFRC" },
-                      { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Southern", max: 1.82, std: "NFRC" },
-                      { region: "🇺🇸 US", label: "IECC 2024 Zones 5–6", max: 1.53, std: "IECC/IRC" },
-                      { region: "🇨🇦 CA", label: "ENERGY STAR (all Canada, 2020+)", max: 1.22, std: "NRCan" },
-                      { region: "🇨🇳 CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70, std: "GB 50189" },
-                      { region: "🇨🇳 CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20, std: "GB 50189" },
-                    ].map((t) => (
-                      <div key={`${t.region}-${t.label}`} className="flex items-center justify-between gap-[4px]">
-                        <span className="text-t3 truncate">
-                          {t.region} {t.label}
-                        </span>
-                        <span className={`shrink-0 font-medium ${result.Uw <= t.max ? "text-emerald-600" : "text-t3"}`}>
-                          ≤ {t.max.toFixed(2)} {result.Uw <= t.max ? "✓" : ""}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
                 {/* F1 fenestration product match — routes a finished calc to the product page */}
@@ -758,6 +721,55 @@ export default function UValueCalculator() {
               </div>
             )}
           </div>
+
+          {/* ── C · Result-context cards. Placed under the inputs on desktop to
+                balance the columns; rendered after the result in the DOM so the
+                mobile stack still leads with the U-value. ── */}
+          {result && (
+            <div className="space-y-[21px] lg:col-start-1 lg:row-start-2">
+              {/* Comparison — vs aluminum baseline */}
+              {baseline && improvement > 0 && (
+                <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
+                  <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-teal">
+                    vs Aluminum (no break)
+                  </h4>
+                  <p className="text-f13 text-t2">
+                    <strong className="text-teal">{improvement}% better</strong> thermal
+                    performance compared to an aluminum frame without thermal break
+                    (U<sub>w</sub> = {baseline.Uw.toFixed(2)} W/m²K).
+                  </p>
+                </div>
+              )}
+
+              {/* Standards compliance — live ✓ against the current Uw */}
+              <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-t3">
+                  Standards Compliance
+                </h4>
+                <div className="grid gap-x-[21px] gap-y-[6px] text-[12px] sm:grid-cols-2 lg:grid-cols-1">
+                  {[
+                    { region: "🇪🇺 EU", label: "Passive House (PHI, cool-temperate)", max: 0.80, std: "EN ISO 10077" },
+                    { region: "🇪🇺 EU", label: "nZEB (typical member state)", max: 1.30, std: "EPBD" },
+                    { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Northern", max: 1.25, std: "NFRC" },
+                    { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Southern", max: 1.82, std: "NFRC" },
+                    { region: "🇺🇸 US", label: "IECC 2024 Zones 5–6", max: 1.53, std: "IECC/IRC" },
+                    { region: "🇨🇦 CA", label: "ENERGY STAR (all Canada, 2020+)", max: 1.22, std: "NRCan" },
+                    { region: "🇨🇳 CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70, std: "GB 50189" },
+                    { region: "🇨🇳 CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20, std: "GB 50189" },
+                  ].map((t) => (
+                    <div key={`${t.region}-${t.label}`} className="flex items-center justify-between gap-[4px]">
+                      <span className="text-t3 truncate">
+                        {t.region} {t.label}
+                      </span>
+                      <span className={`shrink-0 font-medium ${result.Uw <= t.max ? "text-emerald-600" : "text-t3"}`}>
+                        ≤ {t.max.toFixed(2)} {result.Uw <= t.max ? "✓" : ""}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* ── Calculation model — visualises the EN ISO 10077-1 logic ── */}
