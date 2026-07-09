@@ -94,14 +94,253 @@ function calcUw(
   const lg = 2 * (glassW + glassH); // glass perimeter (m)
 
   // EN ISO 10077-1: Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af)
-  const Uw = (Ag * Ug + Af * Uf + lg * psi) / (Ag + Af);
+  // Numerator splits into three physical heat-loss channels (units W/K):
+  const qGlass = Ag * Ug; // heat lost through the glazing
+  const qFrame = Af * Uf; // heat lost through the frame + sash
+  const qEdge = lg * psi; // extra loss at the glass-edge thermal bridge (spacer)
+  const L = qGlass + qFrame + qEdge; // total window heat-loss coefficient (W/K)
+  const Uw = L / Aw;
   return {
     Uw: Math.round(Uw * 1000) / 1000,
+    Aw,
     Ag,
     Af,
     glassRatio: Math.round((Ag / Aw) * 100),
     lg,
+    glassW,
+    glassH,
+    totalFrameW,
+    qGlass,
+    qFrame,
+    qEdge,
+    L,
   };
+}
+
+/* ══════════════════════════════════════════════════════
+   Calculation model — visualises the EN ISO 10077-1 logic:
+   a scaled window diagram (Ag / Af / lg), the three heat-loss
+   channels, and the formula assembled with the live numbers.
+   ══════════════════════════════════════════════════════ */
+
+type CalcResult = NonNullable<ReturnType<typeof calcUw>>;
+
+function CalculationModel({
+  result,
+  Uf,
+  Ug,
+  psi,
+  frameLabel,
+  glassLabel,
+  spacerLabel,
+  width,
+  height,
+}: {
+  result: CalcResult;
+  Uf: number;
+  Ug: number;
+  psi: number;
+  frameLabel: string;
+  glassLabel: string;
+  spacerLabel: string;
+  width: number;
+  height: number;
+}) {
+  /* ---- SVG geometry: scale the real window into a fixed viewbox ---- */
+  const PAD = 46; // px padding for dimension labels
+  const MAXW = 300;
+  const MAXH = 300;
+  const ar = width / height;
+  let drawW = MAXW;
+  let drawH = MAXW / ar;
+  if (drawH > MAXH) {
+    drawH = MAXH;
+    drawW = MAXH * ar;
+  }
+  // frame band thickness in the drawing, proportional to the real frame width
+  const bandX = (result.totalFrameW / (width / 1000)) * drawW;
+  const bandY = (result.totalFrameW / (height / 1000)) * drawH;
+  const svgW = drawW + PAD * 2;
+  const svgH = drawH + PAD * 2;
+
+  /* ---- heat-loss channel shares (of the numerator) ---- */
+  const channels = [
+    { key: "glass", label: "Glazing", term: "Aᵍ·Uᵍ", val: result.qGlass, color: "#38bdf8" },
+    { key: "frame", label: "Frame + sash", term: "Aᶠ·Uᶠ", val: result.qFrame, color: "#0f766e" },
+    { key: "edge", label: "Glass-edge bridge", term: "lᵍ·Ψᵍ", val: result.qEdge, color: "#f59e0b" },
+  ];
+  const pct = (v: number) => (result.L > 0 ? (v / result.L) * 100 : 0);
+
+  const fmt = (n: number, d = 2) => n.toFixed(d);
+
+  return (
+    <div className="mt-[55px]">
+      <h3 className="text-f24 font-bold text-t1">How this U-value is built</h3>
+      <p className="mt-[8px] max-w-[820px] text-f13 leading-golden text-t2">
+        The whole-window U-value is an <strong>area-weighted average</strong> of three parallel
+        heat-loss paths — through the glass, through the frame, and the extra leak at the glass
+        edge where the spacer bridges the seal. This model updates live with your selection above.
+      </p>
+
+      <div className="mt-[21px] grid gap-[21px] lg:grid-cols-[minmax(0,360px)_1fr]">
+        {/* ── 1. Scaled window diagram ── */}
+        <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+          <h4 className="mb-[13px] text-f11 font-bold uppercase tracking-[2px] text-t3">
+            1 · Window geometry
+          </h4>
+          <div className="flex justify-center">
+            <svg
+              width="100%"
+              viewBox={`0 0 ${svgW} ${svgH}`}
+              style={{ maxWidth: svgW }}
+              role="img"
+              aria-label="Scaled window diagram showing glass area, frame area and glass edge perimeter"
+            >
+              {/* frame band = whole unit */}
+              <rect x={PAD} y={PAD} width={drawW} height={drawH} fill="#0f766e" opacity={0.14} stroke="#0f766e" strokeWidth={1.5} />
+              {/* glass */}
+              <rect
+                x={PAD + bandX}
+                y={PAD + bandY}
+                width={Math.max(0, drawW - 2 * bandX)}
+                height={Math.max(0, drawH - 2 * bandY)}
+                fill="#38bdf8"
+                opacity={0.28}
+              />
+              {/* glass-edge perimeter (spacer thermal bridge) — dashed highlight */}
+              <rect
+                x={PAD + bandX}
+                y={PAD + bandY}
+                width={Math.max(0, drawW - 2 * bandX)}
+                height={Math.max(0, drawH - 2 * bandY)}
+                fill="none"
+                stroke="#f59e0b"
+                strokeWidth={2}
+                strokeDasharray="5 3"
+              />
+              {/* labels */}
+              <text x={PAD + drawW / 2} y={PAD + bandY / 2 + 4} textAnchor="middle" fontSize="11" fontWeight="700" fill="#0f766e">
+                Aᶠ frame {fmt(result.Af)} m²
+              </text>
+              <text x={PAD + drawW / 2} y={PAD + drawH / 2} textAnchor="middle" fontSize="13" fontWeight="700" fill="#0369a1">
+                Aᵍ glass
+              </text>
+              <text x={PAD + drawW / 2} y={PAD + drawH / 2 + 16} textAnchor="middle" fontSize="11" fill="#0369a1">
+                {fmt(result.Ag)} m² · {result.glassRatio}%
+              </text>
+              {/* width dimension (top) */}
+              <text x={PAD + drawW / 2} y={PAD - 16} textAnchor="middle" fontSize="11" fill="#64748b">
+                W = {width} mm
+              </text>
+              <line x1={PAD} y1={PAD - 8} x2={PAD + drawW} y2={PAD - 8} stroke="#94a3b8" strokeWidth={1} />
+              {/* height dimension (left, rotated) */}
+              <text x={PAD - 14} y={PAD + drawH / 2} textAnchor="middle" fontSize="11" fill="#64748b" transform={`rotate(-90 ${PAD - 14} ${PAD + drawH / 2})`}>
+                H = {height} mm
+              </text>
+              <line x1={PAD - 8} y1={PAD} x2={PAD - 8} y2={PAD + drawH} stroke="#94a3b8" strokeWidth={1} />
+            </svg>
+          </div>
+          <ul className="mt-[13px] space-y-[5px] text-[12px] text-t2">
+            <li className="flex items-center gap-[8px]">
+              <span className="inline-block h-[10px] w-[10px] rounded-[2px]" style={{ background: "#38bdf8", opacity: 0.5 }} />
+              Aᵍ — glass area = {fmt(result.glassW)} × {fmt(result.glassH)} = <strong>{fmt(result.Ag)} m²</strong>
+            </li>
+            <li className="flex items-center gap-[8px]">
+              <span className="inline-block h-[10px] w-[10px] rounded-[2px]" style={{ background: "#0f766e", opacity: 0.4 }} />
+              Aᶠ — frame + sash area = <strong>{fmt(result.Af)} m²</strong>
+            </li>
+            <li className="flex items-center gap-[8px]">
+              <span className="inline-block h-[10px] w-[10px] rounded-[2px]" style={{ border: "2px dashed #f59e0b" }} />
+              lᵍ — glass edge (spacer bridge) = <strong>{fmt(result.lg)} m</strong>
+            </li>
+          </ul>
+        </div>
+
+        {/* ── 2. Heat-loss channels + 3. Formula assembly ── */}
+        <div className="space-y-[21px]">
+          {/* Heat-loss channels */}
+          <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <h4 className="mb-[4px] text-f11 font-bold uppercase tracking-[2px] text-t3">
+              2 · Where the heat escapes
+            </h4>
+            <p className="mb-[13px] text-[12px] text-t3">
+              Each path’s loss coefficient (W/K) = area (or length) × its U (or Ψ) value. Together
+              they make the total window loss <strong>L = {fmt(result.L)} W/K</strong>.
+            </p>
+
+            {/* stacked bar */}
+            <div className="flex h-[26px] w-full overflow-hidden rounded-[4px]">
+              {channels.map((c) => (
+                <div
+                  key={c.key}
+                  style={{ width: `${pct(c.val)}%`, background: c.color }}
+                  className="h-full"
+                  title={`${c.label}: ${fmt(c.val)} W/K`}
+                />
+              ))}
+            </div>
+
+            <dl className="mt-[13px] space-y-[9px]">
+              {channels.map((c) => (
+                <div key={c.key} className="flex items-center justify-between gap-[8px] text-f13">
+                  <dt className="flex items-center gap-[8px] text-t2">
+                    <span className="inline-block h-[10px] w-[10px] rounded-[2px]" style={{ background: c.color }} />
+                    {c.label}
+                    <span className="text-[11px] text-t3">({c.term})</span>
+                  </dt>
+                  <dd className="shrink-0 font-medium text-t1">
+                    {fmt(c.val)} W/K
+                    <span className="ml-[8px] inline-block w-[42px] text-right text-t3">{fmt(pct(c.val), 0)}%</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Formula assembly */}
+          <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
+            <h4 className="mb-[13px] text-f11 font-bold uppercase tracking-[2px] text-teal">
+              3 · The formula, with your numbers
+            </h4>
+            <div className="space-y-[8px] font-mono text-[13px] leading-relaxed text-t1">
+              <div className="text-t3">
+                Uᵂ = (Aᵍ·Uᵍ + Aᶠ·Uᶠ + lᵍ·Ψᵍ) / (Aᵍ + Aᶠ)
+              </div>
+              <div>
+                <span className="text-t3">= (</span>
+                {fmt(result.Ag)}·{fmt(Ug)} + {fmt(result.Af)}·{fmt(Uf)} + {fmt(result.lg)}·{fmt(psi)}
+                <span className="text-t3">) / (</span>
+                {fmt(result.Ag)} + {fmt(result.Af)}
+                <span className="text-t3">)</span>
+              </div>
+              <div>
+                <span className="text-t3">= (</span>
+                <span style={{ color: "#0284c7" }}>{fmt(result.qGlass)}</span> +{" "}
+                <span style={{ color: "#0f766e" }}>{fmt(result.qFrame)}</span> +{" "}
+                <span style={{ color: "#d97706" }}>{fmt(result.qEdge)}</span>
+                <span className="text-t3">) / </span>
+                {fmt(result.Aw)}
+              </div>
+              <div>
+                <span className="text-t3">= </span>
+                {fmt(result.L)} / {fmt(result.Aw)}
+              </div>
+              <div className="border-t border-teal-border pt-[8px] text-[15px] font-bold">
+                Uᵂ = {result.Uw.toFixed(2)} W/m²K
+              </div>
+            </div>
+            <p className="mt-[13px] text-[11px] leading-relaxed text-t3">
+              Inputs — frame <strong>{frameLabel}</strong> (Uᶠ {fmt(Uf)}), glass{" "}
+              <strong>{glassLabel}</strong> (Uᵍ {fmt(Ug)}), spacer <strong>{spacerLabel}</strong>{" "}
+              (Ψᵍ {fmt(psi)}). Dimensions in m; areas m², perimeter m. Per EN ISO 10077-1 §5.2
+              the window U-value is this area-weighted mean of the frame and glazing, plus the
+              linear edge term.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 /* ══════════════════════════════════════════════════════
@@ -520,6 +759,21 @@ export default function UValueCalculator() {
             )}
           </div>
         </div>
+
+        {/* ── Calculation model — visualises the EN ISO 10077-1 logic ── */}
+        {result && (
+          <CalculationModel
+            result={result}
+            Uf={selFrame.Uf}
+            Ug={selGlass.Ug}
+            psi={selSpacer.psi}
+            frameLabel={selFrame.label}
+            glassLabel={selGlass.label}
+            spacerLabel={selSpacer.label}
+            width={width}
+            height={height}
+          />
+        )}
 
         {/* ── Frame comparison table ── */}
         <div className="mt-[55px]">
