@@ -321,6 +321,26 @@ export default async function BlogPostPage({ params }: PageProps) {
               </aside>
             ) : null}
 
+            {post.masterComparison ? (
+              <aside
+                aria-label="Master comparison page"
+                className="mt-[13px] max-w-[800px] rounded-[8px] border border-teal-border bg-white p-[21px]"
+              >
+                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                  Part of a larger comparison
+                </p>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">
+                  {post.masterComparison.note}
+                </p>
+                <Link
+                  href={post.masterComparison.href}
+                  className="mt-[8px] inline-block text-f15 font-bold text-teal-text hover:underline"
+                >
+                  → {post.masterComparison.label}
+                </Link>
+              </aside>
+            ) : null}
+
             <div className="mt-[21px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Why This Article Matters

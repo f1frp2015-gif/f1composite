@@ -874,6 +874,7 @@ export default function FenestrationSystemsPage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — the complete library" },
               { href: "/technology/u-value-calculator", label: "Window U-value calculator" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },

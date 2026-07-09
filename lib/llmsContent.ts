@@ -454,6 +454,7 @@ ${glossaryLines}
 - FRP vs Traditional Materials: https://www.f1composite.com/technology/frp-vs-traditional-materials
 - China alternative to Strongwell / Fiberline / Creative Pultrusions / Exel: https://www.f1composite.com/technology/china-alternative-to-strongwell-fiberline-exel
 - How to choose an FRP pultrusion supplier (buyer guide): https://www.f1composite.com/resources/how-to-choose-frp-pultrusion-supplier
+- FRP Windows Guide (buyer-journey library: selection / U-value / certification / sourcing): https://www.f1composite.com/resources/frp-windows-guide
 - Pultrusion Process: https://www.f1composite.com/technology/pultrusion-process
 - Pultrusion Resin Systems (polyester / vinyl ester / PU / epoxy / phenolic selection guide with interactive matrix): https://www.f1composite.com/technology/pultrusion-resin-systems
 - Industries: https://www.f1composite.com/industries

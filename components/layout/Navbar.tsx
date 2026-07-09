@@ -3,7 +3,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { mainNav } from "@/content/data/navigation";
+import { mainNav, type NavChild } from "@/content/data/navigation";
+
+/** Preserve authoring order while bucketing children by their group label. */
+function groupChildren(children: readonly NavChild[]) {
+  const groups: Array<{ title: string | null; items: NavChild[] }> = [];
+  for (const child of children) {
+    const title = child.group ?? null;
+    const last = groups[groups.length - 1];
+    if (last && last.title === title) {
+      last.items.push(child);
+    } else {
+      groups.push({ title, items: [child] });
+    }
+  }
+  return groups;
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,19 +56,42 @@ export default function Navbar() {
               >
                 {item.label}
               </Link>
-              {"children" in item && item.children && openDropdown === item.href && (
+              {item.children && openDropdown === item.href && (
                 <div className="absolute left-0 top-full pt-[8px]">
-                  <div className="min-w-[220px] rounded-[8px] border border-border-default bg-white p-[8px] shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block rounded-[4px] px-[13px] py-[8px] text-f13 text-t2 transition-colors duration-[0.21s] hover:bg-teal-bg hover:text-teal-text"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
+                  {item.children.some((c) => c.group) ? (
+                    <div className="grid w-max grid-cols-2 gap-x-[21px] gap-y-[13px] rounded-[8px] border border-border-default bg-white p-[16px] shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+                      {groupChildren(item.children).map((group) => (
+                        <div key={group.title ?? "ungrouped"} className="min-w-[200px]">
+                          {group.title && (
+                            <p className="px-[13px] pb-[3px] pt-[5px] text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                              {group.title}
+                            </p>
+                          )}
+                          {group.items.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block rounded-[4px] px-[13px] py-[6px] text-f13 text-t2 transition-colors duration-[0.21s] hover:bg-teal-bg hover:text-teal-text"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="min-w-[220px] rounded-[8px] border border-border-default bg-white p-[8px] shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block rounded-[4px] px-[13px] py-[8px] text-f13 text-t2 transition-colors duration-[0.21s] hover:bg-teal-bg hover:text-teal-text"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -129,17 +167,26 @@ export default function Navbar() {
                   </button>
                 )}
               </div>
-              {"children" in item && item.children && openMobileSection === item.href && (
+              {item.children && openMobileSection === item.href && (
                 <div className="ml-[13px]">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block py-[8px] text-f13 text-t2"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
+                  {groupChildren(item.children).map((group) => (
+                    <div key={group.title ?? "ungrouped"}>
+                      {group.title && (
+                        <p className="pb-[2px] pt-[8px] text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                          {group.title}
+                        </p>
+                      )}
+                      {group.items.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block py-[8px] text-f13 text-t2"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </div>
               )}

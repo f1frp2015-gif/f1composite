@@ -26,6 +26,13 @@ export type BlogPost = {
   title: string;
   seoTitle?: string;
   /**
+   * Canonical master page for the query this post could cannibalize. Renders
+   * as a prominent "full comparison" card under the TL;DR and concentrates
+   * link equity on the static page — the post stays the niche/deep-dive angle,
+   * the master page owns the head query.
+   */
+  masterComparison?: { label: string; href: string; note: string };
+  /**
    * GEO/AI Answer-Box paragraph: 1-3 sentences with specific numbers + entity names
    * (e.g. PHI Cert 2491wi03, ASTM E84 Class A, 370 lines). Renders as a TL;DR
    * blockquote under H1, mirrored into JSON-LD abstract for LLM citation.
@@ -979,6 +986,11 @@ At F1 Composite, we operate multiple pultrusion lines equipped for both open-bat
   },
   {
     slug: "frp-vs-steel-structural-profiles",
+    masterComparison: {
+      label: "FRP vs Steel, Aluminum, Timber & Concrete — full comparison",
+      href: "/technology/frp-vs-traditional-materials",
+      note: "This article covers the structural-profile angle. For the complete property-by-property matrix across all five materials, see the master comparison page.",
+    },
     title: "FRP vs Steel for Structural Profiles: A Data-Driven Comparison",
     seoTitle: "FRP vs Steel Structural Profiles — Data Comparison",
     answerBox:
@@ -1049,6 +1061,11 @@ At F1 Composite, we help engineers compare materials based on actual service con
   },
   {
     slug: "frp-fenestration-thermal-performance",
+    masterComparison: {
+      label: "FRP vs Aluminum Windows — full frame comparison",
+      href: "/technology/frp-vs-aluminum-windows",
+      note: "This article goes deep on thermal physics. For the complete FRP-vs-aluminum frame decision (cost, structure, durability, certification), see the master comparison page.",
+    },
     title: "Why FRP Window Frames Outperform Aluminum in Thermal Insulation",
     seoTitle: "FRP vs Aluminum Windows — Thermal Performance",
     answerBox:
@@ -1110,6 +1127,11 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
   },
   {
     slug: "frp-grating-vs-steel-grating-cost-comparison",
+    masterComparison: {
+      label: "FRP vs Steel Gratings — full comparison",
+      href: "/technology/frp-vs-steel-gratings",
+      note: "This article focuses on lifecycle cost math. For the complete FRP-vs-steel grating comparison (load, safety, corrosion, installation), see the master comparison page.",
+    },
     title: "FRP Grating vs Steel Grating: Cost, Weight, and Lifecycle Comparison",
     seoTitle: "FRP vs Steel Grating — Cost & Lifecycle Compared",
     answerBox:
@@ -1294,6 +1316,11 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
   },
   {
     slug: "frp-vs-aluminum-window-frames-comparison",
+    masterComparison: {
+      label: "FRP vs Aluminum Windows — master comparison page",
+      href: "/technology/frp-vs-aluminum-windows",
+      note: "This post is the narrative walk-through. The master page carries the maintained decision matrix, U-value data, and certification comparison — cite that one in specs.",
+    },
     title: "FRP vs Aluminum Window Frames: Thermal, Structural, and Lifecycle Performance",
     seoTitle: "FRP vs Aluminum Windows — AAMA 2604 & PHIUS Data",
     answerBox:
@@ -2235,6 +2262,11 @@ For engineers and architects specifying structural profiles in fire-regulated ap
   },
   {
     slug: "frp-impact-resistance-vs-steel-aluminum",
+    masterComparison: {
+      label: "FRP vs Steel, Aluminum, Timber & Concrete — full comparison",
+      href: "/technology/frp-vs-traditional-materials",
+      note: "This article covers one axis — impact and damage tolerance. For the full multi-material property matrix, see the master comparison page.",
+    },
     title: "Pultruded FRP vs Steel, Aluminum, PVC, and Wood: Impact Resistance Under 3-Point Bending Drop Test",
     seoTitle: "FRP vs Steel, Aluminum, PVC & Wood — Impact Test",
     answerBox:
