@@ -188,15 +188,15 @@ export default function PolyurethanePultrusionWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Same pultrusion process, tougher matrix — the frame technology behind arctic-class windows
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window — but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             F1 Composite manufactures GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
           </p>
         </div>
@@ -245,12 +245,12 @@ export default function PolyurethanePultrusionWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Where It Is Proven</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Three GFRP-PU window installations, from the Antarctic to production residential
           </h2>
-          <div className="mt-[34px] space-y-[21px]">
+          <div className="mt-[34px] max-w-[860px] space-y-[21px]">
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
               className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
@@ -286,12 +286,12 @@ export default function PolyurethanePultrusionWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>How To Buy</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Profiles for your fabrication line, or finished GFRP-PU units
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             F1 supplies polyurethane pultruded window profiles the same two ways as the rest of the{" "}
             <Link href="/products/fenestration-systems" className="text-teal-text hover:underline">
               fenestration range
@@ -302,7 +302,7 @@ export default function PolyurethanePultrusionWindowsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqs} suppressSchema />
         </div>
       </section>

@@ -159,18 +159,18 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Same-sounding names, three different shape and property envelopes
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Pultrusion, extrusion, and filament winding are all continuous manufacturing processes that shape material by moving it through (or around) a tool. That surface similarity is where the resemblance ends. Pultrusion pulls continuous fiber through a heated die to make open or closed constant-cross-section structural profiles. Extrusion pushes a thermoplastic melt through a die to make thin-wall profiles with no continuous fiber reinforcement. Filament winding wraps continuous fiber around a rotating mandrel to build hollow, rotationally symmetric shapes like pipe and tanks — geometrically incapable of producing an open section such as an I-beam.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             Confusing the three usually happens at the RFQ stage — a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
           </p>
-          <div className="mt-[21px]">
+          <div className="mt-[21px] max-w-[860px]">
             <ProcessTrio />
           </div>
         </div>
@@ -211,15 +211,15 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Pultrusion vs Extrusion</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Same die concept, different material physics
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Both processes force material through a fixed-geometry die to produce a constant cross-section — this is why the two get confused, and why &ldquo;pull&rdquo; and &ldquo;extrusion&rdquo; were combined to name pultrusion in the first place. The difference is what goes into the die. Pultrusion pulls continuous fiber roving through a resin bath and then the heated die, where the thermoset resin cures irreversibly. Extrusion pushes a thermoplastic melt (with no continuous fiber, or only short/chopped fiber filler) through the die and cools it to solidify — a reversible physical change, which is also why extruded thermoplastics can be reground and re-extruded, while cured thermoset FRP cannot.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             The practical consequence for a specifying engineer: an extruded aluminum or PVC profile and a pultruded FRP profile can look identical on a drawing, but they are not interchangeable on load-bearing, corrosion, or electrical-insulation performance. Aluminum extrusion is genuinely strong and stiff (see the{" "}
             <Link href="/technology/frp-vs-traditional-materials" className="text-teal-text hover:underline">
               full FRP vs aluminum property comparison
@@ -230,15 +230,15 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Pultrusion vs Filament Winding</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Open sections vs hollow rotational shapes
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Pultrusion and filament winding both lay continuous fiber into a thermoset matrix, so the raw materials can be nearly identical — the difference is entirely in the tooling geometry and fiber path. Pultrusion pulls fiber lengthwise through a stationary die, which is why it can produce open sections (I-beams, channels, angles) as easily as closed ones (tubes, rods). Filament winding wraps fiber around a rotating mandrel at a controlled helix or hoop angle, which only works for hollow, axisymmetric parts that can be slid or dissolved off the mandrel after cure — pipe, tanks, and pressure vessels.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             This is a hard geometric boundary, not a cost or quality trade-off: no amount of tooling investment lets filament winding produce an I-beam, and pultrusion cannot economically produce a large-diameter pressure vessel with hoop-dominant fiber orientation. F1 Composite&rsquo;s process is pultrusion — see{" "}
             <Link href="/technology/pultrusion-process" className="text-teal-text hover:underline">
               how our pultrusion lines work
@@ -253,7 +253,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqs} />
         </div>
       </section>

@@ -148,8 +148,8 @@ export default function WindowReinforcementProfilesPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The reinforcement chamber is the last thermal bridge in a uPVC window
           </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-[1fr_320px] lg:items-start">
-            <p className="max-w-[780px] text-f15 leading-golden text-t2">
+          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_320px] lg:items-start">
+            <p className="text-f15 leading-golden text-t2">
               Every white frame like the one pictured hides a structural question inside its
               largest hollow chamber: what carries the glass load once the sash grows past a
               kitchen-casement size? For decades the answer has been a galvanized steel
@@ -158,14 +158,13 @@ export default function WindowReinforcementProfilesPage() {
               standard uPVC system compete thermally in energy-code-driven markets, without
               retooling the uPVC extrusion itself.
             </p>
-            <div className="overflow-hidden rounded-[8px] border border-border-default">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-[8px] border border-border-default">
               <Image
                 src="/images/products/upvc-window-fiberglass-reinforcement-context.jpg"
                 alt="White uPVC tilt-and-turn window — the hollow reinforcement chamber inside frames like this is where pultruded fiberglass cores replace galvanized steel inserts"
-                width={898}
-                height={1400}
+                fill
                 sizes="(max-width: 1024px) 100vw, 320px"
-                className="h-auto w-full object-cover"
+                className="object-cover"
               />
             </div>
           </div>

@@ -169,15 +169,15 @@ export default function DdpTariffHsCodeGuidePage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why Landed-Cost Surprises Happen</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Three variables, quoted separately, that should be quoted together
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             A landed-cost surprise on an FRP import almost always traces back to one of three things being left out of the initial quote: which Incoterm actually applies (who pays freight and duty, and when risk transfers), which HS/HTSUS heading the profile is classified under, and whether that heading currently carries Section 301 or other trade-remedy exposure. Any one of these left unstated turns a clean FOB unit-price quote into a landed cost that is 20&ndash;30% higher once the shipment clears customs.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             This page lays out all three in one place. For country-specific detail already worked through for real projects, see the{" "}
             <Link href="/regions/frp-pultrusion-supplier-usa" className="text-teal-text hover:underline">
               United States sourcing page
@@ -249,12 +249,12 @@ export default function DdpTariffHsCodeGuidePage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Section 301 &amp; Trade-Remedy Exposure</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Two different regimes, often conflated
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Section 301 tariffs apply by HTSUS heading against China-origin goods on the active USTR lists — if your profile&rsquo;s heading is listed, the tariff applies to the shipment regardless of what the part is used for. Anti-dumping and countervailing duty (AD/CVD) measures are a separate regime that, for the composites industry, has historically targeted glass fiber itself (HTSUS 7019) and a narrower set of finished glass-fiber products more specifically than it targets pultruded structural profiles as a category. In practice this means: assume Section 301 exposure applies to most China-origin FRP profile headings, and check AD/CVD exposure specifically for your HS classification and origin rather than assuming it applies uniformly across every FRP product. Both lists change; confirm current rates for your exact heading and shipment date via your customs broker or the current USTR/CBP publications before finalizing a PO.
           </p>
         </div>

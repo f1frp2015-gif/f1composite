@@ -148,15 +148,15 @@ export default function FrpVsPvcWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             PVC wins on cost; FRP wins on everything related to long-term performance
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             uPVC remains the lowest first-cost window frame material and is the right specification for budget-sensitive residential retrofit and small windows in mild climates. Three technical limits cap its performance: the frame needs internal steel reinforcement above about 1.2 m span, dark colors warp on sun-exposed elevations, and UV embrittlement shortens service life to roughly 30 years. Pultruded FRP removes all three constraints — no reinforcement, full color freedom, 50+ year service life — while adding passive-house-class thermal performance and cleaner fire behavior.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
             This page compares FRP and PVC across 15 properties that drive specification. The verdict is context-dependent: for small casements in mild climates PVC is genuinely competitive; for any window that is large, dark-colored, south-facing, or required to last 50+ years, FRP is the only material that delivers.
           </p>
         </div>
@@ -202,9 +202,9 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>When to Choose Each</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             A decision framework by project type
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-2">
@@ -236,19 +236,19 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Try the Calculation</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Compare Uw across FRP, PVC, and aluminum frames on your specific window size
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K — a 35% reduction in heat loss for the same glazing package.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqs} suppressSchema />
         </div>
       </section>
