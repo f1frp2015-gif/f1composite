@@ -3715,6 +3715,279 @@ This is a development program, not a shipped, certified product line. E50-class 
 
 For engineers and facade consultants tracking this development, or interested in an early pilot mullion/transom qualification program, F1 Composite's KNOWHOW engineering group takes project inquiries through [the contact form](/contact) or the [KNOWHOW services page](/technology/knowhow-services).`,
   },
+
+  {
+    slug: "en-iso-10077-window-u-value-calculation",
+    title: "How the Whole-Window U-Value Is Actually Calculated (EN ISO 10077-1)",
+    seoTitle: "Whole-Window U-Value Calculation — EN ISO 10077-1",
+    answerBox:
+      "EN ISO 10077-1 computes the whole-window U-value as Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af): glazing area times glazing U-value, plus frame area times frame U-value, plus glass-edge perimeter times the spacer's linear thermal bridge Ψg, divided by total window area. On the standard 1.23 × 1.48 m reference window the frame is roughly a quarter to a third of the area, so a triple-glazed unit at Ug 0.70 W/m²K still lands near Uw 0.88 with a Uf 1.0 frame — the frame and spacer, not the glass, decide whether a window reaches program targets like the Passive House 0.80 limit.",
+    category: "Thermal Performance",
+    date: "2026-07-11",
+    updatedAt: "2026-07-11",
+    readTime: "9 min",
+    excerpt:
+      "Specifiers compare windows by U-value every day, yet the number on the datasheet is the output of a calculation most spec sheets never show. Here is the EN ISO 10077-1 method in full: the three-zone formula, a worked example on the reference window, why European and North American numbers refuse to match, and where the result is actually won — the frame.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN ISO 10077-1", "EN ISO 10077-2", "EN 673", "NFRC 100"],
+    coverImage: "/images/blog/window-corner-joint-interior.jpg",
+    coverAlt:
+      "Interior view of a window corner joint — the frame-to-glass edge zone where the spacer thermal bridge Ψg concentrates whole-window heat loss",
+    coverAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
+    supportingImage: "/images/blog/cold-climate-window-interior.jpg",
+    supportingAlt:
+      "White-framed windows seen from a warm interior — frame area is typically a quarter to a third of the whole-window area on the EN reference size",
+    supportingAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
+    supportingCaption:
+      "On the EN ISO 10077-1 reference window (1.23 × 1.48 m), frame typically takes 25–35% of the area. That is why two windows with identical glass can differ by 0.3 W/m²K — the calculation weights whatever the frame does across that fraction.",
+    highlights: [
+      "Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af) — three zones: glass, frame, and the glass-edge thermal bridge",
+      "Worked example: Ug 0.70 triple glazing ends up Uw 0.88 with a Uf 1.0 frame on the 1.23 × 1.48 m reference window",
+      "EN (0/20°C) and NFRC (−18/21°C) boundary conditions differ — a European Uw and a North American U-factor are not the same number",
+    ],
+    ogDescription:
+      "How EN ISO 10077-1 computes whole-window U-value from Ug, Uf, and spacer Psi — with the formula, a worked example, and why frames decide the result.",
+    ogChips: ["EN ISO 10077-1", "U-value", "Thermal performance"],
+    relatedLinks: [
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
+      { label: "U-Value vs SHGC", href: "/resources/blog/window-u-value-vs-shgc-climate" },
+      { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+    ],
+    sourceLinks: [
+      { label: "ISO 10077-1:2017 — Thermal performance of windows, doors and shutters (ISO)", href: "https://www.iso.org/standard/67090.html" },
+      { label: "ISO 10077-2:2017 — Numerical method for frames (ISO)", href: "https://www.iso.org/standard/64995.html" },
+      { label: "BF Bulletin: Uw calculation with warm-edge Ψ values (Bundesverband Flachglas)", href: "https://www.warmekanteberater.de/wp-content/uploads/2018/02/BF-Information_007-2017-Uw-Wert-Berechnung-Sprossen-EN.pdf" },
+      { label: "NFRC vs EN/ISO test-method comparison (OTM)", href: "https://www.otm.sg/test-method-comparison" },
+      { label: "PHI: Criteria for Certified Transparent Building Components (v5.6)", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
+    ],
+    content: `A window datasheet says U-value 0.85 W/m²K. A competing datasheet says 0.80. The specification demands 0.80, so the second window wins — except the two numbers came from different calculation standards, different reference sizes, and different spacer assumptions, and the "losing" window may in fact be the better thermal product. Whole-window U-values are outputs of a defined calculation, and reading them without knowing the calculation is how fenestration procurement goes wrong.
+
+This is the calculation, as EN ISO 10077-1 defines it.
+
+## The three-zone formula
+
+EN ISO 10077-1 splits a window into three thermal zones and weights each by how much of the window it occupies:
+
+**Uw = (Ag · Ug + Af · Uf + lg · Ψg) / (Ag + Af)**
+
+- **Ag, Ug** — glazing area (m²) and glazing U-value (W/m²K, from EN 673 or measurement). This is the number glass suppliers quote: 1.1 for standard double low-E, 0.5–0.7 for good triple glazing.
+- **Af, Uf** — frame area and frame U-value. The frame's own thermal transmittance comes from a 2-D heat-flow simulation per EN ISO 10077-2 or hot-box measurement.
+- **lg, Ψg** — the visible glass perimeter (m) and the linear thermal bridge coefficient (W/m·K) of the glass edge, where the spacer bar couples the warm and cold panes.
+
+Nothing else enters. No air-leakage term, no solar term — EN ISO 10077-1 is a pure conduction calculation at steady state. Solar gain is a separate number (the g-value or SHGC, [treated here](/resources/blog/window-u-value-vs-shgc-climate)), and airtightness is tested under a separate standard.
+
+## A worked example on the reference window
+
+The standard reference size for a single-sash window under the EN system is **1.23 m × 1.48 m** (it also anchors Passive House component certification). Take a triple-glazed unit in a frame with a 100 mm face width:
+
+- Total area Aw = 1.82 m²
+- Glazing Ag = 1.03 × 1.28 = 1.32 m² (72%)
+- Frame Af = 0.50 m² (28%)
+- Glass-edge perimeter lg = 4.62 m
+- Glazing Ug = 0.70 W/m²K, frame Uf = 1.0 W/m²K, warm-edge spacer Ψg = 0.04 W/m·K
+
+Uw = (1.32 × 0.70 + 0.50 × 1.0 + 4.62 × 0.04) / 1.82 = (0.92 + 0.50 + 0.18) / 1.82 = **0.88 W/m²K**.
+
+Three readings of that arithmetic are worth pausing on.
+
+**The glass flatters, the frame decides.** The glazing contributes 0.92 of the 1.61 W/K total — but it earned that at Ug 0.70. The frame, at barely a quarter of the area, contributes almost as much heat loss per square metre of window as the far larger glass area, because its U-value is worse. Swap the Uf 1.0 frame for a thermally-broken aluminum frame at Uf 1.4 and the same glass delivers Uw ≈ 0.99 — the window just lost its sub-0.9 rating without the glazing changing at all.
+
+**The spacer is a tenth of the result.** 4.62 m of glass edge at Ψg 0.04 adds 0.10 W/m²K to Uw. Published warm-edge Ψ values run roughly 0.03–0.05 W/m·K against roughly 0.08 for a conventional aluminum box spacer (the German flat-glass association BF publishes representative tables). Spacer choice alone can move a whole-window U-value by about 0.1 — the difference between passing and failing a 0.80 specification.
+
+**Size is not a detail.** Because frames are the weak zone, a small window (higher frame fraction) computes worse than a large one with identical construction. That is why the reference size exists — and why comparing a Uw quoted on a 2.4 m sliding door against one quoted on the 1.23 × 1.48 m reference is not a comparison.
+
+## Why European and North American numbers do not match
+
+North America rates fenestration under NFRC 100, and the two systems disagree by design:
+
+- **Boundary conditions.** EN/ISO calculates at 0°C outside / 20°C inside; NFRC at −18°C / 21°C. Colder conditions change gas-fill convection and radiation exchange, so the same physical window scores differently.
+- **Method.** NFRC solves the whole product numerically; the EN system combines analytically-derived component values (Ug, Uf, Ψg).
+- **What gets compared.** NFRC rates the whole product at fixed model sizes under one condition set; the EN system characterizes components separately, which is what lets a frame system carry its Uf across many window builds.
+
+The practical consequence: an NFRC U-factor of 0.17 Btu/h·ft²·°F is not simply "0.97 W/m²K" — the unit conversion is right, the boundary conditions are not. Cross-continental procurement needs the rating system named next to every number. (It also produced a real design divergence: European IGUs settled near 16 mm cavities, North American near 12–13 mm, each optimal under its own rating conditions.)
+
+## What this means for frame material
+
+Run the formula in reverse: to hit Uw ≤ 0.80 with realistic triple glazing (Ug 0.60–0.70) on the reference window, the frame must deliver roughly Uf ≤ 1.0–1.3 with a warm-edge spacer. Thermally-broken aluminum reaches Uf 2.5–4.0 in common systems — the formula simply does not close. Insulating frame materials — pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC — are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/fenestration-systems) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
+
+To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer combination — including the pass/fail against cold-climate program targets — use the free [whole-window U-value calculator](/technology/u-value-calculator). It exposes every term of the formula above, so you can see which zone is costing you the rating.`,
+  },
+
+  {
+    slug: "passive-house-window-u-value-requirements",
+    title: "Passive House Window U-Value Requirements: PHI Climate Zones, Phius, and What Qualifies",
+    seoTitle: "Passive House Window U-Value Requirements (PHI & Phius)",
+    answerBox:
+      "PHI certifies windows by climate zone: whole-window Uw ≤ 0.40 W/m²K arctic, 0.60 cold, 0.80 cool-temperate (central Europe — with Uw,installed ≤ 0.85), 1.00 warm-temperate, and 1.20 warm, per the Transparent Components criteria v5.6. The limits derive from a comfort rule — interior window surface within 4.2 K of operative room temperature — plus a hygiene (anti-mold) temperature factor. Phius (US) publishes climate-zone-specific verified window data instead of one number, and since 2023 reports whole-window U without penalty. Practical consequence: cool-temperate certification needs triple glazing plus an insulating frame — pultruded fiberglass, timber, or uPVC; F1's GFRP-PU system is certified under PHI component certificate 2491wi03.",
+    category: "Thermal Performance",
+    date: "2026-07-11",
+    updatedAt: "2026-07-11",
+    readTime: "10 min",
+    excerpt:
+      "The 0.80 W/m²K number every passive house designer quotes is real — but it is one row of a seven-zone table, it applies to the whole window rather than the glass, and it comes bundled with an installed-state limit, a comfort criterion, and efficiency classes that decide how a window actually gets certified. Here is the full PHI requirement set, the Phius counterpart, and what frame constructions can meet them.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN ISO 10077-1", "PHI Component Criteria v5.6", "EN 673", "EN ISO 13788"],
+    coverImage: "/images/blog/cold-climate-window-interior.jpg",
+    coverAlt:
+      "Triple-glazed windows in a bright interior — passive house comfort criterion keeps the interior window surface within 4.2 K of room temperature",
+    coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
+    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
+    supportingAlt:
+      "Icicles hanging in front of a window in deep winter — the design condition PHI's arctic and cold climate zone window criteria are written for",
+    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
+    supportingCaption:
+      "PHI's window limits tighten with climate: Uw ≤ 0.80 W/m²K in cool-temperate Central Europe, 0.60 in cold zones, 0.40 arctic. The number is not arbitrary — it is the U-value at which the interior surface stays within 4.2 K of room temperature at design cold.",
+    highlights: [
+      "PHI Table 1 (v5.6): Uw ≤ 0.40 / 0.60 / 0.80 / 1.00 / 1.20 W/m²K for arctic / cold / cool-temperate / warm-temperate / warm zones",
+      "The limits derive from comfort physics — |θsi − θop| ≤ 4.2 K — not from an arbitrary energy target",
+      "Phius takes a different route: climate-zone-specific verified performance data, whole-window U reported without penalty since 2023",
+    ],
+    ogDescription:
+      "PHI certified-window criteria by climate zone (Uw 0.40-1.20 W/m2K), the 4.2 K comfort rule, Phius climate-specific guidance, and what frames qualify.",
+    ogChips: ["Passive House", "PHI certification", "U-value"],
+    relatedLinks: [
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
+      { label: "Passive House AI Window Selector", href: "/ai/passive-house" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
+    ],
+    sourceLinks: [
+      { label: "PHI: Criteria for Certified Transparent Building Components v5.6 (2025)", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
+      { label: "PHI window certification and climate zones (Passipedia)", href: "https://passipedia.org/planning/thermal_protection/windows/window_certification/start" },
+      { label: "Phius Certified Windows program update (Phius)", href: "https://www.phius.org/inside-look-phius-certified-windows-program-update-part-i" },
+      { label: "Phius window performance criteria by climate zone (Phius)", href: "https://www.phius.org/phius-certification-for-buildings-products/phius-verified-window-performance-data-program/performance-criteria-by-climate-zone" },
+      { label: "PHI component database — certified windows", href: "https://database.passivehouse.com/en/components/list/group_4" },
+    ],
+    content: `Ask what U-value a passive house window needs and the answer comes back instantly: 0.80. It is the most-quoted number in high-performance fenestration, and it is genuinely in the standard — but as one row of a table, attached to one climate zone, and accompanied by three further criteria that trip up more certification attempts than the headline number does.
+
+## The PHI table, in full
+
+The Passive House Institute (PHI, Darmstadt) certifies windows as components against its *Criteria for Transparent Building Components* (v5.6, 2025). The world is divided into seven climate zones, and each gets its own whole-window limit — calculated per EN ISO 10077-1 on the 1.23 × 1.48 m reference window:
+
+| PHI climate zone | Component Uw (W/m²K) | Uw installed | Reference glazing Ug |
+|---|---|---|---|
+| 1 Arctic | ≤ 0.40 | ≤ 0.45 | 0.35 |
+| 2 Cold | ≤ 0.60 | ≤ 0.65 | 0.52 |
+| 3 Cool-temperate | ≤ 0.80 | ≤ 0.85 | 0.70 |
+| 4 Warm-temperate | ≤ 1.00 | ≤ 1.05 | 0.90 |
+| 5 Warm | ≤ 1.20 | ≤ 1.25 | 1.10 |
+| 6 Hot | ≤ 1.20 | ≤ 1.25 | 1.10 |
+| 7 Very hot | ≤ 1.00 | ≤ 1.05 | 0.90 |
+
+(Certificates are currently issued for the arctic through warm zones; hot-climate criteria are published but in trial.) Central Europe, most of the northern US, southern Canada, Japan's main islands, and much of China's heating-dominated belt fall in cool-temperate — hence 0.80's fame. Move the same project to Oslo or Harbin territory and the requirement tightens to 0.60; an arctic research posting demands 0.40. Warm-temperate Mediterranean and subtropical zones relax to 1.00–1.20.
+
+Two columns beside the headline number matter in practice. **Uw,installed** re-runs the calculation with the window mounted in a reference wall, adding the installation thermal bridge — a window that scores 0.80 free-standing but 0.90 installed fails. And the **reference glazing** column pins the Ug each zone's calculation assumes, which stops manufacturers from buying the rating with exotic glass on an uninsulating frame.
+
+## Where the numbers come from
+
+The limits are not energy-budget arbitrary. PHI derives them from two functional requirements:
+
+**Comfort:** the interior surface temperature of the window may deviate from the room's operative temperature by at most **4.2 K** at design cold. Beyond that gap, the window face drives cold-air descent and radiant asymmetry that occupants feel as draught — even in an airtight building. The zone U-values are this criterion solved for each climate's design temperature.
+
+**Hygiene:** a temperature factor (fRsi ≥ 0.70 for cool-temperate, up to 0.80 arctic) keeps every point of the frame surface warm enough that water activity stays below 0.80 — the mold-growth threshold. This is the same surface-condensation physics covered in [our cold-climate condensation analysis](/resources/blog/aluminum-window-condensation-cold-climate), promoted from service-call nuisance to certification gate.
+
+PHI additionally grades certified windows into efficiency classes — phA+ to phC — by the heat loss through the opaque part (frame plus glass edge, Ψopaque ≤ 0.065 W/m·K for phA+, ≤ 0.110 phA, ≤ 0.155 phB, ≤ 0.200 phC). Two windows can both pass cool-temperate; the class tells you which one passed comfortably.
+
+## Phius: same physics, different program
+
+North American projects mostly certify under Phius, which runs its own window program. Three differences matter for specification:
+
+- Phius publishes **climate-zone-specific performance data and recommendations** (keyed to US climate zones) rather than a single pass/fail Uw — the verified data sheet carries whole-window installed U-factor, center-of-glass U, and SHGC, with zone recommendation checkmarks.
+- Since the 2023 program update, Phius reports manufacturers' **whole-window U-values without the penalty factor** it previously applied.
+- SHGC is a first-class criterion — warm zones cap it for cooling protection, cold zones treat winter solar gain as a resource. (The U-value/SHGC interaction is [its own topic](/resources/blog/window-u-value-vs-shgc-climate).)
+
+A window certified by PHI is not automatically Phius-verified or vice versa; cross-market products get both.
+
+## What construction actually passes
+
+Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-calculation) against the cool-temperate row and the constraint lands on the frame. With the reference triple glazing at Ug 0.70 and a warm-edge spacer, the frame needs roughly Uf ≤ 1.0–1.3 — territory no aluminum system reaches, thermally broken or not. That is why the PHI component database's window list is dominated by timber, timber-aluminum hybrid, uPVC, and pultruded fiberglass frames.
+
+Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [65–140 series fenestration systems](/products/fenestration-systems) page carries the series-by-series data.
+
+To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/u-value-calculator) — it computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
+  },
+
+  {
+    slug: "window-u-value-vs-shgc-climate",
+    title: "U-Value vs SHGC: The Two Window Numbers and How to Set Them by Climate",
+    seoTitle: "U-Value vs SHGC — Specifying Windows by Climate",
+    answerBox:
+      "U-value (thermal transmittance, W/m²K or Btu/h·ft²·°F) measures how fast a window loses heat by conduction; SHGC (solar heat gain coefficient, 0–1, per NFRC 200) measures what fraction of incident solar energy gets in. They answer different questions: U-value is always-on envelope loss, SHGC is a solar valve. Heating climates want low U with a usefully high SHGC (ENERGY STAR 7.0 Northern zone: U ≤ 0.22 IP ≈ 1.25 W/m²K with SHGC ≥ 0.17 on the prescriptive path); cooling climates flip priorities (Southern zone: SHGC ≤ 0.23). Europe's g-value is the same physics as SHGC but usually quoted glazing-only, while NFRC's SHGC includes the frame — check the basis before comparing datasheets.",
+    category: "Thermal Performance",
+    date: "2026-07-11",
+    updatedAt: "2026-07-11",
+    readTime: "9 min",
+    excerpt:
+      "One number describes how a window leaks heat, the other how it harvests or blocks the sun — and specifying fenestration is largely the art of setting both for your climate. Definitions, the g-value vs SHGC reporting trap, ENERGY STAR 7.0's zone table, and where the frame material quietly shapes both numbers.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
+    reviewedBy: "Technical Review Board",
+    standards: ["NFRC 200", "NFRC 100", "EN ISO 10077-1", "EN 410"],
+    coverImage: "/images/blog/window-profile-price-yellow-facade.jpg",
+    coverAlt:
+      "Sunlit yellow facade with regular window grid — every one of those openings trades heat loss (U-value) against solar gain (SHGC) all year",
+    coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
+    supportingImage: "/images/blog/window-corner-joint-interior.jpg",
+    supportingAlt:
+      "Window frame and glazing edge in warm interior light — coatings set SHGC, while frame and spacer set the U-value floor",
+    supportingAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
+    supportingCaption:
+      "The division of labour in one corner: low-E coatings and gas fill tune Ug and g/SHGC; the frame and spacer decide how much of that glazing performance the whole window keeps.",
+    highlights: [
+      "U-value = heat loss rate (lower is always less loss); SHGC = solar admission fraction 0–1 (lower is not always better)",
+      "ENERGY STAR 7.0: Northern U ≤ 0.22 IP with SHGC ≥ 0.17 prescriptive; Southern U ≤ 0.32 with SHGC ≤ 0.23",
+      "EU g-value ≈ SHGC in physics, but g is usually glazing-only while NFRC SHGC is whole-window including frame",
+    ],
+    ogDescription:
+      "U-value measures heat loss, SHGC measures solar gain. How to set both by climate zone — ENERGY STAR 7.0 numbers, PHI guidance, and frame effects.",
+    ogChips: ["SHGC", "U-value", "Energy codes"],
+    relatedLinks: [
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
+      { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
+      { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+    ],
+    sourceLinks: [
+      { label: "ANSI/NFRC 200 — Solar Heat Gain Coefficient procedure (Intertek summary)", href: "https://www.intertek.com/building/standards/ansi-nfrc-200/" },
+      { label: "European g-value vs North American SHGC (GreenBuildingAdvisor)", href: "https://www.greenbuildingadvisor.com/question/european-vs-north-american-shgc-value-comparison" },
+      { label: "ENERGY STAR Version 7.0 Residential WDS Final Specification (EPA)", href: "https://www.energystar.gov/sites/default/files/asset/document/ENERGY%20STAR%20Version%207.0%20Residential%20Windows%2C%20Doors%2C%20and%20Skylights%20Final%20Draft%20Specification.pdf" },
+      { label: "ENERGY STAR 7.0 zone criteria overview (Window + Door)", href: "https://www.windowanddoor.com/article/energy-star-version-70" },
+      { label: "Phius window performance criteria by climate zone", href: "https://www.phius.org/phius-certification-for-buildings-products/phius-verified-window-performance-data-program/performance-criteria-by-climate-zone" },
+    ],
+    content: `Every window datasheet leads with two numbers, and they are routinely read as if lower were better for both. For one of them that is true. The other one is a valve, not a leak — and setting it wrong costs real heating or cooling energy every year the building stands.
+
+## Two numbers, two different questions
+
+**U-value** (thermal transmittance; U-factor in North America) answers: *when it is colder on one side than the other, how fast does heat conduct through?* Units are W/m²K in the SI world, Btu/h·ft²·°F in NFRC ratings (multiply IP by 5.678 to get SI). It acts 24 hours a day in both seasons — heat out in winter, heat in during a cooling season. Lower is unambiguously less loss. The whole-window number is assembled from glass, frame, and spacer contributions — [the EN ISO 10077-1 mechanics are here](/resources/blog/en-iso-10077-window-u-value-calculation).
+
+**SHGC** (solar heat gain coefficient, per NFRC 200) answers: *of the solar energy hitting the window, what fraction ends up inside?* It is dimensionless, 0 to 1, and counts both directly transmitted radiation and the part absorbed in the glazing and re-emitted inward. A skylight at SHGC 0.60 is a heater whenever the sun is out; a curtain-wall unit at 0.20 is sunglasses. Whether high or low is "better" depends entirely on whether the building wants that free heat.
+
+The same physics wears a different label in Europe: the **g-value** (total solar energy transmittance, EN 410). Numerically g and SHGC land within a few percent for the same glazing — but with a reporting trap: European datasheets usually quote g for the **glazing alone**, while NFRC's SHGC is a **whole-product** number that includes the frame, which admits no solar gain and therefore drags the value down. A European IGU at g 0.50 and an NFRC window at SHGC 0.40 may be the same glass in the same window. Confirm the basis before comparing.
+
+## Setting both by climate
+
+**Heating-dominated climates** want minimum U and a usefully high SHGC: every watt of winter sun through south glazing is heat the boiler does not supply. ENERGY STAR Version 7.0 encodes this — the Northern zone prescriptive path requires **U ≤ 0.22 Btu/h·ft²·°F (≈ 1.25 W/m²K) together with SHGC ≥ 0.17**, an explicit floor on solar gain. Passive house practice pushes the same logic harder: in cool-temperate climates, certified projects typically pair triple glazing around Ug 0.5–0.7 W/m²K with g-values high enough that south windows net positive over the heating season — the [PHI requirement set is covered here](/resources/blog/passive-house-window-u-value-requirements).
+
+**Cooling-dominated climates** flip the priorities. ENERGY STAR 7.0's Southern zone allows U ≤ 0.32 IP but caps **SHGC at ≤ 0.23**; South-Central requires U ≤ 0.28 with the same SHGC cap. In Riyadh, Singapore, or Phoenix, solar gain is the enemy and spectrally-selective low-E coatings that pass daylight while rejecting near-infrared do the heavy lifting.
+
+**Mixed climates** are where single-number thinking fails hardest. North-Central ENERGY STAR (U ≤ 0.25, SHGC ≤ 0.40) is a compromise; serious projects go finer-grained — orientation-specific glazing, with higher SHGC on south faces shaded by overhangs and lower on east/west faces where low-angle summer sun is unshadeable. Phius's climate-zone-specific window data takes the same orientation-aware approach.
+
+Three practical rules survive all three cases. Set U-value by climate severity and comfort (it also controls the interior surface temperature that decides [condensation behaviour](/resources/blog/aluminum-window-condensation-cold-climate)). Set SHGC by cooling load and orientation. And never chase one number with a product that wrecks the other — a triple-silver coating that hits SHGC 0.18 in a heating climate saves cooling the building did not need and forfeits solar heating it did.
+
+## Where the frame sits in both numbers
+
+Coatings and gas fills live in the glazing, so SHGC tuning is mostly a glass decision — the frame only enters by occupying area (NFRC's whole-window SHGC falls as frame fraction rises). U-value is the opposite: on a typical window the frame is the thermally weakest zone and sets the floor under the whole-window number. A frame at Uf 2.5–4.0 W/m²K (thermally-broken aluminum territory) caps how far any glazing can carry the assembly; insulating frames — pultruded GFRP at roughly 0.3 W/m·K bulk conductivity, timber, uPVC — let premium glazing keep its rating at whole-window scale. The frame-material trade-offs, including why GFRP holds slim aluminum-like sightlines while insulating, are on the [FRP vs aluminum comparison](/technology/frp-vs-aluminum-windows); F1's PHI-certified GFRP-PU [fenestration systems](/products/fenestration-systems) are the applied case.
+
+To see both numbers interact on a real build — your frame, glazing package, and spacer, computed to EN ISO 10077-1 with program pass/fail flags — run the free [whole-window U-value calculator](/technology/u-value-calculator), then sanity-check the SHGC against your climate zone's table above.`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(

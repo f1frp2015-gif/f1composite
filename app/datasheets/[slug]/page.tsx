@@ -15,6 +15,7 @@ import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/
 import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
 import { sig } from "@/lib/catalog/section";
+import { CAD_SLUGS } from "@/lib/cadManifest";
 import type { FormulationRow } from "@/lib/catalog/db";
 
 export const revalidate = 3600;
@@ -182,14 +183,31 @@ export default async function DatasheetPage({
                   </tbody>
                 </table>
               )}
-              <a
-                href={`/api/datasheet?ids=${product.id}`}
-                target="_blank"
-                rel="noopener"
-                className="mt-[21px] inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
-              >
-                Download PDF datasheet →
-              </a>
+              <div className="mt-[21px] flex flex-wrap gap-[13px]">
+                <a
+                  href={`/api/datasheet?ids=${product.id}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+                >
+                  Download PDF datasheet →
+                </a>
+                {CAD_SLUGS.has(slug) && (
+                  <a
+                    href={`/cad/${slug}.dxf`}
+                    download
+                    className="inline-block rounded-[6px] border border-teal-text px-[21px] py-[13px] text-f15 font-semibold text-teal-text hover:bg-teal-bg"
+                  >
+                    Download CAD (DXF, free) →
+                  </a>
+                )}
+              </div>
+              {CAD_SLUGS.has(slug) && (
+                <p className="mt-[8px] text-f13 text-t3">
+                  Dimensioned cross-section drawing in DXF — no login, no email. Opens in AutoCAD,
+                  DraftSight, LibreCAD, and every major CAD package.
+                </p>
+              )}
             </div>
 
             <div>

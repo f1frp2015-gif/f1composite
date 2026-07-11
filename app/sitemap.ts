@@ -48,15 +48,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.65,
   }));
-  const datasheetIndexEntry =
-    datasheetPages.length > 0
-      ? [{
-          url: `${BASE}/datasheets`,
-          lastModified: latestBlogUpdate,
-          changeFrequency: "weekly" as const,
-          priority: 0.8,
-        }]
-      : [];
+  // Index page is a permanent nav destination — keep it listed even when the
+  // catalog DB is unreachable at build time (slug entries above still drop).
+  const datasheetIndexEntry = [{
+    url: `${BASE}/datasheets`,
+    lastModified: latestBlogUpdate,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }];
 
   return [
     { url: BASE, lastModified: DATES.home, changeFrequency: "weekly", priority: 1.0 },
@@ -91,6 +90,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/technology/quality-testing`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/knowhow-services`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/frp-profile-calculator`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/frp-span-tables`, lastModified: "2026-07-11", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/u-value-calculator`, lastModified: "2026-04-05", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/industries`, lastModified: DATES.industries, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/industries/construction`, lastModified: DATES.industries, changeFrequency: "monthly", priority: 0.7 },

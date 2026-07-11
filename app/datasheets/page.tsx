@@ -5,7 +5,8 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
-import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { getAllDatasheetPages } from "@/lib/catalog/public";
 
 export const revalidate = 3600;
@@ -28,8 +29,28 @@ export default async function DatasheetsIndexPage() {
     groups.get(key)!.push(d);
   }
 
+  const datasheetsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "FRP Profile Technical Datasheets",
+    url: absoluteUrl("/datasheets"),
+    description:
+      "Engineering datasheets for every F1 Composite pultruded FRP profile: exact section properties, EN 13706 mechanical data, dimensions, and weights.",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: all.length,
+      itemListElement: all.map((d, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${d.product.model} FRP profile datasheet`,
+        url: absoluteUrl(`/datasheets/${d.slug}`),
+      })),
+    },
+  };
+
   return (
     <>
+      <JsonLd data={datasheetsSchema} />
       <PageHeader
         tag="Datasheets"
         title="FRP Profile Technical Datasheets"

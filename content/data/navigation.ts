@@ -21,6 +21,7 @@ export const mainNav: NavItem[] = [
     href: "/pultruded-frp-profiles",
     children: [
       { label: "Standard Profiles", href: "/products/standard-profiles" },
+      { label: "Profile Datasheets", href: "/datasheets" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
@@ -46,6 +47,7 @@ export const mainNav: NavItem[] = [
       { group: "Comparisons", label: "Strongwell / Fiberline / Exel Alternative", href: "/technology/china-alternative-to-strongwell-fiberline-exel" },
       { group: "Comparisons", label: "Tencom / Creative Pultrusions Alternative", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { group: "Free Tools", label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
+      { group: "Free Tools", label: "FRP Span Tables", href: "/frp-span-tables" },
       { group: "Free Tools", label: "U-Value Calculator", href: "/technology/u-value-calculator" },
       { group: "Free Tools", label: "AI Sourcing Assistant", href: "/ai/sourcing" },
       { group: "Free Tools", label: "Passive House AI Advisor", href: "/ai/passive-house" },
@@ -88,6 +90,7 @@ export const mainNav: NavItem[] = [
 export const footerNav = {
   products: [
     { label: "Standard Profiles", href: "/products/standard-profiles" },
+    { label: "Profile Datasheets", href: "/datasheets" },
     { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
     { label: "Fenestration Systems", href: "/products/fenestration-systems" },
     { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
@@ -97,6 +100,9 @@ export const footerNav = {
   ],
   technology: [
     { label: "What is FRP?", href: "/what-is-frp" },
+    { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
+    { label: "FRP Span Tables", href: "/frp-span-tables" },
+    { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
     { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
     { label: "Resin Systems", href: "/technology/pultrusion-resin-systems" },
     { label: "FRP vs Traditional", href: "/technology/frp-vs-traditional-materials" },

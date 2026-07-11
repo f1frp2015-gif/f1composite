@@ -261,9 +261,11 @@ const formulations: SeedFormulation[] = [
 // formulations, not the default general-purpose profile.
 const STANDARDS = "EN 13706 Grade E23";
 
-type SeedProduct = { model: string; cat: string; geometry: unknown; weight: number };
+export type SeedProduct = { model: string; cat: string; geometry: unknown; weight: number };
 
-function buildProducts(): SeedProduct[] {
+// Also consumed by lib/spanTables.ts — the static span-table page derives its
+// section list from these published sizes, so catalog and tables never drift.
+export function buildProducts(): SeedProduct[] {
   const P: SeedProduct[] = [];
   const geo = (shape: string, dims: Record<string, number>) => ({ kind: "parametric", shape, dims });
 
