@@ -4005,10 +4005,10 @@ To see both numbers interact on a real build — your frame, glazing package, an
     authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Review Board",
     standards: ["EN 14024", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
-    coverImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.png",
+    coverImage: "/images/blog/facade-balcony-window-grid-thermal-break.jpg",
     coverAlt:
-      "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles bridge the interior and exterior aluminum shells across a deep insulating zone",
-    coverImageFit: "contain",
+      "Residential facade grid of hundreds of identical aluminum-framed windows and balconies — every one of those frames depends on a pair of thermal break profiles to meet its energy code",
+    coverAttribution: pexelsCredit("Badun", "https://www.pexels.com/photo/34776034/"),
     supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.png",
     supportingAlt:
       "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles rolled into both sashes, bridging a deep insulating zone no extruded strip geometry can serve",
