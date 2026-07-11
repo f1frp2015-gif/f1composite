@@ -402,6 +402,8 @@ export default function CustomPultrusionsPage() {
               { href: "/industries/construction", label: "Construction systems" },
               { href: "/industries/energy", label: "EV battery trays & solar" },
               { href: "/industries/vehicle", label: "Rail & transport profiles" },
+              { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP pultrusion supplier for US projects" },
+              { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles · Australia" },
               { href: "/case-studies", label: "Project case studies" },
             ],
           },

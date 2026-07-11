@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
@@ -244,6 +245,18 @@ export default function GratingsPage() {
               costs, reduced transport expenses, and faster installation with smaller crews and
               lighter lifting equipment.
             </p>
+            <p className="mt-[21px] text-f15 leading-golden text-t2">
+              We ship grating panels worldwide on DDP and CIF terms. For projects in
+              the Gulf region, see our dedicated{" "}
+              <Link
+                href="/regions/frp-grating-supplier-saudi-arabia"
+                className="font-semibold text-teal-text hover:text-teal"
+              >
+                FRP grating supply program for Saudi Arabia — Riyadh, Jeddah, and Dammam
+              </Link>{" "}
+              covering by-city supply notes for the KSA market and project
+              documentation aligned with Aramco SAEP / SAES requirements.
+            </p>
           </div>
         </div>
       </section>
@@ -470,6 +483,7 @@ export default function GratingsPage() {
           {
             title: "Applications",
             links: [
+              { href: "/regions/frp-grating-supplier-saudi-arabia", label: "FRP grating Saudi Arabia — Riyadh · Jeddah · Dammam" },
               { href: "/industries/marine", label: "Marine & offshore gratings" },
               { href: "/industries/industrial", label: "Chemical plant platforms" },
               { href: "/case-studies/coastal-marina-walkway", label: "Coastal marina case study" },
