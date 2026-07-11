@@ -185,6 +185,7 @@ export default async function ChannelPage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/frp-span-tables#channel", label: "FRP channel span table — allowable loads" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets" },

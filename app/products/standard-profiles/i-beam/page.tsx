@@ -523,6 +523,7 @@ export default async function IBeamPage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/frp-span-tables#i-beam", label: "FRP I-beam span table — allowable loads" },
               { href: "/frp-profile-calculator?shape=i-beam", label: "FRP I-beam calculator" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/resources/technical-data", label: "Data sheets & test certificates" },

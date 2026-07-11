@@ -906,6 +906,17 @@ export default function PultrudedFRPProfilesHubPage() {
             title="Size a pultruded FRP profile in your browser"
             sub="Run bending, shear, and Timoshenko-corrected deflection on any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608, or ASD — and find the section that replaces a steel or aluminum member at equal stiffness, then quote against your spec."
           />
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            Looking up rather than computing? The{" "}
+            <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
+              FRP span tables
+            </Link>{" "}
+            publish the allowable uniform load for every standard{" "}
+            <Link href="/frp-span-tables#i-beam" className="text-teal-text hover:underline">fiberglass I-beam</Link>,{" "}
+            <Link href="/frp-span-tables#channel" className="text-teal-text hover:underline">channel</Link>, and{" "}
+            <Link href="/frp-span-tables#square-tube" className="text-teal-text hover:underline">tube</Link>{" "}
+            over 1–6 m simple spans — EN 13706 E23 basis, deflection-checked.
+          </p>
         </div>
       </section>
 

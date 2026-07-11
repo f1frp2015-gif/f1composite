@@ -5,9 +5,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Technical Data",
+  title: "FRP Material Properties — Mechanical & Physical Data",
   description:
-    "Mechanical properties, chemical resistance, fire performance, and specification sheets for F1 Composite pultruded FRP profiles per EN 13706 and ASTM.",
+    "FRP material properties for pultruded E-glass profiles: tensile, flexural, shear, density, glass content — full specification data per EN 13706 and ASTM.",
   path: "/resources/technical-data",
   image: "/resources/technical-data/opengraph-image",
 });
@@ -42,7 +42,7 @@ export default function TechnicalDataPage() {
       <JsonLd data={datasetSchema} />
       <PageHeader
         tag="Technical Data"
-        title="FRP Profile Specifications"
+        title="FRP Material Properties & Specifications"
         description="Comprehensive mechanical, thermal, and chemical resistance data for our standard pultruded FRP profile range."
         breadcrumbs={[
           { label: "Home", href: "/" },
