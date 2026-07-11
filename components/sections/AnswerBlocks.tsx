@@ -43,7 +43,7 @@ export default function AnswerBlocks({
           {title}
         </h2>
         {description ? (
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             {description}
           </p>
         ) : null}

@@ -215,7 +215,7 @@ export default function FrpProcessShowcase() {
         <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
           How is FRP made? Six processes at a glance
         </h2>
-        <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+        <p className="mt-[21px] text-f15 leading-golden text-t2">
           The same glass-fiber-plus-resin material becomes very different
           products depending on how it is formed. Six processes cover most of
           the FRP world — and one of them, pultrusion, is the route to every

@@ -187,7 +187,7 @@ export default function DatasheetBuilder() {
         <h2 className="mb-[13px] text-f24 font-bold text-t1">
           Build your own datasheet or catalog PDF
         </h2>
-        <p className="mb-[21px] max-w-[700px] text-f15 leading-golden text-t2">
+        <p className="mb-[21px] text-f15 leading-golden text-t2">
           Pick one profile for a single-page technical data sheet, a whole family, or any mix for a
           multi-page catalog extract. Then optionally tick one or more resin systems to get the same
           cross-section rendered with each formulation&apos;s mechanical data — polyester vs vinyl
@@ -240,7 +240,7 @@ export default function DatasheetBuilder() {
             <h3 className="mb-[8px] mt-[34px] text-f15 font-bold text-t1">
               2 · Resin system <span className="font-normal text-t3">(optional — one page per profile per system)</span>
             </h3>
-            <p className="mb-[13px] max-w-[700px] text-f13 text-t3">
+            <p className="mb-[13px] text-f13 text-t3">
               Leave everything unticked to get each profile&apos;s standard formulation. Tick
               several to compare mechanical data for the same cross-section across resin systems.
             </p>

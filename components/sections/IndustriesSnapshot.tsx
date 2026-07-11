@@ -71,7 +71,7 @@ export default function IndustriesSnapshot() {
             <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
               Pultruded FRP solutions across six industries
             </h2>
-            <p className="mt-[8px] max-w-[700px] text-f15 leading-golden text-t2">
+            <p className="mt-[8px] text-f15 leading-golden text-t2">
               From Passive House residential envelopes to Antarctic research stations, coastal marinas, solar farms, and chemical plants — F1 Composite profiles carry projects in the most demanding environments on Earth.
             </p>
           </div>

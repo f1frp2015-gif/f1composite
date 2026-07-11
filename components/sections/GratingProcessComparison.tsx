@@ -277,7 +277,7 @@ export default function GratingProcessComparison() {
         <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
           Molded vs pultruded FRP grating: process, properties, and best fit
         </h2>
-        <p className="mt-[13px] max-w-[780px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f15 leading-golden text-t2">
           The two grating families start from the same glass-and-resin system
           but are made in opposite ways — one woven and cured as a single
           piece, one assembled from pultruded bars. That single difference

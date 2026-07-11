@@ -68,7 +68,7 @@ export default function ExploreSection() {
         <h2 className="mt-[13px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           Dig into the F1 Composite knowledge base
         </h2>
-        <p className="mt-[13px] max-w-[720px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f15 leading-golden text-t2">
           Hub pages, technical guides, case studies, and engineering resources — everything
           you need to specify, compare, or source pultruded FRP.
         </p>
