@@ -368,6 +368,13 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
+        {/* Ahrefs Web Analytics — async, so React 19 hoists it into <head>
+            (the placement Ahrefs' installation guide asks for). */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="CFDhVpS55aoWtGuYtrx1Cw"
+          async
+        />
       </body>
     </html>
   );
