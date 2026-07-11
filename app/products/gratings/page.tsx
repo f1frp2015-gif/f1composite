@@ -7,6 +7,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import GratingProcessComparison from "@/components/sections/GratingProcessComparison";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
@@ -128,6 +129,11 @@ const antiSlipGrades = [
 ];
 
 const faqItems = [
+  {
+    question: "Molded vs pultruded FRP grating — which should I choose?",
+    answer:
+      "Choose molded grating when loads arrive from both directions, the layout needs many field cutouts, or maximum chemical resistance is the priority: its woven, resin-rich construction (30-35% glass by weight) gives near-equal two-way strength and the best corrosion performance. Choose pultruded grating when the design is span-driven: its unidirectional bearing bars (60-65% glass) carry significantly longer clear spans with fewer supports, and dedicated series cover ADA pedestrian surfaces, 73-83% open cooling-tower decks, and forklift-rated high-load platforms. Both families are produced to ASTM E84 Class 1 flame spread (FSI ≤25).",
+  },
   {
     question: "What is the difference between FRP gratings and FRP deck panels?",
     answer:
@@ -393,8 +399,11 @@ export default function GratingsPage() {
         </div>
       </section>
 
+      {/* Molded vs pultruded: process animations + comparison + fit */}
+      <GratingProcessComparison />
+
       {/* Load Ratings */}
-      <section className="bg-white py-[89px]">
+      <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Load Ratings</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -440,7 +449,7 @@ export default function GratingsPage() {
       </section>
 
       {/* Anti-Slip Grades */}
-      <section className="bg-bg2 py-[89px]">
+      <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Anti-Slip Performance</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -469,7 +478,6 @@ export default function GratingsPage() {
       </section>
 
       <RelatedLinks
-        background="white"
         groups={[
           {
             title: "Related FRP products",
@@ -505,7 +513,7 @@ export default function GratingsPage() {
       />
 
       {/* FAQ */}
-      <section className="bg-bg2 py-[89px]">
+      <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} suppressSchema />
         </div>
