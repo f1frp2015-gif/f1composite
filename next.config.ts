@@ -99,18 +99,6 @@ const nextConfig: NextConfig = {
         destination: "https://www.f1composite.com/:path*",
         permanent: true,
       },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "f1frp.com" }],
-        destination: "https://www.f1composite.com/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.f1frp.com" }],
-        destination: "https://www.f1composite.com/:path*",
-        permanent: true,
-      },
     ];
   },
   async headers() {
