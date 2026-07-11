@@ -89,7 +89,7 @@ export default function SourcingPage() {
               <br />
               <span className="text-teal-text">Get a spec + China factory price path.</span>
             </h1>
-            <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
+            <p className="mt-[16px] mx-auto text-f15 leading-golden text-t2">
               Skip the brochure-browsing. Tell our AI what you&rsquo;re building, and it returns —
               free, in seconds — the recommended FRP profile family, resin system, applicable
               standards (EN 13706 / ASTM / GB), comparable case studies, and a direct path to a

@@ -176,7 +176,7 @@ function CalculationModel({
   return (
     <div className="mt-[55px]">
       <h3 className="text-f24 font-bold text-t1">How this U-value is built</h3>
-      <p className="mt-[8px] max-w-[820px] text-f13 leading-golden text-t2">
+      <p className="mt-[8px] text-f13 leading-golden text-t2">
         The whole-window U-value is an <strong>area-weighted average</strong> of three parallel
         heat-loss paths — through the glass, through the frame, and the extra leak at the glass
         edge where the spacer bridges the seal. This model updates live with your selection above.
@@ -464,7 +464,7 @@ export default function UValueCalculator() {
         <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
           Whole-Window U-Value Calculator
         </h2>
-        <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f15 leading-golden text-t2">
           Calculate the overall thermal transmittance (U<sub>w</sub>) of a window or door
           unit per{" "}
           <strong>EN ISO 10077-1</strong>. Select frame material, glass configuration,
@@ -790,7 +790,7 @@ export default function UValueCalculator() {
         {/* ── Frame comparison table ── */}
         <div className="mt-[55px]">
           <h3 className="text-f24 font-bold text-t1">Frame Material U<sub>f</sub> Comparison</h3>
-          <p className="mt-[8px] max-w-[700px] text-f13 text-t2">
+          <p className="mt-[8px] text-f13 text-t2">
             Frame thermal transmittance values used in this calculator. FRP frames achieve low
             U<sub>f</sub> values inherently — no thermal break inserts required.
           </p>
@@ -835,7 +835,7 @@ export default function UValueCalculator() {
         {/* ── National standards reference ── */}
         <div className="mt-[55px]">
           <h3 className="text-f24 font-bold text-t1">Window U-Value Requirements by Standard</h3>
-          <p className="mt-[8px] max-w-[800px] text-f13 text-t2">
+          <p className="mt-[8px] text-f13 text-t2">
             Maximum allowable whole-window thermal transmittance (U<sub>w</sub>) under major
             international building energy codes. Values shown are for residential windows unless noted.
           </p>

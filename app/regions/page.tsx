@@ -133,7 +133,7 @@ export default function RegionsHubPage() {
               </Link>
             ))}
           </div>
-          <p className="mt-[34px] max-w-[800px] text-f13 leading-golden text-t2">
+          <p className="mt-[34px] text-f13 leading-golden text-t2">
             Shipping to a market not listed here? We export worldwide — the market pages
             above are simply where we maintain dedicated standards and logistics
             documentation. Send your project location and spec via the RFQ form and we

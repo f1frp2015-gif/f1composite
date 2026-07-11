@@ -165,7 +165,7 @@ export default function KnowhowServicesPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Three Levels of Engagement
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Choose the depth that matches your needs. Every engagement is led by a senior
             pultrusion engineer with 15+ years of production experience.
           </p>
@@ -304,7 +304,7 @@ export default function KnowhowServicesPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             How We Work Together
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Every engagement follows a structured four-phase process. The depth of each
             phase scales with the service tier.
           </p>

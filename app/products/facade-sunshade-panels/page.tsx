@@ -431,7 +431,7 @@ export default function FacadeSunshadePanelsPage() {
       {/* Introduction */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[780px]">
+          <div>
             <p className="text-f19 leading-golden text-t2">
               <strong className="text-t1">A sunshade blade is a deceptively hard structural
               element.</strong> It is long, thin, fully exposed, loaded by wind in both
@@ -469,7 +469,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six reasons the blade material decides the shading design
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Shading arrays fail on details: brackets that bridge the envelope, blades that
             sag or rattle, coatings that chalk on the sun side. The E40 plate is engineered
             against each failure mode.
@@ -496,7 +496,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The multi-layer fabric architecture behind 40 GPa
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Conventional pultruded sheet is mostly longitudinal roving with a mat skin — stiff
             one way, weak the other. The E40 plate replaces the mat with engineered fabric,
             layer by layer through the thickness.
@@ -537,7 +537,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Flat plate, aerofoil, and closed-box blades
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The E40 flat plate covers most fin and louver arrays; custom hollow sections
             extend the range where geometry or torsion demands it.
           </p>
@@ -566,7 +566,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             One blade family, both orientations
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Vertical fins and horizontal louvers load a blade in fundamentally different
             ways. The multi-layer fabric laminate is what lets the same plate carry both.
           </p>
@@ -647,7 +647,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Fifty years of gust cycles, without a fatigue-critical detail
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             A facade blade sees millions of fully-reversing gust cycles over the building&apos;s
             life — fatigue, not peak load, is what actually retires metal shading systems.
             Six mechanisms put the FRP blade on the other side of that problem.
@@ -674,7 +674,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From code wind speed to bracket spacing
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The wind design of a shading array is a five-step path from the code to the
             blade. We run it for every quotation, to EN 1991-1-4, ASCE 7, or GB 50009, and
             hand the calculation package to your facade engineer.
@@ -700,7 +700,7 @@ export default function FacadeSunshadePanelsPage() {
             <h3 className="text-[20px] font-extrabold text-t1">
               Indicative bracket spacing — E40 flat plate louvers
             </h3>
-            <p className="mt-[8px] max-w-[640px] text-f13 leading-golden text-t2">
+            <p className="mt-[8px] text-f13 leading-golden text-t2">
               Deflection-governed spacing for a 250 mm louver at c_p,net = ±2.0
               (conservative edge-zone value), continuous over three or more brackets,
               deflection limit L/240. Strength and bracket reactions are verified
@@ -745,7 +745,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Bolted details that stay quiet for the life of the facade
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Shading systems are won and lost at the bracket. These are the connection and
             installation details behind a thin, light, weather-proof, maintenance-free
             blade array.
@@ -772,7 +772,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             E40 plate — key properties for shading design
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Representative values for the multi-layer fabric plate. Project laminates are
             tuned to the blade section and span, with test data supplied for submission.
           </p>
@@ -817,7 +817,7 @@ export default function FacadeSunshadePanelsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Where the E40 blade beats the aluminum extrusion
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Aluminum is the incumbent shading material. These are the six criteria where the
             comparison decides itself at system level, not per kilogram of blade.
           </p>

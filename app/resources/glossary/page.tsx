@@ -111,7 +111,7 @@ export default function GlossaryPage() {
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/ask">Ask the AI engineering assistant</LinkArrow>
           </div>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Looking for a term that is not listed?{" "}
             <Link href="/contact" className="font-semibold text-teal-text hover:text-teal">
               Ask our engineering team

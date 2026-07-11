@@ -150,10 +150,10 @@ export default function FrpVsSteelGratingsPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             For corrosive, electrical, or wet environments, FRP gratings outlast steel by 3–5× at comparable installed cost
           </h2>
-          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else — chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down — galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
           </p>
-          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page compares the two across 13 properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion mechanisms, slip resistance on wet surfaces, fire rating, electrical conductivity, and 30-year lifecycle cost.
           </p>
         </div>
@@ -165,7 +165,7 @@ export default function FrpVsSteelGratingsPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
             Side-by-side: FRP vs hot-dip galvanized steel gratings
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             FRP values reflect pultruded and molded E-glass/polyester gratings typical of F1 Composite product range. Steel values reflect standard bar grating, 25mm × 5mm bearing bars, hot-dip galvanized per ASTM A123. Highlighted rows show properties where FRP materially outperforms steel.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
@@ -204,7 +204,7 @@ export default function FrpVsSteelGratingsPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Five environments where FRP is now the default specification
           </h2>
-          <ul className="mt-[21px] max-w-[860px] space-y-[21px] text-f15 leading-golden text-t2">
+          <ul className="mt-[21px] space-y-[21px] text-f15 leading-golden text-t2">
             <li>
               <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. FRP vinyl ester gratings carry 50+ year design life with zero maintenance. The European Water Industry has specified FRP as default for new-build secondary and tertiary treatment since the 2010s.
             </li>
@@ -230,7 +230,7 @@ export default function FrpVsSteelGratingsPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Heavy vehicle traffic in dry, non-corrosive environments
           </h2>
-          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
           </p>
         </div>

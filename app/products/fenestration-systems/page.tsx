@@ -497,7 +497,7 @@ export default function FenestrationSystemsPage() {
       {/* Introduction */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[780px]">
+          <div>
             <p className="text-f19 leading-golden text-t2">
               <strong className="text-t1">Pultruded fiberglass windows and doors</strong> —
               known interchangeably as FRP, GRP, or pultrusion windows — are a generational
@@ -536,7 +536,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Finished units, or profiles for your fabricator
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Two supply models from one product line. The pultruded profiles are identical;
             you choose where the units are assembled.
           </p>
@@ -565,7 +565,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             A complete cold-climate window and door range
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Every operable type a cold-climate facade needs, each engineered around
             compression sealing and a continuous insulating frame.
           </p>
@@ -596,7 +596,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Frame series — 65 to 140
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The four frame-depth tiers (65–90) are casement, tilt-and-turn, and swing-door
             systems; the 140-series is our lift-and-slide door system for the largest glazed
             openings.
@@ -636,7 +636,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Built for −40°C and below — where aluminum frosts and PVC cracks
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             In a deep-cold climate the window is the weakest part of the envelope. These six
             properties are why pultruded FRP outperforms every other frame material in
             Canada, Russia, and the Nordics.
@@ -663,7 +663,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Standards and climate, market by market
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             We supply finished units to the certification stack and climatic execution each
             cold-climate market specifies.
           </p>
@@ -702,7 +702,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From the Antarctic to severe-cold industry
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The thermal argument is settled in the field. Three reference projects at the
             extremes of cold-climate fenestration.
           </p>
@@ -730,7 +730,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             What ships in a complete F1 window or door
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             A finished unit is more than a frame. Here is what is built into, and shipped
             with, every assembled window and door.
           </p>
@@ -769,7 +769,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Frame material thermal comparison
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The thermal conductivity of the frame material determines the baseline
             performance of the fenestration system. FRP delivers the best
             combination of structural strength and thermal insulation of any
@@ -814,7 +814,7 @@ export default function FenestrationSystemsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Glass configuration options
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our fenestration systems are designed to accommodate a wide range of
             insulating glass unit configurations. The optimal glass specification
             depends on the system series, climate zone, and project energy targets.

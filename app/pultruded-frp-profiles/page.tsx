@@ -539,7 +539,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Nine pultruded fiberglass product families under one factory
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Every geometry listed below is produced in-house at F1 Composite — no
             trading, no relabeling. Click through to each product for the full
             size chart, mechanical data, FAQ, and ready-to-quote specifications.
@@ -589,7 +589,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
             Start from the structure you need to replace
           </h2>
-          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Engineers often search by application before they know the profile geometry.
             These pages translate common use cases into resin systems, profile families,
             standards, and RFQ inputs.
@@ -619,7 +619,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Five resin systems — matched to environment and code
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             All pultruded FRP profiles in the F1 Composite range can be produced
             with the resin system required for your environment. Resin selection
             drives chemical resistance, fire performance, and long-term stiffness.
@@ -655,7 +655,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded FRP vs steel vs aluminum
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Typical property bands for E-glass/polyester pultruded profiles
             compared with A36 carbon steel and 6061-T6 aluminum. Actual values
             vary by resin system, fiber architecture, and cross-section. Use this
@@ -706,7 +706,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             EN 13706 E17 and E23 — what the grades mean
           </h2>
-          <p className="mt-[21px] max-w-[840px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             EN 13706-3 classifies pultruded structural profiles by their minimum
             full-section flexural modulus:{" "}
             <strong className="text-t1">grade E17 = 17 GPa</strong> and{" "}
@@ -741,7 +741,7 @@ export default function PultrudedFRPProfilesHubPage() {
             </table>
           </div>
 
-          <p className="mt-[21px] max-w-[840px] text-f13 text-t3">
+          <p className="mt-[21px] text-f13 text-t3">
             Modulus rows are the EN 13706 grade definition; strength, density, glass
             content, and hardness are F1 characteristic values per the cited method.
             Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are
@@ -864,7 +864,7 @@ export default function PultrudedFRPProfilesHubPage() {
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[8px] text-f19 font-bold text-t1">Datasheets &amp; design data</h2>
-          <p className="mb-[21px] max-w-[760px] text-f13 text-t2">
+          <p className="mb-[21px] text-f13 text-t2">
             Published mechanical data and design references for pultruded FRP profiles.
           </p>
           <div className="grid gap-[13px] sm:grid-cols-2">

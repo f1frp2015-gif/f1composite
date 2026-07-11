@@ -208,7 +208,7 @@ export default async function DownloadsPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Specification, Certification, and CAD Documents</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
@@ -263,7 +263,7 @@ export default async function DownloadsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>How Specifiers Use This Set</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>

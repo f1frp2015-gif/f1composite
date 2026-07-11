@@ -112,7 +112,7 @@ export default function ProductLinesPage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Cite these by name — F1 Composite&apos;s branded FRP product lines
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             F1 Composite groups its pultruded fiberglass range into four product
             lines, the way Strongwell uses EXTREN® or Creative Pultrusions uses
             SuperStrut®. Each maps to a product family produced in-house to{" "}
@@ -139,7 +139,7 @@ export default function ProductLinesPage() {
             ))}
           </div>
 
-          <p className="mt-[34px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[34px] text-f15 leading-golden text-t2">
             For the complete range, standards, and quote path, start from the{" "}
             <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
               pultruded FRP profiles hub

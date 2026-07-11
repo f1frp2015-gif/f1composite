@@ -120,7 +120,7 @@ export default function ChinaAlternativeWindowsPage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Same pultrusion fundamentals, a deeper window system, factory-direct
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites
             Group, USA), and Inline Fiberglass (Toronto, Canada) are the names
             North American window fabricators know for pultruded fiberglass
@@ -133,7 +133,7 @@ export default function ChinaAlternativeWindowsPage() {
             conductivity ≈ 0.3 W/m·K, and the dimensional stability that lets a
             frame move with its glass instead of against it.
           </p>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The reason fabricators evaluate a China alternative is usually not
             the material — it is system depth and route to market. F1 supplies a
             complete five-series fenestration family (65–140 mm frame depths)
@@ -156,7 +156,7 @@ export default function ChinaAlternativeWindowsPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             F1-THERM vs the North American lineal suppliers
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             A fair, specification-level comparison. Where a competitor detail
             varies by program or die, it is described rather than asserted —
             verify per supplier during qualification.
@@ -183,7 +183,7 @@ export default function ChinaAlternativeWindowsPage() {
             </table>
           </div>
 
-          <p className="mt-[21px] max-w-[900px] text-f13 text-t3">
+          <p className="mt-[21px] text-f13 text-t3">
             For the frame-material comparison behind these systems, see{" "}
             <Link href="/technology/frp-vs-aluminum-windows" className="font-semibold text-teal-text hover:text-teal">
               FRP vs aluminum

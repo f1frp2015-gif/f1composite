@@ -115,7 +115,7 @@ export default function ChinaAlternativePage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Same specification, factory-direct from China
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline
             Composites (Denmark), and Exel Composites (Finland) are the
             established Western names in pultruded FRP. They are excellent
@@ -128,7 +128,7 @@ export default function ChinaAlternativePage() {
             structural grades) and <strong className="text-t1">ASTM D3917</strong>,
             under ISO 9001:2015.
           </p>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The reason buyers look for a China alternative is rarely the
             specification — it is the route to market. F1 Composite supplies its{" "}
             <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
@@ -150,7 +150,7 @@ export default function ChinaAlternativePage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             F1-STRUX vs the Western incumbents
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             A fair, specification-level comparison. Where a competitor figure
             varies by region or distributor, it is described rather than
             asserted.
@@ -177,7 +177,7 @@ export default function ChinaAlternativePage() {
             </table>
           </div>
 
-          <p className="mt-[21px] max-w-[900px] text-f13 text-t3">
+          <p className="mt-[21px] text-f13 text-t3">
             For the full material-level comparison (FRP vs steel and aluminum),
             see{" "}
             <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">
@@ -195,7 +195,7 @@ export default function ChinaAlternativePage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             EXTREN® / Pultex® to F1-STRUX crossover chart
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Specifiers often hold an existing spec written around Strongwell
             EXTREN® or Creative Pultrusions Pultex® series names. The chart
             below maps those series to the F1-STRUX resin system and fire class
@@ -254,7 +254,7 @@ export default function ChinaAlternativePage() {
             </table>
           </div>
 
-          <p className="mt-[21px] max-w-[900px] text-f13 text-t3">
+          <p className="mt-[21px] text-f13 text-t3">
             EXTREN® is a registered trademark of Strongwell Corporation; Pultex®
             of Creative Pultrusions, Inc. Names are used for specification
             crossover reference only. Send your existing spec sheet and we

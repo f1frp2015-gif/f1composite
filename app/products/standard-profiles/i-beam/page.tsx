@@ -215,7 +215,7 @@ export default async function IBeamPage() {
       {/* Key facts (TL;DR) + review byline */}
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <p className="max-w-[840px] text-f17 leading-golden text-t1">
+          <p className="text-f17 leading-golden text-t1">
             A pultruded FRP I-beam is a constant-section fiberglass wide-flange beam
             made by pulling E-glass roving and mat through a resin bath and heated
             die. It carries bending load like a steel I-beam but weighs ~70–80% less,
@@ -291,7 +291,7 @@ export default async function IBeamPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Deflection first, then strength
           </h2>
-          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Sizing an FRP I-beam follows a different order than steel. Because the
             modulus is roughly a tenth of steel, the section that satisfies the
             deflection limit almost always satisfies bending and shear with margin.
@@ -324,7 +324,7 @@ export default async function IBeamPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Standard I-beam sizes — and what they replace in steel
           </h2>
-          <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             All dimensions in millimeters; mass in kg/m. The steel column is the
             standard section at the same nominal depth, for a direct weight
             comparison. Custom sizes available via{" "}
@@ -359,7 +359,7 @@ export default async function IBeamPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-[16px] max-w-[860px] text-f13 text-t3">
+          <p className="mt-[16px] text-f13 text-t3">
             Compared at the same nominal depth. Because FRP modulus is ~1/10 of
             steel, a deflection-equal FRP section is typically one or two depths
             larger than the steel it replaces — installed weight still drops ~70%.
@@ -370,7 +370,7 @@ export default async function IBeamPage() {
           {/* Section properties — honest routing, not back-calculated */}
           <div className="mt-[34px] rounded-[8px] border border-teal/30 bg-bg2 p-[24px]">
             <h3 className="text-f15 font-bold uppercase tracking-[2px] text-teal-text">Section properties (A, I<sub>x</sub>, S<sub>x</sub>)</h3>
-            <p className="mt-[8px] max-w-[860px] text-f15 leading-golden text-t2">
+            <p className="mt-[8px] text-f15 leading-golden text-t2">
               Verified section properties — area, second moment of area, section
               modulus, radius of gyration — for the exact section you order are on
               the stamped production datasheet, and you can compute them live, with
@@ -392,7 +392,7 @@ export default async function IBeamPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             E23 characteristic properties (longitudinal)
           </h2>
-          <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             F1 Composite standard I-beams are produced to EN 13706 grade E23 — a
             minimum full-section flexural modulus of 23 GPa. Each property is paired
             with the test method that produces it.
@@ -467,7 +467,7 @@ export default async function IBeamPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The same I-beam, across EU / US / China specs
           </h2>
-          <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Specifiers in different regions cite different standard numbers for the
             same property. This maps the equivalents F1 Composite I-beams are tested
             and documented against.

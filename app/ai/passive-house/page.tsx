@@ -62,7 +62,7 @@ export default function PassiveHousePage() {
               <br />
               <span className="text-teal-text">Tell us your climate. We&rsquo;ll spec the FRP frame.</span>
             </h1>
-            <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
+            <p className="mt-[16px] mx-auto text-f15 leading-golden text-t2">
               Passive house fenestration has strict thermal, acoustic, and airtightness targets by
               climate zone. Answer 4 questions — our AI matches you, free, to the right F1 Composite
               PHI-certified FRP frame series (90 Series at U_w 0.78) and references a comparable

@@ -179,7 +179,7 @@ export default function WindowReinforcementProfilesPage() {
               </div>
             ))}
           </div>
-          <p className="mt-[21px] max-w-[900px] text-f13 text-t3">
+          <p className="mt-[21px] text-f13 text-t3">
             Background on the steel-bridge numbers: see the reinforcement discussion in{" "}
             <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text hover:text-teal">
               FRP vs PVC window frames
@@ -196,7 +196,7 @@ export default function WindowReinforcementProfilesPage() {
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From your chamber drawing to qualified reinforcement profiles
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Window reinforcements run through F1&apos;s custom pultrusion program —
             the same lines, dies, and QC that produce our structural and
             fenestration profiles.

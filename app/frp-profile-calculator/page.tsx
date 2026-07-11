@@ -174,7 +174,7 @@ export default function CalculatorPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             How to use the FRP profile calculator
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             This calculator solves three recurring questions in FRP structural selection: whether a pultruded FRP beam satisfies bending and shear at factored load, whether deflection at service load meets the L/n limit (including the Timoshenko shear correction that matters for short-span FRP beams), and what cross-section is needed to replace a steel or aluminum member at equal stiffness or equal strength — whichever governs. Select the design framework (ASCE/SEI 74-23 LRFD, CEN/TS 19101:2022 partial-factor, GB 50608-2020 LRFD, or legacy ASD) and an environmental class; the calculator applies the appropriate resistance factor and FRP environmental knockdown to characteristic strengths.
           </p>
 

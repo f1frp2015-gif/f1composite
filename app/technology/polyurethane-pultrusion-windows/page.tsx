@@ -193,10 +193,10 @@ export default function PolyurethanePultrusionWindowsPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Same pultrusion process, tougher matrix — the frame technology behind arctic-class windows
           </h2>
-          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window — but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
           </p>
-          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             F1 Composite manufactures GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
           </p>
         </div>
@@ -208,7 +208,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
             Polyurethane vs vinyl ester vs polyester in a pultruded window profile
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             All three matrices produce an insulating fiberglass frame at ≈ 0.3 W/m·K conductivity. The differences show up in mechanical performance and manufacturability. Highlighted rows show where polyurethane leads.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
@@ -238,7 +238,7 @@ export default function PolyurethanePultrusionWindowsPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-[13px] max-w-[800px] text-f13 leading-golden text-t3">
+          <p className="mt-[13px] text-f13 leading-golden text-t3">
             Figures are typical ranges for continuous E-glass pultrusion; exact values depend on fiber architecture and profile geometry. F1 runs 90-series window profiles in polyurethane or vinyl ester as standard, and polyester or vinyl ester for the 65/70/80-series where the mechanical demand allows.
           </p>
         </div>
@@ -291,7 +291,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Profiles for your fabrication line, or finished GFRP-PU units
           </h2>
-          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             F1 supplies polyurethane pultruded window profiles the same two ways as the rest of the{" "}
             <Link href="/products/fenestration-systems" className="text-teal-text hover:underline">
               fenestration range

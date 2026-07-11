@@ -228,7 +228,7 @@ export default function GratingsPage() {
       {/* Introduction */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[780px]">
+          <div>
             <p className="text-f19 leading-golden text-t2">
               FRP (fiber-reinforced polymer) gratings and structural deck panels, also known
               as GRP (glass-reinforced polymer) gratings and FRP decking, deliver the
@@ -282,7 +282,7 @@ export default function GratingsPage() {
                 className="rounded-[8px] border border-border-default bg-white p-[34px]"
               >
                 <h3 className="text-[19px] font-bold text-t1">{grating.name}</h3>
-                <p className="mt-[13px] max-w-[700px] text-f15 leading-golden text-t2">
+                <p className="mt-[13px] text-f15 leading-golden text-t2">
                   {grating.description}
                 </p>
                 <div className="mt-[21px] overflow-x-auto">
@@ -308,7 +308,7 @@ export default function GratingsPage() {
             <h3 className="text-[clamp(20px,2.4vw,26px)] font-extrabold leading-[1.15] text-t1">
               Standard specification tables
             </h3>
-            <p className="mt-[13px] max-w-[700px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
               The tables below list the most frequently ordered production
               configurations from our grating program — nominal metric data taken
               from series-production tooling, not made-to-order estimates. Further
@@ -409,7 +409,7 @@ export default function GratingsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Design load classes
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             We engineer gratings to satisfy the following standard load classes.
             Custom load ratings and span tables are available on request for
             project-specific requirements.
@@ -455,7 +455,7 @@ export default function GratingsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Surface treatment grades
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             All anti-slip values measured using the BS 7976-2 pendulum test method
             in wet conditions. Higher values indicate greater slip resistance.
           </p>

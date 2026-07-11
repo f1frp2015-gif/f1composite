@@ -313,7 +313,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Standards and Certifications
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our quality management system is certified to internationally recognized
             standards, and our products comply with the technical specifications required
             by the construction, infrastructure, and industrial markets we serve.
@@ -337,7 +337,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Global FRP Pultrusion Standards by Country &amp; Region
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Different markets require compliance with different technical standards for
             pultruded FRP profiles. Below is a reference of the principal standards in each
             region — covering material specification, dimensional tolerances, mechanical
@@ -409,7 +409,7 @@ export default function QualityTestingPage() {
             </div>
           </div>
 
-          <p className="mt-[34px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[34px] text-f15 leading-golden text-t2">
             F1 Composite manufactures and tests to all major international standards listed
             above. Contact us with your project location and application for a standards
             compliance review.
@@ -424,7 +424,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Mechanical and Physical Testing
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our in-house testing laboratory is equipped to perform the full range of
             mechanical and physical tests required to characterize pultruded FRP profiles.
             All testing equipment is calibrated annually to traceable national standards.
@@ -453,7 +453,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Quality Control From Receiving to Shipment
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Quality is not a final inspection — it is a continuous process that begins when
             raw materials arrive and ends only when the customer confirms receipt of
             conforming product.

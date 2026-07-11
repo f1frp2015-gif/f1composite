@@ -153,7 +153,7 @@ export default function TechnicalDataPage() {
             <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">
               Original Test Reports & Long-Term Durability Data
             </h2>
-            <p className="mt-[8px] max-w-[800px] text-f15 leading-golden text-t2">
+            <p className="mt-[8px] text-f15 leading-golden text-t2">
               We are commissioning third-party testing to publish <strong>original durability
               data</strong> for our pultruded FRP profiles — not manufacturer-reported specs, but
               signed reports from Intertek / SGS labs. Each report will be cite-able by specifiers

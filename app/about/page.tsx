@@ -75,12 +75,12 @@ export default function AboutPage() {
       <section className="border-b border-border-default bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>What F1 Composite Is</SectionTag>
-          <p className="mt-[21px] max-w-[860px] text-f18 leading-golden text-t1">
+          <p className="mt-[21px] text-f18 leading-golden text-t1">
             <strong>F1 Composite is an industrial manufacturer and exporter of pultruded
             fiberglass (FRP / GRP) profiles</strong> — structural shapes, window frames,
             gratings, and custom pultrusions for construction and infrastructure.
           </p>
-          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
             (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
             <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
@@ -173,7 +173,7 @@ export default function AboutPage() {
           <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
             Manufacturing at scale, engineered to precision
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our manufacturing partner&apos;s production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
           </p>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">

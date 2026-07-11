@@ -150,7 +150,7 @@ export default function UValueCalculatorPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             How to use the U-value calculator
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Whole-window U-value (U<sub>w</sub>) quantifies heat loss through a window assembly in W/m²·K. It combines the frame U<sub>f</sub>, glazing U<sub>g</sub>, and linear thermal bridging ψ at the frame-glass junction, weighted by the respective surface areas. This calculator follows EN ISO 10077-1, the international reference used for CE marking, Passive House certification, and most national energy codes. Lower U<sub>w</sub> means better insulation — passive house targets are typically U<sub>w</sub> ≤ 0.80 W/m²·K.
           </p>
 

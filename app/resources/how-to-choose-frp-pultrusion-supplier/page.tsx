@@ -103,7 +103,7 @@ export default function ChooseSupplierGuidePage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Vet the manufacturer before you vet the price
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Pultruded FRP is a specified structural material — its performance
             depends on fiber architecture, resin system, and cure, none of which
             are visible in a finished profile. The cheapest quote against an

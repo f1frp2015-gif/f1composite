@@ -387,7 +387,7 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Six Stages of Pultrusion
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Watch the full line in motion — from fiber pay-off to the flying cut-off saw.
             Every speed in the animation is derived from one line speed, just like a real
             production line.
@@ -490,7 +490,7 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Injection vs Open-Bath
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             We operate injection pultrusion as our standard process. The comparison below
             shows why.
           </p>
@@ -558,7 +558,7 @@ export default function PultrusionProcessPage() {
               <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
               Process parameter control details
             </summary>
-            <div className="mt-[13px] max-w-[640px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
+            <div className="mt-[13px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
               <p>
                 Every production run is governed by a validated recipe specifying exact values
                 for pull speed, die zone temperatures, injection pressure, and resin mix ratios.

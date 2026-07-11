@@ -161,7 +161,7 @@ export default function FrpWindowsGuidePage() {
                   </span>
                   <div>
                     <h2 className="text-f24 font-bold text-t1">{stage.title}</h2>
-                    <p className="mt-[3px] max-w-[720px] text-f15 leading-golden text-t2">
+                    <p className="mt-[3px] text-f15 leading-golden text-t2">
                       {stage.description}
                     </p>
                   </div>

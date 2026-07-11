@@ -115,7 +115,7 @@ export default function PultrusionResinSystemsPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             What is the resin matrix in pultruded FRP?
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             The resin matrix is the cured thermoset polymer that surrounds every glass
             fiber in a pultruded profile — typically 30–45 % of the composite by volume.
             The fibers carry the axial load; the matrix binds them, transfers load
@@ -167,7 +167,7 @@ export default function PultrusionResinSystemsPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             Inside the laminate: fiber, mat, and matrix
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             A pultruded section is not a uniform material — it is an engineered stack.
             Unidirectional rovings in the core carry axial load, continuous filament
             mat (CFM) layers add transverse strength, and a matrix-rich surface veil
@@ -189,7 +189,7 @@ export default function PultrusionResinSystemsPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             The five resin systems, side by side
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Typical published ranges for pultrusion-grade formulations. Individual
             formulations vary — the values on a project datasheet and resin TDS govern;
             use this table to shortlist, not to certify.
@@ -290,7 +290,7 @@ export default function PultrusionResinSystemsPage() {
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
             How to choose: let the environment pick the resin
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Resin selection is environment-first, not price-first. Work through the
             service conditions in this order — the first condition that applies
             usually decides the matrix.

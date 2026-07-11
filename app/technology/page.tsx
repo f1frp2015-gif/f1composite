@@ -125,7 +125,7 @@ export default function TechnologyPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Four Pillars of Our Technical Capability
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Each discipline reinforces the others — precise process control enables
             superior material performance, validated by comprehensive testing, and
             made accessible through our know-how transfer programs.

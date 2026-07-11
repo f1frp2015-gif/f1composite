@@ -147,7 +147,7 @@ export default function ResinSelector() {
         <h2 className="text-f24 font-bold text-t1 md:text-f31">
           Interactive resin selection matrix
         </h2>
-        <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f15 leading-golden text-t2">
           Pick a resin system to compare its trade-off profile. Ratings are relative
           bands (1–5) across the five thermoset families used in pultrusion — use them
           to shortlist, then confirm against the datasheet values below.

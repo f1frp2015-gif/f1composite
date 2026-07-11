@@ -101,7 +101,7 @@ export default function DesignGuidesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Engineering Guidance for Pultruded FRP Specification</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
@@ -131,7 +131,7 @@ export default function DesignGuidesPage() {
                 <div className="flex items-start justify-between gap-[21px]">
                   <div>
                     <h3 className="text-f19 font-bold text-t1">{guide.title}</h3>
-                    <p className="mt-[8px] max-w-[640px] text-f15 leading-golden text-t2">
+                    <p className="mt-[8px] text-f15 leading-golden text-t2">
                       {guide.description}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ export default function DesignGuidesPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Standards and Code References</SectionTag>
           <div className="mt-[21px] space-y-[13px] text-f17 leading-golden text-t2">
             <p>Design Guides reference the following codes (we cite specific clauses where applicable):</p>

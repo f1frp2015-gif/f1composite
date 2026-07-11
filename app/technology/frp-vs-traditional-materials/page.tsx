@@ -344,7 +344,7 @@ export default function FrpVsTraditionalPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Case for Fiber-Reinforced Polymers
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
             Concrete cracks under tension. Pultruded FRP composites were engineered to
             overcome all of these limitations simultaneously.
@@ -509,7 +509,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Deeper Comparisons</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific comparison pages</h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page covers the big-picture comparison across five materials. For specific applications, dedicated pages go deeper into numbers, standards, and decision criteria.
           </p>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
