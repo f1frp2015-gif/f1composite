@@ -3988,6 +3988,92 @@ Coatings and gas fills live in the glazing, so SHGC tuning is mostly a glass dec
 
 To see both numbers interact on a real build — your frame, glazing package, and spacer, computed to EN ISO 10077-1 with program pass/fail flags — run the free [whole-window U-value calculator](/technology/u-value-calculator), then sanity-check the SHGC against your climate zone's table above.`,
   },
+
+  {
+    slug: "pultruded-thermal-break-profiles-aluminum-windows",
+    title: "Pultruded Thermal Break Profiles for Aluminum Windows: What Changes When the Break Is GFRP, Not Polyamide",
+    seoTitle: "Pultruded Thermal Break Profiles vs Polyamide (PA66)",
+    answerBox:
+      "Thermal breaks in aluminum windows are dominated by extruded PA66-GF25 polyamide strips (Technoform, Ensinger insulbar) at ≈0.30 W/m·K conductivity, qualified to EN 14024 with roll-in knurled shear joints rated ≥24 N/mm. Pultruded GFRP thermal break profiles match that 0.30 W/m·K class while roughly doubling tensile strength, absorbing about a tenth of the moisture of PA66, and — because pultrusion handles hollow multi-chamber geometry that strip extrusion cannot — scaling to the deep, foam-filled break zones that wide sliding-door and lift-slide sections need. F1 Composite produces pultruded thermal break profiles in serial volume, with multiple completed system-window projects in China.",
+    category: "Thermal Performance",
+    date: "2026-07-11",
+    updatedAt: "2026-07-11",
+    readTime: "10 min",
+    excerpt:
+      "The polyamide strip is one of the quiet success stories of building products — two extrusions of PA66-GF25 turned thermally hopeless aluminum frames into code-compliant windows, and two European specialists wrote the rulebook. But strip extrusion has geometric and mechanical ceilings, and wide sliding doors sit right at them. Here is what the research from Technoform and Ensinger actually establishes, and where a pultruded GFRP break changes the design space.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 14024", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
+    coverImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.png",
+    coverAlt:
+      "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles bridge the interior and exterior aluminum shells across a deep insulating zone",
+    coverImageFit: "contain",
+    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
+    supportingAlt:
+      "Icicles and frost outside a window in deep winter — the design condition under which a thermal break's depth and conductivity decide whether the interior aluminum shell stays above dew point",
+    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
+    supportingCaption:
+      "The break zone is the only thing separating a −20°C exterior aluminum shell from the interior one. Its conductivity sets the heat loss; its depth sets the interior surface temperature; its mechanical properties decide whether the composite profile still acts as one beam after twenty years of load cycles.",
+    highlights: [
+      "PA66-GF25 strips and pultruded GFRP sit in the same ≈0.30 W/m·K class — the differences are mechanical, hygric, and geometric",
+      "EN 14024 composite-beam shear (Technoform spec ≥24 N/mm, knurl-dominated) and 180–200°C powder-coat survival are the qualification gates either material must pass",
+      "Ensinger's foamed insulbar LI reaches λ 0.21 by removing material; pultrusion reaches the same end by geometry — hollow multi-chamber breaks with insulating infill",
+    ],
+    ogDescription:
+      "Pultruded GFRP thermal break profiles for aluminum windows and sliding doors — benchmarked against Technoform and Ensinger PA66-GF25 strips, EN 14024 tested.",
+    ogChips: ["Thermal break", "EN 14024", "Pultrusion"],
+    relatedLinks: [
+      { label: "FRP Thermal Breaks for Curtain Walls (structural angle)", href: "/resources/blog/frp-thermal-break-profiles-curtain-wall" },
+      { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+    ],
+    sourceLinks: [
+      { label: "Ensinger: insulbar LI foamed low-lambda profile (press release)", href: "https://www.ensingerplastics.com/en/press-and-news/press-releases/more-profile-than-anybody-else" },
+      { label: "Ensinger insulbar range overview (glassonweb)", href: "https://www.glassonweb.com/news/more-profile-anybody-else-ensinger-rounds-its-range-insulating-bars" },
+      { label: "Technoform: thermal break insulating profiles", href: "https://www.technoform.com/en/thermal-break-ss" },
+      { label: "EPD: Thermal break profiles PA66-GF25 (EPD International)", href: "https://www.environdec.com/library/epd7226" },
+    ],
+    content: `Every thermally broken aluminum window is really three parts pretending to be one: an exterior aluminum shell, an interior aluminum shell, and — rolled into knurled grooves between them — a pair of low-conductivity profiles that carry every load crossing the frame while blocking the heat that wants to cross with it. For four decades that third part has meant one material: extruded polyamide 66 with 25% glass fiber. Two European specialists, Technoform and Ensinger, built the category, wrote most of its research, and set the qualification bar. Any alternative has to answer their homework first.
+
+Pultruded GFRP is that alternative, and the interesting part is not that it beats polyamide everywhere — it does not — but where it changes the design space. The cutaway above shows the case in point: a sliding-door meeting stile whose break zone is deep, hollow, and doing structural work no flat strip could.
+
+## What the polyamide playbook actually established
+
+Strip out the marketing and the PA66-GF25 literature makes four load-bearing claims, all worth keeping.
+
+**The break is a structural shear joint, not an insulator that happens to be there.** A thermally broken frame only works as a beam if the two aluminum shells act compositely, and EN 14024 — the standard both suppliers qualify to — treats the profile accordingly: transverse tensile, longitudinal shear, at temperature, aged. Technoform specifies characteristic shear resistance of at least 24 N/mm, and its published work is blunt that the knurled roll-in joint, not the polymer itself, dominates the result. This is the right frame of reference for any break material.
+
+**The break must survive the paint line.** Composite profiles get powder-coated after assembly at 180–200°C for up to 20 minutes. PA66's melt point clears that window; it is a genuine filter — plenty of cheaper polymers fail here, which is why PA66 won the category in the first place.
+
+**Thermal expansion must track aluminum.** PA66-GF25's CTE is engineered close to aluminum's so the rolled joint stays stress-free through service temperature swings. This is the polyamide argument's strongest card against any low-CTE composite, and it deserves a straight answer (below).
+
+**The lambda floor is real.** Solid PA66-GF25 sits at ≈0.30 W/m·K (the value tabulated for frame calculations under EN ISO 10077-2 and carried in the material's EPD). Ensinger's answer to that floor is insulbar LI — foaming the polyamide to reach λ as low as 0.21 W/m·K, worth roughly 0.1 W/m²K on frame Uf in system retrofits. The direction of that research matters: the industry leader is removing material from the load path to buy conductivity. That trade is exactly where pultrusion enters.
+
+## Where pultruded GFRP changes the answer
+
+Pultruded GFRP (E-glass in polyester, vinyl ester, or polyurethane matrix) lands in the same ≈0.30 W/m·K conductivity class as solid PA66-GF25 — on raw lambda, a tie. The differences are everything around the lambda.
+
+**Strength, and what it buys.** EN 13706 E23 pultrusion carries roughly twice the tensile strength of PA66-GF25, with modulus to match, and — critically for the EN 14024 load case — it does not lose a large fraction of that strength when conditioned to equilibrium moisture, because it barely takes on moisture at all (thermoset GFRP absorbs about a tenth of what PA66 does; PA66's mechanical datasheet values are famously different dry-as-molded versus conditioned). For the designer this cashes out as wider screw-port spacing, longer unsupported break spans, and break profiles that hold heavy triple-glazed sashes without auxiliary reinforcement.
+
+**Geometry strip extrusion cannot reach.** A polyamide strip is fundamentally a flat, thin extrusion — I-shapes, C-shapes, hollow chambers up to modest widths. Pultrusion produces closed multi-chamber hollow sections at essentially any depth the die allows. That is what the render shows: a deep break zone in a lift-slide meeting stile, bridged by hollow GFRP profiles with insulating infill in the cavity. Insulbar LI gets to λ 0.21 by foaming the polymer; a hollow pultruded break with low-conductivity infill gets the equivalent zone-level result by geometry — without giving up the solid material's mechanical section where the loads run. On wide sliding doors, where the meeting stile is both the thermal weak point and the stiffness-critical member, this is the argument that decides projects.
+
+**The CTE question, answered honestly.** Longitudinal CTE of pultruded GFRP is lower than aluminum's — the two do move differently with temperature, and pretending otherwise would be fabrication. The engineering answers are the same ones the polyamide world already uses at its own joints: knurl geometry sized for the differential, joint qualification across EN 14024's temperature range (the curtain-wall version of this argument, where the break also carries glass dead load, is [covered separately](/resources/blog/frp-thermal-break-profiles-curtain-wall)), and in deep-break designs, break lengths short enough per segment that differential strain stays inside the joint's capacity. It is a design constraint to be engineered, not a disqualifier — and it comes bundled with a benefit polyamide cannot offer: GFRP's stiffness barely changes from −40°C to +80°C, where PA66's modulus drops substantially warm and wet.
+
+**No melt point.** Thermoset GFRP does not soften through the powder-coat cycle — it is cured, not melted, and its glass transition sits above the paint-line window. The 180–200°C filter that eliminated polyamide's cheaper competitors is not a constraint for pultrusion at all.
+
+## Serial production, not a lab curiosity
+
+The honest historical knock on pultruded thermal breaks was availability: polyamide strips ship from catalog in hundreds of geometries; composite breaks were a special order. That is the part that has changed. F1 Composite runs pultruded thermal break profiles in serial production — hollow and solid sections, in the same GFRP matrix systems as our [window profiles](/technology/polyurethane-pultrusion-windows) at ≈0.3 W/m·K — and the profiles are working today in multiple completed system-window and sliding-door projects in China, where deep-break aluminum systems dominate the high-performance residential market. Dies for system-specific geometries follow the same 3–6 week tooling path as any [custom pultrusion](/products/custom-pultrusions).
+
+## Choosing between them
+
+If the frame is a standard-depth casement and the system house already holds EN 14024 qualification on a catalog polyamide strip, there is no reason to switch — the strip is proven, cheap, and available. The pultruded break earns its place where the polyamide playbook runs out: break zones deeper than strip extrusion serves, sliding and lift-slide sections where the break does real beam work, heavy triple glazing on wide sashes, humid or wet-service environments where PA66's conditioned properties govern, and frame designs chasing Uf numbers that need a wide insulating zone without giving up composite action.
+
+To see what a deeper, lower-conductance break zone does to a whole frame, run the numbers in our [EN ISO 10077-1 U-value calculator](/technology/u-value-calculator) — frame U-value is the single biggest lever on the whole-window result, and the break is the single biggest lever on the frame. For a break geometry against your system's section, [send the drawing](/contact); qualification data to EN 14024 and EN 13706 comes with the quote.`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(
