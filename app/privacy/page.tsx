@@ -52,7 +52,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="mb-[13px] text-f19 font-bold text-t1">6. Contact</h2>
-              <p>For privacy-related questions, contact:<br />F1 Composite Co., Ltd<br />Email: inquiry@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
+              <p>For privacy-related questions, contact:<br />Chongqing F1 Composites Co., Ltd.<br />Email: inquiry@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
             </div>
           </div>
         </div>

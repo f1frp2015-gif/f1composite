@@ -45,7 +45,7 @@ export default function AboutPage() {
     url: absoluteUrl("/about"),
     name: "About F1 Composite — FRP Profiles Manufacturer, China",
     description:
-      "F1 Composite Co., Ltd is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
+      "Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
     inLanguage: "en",
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     mainEntity: { "@id": ORG_ID },
@@ -64,7 +64,7 @@ export default function AboutPage() {
       <PageHeader
         tag="About"
         title="Engineering Composites for the World"
-        description="F1 Composite Co., Ltd was founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, we serve global markets with precision-engineered pultruded profiles."
+        description="Chongqing F1 Composites Co., Ltd. was founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, we serve global markets with precision-engineered pultruded profiles."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About" },
@@ -84,7 +84,7 @@ export default function AboutPage() {
             The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
             (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
             <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
-            F1 Composite Co., Ltd is the international contracting and export
+            Chongqing F1 Composites Co., Ltd. is the international contracting and export
             entity; manufacturing takes place at our long-term partner factory in Chongqing,
             China.
           </p>
@@ -132,15 +132,15 @@ export default function AboutPage() {
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite Co., Ltd is the international contracting and export entity for
+                Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for
                 one of China&apos;s largest vertically integrated pultrusion manufacturers.
-                All overseas orders are contracted and invoiced under F1 Composite Co., Ltd;
+                All overseas orders are contracted and invoiced under Chongqing F1 Composites Co., Ltd.;
                 manufacturing takes place at its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd.
                 That factory operates five production bases with 370 pultrusion
                 lines — the same facilities that supply China&apos;s domestic infrastructure.
               </p>
               <p>
-                F1 Composite Co., Ltd was set up to give overseas clients what they need
+                Chongqing F1 Composites Co., Ltd. was set up to give overseas clients what they need
                 beyond the factory floor: one contracting counterparty, English-language
                 engineering support, international quality documentation, application
                 consulting, and responsive project management. When you work with F1,

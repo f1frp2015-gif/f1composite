@@ -52,9 +52,9 @@ const orgSchema = {
   name: "F1 Composite",
   alternateName: [
     "F1 Composites",
-    "F1 Composite Co., Ltd",
+    "Chongqing F1 Composites Co., Ltd.",
   ],
-  legalName: "F1 Composite Co., Ltd",
+  legalName: "Chongqing F1 Composites Co., Ltd.",
   url: "https://www.f1composite.com",
   logo: {
     "@type": "ImageObject",
@@ -64,7 +64,7 @@ const orgSchema = {
   },
   image: "https://www.f1composite.com/opengraph-image",
   description:
-    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at the Chongqing FengDu base of its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd (5 production sites, 370 pultrusion lines, 150,000 t/year capacity), and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
+    "Chongqing F1 Composites Co., Ltd. — pultruded FRP profiles manufacturer and exporter based in Chongqing, China. Profiles are manufactured at the Chongqing FengDu base of its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd (5 production sites, 370 pultrusion lines, 150,000 t/year capacity), and exported direct to 30+ countries. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
   disambiguatingDescription:
     "F1 Composite is an industrial pultruded fiberglass (FRP / GRP) composite profiles manufacturer. The \"F1\" in the name stands for \"Fiber One\" (fiberglass) — it is not affiliated with Formula 1 / Formula One motorsport. Its branded product lines are F1-STRUX (structural profiles), F1-GRID (gratings & decks), F1-THERM (fenestration), and F1-FORM (custom pultrusions).",
   foundingDate: "2015",
@@ -319,7 +319,7 @@ const websiteSchema = {
   "@id": "https://www.f1composite.com/#website",
   url: "https://www.f1composite.com",
   name: "F1 Composite",
-  alternateName: "F1 Composite Co., Ltd",
+  alternateName: "Chongqing F1 Composites Co., Ltd.",
   description:
     "Pultruded FRP profiles manufacturer — fiberglass structural shapes, FRP window frames, gratings & decks, and custom pultrusions to EN 13706 and ASTM D3917.",
   inLanguage: "en",

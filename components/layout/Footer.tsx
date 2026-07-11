@@ -134,7 +134,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-[21px] flex flex-wrap items-center justify-between gap-[13px] border-t border-border-default pt-[21px]">
           <p className="text-f11 text-t3">
-            © {new Date().getFullYear()} F1 Composite Co., Ltd. All rights reserved.
+            © {new Date().getFullYear()} Chongqing F1 Composites Co., Ltd. All rights reserved.
           </p>
           <div className="flex gap-[21px]">
             <Link href="/privacy" className="text-f11 text-t3 hover:text-teal-text">

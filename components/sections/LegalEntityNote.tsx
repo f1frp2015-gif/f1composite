@@ -6,7 +6,7 @@ interface LegalEntityNoteProps {
 }
 
 const FACTS = {
-  contracting: "F1 Composite Co., Ltd",
+  contracting: "Chongqing F1 Composites Co., Ltd.",
   factory: "Chongqing FengDu New Material Co., Ltd",
 };
 

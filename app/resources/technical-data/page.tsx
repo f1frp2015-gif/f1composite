@@ -24,7 +24,7 @@ export default function TechnicalDataPage() {
       "@type": "Organization",
       name: "F1 Composite",
       url: absoluteUrl("/"),
-      legalName: "F1 Composite Co., Ltd",
+      legalName: "Chongqing F1 Composites Co., Ltd.",
     },
     license: absoluteUrl("/terms"),
     isAccessibleForFree: true,

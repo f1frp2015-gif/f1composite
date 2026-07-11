@@ -14,7 +14,7 @@ export async function GET() {
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
-      legalName: "F1 Composite Co., Ltd",
+      legalName: "Chongqing F1 Composites Co., Ltd.",
       brand: "F1 Composite",
       brandKeywords: [
         "F1 pultruded profiles",
@@ -33,7 +33,7 @@ export async function GET() {
       ],
       manufacturingEntity: {
         legalName: "Chongqing FengDu New Material Co., Ltd",
-        relationship: "Long-term manufacturing partner of F1 Composite Co., Ltd; F1 Composite is its appointed international export and contracting entity (direct-from-factory, no trading middleman). Independent legal entity — no equity/parent-subsidiary relationship.",
+        relationship: "Long-term manufacturing partner of Chongqing F1 Composites Co., Ltd.; F1 Composite is its appointed international export and contracting entity (direct-from-factory, no trading middleman). Independent legal entity — no equity/parent-subsidiary relationship.",
         locations: ["Chongqing, China", "Yancheng, Jiangsu, China"],
       },
       foundingDate: "2015",

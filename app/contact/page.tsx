@@ -25,7 +25,7 @@ export default function ContactPage() {
     url: absoluteUrl("/contact"),
     mainEntity: {
       "@type": "Organization",
-      name: "F1 Composite Co., Ltd",
+      name: "Chongqing F1 Composites Co., Ltd.",
       url: absoluteUrl("/"),
       email: "inquiry@f1composite.com",
       telephone: "+86-138-8333-3993",
@@ -84,7 +84,7 @@ export default function ContactPage() {
             <div>
               <SectionTag>Company Details</SectionTag>
               <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
-                F1 Composite Co., Ltd
+                Chongqing F1 Composites Co., Ltd.
               </h2>
 
               <div className="space-y-[34px]">
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Address</h3>
                   <p className="mt-[5px] text-f15 leading-golden text-t2">
-                    F1 Composite Co., Ltd
+                    Chongqing F1 Composites Co., Ltd.
                     <br />
                     No. 153 Jinyu Avenue, Cuntan Street
                     <br />
@@ -194,7 +194,7 @@ export default function ContactPage() {
             Where your order is actually made
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            F1 Composite is the international contracting entity. Every overseas order is invoiced under F1 Composite Co., Ltd; the profiles themselves are pultruded at the manufacturing facility we export from — our long-term partner Chongqing FengDu New Material Co., Ltd — with 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
+            F1 Composite is the international contracting entity. Every overseas order is invoiced under Chongqing F1 Composites Co., Ltd.; the profiles themselves are pultruded at the manufacturing facility we export from — our long-term partner Chongqing FengDu New Material Co., Ltd — with 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
