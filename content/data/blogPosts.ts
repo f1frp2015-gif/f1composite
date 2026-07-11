@@ -4009,12 +4009,12 @@ To see both numbers interact on a real build — your frame, glazing package, an
     coverAlt:
       "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles bridge the interior and exterior aluminum shells across a deep insulating zone",
     coverImageFit: "contain",
-    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
+    supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.png",
     supportingAlt:
-      "Icicles and frost outside a window in deep winter — the design condition under which a thermal break's depth and conductivity decide whether the interior aluminum shell stays above dew point",
-    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
+      "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles rolled into both sashes, bridging a deep insulating zone no extruded strip geometry can serve",
+    supportingImageFit: "contain",
     supportingCaption:
-      "The break zone is the only thing separating a −20°C exterior aluminum shell from the interior one. Its conductivity sets the heat loss; its depth sets the interior surface temperature; its mechanical properties decide whether the composite profile still acts as one beam after twenty years of load cycles.",
+      "The case in cross-section: pultruded GFRP break profiles rolled into both sashes of a sliding-door meeting stile, spanning a break zone far deeper than strip extrusion serves. The break's conductivity sets the heat loss, its depth sets the interior surface temperature, and its mechanical section decides whether the composite profile still acts as one beam after twenty years of load cycles.",
     highlights: [
       "PA66-GF25 strips and pultruded GFRP sit in the same ≈0.30 W/m·K class — the differences are mechanical, hygric, and geometric",
       "EN 14024 composite-beam shear (Technoform spec ≥24 N/mm, knurl-dominated) and 180–200°C powder-coat survival are the qualification gates either material must pass",
