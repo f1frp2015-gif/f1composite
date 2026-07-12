@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
@@ -9,9 +10,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Custom Pultrusion Services — Bespoke FRP Profiles";
+const pageTitle = "Custom Pultrusions — Bespoke FRP Profile Manufacturer";
 const pageDescription =
-  "Custom FRP profiles to spec. 600×300mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500m MOQ. ASTM E84 Class A. DDP USA · Section 301 pre-quoted · 24h.";
+  "Custom pultrusions to your spec. 600×300 mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500 m MOQ. ASTM E84 Class A. DDP USA · Section 301 pre-quoted · 24h.";
 const pagePath = "/products/custom-pultrusions";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -237,8 +238,8 @@ export default function CustomPultrusionsPage() {
       />
       <PageHeader
         tag="Custom Pultrusions · F1-FORM"
-        title="Bespoke FRP Profiles Engineered to Your Specification"
-        description="Over 800 custom FRP geometries delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
+        title="Custom Pultrusions — FRP Profiles Engineered to Your Specification"
+        description="Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -419,6 +420,37 @@ export default function CustomPultrusionsPage() {
           },
         ]}
       />
+
+      {/* Tooling & cost */}
+      <section className="bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Tooling &amp; Cost</SectionTag>
+          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            What custom pultrusions cost — tooling, MOQ, and per-meter price
+          </h2>
+          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
+            <p>
+              Every custom pultrusion program has two cost components: a one-time tooling
+              investment and a recurring per-meter price. Simple single-cavity dies for small
+              open profiles start at roughly USD 5,000&ndash;8,000; large or complex multi-cavity
+              dies run USD 15,000&ndash;40,000. The die stays at our plant, maintained at our cost,
+              for the life of your product &mdash; on a typical production run the amortized tooling
+              share of the per-meter price becomes negligible within the first order.
+            </p>
+            <p>
+              The per-meter price itself is driven by the same factors as any pultruded shape:
+              cross-section area (glass and resin mass per meter), resin system, fiber
+              architecture, surface veil, and order volume. First production runs start at
+              500 linear meters; repeat orders from 200 meters. For a directional number before
+              you commit to tooling, run your section through our{" "}
+              <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:text-teal">
+                pultruded profile price estimator
+              </Link>{" "}
+              using the closest standard shape, then add the tooling line from the ranges above.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">

@@ -19,9 +19,9 @@ const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
 const CATALOG_TOTAL_SKUS = "114";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profile Size Chart — I-Beam, Channel, Angle & Tube",
+  title: "Fiberglass Structural Shapes — FRP Profile Sizes & Weights",
   description:
-    "FRP profile dimensions, weights & section data: I-beams, channels, angles, tubes, flat bars, rods. 114 stock sizes to EN 13706 · 6 m · DDP USA · 24h quote.",
+    "Fiberglass structural shapes size chart: I-beams, channels, angles, tubes, flat bars, rods — dimensions, weights & section data. 114 sizes · EN 13706 · DDP USA.",
   path: "/products/standard-profiles",
   image: "/products/standard-profiles/opengraph-image",
 });
@@ -158,7 +158,7 @@ export default function StandardProfilesPage() {
       />
       <PageHeader
         tag="Standard Profiles · F1-STRUX"
-        title="FRP profile size & weight catalog — stock dimensions and section data"
+        title="Fiberglass structural shapes catalog — FRP sizes, weights & section data"
         description="Dimensions, per-metre weights and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the shape and need the numbers. For the complete product family and applications, start from the pultruded FRP profiles hub."
         breadcrumbs={[
           { label: "Home", href: "/" },

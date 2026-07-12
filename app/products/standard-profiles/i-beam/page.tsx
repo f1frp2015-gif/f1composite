@@ -15,9 +15,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "FRP I-Beam Profiles — Pultruded Fiberglass Wide Flange Beams";
+const pageTitle = "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes";
 const pageDescription =
-  "Pultruded FRP I-beam 76×38–305×305 mm, 1.2–16 kg/m, ~75% lighter than steel, EN 13706 E23, ASTM E84 Class A. Size + steel-weight table & sizing guide. DDP USA.";
+  "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, ~75% lighter than steel, EN 13706 E23, ASTM E84 Class A. Size + steel-weight table. DDP USA.";
 const pagePath = "/products/standard-profiles/i-beam";
 
 const LAST_UPDATED = "2026-06-30";
@@ -177,8 +177,8 @@ export default async function IBeamPage() {
     <>
       <PageHeader
         tag="I-Beam"
-        title="FRP I-Beam Profiles"
-        description="Wide-flange pultruded FRP I-beams from 76×38 mm to 305×305 mm. About 70–80% lighter than steel at the same depth, fully corrosion-free, EN 13706 E23."
+        title="Fiberglass I-Beam (FRP) Profiles"
+        description="Wide-flange pultruded fiberglass I-beams from 76×38 mm to 305×305 mm. About 70–80% lighter than steel beams at the same depth, fully corrosion-free, EN 13706 E23."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

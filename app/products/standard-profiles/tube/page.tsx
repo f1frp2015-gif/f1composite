@@ -14,9 +14,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
+const pageTitle = "Fiberglass Round Tube & Tubing — Pultruded FRP Manufacturer";
 const pageDescription =
-  "Pultruded FRP round tubes 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917. Handrails, guardrails, conduit, antenna masts. DDP USA 24h quote.";
+  "Pultruded fiberglass round tube & tubing, 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917. Handrails, conduit, masts. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/tube";
 
 const faqItems = [
@@ -102,8 +102,8 @@ export default async function TubePage() {
       />
       <PageHeader
         tag="Round Tube"
-        title="FRP Round Tubes"
-        description="Circular hollow section pultruded FRP tubes from 25 mm to 150 mm OD."
+        title="Fiberglass Round Tubes & Tubing (FRP)"
+        description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

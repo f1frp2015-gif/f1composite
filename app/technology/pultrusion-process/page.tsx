@@ -14,9 +14,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "What Is Pultrusion? — How Pultruded FRP Profiles Are Made";
+const pageTitle = "Fiberglass Pultrusion Process — How FRP Profiles Are Made";
 const pageDescription =
-  "Pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism. How pultruded FRP structural profiles are produced at scale.";
+  "Fiberglass pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism — how pultruded FRP profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-07-08";
@@ -326,8 +326,8 @@ export default function PultrusionProcessPage() {
       <JsonLd data={howToSchema} />
       <PageHeader
         tag="Pultrusion Process"
-        title="How Pultruded FRP Profiles Are Manufactured"
-        description="Continuous, automated, precision-controlled — pultrusion converts raw fibers and resins into structural profiles with consistent, repeatable mechanical properties."
+        title="The Fiberglass Pultrusion Process, Step by Step"
+        description="Continuous, automated, precision-controlled — fiberglass pultrusion converts raw rovings and resin into structural FRP profiles with consistent, repeatable mechanical properties."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
