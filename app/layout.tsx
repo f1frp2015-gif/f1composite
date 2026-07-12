@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
@@ -11,9 +11,14 @@ import dynamic from "next/dynamic";
 const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"));
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+// Self-hosted DM Sans (variable, wght 400-800) — next/font/google fetched
+// from fonts.googleapis.com at BUILD time, which made every build depend on
+// that host being reachable; one blocked SNI = failed deploy. Same v17 files
+// Google serves, now vendored in app/fonts/.
+const dmSans = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
+  weight: "400 800",
+  style: "normal",
   display: "swap",
   variable: "--font-dm-sans",
 });
