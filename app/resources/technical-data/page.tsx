@@ -1,8 +1,34 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { E23_MIN, E23_ISO_PUBLISHED, TYP_NOTE } from "@/lib/catalog/en13706";
+
+// Same property rows, labels, and test methods as /datasheets/[slug]
+// (MECH_ROWS) — one vocabulary for the customer everywhere. Values come from
+// lib/catalog/en13706.ts, the same module the datasheet seed reads, so this
+// page and every product datasheet can never disagree.
+const PROPERTY_ROWS: {
+  key: keyof typeof E23_ISO_PUBLISHED & keyof typeof E23_MIN | "compressive_l_mpa" | "barcol" | "water_abs_pct";
+  label: string;
+  unit: string;
+  method: string;
+}[] = [
+  { key: "e_l_gpa", label: "Tensile modulus E_L (longitudinal)", unit: "GPa", method: "EN ISO 527-4" },
+  { key: "e_t_gpa", label: "Transverse tensile modulus E_T", unit: "GPa", method: "EN ISO 527-4" },
+  { key: "tensile_l_mpa", label: "Tensile strength (longitudinal)", unit: "MPa", method: "EN ISO 527-4" },
+  { key: "tensile_t_mpa", label: "Tensile strength (transverse)", unit: "MPa", method: "EN ISO 527-4" },
+  { key: "flexural_l_mpa", label: "Flexural strength (longitudinal)", unit: "MPa", method: "EN ISO 14125" },
+  { key: "flexural_t_mpa", label: "Flexural strength (transverse)", unit: "MPa", method: "EN ISO 14125" },
+  { key: "shear_mpa", label: "Interlaminar shear strength (ILSS)", unit: "MPa", method: "EN ISO 14130" },
+  { key: "pin_bearing_l_mpa", label: "Pin-bearing strength (longitudinal)", unit: "MPa", method: "EN 13706-2 Annex D" },
+  { key: "pin_bearing_t_mpa", label: "Pin-bearing strength (transverse)", unit: "MPa", method: "EN 13706-2 Annex D" },
+  { key: "compressive_l_mpa", label: "Compressive strength (longitudinal)", unit: "MPa", method: "EN ISO 604" },
+  { key: "barcol", label: "Barcol hardness", unit: "", method: "ASTM D2583" },
+  { key: "water_abs_pct", label: "Water absorption (24 h)", unit: "%", method: "EN ISO 62" },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Material Properties — Mechanical & Physical Data",
@@ -53,94 +79,75 @@ export default function TechnicalDataPage() {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f24 font-bold text-t1">
-            Typical Mechanical Properties — Pultruded E-Glass / Polyester Profiles
+          <h2 className="mb-[8px] text-f24 font-bold text-t1">
+            Mechanical &amp; Physical Properties — E23 General-Purpose Laminate
           </h2>
+          <p className="mb-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+            The same laminate values printed on every product datasheet (E-glass /
+            isophthalic polyester, EN 13706 Grade E23), shown against the EN 13706-3
+            Table 1 grade minimums. One data source feeds both this page and the
+            per-size datasheets, so the numbers always match.
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-f13">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
                   <th className="px-[13px] py-[8px] text-left font-bold text-t1">Property</th>
-                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">Unit</th>
-                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">Lengthwise</th>
-                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">Crosswise</th>
-                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">Test Standard</th>
+                  <th className="px-[13px] py-[8px] text-left font-bold text-teal-text">Published value</th>
+                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">EN 13706 E23 minimum</th>
+                  <th className="px-[13px] py-[8px] text-left font-bold text-t1">Test method</th>
                 </tr>
               </thead>
               <tbody className="text-t2">
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Tensile Strength</td>
-                  <td className="px-[13px] py-[8px]">MPa</td>
-                  <td className="px-[13px] py-[8px]">≥ 240</td>
-                  <td className="px-[13px] py-[8px]">≥ 50</td>
-                  <td className="px-[13px] py-[8px]">ASTM D638</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Tensile Modulus</td>
-                  <td className="px-[13px] py-[8px]">GPa</td>
-                  <td className="px-[13px] py-[8px]">≥ 20</td>
-                  <td className="px-[13px] py-[8px]">≥ 7</td>
-                  <td className="px-[13px] py-[8px]">ASTM D638</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Flexural Strength</td>
-                  <td className="px-[13px] py-[8px]">MPa</td>
-                  <td className="px-[13px] py-[8px]">≥ 280</td>
-                  <td className="px-[13px] py-[8px]">≥ 100</td>
-                  <td className="px-[13px] py-[8px]">ASTM D790</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Flexural Modulus</td>
-                  <td className="px-[13px] py-[8px]">GPa</td>
-                  <td className="px-[13px] py-[8px]">≥ 17</td>
-                  <td className="px-[13px] py-[8px]">≥ 6</td>
-                  <td className="px-[13px] py-[8px]">ASTM D790</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Compressive Strength</td>
-                  <td className="px-[13px] py-[8px]">MPa</td>
-                  <td className="px-[13px] py-[8px]">≥ 210</td>
-                  <td className="px-[13px] py-[8px]">≥ 100</td>
-                  <td className="px-[13px] py-[8px]">ASTM D695</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">In-Plane Shear Strength</td>
-                  <td className="px-[13px] py-[8px]">MPa</td>
-                  <td className="px-[13px] py-[8px]" colSpan={2}>≥ 30</td>
-                  <td className="px-[13px] py-[8px]">ASTM D5379</td>
-                </tr>
+                {PROPERTY_ROWS.map((r) => {
+                  const pub = E23_ISO_PUBLISHED[r.key as keyof typeof E23_ISO_PUBLISHED];
+                  const min = E23_MIN[r.key as keyof typeof E23_MIN];
+                  return (
+                    <tr key={r.key} className="border-b border-border-default">
+                      <td className="px-[13px] py-[8px]">{r.label}</td>
+                      <td className="px-[13px] py-[8px] font-medium text-t1">
+                        {typeof pub === "number" ? `${pub}${r.unit ? ` ${r.unit}` : ""}` : "—"}
+                      </td>
+                      <td className="px-[13px] py-[8px]">
+                        {typeof min === "number" ? `${min}${r.unit ? ` ${r.unit}` : ""}` : "not specified"}
+                      </td>
+                      <td className="px-[13px] py-[8px]">{r.method}</td>
+                    </tr>
+                  );
+                })}
                 <tr className="border-b border-border-default">
                   <td className="px-[13px] py-[8px]">Density</td>
-                  <td className="px-[13px] py-[8px]">g/cm³</td>
-                  <td className="px-[13px] py-[8px]" colSpan={2}>1.8 – 2.1</td>
-                  <td className="px-[13px] py-[8px]">ASTM D792</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Glass Content</td>
-                  <td className="px-[13px] py-[8px]">% by weight</td>
-                  <td className="px-[13px] py-[8px]" colSpan={2}>60 – 70</td>
-                  <td className="px-[13px] py-[8px]">ASTM D2584</td>
-                </tr>
-                <tr className="border-b border-border-default">
-                  <td className="px-[13px] py-[8px]">Barcol Hardness</td>
-                  <td className="px-[13px] py-[8px]">—</td>
-                  <td className="px-[13px] py-[8px]" colSpan={2}>≥ 40</td>
-                  <td className="px-[13px] py-[8px]">ASTM D2583</td>
+                  <td className="px-[13px] py-[8px] font-medium text-t1">{E23_ISO_PUBLISHED.density_g_cm3} g/cm³</td>
+                  <td className="px-[13px] py-[8px]">not specified</td>
+                  <td className="px-[13px] py-[8px]">EN ISO 1183</td>
                 </tr>
                 <tr>
-                  <td className="px-[13px] py-[8px]">Water Absorption (24h)</td>
-                  <td className="px-[13px] py-[8px]">%</td>
-                  <td className="px-[13px] py-[8px]" colSpan={2}>≤ 0.6</td>
-                  <td className="px-[13px] py-[8px]">ASTM D570</td>
+                  <td className="px-[13px] py-[8px]">Glass content</td>
+                  <td className="px-[13px] py-[8px] font-medium text-t1">{E23_ISO_PUBLISHED.glass_content}</td>
+                  <td className="px-[13px] py-[8px]">not specified</td>
+                  <td className="px-[13px] py-[8px]">EN ISO 1172</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-[21px] text-f13 text-t3">
-            Values shown are typical minimums for standard E-glass / isophthalic polyester pultruded profiles.
-            Actual values depend on fiber architecture, resin system, and cross-section geometry.
-            Contact our engineering team for project-specific data sheets.
+          <p className="mt-[21px] max-w-[860px] text-f13 leading-golden text-t3">
+            ILSS is published at 30 MPa, above the EN 13706 minimum of 25 MPa (FRP Profile
+            Design Manual DOC-PF-2026-EN Rev. A). {TYP_NOTE} Values apply to the standard
+            general-purpose laminate; fire-retardant, vinyl ester, epoxy, polyurethane, and
+            phenolic systems each have their own formulation sheet on the per-size datasheets.
           </p>
+          <div className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px] text-f13 leading-golden text-t2">
+            <strong>Looking for a specific size?</strong> Per-size datasheets — section drawing,
+            published weight per meter, these properties, and a free DXF — live in the{" "}
+            <Link href="/resources/downloads#datasheets" className="font-semibold text-teal-text hover:underline">
+              datasheet shortlist (8 most-requested sizes per family)
+            </Link>{" "}
+            or the complete{" "}
+            <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">
+              114-size datasheet library
+            </Link>
+            .
+          </div>
         </div>
       </section>
 

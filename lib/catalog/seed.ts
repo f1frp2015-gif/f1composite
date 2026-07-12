@@ -9,6 +9,9 @@
 //    which is why the API path is the practical one for production)
 
 import { neon } from "@neondatabase/serverless";
+// Shared with /resources/technical-data via lib/catalog/en13706.ts — the one
+// source for the EN 13706 grade minimums; do not redefine them here.
+import { E23_MIN, E17_MIN, TYP_NOTE } from "./en13706";
 
 type Sql = ReturnType<typeof neon>;
 
@@ -70,18 +73,6 @@ interface SeedFormulation {
   notes: string | null;
 }
 
-const E23_MIN = {
-  e_l_gpa: 23, e_t_gpa: 7,
-  tensile_l_mpa: 240, tensile_t_mpa: 50,
-  flexural_l_mpa: 240, flexural_t_mpa: 100,
-  shear_mpa: 25, pin_bearing_l_mpa: 150, pin_bearing_t_mpa: 70,
-};
-const E17_MIN = {
-  e_l_gpa: 17, e_t_gpa: 5,
-  tensile_l_mpa: 170, tensile_t_mpa: 30,
-  flexural_l_mpa: 170, flexural_t_mpa: 70,
-  shear_mpa: 15, pin_bearing_l_mpa: 90, pin_bearing_t_mpa: 50,
-};
 const NO_MECH = {
   e_t_gpa: null, tensile_l_mpa: null, tensile_t_mpa: null,
   flexural_l_mpa: null, flexural_t_mpa: null, shear_mpa: null,
@@ -104,8 +95,7 @@ const EN_NOTE = (g: string) =>
 // 500/525/625 coupon data — compressive LW 207 MPa at the E17 tier, Barcol 45,
 // water absorption 0.60% max ASTM D570; E23-tier compressive 240 MPa follows
 // the European design-manual convention of compressive ≈ tensile minimum).
-const TYP_NOTE =
-  "Compressive strength, Barcol hardness and water absorption are not specified by EN 13706 — the figures shown are typical industry values for this resin system, pending F1 certified test data; request certified values before final design.";
+// TYP_NOTE now lives in ./en13706 (shared with /resources/technical-data).
 
 // Density and glass content shown on non-published rows are typical for the
 // resin system, not certified F1 values.
