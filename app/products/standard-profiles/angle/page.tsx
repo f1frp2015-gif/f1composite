@@ -14,9 +14,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "FRP Angle — Pultruded Fiberglass L-Profile Manufacturer";
+const pageTitle = "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer";
 const pageDescription =
-  "Pultruded FRP angle (L) profiles 25×25 — 152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301 inline.";
+  "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.";
 const pagePath = "/products/standard-profiles/angle";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -91,8 +91,8 @@ export default async function AnglePage() {
       />
       <PageHeader
         tag="Angle"
-        title="FRP Angle Profiles"
-        description="Equal and unequal-leg pultruded FRP L-profiles from 25×25 mm to 152×152 mm."
+        title="Fiberglass Angle (FRP) Profiles"
+        description="Equal and unequal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

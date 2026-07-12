@@ -133,6 +133,24 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      {page.deepDive && (
+        <section className="bg-white py-[55px]">
+          <div className="mx-auto max-w-[1280px] px-[34px]">
+            <SectionTag>In Depth</SectionTag>
+            <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+              {page.deepDive.heading}
+            </h2>
+            <div className="mt-[21px] max-w-[860px] space-y-[13px]">
+              {page.deepDive.paragraphs.map((p) => (
+                <p key={p.slice(0, 40)} className="text-f15 leading-golden text-t2">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA

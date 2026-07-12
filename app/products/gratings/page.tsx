@@ -12,9 +12,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Gratings & Decks — Molded, Pultruded, Deck Panels";
+  "Fiberglass (FRP) Gratings — Molded, Pultruded & Deck Panels";
 const pageDescription =
-  "FRP gratings — molded, pultruded, deck panels for chemical, marine, bridge decks. ASTM E84 Class A, slip-rated. DDP USA · Section 301 pre-quoted · 24h reply.";
+  "Fiberglass grating — molded & pultruded FRP gratings and deck panels for chemical, marine, bridge decks. ASTM E84 Class A, slip-rated, ADA series. DDP USA 24h.";
 const pagePath = "/products/gratings";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -135,6 +135,11 @@ const faqItems = [
       "Choose molded grating when loads arrive from both directions, the layout needs many field cutouts, or maximum chemical resistance is the priority: its woven, resin-rich construction (30-35% glass by weight) gives near-equal two-way strength and the best corrosion performance. Choose pultruded grating when the design is span-driven: its unidirectional bearing bars (60-65% glass) carry significantly longer clear spans with fewer supports, and dedicated series cover ADA pedestrian surfaces, 73-83% open cooling-tower decks, and forklift-rated high-load platforms. Both families are produced to ASTM E84 Class 1 flame spread (FSI ≤25).",
   },
   {
+    question: "Is fiberglass grating ADA compliant?",
+    answer:
+      "The dedicated pedestrian series are. ADA/ABA surface rules require walking-surface openings of 13 mm (1/2 in) or less in the dominant direction of travel; our T-2510 and T-2515 pedestrian T-bar gratings (12.7 mm slot at 50.8 mm bar centers) and the I-4010 industrial I-bar (≈10 mm slot at 25.4 mm centers) meet that limit and are marked ADA in the specification table on this page. Open-mesh industrial and cooling-tower series (38-83% open area) prioritize drainage and airflow instead and are not intended for ADA-governed pedestrian routes — specify by series, not by material family.",
+  },
+  {
     question: "What is the difference between FRP gratings and FRP deck panels?",
     answer:
       "FRP gratings are open-mesh panels formed by bi-directional glass fiber (molded) or by interlocking pultruded bearing bars (pultruded). They provide high drainage, light transmission, and reduced wind load, but small objects can fall through the mesh. FRP deck panels (also called structural deck planks) are closed-top pultruded planks with internal webs and an integrally sealed top surface — they carry concentrated loads without requiring a cover plate, span longer than gratings of equivalent depth, and are the preferred specification for pedestrian bridge decks, vehicular access platforms, and FRP bridge deck replacement projects.",
@@ -200,8 +205,8 @@ export default function GratingsPage() {
       />
       <PageHeader
         tag="Gratings & Decks · F1-GRID"
-        title="FRP Gratings & Structural Deck Panels"
-        description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings and structural deck panels — molded and pultruded gratings, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
+        title="Fiberglass Gratings (FRP) & Structural Deck Panels"
+        description="Corrosion-proof, lightweight fiberglass gratings and structural deck panels — molded and pultruded FRP grating, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

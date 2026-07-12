@@ -14,9 +14,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "FRP Channel — Pultruded C & U Channel Manufacturer";
+const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
 const pageDescription =
-  "Pultruded FRP channel (C & U) 38×13 — 305×89 mm. EN 13706 / ASTM D3917, 75% lighter than steel, non-conductive. Cable trays, framing, stringers. DDP USA 24h.";
+  "Pultruded fiberglass channel (FRP C & U) 38×13–305×89 mm. EN 13706 / ASTM D3917, 75% lighter than steel, non-conductive. Cable trays, framing. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/channel";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -95,8 +95,8 @@ export default async function ChannelPage() {
       />
       <PageHeader
         tag="Channel"
-        title="FRP Channel Profiles"
-        description="Pultruded FRP U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
+        title="Fiberglass Channel (FRP) Profiles"
+        description="Pultruded fiberglass U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

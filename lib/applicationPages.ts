@@ -11,6 +11,8 @@ export interface ApplicationPage {
   standards: string[];
   rfqInputs: string[];
   related: Array<{ href: string; label: string }>;
+  /** Optional long-form section for pages that carry real search demand. */
+  deepDive?: { heading: string; paragraphs: string[] };
 }
 
 export const applicationPages: ApplicationPage[] = [
@@ -22,14 +24,14 @@ export const applicationPages: ApplicationPage[] = [
       "FRP cable tray supports using pultruded channels, angles and brackets for substations, tunnels, wastewater plants and corrosive industrial cable routing.",
     h1: "FRP cable tray supports for corrosive and electrical environments",
     intro:
-      "F1 Composite manufactures pultruded FRP cable tray supports for projects where steel support frames create corrosion, grounding, or hot-work problems. Typical assemblies use FRP channels, angles, square tubes, and custom brackets to support ladder trays, perforated trays, and instrument cable runs.",
+      "F1 Composite manufactures pultruded support systems for projects where steel tray frames create corrosion, grounding, or hot-work problems. Typical assemblies use fiberglass channels, angles, square tubes, and custom brackets — including strut-compatible sections — to carry ladder trays, perforated trays, and instrument runs.",
     environment:
-      "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural supports simplify installation and maintenance.",
+      "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
     recommendedProfiles: [
-      "FRP channel for tray stringers and wall-mounted supports",
-      "FRP angle for cleats, ledgers, and bracing",
-      "FRP square tube for posts and free-standing frames",
-      "Custom pultruded brackets for repeat modular assemblies",
+      "Channel sections for tray stringers and wall-mounted supports",
+      "Angles for cleats, ledgers, and bracing",
+      "Square tube for posts and free-standing frames",
+      "Custom pultruded brackets and fiberglass strut for repeat modular assemblies",
     ],
     resinSystem:
       "Isophthalic polyester is the standard choice. Vinyl ester is recommended for acid splash, wastewater, saltwater, and aggressive chemical exposure. Fire-retardant resin systems are available when tunnels or transit infrastructure require tighter flame-spread limits.",
@@ -56,13 +58,13 @@ export const applicationPages: ApplicationPage[] = [
       "Pultruded FRP cooling tower profiles for wet, chlorinated and high-humidity structures: beams, tubes, louvers, handrails and access members.",
     h1: "FRP cooling tower profiles for wet and chlorinated service",
     intro:
-      "Cooling towers attack galvanized steel through constant humidity, chlorides, biocides, and wet-dry cycling. F1 Composite supplies pultruded FRP beams, tubes, angles, louvers, and grating supports that keep structural stiffness while removing corrosion-driven maintenance.",
+      "Cooling towers attack galvanized steel through constant humidity, chlorides, biocides, and wet-dry cycling. F1 Composite supplies pultruded beams, tubes, angles, louvers, and grating supports in fiberglass that keep structural stiffness while removing corrosion-driven maintenance.",
     environment:
       "Best fit: industrial cooling towers, power plant cooling systems, HVAC towers, chemical plants, and replacement programs where steel members require repeated recoating.",
     recommendedProfiles: [
-      "FRP I-beams and channels for primary support members",
-      "FRP square tubes for frames, posts, and bracing",
-      "FRP angles for edge supports and louver framing",
+      "I-beams and channels for primary support members",
+      "Square tubes for frames, posts, and bracing",
+      "Angles for edge supports and louver framing",
       "Custom thin-wall pultrusions for drift eliminators and louvers",
     ],
     resinSystem:
@@ -81,6 +83,14 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/custom-pultrusions", label: "Custom profiles" },
       { href: "/industries/industrial", label: "Industrial applications" },
     ],
+    deepDive: {
+      heading: "Why fiberglass structure wins inside a cooling tower",
+      paragraphs: [
+        "A cooling tower is close to a worst-case environment for coated steel: the structure sits in saturated air at elevated temperature, gets sprayed with chlorinated and chemically dosed water, dries out, and is wetted again — thousands of cycles a year. Galvanizing sacrifices itself, coatings blister at cut edges and bolt holes, and every recoating cycle means a plant outage with confined-space access. Pultruded fiberglass removes the failure mechanism instead of slowing it down: the glass-fiber laminate is immune to electrochemical corrosion, and a vinyl ester matrix resists the chlorides, biocides, and pH swings of open recirculating water.",
+        "The industry recognized this decades ago — fiberglass pultrusions are now the default structural material for new field-erected towers, and the Cooling Technology Institute maintains a dedicated specification (CTI STD-137) for pultruded structural products used in them. Typical member mapping in a tower frame: I-beams and channels for columns, girts, and fan-deck framing; square tubes for diagonal bracing and casing support; angles for louver frames and connection cleats; and thin-wall custom sections for louvers and drift-eliminator supports. All of these come from the same standard families listed in our size catalog, with published weights per meter.",
+        "For replacement programs, the practical route is to match the existing steel member geometry at equal stiffness rather than equal depth — fiberglass runs at roughly a quarter of the weight of the steel it replaces, which usually means the old crane and access plan can be downsized or eliminated. Send the existing framing drawings and water-chemistry report with your RFQ; we return a member-by-member substitution list with section sizes, resin recommendation, and hardware notes, priced per meter.",
+      ],
+    },
   },
   {
     slug: "frp-bridge-deck-panels",
@@ -90,13 +100,13 @@ export const applicationPages: ApplicationPage[] = [
       "FRP bridge deck panels and pultruded structural decking for pedestrian bridges, access decks and lightweight bridge deck replacement.",
     h1: "FRP bridge deck panels for lightweight deck replacement",
     intro:
-      "Pultruded FRP bridge deck panels replace steel, timber, and concrete deck systems where weight, corrosion, and installation access control the project economics. F1 Composite supplies closed-top deck planks, gratings, and support profiles for pedestrian bridges and light vehicular access decks.",
+      "Pultruded deck panels replace steel, timber, and concrete systems where weight, corrosion, and installation access control the project economics. F1 Composite supplies closed-top planks, gratings, and support profiles for pedestrian bridges and light vehicular access decks.",
     environment:
       "Best fit: pedestrian bridges, coastal boardwalks, utility access decks, replacement decks on aging structures, and projects where a lighter deck reduces crane size or substructure reinforcement.",
     recommendedProfiles: [
-      "Closed-top FRP deck panels for continuous walking surfaces",
+      "Closed-top deck panels for continuous walking surfaces",
       "Pultruded gratings for drainage and ventilation",
-      "FRP I-beams and channels for secondary support framing",
+      "I-beams and channels for secondary support framing",
       "Custom edge profiles and splice plates for modular panels",
     ],
     resinSystem:
@@ -124,14 +134,14 @@ export const applicationPages: ApplicationPage[] = [
       "FRP solar mounting profiles for PV farms where lightweight, corrosion resistance, UV stability and electrical isolation matter.",
     h1: "FRP solar mounting profiles for PV support structures",
     intro:
-      "F1 Composite manufactures pultruded FRP solar mounting profiles for PV projects where aluminum or galvanized steel creates corrosion, grounding, or logistics penalties. FRP profiles are lightweight, electrically non-conductive, and stable in long-term outdoor UV exposure when specified with the correct veil and coating system.",
+      "F1 Composite manufactures pultruded mounting structure for PV projects where aluminum or galvanized steel creates corrosion, grounding, or logistics penalties. The fiberglass sections are lightweight, electrically non-conductive, and stable in long-term outdoor UV exposure when specified with the correct veil and coating system.",
     environment:
       "Best fit: coastal solar farms, floating PV, agricultural PV, corrosive industrial sites, and off-grid structures where weight reduction simplifies transport and installation.",
     recommendedProfiles: [
-      "FRP channels and square tubes for rails and posts",
-      "FRP angles for panel support brackets and bracing",
-      "Flat bars and custom profiles for clips, spacers, and edge members",
-      "Vinyl ester or UV-stabilized polyester profiles for harsh outdoor service",
+      "Channels and square tubes for rails and posts",
+      "Angles for panel support brackets and bracing",
+      "Flat bars and custom sections for clips, spacers, and edge members",
+      "Vinyl ester or UV-stabilized polyester laminates for harsh outdoor service",
     ],
     resinSystem:
       "UV-stabilized isophthalic polyester is the baseline for standard outdoor PV supports. Vinyl ester is recommended for coastal, floating PV, fertilizer exposure, and aggressive industrial environments.",

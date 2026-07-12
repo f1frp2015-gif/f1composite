@@ -13,9 +13,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "FRP Flat Bar — Pultruded Fiberglass Flat Bar Manufacturer";
+const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Pultruded FRP flat bars 12×3 — 305×25 mm. ±0.25 mm tolerance, 70% glass, EN 13706 / ASTM D3917. Stiffeners, splice plates, rebar. DDP USA 24h quote.";
+  "Pultruded fiberglass flat bar & bar stock 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass, EN 13706 / ASTM D3917. Stiffeners, splice plates. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/flat-bar";
 
 const faqItems = [
@@ -102,8 +102,8 @@ export default async function FlatBarPage() {
       />
       <PageHeader
         tag="Flat Bar"
-        title="FRP Flat Bars"
-        description="Solid rectangular pultruded FRP bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
+        title="Fiberglass Flat Bars (FRP Bar Stock)"
+        description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
