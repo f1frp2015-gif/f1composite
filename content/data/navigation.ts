@@ -21,7 +21,6 @@ export const mainNav: NavItem[] = [
     href: "/pultruded-frp-profiles",
     children: [
       { label: "Standard Profiles", href: "/products/standard-profiles" },
-      { label: "Profile Datasheets", href: "/datasheets" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
@@ -92,7 +91,6 @@ export const mainNav: NavItem[] = [
 export const footerNav = {
   products: [
     { label: "Standard Profiles", href: "/products/standard-profiles" },
-    { label: "Profile Datasheets", href: "/datasheets" },
     { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
     { label: "Fenestration Systems", href: "/products/fenestration-systems" },
     { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
