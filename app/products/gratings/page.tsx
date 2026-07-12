@@ -488,6 +488,8 @@ export default function GratingsPage() {
             title: "Related FRP products",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/stair-tread-covers", label: "Stair tread covers & grating treads" },
+              { href: "/products/handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/standard-profiles/i-beam", label: "FRP I-beam support" },
               { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
               { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },

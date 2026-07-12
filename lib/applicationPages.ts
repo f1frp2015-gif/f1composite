@@ -189,8 +189,9 @@ export const applicationPages: ApplicationPage[] = [
     ],
     related: [
       { href: "/products/gratings", label: "FRP gratings" },
+      { href: "/products/handrail-systems", label: "Fiberglass handrail systems" },
+      { href: "/products/stair-tread-covers", label: "Stair tread covers" },
       { href: "/products/standard-profiles/i-beam", label: "FRP I-beams" },
-      { href: "/products/standard-profiles/tube", label: "FRP tubes" },
       { href: "/industries/industrial", label: "Industrial applications" },
     ],
   },
