@@ -180,6 +180,11 @@ export default function CalculatorPage() {
             <Link href="/frp-span-tables" className="text-teal-text hover:underline">FRP span tables</Link>{" "}
             publish the allowable uniform load for every standard I-beam, channel, and tube over 1–6 m
             spans on the same design basis — each row opens here pre-loaded for verification.
+            And once a section passes, the{" "}
+            <Link href="/fiberglass-pultruded-profile-price" className="text-teal-text hover:underline">
+              pultruded profile price estimator
+            </Link>{" "}
+            gives you its budgetary USD/meter range before you send the RFQ.
           </p>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             This calculator solves three recurring questions in FRP structural selection: whether a pultruded FRP beam satisfies bending and shear at factored load, whether deflection at service load meets the L/n limit (including the Timoshenko shear correction that matters for short-span FRP beams), and what cross-section is needed to replace a steel or aluminum member at equal stiffness or equal strength — whichever governs. Select the design framework (ASCE/SEI 74-23 LRFD, CEN/TS 19101:2022 partial-factor, GB 50608-2020 LRFD, or legacy ASD) and an environmental class; the calculator applies the appropriate resistance factor and FRP environmental knockdown to characteristic strengths.

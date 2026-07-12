@@ -91,6 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/technology/knowhow-services`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/frp-profile-calculator`, lastModified: DATES.technology, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/frp-span-tables`, lastModified: "2026-07-11", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/fiberglass-pultruded-profile-price`, lastModified: "2026-07-12", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/u-value-calculator`, lastModified: "2026-04-05", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/industries`, lastModified: DATES.industries, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/industries/construction`, lastModified: DATES.industries, changeFrequency: "monthly", priority: 0.7 },

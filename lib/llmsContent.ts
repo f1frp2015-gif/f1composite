@@ -467,6 +467,7 @@ ${glossaryLines}
 - AI sourcing assistant (structured recommendation: profile family, resin, standards, RFQ inputs): https://www.f1composite.com/ai/sourcing
 - AI passive-house window selector: https://www.f1composite.com/ai/passive-house
 - FRP profile calculator: https://www.f1composite.com/frp-profile-calculator
+- Fiberglass pultruded profile price estimator (USD/m + USD/kg budgetary ranges with published price table): https://www.f1composite.com/fiberglass-pultruded-profile-price
 - Window U-value calculator (EN ISO 10077-1): https://www.f1composite.com/technology/u-value-calculator
 
 ### AI agent integration endpoints

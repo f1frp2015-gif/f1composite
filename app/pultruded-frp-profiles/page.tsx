@@ -915,7 +915,12 @@ export default function PultrudedFRPProfilesHubPage() {
             <Link href="/frp-span-tables#i-beam" className="text-teal-text hover:underline">fiberglass I-beam</Link>,{" "}
             <Link href="/frp-span-tables#channel" className="text-teal-text hover:underline">channel</Link>, and{" "}
             <Link href="/frp-span-tables#square-tube" className="text-teal-text hover:underline">tube</Link>{" "}
-            over 1–6 m simple spans — EN 13706 E23 basis, deflection-checked.
+            over 1–6 m simple spans — EN 13706 E23 basis, deflection-checked. Once the
+            section is fixed, the{" "}
+            <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:underline">
+              fiberglass pultruded profile price estimator
+            </Link>{" "}
+            turns it into a budgetary USD-per-meter range with quantity breaks.
           </p>
         </div>
       </section>

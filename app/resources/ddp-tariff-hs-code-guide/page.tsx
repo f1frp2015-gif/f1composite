@@ -287,6 +287,7 @@ export default function DdpTariffHsCodeGuidePage() {
             title: "Explore further",
             links: [
               { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles hub" },
+              { href: "/fiberglass-pultruded-profile-price", label: "Fiberglass profile price estimator (FOB baseline)" },
               { href: "/resources/glossary", label: "FRP & pultrusion glossary" },
               { href: "/resources/technical-data", label: "Technical data sheets" },
             ],
