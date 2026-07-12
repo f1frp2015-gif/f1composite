@@ -277,8 +277,19 @@ export default function WhatIsFrpPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Terminology</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP, GRP, fiberglass, composites — same thing?
+            FRP vs fiberglass vs GRP — same thing?
           </h2>
+          <div className="mt-[21px] max-w-[860px] rounded-[8px] border-l-[4px] border-teal bg-white p-[21px]">
+            <p className="text-f15 leading-golden text-t2">
+              <strong className="text-t1">FRP vs fiberglass, in one line:</strong>{" "}
+              fiberglass is the glass fiber itself (and, informally, the finished
+              material); FRP — fiber reinforced polymer — is the engineered composite
+              of that fiber locked in a resin matrix. Every pultruded &ldquo;fiberglass
+              profile&rdquo; is an FRP product: the two words describe the same material
+              family at different levels of precision, and this page uses them
+              interchangeably where the context is structural profiles.
+            </p>
+          </div>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             The terminology around fiber composites is regional and often
             overlapping. In engineering practice:

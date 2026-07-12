@@ -23,7 +23,9 @@ function FooterAccordion({ title, links }: { title: string; links: { label: stri
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between py-[13px] text-left md:pointer-events-none md:py-0"
       >
-        <h4 className="text-f13 font-bold text-t1">{title}</h4>
+        {/* Not a heading: footer column labels sat as h4 after each page's
+            last h2/h1, tripping heading-hierarchy checks sitewide. */}
+        <span className="text-f13 font-bold text-t1">{title}</span>
         <svg
           className={`h-4 w-4 text-t3 transition-transform duration-200 md:hidden ${open ? "rotate-180" : ""}`}
           fill="none"
