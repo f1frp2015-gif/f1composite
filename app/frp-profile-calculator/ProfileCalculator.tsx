@@ -52,6 +52,27 @@ const materials: Record<string, Material> = {
   "alu-6063":   { label: "Aluminum 6063-T5",       group: "Metal", standard: "EN 573-3 / GB/T 3190", E: 69,  sigma: 186, density: 2.7 },
 };
 
+/* User-defined ("custom") FRP grade. Lets the user enter a grade that isn't in
+   the preset table — e.g. E40 (Austroads ATS5880's bridge-loadbearing tier;
+   above the EN 13706 E17/E23 range, needs high glass content or carbon hybrid).
+   These are the USER's own numbers, treated as a characteristic-level FRP grade;
+   not a published standard row. Defaults are an E40-representative starting point. */
+type CustomMat = {
+  E: number; E_T: number; G_LT: number; sigma: number; sigma_c: number; tau: number; density: number;
+};
+const CUSTOM_DEFAULT: CustomMat = {
+  E: 40, E_T: 10, G_LT: 4, sigma: 400, sigma_c: 350, tau: 40, density: 2.0,
+};
+const CUSTOM_FIELDS: { key: keyof CustomMat; label: string; step: string }[] = [
+  { key: "E", label: "E_L (GPa)", step: "1" },
+  { key: "E_T", label: "E_T (GPa)", step: "0.5" },
+  { key: "G_LT", label: "G_LT (GPa)", step: "0.5" },
+  { key: "sigma", label: "F_tL (MPa)", step: "10" },
+  { key: "sigma_c", label: "F_cL (MPa)", step: "10" },
+  { key: "tau", label: "F_vLT (MPa)", step: "1" },
+  { key: "density", label: "ρ (g/cm³)", step: "0.05" },
+];
+
 /* Design framework — resistance / partial factors
    Sources: ASCE/SEI 74-23 §1.4 ; CEN/TS 19101:2022 §4 ; GB 50608-2020 §3.3 */
 type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
@@ -240,6 +261,8 @@ export default function ProfileCalculator() {
   const [deflLimit, setDeflLimit] = useState(250);
   const [designMethod, setDesignMethod] = useState<DesignMethod>("lrfd-asce");
   const [envKey, setEnvKey] = useState("outdoor");
+  // User-defined FRP grade params, editable when matKey === "custom".
+  const [customMat, setCustomMat] = useState<CustomMat>(CUSTOM_DEFAULT);
 
   // Equivalence state
   const [eqSourceMat, setEqSourceMat] = useState("steel-s235");
@@ -271,12 +294,23 @@ export default function ProfileCalculator() {
     };
     if (sp.get("mode") === "equivalence") setMode("equivalence");
     str("shape", setShape, profileShapes.map((s) => s.id));
-    str("material", setMatKey, Object.keys(materials));
+    str("material", setMatKey, [...Object.keys(materials), "custom"]);
     str("env", setEnvKey, envFactors.map((e) => e.id));
     str("load_type", setLoadType, loadTypes.map((l) => l.id));
     str("method", (v) => setDesignMethod(v as DesignMethod), Object.keys(designMethods));
     num("span", setSpan); num("load", setLoad); num("defl", setDeflLimit);
     num("h", setDimH); num("b", setDimB); num("tw", setDimTw); num("tf", setDimTf);
+    // Custom FRP grade params (only meaningful when material=custom).
+    const cu: Partial<CustomMat> = {};
+    const cmap: [string, keyof CustomMat][] = [
+      ["cE", "E"], ["cET", "E_T"], ["cG", "G_LT"],
+      ["cFt", "sigma"], ["cFc", "sigma_c"], ["cFv", "tau"], ["cRho", "density"],
+    ];
+    for (const [q, key] of cmap) {
+      const v = sp.get(q);
+      if (v != null && v !== "" && Number.isFinite(+v)) cu[key] = +v;
+    }
+    if (Object.keys(cu).length) setCustomMat((m) => ({ ...m, ...cu }));
     /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
@@ -295,6 +329,13 @@ export default function ProfileCalculator() {
       span: String(span), load: String(load), defl: String(deflLimit),
       h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
     });
+    // Carry the user-defined grade params so a shared custom calc restores exactly.
+    if (matKey === "custom") {
+      sp.set("cE", String(customMat.E)); sp.set("cET", String(customMat.E_T));
+      sp.set("cG", String(customMat.G_LT)); sp.set("cFt", String(customMat.sigma));
+      sp.set("cFc", String(customMat.sigma_c)); sp.set("cFv", String(customMat.tau));
+      sp.set("cRho", String(customMat.density));
+    }
     const url = `${window.location.origin}/frp-profile-calculator?${sp.toString()}`;
     navigator.clipboard?.writeText(url).then(
       () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
@@ -304,7 +345,10 @@ export default function ProfileCalculator() {
   }
 
   /* ── Beam calculation ── */
-  const mat = materials[matKey];
+  const mat: Material =
+    matKey === "custom"
+      ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined (e.g. E40)", ...customMat }
+      : materials[matKey];
   const lt = loadTypes.find((l) => l.id === loadType)!;
   const dm = designMethods[designMethod];
   const env = envFactors.find((e) => e.id === envKey)!;
@@ -468,6 +512,9 @@ export default function ProfileCalculator() {
         <option value="frp-asce-std">ASCE 74-23 Standard</option>
         <option value="frp-asce-high">ASCE 74-23 High-Performance</option>
       </optgroup>
+      <optgroup label="FRP — Custom / advanced">
+        <option value="custom">Custom grade — define parameters (e.g. E40)</option>
+      </optgroup>
       <optgroup label="Steel — EN">
         <option value="steel-s235">S235 (EN 10025)</option>
         <option value="steel-s355">S355 (EN 10025)</option>
@@ -560,6 +607,38 @@ export default function ProfileCalculator() {
                   </select>
                 </div>
               </div>
+
+              {/* Custom (user-defined) FRP grade parameters — e.g. an E40 grade
+                  above the EN 13706 E17/E23 presets. Editable characteristic values. */}
+              {matKey === "custom" && (
+                <div className="rounded-[6px] border border-teal/30 bg-white p-[13px] space-y-[8px]">
+                  <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+                    Custom FRP grade — your parameters (e.g. E40)
+                  </div>
+                  <div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4">
+                    {CUSTOM_FIELDS.map((f) => (
+                      <div key={f.key}>
+                        <label className={labelClass}>{f.label}</label>
+                        <input
+                          type="number"
+                          step={f.step}
+                          value={customMat[f.key]}
+                          onChange={(e) =>
+                            setCustomMat((m) => ({ ...m, [f.key]: +e.target.value }))
+                          }
+                          className={inputClass}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-f11 text-t3">
+                    These are your own characteristic values — not a published standard row.
+                    E40 example: E_L ≈ 40 GPa (Austroads ATS5880 bridge-loadbearing tier; above
+                    EN 13706 E17/E23, needs high glass content or a carbon hybrid). Confirm with
+                    F1 Composite engineering before design use.
+                  </p>
+                </div>
+              )}
 
               <div className="grid gap-[13px] sm:grid-cols-3">
                 <div>
