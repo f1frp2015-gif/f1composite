@@ -73,6 +73,46 @@ const CUSTOM_FIELDS: { key: keyof CustomMat; label: string; step: string }[] = [
   { key: "density", label: "ρ (g/cm³)", step: "0.05" },
 ];
 
+/* Editable panel for the user-defined FRP grade. Shared by both the beam-analysis
+   Material selector and the equivalence Target-FRP selector, so a single custom
+   recipe (e.g. E40) is defined once and referenced from either mode. */
+function CustomGradeInputs({
+  mat, setMat, inputClass, labelClass,
+}: {
+  mat: CustomMat;
+  setMat: (updater: (m: CustomMat) => CustomMat) => void;
+  inputClass: string;
+  labelClass: string;
+}) {
+  return (
+    <div className="rounded-[6px] border border-teal/30 bg-white p-[13px] space-y-[8px]">
+      <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+        Custom FRP grade — your parameters (e.g. E40)
+      </div>
+      <div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4">
+        {CUSTOM_FIELDS.map((f) => (
+          <div key={f.key}>
+            <label className={labelClass}>{f.label}</label>
+            <input
+              type="number"
+              step={f.step}
+              value={mat[f.key]}
+              onChange={(e) => setMat((m) => ({ ...m, [f.key]: +e.target.value }))}
+              className={inputClass}
+            />
+          </div>
+        ))}
+      </div>
+      <p className="text-f11 text-t3">
+        These are your own characteristic values — not a published standard row.
+        E40 example: E_L ≈ 40 GPa (Austroads ATS5880 bridge-loadbearing tier; above
+        EN 13706 E17/E23, needs high glass content or a carbon hybrid). Confirm with
+        F1 Composite engineering before design use.
+      </p>
+    </div>
+  );
+}
+
 /* Design framework — resistance / partial factors
    Sources: ASCE/SEI 74-23 §1.4 ; CEN/TS 19101:2022 §4 ; GB 50608-2020 §3.3 */
 type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
@@ -413,7 +453,12 @@ export default function ProfileCalculator() {
 
   /* ── Equivalence calculation ── */
   const srcMat = materials[eqSourceMat];
-  const tgtMat = materials[eqTargetMat];
+  // Equivalence target can also be the user-defined custom recipe (same customMat
+  // as beam mode) — e.g. compute a steel → E40-FRP replacement.
+  const tgtMat: Material =
+    eqTargetMat === "custom"
+      ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined (e.g. E40)", ...customMat }
+      : materials[eqTargetMat];
   const eqDimsOk = dimsValid(eqShape, eqH, eqB, eqTw, eqTf);
   const srcIx = calcIx(eqShape, eqH, eqB, eqTw, eqTf);
   const srcWx = calcWx(srcIx, eqH, eqShape, eqB, eqTw);
@@ -611,33 +656,7 @@ export default function ProfileCalculator() {
               {/* Custom (user-defined) FRP grade parameters — e.g. an E40 grade
                   above the EN 13706 E17/E23 presets. Editable characteristic values. */}
               {matKey === "custom" && (
-                <div className="rounded-[6px] border border-teal/30 bg-white p-[13px] space-y-[8px]">
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
-                    Custom FRP grade — your parameters (e.g. E40)
-                  </div>
-                  <div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4">
-                    {CUSTOM_FIELDS.map((f) => (
-                      <div key={f.key}>
-                        <label className={labelClass}>{f.label}</label>
-                        <input
-                          type="number"
-                          step={f.step}
-                          value={customMat[f.key]}
-                          onChange={(e) =>
-                            setCustomMat((m) => ({ ...m, [f.key]: +e.target.value }))
-                          }
-                          className={inputClass}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-f11 text-t3">
-                    These are your own characteristic values — not a published standard row.
-                    E40 example: E_L ≈ 40 GPa (Austroads ATS5880 bridge-loadbearing tier; above
-                    EN 13706 E17/E23, needs high glass content or a carbon hybrid). Confirm with
-                    F1 Composite engineering before design use.
-                  </p>
-                </div>
+                <CustomGradeInputs mat={customMat} setMat={setCustomMat} inputClass={inputClass} labelClass={labelClass} />
               )}
 
               <div className="grid gap-[13px] sm:grid-cols-3">
@@ -890,9 +909,18 @@ export default function ProfileCalculator() {
                       <option value="frp-asce-std">ASCE 74-23 Standard</option>
                       <option value="frp-asce-high">ASCE 74-23 High-Performance</option>
                     </optgroup>
+                    <optgroup label="Custom / advanced">
+                      <option value="custom">Custom grade (e.g. E40 — define below)</option>
+                    </optgroup>
                   </select>
                 </div>
               </div>
+
+              {/* Same user-defined recipe as beam mode — define/edit an E40-type
+                  grade here and the steel/aluminum → FRP equivalence uses it. */}
+              {eqTargetMat === "custom" && (
+                <CustomGradeInputs mat={customMat} setMat={setCustomMat} inputClass={inputClass} labelClass={labelClass} />
+              )}
 
               <div>
                 <label className={labelClass}>Profile Shape</label>
