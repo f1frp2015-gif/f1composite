@@ -283,6 +283,39 @@ function dimsValid(shape: string, h: number, b: number, tw: number, tf: number):
   return false;
 }
 
+/* Standard wall thicknesses (mm) offered as quick-select, per material family.
+   Steel/aluminum feed the SOURCE profile; FRP feeds the equivalence TARGET
+   (a chosen FRP wall then reverse-solves the H×B — FRP is sold in specific
+   wall thicknesses, so sizing to a real wall beats an arbitrary scaled one). */
+const STD_WALLS = {
+  steel: [3, 4, 5, 6, 8, 10, 12, 16],
+  alu: [2, 2.5, 3, 4, 5, 6, 8, 10],
+  frp: [3, 4, 5, 6, 8, 10, 12],
+};
+
+/* Reverse-solve the minimum section height H (walls fixed at t, width B = k·H)
+   whose section property (Ix or Wx) reaches `target`. Ix and Wx increase
+   monotonically with H, so a bisection converges. Used by the equivalence mode
+   when the user pins the target FRP wall thickness. */
+function solveHForProperty(
+  shape: string, target: number, prop: "Ix" | "Wx", t: number, k: number,
+): number {
+  const propAt = (H: number): number => {
+    const B = shape === "round-tube" || shape === "square-tube" ? H : Math.max(k * H, 2 * t + 2);
+    const Ix = calcIx(shape, H, B, t, t);
+    return prop === "Ix" ? Ix : calcWx(Ix, H, shape, B, t);
+  };
+  let lo = 2 * t + 2;
+  let hi = 20000; // mm — generous ceiling
+  if (propAt(hi) < target) return hi; // unreachable even at ceiling (degenerate)
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2;
+    if (propAt(mid) >= target) hi = mid;
+    else lo = mid;
+  }
+  return hi;
+}
+
 type Mode = "beam" | "equivalence";
 
 export default function ProfileCalculator() {
@@ -312,6 +345,9 @@ export default function ProfileCalculator() {
   const [eqB, setEqB] = useState(100);
   const [eqTw, setEqTw] = useState(8);
   const [eqTf, setEqTf] = useState(12);
+  // Target FRP wall thickness: "auto" = proportional scale (legacy); a number =
+  // pin the FRP wall and reverse-solve H×B to meet the equivalence at that wall.
+  const [eqTargetWall, setEqTargetWall] = useState<number | "auto">("auto");
   const [copied, setCopied] = useState(false);
 
   /* Deep-link presets: read ?shape&span&load&... once on mount so blog posts,
@@ -474,25 +510,41 @@ export default function ProfileCalculator() {
   const stiffnessScale = Math.pow(srcMat.E / tgtMat.E, 1 / 4);
   const strengthScale = Math.pow(srcMat.sigma / tgtSigma, 1 / 3);
 
-  const stiffH = Math.round(eqH * stiffnessScale);
-  const stiffB = Math.round(eqB * stiffnessScale);
-  const stiffTw = Math.max(1, Math.round(eqTw * stiffnessScale));
-  const stiffTf = Math.max(1, Math.round(eqTf * stiffnessScale));
+  // Wall-thickness mode: "auto" scales all dims proportionally (legacy); a pinned
+  // FRP wall reverse-solves H (walls = tWall, width = aspect·H) to reach the
+  // required Ix (stiffness) / Wx (strength) — a manufacturable FRP section.
+  const fixedWall = eqTargetWall !== "auto";
+  const tWall = fixedWall ? (eqTargetWall as number) : 0;
+  const aspectK = eqH > 0 ? eqB / eqH : 1;
+  const bFromH = (H: number): number =>
+    eqShape === "round-tube" || eqShape === "square-tube" ? H : Math.round(aspectK * H);
 
-  const strengthH = Math.round(eqH * strengthScale);
-  const strengthB = Math.round(eqB * strengthScale);
-  const strengthTw = Math.max(1, Math.round(eqTw * strengthScale));
-  const strengthTf = Math.max(1, Math.round(eqTf * strengthScale));
+  const stiffH = fixedWall
+    ? Math.ceil(solveHForProperty(eqShape, reqIx, "Ix", tWall, aspectK))
+    : Math.round(eqH * stiffnessScale);
+  const stiffB = fixedWall ? bFromH(stiffH) : Math.round(eqB * stiffnessScale);
+  const stiffTw = fixedWall ? tWall : Math.max(1, Math.round(eqTw * stiffnessScale));
+  const stiffTf = fixedWall ? tWall : Math.max(1, Math.round(eqTf * stiffnessScale));
 
+  const strengthH = fixedWall
+    ? Math.ceil(solveHForProperty(eqShape, reqWx, "Wx", tWall, aspectK))
+    : Math.round(eqH * strengthScale);
+  const strengthB = fixedWall ? bFromH(strengthH) : Math.round(eqB * strengthScale);
+  const strengthTw = fixedWall ? tWall : Math.max(1, Math.round(eqTw * strengthScale));
+  const strengthTf = fixedWall ? tWall : Math.max(1, Math.round(eqTf * strengthScale));
+
+  // Which criterion governs: for fixed-wall, the larger solved H; for auto, the
+  // larger scale factor. (Both reduce to "the section that satisfies both".)
+  const stiffGoverns = fixedWall ? stiffH >= strengthH : stiffnessScale >= strengthScale;
   const governingScale = Math.max(stiffnessScale, strengthScale);
-  const governingCriterion = stiffnessScale >= strengthScale ? "Stiffness (EI)" : "Strength (σW)";
+  const governingCriterion = stiffGoverns ? "Stiffness (EI)" : "Strength (σW)";
 
   const srcWeight = (srcArea * srcMat.density) / 1000; // mm² × g/cm³ → kg/m
   const stiffArea = calcArea(eqShape, stiffH, stiffB, stiffTw, stiffTf);
   const strengthArea = calcArea(eqShape, strengthH, strengthB, strengthTw, strengthTf);
   const stiffWeight = (stiffArea * tgtMat.density) / 1000;
   const strengthWeight = (strengthArea * tgtMat.density) / 1000;
-  const tgtWeight = governingScale === stiffnessScale ? stiffWeight : strengthWeight;
+  const tgtWeight = stiffGoverns ? stiffWeight : strengthWeight;
   const weightSaving = srcWeight > 0 ? ((1 - tgtWeight / srcWeight) * 100) : 0;
 
   // Shared spec payload for beam-mode RFQ surfaces (quote button + email capture).
@@ -524,18 +576,19 @@ export default function ProfileCalculator() {
     `Project location / corrosion environment: ____\n\nThanks.`;
 
   // Equivalence-mode RFQ payload.
-  const eqFrpH = governingScale === stiffnessScale ? stiffH : strengthH;
-  const eqFrpB = governingScale === stiffnessScale ? stiffB : strengthB;
+  const eqFrpH = stiffGoverns ? stiffH : strengthH;
+  const eqFrpB = stiffGoverns ? stiffB : strengthB;
+  const eqFrpWall = fixedWall ? tWall : stiffGoverns ? stiffTw : strengthTw;
   const eqContext = {
     mode: "equivalence", replacing: srcMat.label, targetFRP: tgtMat.label, shape: eqShape,
-    source_H_mm: eqH, source_B_mm: eqB, governing: governingCriterion,
+    source_H_mm: eqH, source_B_mm: eqB, governing: governingCriterion, frp_wall_mm: eqFrpWall,
     frp_H_mm: eqFrpH, frp_B_mm: eqFrpB, weight_saving_pct: +weightSaving.toFixed(0),
     source_weight_kg_m: +srcWeight.toFixed(2), frp_weight_kg_m: +tgtWeight.toFixed(2),
   };
   const eqMessage =
     `FRP equivalence — replacing ${srcMat.label} with ${tgtMat.label}:\n\n` +
-    `Source ${eqShape}: H=${eqH}mm, B=${eqB}mm (${srcWeight.toFixed(2)} kg/m)\n` +
-    `FRP equivalent (${governingCriterion} governs): H≈${eqFrpH}mm, B≈${eqFrpB}mm (${tgtWeight.toFixed(2)} kg/m)\n` +
+    `Source ${eqShape}: H=${eqH}mm, B=${eqB}mm, wall=${eqTw}mm (${srcWeight.toFixed(2)} kg/m)\n` +
+    `FRP equivalent (${governingCriterion} governs): H≈${eqFrpH}mm, B≈${eqFrpB}mm, wall=${eqFrpWall}mm${fixedWall ? " (wall pinned)" : " (proportional)"} (${tgtWeight.toFixed(2)} kg/m)\n` +
     `Weight saving: ${weightSaving.toFixed(0)}%\n\n` +
     `Application / corrosion environment (please add): ____\n\nThanks.`;
 
@@ -922,6 +975,23 @@ export default function ProfileCalculator() {
                 <CustomGradeInputs mat={customMat} setMat={setCustomMat} inputClass={inputClass} labelClass={labelClass} />
               )}
 
+              {/* Target FRP wall thickness — pin a standard FRP wall and the
+                  equivalent H×B is reverse-solved to meet stiffness/strength;
+                  "Auto" keeps the legacy proportional-scale behavior. */}
+              <div>
+                <label className={labelClass}>Target FRP Wall Thickness</label>
+                <select
+                  value={eqTargetWall === "auto" ? "auto" : String(eqTargetWall)}
+                  onChange={(e) => setEqTargetWall(e.target.value === "auto" ? "auto" : +e.target.value)}
+                  className={selectClass}
+                >
+                  <option value="auto">Auto — proportional scale</option>
+                  {STD_WALLS.frp.map((w) => (
+                    <option key={w} value={w}>{w} mm — reverse-solve H×B</option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label className={labelClass}>Profile Shape</label>
                 <select value={eqShape} onChange={(e) => setEqShape(e.target.value)} className={selectClass}>
@@ -952,6 +1022,28 @@ export default function ProfileCalculator() {
                     <input type="number" value={eqTf} onChange={(e) => setEqTf(+e.target.value)} className={inputClass} />
                   </div>
                 )}
+              </div>
+
+              {/* Standard wall-thickness quick-select for the source metal profile
+                  — fills web + flange (still editable above). */}
+              <div className="flex flex-wrap items-center gap-[6px]">
+                <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">
+                  {eqSourceMat.startsWith("alu") ? "Alu" : "Steel"} std wall:
+                </span>
+                {(eqSourceMat.startsWith("alu") ? STD_WALLS.alu : STD_WALLS.steel).map((w) => (
+                  <button
+                    key={w}
+                    type="button"
+                    onClick={() => { setEqTw(w); setEqTf(w); }}
+                    className={`rounded-full border px-[10px] py-[4px] text-f11 font-medium transition-colors ${
+                      eqTw === w
+                        ? "border-teal bg-teal-bg text-teal-text"
+                        : "border-border-default bg-white text-t2 hover:border-teal"
+                    }`}
+                  >
+                    {w} mm
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -988,27 +1080,35 @@ export default function ProfileCalculator() {
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
                   <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Stiffness (EI)</div>
-                  <div className="mt-[8px] grid grid-cols-2 gap-[8px] text-f13">
+                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f13">
                     <div>H: <span className="font-bold text-t1">{stiffH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{stiffB} mm</span></div>
+                    <div>t: <span className="font-bold text-t1">{stiffTw} mm</span></div>
                   </div>
-                  <p className="mt-[5px] text-f11 text-t3">k = (E_src/E_tgt)<sup>1/4</sup> = ×{stiffnessScale.toFixed(2)}</p>
+                  <p className="mt-[5px] text-f11 text-t3">
+                    {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Ix` : <>k = (E_src/E_tgt)<sup>1/4</sup> = ×{stiffnessScale.toFixed(2)}</>}
+                  </p>
                 </div>
                 <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
                   <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Strength (σW)</div>
-                  <div className="mt-[8px] grid grid-cols-2 gap-[8px] text-f13">
+                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f13">
                     <div>H: <span className="font-bold text-t1">{strengthH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{strengthB} mm</span></div>
+                    <div>t: <span className="font-bold text-t1">{strengthTw} mm</span></div>
                   </div>
-                  <p className="mt-[5px] text-f11 text-t3">k = (σ_src/σ_tgt)<sup>1/3</sup> = ×{strengthScale.toFixed(2)}</p>
+                  <p className="mt-[5px] text-f11 text-t3">
+                    {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Wx` : <>k = (σ_src/σ_tgt)<sup>1/3</sup> = ×{strengthScale.toFixed(2)}</>}
+                  </p>
                 </div>
               </div>
 
               <div className="rounded-[6px] bg-teal/10 border border-teal/20 p-[13px]">
                 <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Governing Criterion</div>
-                <div className="mt-[5px] text-f15 font-bold text-t1">{governingCriterion} — use ×{governingScale.toFixed(2)}</div>
+                <div className="mt-[5px] text-f15 font-bold text-t1">
+                  {governingCriterion}{fixedWall ? ` — FRP ${eqFrpH}×${eqFrpB} mm @ ${tWall} mm wall` : ` — use ×${governingScale.toFixed(2)}`}
+                </div>
                 <p className="mt-[5px] text-f11 text-t3">
-                  The FRP profile must satisfy <em>both</em> limits; the larger scale factor governs.
+                  The FRP profile must satisfy <em>both</em> limits; the {fixedWall ? "larger reverse-solved section" : "larger scale factor"} governs.
                   {srcMat.group === "Metal" && srcMat.label.toLowerCase().includes("alum")
                     ? " For aluminum, stiffness and strength criteria are often comparable — check both before committing to a size."
                     : " For steel, stiffness almost always governs because FRP modulus is ~1/10 of steel."}
