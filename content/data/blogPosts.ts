@@ -4074,6 +4074,128 @@ If the frame is a standard-depth casement and the system house already holds EN 
 
 To see what a deeper, lower-conductance break zone does to a whole frame, run the numbers in our [EN ISO 10077-1 U-value calculator](/technology/u-value-calculator) — frame U-value is the single biggest lever on the whole-window result, and the break is the single biggest lever on the frame. For a break geometry against your system's section, [send the drawing](/contact); qualification data to EN 14024 and EN 13706 comes with the quote.`,
   },
+
+  {
+    slug: "frp-density-fiberglass-profile-density-explained",
+    title: "FRP Density Explained: How Fibers, Mats, Fabrics and Resin Set the Density of a Pultruded Profile",
+    seoTitle: "FRP Density: What Determines Fiberglass Profile Density",
+    answerBox:
+      "Pultruded FRP density typically runs 1.7–2.1 g/cm³ (0.062–0.070 lb/in³ by ASTM D792). The number follows the rule of mixtures: E-glass fiber is 2.54 g/cm³ and cured unfilled polyester resin roughly 1.1–1.2, so a laminate at 65–70% glass by weight — F1 Composite's published EN 13706 grade E23 recipe — computes to 1.83–1.90 g/cm³. Roving-dominant profiles run denser than mat-heavy ones; mineral fillers such as ATH (2.41 g/cm³) push density up; voids pull it down.",
+    category: "Material Science",
+    date: "2026-07-16",
+    updatedAt: "2026-07-16",
+    readTime: "9 min",
+    excerpt:
+      "Steel has one density. A fiberglass profile has a recipe: glass fiber at 2.54 g/cm³, cured resin near 1.2, plus fillers and voids. Where a pultruded profile lands between those poles — and what that single number tells you about the laminate inside — is all arithmetic.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 13706", "ASTM D792", "ASTM D2584", "ISO 1172", "ASTM D2734"],
+    coverImage: "/images/products/standard-profiles-cover.jpg",
+    coverAlt:
+      "Pultruded fiberglass I-beam — FRP density is set by the glass, resin, fillers and voids inside the section",
+    supportingImage: "/images/products/pultruded-frp-structural-profiles-overview-engineering-drawing.png",
+    supportingAlt:
+      "Dimensioned engineering renders of pultruded FRP structural shapes — I-beam, channel, flat, angle and square tube",
+    supportingImageFit: "contain",
+    supportingCaption:
+      "Same fiber, same resin, different architecture: a roving-dominant bar and a mat-rich wide flange from the same catalog can differ by 10% in density — which is why datasheets quote a range, not a constant.",
+    highlights: [
+      "E-glass fiber is 2.54 g/cm³ and cured unfilled polyester roughly 1.1–1.2 — every fiberglass profile density is a weighted blend of the two",
+      "70% glass by weight computes to 1.90 g/cm³ by the inverse rule of mixtures, matching F1's published E23 laminate value exactly",
+      "At 1.9 g/cm³, an FRP section is about 76% lighter than steel and 30% lighter than aluminum at equal cross-section",
+      "ASTM D792 density plus an ASTM D2584 / ISO 1172 burn-off reconstructs a supplier's laminate recipe in an afternoon",
+    ],
+    ogDescription:
+      "Pultruded FRP density runs 1.7–2.1 g/cm³: E-glass at 2.54, cured resin near 1.2, plus fillers and voids. Here is the math behind fiberglass profile density.",
+    ogChips: ["1.7–2.1 g/cm³", "EN 13706 E23", "ASTM D792", "Rule of mixtures"],
+    relatedLinks: [
+      { label: "FRP Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
+      { label: "Technical Data — EN 13706 Laminate Values", href: "/resources/technical-data" },
+      { label: "What Is Pultrusion?", href: "/resources/blog/what-is-pultrusion" },
+      { label: "Carbon-Glass Hybrid Mullion Pultrusion", href: "/resources/blog/frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+    ],
+    sourceLinks: [
+      { label: "Strongwell Design Manual — Section 3, Properties of EXTREN", href: "https://www.strongwell.com/wp-content/uploads/2020/05/Section03-0520.pdf" },
+      { label: "Prince Engineering — Glass fiber types for structural FRP", href: "https://www.princelund.com/glass-fiber.html" },
+      { label: "ScienceDirect — Polyester resin (topic overview)", href: "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/polyester-resin" },
+      { label: "ASTM D792 — Density and Specific Gravity of Plastics by Displacement", href: "https://store.astm.org/d0792-20.html" },
+      { label: "ASTM D2584 — Ignition Loss of Cured Reinforced Resins", href: "https://www.astm.org/Standards/D2584.htm" },
+      { label: "ISO 1172:2023 — Glass and mineral-filler content by calcination", href: "https://www.iso.org/standard/84260.html" },
+      { label: "ASTM D2734 — Void Content of Reinforced Plastics", href: "https://www.astm.org/standards/d2734" },
+      { label: "Toray T700S carbon fiber — technical data sheet", href: "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf" },
+      { label: "LKAB Minerals — Aluminium trihydrate (ATH)", href: "https://www.lkabminerals.com/product/ath/" },
+      { label: "Springer — Calcium carbonate fillers (reference entry)", href: "https://link.springer.com/rwe/10.1007/978-3-319-28117-9_35" },
+      { label: "Physical properties of GFRP filled with ATH and calcium carbonate (Polymers, 2022)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9230032/" },
+    ],
+    content: `Structural steel has one density — 7.85 g/cm³, whatever mill it came from. Aluminum alloys sit at 2.70. Ask the same question about a pultruded FRP profile and the honest answer is a range, roughly 1.7 to 2.1 g/cm³, because FRP density is not a material constant. It is the output of a recipe. Every fiberglass profile is a blend of glass fiber at 2.54 g/cm³ and cured resin somewhere near 1.2, and where a given section lands between those poles is decided by how much glass the laminate carries and in what form: rovings, mats, fabrics, veils. That makes fiberglass profile density one of the most informative numbers on a datasheet — if you know how to read it.
+
+## Why FRP density is a range, not a constant
+
+Pull two published examples. Strongwell's design manual lists the density of its EXTREN 500/525 and 600/625 structural shapes as 0.062–0.070 lb/in³ — 1.72 to 1.94 g/cm³ — measured to ASTM D792, the standard displacement method for plastics. F1 Composite publishes 1.9 g/cm³ for its EN 13706 grade E23 laminate, with glass content declared at 65–70% by weight. Same process, same fiber family, and still a 13% spread inside a single catalog.
+
+The spread is not sloppiness. Two profiles pulled on the same line differ in density because one carries more continuous roving and the other more mat; because one matrix is filled and the other is not; because one laminate cured with fewer voids. Density is a fingerprint of the laminate inside the section. Metals do not work this way. Composites do, and the rest of this article is about reading the fingerprint.
+
+## The two ingredients: glass at 2.54, resin near 1.2
+
+Everything in a pultruded section traces back to a short list of constituents, and each has a known density:
+
+| Constituent | Density (g/cm³) | Role in the laminate |
+| --- | --- | --- |
+| E-glass fiber | 2.54 | The workhorse reinforcement of structural pultrusion |
+| E-CR glass | 2.72 | Boron-free, acid-corrosion-resistant grades |
+| Carbon fiber (Toray T700S) | 1.80 | Stiffness-critical hybrid layups |
+| Cured unsaturated polyester, unfilled | ≈1.1–1.2 | The matrix; published ranges reach 1.4 for filled and specialty systems |
+| Calcium carbonate filler | ≈2.7 | Cost, shrinkage and surface control |
+| Aluminium trihydrate (ATH) | 2.41 | Flame-retardant filler |
+
+A void-free composite must land between its constituents, and the mixing arithmetic is fixed. With weight fractions — which is what a burn-off test hands you — density follows the inverse rule of mixtures:
+
+**1/ρc = Wf/ρf + (1 − Wf)/ρm**
+
+where Wf is the glass weight fraction, ρf the fiber density and ρm the matrix density. Plug in E-glass and an unfilled 1.20 g/cm³ polyester: a laminate at 65% glass by weight computes to 1.83 g/cm³, and at 70% it reaches 1.90. That is most of the mystery of FRP profile density solved in one line. Glass content in, density out.
+
+## Rovings, mats and fabrics: the architecture behind the number
+
+Glass content is not a dial a pultruder turns freely. It is set by which reinforcement forms physically feed through the die, and each form packs glass differently.
+
+**Rovings** are untwisted bundles of parallel continuous filaments. Straight, aligned strands nest tightly, so roving-dominant zones carry the highest local glass content in the laminate — this is where axial stiffness and tensile strength come from. **Continuous filament mat and chopped strand mat** are the opposite: randomly swirled filaments with loft, which trap resin between loops and hold local glass content well below what rovings achieve. Mat buys transverse strength and holds the profile together across the pull direction. **Woven and stitched fabrics** (0/90, ±45) sit between the two — engineered transverse properties at packing densities better than mat, short of pure roving. And the **surfacing veil** is barely reinforcement at all: a thin, resin-rich skin whose job is corrosion and UV protection, not load.
+
+So the same two raw materials produce a family of densities. A solid rod pulled almost entirely from rovings sits at the top of the band. A wide, mat-rich flange sits lower. You can even run the arithmetic backwards: apply the rule of mixtures to EXTREN's published 1.72–1.94 g/cm³ with an assumed unfilled 1.20 resin and the implied glass content spans roughly 57–72% by weight — a spread that tracks with Strongwell's own description of the shapes as mat/roving composites, mat-heavier sections at one end and roving-dominant ones at the other.
+
+This is also why density, glass content and mechanical grade move together. EN 13706 grade E23 requires a full-section longitudinal modulus of 23 GPa and 240 MPa axial tensile strength; no resin-rich laminate gets there. When a [pultruded FRP profile](/resources/blog/what-is-pultrusion) is specified to E23, its density has effectively been specified too — somewhere near 1.9.
+
+## Fillers and voids: the matrix side of the equation
+
+The resin a profile ships with is rarely neat resin. Mineral fillers are blended in for cost, shrinkage control and fire performance, and both common fillers are heavier than the polymer they displace: calcium carbonate at about 2.7 g/cm³ and aluminium trihydrate at 2.41, versus 1.1–1.2 for the cured polyester itself. A 2022 study in *Polymers* measured exactly the expected result — adding ATH and calcium carbonate to a glass-fiber polyester laminate raised its density. Fire-rated profiles carry heavy ATH loadings, which is why a flame-retardant grade of the same shape often weighs measurably more than the standard one. The extra weight is buying char formation and smoke suppression, not strength.
+
+Voids push the other way. Every air pocket left by imperfect wet-out lowers density below what the recipe predicts — and unlike fillers, voids give nothing back. ASTM D2734, the void-content standard, works by comparing measured density against the theoretical rule-of-mixtures value; the gap is porosity. Higher void content means lower fatigue resistance and faster water uptake.
+
+One honest caveat: density alone is not a quality certificate. A heavily filled, under-glassed laminate can hit 1.9 g/cm³ just like a well-made one — filler weight impersonating glass weight. Density becomes an audit tool only when paired with a glass-content measurement, which is the next section.
+
+## How density is measured — and how to audit a laminate with it
+
+Two cheap laboratory tests reconstruct most of a laminate recipe.
+
+**ASTM D792** measures density by displacement — weigh the specimen in air, weigh it in water, done. This is the method behind virtually every density line on an FRP datasheet, Strongwell's and ours included.
+
+**The burn-off** measures what the density was made of. ASTM D2584 ignites a small specimen at around 565°C until the resin is gone and weighs the glass that remains; the mass loss is the resin fraction. ISO 1172:2023 is the international counterpart, calcining at 625°C, and its Method B goes one step further — separating textile glass from mineral filler, so a filled laminate cannot disguise chalk as glass.
+
+Together the two tests take an afternoon, and they close the loop: density from D792, glass and filler fractions from the burn, and the inverse rule of mixtures to check that the three numbers agree. If a supplier declares 65–70% glass and 1.9 g/cm³ and the arithmetic does not close, ask questions before the profiles are on a ship. We publish both numbers for every product precisely so buyers can run this check — the laminate values are on the [technical data page](/resources/technical-data) and on each datasheet.
+
+## From density to weight per meter — and FRP vs steel weight
+
+For a buyer, density matters because it converts geometry into kilograms. Weight per meter is cross-section area times density, nothing more. Take a fiberglass I-beam with a 20 cm² cross-section: at 1.9 g/cm³ it weighs 3.8 kg/m. The identical section rolled in steel is 15.7 kg/m and extruded in aluminum 5.4 kg/m — the FRP member is about 76% lighter than steel and 30% lighter than aluminum. That is the whole FRP vs steel weight argument compressed into one multiplication, and it is why two installers can place a 6-meter FRP beam that would need lifting equipment in steel.
+
+Density is also a lever. Carbon fiber at 1.80 g/cm³ is lighter than the E-glass it replaces, so a [carbon-glass hybrid pultrusion](/resources/blog/frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion) gains axial stiffness while its density falls — the only move in the recipe that improves both numbers at once. And commercially, density is how per-kilogram prices become per-meter prices: quoted price times density times section area gives cost per meter, which is why our [price estimator](/fiberglass-pultruded-profile-price) asks for the section and does the density arithmetic for you.
+
+## The numbers F1 Composite publishes
+
+Every F1 datasheet declares the same laminate: 1.9 g/cm³ density, 65–70% E-glass by weight, isophthalic polyester matrix, mechanical minimums to EN 13706 grade E23. Run the check yourself — 70% glass at a 1.20 resin computes to 1.90 g/cm³ on the nose. The numbers close because they describe one real laminate, not a marketing composite of best cases.
+
+If your project needs a different point on the density map — an E-CR glass laminate for acid service, an ATH-loaded fire-rated grade, a carbon-glass hybrid chasing stiffness per kilogram — that is die and recipe work we do routinely as [custom pultrusion](/products/custom-pultrusions). Send the section drawing and the service conditions to Doris Li at Doris.li@f1composite.com, and the quote comes back with the laminate spec and certified test values, not just a price.`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(
