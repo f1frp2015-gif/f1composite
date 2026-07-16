@@ -288,13 +288,8 @@ export default function FrpVsTraditionalPage() {
     image: absoluteUrl("/technology/frp-vs-traditional-materials/opengraph-image"),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     citation: referencedStandards,
   };
 

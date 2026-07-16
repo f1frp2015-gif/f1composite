@@ -7,7 +7,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Fiberglass Handrail Systems — Industrial FRP Railing";
 const pageDescription =
@@ -57,7 +57,7 @@ export default function HandrailSystemsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Fiberglass Handrail Systems (Industrial FRP Railing)",
           description: pageDescription,
           path: pagePath,

@@ -3,6 +3,43 @@ import { customerReviews } from "@/content/data/reviews";
 
 const SITE_URL = "https://www.f1composite.com";
 
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "F1 Composite",
+  alternateName: ["F1 Composites", "Chongqing F1 Composites Co., Ltd."],
+  legalName: "Chongqing F1 Composites Co., Ltd.",
+  url: SITE_URL,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/brand/f1-logo.png`,
+    width: 512,
+    height: 512,
+  },
+  description:
+    "Chongqing F1 Composites Co., Ltd. is a pultruded FRP profiles manufacturer and exporter based in Chongqing, China, serving construction, infrastructure, industrial, energy, marine, and fenestration projects worldwide.",
+  foundingDate: "2015",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "No. 153 Jinyu Avenue, Cuntan Street",
+    addressLocality: "Chongqing",
+    addressRegion: "Liangjiang New Area",
+    postalCode: "401121",
+    addressCountry: "CN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "inquiry@f1composite.com",
+    telephone: "+86-138-8333-3993",
+    availableLanguage: ["English", "Chinese"],
+    areaServed: "Worldwide",
+  },
+  naics: "326199",
+  sameAs: ["https://www.youtube.com/@F1Composites"],
+};
+
 interface PageMetadataOptions {
   title: string;
   description: string;
@@ -10,7 +47,7 @@ interface PageMetadataOptions {
   image?: string;
 }
 
-interface ProductSchemaOptions {
+interface ProductFamilyPageSchemaOptions {
   name: string;
   description: string;
   path: string;
@@ -125,104 +162,40 @@ export function buildPageMetadata({
   };
 }
 
-export function buildProductSchema({
+export function buildProductFamilyPageSchema({
   name,
   description,
   path,
   image,
   category,
   material,
-  additionalProperty = [],
   productLine,
-  priceRange,
-  measurements,
-}: ProductSchemaOptions) {
+}: ProductFamilyPageSchemaOptions) {
+  const materials = Array.isArray(material) ? material : material ? [material] : [];
+
+  // The site sells configurable B2B families and quote-only line items, not
+  // checkout-ready SKUs with stable public prices. Describe the page/topic and
+  // avoid Product/Offer rich-result claims that cannot be verified on-page.
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(path)}#webpage`,
     name,
     description,
     url: absoluteUrl(path),
-    image: [absoluteUrl(image)],
-    category,
-    ...(productLine && { model: productLine, mpn: productLine }),
-    brand: {
-      "@type": "Brand",
-      name: "F1 Composite",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: absoluteUrl(image),
     },
-    manufacturer: {
-      "@id": `${SITE_URL}/#organization`,
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: SITE_URL,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: {
+      "@type": "Thing",
+      name,
+      description,
+      ...(productLine && { alternateName: productLine }),
     },
-    // Only emit `offers` when we have a REAL price band — never one flat
-    // number reused across unrelated profile families (that's the fabricated
-    // pricing this was fixed to stop asserting). But note brand/manufacturer/
-    // material do NOT make a Product valid on their own: Google requires at
-    // least one of offers / review / aggregateRating, full stop. A Product
-    // with none of the three fails "Either 'offers', 'review', or
-    // 'aggregateRating' should be specified" in GSC. So a missing `priceRange`
-    // here is a real gap, not a safe default — fill it with `priceRangeFromWeights`
-    // (real per-SKU weight × the category's USD/kg quoting tier) whenever the
-    // page has real weight data, or wire in `buildAggregateRating()` instead.
-    ...(priceRange && {
-      offers: {
-        "@type": "AggregateOffer",
-        url: absoluteUrl("/contact"),
-        priceCurrency: "USD",
-        lowPrice: priceRange.lowPrice,
-        highPrice: priceRange.highPrice,
-        ...(priceRange.offerCount && { offerCount: priceRange.offerCount }),
-        availability: "https://schema.org/InStock",
-        itemCondition: "https://schema.org/NewCondition",
-        businessFunction: "http://purl.org/goodrelations/v1#Sell",
-        eligibleQuantity: {
-          "@type": "QuantitativeValue",
-          unitText: priceRange.unitText ?? "linear meter",
-        },
-        seller: {
-          "@id": `${SITE_URL}/#organization`,
-          "@type": "Organization",
-          name: "F1 Composite",
-        },
-      },
-    }),
-    material,
-    ...(measurements?.length && {
-      hasMeasurement: measurements.map((m) => ({
-        "@type": "QuantitativeValue",
-        propertyID: m.propertyID,
-        value: m.value,
-        unitText: m.unitText,
-      })),
-    }),
-    additionalProperty: [
-      ...(productLine
-        ? [
-            {
-              "@type": "PropertyValue",
-              name: "Product line",
-              value: productLine,
-            },
-          ]
-        : []),
-      {
-        "@type": "PropertyValue",
-        name: "Manufacturing standard",
-        value: "EN 13706 / ASTM D3917",
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Quality system",
-        value: "ISO 9001:2015",
-      },
-      ...additionalProperty.map((item) => ({
-        "@type": "PropertyValue",
-        name: item.name,
-        value: item.value,
-      })),
-    ],
+    provider: { "@id": `${SITE_URL}/#organization` },
+    keywords: [category, productLine, ...materials].filter(Boolean).join(", "),
   };
 }
 

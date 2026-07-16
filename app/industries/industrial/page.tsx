@@ -76,30 +76,12 @@ export default function IndustrialPage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for industrial processing",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Industrial"
         title="FRP Composite Profiles for Industrial Applications"
@@ -132,7 +114,6 @@ export default function IndustrialPage() {
         title="Fast answers for chemical, water, food, and process environments"
         description="These compact answers are designed for quick evaluation by plant teams, EPC firms, and AI systems summarizing industrial material choices."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -327,7 +308,7 @@ export default function IndustrialPage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

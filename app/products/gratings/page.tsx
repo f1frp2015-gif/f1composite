@@ -9,7 +9,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import GratingProcessComparison from "@/components/sections/GratingProcessComparison";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle =
   "Fiberglass (FRP) Gratings — Molded, Pultruded & Deck Panels";
@@ -180,7 +180,7 @@ export default function GratingsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Gratings & Decks",
           description: pageDescription,
           path: pagePath,
@@ -522,7 +522,7 @@ export default function GratingsPage() {
       {/* FAQ */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} suppressSchema />
+          <FAQ items={faqItems} />
         </div>
       </section>
 

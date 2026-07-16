@@ -119,13 +119,9 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
     image: absoluteUrl(`${pagePath}/opengraph-image`),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@type": "Person", name: authorName },
+    editor: { "@type": "Person", name: reviewedBy },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     about: [
       { "@type": "Thing", name: "Pultrusion" },
       { "@type": "Thing", name: "Plastic extrusion" },

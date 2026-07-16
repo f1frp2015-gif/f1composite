@@ -67,11 +67,7 @@ export default function SourcingPage() {
       price: "0",
       priceCurrency: "USD",
     },
-    creator: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
+    creator: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (

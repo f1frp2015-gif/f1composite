@@ -76,30 +76,12 @@ export default function MarinePage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for marine environments",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Marine"
         title="FRP Composite Profiles for Marine Applications"
@@ -132,7 +114,6 @@ export default function MarinePage() {
         title="Quick answers for docks, offshore structures, and vessels"
         description="These direct answer blocks help buyers and search engines understand why FRP is frequently selected for saltwater and coastal applications."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -336,7 +317,7 @@ export default function MarinePage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

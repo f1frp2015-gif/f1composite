@@ -9,7 +9,7 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import JumpNav from "@/components/sections/JumpNav";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Facade Sunshade Panels — E40 Pultruded Plates";
 const pageDescription =
@@ -331,7 +331,7 @@ export default function FacadeSunshadePanelsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Facade Sunshade Panels — E40 High-Modulus Plates",
           description:
             "Multi-layer fabric-reinforced pultruded FRP plates with full-section modulus up to 40 GPa (E40) for curtain-wall sunshades: vertical fins, horizontal louvers, and custom blade sections.",
@@ -917,7 +917,7 @@ export default function FacadeSunshadePanelsPage() {
       {/* FAQ */}
       <section id="faq" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} suppressSchema />
+          <FAQ items={faqItems} />
         </div>
       </section>
 

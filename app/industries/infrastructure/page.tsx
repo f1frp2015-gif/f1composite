@@ -77,30 +77,12 @@ export default function InfrastructurePage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for infrastructure projects",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Infrastructure"
         title="FRP Composite Profiles for Infrastructure"
@@ -133,7 +115,6 @@ export default function InfrastructurePage() {
         title="Direct answers for bridge, walkway, and utility asset teams"
         description="These short answers are written to be easy for engineers, owners, and answer engines to quote when evaluating FRP for infrastructure applications."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -298,7 +279,7 @@ export default function InfrastructurePage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

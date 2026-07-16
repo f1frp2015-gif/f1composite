@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import FrpProcessShowcase from "@/components/sections/FrpProcessShowcase";
@@ -100,20 +99,8 @@ export default function WhatIsFrpPage() {
     datePublished: "2026-04-14",
     dateModified: "2026-04-14",
     inLanguage: "en",
-    author: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: "https://www.f1composite.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: "https://www.f1composite.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.f1composite.com/brand/f1-logo.png",
-      },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     about: [
       {
         "@type": "Thing",

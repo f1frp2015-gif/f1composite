@@ -281,13 +281,8 @@ export default function PultrusionProcessPage() {
     image: absoluteUrl("/technology/pultrusion-process/opengraph-image"),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     citation: referencedStandards,
   };
 

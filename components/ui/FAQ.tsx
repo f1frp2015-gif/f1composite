@@ -1,32 +1,18 @@
-import JsonLd from "@/components/seo/JsonLd";
-
 export interface FAQItem {
   question: string;
   answer: string;
 }
 
+// Presentation only. Google retired FAQ rich results in May 2026, so emitting
+// FAQPage JSON-LD sitewide adds duplicate entities without a Search feature.
+
 interface FAQProps {
   items: FAQItem[];
-  suppressSchema?: boolean;
 }
 
-export default function FAQ({ items, suppressSchema = false }: FAQProps) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
+export default function FAQ({ items }: FAQProps) {
   return (
     <div className="mt-[55px]">
-      {!suppressSchema && <JsonLd data={schema} />}
       <h2 className="mb-[21px] text-f24 font-bold text-t1">Frequently Asked Questions</h2>
       <div className="space-y-[13px]">
         {items.map((item, i) => (

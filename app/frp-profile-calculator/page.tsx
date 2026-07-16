@@ -99,11 +99,7 @@ export default function CalculatorPage() {
             price: "0",
             priceCurrency: "USD",
           },
-          creator: {
-            "@type": "Organization",
-            name: "F1 Composite",
-            url: absoluteUrl("/"),
-          },
+          creator: { "@id": "https://www.f1composite.com/#organization" },
         }}
       />
       <JsonLd

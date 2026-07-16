@@ -207,21 +207,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       name: post.authorName,
       jobTitle: post.authorRole,
       ...(authorHref ? { url: absoluteUrl(authorHref) } : {}),
-      worksFor: {
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
+      worksFor: { "@id": "https://www.f1composite.com/#organization" },
     },
-    editor: {
-      "@type": "Organization",
-      name: post.reviewedBy,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: post.excerpt,
     mainEntityOfPage: absoluteUrl(`/resources/blog/${slug}`),
     citation: [...post.standards, ...(post.sourceLinks?.map((link) => link.href) ?? [])],

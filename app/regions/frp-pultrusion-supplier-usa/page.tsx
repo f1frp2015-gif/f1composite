@@ -64,61 +64,12 @@ export default function UsaRegionPage() {
       "@type": "Thing",
       name: "FRP pultrusion supply for United States infrastructure, energy, and Passive House projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "FRP Pultrusions for the United States — ASTM-Compliant Profiles, Gratings & Fenestration",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/regions/frp-pultrusion-supplier-usa.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "Pultruded FRP Profiles, Gratings, Fenestration Systems",
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "7",
-      highPrice: "120",
-      offerCount: "100",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      eligibleRegion: { "@type": "Country", name: "United States" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="United States"
@@ -259,7 +210,7 @@ export default function UsaRegionPage() {
             </LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

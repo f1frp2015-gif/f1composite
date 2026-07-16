@@ -11,7 +11,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import SectionSvg from "@/components/datasheets/SectionSvg";
-import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
 import { sig } from "@/lib/catalog/section";
@@ -99,7 +99,7 @@ export default async function DatasheetPage({
   const computedW = props?.massPerMetre != null ? Math.round(props.massPerMetre * 100) / 100 : null;
   const weightForOffer = publishedW ?? computedW;
 
-  const schema = buildProductSchema({
+  const schema = buildProductFamilyPageSchema({
     name: `${product.model} pultruded FRP profile`,
     description: buildDesc(product.model, formulation?.en13706_grade ?? null),
     path: `/datasheets/${slug}`,

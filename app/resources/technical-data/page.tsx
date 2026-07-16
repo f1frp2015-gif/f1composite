@@ -46,12 +46,7 @@ export default function TechnicalDataPage() {
     description:
       "Mechanical properties, density, glass content, and reference test standards for pultruded E-glass polyester FRP profiles.",
     url: absoluteUrl("/resources/technical-data"),
-    creator: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      legalName: "Chongqing F1 Composites Co., Ltd.",
-    },
+    creator: { "@id": "https://www.f1composite.com/#organization" },
     license: absoluteUrl("/terms"),
     isAccessibleForFree: true,
     keywords: [

@@ -124,11 +124,7 @@ export default function KnowhowServicesPage() {
     name: "Pultrusion Consulting and Technology Transfer",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    provider: { "@id": "https://www.f1composite.com/#organization" },
     image: absoluteUrl("/technology/knowhow-services/opengraph-image"),
     serviceType: "Pultrusion consulting, technology transfer, and turnkey line installation",
     datePublished: publishedAt,

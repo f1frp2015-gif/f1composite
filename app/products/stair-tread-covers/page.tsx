@@ -7,7 +7,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Stair Tread Covers — Anti-Slip Fiberglass (FRP) Treads";
 const pageDescription =
@@ -60,7 +60,7 @@ export default function StairTreadCoversPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Stair Tread Covers & Fiberglass Grating Treads",
           description: pageDescription,
           path: pagePath,

@@ -8,7 +8,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { SteelVsFrpChamberCore } from "@/components/sections/ConceptAnimations";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Pultruded Fiberglass Window Reinforcements — uPVC Cores";
 const pageDescription =
@@ -109,7 +109,7 @@ export default function WindowReinforcementProfilesPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Pultruded Fiberglass Window Reinforcement Profiles",
           description:
             "Custom pultruded fiberglass reinforcement cores for vinyl/uPVC window profiles — thermal-bridge-free replacement for galvanized steel chamber inserts.",

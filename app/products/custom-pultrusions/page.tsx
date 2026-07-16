@@ -8,7 +8,7 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Custom Pultrusions — Bespoke FRP Profile Manufacturer";
 const pageDescription =
@@ -132,40 +132,6 @@ export default function CustomPultrusionsPage() {
       { "@type": "Continent", name: "Asia" },
       { "@type": "Continent", name: "Oceania" },
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Custom pultrusion capabilities",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Cross-section design and FEA validation",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "In-house steel die manufacturing",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Pilot production and sample approval",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Series production with EN 13706 / ASTM D3917 QA",
-          },
-        },
-      ],
-    },
     termsOfService: absoluteUrl("/terms"),
   };
 
@@ -207,7 +173,7 @@ export default function CustomPultrusionsPage() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={howToSchema} />
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Custom Pultruded FRP Profiles",
           description: pageDescription,
           path: pagePath,

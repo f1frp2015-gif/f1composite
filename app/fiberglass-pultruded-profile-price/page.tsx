@@ -117,12 +117,7 @@ export default function ProfilePricePage() {
           description:
             "Free live price estimator for pultruded fiberglass (FRP) profiles — I-beams, channels, angles, tubes — in USD per meter and per kg, with quantity breaks.",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-          provider: {
-            "@type": "Organization",
-            name: "F1 Composite",
-            legalName: "Chongqing F1 Composites Co., Ltd.",
-            url: absoluteUrl("/"),
-          },
+          provider: { "@id": "https://www.f1composite.com/#organization" },
         }}
       />
 

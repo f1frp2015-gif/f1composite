@@ -74,12 +74,7 @@ export default function SpanTablesPage() {
           description:
             `Precomputed allowable uniform load for ${totalRows} pultruded FRP profiles (I-beam, channel, square/rectangular tube, round tube) across spans of 1–6 m. Basis: EN 13706 E23, LRFD ASCE/SEI 74-23 (φ 0.65, γ_Q 1.6), outdoor knockdown 0.85, simply supported UDL, deflection L/250 with Timoshenko shear correction.`,
           url: absoluteUrl("/frp-span-tables"),
-          creator: {
-            "@type": "Organization",
-            name: "F1 Composite",
-            url: absoluteUrl("/"),
-            legalName: "Chongqing F1 Composites Co., Ltd.",
-          },
+          creator: { "@id": "https://www.f1composite.com/#organization" },
           license: absoluteUrl("/terms"),
           isAccessibleForFree: true,
           keywords: [

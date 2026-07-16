@@ -8,7 +8,7 @@ import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { buildPageMetadata, buildProductSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
 
 // Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
 // at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
@@ -135,7 +135,7 @@ export default function StandardProfilesPage() {
     <>
       <JsonLd data={itemListSchema} />
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Standard Structural Profiles",
           description:
             "Stock pultruded FRP structural shapes — I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. EN 13706 and ASTM D3917 compliant, ISO 9001 manufactured, 6 m standard lengths.",
@@ -265,7 +265,7 @@ export default function StandardProfilesPage() {
         title="Standard FRP profiles — frequently asked questions"
         description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminum options."
         items={faqItems}
-        suppressSchema
+
       />
 
       <section className="bg-white pb-[55px]">

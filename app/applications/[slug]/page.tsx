@@ -59,11 +59,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     description: page.description,
     url: absoluteUrl(`/applications/${page.slug}`),
     about: page.shortTitle,
-    publisher: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     mainEntityOfPage: absoluteUrl(`/applications/${page.slug}`),
   };
 

@@ -889,7 +889,6 @@ export default function PultrudedFRPProfilesHubPage() {
         title="Pultruded FRP profiles — frequently asked questions"
         description="Short answers for specifying engineers, procurement managers, and contractors evaluating pultruded fiberglass profiles."
         items={faqItems}
-        suppressSchema
       />
 
       <AskAICard

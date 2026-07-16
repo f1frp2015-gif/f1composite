@@ -65,60 +65,12 @@ export default function UAECableTrayPage() {
       "@type": "Thing",
       name: "FRP cable tray supply for UAE oil and gas projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Pultruded FRP Cable Tray for UAE Oil & Gas",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/regions/frp-cable-tray-uae-oil-gas.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "Pultruded FRP Cable Tray",
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "12",
-      highPrice: "85",
-      offerCount: "25",
-      availability: "https://schema.org/InStock",
-      eligibleRegion: { "@type": "Country", name: "United Arab Emirates" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="UAE / Oil & Gas"
@@ -239,7 +191,7 @@ export default function UAECableTrayPage() {
             </LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

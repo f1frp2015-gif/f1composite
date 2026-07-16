@@ -7,7 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -86,7 +86,7 @@ export default async function TubePage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Round Tubes",
           description: pageDescription,
           path: pagePath,

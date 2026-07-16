@@ -6,7 +6,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -86,7 +86,7 @@ export default async function FlatBarPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Flat Bars",
           description: pageDescription,
           path: pagePath,

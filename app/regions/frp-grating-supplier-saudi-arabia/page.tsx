@@ -75,61 +75,12 @@ export default function SaudiGratingPage() {
       "@type": "Thing",
       name: "FRP grating supply for Saudi Arabia petrochemical and infrastructure projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "FRP Gratings for Saudi Arabia — Pultruded & Moulded Fiberglass",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/regions/frp-grating-saudi-arabia-petrochemical.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "Pultruded FRP Gratings",
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "35",
-      highPrice: "90",
-      offerCount: "20",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      eligibleRegion: { "@type": "Country", name: "Saudi Arabia" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="Saudi Arabia"
@@ -306,7 +257,7 @@ export default function SaudiGratingPage() {
             </LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

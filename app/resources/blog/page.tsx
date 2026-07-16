@@ -27,7 +27,7 @@ export default function BlogPage() {
       datePublished: post.date,
       url: absoluteUrl(`/resources/blog/${post.slug}`),
       description: post.excerpt,
-      author: { "@type": "Organization", name: "F1 Composite" },
+      author: { "@id": "https://www.f1composite.com/#organization" },
     })),
   };
 

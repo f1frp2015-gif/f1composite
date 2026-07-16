@@ -7,7 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductSchema, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
@@ -75,7 +75,7 @@ export default async function AnglePage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Angle Profiles",
           description: pageDescription,
           path: pagePath,

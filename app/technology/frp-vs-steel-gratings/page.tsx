@@ -91,14 +91,8 @@ export default function FrpVsSteelGratingsPage() {
     headline: pageTitle,
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: pageDescription,
     mainEntityOfPage: absoluteUrl(pagePath),
     about: [
@@ -110,20 +104,9 @@ export default function FrpVsSteelGratingsPage() {
     citation: referencedStandards,
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Material Comparison"
         title="FRP Grating vs Steel Grating"
@@ -238,7 +221,7 @@ export default function FrpVsSteelGratingsPage() {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

@@ -7,7 +7,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Fiberglass Sheets & FRP Plate — Pultruded Flat Sheet";
 const pageDescription =
@@ -60,7 +60,7 @@ export default function FiberglassSheetsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Fiberglass Sheets & FRP Plate (Pultruded Flat Sheet)",
           description: pageDescription,
           path: pagePath,

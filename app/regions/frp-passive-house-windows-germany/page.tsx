@@ -69,71 +69,12 @@ export default function GermanyRegionPage() {
       "@type": "Thing",
       name: "Pultruded FRP (GFK) passive house window frames for German Passivhaus, Effizienzhaus, and GEG projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "FRP Passive House Windows for Germany — PHI-Certified Fiberglass Window Frames",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/regions/frp-passive-house-windows-germany.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    model: "F1-THERM",
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "FRP Window Frames and Fenestration Systems",
-    material: ["E-glass roving", "Vinyl ester resin"],
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "EUR",
-      lowPrice: "8",
-      highPrice: "110",
-      offerCount: "50",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      eligibleRegion: { "@type": "Country", name: "Germany" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-    hasMeasurement: [
-      {
-        "@type": "QuantitativeValue",
-        propertyID: "Whole-window U-value (U_w)",
-        value: "0.78",
-        unitText: "W/m²·K",
-      },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="Germany"
@@ -293,7 +234,7 @@ export default function GermanyRegionPage() {
             <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

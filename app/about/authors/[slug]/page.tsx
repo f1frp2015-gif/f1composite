@@ -50,12 +50,7 @@ export default async function AuthorPage({ params }: PageProps) {
     jobTitle: author.jobTitle,
     description: author.bio,
     url: absoluteUrl(`/about/authors/${author.slug}`),
-    worksFor: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    worksFor: { "@id": "https://www.f1composite.com/#organization" },
     knowsAbout: author.knowsAbout,
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };

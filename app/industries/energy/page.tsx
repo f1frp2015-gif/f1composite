@@ -86,30 +86,12 @@ export default function EnergyPage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for energy applications",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Energy & Power"
         title="FRP Composite Profiles for Energy & Electric Power"
@@ -142,7 +124,6 @@ export default function EnergyPage() {
         title="Short answers for power, cable management, and renewables"
         description="These answer blocks are tuned for electrical, renewable, and utility contexts where insulation, UV stability, and non-magnetic behavior matter."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -318,7 +299,7 @@ export default function EnergyPage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

@@ -49,13 +49,7 @@ export default function AboutPage() {
     inLanguage: "en",
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     mainEntity: { "@id": ORG_ID },
-    about: {
-      "@id": ORG_ID,
-      "@type": "Organization",
-      name: "F1 Composite",
-      disambiguatingDescription:
-        "Industrial manufacturer and exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport or the FIA.",
-    },
+    about: { "@id": ORG_ID },
   };
 
   return (

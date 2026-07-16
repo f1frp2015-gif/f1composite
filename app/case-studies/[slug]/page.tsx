@@ -396,11 +396,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     about: cs.industry,
     datePublished: cs.year,
     locationCreated: cs.location,
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     image: absoluteUrl(`/case-studies/${slug}/opengraph-image`),
   };
 

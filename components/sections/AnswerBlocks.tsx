@@ -1,4 +1,3 @@
-import JsonLd from "@/components/seo/JsonLd";
 import SectionTag from "@/components/ui/SectionTag";
 
 export interface AnswerBlockItem {
@@ -11,7 +10,6 @@ interface AnswerBlocksProps {
   title: string;
   description?: string;
   items: AnswerBlockItem[];
-  suppressSchema?: boolean;
 }
 
 export default function AnswerBlocks({
@@ -19,25 +17,10 @@ export default function AnswerBlocks({
   title,
   description,
   items,
-  suppressSchema = false,
 }: AnswerBlocksProps) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
   return (
     <section className="bg-white py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
-        {!suppressSchema && <JsonLd data={schema} />}
         <SectionTag>{tag}</SectionTag>
         <h2 className="mt-[13px] max-w-[900px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           {title}

@@ -11,7 +11,8 @@ import GlobalTrust from "@/components/sections/GlobalTrust";
 import HomeFAQ from "@/components/sections/HomeFAQ";
 import CTABand from "@/components/sections/CTABand";
 import InnerCTA from "@/components/sections/InnerCTA";
-import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildPageMetadata, organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={organizationSchema} />
       <Hero />
       <SolutionsSnapshot />
       <IndustriesSnapshot />

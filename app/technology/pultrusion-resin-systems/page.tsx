@@ -76,11 +76,7 @@ export default function PultrusionResinSystemsPage() {
             url: absoluteUrl("/about/authors/haifeng-gong"),
             jobTitle: "R&D Lead — composite materials and pultrusion process development",
           },
-          publisher: {
-            "@type": "Organization",
-            name: "F1 Composite",
-            url: absoluteUrl("/"),
-          },
+          publisher: { "@id": "https://www.f1composite.com/#organization" },
           about: [
             { "@type": "Thing", name: "Resin matrix" },
             { "@type": "Thing", name: "Pultrusion" },

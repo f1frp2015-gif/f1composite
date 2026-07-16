@@ -12,7 +12,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import JumpNav from "@/components/sections/JumpNav";
 import { WindowOpeningTypes } from "@/components/sections/ConceptAnimations";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle =
   "Pultruded Fiberglass & FRP Windows, Doors — Extreme Cold";
@@ -378,7 +378,7 @@ export default function FenestrationSystemsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Windows & Doors — Extreme-Cold Fenestration",
           description:
             "Finished GFRP-PU windows and doors and pultruded fenestration profiles for extreme-cold and passive house buildings. 65-140 series, U-values down to 0.78 W/m2K, proven to −60°C.",
@@ -894,7 +894,7 @@ export default function FenestrationSystemsPage() {
       {/* FAQ */}
       <section id="faq" className="scroll-mt-[89px] bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} suppressSchema />
+          <FAQ items={faqItems} />
         </div>
       </section>
 

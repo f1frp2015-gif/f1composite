@@ -23,34 +23,7 @@ export default function ContactPage() {
     description:
       "Get in touch with F1 Composite for quotations, technical consultation, or partnership inquiries. Our engineering team responds within one business day.",
     url: absoluteUrl("/contact"),
-    mainEntity: {
-      "@type": "Organization",
-      name: "Chongqing F1 Composites Co., Ltd.",
-      url: absoluteUrl("/"),
-      email: "inquiry@f1composite.com",
-      telephone: "+86-138-8333-3993",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area",
-        addressLocality: "Chongqing",
-        addressCountry: "CN",
-      },
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          email: "inquiry@f1composite.com",
-          telephone: "+86-138-8333-3993",
-          contactType: "sales",
-          availableLanguage: ["English", "Chinese"],
-        },
-        {
-          "@type": "ContactPoint",
-          email: "f1frp2015@gmail.com",
-          contactType: "technical support",
-          availableLanguage: ["English", "Chinese"],
-        },
-      ],
-    },
+    mainEntity: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (

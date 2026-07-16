@@ -53,11 +53,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
     description:
       "AI-powered engineering advisor for pultruded FRP composite profiles — material selection, specifications, and application guidance.",
     applicationCategory: "Engineering Tool",
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (

@@ -76,30 +76,12 @@ export default function ConstructionPage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for the construction industry",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Construction"
         title="FRP Composite Profiles for Construction"
@@ -132,7 +114,6 @@ export default function ConstructionPage() {
         title="Short answers for facade, envelope, and framing decisions"
         description="These answer blocks make the construction use case easier to quote, summarize, and reuse in search and AI-generated responses."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -319,7 +300,7 @@ export default function ConstructionPage() {
             </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

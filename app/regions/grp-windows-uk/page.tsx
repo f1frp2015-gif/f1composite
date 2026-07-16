@@ -65,71 +65,12 @@ export default function UkRegionPage() {
       "@type": "Thing",
       name: "Pultruded GRP (glass reinforced plastic) window frames for UK Part L, Passivhaus, and EnerPHit projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "GRP Windows for the UK — Pultruded Fibreglass Window Frames",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/regions/grp-windows-uk.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    model: "F1-THERM",
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "GRP Window Frames and Fenestration Systems",
-    material: ["E-glass roving", "Vinyl ester resin", "Polyurethane resin"],
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "GBP",
-      lowPrice: "7",
-      highPrice: "95",
-      offerCount: "50",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      eligibleRegion: { "@type": "Country", name: "United Kingdom" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-    hasMeasurement: [
-      {
-        "@type": "QuantitativeValue",
-        propertyID: "Whole-window U-value (U_w)",
-        value: "0.78",
-        unitText: "W/m²·K",
-      },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="United Kingdom"
@@ -292,7 +233,7 @@ export default function UkRegionPage() {
             <LinkArrow href="/regions/frp-passive-house-windows-germany">FRP passive house windows — Germany</LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 
