@@ -7,15 +7,15 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import GratingProcessComparison from "@/components/sections/GratingProcessComparison";
+import GratingSelectionGuide from "@/components/sections/GratingSelectionGuide";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle =
-  "Fiberglass (FRP) Gratings — Molded, Pultruded & Deck Panels";
-const pageDescription =
-  "Fiberglass grating — molded & pultruded FRP gratings and deck panels for chemical, marine, bridge decks. ASTM E84 Class A, slip-rated, ADA series. DDP USA 24h.";
 const pagePath = "/products/gratings";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -405,7 +405,7 @@ export default function GratingsPage() {
       </section>
 
       {/* Molded vs pultruded: process animations + comparison + fit */}
-      <GratingProcessComparison />
+      <GratingSelectionGuide />
 
       {/* Load Ratings */}
       <section className="bg-bg2 py-[89px]">

@@ -8,13 +8,14 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle = "FRP Grating vs Steel Grating — Corrosion, Slip, Cost";
-const pageDescription =
-  "FRP grating vs steel grating: load, corrosion, weight, slip, electrical safety, lifecycle cost — why pultruded and molded FRP replaces galvanized steel.";
 const pagePath = "/technology/frp-vs-steel-gratings";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-04-15";
+const updatedAt = "2026-07-16";
 const authorName = "F1 Composite Gratings Engineering Team";
 const authorRole = "Platform design, load rating, and industrial walkway specialists";
 const reviewedBy = "Technical Applications Group";

@@ -1,5 +1,6 @@
 export interface ApplicationPage {
   slug: string;
+  lastModified: string;
   title: string;
   shortTitle: string;
   description: string;
@@ -18,6 +19,7 @@ export interface ApplicationPage {
 export const applicationPages: ApplicationPage[] = [
   {
     slug: "frp-cable-tray-supports",
+    lastModified: "2026-05-03",
     title: "FRP Cable Tray Supports — Channels & Brackets",
     shortTitle: "FRP cable tray supports",
     description:
@@ -52,6 +54,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cooling-tower-profiles",
+    lastModified: "2026-05-03",
     title: "FRP Cooling Tower Profiles — Corrosion-Resistant",
     shortTitle: "FRP cooling tower profiles",
     description:
@@ -94,6 +97,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-bridge-deck-panels",
+    lastModified: "2026-05-03",
     title: "FRP Bridge Deck Panels - Lightweight Pultruded Decking",
     shortTitle: "FRP bridge deck panels",
     description:
@@ -128,6 +132,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-solar-mounting-profiles",
+    lastModified: "2026-05-03",
     title: "FRP Solar Mounting Profiles — Lightweight PV Racking",
     shortTitle: "FRP solar mounting profiles",
     description:
@@ -162,6 +167,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-chemical-plant-platforms",
+    lastModified: "2026-05-03",
     title: "FRP Chemical Plant Platforms - Beams, Gratings and Handrails",
     shortTitle: "FRP chemical plant platforms",
     description:

@@ -5,6 +5,10 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { blogPosts } from "@/content/data/blogPosts";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+
+const pagePath = "/resources/frp-windows-guide";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 /**
  * Pillar hub for the window / fenestration content cluster — the site's
@@ -15,10 +19,9 @@ import { blogPosts } from "@/content/data/blogPosts";
  */
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Windows Guide: Selection, U-Value, Certification",
-  description:
-    "The complete FRP window library — frame selection, U-value targets, PHI / NAFS / AS 2047 certification, supplier qualification & fabrication, by buyer journey.",
-  path: "/resources/frp-windows-guide",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
 });
 
 interface Stage {

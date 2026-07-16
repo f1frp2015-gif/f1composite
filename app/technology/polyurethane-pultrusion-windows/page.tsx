@@ -9,13 +9,14 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle = "Polyurethane Pultrusion Windows — GFRP-PU Frame Guide";
-const pageDescription =
-  "What GFRP-PU polyurethane pultrusion windows are, why PU resin frames outperform polyester on strength and thin walls, and how F1 supplies them.";
 const pagePath = "/technology/polyurethane-pultrusion-windows";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const publishedAt = "2026-07-07";
-const updatedAt = "2026-07-07";
+const updatedAt = "2026-07-16";
 const authorName = "F1 Composite Fenestration Engineering Team";
 const authorRole = "Polyurethane pultrusion process, window system design, and U-value modeling specialists";
 const reviewedBy = "Technical Applications Group";

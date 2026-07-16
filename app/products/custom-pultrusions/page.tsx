@@ -9,11 +9,12 @@ import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle = "Custom Pultrusions — Bespoke FRP Profile Manufacturer";
-const pageDescription =
-  "Custom pultrusions to your spec. 600×300 mm max, E-glass/carbon/aramid, 4–8 wk tooling, 500 m MOQ. ASTM E84 Class A. DDP USA · Section 301 pre-quoted · 24h.";
 const pagePath = "/products/custom-pultrusions";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,

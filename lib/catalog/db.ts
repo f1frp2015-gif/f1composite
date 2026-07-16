@@ -181,6 +181,8 @@ export interface ProductRow {
   tolerances: string | null;
   status: string;
   sort: number;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface DownloadRow {

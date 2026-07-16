@@ -9,6 +9,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 // Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
 // at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
@@ -17,12 +18,13 @@ import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRang
 // than derived live; update them if a new size ever pushes past either end.
 const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
 const CATALOG_TOTAL_SKUS = "114";
+const pagePath = "/products/standard-profiles";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Fiberglass Structural Shapes — FRP Profile Sizes & Weights",
-  description:
-    "Fiberglass structural shapes size chart: I-beams, channels, angles, tubes, flat bars, rods — dimensions, weights & section data. 114 sizes · EN 13706 · DDP USA.",
-  path: "/products/standard-profiles",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
   image: "/products/standard-profiles/opengraph-image",
 });
 

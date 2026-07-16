@@ -31,12 +31,14 @@ export default function Hero() {
             className="font-extrabold tracking-[-0.03em] text-white"
             style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
           >
-            F1 Composite — Pultruded FRP Profiles Manufacturer{" "}
-            <span className="text-teal">Direct from China</span>
+            F1 Composite — FRP Manufacturing{" "}
+            <span className="text-teal">for Global Projects</span>
           </h1>
 
           <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            Fiberglass structural shapes, FRP window profiles, gratings, and custom pultrusions — direct factory export to 30+ countries. EN 13706 / ASTM D3917 / ISO 9001, 370 pultrusion lines at the FengDu base, no distributor markup.
+            One manufacturing source for structural profiles, window systems, gratings,
+            and engineered custom sections — backed by EN 13706 / ASTM D3917 / ISO 9001
+            controls and export support to 30+ countries.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">

@@ -11,12 +11,12 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForHub } from "@/lib/aiPrefill";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle =
-  "Pultruded FRP Profiles & Structural Shapes — EN 13706 DDP";
-const pageDescription =
-  "FRP manufacturer for structural, PHIUS frames, gratings, custom pultrusions. ASTM E84 · EN 13706 · 370 lines. DDP USA quote 24h, Section 301 inline.";
 const pagePath = "/pultruded-frp-profiles";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
@@ -350,7 +350,7 @@ const hubDownloads = [
   { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
 ];
 
-const LAST_UPDATED = "2026-06-29";
+const LAST_UPDATED = "2026-07-16";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 
 export default function PultrudedFRPProfilesHubPage() {
@@ -392,40 +392,9 @@ export default function PultrudedFRPProfilesHubPage() {
     publisher: { "@id": "https://www.f1composite.com/#organization" },
   };
 
-  // HowTo — the pultrusion process, as machine-readable steps (GEO).
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How pultruded FRP profiles are made (the pultrusion process)",
-    description:
-      "The continuous pultrusion process that produces constant-cross-section fiberglass structural profiles.",
-    step: [
-      { "@type": "HowToStep", position: 1, name: "Reinforcement creels", text: "E-glass roving, continuous strand mat, and surfacing veil are drawn from creels and arranged to the target fiber architecture." },
-      { "@type": "HowToStep", position: 2, name: "Resin impregnation", text: "The dry reinforcement is saturated in a resin bath (or by direct injection) with polyester, vinyl ester, polyurethane, or phenolic resin chosen for the service environment." },
-      { "@type": "HowToStep", position: 3, name: "Pre-forming and heated die", text: "Pre-formers shape the wet pack, which enters a heated steel die at roughly 100–150 °C where the resin cures into a rigid constant cross-section." },
-      { "@type": "HowToStep", position: 4, name: "Continuous pulling", text: "A pulling system draws the cured profile through the die continuously at about 0.3–1.5 m/min." },
-      { "@type": "HowToStep", position: 5, name: "Cut to length", text: "A flying cut-off saw cuts the profile to length — standard packaging is 6 m or 12 m, with effectively unlimited length available." },
-    ],
-  };
-
-  // DefinedTermSet — on-page glossary, entity-tagged for AI retrieval (GEO).
-  const glossarySchema = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    name: "Pultruded FRP profiles — glossary",
-    url: absoluteUrl("/resources/glossary"),
-    hasDefinedTerm: hubGlossary.map((g) => ({
-      "@type": "DefinedTerm",
-      name: g.term,
-      description: g.def,
-    })),
-  };
-
   return (
     <>
       <JsonLd data={collectionSchema} />
-      <JsonLd data={howToSchema} />
-      <JsonLd data={glossarySchema} />
 
       <PageHeader
         tag="Pultruded FRP Profiles"

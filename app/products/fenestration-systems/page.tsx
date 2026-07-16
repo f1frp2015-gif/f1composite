@@ -11,14 +11,14 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import JumpNav from "@/components/sections/JumpNav";
-import { WindowOpeningTypes } from "@/components/sections/ConceptAnimations";
+import WindowTypesGrid from "@/components/sections/WindowTypesGrid";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle =
-  "Pultruded Fiberglass & FRP Windows, Doors — Extreme Cold";
-const pageDescription =
-  "Pultruded fiberglass (GFRP-PU) windows & doors for extreme cold: factory-assembled, leak-tested, U_w 0.78 (PHI 2491wi03), proven to −60°C. Canada, Russia. DDP.";
 const pagePath = "/products/fenestration-systems";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -571,7 +571,7 @@ export default function FenestrationSystemsPage() {
           </p>
 
           <div className="mt-[34px]">
-            <WindowOpeningTypes />
+            <WindowTypesGrid />
           </div>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
