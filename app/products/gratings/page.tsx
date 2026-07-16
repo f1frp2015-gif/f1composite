@@ -219,8 +219,8 @@ export default function GratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
             <Image
-              src="/images/products/frp-grating-industrial.jpg"
-              alt="Industrial facility with grating platforms, walkways, and stairways — typical FRP grating applications"
+              src="/images/products/frp-grating-types-molded-deck-pultruded.jpg"
+              alt="Three FRP grating types side by side — yellow molded mesh grating panel, gritted solid-top structural deck panel, and yellow pultruded I-bar grating"
               fill
               sizes="100vw"
               className="object-cover"
