@@ -220,7 +220,7 @@ export default function GratingsPage() {
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
             <Image
               src="/images/products/frp-grating-types-molded-deck-pultruded.jpg"
-              alt="Three FRP grating types side by side — yellow molded mesh grating panel, gritted solid-top structural deck panel, and yellow pultruded I-bar grating"
+              alt="Three FRP grating types side by side — yellow molded mesh grating panel, gritted solid-top structural deck panel, and stacked yellow and gray pultruded bar grating panels"
               fill
               sizes="100vw"
               className="object-cover"
