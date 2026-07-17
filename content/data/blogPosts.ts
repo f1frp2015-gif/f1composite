@@ -539,9 +539,13 @@ The FRP window profile market rewards exactly one kind of participant on each si
     authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Review Board",
     standards: ["EN 14024", "EN 13830", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
-    coverImage: "/images/blog/curtain-wall-isolator-structural-detail.png",
+    coverImage: "/images/blog/curtain-wall-blue-glass-facade-clean.jpg",
     coverAlt:
-      "Curtain wall thermal break isolator structural detail — the isolator profile (highlighted) carries clamp preload, wind loads, and glass dead weight in the primary load path",
+      "Blue glass curtain wall with clean facade grid — a thermal break isolator profile sits hidden inside every joint of the mullion and transom framing",
+    coverAttribution: pexelsCredit(
+      "Jan van der Wolf",
+      "https://www.pexels.com/photo/11680885/",
+    ),
     supportingImage: "/images/blog/frp-curtain-wall-thermal-break-isolator-diagram.webp",
     supportingAlt:
       "Curtain wall thermal break diagram: pultruded FRP isolator profile (highlighted) between the aluminum pressure plate and the mullion-transom body, with screw clamping detail and isometric view",
