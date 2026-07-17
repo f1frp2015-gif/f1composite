@@ -3930,10 +3930,10 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
     authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
     reviewedBy: "Technical Review Board",
     standards: ["NFRC 200", "NFRC 100", "EN ISO 10077-1", "EN 410"],
-    coverImage: "/images/blog/window-profile-price-yellow-facade.jpg",
+    coverImage: "/images/blog/window-facade-solar-grid-modern.jpg",
     coverAlt:
-      "Sunlit yellow facade with regular window grid — every one of those openings trades heat loss (U-value) against solar gain (SHGC) all year",
-    coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
+      "Modern facade with floor-to-ceiling window grid surrounded by lush greenery — each opening negotiates heat loss (U-value) against solar gain (SHGC) through the seasons",
+    coverAttribution: pexelsCredit("Steve Pancrate", "https://www.pexels.com/photo/1746203/"),
     supportingImage: "/images/blog/window-corner-joint-interior.jpg",
     supportingAlt:
       "Window frame and glazing edge in warm interior light — coatings set SHGC, while frame and spacer set the U-value floor",
