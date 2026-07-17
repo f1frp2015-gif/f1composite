@@ -4,14 +4,14 @@ import SectionTag from "@/components/ui/SectionTag";
 import InnerCTA from "@/components/sections/InnerCTA";
 import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About F1 Composite — Pultruded FRP Profiles Manufacturer in China",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About F1 Composite — FRP Profiles Manufacturer, China",
   description:
-    "F1 Composite: 5 manufacturing bases, 370 pultrusion lines, 150,000 t/year. ISO 9001 FRP profiles manufacturer in China, exporting to 30+ countries.",
-  alternates: { canonical: absoluteUrl("/about") },
-};
+    "F1 Composite: ISO 9001 FRP profiles exporter in China, shipping to 30+ countries direct from its partner's FengDu base — 370 lines, 150,000 t/year.",
+  path: "/about",
+});
 
 const milestones = [
   { year: "2015", event: "F1 Composite founded by a team of FRP engineers" },
@@ -29,48 +29,61 @@ const certifications = [
   "ASTM Standard Test Method Compliance",
 ];
 
+const ORG_ID = "https://www.f1composite.com/#organization";
+
 export default function AboutPage() {
-  const organizationSchema = {
+  // Reference the single canonical Organization entity (defined globally in
+  // layout.tsx with @id #organization) instead of emitting a second, weaker
+  // Organization node here — two Organization nodes on one page fragment the
+  // entity in knowledge graphs. AboutPage points at that one entity and carries
+  // the explicit Formula 1 disambiguation so the page AI cites for
+  // "what is F1 Composite" resolves to the right company.
+  const aboutPageSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "F1 Composite Co., Ltd",
-    url: absoluteUrl("/"),
+    "@type": "AboutPage",
+    "@id": absoluteUrl("/about") + "#aboutpage",
+    url: absoluteUrl("/about"),
+    name: "About F1 Composite — FRP Profiles Manufacturer, China",
     description:
-      "Founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, serving global markets with pultruded FRP profiles.",
-    foundingDate: "2015",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area",
-      addressLocality: "Chongqing",
-      addressCountry: "CN",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "Doris.li@f1composite.com",
-      telephone: "+86-138-8333-3993",
-      contactType: "sales",
-      availableLanguage: ["English", "Chinese"],
-    },
-    knowsAbout: [
-      "Pultrusion",
-      "Fiber Reinforced Polymer",
-      "FRP Profiles",
-      "Composite Manufacturing",
-    ],
+      "Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
+    inLanguage: "en",
+    isPartOf: { "@id": "https://www.f1composite.com/#website" },
+    mainEntity: { "@id": ORG_ID },
+    about: { "@id": ORG_ID },
   };
 
   return (
     <>
-      <JsonLd data={organizationSchema} />
+      <JsonLd data={aboutPageSchema} />
       <PageHeader
         tag="About"
         title="Engineering Composites for the World"
-        description="F1 Composite Co., Ltd was founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, we serve global markets with precision-engineered pultruded profiles."
+        description="Chongqing F1 Composites Co., Ltd. was founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, we serve global markets with precision-engineered pultruded profiles."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About" },
         ]}
       />
+
+      {/* What F1 Composite is — entity disambiguation (industrial FRP, not motorsport) */}
+      <section className="border-b border-border-default bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>What F1 Composite Is</SectionTag>
+          <p className="mt-[21px] text-f18 leading-golden text-t1">
+            <strong>F1 Composite is an industrial manufacturer and exporter of pultruded
+            fiberglass (FRP / GRP) profiles</strong> — structural shapes, window frames,
+            gratings, and custom pultrusions for construction and infrastructure.
+          </p>
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
+            (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
+            <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
+            Chongqing F1 Composites Co., Ltd. is the international contracting and export
+            entity; manufacturing takes place at our long-term partner factory in Chongqing,
+            China.
+          </p>
+        </div>
+      </section>
 
       {/* Mission & Vision */}
       <section className="bg-bg2 py-[89px]">
@@ -113,27 +126,26 @@ export default function AboutPage() {
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite Co., Ltd is the international contracting entity behind
+                Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for
                 one of China&apos;s largest vertically integrated pultrusion manufacturers.
-                All overseas orders are contracted and invoiced under F1 Composite Co., Ltd;
-                manufacturing takes place at our Chongqing FengDu New Material Co., Ltd
-                (风渡新材料) factory. We operate five production bases with 370 pultrusion
-                lines, serving global markets with the same engineering team and
-                production facilities that supply China&apos;s domestic infrastructure.
+                All overseas orders are contracted and invoiced under Chongqing F1 Composites Co., Ltd.;
+                manufacturing takes place at its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd.
+                That factory operates five production bases with 370 pultrusion
+                lines — the same facilities that supply China&apos;s domestic infrastructure.
               </p>
               <p>
-                F1 Composite Co., Ltd was set up to give overseas clients what they need
+                Chongqing F1 Composites Co., Ltd. was set up to give overseas clients what they need
                 beyond the factory floor: one contracting counterparty, English-language
                 engineering support, international quality documentation, application
                 consulting, and responsive project management. When you work with F1,
-                you work directly with the manufacturer group — no distributor, no broker.
+                you contract with the export entity and receive material direct from the manufacturing partner&apos;s factory — no distributor, no broker.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
                 Today, F1 Composite serves architects, engineers, distributors, and OEMs
                 across 30+ countries — from standard structural profiles to PHI-certified
-                fenestration systems. Our Fengdu Passive GFRP 90 Series window frame holds
+                fenestration systems. The Fengdu Passive GFRP 90 Series window frame we export holds
                 Passive House Institute certification (Component-ID 2491wi03), demonstrating
                 the engineering depth behind every product we deliver.
               </p>
@@ -155,8 +167,8 @@ export default function AboutPage() {
           <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
             Manufacturing at scale, engineered to precision
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
-            Our own production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            Our manufacturing partner&apos;s production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
           </p>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[

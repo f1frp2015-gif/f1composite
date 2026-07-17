@@ -13,9 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "FRP vs Steel vs Aluminum — Structural Material Comparison";
+const pageTitle = "FRP vs Steel vs Aluminum: 75% Lighter, No Corrosion";
 const pageDescription =
-  "FRP vs steel cost and performance comparison: weight, tensile strength, corrosion resistance, thermal conductivity, lifecycle cost. Why fiberglass profiles outperform traditional materials.";
+  "FRP is 75% lighter than steel, with 4x its strength-to-density ratio and zero corrosion. Compare properties and 30% lifecycle cost savings data.";
 const pagePath = "/technology/frp-vs-traditional-materials";
 const publishedAt = "2024-03-22";
 const updatedAt = "2026-04-02";
@@ -288,13 +288,8 @@ export default function FrpVsTraditionalPage() {
     image: absoluteUrl("/technology/frp-vs-traditional-materials/opengraph-image"),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     citation: referencedStandards,
   };
 
@@ -344,7 +339,7 @@ export default function FrpVsTraditionalPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Case for Fiber-Reinforced Polymers
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
             Concrete cracks under tension. Pultruded FRP composites were engineered to
             overcome all of these limitations simultaneously.
@@ -509,7 +504,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Deeper Comparisons</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific comparison pages</h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page covers the big-picture comparison across five materials. For specific applications, dedicated pages go deeper into numbers, standards, and decision criteria.
           </p>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
@@ -520,7 +515,9 @@ export default function FrpVsTraditionalPage() {
 
           <h2 className="mt-[55px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <LinkArrow href="/pultruded-frp-profiles">View Our Product Range</LinkArrow>
+            <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles</LinkArrow>
+            <LinkArrow href="/fiberglass-pultruded-profile-price">Fiberglass profile price estimator</LinkArrow>
+            <LinkArrow href="/technology/china-alternative-to-strongwell-fiberline-exel">China alternative to Strongwell / Exel</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">How Pultrusion Works</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>
             <LinkArrow href="/technology/knowhow-services">Know-How Transfer Services</LinkArrow>

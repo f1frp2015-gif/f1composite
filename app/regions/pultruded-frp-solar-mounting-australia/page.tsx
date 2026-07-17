@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "Pultruded FRP Solar Mounting in Australia — Fiberglass Solar Racking Supplier";
+  "FRP Solar Mounting Australia — Fiberglass Racking Supplier";
 const pageDescription =
-  "Pultruded FRP solar mounting structures for Australian utility-scale, commercial, and rooftop solar. Direct-from-China factory supplier — corrosion-proof fiberglass racking, AS/NZS-compliant, lower foundation cost than aluminum, 25-year UV-stable.";
+  "Pultruded FRP solar racking for AU utility, commercial, rooftop. Corrosion-proof, AS/NZS-compliant, lower foundation cost than aluminum, 25-yr UV-stable.";
 const pagePath = "/regions/pultruded-frp-solar-mounting-australia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -65,60 +65,12 @@ export default function AustraliaSolarPage() {
       "@type": "Thing",
       name: "Pultruded FRP solar mounting structures for Australian solar projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Pultruded FRP Solar Mounting Profiles for Australia",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/industries/frp-energy-solar-power-installation.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "Pultruded FRP Solar Mounting",
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "8",
-      highPrice: "45",
-      offerCount: "30",
-      availability: "https://schema.org/InStock",
-      eligibleRegion: { "@type": "Country", name: "Australia" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="Australia"
@@ -135,8 +87,8 @@ export default function AustraliaSolarPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-energy-solar-power-installation.jpg"
-              alt="Pultruded FRP solar mounting structures for Australian solar farm"
+              src="/images/regions/frp-solar-mounting-australia.jpg"
+              alt="Pultruded FRP solar mounting racking on an Australian ground-mount solar array — corrosion-proof, AS/NZS 1170.2 wind-rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -239,7 +191,7 @@ export default function AustraliaSolarPage() {
             </LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

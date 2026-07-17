@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Industrial Plants — Chemical-Resistant Pultruded Fiberglass",
+  title: "FRP for Industrial Plants — Chemical-Resistant Pultruded",
   description:
     "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
   path: "/industries/industrial",
@@ -76,30 +76,12 @@ export default function IndustrialPage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for industrial processing",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Industrial"
         title="FRP Composite Profiles for Industrial Applications"
@@ -132,7 +114,6 @@ export default function IndustrialPage() {
         title="Fast answers for chemical, water, food, and process environments"
         description="These compact answers are designed for quick evaluation by plant teams, EPC firms, and AI systems summarizing industrial material choices."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -313,9 +294,21 @@ export default function IndustrialPage() {
                 Read comparison →
               </span>
             </Link>
+            <Link
+              href="/case-studies/factory-access-staircase"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Factory Access Staircase</h3>
+              <p className="text-f13 leading-golden text-t2">
+                F1&apos;s own Chongqing pultrusion line staircase, built from our profiles — 18 months zero-maintenance service beside live electrical cabinets and resin vapor.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read case study →
+              </span>
+            </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

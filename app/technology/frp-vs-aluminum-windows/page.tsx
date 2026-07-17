@@ -7,11 +7,13 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
+import { HeatFlowFrameComparison } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs Aluminum Window Frames — Thermal Performance, Cost, and PHI Suitability";
+const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost, PHIUS Data";
 const pageDescription =
-  "FRP vs aluminum window frames: U-value, thermal bridging, condensation, lifecycle cost, and passive house certification compared. Why pultruded fiberglass frames outperform thermally-broken aluminum.";
+  "FRP vs aluminum windows: U-value, thermal bridging, condensation, lifecycle cost, PHIUS suitability. Why pultruded FRP outperforms thermally-broken aluminum.";
 const pagePath = "/technology/frp-vs-aluminum-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";
@@ -91,14 +93,8 @@ export default function FrpVsAluminumWindowsPage() {
     headline: pageTitle,
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: pageDescription,
     mainEntityOfPage: absoluteUrl(pagePath),
     about: [
@@ -110,20 +106,9 @@ export default function FrpVsAluminumWindowsPage() {
     citation: referencedStandards,
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Material Comparison"
         title="FRP vs Aluminum Window Frames"
@@ -145,9 +130,9 @@ export default function FrpVsAluminumWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             For passive house and net-zero buildings, FRP is the only mainstream frame that meets Uw ≤ 0.80 W/m²·K without extraordinary glazing
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -156,6 +141,9 @@ export default function FrpVsAluminumWindowsPage() {
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page compares FRP and aluminum across the 13 properties that actually drive specification decisions: frame Uf, thermal bridging ψ, coefficient of thermal expansion, condensation resistance, corrosion resistance, lifecycle cost, and PHI certifiability. Every number is sourced from EN ISO 10077-1 calculations, manufacturer datasheets, or third-party certification test reports.
           </p>
+          <div className="mt-[21px] max-w-[860px]">
+            <HeatFlowFrameComparison />
+          </div>
         </div>
       </section>
 
@@ -165,7 +153,7 @@ export default function FrpVsAluminumWindowsPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
             Side-by-side: FRP vs aluminum window frames
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             FRP values reflect pultruded E-glass/polyester profiles in F1 Composite 65/70/80/90-series fenestration geometries. Aluminum values reflect 6063-T6 with polyamide thermal breaks typical of premium commercial systems. Highlighted rows show properties where FRP materially outperforms aluminum.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
@@ -199,9 +187,9 @@ export default function FrpVsAluminumWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why FRP Wins on Thermal Performance</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             The 500× conductivity gap is the whole story
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -217,9 +205,9 @@ export default function FrpVsAluminumWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Where Aluminum Still Wins</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Large spans and fully recyclable systems
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -232,8 +220,8 @@ export default function FrpVsAluminumWindowsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
-          <FAQ items={faqs} suppressSchema />
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqs} />
         </div>
       </section>
 
@@ -259,6 +247,7 @@ export default function FrpVsAluminumWindowsPage() {
               { href: "/products/fenestration-systems", label: "FRP fenestration systems (65/70/80/90/140)" },
               { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
               { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
@@ -285,6 +274,17 @@ export default function FrpVsAluminumWindowsPage() {
           },
         ]}
       />
+
+      <section className="bg-white pb-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/technology/u-value-calculator?frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            eyebrow="Free tool · aluminum vs FRP"
+            title="Compare your aluminum window against FRP"
+            sub="Opens the U-value calculator on a thermally-broken aluminum frame — swap to an F1 FRP frame on the same glazing and watch the whole-window Uw drop, per EN ISO 10077-1."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Specifying windows for a passive house or net-zero project?" />
     </>

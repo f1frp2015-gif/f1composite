@@ -20,7 +20,7 @@ export const sourcingRecommendationSchema = z.object({
           path: z
             .string()
             .describe(
-              "Internal F1 Composite URL path that documents this product, starting with /. Pick from /products/standard-profiles/{i-beam,channel,angle,square-tube,tube,flat-bar,rod}, /products/custom-pultrusions, /products/fenestration-systems, /products/gratings, /pultruded-frp-profiles. Never invent paths.",
+              "Internal F1 Composite URL path that documents this product, starting with /. Pick from /products/standard-profiles/{i-beam,channel,angle,square-tube,tube,flat-bar,rod}, /products/custom-pultrusions, /products/fenestration-systems, /products/facade-sunshade-panels, /products/gratings, /pultruded-frp-profiles. Never invent paths.",
             ),
         }),
       )

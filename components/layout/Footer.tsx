@@ -23,7 +23,9 @@ function FooterAccordion({ title, links }: { title: string; links: { label: stri
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between py-[13px] text-left md:pointer-events-none md:py-0"
       >
-        <h4 className="text-f13 font-bold text-t1">{title}</h4>
+        {/* Not a heading: footer column labels sat as h4 after each page's
+            last h2/h1, tripping heading-hierarchy checks sitewide. */}
+        <span className="text-f13 font-bold text-t1">{title}</span>
         <svg
           className={`h-4 w-4 text-t3 transition-transform duration-200 md:hidden ${open ? "rotate-180" : ""}`}
           fill="none"
@@ -67,15 +69,15 @@ export default function Footer() {
             />
             <div className="space-y-[8px]">
               <p className="text-f13 font-semibold text-t1">Doris Li — Sales Director</p>
-              <a href="mailto:Doris.li@f1composite.com" className="block text-f13 text-teal-text hover:text-teal">
-                Doris.li@f1composite.com
+              <a href="mailto:inquiry@f1composite.com" className="block text-f13 text-teal-text hover:text-teal">
+                inquiry@f1composite.com
               </a>
               <a href="tel:+8613883333993" className="block text-f13 text-teal-text hover:text-teal">
                 +86 138 8333 3993
               </a>
-              <p className="pt-[8px] text-f13 font-semibold text-t1">Technical Service</p>
-              <a href="mailto:f1frp2015@gmail.com" className="block text-f13 text-teal-text hover:text-teal">
-                f1frp2015@gmail.com
+              <p className="pt-[8px] text-f13 font-semibold text-t1">Sales &amp; Technical</p>
+              <a href="/contact?source=footer&inquiry_type=rfq" className="block text-f13 font-bold text-teal-text hover:text-teal">
+                Get a Quote / Ask an Engineer →
               </a>
               <a
                 href="https://wa.me/8613883333993"
@@ -108,6 +110,20 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Markets — regional landing pages (sitewide internal links) */}
+        <div className="mt-[34px] flex flex-wrap items-center gap-[21px] border-t border-border-default pt-[21px]">
+          <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Markets</span>
+          {footerNav.markets.map((m) => (
+            <Link
+              key={m.href}
+              href={m.href}
+              className="text-f13 text-t2 transition-colors duration-[0.21s] hover:text-teal-text"
+            >
+              {m.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Certifications */}
         <div className="mt-[34px] flex flex-wrap items-center gap-[21px] border-t border-border-default pt-[21px]">
           <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Certified</span>
@@ -120,7 +136,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-[21px] flex flex-wrap items-center justify-between gap-[13px] border-t border-border-default pt-[21px]">
           <p className="text-f11 text-t3">
-            © {new Date().getFullYear()} F1 Composite Co., Ltd. All rights reserved.
+            © {new Date().getFullYear()} Chongqing F1 Composites Co., Ltd. All rights reserved.
           </p>
           <div className="flex gap-[21px]">
             <Link href="/privacy" className="text-f11 text-t3 hover:text-teal-text">

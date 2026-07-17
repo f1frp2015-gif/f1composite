@@ -6,10 +6,8 @@ interface LegalEntityNoteProps {
 }
 
 const FACTS = {
-  contracting: "F1 Composite Co., Ltd",
+  contracting: "Chongqing F1 Composites Co., Ltd.",
   factory: "Chongqing FengDu New Material Co., Ltd",
-  factoryCN: "风渡新材料",
-  legacyName: "Chongqing Xianju New Material Co., Ltd",
 };
 
 export default function LegalEntityNote({
@@ -20,7 +18,7 @@ export default function LegalEntityNote({
     return (
       <p className={`text-f13 leading-golden text-t3 ${className}`}>
         Contracting entity: <span className="font-medium text-t2">{FACTS.contracting}</span>.
-        Manufactured at our own {FACTS.factory} factory ({FACTS.factoryCN}).
+        Manufactured by our long-term manufacturing partner {FACTS.factory} — direct from the factory, no trading middleman.
       </p>
     );
   }
@@ -29,10 +27,9 @@ export default function LegalEntityNote({
     return (
       <p className={`text-f15 leading-golden text-t2 ${className}`}>
         You contract with <span className="font-bold text-t1">{FACTS.contracting}</span>{" "}
-        — our international contracting entity. Manufacturing happens at our own{" "}
-        <span className="font-bold text-t1">{FACTS.factory}</span> ({FACTS.factoryCN}) factory:
-        same group, same engineering team, same production lines. You are working
-        directly with the manufacturer, never through a distributor or broker.
+        — our international contracting entity. Manufacturing happens at our long-term manufacturing partner{" "}
+        <span className="font-bold text-t1">{FACTS.factory}</span>:
+        the factory F1 Composite exports from directly. You contract with the export entity and receive material straight from the factory, never through a distributor or broker.
       </p>
     );
   }
@@ -50,16 +47,16 @@ export default function LegalEntityNote({
         <div className="flex flex-col gap-[2px]">
           <dt className="font-bold text-teal-text">Manufacturing</dt>
           <dd>
-            {FACTS.factory} ({FACTS.factoryCN}) — same group, same engineering team,
-            same production lines. Not outsourced.
+            {FACTS.factory} — our long-term manufacturing partner; the factory F1 Composite exports from directly. Not outsourced to a job shop.
           </dd>
         </div>
         <div className="flex flex-col gap-[2px]">
-          <dt className="font-bold text-teal-text">PHI certificate legacy name</dt>
+          <dt className="font-bold text-teal-text">PHI certificate provenance</dt>
           <dd>
-            Some historical PHI certificates and test reports are issued under{" "}
-            {FACTS.legacyName} — this is one of the five production bases in the
-            same group.
+            Some historical PHI certificates and test reports were issued under a
+            legacy production-base name used by the manufacturing partner,
+            verifiable via PHI Component-ID 2491wi03 — one of the five production
+            bases.
           </dd>
         </div>
       </dl>

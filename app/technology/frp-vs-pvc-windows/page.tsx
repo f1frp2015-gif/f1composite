@@ -7,11 +7,12 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs PVC Window Frames — Thermal Performance, Durability, and Structural Capacity";
+const pageTitle = "FRP vs PVC Windows — Thermal, Durability, Structural";
 const pageDescription =
-  "FRP vs PVC (uPVC) window frames compared: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and suitable applications. When to choose each.";
+  "FRP vs uPVC window frames: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and matching applications. When to choose each.";
 const pagePath = "/technology/frp-vs-pvc-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";
@@ -93,14 +94,8 @@ export default function FrpVsPvcWindowsPage() {
     headline: pageTitle,
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: pageDescription,
     mainEntityOfPage: absoluteUrl(pagePath),
     about: [
@@ -112,20 +107,9 @@ export default function FrpVsPvcWindowsPage() {
     citation: referencedStandards,
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Material Comparison"
         title="FRP vs PVC Window Frames"
@@ -147,9 +131,9 @@ export default function FrpVsPvcWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             PVC wins on cost; FRP wins on everything related to long-term performance
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -167,7 +151,7 @@ export default function FrpVsPvcWindowsPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
             Side-by-side: FRP vs uPVC window frames
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             FRP values reflect pultruded E-glass/polyester profiles in F1 Composite 65/70/80/90-series fenestration geometries. PVC values reflect premium triple-chamber uPVC systems typical of leading European manufacturers, steel-reinforced where required by span. Highlighted rows show properties where FRP materially outperforms PVC.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
@@ -201,9 +185,9 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>When to Choose Each</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             A decision framework by project type
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-2">
@@ -235,9 +219,9 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Try the Calculation</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Compare Uw across FRP, PVC, and aluminum frames on your specific window size
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -247,8 +231,8 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
-          <FAQ items={faqs} suppressSchema />
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqs} />
         </div>
       </section>
 
@@ -274,6 +258,8 @@ export default function FrpVsPvcWindowsPage() {
               { href: "/products/fenestration-systems", label: "FRP fenestration systems (65/70/80/90/140)" },
               { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
               { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
+              { href: "/products/window-reinforcement-profiles", label: "Fiberglass window reinforcements (steel replacement)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
@@ -300,6 +286,17 @@ export default function FrpVsPvcWindowsPage() {
           },
         ]}
       />
+
+      <section className="bg-white pb-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/technology/u-value-calculator?frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            eyebrow="Free tool · PVC vs FRP"
+            title="Compare your PVC window against FRP"
+            sub="Opens the U-value calculator on a multi-chamber PVC frame — switch to an F1 FRP frame on the same glazing to see the whole-window Uw delta, with no steel reinforcement needed at large sizes."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Selecting window frames for a passive house, commercial, or premium residential project?" />
     </>

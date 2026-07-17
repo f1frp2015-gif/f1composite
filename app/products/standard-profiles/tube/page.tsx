@@ -6,11 +6,17 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Round Tube — Pultruded Fiberglass Tube Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Round Tube & Tubing — Pultruded FRP Manufacturer";
 const pageDescription =
-  "Pultruded FRP round tubes 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917 certified. Handrails, guardrails, conduit, antenna masts. Free samples to 30+ countries.";
+  "Pultruded fiberglass round tube & tubing, 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917. Handrails, conduit, masts. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/tube";
 
 const faqItems = [
@@ -43,7 +49,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/tube/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "CHS 25×3", od: 25, t: 3, weight: "0.3" },
   { model: "CHS 32×3", od: 32, t: 3, weight: "0.4" },
   { model: "CHS 38×3.2", od: 38, t: 3.2, weight: "0.5" },
@@ -63,17 +69,31 @@ const sizes = [
   { model: "CHS 150×8", od: 150, t: 8, weight: "5.4" },
 ];
 
-export default function TubePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("round-tube");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    od: r.dims.OD ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function TubePage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Round Tubes",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/round-tube/frp-round-tube-80mm-od.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Outer Diameter Range", value: "25 mm to 150 mm" },
             { name: "Applications", value: "Handrails, guardrails, and conduit applications" },
@@ -82,8 +102,8 @@ export default function TubePage() {
       />
       <PageHeader
         tag="Round Tube"
-        title="FRP Round Tubes"
-        description="Circular hollow section pultruded FRP tubes from 25 mm to 150 mm OD."
+        title="Fiberglass Round Tubes & Tubing (FRP)"
+        description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -171,6 +191,7 @@ export default function TubePage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/frp-span-tables#round-tube", label: "FRP round tube span table — allowable loads" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets" },
@@ -184,6 +205,17 @@ export default function TubePage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator?shape=round-tube"
+            eyebrow="Free tool · round tube preset"
+            title="Size an FRP round tube — bending, shear &amp; deflection"
+            sub="Opens the FRP profile calculator on a round tube: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+          />
         </div>
       </section>
 

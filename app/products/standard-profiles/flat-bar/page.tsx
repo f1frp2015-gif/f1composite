@@ -6,11 +6,16 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Flat Bar — Pultruded Fiberglass Flat Bar Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Pultruded FRP flat bars 12×3 mm — 305×25 mm. ±0.25 mm tolerance, up to 70% glass content, EN 13706 / ASTM D3917 certified. Stiffeners, splice plates, rebar. Free samples to 30+ countries.";
+  "Pultruded fiberglass flat bar & bar stock 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass, EN 13706 / ASTM D3917. Stiffeners, splice plates. DDP USA 24h quote.";
 const pagePath = "/products/standard-profiles/flat-bar";
 
 const faqItems = [
@@ -43,7 +48,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/flat-bar/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "FB 12×3", w: 12, t: 3, weight: "0.07" },
   { model: "FB 20×3", w: 20, t: 3, weight: "0.11" },
   { model: "FB 25×3", w: 25, t: 3, weight: "0.14" },
@@ -64,17 +69,31 @@ const sizes = [
   { model: "FB 305×25", w: 305, t: 25, weight: "13.86" },
 ];
 
-export default function FlatBarPage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("flat-bar");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    w: r.dims.H ?? 0,
+    t: r.dims.B ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function FlatBarPage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Flat Bars",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/flat-bar/frp-flat-bar-150x15x4mm.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "12×3 mm to 305×25 mm" },
             { name: "Tolerance", value: "±0.25 mm thickness" },
@@ -83,8 +102,8 @@ export default function FlatBarPage() {
       />
       <PageHeader
         tag="Flat Bar"
-        title="FRP Flat Bars"
-        description="Solid rectangular pultruded FRP bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
+        title="Fiberglass Flat Bars (FRP Bar Stock)"
+        description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

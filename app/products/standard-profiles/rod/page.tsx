@@ -6,11 +6,16 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Round Rod — Pultruded Fiberglass Solid Rod Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Rod — Pultruded Solid FRP Round Rod Ø6–50 mm";
 const pageDescription =
-  "Pultruded FRP round rods Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive, EN 13706 certified. Soil nails, rock bolts, FRP rebar, marine tie-rods. Quote in 24h.";
+  "Pultruded fiberglass rod Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive solid FRP rods. Soil nails, rock bolts, tie-rods. DDP USA.";
 const pagePath = "/products/standard-profiles/rod";
 
 const faqItems = [
@@ -43,7 +48,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/rod/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "Rod Ø6", d: 6, weight: "0.05" },
   { model: "Rod Ø8", d: 8, weight: "0.09" },
   { model: "Rod Ø10", d: 10, weight: "0.14" },
@@ -62,17 +67,30 @@ const sizes = [
   { model: "Rod Ø50", d: 50, weight: "3.57" },
 ];
 
-export default function RodPage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("rod");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    d: r.dims.D ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function RodPage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Round Rods",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/round-rod/frp-round-rod-solid.jpg",
           category: "Pultruded FRP Structural Profiles",
           material: ["Unidirectional glass roving", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Diameter Range", value: "6 mm to 50 mm" },
             { name: "Glass Content", value: "65-70% unidirectional glass" },
@@ -81,8 +99,8 @@ export default function RodPage() {
       />
       <PageHeader
         tag="Round Rod"
-        title="FRP Round Rods"
-        description="Solid circular pultruded FRP rods from 6 mm to 50 mm diameter. Non-magnetic, non-conductive."
+        title="Fiberglass Rods (Solid FRP)"
+        description="Solid circular pultruded fiberglass rods from 6 mm to 50 mm diameter. Non-magnetic, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

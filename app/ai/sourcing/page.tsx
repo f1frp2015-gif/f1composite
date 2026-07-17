@@ -7,16 +7,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
+    // Drop the "AI Tools" intermediate — there is no /ai hub page, so it had
+    // no `item` URL and GSC flagged "Missing field item in itemListElement".
+    // Last item may omit `item` per schema.org spec.
     { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-    { "@type": "ListItem", position: 2, name: "AI Tools" },
-    { "@type": "ListItem", position: 3, name: "FRP Sourcing Assistant" },
+    { "@type": "ListItem", position: 2, name: "FRP Sourcing Assistant" },
   ],
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free FRP Sourcing Assistant — Get China Factory Pricing & Spec in 60 Seconds",
+  title: "Free FRP Sourcing Assistant — Spec + 48h Quote",
   description:
-    "Free AI-powered FRP sourcing tool. Describe your application — environment, load, standards, geography — and get an instant FRP specification, recommended resin system, applicable certifications, similar case studies, and a direct path to a 48-hour quote from F1 Composite (China factory). No login.",
+    "Describe your FRP project — environment, load, standards. AI returns spec, resin, certifications, case studies + 48h quote. ASTM/EN compliant, DDP USA.",
   path: "/ai/sourcing",
 });
 
@@ -65,11 +67,7 @@ export default function SourcingPage() {
       price: "0",
       priceCurrency: "USD",
     },
-    creator: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
+    creator: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
@@ -87,7 +85,7 @@ export default function SourcingPage() {
               <br />
               <span className="text-teal-text">Get a spec + China factory price path.</span>
             </h1>
-            <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
+            <p className="mt-[16px] mx-auto text-f15 leading-golden text-t2">
               Skip the brochure-browsing. Tell our AI what you&rsquo;re building, and it returns —
               free, in seconds — the recommended FRP profile family, resin system, applicable
               standards (EN 13706 / ASTM / GB), comparable case studies, and a direct path to a

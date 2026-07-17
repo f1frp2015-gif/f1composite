@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Cable Tray Supplier in UAE — Pultruded Fiberglass Cable Tray for ADNOC, DUSUP & Oil & Gas";
+  "FRP Cable Tray Supplier UAE — ADNOC / DUSUP Oil & Gas";
 const pageDescription =
-  "FRP cable tray supplier in the UAE — direct from China factory. Pultruded fiberglass cable trays and ladders for ADNOC, DUSUP, Emirates Steel, and oil & gas projects. NEMA VE-1 / IEC 61537 compliant, 25-year H₂S/sour-service durability, Jebel Ali / Khalifa Port delivery.";
+  "FRP cable trays & ladders for UAE oil & gas — ADNOC, DUSUP, Emirates Steel. NEMA VE-1 / IEC 61537, 25-yr H₂S/sour-service. Jebel Ali / Khalifa Port delivery.";
 const pagePath = "/regions/frp-cable-tray-uae-oil-gas";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -65,60 +65,12 @@ export default function UAECableTrayPage() {
       "@type": "Thing",
       name: "FRP cable tray supply for UAE oil and gas projects",
     },
-    provider: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Pultruded FRP Cable Tray for UAE Oil & Gas",
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: [absoluteUrl("/images/blog/frp-electrical-insulation-substation.jpg")],
-    brand: { "@type": "Brand", name: "F1 Composite" },
-    manufacturer: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
-    category: "Pultruded FRP Cable Tray",
-    offers: {
-      "@type": "AggregateOffer",
-      url: absoluteUrl("/contact"),
-      priceCurrency: "USD",
-      lowPrice: "12",
-      highPrice: "85",
-      offerCount: "25",
-      availability: "https://schema.org/InStock",
-      eligibleRegion: { "@type": "Country", name: "United Arab Emirates" },
-      seller: {
-        "@id": "https://www.f1composite.com/#organization",
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema} />
 
       <PageHeader
         tag="UAE / Oil & Gas"
@@ -135,8 +87,8 @@ export default function UAECableTrayPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/blog/frp-electrical-insulation-substation.jpg"
-              alt="FRP cable tray for UAE oil and gas project — corrosion-resistant pultruded fiberglass cable management"
+              src="/images/regions/frp-cable-tray-uae-oil-gas.jpg"
+              alt="Corrosion-resistant pultruded FRP cable tray and ladder in a UAE oil & gas electrical installation — NEMA VE-1 / IEC 61537, sour-service rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -164,7 +116,7 @@ export default function UAECableTrayPage() {
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers. The 25-year design life is documented across UAE installed base going back to early 2000s ADNOC projects. Maintenance is limited to dust removal during scheduled shutdowns; structural inspection has no findings on cable tray that has been in continuous splash-zone service for over 20 years.
+                Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers, with a 25-year design life. FRP cable management has a UAE track record going back to early-2000s oil &amp; gas projects; in documented installations, maintenance is limited to dust removal during scheduled shutdowns, and structural inspection has reported no findings on tray held in continuous splash-zone service for over 20 years.
               </p>
               <p>
                 F1 Composite supplies FRP cable tray to NEMA VE-1, IEC 61537, ASTM E84 Class 1, and project-specific ADNOC AGES standards directly from China factory. CIF Jebel Ali is the most common Incoterm for staging in Dubai/Sharjah operations; DAP project-site is preferred for ADNOC Onshore (Habshan, Bab, Bu Hasa), ADNOC Refining (Ruwais), and offshore operations via Mussafah Port logistics.
@@ -239,7 +191,7 @@ export default function UAECableTrayPage() {
             </LinkArrow>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

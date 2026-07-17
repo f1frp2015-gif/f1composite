@@ -7,6 +7,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { TensileFlexuralTest } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 /* ═══════════════════════════════════════════════════════
@@ -15,7 +16,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Quality & Testing — Certifications & Standards";
 const pageDescription =
-  "ISO 9001 certified, EN 13706 and ASTM compliant. Global FRP pultrusion standards comparison across EU, USA, China, Canada, UK, Japan, Korea, and Middle East. Full mechanical testing on every production run.";
+  "ISO 9001, EN 13706, ASTM compliant. Global FRP pultrusion standards across EU, US, CN, CA, UK, JP, KR, ME. Full mechanical testing on every batch.";
 const pagePath = "/technology/quality-testing";
 const publishedAt = "2024-04-05";
 const updatedAt = "2026-04-02";
@@ -102,9 +103,9 @@ const regionalStandards: RegionEntry[] = [
   {
     region: "China",
     standards: [
-      { code: "GB/T 31539", scope: "Pultruded glass fiber reinforced plastics profiles (拉挤玻璃纤维增强塑料型材)", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
-      { code: "GB/T 31550", scope: "Structural pultruded FRP profiles for engineering (结构用拉挤玻璃纤维增强塑料型材)", requirements: "Structural-grade requirements; I-beam, channel, angle, tube specifications; design values for structural applications; higher performance thresholds than GB/T 31539" },
-      { code: "JG/T 564", scope: "FRP profiles for building fenestration (建筑门窗用纤维增强塑料型材)", requirements: "Requirements for FRP window and door frame profiles; thermal performance, weathering resistance, corner joint strength; specific to building envelope applications" },
+      { code: "GB/T 31539", scope: "Pultruded glass fiber reinforced plastics profiles", requirements: "Classification, technical requirements, test methods, inspection rules; mechanical properties (tensile, flexural, compression, shear); dimensional tolerances; appearance quality" },
+      { code: "GB/T 31550", scope: "Structural pultruded FRP profiles for engineering", requirements: "Structural-grade requirements; I-beam, channel, angle, tube specifications; design values for structural applications; higher performance thresholds than GB/T 31539" },
+      { code: "JG/T 564", scope: "FRP profiles for building fenestration", requirements: "Requirements for FRP window and door frame profiles; thermal performance, weathering resistance, corner joint strength; specific to building envelope applications" },
     ],
   },
   {
@@ -257,13 +258,8 @@ export default function QualityTestingPage() {
     image: absoluteUrl("/technology/quality-testing/opengraph-image"),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     citation: referencedStandards,
   };
 
@@ -312,7 +308,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Standards and Certifications
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our quality management system is certified to internationally recognized
             standards, and our products comply with the technical specifications required
             by the construction, infrastructure, and industrial markets we serve.
@@ -336,7 +332,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Global FRP Pultrusion Standards by Country &amp; Region
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Different markets require compliance with different technical standards for
             pultruded FRP profiles. Below is a reference of the principal standards in each
             region — covering material specification, dimensional tolerances, mechanical
@@ -408,7 +404,7 @@ export default function QualityTestingPage() {
             </div>
           </div>
 
-          <p className="mt-[34px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[34px] text-f15 leading-golden text-t2">
             F1 Composite manufactures and tests to all major international standards listed
             above. Contact us with your project location and application for a standards
             compliance review.
@@ -423,11 +419,14 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Mechanical and Physical Testing
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Our in-house testing laboratory is equipped to perform the full range of
             mechanical and physical tests required to characterize pultruded FRP profiles.
             All testing equipment is calibrated annually to traceable national standards.
           </p>
+          <div className="mt-[21px] max-w-[760px]">
+            <TensileFlexuralTest />
+          </div>
 
           <div className="mt-[55px] space-y-[34px]">
             {testingProcedures.map((test) => (
@@ -449,7 +448,7 @@ export default function QualityTestingPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Quality Control From Receiving to Shipment
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Quality is not a final inspection — it is a continuous process that begins when
             raw materials arrive and ends only when the customer confirms receipt of
             conforming product.
@@ -477,7 +476,7 @@ export default function QualityTestingPage() {
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <LinkArrow href="/pultruded-frp-profiles">View Our Product Range</LinkArrow>
+            <LinkArrow href="/pultruded-frp-profiles">FRP structural profiles</LinkArrow>
             <LinkArrow href="/about">About F1 Composite</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion Process Details</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs Traditional Materials</LinkArrow>

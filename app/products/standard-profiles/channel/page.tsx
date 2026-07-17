@@ -5,12 +5,18 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Channel — Pultruded Fiberglass C & U Channel Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
 const pageDescription =
-  "Pultruded FRP channel profiles (C and U) 38×13 mm — 305×89 mm. EN 13706 / ASTM D3917 certified, 75% lighter than steel, non-conductive, UV-protected. Cable trays, framing, stringers. Quote in 24h.";
+  "Pultruded fiberglass channel (FRP C & U) 38×13–305×89 mm. EN 13706 / ASTM D3917, 75% lighter than steel, non-conductive. Cable trays, framing. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/channel";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -20,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/channel/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "U 38×13×4.8", h: 38, b: 13, t: 4.8, weight: "0.4" },
   { model: "U 50×25×5", h: 50, b: 25, t: 5, weight: "0.7" },
   { model: "U 76×25×6.4", h: 76, b: 25, t: 6.4, weight: "1.0" },
@@ -55,17 +61,32 @@ const faqItems = [
   },
 ];
 
-export default function ChannelPage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("channel");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    h: r.dims.H ?? 0,
+    b: r.dims.B ?? 0,
+    t: r.dims.tw ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function ChannelPage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Channel Profiles",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/channel/frp-channel-profile-200x60x12mm.png",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "38×13 mm to 305×89 mm" },
             { name: "Feature", value: "UV-protected surface veil and non-conductive performance" },
@@ -74,8 +95,8 @@ export default function ChannelPage() {
       />
       <PageHeader
         tag="Channel"
-        title="FRP Channel Profiles"
-        description="Pultruded FRP U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
+        title="Fiberglass Channel (FRP) Profiles"
+        description="Pultruded fiberglass U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -164,6 +185,7 @@ export default function ChannelPage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/frp-span-tables#channel", label: "FRP channel span table — allowable loads" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets" },
@@ -177,6 +199,17 @@ export default function ChannelPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator?shape=channel"
+            eyebrow="Free tool · channel preset"
+            title="Size an FRP channel — bending, shear &amp; deflection"
+            sub="Opens the FRP profile calculator on a channel (U-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+          />
         </div>
       </section>
 

@@ -12,6 +12,8 @@ export interface Author {
   expertise: string[];
   knowsAbout: string[];
   accent: string;
+  // Short SEO meta description (~120-155 chars). If empty, falls back to a derived string in generateMetadata.
+  seoDescription?: string;
   // Optional external profile links — fill these in when available; an empty
   // string is filtered out before being emitted into Person schema sameAs.
   linkedinUrl?: string;
@@ -26,6 +28,8 @@ export const authors: Author[] = [
     credentials: "Application Engineer",
     jobTitle:
       "Senior Application Engineer — pultruded FRP structural design and project specification",
+    seoDescription:
+      "Yifan Liu — F1 Composite Application Engineer. Pultruded FRP structural design, connection detailing, lifecycle-cost framing for procurement and EPC teams.",
     bucket: "engineering-case",
     bucketLabel: "Engineering & Case Studies",
     bio: "Yifan leads project-side application engineering at F1 Composite. The work is the practical translation between client load cases, environmental constraints, and the stock or custom pultruded section that actually meets the brief — including connection detailing, field installation guidance, and lifecycle-cost framing for procurement.",
@@ -53,6 +57,8 @@ export const authors: Author[] = [
     credentials: "Ph.D.",
     jobTitle:
       "R&D Lead — composite materials, pultrusion process development, and standards",
+    seoDescription:
+      "Haifeng Gong, Ph.D. — F1 Composite R&D Lead. Resin chemistry, pultrusion process, fire/thermal performance, PHIUS-aligned standards (PHI Cert 2491wi03).",
     bucket: "rd-tech",
     bucketLabel: "R&D & Materials Science",
     bio: "Haifeng leads materials and process R&D at F1 Composite. The focus areas are resin chemistry selection (polyester, vinyl ester, polyurethane, phenolic), fiber architecture for cross-direction strength without surface telegraph, fire and thermal performance, and standards research that turns lab capability into specifications customers can defend in design review.",
@@ -80,6 +86,8 @@ export const authors: Author[] = [
     credentials: "Ph.D.",
     jobTitle:
       "Industry research and education — markets, standards, and pultrusion adoption",
+    seoDescription:
+      "Duowei Wang, Ph.D. — F1 industry research. Global pultrusion markets, ACMA/EPTA/EuCIA standards, US/EU/AU sourcing economics, procurement education.",
     bucket: "education",
     bucketLabel: "Industry Research & Education",
     bio: "Duowei leads industry research at F1 Composite. The work is to keep the picture of the global pultrusion market — peer activity, association priorities, exhibition signals, patent themes, and procurement reality — grounded in primary sources, then translate that picture into education content engineers and buyers can actually use.",

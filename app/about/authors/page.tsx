@@ -10,9 +10,9 @@ import { authors } from "@/lib/authors";
 const pagePath = "/about/authors";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "F1 Composite Authors — Engineering, R&D, and Industry Research",
+  title: "F1 Composite Authors — Engineering, R&D, Research",
   description:
-    "Meet the named experts behind F1 Composite engineering content: application engineers, R&D leads, and industry researchers who write our technical articles, case studies, and procurement guides.",
+    "Named experts behind F1 Composite content: application engineers, R&D leads, industry researchers writing articles, case studies, procurement guides.",
   path: pagePath,
 });
 
@@ -77,7 +77,7 @@ export default function AuthorsIndexPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Three expertise tracks. One engineering source.
           </h2>
-          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Every blog post, comparison, and case-study article on F1 Composite is attributed to a named author with a specific area of accountability. That keeps the content honest about who is responsible for the conclusions and where the underlying expertise sits.
           </p>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionTag from "@/components/ui/SectionTag";
@@ -22,34 +23,7 @@ export default function ContactPage() {
     description:
       "Get in touch with F1 Composite for quotations, technical consultation, or partnership inquiries. Our engineering team responds within one business day.",
     url: absoluteUrl("/contact"),
-    mainEntity: {
-      "@type": "Organization",
-      name: "F1 Composite Co., Ltd",
-      url: absoluteUrl("/"),
-      email: "Doris.li@f1composite.com",
-      telephone: "+86-138-8333-3993",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area",
-        addressLocality: "Chongqing",
-        addressCountry: "CN",
-      },
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          email: "Doris.li@f1composite.com",
-          telephone: "+86-138-8333-3993",
-          contactType: "sales",
-          availableLanguage: ["English", "Chinese"],
-        },
-        {
-          "@type": "ContactPoint",
-          email: "f1frp2015@gmail.com",
-          contactType: "technical support",
-          availableLanguage: ["English", "Chinese"],
-        },
-      ],
-    },
+    mainEntity: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
@@ -74,14 +48,16 @@ export default function ContactPage() {
               <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
                 Fill out the form and we will respond within one business day
               </h2>
-              <ContactForm />
+              <Suspense fallback={<div className="text-f13 text-t3">Loading form…</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
 
             {/* Company Info */}
             <div>
               <SectionTag>Company Details</SectionTag>
               <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
-                F1 Composite Co., Ltd
+                Chongqing F1 Composites Co., Ltd.
               </h2>
 
               <div className="space-y-[34px]">
@@ -94,10 +70,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Sales Email</h3>
                   <a
-                    href="mailto:Doris.li@f1composite.com"
+                    href="mailto:inquiry@f1composite.com"
                     className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
                   >
-                    Doris.li@f1composite.com
+                    inquiry@f1composite.com
                   </a>
                 </div>
 
@@ -146,7 +122,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Address</h3>
                   <p className="mt-[5px] text-f15 leading-golden text-t2">
-                    F1 Composite Co., Ltd
+                    Chongqing F1 Composites Co., Ltd.
                     <br />
                     No. 153 Jinyu Avenue, Cuntan Street
                     <br />
@@ -170,10 +146,10 @@ export default function ContactPage() {
                   <p className="mt-[8px] text-f13 leading-golden text-t2">
                     For urgent technical questions or large-volume RFQs, email Doris directly at{" "}
                     <a
-                      href="mailto:Doris.li@f1composite.com"
+                      href="mailto:inquiry@f1composite.com"
                       className="font-semibold text-teal-text hover:text-teal"
                     >
-                      Doris.li@f1composite.com
+                      inquiry@f1composite.com
                     </a>{" "}
                     and reference your project timeline. We prioritize time-sensitive requests.
                   </p>
@@ -190,8 +166,8 @@ export default function ContactPage() {
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Where your order is actually made
           </h2>
-          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
-            F1 Composite is the international contracting entity. Every overseas order is invoiced under F1 Composite Co., Ltd; the profiles themselves are pultruded at our Chongqing FengDu New Material manufacturing facility — 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            F1 Composite is the international contracting entity. Every overseas order is invoiced under Chongqing F1 Composites Co., Ltd.; the profiles themselves are pultruded at the manufacturing facility we export from — our long-term partner Chongqing FengDu New Material Co., Ltd — with 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">

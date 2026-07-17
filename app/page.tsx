@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import HeroPreload from "@/components/HeroPreload";
 import Hero from "@/components/sections/Hero";
 import SolutionsSnapshot from "@/components/sections/SolutionsSnapshot";
 import IndustriesSnapshot from "@/components/sections/IndustriesSnapshot";
@@ -12,47 +11,34 @@ import GlobalTrust from "@/components/sections/GlobalTrust";
 import HomeFAQ from "@/components/sections/HomeFAQ";
 import CTABand from "@/components/sections/CTABand";
 import InnerCTA from "@/components/sections/InnerCTA";
-import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildPageMetadata, organizationSchema } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+
+const seoTarget = getSeoQueryTarget("/");
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Pultruded FRP Profiles Manufacturer & Supplier from China | F1 Composite",
-    description:
-      "Pultruded FRP profiles manufacturer and direct factory supplier from China. Fiberglass I-beams, channels, angles, custom pultrusions, FRP window frames, gratings & deck panels. ISO 9001, EN 13706, 370 pultrusion lines, exporting to 30+ countries.",
+    title: seoTarget.title,
+    description: seoTarget.description,
     path: "/",
     image: "/opengraph-image",
   }),
   keywords: [
-    "pultruded FRP profiles manufacturer",
-    "FRP profiles supplier China",
-    "FRP profiles manufacturer China",
-    "China FRP factory",
-    "fiberglass structural shapes manufacturer",
-    "pultruded fiberglass China",
-    "FRP I beam manufacturer",
-    "FRP channel supplier",
-    "FRP angle profiles wholesale",
-    "composite profiles manufacturer China",
-    "custom pultrusion services China",
-    "FRP window frames supplier",
-    "FRP window profiles manufacturer",
-    "pultruded fiberglass window frames",
-    "GRP window profiles supplier",
-    "FRP fenestration systems China",
-    "FRP grating wholesale",
-    "FRP deck panels supplier",
-    "FRP vs steel",
-    "corrosion resistant structural profiles",
-    "fiberglass profiles supplier China",
-    "pultruded profiles EN 13706",
-    "direct from factory FRP",
+    "F1 Composite",
+    "F1 Composite manufacturer",
+    "F1 Composite China",
+    "F1-STRUX",
+    "F1-GRID",
+    "F1-THERM",
+    "F1-FORM",
   ],
 };
 
 export default function HomePage() {
   return (
     <>
-      <HeroPreload />
+      <JsonLd data={organizationSchema} />
       <Hero />
       <SolutionsSnapshot />
       <IndustriesSnapshot />

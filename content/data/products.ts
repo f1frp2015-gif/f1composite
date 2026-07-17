@@ -36,8 +36,8 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "fenestration-systems",
-    title: "Fenestration Systems",
-    description: "70/80/90-series window and door frame systems with superior thermal insulation.",
+    title: "FRP Windows & Doors",
+    description: "Finished GFRP-PU windows and doors for extreme-cold and passive house buildings — 65–140 series, U_w to 0.78, proven to −60°C.",
     icon: "fenestration",
     href: "/products/fenestration-systems",
     image: "/images/products/fenestration-systems-cover.webp",

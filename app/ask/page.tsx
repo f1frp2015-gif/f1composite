@@ -4,15 +4,34 @@ import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Engineering Advisor",
-  description:
-    "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
-  path: "/ask",
-});
-
 interface AskPageProps {
-  searchParams: Promise<{ prefill?: string }>;
+  searchParams: Promise<{ prefill?: string; q?: string }>;
+}
+
+// /ask is reached several ways:
+//   • Bare /ask — the canonical, indexable advisor landing page.
+//   • /ask?prefill=... — context-rich CTAs from product/blog/calculator pages.
+//   • /ask?q=... — the sitewide SearchAction target (potentialAction in the
+//     Organization/WebSite JSON-LD advertises /ask?q={search_term_string}).
+// Any query-parametered variant is a transient deep link, not a unique page
+// worth indexing. We return noindex (follow) on ALL param variants so Google
+// stops listing them (incl. the literal {search_term_string} template) under
+// "Alternate page with proper canonical tag". Canonical still points at the
+// bare /ask so any signal consolidates correctly.
+export async function generateMetadata({
+  searchParams,
+}: AskPageProps): Promise<Metadata> {
+  const base = buildPageMetadata({
+    title: "FRP Engineering Advisor",
+    description:
+      "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
+    path: "/ask",
+  });
+  const { prefill, q } = await searchParams;
+  if (prefill || q) {
+    return { ...base, robots: { index: false, follow: true } };
+  }
+  return base;
 }
 
 const breadcrumbSchema = {
@@ -34,11 +53,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
     description:
       "AI-powered engineering advisor for pultruded FRP composite profiles — material selection, specifications, and application guidance.",
     applicationCategory: "Engineering Tool",
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (

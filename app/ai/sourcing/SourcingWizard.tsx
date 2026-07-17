@@ -14,6 +14,49 @@ interface SourcingWizardProps {
   examples: Example[];
 }
 
+type SourcingObject = Partial<{
+  summary: string;
+  profileFamily: Partial<{ name: string; why: string }>;
+  resinSystem: Partial<{ recommended: string; why: string }>;
+  standards: Array<string | null | undefined>;
+}>;
+
+function buildContactPrefillHref(userPrompt: string, object: SourcingObject | undefined) {
+  const lines: string[] = [];
+  lines.push("=== From AI Sourcing Assistant ===");
+  lines.push("");
+  lines.push("Project description:");
+  lines.push(userPrompt.trim());
+  if (object?.summary) {
+    lines.push("");
+    lines.push("AI recommendation summary:");
+    lines.push(object.summary);
+  }
+  if (object?.profileFamily?.name) {
+    lines.push("");
+    lines.push(`Recommended profile family: ${object.profileFamily.name}`);
+  }
+  if (object?.resinSystem?.recommended) {
+    lines.push(`Recommended resin: ${object.resinSystem.recommended}`);
+  }
+  if (object?.standards && object.standards.length > 0) {
+    const cleaned = object.standards.filter((s): s is string => typeof s === "string");
+    if (cleaned.length > 0) {
+      lines.push(`Applicable standards: ${cleaned.join(", ")}`);
+    }
+  }
+  lines.push("");
+  lines.push("Please send a formal DDP USA quote with Section 301 pre-quoted inline.");
+  const message = lines.join("\n");
+  const params = new URLSearchParams({
+    ref: "ai-sourcing",
+    source: "ai-sourcing",
+    inquiry_type: "rfq",
+    message,
+  });
+  return `/contact?${params.toString()}`;
+}
+
 export default function SourcingWizard({ examples }: SourcingWizardProps) {
   const [value, setValue] = useState("");
   const { object, submit, isLoading, stop, error } = useObject({
@@ -227,9 +270,21 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
           )}
 
           {hasResult && !isLoading && (
-            <p className="text-center text-f11 italic text-t3">
-              AI-generated. Verify critical engineering data with the F1 Composite team.
-            </p>
+            <section className="rounded-[12px] border-2 border-teal-border bg-teal-bg p-[24px]">
+              <h3 className="text-f17 font-bold text-t1">Ready for a formal quote?</h3>
+              <p className="mt-[8px] text-f13 leading-golden text-t2">
+                Your project description + this AI recommendation will be pre-filled in the contact form. Doris on the F1 sales team will reply within 24h with a DDP USA quote (Section 301 pre-quoted inline).
+              </p>
+              <Link
+                href={buildContactPrefillHref(value, object)}
+                className="mt-[16px] inline-flex items-center gap-[8px] rounded-[8px] bg-teal px-[24px] py-[12px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              >
+                Send formal RFQ to F1 team →
+              </Link>
+              <p className="mt-[13px] text-f11 italic text-t3">
+                AI-generated recommendation. Verify critical engineering data with the F1 Composite team.
+              </p>
+            </section>
           )}
         </div>
       )}

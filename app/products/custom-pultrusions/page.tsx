@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
@@ -7,12 +8,13 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle = "Custom Pultrusion Services — Bespoke Fiberglass Profiles";
-const pageDescription =
-  "Custom pultruded FRP profiles engineered to your specifications. Cross-sections up to 600×300mm, E-glass, carbon, aramid fibers. In-house die design, 4-8 week tooling, 500m MOQ. Get a quote.";
 const pagePath = "/products/custom-pultrusions";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -131,40 +133,6 @@ export default function CustomPultrusionsPage() {
       { "@type": "Continent", name: "Asia" },
       { "@type": "Continent", name: "Oceania" },
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Custom pultrusion capabilities",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Cross-section design and FEA validation",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "In-house steel die manufacturing",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Pilot production and sample approval",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Series production with EN 13706 / ASTM D3917 QA",
-          },
-        },
-      ],
-    },
     termsOfService: absoluteUrl("/terms"),
   };
 
@@ -206,12 +174,16 @@ export default function CustomPultrusionsPage() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={howToSchema} />
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Custom Pultruded FRP Profiles",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/custom-profiles-overview.webp",
           category: "Custom Pultruded FRP Profiles",
+          productLine: "F1-FORM",
+          // Custom pultrusion spans the full catalog range; indicative per-metre
+          // band to /contact (final price is tooling- and volume-dependent).
+          priceRange: { lowPrice: "5", highPrice: "300", offerCount: "1", unitText: "linear meter" },
           material: [
             "E-glass fiber",
             "S-glass fiber",
@@ -232,9 +204,9 @@ export default function CustomPultrusionsPage() {
         })}
       />
       <PageHeader
-        tag="Custom Pultrusions"
-        title="Bespoke FRP Profiles Engineered to Your Specification"
-        description="Over 800 custom FRP geometries delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
+        tag="Custom Pultrusions · F1-FORM"
+        title="Custom Pultrusions — FRP Profiles Engineered to Your Specification"
+        description="Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -398,6 +370,8 @@ export default function CustomPultrusionsPage() {
               { href: "/industries/construction", label: "Construction systems" },
               { href: "/industries/energy", label: "EV battery trays & solar" },
               { href: "/industries/vehicle", label: "Rail & transport profiles" },
+              { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP pultrusion supplier for US projects" },
+              { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles · Australia" },
               { href: "/case-studies", label: "Project case studies" },
             ],
           },
@@ -413,6 +387,37 @@ export default function CustomPultrusionsPage() {
           },
         ]}
       />
+
+      {/* Tooling & cost */}
+      <section className="bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Tooling &amp; Cost</SectionTag>
+          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            What custom pultrusions cost — tooling, MOQ, and per-meter price
+          </h2>
+          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
+            <p>
+              Every custom pultrusion program has two cost components: a one-time tooling
+              investment and a recurring per-meter price. Simple single-cavity dies for small
+              open profiles start at roughly USD 5,000&ndash;8,000; large or complex multi-cavity
+              dies run USD 15,000&ndash;40,000. The die stays at our plant, maintained at our cost,
+              for the life of your product &mdash; on a typical production run the amortized tooling
+              share of the per-meter price becomes negligible within the first order.
+            </p>
+            <p>
+              The per-meter price itself is driven by the same factors as any pultruded shape:
+              cross-section area (glass and resin mass per meter), resin system, fiber
+              architecture, surface veil, and order volume. First production runs start at
+              500 linear meters; repeat orders from 200 meters. For a directional number before
+              you commit to tooling, run your section through our{" "}
+              <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:text-teal">
+                pultruded profile price estimator
+              </Link>{" "}
+              using the closest standard shape, then add the tooling line from the ranges above.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">

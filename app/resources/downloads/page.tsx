@@ -5,7 +5,15 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
+import DatasheetBuilder from "@/components/downloads/DatasheetBuilder";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { listDownloads } from "@/lib/catalog/db";
+import { DATASHEET_HIGHLIGHTS } from "@/lib/datasheetHighlights";
+
+// DB-driven with an hourly refresh; the hardcoded list below is the fallback
+// when the DB is unreachable so `next build` and the live page never break
+// on a Neon hiccup (build-time prerender runs live queries).
+export const revalidate = 3600;
 
 const faqs = [
   {
@@ -38,7 +46,22 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/resources/downloads/opengraph-image",
 });
 
-const downloads = [
+interface DownloadItem {
+  title: string;
+  format: string;
+  size: string;
+  description: string;
+  file?: string;
+}
+
+const fallbackDownloads: DownloadItem[] = [
+  {
+    title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",
+    format: "PDF",
+    size: "991 KB",
+    description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two qualified families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service), ≥25-year life, qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0, ≥50-year design life, qualified to MT 558.2, GB 16413, MT 113, ISO 4589-2, ASTM E84 Class I. Edition 2026.06, Rev v1.3.",
+    file: "/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf",
+  },
   {
     title: "FRP Profile Design Manual — 2026 Edition",
     format: "PDF",
@@ -140,7 +163,24 @@ const downloads = [
   },
 ];
 
-export default function DownloadsPage() {
+async function loadDownloads(): Promise<DownloadItem[]> {
+  try {
+    const rows = await listDownloads({ publishedOnly: true });
+    if (rows.length === 0) return fallbackDownloads;
+    return rows.map((r) => ({
+      title: r.title,
+      format: r.format,
+      size: r.size ?? "",
+      description: r.description ?? "",
+      file: r.file_url ?? undefined,
+    }));
+  } catch {
+    return fallbackDownloads;
+  }
+}
+
+export default async function DownloadsPage() {
+  const downloads = await loadDownloads();
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -169,7 +209,7 @@ export default function DownloadsPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Specification, Certification, and CAD Documents</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
@@ -178,6 +218,53 @@ export default function DownloadsPage() {
             <p>
               We organize documents into five categories. <strong>Product Catalogs</strong> cover standard profiles, custom pultrusion capabilities, fenestration systems for AS 2047 / PHI / NFRC, and pultruded gratings. <strong>Certifications</strong> include ISO 9001:2015, EN 13706 Grade E23 conformity, CE Marking under EAD 130026-00-0304, ASTM E84 Class 1 surface burning, and Aramco SAES-W-018 vendor approval. <strong>CAD Libraries</strong> ship standard profiles in DWG, DXF, STEP, plus BIM (IFC, Revit RFA) for fenestration and structural families, and connection detail typical drawings. <strong>Approval-Package Templates</strong> include submittal package, mock-up testing protocol for fenestration projects, MTC sample, and First Article Inspection (FAI) report sample. <strong>Sustainability and Compliance</strong> covers verified EPD, REACH SVHC declaration, RoHS conformity, and California Proposition 65 statement.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <DatasheetBuilder />
+
+      {/* FRP profile technical datasheets — static shortlist, 8 common sizes
+          per family, plain SSR anchors so crawlers reach /datasheets/[slug]
+          without the DB-driven index. Full catalog stays at /datasheets. */}
+      <section id="datasheets" className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>FRP Profile Technical Datasheets</SectionTag>
+          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Technical datasheets — most-requested sizes
+          </h2>
+          <p className="mt-[8px] max-w-[860px] text-f15 leading-golden text-t2">
+            The eight most-specified sizes in each profile family, linked straight to their
+            technical datasheet — section drawing, published weight, mechanical and physical
+            properties, and a free DXF download on every page. The complete catalog of all
+            114 sizes lives in the{" "}
+            <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">
+              datasheet library
+            </Link>
+            .
+          </p>
+          <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
+            {DATASHEET_HIGHLIGHTS.map((fam) => (
+              <div key={fam.family} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">
+                  <Link href={fam.categoryHref} className="hover:text-teal-text">
+                    {fam.family}
+                  </Link>
+                </h3>
+                <ul className="mt-[8px] space-y-[3px]">
+                  {fam.items.map((it) => (
+                    <li key={it.slug}>
+                      <Link
+                        href={`/datasheets/${it.slug}`}
+                        className="text-f13 text-t2 hover:text-teal-text hover:underline"
+                      >
+                        {it.model} datasheet
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -222,14 +309,14 @@ export default function DownloadsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>How Specifiers Use This Set</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
               Most engineers building an approval package combine three downloads: (1) the product catalog page covering the chosen profile family, (2) the relevant certification (ISO 9001 + EN 13706 grade declaration is the typical default), and (3) the connection detail typical drawing. Procurement adds the sustainability and REACH declarations for European projects. QA teams add the MTC sample and FAI report sample to set their incoming inspection criteria.
             </p>
             <p>
-              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to sales@f1composite.com with the project name and we can release within one business day.
+              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to inquiry@f1composite.com with the project name and we can release within one business day.
             </p>
           </div>
           <FAQ items={faqs} />

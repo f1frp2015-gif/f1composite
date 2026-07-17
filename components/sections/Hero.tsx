@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const stats = [
@@ -12,12 +13,13 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-deep">
       {/* Full-bleed background image — static file with preload to eliminate LCP waterfall */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/images/hero/frp-composite-material-hero.webp"
           alt="Fiber reinforced polymer composite material texture"
-          fetchPriority="high"
-          decoding="async"
-          className="h-full w-full object-cover opacity-30"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-deep/50" />
       </div>
@@ -29,12 +31,14 @@ export default function Hero() {
             className="font-extrabold tracking-[-0.03em] text-white"
             style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
           >
-            Pultruded FRP Profiles Manufacturer{" "}
-            <span className="text-teal">Direct from China</span>
+            F1 Composite — FRP Manufacturing{" "}
+            <span className="text-teal">for Global Projects</span>
           </h1>
 
           <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            Fiberglass structural shapes, FRP window profiles, gratings, and custom pultrusions — direct factory export to 30+ countries. EN 13706 / ASTM D3917 / ISO 9001, 370 pultrusion lines, no distributor markup.
+            One manufacturing source for structural profiles, window systems, gratings,
+            and engineered custom sections — backed by EN 13706 / ASTM D3917 / ISO 9001
+            controls and export support to 30+ countries.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
@@ -42,7 +46,7 @@ export default function Hero() {
               Get a Quote
             </Button>
             <Button href="/pultruded-frp-profiles" className="border border-white/30 bg-transparent !text-white hover:!bg-white/10">
-              Explore Products
+              Explore FRP Profiles
             </Button>
           </div>
 

@@ -8,16 +8,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
+    // Drop the "AI Tools" intermediate — there is no /ai hub page, so it had
+    // no `item` URL and GSC flagged "Missing field item in itemListElement".
+    // Last item may omit `item` per schema.org spec.
     { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-    { "@type": "ListItem", position: 2, name: "AI Tools" },
-    { "@type": "ListItem", position: 3, name: "Passive House Window Selector" },
+    { "@type": "ListItem", position: 2, name: "Passive House Window Selector" },
   ],
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free Passive House Window Selector — PHI-Certified FRP Frame Tool (U_w 0.78)",
+  title: "Free Passive House Window Selector — PHIUS FRP Tool",
   description:
-    "Free AI-powered passive house window selector. Enter your climate zone, target U-value, and window type — get the PHI-certified F1 Composite FRP fenestration series (Component-ID 2491wi03, U_w 0.78), U_w calc guidance, and matching case studies. No login.",
+    "AI selector for PHIUS / Passive House windows. Enter climate + U-value → get F1's PHI-certified FRP series (Cert 2491wi03, U_w 0.78) + case studies.",
   path: "/ai/passive-house",
 });
 
@@ -38,11 +40,7 @@ export default function PassiveHousePage() {
       price: "0",
       priceCurrency: "USD",
     },
-    creator: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-    },
+    creator: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
@@ -60,7 +58,7 @@ export default function PassiveHousePage() {
               <br />
               <span className="text-teal-text">Tell us your climate. We&rsquo;ll spec the FRP frame.</span>
             </h1>
-            <p className="mt-[16px] mx-auto max-w-[640px] text-f15 leading-golden text-t2">
+            <p className="mt-[16px] mx-auto text-f15 leading-golden text-t2">
               Passive house fenestration has strict thermal, acoustic, and airtightness targets by
               climate zone. Answer 4 questions — our AI matches you, free, to the right F1 Composite
               PHI-certified FRP frame series (90 Series at U_w 0.78) and references a comparable
@@ -127,6 +125,12 @@ export default function PassiveHousePage() {
             </Link>
             <Link href="/technology/u-value-calculator" className="text-f13 font-semibold text-teal-text hover:underline">
               → U-Value calculator (EN ISO 10077-1)
+            </Link>
+            <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">
+              → FRP passive house windows for Canada
+            </Link>
+            <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
+              → Sourcing FRP for US projects
             </Link>
             <Link href="/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf" className="text-f13 font-semibold text-teal-text hover:underline" target="_blank" rel="noopener noreferrer">
               → Download PHI certificate (PDF)

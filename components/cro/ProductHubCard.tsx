@@ -13,6 +13,8 @@ interface ProductHubCardProps {
   sizes: string;
   summary: string;
   image: string;
+  /** CSS object-position override for images whose subject sits off-center. */
+  imagePosition?: string;
   /** Primary product page URL. */
   href: string;
   /** Optional spec sheet PDF URL — when present, surfaces a "Download specs" CTA. */
@@ -38,6 +40,7 @@ export default function ProductHubCard({
   sizes,
   summary,
   image,
+  imagePosition,
   href,
   specSheetHref,
   sampleHref,
@@ -77,6 +80,7 @@ export default function ProductHubCard({
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-300 hover:scale-105"
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
           />
         </div>
       </Link>

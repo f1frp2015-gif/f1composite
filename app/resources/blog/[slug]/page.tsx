@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return buildPageMetadata({
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle ?? post.title,
+    description: post.ogDescription ?? post.excerpt,
     path: `/resources/blog/${slug}`,
     image: `/resources/blog/${slug}/opengraph-image`,
   });
@@ -207,28 +207,21 @@ export default async function BlogPostPage({ params }: PageProps) {
       name: post.authorName,
       jobTitle: post.authorRole,
       ...(authorHref ? { url: absoluteUrl(authorHref) } : {}),
-      worksFor: {
-        "@type": "Organization",
-        name: "F1 Composite",
-      },
+      worksFor: { "@id": "https://www.f1composite.com/#organization" },
     },
-    editor: {
-      "@type": "Organization",
-      name: post.reviewedBy,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: post.excerpt,
     mainEntityOfPage: absoluteUrl(`/resources/blog/${slug}`),
     citation: [...post.standards, ...(post.sourceLinks?.map((link) => link.href) ?? [])],
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".prose-f1 p:first-of-type"],
+      cssSelector: ["h1", "aside[aria-label='Article summary'] blockquote", ".prose-f1 p:first-of-type"],
     },
+    ...(post.answerBox
+      ? {
+          abstract: post.answerBox,
+        }
+      : {}),
   };
 
   return (
@@ -266,9 +259,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   alt={post.coverAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 960px"
-                  className="object-cover"
+                  className={post.coverImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
-                    post.coverImagePosition
+                    post.coverImagePosition && post.coverImageFit !== "contain"
                       ? { objectPosition: post.coverImagePosition }
                       : undefined
                   }
@@ -302,6 +295,40 @@ export default async function BlogPostPage({ params }: PageProps) {
               </figcaption>
             </figure>
 
+            {post.answerBox ? (
+              <aside
+                aria-label="Article summary"
+                className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
+              >
+                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-teal-text">
+                  TL;DR
+                </p>
+                <blockquote className="mt-[8px] text-f15 leading-golden text-t1">
+                  {post.answerBox}
+                </blockquote>
+              </aside>
+            ) : null}
+
+            {post.masterComparison ? (
+              <aside
+                aria-label="Master comparison page"
+                className="mt-[13px] max-w-[800px] rounded-[8px] border border-teal-border bg-white p-[21px]"
+              >
+                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                  Part of a larger comparison
+                </p>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">
+                  {post.masterComparison.note}
+                </p>
+                <Link
+                  href={post.masterComparison.href}
+                  className="mt-[8px] inline-block text-f15 font-bold text-teal-text hover:underline"
+                >
+                  → {post.masterComparison.label}
+                </Link>
+              </aside>
+            ) : null}
+
             <div className="mt-[21px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Why This Article Matters
@@ -333,9 +360,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   alt={post.supportingAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 800px"
-                  className="object-cover"
+                  className={post.supportingImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
-                    post.supportingImagePosition
+                    post.supportingImagePosition && post.supportingImageFit !== "contain"
                       ? { objectPosition: post.supportingImagePosition }
                       : undefined
                   }

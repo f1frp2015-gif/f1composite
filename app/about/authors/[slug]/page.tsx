@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const author = authorsBySlug[slug];
   if (!author) return {};
+  const desc = author.seoDescription
+    ?? `${author.name} — ${author.jobTitle.slice(0, 110)}`.slice(0, 155);
   return buildPageMetadata({
     title: `${author.fullName} — F1 Composite`,
-    description: `${author.fullName}. ${author.jobTitle}. ${author.bio.slice(0, 80)}...`,
+    description: desc,
     path: `/about/authors/${author.slug}`,
   });
 }
@@ -48,12 +50,7 @@ export default async function AuthorPage({ params }: PageProps) {
     jobTitle: author.jobTitle,
     description: author.bio,
     url: absoluteUrl(`/about/authors/${author.slug}`),
-    worksFor: {
-      "@id": "https://www.f1composite.com/#organization",
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    worksFor: { "@id": "https://www.f1composite.com/#organization" },
     knowsAbout: author.knowsAbout,
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };

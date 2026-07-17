@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Marine — Pultruded Fiberglass for Saltwater Structures",
+  title: "FRP for Marine — Saltwater Structures & Docks",
   description:
     "Pultruded FRP profiles and gratings for marine: docks, offshore platforms, walkways, tie-rods. 50+ year life in saltwater. EN 13706, ISO 9001.",
   path: "/industries/marine",
@@ -76,30 +76,12 @@ export default function MarinePage() {
       "@type": "Thing",
       name: "Fiber-Reinforced Polymer profiles for marine environments",
     },
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [...answerItems, ...faqs].map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    provider: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Industries / Marine"
         title="FRP Composite Profiles for Marine Applications"
@@ -132,7 +114,6 @@ export default function MarinePage() {
         title="Quick answers for docks, offshore structures, and vessels"
         description="These direct answer blocks help buyers and search engines understand why FRP is frequently selected for saltwater and coastal applications."
         items={answerItems}
-        suppressSchema
       />
 
       {/* Challenge Section */}
@@ -310,9 +291,33 @@ export default function MarinePage() {
                 Read comparison →
               </span>
             </Link>
+            <Link
+              href="/resources/blog/frp-replacing-steel-coastal-infrastructure"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Why FRP Is Replacing Steel in Coastal Infrastructure</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Why pultruded FRP profiles are displacing steel in coastal and marine infrastructure projects.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read article →
+              </span>
+            </Link>
+            <Link
+              href="/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP for Offshore, Tidal & Fishery-PV Mounts</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Pultruded FRP module frames and mounting structures for offshore, tidal, and fishery-PV solar installations.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                Read article →
+              </span>
+            </Link>
           </div>
 
-          <FAQ items={faqs} suppressSchema />
+          <FAQ items={faqs} />
         </div>
       </section>
 

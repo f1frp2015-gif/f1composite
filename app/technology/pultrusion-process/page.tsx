@@ -14,9 +14,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "What Is Pultrusion? — How Pultruded FRP Profiles Are Made";
+const pageTitle = "Fiberglass Pultrusion Process — How FRP Profiles Are Made";
 const pageDescription =
-  "Complete guide to the pultrusion manufacturing process: fiber creel, resin impregnation, heated die forming, and pull mechanism. How fiberglass structural profiles are produced at scale.";
+  "Fiberglass pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism — how pultruded FRP profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-07-08";
@@ -281,13 +281,8 @@ export default function PultrusionProcessPage() {
     image: absoluteUrl("/technology/pultrusion-process/opengraph-image"),
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     citation: referencedStandards,
   };
 
@@ -326,8 +321,8 @@ export default function PultrusionProcessPage() {
       <JsonLd data={howToSchema} />
       <PageHeader
         tag="Pultrusion Process"
-        title="How Pultruded FRP Profiles Are Manufactured"
-        description="Continuous, automated, precision-controlled — pultrusion converts raw fibers and resins into structural profiles with consistent, repeatable mechanical properties."
+        title="The Fiberglass Pultrusion Process, Step by Step"
+        description="Continuous, automated, precision-controlled — fiberglass pultrusion converts raw rovings and resin into structural FRP profiles with consistent, repeatable mechanical properties."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -387,7 +382,7 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Six Stages of Pultrusion
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Watch the full line in motion — from fiber pay-off to the flying cut-off saw.
             Every speed in the animation is derived from one line speed, just like a real
             production line.
@@ -490,7 +485,7 @@ export default function PultrusionProcessPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Injection vs Open-Bath
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             We operate injection pultrusion as our standard process. The comparison below
             shows why.
           </p>
@@ -558,7 +553,7 @@ export default function PultrusionProcessPage() {
               <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
               Process parameter control details
             </summary>
-            <div className="mt-[13px] max-w-[640px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
+            <div className="mt-[13px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
               <p>
                 Every production run is governed by a validated recipe specifying exact values
                 for pull speed, die zone temperatures, injection pressure, and resin mix ratios.
@@ -582,7 +577,8 @@ export default function PultrusionProcessPage() {
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <LinkArrow href="/pultruded-frp-profiles">View Our Product Range</LinkArrow>
+            <LinkArrow href="/pultruded-frp-profiles">FRP pultruded profiles</LinkArrow>
+            <LinkArrow href="/technology/pultrusion-resin-systems">Resin Systems &amp; Matrix Selection</LinkArrow>
             <LinkArrow href="/technology/knowhow-services">Know-How Transfer Services</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs Traditional Materials</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>

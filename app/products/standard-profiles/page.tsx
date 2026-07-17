@@ -7,13 +7,24 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema, absoluteUrl } from "@/lib/seo";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
+import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+
+// Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
+// at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
+// sub-category page's own size table). This hub page doesn't fetch the
+// catalog DB itself, so the band is pinned to these two real extremes rather
+// than derived live; update them if a new size ever pushes past either end.
+const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
+const CATALOG_TOTAL_SKUS = "114";
+const pagePath = "/products/standard-profiles";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Standard FRP Profiles — Pultruded Fiberglass Structural Shapes",
-  description:
-    "Stock pultruded FRP structural shapes: I-beams, channels, angles, tubes, flat bars, rods. EN 13706, ASTM D3917, 6 m lengths.",
-  path: "/products/standard-profiles",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
   image: "/products/standard-profiles/opengraph-image",
 });
 
@@ -37,6 +48,16 @@ const faqItems = [
     question: "Can FRP profiles be cut, drilled, and bolted on-site?",
     answer:
       "Yes. Pultruded FRP profiles can be cut with a circular saw and carbide-tipped or diamond blade, drilled with carbide bits, and joined with stainless or FRP fasteners. Use of standard steel tools is acceptable; coolant is not required. We supply free fabrication guidelines covering bolt hole edge distances, post-cut sealing of cut edges, and recommended fastener torques.",
+  },
+  {
+    question: "Who are the top pultruded FRP profile manufacturers, and where does F1 Composite fit?",
+    answer:
+      "The pultruded FRP structural-profile market is led globally by Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland), alongside large China-based manufacturers. F1 Composite's F1-STRUX line manufactures the full structural range — I-beams, channels, angles, tubes, flat bars, and rods — to the same EN 13706 E17/E23 and ASTM D3917 specifications as the Western incumbents, supplied direct from its China factory for export without regional distributor markups.",
+  },
+  {
+    question: "Is there a China-based alternative to Strongwell, Creative Pultrusions, Fiberline, or Exel?",
+    answer:
+      "Yes. F1 Composite's F1-STRUX structural profiles are a direct, standards-equivalent China alternative to EXTREN® (Strongwell), Creative Pultrusions, Fiberline, and Exel — produced to EN 13706 and ASTM D3917 under ISO 9001:2015, with custom-die tooling in 3–6 weeks and factory-direct export to 30+ countries on FOB or DDP terms. See the full comparison: China alternative to Strongwell, Fiberline & Exel.",
   },
 ];
 
@@ -116,14 +137,19 @@ export default function StandardProfilesPage() {
     <>
       <JsonLd data={itemListSchema} />
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Standard Structural Profiles",
           description:
             "Stock pultruded FRP structural shapes — I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. EN 13706 and ASTM D3917 compliant, ISO 9001 manufactured, 6 m standard lengths.",
           path: "/products/standard-profiles",
           image: "/images/products/i-beam/frp-i-beam-cover.jpg",
           category: "Pultruded FRP Structural Profiles",
+          productLine: "F1-STRUX",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
+          priceRange: (() => {
+            const r = priceRangeFromWeights(CATALOG_WEIGHT_EXTREMES_KG_PER_M, 2.2, 4.5);
+            return r ? { ...r, offerCount: CATALOG_TOTAL_SKUS } : undefined;
+          })(),
           additionalProperty: [
             { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
             { name: "Size Range", value: "12×3 mm to 305×305 mm" },
@@ -133,9 +159,9 @@ export default function StandardProfilesPage() {
         })}
       />
       <PageHeader
-        tag="Standard Profiles"
-        title="Standard FRP profiles catalog — stock pultruded structural shapes"
-        description="Stock I-beams, channels, angles, tubes, flat bars, and rods for engineers who already know the profile geometry. For the complete product family, start from the pultruded FRP profiles hub."
+        tag="Standard Profiles · F1-STRUX"
+        title="Fiberglass structural shapes catalog — FRP sizes, weights & section data"
+        description="Dimensions, per-metre weights and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the shape and need the numbers. For the complete product family and applications, start from the pultruded FRP profiles hub."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -212,6 +238,8 @@ export default function StandardProfilesPage() {
               { href: "/industries/marine", label: "Marine & coastal structures" },
               { href: "/industries/industrial", label: "Industrial platforms & plants" },
               { href: "/industries/vehicle", label: "Vehicle & rail" },
+              { href: "/regions/frp-cable-tray-uae-oil-gas", label: "FRP cable tray · UAE oil & gas" },
+              { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles · Australia" },
               { href: "/case-studies/european-bridge-deck", label: "Case: Netherlands bridge deck" },
               { href: "/case-studies/solar-farm-mounting", label: "Case: 50 MW solar mounting" },
               { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
@@ -221,10 +249,12 @@ export default function StandardProfilesPage() {
             title: "Technology & resources",
             links: [
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
+              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell / Exel" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
+              { href: "/frp-span-tables", label: "FRP span tables — allowable loads by profile" },
               { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
-              { href: "/resources/technical-data", label: "Load tables & data sheets" },
+              { href: "/resources/technical-data", label: "Material properties & data sheets" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },
             ],
@@ -237,8 +267,19 @@ export default function StandardProfilesPage() {
         title="Standard FRP profiles — frequently asked questions"
         description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminum options."
         items={faqItems}
-        suppressSchema
+
       />
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator"
+            eyebrow="Free tool · no login"
+            title="Size and verify an FRP profile in your browser"
+            sub="Pick a shape — I-beam, channel, angle, square tube, or round tube — enter your span and load, and get bending, shear, and Timoshenko-corrected deflection plus the steel/aluminum-equivalent section, then quote against your spec."
+          />
+        </div>
+      </section>
 
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />
     </>

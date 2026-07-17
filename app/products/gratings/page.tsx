@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import GratingSelectionGuide from "@/components/sections/GratingSelectionGuide";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle =
-  "FRP Gratings & Decks — Molded, Pultruded & Structural Deck Panels";
-const pageDescription =
-  "FRP gratings, molded gratings, pultruded gratings and structural deck panels for chemical plants, marine platforms and bridge decks.";
 const pagePath = "/products/gratings";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -28,9 +30,9 @@ const gratingTypes = [
     description:
       "Molded FRP gratings are manufactured by laying continuous glass fiber roving in alternating directions within a mold and infusing with resin under controlled temperature and pressure. This bi-directional fiber architecture gives molded gratings near-equal strength in both the longitudinal and transverse directions, making them the preferred choice for applications where loads may be applied from any direction or where panels must be cut to fit irregular openings without significant loss of structural integrity. We produce molded gratings in isophthalic polyester and vinyl ester resin systems, with the vinyl ester option specified for chemical processing, wastewater treatment, and offshore marine environments where aggressive chemical exposure is expected.",
     specs: [
-      { label: "Mesh sizes", value: "38 x 38 mm, 50 x 50 mm" },
-      { label: "Panel thickness", value: "25 mm, 30 mm, 38 mm, 50 mm" },
-      { label: "Standard panel size", value: "1220 x 3660 mm" },
+      { label: "Mesh sizes", value: "38 x 38 mm, 40 x 40 mm, 50 x 50 mm; 19 x 19 mm heel-proof mini mesh" },
+      { label: "Panel thickness", value: "13, 15, 25, 30, 38, 40, 50 mm" },
+      { label: "Standard panel sizes", value: "1220 x 3660, 1220 x 2440, 921 x 3050, 1524 x 4000 mm" },
       { label: "Resin systems", value: "Isophthalic polyester, vinyl ester" },
       { label: "Fire rating", value: "ASTM E84 Class 1 (flame spread index \u226425)" },
     ],
@@ -40,11 +42,11 @@ const gratingTypes = [
     description:
       "Pultruded FRP gratings consist of pultruded I-bars or T-bars mechanically interlocked with cross-rods to form a rigid open-mesh panel. The unidirectional fiber architecture of the pultruded bearing bars provides superior strength and stiffness in the load-bearing direction compared to molded gratings of the same thickness, making pultruded gratings the optimal choice for long-span applications where deflection limits govern the design. Our pultruded gratings are assembled with precision-machined interlocking connections that eliminate the need for adhesive bonding, ensuring consistent panel flatness and simplifying field replacement of individual bars if impact damage occurs. We offer pultruded gratings with bearing bar depths from 25 mm to 65 mm, covering span requirements from 600 mm to over 2,400 mm depending on load class.",
     specs: [
-      { label: "Bearing bar depth", value: "25 mm, 32 mm, 40 mm, 50 mm, 65 mm" },
-      { label: "Bar spacing", value: "30 mm, 40 mm, 60 mm center-to-center" },
-      { label: "Cross-rod spacing", value: "50 mm, 100 mm, 150 mm" },
-      { label: "Standard panel width", value: "1000 mm, 1220 mm" },
-      { label: "Maximum span", value: "2400 mm (65 mm bar, light pedestrian load)" },
+      { label: "Bearing bar depth", value: "25 mm, 32 mm, 38 mm, 50 mm, 64 mm, 76 mm" },
+      { label: "Bearing bar centers", value: "25.4 - 61 mm center-to-center" },
+      { label: "Cross-bar centers", value: "152.4 mm (6 in)" },
+      { label: "Maximum panel size", value: "1524 x 6100 mm" },
+      { label: "Open area", value: "12% - 83% depending on series" },
     ],
   },
   {
@@ -72,6 +74,29 @@ const gratingTypes = [
       { label: "Resin systems", value: "Isophthalic polyester, vinyl ester, polyurethane" },
     ],
   },
+];
+
+// Common production configurations from F1's grating supply program.
+// Values are nominal manufacturer data — certified datasheets on request.
+const moldedGratingSpecs = [
+  { mesh: "38.1 x 38.1", depth: "25", bar: "6.5 / 5.0", open: "68", weight: "12.3", panels: "1524 x 4000, 1220 x 3660, 1220 x 2440, 921 x 3050" },
+  { mesh: "38.1 x 38.1", depth: "30", bar: "6.5 / 5.0", open: "68", weight: "14.6", panels: "1524 x 4000, 1220 x 3660, 1220 x 2440, 921 x 3050" },
+  { mesh: "38.1 x 38.1", depth: "38", bar: "7.0 / 5.0", open: "68", weight: "19.5", panels: "1524 x 4000, 1220 x 3660, 1220 x 2440, 921 x 3050" },
+  { mesh: "40 x 40", depth: "40", bar: "7.0 / 5.0", open: "67", weight: "19.2", panels: "1007 x 3007, 1007 x 4007" },
+  { mesh: "50.8 x 50.8", depth: "25", bar: "7.5 / 6.0", open: "78", weight: "11.8", panels: "1220 x 3660, 1220 x 2440" },
+  { mesh: "50.8 x 50.8", depth: "40", bar: "7.0 / 5.0", open: "78", weight: "17.8", panels: "1220 x 3660, 1220 x 2440, 921 x 3050" },
+  { mesh: "19.05 x 19.05 mini", depth: "30", bar: "6.5 / 5.0", open: "30", weight: "18.5", panels: "1524 x 4000, 1220 x 3660, 1220 x 2440, 921 x 3050" },
+];
+
+const pultrudedGratingSpecs = [
+  { type: "T-2510", series: "Pedestrian T-bar", depth: "25", centers: "50.8", open: "25", weight: "13.6", ada: true },
+  { type: "T-3810", series: "Pedestrian T-bar", depth: "25", centers: "61.0", open: "38", weight: "10.2", ada: false },
+  { type: "T-2515", series: "Pedestrian T-bar", depth: "38", centers: "50.8", open: "25", weight: "16.7", ada: true },
+  { type: "I-4010", series: "Industrial I-bar", depth: "25", centers: "25.4", open: "40", weight: "17.1", ada: true },
+  { type: "I-5015", series: "Industrial I-bar", depth: "38", centers: "30.5", open: "50", weight: "19.1", ada: false },
+  { type: "I-6015", series: "Industrial I-bar", depth: "38", centers: "37.1", open: "60", weight: "16.1", ada: false },
+  { type: "HI-4720", series: "High-load I-bar", depth: "50", centers: "30.2", open: "47", weight: "54.5", ada: false },
+  { type: "SI-8315", series: "Standard I-bar (cooling tower)", depth: "38", centers: "47.6", open: "83", weight: "12.0", ada: false },
 ];
 
 const loadRatings = [
@@ -105,9 +130,24 @@ const antiSlipGrades = [
 
 const faqItems = [
   {
+    question: "Molded vs pultruded FRP grating — which should I choose?",
+    answer:
+      "Choose molded grating when loads arrive from both directions, the layout needs many field cutouts, or maximum chemical resistance is the priority: its woven, resin-rich construction (30-35% glass by weight) gives near-equal two-way strength and the best corrosion performance. Choose pultruded grating when the design is span-driven: its unidirectional bearing bars (60-65% glass) carry significantly longer clear spans with fewer supports, and dedicated series cover ADA pedestrian surfaces, 73-83% open cooling-tower decks, and forklift-rated high-load platforms. Both families are produced to ASTM E84 Class 1 flame spread (FSI ≤25).",
+  },
+  {
+    question: "Is fiberglass grating ADA compliant?",
+    answer:
+      "The dedicated pedestrian series are. ADA/ABA surface rules require walking-surface openings of 13 mm (1/2 in) or less in the dominant direction of travel; our T-2510 and T-2515 pedestrian T-bar gratings (12.7 mm slot at 50.8 mm bar centers) and the I-4010 industrial I-bar (≈10 mm slot at 25.4 mm centers) meet that limit and are marked ADA in the specification table on this page. Open-mesh industrial and cooling-tower series (38-83% open area) prioritize drainage and airflow instead and are not intended for ADA-governed pedestrian routes — specify by series, not by material family.",
+  },
+  {
     question: "What is the difference between FRP gratings and FRP deck panels?",
     answer:
       "FRP gratings are open-mesh panels formed by bi-directional glass fiber (molded) or by interlocking pultruded bearing bars (pultruded). They provide high drainage, light transmission, and reduced wind load, but small objects can fall through the mesh. FRP deck panels (also called structural deck planks) are closed-top pultruded planks with internal webs and an integrally sealed top surface — they carry concentrated loads without requiring a cover plate, span longer than gratings of equivalent depth, and are the preferred specification for pedestrian bridge decks, vehicular access platforms, and FRP bridge deck replacement projects.",
+  },
+  {
+    question: "What CSI MasterFormat section covers FRP gratings?",
+    answer:
+      "In North American construction specifications, fiberglass reinforced gratings are specified under CSI MasterFormat Section 06 74 13 (Fiberglass Reinforced Gratings), within Division 06 — distinct from metal gratings, which sit in Division 05 (05 53 00). Specifying under 06 74 13 keeps the corrosion-resistance, load-deflection, and fire-rating requirements in a section written for composites rather than forcing FRP into a steel-grating spec. F1 supports 06 74 13 submittals with load tables, ASTM E84 flame-spread data, and batch material test reports.",
   },
   {
     question: "What spans can FRP deck panels achieve?",
@@ -117,7 +157,7 @@ const faqItems = [
   {
     question: "How do FRP gratings compare to steel gratings in terms of weight and load capacity?",
     answer:
-      "FRP gratings weigh approximately 25-35% of an equivalent steel grating, which dramatically reduces structural support requirements, transport costs, and installation labor. A standard 38 mm molded FRP grating weighs approximately 18 kg/m\u00B2 compared to 55-65 kg/m\u00B2 for a comparable hot-dip galvanized steel grating. In terms of load capacity, FRP gratings are designed to the same load class specifications as steel, though the lower elastic modulus of FRP means that deflection often governs the design, particularly at longer spans.",
+      "FRP gratings weigh approximately 25-35% of an equivalent steel grating, which dramatically reduces structural support requirements, transport costs, and installation labor. A standard 38 mm molded FRP grating weighs approximately 19.5 kg/m\u00B2 compared to 55-65 kg/m\u00B2 for a comparable hot-dip galvanized steel grating. In terms of load capacity, FRP gratings are designed to the same load class specifications as steel, though the lower elastic modulus of FRP means that deflection often governs the design, particularly at longer spans.",
   },
   {
     question: "Are FRP gratings suitable for offshore and marine environments?",
@@ -140,23 +180,33 @@ export default function GratingsPage() {
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Gratings & Decks",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/plank-grating.png",
           category: "FRP Gratings & Structural Deck Panels",
+          productLine: "F1-GRID",
+          // Indicative USD/m² band for the grating range (basis: ~18 kg/m² molded
+          // grating; consistent with published regional grating quotes). Routes to
+          // /contact for a firm price — satisfies Google's "offers required" rule.
+          priceRange: { lowPrice: "35", highPrice: "90", offerCount: "20", unitText: "square meter" },
           material: ["Glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Phenolic resin", "Polyurethane resin"],
           additionalProperty: [
             { name: "Configurations", value: "Molded gratings, pultruded gratings, solid-top cover plates, structural deck panels" },
             { name: "Use Cases", value: "Marine, chemical, industrial platforms, pedestrian bridge decks, vehicular access decks" },
           ],
+          // Design load classes the grating range is engineered to satisfy
+          // (light pedestrian 5 → heavy industrial 25 kN/m²), as a typed range.
+          measurements: [
+            { propertyID: "loadCapacity", value: "5-25", unitText: "kN/m²" },
+          ],
         })}
       />
       <PageHeader
-        tag="Gratings & Decks"
-        title="FRP Gratings & Structural Deck Panels"
-        description="Corrosion-proof, lightweight fiber-reinforced polymer (FRP) gratings and structural deck panels — molded and pultruded gratings, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
+        tag="Gratings & Decks · F1-GRID"
+        title="Fiberglass Gratings (FRP) & Structural Deck Panels"
+        description="Corrosion-proof, lightweight fiberglass gratings and structural deck panels — molded and pultruded FRP grating, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -169,8 +219,8 @@ export default function GratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
             <Image
-              src="/images/products/frp-grating-industrial.jpg"
-              alt="Industrial facility with grating platforms, walkways, and stairways — typical FRP grating applications"
+              src="/images/products/frp-grating-types-molded-deck-pultruded.jpg"
+              alt="Three FRP grating types side by side — yellow molded mesh grating panel, gritted solid-top structural deck panel, and yellow pultruded I-bar grating sample"
               fill
               sizes="100vw"
               className="object-cover"
@@ -183,7 +233,7 @@ export default function GratingsPage() {
       {/* Introduction */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[780px]">
+          <div>
             <p className="text-f19 leading-golden text-t2">
               FRP (fiber-reinforced polymer) gratings and structural deck panels, also known
               as GRP (glass-reinforced polymer) gratings and FRP decking, deliver the
@@ -206,6 +256,18 @@ export default function GratingsPage() {
               costs, reduced transport expenses, and faster installation with smaller crews and
               lighter lifting equipment.
             </p>
+            <p className="mt-[21px] text-f15 leading-golden text-t2">
+              We ship grating panels worldwide on DDP and CIF terms. For projects in
+              the Gulf region, see our dedicated{" "}
+              <Link
+                href="/regions/frp-grating-supplier-saudi-arabia"
+                className="font-semibold text-teal-text hover:text-teal"
+              >
+                FRP grating supply program for Saudi Arabia — Riyadh, Jeddah, and Dammam
+              </Link>{" "}
+              covering by-city supply notes for the KSA market and project
+              documentation aligned with Aramco SAEP / SAES requirements.
+            </p>
           </div>
         </div>
       </section>
@@ -225,7 +287,7 @@ export default function GratingsPage() {
                 className="rounded-[8px] border border-border-default bg-white p-[34px]"
               >
                 <h3 className="text-[19px] font-bold text-t1">{grating.name}</h3>
-                <p className="mt-[13px] max-w-[700px] text-f15 leading-golden text-t2">
+                <p className="mt-[13px] text-f15 leading-golden text-t2">
                   {grating.description}
                 </p>
                 <div className="mt-[21px] overflow-x-auto">
@@ -245,17 +307,114 @@ export default function GratingsPage() {
               </div>
             ))}
           </div>
+
+          {/* Standard specification tables */}
+          <div className="mt-[55px]">
+            <h3 className="text-[clamp(20px,2.4vw,26px)] font-extrabold leading-[1.15] text-t1">
+              Standard specification tables
+            </h3>
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
+              The tables below list the most frequently ordered production
+              configurations from our grating program — nominal metric data taken
+              from series-production tooling, not made-to-order estimates. Further
+              mesh sizes, depths, panel formats, and resin systems are available;
+              request the certified datasheet for design values.
+            </p>
+
+            <div className="mt-[34px] rounded-[8px] border border-border-default bg-white p-[34px]">
+              <h4 className="text-[17px] font-bold text-t1">
+                Molded grating — common mesh and depth combinations
+              </h4>
+              <div className="mt-[21px] overflow-x-auto">
+                <table className="w-full border-collapse text-left">
+                  <thead>
+                    <tr className="border-b-2 border-border-default">
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Mesh (mm)</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Depth (mm)</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Bar Width Top/Bottom (mm)</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Open Area</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Weight (kg/m{"²"})</th>
+                      <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Standard Panel Sizes (mm)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {moldedGratingSpecs.map((row) => (
+                      <tr key={`${row.mesh}-${row.depth}`} className="border-b border-border-default">
+                        <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1 whitespace-nowrap">{row.mesh}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-teal-text font-semibold">{row.depth}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2 whitespace-nowrap">{row.bar}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.open}%</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.weight}</td>
+                        <td className="py-[13px] text-f15 text-t2">{row.panels}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-[13px] text-f13 leading-golden text-t3">
+                Mini-mesh (19.05 x 19.05 mm) meets heel-proof opening requirements
+                for public walkways. Additional depths from 13 mm to 65 mm and
+                covered (solid-top) variants are produced on the same tooling.
+              </p>
+            </div>
+
+            <div className="mt-[21px] rounded-[8px] border border-border-default bg-white p-[34px]">
+              <h4 className="text-[17px] font-bold text-t1">
+                Pultruded grating — common bearing bar types
+              </h4>
+              <div className="mt-[21px] overflow-x-auto">
+                <table className="w-full border-collapse text-left">
+                  <thead>
+                    <tr className="border-b-2 border-border-default">
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Type</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Series</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Depth (mm)</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Bar Centers (mm)</th>
+                      <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Open Area</th>
+                      <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1 whitespace-nowrap">Weight (kg/m{"²"})</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pultrudedGratingSpecs.map((row) => (
+                      <tr key={row.type} className="border-b border-border-default">
+                        <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1 whitespace-nowrap">
+                          {row.type}
+                          {row.ada && <span className="ml-[8px] rounded-[4px] bg-bg2 px-[8px] py-[2px] text-f11 font-semibold text-teal-text whitespace-nowrap">ADA</span>}
+                        </td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.series}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-teal-text font-semibold">{row.depth}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.centers}</td>
+                        <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.open}%</td>
+                        <td className="py-[13px] text-f15 text-t2">{row.weight}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-[13px] text-f13 leading-golden text-t3">
+                All types: cross-bar centers 152.4 mm (6 in), maximum panel size
+                1524 x 6100 mm, 60-65% glass content. Types marked ADA provide
+                openings of 13 mm or less in one direction, compliant with the
+                Americans with Disabilities Act walking-surface rule. High-load
+                (HI) series is rated for forklift and vehicular traffic — span
+                tables per AASHTO wheel loads available on request.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Molded vs pultruded: process animations + comparison + fit */}
+      <GratingSelectionGuide />
+
       {/* Load Ratings */}
-      <section className="bg-white py-[89px]">
+      <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Load Ratings</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Design load classes
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             We engineer gratings to satisfy the following standard load classes.
             Custom load ratings and span tables are available on request for
             project-specific requirements.
@@ -295,13 +454,13 @@ export default function GratingsPage() {
       </section>
 
       {/* Anti-Slip Grades */}
-      <section className="bg-bg2 py-[89px]">
+      <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Anti-Slip Performance</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Surface treatment grades
           </h2>
-          <p className="mt-[13px] max-w-[560px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             All anti-slip values measured using the BS 7976-2 pendulum test method
             in wet conditions. Higher values indicate greater slip resistance.
           </p>
@@ -324,12 +483,13 @@ export default function GratingsPage() {
       </section>
 
       <RelatedLinks
-        background="white"
         groups={[
           {
             title: "Related FRP products",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/products/stair-tread-covers", label: "Stair tread covers & grating treads" },
+              { href: "/products/handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/standard-profiles/i-beam", label: "FRP I-beam support" },
               { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
               { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },
@@ -338,6 +498,7 @@ export default function GratingsPage() {
           {
             title: "Applications",
             links: [
+              { href: "/regions/frp-grating-supplier-saudi-arabia", label: "FRP grating Saudi Arabia — Riyadh · Jeddah · Dammam" },
               { href: "/industries/marine", label: "Marine & offshore gratings" },
               { href: "/industries/industrial", label: "Chemical plant platforms" },
               { href: "/case-studies/coastal-marina-walkway", label: "Coastal marina case study" },
@@ -359,9 +520,9 @@ export default function GratingsPage() {
       />
 
       {/* FAQ */}
-      <section className="bg-bg2 py-[89px]">
+      <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <FAQ items={faqItems} suppressSchema />
+          <FAQ items={faqItems} />
         </div>
       </section>
 

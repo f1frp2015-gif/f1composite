@@ -23,12 +23,12 @@ const faqs = [
   {
     question: "Do you have references in my industry?",
     answer:
-      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — sales@f1composite.com.",
+      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — inquiry@f1composite.com.",
   },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Industries Served — FRP Profiles for Construction, Marine & Energy",
+  title: "Industries Served — FRP for Construction, Marine, Energy",
   description:
     "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors — corrosion-resistant fiberglass replacing steel.",
   path: "/industries",
@@ -96,7 +96,7 @@ export default function IndustriesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Industries Served by Pultruded FRP</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
@@ -172,7 +172,7 @@ export default function IndustriesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Regional Supplier Pages</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>For procurement teams in regions with local supplier compliance requirements:</p>

@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
-import dynamic from "next/dynamic";
-
-const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"));
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+// Self-hosted DM Sans (variable, wght 400-800) — next/font/google fetched
+// from fonts.googleapis.com at BUILD time, which made every build depend on
+// that host being reachable; one blocked SNI = failed deploy. Same v17 files
+// Google serves, now vendored in app/fonts/.
+const dmSans = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
+  weight: "400 800",
+  style: "normal",
   display: "swap",
   variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "F1 Composite — Pultruded FRP Profiles & Fiberglass Structural Shapes Manufacturer",
+    default: "F1 Composite — Pultruded FRP Profiles Manufacturer",
     template: "%s | F1 Composite",
   },
   description:
@@ -44,178 +47,13 @@ export const metadata: Metadata = {
   },
 };
 
-const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "Manufacturer"],
-  "@id": "https://www.f1composite.com/#organization",
-  name: "F1 Composite",
-  alternateName: [
-    "F1 Composites",
-    "F1 Composite Co., Ltd",
-  ],
-  legalName: "F1 Composite Co., Ltd",
-  url: "https://www.f1composite.com",
-  logo: {
-    "@type": "ImageObject",
-    url: "https://www.f1composite.com/brand/f1-logo.png",
-    width: 512,
-    height: 512,
-  },
-  image: "https://www.f1composite.com/opengraph-image",
-  description:
-    "F1 Composite Co., Ltd — pultruded FRP profiles manufacturer based in Chongqing, China. Direct factory export to 30+ countries with 5 production bases, 370 pultrusion lines, and 150,000 t/year capacity. ISO 9001 certified; products to EN 13706 and ASTM D3917. Full range: structural shapes, fenestration systems, gratings, and custom pultrusions.",
-  foundingDate: "2015",
-  foundingLocation: {
-    "@type": "Place",
-    name: "Chongqing, China",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "No. 153 Jinyu Avenue, Cuntan Street",
-    addressLocality: "Chongqing",
-    addressRegion: "Liangjiang New Area",
-    postalCode: "401121",
-    addressCountry: "CN",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      email: "Doris.li@f1composite.com",
-      telephone: "+86-138-8333-3993",
-      availableLanguage: ["English", "Chinese"],
-      areaServed: ["Worldwide"],
-    },
-    {
-      "@type": "ContactPoint",
-      contactType: "technical support",
-      email: "f1frp2015@gmail.com",
-      availableLanguage: ["English", "Chinese"],
-    },
-  ],
-  areaServed: [
-    { "@type": "Continent", name: "Europe" },
-    { "@type": "Continent", name: "North America" },
-    { "@type": "Continent", name: "Asia" },
-    { "@type": "Continent", name: "Oceania" },
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "Country", name: "Australia" },
-    { "@type": "Country", name: "Germany" },
-    { "@type": "Country", name: "Netherlands" },
-    { "@type": "Country", name: "Saudi Arabia" },
-    { "@type": "Country", name: "United Arab Emirates" },
-  ],
-  knowsAbout: [
-    "Pultrusion",
-    "FRP Composite Profiles",
-    "Pultruded FRP Profiles",
-    "Fiberglass Reinforced Polymer",
-    "Fiberglass Reinforced Plastic",
-    "Glass Reinforced Polymer (GRP)",
-    "Structural Composite Materials",
-    "FRP Window Frames",
-    "FRP Window Profiles",
-    "Pultruded Fiberglass Window Frames",
-    "FRP Fenestration Systems",
-    "FRP Gratings",
-    "FRP Deck Panels",
-    "EN 13706 Pultruded Profiles",
-    "ASTM D3917 Pultruded Shapes",
-    "ASCE/SEI 74-23 LRFD",
-    "Passive House Fenestration",
-  ],
-  makesOffer: [
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Custom pultrusion tooling and manufacturing",
-      },
-    },
-    {
-      "@type": "AggregateOffer",
-      priceCurrency: "USD",
-      lowPrice: "5",
-      highPrice: "300",
-      offerCount: "200",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        priceCurrency: "USD",
-        unitText: "linear meter",
-      },
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      businessFunction: "http://purl.org/goodrelations/v1#Sell",
-      itemOffered: {
-        "@type": "Product",
-        "@id": "https://www.f1composite.com/pultruded-frp-profiles#product",
-        name: "Pultruded FRP Profiles — direct from China factory",
-        category: "Pultruded FRP Profiles",
-        url: "https://www.f1composite.com/pultruded-frp-profiles",
-        brand: { "@type": "Brand", name: "F1 Composite" },
-        offers: {
-          "@type": "AggregateOffer",
-          url: "https://www.f1composite.com/contact",
-          priceCurrency: "USD",
-          lowPrice: "5",
-          highPrice: "300",
-          offerCount: "200",
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          businessFunction: "http://purl.org/goodrelations/v1#Sell",
-          seller: { "@id": "https://www.f1composite.com/#organization" },
-        },
-      },
-      eligibleRegion: [
-        { "@type": "Country", name: "United States" },
-        { "@type": "Country", name: "United Kingdom" },
-        { "@type": "Country", name: "Germany" },
-        { "@type": "Country", name: "Netherlands" },
-        { "@type": "Country", name: "Australia" },
-        { "@type": "Country", name: "Saudi Arabia" },
-        { "@type": "Country", name: "United Arab Emirates" },
-      ],
-    },
-  ],
-  brand: {
-    "@type": "Brand",
-    name: "F1 Composite",
-  },
-  naics: "326199",
-  keywords:
-    "pultruded FRP profiles manufacturer, FRP profiles supplier China, fiberglass structural shapes factory, FRP I beam manufacturer, FRP window frames supplier, FRP grating wholesale, custom pultrusion services, pultruded fiberglass China export",
-  hasCredential: [
-    {
-      "@type": "EducationalOccupationalCredential",
-      name: "ISO 9001:2015 — Quality Management System",
-      credentialCategory: "certification",
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      name: "EN 13706 — Reinforced plastics composites — Specifications for pultruded profiles",
-      credentialCategory: "product standard",
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      name: "PHI (Passive House Institute) certified — 90-series fenestration",
-      credentialCategory: "product certification",
-    },
-  ],
-  slogan:
-    "Pultruded FRP profiles manufacturer — structural shapes, fenestration, gratings, and custom pultrusions to EN 13706 and ASTM D3917",
-  sameAs: [
-    "https://www.youtube.com/@F1Composites",
-  ],
-};
-
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://www.f1composite.com/#website",
   url: "https://www.f1composite.com",
   name: "F1 Composite",
-  alternateName: "F1 Composite Co., Ltd",
+  alternateName: "Chongqing F1 Composites Co., Ltd.",
   description:
     "Pultruded FRP profiles manufacturer — fiberglass structural shapes, FRP window frames, gratings & decks, and custom pultrusions to EN 13706 and ASTM D3917.",
   inLanguage: "en",
@@ -237,25 +75,59 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
-      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-      )}
-      {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");`}
-        </Script>
-      )}
       <body className="min-h-screen font-sans antialiased">
-        <JsonLd data={orgSchema} />
+        {/* Preconnect to the analytics origin so the first GA hit doesn't pay an
+            extra DNS+TLS round trip. React 19 hoists this <link> into <head>. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Skip-to-content link (WCAG 2.4.1) — visually hidden until focused. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-[16px] focus:top-[10px] focus:z-[100] focus:rounded-[6px] focus:bg-white focus:px-[16px] focus:py-[8px] focus:text-t1 focus:shadow-lg focus:outline focus:outline-2 focus:outline-teal"
+        >
+          Skip to content
+        </a>
         <JsonLd data={websiteSchema} />
         <Navbar />
-        <main className="pt-[55px]">{children}</main>
+        <main id="main" className="pt-[55px]">{children}</main>
         <Footer />
-        <ChatWidget />
+        <a
+          href="/ask"
+          className="fixed bottom-[21px] right-[21px] z-50 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-teal text-white shadow-lg transition-colors hover:bg-teal-text"
+          aria-label="Open FRP Engineering Advisor"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.4 1.2 4.55 3.05 6.05L5 21l4.2-1.8c.9.2 1.84.3 2.8.3 4.97 0 9-3.58 9-8s-4.03-8-9-8z" stroke="currentColor" strokeWidth="1.8" />
+            <circle cx="8.5" cy="11" r="1" fill="currentColor" />
+            <circle cx="12" cy="11" r="1" fill="currentColor" />
+            <circle cx="15.5" cy="11" r="1" fill="currentColor" />
+          </svg>
+        </a>
+        {/* Field RUM for Core Web Vitals (LCP/INP/CLS) — privacy-safe, no cookies.
+            Requires Speed Insights enabled in the Vercel project dashboard. */}
+        <SpeedInsights />
+        {/* Must live INSIDE <body>. Previously a direct child of <html> before
+            <body>, where Next dropped its inline init script (gtag config +
+            dataLayer) — the loader downloaded but no page_view ever fired, so
+            GA4 reported "data collection isn't active". */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
+        {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+          <Script id="ms-clarity" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");`}
+          </Script>
+        )}
+        {/* Ahrefs Web Analytics — async, so React 19 hoists it into <head>
+            (the placement Ahrefs' installation guide asks for). */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="CFDhVpS55aoWtGuYtrx1Cw"
+          async
+        />
       </body>
     </html>
   );

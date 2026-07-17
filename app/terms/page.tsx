@@ -37,7 +37,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="mb-[13px] text-f19 font-bold text-t1">3. Intellectual Property</h2>
-              <p>All content on this website, including text, images, graphics, CAD drawings, and technical data, is the property of F1 Composite Co., Ltd and is protected by applicable copyright laws. You may not reproduce, distribute, or republish any content without our written permission.</p>
+              <p>All content on this website, including text, images, graphics, CAD drawings, and technical data, is the property of Chongqing F1 Composites Co., Ltd. and is protected by applicable copyright laws. You may not reproduce, distribute, or republish any content without our written permission.</p>
             </div>
 
             <div>
@@ -57,7 +57,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="mb-[13px] text-f19 font-bold text-t1">7. Contact</h2>
-              <p>For questions about these terms, contact:<br />F1 Composite Co., Ltd<br />Email: Doris.li@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
+              <p>For questions about these terms, contact:<br />Chongqing F1 Composites Co., Ltd.<br />Email: inquiry@f1composite.com<br />No. 153 Jinyu Avenue, Cuntan Street, Liangjiang New Area, Chongqing, China</p>
             </div>
           </div>
         </div>

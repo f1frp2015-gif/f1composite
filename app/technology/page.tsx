@@ -33,6 +33,20 @@ const areas = [
     href: "/technology/frp-vs-traditional-materials",
   },
   {
+    tag: "Materials",
+    title: "Pultrusion Resin Systems",
+    description:
+      "Polyester, vinyl ester, polyurethane, epoxy, or phenolic? The resin matrix decides corrosion, fire, and temperature behavior. Compare all five systems with an interactive selection matrix and typical property ranges.",
+    href: "/technology/pultrusion-resin-systems",
+  },
+  {
+    tag: "Materials",
+    title: "Polyurethane Pultrusion Windows",
+    description:
+      "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness — the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
+    href: "/technology/polyurethane-pultrusion-windows",
+  },
+  {
     tag: "Quality",
     title: "Quality & Testing",
     description:
@@ -111,7 +125,7 @@ export default function TechnologyPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Four Pillars of Our Technical Capability
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Each discipline reinforces the others — precise process control enables
             superior material performance, validated by comprehensive testing, and
             made accessible through our know-how transfer programs.
@@ -157,9 +171,11 @@ export default function TechnologyPage() {
             links: [
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process (6 stages)" },
+              { href: "/technology/pultrusion-resin-systems", label: "Resin systems: polyester vs vinyl ester vs PU" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
               { href: "/resources/design-guides", label: "Engineering design guides" },

@@ -1,0 +1,28 @@
+name: Link check (lychee)
+
+# Weekly + manual. fail:false → reports broken links in the job summary but
+# never fails the run, so it can't turn CI red. Checks every URL in the live
+# sitemap plus the external links those pages reference.
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links in the live sitemap
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-concurrency 4
+            --accept 200,206,429
+            https://www.f1composite.com/sitemap.xml
+          fail: false
+          jobSummary: true

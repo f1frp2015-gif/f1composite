@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import FrpProcessShowcase from "@/components/sections/FrpProcessShowcase";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import { GuideDownloadGate } from "@/components/sections/GuideDownloadGate";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
+import Button from "@/components/ui/Button";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import TrustStrip from "@/components/cro/TrustStrip";
@@ -21,9 +24,9 @@ import {
 } from "@/lib/aiPrefill";
 
 const pageTitle =
-  "What is FRP? Complete Guide to Fiberglass Reinforced Polymer Composites";
+  "What is FRP? Fiberglass Reinforced Polymer Explained";
 const pageDescription =
-  "FRP (fiberglass reinforced polymer) composites explained — materials, pultrusion process, properties, standards (EN 13706, ASTM D3917), applications, and how advanced composites compare with steel and aluminum.";
+  "FRP (fiberglass reinforced polymer, aka GRP or composite) = fiberglass + resin. How it's made, properties, standards (EN 13706, ASTM), and uses vs steel.";
 const pagePath = "/what-is-frp";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -106,20 +109,8 @@ export default function WhatIsFrpPage() {
     datePublished: "2026-04-14",
     dateModified: "2026-04-14",
     inLanguage: "en",
-    author: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: "https://www.f1composite.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: "https://www.f1composite.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.f1composite.com/brand/f1-logo.png",
-      },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     about: [
       {
         "@type": "Thing",
@@ -213,7 +204,18 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             What is FRP?
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
+          <div className="mt-[21px] max-w-[820px] rounded-[8px] border-l-[3px] border-teal bg-bg2 p-[21px]">
+            <p className="text-f15 leading-golden text-t1">
+              <strong>FRP definition:</strong> FRP (fiber reinforced polymer) is a
+              structural composite material made of high-strength glass fibers
+              bonded in a thermoset polymer resin. Also called fiberglass
+              reinforced polymer or GRP, FRP is corrosion-proof, electrically
+              non-conductive, and stronger per kilogram than steel at roughly
+              one-quarter the weight.
+            </p>
+          </div>
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             <strong className="text-t1">FRP (fiber reinforced polymer)</strong> is
             a structural composite material that combines two constituents: a
             thermoset polymer resin matrix (polyester, vinyl ester, polyurethane,
@@ -222,15 +224,22 @@ export default function WhatIsFrpPage() {
             mechanical load; the resin transfers the load between fibers and
             protects them from the environment.
           </p>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             The resulting fiberglass reinforced polymer is lighter than aluminum,
             stronger per kilogram than steel, immune to rust, electrically
             non-conductive, and thermally insulating. FRP composites are used
             wherever corrosion, weight, electromagnetic transparency, or thermal
             efficiency is critical — from chemical plant platforms and offshore
-            grating to passive-house window systems and pedestrian bridges.
+            grating to{" "}
+            <Link
+              href="/products/fenestration-systems"
+              className="font-semibold text-teal-text hover:text-teal"
+            >
+              FRP windows
+            </Link>{" "}
+            for passive-house buildings and pedestrian bridges.
           </p>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             When the FRP is produced by the{" "}
             <Link
               href="/technology/pultrusion-process"
@@ -262,18 +271,66 @@ export default function WhatIsFrpPage() {
         </div>
       </section>
 
+      {/* P0 funnel CTA — route informational readers to the commercial pages */}
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px] sm:flex sm:items-center sm:justify-between sm:gap-[34px]">
+            <div>
+              <h2 className="text-f19 font-bold text-t1">
+                Looking for FRP products, not just the theory?
+              </h2>
+              <p className="mt-[8px] text-f15 leading-golden text-t2">
+                F1 Composite manufactures pultruded FRP direct from the factory —
+                including{" "}
+                <Link
+                  href="/products/fenestration-systems"
+                  className="font-semibold text-teal-text hover:text-teal"
+                >
+                  FRP windows &amp; window frames
+                </Link>{" "}
+                and the full{" "}
+                <Link
+                  href="/pultruded-frp-profiles"
+                  className="font-semibold text-teal-text hover:text-teal"
+                >
+                  pultruded FRP profiles
+                </Link>{" "}
+                range. Size a section in 30 seconds, or get a DDP quote.
+              </p>
+            </div>
+            <div className="mt-[21px] flex flex-shrink-0 flex-wrap gap-[13px] sm:mt-0">
+              <Button href="/frp-profile-calculator">Size an FRP profile</Button>
+              <Button href="/products/fenestration-systems" variant="secondary">
+                FRP windows &amp; doors
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Terminology */}
       <section id="terminology" className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Terminology</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP, GRP, fiberglass, composites — same thing?
+            FRP vs fiberglass vs GRP — same thing?
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <div className="mt-[21px] max-w-[860px] rounded-[8px] border-l-[4px] border-teal bg-white p-[21px]">
+            <p className="text-f15 leading-golden text-t2">
+              <strong className="text-t1">FRP vs fiberglass, in one line:</strong>{" "}
+              fiberglass is the glass fiber itself (and, informally, the finished
+              material); FRP — fiber reinforced polymer — is the engineered composite
+              of that fiber locked in a resin matrix. Every pultruded &ldquo;fiberglass
+              profile&rdquo; is an FRP product: the two words describe the same material
+              family at different levels of precision, and this page uses them
+              interchangeably where the context is structural profiles.
+            </p>
+          </div>
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             The terminology around fiber composites is regional and often
             overlapping. In engineering practice:
           </p>
-          <ul className="mt-[21px] max-w-[900px] space-y-[13px] text-f15 leading-golden text-t2">
+          <ul className="mt-[21px] space-y-[13px] text-f15 leading-golden text-t2">
             <li>
               <strong className="text-t1">FRP</strong> — Fiber Reinforced Polymer.
               The generic North American term. Can use glass, carbon, aramid, or
@@ -407,6 +464,8 @@ export default function WhatIsFrpPage() {
         </div>
       </section>
 
+      <FrpProcessShowcase />
+
       {/* Pultrusion Process */}
       <section id="pultrusion" className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -414,7 +473,7 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             How pultruded FRP is made
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Pultrusion is a continuous, automated process that produces
             constant-cross-section FRP profiles. Invented in the 1950s and
             standardized in the 1970s, it is now the dominant manufacturing route
@@ -496,7 +555,7 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Mechanical and physical properties of pultruded FRP
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Typical values for E-glass / isophthalic-polyester pultruded
             structural profiles at 23 °C. Properties are directional — the table
             below gives longitudinal (L) values unless noted. Vinyl ester and
@@ -549,6 +608,24 @@ export default function WhatIsFrpPage() {
             href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("properties"))}`}
             secondary={{ label: "Run the deflection calculator", href: "/frp-profile-calculator" }}
           />
+        </div>
+      </section>
+
+      {/* Gated content download — email captures a real inquiry via the shared
+          /api/contact pipeline; the PDF itself is public (also linked, ungated,
+          from /resources/downloads), so a failed submission still shows a
+          direct link rather than blocking access to a file that was never
+          actually restricted. */}
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="max-w-[640px]">
+            <GuideDownloadGate
+              fileHref="/downloads/f1composite-frp-profile-design-manual-2026.pdf"
+              fileLabel="FRP Profile Design Manual (2026 Edition)"
+              fileDescription="24-page engineering reference: full section properties, point-load and UDL deflection tables (500 mm–6 m spans), E23-grade material data per EN 13706-2, chemical resistance, and fire performance for F1 pultruded profiles."
+              source="what-is-frp-guide-download"
+            />
+          </div>
         </div>
       </section>
 
@@ -619,11 +696,11 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             When FRP is not the right choice
           </h2>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             FRP is not a universal substitute for steel. Engineering considerations
             that frequently disqualify or complicate a pultruded FRP specification:
           </p>
-          <ul className="mt-[21px] max-w-[900px] space-y-[13px] text-f15 leading-golden text-t2">
+          <ul className="mt-[21px] space-y-[13px] text-f15 leading-golden text-t2">
             <li>
               <strong className="text-t1">Low elastic modulus.</strong> FRP
               stiffness is ~1/10 of steel. For long-span primary beams, deflection
@@ -820,6 +897,7 @@ export default function WhatIsFrpPage() {
             <LinkArrow href="/products/custom-pultrusions">Custom pultrusion services</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>
+            <LinkArrow href="/resources/glossary">FRP &amp; pultrusion glossary</LinkArrow>
             <LinkArrow href="/ask">Ask the AI engineering assistant</LinkArrow>
           </div>
         </div>

@@ -5,12 +5,18 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Square Tube — Pultruded Fiberglass SHS & RHS Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS";
 const pageDescription =
-  "Pultruded FRP square and rectangular hollow sections 25×25 mm — 240×240 mm. EN 13706 / ASTM D3917, 75% lighter than steel, dielectric, corrosion-free. Trusses, columns, frames. Free samples.";
+  "Pultruded fiberglass square tubing (FRP SHS/RHS) 25×25–240×240 mm. EN 13706 / ASTM D3917, 75% lighter than steel, dielectric. Trusses, frames. DDP USA 24h.";
 const pagePath = "/products/standard-profiles/square-tube";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -20,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/square-tube/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "SHS 25×25×3.2", h: 25, b: 25, t: 3.2, weight: "0.4" },
   { model: "SHS 38×38×4.8", h: 38, b: 38, t: 4.8, weight: "0.9" },
   { model: "RHS 40×20×7", h: 40, b: 20, t: 7, weight: "1.0" },
@@ -56,17 +62,33 @@ const faqItems = [
   },
 ];
 
-export default function SquareTubePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("square-tube");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    // SHS stores side as D; RHS stores H×B
+    h: r.dims.D ?? r.dims.H ?? 0,
+    b: r.dims.D ?? r.dims.B ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function SquareTubePage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Square and Rectangular Tubes",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/square-tube/frp-square-tube-100x100x6mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "25×25 mm to 240×240 mm" },
             { name: "Formats", value: "Square hollow sections and rectangular hollow sections" },
@@ -75,8 +97,8 @@ export default function SquareTubePage() {
       />
       <PageHeader
         tag="Square Tube"
-        title="FRP Square & Rectangular Tubes"
-        description="Pultruded FRP SHS and RHS profiles from 25×25 mm to 240×240 mm."
+        title="Fiberglass Square & Rectangular Tubes (FRP)"
+        description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -165,6 +187,7 @@ export default function SquareTubePage() {
           {
             title: "Technical resources",
             links: [
+              { href: "/frp-span-tables#square-tube", label: "FRP square tube span table — allowable loads" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
               { href: "/resources/technical-data", label: "Data sheets" },
@@ -178,6 +201,17 @@ export default function SquareTubePage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator?shape=square-tube"
+            eyebrow="Free tool · square tube preset"
+            title="Size an FRP square tube — bending, shear &amp; deflection"
+            sub="Opens the FRP profile calculator on a square / rectangular tube: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+          />
         </div>
       </section>
 

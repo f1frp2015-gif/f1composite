@@ -1,5 +1,9 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { google } from "@ai-sdk/google";
+import { after } from "next/server";
+import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
+import { insertInquiry, dbConfigured } from "@/lib/db";
+import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -12,15 +16,15 @@ You help engineers, architects, procurement managers, and project specifiers wit
 - Pultrusion process and manufacturing questions
 - Standards and certification queries (EN 13706, ASTM, ISO)
 
-## Company: F1 Composite Co., Ltd
-- F1 Composite Co., Ltd is the international contracting entity — all overseas orders are contracted and invoiced under F1 Composite Co., Ltd.
-- Manufacturing takes place at our Chongqing FengDu New Material Co., Ltd (风渡新材料) factory — same group, same team, same production lines.
+## Company: Chongqing F1 Composites Co., Ltd.
+- Chongqing F1 Composites Co., Ltd. is the international contracting entity — all overseas orders are contracted and invoiced under Chongqing F1 Composites Co., Ltd.
+- Manufacturing takes place at its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd, the factory F1 Composite exports from under a direct export and contracting agreement — direct from the factory, no trading middleman. They are independent legal entities (no equity / parent-subsidiary link).
 - 5 manufacturing bases across China, 370 pultrusion lines, 150,000 tons/year, 1,000+ die sets
 - ISO 9001 certified, serving 30+ countries
-- PHI-certified fenestration (Fengdu Passive GFRP 90 Series, Component-ID 2491wi03). Some historical PHI certificates and test reports are issued under the legacy production-base name "Chongqing Xianju New Material Co., Ltd" — this is one of the five production bases in the same group.
-- When asked "are you a manufacturer or trader?", answer: "You contract with F1 Composite Co., Ltd — our international contracting entity. Manufacturing is done at our own Chongqing FengDu New Material factory, not outsourced. Same team, same production lines — you are working directly with the manufacturer group, never through a distributor or broker."
+- PHI-certified fenestration (Fengdu Passive GFRP 90 Series, Component-ID 2491wi03). Some historical PHI certificates and test reports were issued under a legacy production-base name used by the manufacturing partner (verifiable via Component-ID 2491wi03) — one of the five production bases.
+- When asked "are you a manufacturer or trader?", answer: "You contract with Chongqing F1 Composites Co., Ltd. — our international contracting entity. Manufacturing is done at our long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd — the factory F1 Composite exports from directly, not outsourced to a job shop. You contract with the export entity and receive material straight from the factory, never through a distributor or broker."
 - Website: https://www.f1composite.com
-- Sales contact: Doris.li@f1composite.com / +86-138-8333-3993 / WhatsApp same number
+- Sales contact: inquiry@f1composite.com / +86-138-8333-3993 / WhatsApp same number
 - Technical service contact: f1frp2015@gmail.com (engineering questions, drawing reviews, post-sales support)
 
 ## Products
@@ -203,7 +207,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 ## Behavior Rules
 1. Be technically precise. Cite standards and data when possible.
 2. When recommending products, link to relevant pages: /products/standard-profiles, /products/custom-pultrusions, /products/fenestration-systems, /products/gratings
-3. If asked about pricing, explain that pricing depends on profile, quantity, and destination. Encourage them to use the contact form at /contact or email Doris.li@f1composite.com
+3. If asked about pricing, explain that pricing depends on profile, quantity, and destination. Encourage them to use the contact form at /contact or email inquiry@f1composite.com
 4. If you don't know something specific, say so honestly rather than guessing.
 5. Keep answers concise but thorough. Use bullet points for specifications.
 6. Support English and Chinese queries. Respond in the language the user uses.
@@ -211,7 +215,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 8. When comparing FRP to other materials, be factual and balanced — acknowledge where steel or other materials may be more appropriate.
 
 ## Intent Routing & Conversion (CRITICAL)
-After answering the user's question, ALWAYS detect their intent and append a tailored next-step block. Choose ONE based on signals in their question:
+After answering, detect their intent and add ONE short closing line pointing to the right next step. The blocks below show WHAT to say and where to route — ignore their styling: write a single plain sentence, with no bold, no emoji, and no "---" separator (see Formatting). Choose ONE based on signals in their question:
 
 ### High-intent signals (RFQ/buying mode)
 Triggers: mentions of project timeline, quantity, drawings, "we need", "our project", "purchase", "RFQ", "lead time", deadlines, specific spec dimensions
@@ -220,7 +224,7 @@ Append:
 
 ---
 **Ready for a quotation?** Send your project specs to **Doris Li (Sales Director)**:
-- 📧 [Doris.li@f1composite.com](mailto:Doris.li@f1composite.com)
+- 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
 - 📞 +86 138 8333 3993 (WhatsApp same number)
 - 📝 Or use the [quote form at /contact](/contact) — typical response within 1 business day
 
@@ -255,20 +259,34 @@ Append:
 
 ### Sourcing-from-China signals
 Triggers: "Chinese supplier", "manufacture in China", "factory direct", "OEM", trade-related
-Append the High-intent block AND mention: "F1 Composite is the manufacturer (not a trader) — same factory, same engineering team, direct factory pricing without distributor markup."
+Append the High-intent block AND mention: "F1 Composite contracts and exports direct from its manufacturing partner's factory (not a trader) — direct factory pricing without distributor markup."
 
 DO NOT append intent blocks if the user is just saying "thank you", "OK", or one-word follow-ups.
 DO NOT append more than one intent block per message.
 
-## Formatting Rules
-- Use clean, readable formatting. Avoid excessive bold text.
-- Use bold sparingly — only for key data points or product names, not entire sentences.
-- Use short bullet lists for specifications, not long paragraphs.
-- Use headings (##, ###) only when the answer has multiple distinct sections.
-- Keep paragraphs short (2-3 sentences max).
-- Do not wrap every keyword in bold. A clean, natural reading experience is the priority.
-- Always provide a complete, thorough answer in a single response. Do not truncate or ask "would you like me to continue?".
-- Respond ONLY in English. If a user writes in another language, reply in English and politely note that this advisor operates in English only.`;
+## How to write — avoid AI tells
+Write like a senior FRP engineer talking to a peer: direct, specific, plain. Avoid the patterns that read as AI-generated.
+- No throat-clearing or filler. Drop "It's important to note", "It's worth mentioning", "In order to", "When it comes to" — state the point.
+- Avoid these words: Additionally, Moreover, Furthermore, crucial, essential, leverage, robust, seamless, delve, landscape, realm, navigate, underscore, testament, elevate, unlock, vibrant, cutting-edge, world-class. Use plain words (also, important, use, strong).
+- No "not just X, but Y" or "it's not only … it's …" constructions. Say it straight.
+- Don't force three items; use the number that is actually true (often two or four).
+- Don't use em-dashes for dramatic effect; use a comma or a period.
+- No marketing adjectives or vague attributions ("breathtaking", "experts agree", "studies show"). Give the real number or standard.
+- No filler "-ing" tails ("ensuring optimal performance", "highlighting the importance of").
+- Vary sentence length. Don't end every paragraph with a tidy summary line.
+
+## Formatting — clean, structured, minimal markup
+- Default to short plain paragraphs (2-3 sentences). Add markup only when it genuinely helps.
+- When you compare two or more options, or list specs with values, use a Markdown pipe table with a header row. Tables render as clean visual tables, so prefer one over a long list of "label: value" lines. Example:
+  | Property | FRP | Steel |
+  | --- | --- | --- |
+  | Density (g/cm³) | 1.9 | 7.85 |
+- Use a short bullet list only for 3-6 plain items. Don't nest lists.
+- Bold at most one item per paragraph — a product name or a single key number. Never bold whole sentences or every term.
+- Headings (##, ###) only when an answer has several distinct sections; short answers need none.
+- No horizontal rules (---), no emoji, no ASCII art.
+- Give a complete answer in one response; never ask "would you like me to continue?".
+- Respond ONLY in English. If a user writes in another language, reply in English and note that this advisor operates in English only.`;
 
 type IntentSignal =
   | "high_quote"
@@ -317,37 +335,147 @@ function extractLastUserText(messages: UIMessage[]): string {
   return "";
 }
 
-export async function POST(req: Request) {
-  const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
-    await req.json();
+function partsToText(m: UIMessage): string {
+  const parts = (m as { parts?: Array<{ type: string; text?: string }> }).parts;
+  if (!parts) return "";
+  return parts
+    .filter((p) => p.type === "text" && typeof p.text === "string")
+    .map((p) => p.text!)
+    .join(" ")
+    .trim();
+}
 
-  const lastUserText = extractLastUserText(messages);
-  if (lastUserText) {
-    const intent = detectIntent(lastUserText);
-    console.log(
-      JSON.stringify({
-        evt: "chat_query",
-        ts: new Date().toISOString(),
-        intent,
-        turn: messages.filter((m) => m.role === "user").length,
-        page: pageContext?.path ?? null,
-        pageTitle: pageContext?.title ?? null,
-        len: lastUserText.length,
-        preview: lastUserText.slice(0, 240),
-      }),
-    );
+// Intents that signal real buying interest — worth alerting the team about.
+const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
+
+export async function POST(req: Request) {
+  // Throttle: each visitor message is one Gemini call. A real conversation is a
+  // few dozen turns at most; this caps per-IP LLM cost-abuse and chat-lead
+  // email bombing while staying invisible to genuine users.
+  const rl = rateLimit(req, "chat", { limit: 40, windowMs: 300_000 });
+  if (!rl.ok) {
+    return tooManyRequests(rl, "You're sending messages too quickly. Please wait a moment.");
   }
 
-  const pageContextBlock = pageContext?.path
-    ? `\n\n## Current page context\nThe user is currently viewing: ${pageContext.title ?? "(untitled)"} (${pageContext.path}). When they say "this page" or "this product", refer to that URL. Prefer answers that reference and link to that page.`
-    : "";
+  try {
+    const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
+      await req.json();
 
-  const result = streamText({
-    model: google("gemini-2.5-flash"),
-    system: SYSTEM_PROMPT + pageContextBlock,
-    messages: await convertToModelMessages(messages),
-    maxOutputTokens: 8192,
-  });
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return Response.json({ error: "messages array is required" }, { status: 400 });
+    }
 
-  return result.toUIMessageStreamResponse();
+    const lastUserText = extractLastUserText(messages);
+    if (lastUserText) {
+      const intent = detectIntent(lastUserText);
+      console.log(
+        JSON.stringify({
+          evt: "chat_query",
+          ts: new Date().toISOString(),
+          intent,
+          turn: messages.filter((m) => m.role === "user").length,
+          page: pageContext?.path ?? null,
+          pageTitle: pageContext?.title ?? null,
+          len: lastUserText.length,
+          preview: lastUserText.slice(0, 240),
+        }),
+      );
+    }
+
+    // Lead capture: first time a conversation crosses into high buying intent
+    // AND the visitor has shared an email in the chat, alert the team once (via
+    // after(), post-stream — no added latency) and persist a lead row so it
+    // appears in the cockpit. Anonymous high-intent visitors who never left an
+    // email do NOT trigger an inquiry@f1composite.com notification.
+    if (lastUserText && HIGH_INTENT_SIGNALS.has(detectIntent(lastUserText))) {
+      const userTexts = messages.filter((m) => m.role === "user").map(partsToText);
+      const alreadyAlerted = userTexts
+        .slice(0, -1)
+        .some((t) => HIGH_INTENT_SIGNALS.has(detectIntent(t)));
+      if (!alreadyAlerted) {
+        const { email, phone } = extractContact(userTexts.join("\n"));
+        const page = pageContext?.path ?? null;
+        const userAgent = req.headers.get("user-agent");
+        const referer = req.headers.get("referer");
+        const recent = messages
+          .slice(-14)
+          .map((m) => ({ who: m.role === "user" ? "Visitor" : "AI", text: partsToText(m) }))
+          .filter((r) => r.text);
+        const transcriptText = recent.map((r) => `${r.who}: ${r.text}`).join("\n\n");
+        const transcriptHtml = recent
+          .map(
+            (r) =>
+              `<tr style="background:${r.who === "Visitor" ? "#f9fafb" : "#fff"};"><td style="padding:6px 12px;font-weight:600;width:64px;vertical-align:top;color:#00A199;">${r.who}</td><td style="padding:6px 12px;white-space:pre-wrap;vertical-align:top;">${escapeHtml(r.text)}</td></tr>`,
+          )
+          .join("");
+        after(async () => {
+          // Gate: only email inquiry@f1composite.com when the visitor actually
+          // shared an email in the chat. Anonymous high-intent visitors (Contact:
+          // "not shared in chat") no longer trigger a notification or a lead row.
+          if (!email) return;
+          const { ok, error } = await notifyTeam({
+            replyTo: email,
+            subject: `[Chat lead] high intent — ${page ?? "f1composite.com"}`,
+            html: `
+              <div style="font-family:-apple-system,sans-serif;max-width:640px;color:#1a1a1a;">
+                <h2 style="color:#00A199;margin-bottom:8px;">High-intent live chat on f1composite.com</h2>
+                <p style="font-size:14px;color:#555;margin:0 0 16px;">A visitor's chat just crossed into buying intent. Reach out while it's warm.</p>
+                <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+                  <tr><td style="padding:6px 12px;font-weight:600;width:90px;vertical-align:top;">Contact</td><td style="padding:6px 12px;">${email ? `<a href="mailto:${escapeHtml(email)}" style="color:#00A199;">${escapeHtml(email)}</a>` : "<i>not shared in chat</i>"}${phone ? ` · ${escapeHtml(phone)}` : ""}</td></tr>
+                  <tr style="background:#f9fafb;"><td style="padding:6px 12px;font-weight:600;vertical-align:top;">Page</td><td style="padding:6px 12px;">${escapeHtml(page ?? "—")}</td></tr>
+                </table>
+                <table style="width:100%;border-collapse:collapse;font-size:14px;border-top:1px solid #eee;">${transcriptHtml}</table>
+              </div>
+            `,
+          });
+          if (!ok) console.error("Chat lead notification FAILED — lead at risk:", error, { email, phone, page });
+          if (email && dbConfigured()) {
+            try {
+              await insertInquiry({
+                name: "AI chat lead",
+                email,
+                phone,
+                inquiryType: "AI chat — high intent",
+                message: transcriptText.slice(0, 8000),
+                source: "ai-chat",
+                context: { page },
+                userAgent,
+                referer,
+              });
+            } catch (dbErr) {
+              console.error("Chat lead DB insert failed:", dbErr);
+            }
+          }
+        });
+      }
+    }
+
+    const pageContextBlock = pageContext?.path
+      ? `\n\n## Current page context\nThe user is currently viewing: ${pageContext.title ?? "(untitled)"} (${pageContext.path}). When they say "this page" or "this product", refer to that URL. Prefer answers that reference and link to that page.`
+      : "";
+
+    const result = streamText({
+      model: google("gemini-2.5-flash"),
+      system: SYSTEM_PROMPT + pageContextBlock,
+      messages: await convertToModelMessages(messages),
+      maxOutputTokens: 8192,
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (err) {
+    console.error(
+      JSON.stringify({
+        evt: "chat_error",
+        ts: new Date().toISOString(),
+        err: err instanceof Error ? `${err.name}: ${err.message}` : String(err),
+      }),
+    );
+    return Response.json(
+      {
+        error:
+          "AI assistant temporarily unavailable. Please retry, or reach inquiry@f1composite.com / +86 138 8333 3993 for an immediate response.",
+      },
+      { status: 503 },
+    );
+  }
 }

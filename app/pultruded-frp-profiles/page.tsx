@@ -14,6 +14,7 @@ import VsCompetitorTable from "@/components/cro/VsCompetitorTable";
 import ProductHubCard from "@/components/cro/ProductHubCard";
 import SectionCTA from "@/components/cro/SectionCTA";
 import DorisWidget from "@/components/cro/DorisWidget";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import {
   prefillForHub,
@@ -24,18 +25,31 @@ import {
   type ResinSlug,
   type HubApplicationSlug,
 } from "@/lib/aiPrefill";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle =
-  "Pultruded FRP Profiles — Fiberglass Structural Shapes Manufacturer";
-const pageDescription =
-  "Pultruded FRP profiles manufacturer for structural shapes, window frames, gratings and custom pultrusions. EN 13706, ASTM D3917, 370 lines, global export.";
 const pagePath = "/pultruded-frp-profiles";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
-export const metadata: Metadata = buildPageMetadata({
-  title: pageTitle,
-  description: pageDescription,
-  path: pagePath,
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: pageTitle,
+    description: pageDescription,
+    path: pagePath,
+  }),
+  keywords: [
+    "F1 pultruded profiles",
+    "F1 Composite pultruded profiles",
+    "F1 FRP profiles",
+    "pultruded FRP profiles",
+    "pultruded fiberglass profiles",
+    "fiberglass structural shapes",
+    "FRP profiles manufacturer",
+    "custom pultrusion services",
+    "pultruded profiles EN 13706",
+  ],
+};
 
 const profileFamily: Array<{
   slug: ProfileFamilySlug;
@@ -45,6 +59,8 @@ const profileFamily: Array<{
   summary: string;
   href: string;
   image: string;
+  /** CSS object-position override for images whose subject sits off-center. */
+  imagePosition?: string;
 }> = [
   {
     slug: "i-beam",
@@ -115,6 +131,9 @@ const profileFamily: Array<{
       "Pultruded fiberglass window frames and FRP window profiles — frame, sash, mullion, transom, glazing bead. Whole-window U-values down to 0.78 W/m²·K. PHI passive house certified. Direct replacement for aluminum and PVC window systems.",
     href: "/products/fenestration-systems",
     image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
+    // Square cross-section render whose informative detail sits low — keep the
+    // multi-chamber section inside the 4:3 crop instead of the default center.
+    imagePosition: "center 68%",
   },
   {
     slug: "custom",
@@ -288,6 +307,11 @@ const faqItems = [
       "Yes. F1 Composite manufactures to EN 13706-1/2/3 (European pultruded profile standard, E17 and E23 grades) and ASTM D3917 (dimensional tolerances). Mechanical testing follows ASTM D638 (tensile), D790 (flexural), and D695 (compression). The company holds ISO 9001:2015, and fire-rated products are certified to BS 476, ASTM E84, and EN 45545-2.",
   },
   {
+    question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
+    answer:
+      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06 — most commonly Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates). FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) issued per production batch — the documentation package a PE stamping the spec expects to receive.",
+  },
+  {
     question: "What is the typical lead time for pultruded FRP profiles?",
     answer:
       "Stock standard profiles: 2–4 weeks. Custom profiles using existing tooling: 4–6 weeks. Custom profiles requiring new dies: 6–10 weeks total (3–6 weeks for die manufacturing + trial + production). Fenestration system projects: 6–12 weeks depending on volume.",
@@ -310,15 +334,71 @@ const faqItems = [
   {
     question: "How does FRP compare to Strongwell, Fiberline, and Creative Pultrusions?",
     answer:
-      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are scale (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
+      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
+  },
+  {
+    question:
+      "Where can I buy pultruded FRP profiles, and how do I source FRP pultruded profiles from China?",
+    answer:
+      "F1 Composite sells pultruded FRP profiles direct from the factory — no distributor markup — and exports to 30+ countries on FOB or DDP terms. Send your profile geometry (or a drawing), quantity, resin system, and destination port for a quote: stock standard sections ship in 2–4 weeks and custom-die profiles in 6–10 weeks. Buyers sourcing FRP pultruded profiles from China typically request EN 13706 / ASTM D3917 test data, a Barcol-hardness and glass-content report, and a pre-shipment inspection — all supplied by F1 Composite as standard.",
   },
 ];
+
+// EN 13706-3 grade table. Modulus rows ARE the grade definition (E17 = 17 GPa,
+// E23 = 23 GPa min full-section flexural modulus); strength / density / glass /
+// hardness are F1 characteristic values per the cited test method.
+const en13706Rows = [
+  { property: "Full-section flexural modulus (grade definition)", method: "EN ISO 14125", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
+  { property: "Axial tensile modulus", method: "EN ISO 527-4", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
+  { property: "Axial tensile strength", method: "EN ISO 527-4", e17: "170 MPa", e23: "240 MPa" },
+  { property: "In-plane shear strength", method: "EN ISO 14130", e17: "25 MPa", e23: "30 MPa" },
+  { property: "Density", method: "EN ISO 1183", e17: "1.9 g/cm³", e23: "1.9 g/cm³" },
+  { property: "Glass content (by weight)", method: "ISO 1172", e17: "60–65%", e23: "65–70%" },
+  { property: "Barcol hardness (cure proxy)", method: "ASTM D2583", e17: "≥ 40", e23: "≥ 40" },
+];
+
+const hubGlossary = [
+  { term: "Pultrusion", def: "A continuous process that pulls fiber reinforcement through a resin bath and a heated die to form a constant cross-section profile — a portmanteau of “pull” and “extrusion.”" },
+  { term: "E-glass roving", def: "Continuous bundles of electrical-grade glass filaments that carry the longitudinal load in a pultruded profile." },
+  { term: "Continuous strand mat (CSM)", def: "A randomly-oriented glass mat layered between rovings to build transverse (cross-direction) strength." },
+  { term: "Surfacing veil", def: "A thin veil at the surface that creates a resin-rich, UV- and corrosion-resistant outer layer." },
+  { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus — 17 GPa (E17) and 23 GPa (E23)." },
+  { term: "ASTM D3917", def: "The dimensional-tolerance standard for pultruded shapes; F1 Composite holds ±0.25 mm." },
+  { term: "Vinyl ester resin", def: "A corrosion-grade matrix for acid, alkali, chlorine, and marine service — a step above general-purpose isophthalic polyester." },
+  { term: "Barcol hardness", def: "A surface-indentation test (ASTM D2583) used as a quick proxy for adequate cure of a pultruded profile." },
+];
+
+const keyFacts = [
+  { label: "Glass content", value: "60–70% by weight" },
+  { label: "Weight vs steel", value: "~75% lighter" },
+  { label: "Grades", value: "EN 13706 E17 / E23" },
+  { label: "Tolerance", value: "ASTM D3917 · ±0.25 mm" },
+  { label: "Corrosion", value: "Immune · zero coating" },
+  { label: "Design life", value: "50–100 years" },
+  { label: "Standard shapes", value: "I-beam, channel, angle, SHS/RHS, tube, rod, flat bar" },
+  { label: "Lead time", value: "Stock 2–4 wk · custom 4–8 wk" },
+];
+
+const hubDownloads = [
+  { title: "FRP Profile Design Manual — 2026 (E23 grade, 24 pp)", file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf" },
+  { title: "PU-GF Pultruded Profile — Mechanical Data Sheet", file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf" },
+  { title: "Wind-Energy Pultruded Laminate — GFRP/CFRP Data Sheet", file: "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf" },
+  { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
+];
+
+const LAST_UPDATED = "2026-07-16";
+const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 
 export default function PultrudedFRPProfilesHubPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Pultruded FRP Profiles — Complete Product Range",
+    alternateName: [
+      "F1 pultruded profiles",
+      "F1 Composite pultruded profiles",
+      "F1 FRP profiles",
+    ],
     url: absoluteUrl(pagePath),
     description: pageDescription,
     isPartOf: {
@@ -337,6 +417,15 @@ export default function PultrudedFRPProfilesHubPage() {
       url: absoluteUrl(item.href),
       description: item.summary,
     })),
+    dateModified: LAST_UPDATED,
+    lastReviewed: LAST_UPDATED,
+    reviewedBy: {
+      "@type": "Person",
+      name: REVIEWER.name,
+      jobTitle: REVIEWER.title,
+      url: absoluteUrl(`/about/authors/${REVIEWER.slug}`),
+    },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
   };
 
   return (
@@ -345,8 +434,8 @@ export default function PultrudedFRPProfilesHubPage() {
 
       <PageHeader
         tag="Pultruded FRP Profiles"
-        title="Pultruded FRP profiles manufacturer — complete product hub"
-        description="F1 Composite manufactures the full pultruded fiberglass profile range: standard structural shapes, custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards, applications, and quote path."
+        title="Pultruded FRP profiles & fiberglass structural shapes — complete product hub"
+        description="F1 Composite manufactures the full pultruded fiberglass range: FRP structural shapes (wide flange beams, channels, angles, tubes), custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards (CSI 06 50 00 / 06 51 00), applications, and quote path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },
@@ -355,6 +444,32 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Shared trust strip — six hard credentials on one line. */}
       <TrustStrip />
+
+      {/* Key facts (TL;DR) + review byline */}
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
+              <h2 className="text-f13 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
+              <p className="text-f12 text-t3">
+                Reviewed by{" "}
+                <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
+                  {REVIEWER.name}
+                </Link>
+                , {REVIEWER.title} · Last updated {LAST_UPDATED}
+              </p>
+            </div>
+            <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
+              {keyFacts.map((f) => (
+                <div key={f.label}>
+                  <dt className="text-f11 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
+                  <dd className="mt-[3px] text-f15 font-semibold text-t1">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
 
       {/* P1 — Split visitors into the two real buying journeys before the
           9-card product grid pulls them in. */}
@@ -376,7 +491,12 @@ export default function PultrudedFRPProfilesHubPage() {
                 inside the die, producing a constant cross-section pultruded
                 fiberglass profile with 60–70% glass content by weight. Throughput
                 is typically 0.3–1.5 m/min, and profiles can be produced in any
-                length — standard packaging is 6 m or 12 m.
+                length — standard packaging is 6 m or 12 m. As a category these are
+                known interchangeably as pultruded profiles, composite pultruded
+                profiles, or pultruded fiberglass profiles — F1 Composite is a
+                direct-factory pultruded profiles manufacturer across all of them,
+                and this catalog is referred to collectively as{" "}
+                <strong className="text-t1">F1 pultruded profiles</strong>.
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Compared to conventional materials, pultruded fiberglass reinforced
@@ -389,6 +509,18 @@ export default function PultrudedFRPProfilesHubPage() {
                 Pultruded FRP is used in bridges, walkways, cooling towers, offshore
                 platforms, chemical plants, rail, solar farms, and passive-house
                 window systems worldwide.
+              </p>
+              <p className="mt-[13px] text-f15 leading-golden text-t2">
+                F1 Composite organizes its pultruded FRP range into four branded
+                product lines:{" "}
+                <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
+                (structural profiles),{" "}
+                <Link href="/products/gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
+                (gratings &amp; deck panels),{" "}
+                <Link href="/products/fenestration-systems" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
+                (window frames &amp; fenestration), and{" "}
+                <Link href="/products/custom-pultrusions" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
+                (custom pultrusions) — all manufactured in-house to EN 13706 and ASTM D3917.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E17 / E23</span>
@@ -419,7 +551,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Nine pultruded fiberglass product families under one factory
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Every geometry listed below is produced in-house at F1 Composite — no
             trading, no relabeling. Click through to each product for the full
             size chart, mechanical data, FAQ, and ready-to-quote specifications.
@@ -436,6 +568,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 sizes={item.sizes}
                 summary={item.summary}
                 image={item.image}
+                imagePosition={item.imagePosition}
                 href={item.href}
               />
             ))}
@@ -449,7 +582,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
             Start from the structure you need to replace
           </h2>
-          <p className="mt-[13px] max-w-[760px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Engineers often search by application before they know the profile geometry.
             These pages translate common use cases into resin systems, profile families,
             standards, and RFQ inputs.
@@ -493,7 +626,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Five resin systems — matched to environment and code
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             All pultruded FRP profiles in the F1 Composite range can be produced
             with the resin system required for your environment. Resin selection
             drives chemical resistance, fire performance, and long-term stiffness.
@@ -538,7 +671,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded FRP vs steel vs aluminum
           </h2>
-          <p className="mt-[21px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
             Typical property bands for E-glass/polyester pultruded profiles
             compared with A36 carbon steel and 6061-T6 aluminum. Actual values
             vary by resin system, fiber architecture, and cross-section. Use this
@@ -590,6 +723,65 @@ export default function PultrudedFRPProfilesHubPage() {
             href={`/ask?prefill=${encodeURIComponent(prefillForMaterialCompare())}`}
             secondary={{ label: "Read the in-depth FRP vs materials guide", href: "/technology/frp-vs-traditional-materials" }}
           />
+        </div>
+      </section>
+
+      {/* EN 13706 grades */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Standards &amp; grades</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            EN 13706 E17 and E23 — what the grades mean
+          </h2>
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
+            EN 13706-3 classifies pultruded structural profiles by their minimum
+            full-section flexural modulus:{" "}
+            <strong className="text-t1">grade E17 = 17 GPa</strong> and{" "}
+            <strong className="text-t1">grade E23 = 23 GPa</strong> (the standard also
+            requires the axial tensile modulus to meet the grade number). The grade
+            is a floor, not the typical value — F1 Composite standard structural
+            profiles are produced to <strong className="text-t1">E23</strong>, and
+            high-fiber-content sections run stiffer than the 23 GPa minimum. Each
+            property below is paired with the test method that produces it.
+          </p>
+
+          <div className="mt-[34px] overflow-x-auto">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b-2 border-border-default">
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">E17</th>
+                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text">E23</th>
+                </tr>
+              </thead>
+              <tbody>
+                {en13706Rows.map((row) => (
+                  <tr key={row.property} className="border-b border-border-default">
+                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.property}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t3">{row.method}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.e17}</td>
+                    <td className="py-[13px] align-top text-f15 font-medium text-teal-text">{row.e23}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-[21px] text-f13 text-t3">
+            Modulus rows are the EN 13706 grade definition; strength, density, glass
+            content, and hardness are F1 characteristic values per the cited method.
+            Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are
+            published on each{" "}
+            <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
+              shape datasheet
+            </Link>
+            , or compute them live in the{" "}
+            <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:text-teal">
+              FRP profile calculator
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -662,6 +854,8 @@ export default function PultrudedFRPProfilesHubPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Technical resources</h2>
           <div className="flex flex-wrap gap-[13px]">
+            <LinkArrow href="/products/product-lines">F1-STRUX / GRID / THERM / FORM lines</LinkArrow>
+            <LinkArrow href="/resources/how-to-choose-frp-pultrusion-supplier">How to choose an FRP supplier</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel / aluminum / timber</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
@@ -674,12 +868,59 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
+      {/* Glossary */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Glossary</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            Pultruded FRP terms, defined
+          </h2>
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+            {hubGlossary.map((g) => (
+              <div key={g.term} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">{g.term}</h3>
+                <p className="mt-[6px] text-f13 leading-golden text-t2">{g.def}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-[21px] text-f13 text-t3">
+            Full glossary:{" "}
+            <Link href="/resources/glossary" className="font-semibold text-teal-text hover:text-teal">
+              FRP &amp; pultrusion terminology →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Datasheets & downloads */}
+      <section className="bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <h2 className="mb-[8px] text-f19 font-bold text-t1">Datasheets &amp; design data</h2>
+          <p className="mb-[21px] text-f13 text-t2">
+            Published mechanical data and design references for pultruded FRP profiles.
+          </p>
+          <div className="grid gap-[13px] sm:grid-cols-2">
+            {hubDownloads.map((d) => (
+              <a
+                key={d.file}
+                href={d.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-[10px] rounded-[8px] border border-border-default bg-white p-[16px] text-f13 font-medium text-t1 transition-colors hover:border-teal"
+              >
+                <span aria-hidden>⬇</span>
+                <span>{d.title} <span className="text-t3">(PDF)</span></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <AnswerBlocks
         tag="Buyer FAQ"
         title="Pultruded FRP profiles — frequently asked questions"
         description="Short answers for specifying engineers, procurement managers, and contractors evaluating pultruded fiberglass profiles."
         items={faqItems}
-        suppressSchema
       />
 
       <AskAICard
@@ -687,6 +928,33 @@ export default function PultrudedFRPProfilesHubPage() {
         description="Describe your application and the FRP Engineering Advisor will recommend the right product family, resin system, standards, and quote path."
         prefill={prefillForHub()}
       />
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator"
+            eyebrow="Free tool · no login"
+            title="Size a pultruded FRP profile in your browser"
+            sub="Run bending, shear, and Timoshenko-corrected deflection on any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608, or ASD — and find the section that replaces a steel or aluminum member at equal stiffness, then quote against your spec."
+          />
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            Looking up rather than computing? The{" "}
+            <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
+              FRP span tables
+            </Link>{" "}
+            publish the allowable uniform load for every standard{" "}
+            <Link href="/frp-span-tables#i-beam" className="text-teal-text hover:underline">fiberglass I-beam</Link>,{" "}
+            <Link href="/frp-span-tables#channel" className="text-teal-text hover:underline">channel</Link>, and{" "}
+            <Link href="/frp-span-tables#square-tube" className="text-teal-text hover:underline">tube</Link>{" "}
+            over 1–6 m simple spans — EN 13706 E23 basis, deflection-checked. Once the
+            section is fixed, the{" "}
+            <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:underline">
+              fiberglass pultruded profile price estimator
+            </Link>{" "}
+            turns it into a budgetary USD-per-meter range with quantity breaks.
+          </p>
+        </div>
+      </section>
 
       <InnerCTA title="Specify pultruded FRP profiles for your next project" />
 

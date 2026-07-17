@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
 
 const countries = [
@@ -62,6 +63,15 @@ const inputCls =
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
+  const searchParams = useSearchParams();
+  const prefillRef = searchParams.get("ref");
+  const prefillCompany = searchParams.get("company") ?? "";
+  const prefillCountry = searchParams.get("country") ?? "";
+  const prefillInquiryType = searchParams.get("inquiry_type") ?? "";
+  const prefillMessage = searchParams.get("message") ?? "";
+  const prefillSource = searchParams.get("source") ?? prefillRef ?? "contact";
+  const prefillContext = searchParams.get("context") ?? "";
+  const isFromAiSourcing = prefillRef === "ai-sourcing";
 
   if (state.success) {
     return (
@@ -76,6 +86,14 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-[21px]">
+      <input type="hidden" name="source" defaultValue={prefillSource} />
+      {prefillContext && <input type="hidden" name="context" defaultValue={prefillContext} />}
+      {isFromAiSourcing && (
+        <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
+          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact details, and send. We&rsquo;ll reply with a formal quote within 24h.
+        </div>
+      )}
+
       {state.message && !state.success && (
         <div className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
           {state.message}
@@ -104,6 +122,7 @@ export default function ContactForm() {
             id="company"
             name="company"
             type="text"
+            defaultValue={prefillCompany}
             placeholder="Company name"
             className={inputCls}
           />
@@ -143,7 +162,7 @@ export default function ContactForm() {
           <label htmlFor="country" className="mb-[5px] block text-f13 font-semibold text-t1">
             Country <span className="text-red-500">*</span>
           </label>
-          <select id="country" name="country" required className={inputCls}>
+          <select id="country" name="country" required defaultValue={prefillCountry} className={inputCls}>
             <option value="">Select your country</option>
             {countries.map((c) => (
               <option key={c} value={c}>
@@ -156,7 +175,7 @@ export default function ContactForm() {
           <label htmlFor="inquiry_type" className="mb-[5px] block text-f13 font-semibold text-t1">
             Inquiry Type <span className="text-red-500">*</span>
           </label>
-          <select id="inquiry_type" name="inquiry_type" required className={inputCls}>
+          <select id="inquiry_type" name="inquiry_type" required defaultValue={prefillInquiryType} className={inputCls}>
             <option value="">Select inquiry type</option>
             {inquiryTypes.map((t) => (
               <option key={t.value} value={t.value}>
@@ -176,6 +195,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={6}
+          defaultValue={prefillMessage}
           placeholder="Describe your project requirements, desired profile specifications, or questions..."
           className={inputCls}
         />

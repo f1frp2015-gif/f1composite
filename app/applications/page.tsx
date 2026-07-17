@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "My application is not listed here — do you still serve it?",
     answer:
-      "Yes. The five categories above account for ~70% of F1 Composite shipments by volume; the remaining 30% spans industrial enclosures, antenna supports, water-treatment screens, military and rail applications, and more. Custom inquiries: sales@f1composite.com.",
+      "Yes. The five categories above account for ~70% of F1 Composite shipments by volume; the remaining 30% spans industrial enclosures, antenna supports, water-treatment screens, military and rail applications, and more. Custom inquiries: inquiry@f1composite.com.",
   },
   {
     question: "Are the connection details in each application page free to use?",
@@ -83,7 +83,7 @@ export default function ApplicationsPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Pultruded FRP Profiles Across Industrial Applications</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
@@ -115,7 +115,7 @@ export default function ApplicationsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Choosing the Right Application Configuration</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>Three questions decide most of the specification:</p>

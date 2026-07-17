@@ -8,13 +8,14 @@ import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
-const pageTitle = "FRP vs Steel Gratings — Corrosion, Weight, Slip Resistance, and Electrical Safety";
-const pageDescription =
-  "FRP vs steel gratings compared: load capacity, corrosion, weight, slip resistance, electrical conductivity, and lifecycle cost. Why pultruded and molded fiberglass gratings replace galvanized steel in corrosive environments.";
 const pagePath = "/technology/frp-vs-steel-gratings";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-04-15";
+const updatedAt = "2026-07-16";
 const authorName = "F1 Composite Gratings Engineering Team";
 const authorRole = "Platform design, load rating, and industrial walkway specialists";
 const reviewedBy = "Technical Applications Group";
@@ -91,14 +92,8 @@ export default function FrpVsSteelGratingsPage() {
     headline: pageTitle,
     datePublished: publishedAt,
     dateModified: updatedAt,
-    author: { "@type": "Organization", name: authorName },
-    editor: { "@type": "Organization", name: reviewedBy },
-    publisher: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-      logo: { "@type": "ImageObject", url: absoluteUrl("/brand/f1-logo.png") },
-    },
+    author: { "@id": "https://www.f1composite.com/#organization" },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: pageDescription,
     mainEntityOfPage: absoluteUrl(pagePath),
     about: [
@@ -110,23 +105,12 @@ export default function FrpVsSteelGratingsPage() {
     citation: referencedStandards,
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={faqSchema} />
       <PageHeader
         tag="Material Comparison"
-        title="FRP vs Steel Gratings"
+        title="FRP Grating vs Steel Grating"
         description="Load capacity, corrosion resistance, weight, slip resistance, electrical safety, and lifecycle cost compared. Why fiberglass gratings have replaced galvanized steel across water treatment, chemical processing, offshore, and electrical infrastructure."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -145,9 +129,9 @@ export default function FrpVsSteelGratingsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             For corrosive, electrical, or wet environments, FRP gratings outlast steel by 3–5× at comparable installed cost
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -165,7 +149,7 @@ export default function FrpVsSteelGratingsPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
             Side-by-side: FRP vs hot-dip galvanized steel gratings
           </h2>
-          <p className="mt-[13px] max-w-[800px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             FRP values reflect pultruded and molded E-glass/polyester gratings typical of F1 Composite product range. Steel values reflect standard bar grating, 25mm × 5mm bearing bars, hot-dip galvanized per ASTM A123. Highlighted rows show properties where FRP materially outperforms steel.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
@@ -199,9 +183,9 @@ export default function FrpVsSteelGratingsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Where FRP Replaces Steel</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Five environments where FRP is now the default specification
           </h2>
           <ul className="mt-[21px] space-y-[21px] text-f15 leading-golden text-t2">
@@ -225,9 +209,9 @@ export default function FrpVsSteelGratingsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Where Steel Still Wins</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
             Heavy vehicle traffic in dry, non-corrosive environments
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -237,8 +221,8 @@ export default function FrpVsSteelGratingsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px]">
-          <FAQ items={faqs} suppressSchema />
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <FAQ items={faqs} />
         </div>
       </section>
 

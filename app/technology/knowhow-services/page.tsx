@@ -8,12 +8,12 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Pultrusion Technology Transfer & Consulting — Turnkey FRP Line Setup";
+const pageTitle = "Pultrusion Tech Transfer & Consulting — Turnkey Lines";
 const pageDescription =
-  "Pultrusion technology transfer, consulting, and turnkey FRP line installation. Feasibility study, die design, production commissioning, ISO 9001 / EN 13706 quality system handover. 30+ years operations expertise.";
+  "Pultrusion technology transfer, consulting, turnkey FRP line setup. Feasibility, die design, commissioning, ISO 9001 / EN 13706 handover. 30+ years expertise.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
-const updatedAt = "2026-04-02";
+const updatedAt = "2026-07-07";
 const authorName = "F1 Composite Consulting Team";
 const authorRole = "Pultrusion startup, transfer, and commissioning specialists";
 const reviewedBy = "Operations Advisory Board";
@@ -124,11 +124,7 @@ export default function KnowhowServicesPage() {
     name: "Pultrusion Consulting and Technology Transfer",
     description: pageDescription,
     url: absoluteUrl(pagePath),
-    provider: {
-      "@type": "Organization",
-      name: "F1 Composite",
-      url: absoluteUrl("/"),
-    },
+    provider: { "@id": "https://www.f1composite.com/#organization" },
     image: absoluteUrl("/technology/knowhow-services/opengraph-image"),
     serviceType: "Pultrusion consulting, technology transfer, and turnkey line installation",
     datePublished: publishedAt,
@@ -165,7 +161,7 @@ export default function KnowhowServicesPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Three Levels of Engagement
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Choose the depth that matches your needs. Every engagement is led by a senior
             pultrusion engineer with 15+ years of production experience.
           </p>
@@ -304,7 +300,7 @@ export default function KnowhowServicesPage() {
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             How We Work Together
           </h2>
-          <p className="mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
             Every engagement follows a structured four-phase process. The depth of each
             phase scales with the service tier.
           </p>
@@ -442,6 +438,8 @@ export default function KnowhowServicesPage() {
             <LinkArrow href="/case-studies">Case Studies</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion Process Details</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>
+            <LinkArrow href="/resources/blog/pultrusion-industry-questions-2026">7 Questions the Industry Cares About Most</LinkArrow>
+            <LinkArrow href="/resources/blog/biggest-pain-point-pultrusion-qualification-speed">The Biggest Pain Point in Pultrusion Today</LinkArrow>
           </div>
 
           <FAQ items={faqItems} />

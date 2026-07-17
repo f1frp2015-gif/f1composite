@@ -5,12 +5,18 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductSchema } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { getCategorySizes } from "@/lib/catalog/public";
 
-const pageTitle = "FRP Angle — Pultruded Fiberglass L-Profile Manufacturer";
+// Size table is DB-driven (catalog admin) with the historical hardcoded list
+// as build-safe fallback; refreshed hourly.
+export const revalidate = 3600;
+
+const pageTitle = "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer";
 const pageDescription =
-  "Pultruded FRP angle (L-section) profiles 25×25 mm — 152×152 mm, equal and unequal legs. EN 13706 / ASTM D3917, corrosion-free, thermal expansion matches concrete. Bracing, ledgers, stiffeners. Free samples.";
+  "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.";
 const pagePath = "/products/standard-profiles/angle";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -20,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/standard-profiles/angle/opengraph-image",
 });
 
-const sizes = [
+const fallbackSizes = [
   { model: "L 25×25×3.2", a: 25, b: 25, t: 3.2, weight: "0.3" },
   { model: "L 30×30×4", a: 30, b: 30, t: 4, weight: "0.4" },
   { model: "L 38×38×4.8", a: 38, b: 38, t: 4.8, weight: "0.5" },
@@ -51,17 +57,32 @@ const faqItems = [
   },
 ];
 
-export default function AnglePage() {
+async function loadSizes(): Promise<typeof fallbackSizes> {
+  const rows = await getCategorySizes("angle");
+  if (rows.length === 0) return fallbackSizes;
+  return rows.map((r) => ({
+    model: r.model,
+    a: r.dims.a ?? 0,
+    b: r.dims.b ?? 0,
+    t: r.dims.t ?? 0,
+    weight: r.weight == null ? "—" : String(r.weight),
+  }));
+}
+
+export default async function AnglePage() {
+  const sizes = await loadSizes();
+  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
   return (
     <>
       <JsonLd
-        data={buildProductSchema({
+        data={buildProductFamilyPageSchema({
           name: "FRP Angle Profiles",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/angle/frp-angle-profile-100x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
             { name: "Size Range", value: "25×25 mm to 152×152 mm" },
             { name: "Format", value: "Equal-leg and unequal-leg L-profiles" },
@@ -70,8 +91,8 @@ export default function AnglePage() {
       />
       <PageHeader
         tag="Angle"
-        title="FRP Angle Profiles"
-        description="Equal and unequal-leg pultruded FRP L-profiles from 25×25 mm to 152×152 mm."
+        title="Fiberglass Angle (FRP) Profiles"
+        description="Equal and unequal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -181,6 +202,17 @@ export default function AnglePage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <CalculatorCTA
+            href="/frp-profile-calculator?shape=angle"
+            eyebrow="Free tool · angle preset"
+            title="Size an FRP angle — bending, shear &amp; deflection"
+            sub="Opens the FRP profile calculator on an angle (L-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+          />
         </div>
       </section>
 
