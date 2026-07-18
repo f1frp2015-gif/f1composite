@@ -121,6 +121,15 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Build assets are required for rendering, so keep them crawlable, but
+        // they are not search-result documents. Vercel/Next deployment skew
+        // protection gives these URLs a short-lived `?dpl=` version marker;
+        // explicitly exclude the resources from the search index while they
+        // are live so stale deployment URLs do not compete with real pages.
+        source: "/_next/static/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
     ];
   },
 };
