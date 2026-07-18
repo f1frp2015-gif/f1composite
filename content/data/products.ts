@@ -27,6 +27,14 @@ export const productCategories: ProductCategory[] = [
     imageScale: 1.2,
   },
   {
+    slug: "solar-mounting-systems",
+    title: "Solar Module Frames & Mounting",
+    description: "Pultruded FRP module frame profiles, structural PV supports, and lightweight rooftop rails for corrosive and weight-sensitive solar projects.",
+    icon: "solar",
+    href: "/products/solar-mounting-systems",
+    image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+  },
+  {
     slug: "gratings",
     title: "Gratings & Decks",
     description: "Molded and pultruded FRP gratings, solid-top cover plates, and structural deck panels for industrial platforms, marine environments, and pedestrian bridge decks.",

@@ -122,6 +122,16 @@ const profileFamily: Array<{
     imagePosition: "center 68%",
   },
   {
+    slug: "solar-mounting",
+    name: "FRP Solar Module Frames & Mounting",
+    keyword: "fiberglass solar panel frames / PV mounting rails",
+    sizes: "30×30 mm — 100×50 mm catalog sections; custom module frames",
+    summary:
+      "Pultruded composite module-frame profiles, ground and floating PV support members, and lightweight rooftop rails with matched clamps and splice hardware.",
+    href: "/products/solar-mounting-systems",
+    image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+  },
+  {
     slug: "custom",
     name: "Custom Pultruded Profiles",
     keyword: "custom fiberglass pultrusion services",

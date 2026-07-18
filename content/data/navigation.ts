@@ -22,6 +22,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: "Standard Profiles", href: "/products/standard-profiles" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Solar Module Frames & Mounting", href: "/products/solar-mounting-systems" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
       { label: "Facade Sunshade Panels", href: "/products/facade-sunshade-panels" },
@@ -95,6 +96,7 @@ export const footerNav = {
   products: [
     { label: "Standard Profiles", href: "/products/standard-profiles" },
     { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+    { label: "Solar Module Frames & Mounting", href: "/products/solar-mounting-systems" },
     { label: "Fenestration Systems", href: "/products/fenestration-systems" },
     { label: "Window Reinforcement Profiles", href: "/products/window-reinforcement-profiles" },
     { label: "Facade Sunshade Panels", href: "/products/facade-sunshade-panels" },
