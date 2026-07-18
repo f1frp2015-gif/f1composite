@@ -87,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/standard-profiles/flat-bar`, lastModified: DATES.standardProfileDetail, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/standard-profiles/rod`, lastModified: DATES.standardProfileDetail, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/custom-pultrusions`, lastModified: DATES.customPultrusions, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/solar-mounting-systems`, lastModified: "2026-07-17", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/fenestration-systems`, lastModified: DATES.fenestration, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/facade-sunshade-panels`, lastModified: "2026-07-01", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/window-reinforcement-profiles`, lastModified: "2026-07-07", changeFrequency: "monthly", priority: 0.75 },
