@@ -45,7 +45,7 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function SolutionsSnapshot() {
   return (
-    <section className="bg-white py-[89px]">
+    <section className="bg-white py-[55px] md:py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         {/* Header row */}
         <div className="mb-[34px] flex items-end justify-between">
@@ -63,8 +63,8 @@ export default function SolutionsSnapshot() {
           </LinkArrow>
         </div>
 
-        {/* 4-column card grid */}
-        <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
+        {/* 3-column card grid — 5 products land in a balanced 3+2 layout */}
+        <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
           {productCategories.map((product) => (
             <SolutionCard
               key={product.slug}

@@ -77,7 +77,7 @@ const advantages = [
 
 export default function ValueProposition() {
   return (
-    <section className="bg-white py-[55px]">
+    <section className="bg-white py-[34px] md:py-[55px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="text-center">
           <SectionTag>Why FRP</SectionTag>

@@ -63,7 +63,7 @@ const industryIcons: Record<string, React.ReactNode> = {
 
 export default function IndustriesSnapshot() {
   return (
-    <section className="bg-bg2 py-[89px]">
+    <section className="bg-bg2 py-[55px] md:py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="mb-[34px] flex items-end justify-between">
           <div>

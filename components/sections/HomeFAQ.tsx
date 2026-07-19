@@ -25,7 +25,7 @@ const items = [
 
 export default function HomeFAQ() {
   return (
-    <section className="bg-white py-[55px]">
+    <section className="bg-white py-[34px] md:py-[55px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <SectionTag>About F1 Composite</SectionTag>
         <h2 className="mt-[8px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">

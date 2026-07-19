@@ -1,5 +1,6 @@
 import SectionTag from "@/components/ui/SectionTag";
 import Button from "@/components/ui/Button";
+import FactoryVideo from "@/components/sections/FactoryVideo";
 
 const checkpoints = [
   {
@@ -26,7 +27,7 @@ const checkpoints = [
 
 export default function FactoryQuality() {
   return (
-    <section className="bg-bg2 py-[55px]">
+    <section className="bg-bg2 py-[34px] md:py-[55px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="grid gap-[34px] lg:grid-cols-2">
           {/* Left: text — use flex column to stretch full height */}
@@ -62,17 +63,10 @@ export default function FactoryQuality() {
             </div>
           </div>
 
-          {/* Right: video — aspect-video on mobile, stretch to match left on desktop */}
+          {/* Right: video facade — local poster first, YouTube iframe loads only on click */}
           <div className="flex items-stretch">
             <div className="aspect-video w-full overflow-hidden rounded-[8px] lg:aspect-auto">
-              <iframe
-                src="https://www.youtube.com/embed/JNcU9LUEMLU"
-                title="F1 Composite pultrusion manufacturing facility"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
-                loading="lazy"
-              />
+              <FactoryVideo />
             </div>
           </div>
         </div>

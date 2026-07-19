@@ -67,7 +67,7 @@ export default function BlogPage() {
                         : undefined
                     }
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal/90 px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
                     {post.category}
                   </span>
                 </div>

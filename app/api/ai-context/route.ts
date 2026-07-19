@@ -54,7 +54,7 @@ export async function GET() {
           areaServed: "Worldwide",
         },
         technical: {
-          email: "f1frp2015@gmail.com",
+          email: "inquiry@f1composite.com",
           languages: ["English", "Chinese"],
         },
       },

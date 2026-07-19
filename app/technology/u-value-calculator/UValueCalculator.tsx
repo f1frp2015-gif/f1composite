@@ -299,7 +299,7 @@ function CalculationModel({
 
           {/* Formula assembly */}
           <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
-            <h4 className="mb-[13px] text-f11 font-bold uppercase tracking-[2px] text-teal">
+            <h4 className="mb-[13px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
               3 · The formula, with your numbers
             </h4>
             <div className="space-y-[8px] font-mono text-[13px] leading-relaxed text-t1">
@@ -730,7 +730,7 @@ export default function UValueCalculator() {
               {/* Comparison — vs aluminum baseline */}
               {baseline && improvement > 0 && (
                 <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
-                  <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-teal">
+                  <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
                     vs Aluminum (no break)
                   </h4>
                   <p className="text-f13 text-t2">

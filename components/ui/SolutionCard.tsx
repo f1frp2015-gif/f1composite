@@ -25,7 +25,7 @@ export default function SolutionCard({ title, description, href, icon, image, im
             src={image}
             alt={imageAlt ?? title}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-[0.55s] scale-[var(--img-scale)] group-hover:scale-[calc(var(--img-scale)*1.05)]"
             style={{ ["--img-scale" as string]: scale }}
           />

@@ -24,7 +24,7 @@ const downloads = [
 
 export default function DownloadsSnapshot() {
   return (
-    <section className="bg-white py-[89px]">
+    <section className="bg-white py-[55px] md:py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="flex flex-col gap-[21px] md:flex-row md:items-end md:justify-between">
           <div>

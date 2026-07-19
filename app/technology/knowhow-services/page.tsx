@@ -315,7 +315,7 @@ export default function KnowhowServicesPage() {
             <div className="grid gap-[34px] lg:grid-cols-4 lg:gap-[21px]">
               {/* Phase 1 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   1
                 </div>
                 <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Assessment</h3>
@@ -332,7 +332,7 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 2 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   2
                 </div>
                 <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Proposal</h3>
@@ -349,7 +349,7 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 3 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   3
                 </div>
                 <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Implementation</h3>
@@ -366,7 +366,7 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 4 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   4
                 </div>
                 <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Handover</h3>

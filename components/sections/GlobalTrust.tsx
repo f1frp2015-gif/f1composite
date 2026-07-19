@@ -55,7 +55,7 @@ const certifications = ["EN 13706", "ASTM D3917", "CE Marking", "ISO 9001:2015"]
 
 export default function GlobalTrust() {
   return (
-    <section className="bg-bg2 py-[55px]">
+    <section className="bg-bg2 py-[34px] md:py-[55px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <div className="text-center">
           <SectionTag>Trusted Worldwide</SectionTag>

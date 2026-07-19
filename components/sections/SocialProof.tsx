@@ -50,7 +50,7 @@ const featuredCases = [
 
 export default function SocialProof() {
   return (
-    <section className="bg-white py-[89px]">
+    <section className="bg-white py-[55px] md:py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[34px]">
         <SectionTag>Proven Results</SectionTag>
         <h2 className="mt-[13px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
@@ -65,7 +65,7 @@ export default function SocialProof() {
               className="group overflow-hidden rounded-[8px] border border-border-default bg-bg2 transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-lg"
             >
               <div className="relative aspect-[1.618] overflow-hidden">
-                <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal/90 px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
+                <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
                   {item.industry} · {item.location}
                 </span>
                 <Image

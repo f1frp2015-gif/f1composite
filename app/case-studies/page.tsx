@@ -145,7 +145,7 @@ export default function CaseStudiesPage() {
             {industries.map((ind) => (
               <span
                 key={ind}
-                className="cursor-pointer rounded-[4px] border border-border-default px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text first:border-teal first:bg-teal first:text-white"
+                className="cursor-pointer rounded-[4px] border border-border-default px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text first:border-teal-text first:bg-teal-text first:text-white"
               >
                 {ind}
               </span>
@@ -169,15 +169,15 @@ export default function CaseStudiesPage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal/90 px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
                     {cs.industry}
                   </span>
                 </div>
                 <div className="p-[21px]">
-                  <h3 className="text-[17px] font-bold text-t1 group-hover:text-teal-text">
+                  <h3 className="line-clamp-2 text-[17px] font-bold text-t1 group-hover:text-teal-text">
                     {cs.title}
                   </h3>
-                  <p className="mt-[8px] text-f13 leading-golden text-t2">{cs.excerpt}</p>
+                  <p className="mt-[8px] line-clamp-3 text-f13 leading-golden text-t2">{cs.excerpt}</p>
                   <div className="mt-[13px] flex gap-[13px] text-f11 text-t3">
                     <span>{cs.location}</span>
                     <span>•</span>

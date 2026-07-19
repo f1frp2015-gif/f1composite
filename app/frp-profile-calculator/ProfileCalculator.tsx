@@ -1064,7 +1064,7 @@ export default function ProfileCalculator() {
                     <tr className="border-b-2 border-border-default">
                       <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-t3">Property</th>
                       <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-t3">{srcMat.label}</th>
-                      <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-teal">{tgtMat.label}</th>
+                      <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-teal-text">{tgtMat.label}</th>
                     </tr>
                   </thead>
                   <tbody>

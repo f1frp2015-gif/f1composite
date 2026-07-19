@@ -34,7 +34,7 @@ export default function Error({
           <button
             type="button"
             onClick={() => unstable_retry()}
-            className="rounded-[6px] bg-teal px-[21px] py-[10px] text-f14 font-medium text-white hover:bg-teal/90 transition-colors"
+            className="rounded-[6px] bg-teal-text px-[21px] py-[10px] text-f14 font-medium text-white transition-colors hover:bg-teal"
           >
             Try again
           </button>

@@ -298,7 +298,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             <button
               type="submit"
               disabled={!input.trim()}
-              className="shrink-0 rounded-[6px] bg-teal px-[16px] py-[8px] text-f13 font-medium text-white hover:bg-teal/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="shrink-0 rounded-[6px] bg-teal-text px-[16px] py-[8px] text-f13 font-medium text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
             >
               Send
             </button>

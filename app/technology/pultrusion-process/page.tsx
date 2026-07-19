@@ -349,7 +349,7 @@ export default function PultrusionProcessPage() {
               { value: "±0.5mm", label: "Cut-off tolerance" },
             ].map((s) => (
               <div key={s.label} className="rounded-[8px] bg-bg2 px-[21px] py-[13px] text-center">
-                <span className="text-f24 font-extrabold text-teal">{s.value}</span>
+                <span className="text-f24 font-extrabold text-teal-text">{s.value}</span>
                 <p className="mt-[3px] text-f11 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
               </div>
             ))}
@@ -408,13 +408,13 @@ export default function PultrusionProcessPage() {
                   className="relative scroll-mt-[89px] pl-[55px] lg:pl-0"
                 >
                   {/* Step circle — mobile */}
-                  <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f11 font-extrabold text-teal lg:hidden">
+                  <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f11 font-extrabold text-teal-text lg:hidden">
                     {stage.step}
                   </div>
 
                   {/* Step icon — desktop */}
                   <div className="hidden lg:flex lg:justify-center">
-                    <div className="relative z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal">
+                    <div className="relative z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text">
                       {stage.step}
                     </div>
                   </div>

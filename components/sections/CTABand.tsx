@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 
 export default function CTABand() {
   return (
-    <section className="relative overflow-hidden bg-deep py-[55px]">
+    <section className="relative overflow-hidden bg-deep py-[34px] md:py-[55px]">
       {/* Gradient beam overlay */}
       <div
         className="pointer-events-none absolute inset-0"

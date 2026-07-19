@@ -505,6 +505,6 @@ ${blogArticleLines}
 ## Contact
 - Website: https://www.f1composite.com
 - Sales email: inquiry@f1composite.com
-- Technical service email: f1frp2015@gmail.com
+- Technical service email: inquiry@f1composite.com
 `;
 }
