@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "FRP Grating Supplier Saudi Arabia — Aramco, SABIC, Maaden";
 const pageDescription =
-  "Vinyl ester FRP gratings for Saudi Arabia: Riyadh, Jeddah, Dammam, Jubail. Aramco/SABIC/Maaden-qualified, ASTM E84 fire-rated, EN 13706, 25-yr design life.";
+  "Request FRP grating quote for Saudi Arabia: Riyadh, Jeddah, Dammam, Jubail. Direct factory pricing, 48-hour response, ASTM E84 fire-rated, EN 13706 certified.";
 const pagePath = "/regions/frp-grating-supplier-saudi-arabia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -84,8 +84,8 @@ export default function SaudiGratingPage() {
 
       <PageHeader
         tag="Saudi Arabia"
-        title="FRP Grating Supplier for Saudi Arabia"
-        description="Direct-from-factory pultruded and moulded fiberglass gratings for Aramco, SABIC, Maaden, and Royal Commission projects. Vinyl ester resin, ASTM E84 fire-rated, anti-slip surface, full project documentation. CIF Jebel Ali or DAP project-site delivery."
+        title="FRP Grating Supplier for Saudi Arabia — Get Quote in 48 Hours"
+        description="Direct-from-factory pricing for Riyadh, Jeddah, Dammam, Jubail. Send your RFQ now — 48-hour response, Aramco/SABIC/Maaden qualified, ASTM E84 fire-rated, EN 13706 certified. CIF Jebel Ali or DAP project-site delivery."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-grating-supplier-saudi-arabia" },
@@ -121,6 +121,17 @@ export default function SaudiGratingPage() {
                 <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Anti-slip vinyl ester surface</li>
                 <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Aramco / SABIC / Maaden qualified</li>
               </ul>
+              <div className="mt-[21px] rounded-[8px] border-2 border-teal bg-bg2 p-[24px] text-center">
+                <p className="text-f15 font-bold text-teal-text">Get Your Saudi Project Quote in 48 Hours</p>
+                <p className="mt-[8px] text-t2">Send your grating layout, quantity, and delivery requirements. We&apos;ll return CIF Jebel Ali or DAP pricing with full documentation.</p>
+                <Link
+                  href="/contact"
+                  className="mt-[13px] inline-block rounded-[8px] bg-teal px-[21px] py-[11px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                >
+                  Request Quote Now →
+                </Link>
+                <p className="mt-[8px] text-t3">Typical response: 24-48 hours</p>
+              </div>
               <div className="mt-[21px] grid gap-[13px] sm:grid-cols-2 text-f13 leading-golden text-t2">
                 <div className="space-y-[13px]">
                   <p>
@@ -247,6 +258,21 @@ export default function SaudiGratingPage() {
                 <p className="mt-[8px] text-f13 leading-golden text-t2">{s.body}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-[34px] rounded-[8px] border border-teal-border bg-white p-[24px]">
+            <div className="flex flex-wrap items-center justify-between gap-[13px]">
+              <div>
+                <p className="text-f15 font-bold text-t1">Ready to specify FRP gratings for your Saudi project?</p>
+                <p className="mt-[5px] text-f13 text-t2">Send your RFQ drawings, target quantity, and delivery terms. We&apos;ll respond within 48 hours with complete pricing and documentation.</p>
+              </div>
+              <Link
+                href="/contact"
+                className="rounded-[8px] bg-teal px-[21px] py-[11px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              >
+                Get Quote →
+              </Link>
+            </div>
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">

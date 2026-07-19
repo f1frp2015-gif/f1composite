@@ -264,6 +264,50 @@ const comparisonRows: Array<{
   },
 ];
 
+const competitorComparison: Array<{
+  manufacturer: string;
+  products: string;
+  certification: string;
+  pricing: string;
+  sourcing: string;
+}> = [
+  {
+    manufacturer: "F1 Composite",
+    products: "Full range (I-beam, channel, angle, tube, flat bar, window frames, gratings, custom)",
+    certification: "EN 13706 E17/E23 · ASTM D3917 · ISO 9001:2015 · PHI certified",
+    pricing: "Direct-from-factory · 30–50% below regional distributors",
+    sourcing: "Direct from China · FOB/CIF/DDP · 370 pultrusion lines · 150,000 t/year capacity",
+  },
+  {
+    manufacturer: "Strongwell (EXTREN®)",
+    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
+    certification: "EN 13706 · ASTM D3917 · ISO 9001",
+    pricing: "Regional distributor markup · 40–60% above factory pricing",
+    sourcing: "US-based · Regional distributors · No direct factory access",
+  },
+  {
+    manufacturer: "Fiberline Composites",
+    products: "I-beam, channel, angle, tube, flat bar, panels, custom",
+    certification: "EN 13706 · DIBt certification · ISO 9001",
+    pricing: "European distributor network · 30–50% above factory pricing",
+    sourcing: "Denmark-based · Regional distributors · Limited custom capacity",
+  },
+  {
+    manufacturer: "Creative Pultrusions (SuperStrut®)",
+    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
+    certification: "EN 13706 · ASTM D3917 · ISO 9001",
+    pricing: "North American distributor markup · 35–55% above factory pricing",
+    sourcing: "US-based · Regional distributors · Limited export focus",
+  },
+  {
+    manufacturer: "Bedford Reinforced Plastics",
+    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
+    certification: "ASTM D3917 · ISO 9001 · UL listed",
+    pricing: "Regional distributor markup · 30–50% above factory pricing",
+    sourcing: "US-based · Regional distributors · Limited international reach",
+  },
+];
+
 const faqItems = [
   {
     question: "What are pultruded FRP profiles?",
@@ -360,8 +404,9 @@ const hubDownloads = [
   { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
 ];
 
-const LAST_UPDATED = "2026-07-16";
+const LAST_UPDATED = "2026-07-19";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
+const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead — Materials & Standards", slug: "haifeng-gong" };
 
 export default function PultrudedFRPProfilesHubPage() {
   const collectionSchema = {
@@ -399,6 +444,12 @@ export default function PultrudedFRPProfilesHubPage() {
       jobTitle: REVIEWER.title,
       url: absoluteUrl(`/about/authors/${REVIEWER.slug}`),
     },
+    author: {
+      "@type": "Person",
+      name: AUTHOR.name,
+      jobTitle: AUTHOR.title,
+      url: absoluteUrl(`/about/authors/${AUTHOR.slug}`),
+    },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
   };
 
@@ -423,11 +474,15 @@ export default function PultrudedFRPProfilesHubPage() {
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
               <h2 className="text-f13 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
               <p className="text-f12 text-t3">
-                Reviewed by{" "}
-                <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
-                  {REVIEWER.name}
+                Authored by{" "}
+                <Link href={`/about/authors/${AUTHOR.slug}`} className="font-semibold text-teal-text hover:text-teal">
+                  {AUTHOR.name}, {AUTHOR.title}
                 </Link>
-                , {REVIEWER.title} · Last updated {LAST_UPDATED}
+                · Reviewed by{" "}
+                <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
+                  {REVIEWER.name}, {REVIEWER.title}
+                </Link>
+                · Last updated {LAST_UPDATED}
               </p>
             </div>
             <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
@@ -675,6 +730,59 @@ export default function PultrudedFRPProfilesHubPage() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      {/* Competitor comparison */}
+      <section className="bg-white py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Manufacturer comparison</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            How F1 Composite compares to other pultrusion manufacturers
+          </h2>
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
+            Direct-from-factory pricing eliminates regional distributor markup. All manufacturers listed produce to EN 13706 and ASTM D3917 standards.
+          </p>
+
+          <div className="mt-[34px] overflow-x-auto">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b-2 border-border-default">
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">Manufacturer</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Product range</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Certification</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Pricing structure</th>
+                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Sourcing model</th>
+                </tr>
+              </thead>
+              <tbody>
+                {competitorComparison.map((row, index) => (
+                  <tr
+                    key={row.manufacturer}
+                    className={`border-b border-border-default ${
+                      index === 0 ? 'bg-teal/5' : ''
+                    }`}
+                  >
+                    <td className={`py-[13px] pr-[21px] align-top ${index === 0 ? 'font-bold text-teal-text' : 'text-f15 font-medium text-t1'}`}>
+                      {row.manufacturer}
+                      {index === 0 && <span className="ml-[8px] rounded-[4px] bg-teal px-[8px] py-[2px] text-[10px] font-bold uppercase text-white">Recommended</span>}
+                    </td>
+                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t2">{row.products}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t2">{row.certification}</td>
+                    <td className={`py-[13px] pr-[21px] align-top ${index === 0 ? 'font-medium text-teal-text' : 'text-f13 text-t2'}`}>{row.pricing}</td>
+                    <td className="py-[13px] align-top text-f13 text-t2">{row.sourcing}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-[21px] rounded-[8px] border-2 border-teal bg-bg2 p-[21px]">
+            <p className="text-f15 font-bold text-teal-text">Key advantage: Direct factory pricing + full product range</p>
+            <p className="mt-[8px] text-f13 leading-golden text-t2">
+              F1 Composite delivers the same EN 13706/ASTM D3917 compliance as Strongwell, Fiberline, and Creative Pultrusions — but at 30–50% lower landed cost by shipping direct from our FengDu manufacturing base (370 pultrusion lines, 150,000 t/year capacity). No distributor markup, full traceability, and 48-hour RFQ response.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -58,7 +58,7 @@ export default function UValueCalculatorPage() {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "WebApplication",
+          "@type": "SoftwareApplication",
           name: "Window U-Value Calculator",
           applicationCategory: "EngineeringApplication",
           operatingSystem: "Web",
@@ -67,13 +67,15 @@ export default function UValueCalculatorPage() {
           inLanguage: "en",
           isAccessibleForFree: true,
           description:
-            "Whole-window thermal transmittance calculator per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with common glass configurations.",
+            "Whole-window thermal transmittance calculator per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with common glass configurations. Passive House certification check included.",
           featureList: [
             "Whole-window U-value (Uw) calculation per EN ISO 10077-1",
             "Frame comparison: FRP, aluminum, PVC, timber",
             "Glazing configurations: double, triple, quadruple",
             "Spacer type selection (aluminum, warm-edge)",
             "Frame/glass area ratio handling",
+            "Passive House U_w ≤ 0.80 compliance check",
+            "EU nZEB, US ENERGY STAR, IECC 2024, Canadian NRCan, Chinese GB standards",
           ],
           offers: {
             "@type": "Offer",
@@ -81,6 +83,9 @@ export default function UValueCalculatorPage() {
             priceCurrency: "USD",
           },
           creator: { "@id": "https://www.f1composite.com/#organization" },
+          softwareVersion: "1.0",
+          applicationSubCategory: "Thermal Analysis Tool",
+          keywords: "U-value calculator, window thermal performance, EN ISO 10077-1, Passive House, energy efficiency, thermal transmittance",
         }}
       />
       <JsonLd
