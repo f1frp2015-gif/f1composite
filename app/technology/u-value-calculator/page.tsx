@@ -213,7 +213,7 @@ export default function UValueCalculatorPage() {
             href="/products/fenestration-systems"
             className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
-            View Fenestration Systems →
+            Explore FRP windows &amp; doors →
           </Link>
           <div className="mt-[21px] flex flex-wrap justify-center gap-[21px]">
             <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">
@@ -224,6 +224,9 @@ export default function UValueCalculatorPage() {
             </Link>
             <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
               → FRP for US projects (PHIUS, ASTM)
+            </Link>
+            <Link href="/what-is-frp" className="text-f13 font-semibold text-teal-text hover:underline">
+              → FRP material &amp; properties guide
             </Link>
           </div>
         </div>

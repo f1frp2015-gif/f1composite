@@ -1096,7 +1096,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
       "A thermal-performance view of FRP fenestration, U-values, thermal bridging, and why composite frames matter in high-performance envelopes.",
     ogChips: ["Fenestration", "Thermal performance", "Low U-values"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
@@ -1937,11 +1937,12 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       "F1's 90 Series PHI Cert 2491wi03 — U_w 0.78 W/m²·K, phB. Drop-in PHIUS frames for US Passive House. RAL custom AAMA 2604 finish.",
     ogChips: ["PHIUS · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
+      { label: "What Is FRP? Material and Properties", href: "/what-is-frp" },
     ],
     content: `The Passivhaus standard sets the most rigorous energy performance requirements in mainstream building certification. Among its criteria, the demands placed on window systems are particularly exacting: installed window U-values must typically fall below 0.85 W/m²·K, and frame components must minimize thermal bridging to a degree that conventional aluminum frames struggle to achieve even with thermal break technology. Pultruded fiber reinforced polymer (FRP) window frames are emerging as one of the most technically credible solutions to this challenge.
 
@@ -3755,7 +3756,7 @@ For engineers and facade consultants tracking this development, or interested in
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "U-Value vs SHGC", href: "/resources/blog/window-u-value-vs-shgc-climate" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/fenestration-systems" },
     ],
     sourceLinks: [
       { label: "ISO 10077-1:2017 — Thermal performance of windows, doors and shutters (ISO)", href: "https://www.iso.org/standard/67090.html" },
@@ -3855,8 +3856,9 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
       { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House AI Window Selector", href: "/ai/passive-house" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/fenestration-systems" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
+      { label: "FRP Material and Properties Guide", href: "/what-is-frp" },
     ],
     sourceLinks: [
       { label: "PHI: Criteria for Certified Transparent Building Components v5.6 (2025)", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
@@ -3909,7 +3911,7 @@ A window certified by PHI is not automatically Phius-verified or vice versa; cro
 
 Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-calculation) against the cool-temperate row and the constraint lands on the frame. With the reference triple glazing at Ug 0.70 and a warm-edge spacer, the frame needs roughly Uf ≤ 1.0–1.3 — territory no aluminum system reaches, thermally broken or not. That is why the PHI component database's window list is dominated by timber, timber-aluminum hybrid, uPVC, and pultruded fiberglass frames.
 
-Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [65–140 series fenestration systems](/products/fenestration-systems) page carries the series-by-series data.
+Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [pultruded fiberglass window frames](/products/fenestration-systems) page carries the series-by-series data.
 
 To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/u-value-calculator) — it computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
   },

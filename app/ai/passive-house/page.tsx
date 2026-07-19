@@ -121,7 +121,7 @@ export default function PassiveHousePage() {
 
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
             <Link href="/products/fenestration-systems" className="text-f13 font-semibold text-teal-text hover:underline">
-              → Full fenestration product page
+              → FRP windows and doors (65–140 series)
             </Link>
             <Link href="/technology/u-value-calculator" className="text-f13 font-semibold text-teal-text hover:underline">
               → U-Value calculator (EN ISO 10077-1)
@@ -131,6 +131,9 @@ export default function PassiveHousePage() {
             </Link>
             <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
               → Sourcing FRP for US projects
+            </Link>
+            <Link href="/what-is-frp" className="text-f13 font-semibold text-teal-text hover:underline">
+              → What is FRP? Material guide
             </Link>
             <Link href="/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf" className="text-f13 font-semibold text-teal-text hover:underline" target="_blank" rel="noopener noreferrer">
               → Download PHI certificate (PDF)

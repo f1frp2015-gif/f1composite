@@ -234,7 +234,7 @@ export default function FrpVsAluminumWindowsPage() {
             href="/products/fenestration-systems"
             className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
-            View Fenestration Systems →
+            Explore fiberglass window frames →
           </Link>
         </div>
       </section>
@@ -244,7 +244,7 @@ export default function FrpVsAluminumWindowsPage() {
           {
             title: "FRP fenestration products",
             links: [
-              { href: "/products/fenestration-systems", label: "FRP fenestration systems (65/70/80/90/140)" },
+              { href: "/products/fenestration-systems", label: "FRP windows and doors (65/70/80/90/140)" },
               { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
               { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
@@ -268,6 +268,7 @@ export default function FrpVsAluminumWindowsPage() {
               { href: "/resources/blog/frp-vs-aluminum-window-frames-comparison", label: "Blog: FRP vs aluminum full comparison" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: FRP fenestration thermal performance" },
+              { href: "/what-is-frp", label: "What is FRP? Material and properties guide" },
               { href: "/resources/design-guides", label: "Fenestration design guides" },
               { href: "/resources/downloads", label: "PHI certificates & data sheets" },
             ],

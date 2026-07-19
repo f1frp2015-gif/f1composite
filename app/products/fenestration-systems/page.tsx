@@ -379,12 +379,12 @@ export default function FenestrationSystemsPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Pultruded FRP Windows & Doors — Extreme-Cold Fenestration",
+          name: "FRP Windows, Fiberglass Window Frames & Profiles",
           description:
-            "Finished GFRP-PU windows and doors and pultruded fenestration profiles for extreme-cold and passive house buildings. 65-140 series, U-values down to 0.78 W/m2K, proven to −60°C.",
+            "Finished GFRP-PU windows and doors plus pultruded fiberglass window frames, profiles and lineals for local fabricators. 65-140 series, U-values down to 0.78 W/m2K, proven to −60°C.",
           path: pagePath,
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
-          category: "FRP Windows, Doors and Fenestration Systems",
+          category: "FRP Windows, Fiberglass Window Frames and Profiles",
           productLine: "F1-THERM",
           // Indicative per-metre profile band across the 65–140 series; finished
           // units are quoted per opening. Routes to /contact for a project quote.
@@ -410,8 +410,8 @@ export default function FenestrationSystemsPage() {
       />
       <PageHeader
         tag="FRP Windows & Doors · F1-THERM"
-        title="Pultruded fiberglass (FRP) windows & doors for extreme cold"
-        description="Finished, factory-assembled fiberglass windows and doors — and the pultruded fiberglass window profiles behind them — for Passive House, low-energy, and extreme-cold buildings in Canada, Russia, and the Nordics. Whole-window U-values to 0.78 W/m²·K, proven to −60°C, with no metallic thermal bridge to frost or fail."
+        title="Pultruded Fiberglass (FRP) Windows, Frames & Profiles"
+        description="F1 Composite manufactures finished FRP windows and doors, as well as pultruded fiberglass window frames, profiles and lineals for local fabrication. Available in 65–140 series for Passive House, low-energy and extreme-cold buildings, with whole-window U-values to 0.78 W/m²·K."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -421,6 +421,7 @@ export default function FenestrationSystemsPage() {
 
       <JumpNav
         items={[
+          { href: "#frames-profiles", label: "Frames & profiles" },
           { href: "#supply", label: "Supply models" },
           { href: "#types", label: "Window types" },
           { href: "#series", label: "Series 65\u2013140" },
@@ -499,15 +500,14 @@ export default function FenestrationSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div>
             <p className="text-f19 leading-golden text-t2">
-              <strong className="text-t1">Pultruded fiberglass windows and doors</strong> —
-              known interchangeably as FRP, GRP, or pultrusion windows — are a generational
-              advancement over aluminum and PVC, and F1 Composite supplies them as the
-              finished article. We manufacture the pultruded fiberglass window profiles and
-              assemble them, in our own plant, into complete window and door units:
-              glazed, hardware-fitted, gasketed, and leak-tested before they ship. The
-              result is a window that reaches whole-window K-values as low as 0.78
-              W/m{"²"}·K with no thermal break inserts, no steel reinforcement, and no
-              metallic path to frost or fail in a deep-cold winter.
+              <strong className="text-t1">F1 Composite manufactures finished FRP windows
+              and doors, as well as pultruded fiberglass window frames, profiles and lineals
+              for local fabrication.</strong> Our finished units are assembled, glazed,
+              hardware-fitted, gasketed, and leak-tested in our own plant. The same
+              pultruded profile system can instead ship as fabrication-ready lineals for a
+              qualified local window producer. Both routes deliver whole-window U-values as
+              low as 0.78 W/m{"²"}·K with no steel reinforcement and no metallic thermal
+              bridge to frost or fail in a deep-cold winter.
             </p>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
               That makes this range built for the climates where windows are hardest to get
@@ -525,6 +525,68 @@ export default function FenestrationSystemsPage() {
               is pultruded on our continuous lines for dimensional consistency across runs of
               tens of thousands of linear meters.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Product terminology and deliverables */}
+      <section id="frames-profiles" className="scroll-mt-[89px] bg-white pb-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="border-t border-border-default pt-[55px]">
+            <SectionTag>Product Forms</SectionTag>
+            <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+              FRP Window Frames and Profiles
+            </h2>
+            <p className="mt-[13px] max-w-[920px] text-f15 leading-golden text-t2">
+              One pultruded fiberglass system supports three related deliverables. Choose a
+              complete glazed unit when factory-verified performance matters, or source the
+              same frame, sash and accessory profiles as lineals for local fabrication.
+            </p>
+
+            <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
+              <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
+                <h3 className="text-f19 font-bold text-t1">Finished FRP windows and doors</h3>
+                <p className="mt-[13px] text-f15 leading-golden text-t2">
+                  Complete units leave our factory cut, joined, glazed, hardware-fitted,
+                  gasketed and leak-tested. Fixed windows, casement windows, tilt-and-turn
+                  windows, swing doors and lift-and-slide doors are supplied ready to install.
+                </p>
+              </div>
+              <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
+                <h3 className="text-f19 font-bold text-t1">Fiberglass window frames</h3>
+                <p className="mt-[13px] text-f15 leading-golden text-t2">
+                  The window frame is the assembled structural system around the glazing:
+                  outer frame, operable sash, mullions, transoms and glazing beads. F1 frame
+                  designs use continuous pultruded GFRP with no steel reinforcement or
+                  aluminum thermal-break insert.
+                </p>
+              </div>
+              <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
+                <h3 className="text-f19 font-bold text-t1">Profiles and lineals</h3>
+                <p className="mt-[13px] text-f15 leading-golden text-t2">
+                  Profiles—called window lineals in North America—are the individual
+                  continuous lengths a fabricator cuts and joins into frames and sashes. We
+                  supply the profile set with EPDM gaskets, corner kits and fabrication
+                  drawings for in-country assembly.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-[34px] rounded-[8px] border border-teal-border bg-bg2 p-[29px]">
+              <h3 className="text-f19 font-bold text-t1">Window types and 65–140 series</h3>
+              <p className="mt-[13px] text-f15 leading-golden text-t2">
+                The 65, 70, 80 and 90 series cover fixed, casement, awning and tilt-and-turn
+                windows plus swing and parallel-slide doors. The deeper 140 series is the
+                lift-and-slide system for large glazed openings. Finished units and
+                profile-only supply use the same section geometries, so the choice changes
+                where fabrication happens—not the underlying frame system.
+              </p>
+              <div className="mt-[21px] flex flex-wrap gap-[21px]">
+                <LinkArrow href="#supply">Compare supply models</LinkArrow>
+                <LinkArrow href="#types">See window and door types</LinkArrow>
+                <LinkArrow href="#series">Compare series 65–140</LinkArrow>
+              </div>
+            </div>
           </div>
         </div>
       </section>

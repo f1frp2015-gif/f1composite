@@ -22,6 +22,10 @@ const productLabelToSlug: Record<string, string> = {
   "Gratings": "gratings",
 };
 
+const productLinkLabels: Record<string, string> = {
+  "Fenestration Systems": "FRP windows and doors",
+};
+
 const caseStudyData: Record<
   string,
   {
@@ -505,7 +509,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                       href={`/products/${slug}`}
                       className="block text-f13 text-teal-text hover:underline"
                     >
-                      {product} →
+                      {productLinkLabels[product] ?? product} →
                     </Link>
                   );
                 })}
@@ -560,7 +564,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   All case studies →
                 </Link>
                 <Link href="/what-is-frp" className="block text-f13 text-teal-text hover:underline">
-                  What is FRP? →
+                  What is FRP? Material &amp; properties →
                 </Link>
                 <Link
                   href="/technology/frp-vs-traditional-materials"

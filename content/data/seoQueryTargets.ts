@@ -65,9 +65,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/fenestration-systems",
     primaryQuery: "FRP windows",
     intent: "commercial",
-    title: "FRP Windows & Doors — Pultruded Fiberglass Systems",
+    title: "FRP Windows & Fiberglass Window Frames | F1 Composite",
     description:
-      "Specify factory-assembled FRP windows and doors or pultruded fiberglass lineals for local fabrication. U-values to 0.78 W/m²·K and extreme-cold options.",
+      "Finished FRP windows and doors plus pultruded fiberglass window frames, profiles and lineals for fabricators. 65–140 series; U-values to 0.78 W/m²·K.",
     supportingUrls: [
       "/resources/frp-windows-guide",
       "/technology/polyurethane-pultrusion-windows",

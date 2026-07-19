@@ -197,7 +197,7 @@ export default function WhatIsFrpPage() {
               href="/products/fenestration-systems"
               className="font-semibold text-teal-text hover:text-teal"
             >
-              FRP windows
+              FRP windows and doors
             </Link>{" "}
             for passive-house buildings and pedestrian bridges.
           </p>
@@ -237,7 +237,7 @@ export default function WhatIsFrpPage() {
                   href="/products/fenestration-systems"
                   className="font-semibold text-teal-text hover:text-teal"
                 >
-                  FRP windows &amp; window frames
+                  fiberglass window frames
                 </Link>{" "}
                 and the full{" "}
                 <Link
@@ -252,7 +252,7 @@ export default function WhatIsFrpPage() {
             <div className="mt-[21px] flex flex-shrink-0 flex-wrap gap-[13px] sm:mt-0">
               <Button href="/frp-profile-calculator">Size an FRP profile</Button>
               <Button href="/products/fenestration-systems" variant="secondary">
-                FRP windows &amp; doors
+                View window systems
               </Button>
             </div>
           </div>
@@ -709,7 +709,7 @@ export default function WhatIsFrpPage() {
               <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
                 <li>
                   → <Link href="/products/fenestration-systems" className="text-teal-text hover:text-teal">
-                    FRP window frames &amp; FRP window profiles
+                    pultruded window profiles
                   </Link>{" "}
                   (passive-house, low-energy buildings)
                 </li>

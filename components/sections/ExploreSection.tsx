@@ -11,7 +11,7 @@ interface ExploreCard {
 const cards: ExploreCard[] = [
   {
     eyebrow: "Guide",
-    title: "What is FRP? Complete guide",
+    title: "What is FRP? Material & properties guide",
     description:
       "Fiberglass reinforced polymer composites explained — materials, pultrusion process, properties, standards, and how FRP compares with steel and aluminum.",
     href: "/what-is-frp",

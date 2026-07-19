@@ -5,10 +5,10 @@ export const contentType = ogContentType;
 
 export default function OpenGraphImage() {
   return renderOgImage({
-    eyebrow: "Fenestration Systems",
-    title: "Pultruded FRP Window and Door Frames with Low U-Values and Zero Thermal Bridging",
+    eyebrow: "FRP Windows · Frames · Profiles",
+    title: "FRP Windows & Fiberglass Window Frames",
     description:
-      "60, 70, 80, and 90-series frame systems designed for passive-house, commercial, and extreme-climate envelope performance.",
+      "Finished units or 65–140 series pultruded window profiles for local fabrication, with U-values to 0.78 W/m²K.",
     accent: "#13756f",
     chips: ["0.78 W/m2K", "Passive-house ready", "Corrosion free"],
   });
