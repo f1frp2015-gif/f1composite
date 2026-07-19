@@ -10,8 +10,18 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import Button from "@/components/ui/Button";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
+import TrustStrip from "@/components/cro/TrustStrip";
+import IntentChips from "@/components/cro/IntentChips";
+import SectionCTA from "@/components/cro/SectionCTA";
+import LeadMagnetCard from "@/components/cro/LeadMagnetCard";
+import DorisWidget from "@/components/cro/DorisWidget";
+import ExitIntentModal from "@/components/cro/ExitIntentModal";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
+import {
+  prefillForWhatIsFRP,
+  prefillForWhatIsFrpSection,
+  prefillForWhatIsFrpFaq,
+} from "@/lib/aiPrefill";
 
 const pageTitle =
   "What is FRP? Fiberglass Reinforced Polymer Explained";
@@ -138,6 +148,34 @@ export default function WhatIsFrpPage() {
         ]}
       />
 
+      {/* W5 — Trust strip: counters the "China small factory" SERP prior. */}
+      <TrustStrip />
+
+      {/* W1 — Intent chips: split top-of-funnel traffic in one click. */}
+      <IntentChips
+        pageId="what-is-frp"
+        chips={[
+          {
+            id: "compare-materials",
+            label: "I'm comparing FRP vs steel / aluminum",
+            href: "/technology/frp-vs-traditional-materials",
+            intent: "explore",
+          },
+          {
+            id: "spec-now",
+            label: "I'm spec'ing a profile now",
+            href: "/pultruded-frp-profiles",
+            intent: "transact",
+          },
+          {
+            id: "ask-ai",
+            label: "I have a quick engineering question",
+            href: `/ask?prefill=${encodeURIComponent(prefillForWhatIsFRP())}`,
+            intent: "info",
+          },
+        ]}
+      />
+
       {/* Table of Contents */}
       <section className="bg-white py-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -219,6 +257,17 @@ export default function WhatIsFrpPage() {
             </Link>
             .
           </p>
+
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="definition"
+            intent="info"
+            headline="Need a 3-bullet engineering verdict for your project?"
+            description="Ask the FRP Engineering Advisor when an engineer should switch from steel to FRP — and what single project parameter usually decides it."
+            ctaLabel="Ask the AI advisor"
+            href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("definition"))}`}
+            secondary={{ label: "Browse the product hub", href: "/pultruded-frp-profiles" }}
+          />
         </div>
       </section>
 
@@ -313,6 +362,16 @@ export default function WhatIsFrpPage() {
               process — the focus of F1 Composite.
             </li>
           </ul>
+
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="terminology"
+            intent="info"
+            headline="Writing a tender or RFQ that crosses regions?"
+            description="Ask which term — FRP, GRP, or fiberglass — lands cleanly in a US, EU, or Australian spec."
+            ctaLabel="Ask the AI advisor"
+            href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("terminology"))}`}
+          />
         </div>
       </section>
 
@@ -389,6 +448,19 @@ export default function WhatIsFrpPage() {
               </ul>
             </div>
           </div>
+
+          <LeadMagnetCard
+            pageId="what-is-frp"
+            sectionId="components"
+            magnetId="pocket-spec-card"
+            title="FRP Pocket Spec Card — 7 profile families, 2-page PDF"
+            description="The 7 most-quoted F1 pultruded geometries on one A4 card — cross-sections, typical sizes, mechanical properties, and the EN 13706 / ASTM standards. Useful in any project folder."
+            highlights={[
+              "Side-by-side glass content, density, tensile, modulus",
+              "EN 13706 D vs ASTM thresholds on the back",
+              "Doris's WhatsApp QR for follow-up specs",
+            ]}
+          />
         </div>
       </section>
 
@@ -459,6 +531,20 @@ export default function WhatIsFrpPage() {
               ))}
             </ul>
           </div>
+
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="pultrusion"
+            intent="explore"
+            headline="Project that might need a custom die?"
+            description="Confirm the cross-section, quantity, and standards before you start an RFQ — F1's engineers walk through it with you."
+            ctaLabel="Discuss a custom profile"
+            href="/products/custom-pultrusions"
+            secondary={{
+              label: "Ask the AI advisor first",
+              href: `/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("pultrusion"))}`,
+            }}
+          />
         </div>
       </section>
 
@@ -511,6 +597,17 @@ export default function WhatIsFrpPage() {
               </tbody>
             </table>
           </div>
+
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="properties"
+            intent="explore"
+            headline="Sizing a structural member with these numbers?"
+            description="Compare F1 pultruded FRP against A36 steel and 6061-T6 aluminum for your specific structural role — and find out which property usually governs the design."
+            ctaLabel="Compare materials with AI"
+            href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("properties"))}`}
+            secondary={{ label: "Run the deflection calculator", href: "/frp-profile-calculator" }}
+          />
         </div>
       </section>
 
@@ -575,6 +672,20 @@ export default function WhatIsFrpPage() {
               </article>
             ))}
           </div>
+
+          <LeadMagnetCard
+            pageId="what-is-frp"
+            sectionId="advantages"
+            magnetId="frp-vs-steel-lcc"
+            title="FRP vs Steel vs Aluminum — 30-year lifecycle cost sheet"
+            description="Editable Excel model + 12-page case book quantifying realistic savings over 30 years across 6 corrosive infrastructure project archetypes."
+            highlights={[
+              "Inputs: span, environment, design life, discount rate",
+              "Auto-generated NPV and sensitivity charts",
+              "Real F1 project case studies you can reference in an internal memo",
+            ]}
+            ctaLabel="Email me the LCC sheet"
+          />
         </div>
       </section>
 
@@ -626,6 +737,21 @@ export default function WhatIsFrpPage() {
               shows less than 5% property loss after 20 years of direct UV exposure.
             </li>
           </ul>
+
+          {/* W2 — Highest-intent micro-CTA on the page. Lean into the doubt
+              the reader has at this exact moment rather than pretending it
+              doesn't exist. */}
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="limitations"
+            intent="transact"
+            variant="teal"
+            headline="Worried FRP isn't right for your project? Get a second opinion in 30 seconds."
+            description="Tell the FRP Engineering Advisor your application — it will be honest about when steel, aluminum, or a hybrid is the better pick. No registration."
+            ctaLabel="Ask the AI advisor"
+            href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("limitations"))}`}
+            secondary={{ label: "Or WhatsApp Doris directly", href: "https://wa.me/8613883333993" }}
+          />
         </div>
       </section>
 
@@ -666,6 +792,20 @@ export default function WhatIsFrpPage() {
               </tbody>
             </table>
           </div>
+
+          <LeadMagnetCard
+            pageId="what-is-frp"
+            sectionId="standards"
+            magnetId="en13706-d-sample-report"
+            title="Sample EN 13706 D test report (third-party lab, redacted)"
+            description="The exact mechanical, fire, water-absorption, and glass-content test set we hand to specifying engineers — taken from a recent F1 pultruded production run."
+            highlights={[
+              "Tensile, flexural, compressive, ILSS — 5 specimens, mean and StDev",
+              "ASTM E84 flame spread and smoke developed values",
+              "Glass content by ignition loss (ISO 1172)",
+            ]}
+            ctaLabel="Email me the sample report"
+          />
         </div>
       </section>
 
@@ -732,6 +872,17 @@ export default function WhatIsFrpPage() {
             </Link>
             .
           </p>
+
+          <SectionCTA
+            pageId="what-is-frp"
+            sectionId="applications"
+            intent="explore"
+            headline="See FRP in your specific use case"
+            description="Map a real project to the right F1 product family, resin system, and case study."
+            ctaLabel="Ask the AI advisor"
+            href={`/ask?prefill=${encodeURIComponent(prefillForWhatIsFrpSection("applications"))}`}
+            secondary={{ label: "Or browse the product hub", href: "/pultruded-frp-profiles" }}
+          />
         </div>
       </section>
 
@@ -768,6 +919,21 @@ export default function WhatIsFrpPage() {
       />
 
       <InnerCTA title="Talk to our FRP engineers about your project" />
+
+      <DorisWidget pageId="what-is-frp" />
+
+      <ExitIntentModal
+        pageId="what-is-frp"
+        headline="Take this guide with you"
+        body="Drop your work email and we'll send the FRP Pocket Spec Card — 7 profile families on one A4 sheet — plus a short follow-up from Doris if you want to chat through a project."
+        primary={{ label: "Email me the Pocket Spec Card", href: "#components" }}
+        secondary={{ label: "Just open the AI advisor", href: "/ask" }}
+      />
     </>
   );
 }
+
+// FAQ item helper imported by `faqItems` references above; keep here to avoid
+// circular re-imports while the dynamic-per-question CTA is wired up in a
+// follow-up PR.
+void prefillForWhatIsFrpFaq;
