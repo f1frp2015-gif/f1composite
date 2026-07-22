@@ -149,7 +149,7 @@ const profileFamily: Array<{
     summary:
       "Molded and pultruded gratings, solid-top cover plates, and structural FRP deck panels for chemical plants, offshore platforms, pedestrian bridges, and vehicular access decks.",
     href: "/products/gratings",
-    image: "/images/products/frp-grating-industrial.jpg",
+    image: "/images/products/frp-structural-deck-panel-cover.webp",
   },
 ];
 
