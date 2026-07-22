@@ -57,7 +57,15 @@ export async function POST(request: NextRequest) {
     return tooManyRequests(rl, "Too many submissions. Please wait a few minutes and try again.");
   }
 
-  const formData = await request.formData();
+  let formData: FormData;
+  try {
+    formData = await request.formData();
+  } catch {
+    return NextResponse.json(
+      { message: "This endpoint accepts multipart form submissions only." },
+      { status: 400 },
+    );
+  }
 
   const name = formData.get("name") as string | null;
   const email = formData.get("email") as string | null;
