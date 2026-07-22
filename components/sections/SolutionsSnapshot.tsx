@@ -1,70 +1,35 @@
+import LinkArrow from "@/components/ui/LinkArrow";
 import SectionTag from "@/components/ui/SectionTag";
 import SolutionCard from "@/components/ui/SolutionCard";
-import LinkArrow from "@/components/ui/LinkArrow";
 import { productCategories } from "@/content/data/products";
 
-function ProfilesIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal">
-      <path d="M4 4h16v4H4zM4 12h8v8H4z" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CustomIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function FenestrationIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal">
-      <rect x="3" y="3" width="18" height="18" rx="1" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12 3v18M3 12h18" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function GratingsIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal">
-      <path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-const icons: Record<string, React.ReactNode> = {
-  profiles: <ProfilesIcon />,
-  custom: <CustomIcon />,
-  fenestration: <FenestrationIcon />,
-  gratings: <GratingsIcon />,
-};
+const advantages = [
+  { value: "Up to 75%", label: "lighter than steel" },
+  { value: "No rust", label: "or repainting cycles" },
+  { value: "Dielectric", label: "electrical insulation" },
+  { value: "4+ resins", label: "matched to exposure" },
+];
 
 export default function SolutionsSnapshot() {
   return (
-    <section className="bg-white py-[55px] md:py-[89px]">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
-        {/* Header row */}
-        <div className="mb-[34px] flex items-end justify-between">
+    <section className="bg-white py-[58px] md:py-[78px]">
+      <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+        <div className="mb-[30px] flex flex-col gap-[16px] sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <SectionTag>Product Range</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
-              Pultruded FRP Profiles
+            <SectionTag>Product systems</SectionTag>
+            <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
+              One source for structural and engineered FRP
             </h2>
-            <p className="mt-[8px] text-f15 leading-golden text-t2">
-              Pultrusion technology unlocks new possibilities for advanced composite materials — stronger, lighter, and built to last.
+            <p className="mt-[10px] max-w-[720px] text-f15 leading-relaxed text-t2">
+              Start with a stocked profile family or develop a project-specific section with tooling, material, and documentation support.
             </p>
           </div>
-          <LinkArrow href="/pultruded-frp-profiles" className="hidden sm:inline-flex">
-            All products
+          <LinkArrow href="/pultruded-frp-profiles" className="shrink-0">
+            Browse all products
           </LinkArrow>
         </div>
 
-        {/* 3-column card grid — 5 products land in a balanced 3+2 layout */}
-        <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
           {productCategories.map((product) => (
             <SolutionCard
               key={product.slug}
@@ -72,14 +37,28 @@ export default function SolutionsSnapshot() {
               description={product.description}
               href={product.href}
               image={product.image}
-              imageAlt={`${product.title} — F1 Composite`}
+              imageAlt={`${product.title} manufactured by F1 Composite`}
               imageScale={product.imageScale}
             />
           ))}
         </div>
 
-        <div className="mt-[21px] sm:hidden">
-          <LinkArrow href="/pultruded-frp-profiles">All products</LinkArrow>
+        <div className="mt-[24px] grid overflow-hidden rounded-[10px] border border-border-default bg-bg2 sm:grid-cols-2 lg:grid-cols-4">
+          {advantages.map((advantage, index) => (
+            <div
+              key={advantage.label}
+              className={`px-[18px] py-[17px] ${index > 0 ? "lg:border-l lg:border-border-default" : ""}`}
+            >
+              <p className="text-f15 font-extrabold text-t1">{advantage.value}</p>
+              <p className="mt-[2px] text-f13 text-t2">{advantage.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-[14px]">
+          <LinkArrow href="/technology/frp-vs-traditional-materials">
+            Compare FRP with steel and aluminum
+          </LinkArrow>
         </div>
       </div>
     </section>

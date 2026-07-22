@@ -4,6 +4,23 @@ import { insertInquiry, markInquiryEmailed } from "@/lib/db";
 import { NOTIFY_EMAILS } from "@/lib/notify";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 
+export const runtime = "nodejs";
+
+const MAX_ATTACHMENT_BYTES = 4 * 1024 * 1024;
+const ALLOWED_ATTACHMENT_EXTENSIONS = new Set([
+  "pdf",
+  "dwg",
+  "dxf",
+  "step",
+  "stp",
+  "iges",
+  "igs",
+  "zip",
+  "jpg",
+  "jpeg",
+  "png",
+]);
+
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
@@ -49,6 +66,32 @@ export async function POST(request: NextRequest) {
   const message = formData.get("message") as string | null;
   const company = formData.get("company") as string | null;
   const phone = formData.get("phone") as string | null;
+  const attachmentEntry = formData.get("attachment");
+  const attachment = attachmentEntry instanceof File && attachmentEntry.size > 0
+    ? attachmentEntry
+    : null;
+
+  let attachmentName: string | null = null;
+  let attachmentContent: Buffer | null = null;
+
+  if (attachment) {
+    const extension = attachment.name.split(".").pop()?.toLowerCase() ?? "";
+    if (!ALLOWED_ATTACHMENT_EXTENSIONS.has(extension)) {
+      return NextResponse.json(
+        { message: "Unsupported attachment type. Please send PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG." },
+        { status: 400 },
+      );
+    }
+    if (attachment.size > MAX_ATTACHMENT_BYTES) {
+      return NextResponse.json(
+        { message: "The attachment exceeds the 4 MB limit." },
+        { status: 400 },
+      );
+    }
+
+    attachmentName = attachment.name.replace(/[^a-zA-Z0-9._() -]/g, "_").slice(0, 140);
+    attachmentContent = Buffer.from(await attachment.arrayBuffer());
+  }
 
   // Validate required fields
   const missing: string[] = [];
@@ -88,7 +131,7 @@ export async function POST(request: NextRequest) {
       phone,
       country,
       inquiryType,
-      message: message!,
+      message: attachmentName ? `${message!}\n\nAttachment: ${attachmentName}` : message!,
       source: (formData.get("source") as string | null) || "contact",
       context: parseContext(formData.get("context") as string | null),
       userAgent: request.headers.get("user-agent"),
@@ -104,6 +147,13 @@ export async function POST(request: NextRequest) {
     to: NOTIFY_EMAILS,
     replyTo: email!,
     subject: `[Inquiry] ${inquiryType ?? ""} from ${name ?? ""} — ${country ?? ""}`.slice(0, 200),
+    attachments: attachmentName && attachmentContent
+      ? [{
+          filename: attachmentName,
+          content: attachmentContent,
+          contentType: attachment?.type || "application/octet-stream",
+        }]
+      : undefined,
     html: `
       <div style="font-family: -apple-system, sans-serif; max-width: 600px; color: #1a1a1a;">
         <h2 style="color: #00A199; margin-bottom: 24px;">New Inquiry from f1composite.com</h2>
@@ -114,7 +164,8 @@ export async function POST(request: NextRequest) {
           <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Phone</td><td style="padding: 8px 12px;">${esc(phone)}</td></tr>
           <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${esc(country)}</td></tr>
           <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
-          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
+          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
+          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
         </table>
         <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>
       </div>

@@ -6,17 +6,18 @@ interface InnerCTAProps {
 
 export default function InnerCTA({ title = "Ready to discuss your project?" }: InnerCTAProps) {
   return (
-    <section className="bg-bg2 py-[55px]">
-      <div className="mx-auto max-w-[1280px] px-[34px] text-center">
-        <h2 className="text-f24 font-bold text-t1">{title}</h2>
-        <p className="mx-auto mt-[13px] max-w-[640px] text-f15 leading-golden text-t2">
-          Our engineering team is ready to help you find the right FRP solution.
-          Get in touch for technical consultation or a detailed quotation.
-        </p>
-        <div className="mt-[21px] flex justify-center gap-[13px]">
-          <Button href="/contact">Request a Quote</Button>
+    <section className="border-y border-border-default bg-white py-[38px] md:py-[46px]">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-[18px] px-[20px] sm:px-[28px] md:flex-row md:items-center md:justify-between lg:px-[36px]">
+        <div>
+          <h2 className="text-f24 font-bold tracking-[-0.02em] text-t1">{title}</h2>
+          <p className="mt-[6px] max-w-[650px] text-f15 leading-relaxed text-t2">
+            Send the dimensions, quantity, service environment, and destination. Engineering responds within one business day.
+          </p>
+        </div>
+        <div className="flex shrink-0 flex-wrap gap-[10px]">
+          <Button href="/contact?source=page-cta&inquiry_type=rfq">Get a Quote</Button>
           <Button href="/pultruded-frp-profiles" variant="secondary">
-            Browse FRP Profiles
+            View Products
           </Button>
         </div>
       </div>

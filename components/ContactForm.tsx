@@ -50,16 +50,25 @@ interface FormState {
 const initialState: FormState = { success: false, message: "" };
 
 async function submitForm(_prev: FormState, formData: FormData): Promise<FormState> {
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    body: formData,
-  });
-  const data = await res.json();
-  return { success: res.ok, message: data.message };
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json().catch(() => ({
+      message: "The inquiry could not be processed. Please check the attachment size and try again.",
+    }));
+    return { success: res.ok, message: data.message };
+  } catch {
+    return {
+      success: false,
+      message: "The inquiry could not be sent. Please check your connection or email inquiry@f1composite.com.",
+    };
+  }
 }
 
 const inputCls =
-  "w-full rounded-[5px] border border-border-default bg-white px-[13px] py-[13px] text-f15 text-t1 outline-none transition-colors duration-[0.34s] placeholder:text-t3 focus:border-teal-border";
+  "w-full rounded-[7px] border border-border-default bg-white px-[13px] py-[12px] text-f15 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
@@ -75,7 +84,7 @@ export default function ContactForm() {
 
   if (state.success) {
     return (
-      <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[34px]">
+      <div role="status" aria-live="polite" className="rounded-[8px] border border-teal-border bg-teal-bg p-[34px]">
         <h3 className="text-f24 font-bold text-t1">Thank you for reaching out</h3>
         <p className="mt-[13px] text-f15 leading-golden text-t2">
           {state.message || "We have received your inquiry and will respond within one business day."}
@@ -85,7 +94,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={formAction} className="space-y-[21px]">
+    <form action={formAction} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       {prefillContext && <input type="hidden" name="context" defaultValue={prefillContext} />}
       {isFromAiSourcing && (
@@ -95,7 +104,7 @@ export default function ContactForm() {
       )}
 
       {state.message && !state.success && (
-        <div className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+        <div role="alert" className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
           {state.message}
         </div>
       )}
@@ -201,9 +210,28 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit" className={isPending ? "opacity-60 pointer-events-none" : ""}>
-        {isPending ? "Sending..." : "Send Inquiry"}
-      </Button>
+      <div>
+        <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
+          Drawing or specification <span className="font-normal text-t3">(optional)</span>
+        </label>
+        <input
+          id="attachment"
+          name="attachment"
+          type="file"
+          accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
+          className={`${inputCls} file:mr-[12px] file:rounded-[5px] file:border-0 file:bg-bg2 file:px-[12px] file:py-[7px] file:text-f13 file:font-bold file:text-t1`}
+        />
+        <p className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · maximum 4 MB</p>
+      </div>
+
+      <div className="flex flex-col gap-[9px] sm:flex-row sm:items-center sm:justify-between">
+        <Button type="submit" disabled={isPending} className={isPending ? "pointer-events-none opacity-60" : ""}>
+          {isPending ? "Sending..." : "Send for Engineering Review"}
+        </Button>
+        <p className="max-w-[300px] text-f11 leading-relaxed text-t3">
+          Your project information is used only to review and respond to this inquiry.
+        </p>
+      </div>
     </form>
   );
 }

@@ -1,27 +1,34 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Image from "next/image";
-import PageHeader from "@/components/layout/PageHeader";
-import SectionTag from "@/components/ui/SectionTag";
 import ContactForm from "@/components/ContactForm";
-import LegalEntityNote from "@/components/sections/LegalEntityNote";
+import PageHeader from "@/components/layout/PageHeader";
 import JsonLd from "@/components/seo/JsonLd";
+import LegalEntityNote from "@/components/sections/LegalEntityNote";
+import SectionTag from "@/components/ui/SectionTag";
 import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Request a Quote or Engineering Review",
   description:
-    "Get in touch with F1 Composite for quotations, technical consultation, or partnership inquiries. Our engineering team responds within one business day.",
+    "Send F1 Composite your drawing, dimensions, quantity, and project requirements. Our engineering and sales team responds within one business day.",
   alternates: { canonical: absoluteUrl("/contact") },
 };
+
+const quoteChecklist = [
+  "Profile drawing or target dimensions",
+  "Estimated quantity or project scale",
+  "Load case and service environment",
+  "Required resin, standard, or test",
+  "Destination and target delivery date",
+];
 
 export default function ContactPage() {
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact F1 Composite",
+    name: "Request a Quote from F1 Composite",
     description:
-      "Get in touch with F1 Composite for quotations, technical consultation, or partnership inquiries. Our engineering team responds within one business day.",
+      "Send F1 Composite your drawing, dimensions, quantity, and project requirements for engineering review and quotation.",
     url: absoluteUrl("/contact"),
     mainEntity: { "@id": "https://www.f1composite.com/#organization" },
   };
@@ -30,173 +37,78 @@ export default function ContactPage() {
     <>
       <JsonLd data={contactPageSchema} />
       <PageHeader
-        tag="Contact"
-        title="Let's Talk About Your Project"
-        description="Whether you need a quotation, technical guidance, or want to explore a partnership, our engineering team is ready to help."
+        tag="Engineering & RFQ support"
+        title="Send your project requirements"
+        description="Upload a drawing or describe the application. We will review the profile, material, documentation, quantity, and delivery requirements before responding."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Contact" },
+          { label: "Request a Quote" },
         ]}
       />
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="grid gap-[34px] lg:grid-cols-[61.8%_1fr]">
-            {/* Form */}
-            <div>
-              <SectionTag>Send an Inquiry</SectionTag>
-              <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
-                Fill out the form and we will respond within one business day
-              </h2>
-              <Suspense fallback={<div className="text-f13 text-t3">Loading form…</div>}>
-                <ContactForm />
-              </Suspense>
-            </div>
-
-            {/* Company Info */}
-            <div>
-              <SectionTag>Company Details</SectionTag>
-              <h2 className="mt-[21px] mb-[34px] text-f24 font-bold text-t1">
-                Chongqing F1 Composites Co., Ltd.
-              </h2>
-
-              <div className="space-y-[34px]">
-                <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Contact</h3>
-                  <p className="mt-[5px] text-f15 font-semibold text-t1">Doris Li</p>
-                  <p className="text-f13 text-t3">Sales Director</p>
-                </div>
-
-                <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Email</h3>
-                  <a
-                    href="mailto:inquiry@f1composite.com"
-                    className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
-                  >
-                    inquiry@f1composite.com
-                  </a>
-                  <p className="mt-[4px] text-f13 text-t3">Sales, engineering questions, drawing reviews, and post-sales support.</p>
-                </div>
-
-                <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Phone / WhatsApp</h3>
-                  <a
-                    href="tel:+8613883333993"
-                    className="mt-[5px] block text-f15 font-semibold text-teal-text transition-colors duration-[0.34s] hover:text-teal"
-                  >
-                    +86 138 8333 3993
-                  </a>
-                  <a
-                    href="https://wa.me/8613883333993"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-[8px] inline-flex items-center gap-[6px] rounded-[6px] bg-[#25D366] px-[13px] py-[6px] text-f13 font-medium text-white transition-opacity hover:opacity-90"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    Chat on WhatsApp
-                  </a>
-                  <div className="mt-[13px]">
-                    <Image
-                      src="/images/contact/whatsapp-qr-doris.jpg"
-                      alt="Scan to add Doris Li on WhatsApp"
-                      width={120}
-                      height={120}
-                      className="rounded-[6px]"
-                    />
-                    <p className="mt-[4px] text-[11px] text-t3">Scan to add on WhatsApp</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">Address</h3>
-                  <p className="mt-[5px] text-f15 leading-golden text-t2">
-                    Chongqing F1 Composites Co., Ltd.
-                    <br />
-                    No. 153 Jinyu Avenue, Cuntan Street
-                    <br />
-                    Liangjiang New Area, Chongqing, China
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-f13 font-bold uppercase tracking-[3px] text-t3">
-                    Business Hours
-                  </h3>
-                  <p className="mt-[5px] text-f15 leading-golden text-t2">
-                    Monday - Friday: 08:30 - 17:30 (GMT+8)
-                    <br />
-                    We respond to all inquiries within one business day.
-                  </p>
-                </div>
-
-                <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                  <h3 className="text-f15 font-bold text-t1">Prefer a direct conversation?</h3>
-                  <p className="mt-[8px] text-f13 leading-golden text-t2">
-                    For urgent technical questions or large-volume RFQs, email Doris directly at{" "}
-                    <a
-                      href="mailto:inquiry@f1composite.com"
-                      className="font-semibold text-teal-text hover:text-teal"
-                    >
-                      inquiry@f1composite.com
-                    </a>{" "}
-                    and reference your project timeline. We prioritize time-sensitive requests.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <section className="bg-bg2 py-[56px] md:py-[72px]">
+        <div className="mx-auto grid max-w-[1320px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.15fr_0.85fr] lg:px-[36px]">
+          <div>
+            <SectionTag>Project inquiry</SectionTag>
+            <h2 className="mb-[22px] mt-[12px] text-f24 font-bold tracking-[-0.02em] text-t1">
+              Engineering review within one business day
+            </h2>
+            <Suspense fallback={<div className="text-f13 text-t3">Loading inquiry form…</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
+
+          <aside className="space-y-[18px] lg:pt-[37px]" aria-label="Contact and quotation guidance">
+            <div className="rounded-[11px] border border-border-default bg-white p-[22px]">
+              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">Direct contact</p>
+              <h2 className="mt-[7px] text-f19 font-bold text-t1">Doris Li · Sales Director</h2>
+              <div className="mt-[14px] space-y-[8px] text-f13">
+                <a href="mailto:inquiry@f1composite.com" className="block font-semibold text-teal-text hover:text-teal">
+                  inquiry@f1composite.com
+                </a>
+                <a href="tel:+8613883333993" className="block font-semibold text-teal-text hover:text-teal">
+                  +86 138 8333 3993
+                </a>
+                <a
+                  href="https://wa.me/8613883333993"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[42px] items-center rounded-[7px] bg-[#128c53] px-[14px] font-bold text-white hover:bg-[#0d7c48]"
+                >
+                  Chat on WhatsApp
+                </a>
+              </div>
+              <p className="mt-[15px] border-t border-border-default pt-[13px] text-f13 leading-relaxed text-t2">
+                Monday–Friday · 08:30–17:30 GMT+8<br />
+                Chongqing, China
+              </p>
+            </div>
+
+            <div className="rounded-[11px] border border-border-default bg-deep p-[22px] text-white">
+              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal">For a faster quote</p>
+              <h2 className="mt-[7px] text-f19 font-bold">Include these five project details</h2>
+              <ul className="mt-[14px] space-y-[9px]">
+                {quoteChecklist.map((item) => (
+                  <li key={item} className="flex gap-[9px] text-f13 text-white/78">
+                    <span className="mt-[7px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-[11px] border border-border-default bg-white p-[22px]">
+              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">Contracting entity</p>
+              <p className="mt-[8px] text-f13 leading-relaxed text-t2">
+                F1 Composite is FengDu New Material&apos;s international export company. FengDu operates the manufacturing bases; F1 handles international engineering support, contracts, documentation, and delivery.
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Our Manufacturing</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FengDu manufacturing, F1 export service
-          </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
-            F1 Composite is FengDu New Material&apos;s international export company.
-            FengDu operates 370 pultrusion lines across five production bases; F1
-            Composite handles international engineering support, contracts,
-            documentation, and delivery.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
-            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
-              <div className="relative aspect-[1.618] bg-bg2">
-                <Image
-                  src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
-                  alt="Aerial view of the F1 Composite pultrusion production line and material handling bay at our Chongqing factory"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t2">
-                Aerial view — production line and material handling bay, Chongqing manufacturing base.
-              </figcaption>
-            </figure>
-            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
-              <div className="relative aspect-[1.618] bg-bg2">
-                <Image
-                  src="/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"
-                  alt="F1 Composite pultrusion hall — wide-angle view of multiple Krauss Maffei pultrusion lines running in parallel, with downstream cutting and handling tables"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t2">
-                Pultrusion hall — multiple Krauss Maffei lines running in parallel with downstream cutting and handling tables.
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[860px] px-[34px]">
+      <section className="bg-white py-[34px]">
+        <div className="mx-auto max-w-[900px] px-[20px] sm:px-[28px] lg:px-[36px]">
           <LegalEntityNote />
         </div>
       </section>

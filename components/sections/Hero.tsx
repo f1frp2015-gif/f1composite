@@ -1,63 +1,80 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
-const stats = [
-  { value: "5", label: "Manufacturing Bases" },
-  { value: "370", label: "Pultrusion Lines" },
-  { value: "150K", label: "Tons / Year" },
-  { value: "30+", label: "Countries" },
-];
+const standards = ["EN 13706", "ASTM D3917", "ISO 9001"];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-deep">
-      {/* Full-bleed background image — static file with preload to eliminate LCP waterfall */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero/frp-composite-material-hero.webp"
-          alt="Fiber reinforced polymer composite material texture"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-deep/50" />
-      </div>
+    <section className="relative isolate overflow-hidden bg-deep">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
+        style={{
+          background:
+            "radial-gradient(circle at 78% 20%, rgba(10,155,145,0.22), transparent 34%), radial-gradient(circle at 12% 100%, rgba(31,73,151,0.35), transparent 35%)",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative mx-auto max-w-[1280px] px-[34px] py-[120px] md:py-[160px]">
-        <div className="max-w-[720px]">
-          <h1
-            className="font-extrabold tracking-[-0.03em] text-white"
-            style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.08 }}
-          >
-            F1 Composite — FRP Manufacturing{" "}
-            <span className="text-teal">for Global Projects</span>
+      <div className="mx-auto grid min-h-[610px] max-w-[1320px] items-center gap-[42px] px-[20px] py-[64px] sm:px-[28px] md:py-[76px] lg:grid-cols-[1.04fr_0.96fr] lg:px-[36px]">
+        <div className="relative z-10 max-w-[690px]">
+          <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f11 font-bold uppercase tracking-[0.12em] text-white/75">
+            <span className="h-[7px] w-[7px] rounded-full bg-teal" aria-hidden />
+            Factory direct · Engineering supported
+          </div>
+
+          <h1 className="mt-[22px] text-[clamp(40px,5.6vw,68px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white">
+            Pultruded FRP profiles for demanding projects
           </h1>
 
-          <p className="mt-[21px] max-w-[800px] text-f19 leading-golden text-white/75">
-            One manufacturing source for structural profiles, window systems, gratings,
-            and engineered custom sections — backed by EN 13706 / ASTM D3917 / ISO 9001
-            controls and export support to 30+ countries.
+          <p className="mt-[22px] max-w-[650px] text-[clamp(17px,1.8vw,20px)] leading-[1.55] text-white/76">
+            Structural profiles, gratings, window systems, and custom sections — manufactured in China with documented quality control and global delivery support.
           </p>
 
-          <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <Button href="/contact" className="bg-teal !text-white hover:!bg-teal-text">
+          <div className="mt-[30px] flex flex-wrap gap-[11px]">
+            <Button
+              href="/contact?source=homepage-hero&inquiry_type=rfq"
+              className="!bg-teal-text !text-white hover:!bg-teal"
+            >
               Get a Quote
             </Button>
-            <Button href="/pultruded-frp-profiles" className="border border-white/30 bg-transparent !text-white hover:!bg-white/10">
-              Explore FRP Profiles
+            <Button
+              href="/pultruded-frp-profiles"
+              variant="secondary"
+              className="!border-white/25 !bg-transparent !text-white hover:!border-white/45 hover:!bg-white/10"
+            >
+              Explore Products
             </Button>
           </div>
 
-          {/* Stats bar */}
-          <div className="mt-[55px] flex flex-wrap gap-[34px] border-t border-white/15 pt-[21px]">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <span className="block text-f24 font-extrabold text-teal">{stat.value}</span>
-                <span className="text-f11 font-bold uppercase tracking-[2px] text-white/50">{stat.label}</span>
-              </div>
+          <div className="mt-[32px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] border-t border-white/12 pt-[19px]">
+            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/45">Built to project standards</span>
+            {standards.map((standard) => (
+              <span key={standard} className="text-f13 font-semibold text-white/78">
+                {standard}
+              </span>
             ))}
+          </div>
+        </div>
+
+        <div className="relative lg:pl-[10px]">
+          <div className="relative aspect-[1.08] overflow-hidden rounded-[16px] border border-white/15 bg-[#17284b] shadow-[0_28px_70px_rgba(0,0,0,0.28)]">
+            <Image
+              src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+              alt="Rows of pultrusion production lines at the F1 Composite manufacturing base in Chongqing"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 48vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
+            <div className="absolute inset-x-[18px] bottom-[18px] flex items-end justify-between gap-[16px] rounded-[10px] border border-white/15 bg-deep/78 px-[17px] py-[14px] backdrop-blur-md">
+              <div>
+                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
+                <p className="mt-[2px] text-f15 font-bold text-white">370 pultrusion lines across 5 bases</p>
+              </div>
+              <span className="hidden rounded-full bg-teal px-[10px] py-[5px] text-f11 font-bold text-white sm:inline-flex">
+                Chongqing
+              </span>
+            </div>
           </div>
         </div>
       </div>

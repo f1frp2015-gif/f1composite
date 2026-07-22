@@ -1,100 +1,91 @@
-import Link from "next/link";
 import Image from "next/image";
-import SectionTag from "@/components/ui/SectionTag";
+import Link from "next/link";
 import LinkArrow from "@/components/ui/LinkArrow";
+import SectionTag from "@/components/ui/SectionTag";
+import { industries } from "@/content/data/industries";
 
 const featuredCases = [
   {
     slug: "qinling-station-antarctic-passive-windows",
-    title: "Qinling Station, Antarctic Ross Sea",
-    industry: "Construction",
-    location: "Ross Sea, Antarctica",
-    description:
-      "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class.",
+    title: "Qinling Antarctic Research Station",
+    meta: "Construction · Ross Sea, Antarctica",
     image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
-    metrics: [
-      { value: "phA / A+", label: "PHI Class" },
-      { value: "−60°C", label: "Design Low" },
-      { value: "45 m/s", label: "Wind Loading" },
-    ],
+    outcome: "PHI-certified GFRP windows engineered for an arctic climate.",
+    metrics: ["−60°C design", "45 m/s wind", "phA / A+"],
   },
   {
     slug: "factory-access-staircase",
-    title: "F1 Factory FRP Access Staircase",
-    industry: "Industrial",
-    location: "Chongqing, China",
-    description:
-      "F1 Composite's own production base — staircase and platform built entirely from our pultruded FRP profiles. 18 months of live, walkable reference for visiting customers.",
+    title: "FRP Factory Access Staircase",
+    meta: "Industrial · Chongqing, China",
     image: "/images/case-studies/frp-factory-access-staircase-hero.webp",
-    metrics: [
-      { value: "68%", label: "Weight Reduction" },
-      { value: "0", label: "Maintenance Cost" },
-      { value: "3-day", label: "Install Window" },
-    ],
+    outcome: "A complete profile, grating, and handrail system installed in three days.",
+    metrics: ["68% lighter", "0 repainting", "3-day install"],
   },
   {
     slug: "yancheng-talent-apartment-fenestration",
     title: "Yancheng Talent Apartment",
-    industry: "Construction",
-    location: "Yancheng, Jiangsu, China",
-    description:
-      "Complete FRP fenestration package — 65-series casement (inward + outward), 90-series sliding, and matching facade frames — across ~20 residential and commercial buildings in a coastal talent-housing development.",
+    meta: "Construction · Jiangsu, China",
     image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
-    metrics: [
-      { value: "~20", label: "Buildings Glazed" },
-      { value: "1.6", label: "U-Value (W/m²K)" },
-      { value: "65 + 90", label: "Series Supplied" },
-    ],
+    outcome: "Complete FRP fenestration packages across a multi-building development.",
+    metrics: ["~20 buildings", "1.6 U-value", "65 + 90 series"],
   },
 ];
 
 export default function SocialProof() {
   return (
-    <section className="bg-white py-[55px] md:py-[89px]">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
-        <SectionTag>Proven Results</SectionTag>
-        <h2 className="mt-[13px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
-          Real projects, measurable outcomes
-        </h2>
+    <section className="bg-bg2 py-[58px] md:py-[78px]">
+      <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+        <div className="flex flex-col gap-[16px] sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <SectionTag>Applications &amp; proof</SectionTag>
+            <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
+              Engineered for real operating environments
+            </h2>
+            <p className="mt-[10px] max-w-[740px] text-f15 leading-relaxed text-t2">
+              Explore the market first, then verify the solution through a comparable delivered project.
+            </p>
+          </div>
+          <LinkArrow href="/industries" className="shrink-0">All applications</LinkArrow>
+        </div>
 
-        <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
+        <nav aria-label="Industries" className="mt-[26px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-6">
+          {industries.map((industry) => (
+            <Link
+              key={industry.slug}
+              href={industry.href}
+              className="group flex min-h-[48px] items-center justify-between rounded-[7px] border border-border-default bg-white px-[14px] text-f13 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            >
+              {industry.title}
+              <span className="text-teal-text transition-transform group-hover:translate-x-[2px]" aria-hidden>→</span>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-[26px] grid gap-[18px] lg:grid-cols-3">
           {featuredCases.map((item) => (
             <Link
               key={item.slug}
               href={`/case-studies/${item.slug}`}
-              className="group overflow-hidden rounded-[8px] border border-border-default bg-bg2 transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-lg"
+              className="group overflow-hidden rounded-[10px] border border-border-default bg-white transition-all duration-[0.24s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_12px_32px_rgba(11,24,56,0.08)]"
             >
-              <div className="relative aspect-[1.618] overflow-hidden">
-                <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
-                  {item.industry} · {item.location}
-                </span>
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#dfe5e7]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
                 />
               </div>
-
-              <div className="p-[21px]">
-                <h3 className="text-f19 font-bold text-t1 group-hover:text-teal-text">
+              <div className="p-[20px]">
+                <p className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">{item.meta}</p>
+                <h3 className="mt-[7px] text-f19 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">
                   {item.title}
                 </h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">
-                  {item.description}
-                </p>
-
-                <div className="mt-[13px] grid grid-cols-3 gap-[8px]">
-                  {item.metrics.map((stat) => (
-                    <div key={stat.label}>
-                      <span className="block text-f19 font-extrabold text-teal">
-                        {stat.value}
-                      </span>
-                      <span className="text-f11 font-bold uppercase tracking-[1px] text-t3">
-                        {stat.label}
-                      </span>
-                    </div>
+                <p className="mt-[7px] text-f13 leading-relaxed text-t2">{item.outcome}</p>
+                <div className="mt-[14px] flex flex-wrap gap-x-[12px] gap-y-[5px] border-t border-border-default pt-[12px]">
+                  {item.metrics.map((metric) => (
+                    <span key={metric} className="text-f11 font-bold text-t1">{metric}</span>
                   ))}
                 </div>
               </div>
@@ -102,7 +93,7 @@ export default function SocialProof() {
           ))}
         </div>
 
-        <div className="mt-[21px]">
+        <div className="mt-[18px]">
           <LinkArrow href="/case-studies">View all case studies</LinkArrow>
         </div>
       </div>

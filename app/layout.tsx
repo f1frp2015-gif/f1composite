@@ -87,20 +87,8 @@ export default function RootLayout({
         </a>
         <JsonLd data={websiteSchema} />
         <Navbar />
-        <main id="main" className="pt-[55px]">{children}</main>
+        <main id="main" className="pt-[72px]">{children}</main>
         <Footer />
-        <a
-          href="/ask"
-          className="fixed bottom-[21px] right-[21px] z-50 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-teal text-white shadow-lg transition-colors hover:bg-teal-text"
-          aria-label="Open FRP Engineering Advisor"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.4 1.2 4.55 3.05 6.05L5 21l4.2-1.8c.9.2 1.84.3 2.8.3 4.97 0 9-3.58 9-8s-4.03-8-9-8z" stroke="currentColor" strokeWidth="1.8" />
-            <circle cx="8.5" cy="11" r="1" fill="currentColor" />
-            <circle cx="12" cy="11" r="1" fill="currentColor" />
-            <circle cx="15.5" cy="11" r="1" fill="currentColor" />
-          </svg>
-        </a>
         {/* Field RUM for Core Web Vitals (LCP/INP/CLS) — privacy-safe, no cookies.
             Requires Speed Insights enabled in the Vercel project dashboard. */}
         <SpeedInsights />

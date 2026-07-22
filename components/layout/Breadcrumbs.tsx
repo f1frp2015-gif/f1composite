@@ -27,13 +27,13 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="mb-[21px]">
+      <nav aria-label="Breadcrumb" className="mb-[18px]">
         <ol className="flex flex-wrap items-center gap-[5px] text-f11 text-t3">
           {items.map((item, i) => (
             <li key={i} className="flex items-center gap-[5px]">
               {i > 0 && <span aria-hidden>/</span>}
               {item.href ? (
-                <Link href={item.href} className="hover:text-teal-text transition-colors">
+                <Link href={item.href} className="rounded-[3px] transition-colors hover:text-teal-text">
                   {item.label}
                 </Link>
               ) : (

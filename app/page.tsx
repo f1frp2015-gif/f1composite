@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
+import TrustStrip from "@/components/sections/TrustStrip";
 import SolutionsSnapshot from "@/components/sections/SolutionsSnapshot";
-import IndustriesSnapshot from "@/components/sections/IndustriesSnapshot";
-import ValueProposition from "@/components/sections/ValueProposition";
 import FactoryQuality from "@/components/sections/FactoryQuality";
 import SocialProof from "@/components/sections/SocialProof";
 import DownloadsSnapshot from "@/components/sections/DownloadsSnapshot";
-import ExploreSection from "@/components/sections/ExploreSection";
-import GlobalTrust from "@/components/sections/GlobalTrust";
-import HomeFAQ from "@/components/sections/HomeFAQ";
-import CTABand from "@/components/sections/CTABand";
-import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, organizationSchema } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -40,17 +34,11 @@ export default function HomePage() {
     <>
       <JsonLd data={organizationSchema} />
       <Hero />
+      <TrustStrip />
       <SolutionsSnapshot />
-      <IndustriesSnapshot />
-      <ValueProposition />
-      <FactoryQuality />
       <SocialProof />
-      <InnerCTA title="Have a project requirement? Get a quote within one business day." />
+      <FactoryQuality />
       <DownloadsSnapshot />
-      <ExploreSection />
-      <GlobalTrust />
-      <HomeFAQ />
-      <CTABand />
     </>
   );
 }
