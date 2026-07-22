@@ -18,7 +18,7 @@ export const organizationSchema = {
     height: 512,
   },
   description:
-    "Chongqing F1 Composites Co., Ltd. is a pultruded FRP profiles manufacturer and exporter based in Chongqing, China, serving construction, infrastructure, industrial, energy, marine, and fenestration projects worldwide.",
+    "F1 Composite is FengDu New Material's international export company for pultruded FRP profiles, serving construction, infrastructure, energy, marine, industrial, and fenestration projects worldwide.",
   foundingDate: "2015",
   address: {
     "@type": "PostalAddress",
@@ -141,10 +141,6 @@ export function buildPageMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: {
-        "en-US": url,
-        "x-default": url,
-      },
     },
     openGraph: {
       title,

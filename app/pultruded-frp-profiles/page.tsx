@@ -322,7 +322,7 @@ const faqItems = [
   {
     question: "Are pultruded FRP profiles certified to international standards?",
     answer:
-      "Yes. F1 Composite manufactures to EN 13706-1/2/3 (European pultruded profile standard, E17 and E23 grades) and ASTM D3917 (dimensional tolerances). Mechanical testing follows ASTM D638 (tensile), D790 (flexural), and D695 (compression). The company holds ISO 9001:2015, and fire-rated products are certified to BS 476, ASTM E84, and EN 45545-2.",
+      "Yes. F1 Composite supplies to EN 13706-1/2/3 (European pultruded profile standard, E17 and E23 grades) and ASTM D3917 (dimensional tolerances). Mechanical testing follows ASTM D638 (tensile), D790 (flexural), and D695 (compression). The company holds ISO 9001:2015, and fire-rated products are certified to BS 476, ASTM E84, and EN 45545-2.",
   },
   {
     question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
@@ -352,7 +352,7 @@ const faqItems = [
   {
     question: "How does FRP compare to Strongwell, Fiberline, and Creative Pultrusions?",
     answer:
-      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
+      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
   },
   {
     question:
@@ -460,7 +460,7 @@ export default function PultrudedFRPProfilesHubPage() {
       <PageHeader
         tag="Pultruded FRP Profiles"
         title="Pultruded FRP profiles & fiberglass structural shapes — complete product hub"
-        description="F1 Composite manufactures the full pultruded fiberglass range: FRP structural shapes (wide flange beams, channels, angles, tubes), custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards (CSI 06 50 00 / 06 51 00), applications, and quote path."
+        description="F1 Composite supplies the full pultruded fiberglass range: FRP structural shapes (wide flange beams, channels, angles, tubes), custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards (CSI 06 50 00 / 06 51 00), applications, and quote path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },

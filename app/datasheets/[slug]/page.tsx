@@ -1,4 +1,5 @@
-// HTML datasheet — the citeable, crawlable twin of the PDF (GEO surface).
+// Customer-facing HTML twin of the PDF. The route segment is intentionally
+// noindex (see layout.tsx) because all database records share this template.
 // One page per catalog product: cross-section drawing, exact section
 // properties, formulation mechanical data, standards, PDF download link.
 // Data comes live from the catalog DB; unknown slugs 404.

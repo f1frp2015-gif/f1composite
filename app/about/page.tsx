@@ -9,7 +9,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About F1 Composite — FRP Profiles Manufacturer, China",
   description:
-    "F1 Composite: ISO 9001 FRP profiles exporter in China, shipping to 30+ countries direct from its partner's FengDu base — 370 lines, 150,000 t/year.",
+    "F1 Composite is FengDu New Material's international export company, supplying pultruded FRP profiles, windows, gratings and custom sections to 30+ countries.",
   path: "/about",
 });
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
     url: absoluteUrl("/about"),
     name: "About F1 Composite — FRP Profiles Manufacturer, China",
     description:
-      "Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for pultruded fiberglass (FRP) profiles made at its long-term manufacturing partner in China. The \"F1\" stands for \"Fiber One\" (fiberglass) — not affiliated with Formula 1 / Formula One motorsport.",
+      "F1 Composite is FengDu New Material's international export company for pultruded fiberglass profiles. The \"F1\" stands for \"Fiber One\" and is not affiliated with Formula 1 motorsport.",
     inLanguage: "en",
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     mainEntity: { "@id": ORG_ID },
@@ -70,17 +70,14 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>What F1 Composite Is</SectionTag>
           <p className="mt-[21px] text-f18 leading-golden text-t1">
-            <strong>F1 Composite is an industrial manufacturer and exporter of pultruded
-            fiberglass (FRP / GRP) profiles</strong> — structural shapes, window frames,
-            gratings, and custom pultrusions for construction and infrastructure.
+            <strong>F1 Composite is FengDu New Material&apos;s international export
+            company for pultruded fiberglass (FRP / GRP) profiles</strong> — structural
+            shapes, window frames, gratings, and custom pultrusions for global projects.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
             (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
             <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
-            Chongqing F1 Composites Co., Ltd. is the international contracting and export
-            entity; manufacturing takes place at our long-term partner factory in Chongqing,
-            China.
           </p>
         </div>
       </section>
@@ -126,19 +123,15 @@ export default function AboutPage() {
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Chongqing F1 Composites Co., Ltd. is the international contracting and export entity for
-                one of China&apos;s largest vertically integrated pultrusion manufacturers.
-                All overseas orders are contracted and invoiced under Chongqing F1 Composites Co., Ltd.;
-                manufacturing takes place at its long-term manufacturing partner, Chongqing FengDu New Material Co., Ltd.
-                That factory operates five production bases with 370 pultrusion
-                lines — the same facilities that supply China&apos;s domestic infrastructure.
+                F1 Composite was established as FengDu New Material&apos;s international
+                export company, combining FengDu&apos;s five production bases and 370
+                pultrusion lines with English-language engineering, documentation,
+                contracting, and project delivery for overseas customers.
               </p>
               <p>
-                Chongqing F1 Composites Co., Ltd. was set up to give overseas clients what they need
-                beyond the factory floor: one contracting counterparty, English-language
-                engineering support, international quality documentation, application
-                consulting, and responsive project management. When you work with F1,
-                you contract with the export entity and receive material direct from the manufacturing partner&apos;s factory — no distributor, no broker.
+                International orders are handled by Chongqing F1 Composites Co., Ltd.,
+                including engineering review, quality documentation, export paperwork,
+                logistics, and after-sales coordination.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
@@ -168,7 +161,9 @@ export default function AboutPage() {
             Manufacturing at scale, engineered to precision
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Our manufacturing partner&apos;s production network spans five bases across China — giving F1 Composite clients the capacity, redundancy, and quality consistency that large-scale infrastructure projects demand.
+            FengDu&apos;s production network spans five bases across China, giving F1
+            Composite customers the capacity, redundancy, and quality consistency that
+            large-scale infrastructure projects demand.
           </p>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[

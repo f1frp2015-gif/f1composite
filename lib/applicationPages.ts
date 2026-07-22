@@ -26,7 +26,7 @@ export const applicationPages: ApplicationPage[] = [
       "FRP cable tray supports using pultruded channels, angles and brackets for substations, tunnels, wastewater plants and corrosive industrial cable routing.",
     h1: "FRP cable tray supports for corrosive and electrical environments",
     intro:
-      "F1 Composite manufactures pultruded support systems for projects where steel tray frames create corrosion, grounding, or hot-work problems. Typical assemblies use fiberglass channels, angles, square tubes, and custom brackets — including strut-compatible sections — to carry ladder trays, perforated trays, and instrument runs.",
+      "F1 Composite supplies pultruded support systems for projects where steel tray frames create corrosion, grounding, or hot-work problems. Typical assemblies use fiberglass channels, angles, square tubes, and custom brackets — including strut-compatible sections — to carry ladder trays, perforated trays, and instrument runs.",
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
     recommendedProfiles: [
@@ -139,7 +139,7 @@ export const applicationPages: ApplicationPage[] = [
       "FRP solar mounting profiles for PV farms where lightweight, corrosion resistance, UV stability and electrical isolation matter.",
     h1: "FRP solar mounting profiles for PV support structures",
     intro:
-      "F1 Composite manufactures pultruded mounting structure for PV projects where aluminum or galvanized steel creates corrosion, grounding, or logistics penalties. The fiberglass sections are lightweight, electrically non-conductive, and stable in long-term outdoor UV exposure when specified with the correct veil and coating system.",
+      "F1 Composite supplies pultruded mounting structure for PV projects where aluminum or galvanized steel creates corrosion, grounding, or logistics penalties. The fiberglass sections are lightweight, electrically non-conductive, and stable in long-term outdoor UV exposure when specified with the correct veil and coating system.",
     environment:
       "Best fit: coastal solar farms, floating PV, agricultural PV, corrosive industrial sites, and off-grid structures where weight reduction simplifies transport and installation.",
     recommendedProfiles: [

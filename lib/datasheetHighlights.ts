@@ -1,7 +1,7 @@
-// Static, crawler-friendly shortlist of the most-requested datasheet slugs —
+// Static shortlist of the most-requested datasheet slugs —
 // 8 per profile family (RHS has only 5 catalog sizes, so all 5). These render
-// as plain SSR anchors on /resources/downloads so search engines and AI
-// crawlers can reach representative /datasheets/[slug] pages without the
+// as plain SSR anchors on /resources/downloads so customers can reach
+// representative /datasheets/[slug] pages without the
 // DB-driven index; the full 114-product catalog stays database-driven at
 // /datasheets. Slugs must exist in lib/cadManifest.ts (same modelToSlug
 // convention) — keep in sync when the catalog seed changes.

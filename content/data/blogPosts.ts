@@ -783,7 +783,7 @@ FRP costs more to buy and about 65% less to own. That math is why Saudi Aramco r
 
 ## F1 Composite Series 01 — in serial production
 
-F1 Composite manufactures pultruded oilfield surface-gathering pipe as a stocked, serial-production line, not a one-off custom run. The product sits in the DN50–DN300 band where pultrusion is genuinely the right process, and it is qualified to the standards the field actually buys against.
+F1 Composite supplies pultruded oilfield surface-gathering pipe as a stocked, serial-production line, not a one-off custom run. The product sits in the DN50–DN300 band where pultrusion is genuinely the right process, and it is qualified to the standards the field actually buys against.
 
 **Series 01 — Oilfield Surface Gathering Pipe**
 
@@ -888,7 +888,7 @@ Field studies of non-metallic mine pipe point to a consistent set of failures, a
 
 ## F1 Composite Series 02 — in serial production
 
-F1 Composite manufactures pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground against a 50-year design life — a maintenance-free replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
+F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground against a 50-year design life — a maintenance-free replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
 
 **Series 02 — Mine Methane Drainage Pipe**
 
@@ -915,74 +915,6 @@ The 3-page edition 2026.06 product catalog has the full specification, the resin
 [Download the F1 Composite Pipe Catalog 2026 (PDF, 3 pages)](/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf)
 
 For a mine operator weighing a switch from steel or PE, the case is a lower failure rate and a 50-year life — a total-cost argument, not a price argument. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
-  },
-  {
-    slug: "what-is-pultrusion",
-    title: "What Is Pultrusion? A Complete Guide to the FRP Manufacturing Process",
-    seoTitle: "What Is FRP Pultrusion? A Manufacturing Guide",
-    answerBox:
-      "Pultrusion is a continuous FRP manufacturing process: glass or carbon fiber is pulled through a resin bath and a heated die, producing constant-cross-section structural profiles to ±0.25 mm per ASTM D3917. F1 Composite exports direct from the Chongqing FengDu base of its manufacturing partner, which runs 370 pultrusion lines across 5 production sites (150,000 t/yr).",
-    category: "Process Guide",
-    date: "2024-01-15",
-    updatedAt: "2026-03-28",
-    readTime: "8 min",
-    excerpt:
-      "Pultrusion is a continuous manufacturing process for producing fiber reinforced polymer profiles with constant cross-sections. Learn how it works, its advantages, and where pultruded profiles are used.",
-    authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Applications Group",
-    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
-    coverImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
-    coverAlt: "Pultrusion production line manufacturing FRP profiles at F1 Composite",
-    supportingImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
-    supportingAlt: "Pultrusion production hall at F1 Composite with continuous lines running FRP profiles",
-    supportingCaption:
-      "Pultrusion quality depends on keeping fiber architecture, wet-out, die temperature, and pull speed in a validated process window.",
-    highlights: [
-      "Continuous process for constant cross-sections",
-      "High fiber volume and repeatable output",
-      "Open-bath and injection pultrusion options",
-    ],
-    ogDescription:
-      "A practical breakdown of the pultrusion line, fiber wet-out, heated die curing, pull speed control, and where pultruded profiles are used.",
-    ogChips: ["Process guide", "FRP basics", "Manufacturing"],
-    relatedLinks: [
-      { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
-      { label: "Quality Testing", href: "/technology/quality-testing" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
-    ],
-    content: `Pultrusion is a continuous, automated manufacturing process used to produce fiber reinforced polymer (FRP) composite profiles with a constant cross-section. The term "pultrusion" combines "pull" and "extrusion". Unlike metal extrusion where material is pushed through a die, in pultrusion reinforcing fibers are pulled through a resin bath and then through a heated die that shapes and cures the composite.
-
-## How the Pultrusion Process Works
-
-The pultrusion process consists of several sequential stages, each critical to the final product quality.
-
-**1. Fiber creel and guide system**
-Continuous reinforcing fibers, typically E-glass roving but also carbon fiber, aramid, or basalt, are arranged on a creel rack. The fibers are guided through a series of cards and combs that organize them into the precise architecture required by the profile design. This fiber architecture determines the mechanical properties of the finished profile.
-
-**2. Resin impregnation**
-The organized fibers pass through a resin impregnation system. In traditional open-bath pultrusion, the fibers are drawn through an open trough of liquid resin. In injection pultrusion, the more advanced method, resin is injected directly into the entry of the heated die under controlled pressure. Injection pultrusion offers better fiber wet-out consistency, reduced VOC emissions, and lower resin waste.
-
-**3. Heated die**
-The resin-saturated fiber bundle enters a precision-machined steel die that has been heated to a carefully controlled temperature profile, typically between 120 degrees C and 180 degrees C depending on the resin system. As the material passes through the die, the heat initiates and completes the thermosetting cure reaction. The die imparts the final cross-sectional shape to the profile.
-
-**4. Pull mechanism**
-A reciprocating clamp or caterpillar-track puller draws the cured profile continuously from the die at a controlled speed, typically 0.3 to 1.5 meters per minute for structural profiles. The pull speed is balanced against the die length and cure temperature to ensure complete cure.
-
-**5. Cut-off**
-A flying saw cuts the continuously produced profile to the required lengths without stopping the line.
-
-## Why Pultrusion Matters
-
-Pultrusion produces FRP profiles with one of the highest fiber volume fractions available in composite manufacturing, typically 60 to 70 percent glass content by weight. This translates directly to strong longitudinal tensile and flexural performance, high stiffness-to-weight ratio, and consistent quality batch after batch.
-
-The continuous nature of pultrusion makes it the most cost-effective process for producing FRP profiles at volume. Tooling costs are lower than for RTM or autoclave processes, and production rates of several hundred meters per shift are routine once the process window is validated.
-
-## Applications of Pultruded Profiles
-
-Pultruded FRP profiles serve structural and semi-structural applications across construction, infrastructure, energy, marine, and industrial sectors. Common applications include structural beams and columns, window and door frames, cable trays and ladder systems, walkway gratings, bridge deck panels, and cooling tower structural members.
-
-At F1 Composite, we operate multiple pultrusion lines equipped for both open-bath and injection pultrusion processes, capable of producing profiles up to 600 millimeters by 300 millimeters in cross-section. Our engineering team works with clients from initial profile design through tooling, validation, and volume production.`,
   },
   {
     slug: "frp-vs-steel-structural-profiles",
@@ -1250,7 +1182,7 @@ FRP cable tray installation is usually faster than steel because the sections ar
 
 FRP cable trays are specified across chemical and petrochemical plants, offshore platforms, water and wastewater facilities, data centers, telecommunications sites, electrical substations, and coastal industrial buildings. Any environment where corrosion, EMI, or electrical insulation is a real design issue can benefit from FRP.
 
-F1 Composite manufactures pultruded FRP cable tray systems in ladder, solid-bottom, and channel configurations. The right specification starts with span, load, corrosion class, and fire requirement, not with a default material habit.`,
+F1 Composite supplies pultruded FRP cable tray systems in ladder, solid-bottom, and channel configurations. The right specification starts with span, load, corrosion class, and fire requirement, not with a default material habit.`,
   },
   {
     slug: "frp-bridge-deck-design-guide",
@@ -2724,7 +2656,7 @@ The test specimen was not a downsized engineering sample. It was a fully assembl
 | Frame dimensions | 3000 mm (W) × 2400 mm (H) × 140 mm (depth) |
 | Sash dimensions (each leaf) | 1487 mm (W) × 2296 mm (H) × 60 mm (thickness) |
 | Glazing | 39 mm IGU — 5 mm Low-E + 12 mm Argon + 5 mm Low-E + 12 mm Argon + 5 mm Tempered (CSG Holding) |
-| Profile material | Glass Fiber Reinforced Polyurethane Composite — pultruded by Chongqing FengDu New Materials Co., Ltd. (the manufacturing partner whose products F1 Composite exports under the F1 Composite international brand) |
+| Profile material | Glass Fiber Reinforced Polyurethane Composite — produced by FengDu New Material and exported internationally by F1 Composite |
 | Reinforcement | None (pultruded GFRP is structurally self-sufficient at this size) |
 | Hardware | German Roto Push-Pull Patio Lift series |
 | Sealing | EPDM gaskets (Haida JT5091/JT5071/JT5052/JT5011) + brush seal (Hebei Lidejia) + 166 neutral silicone (German Weiss) |
@@ -3591,7 +3523,7 @@ Replacing an aluminum frame with a pultruded FRP frame typically removes 0.6 to 
 
 Accelerated weathering per ASTM G154 shows color shift ΔE below 3 after 3000 hours of UV-A exposure on a properly stabilised polyurethane or polyester pultruded frame, with no chalking on the public-facing surface. Aluminum anodization cannot match that in fishery environments rich in nitrogen and sulphur volatiles.
 
-F1 Composite manufactures pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
+F1 Composite supplies pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
 
 ## LCOE over 25 years
 
@@ -4114,7 +4046,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
     relatedLinks: [
       { label: "FRP Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "Technical Data — EN 13706 Laminate Values", href: "/resources/technical-data" },
-      { label: "What Is Pultrusion?", href: "/resources/blog/what-is-pultrusion" },
+      { label: "Pultrusion Process Explained", href: "/technology/pultrusion-process" },
       { label: "Carbon-Glass Hybrid Mullion Pultrusion", href: "/resources/blog/frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion" },
       { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
     ],
@@ -4166,7 +4098,7 @@ Glass content is not a dial a pultruder turns freely. It is set by which reinfor
 
 So the same two raw materials produce a family of densities. A solid rod pulled almost entirely from rovings sits at the top of the band. A wide, mat-rich flange sits lower. You can even run the arithmetic backwards: apply the rule of mixtures to EXTREN's published 1.72–1.94 g/cm³ with an assumed unfilled 1.20 resin and the implied glass content spans roughly 57–72% by weight — a spread that tracks with Strongwell's own description of the shapes as mat/roving composites, mat-heavier sections at one end and roving-dominant ones at the other.
 
-This is also why density, glass content and mechanical grade move together. EN 13706 grade E23 requires a full-section longitudinal modulus of 23 GPa and 240 MPa axial tensile strength; no resin-rich laminate gets there. When a [pultruded FRP profile](/resources/blog/what-is-pultrusion) is specified to E23, its density has effectively been specified too — somewhere near 1.9.
+This is also why density, glass content and mechanical grade move together. EN 13706 grade E23 requires a full-section longitudinal modulus of 23 GPa and 240 MPa axial tensile strength; no resin-rich laminate gets there. When a [pultruded FRP profile](/technology/pultrusion-process) is specified to E23, its density has effectively been specified too — somewhere near 1.9.
 
 ## Fillers and voids: the matrix side of the equation
 

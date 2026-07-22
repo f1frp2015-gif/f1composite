@@ -1,4 +1,5 @@
-// Datasheet index — crawlable directory of every HTML datasheet (GEO surface).
+// Customer-facing directory of every HTML datasheet. The route segment is
+// intentionally noindex (see layout.tsx) because its DB pages share a template.
 
 import type { Metadata } from "next";
 import Link from "next/link";

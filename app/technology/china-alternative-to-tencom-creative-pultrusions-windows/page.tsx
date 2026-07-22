@@ -64,7 +64,7 @@ const faqItems = [
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",
     answer:
-      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite manufactures to the same pultrusion fundamentals — continuous E-glass reinforcement, thermoset matrix, heated-die forming — with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phA arctic class, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
+      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite supplies to the same pultrusion fundamentals — continuous E-glass reinforcement, thermoset matrix, heated-die forming — with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phA arctic class, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
   },
   {
     question: "How consistent are Chinese pultruded window profiles across production runs?",

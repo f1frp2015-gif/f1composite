@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What are GRP windows, and are they the same as fiberglass or FRP windows?",
     answer:
-      "Yes — GRP (glass reinforced plastic / glass reinforced polymer) is the standard British term for what North America calls fiberglass or FRP. A GRP window frame is a pultruded profile of continuous glass fibre in a thermoset resin matrix: thermal conductivity ≈ 0.3 W/m·K (aluminium is 160), an expansion coefficient close to glass, no steel reinforcement required, and no corrosion or repainting cycle. F1 Composite manufactures the complete GRP window profile set — frame, sash, mullion, transom, glazing bead — in 65/70/80/90/140 mm frame depths, and supplies either the profiles or complete factory-glazed, leak-tested window units.",
+      "Yes — GRP (glass reinforced plastic / glass reinforced polymer) is the standard British term for what North America calls fiberglass or FRP. A GRP window frame is a pultruded profile of continuous glass fibre in a thermoset resin matrix: thermal conductivity ≈ 0.3 W/m·K (aluminium is 160), an expansion coefficient close to glass, no steel reinforcement required, and no corrosion or repainting cycle. F1 Composite supplies the complete GRP window profile set — frame, sash, mullion, transom, glazing bead — in 65/70/80/90/140 mm frame depths, and supplies either the profiles or complete factory-glazed, leak-tested window units.",
   },
   {
     question: "Do GRP windows meet Approved Document Part L and the Future Homes Standard?",

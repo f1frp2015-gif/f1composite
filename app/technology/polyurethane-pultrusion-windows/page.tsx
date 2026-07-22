@@ -114,7 +114,7 @@ const faqs = [
   {
     question: "Who supplies polyurethane pultruded window profiles?",
     answer:
-      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. F1 Composite manufactures GFRP-PU window profiles on its own continuous pultrusion lines in Chongqing, China, and supplies them two ways: as profile sets — window lineals, in North American trade terms (frame, sash, mullion, transom, glazing bead, with EPDM gasketing and fabrication drawings) — for local window fabricators, or as complete factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same GFRP-PU profile set sits behind our PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class).",
+      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. FengDu produces the GFRP-PU profiles; F1 Composite supplies them internationally as profile sets for local fabricators or as factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same profile set sits behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class).",
   },
   {
     question: "Are polyurethane pultrusion windows suitable for Passive House projects?",
@@ -181,7 +181,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window — but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            F1 Composite manufactures GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
+            F1 Composite supplies GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
           </p>
         </div>
       </section>

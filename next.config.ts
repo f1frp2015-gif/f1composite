@@ -39,6 +39,15 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Normalize the canonical host before route-specific redirects. Vercel's
+      // production domain must also use www as the primary domain so HTTP apex
+      // requests do not receive an extra platform-level HTTPS hop.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "f1composite.com" }],
+        destination: "https://www.f1composite.com/:path*",
+        permanent: true,
+      },
       {
         source: "/products",
         destination: "/pultruded-frp-profiles",
@@ -52,6 +61,13 @@ const nextConfig: NextConfig = {
       {
         source: "/resources/blog/pultruded-spar-cap-laminates-wind-blades-gfrp-cfrp",
         destination: "/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade",
+        permanent: true,
+      },
+      // Consolidated into the deeper process owner to remove same-intent
+      // keyword competition while preserving backlinks to the old article.
+      {
+        source: "/resources/blog/what-is-pultrusion",
+        destination: "/technology/pultrusion-process",
         permanent: true,
       },
       // British → American slug normalization (commit 835a240) renamed these
@@ -91,12 +107,6 @@ const nextConfig: NextConfig = {
       {
         source: "/resources/blog/recent-pultrusion-patents-and-new-technology-paths-2026",
         destination: "/resources/blog/pultrusion-industry-trends-2026",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "f1composite.com" }],
-        destination: "https://www.f1composite.com/:path*",
         permanent: true,
       },
     ];

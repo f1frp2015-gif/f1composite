@@ -14,6 +14,7 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AskAICard from "@/components/ai/AskAICard";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import {
   estimatePrice,
@@ -24,12 +25,13 @@ import PriceEstimator from "./PriceEstimator";
 
 const publishedAt = "2026-07-12";
 const updatedAt = "2026-07-12";
+const pagePath = "/fiberglass-pultruded-profile-price";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Fiberglass Pultruded Profile Price — Live Estimator & Guide",
-  description:
-    "Fiberglass pultruded profile price: live estimator + 2026 price table in USD per meter and per kg, and the six factors that set FRP profile cost. Free.",
-  path: "/fiberglass-pultruded-profile-price",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
 });
 
 // Representative catalog sections, one per family. Baseline: E-glass,

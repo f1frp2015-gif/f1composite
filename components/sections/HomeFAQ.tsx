@@ -4,7 +4,7 @@ const items = [
   {
     question: "What does F1 Composite manufacture?",
     answer:
-      "F1 Composite manufactures four product lines: F1-STRUX structural shapes, F1-GRID gratings and deck panels, F1-THERM window and door systems, and F1-FORM custom pultrusions. The product pages contain the application, size and performance detail for each family.",
+      "F1 Composite supplies four product lines: F1-STRUX structural shapes, F1-GRID gratings and deck panels, F1-THERM window and door systems, and F1-FORM custom pultrusions. The product pages contain the application, size and performance detail for each family.",
   },
   {
     question: "Is F1 Composite related to Formula One motorsport?",

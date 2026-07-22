@@ -10,14 +10,14 @@ import LinkArrow from "@/components/ui/LinkArrow";
 import Button from "@/components/ui/Button";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
-const pageTitle =
-  "What is FRP? Fiberglass Reinforced Polymer Explained";
-const pageDescription =
-  "FRP (fiberglass reinforced polymer, aka GRP or composite) = fiberglass + resin. How it's made, properties, standards (EN 13706, ASTM), and uses vs steel.";
 const pagePath = "/what-is-frp";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -231,7 +231,7 @@ export default function WhatIsFrpPage() {
                 Looking for FRP products, not just the theory?
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                F1 Composite manufactures pultruded FRP direct from the factory —
+                F1 Composite supplies pultruded FRP direct from the factory —
                 including{" "}
                 <Link
                   href="/products/fenestration-systems"

@@ -51,7 +51,7 @@ const certifications = [
   },
   {
     title: "ASTM D3917 & D4385",
-    body: "For North American and global markets that reference ASTM standards, we manufacture to ASTM D3917 (Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes) and classify visual quality per ASTM D4385 (Standard Practice for Classifying Visual Defects in Thermosetting Reinforced Plastic Pultruded Products). ASTM D3917 defines tolerance classes for width, height, wall thickness, straightness, twist, and angularity. ASTM D4385 categorizes surface defects (voids, cracks, dry spots, discoloration) by severity and establishes accept/reject criteria.",
+    body: "For North American and global markets that reference ASTM standards, FengDu manufactures to ASTM D3917 (Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes) and classifies visual quality per ASTM D4385 (Standard Practice for Classifying Visual Defects in Thermosetting Reinforced Plastic Pultruded Products). ASTM D3917 defines tolerance classes for width, height, wall thickness, straightness, twist, and angularity. ASTM D4385 categorizes surface defects (voids, cracks, dry spots, discoloration) by severity and establishes accept/reject criteria.",
   },
 ];
 
@@ -228,7 +228,7 @@ const qcSteps = [
 const faqItems = [
   {
     question: "What quality certifications does F1 Composite hold?",
-    answer: "F1 Composite operates under an ISO 9001:2015 certified quality management system that covers the entire production chain from raw material receiving through pultrusion, secondary fabrication, testing, and shipment. Our profiles carry CE marking in compliance with the European Construction Products Regulation (CPR), and our standard structural shapes are manufactured to EN 13706 (the European harmonized standard for pultruded FRP profiles). For customers in North American markets, we test to ASTM D3917 (Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes) and ASTM D4385 (Standard Practice for Classifying Visual Defects in Thermosetting Reinforced Plastic Pultruded Products).",
+    answer: "FengDu's production network operates under an ISO 9001:2015 certified quality management system covering raw material receiving, pultrusion, secondary fabrication, testing, and shipment. F1 Composite supplies the applicable quality records and export documentation. Standard structural shapes are manufactured to EN 13706, with dimensional and visual checks to ASTM D3917 and ASTM D4385 for North American projects.",
   },
   {
     question: "What mechanical tests are performed on pultruded FRP profiles?",
@@ -405,7 +405,7 @@ export default function QualityTestingPage() {
           </div>
 
           <p className="mt-[34px] text-f15 leading-golden text-t2">
-            F1 Composite manufactures and tests to all major international standards listed
+            F1 Composite supplies and tests to all major international standards listed
             above. Contact us with your project location and application for a standards
             compliance review.
           </p>

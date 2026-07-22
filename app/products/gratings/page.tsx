@@ -52,7 +52,7 @@ const gratingTypes = [
   {
     name: "Cover Plates (Solid Top)",
     description:
-      "FRP cover plates, also known as solid-top gratings, combine a molded or pultruded grating base with a bonded solid FRP top surface. The solid top provides a continuous walking surface that prevents small objects, tools, and liquids from falling through the grating openings, making cover plates the required specification for platforms above occupied areas, food processing facilities, and pharmaceutical clean rooms. We manufacture cover plates with a gritted anti-slip surface that exceeds the BS 7976-2 pendulum test requirement for slip resistance in wet conditions. The solid top surface also provides a smooth substrate for directional marking, safety striping, and corporate branding using embedded pigments or applied coatings.",
+      "FRP cover plates, also known as solid-top gratings, combine a molded or pultruded grating base with a bonded solid FRP top surface. The solid top provides a continuous walking surface that prevents small objects, tools, and liquids from falling through the grating openings, making cover plates the required specification for platforms above occupied areas, food processing facilities, and pharmaceutical clean rooms. FengDu produces cover plates with a gritted anti-slip surface that exceeds the BS 7976-2 pendulum test requirement for slip resistance in wet conditions. The solid top surface also provides a smooth substrate for directional marking, safety striping, and corporate branding using embedded pigments or applied coatings.",
     specs: [
       { label: "Base thickness", value: "25 mm, 38 mm" },
       { label: "Top plate thickness", value: "3 mm, 5 mm" },
@@ -238,7 +238,7 @@ export default function GratingsPage() {
               FRP (fiber-reinforced polymer) gratings and structural deck panels, also known
               as GRP (glass-reinforced polymer) gratings and FRP decking, deliver the
               structural performance of steel at a fraction of the weight and with zero
-              corrosion risk. At F1 Composite, we manufacture molded and pultruded grating
+              corrosion risk. F1 Composite supplies FengDu molded and pultruded grating
               systems, solid-top cover plates, and pultruded structural deck panels — a
               complete platform and decking solution for industrial plants, offshore
               platforms, marine vessels, wastewater treatment facilities, pedestrian bridges,

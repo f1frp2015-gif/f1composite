@@ -7,16 +7,17 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 /* ═══════════════════════════════════════════════════════
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "FRP vs Steel vs Aluminum: 75% Lighter, No Corrosion";
-const pageDescription =
-  "FRP is 75% lighter than steel, with 4x its strength-to-density ratio and zero corrosion. Compare properties and 30% lifecycle cost savings data.";
 const pagePath = "/technology/frp-vs-traditional-materials";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-22";
 const updatedAt = "2026-04-02";
 const authorName = "F1 Composite Applications Engineering Team";

@@ -81,7 +81,7 @@ const faqs = [
   {
     question: "What grating types does F1 Composite manufacture?",
     answer:
-      "F1 Composite manufactures both pultruded and molded FRP gratings. Pultruded gratings (38mm, 50mm depths) suit heavy-duty walkways and vehicle traffic. Molded gratings (25mm, 38mm, 50mm) with square-mesh 38×38mm or 50×50mm patterns suit platforms, mezzanines, stair treads, and trench covers. Solid-top, ventilated, and anti-slip grit surface finishes are all available. Standard resin is isophthalic polyester; vinyl ester is offered for aggressive chemical service.",
+      "F1 Composite supplies both pultruded and molded FRP gratings. Pultruded gratings (38mm, 50mm depths) suit heavy-duty walkways and vehicle traffic. Molded gratings (25mm, 38mm, 50mm) with square-mesh 38×38mm or 50×50mm patterns suit platforms, mezzanines, stair treads, and trench covers. Solid-top, ventilated, and anti-slip grit surface finishes are all available. Standard resin is isophthalic polyester; vinyl ester is offered for aggressive chemical service.",
   },
 ];
 

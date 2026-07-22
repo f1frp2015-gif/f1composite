@@ -7,6 +7,7 @@ const sitemapSource = readFileSync(join(appDir, "sitemap.ts"), "utf8");
 
 const excluded = new Set([
   "/admin",
+  "/datasheets",
   "/llms.txt",
   "/llms-full.txt",
 ]);

@@ -53,7 +53,7 @@ const resinFaqs = [
   {
     question: "Can I choose the resin system per order, or is it fixed per product?",
     answer:
-      "Resin systems are selected per production run — the same die can run polyester one week and vinyl ester the next. F1 Composite pultrudes polyester, vinyl ester, and polyurethane systems in serial production and epoxy or phenolic for qualified projects. State the service environment (chemicals, temperature, fire code, UV) in your RFQ and the resin system becomes part of the quoted specification, documented on the mill certificate.",
+      "Resin systems are selected per production run — the same die can run polyester one week and vinyl ester the next. FengDu pultrudes polyester, vinyl ester, and polyurethane systems in serial production and epoxy or phenolic for qualified projects; F1 Composite handles international specification and supply. State the service environment (chemicals, temperature, fire code, UV) in your RFQ and the resin system becomes part of the quoted specification, documented on the mill certificate.",
   },
 ];
 

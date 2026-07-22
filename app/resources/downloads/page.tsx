@@ -225,8 +225,7 @@ export default async function DownloadsPage() {
       <DatasheetBuilder />
 
       {/* FRP profile technical datasheets — static shortlist, 8 common sizes
-          per family, plain SSR anchors so crawlers reach /datasheets/[slug]
-          without the DB-driven index. Full catalog stays at /datasheets. */}
+          per family for customers who do not need the full DB-driven index. */}
       <section id="datasheets" className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>FRP Profile Technical Datasheets</SectionTag>

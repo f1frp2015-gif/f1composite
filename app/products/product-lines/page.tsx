@@ -5,15 +5,16 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pagePath = "/products/product-lines";
+const seoTarget = getSeoQueryTarget(pagePath);
 const ORG_ID = "https://www.f1composite.com/#organization";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "F1-STRUX, F1-GRID, F1-THERM & F1-FORM — FRP Product Lines",
-  description:
-    "F1 Composite's four pultruded FRP product lines: F1-STRUX structural profiles, F1-GRID gratings, F1-THERM fenestration, and F1-FORM custom pultrusions.",
+  title: seoTarget.title,
+  description: seoTarget.description,
   path: pagePath,
 });
 

@@ -330,7 +330,7 @@ const faqItems = [
   {
     question: "What is the difference between FRP window frames, window profiles, and window lineals?",
     answer:
-      "FRP window profiles are the individual pultruded fiberglass sections — frame, sash, mullion, transom, glazing bead — that are cut, joined, glazed, and fitted with hardware. In the North American window trade these same extruded lengths are called window lineals (fiberglass lineals). FRP window frames (or finished fenestration units) are the assembled, glazed, leak-tested windows and doors built from those profiles. F1 Composite manufactures the profiles/lineals and also assembles them into finished units in our own plant. All three terms refer to the same pultruded fiberglass window product line (65/70/80/90/140-series).",
+      "FRP window profiles are the individual pultruded fiberglass sections — frame, sash, mullion, transom, glazing bead — that are cut, joined, glazed, and fitted with hardware. In the North American window trade these lengths are called window lineals. FRP window frames are the assembled, glazed, leak-tested units built from those profiles. F1 Composite exports both profile sets and finished FengDu-produced units in the 65/70/80/90/140-series.",
   },
   {
     question: "How does FRP fenestration compare to aluminum in terms of thermal performance?",
@@ -353,9 +353,9 @@ const faqItems = [
       "In North American project specifications, fiberglass windows are specified under CSI MasterFormat Division 08 (Openings), Section 08 53 00 — Plastic Windows, which covers non-metal framed window systems including pultruded fiberglass. The supporting pultruded profiles themselves fall under Division 06, Section 06 50 00 (Structural Plastics). F1 supports spec-section submittals with the full documentation stack: EN 14351-1 / NAFS test reports, PHI Component Certificate 2491wi03, EN ISO 10077-2 thermal simulation data, and AAMA 2604/2605 finish reports.",
   },
   {
-    question: "Is F1 Composite a window factory or a trading company?",
+    question: "How are F1 Composite and FengDu related?",
     answer:
-      "A manufacturer. F1 Composite pultrudes its window profiles on its own continuous lines (5 production bases, 370 pultrusion lines, 800+ standing die sections) and assembles finished window and door units in its own plant — no subcontracted production behind a trading front. We support third-party factory audits (SGS / Bureau Veritas) as a routine qualification step, and we run OEM / private-label lineal programs for window brands and fabricators who sell under their own name.",
+      "F1 Composite is FengDu New Material's international export company. FengDu operates the production network; F1 handles overseas engineering, contracts, documentation and delivery. Third-party factory audits and OEM or private-label programs are available for qualified projects.",
   },
   {
     question: "What is the minimum order quantity for FRP window profiles?",
@@ -500,14 +500,12 @@ export default function FenestrationSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div>
             <p className="text-f19 leading-golden text-t2">
-              <strong className="text-t1">F1 Composite manufactures finished FRP windows
-              and doors, as well as pultruded fiberglass window frames, profiles and lineals
-              for local fabrication.</strong> Our finished units are assembled, glazed,
-              hardware-fitted, gasketed, and leak-tested in our own plant. The same
-              pultruded profile system can instead ship as fabrication-ready lineals for a
-              qualified local window producer. Both routes deliver whole-window U-values as
-              low as 0.78 W/m{"²"}·K with no steel reinforcement and no metallic thermal
-              bridge to frost or fail in a deep-cold winter.
+              <strong className="text-t1">F1 Composite supplies FengDu pultruded fiberglass
+              windows, doors, profiles and fabrication-ready lineals internationally.</strong>{" "}
+              FengDu manufactures and assembles the complete units, which are glazed,
+              hardware-fitted, gasketed, and leak-tested before shipment. Both supply routes
+              deliver whole-window U-values as low as 0.78 W/m{"²"}·K with no steel
+              reinforcement and no metallic thermal bridge to frost or fail in deep cold.
             </p>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
               That makes this range built for the climates where windows are hardest to get

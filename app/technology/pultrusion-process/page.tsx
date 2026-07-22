@@ -8,16 +8,17 @@ import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 /* ═══════════════════════════════════════════════════════
    Page metadata
    ═══════════════════════════════════════════════════════ */
 
-const pageTitle = "Fiberglass Pultrusion Process — How FRP Profiles Are Made";
-const pageDescription =
-  "Fiberglass pultrusion process guide: fiber creel, resin impregnation, heated die forming, pull mechanism — how pultruded FRP profiles are produced at scale.";
 const pagePath = "/technology/pultrusion-process";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-07-08";
 const authorName = "F1 Composite Process Engineering Team";

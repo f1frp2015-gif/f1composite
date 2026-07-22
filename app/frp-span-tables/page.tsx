@@ -11,17 +11,19 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { buildSpanTables, DESIGN_BASIS, SPANS_MM } from "@/lib/spanTables";
 
 const publishedAt = "2026-07-11";
 const updatedAt = "2026-07-11";
+const pagePath = "/frp-span-tables";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Span Tables — Pultruded Fiberglass Load Charts",
-  description:
-    "Allowable uniform load span tables for pultruded FRP I-beams, channels, and tubes — EN 13706 E23, LRFD per ASCE/SEI 74-23, L/250 deflection. Free.",
-  path: "/frp-span-tables",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
 });
 
 const spanTableFaqs = [

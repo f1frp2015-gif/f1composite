@@ -7,6 +7,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 import { BeamDeflection } from "@/components/sections/ConceptAnimations";
@@ -18,12 +19,13 @@ import { BeamDeflection } from "@/components/sections/ConceptAnimations";
 // actual edits, not just get stamped on every deploy.
 const publishedAt = "2026-05-16";
 const updatedAt = "2026-07-08";
+const pagePath = "/frp-profile-calculator";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free FRP Profile Calculator — LRFD/ASD · EN, GB, ASCE Codes",
-  description:
-    "Pultruded FRP design tool: LRFD/ASD bending, shear, Timoshenko deflection, steel/aluminum equivalence. EN 13706, GB 50608, ASCE 74-23. Free.",
-  path: "/frp-profile-calculator",
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: pagePath,
 });
 
 const calculatorFaqs = [

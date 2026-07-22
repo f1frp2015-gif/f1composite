@@ -154,10 +154,13 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Our Manufacturing</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Where your order is actually made
+            FengDu manufacturing, F1 export service
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            F1 Composite is the international contracting entity. Every overseas order is invoiced under Chongqing F1 Composites Co., Ltd.; the profiles themselves are pultruded at the manufacturing facility we export from — our long-term partner Chongqing FengDu New Material Co., Ltd — with 370 pultrusion lines across five production bases, the largest dedicated pultrusion capacity in China.
+            F1 Composite is FengDu New Material&apos;s international export company.
+            FengDu operates 370 pultrusion lines across five production bases; F1
+            Composite handles international engineering support, contracts,
+            documentation, and delivery.
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">

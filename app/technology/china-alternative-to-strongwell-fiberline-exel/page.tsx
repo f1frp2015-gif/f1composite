@@ -6,14 +6,15 @@ import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pagePath = "/technology/china-alternative-to-strongwell-fiberline-exel";
+const seoTarget = getSeoQueryTarget(pagePath);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "China Alternative to Strongwell, Fiberline & Exel FRP",
-  description:
-    "F1-STRUX pultruded FRP profiles: a China alternative to Strongwell EXTREN, Fiberline, Creative Pultrusions and Exel — same EN 13706 / ASTM D3917 specs.",
+  title: seoTarget.title,
+  description: seoTarget.description,
   path: pagePath,
 });
 
@@ -59,7 +60,7 @@ const faqItems = [
   {
     question: "How does F1 Composite compare with Creative Pultrusions, Fiberline, and Exel?",
     answer:
-      "F1 Composite manufactures to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland) under ISO 9001:2015 quality management. Like Strongwell, Creative, and Fiberline, F1 supplies the full structural range plus gratings, fenestration, and custom pultrusions. The difference is the route to market: F1 ships factory-direct for export on FOB or DDP terms rather than through regional distribution.",
+      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland) under ISO 9001:2015 quality management. Like Strongwell, Creative, and Fiberline, F1 supplies the full structural range plus gratings, fenestration, and custom pultrusions. The difference is the route to market: F1 ships factory-direct for export on FOB or DDP terms rather than through regional distribution.",
   },
   {
     question: "Are Chinese pultruded FRP profiles made to the same standards as Western brands?",
