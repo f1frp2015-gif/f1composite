@@ -10,6 +10,6 @@ export default function OpenGraphImage() {
     description:
       "Custom and standard pultruded FRP for US infrastructure, energy, and Passive House projects. ASTM E84 Class A, AAMA 2604/2605, PHIUS-certified frames.",
     accent: "#0f5fa3",
-    chips: ["ASTM E84 Class A", "PHIUS 2491wi03", "DDP USA · 24h quote"],
+    chips: ["ASTM E84 Class A", "PHIUS 2491wi03", "DDP USA · 24-hour quote"],
   });
 }

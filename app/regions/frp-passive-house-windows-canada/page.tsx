@@ -192,24 +192,24 @@ export default function CanadaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            China factory → Canadian jobsite, surtax-free with duty pre-quoted
+            From our factory in China to your Canadian jobsite, without the 25% surtax and with duties itemized
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {[
               {
                 step: "1",
-                title: "RFQ → DDP Canada quote in 24h",
-                body: "Send drawing or section sketch + target quantity + delivery province. F1 returns full DDP pricing (CAD or USD) with MFN duty + 5% GST itemized, HS classification, and ETA to your jobsite. FRP carries no 25% surtax.",
+                title: "RFQ → DDP Canada quote within 24 hours",
+                body: "Send us a drawing or section sketch, the target quantity, and the delivery province. F1 will provide complete DDP pricing in CAD or USD, with the MFN duty and 5% GST itemized, plus the HS classification and estimated delivery date to your jobsite. The 25% surtax does not apply to FRP.",
               },
               {
                 step: "2",
-                title: "Production 4–6 weeks · cert pack",
-                body: "Pultruded on F1's own lines. PHI Component Certificate 2491wi03, NAFS test report, AAMA-listed coater report, and CSA A440.2 / NFRC simulation supplied with the shipment.",
+                title: "Production in 4–6 weeks · certification package",
+                body: "F1 manufactures the profiles on its own pultrusion lines. The shipment includes PHI Component Certificate 2491wi03, the NAFS test report, a report from an AAMA-listed coating applicator, and the CSA A440.2 / NFRC simulation.",
               },
               {
                 step: "3",
-                title: "Sea freight + DDP delivery",
-                body: "14–20 days to Vancouver / Prince Rupert or 26–32 days to Montreal / Halifax. Total PO-to-jobsite 8–12 weeks. DAP inland to Calgary, Toronto, and Ottawa from the port of entry.",
+                title: "Ocean freight and DDP delivery",
+                body: "Ocean transit takes 14–20 days to Vancouver or Prince Rupert and 26–32 days to Montreal or Halifax. The total lead time from purchase order to jobsite is 8–12 weeks. DAP delivery is available from the port of entry to Calgary, Toronto, and Ottawa.",
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
@@ -273,7 +273,7 @@ export default function CanadaRegionPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need FRP passive house windows quoted DDP Canada — surtax-free?" />
+      <InnerCTA title="Request a DDP Canada quote for FRP passive house windows without the 25% surtax" />
     </>
   );
 }

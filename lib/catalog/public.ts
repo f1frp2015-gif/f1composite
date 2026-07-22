@@ -13,7 +13,7 @@ export interface CatalogSize {
   id: number;
   model: string;
   dims: Record<string, number>;
-  /** F1-published mass per metre (kg/m) — authoritative. */
+  /** F1-published mass per meter (kg/m) — authoritative. */
   weight: number | null;
   slug: string;
 }

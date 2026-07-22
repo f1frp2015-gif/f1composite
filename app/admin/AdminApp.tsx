@@ -40,11 +40,11 @@ const FIELDS: Record<ResourceKey, FieldDef[]> = {
     { key: "name", label: "Name", type: "text", required: true },
     { key: "resin_family", label: "Resin family", type: "select", options: [
       { value: "", label: "— none —" },
-      { value: "unsaturated_polyester", label: "Unsaturated polyester 不饱和聚酯" },
-      { value: "vinyl_ester", label: "Vinyl ester 乙烯基酯" },
-      { value: "epoxy", label: "Epoxy 环氧" },
-      { value: "polyurethane", label: "Polyurethane 聚氨酯" },
-      { value: "phenolic", label: "Phenolic 酚醛" },
+      { value: "unsaturated_polyester", label: "Unsaturated polyester" },
+      { value: "vinyl_ester", label: "Vinyl ester" },
+      { value: "epoxy", label: "Epoxy" },
+      { value: "polyurethane", label: "Polyurethane" },
+      { value: "phenolic", label: "Phenolic" },
     ]},
     { key: "resin", label: "Resin system (display)", type: "text", hint: "e.g. Isophthalic unsaturated polyester" },
     { key: "glass_content", label: "Glass content", type: "text", hint: "e.g. 65–70% by weight" },
@@ -210,7 +210,7 @@ function GeometryEditor({ geo, onChange }: { geo: GeoState; onChange: (g: GeoSta
           />
           <p className="mt-[4px] text-f11 text-t3">
             Coordinates in mm, y-up. outer = [[x,y],…] counter-clockwise; holes = array of rings.
-            Optional &quot;J&quot; (mm⁴) if computed offline (FEM). Digitised from customer DXF via the
+            Optional &quot;J&quot; (mm⁴) if computed offline (FEM). Digitized from customer DXF via the
             offline ingestion pipeline.
           </p>
         </div>

@@ -28,7 +28,7 @@ function productQuoteHref(title: string) {
   const params = new URLSearchParams({
     source: "product-header",
     inquiry_type: "rfq",
-    message: `I am interested in ${title}. Please advise the available sizes or system options, specification data, minimum order quantity, lead time, and delivered pricing.`,
+    message: `I am interested in ${title}. Please send me the available sizes or system options, technical data, minimum order quantity, lead time, and delivered pricing.`,
   });
   return `/contact?${params.toString()}`;
 }

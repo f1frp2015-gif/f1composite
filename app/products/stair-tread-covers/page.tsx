@@ -11,7 +11,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Stair Tread Covers — Anti-Slip Fiberglass (FRP) Treads";
 const pageDescription =
-  "FRP stair tread covers & fiberglass grating treads: anti-slip grit surface, high-visibility nosing, cut to size. ASTM E84 options. DDP USA · 24h quote.";
+  "FRP stair tread covers and fiberglass grating treads with slip-resistant grit and high-visibility nosing. ASTM E84 options and DDP USA quotes.";
 const pagePath = "/products/stair-tread-covers";
 
 export const metadata: Metadata = buildPageMetadata({

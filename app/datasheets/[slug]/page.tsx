@@ -93,7 +93,7 @@ export default async function DatasheetPage({
   const desig = product.geometry ? designation(product.geometry) : null;
   const publishedW = num(product.weight_per_m);
   // For the Offer price band only, fall back to the geometry-derived mass per
-  // metre when no published weight exists. This is an INDICATIVE band basis,
+  // meter when no published weight exists. This is an INDICATIVE band basis,
   // not a published spec (published weight stays authoritative for measurements
   // below), so a profile without a published weight still satisfies Google's
   // "offers/review/aggregateRating required" rule instead of erroring.
@@ -132,7 +132,7 @@ export default async function DatasheetPage({
         ["Radius of gyration ry", `${sig(props.ry)} mm`],
         ["Torsion constant J", props.J == null ? "—" : `${sig(props.J / 1e4)} cm⁴`],
         ...(props.massPerMetre != null
-          ? [["Mass per metre (calculated)", `${sig(props.massPerMetre, 3)} kg/m`]]
+          ? [["Mass per meter (calculated)", `${sig(props.massPerMetre, 3)} kg/m`]]
           : []),
       ]
     : [];
@@ -177,7 +177,7 @@ export default async function DatasheetPage({
                     ))}
                     {publishedW != null && (
                       <tr className="border-b border-border-default">
-                        <td className="py-[8px] pr-[21px] text-t2">Mass per metre (published)</td>
+                        <td className="py-[8px] pr-[21px] text-t2">Mass per meter (published)</td>
                         <td className="py-[8px] font-medium text-teal-text">{publishedW} kg/m</td>
                       </tr>
                     )}
@@ -225,7 +225,7 @@ export default async function DatasheetPage({
               </table>
               <p className="mt-[13px] text-f13 leading-golden text-t3">
                 Derived exactly from the cross-section geometry by polygon integration. The
-                published mass per metre is the authoritative catalog value; the calculated figure
+                published mass per meter is the authoritative catalog value; the calculated figure
                 is a geometric cross-check. Because FRP modulus is ~1/10 of steel, deflection
                 usually governs design — use the{" "}
                 <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">

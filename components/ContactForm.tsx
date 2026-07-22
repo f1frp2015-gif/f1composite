@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
 
@@ -72,6 +72,7 @@ const inputCls =
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
+  const [attachmentName, setAttachmentName] = useState("");
   const searchParams = useSearchParams();
   const prefillRef = searchParams.get("ref");
   const prefillCompany = searchParams.get("company") ?? "";
@@ -99,7 +100,7 @@ export default function ContactForm() {
       {prefillContext && <input type="hidden" name="context" defaultValue={prefillContext} />}
       {isFromAiSourcing && (
         <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
-          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact details, and send. We&rsquo;ll reply with a formal quote within 24h.
+          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact information, and submit the form. We&rsquo;ll respond with a formal quote within 24 hours.
         </div>
       )}
 
@@ -212,16 +213,30 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
-          Drawing or specification <span className="font-normal text-t3">(optional)</span>
+          Drawing or specification file <span className="font-normal text-t3">(optional)</span>
         </label>
-        <input
-          id="attachment"
-          name="attachment"
-          type="file"
-          accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
-          className={`${inputCls} file:mr-[12px] file:rounded-[5px] file:border-0 file:bg-bg2 file:px-[12px] file:py-[7px] file:text-f13 file:font-bold file:text-t1`}
-        />
-        <p className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · maximum 4 MB</p>
+        <div className="flex min-h-[47px] items-center gap-[12px] rounded-[7px] border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
+          <input
+            id="attachment"
+            name="attachment"
+            type="file"
+            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
+            className="sr-only"
+            aria-label="Choose an attachment"
+            aria-describedby="attachment-selection attachment-help"
+            onChange={(event) => setAttachmentName(event.currentTarget.files?.[0]?.name ?? "")}
+          />
+          <label
+            htmlFor="attachment"
+            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f13 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+          >
+            Choose File
+          </label>
+          <span id="attachment-selection" className="min-w-0 truncate text-f14 text-t2" aria-live="polite">
+            {attachmentName || "No file selected"}
+          </span>
+        </div>
+        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · 4 MB maximum</p>
       </div>
 
       <div className="flex flex-col gap-[9px] sm:flex-row sm:items-center sm:justify-between">

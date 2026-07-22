@@ -185,7 +185,7 @@ export function LoadTransferFigure() {
       </svg>
       <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
         Fibers carry the load — until one breaks. The matrix then transfers that load in
-        shear to the neighboring fibers within a fraction of a millimetre, which is why a
+        shear to the neighboring fibers within a fraction of a millimeter, which is why a
         composite fails gradually instead of snapping like a chain. Matrix shear strength,
         fiber-matrix adhesion, and toughness are resin properties — the reinforcement
         cannot compensate for a matrix that is wrong for the job.

@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Why specify FRP instead of aluminum for solar mounting in Australia?",
     answer:
-      "FRP solves three problems aluminum does not: (1) coastal corrosion in NSW, QLD, WA, and TAS coastal solar farms, where aluminum 6063-T5 still suffers pitting under salt fog despite anodising; (2) bimetallic corrosion at steel-pile / aluminum-rail interfaces, which is the dominant failure mode on Australian solar farms over 10 years; (3) foundation cost — FRP is 30-35% lighter than aluminum 6063, so pile loads, helical-pile depth, and concrete pad volume all reduce. The 25-year UV stability of pultruded FRP with synthetic surfacing veils is independently documented; aluminum does not have a UV-degradation pathway, but it does have a salt-corrosion pathway that FRP simply does not.",
+      "FRP solves three problems that aluminum does not: (1) coastal corrosion at solar farms in NSW, QLD, WA, and TAS, where aluminum 6063-T5 can still pit under salt fog despite anodizing; (2) bimetallic corrosion at steel-pile and aluminum-rail interfaces, a dominant failure mode on Australian solar farms over 10 years; and (3) foundation cost. FRP is 30–35% lighter than aluminum 6063, which reduces pile loads, required helical-pile depth, and concrete pad volume. The 25-year UV stability of pultruded FRP with synthetic surfacing veils is independently documented. Aluminum does not degrade from UV exposure, but it does have a salt-corrosion pathway that FRP does not.",
   },
   {
     question: "Does FRP solar mounting comply with Australian standards (AS/NZS)?",
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "How does FRP perform under Australian UV exposure over 25 years?",
     answer:
-      "Pultruded FRP profiles for outdoor solar service are formulated with isophthalic polyester or polyurethane resin matrices, plus a synthetic surfacing veil and UV-stabilised topcoat. Australian UV intensity is among the highest globally — the standard reference is the Florida and Arizona accelerated weathering benchmarks, both of which Australian sites match or exceed. F1 Composite&apos;s UV-qualified solar mounting profiles maintain &gt;90% retained tensile and flexural properties after 25-year equivalent UV exposure (verified per ASTM G155 / G154 cycle testing, plus 10-year field data from Northern Territory installations). Pigmented (white or grey) profiles further reduce surface temperature gain.",
+      "Pultruded FRP profiles for outdoor solar service use isophthalic polyester or polyurethane resin matrices, a synthetic surfacing veil, and a UV-stabilized topcoat. Australian UV intensity is among the highest in the world. The standard references are the Florida and Arizona accelerated-weathering benchmarks, which Australian sites match or exceed. F1 Composite&apos;s UV-qualified solar mounting profiles retain more than 90% of their tensile and flexural properties after exposure equivalent to 25 years, verified through ASTM G155 and G154 cycle testing plus 10 years of field data from Northern Territory installations. Pigmented white or gray profiles further reduce surface-temperature gain.",
   },
   {
     question: "What lead times and ports are typical for Australian solar projects?",
@@ -108,7 +108,7 @@ export default function AustraliaSolarPage() {
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Australian utility-scale solar has converged on two mounting material defaults: galvanized steel for inland projects (lower up-front cost, accept 25-year hot-dip galv life) and aluminum 6063 for coastal projects (lighter, no galvanic-pair failure with steel piles, but susceptible to chloride pitting). Both work — and both leave structural-cost optimisations on the table at the 30-year asset life that financed solar increasingly demands.
+                Australian utility-scale solar projects generally use one of two default mounting materials: galvanized steel for inland projects because of its lower initial cost and an accepted 25-year hot-dip-galvanized service life, or aluminum 6063 for coastal projects because it is lighter and avoids galvanic-pair failure with steel piles, although it remains susceptible to chloride pitting. Both materials work, but neither captures all the structural cost savings available over the 30-year asset life that financed solar projects increasingly require.
               </p>
               <p>
                 Pultruded FRP solar mounting is a third path. It is 30% lighter than aluminum 6063 — directly reducing helical-pile depth and concrete foundation volume — and immune to both chloride corrosion and galvanic-pair failure with steel piles. F1 Composite supplies the profile family directly from factory, ex-China, to all major Australian ports, with project-specific designs reviewed against AS/NZS 1170.2 wind loads (Regions A through D, including cyclonic).
@@ -224,7 +224,7 @@ export default function AustraliaSolarPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need pultruded FRP solar mounting quoted CIF Sydney, Melbourne, or Fremantle?" />
+      <InnerCTA title="Request a CIF quote for pultruded FRP solar mounting delivered to Sydney, Melbourne, or Fremantle" />
     </>
   );
 }

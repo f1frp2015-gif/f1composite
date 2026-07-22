@@ -117,7 +117,7 @@ export default function WindowReinforcementProfilesPage() {
           image: "/images/products/upvc-window-fiberglass-reinforcement-context.jpg",
           category: "FRP Window Reinforcement Profiles",
           productLine: "F1-FORM",
-          // Indicative per-metre band for the reinforcement-core program (small
+          // Indicative per-meter band for the reinforcement-core program (small
           // chamber-fit sections, custom pultrusion). Routes to /contact for a quote.
           priceRange: { lowPrice: "2", highPrice: "40", offerCount: "1", unitText: "linear meter" },
           material: ["E-glass roving", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],

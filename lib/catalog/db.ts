@@ -5,7 +5,7 @@
 // reader falls back gracefully (the downloads page keeps its static list).
 //
 // DATA-INTEGRITY RULES (mirrors the datasheet anti-fabrication policy):
-//  - products.weight_per_m is the VENDOR-PUBLISHED mass per metre and is
+//  - products.weight_per_m is the VENDOR-PUBLISHED mass per meter and is
 //    authoritative for display. Engine-computed mass is only a cross-check.
 //  - formulation mechanical values are REAL tested data; NULL means "not yet
 //    verified" and renders as "— (verify before release)" on datasheets.

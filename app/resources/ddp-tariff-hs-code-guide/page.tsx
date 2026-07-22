@@ -71,7 +71,7 @@ const hsCandidates = [
   {
     application: "Structural pultruded profile (I-beam, channel, angle, tube, flat bar) — no window/door hardware function",
     heading: "HTSUS 3926.90 or 7019",
-    logic: "Classification turns on the General Rules of Interpretation (GRI) essential-character test: a resin-matrix-dominant plastic article is classified under 3926.90 (other articles of plastics), while a glass-fiber-content-dominant article can fall under 7019 (glass fibres and articles thereof). The same physical profile can be classified either way depending on composition ratio, finishing, and the importing country's prior rulings.",
+    logic: "Classification turns on the General Rules of Interpretation (GRI) essential-character test: a resin-matrix-dominant plastic article is classified under 3926.90 (other articles of plastics), while an article whose glass-fiber content gives it its essential character can fall under 7019 (glass fibers and articles made from them). The same physical profile can be classified either way depending on its composition, finishing, and the importing country's prior rulings.",
   },
   {
     application: "Window / door frame profile (finished fenestration component)",
@@ -89,7 +89,7 @@ const faqs = [
   {
     question: "What HS code applies to pultruded FRP profiles?",
     answer:
-      "There is no single universal HS code for pultruded FRP — classification depends on the profile's composition, finishing, and end use, decided under the General Rules of Interpretation (GRI) essential-character test. Standard structural profiles most commonly fall under HTSUS 3926.90 (other articles of plastics) or 7019 (glass fibres and articles thereof); finished window/door components sometimes fall under 3925; certain rod/bar stock under 3916. The only way to get a number you can rely on is a binding ruling from the destination country's customs authority (a CBP Binding Ruling in the US) for your specific profile.",
+      "There is no single universal HS code for pultruded FRP. Classification depends on the profile's composition, finishing, and end use under the General Rules of Interpretation (GRI) essential-character test. Standard structural profiles most commonly fall under HTSUS 3926.90 (other articles of plastics) or 7019 (glass fibers and articles made from them); finished window and door components sometimes fall under 3925, and certain rod or bar stock falls under 3916. The only reliable answer is a binding ruling for your specific profile from the destination country's customs authority, such as a CBP Binding Ruling in the United States.",
   },
   {
     question: "Does Section 301 apply to all FRP profiles imported from China?",

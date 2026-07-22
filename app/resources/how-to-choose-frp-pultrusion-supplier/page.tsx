@@ -48,7 +48,7 @@ const faqItems = [
   {
     question: "How do I verify that a Chinese FRP manufacturer is genuine and not a trader?",
     answer:
-      "Ask to see the pultrusion lines directly — request dated line photos, a live video walk-through, dies for your profile, and the QC lab; or book a third-party factory audit (e.g. SGS, BV, TÜV). A real manufacturer can show production and issue per-batch mill test certificates with its own name; a trader cannot. Also cross-check the business licence, ISO 9001 certificate, and export records against the company name on your contract.",
+      "Ask to see the pultrusion lines directly. Request dated photos of the lines, a live video walkthrough, the dies for your profile, and the quality-control lab, or book a third-party factory audit through a firm such as SGS, Bureau Veritas, or TÜV. A manufacturer can show production and issue batch-specific mill test certificates in its own name; a trading company cannot. Cross-check the business license, ISO 9001 certificate, and export records against the company named in your contract.",
   },
   {
     question: "What certifications should a pultruded FRP profile supplier have?",

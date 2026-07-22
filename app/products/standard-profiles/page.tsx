@@ -52,7 +52,7 @@ const faqItems = [
   {
     question: "Who are the top pultruded FRP profile manufacturers, and where does F1 Composite fit?",
     answer:
-      "The pultruded FRP structural-profile market is led globally by Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland), alongside large China-based manufacturers. F1 Composite's F1-STRUX line manufactures the full structural range — I-beams, channels, angles, tubes, flat bars, and rods — to the same EN 13706 E17/E23 and ASTM D3917 specifications as the Western incumbents, supplied direct from its China factory for export without regional distributor markups.",
+      "The global market for pultruded FRP structural profiles includes Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), Exel Composites (Finland), and large manufacturers based in China. F1 Composite manufactures the complete F1-STRUX structural range — I-beams, channels, angles, tubes, flat bars, and rods — to EN 13706 E17/E23 and ASTM D3917 requirements. Products ship directly from our factory in China without a regional distributor markup.",
   },
   {
     question: "Is there a China-based alternative to Strongwell, Creative Pultrusions, Fiberline, or Exel?",
@@ -161,7 +161,7 @@ export default function StandardProfilesPage() {
       <PageHeader
         tag="Standard Profiles · F1-STRUX"
         title="Fiberglass structural shapes catalog — FRP sizes, weights & section data"
-        description="Dimensions, per-metre weights and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917, for engineers who already know the shape and need the numbers. For the complete product family and applications, start from the pultruded FRP profiles hub."
+        description="Dimensions, weight per meter, and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917. This catalog is for engineers who already know the shape and need the numbers; for the complete product family and applications, start with the pultruded FRP profiles overview."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },

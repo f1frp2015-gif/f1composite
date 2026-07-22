@@ -32,7 +32,7 @@ export const organizationSchema = {
     "@type": "ContactPoint",
     contactType: "sales",
     email: "inquiry@f1composite.com",
-    telephone: "+86-138-8333-3993",
+    telephone: "+86-138-8333-8993",
     availableLanguage: ["English", "Chinese"],
     areaServed: "Worldwide",
   },

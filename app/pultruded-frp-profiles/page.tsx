@@ -283,7 +283,7 @@ const competitorComparison: Array<{
     products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
     certification: "EN 13706 · ASTM D3917 · ISO 9001",
     pricing: "Regional distributor markup · 40–60% above factory pricing",
-    sourcing: "US-based · Regional distributors · No direct factory access",
+    sourcing: "US-based · Regional distributors · No factory-direct purchasing",
   },
   {
     manufacturer: "Fiberline Composites",
@@ -778,7 +778,7 @@ export default function PultrudedFRPProfilesHubPage() {
           </div>
 
           <div className="mt-[21px] rounded-[8px] border-2 border-teal bg-bg2 p-[21px]">
-            <p className="text-f15 font-bold text-teal-text">Key advantage: Direct factory pricing + full product range</p>
+            <p className="text-f15 font-bold text-teal-text">Key advantage: Factory-direct pricing and a complete product range</p>
             <p className="mt-[8px] text-f13 leading-golden text-t2">
               F1 Composite delivers the same EN 13706/ASTM D3917 compliance as Strongwell, Fiberline, and Creative Pultrusions — but at 30–50% lower landed cost by shipping direct from our FengDu manufacturing base (370 pultrusion lines, 150,000 t/year capacity). No distributor markup, full traceability, and 48-hour RFQ response.
             </p>

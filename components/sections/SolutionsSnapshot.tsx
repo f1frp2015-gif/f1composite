@@ -37,7 +37,7 @@ export default function SolutionsSnapshot() {
               description={product.description}
               href={product.href}
               image={product.image}
-              imageAlt={`${product.title} manufactured by F1 Composite`}
+              imageAlt={product.imageAlt ?? `${product.title} manufactured by F1 Composite`}
               imageScale={product.imageScale}
             />
           ))}

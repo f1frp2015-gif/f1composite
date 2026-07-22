@@ -5,6 +5,7 @@ export interface ProductCategory {
   icon: string;
   href: string;
   image?: string;
+  imageAlt?: string;
   imageScale?: number;
 }
 
@@ -40,7 +41,8 @@ export const productCategories: ProductCategory[] = [
     description: "Molded and pultruded FRP gratings, solid-top cover plates, and structural deck panels for industrial platforms, marine environments, and pedestrian bridge decks.",
     icon: "gratings",
     href: "/products/gratings",
-    image: "/images/products/gratings-cover.jpg",
+    image: "/images/products/frp-structural-deck-panel-cover.webp",
+    imageAlt: "Pultruded FRP structural deck panel with internal reinforcing webs and an interlocking edge profile",
   },
   {
     slug: "fenestration-systems",

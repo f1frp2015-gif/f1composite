@@ -16,7 +16,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
 const pageDescription =
-  "Pultruded fiberglass channel (FRP C & U) 38×13–305×89 mm. EN 13706 / ASTM D3917, 75% lighter than steel, non-conductive. Cable trays, framing. DDP USA 24h.";
+  "Pultruded fiberglass C and U channels, 38×13–305×89 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.";
 const pagePath = "/products/standard-profiles/channel";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -52,7 +52,7 @@ const faqItems = [
   {
     question: "What colors are available for FRP channels?",
     answer:
-      "Standard colors are grey and safety yellow. Custom RAL colors are available on request for minimum order quantities (typically 200 linear meters). A UV-protective surface veil is included on all channels.",
+      "Standard colors are gray and safety yellow. Custom RAL colors are available for orders that meet the minimum quantity, typically 200 linear meters. Every channel includes a UV-protective surface veil.",
   },
   {
     question: "Can FRP channels be bolted to dissimilar materials?",
@@ -114,7 +114,7 @@ export default async function ChannelPage() {
                 Open-section framing profiles
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Pultruded channels provide versatile framing for secondary structural members, cable management systems, and modular assemblies. The open U-shape simplifies field connections with mechanical fasteners. Available in standard grey, safety yellow, and custom RAL colors.
+                Pultruded channels provide versatile framing for secondary structural members, cable management systems, and modular assemblies. The open U-shape simplifies field connections with mechanical fasteners. They are available in standard gray, safety yellow, and custom RAL colors.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">UV-protected surface veil</span>

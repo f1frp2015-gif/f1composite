@@ -4,7 +4,7 @@
 // axis, so every geometric property below is an EXACT function of the 2-D
 // cross-section polygon — no simulation, no guessing.
 //
-// DATA-INTEGRITY RULE: vendor-published mass per metre is authoritative for
+// DATA-INTEGRITY RULE: vendor-published mass per meter is authoritative for
 // display; engine-computed section properties are geometric derivations and
 // are labelled as such on datasheets. Mechanical (strength/modulus) values
 // NEVER come from this engine — they come from the formulation's tested data.
@@ -37,7 +37,7 @@ export interface SectionProperties {
   cRight: number;
   width: number;
   height: number;
-  /** Mass per metre (kg/m) — present only when a density was supplied. */
+  /** Mass per meter (kg/m) — present only when a density was supplied. */
   massPerMetre?: number;
 }
 

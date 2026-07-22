@@ -81,7 +81,7 @@ export default function Footer() {
               Get a Quote
             </Link>
             <a
-              href="https://wa.me/8613883333993"
+              href="https://wa.me/8613883338993"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] border border-white/25 px-[20px] text-f13 font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -105,14 +105,14 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-[12px] max-w-[310px] text-f13 leading-relaxed text-t2">
-              Pultruded FRP profiles, engineered systems, and direct factory export support for global projects.
+              Pultruded FRP profiles, engineered systems, and factory-direct export support for projects worldwide.
             </p>
             <div className="mt-[13px] flex flex-wrap gap-x-[16px] gap-y-[4px]">
               <a href="mailto:inquiry@f1composite.com" className="text-f13 font-semibold text-teal-text hover:text-teal">
                 inquiry@f1composite.com
               </a>
-              <a href="tel:+8613883333993" className="text-f13 font-semibold text-teal-text hover:text-teal">
-                +86 138 8333 3993
+              <a href="tel:+8613883338993" className="text-f13 font-semibold text-teal-text hover:text-teal">
+                +86 138 8333 8993
               </a>
             </div>
           </div>

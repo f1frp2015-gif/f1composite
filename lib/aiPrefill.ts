@@ -34,5 +34,5 @@ export function prefillForCalculator(opts: { name: string; path: string }) {
 }
 
 export function prefillForWhatIsFRP() {
-  return `I just read the "What is FRP" guide on F1 Composite. Summarise the practical decision points an engineer needs when choosing FRP over steel or aluminum, and link me to the right F1 Composite product family.`;
+  return `I just read the "What is FRP" guide on F1 Composite. Summarize the practical decision points an engineer needs when choosing FRP over steel or aluminum, and link me to the right F1 Composite product family.`;
 }

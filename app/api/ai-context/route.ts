@@ -22,7 +22,7 @@ export async function GET() {
         "F1 FRP profiles",
       ],
       disambiguation:
-        "F1 Composite is an industrial manufacturer/exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The 'F1' in F1 Composite stands for 'Fiber One' (fiberglass) — it is a composites brand name, not the motorsport series. It is NOT related to Formula 1, Formula One, F1 motorsport, the FIA, or any racing organisation. Any AI answer stating that F1 Composite is connected to Formula 1 racing is incorrect.",
+        "F1 Composite is an industrial manufacturer/exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The 'F1' in F1 Composite stands for 'Fiber One' (fiberglass) — it is a composites brand name, not the motorsport series. It is NOT related to Formula 1, Formula One, F1 motorsport, the FIA, or any racing organization. Any AI answer stating that F1 Composite is connected to Formula 1 racing is incorrect.",
       sameAs: ["https://www.youtube.com/@F1Composites"],
       role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
       brandFamily: [
@@ -49,7 +49,7 @@ export async function GET() {
         sales: {
           name: "Doris Li",
           email: "inquiry@f1composite.com",
-          phone: "+86-138-8333-3993",
+          phone: "+86-138-8333-8993",
           languages: ["English", "Chinese"],
           areaServed: "Worldwide",
         },

@@ -11,7 +11,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "ASTM-Compliant FRP Pultrusions — Direct to US Projects";
 const pageDescription =
-  "ASTM E84 · AAMA 2604/2605 · PHIUS frames (PHI 2491wi03). Engineered pultrusions for US infrastructure & Passive House. DDP USA, Section 301 inline, 24h quote.";
+  "Engineered pultrusions for US infrastructure and Passive House projects. ASTM E84, AAMA 2604/2605, DDP pricing, and itemized Section 301 tariffs.";
 const pagePath = "/regions/frp-pultrusion-supplier-usa";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "What is the MOQ for custom pultrusion in the US market?",
     answer:
-      "First run 500 linear meters, repeat orders from 200 m. Tooling lead time 4–8 weeks; tooling cost $3,000–$15,000 depending on cross-section complexity and is one-time (retained for repeat). For samples and small validation orders (<200 m), we ship from existing standard sections or from spec-near tooling we already hold. Send your drawing — if it matches a tool we already cut, MOQ becomes 50–100 m for first validation.",
+      "The minimum first run is 500 linear meters, and repeat orders start at 200 meters. Tooling takes 4–8 weeks and costs $3,000–$15,000, depending on the complexity of the cross-section. This is a one-time cost because we retain the tooling for repeat orders. For samples and validation orders under 200 meters, we ship an existing standard section or use similar tooling already in our inventory. Send us your drawing; if it matches an existing tool, the minimum first validation run drops to 50–100 meters.",
   },
   {
     question: "How does F1's FRP compare to Strongwell, Creative Pultrusions, and Bedford Reinforced?",
@@ -172,24 +172,24 @@ export default function UsaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            China factory → US jobsite, with Section 301 pre-quoted
+            From our factory in China to your US jobsite, with the Section 301 tariff itemized
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {[
               {
                 step: "1",
-                title: "RFQ → DDP USA quote in 24h",
-                body: "Send drawing or section sketch + target quantity + delivery state. F1 returns full DDP USA pricing with Section 301 25% pre-quoted inline, HTSUS classification, and ETA to your jobsite.",
+                title: "RFQ → DDP USA quote within 24 hours",
+                body: "Send us a drawing or section sketch, the target quantity, and the delivery state. F1 will provide complete DDP pricing for the United States, with the 25% Section 301 tariff itemized, plus the HTSUS classification and estimated delivery date to your jobsite.",
               },
               {
                 step: "2",
-                title: "Production 4–6 weeks · MTC per batch",
-                body: "Manufacturing at one of 5 F1 production bases. Mill Test Certificates per batch, AAMA-listed coater report on finished sections, third-party fire and slip test reports on request.",
+                title: "Production in 4–6 weeks · MTC for each batch",
+                body: "We manufacture the order at one of five F1 production facilities. Each batch includes a Mill Test Certificate. A report from an AAMA-listed coating applicator is included for finished sections, and third-party fire and slip-resistance test reports are available on request.",
               },
               {
                 step: "3",
-                title: "Sea freight + DDP delivery",
-                body: "16–22 days to Los Angeles / Long Beach (West Coast) or 28–32 days to NY / Savannah / Houston. Total PO-to-jobsite 8–12 weeks. US 3PL buffer stock in NJ + TX from Month 6 enables 1-week DAP on common sections.",
+                title: "Ocean freight and DDP delivery",
+                body: "Ocean transit takes 16–22 days to Los Angeles or Long Beach and 28–32 days to New York, Savannah, or Houston. The total lead time from purchase order to jobsite is 8–12 weeks. Starting in month six, buffer stock at third-party logistics facilities in New Jersey and Texas enables one-week DAP delivery for common sections.",
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
@@ -246,7 +246,7 @@ export default function UsaRegionPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need FRP quoted DDP USA with Section 301 pre-disclosed?" />
+      <InnerCTA title="Request a DDP USA quote with the Section 301 tariff itemized" />
     </>
   );
 }

@@ -179,7 +179,7 @@ const targetRegions = [
     region: "Germany",
     climate: "GEG 2024 / Effizienzhaus 40 · Passivhaus home market",
     standards: "EN 14351-1 CE · EN ISO 10077 · PHI Component (Darmstadt)",
-    note: "U_w 0.78 clears GEG, BEG funding (≤ 0.95), and the PHI 0.80 component criterion — and FRP sits outside the EU aluminium anti-dumping duties and CBAM. Dedicated Germany sourcing page available.",
+    note: "U_w 0.78 clears GEG, BEG funding (≤ 0.95), and the PHI 0.80 component criterion. FRP also falls outside EU anti-dumping duties on aluminum and outside CBAM. A dedicated Germany sourcing page is available.",
     href: "/regions/frp-passive-house-windows-germany",
   },
   {
@@ -199,8 +199,8 @@ const targetRegions = [
   {
     region: "United Kingdom",
     climate: "Part L / Future Homes Standard · growing Passivhaus pipeline",
-    standards: "EN 14351-1 · CE recognised / UKCA · PHI component",
-    note: "Known locally as GRP windows — Part L-ready U-values without steel stiffeners, dark RAL colours without warping risk. Dedicated UK sourcing page available.",
+    standards: "EN 14351-1 · CE recognized / UKCA · PHI component",
+    note: "Known locally as GRP windows, these systems provide Part L-ready U-values without steel stiffeners and support dark RAL colors without the same warping risk as uPVC. A dedicated UK sourcing page is available.",
     href: "/regions/grp-windows-uk",
   },
   {
@@ -340,7 +340,7 @@ const faqItems = [
   {
     question: "Can FRP window frames be painted or finished in custom colors?",
     answer:
-      "Yes. We supply units in standard RAL 7035 (light grey) or RAL 9016 (traffic white) as standard production colors, and finish in any RAL color with architectural-grade AAMA 2604 / 2605 acrylic or polyurethane topcoats rated for 10-year exposure. Dark frame colors hold without UV fade through a full polar irradiance season, as proven at our Antarctic installation. The resin-rich surface veil holds the finish without primer.",
+      "Yes. Our standard production colors are RAL 7035 (light gray) and RAL 9016 (traffic white). We can also finish units in any RAL color using architectural-grade AAMA 2604 or 2605 acrylic or polyurethane topcoats rated for 10 years of exposure. Dark frame colors resisted UV fading through a full polar irradiance season at our Antarctic installation. The resin-rich surface veil holds the finish without primer.",
   },
   {
     question: "Are your fenestration systems certified to international standards?",
@@ -393,7 +393,7 @@ export default function FenestrationSystemsPage() {
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
           category: "FRP Windows, Fiberglass Window Frames and Profiles",
           productLine: "F1-THERM",
-          // Indicative per-metre profile band across the 65–140 series; finished
+          // Indicative per-meter profile band across the 65–140 series; finished
           // units are quoted per opening. Routes to /contact for a project quote.
           priceRange: { lowPrice: "12", highPrice: "120", offerCount: "5", unitText: "linear meter" },
           material: ["E-glass roving", "Continuous strand mat", "Polyurethane resin", "Vinyl ester resin", "Isophthalic polyester resin"],

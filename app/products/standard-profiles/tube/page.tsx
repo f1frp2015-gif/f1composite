@@ -16,7 +16,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Round Tube & Tubing — Pultruded FRP Manufacturer";
 const pageDescription =
-  "Pultruded fiberglass round tube & tubing, 25–150 mm OD. Non-conductive, corrosion-free, EN 13706 / ASTM D3917. Handrails, conduit, masts. DDP USA 24h quote.";
+  "Pultruded fiberglass round tubes, 25–150 mm OD. Nonconductive, corrosion-resistant, and compliant with EN 13706 and ASTM D3917. DDP USA quotes.";
 const pagePath = "/products/standard-profiles/tube";
 
 const faqItems = [
@@ -121,7 +121,7 @@ export default async function TubePage() {
                 Round tubes for handrails and structures
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Pultruded FRP round tubes are the standard choice for handrail systems, guardrails, and structural applications requiring a circular cross-section. Smooth interior bore allows use as conduits. Non-conductive, corrosion-free, and available in standard grey or safety yellow.
+                Pultruded FRP round tubes are a standard choice for handrail systems, guardrails, and structural applications requiring a circular cross-section. Their smooth interior bore also allows them to be used as conduits. They are nonconductive, corrosion-resistant, and available in standard gray or safety yellow.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Handrail systems</span>

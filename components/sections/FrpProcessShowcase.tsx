@@ -79,7 +79,7 @@ function HandLayupIcon() {
       <path d="M14 62 Q60 40 106 62" stroke={DARK} strokeWidth="2.5" fill="none" strokeLinecap="round" />
       {/* laminate layer */}
       <path d="M22 58 Q60 38 98 58" stroke={TEAL} strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.6" />
-      {/* roller travelling along the mold */}
+      {/* Roller traveling along the mold. */}
       <g>
         <animateTransform
           attributeName="transform"

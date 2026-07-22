@@ -203,7 +203,7 @@ const formulations: SeedFormulation[] = [
     // Water absorption backed by F1's own PU spec limit (PU-GF TDS F1-TDS-PUGF-001:
     // spec <= 0.5%, measured 0.099-0.114% on the automotive-grade laminate).
     compressive_l_mpa: 240, barcol: 45, water_abs_pct: 0.5,
-    notes: `${EN_NOTE("E23")} Tough PU matrix for impact / high-strength thin-wall sections (e.g. window frames); PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet), replace with measured values per programme. ${DG_TYP} ${TYP_NOTE}`,
+    notes: `${EN_NOTE("E23")} Tough PU matrix for impact / high-strength thin-wall sections (e.g. window frames); PU pultrusion typically exceeds these minimums (see PU-GF mechanical data sheet), replace with measured values per program. ${DG_TYP} ${TYP_NOTE}`,
   },
   {
     ...BASE, ...E23_MIN,
@@ -230,7 +230,7 @@ const formulations: SeedFormulation[] = [
     en13706_grade: "E30",
     e_l_gpa: 30,
     notes:
-      "E30 is NOT an EN 13706 grade (the standard defines only E17/E23). Vendor tier: full-section modulus ≥ 30 GPa is definitional; all strengths require programme test data before release.",
+      "E30 is NOT an EN 13706 grade (the standard defines only E17/E23). Vendor tier: full-section modulus ≥ 30 GPa is definitional; all strengths require program test data before release.",
   },
   {
     ...BASE, ...NO_MECH,
@@ -241,7 +241,7 @@ const formulations: SeedFormulation[] = [
     en13706_grade: "E40",
     e_l_gpa: 40,
     notes:
-      "E40 is an \"E40-equivalent\" bridge-grade threshold per Austroads ATS 5880 (full-section modulus ≥ 40 GPa) — NOT an EN 13706 grade (EN 13706 tops out at E23). Benchmark construction: FR vinyl ester + ~77% glass by weight (industry reference: Wagner CFT). Bridge use additionally requires characteristic values per ASTM D7290 and full-section four-point bending per ASTM D6109; all strengths require programme test data before release.",
+      "E40 is an \"E40-equivalent\" bridge-grade threshold per Austroads ATS 5880 (full-section modulus ≥ 40 GPa) — NOT an EN 13706 grade (EN 13706 tops out at E23). Benchmark construction: FR vinyl ester + ~77% glass by weight (industry reference: Wagner CFT). Bridge use additionally requires characteristic values per ASTM D7290 and full-section four-point bending per ASTM D6109; all strengths require program test data before release.",
   },
 ];
 

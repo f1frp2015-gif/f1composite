@@ -53,7 +53,7 @@ const markets = [
   {
     region: "United Kingdom",
     flag: "🇬🇧",
-    title: "GRP Windows UK — Pultruded Fibreglass Frames",
+    title: "GRP Windows UK — Pultruded Fiberglass Frames",
     href: "/regions/grp-windows-uk",
     focus:
       "GRP fenestration and profiles for UK fabricators — UKCA/CE pathways and document support.",

@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP Passive House Windows — Germany Supplier";
 const pageDescription =
-  "Pultruded FRP (GFK) passive house windows for Germany — PHI Cert 2491wi03 (U_w 0.78, phB), GEG 2024 / BEG-ready. No EU aluminium AD duties, no CBAM. DDP.";
+  "Pultruded FRP (GFK) passive house windows for Germany. PHI Cert 2491wi03 (U_w 0.78, phB), GEG/BEG-ready, with no aluminum duty or CBAM.";
 const pagePath = "/regions/frp-passive-house-windows-germany";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -27,7 +27,7 @@ const faqs = [
     question:
       "Are FRP windows from China subject to EU anti-dumping duties or CBAM?",
     answer:
-      "No. The EU's anti-dumping duties on Chinese aluminium extrusions (Regulation (EU) 2021/546, 21.2%–32.1%) apply to aluminium profiles — so aluminium window systems with Chinese extrusions carry that cost. CBAM, in its definitive regime since January 2026, prices embedded carbon on imported iron/steel and aluminium goods, including aluminium door and window frames (CN 7610) and steel doors and windows (CN 7308 30). Pultruded FRP (fiberglass-reinforced polymer) fenestration is a glass-fiber composite classified under HS 3925.20 / 7019 — outside both the anti-dumping orders and CBAM scope. The normal EU customs duty and 19% German import VAT (Einfuhrumsatzsteuer) still apply and are itemized inline in our DDP Germany quote.",
+      "No. The EU's anti-dumping duties on Chinese aluminum extrusions (Regulation (EU) 2021/546, 21.2%–32.1%) apply to aluminum profiles, so aluminum window systems made with Chinese extrusions carry that cost. In its definitive regime, CBAM prices the embedded carbon in imported iron, steel, and aluminum goods, including aluminum door and window frames (CN 7610) and steel doors and windows (CN 7308 30). Pultruded FRP (fiberglass-reinforced polymer) fenestration is a glass-fiber composite classified under HS 3925.20 or 7019, placing it outside both the anti-dumping orders and CBAM. Standard EU customs duties and Germany's 19% import VAT (Einfuhrumsatzsteuer) still apply and are itemized in our DDP Germany quote.",
   },
   {
     question: "Which German and EU standards do F1 Composite FRP windows follow?",
@@ -38,7 +38,7 @@ const faqs = [
     question:
       "Do F1 FRP windows meet GEG 2024, BEG funding, and Passivhaus targets?",
     answer:
-      "Yes, with margin at every tier. The GEG 2024 reference building assumes window U_w 1.3 W/m²·K; BEG single-measure funding for window replacement requires U_w ≤ 0.95; and a PHI-certified component for the cool-temperate climate zone must reach U_w ≤ 0.80. Our 90-series GFRP-PU frame is certified at U_w 0.78 W/m²·K (PHI 2491wi03, phB) — because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K vs aluminium's 160), there is no metallic thermal-break path and no steel reinforcement bridging heat as in uPVC frames.",
+      "Yes, with margin at every tier. The GEG 2024 reference building assumes a window U_w of 1.3 W/m²·K; BEG funding for a single window-replacement measure requires U_w ≤ 0.95; and a PHI-certified component for the cool-temperate climate zone must reach U_w ≤ 0.80. Our 90-series GFRP-PU frame is certified at U_w 0.78 W/m²·K (PHI 2491wi03, phB). Because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K versus 160 for aluminum), there is no metallic thermal-break path or steel reinforcement conducting heat as there is in uPVC frames.",
   },
   {
     question: "What are the lead times and shipping options to German jobsites?",
@@ -79,7 +79,7 @@ export default function GermanyRegionPage() {
       <PageHeader
         tag="Germany"
         title="FRP passive house windows for German projects"
-        description="Pultruded fiberglass (GFK) window frames for Germany's Passivhaus, Effizienzhaus, and GEG-driven buildings — PHI Component Cert 2491wi03 (U_w 0.78, phB) from the institute that wrote the standard, and outside the EU aluminium anti-dumping duties and CBAM."
+        description="Pultruded fiberglass (GFK) window frames for Germany's Passivhaus, Effizienzhaus, and GEG-driven buildings — PHI Component Cert 2491wi03 (U_w 0.78, phB) from the institute that wrote the standard, and outside EU anti-dumping duties on aluminum and outside CBAM."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-passive-house-windows-germany" },
@@ -107,7 +107,7 @@ export default function GermanyRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why German Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Certified where Passivhaus was born — without the aluminium duty stack
+            Certified where Passivhaus was born — without the aluminum duty stack
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
@@ -117,14 +117,14 @@ export default function GermanyRegionPage() {
                 U<sub>w</sub> 1.3 W/m²·K, BEG funding for window replacement requires
                 U<sub>w</sub> ≤ 0.95, and Passivhaus / Effizienzhaus 40 projects push
                 below 0.80. Those targets are won or lost at the frame: thermally broken
-                aluminium struggles to reach them economically, and uPVC gets there only
+                aluminum struggles to reach them economically, and uPVC gets there only
                 with steel reinforcement that bridges heat and limits sash sizes.
               </p>
               <p>
                 F1 Composite&rsquo;s pultruded FRP (GFK) fenestration solves the thermal
                 problem in the material itself. The whole frame is intrinsically
                 insulating — fiberglass thermal conductivity ≈ 0.3 W/m·K versus
-                aluminium&rsquo;s 160 — so our 90-series reaches a whole-window
+                aluminum&rsquo;s 160 — so our 90-series reaches a whole-window
                 U<sub>w</sub> of 0.78 W/m²·K with no thermal break to design, install,
                 or fail. The certificate comes from the source: <strong>PHI Component
                 Certificate 2491wi03</strong> (phB class), issued by the Passive House
@@ -134,11 +134,11 @@ export default function GermanyRegionPage() {
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
                 Then there is the cost story German buyers should check before specifying
-                imported aluminium. Chinese aluminium extrusions carry EU anti-dumping
+                imported aluminum. Chinese aluminum extrusions carry EU anti-dumping
                 duties of 21.2%–32.1% (Regulation (EU) 2021/546), and since January 2026
-                CBAM prices embedded carbon on imported aluminium and steel building
-                products — aluminium window frames included. Pultruded FRP is a
-                glass-fiber composite, not aluminium or steel, so it sits{" "}
+                CBAM prices embedded carbon on imported aluminum and steel building
+                products — including aluminum window frames. Pultruded FRP is a
+                glass-fiber composite, not aluminum or steel, so it sits{" "}
                 <strong>outside both regimes</strong>. Normal EU duty + 19% import VAT
                 are quoted inline DDP — no surprise on landed cost.
               </p>
@@ -149,7 +149,7 @@ export default function GermanyRegionPage() {
                 guaranteed at the factory, or pultruded profile sets into
                 Germany&rsquo;s established Fensterbau industry for local assembly.
                 Architectural AAMA 2604 / 2605 powder coating in any RAL color, matching
-                the finish German architects specify on aluminium.
+                the finish German architects specify on aluminum.
               </p>
             </div>
           </div>
@@ -199,24 +199,24 @@ export default function GermanyRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            China factory → German jobsite, duty and VAT pre-quoted
+            From our factory in China to your German jobsite, with duties and VAT itemized
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {[
               {
                 step: "1",
-                title: "RFQ → DDP Germany quote in 24h",
-                body: "Send drawing or section sketch + target quantity + delivery region. F1 returns full DDP pricing (EUR or USD) with EU duty + 19% import VAT itemized, HS classification, and ETA to your jobsite. No aluminium AD duty, no CBAM.",
+                title: "RFQ → DDP Germany quote within 24 hours",
+                body: "Send us a drawing or section sketch, the target quantity, and the delivery region. F1 will provide complete DDP pricing in EUR or USD, with EU duties and the 19% import VAT itemized, plus the HS classification and estimated delivery date. Aluminum anti-dumping duties and CBAM charges do not apply.",
               },
               {
                 step: "2",
-                title: "Production 4–6 weeks · cert pack",
-                body: "Pultruded on F1's own lines. PHI Component Certificate 2491wi03, EN ISO 10077 thermal calculation, AAMA-listed coater report, and CE type-testing documentation supplied with the shipment.",
+                title: "Production in 4–6 weeks · certification package",
+                body: "F1 manufactures the profiles on its own pultrusion lines. The shipment includes PHI Component Certificate 2491wi03, the EN ISO 10077 thermal calculation, a report from an AAMA-listed coating applicator, and CE type-testing documentation.",
               },
               {
                 step: "3",
-                title: "Sea freight + DDP delivery",
-                body: "30–35 days to Hamburg / Bremerhaven / Rotterdam. Total PO-to-jobsite 9–13 weeks. DAP inland to Munich, Frankfurt, Berlin, and the Ruhr from the port of entry.",
+                title: "Ocean freight and DDP delivery",
+                body: "Ocean transit takes 30–35 days to Hamburg, Bremerhaven, or Rotterdam. The total lead time from purchase order to jobsite is 9–13 weeks. DAP delivery is available from the port of entry to Munich, Frankfurt, Berlin, and the Ruhr region.",
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
@@ -279,7 +279,7 @@ export default function GermanyRegionPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need FRP passive house windows quoted DDP Germany — outside the aluminium duty stack?" />
+      <InnerCTA title="Request a DDP Germany quote for FRP passive house windows without the aluminum duty stack" />
     </>
   );
 }

@@ -74,7 +74,7 @@ export function ResultLeadCapture({
 
   return (
     <form onSubmit={submit} className="rounded-[6px] border border-teal-border bg-teal-bg p-[13px]">
-      <div className="text-f13 font-semibold text-t1">Email me this result + a matching quote</div>
+      <div className="text-f13 font-semibold text-t1">Email me this result and a matching quote</div>
       <p className="mt-[3px] text-f11 text-t3">Your inputs and results attach automatically — just add your email.</p>
       <div className="mt-[8px] flex gap-[8px]">
         <input
