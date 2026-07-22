@@ -11,7 +11,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "Fiberglass Handrail Systems — Industrial FRP Railing";
 const pageDescription =
-  "Fiberglass handrail systems: non-conductive FRP railing kits — round or square rail, posts, kickplate. OSHA/EN load basis, safety yellow. DDP USA 24h.";
+  "Fiberglass handrail systems with nonconductive FRP rails, posts, and kick plates. OSHA and EN load criteria, safety yellow, and DDP USA quotes.";
 const pagePath = "/products/handrail-systems";
 
 export const metadata: Metadata = buildPageMetadata({

@@ -15,7 +15,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Pultruded fiberglass flat bar & bar stock 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass, EN 13706 / ASTM D3917. Stiffeners, splice plates. DDP USA 24h quote.";
+  "Pultruded fiberglass flat bars, 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass content, EN 13706, and ASTM D3917. DDP USA quotes.";
 const pagePath = "/products/standard-profiles/flat-bar";
 
 const faqItems = [

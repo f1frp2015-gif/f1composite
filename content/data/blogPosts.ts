@@ -122,11 +122,11 @@ export const blogPosts: BlogPost[] = [
     ],
     content: `A window fabricator qualifying a new profile supplier is really asking one question: **will run number forty look like run number one?** Everything else — price, lead time, even certification — is secondary to that, because a lineal that drifts dimensionally between runs breaks corner joints, gasket compression, and hardware alignment across your whole production schedule.
 
-The nine checks below turn that question into evidence. They are ordered the way a real qualification runs: paper first, factory second, product third, commerce last. We publish them knowing our own customers will use them on us — that is rather the point.
+The nine checks below turn that question into evidence. They follow the sequence of a real qualification process: documents first, factory second, product third, and commercial terms last. We publish them knowing that our own customers will use them to evaluate us, which is exactly the point.
 
 ## 1. Legal entity and factory verification
 
-Confirm the company you are contracting is the company that owns the factory. In China's export sector, trading companies routinely present factory photos that are not theirs. Ask for the business license (统一社会信用代码 — the unified social credit code is publicly checkable), the factory address, and whether production is in-house or subcontracted. Then verify physically: a third-party audit through SGS or Bureau Veritas costs a few hundred dollars and settles the question. A manufacturer will host the audit readily; an intermediary will negotiate about it.
+Confirm that the company named in your contract owns the factory. In China's export sector, trading companies sometimes present factory photos that are not their own. Ask for the business license and its Unified Social Credit Identifier, the factory address, and confirmation of whether production is performed in-house or subcontracted. Then verify the facility: a third-party audit through SGS or Bureau Veritas costs a few hundred dollars and settles the question. A manufacturer should readily accommodate the audit; an intermediary may be reluctant to do so.
 
 ## 2. Production capability: lines and dies
 
@@ -226,7 +226,7 @@ Every profile geometry needs its own pultrusion die (typically 3–6 weeks to fa
 
 ## 5. Surface finish
 
-Mill finish (resin-rich veil, unpainted) is the baseline. Architectural powder coating to **AAMA 2604 or 2605** in a custom RAL color adds a real increment — coating line time, masking, and the qualification overhead of the rating itself. Dark and metallic colors price above standard white/grey because of heat-buildup qualification and lower coating-line throughput.
+Mill finish (resin-rich veil, unpainted) is the baseline. Architectural powder coating to **AAMA 2604 or 2605** in a custom RAL color adds a real increment — coating line time, masking, and the qualification overhead of the rating itself. Dark and metallic colors cost more than standard white or gray because they require heat-buildup qualification and reduce coating-line throughput.
 
 ## 6. Certification and testing overhead
 
@@ -1455,7 +1455,7 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     title: "The 10 Questions Engineers Ask Most Before Specifying Pultruded FRP",
     seoTitle: "10 Questions Engineers Ask Before Specifying FRP",
     answerBox:
-      "Ten engineering questions account for roughly 90% of FRP specification doubt: stiffness (E_modulus 17–28 GPa vs steel 200), connection design, ASTM E84 fire ratings, dimensional tolerance (±0.25 mm per ASTM D3917), lead times, fatigue behaviour, lifecycle cost, and third-party test evidence. This guide answers each with measured data.",
+      "Ten engineering questions account for roughly 90% of the uncertainty around FRP specifications: stiffness (elastic modulus of 17–28 GPa versus 200 GPa for steel), connection design, ASTM E84 fire ratings, dimensional tolerance (±0.25 mm per ASTM D3917), lead times, fatigue behavior, lifecycle cost, and third-party test evidence. This guide answers each question with measured data.",
     category: "Engineering FAQ",
     date: "2025-11-14",
     updatedAt: "2026-03-26",
@@ -2491,7 +2491,7 @@ This article explains the powder coating process for pultruded FRP profiles, the
 
 ## Why Surface Finish Matters in Fenestration Specification
 
-When architects specify window frames, thermal performance is only half the decision. The other half is visual — color consistency across hundreds of window units, surface smoothness, gloss uniformity, and long-term weathering behavior. Aluminum window frames have historically won this half of the argument, because anodising and powder coating on metal substrates are mature, well-standardized processes.
+When architects specify window frames, thermal performance is only half the decision. The other half is visual — color consistency across hundreds of window units, surface smoothness, gloss uniformity, and long-term weathering behavior. Aluminum window frames have historically won this half of the argument because anodizing and powder coating on metal substrates are mature, well-standardized processes.
 
 FRP window profiles, despite their superior thermal conductivity of approximately 0.3 W/mK compared to 160 W/mK for aluminum, have sometimes been perceived as limited in surface finish options. Early pultruded profiles relied on gel coat or wet-spray paint systems that could not match the consistency of factory-applied powder coating on aluminum. That gap has now closed.
 
@@ -2517,7 +2517,7 @@ The coated profiles are cured in a convection oven using low-temperature powder 
 
 **5. Quality inspection**
 
-The finished coating is inspected for thickness (typically 60 to 120 micrometres), adhesion (cross-hatch test per ISO 2409), gloss uniformity, and color consistency against the specified RAL or custom standard. The inspection protocol matches or exceeds the requirements applied to powder-coated aluminum extrusions.
+The finished coating is inspected for thickness (typically 60 to 120 micrometers), adhesion (cross-hatch test per ISO 2409), gloss uniformity, and color consistency against the specified RAL or custom standard. The inspection protocol matches or exceeds the requirements applied to powder-coated aluminum extrusions.
 
 ## Coating Performance Standards
 
@@ -2539,11 +2539,11 @@ With architectural-grade powder coating, the visual comparison between FRP and a
 | Thermal conductivity | 0.3 W/mK | 160 W/mK |
 | Coefficient of thermal expansion | 8 × 10⁻⁶/°C | 23 × 10⁻⁶/°C |
 | Condensation risk | Very low | High without thermal break |
-| Corrosion in coastal environments | Immune | Requires anodising or coating maintenance |
+| Corrosion in coastal environments | Immune | Requires anodizing or coating maintenance |
 | Weight | ~1.9 g/cm³ | ~2.7 g/cm³ |
 | Coating adhesion on substrate | Excellent (mechanical + chemical bond) | Excellent (oxide layer bond) |
 
-The thermal conductivity difference is the decisive factor. Aluminum conducts heat at more than 500 times the rate of FRP. No amount of thermal break design in an aluminum frame can match the inherent thermal insulation of a solid FRP profile. And the powder coating layer, at 60 to 120 micrometres thick, has no measurable impact on the thermal performance of either substrate.
+The difference in thermal conductivity is decisive. Aluminum conducts heat at more than 500 times the rate of FRP. No thermal-break design in an aluminum frame can match the inherent insulation of a solid FRP profile. At 60 to 120 micrometers thick, the powder-coating layer has no measurable effect on the thermal performance of either substrate.
 
 ## Color Options and Architectural Flexibility
 
@@ -2563,7 +2563,7 @@ Not all pultruded FRP profiles can be powder coated. The critical factor is the 
 
 **Polyurethane resin-based pultruded profiles cannot currently be powder coated.** The Tg characteristics of polyurethane matrix systems are not compatible with powder cure temperatures, even low-temperature formulations. For polyurethane-matrix FRP fenestration profiles, we offer an alternative: high-performance liquid coating systems.
 
-**Liquid coating for PUR-matrix profiles** uses two-component polyurethane or fluoropolymer topcoats applied by automated spray line. The visual result is equivalent to powder coating — full RAL color range, metallic and textured finishes, gloss levels from matt to high-gloss. Liquid coatings cure at ambient to 80 degrees C, well within the safe operating range for polyurethane-matrix profiles. The trade-off is a marginally thinner coating build (40 to 80 micrometres versus 60 to 120 for powder) and a two-coat application process (primer plus topcoat), but the durability and appearance meet the same architectural standards.
+**Liquid coating for PUR-matrix profiles** uses two-component polyurethane or fluoropolymer topcoats applied on an automated spray line. The visual result is equivalent to powder coating, with the full RAL color range, metallic and textured finishes, and gloss levels from matte to high gloss. Liquid coatings cure between ambient temperature and 80°C, well within the safe operating range of polyurethane-matrix profiles. The tradeoff is a slightly thinner coating (40 to 80 micrometers versus 60 to 120 for powder) and a two-coat application process consisting of primer and topcoat, but the durability and appearance meet the same architectural standards.
 
 When specifying, confirm the resin system of the FRP profile with the manufacturer before selecting the coating method. Our engineering team advises on the optimal coating route for each profile and resin combination.
 
@@ -2694,7 +2694,7 @@ The 99 N initial-movement result is approximately 45 % below the 180 N AS 2047 l
 
 This matters in two specific Australian regulatory contexts:
 
-**Disability Discrimination Act (DDA) and Premises Standards.** The DDA Premises Standards require that doors in accessible paths of travel be operable with no more than 19.5 N of force for accessible doors (NCC D2.21 / AS 1428.1 reference). A standard sliding door is generally exempt from this strict limit, but for ageing-in-place and universal design briefs, lower operating force is increasingly specified. The 140 Series at 99 N is well-positioned for these briefs without electric assist.
+**Disability Discrimination Act (DDA) and Premises Standards.** The DDA Premises Standards require that doors in accessible paths of travel be operable with no more than 19.5 N of force for accessible doors (NCC D2.21 / AS 1428.1 reference). A standard sliding door is generally exempt from this strict limit, but aging-in-place and universal-design briefs increasingly specify a lower operating force. At 99 N, the 140 Series is well suited to these applications without electric assistance.
 
 **Livable Housing Australia (LHA) Silver and Gold ratings.** LHA Silver requires "easy-to-use" hardware on entry and primary external doors. There is no hard-Newton specification, but typical aluminum 3 m sliding doors tested under similar conditions report 130–160 N initial movement. The GFRP 140 Series at 99 N is meaningfully lighter to operate than competing aluminum systems at the same size.
 
@@ -2733,7 +2733,7 @@ AS 2047-2014 does not mandate a single water penetration pressure for all slidin
 
 The 140 Series at 200 Pa is suitable for N1 and N2 exposure with appropriate awning or recess detailing, and for N3 exposure when installed under a verandah, balcony soffit, or eaves overhang of at least 600 mm. That covers the vast majority of well-detailed Australian residential design. It is not appropriate for fully exposed coastal facades in N3+ without further sheltering.
 
-Water overflow at 300 Pa was localised to the slider track, not the frame head, jambs, or glazing seals. This is consistent with the AS 2047 sliding door class: the slider track is the inherent weak point of any lift-sliding system, and 200 Pa is industry-typical even for premium aluminum systems. Vantage, Capral, and Stegbar 140-series sliding doors generally rate at 150–300 Pa depending on configuration and accessory threshold drainage.
+Water overflow at 300 Pa was localized to the sliding track, not the frame head, jambs, or glazing seals. This is consistent with the AS 2047 sliding-door class: the track is the inherent weak point of any lift-and-slide system, and 200 Pa is typical even for premium aluminum systems. Vantage, Capral, and Stegbar 140-series sliding doors generally carry ratings of 150–300 Pa, depending on the configuration and sill-drainage accessories.
 
 For projects requiring 300+ Pa water rating, a tilt-slide system (different hardware) or a French-door configuration (hinged rather than sliding) would be more appropriate — both available in the same GFRP profile family.
 
@@ -2777,7 +2777,7 @@ For an architect, building designer, or specifier evaluating GFRP fenestration o
 
 **Energy compliance check.** NCC 2022 Section J Climate Zones 6, 7, 8 (Melbourne, Canberra, Hobart, alpine) increasingly require whole-window U-values that aluminum 140 series cannot achieve without triple glazing. The GFRP 140 Series with the tested 39 mm IGU achieves a calculated whole-window U-value of approximately 1.4–1.6 W/m²·K — comfortably within Climate Zone 6/7 mandatory limits.
 
-**Accessibility check.** At 99 N initial operating force, the 140 Series is suitable for LHA Silver/Gold ratings and ageing-in-place specifications without electric assist.
+**Accessibility check.** With an initial operating force of 99 N, the 140 Series is suitable for LHA Silver and Gold ratings and aging-in-place specifications without electric assistance.
 
 **Coastal projects.** GFRP requires no marine-grade alloy specification, no anodized or powder-coated finish for corrosion (the substrate is inherently inert), and no stainless fastener specification beyond what the threshold detailing requires. Total Cost of Ownership over 25 years drops by 30–40% versus marine-grade aluminum based on F1 Composite project data.
 
@@ -2800,17 +2800,17 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     updatedAt: "2026-04-30",
     readTime: "11 min",
     excerpt:
-      "Why premium architectural fenestration still chooses aluminum over fibreglass, and how a transverse-reinforced pultrusion architecture buries cross-direction reinforcement deeper to deliver powder-coat finishes indistinguishable from aluminum.",
+      "Why premium architectural fenestration still chooses aluminum over fiberglass, and how a transversely reinforced pultrusion architecture places cross-direction reinforcement deeper in the profile to produce powder-coated finishes that are indistinguishable from aluminum.",
     authorName: "Haifeng Gong, Ph.D.",
     authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Architectural Coatings Advisory Board",
     standards: ["AAMA 2604", "AAMA 2605", "Qualicoat Class 1", "Qualicoat Class 2", "ISO 2409", "ISO 2813", "ASTM D2244", "EN 13706"],
     coverImage: "/images/blog/frp-window-finish-metallic-samples.webp",
-    coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite grey, and matte black — visually identical to architectural-grade powder-coated aluminum",
+    coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite gray, and matte black — visually identical to architectural-grade powder-coated aluminum",
     supportingImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
     supportingAlt: "GEMA powder coating production line for pultruded FRP profiles — automated electrostatic spray and curing oven matching architectural aluminum finishing standards",
     supportingCaption:
-      "The coating booth and curing oven for powder-coated F1 Composite fenestration profiles is functionally identical to one running aluminum extrusions. The substrate underneath is what determines whether the finish looks like a window or like a fibreglass tank.",
+      "The coating booth and curing oven used for powder-coated F1 Composite fenestration profiles are functionally identical to equipment used for aluminum extrusions. The underlying substrate determines whether the finish looks like an architectural window or a fiberglass tank.",
     highlights: [
       "Cross-direction reinforcement embedded below a resin-rich surface zone",
       "Powder-coated finish indistinguishable from architectural aluminum",
@@ -2833,15 +2833,15 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     ],
     content: `Walk into any high-end architectural showroom in Sydney, Melbourne, Vancouver, Munich, or Dubai. Look at the prestige residential window mock-ups on display. Then run your fingertips across the frames.
 
-The aluminum frames are smooth, dense, and uniform — a finish that feels engineered. The high-performance fibreglass frames sitting next to them are not quite the same. There is a faint surface signature you can feel before you can see — a near-imperceptible micro-grain that, under directional light or against a darker pigment, reveals the underlying fiber architecture of the pultruded profile. It is not a defect. It is the visible memory of the surface mat layer that gives the profile its cross-direction strength.
+The aluminum frames are smooth, dense, and uniform — a finish that feels engineered. The high-performance fiberglass frames next to them are not quite the same. They have a faint surface texture that is easier to feel than to see: a nearly imperceptible micro-grain that reveals the pultruded profile's underlying fiber architecture under directional light or a darker pigment. It is not a defect. It is the visible trace of the surface mat that gives the profile its cross-directional strength.
 
-For specifiers, that signature has been the quiet reason fibreglass fenestration has not displaced aluminum in the projects where finish quality drives material selection. The thermal performance argument was won years ago. The corrosion argument was won decades ago. The structural argument is settled. The argument that has not been settled, until recently, is whether a fibreglass window can deliver a finish that disappears into the building skin the way a powder-coated aluminum window does.
+For specifiers, that texture has quietly kept fiberglass fenestration from displacing aluminum on projects where finish quality drives material selection. The thermal-performance argument was won years ago. The corrosion argument was won decades ago. The structural argument is settled. Until recently, the remaining question was whether a fiberglass window could blend into the building envelope as seamlessly as a powder-coated aluminum window.
 
 This article walks through why that signature exists, how the industry has historically dealt with it, and the pultrusion architecture innovation — transverse reinforcement embedded beneath a resin-rich surface zone — that finally removes it.
 
 ## The Glass-Fiber Telegraph Problem
 
-In a conventional pultruded fibreglass profile, the fiber architecture from inside to outside is approximately:
+In a conventional pultruded fiberglass profile, the fiber architecture from the inside out is approximately:
 
 | Layer (inside → outside) | Function | Typical Material |
 | --- | --- | --- |
@@ -2856,13 +2856,13 @@ The dilemma is that the cheapest, fastest, and most universally adopted way to d
 
 A 60–80 micron architectural powder coat cannot fully bridge this micro-topography. The profile may look smooth from a normal viewing distance, but specifiers, architects, and discerning end-users notice it under raking light or close inspection.
 
-This is the unspoken reason that, for many premium projects, fibreglass fenestration has not been the default selection.
+This is the unspoken reason fiberglass fenestration has not been the default choice for many premium projects.
 
 ## How the Industry Has Historically Responded
 
-Two responses have emerged in the established fibreglass fenestration category, and both have trade-offs.
+Two approaches have emerged in the established fiberglass fenestration category, and each has tradeoffs.
 
-**Response 1: Embrace the texture as an aesthetic signature.** Established North American fibreglass window brands — for example, the Pella Impervia line, which has been a category benchmark for over two decades — have positioned the subtle surface signature as part of an "engineered durability" aesthetic, supported by a curated palette of approximately ten color options optimized for the substrate. This is a coherent product strategy and serves a clear customer segment well. It does not, however, satisfy specifications that require an unrestricted RAL palette, dual-tone interior/exterior, custom architectural pigments, or finishes that must visually merge with adjacent powder-coated aluminum curtain wall on the same building.
+**Response 1: Embrace the texture as an aesthetic signature.** Established North American fiberglass window brands — for example, the Pella Impervia line, a category benchmark for more than two decades — position the subtle surface texture as part of an "engineered durability" aesthetic. They support it with a curated palette of approximately ten color options optimized for the substrate. This coherent product strategy serves a clear customer segment well. However, it does not satisfy specifications that require an unrestricted RAL palette, different interior and exterior colors, custom architectural pigments, or finishes that must blend visually with an adjacent powder-coated aluminum curtain wall on the same building.
 
 **Response 2: Add a surface cap film or in-line co-extrusion layer.** Some manufacturers laminate a smooth thermoplastic capstock onto the pultruded profile during or after manufacture. This delivers a smoother starting surface but introduces three new problems: long-term adhesion of the cap to the substrate (capstock systems can delaminate after 15–25 years of UV and thermal cycling), additional cost ($/linear meter), and a coating system that is now a different chemistry from the substrate — meaning powder coating onto the cap requires its own qualification protocol. Capstock-based systems exist but have not become the category standard.
 
@@ -2912,17 +2912,17 @@ In side-by-side architectural mockups, neither the architect nor the building ow
 
 ## What This Unlocks for Specifiers
 
-Removing the surface finish constraint changes the projects fibreglass fenestration is suitable for.
+Removing the surface-finish constraint expands the range of projects suitable for fiberglass fenestration.
 
 **Passive house and ultra-low-energy buildings.** Architects working on Passivhaus-certified projects in Australia, Canada, the Pacific Northwest, and Northern Europe routinely require U_w ≤ 0.80 W/m²·K. Aluminum cannot reach this even with thermal breaks. PHI-certified GFRP fenestration can — F1 Composite's 90 Series holds [PHI Component ID 2491wi03 at U_w 0.78](/resources/blog/frp-fenestration-passivhaus-certification). With architectural-grade powder coating in any RAL, these projects no longer face an aesthetic compromise to achieve their energy target.
 
-**Class A commercial and hospitality.** Hotel facades, premium office buildings, and luxury retail interiors specify finishes to architectural coatings standards (AAMA 2605 typical). Until recently, a fibreglass window in an AAMA 2605 specification was an open question because of substrate finish quality, not coating chemistry. With transverse-reinforced GFRP profiles, AAMA 2605 powder coatings apply the same way they apply to aluminum, qualify the same way, and deliver the same visual outcome.
+**Class A commercial and hospitality.** Hotel facades, premium office buildings, and luxury retail interiors specify finishes that meet architectural coating standards, typically AAMA 2605. Until recently, the uncertainty around specifying a fiberglass window under AAMA 2605 involved substrate finish quality, not coating chemistry. On transversely reinforced GFRP profiles, AAMA 2605 powder coatings are applied, qualified, and finished using the same process and standards as coatings on aluminum.
 
 **Coastal premium residential.** Beach-front Australian, Mediterranean, and Pacific Coast US projects specify aluminum because it can take a coating, despite knowing that aluminum in salt air will eventually fail. GFRP solves the corrosion problem at the substrate level — and now solves the finish problem too. The coating is no longer the only argument for aluminum.
 
 **Architectural curtain-wall integration.** When a building combines fenestration with adjacent powder-coated aluminum curtain wall, mullions, or cladding, the visual continuity matters. Mismatched textures or gloss between window frame and adjacent metalwork is immediately visible and is one of the most common reasons specifiers default to aluminum throughout the assembly. Transverse-reinforced GFRP fenestration finished to the same powder coat specification visually merges with the surrounding metalwork — extending the use of high-performance frame material across the entire architectural system rather than just isolated openings.
 
-**Dual-tone and custom-color briefs.** Designers increasingly specify a dark exterior color (RAL 9005 black, 7016 anthracite, 7022 umbra grey) paired with a warm interior tone (oak-look, cream, or RAL 1015 light ivory). This is straightforward on aluminum and on the F1 Composite transverse-reinforced architecture. It is harder to deliver cleanly on conventional fibreglass profiles where the surface signature constrains finish choice, particularly in dark or matte colors where telegraph is most visible.
+**Two-tone and custom-color specifications.** Designers increasingly specify a dark exterior color (RAL 9005 black, 7016 anthracite, or 7022 umbra gray) paired with a warm interior tone (wood-look oak, cream, or RAL 1015 light ivory). This is straightforward on aluminum and on F1 Composite's transversely reinforced architecture. It is harder to achieve cleanly on conventional fiberglass profiles, where the surface texture limits finish choices, particularly with dark or matte colors that make fiber print-through more visible.
 
 ## A Note on Coating Process
 
@@ -2930,11 +2930,11 @@ The powder coating process applied to F1 Composite fenestration profiles is the 
 
 ## Bottom Line
 
-Cross-direction strength and surface finish quality have been treated as a trade-off in pultruded fenestration for thirty years. Brands that prioritised structural efficiency accepted a visible surface signature; brands that prioritised finish quality added capstock films or thinned cross-direction reinforcement. The trade-off was real — until the cross-direction reinforcement was relocated structurally and chemically to a position in the profile where it no longer interacts with the coated surface.
+For thirty years, pultruded fenestration treated cross-direction strength and surface-finish quality as a tradeoff. Brands that prioritized structural efficiency accepted a visible surface texture; brands that prioritized finish quality added capstock films or reduced the cross-direction reinforcement. That tradeoff was real until the reinforcement was repositioned, both structurally and chemically, within the profile so that it no longer affected the coated surface.
 
 That repositioning is what F1 Composite calls transverse-reinforced architecture. It is not a coating innovation. It is a substrate architecture innovation that lets the coating do its job. The result is a pultruded GFRP fenestration profile that hits the structural targets (EN 13706, AS 2047, AAMA/WDMA classifications), hits the thermal targets (whole-window U_w 1.4–1.6 W/m²·K with the right glazing), and now hits the architectural finish targets (AAMA 2604/2605, Qualicoat Class 1/2, full RAL palette, dual-tone capable).
 
-For specifiers who have been holding a project specification open for a fibreglass option that does not require an aesthetic compromise, the option is now available. F1 Composite supplies the 65/70/80/90 Series fenestration profiles in transverse-reinforced architecture with factory-applied powder coating to AAMA 2604, AAMA 2605, or Qualicoat Class 1/Class 2 standards. Sample finishes are available in any RAL or NCS reference; project-specific color matching to existing curtain-wall finishes is provided on request.`,
+For specifiers seeking a fiberglass option that does not require an aesthetic compromise, that option is now available. F1 Composite supplies its 65, 70, 80, and 90 Series fenestration profiles with transversely reinforced architecture and factory-applied powder coatings that meet AAMA 2604, AAMA 2605, or Qualicoat Class 1 or Class 2 standards. Finish samples are available in any RAL or NCS color; project-specific matching to existing curtain-wall finishes is available on request.`,
   },
   {
     slug: "how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide",
@@ -2953,11 +2953,11 @@ For specifiers who have been holding a project specification open for a fibregla
     reviewedBy: "Sales & Engineering",
     standards: ["EN 13706", "ASTM D3917", "ISO 9001", "Incoterms 2020"],
     coverImage: "/images/blog/frp-specification-procurement.jpg",
-    coverAlt: "FRP profile procurement and sourcing process from China factory",
+    coverAlt: "FRP profile procurement and sourcing process from a factory in China",
     supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
     supportingAlt: "FRP cost benchmarking and lifecycle analysis worksheet",
     supportingCaption:
-      "Direct-from-factory pricing in China typically runs 30-50% below regional distributor pricing in the US/EU — but the savings only materialise when the procurement process is set up correctly.",
+      "Factory-direct pricing from China is typically 30–50% lower than regional distributor pricing in the United States or European Union, but buyers realize those savings only when the procurement process is structured correctly.",
     highlights: [
       "How to qualify a Chinese FRP manufacturer in 4 steps",
       "MOQ, lead time, and Incoterms benchmarks (2026)",
@@ -2977,7 +2977,7 @@ For specifiers who have been holding a project specification open for a fibregla
       { label: "ASTM D3917 — Dimensional tolerance of pultruded shapes", href: "https://www.astm.org/d3917" },
       { label: "Incoterms 2020 — ICC", href: "https://iccwbo.org/business-solutions/incoterms-rules/" },
     ],
-    content: `Sourcing pultruded FRP profiles directly from a Chinese manufacturer can cut your delivered cost by 30–50% versus buying from a regional distributor in North America, the UK, or Europe. The catch: the savings only materialise when the procurement process is set up correctly. Buyers who treat FRP like a commodity steel section — issue an RFQ, take the lowest bid, hope for the best — frequently end up with profiles that fail incoming inspection, miss the project schedule, or cost more in landed terms than a domestic source would have.
+    content: `Sourcing pultruded FRP profiles directly from a Chinese manufacturer can reduce delivered cost by 30–50% compared with buying from a regional distributor in North America, the UK, or Europe. The catch is that buyers realize those savings only when the procurement process is structured correctly. Buyers who treat FRP like a commodity steel section — issuing an RFQ, accepting the lowest bid, and hoping for the best — often receive profiles that fail incoming inspection, miss the project schedule, or cost more after delivery than a domestic source would have.
 
 This guide walks through the procurement process F1 Composite has refined across 30+ countries of direct-from-factory export. The framework applies whether you buy from us or from a peer Chinese pultrusion factory.
 
@@ -2989,7 +2989,7 @@ The structural quality benchmark for all three regions is the same: EN 13706 E17
 
 Where China sources differ is on three commercial axes:
 
-1. **Direct factory pricing.** Without distributor margin, a 200×100×10 FRP I-beam landed in Rotterdam from a Chinese factory typically lands at $24–32/m versus $40–55/m from a European distributor.
+1. **Factory-direct pricing.** Without a distributor markup, a 200 × 100 × 10 FRP I-beam delivered to Rotterdam from a factory in China typically costs $24–32/m, compared with $40–55/m from a European distributor.
 2. **Custom tooling speed.** Tooling lead time at major Chinese factories is 3–6 weeks versus 8–12 weeks at most US/EU peers, driven by larger in-house tooling shops.
 3. **Capacity for large orders.** A single Chinese factory can run 50,000–150,000 t/year. Stocking-distributor inventory in the US or EU rarely supports a single-project order above 30 tonnes without long lead times.
 
@@ -3042,7 +3042,7 @@ Custom profiles (any cross-section that is not in the standard catalog) require 
 | Custom profile, repeat order | 200 linear meters | None (re-use existing die) | 3–4 weeks |
 | Large project order (30+ tonnes) | None | None / project-specific | 4–8 weeks |
 
-Tooling is amortised on the first run. F1 Composite includes tooling cost in the per-meter price for a first run of 500–1,000 m at no separate tooling charge; for runs below MOQ or where the buyer wants to own the tooling, tooling is quoted separately ($3,000–$15,000 typical depending on profile complexity).
+Tooling is amortized over the first run. F1 Composite includes the tooling cost in the per-meter price for an initial run of 500–1,000 m rather than charging for it separately. For runs below the minimum order quantity, or when the buyer wants to own the tooling, tooling is quoted separately; the typical cost is $3,000–$15,000, depending on profile complexity.
 
 The single biggest scheduling mistake is not allowing for tooling lead time on the first run. Plan 3–6 weeks tooling + 4–6 weeks production + 25–40 days sea freight = approximately 10–14 weeks from PO to project site for a custom profile shipped CIF to Europe. Stock profiles cut this to 6–8 weeks.
 
@@ -3076,7 +3076,7 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 **Mistake 2: Mixing resin systems on a single project.** Polyester and vinyl ester profiles cannot be bonded with the same adhesives; their thermal expansion coefficients differ slightly. Pick one resin system for a project and document it on the BOM.
 
-**Mistake 3: Ignoring UV protection.** "Pultruded FRP is UV-resistant" is true at the resin level and false at the surface level. Outdoor profiles need a synthetic veil + UV-stabilised resin or a coating. Specify this in the RFQ.
+**Mistake 3: Ignoring UV protection.** "Pultruded FRP is UV-resistant" is true at the resin level but not at the surface. Outdoor profiles need a synthetic veil plus a UV-stabilized resin or protective coating. Include this requirement in the RFQ.
 
 **Mistake 4: Underestimating lead time on first runs.** Custom tooling + production + sea freight is 10–14 weeks. Buyers planning around 8 weeks routinely miss project schedules.
 
@@ -3086,7 +3086,7 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 Sourcing pultruded FRP profiles directly from a qualified Chinese manufacturer is, in 2026, a standard procurement pattern across construction, infrastructure, energy, and marine projects worldwide. The savings versus regional distributors are real and the quality gap is largely closed at the top tier of Chinese factories. What is not standardized is the buyer-side process — and that is where most of the avoidable risk sits.
 
-If you want a starting point for your own RFQ, F1 Composite returns full quotes within 48 business hours through [our contact form](/contact) or, for application-driven sourcing, through the [AI Sourcing Assistant](/ai/sourcing) that turns a free-form application description into a spec recommendation, certifications, and a quote path.`,
+If you need a starting point for your RFQ, F1 Composite provides complete quotes within 48 business hours through [our contact form](/contact). For application-driven sourcing, the [AI Sourcing Assistant](/ai/sourcing) turns a free-form project description into a specification recommendation, certification guidance, and a clear path to a quote.`,
   },
   {
     slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
@@ -3112,7 +3112,7 @@ If you want a starting point for your own RFQ, F1 Composite returns full quotes 
       "Pricing benchmarks below are direct-from-factory FOB China for 2026; regional distributor pricing typically runs 50–100% above these levels.",
     highlights: [
       "Per-meter pricing for 12 standard profile cross-sections",
-      "Tooling cost and amortisation logic for custom profiles",
+      "Tooling cost and amortization for custom profiles",
       "Container freight benchmarks to US, EU, ME, AU ports",
     ],
     ogDescription:
@@ -3157,8 +3157,8 @@ Compare these against typical regional distributor pricing — UK/EU distributor
 
 | Product | Description | FOB China price |
 | --- | --- | --- |
-| FRP moulded grating | 38 × 38 mm mesh, 38 mm thick, polyester | $35–50 / m² |
-| FRP moulded grating | 38 × 38 mm mesh, 50 mm thick, vinyl ester | $55–75 / m² |
+| FRP molded grating | 38 × 38 mm mesh, 38 mm thick, polyester | $35–50 / m² |
+| FRP molded grating | 38 × 38 mm mesh, 50 mm thick, vinyl ester | $55–75 / m² |
 | FRP pultruded grating | I-bar 25 mm pitch | $65–90 / m² |
 | FRP deck panel | 600 mm × 25 mm, polyurethane core | $45–65 / m² |
 
@@ -3246,7 +3246,7 @@ The same project sourced from a UK distributor at $42–48/m delivered would cos
 
 These benchmarks shift quarter-to-quarter on three drivers: glass fiber raw material cost (currently stable), resin cost (polyester/vinyl ester moved -3% in Q1 2026 versus Q4 2025), and container freight (volatile — check the [Drewry World Container Index](https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry) for current spot rates).
 
-For a project-specific quote calibrated against current pricing, F1 Composite returns full quotes within 48 business hours through [the contact form](/contact) or describe the application in the [AI Sourcing Assistant](/ai/sourcing) for a spec + price path in one response.`,
+For a project-specific quote based on current pricing, contact F1 Composite through [the contact form](/contact) for a complete response within 48 business hours. You can also describe the application in the [AI Sourcing Assistant](/ai/sourcing) to receive a specification recommendation and a clear path to pricing in one response.`,
   },
   {
     slug: "gfrp-pultruded-spar-cap-fatigue-wind-blade",
@@ -3491,7 +3491,7 @@ Offshore floating, tidal-flat, and fishery-PV sites differ in elevation and in w
 | Tidal-flat PV | Alternating wet and dry, sediment scour | High humidity with chloride, sand abrasion, wet-dry cycles |
 | Wind-solar-fishery hybrid | Pond surface, freshwater-saline mix | Ammonia and H₂S from biology, UV, fish and bird waste, wind vibration |
 
-In corrosion terms the three sites converge on chloride plus moisture plus UV plus vibration plus localised acid or alkaline attack. That combination is the worst environment any 25-year solar warranty has to survive.
+From a corrosion standpoint, all three sites combine chlorides, moisture, UV exposure, vibration, and localized acid or alkaline attack. This is among the most severe environments a 25-year solar warranty must cover.
 
 ## Why galvanized steel and aluminum fall short on water
 
@@ -3521,7 +3521,7 @@ FRP frames have a longitudinal coefficient of thermal expansion near 6 × 10⁻�
 
 Replacing an aluminum frame with a pultruded FRP frame typically removes 0.6 to 1.2 kg from a 630 W or 700 W module, which makes two-person installation on floating walkways and pond catwalks substantially easier.
 
-Accelerated weathering per ASTM G154 shows color shift ΔE below 3 after 3000 hours of UV-A exposure on a properly stabilised polyurethane or polyester pultruded frame, with no chalking on the public-facing surface. Aluminum anodization cannot match that in fishery environments rich in nitrogen and sulphur volatiles.
+Accelerated weathering under ASTM G154 shows a color shift of less than ΔE 3 after 3,000 hours of UV-A exposure on a properly stabilized polyurethane or polyester pultruded frame, with no chalking on the exposed surface. Aluminum anodization cannot match that performance in fishery environments rich in volatile nitrogen and sulfur compounds.
 
 F1 Composite supplies pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
 
@@ -3529,7 +3529,7 @@ F1 Composite supplies pultruded FRP module frame profiles for N-type TOPCon, HJT
 
 The purchase-price comparison between FRP and galvanized steel is the wrong place to anchor the decision. The lifecycle comparison reads differently.
 
-| Dimension | Galvanised steel or anodized aluminum | Pultruded FRP |
+| Dimension | Galvanized steel or anodized aluminum | Pultruded FRP |
 |---|---|---|
 | Real coastal service life | 8 to 12 years | 25 years, maintenance-free |
 | Coating renewal cycle | 5 to 8 years | None required |
@@ -3727,7 +3727,7 @@ Uw = (1.32 × 0.70 + 0.50 × 1.0 + 4.62 × 0.04) / 1.82 = (0.92 + 0.50 + 0.18) /
 
 Three readings of that arithmetic are worth pausing on.
 
-**The glass flatters, the frame decides.** The glazing contributes 0.92 of the 1.61 W/K total — but it earned that at Ug 0.70. The frame, at barely a quarter of the area, contributes almost as much heat loss per square metre of window as the far larger glass area, because its U-value is worse. Swap the Uf 1.0 frame for a thermally-broken aluminum frame at Uf 1.4 and the same glass delivers Uw ≈ 0.99 — the window just lost its sub-0.9 rating without the glazing changing at all.
+**The glass flatters, but the frame decides.** The glazing contributes 0.92 of the 1.61 W/K total, but it achieves that result at Ug 0.70. Although the frame occupies barely a quarter of the area, its higher U-value means it contributes almost as much heat loss per square meter of window as the much larger glass area. Replace the Uf 1.0 frame with a thermally broken aluminum frame at Uf 1.4, and the same glass delivers Uw ≈ 0.99. The window loses its sub-0.9 rating without any change to the glazing.
 
 **The spacer is a tenth of the result.** 4.62 m of glass edge at Ψg 0.04 adds 0.10 W/m²K to Uw. Published warm-edge Ψ values run roughly 0.03–0.05 W/m·K against roughly 0.08 for a conventional aluminum box spacer (the German flat-glass association BF publishes representative tables). Spacer choice alone can move a whole-window U-value by about 0.1 — the difference between passing and failing a 0.80 specification.
 
@@ -3873,7 +3873,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       "Window frame and glazing edge in warm interior light — coatings set SHGC, while frame and spacer set the U-value floor",
     supportingAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
     supportingCaption:
-      "The division of labour in one corner: low-E coatings and gas fill tune Ug and g/SHGC; the frame and spacer decide how much of that glazing performance the whole window keeps.",
+      "The division of labor in one corner: low-E coatings and gas fill tune Ug and g/SHGC; the frame and spacer determine how much of that glazing performance the whole window retains.",
     highlights: [
       "U-value = heat loss rate (lower is always less loss); SHGC = solar admission fraction 0–1 (lower is not always better)",
       "ENERGY STAR 7.0: Northern U ≤ 0.22 IP with SHGC ≥ 0.17 prescriptive; Southern U ≤ 0.32 with SHGC ≤ 0.23",
@@ -3914,7 +3914,7 @@ The same physics wears a different label in Europe: the **g-value** (total solar
 
 **Mixed climates** are where single-number thinking fails hardest. North-Central ENERGY STAR (U ≤ 0.25, SHGC ≤ 0.40) is a compromise; serious projects go finer-grained — orientation-specific glazing, with higher SHGC on south faces shaded by overhangs and lower on east/west faces where low-angle summer sun is unshadeable. Phius's climate-zone-specific window data takes the same orientation-aware approach.
 
-Three practical rules survive all three cases. Set U-value by climate severity and comfort (it also controls the interior surface temperature that decides [condensation behaviour](/resources/blog/aluminum-window-condensation-cold-climate)). Set SHGC by cooling load and orientation. And never chase one number with a product that wrecks the other — a triple-silver coating that hits SHGC 0.18 in a heating climate saves cooling the building did not need and forfeits solar heating it did.
+Three practical rules hold across all three cases. Set the U-value according to climate severity and comfort; it also controls the interior surface temperature that determines [condensation behavior](/resources/blog/aluminum-window-condensation-cold-climate). Set SHGC according to cooling load and orientation. Do not optimize one value with a product that undermines the other. A triple-silver coating that reaches SHGC 0.18 in a heating climate reduces a cooling load the building did not have while sacrificing useful solar heat gain.
 
 ## Where the frame sits in both numbers
 
@@ -4059,7 +4059,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       { label: "ISO 1172:2023 — Glass and mineral-filler content by calcination", href: "https://www.iso.org/standard/84260.html" },
       { label: "ASTM D2734 — Void Content of Reinforced Plastics", href: "https://www.astm.org/standards/d2734" },
       { label: "Toray T700S carbon fiber — technical data sheet", href: "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf" },
-      { label: "LKAB Minerals — Aluminium trihydrate (ATH)", href: "https://www.lkabminerals.com/product/ath/" },
+      { label: "LKAB Minerals — Aluminum trihydrate (ATH)", href: "https://www.lkabminerals.com/product/ath/" },
       { label: "Springer — Calcium carbonate fillers (reference entry)", href: "https://link.springer.com/rwe/10.1007/978-3-319-28117-9_35" },
       { label: "Physical properties of GFRP filled with ATH and calcium carbonate (Polymers, 2022)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9230032/" },
     ],
@@ -4082,7 +4082,7 @@ Everything in a pultruded section traces back to a short list of constituents, a
 | Carbon fiber (Toray T700S) | 1.80 | Stiffness-critical hybrid layups |
 | Cured unsaturated polyester, unfilled | ≈1.1–1.2 | The matrix; published ranges reach 1.4 for filled and specialty systems |
 | Calcium carbonate filler | ≈2.7 | Cost, shrinkage and surface control |
-| Aluminium trihydrate (ATH) | 2.41 | Flame-retardant filler |
+| Aluminum trihydrate (ATH) | 2.41 | Flame-retardant filler |
 
 A void-free composite must land between its constituents, and the mixing arithmetic is fixed. With weight fractions — which is what a burn-off test hands you — density follows the inverse rule of mixtures:
 
@@ -4102,7 +4102,7 @@ This is also why density, glass content and mechanical grade move together. EN 1
 
 ## Fillers and voids: the matrix side of the equation
 
-The resin a profile ships with is rarely neat resin. Mineral fillers are blended in for cost, shrinkage control and fire performance, and both common fillers are heavier than the polymer they displace: calcium carbonate at about 2.7 g/cm³ and aluminium trihydrate at 2.41, versus 1.1–1.2 for the cured polyester itself. A 2022 study in *Polymers* measured exactly the expected result — adding ATH and calcium carbonate to a glass-fiber polyester laminate raised its density. Fire-rated profiles carry heavy ATH loadings, which is why a flame-retardant grade of the same shape often weighs measurably more than the standard one. The extra weight is buying char formation and smoke suppression, not strength.
+The resin in a finished profile is rarely unfilled. Mineral fillers are blended into the resin to control cost and shrinkage and to improve fire performance. Both common fillers are heavier than the polymer they displace: calcium carbonate is about 2.7 g/cm³ and aluminum trihydrate is 2.41 g/cm³, compared with 1.1–1.2 g/cm³ for cured polyester. A 2022 study in *Polymers* confirmed the expected result: adding ATH and calcium carbonate to a glass-fiber polyester laminate increased its density. Fire-rated profiles contain high ATH loadings, which is why a flame-retardant grade of the same shape often weighs measurably more than the standard grade. The added weight supports char formation and smoke suppression, not strength.
 
 Voids push the other way. Every air pocket left by imperfect wet-out lowers density below what the recipe predicts — and unlike fillers, voids give nothing back. ASTM D2734, the void-content standard, works by comparing measured density against the theoretical rule-of-mixtures value; the gap is porosity. Higher void content means lower fatigue resistance and faster water uptake.
 
@@ -4128,7 +4128,7 @@ Density is also a lever. Carbon fiber at 1.80 g/cm³ is lighter than the E-glass
 
 Every F1 datasheet declares the same laminate: 1.9 g/cm³ density, 65–70% E-glass by weight, isophthalic polyester matrix, mechanical minimums to EN 13706 grade E23. Run the check yourself — 70% glass at a 1.20 resin computes to 1.90 g/cm³ on the nose. The numbers close because they describe one real laminate, not a marketing composite of best cases.
 
-If your project needs a different point on the density map — an E-CR glass laminate for acid service, an ATH-loaded fire-rated grade, a carbon-glass hybrid chasing stiffness per kilogram — that is die and recipe work we do routinely as [custom pultrusion](/products/custom-pultrusions). Send the section drawing and the service conditions to Doris Li at Doris.li@f1composite.com, and the quote comes back with the laminate spec and certified test values, not just a price.`,
+If your project needs a different point on the density map — an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram — we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultrusions) service. Send the section drawing and service conditions to Doris Li at Doris.li@f1composite.com. The resulting quote will include the laminate specification and certified test values, not just a price.`,
   },
 ];
 

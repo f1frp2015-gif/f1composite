@@ -66,11 +66,11 @@ export default function ContactPage() {
                 <a href="mailto:inquiry@f1composite.com" className="block font-semibold text-teal-text hover:text-teal">
                   inquiry@f1composite.com
                 </a>
-                <a href="tel:+8613883333993" className="block font-semibold text-teal-text hover:text-teal">
-                  +86 138 8333 3993
+                <a href="tel:+8613883338993" className="block font-semibold text-teal-text hover:text-teal">
+                  +86 138 8333 8993
                 </a>
                 <a
-                  href="https://wa.me/8613883333993"
+                  href="https://wa.me/8613883338993"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[42px] items-center rounded-[7px] bg-[#128c53] px-[14px] font-bold text-white hover:bg-[#0d7c48]"

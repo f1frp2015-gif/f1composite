@@ -1,5 +1,5 @@
 // POST /api/admin/password — change the admin password from the back office.
-// Requires a valid session AND the current password (defence against a
+// Requires a valid session AND the current password (defense against a
 // hijacked cookie being escalated into a permanent lockout of the owner).
 // The new scrypt hash lives in admin_settings and overrides ADMIN_PASSWORD env.
 

@@ -136,7 +136,7 @@ export async function POST(req: Request) {
     return Response.json(
       {
         error:
-          "Sourcing assistant temporarily unavailable. Please retry, or describe your project at /contact for a human reply within 24h.",
+          "The sourcing assistant is temporarily unavailable. Please try again, or describe your project at /contact and our team will respond within 24 hours.",
       },
       { status: 503 },
     );

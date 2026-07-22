@@ -114,7 +114,7 @@ export default function UValueCalculatorPage() {
               "@type": "HowToStep",
               position: 2,
               name: "Enter window type and dimensions",
-              text: "Pick the window type (fixed, casement, sliding, or door) and enter width and height in millimetres; the calculator resolves frame and glass areas automatically.",
+              text: "Choose the window type (fixed, casement, sliding, or door), then enter the width and height in millimeters. The calculator determines the frame and glass areas automatically.",
             },
             {
               "@type": "HowToStep",

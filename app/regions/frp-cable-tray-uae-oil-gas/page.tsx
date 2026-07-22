@@ -50,7 +50,7 @@ const faqs = [
   {
     question: "What lead times and ports apply for UAE oil and gas FRP cable tray orders?",
     answer:
-      "Sea freight from Shanghai or Ningbo to Jebel Ali (Dubai) runs 18–22 days; to Khalifa Port (Abu Dhabi) and Mussafah Port runs 19–24 days; to Mina Zayed and Khor Fakkan are also direct-callable. F1 Composite typically quotes CIF Jebel Ali for project staging in Dubai/Sharjah operations and DAP project-site for ADNOC/Onshore destinations. Stock cable tray ships in 5–7 weeks PO-to-port; project-spec custom widths or coatings add 2–4 weeks. Container forecasting begins 6–8 weeks before installation start to avoid Jebel Ali storage costs on multi-container project orders.",
+      "Sea freight from Shanghai or Ningbo takes 18–22 days to Jebel Ali in Dubai and 19–24 days to Khalifa Port or Mussafah Port in Abu Dhabi. Direct calls are also available to Mina Zayed and Khor Fakkan. F1 Composite typically quotes CIF Jebel Ali for projects staged through Dubai or Sharjah and DAP to the project site for ADNOC Onshore destinations. Stock cable tray reaches the port 5–7 weeks after the purchase order; custom widths or project-specific coatings add 2–4 weeks. For multi-container orders, container planning begins 6–8 weeks before installation to avoid storage charges at Jebel Ali.",
   },
 ];
 
@@ -75,7 +75,7 @@ export default function UAECableTrayPage() {
       <PageHeader
         tag="UAE / Oil & Gas"
         title="FRP Cable Tray Supplier for UAE Oil & Gas"
-        description="Pultruded fiberglass cable trays and ladders for ADNOC, DUSUP, Emirates Steel, and onshore/offshore oil & gas operations. NEMA VE-1 / IEC 61537 / ASTM E84 compliant, vinyl ester resin for sour-service durability, CIF Jebel Ali or DAP project-site delivery."
+        description="Pultruded fiberglass cable trays and ladders for ADNOC, DUSUP, Emirates Steel, and onshore and offshore oil and gas operations. Compliant with NEMA VE-1, IEC 61537, and ASTM E84; vinyl ester resin for durability in sour service; CIF Jebel Ali or DAP delivery to the project site."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-cable-tray-uae-oil-gas" },
@@ -111,7 +111,7 @@ export default function UAECableTrayPage() {
                 ADNOC Onshore, ADNOC Offshore, ADNOC Refining, ADNOC Gas, and the broader DUSUP / Emirates Steel / Borouge UAE industrial network operate cable management infrastructure across the harshest combined-corrosion environment in the global oil and gas industry. The physical service reality: 45–50°C summer ambient, Gulf coastal salt-laden air, episodic H₂S and CO₂ in sour-service operations, and chemical splash and oil-mist contamination across process platforms.
               </p>
               <p>
-                Galvanized steel cable tray in this combined service typically reaches end-of-life within 8–12 years. The dominant failure mode is sacrificial zinc consumption at the splash zone followed by accelerated steel corrosion at galvanic discontinuities — most often at field-cut ends and field-welded supports where galvanizing was never properly restored. Replacement campaigns are operationally expensive: shutdown windows, scaffold access, hot-work permits, and crew mobilisation.
+                Galvanized steel cable tray under these combined conditions typically reaches the end of its service life within 8–12 years. The dominant failure mode is loss of sacrificial zinc in the splash zone, followed by accelerated steel corrosion at galvanic discontinuities — most often at field-cut ends and field-welded supports where the galvanizing was not properly restored. Replacement programs are operationally expensive because they require shutdown windows, scaffold access, hot-work permits, and crew mobilization.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
@@ -119,7 +119,7 @@ export default function UAECableTrayPage() {
                 Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers, with a 25-year design life. FRP cable management has a UAE track record going back to early-2000s oil &amp; gas projects; in documented installations, maintenance is limited to dust removal during scheduled shutdowns, and structural inspection has reported no findings on tray held in continuous splash-zone service for over 20 years.
               </p>
               <p>
-                F1 Composite supplies FRP cable tray to NEMA VE-1, IEC 61537, ASTM E84 Class 1, and project-specific ADNOC AGES standards directly from China factory. CIF Jebel Ali is the most common Incoterm for staging in Dubai/Sharjah operations; DAP project-site is preferred for ADNOC Onshore (Habshan, Bab, Bu Hasa), ADNOC Refining (Ruwais), and offshore operations via Mussafah Port logistics.
+                F1 Composite manufactures FRP cable tray in China to NEMA VE-1, IEC 61537, ASTM E84 Class 1, and project-specific ADNOC AGES requirements. CIF Jebel Ali is the most common Incoterm for projects staged through Dubai or Sharjah. DAP delivery to the project site is preferred for ADNOC Onshore locations such as Habshan, Bab, and Bu Hasa; ADNOC Refining in Ruwais; and offshore operations supported through Mussafah Port.
               </p>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function UAECableTrayPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need FRP cable tray quoted CIF Jebel Ali or DAP UAE project-site?" />
+      <InnerCTA title="Request a CIF Jebel Ali or DAP UAE quote for FRP cable tray" />
     </>
   );
 }

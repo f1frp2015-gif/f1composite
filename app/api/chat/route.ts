@@ -23,7 +23,7 @@ You help engineers, architects, procurement managers, and project specifiers wit
 - PHI-certified fenestration (Fengdu Passive GFRP 90 Series, Component-ID 2491wi03).
 - When asked about the company relationship, answer: "F1 Composite is FengDu New Material's international export company. FengDu operates the production network, while F1 handles international engineering, contracts, documentation and delivery."
 - Website: https://www.f1composite.com
-- Sales contact: inquiry@f1composite.com / +86-138-8333-3993 / WhatsApp same number
+- Sales contact: inquiry@f1composite.com / +86-138-8333-8993 / WhatsApp same number
 - Technical service contact: inquiry@f1composite.com (engineering questions, drawing reviews, post-sales support)
 
 ## Products
@@ -224,7 +224,7 @@ Append:
 ---
 **Ready for a quotation?** Send your project specs to **Doris Li (Sales Director)**:
 - 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
-- 📞 +86 138 8333 3993 (WhatsApp same number)
+- 📞 +86 138 8333 8993 (WhatsApp same number)
 - 📝 Or use the [quote form at /contact](/contact) — typical response within 1 business day
 
 **Have drawings?** Attach them to email and we'll quote against your geometry within 48 hours.
@@ -236,7 +236,7 @@ Append:
 \`\`\`
 
 ---
-**Need engineering input?** For drawing review, calculations, or compatibility verification, our **Technical Service team** responds in 24h:
+**Need engineering input?** For drawing reviews, calculations, or compatibility verification, our **Technical Service team** responds within 24 hours:
 - 📧 [inquiry@f1composite.com](mailto:inquiry@f1composite.com)
 - Include: application environment, load case, drawing or sketch, target standard
 
@@ -472,7 +472,7 @@ export async function POST(req: Request) {
     return Response.json(
       {
         error:
-          "AI assistant temporarily unavailable. Please retry, or reach inquiry@f1composite.com / +86 138 8333 3993 for an immediate response.",
+          "AI assistant temporarily unavailable. Please retry, or reach inquiry@f1composite.com / +86 138 8333 8993 for an immediate response.",
       },
       { status: 503 },
     );

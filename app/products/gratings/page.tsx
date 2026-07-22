@@ -58,7 +58,7 @@ const gratingTypes = [
       { label: "Top plate thickness", value: "3 mm, 5 mm" },
       { label: "Total thickness", value: "28 mm, 43 mm" },
       { label: "Surface finish", value: "Fine grit, coarse grit, smooth" },
-      { label: "Standard colors", value: "Grey (RAL 7035), Safety yellow (RAL 1023)" },
+      { label: "Standard colors", value: "Gray (RAL 7035), Safety yellow (RAL 1023)" },
     ],
   },
   {
@@ -219,8 +219,8 @@ export default function GratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px]">
             <Image
-              src="/images/products/frp-grating-types-molded-deck-pultruded.jpg"
-              alt="Three FRP grating types side by side — yellow molded mesh grating panel, gritted solid-top structural deck panel, and yellow pultruded I-bar grating sample"
+              src="/images/products/frp-structural-deck-panel-hero.webp"
+              alt="Pultruded FRP structural deck panel with a closed top, internal reinforcing webs, and an interlocking edge profile"
               fill
               sizes="100vw"
               className="object-cover"

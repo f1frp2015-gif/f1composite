@@ -3,7 +3,7 @@
 // True-3D section viewer, ported from DimViz (dimviz.com). The section
 // polygon (mm, y-up) is extruded into a real prism with THREE.ExtrudeGeometry,
 // so occlusion is resolved by the depth buffer and the silhouette IS the input
-// geometry, to the millimetre.
+// geometry, to the millimeter.
 //
 // Materials are physically based (metalness/roughness + procedural maps). The
 // dimension-annotation overlay (H, B, t_f/t_w) is projected to screen every
@@ -37,7 +37,7 @@ function mulberry32(seed: number) {
   };
 }
 
-function streakTexture(kind: "brushed" | "fibre", size = 1024): THREE.CanvasTexture {
+function streakTexture(kind: "brushed" | "fiber", size = 1024): THREE.CanvasTexture {
   const key = `${kind}-${size}`;
   const hit = textureCache.get(key);
   if (hit) return hit;
@@ -77,7 +77,7 @@ function tintedMap(pbr: MaterialPbr): THREE.CanvasTexture {
   const [canvas, ctx] = makeCanvas(size);
   ctx.fillStyle = pbr.color;
   ctx.fillRect(0, 0, size, size);
-  const src = streakTexture(pbr.texture as "fibre").image as HTMLCanvasElement;
+  const src = streakTexture(pbr.texture as "fiber").image as HTMLCanvasElement;
   ctx.globalAlpha = 0.16;
   ctx.drawImage(src, 0, 0);
   ctx.globalAlpha = 1;
@@ -101,7 +101,7 @@ function buildMaterial(pbr: MaterialPbr): THREE.MeshPhysicalMaterial {
   if (pbr.texture !== "none") {
     const tex = streakTexture(pbr.texture);
     mat.roughnessMap = tex;
-    if (pbr.texture === "fibre") mat.map = tintedMap(pbr);
+    if (pbr.texture === "fiber") mat.map = tintedMap(pbr);
   }
   return mat;
 }

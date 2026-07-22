@@ -99,7 +99,7 @@ const num = (v: unknown): number | null => {
 };
 
 // Built-in Helvetica is WinAnsi-only: ² ³ × Ø – are fine, but ⁴ ≤ ≥ ≈ − ⌀
-// render as garbage. Sanitise every free-text string that reaches the PDF.
+// render as garbage. Sanitize every free-text string that reaches the PDF.
 const pdfSafe = (s: string | null | undefined): string => {
   if (!s) return "";
   return s
@@ -134,7 +134,7 @@ function SectionSvg({ product, size }: { product: ProductRow; size: number }) {
   const h = maxY - minY;
   const pad = Math.max(w, h) * 0.08;
   const scale = size / (Math.max(w, h) + 2 * pad);
-  // map drawing coords (y-up) → pdf svg coords (y-down), centred in the box
+  // Map drawing coordinates (y-up) to PDF SVG coordinates (y-down), centered in the box.
   const tx = (x: number) => (x - (minX + maxX) / 2) * scale + size / 2;
   const ty = (y: number) => size / 2 - (y - (minY + maxY) / 2) * scale;
   const mapRing = (ring: readonly (readonly [number, number])[]) =>
@@ -301,12 +301,12 @@ function ProductPage({
               ))}
               {props.massPerMetre != null && (
                 <View style={styles.row}>
-                  <Text style={styles.cellLabel}>Mass per metre (calculated)</Text>
+                  <Text style={styles.cellLabel}>Mass per meter (calculated)</Text>
                   <Text style={styles.cellValue}>{sig(props.massPerMetre, 3)} kg/m</Text>
                 </View>
               )}
               <Text style={[styles.small, { marginTop: 4 }]}>
-                Derived exactly from the cross-section geometry. Published mass per metre is the
+                Derived exactly from the cross-section geometry. Published mass per meter is the
                 authoritative catalog value; the calculated figure is a geometric cross-check.
               </Text>
             </View>
@@ -407,7 +407,7 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
   const productIds = new Set<number>();
   const formulationNames = new Map<string, string>();
   for (const { product: p, formulation: f } of data.pages) {
-    const name = (p.category_id != null && data.categories.get(p.category_id)?.name) || "Uncategorised";
+    const name = (p.category_id != null && data.categories.get(p.category_id)?.name) || "Uncategorized";
     byCat.set(name, (byCat.get(name) ?? 0) + 1);
     productIds.add(p.id);
     if (f) formulationNames.set(f.code, f.name);

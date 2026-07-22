@@ -1,6 +1,6 @@
 // Parametric cross-section generators (ported from dimviz lib/profiles/shapes.ts,
-// minus the aluminium T-slot which is not an F1 product; plus a "custom" polygon
-// geometry kind for irregular pultrusions digitised from DXF drawings).
+// minus the aluminum T-slot, which is not an F1 product; plus a "custom" polygon
+// geometry kind for irregular pultrusions digitized from DXF drawings).
 //
 // A product's geometry is stored in the DB as JSONB in one of two forms:
 //   { kind: "parametric", shape: "i_beam", dims: { H, B, tf, tw } }

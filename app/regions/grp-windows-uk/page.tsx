@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "GRP Windows UK — Pultruded Fibreglass Frames Supplier";
+const pageTitle = "GRP Windows UK — Pultruded Fiberglass Frames Supplier";
 const pageDescription =
-  "Pultruded GRP (fibreglass) windows for UK projects — PHI Cert 2491wi03 (U_w 0.78), Part L-ready, Passivhaus pipeline. UK duty + 20% VAT quoted inline DDP.";
+  "Pultruded GRP (fiberglass) windows for UK projects. PHI Cert 2491wi03 (U_w 0.78), Part L and Passivhaus-ready, with itemized DDP quotes.";
 const pagePath = "/regions/grp-windows-uk";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What are GRP windows, and are they the same as fiberglass or FRP windows?",
     answer:
-      "Yes — GRP (glass reinforced plastic / glass reinforced polymer) is the standard British term for what North America calls fiberglass or FRP. A GRP window frame is a pultruded profile of continuous glass fibre in a thermoset resin matrix: thermal conductivity ≈ 0.3 W/m·K (aluminium is 160), an expansion coefficient close to glass, no steel reinforcement required, and no corrosion or repainting cycle. F1 Composite supplies the complete GRP window profile set — frame, sash, mullion, transom, glazing bead — in 65/70/80/90/140 mm frame depths, and supplies either the profiles or complete factory-glazed, leak-tested window units.",
+      "Yes. GRP (glass-reinforced plastic or glass-reinforced polymer) is the standard British term for what North America calls fiberglass or FRP. A GRP window frame is a pultruded profile made from continuous glass fiber in a thermoset resin matrix. It has thermal conductivity of approximately 0.3 W/m·K, compared with 160 for aluminum; an expansion coefficient close to that of glass; no need for steel reinforcement; and no corrosion or repainting cycle. F1 Composite supplies complete GRP window profile sets — including frames, sashes, mullions, transoms, and glazing beads — in 65, 70, 80, 90, and 140 mm frame depths. We supply either the profiles or complete factory-glazed, leak-tested window units.",
   },
   {
     question: "Do GRP windows meet Approved Document Part L and the Future Homes Standard?",
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "What about CE marking, UKCA, and import duties for GRP windows into the UK?",
     answer:
-      "Windows are construction products: EN 14351-1 type testing (air permeability, watertightness, wind resistance) backs the Declaration of Performance, and CE marking remains recognised for construction products in Great Britain while the UKCA regime evolves — we support the documentation per project. On the cost side, GRP is a glass-fibre composite classified under HS 3925.20 / 7019, so it sits outside the metal-focused trade-remedy landscape that affects aluminium extrusions, and outside the scope of the UK CBAM announced for 2027, which covers iron, steel, and aluminium. Standard UK customs duty and 20% import VAT apply and are itemized inline in our DDP quote.",
+      "Windows are construction products. EN 14351-1 type testing for air permeability, watertightness, and wind resistance supports the Declaration of Performance, and CE marking remains recognized for construction products in Great Britain while the UKCA regime evolves. We provide the required documentation for each project. GRP is a glass-fiber composite classified under HS 3925.20 or 7019, so it falls outside the metal-focused trade remedies that affect aluminum extrusions and outside the scope of the UK CBAM announced for 2027, which covers iron, steel, and aluminum. Standard UK customs duties and 20% import VAT still apply and are itemized in our DDP quote.",
   },
   {
     question: "What are lead times and shipping options to UK sites?",
@@ -50,7 +50,7 @@ const faqs = [
   {
     question: "Does F1 supply GRP profiles to UK window fabricators, or only finished windows?",
     answer:
-      "Both models. For Passivhaus and performance-led projects that want factory-guaranteed airtightness, we ship complete GRP window units — assembled, glazed, gasketed, and leak-tested, including tilt-and-turn configurations. For UK fabricators, we supply the pultruded profile set with co-extruded EPDM gasketing, corner kits, and fabrication drawings for local assembly. Finishes are architectural AAMA 2604/2605 powder coating in any RAL colour — including the anthracite and dark tones UK architects specify, which GRP holds without the warping risk dark uPVC carries on south-facing elevations.",
+      "We offer both models. For Passivhaus and other performance-driven projects that require factory-verified airtightness, we ship complete GRP window units that are assembled, glazed, gasketed, and leak-tested, including tilt-and-turn configurations. For UK fabricators, we supply pultruded profile sets with co-extruded EPDM gaskets, corner kits, and fabrication drawings for local assembly. Architectural AAMA 2604 or 2605 powder coatings are available in any RAL color, including the anthracite and dark tones UK architects specify. GRP holds these colors without the warping risk that dark uPVC faces on south-facing elevations.",
   },
 ];
 
@@ -75,7 +75,7 @@ export default function UkRegionPage() {
       <PageHeader
         tag="United Kingdom"
         title="GRP windows for UK projects"
-        description="Pultruded GRP (fibreglass) window frames and complete window units for UK Part L, Passivhaus, and EnerPHit work — PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K), no metallic thermal bridge, no steel stiffeners, quoted DDP with UK duty and VAT itemized."
+        description="Pultruded GRP (fiberglass) window frames and complete window units for UK Part L, Passivhaus, and EnerPHit projects — PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K), no metallic thermal bridge, no steel stiffeners, and DDP quotes that itemize UK duties and VAT."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/grp-windows-uk" },
@@ -88,7 +88,7 @@ export default function UkRegionPage() {
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/regions/grp-windows-uk.jpg"
-              alt="Modern facade with dark anthracite window frames in a repeating grid — the dark-colour aesthetic GRP frames hold without the warping risk of dark uPVC"
+              alt="Modern facade with dark anthracite window frames in a repeating grid — GRP frames hold the dark-color aesthetic without the warping risk of dark uPVC"
               width={1920}
               height={1280}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -113,17 +113,17 @@ export default function UkRegionPage() {
                 dwellings toward 1.2, with the Future Homes Standard tightening the
                 envelope further — while the UK Passivhaus pipeline, strongest in
                 social housing and education, specifies to the PHI component
-                criterion of 0.80. Aluminium reaches those numbers only with
+                criterion of 0.80. Aluminum reaches those numbers only with
                 elaborate thermal-break assemblies; uPVC gets there with steel
-                stiffeners that bridge heat and cap sash sizes — and its dark-colour
+                stiffeners that bridge heat and limit sash sizes — and its dark-color
                 options carry warping risk on south-facing elevations.
               </p>
               <p>
                 GRP — glass reinforced plastic, the British term for pultruded
-                fibreglass — solves the problem in the material. The whole frame
-                conducts heat at ≈ 0.3 W/m·K against aluminium&rsquo;s 160, needs no
+                fiberglass — solves the problem in the material. The whole frame
+                conducts heat at ≈ 0.3 W/m·K compared with aluminum&rsquo;s 160, needs no
                 steel reinforcement at any practical sash size, and holds anthracite
-                and other dark RAL colours without thermal distortion. F1&rsquo;s
+                and other dark RAL colors without thermal distortion. F1&rsquo;s
                 90-series is PHI-certified at U<sub>w</sub> 0.78 W/m²·K
                 (<strong>Component Certificate 2491wi03</strong>), with the same
                 system installed at Qinling Station, Antarctica.
@@ -132,10 +132,10 @@ export default function UkRegionPage() {
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
                 The import arithmetic also reads differently for GRP. It is a
-                glass-fibre composite (HS 3925.20 / 7019), outside the metal-focused
-                trade-remedy landscape around aluminium extrusions and outside the
+                glass-fiber composite (HS 3925.20 / 7019), outside the metal-focused
+                trade-remedy landscape around aluminum extrusions and outside the
                 scope of the UK CBAM announced for 2027, which covers iron, steel,
-                and aluminium. What applies — standard UK customs duty and 20%
+                and aluminum. Standard UK customs duties and 20%
                 import VAT — is itemized inline in our DDP quote, so the QS sees the
                 full landed cost before ordering.
               </p>
@@ -146,7 +146,7 @@ export default function UkRegionPage() {
                 profile set — frame, sash, mullion, transom, glazing bead with
                 co-extruded EPDM gasketing — supplied to UK fabricators for local
                 assembly. EN 14351-1 type testing backs the Declaration of
-                Performance, with CE recognised for construction products in Great
+                Performance, with CE recognized for construction products in Great
                 Britain and UKCA documentation supported as the regime evolves.
               </p>
             </div>
@@ -176,8 +176,8 @@ export default function UkRegionPage() {
                   { app: "New dwellings", std: "Part L notional — U_w 1.2", perf: "70/80-series clear with margin", doc: "EN ISO 10077 calculation" },
                   { app: "Passivhaus / EnerPHit", std: "PHI component — U_w ≤ 0.80", perf: "90-series: 0.78, Cert 2491wi03", doc: "PHI certificate" },
                   { app: "Type testing / DoP", std: "EN 14351-1 (air / water / wind)", perf: "Per-project type testing", doc: "Declaration of Performance" },
-                  { app: "Marking regime", std: "CE recognised · UKCA evolving", perf: "Documentation supported per project", doc: "CE / UKCA pack" },
-                  { app: "Trade-cost exposure", std: "UK CBAM (2027): iron, steel, aluminium", perf: "GRP composite outside scope", doc: "HS 3925.20 / 7019 classification" },
+                  { app: "Marking regime", std: "CE recognized · UKCA evolving", perf: "Documentation supported for each project", doc: "CE / UKCA package" },
+                  { app: "Trade-cost exposure", std: "UK CBAM (2027): iron, steel, aluminum", perf: "GRP composite outside scope", doc: "HS 3925.20 / 7019 classification" },
                   { app: "Architectural finish", std: "Any RAL, incl. anthracite", perf: "AAMA 2604/2605, 10-yr exposure", doc: "AAMA-listed coater report" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
@@ -197,24 +197,24 @@ export default function UkRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            China factory → UK site, duty and VAT pre-quoted
+            From our factory in China to your UK site, with duties and VAT itemized
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {[
               {
                 step: "1",
-                title: "RFQ → DDP UK quote in 24h",
-                body: "Send drawing or section sketch + target quantity + delivery region. F1 returns full DDP pricing (GBP or USD) with UK duty + 20% import VAT itemized, HS classification, and ETA to site.",
+                title: "RFQ → DDP UK quote within 24 hours",
+                body: "Send us a drawing or section sketch, the target quantity, and the delivery region. F1 will provide complete DDP pricing in GBP or USD, with UK duties and 20% import VAT itemized, plus the HS classification and estimated delivery date.",
               },
               {
                 step: "2",
-                title: "Production 4–6 weeks · cert pack",
-                body: "Pultruded on F1's own lines. PHI Component Certificate 2491wi03, EN ISO 10077 thermal calculations, AAMA-listed coater report, and EN 14351-1 type-testing documentation supplied with the shipment.",
+                title: "Production in 4–6 weeks · certification package",
+                body: "F1 manufactures the profiles on its own pultrusion lines. The shipment includes PHI Component Certificate 2491wi03, EN ISO 10077 thermal calculations, a report from an AAMA-listed coating applicator, and EN 14351-1 type-testing documentation.",
               },
               {
                 step: "3",
-                title: "Sea freight + DDP delivery",
-                body: "30–38 days to Felixstowe / Southampton / London Gateway. Total PO-to-site 10–14 weeks. Inland delivery to London, the Midlands, the North, and Scotland from the port of entry.",
+                title: "Ocean freight and DDP delivery",
+                body: "Ocean transit takes 30–38 days to Felixstowe, Southampton, or London Gateway. The total lead time from purchase order to site is 10–14 weeks. Inland delivery is available from the port of entry to London, the Midlands, the North, and Scotland.",
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
@@ -226,7 +226,7 @@ export default function UkRegionPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/fenestration-systems">Fibreglass windows &amp; doors (65–140)</LinkArrow>
+            <LinkArrow href="/products/fenestration-systems">Fiberglass windows &amp; doors (65–140)</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
             <LinkArrow href="/technology/u-value-calculator">Window U-value calculator</LinkArrow>
@@ -253,7 +253,7 @@ export default function UkRegionPage() {
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">GRP vs uPVC — stiffness &amp; U-value</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Why GRP frames need no steel reinforcement — larger sashes, dark colours without warping, no hidden thermal bridge.</p>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">Why GRP frames need no steel reinforcement: larger sashes, dark colors without warping, and no hidden thermal bridge.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
@@ -277,7 +277,7 @@ export default function UkRegionPage() {
         </div>
       </section>
 
-      <InnerCTA title="Need GRP windows quoted DDP to a UK site?" />
+      <InnerCTA title="Request a DDP quote for GRP windows delivered to a UK site" />
     </>
   );
 }

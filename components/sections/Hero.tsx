@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="relative z-10 max-w-[690px]">
           <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f11 font-bold uppercase tracking-[0.12em] text-white/75">
             <span className="h-[7px] w-[7px] rounded-full bg-teal" aria-hidden />
-            Factory direct · Engineering supported
+            Factory-direct · Engineering support
           </div>
 
           <h1 className="mt-[18px] text-[clamp(36px,9.8vw,68px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">

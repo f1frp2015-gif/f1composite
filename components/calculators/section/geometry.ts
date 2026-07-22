@@ -119,18 +119,18 @@ export function centroid(section: Section): { cx: number; cy: number } {
 // ── material looks for the 3D viewer ─────────────────────────────────────
 
 export interface MaterialPbr {
-  /** base colour (sRGB hex). */
+  /** Base color (sRGB hex). */
   color: string;
   metalness: number;
   roughness: number;
   /** procedural texture painted into the roughness map. */
-  texture: "brushed" | "fibre" | "none";
+  texture: "brushed" | "fiber" | "none";
   /** clearcoat layer (resin sheen), 0–1. */
   clearcoat?: number;
 }
 
 export const SECTION_LOOKS = {
-  frp: { color: "#878c94", metalness: 0.0, roughness: 0.55, texture: "fibre", clearcoat: 0.35 },
+  frp: { color: "#878c94", metalness: 0.0, roughness: 0.55, texture: "fiber", clearcoat: 0.35 },
   steel: { color: "#8f959f", metalness: 0.92, roughness: 0.42, texture: "none" },
   alu: { color: "#cdd1d6", metalness: 0.85, roughness: 0.38, texture: "brushed" },
 } as const satisfies Record<string, MaterialPbr>;
@@ -155,7 +155,7 @@ export interface AnnoLabel {
   align?: "l" | "r" | "c";
   /** vertical baseline */
   vAlign?: "t" | "m" | "b";
-  /** de-emphasised (axis tick letters) */
+  /** De-emphasized (axis tick letters). */
   faint?: boolean;
 }
 

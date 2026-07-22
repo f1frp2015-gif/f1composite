@@ -16,7 +16,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS";
 const pageDescription =
-  "Pultruded fiberglass square tubing (FRP SHS/RHS) 25×25–240×240 mm. EN 13706 / ASTM D3917, 75% lighter than steel, dielectric. Trusses, frames. DDP USA 24h.";
+  "Pultruded fiberglass square tubing, 25×25–240×240 mm. EN 13706 and ASTM D3917; 75% lighter than steel and electrically insulating. DDP USA quotes.";
 const pagePath = "/products/standard-profiles/square-tube";
 
 export const metadata: Metadata = buildPageMetadata({

@@ -118,7 +118,7 @@ function calcUw(
 }
 
 /* ══════════════════════════════════════════════════════
-   Calculation model — visualises the EN ISO 10077-1 logic:
+   Calculation model — visualizes the EN ISO 10077-1 logic:
    a scaled window diagram (Ag / Af / lg), the three heat-loss
    channels, and the formula assembled with the live numbers.
    ══════════════════════════════════════════════════════ */
@@ -772,7 +772,7 @@ export default function UValueCalculator() {
           )}
         </div>
 
-        {/* ── Calculation model — visualises the EN ISO 10077-1 logic ── */}
+        {/* ── Calculation model — visualizes the EN ISO 10077-1 logic ── */}
         {result && (
           <CalculationModel
             result={result}

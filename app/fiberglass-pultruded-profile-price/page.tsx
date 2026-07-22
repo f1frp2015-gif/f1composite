@@ -422,7 +422,7 @@ export default function ProfilePricePage() {
 
       <AskAICard prefill="I need budgetary pricing for a pultruded FRP profile: shape [I-beam/channel/tube], dimensions [mm], resin [polyester/VE/PU], quantity [meters], destination [port/country]. What drives the price here and what would you quote indicatively?" />
 
-      <InnerCTA title="Ready for a firm number? Send the drawing — quote in 24h." />
+      <InnerCTA title="Ready for firm pricing? Send us your drawing for a quote within 24 hours." />
     </>
   );
 }

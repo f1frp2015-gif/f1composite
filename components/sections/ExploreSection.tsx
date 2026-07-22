@@ -55,7 +55,7 @@ const cards: ExploreCard[] = [
     eyebrow: "AI Passive House",
     title: "AI Passive House Window Selector",
     description:
-      "Climate class + target U-value + window type → AI matches you to the right F1 FRP series (PHI Component-ID 2491wi03, phA arctic).",
+      "Enter the climate class, target U-value, and window type, and the AI will match your project to the right F1 FRP series (PHI Component ID 2491wi03, phA Arctic).",
     href: "/ai/passive-house",
   },
 ];

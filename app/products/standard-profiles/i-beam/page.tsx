@@ -438,9 +438,9 @@ export default async function IBeamPage() {
               <h3 className="text-f17 font-bold text-teal-text">Specify FRP when</h3>
               <ul className="mt-[13px] space-y-[10px] text-f15 leading-golden text-t2">
                 <li>Coastal, chemical, wastewater, or de-icing-salt exposure where steel needs recoating cycles.</li>
-                <li>Electrical non-conductivity or non-magnetic behaviour is required (substations, rail, MRI rooms).</li>
+                <li>Electrical insulation or nonmagnetic performance is required (substations, rail systems, and MRI rooms).</li>
                 <li>Manual handling matters — crews lift FRP sections without cranes or hot-work permits.</li>
-                <li>A 25–50+ year maintenance-free design life changes the lifecycle cost in FRP&rsquo;s favour.</li>
+                <li>A maintenance-free design life of 25–50+ years makes FRP more competitive on lifecycle cost.</li>
               </ul>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">

@@ -80,7 +80,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         rows={5}
-        placeholder="e.g. I need FRP structural beams and gratings for a coastal walkway in Saudi Arabia. 300m long, pedestrian load, salt/chlorine splash, 25-year design life. Want lightweight + zero maintenance. What do you recommend?"
+        placeholder="For example: I need FRP structural beams and grating for a 300 m coastal walkway in Saudi Arabia. It will carry pedestrian loads and face salt and chlorine splash. We need a lightweight system with a 25-year design life and minimal maintenance. What do you recommend?"
         className="mt-[8px] w-full rounded-[8px] border border-border-default bg-white px-[16px] py-[13px] text-f15 leading-golden text-t1 outline-none focus:border-teal"
       />
 
@@ -273,7 +273,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             <section className="rounded-[12px] border-2 border-teal-border bg-teal-bg p-[24px]">
               <h3 className="text-f17 font-bold text-t1">Ready for a formal quote?</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
-                Your project description + this AI recommendation will be pre-filled in the contact form. Doris on the F1 sales team will reply within 24h with a DDP USA quote (Section 301 pre-quoted inline).
+                Your project description and this AI recommendation will be added to the contact form automatically. Doris on the F1 sales team will respond within 24 hours with a DDP USA quote that itemizes the Section 301 tariff.
               </p>
               <Link
                 href={buildContactPrefillHref(value, object)}

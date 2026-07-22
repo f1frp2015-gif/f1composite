@@ -39,7 +39,7 @@ const exits = [
   {
     href: "/contact",
     title: "Contact F1 Composite",
-    description: "RFQ in one business day. Doris Li, Sales — direct factory team.",
+    description: "Receive an RFQ response within one business day from Doris Li on our factory sales team.",
   },
 ];
 
