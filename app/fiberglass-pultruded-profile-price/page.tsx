@@ -51,6 +51,13 @@ function fmt(n: number): string {
 }
 
 export default function ProfilePricePage() {
+  const quoteHref = `/contact?${new URLSearchParams({
+    source: "price-page-header",
+    inquiry_type: "rfq",
+    message:
+      "I need a firm quotation for pultruded FRP profiles. Shape/drawing: [...]. Resin or performance requirement: [...]. Quantity: [...]. Destination and delivery term: [...].",
+  }).toString()}`;
+
   // Precompute the full table + summary ranges at render time.
   const table = TABLE_ROWS.map((row) => ({
     ...row,
@@ -131,6 +138,12 @@ export default function ProfilePricePage() {
           { label: "Home", href: "/" },
           { label: "Fiberglass Pultruded Profile Price" },
         ]}
+        actions={{
+          primary: { label: "Estimate Price", href: "#price-estimator" },
+          secondary: { label: "Request Firm Quote", href: quoteHref, variant: "secondary" },
+          note: "Use the estimator for a budget range; send the drawing, quantity, resin, and destination for a firm number.",
+          stickyMobile: true,
+        }}
       />
 
       <ArticleSignals
@@ -163,7 +176,7 @@ export default function ProfilePricePage() {
       </section>
 
       {/* Estimator */}
-      <section className="bg-white pb-[55px]">
+      <section id="price-estimator" className="scroll-mt-[88px] bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Live Estimator</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">

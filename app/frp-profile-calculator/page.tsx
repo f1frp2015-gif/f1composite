@@ -67,6 +67,13 @@ const calculatorFaqs = [
 ];
 
 export default function CalculatorPage() {
+  const quoteHref = `/contact?${new URLSearchParams({
+    source: "profile-calculator-header",
+    inquiry_type: "rfq",
+    message:
+      "I need an FRP structural profile quotation. Shape and target dimensions: [...]. Span/load case: [...]. Service environment and required standard: [...]. Quantity and destination: [...].",
+  }).toString()}`;
+
   return (
     <>
       <JsonLd
@@ -149,6 +156,12 @@ export default function CalculatorPage() {
           { label: "Technology", href: "/technology" },
           { label: "FRP Profile Calculator" },
         ]}
+        actions={{
+          primary: { label: "Start Calculator", href: "#profile-calculator" },
+          secondary: { label: "Send Profile RFQ", href: quoteHref, variant: "secondary" },
+          note: "Run the section check, then carry the shape, load case, environment, and destination into the RFQ.",
+          stickyMobile: true,
+        }}
       />
       <ArticleSignals
         publishedAt={publishedAt}
@@ -166,7 +179,9 @@ export default function CalculatorPage() {
         </div>
       </section>
 
-      <ProfileCalculator />
+      <div id="profile-calculator" className="scroll-mt-[88px]">
+        <ProfileCalculator />
+      </div>
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

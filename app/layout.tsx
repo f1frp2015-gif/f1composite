@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
@@ -75,9 +76,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={dmSans.variable}>
       <body className="min-h-screen font-sans antialiased">
-        {/* Preconnect to the analytics origin so the first GA hit doesn't pay an
-            extra DNS+TLS round trip. React 19 hoists this <link> into <head>. */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Skip-to-content link (WCAG 2.4.1) — visually hidden until focused. */}
         <a
           href="#main"
@@ -99,12 +97,13 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
-        {/* Ahrefs Web Analytics — async, so React 19 hoists it into <head>
-            (the placement Ahrefs' installation guide asks for). */}
-        <script
+        {/* Ahrefs is secondary analytics. Load it during browser idle time so it
+            cannot compete with the page's LCP image or primary content. */}
+        <Script
+          id="ahrefs-web-analytics"
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="CFDhVpS55aoWtGuYtrx1Cw"
-          async
+          strategy="lazyOnload"
         />
       </body>
     </html>

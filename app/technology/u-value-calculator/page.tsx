@@ -53,6 +53,13 @@ const uValueFaqs = [
 ];
 
 export default function UValueCalculatorPage() {
+  const quoteHref = `/contact?${new URLSearchParams({
+    source: "u-value-header",
+    inquiry_type: "rfq",
+    message:
+      "I need an FRP window or profile quotation. Project country/climate: [...]. Window type and opening size: [...]. Target whole-window U-value: [...] W/m²·K. Supply model: [finished units / profiles for local fabrication].",
+  }).toString()}`;
+
   return (
     <>
       <JsonLd
@@ -133,6 +140,12 @@ export default function UValueCalculatorPage() {
           { label: "Technology", href: "/technology" },
           { label: "U-Value Calculator" },
         ]}
+        actions={{
+          primary: { label: "Start Calculator", href: "#u-value-calculator" },
+          secondary: { label: "Quote FRP Windows", href: quoteHref, variant: "secondary" },
+          note: "Calculate first, then send the U-value result with the project dimensions and climate target.",
+          stickyMobile: true,
+        }}
       />
       <ArticleSignals
         publishedAt={publishedAt}
@@ -144,7 +157,9 @@ export default function UValueCalculatorPage() {
         standards={["EN ISO 10077-1", "PHI Passive House U_w ≤ 0.80"]}
       />
 
-      <UValueCalculator />
+      <div id="u-value-calculator" className="scroll-mt-[88px]">
+        <UValueCalculator />
+      </div>
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

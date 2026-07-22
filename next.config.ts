@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 // Content-Security-Policy. Allowlist is the full set of origins the site loads:
 //   - 'self'                       app pages, /api/* (incl. AI streaming), images, self-hosted next/font
 //   - googletagmanager / *-analytics / doubleclick   Google Analytics 4 (gtag)
+//   - analytics.ahrefs.com         Ahrefs Web Analytics loader + beacon
 //   - vitals.vercel-insights.com   Vercel Speed Insights beacon
 // script-src/style-src keep 'unsafe-inline' because Next injects inline bootstrap
 // scripts and the GA component an inline gtag-config block; removing it requires a
@@ -14,15 +15,19 @@ const CONTENT_SECURITY_POLICY = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net",
   "font-src 'self'",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://vitals.vercel-insights.com",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://analytics.ahrefs.com https://vitals.vercel-insights.com",
   "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
   "manifest-src 'self'",
-  "upgrade-insecure-requests",
-].join("; ");
+  // Keep local HTTP previews usable while preserving automatic upgrades on the
+  // production HTTPS deployment.
+  process.env.NODE_ENV === "production" ? "upgrade-insecure-requests" : "",
+]
+  .filter(Boolean)
+  .join("; ");
 
 const nextConfig: NextConfig = {
   compress: true,

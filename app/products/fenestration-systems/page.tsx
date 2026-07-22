@@ -375,6 +375,13 @@ const faqItems = [
 ];
 
 export default function FenestrationSystemsPage() {
+  const quoteHref = `/contact?${new URLSearchParams({
+    source: "fenestration-header",
+    inquiry_type: "rfq",
+    message:
+      "I need an FRP window or profile quotation. Project country/climate: [...]. Product form: [finished units / profiles for local fabrication]. Window types and opening schedule: [...]. Target whole-window U-value and required standard: [...]. Quantity and destination: [...].",
+  }).toString()}`;
+
   return (
     <>
       <JsonLd
@@ -417,6 +424,16 @@ export default function FenestrationSystemsPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Windows & Doors" },
         ]}
+        actions={{
+          primary: { label: "Request Window Quote", href: quoteHref },
+          secondary: {
+            label: "Calculate U-Value",
+            href: "/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+            variant: "secondary",
+          },
+          note: "Finished units or fabrication-ready profiles · 65–140 series · engineering response within one business day.",
+          stickyMobile: true,
+        }}
       />
 
       <JumpNav
@@ -431,6 +448,68 @@ export default function FenestrationSystemsPage() {
           { href: "#faq", label: "FAQ" },
         ]}
       />
+
+      <section aria-labelledby="fenestration-fast-path" className="border-b border-border-default bg-bg2 py-[30px] md:py-[36px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <div className="flex flex-col gap-[8px] md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-f11 font-bold uppercase tracking-[0.14em] text-teal-text">Specification fast path</p>
+              <h2 id="fenestration-fast-path" className="mt-[5px] text-f24 font-bold tracking-[-0.02em] text-t1">
+                Move from performance target to a qualified window RFQ
+              </h2>
+            </div>
+            <p className="max-w-[470px] text-f13 leading-relaxed text-t2">
+              Choose the supply route, verify whole-window performance, review comparable project evidence, then send the opening schedule.
+            </p>
+          </div>
+
+          <nav aria-label="FRP window specification path" className="mt-[20px] grid gap-[10px] sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                step: "01",
+                title: "Choose what ships",
+                detail: "Finished glazed units or fabrication-ready profile lineals.",
+                href: "#supply",
+                action: "Compare supply models",
+              },
+              {
+                step: "02",
+                title: "Check the U-value",
+                detail: "Calculate U_w against Passive House, NFRC, CSA, and local targets.",
+                href: "/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+                action: "Run the calculator",
+              },
+              {
+                step: "03",
+                title: "Verify project evidence",
+                detail: "Review the −60°C Antarctic installation and certified frame system.",
+                href: "/case-studies/qinling-station-antarctic-passive-windows",
+                action: "Open the case study",
+              },
+              {
+                step: "04",
+                title: "Send the opening schedule",
+                detail: "Include climate, window types, target U_w, quantity, and destination.",
+                href: quoteHref,
+                action: "Request a window quote",
+              },
+            ].map((item) => (
+              <Link
+                key={item.step}
+                href={item.href}
+                className="group rounded-[9px] border border-border-default bg-white p-[16px] transition-all hover:border-teal-border hover:shadow-[0_10px_24px_rgba(11,24,56,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              >
+                <span className="text-f11 font-bold text-teal-text">{item.step}</span>
+                <span className="mt-[5px] block text-f15 font-bold text-t1">{item.title}</span>
+                <span className="mt-[4px] block text-f12 leading-relaxed text-t2">{item.detail}</span>
+                <span className="mt-[10px] inline-flex text-f12 font-bold text-teal-text transition-transform group-hover:translate-x-[2px]">
+                  {item.action} <span aria-hidden className="ml-[4px]">→</span>
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </section>
 
       {/* Window & Door Frame Images */}
       <section className="bg-white pt-[55px]">
