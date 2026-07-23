@@ -1,9 +1,9 @@
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 
 // Lazy, build-safe DB access.
 //
-// IMPORTANT: never call neon() at module top level — it throws when DATABASE_URL
-// is unset, which would crash `next build` before the Vercel → Neon integration
+// IMPORTANT: never call postgres() at module top level — it throws when DATABASE_URL
+// is unset, which would crash `next build` before the Vercel → self-hosted PostgreSQL integration
 // is provisioned. We also deliberately avoid a Proxy wrapper (it breaks driver
 // introspection). getSql() returns null when no connection string is present, so
 // every caller can fall back gracefully (the contact form stays email-only until
@@ -11,7 +11,7 @@ import { neon } from "@neondatabase/serverless";
 function getSql() {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!url) return null;
-  return neon(url);
+  return postgres(url) as any;
 }
 
 export function dbConfigured(): boolean {
@@ -129,7 +129,7 @@ export async function listInquiries(opts: {
     ORDER BY id ASC
     LIMIT ${limit}
   `;
-  return rows as InquiryRow[];
+  return rows as unknown as InquiryRow[];
 }
 
 // ---------------------------------------------------------------------------

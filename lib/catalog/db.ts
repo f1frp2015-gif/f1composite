@@ -10,13 +10,13 @@
 //  - formulation mechanical values are REAL tested data; NULL means "not yet
 //    verified" and renders as "— (verify before release)" on datasheets.
 
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 import type { Geometry } from "./shapes";
 
 function getSql() {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!url) return null;
-  return neon(url);
+  return postgres(url) as any;
 }
 
 export function catalogDbConfigured(): boolean {
@@ -203,14 +203,14 @@ export async function listCategories(): Promise<CategoryRow[]> {
   const sql = getSql();
   if (!sql) return [];
   await ensureCatalogTables(sql);
-  return (await sql`SELECT * FROM catalog_categories ORDER BY sort, id`) as CategoryRow[];
+  return (await sql`SELECT * FROM catalog_categories ORDER BY sort, id`) as unknown as CategoryRow[];
 }
 
 export async function listFormulations(): Promise<FormulationRow[]> {
   const sql = getSql();
   if (!sql) return [];
   await ensureCatalogTables(sql);
-  return (await sql`SELECT * FROM catalog_formulations ORDER BY id`) as FormulationRow[];
+  return (await sql`SELECT * FROM catalog_formulations ORDER BY id`) as unknown as FormulationRow[];
 }
 
 export async function listProducts(opts: { activeOnly?: boolean } = {}): Promise<ProductRow[]> {
@@ -220,7 +220,7 @@ export async function listProducts(opts: { activeOnly?: boolean } = {}): Promise
   const rows = opts.activeOnly
     ? await sql`SELECT * FROM catalog_products WHERE status = 'active' ORDER BY category_id, sort, id`
     : await sql`SELECT * FROM catalog_products ORDER BY category_id, sort, id`;
-  return rows as ProductRow[];
+  return rows as unknown as ProductRow[];
 }
 
 export async function getProductsByIds(ids: number[]): Promise<ProductRow[]> {
@@ -232,7 +232,7 @@ export async function getProductsByIds(ids: number[]): Promise<ProductRow[]> {
     WHERE id = ANY(${ids}) AND status = 'active'
     ORDER BY category_id, sort, id
   `;
-  return rows as ProductRow[];
+  return rows as unknown as ProductRow[];
 }
 
 export async function listDownloads(opts: { publishedOnly?: boolean } = {}): Promise<DownloadRow[]> {
@@ -242,7 +242,7 @@ export async function listDownloads(opts: { publishedOnly?: boolean } = {}): Pro
   const rows = opts.publishedOnly
     ? await sql`SELECT * FROM catalog_downloads WHERE published ORDER BY sort, id`
     : await sql`SELECT * FROM catalog_downloads ORDER BY sort, id`;
-  return rows as DownloadRow[];
+  return rows as unknown as DownloadRow[];
 }
 
 // ── generic admin CRUD ──────────────────────────────────────────────────────
@@ -306,9 +306,9 @@ export async function adminInsert(
     .map((c, i) => (JSONB_COLUMNS.has(c) ? `$${i + 1}::jsonb` : `$${i + 1}`))
     .join(", ");
   try {
-    const rows = (await sql.query(
+    const rows = (await sql.unsafe(
       `INSERT INTO ${table} (${colSql}) VALUES (${placeholders}) RETURNING id`,
-      vals,
+      vals as any[],
     )) as { id: number }[];
     return { ok: true, id: rows[0].id };
   } catch (e) {
@@ -332,9 +332,9 @@ export async function adminUpdate(
     .concat(hasUpdatedAt ? ["updated_at = now()"] : [])
     .join(", ");
   try {
-    const rows = (await sql.query(
+    const rows = (await sql.unsafe(
       `UPDATE ${table} SET ${sets} WHERE id = $${cols.length + 1} RETURNING id`,
-      [...vals, id],
+      [...vals, id] as any[],
     )) as { id: number }[];
     return rows.length ? { ok: true } : { ok: false, error: "row not found" };
   } catch (e) {
@@ -350,7 +350,7 @@ export async function adminDelete(
   if (!sql) return { ok: false, error: "DB not configured" };
   await ensureCatalogTables(sql);
   try {
-    const rows = (await sql.query(`DELETE FROM ${table} WHERE id = $1 RETURNING id`, [id])) as {
+    const rows = (await sql.unsafe(`DELETE FROM ${table} WHERE id = $1 RETURNING id`, [id] as any[])) as {
       id: number;
     }[];
     return rows.length ? { ok: true } : { ok: false, error: "row not found" };
@@ -364,7 +364,7 @@ export async function adminList(table: CatalogTable): Promise<Record<string, unk
   if (!sql) return [];
   await ensureCatalogTables(sql);
   const order = table === "catalog_products" || table === "catalog_downloads" ? "sort, id" : "id";
-  return (await sql.query(`SELECT * FROM ${table} ORDER BY ${order}`, [])) as Record<
+  return (await sql.unsafe(`SELECT * FROM ${table} ORDER BY ${order}`, [] as any[])) as Record<
     string,
     unknown
   >[];

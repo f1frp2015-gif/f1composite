@@ -1,8 +1,8 @@
 // Local runner for the shared catalog seed (lib/catalog/seed.ts).
 //
-// NOTE: the Neon integration's env vars on Vercel are SENSITIVE — `vercel env
+// NOTE: the self-hosted PostgreSQL integration's env vars on Vercel are SENSITIVE — `vercel env
 // pull` writes them as empty strings, so this local runner only works with an
-// explicitly provided DATABASE_URL (e.g. copied from the Neon console). For
+// explicitly provided DATABASE_URL (e.g. copied from the self-hosted PostgreSQL console). For
 // production the practical path is POST /api/admin/seed (admin login required),
 // which runs the same seed on Vercel where the env vars exist.
 //
@@ -10,7 +10,7 @@
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 import { runCatalogSeed } from "../lib/catalog/seed";
 
 function loadDatabaseUrl(): string {
@@ -25,13 +25,13 @@ function loadDatabaseUrl(): string {
     }
   }
   throw new Error(
-    "DATABASE_URL not set. Vercel marks the Neon vars sensitive (pull returns them empty) — " +
-      "either export DATABASE_URL from the Neon console, or use POST /api/admin/seed in production.",
+    "DATABASE_URL not set. Vercel marks the self-hosted PostgreSQL vars sensitive (pull returns them empty) — " +
+      "either export DATABASE_URL from the self-hosted PostgreSQL console, or use POST /api/admin/seed in production.",
   );
 }
 
 async function main() {
-  const result = await runCatalogSeed(neon(loadDatabaseUrl()));
+  const result = await runCatalogSeed(postgres(loadDatabaseUrl()));
   console.log(
     `seed complete: ${result.categories} categories, formulation id ${result.formulationId}, ` +
       `${result.products} products, ${result.downloads} downloads`,
