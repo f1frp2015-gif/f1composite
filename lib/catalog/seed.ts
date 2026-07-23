@@ -4,16 +4,16 @@
 //
 // Callable from two places:
 //  - scripts/seed-catalog.ts  (local, needs a plain-text DATABASE_URL)
-//  - POST /api/admin/seed     (on Vercel, where the Neon integration's
+//  - POST /api/admin/seed     (on Vercel, where the self-hosted PostgreSQL integration's
 //    sensitive env vars exist — `vercel env pull` returns them EMPTY locally,
 //    which is why the API path is the practical one for production)
 
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 // Shared with /resources/technical-data via lib/catalog/en13706.ts — the one
 // source for the EN 13706 grade minimums; do not redefine them here.
 import { E23_MIN, E17_MIN, TYP_NOTE } from "./en13706";
 
-type Sql = ReturnType<typeof neon>;
+type Sql = any;
 
 const categories = [
   { slug: "i-beam", name: "I-Beams / Wide Flange", description: "Pultruded FRP I-beam and wide-flange structural profiles.", sort: 1 },
@@ -369,7 +369,7 @@ export interface SeedResult {
   downloads: number;
 }
 
-/** Run the full idempotent seed against the given Neon connection. */
+/** Run the full idempotent seed against the given self-hosted PostgreSQL connection. */
 export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
   // tables (same DDL as lib/catalog/db.ts ensureCatalogTables)
   await sql`CREATE TABLE IF NOT EXISTS catalog_categories (

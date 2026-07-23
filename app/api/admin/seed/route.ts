@@ -1,9 +1,9 @@
 // POST /api/admin/seed — run the idempotent catalog seed on Vercel, where the
-// Neon integration's sensitive env vars are available (they cannot be pulled
+// self-hosted PostgreSQL integration's sensitive env vars are available (they cannot be pulled
 // to a local machine). Admin session required.
 
 import { NextResponse } from "next/server";
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 import { isAdminRequest } from "@/lib/admin/auth";
 import { runCatalogSeed } from "@/lib/catalog/seed";
 
@@ -19,7 +19,7 @@ export async function POST() {
     return NextResponse.json({ ok: false, error: "DB not configured" }, { status: 503 });
   }
   try {
-    const result = await runCatalogSeed(neon(url));
+    const result = await runCatalogSeed(postgres(url));
     return NextResponse.json({ ok: true, ...result });
   } catch (e) {
     console.error("[seed] failed:", e);
