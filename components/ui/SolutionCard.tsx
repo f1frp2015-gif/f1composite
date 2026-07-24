@@ -9,9 +9,19 @@ interface SolutionCardProps {
   image?: string;
   imageAlt?: string;
   imageScale?: number;
+  imageFit?: "cover" | "contain";
 }
 
-export default function SolutionCard({ title, description, href, icon, image, imageAlt, imageScale }: SolutionCardProps) {
+export default function SolutionCard({
+  title,
+  description,
+  href,
+  icon,
+  image,
+  imageAlt,
+  imageScale,
+  imageFit = "cover",
+}: SolutionCardProps) {
   if (image) {
     const scale = imageScale ?? 1;
     return (
@@ -26,8 +36,12 @@ export default function SolutionCard({ title, description, href, icon, image, im
             alt={imageAlt ?? title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-[0.55s] scale-[var(--img-scale)] group-hover:scale-[calc(var(--img-scale)*1.05)]"
-            style={{ ["--img-scale" as string]: scale }}
+            className={
+              imageFit === "contain"
+                ? "object-contain"
+                : "object-cover transition-transform duration-[0.55s] scale-[var(--img-scale)] group-hover:scale-[calc(var(--img-scale)*1.05)]"
+            }
+            style={imageFit === "cover" ? { ["--img-scale" as string]: scale } : undefined}
           />
         </div>
         <div className="p-[21px]">

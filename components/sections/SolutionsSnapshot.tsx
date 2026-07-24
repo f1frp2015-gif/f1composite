@@ -39,6 +39,7 @@ export default function SolutionsSnapshot() {
               image={product.image}
               imageAlt={product.imageAlt ?? `${product.title} manufactured by F1 Composite`}
               imageScale={product.imageScale}
+              imageFit={product.imageFit}
             />
           ))}
         </div>

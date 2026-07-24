@@ -7,6 +7,7 @@ export interface ProductCategory {
   image?: string;
   imageAlt?: string;
   imageScale?: number;
+  imageFit?: "cover" | "contain";
 }
 
 export const productCategories: ProductCategory[] = [
@@ -51,5 +52,6 @@ export const productCategories: ProductCategory[] = [
     icon: "fenestration",
     href: "/products/fenestration-systems",
     image: "/images/products/fenestration-systems-cover.webp",
+    imageFit: "contain",
   },
 ];
