@@ -30,7 +30,11 @@ export default function SolutionCard({
         className="group relative block overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
       >
         <div className="card-topbar absolute inset-x-0 top-0 z-[1] rounded-t-[8px]" />
-        <div className="relative aspect-[4/3] overflow-hidden bg-bg2">
+        <div
+          className={`relative aspect-[4/3] overflow-hidden ${
+            imageFit === "contain" ? "bg-white" : "bg-bg2"
+          }`}
+        >
           <Image
             src={image}
             alt={imageAlt ?? title}
