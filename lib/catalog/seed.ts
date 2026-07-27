@@ -13,7 +13,7 @@ import postgres from "postgres";
 // source for the EN 13706 grade minimums; do not redefine them here.
 import { E23_MIN, E17_MIN, TYP_NOTE } from "./en13706";
 
-type Sql = any;
+type Sql = ReturnType<typeof postgres>;
 
 const categories = [
   { slug: "i-beam", name: "I-Beams / Wide Flange", description: "Pultruded FRP I-beam and wide-flange structural profiles.", sort: 1 },
@@ -449,11 +449,15 @@ export async function runCatalogSeed(sql: Sql): Promise<SeedResult> {
   let sort = 0;
   for (const p of P) {
     sort += 1;
+    const categoryId = catId.get(p.cat);
+    if (categoryId == null) {
+      throw new Error(`Missing seeded category: ${p.cat}`);
+    }
     await sql`
       INSERT INTO catalog_products
         (model, category_id, formulation_id, geometry, weight_per_m, standards, status, sort)
       VALUES
-        (${p.model}, ${catId.get(p.cat)}, ${formulationId}, ${JSON.stringify(p.geometry)}::jsonb,
+        (${p.model}, ${categoryId}, ${formulationId}, ${JSON.stringify(p.geometry)}::jsonb,
          ${p.weight}, ${STANDARDS}, 'active', ${sort})
       ON CONFLICT (model) DO UPDATE SET
         category_id = EXCLUDED.category_id, formulation_id = EXCLUDED.formulation_id,
