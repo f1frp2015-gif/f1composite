@@ -16,7 +16,7 @@ import type { Geometry } from "./shapes";
 function getSql() {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!url) return null;
-  return postgres(url) as any;
+  return postgres(url);
 }
 
 export function catalogDbConfigured(): boolean {
@@ -280,14 +280,14 @@ const JSONB_COLUMNS = new Set(["geometry"]);
 function pickColumns(table: CatalogTable, values: Record<string, unknown>) {
   const allowed = TABLE_COLUMNS[table];
   const cols: string[] = [];
-  const vals: unknown[] = [];
+  const vals: postgres.SerializableParameter[] = [];
   for (const key of allowed) {
     if (!(key in values)) continue;
     let v = values[key];
     if (v === "" || v === undefined) v = null;
     if (JSONB_COLUMNS.has(key) && v != null) v = JSON.stringify(v);
     cols.push(key);
-    vals.push(v);
+    vals.push(v as postgres.SerializableParameter);
   }
   return { cols, vals };
 }
@@ -306,10 +306,10 @@ export async function adminInsert(
     .map((c, i) => (JSONB_COLUMNS.has(c) ? `$${i + 1}::jsonb` : `$${i + 1}`))
     .join(", ");
   try {
-    const rows = (await sql.unsafe(
+    const rows = await sql.unsafe<{ id: number }[]>(
       `INSERT INTO ${table} (${colSql}) VALUES (${placeholders}) RETURNING id`,
-      vals as any[],
-    )) as { id: number }[];
+      vals,
+    );
     return { ok: true, id: rows[0].id };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
@@ -332,10 +332,10 @@ export async function adminUpdate(
     .concat(hasUpdatedAt ? ["updated_at = now()"] : [])
     .join(", ");
   try {
-    const rows = (await sql.unsafe(
+    const rows = await sql.unsafe<{ id: number }[]>(
       `UPDATE ${table} SET ${sets} WHERE id = $${cols.length + 1} RETURNING id`,
-      [...vals, id] as any[],
-    )) as { id: number }[];
+      [...vals, id],
+    );
     return rows.length ? { ok: true } : { ok: false, error: "row not found" };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
@@ -350,9 +350,10 @@ export async function adminDelete(
   if (!sql) return { ok: false, error: "DB not configured" };
   await ensureCatalogTables(sql);
   try {
-    const rows = (await sql.unsafe(`DELETE FROM ${table} WHERE id = $1 RETURNING id`, [id] as any[])) as {
-      id: number;
-    }[];
+    const rows = await sql.unsafe<{ id: number }[]>(
+      `DELETE FROM ${table} WHERE id = $1 RETURNING id`,
+      [id],
+    );
     return rows.length ? { ok: true } : { ok: false, error: "row not found" };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
@@ -364,8 +365,5 @@ export async function adminList(table: CatalogTable): Promise<Record<string, unk
   if (!sql) return [];
   await ensureCatalogTables(sql);
   const order = table === "catalog_products" || table === "catalog_downloads" ? "sort, id" : "id";
-  return (await sql.unsafe(`SELECT * FROM ${table} ORDER BY ${order}`, [] as any[])) as Record<
-    string,
-    unknown
-  >[];
+  return sql.unsafe<Record<string, unknown>[]>(`SELECT * FROM ${table} ORDER BY ${order}`, []);
 }

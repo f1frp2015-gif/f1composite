@@ -11,7 +11,7 @@ import postgres from "postgres";
 function getSql() {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!url) return null;
-  return postgres(url) as any;
+  return postgres(url);
 }
 
 export function dbConfigured(): boolean {
