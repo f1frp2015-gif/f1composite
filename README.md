@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+The server-side AI routes require an OpenAI Platform API key. Put these values in
+`.env.local` for local development and configure the same secret in Vercel for
+Preview and Production:
+
+```bash
+OPENAI_API_KEY=your_project_api_key
+# Optional global model override; role-aware GPT-5.6 defaults are used otherwise.
+OPENAI_MODEL=gpt-5.6-terra
+# Optional for an OpenAI-compatible proxy. The official API is used when omitted.
+OPENAI_BASE_URL=https://api.openai.com/v1
+```
+
+Do not prefix the key with `NEXT_PUBLIC_`; it must remain server-only.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

@@ -1,9 +1,13 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
-import { google } from "@ai-sdk/google";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
+import {
+  getOpenAIModel,
+  logOpenAIStreamError,
+  OPENAI_UNAVAILABLE_MESSAGE,
+} from "@/lib/openai";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -348,7 +352,7 @@ function partsToText(m: UIMessage): string {
 const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
 
 export async function POST(req: Request) {
-  // Throttle: each visitor message is one Gemini call. A real conversation is a
+  // Throttle: each visitor message is one OpenAI call. A real conversation is a
   // few dozen turns at most; this caps per-IP LLM cost-abuse and chat-lead
   // email bombing while staying invisible to genuine users.
   const rl = rateLimit(req, "chat", { limit: 40, windowMs: 300_000 });
@@ -454,13 +458,19 @@ export async function POST(req: Request) {
       : "";
 
     const result = streamText({
-      model: google("gemini-2.5-flash"),
+      model: getOpenAIModel("chat"),
       system: SYSTEM_PROMPT + pageContextBlock,
       messages: await convertToModelMessages(messages),
       maxOutputTokens: 8192,
+      providerOptions: {
+        openai: { reasoningEffort: "low" },
+      },
+      onError: ({ error }) => logOpenAIStreamError("chat", error),
     });
 
-    return result.toUIMessageStreamResponse();
+    return result.toUIMessageStreamResponse({
+      onError: () => OPENAI_UNAVAILABLE_MESSAGE,
+    });
   } catch (err) {
     console.error(
       JSON.stringify({
@@ -471,8 +481,7 @@ export async function POST(req: Request) {
     );
     return Response.json(
       {
-        error:
-          "AI assistant temporarily unavailable. Please retry, or reach inquiry@f1composite.com / +86 138 8333 8993 for an immediate response.",
+        error: OPENAI_UNAVAILABLE_MESSAGE,
       },
       { status: 503 },
     );
