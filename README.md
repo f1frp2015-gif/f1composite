@@ -16,19 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The server-side AI routes require an OpenAI Platform API key. Put these values in
-`.env.local` for local development and configure the same secret in Vercel for
-Preview and Production:
+The server-side AI routes use Vercel AI Gateway. Vercel deployments authenticate
+automatically with `VERCEL_OIDC_TOKEN`, so no provider API key is required in
+Production. For local development outside `vercel dev`, create an AI Gateway key
+and put it in `.env.local`:
 
 ```bash
-OPENAI_API_KEY=your_project_api_key
-# Optional global model override; role-aware GPT-5.6 defaults are used otherwise.
-OPENAI_MODEL=gpt-5.6-terra
-# Optional for an OpenAI-compatible proxy. The official API is used when omitted.
-OPENAI_BASE_URL=https://api.openai.com/v1
+AI_GATEWAY_API_KEY=your_vercel_ai_gateway_key
+# Optional global override; role-aware low-cost OpenAI defaults are used otherwise.
+AI_GATEWAY_MODEL=openai/gpt-5-mini
 ```
 
-Do not prefix the key with `NEXT_PUBLIC_`; it must remain server-only.
+The defaults are `openai/gpt-5-mini` for chat and sourcing, and
+`openai/gpt-5-nano` for summaries. Do not prefix the key with `NEXT_PUBLIC_`;
+it must remain server-only.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

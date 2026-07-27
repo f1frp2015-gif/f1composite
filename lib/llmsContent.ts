@@ -470,7 +470,7 @@ ${glossaryLines}
 - Window U-value calculator (EN ISO 10077-1): https://www.f1composite.com/technology/u-value-calculator
 
 ### AI agent integration endpoints
-- POST https://www.f1composite.com/api/chat — streaming chat. Request body: { messages: UIMessage[], pageContext?: { path, title } }. Response: AI SDK UIMessage stream. Powered by the OpenAI Responses API with the F1 Composite system prompt.
+- POST https://www.f1composite.com/api/chat — streaming chat. Request body: { messages: UIMessage[], pageContext?: { path, title } }. Response: AI SDK UIMessage stream. Powered by Vercel AI Gateway using an OpenAI model with the F1 Composite system prompt.
 - POST https://www.f1composite.com/api/sourcing — streaming structured FRP recommendation. Request body: { prompt: string }. Response: text-streamed JSON conforming to the F1 Composite SourcingRecommendation schema (summary, profileFamily, resinSystem, standards, caseStudyMatches, rfqInputs, nextSteps).
 - POST https://www.f1composite.com/api/summarize — streaming three-bullet summary of an article. Request body: { title: string, content: string }. Response: plain-text bullet list (≤80 words).
 - POST https://www.f1composite.com/api/contact — submit an inquiry form.

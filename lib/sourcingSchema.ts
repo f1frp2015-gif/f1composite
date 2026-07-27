@@ -34,7 +34,10 @@ export const sourcingRecommendationSchema = z.object({
         "Primary resin recommendation: typically isophthalic polyester (general), vinyl ester (chemical/marine), or fire-retardant grades.",
       ),
     why: z.string(),
-    alternatives: z.array(z.string()).max(3).optional(),
+    alternatives: z
+      .array(z.string())
+      .max(3)
+      .describe("Up to three viable alternative resin systems. Return an empty array when none apply."),
   }),
   standards: z
     .array(z.string())
@@ -54,7 +57,7 @@ export const sourcingRecommendationSchema = z.object({
       }),
     )
     .max(3)
-    .optional(),
+    .describe("Matching published case studies. Return an empty array when no existing case study is relevant."),
   rfqInputs: z
     .array(z.string())
     .min(3)
