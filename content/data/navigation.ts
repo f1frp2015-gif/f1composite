@@ -82,6 +82,7 @@ export const footerNav = {
     { label: "All Products", href: "/pultruded-frp-profiles" },
   ],
   explore: [
+    { label: "Glass Fiber Reinforced Plastic Guide", href: "/what-is-frp" },
     { label: "Applications", href: "/industries" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Technical Data", href: "/resources/technical-data" },

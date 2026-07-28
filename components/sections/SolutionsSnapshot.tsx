@@ -56,7 +56,10 @@ export default function SolutionsSnapshot() {
           ))}
         </div>
 
-        <div className="mt-[14px]">
+        <div className="mt-[14px] flex flex-wrap gap-x-[24px] gap-y-[10px]">
+          <LinkArrow href="/what-is-frp">
+            What is glass fiber reinforced plastic (FRP)?
+          </LinkArrow>
           <LinkArrow href="/technology/frp-vs-traditional-materials">
             Compare FRP with steel and aluminum
           </LinkArrow>

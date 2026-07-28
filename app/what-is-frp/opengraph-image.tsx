@@ -5,11 +5,11 @@ export const contentType = ogContentType;
 
 export default function OpenGraphImage() {
   return renderOgImage({
-    eyebrow: "What is FRP",
-    title: "What is FRP? Fiber reinforced polymer composites explained for engineers",
+    eyebrow: "Glass fiber reinforced plastic",
+    title: "Glass fiber reinforced plastic (FRP), explained for engineers",
     description:
-      "A complete guide to fiber reinforced polymer (FRP) composites — definition, materials, pultrusion process, structural properties, and where pultruded FRP outperforms steel and aluminum.",
+      "A practical guide to GFRP terminology, composition, pultrusion, structural properties, standards, applications, and design limits.",
     accent: "#0d9a92",
-    chips: ["Materials guide", "Pultrusion basics", "Engineering reference"],
+    chips: ["GFRP materials", "Pultrusion basics", "Engineering reference"],
   });
 }
