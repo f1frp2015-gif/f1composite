@@ -7,7 +7,6 @@ import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import { GuideDownloadGate } from "@/components/sections/GuideDownloadGate";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
-import Button from "@/components/ui/Button";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -40,9 +39,9 @@ const toc = [
 
 const faqItems = [
   {
-    question: "What does FRP stand for?",
+    question: "What is glass fiber reinforced plastic (GFRP)?",
     answer:
-      "FRP stands for Fiber Reinforced Polymer (sometimes written Fiber Reinforced Plastic). It refers to a composite material made of a polymer matrix — typically polyester, vinyl ester, polyurethane, epoxy, or phenolic resin — reinforced with high-strength fibers, most commonly E-glass. FRP is also called GRP (Glass Reinforced Polymer) in British and European usage.",
+      "Glass fiber reinforced plastic (GFRP) is a composite made by combining glass fibers with a polymer resin. It is the glass-reinforced subset of FRP and is also called glass fiber reinforced polymer, fiberglass reinforced plastic, GRP, or simply fiberglass. Pultruded GFRP profiles use continuous fibers aligned through a constant cross-section.",
   },
   {
     question: "Is FRP the same as fiberglass?",
@@ -88,23 +87,54 @@ const toolingLeadTime = [
   { step: "First production batch", duration: "1–2 weeks" },
 ];
 
+const decisionPaths = [
+  {
+    title: "Choose a standard structural shape",
+    description:
+      "Compare 114 cataloged I-beams, channels, angles, tubes, rods, and flat bars with dimensions, weights, and section data.",
+    href: "/products/standard-profiles",
+    label: "Browse standard FRP profiles",
+  },
+  {
+    title: "Develop a custom pultrusion",
+    description:
+      "Take a project-specific cross-section from geometry and resin selection through tooling, sample approval, and repeat production.",
+    href: "/products/custom-pultrusions",
+    label: "Explore custom pultrusion",
+  },
+  {
+    title: "Price a defined requirement",
+    description:
+      "Send the section, quantity, service environment, and destination for an engineering review and a scoped export quotation.",
+    href: "/contact?source=what-is-frp-decision-path&inquiry_type=rfq",
+    label: "Request a project quote",
+  },
+] as const;
+
 export default function WhatIsFrpPage() {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: "What is FRP? Complete Guide to Fiberglass Reinforced Polymer Composites",
+    headline: "Glass Fiber Reinforced Plastic (FRP): Materials, Properties, and Uses",
     description: pageDescription,
     url: absoluteUrl(pagePath),
     mainEntityOfPage: absoluteUrl(pagePath),
     datePublished: "2026-04-14",
-    dateModified: "2026-04-14",
+    dateModified: "2026-07-28",
     inLanguage: "en",
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     about: [
       {
         "@type": "Thing",
-        name: "Fiber-Reinforced Polymer",
+        name: "Glass Fiber Reinforced Plastic",
+        alternateName: [
+          "FRP",
+          "GFRP",
+          "Glass Fiber Reinforced Polymer",
+          "Fiberglass Reinforced Plastic",
+          "Glass Reinforced Plastic",
+        ],
         sameAs: "https://en.wikipedia.org/wiki/Fiber-reinforced_plastic",
       },
       {
@@ -130,12 +160,24 @@ export default function WhatIsFrpPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="FRP Guide"
-        title="What is FRP? A complete guide to fiberglass reinforced polymer composites"
-        description="FRP — fiber reinforced polymer, also known as fiberglass reinforced polymer or GRP — is a structural composite made of glass fiber reinforcement and a polymer resin matrix. This guide explains the materials, the pultrusion process, properties, standards, and how advanced FRP composites compare with steel and aluminum."
+        title="What is glass fiber reinforced plastic (FRP)?"
+        description="Glass fiber reinforced plastic (FRP), also called glass fiber reinforced polymer, fiberglass, or GRP, combines glass reinforcement with a polymer resin matrix. Compare its composition, pultrusion process, properties, standards, applications, and design limits."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "What is FRP?" },
         ]}
+        actions={{
+          primary: {
+            label: "Browse FRP Profiles",
+            href: "/pultruded-frp-profiles",
+          },
+          secondary: {
+            label: "Request Engineering Review",
+            href: "/contact?source=what-is-frp-header&inquiry_type=rfq",
+            variant: "secondary",
+          },
+          note: "Already have dimensions or a drawing? Send the section, quantity, environment, and destination.",
+        }}
       />
 
       {/* Table of Contents */}
@@ -164,17 +206,17 @@ export default function WhatIsFrpPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Definition</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            What is FRP?
+            What is glass fiber reinforced plastic?
           </h2>
           {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
           <div className="mt-[21px] max-w-[820px] rounded-[8px] border-l-[3px] border-teal bg-bg2 p-[21px]">
             <p className="text-f15 leading-golden text-t1">
-              <strong>FRP definition:</strong> FRP (fiber reinforced polymer) is a
-              structural composite material made of high-strength glass fibers
-              bonded in a thermoset polymer resin. Also called fiberglass
-              reinforced polymer or GRP, FRP is corrosion-proof, electrically
-              non-conductive, and stronger per kilogram than steel at roughly
-              one-quarter the weight.
+              <strong>GFRP definition:</strong> Glass fiber reinforced plastic
+              (GFRP) is a structural composite made of high-strength glass fibers
+              bonded in a thermoset polymer resin. Also called glass fiber
+              reinforced polymer, fiberglass reinforced plastic, or GRP, it is
+              corrosion-proof, electrically non-conductive, and stronger per
+              kilogram than steel at roughly one-quarter the weight.
             </p>
           </div>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -222,38 +264,34 @@ export default function WhatIsFrpPage() {
         </div>
       </section>
 
-      {/* P0 funnel CTA — route informational readers to the commercial pages */}
+      {/* Decision-path CTA — route informational readers to the right commercial next step. */}
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px] sm:flex sm:items-center sm:justify-between sm:gap-[34px]">
-            <div>
-              <h2 className="text-f19 font-bold text-t1">
-                Looking for FRP products, not just the theory?
-              </h2>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
-                F1 Composite supplies pultruded FRP direct from the factory —
-                including{" "}
-                <Link
-                  href="/products/fenestration-systems"
-                  className="font-semibold text-teal-text hover:text-teal"
+          <div className="rounded-[10px] border border-border-default bg-bg2 p-[24px] md:p-[34px]">
+            <SectionTag>From material to project</SectionTag>
+            <h2 className="mt-[13px] max-w-[780px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+              Turn FRP research into a specification
+            </h2>
+            <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+              The right next page depends on whether the geometry is standard,
+              custom, or already defined for quotation. Choose the shortest path
+              to the dimensions, engineering input, or commercial response you need.
+            </p>
+            <div className="mt-[26px] grid gap-[16px] md:grid-cols-3">
+              {decisionPaths.map((path) => (
+                <article
+                  key={path.href}
+                  className="flex h-full flex-col rounded-[8px] border border-border-default bg-white p-[21px]"
                 >
-                  fiberglass window frames
-                </Link>{" "}
-                and the full{" "}
-                <Link
-                  href="/pultruded-frp-profiles"
-                  className="font-semibold text-teal-text hover:text-teal"
-                >
-                  pultruded FRP profiles
-                </Link>{" "}
-                range. Size a section in 30 seconds, or get a DDP quote.
-              </p>
-            </div>
-            <div className="mt-[21px] flex flex-shrink-0 flex-wrap gap-[13px] sm:mt-0">
-              <Button href="/frp-profile-calculator">Size an FRP profile</Button>
-              <Button href="/products/fenestration-systems" variant="secondary">
-                View window systems
-              </Button>
+                  <h3 className="text-f19 font-bold text-t1">{path.title}</h3>
+                  <p className="mt-[10px] flex-1 text-f15 leading-golden text-t2">
+                    {path.description}
+                  </p>
+                  <LinkArrow href={path.href} className="mt-[18px]">
+                    {path.label}
+                  </LinkArrow>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -264,17 +302,16 @@ export default function WhatIsFrpPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Terminology</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP vs fiberglass vs GRP — same thing?
+            Glass fiber reinforced plastic vs FRP, GFRP, and fiberglass
           </h2>
           <div className="mt-[21px] max-w-[860px] rounded-[8px] border-l-[4px] border-teal bg-white p-[21px]">
             <p className="text-f15 leading-golden text-t2">
-              <strong className="text-t1">FRP vs fiberglass, in one line:</strong>{" "}
-              fiberglass is the glass fiber itself (and, informally, the finished
-              material); FRP — fiber reinforced polymer — is the engineered composite
-              of that fiber locked in a resin matrix. Every pultruded &ldquo;fiberglass
-              profile&rdquo; is an FRP product: the two words describe the same material
-              family at different levels of precision, and this page uses them
-              interchangeably where the context is structural profiles.
+              <strong className="text-t1">Same material family, different labels:</strong>{" "}
+              glass fiber reinforced plastic is the glass-reinforced subset of
+              FRP. GFRP and GRP identify the same glass-and-resin composite, while
+              fiberglass can mean either the reinforcement itself or the finished
+              product. &ldquo;Polymer&rdquo; is the more precise matrix term; &ldquo;plastic&rdquo;
+              remains common in specifications and search.
             </p>
           </div>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
@@ -291,6 +328,11 @@ export default function WhatIsFrpPage() {
               <strong className="text-t1">GRP / GFRP</strong> — (Glass) Fiber
               Reinforced Polymer / Plastic. Common in the UK, EU, and Australia.
               Specifies glass-fiber reinforcement.
+            </li>
+            <li>
+              <strong className="text-t1">Glass fiber reinforced plastic</strong> —
+              the full form of GFRP in specifications that use &ldquo;plastic&rdquo; for the
+              cured resin matrix. It is also written fiberglass reinforced plastic.
             </li>
             <li>
               <strong className="text-t1">Fiberglass</strong> — Informal North
@@ -685,6 +727,9 @@ export default function WhatIsFrpPage() {
                 <li>→ Cable trays and pipe supports for utility corridors</li>
                 <li>→ Highway noise barriers in corrosive environments</li>
               </ul>
+              <LinkArrow href="/industries/infrastructure" className="mt-[18px]">
+                Explore infrastructure applications
+              </LinkArrow>
             </div>
             <div className="rounded-[8px] bg-bg2 p-[29px]">
               <h3 className="text-f19 font-bold text-t1">Energy &amp; utilities</h3>
@@ -694,6 +739,9 @@ export default function WhatIsFrpPage() {
                 <li>→ Wind-turbine secondary structures</li>
                 <li>→ Oil &amp; gas access platforms and ladders</li>
               </ul>
+              <LinkArrow href="/industries/energy" className="mt-[18px]">
+                Explore energy applications
+              </LinkArrow>
             </div>
             <div className="rounded-[8px] bg-bg2 p-[29px]">
               <h3 className="text-f19 font-bold text-t1">Chemical &amp; marine</h3>
@@ -703,6 +751,9 @@ export default function WhatIsFrpPage() {
                 <li>→ Wastewater and desalination plant gratings</li>
                 <li>→ Offshore platforms and floating docks</li>
               </ul>
+              <LinkArrow href="/industries/industrial" className="mt-[18px]">
+                Explore industrial applications
+              </LinkArrow>
             </div>
             <div className="rounded-[8px] bg-bg2 p-[29px]">
               <h3 className="text-f19 font-bold text-t1">Building &amp; construction</h3>
@@ -717,6 +768,9 @@ export default function WhatIsFrpPage() {
                 <li>→ Building rooftop platforms and antenna masts</li>
                 <li>→ Rebar for reinforced concrete in corrosive service</li>
               </ul>
+              <LinkArrow href="/industries/construction" className="mt-[18px]">
+                Explore construction applications
+              </LinkArrow>
             </div>
           </div>
 
@@ -744,6 +798,7 @@ export default function WhatIsFrpPage() {
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel vs aluminum</LinkArrow>
             <LinkArrow href="/products/custom-pultrusions">Custom pultrusion services</LinkArrow>
+            <LinkArrow href="/frp-profile-calculator">FRP profile calculator</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>
             <LinkArrow href="/resources/glossary">FRP &amp; pultrusion glossary</LinkArrow>

@@ -26,11 +26,11 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/what-is-frp",
-    primaryQuery: "what is FRP",
+    primaryQuery: "glass fiber reinforced plastic",
     intent: "guide",
-    title: "What Is FRP? Fiberglass Reinforced Polymer Explained",
+    title: "Glass Fiber Reinforced Plastic (FRP) Explained",
     description:
-      "Learn what FRP means, how fiberglass and resin form a composite, its properties, standards, applications, limitations, and differences from steel.",
+      "Glass fiber reinforced plastic (FRP) combines glass reinforcement and resin. Compare properties, standards and uses, then choose profiles or request a quote.",
     supportingUrls: [
       "/technology/pultrusion-process",
       "/technology/frp-vs-traditional-materials",

@@ -441,7 +441,7 @@ ${glossaryLines}
 ## Key Pages
 - Homepage: https://www.f1composite.com
 - Pultruded FRP Profiles Hub: https://www.f1composite.com/pultruded-frp-profiles
-- What is FRP? (deep guide): https://www.f1composite.com/what-is-frp
+- Glass Fiber Reinforced Plastic (FRP) Guide: https://www.f1composite.com/what-is-frp
 - Products: https://www.f1composite.com/pultruded-frp-profiles
 - Standard Profiles (F1-STRUX): https://www.f1composite.com/products/standard-profiles
 - Custom Pultrusions (F1-FORM): https://www.f1composite.com/products/custom-pultrusions
