@@ -72,6 +72,20 @@ const nextConfig: NextConfig = {
         destination: "/fiberglass-pultruded-profile-price",
         permanent: true,
       },
+      // Normalize the original short application slugs to the descriptive,
+      // query-owned canonical routes generated from lib/applicationPages.ts.
+      ...[
+        "cable-tray-supports",
+        "cooling-tower-profiles",
+        "bridge-deck-panels",
+        "solar-mounting-profiles",
+        "chemical-plant-platforms",
+        "pedestrian-bridge-superstructures",
+      ].map((slug) => ({
+        source: `/applications/${slug}`,
+        destination: `/applications/frp-${slug}`,
+        permanent: true,
+      })),
       {
         source: "/technology/calculator",
         destination: "/frp-profile-calculator",

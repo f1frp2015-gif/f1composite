@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
@@ -19,6 +20,7 @@ const PROFILE_CALC_LINK: Record<string, string> = {
   "frp-bridge-deck-panels": "/frp-profile-calculator?shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
   "frp-solar-mounting-profiles": "/frp-profile-calculator?shape=square-tube&span=2200&load=2.5&env=outdoor&material=frp-e23&load_type=udl&defl=180",
   "frp-chemical-plant-platforms": "/frp-profile-calculator?shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
+  "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator?shape=i-beam&span=6000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
 };
 
 interface PageProps {
@@ -61,6 +63,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     about: page.shortTitle,
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     mainEntityOfPage: absoluteUrl(`/applications/${page.slug}`),
+    dateModified: page.lastModified,
   };
 
   return (
@@ -97,6 +100,26 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+            <Image
+              src={page.image}
+              alt={page.imageAlt}
+              width={1280}
+              height={720}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="aspect-[16/9] h-auto w-full object-cover"
+              priority
+            />
+            <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t3">
+              Application context for {page.shortTitle}. Final member sizes, laminate,
+              connections, and code checks remain project-specific.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-2">
@@ -125,6 +148,23 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Engineering checks</SectionTag>
+          <h2 className="mt-[8px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            {page.shortTitle}: design and specification checks
+          </h2>
+          <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
+            {page.designChecks.map((item) => (
+              <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

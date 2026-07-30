@@ -11,7 +11,7 @@ import { applicationPages } from "@/lib/applicationPages";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Applications - Pultruded Fiberglass Profiles by Use Case",
   description:
-    "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, solar mounting and chemical plant platforms.",
+    "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, pedestrian bridges, solar mounting and chemical platforms.",
   path: "/applications",
 });
 
@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "My application is not listed here — do you still serve it?",
     answer:
-      "Yes. The five categories above account for ~70% of F1 Composite shipments by volume; the remaining 30% spans industrial enclosures, antenna supports, water-treatment screens, military and rail applications, and more. Custom inquiries: inquiry@f1composite.com.",
+      "Yes. The six categories above cover recurring F1 Composite project types; the wider portfolio also spans industrial enclosures, antenna supports, water-treatment screens, rail applications, and custom structures. Custom inquiries: inquiry@f1composite.com.",
   },
   {
     question: "Are the connection details in each application page free to use?",
@@ -45,7 +45,7 @@ const collectionSchema = {
   url: "https://www.f1composite.com/applications",
   name: "FRP Applications by Structure and Environment",
   description:
-    "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, solar mounting, and chemical plant platforms.",
+    "Application guides for pultruded FRP profiles: cable tray supports, cooling towers, bridge decks, pedestrian bridges, solar mounting, and chemical plant platforms.",
   isPartOf: { "@id": "https://www.f1composite.com/#website" },
   publisher: { "@id": "https://www.f1composite.com/#organization" },
   breadcrumb: {
@@ -87,7 +87,7 @@ export default function ApplicationsPage() {
           <SectionTag>Pultruded FRP Profiles Across Industrial Applications</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
-              Pultruded fiberglass profiles are not a single product — they are a fabrication platform. The same wide-flange beam can carry a chemical plant walkway, a coastal marina decking, or a solar farm support, but the resin system, fiber architecture, surface finish, and connection strategy change between those uses. The five application categories below are F1 Composite&apos;s most-deployed configurations, each backed by reference projects and engineering data.
+              Pultruded fiberglass profiles are not a single product — they are a fabrication platform. The same wide-flange beam can carry a chemical plant walkway, a pedestrian bridge, or a solar farm support, but the resin system, fiber architecture, surface finish, and connection strategy change between those uses. The six application categories below are recurring F1 Composite configurations, each linked to engineering data, tools, products, and project evidence.
             </p>
           </div>
         </div>
