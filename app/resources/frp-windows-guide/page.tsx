@@ -58,7 +58,7 @@ const stages: Stage[] = [
       "frp-thermal-break-profiles-curtain-wall",
     ],
     links: [
-      { href: "/technology/u-value-calculator", label: "Free U-value calculator (EN ISO 10077-1)" },
+      { href: "/technology/frp-u-value-calculator", label: "Free U-value calculator (EN ISO 10077-1)" },
       { href: "/ai/passive-house", label: "Passive House AI advisor" },
     ],
   },
@@ -93,7 +93,7 @@ const stages: Stage[] = [
     ],
     links: [
       { href: "/products/fenestration-systems", label: "F1 fenestration systems (65–90 series)" },
-      { href: "/products/window-reinforcement-profiles", label: "Window reinforcement profiles" },
+      { href: "/products/frp-window-reinforcement", label: "Window reinforcement profiles" },
       { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
     ],
   },
@@ -104,7 +104,7 @@ const stages: Stage[] = [
       "The same thermal physics at facade scale — FRP isolators, mullions and transoms.",
     slugs: ["frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion"],
     links: [
-      { href: "/products/facade-sunshade-panels", label: "Facade & sunshade panels" },
+      { href: "/products/frp-facade-panels", label: "Facade & sunshade panels" },
     ],
   },
 ];

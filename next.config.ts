@@ -72,6 +72,48 @@ const nextConfig: NextConfig = {
         destination: "/fiberglass-pultruded-profile-price",
         permanent: true,
       },
+      // 2026-07-30 keyword-path migration. Keep every previously published
+      // product/tool URL as a permanent redirect while all internal signals
+      // point directly at the new canonical route.
+      ...[
+        ["/products/gratings", "/products/frp-gratings"],
+        ["/products/standard-profiles", "/products/fiberglass-structural-shapes"],
+        [
+          "/products/standard-profiles/i-beam",
+          "/products/fiberglass-structural-shapes/frp-i-beam",
+        ],
+        [
+          "/products/standard-profiles/angle",
+          "/products/fiberglass-structural-shapes/frp-angle",
+        ],
+        [
+          "/products/standard-profiles/channel",
+          "/products/fiberglass-structural-shapes/frp-channel",
+        ],
+        [
+          "/products/standard-profiles/square-tube",
+          "/products/fiberglass-structural-shapes/frp-square-tube",
+        ],
+        [
+          "/products/standard-profiles/tube",
+          "/products/fiberglass-structural-shapes/frp-tube",
+        ],
+        [
+          "/products/standard-profiles/flat-bar",
+          "/products/fiberglass-structural-shapes/frp-flat-bar",
+        ],
+        [
+          "/products/standard-profiles/rod",
+          "/products/fiberglass-structural-shapes/frp-rod",
+        ],
+        ["/products/custom-pultrusions", "/products/custom-pultruded-profiles"],
+        ["/products/solar-mounting-systems", "/products/frp-solar-mounting-systems"],
+        ["/products/facade-sunshade-panels", "/products/frp-facade-panels"],
+        ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
+        ["/products/stair-tread-covers", "/products/frp-stair-treads"],
+        ["/products/handrail-systems", "/products/frp-handrail-systems"],
+        ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
+      ].map(([source, destination]) => ({ source, destination, statusCode: 301 as const })),
       // Normalize the original short application slugs to the descriptive,
       // query-owned canonical routes generated from lib/applicationPages.ts.
       ...[

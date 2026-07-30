@@ -132,7 +132,7 @@ export default function ChinaAlternativePage() {
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             The reason buyers look for a China alternative is rarely the
             specification — it is the route to market. F1 Composite supplies its{" "}
-            <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
+            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
               F1-STRUX structural profiles
             </Link>{" "}
             direct from the factory for export, on FOB or DDP terms to 30+
@@ -270,7 +270,7 @@ export default function ChinaAlternativePage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify the equivalence</h2>
           <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/standard-profiles">F1-STRUX structural profiles</LinkArrow>
+            <LinkArrow href="/products/fiberglass-structural-shapes">F1-STRUX structural profiles</LinkArrow>
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel &amp; aluminum</LinkArrow>

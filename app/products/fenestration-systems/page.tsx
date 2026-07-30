@@ -447,7 +447,7 @@ export default function FenestrationSystemsPage() {
           primary: { label: "Request Window Quote", href: quoteHref },
           secondary: {
             label: "Calculate U-Value",
-            href: "/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+            href: "/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
             variant: "secondary",
           },
           note: "Finished units or fabrication-ready profiles · 65–140 series · engineering response within one business day.",
@@ -504,7 +504,7 @@ export default function FenestrationSystemsPage() {
                 step: "02",
                 title: "Check the U-value",
                 detail: "Calculate U_w against Passive House, NFRC, CSA, and local targets.",
-                href: "/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+                href: "/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
                 action: "Run the calculator",
               },
               {
@@ -1016,11 +1016,11 @@ export default function FenestrationSystemsPage() {
             title: "Related FRP products",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/facade-sunshade-panels", label: "Facade sunshade panels (E40)" },
-              { href: "/products/window-reinforcement-profiles", label: "Fiberglass window reinforcements (uPVC cores)" },
-              { href: "/products/custom-pultrusions", label: "Custom pultruded profiles" },
-              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
-              { href: "/products/gratings", label: "FRP grating manufacturer" },
+              { href: "/products/frp-facade-panels", label: "Facade sunshade panels (E40)" },
+              { href: "/products/frp-window-reinforcement", label: "Fiberglass window reinforcements (uPVC cores)" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+              { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
+              { href: "/products/frp-gratings", label: "FRP grating manufacturer" },
             ],
           },
           {
@@ -1045,7 +1045,7 @@ export default function FenestrationSystemsPage() {
             title: "Technical resources",
             links: [
               { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — the complete library" },
-              { href: "/technology/u-value-calculator", label: "Window U-value calculator" },
+              { href: "/technology/frp-u-value-calculator", label: "Window U-value calculator" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
@@ -1068,7 +1068,7 @@ export default function FenestrationSystemsPage() {
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · 90-Series preset"
             title="Check the whole-window U-value of an F1 90-Series window"
             sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series frame + triple glazing — see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets, then quote against your spec."

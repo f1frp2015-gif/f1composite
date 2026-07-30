@@ -276,7 +276,7 @@ export default function DdpTariffHsCodeGuidePage() {
             links: [
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP pultrusion supplier" },
               { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell / Exel" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusion capability" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion capability" },
             ],
           },
           {

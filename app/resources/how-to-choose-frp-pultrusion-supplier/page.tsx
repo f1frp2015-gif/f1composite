@@ -146,7 +146,7 @@ export default function ChooseSupplierGuidePage() {
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
             <LinkArrow href="/resources/technical-data">Test reports &amp; data sheets</LinkArrow>
-            <LinkArrow href="/products/standard-profiles">F1-STRUX structural profiles</LinkArrow>
+            <LinkArrow href="/products/fiberglass-structural-shapes">F1-STRUX structural profiles</LinkArrow>
             <LinkArrow href="/technology/china-alternative-to-strongwell-fiberline-exel">China alternative to Strongwell / Exel</LinkArrow>
             <LinkArrow href="/about">About F1 Composite</LinkArrow>
             <LinkArrow href="/contact">Request a quote &amp; documents</LinkArrow>

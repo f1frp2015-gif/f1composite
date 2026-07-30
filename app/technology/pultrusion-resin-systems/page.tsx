@@ -386,8 +386,8 @@ export default function PultrusionResinSystemsPage() {
           {
             title: "Products by resin duty",
             links: [
-              { href: "/products/standard-profiles", label: "Standard structural profiles" },
-              { href: "/products/gratings", label: "Gratings & decks (vinyl ester duty)" },
+              { href: "/products/fiberglass-structural-shapes", label: "Standard structural profiles" },
+              { href: "/products/frp-gratings", label: "Gratings & decks (vinyl ester duty)" },
               { href: "/products/fenestration-systems", label: "Fenestration systems (PU / polyester)" },
             ],
           },

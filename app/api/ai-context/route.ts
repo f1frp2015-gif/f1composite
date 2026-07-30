@@ -81,7 +81,7 @@ export async function GET() {
     productFamilies: [
       {
         id: "standard-profiles",
-        url: `${SITE}/products/standard-profiles`,
+        url: `${SITE}/products/fiberglass-structural-shapes`,
         family: "Standard Pultruded FRP Profiles",
         geometries: ["i-beam", "channel", "angle", "square-tube", "tube", "flat-bar", "rod"],
         sizeRange: "10 mm – 300 mm cross-section; 2 mm – 12 mm wall thickness",
@@ -91,7 +91,7 @@ export async function GET() {
       },
       {
         id: "custom-pultrusions",
-        url: `${SITE}/products/custom-pultrusions`,
+        url: `${SITE}/products/custom-pultruded-profiles`,
         family: "Custom Pultrusions",
         maxCrossSection: "600 × 300 mm",
         minWallThickness: "1.5 mm",
@@ -111,7 +111,7 @@ export async function GET() {
       },
       {
         id: "gratings",
-        url: `${SITE}/products/gratings`,
+        url: `${SITE}/products/frp-gratings`,
         family: "FRP Gratings & Deck Panels",
         types: ["molded", "pultruded", "solid-top-cover", "structural-deck"],
         loadRatingsKNperM2: [5, 10, 25],
@@ -198,7 +198,7 @@ export async function GET() {
       { name: "AI sourcing assistant (structured)", path: "/ai/sourcing", endpoint: "/api/sourcing", method: "POST" },
       { name: "AI passive-house window selector", path: "/ai/passive-house" },
       { name: "FRP profile calculator", path: "/frp-profile-calculator" },
-      { name: "Window U-value calculator (EN ISO 10077-1)", path: "/technology/u-value-calculator" },
+      { name: "Window U-value calculator (EN ISO 10077-1)", path: "/technology/frp-u-value-calculator" },
       { name: "AI summarize endpoint", endpoint: "/api/summarize", method: "POST" },
     ],
     keyPages: {

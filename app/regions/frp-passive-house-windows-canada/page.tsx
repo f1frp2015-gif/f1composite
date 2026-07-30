@@ -223,7 +223,7 @@ export default function CanadaRegionPage() {
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/fenestration-systems">Fiberglass window frames (65–140)</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
-            <LinkArrow href="/technology/u-value-calculator">Window U-value calculator</LinkArrow>
+            <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/regions/frp-pultrusion-supplier-usa">Sourcing FRP for US projects</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-germany">FRP passive house windows — Germany</LinkArrow>
             <LinkArrow href="/what-is-frp">FRP material &amp; properties</LinkArrow>
@@ -265,7 +265,7 @@ export default function CanadaRegionPage() {
       <section className="bg-bg2 pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · cold-climate preset"
             title="Check a passive-house window U-value for your Canadian climate zone"
             sub="Opens the U-value calculator pre-loaded with an F1 90-Series passive-house build-up — verify the whole-window Uw against CSA A440 and Passive House targets, then quote DDP Canada, surtax-free."

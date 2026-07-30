@@ -184,7 +184,7 @@ export default function ProfilePricePage() {
           </h2>
           <p className="mt-[8px] max-w-[860px] text-f15 leading-golden text-t2">
             Pick a shape, enter the section dimensions from your drawing or the closest{" "}
-            <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
+            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
               standard fiberglass profile
             </Link>
             , choose materials and quantity. The range updates as you type.
@@ -237,7 +237,7 @@ export default function ProfilePricePage() {
           </div>
           <p className="mt-[13px] max-w-[860px] text-f11 leading-golden text-t3">
             Indicative export pricing for budgeting, not an offer. Dimensions follow the{" "}
-            <Link href="/products/standard-profiles" className="underline hover:text-teal-text">
+            <Link href="/products/fiberglass-structural-shapes" className="underline hover:text-teal-text">
               published size catalog
             </Link>
             ; the kg/m column is the pricing model&rsquo;s nominal-section mass — where a
@@ -344,7 +344,7 @@ export default function ProfilePricePage() {
               If your section is not in the catalog, tooling enters the picture: a custom
               die is a one-time USD 5,000&ndash;40,000 investment depending on complexity,
               amortized over the die&rsquo;s production life. The{" "}
-              <Link href="/products/custom-pultrusions" className="font-semibold text-teal-text hover:text-teal">
+              <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">
                 custom pultrusions page
               </Link>{" "}
               breaks down tooling, MOQ, and lead time; this estimator still gives you the
@@ -402,7 +402,7 @@ export default function ProfilePricePage() {
           {
             title: "Size & selection",
             links: [
-              { href: "/products/standard-profiles", label: "Fiberglass structural shapes catalog" },
+              { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
               { href: "/datasheets", label: "Profile datasheets & DXF drawings" },
               { href: "/frp-profile-calculator", label: "FRP profile calculator" },
               { href: "/frp-profile-calculator/methodology", label: "Calculator methodology" },
@@ -415,7 +415,7 @@ export default function ProfilePricePage() {
             links: [
               { href: "/resources/ddp-tariff-hs-code-guide", label: "DDP, tariffs & HS codes guide" },
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusions & tooling cost" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions & tooling cost" },
               { href: "/resources/blog/fiberglass-window-profile-price-drivers", label: "Window profile price drivers" },
             ],
           },

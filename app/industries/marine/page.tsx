@@ -172,7 +172,7 @@ export default function MarinePage() {
               <p>
                 FRP dock structures are also inherently resistant to marine borers (Teredo, Limnoria) that destroy timber pilings and substructure. Unlike timber, FRP does not provide a food source or habitat for these organisms. This eliminates the need for toxic anti-fouling treatments and provides permanent protection in warm-water environments where marine borer activity is intense.
               </p>
-              <LinkArrow href="/products/standard-profiles">
+              <LinkArrow href="/products/fiberglass-structural-shapes">
                 Browse structural profiles for marine use
               </LinkArrow>
 
@@ -203,7 +203,7 @@ export default function MarinePage() {
               <p>
                 Anti-slip surfaces are critical in marine environments where wet, oily, and salt-crusted conditions create fall hazards. Our marine gratings incorporate bonded silica grit surfaces that achieve pendulum test values (PTV) exceeding 55 in wet conditions — significantly exceeding the HSE threshold of 36 for low-slip risk. This slip resistance is permanent, embedded in the grating surface rather than applied as a coating that can wear off.
               </p>
-              <LinkArrow href="/products/gratings">
+              <LinkArrow href="/products/frp-gratings">
                 Explore marine grating solutions
               </LinkArrow>
 
@@ -244,7 +244,7 @@ export default function MarinePage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/gratings"
+              href="/products/frp-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Marine Gratings</h3>
@@ -256,7 +256,7 @@ export default function MarinePage() {
               </span>
             </Link>
             <Link
-              href="/products/standard-profiles"
+              href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>

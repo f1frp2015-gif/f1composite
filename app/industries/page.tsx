@@ -146,10 +146,10 @@ export default function IndustriesPage() {
             title: "Product families for every sector",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/standard-profiles", label: "Standard structural profiles" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
+              { href: "/products/fiberglass-structural-shapes", label: "Standard structural profiles" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
               { href: "/products/fenestration-systems", label: "FRP window frames" },
-              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/frp-gratings", label: "FRP gratings & deck panels" },
             ],
           },
           {

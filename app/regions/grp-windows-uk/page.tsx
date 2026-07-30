@@ -229,7 +229,7 @@ export default function UkRegionPage() {
             <LinkArrow href="/products/fenestration-systems">Fiberglass windows &amp; doors (65–140)</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
-            <LinkArrow href="/technology/u-value-calculator">Window U-value calculator</LinkArrow>
+            <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-germany">FRP passive house windows — Germany</LinkArrow>
           </div>
 
@@ -269,7 +269,7 @@ export default function UkRegionPage() {
       <section className="bg-bg2 pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"
             title="Check a GRP window U-value against Part L and PHI targets"
             sub="Opens the U-value calculator pre-loaded with an F1 90-Series build-up — verify the whole-window Uw against Part L 1.4/1.2 and the Passivhaus 0.80 component criterion, then quote DDP UK."

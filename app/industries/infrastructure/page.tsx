@@ -170,7 +170,7 @@ export default function InfrastructurePage() {
               <p>
                 For new pedestrian and cycling bridges, pultruded FRP profiles enable full superstructure solutions. FRP truss bridges spanning up to 40 meters have been deployed across Europe and North America. These structures are light enough to be transported and installed as complete assemblies by modest crane equipment, eliminating the need for temporary falsework and in-water construction activities.
               </p>
-              <LinkArrow href="/products/custom-pultrusions">
+              <LinkArrow href="/products/custom-pultruded-profiles">
                 Explore custom bridge profiles
               </LinkArrow>
 
@@ -242,7 +242,7 @@ export default function InfrastructurePage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/custom-pultrusions"
+              href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>
@@ -289,11 +289,11 @@ export default function InfrastructurePage() {
             title: "FRP profiles for infrastructure",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/standard-profiles/i-beam", label: "FRP I-beams for bridges" },
-              { href: "/products/standard-profiles/channel", label: "FRP channels for stringers" },
-              { href: "/products/gratings", label: "FRP gratings & bridge deck panels" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusions for infrastructure" },
-              { href: "/products/standard-profiles/rod", label: "FRP rods for soil nails & rock bolts" },
+              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams for bridges" },
+              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels for stringers" },
+              { href: "/products/frp-gratings", label: "FRP gratings & bridge deck panels" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions for infrastructure" },
+              { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP rods for soil nails & rock bolts" },
             ],
           },
           {

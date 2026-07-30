@@ -92,14 +92,14 @@ const decisionPaths = [
     title: "Choose a standard structural shape",
     description:
       "Compare 114 cataloged I-beams, channels, angles, tubes, rods, and flat bars with dimensions, weights, and section data.",
-    href: "/products/standard-profiles",
+    href: "/products/fiberglass-structural-shapes",
     label: "Browse standard FRP profiles",
   },
   {
     title: "Develop a custom pultrusion",
     description:
       "Take a project-specific cross-section from geometry and resin selection through tooling, sample approval, and repeat production.",
-    href: "/products/custom-pultrusions",
+    href: "/products/custom-pultruded-profiles",
     label: "Explore custom pultrusion",
   },
   {
@@ -797,7 +797,7 @@ export default function WhatIsFrpPage() {
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel vs aluminum</LinkArrow>
-            <LinkArrow href="/products/custom-pultrusions">Custom pultrusion services</LinkArrow>
+            <LinkArrow href="/products/custom-pultruded-profiles">Custom pultrusion services</LinkArrow>
             <LinkArrow href="/frp-profile-calculator">FRP profile calculator</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/resources/design-guides">Design guides</LinkArrow>

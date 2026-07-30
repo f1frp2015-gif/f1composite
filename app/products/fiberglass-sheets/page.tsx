@@ -119,7 +119,7 @@ export default function FiberglassSheetsPage() {
               <h3 className="text-f15 font-bold text-t1">Walking surfaces</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
                 Gritted plate for solid-top walkways, trench covers, and the{" "}
-                <Link href="/products/stair-tread-covers" className="font-semibold text-teal-text hover:underline">
+                <Link href="/products/frp-stair-treads" className="font-semibold text-teal-text hover:underline">
                   stair tread covers
                 </Link>{" "}
                 program — anti-slip where open grating is not wanted.
@@ -137,7 +137,7 @@ export default function FiberglassSheetsPage() {
           <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
             Narrower solid rectangles with published sizes and per-meter weights are a
             catalog product of their own — see{" "}
-            <Link href="/products/standard-profiles/flat-bar" className="font-semibold text-teal-text hover:underline">
+            <Link href="/products/fiberglass-structural-shapes/frp-flat-bar" className="font-semibold text-teal-text hover:underline">
               fiberglass flat bars
             </Link>{" "}
             (12×3 to 305×25 mm). This page covers the wide-format sheet and plate program
@@ -151,10 +151,10 @@ export default function FiberglassSheetsPage() {
           {
             title: "Related flat & structural stock",
             links: [
-              { href: "/products/standard-profiles/flat-bar", label: "Fiberglass flat bars (catalog sizes)" },
-              { href: "/products/standard-profiles", label: "Fiberglass structural shapes catalog" },
-              { href: "/products/stair-tread-covers", label: "Stair tread covers" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusions" },
+              { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars (catalog sizes)" },
+              { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
+              { href: "/products/frp-stair-treads", label: "Stair tread covers" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions" },
             ],
           },
           {

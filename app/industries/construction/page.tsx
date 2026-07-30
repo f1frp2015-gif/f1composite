@@ -183,7 +183,7 @@ export default function ConstructionPage() {
               <p>
                 We supply standard L-angles, T-profiles, and U-channels suitable for common facade systems, alongside custom-pultruded bracket profiles designed to specific project geometries and load requirements. All cladding support profiles are available with UV-stabilized surfaces or factory-applied coatings for exposed applications.
               </p>
-              <LinkArrow href="/products/standard-profiles">
+              <LinkArrow href="/products/fiberglass-structural-shapes">
                 Browse standard profiles
               </LinkArrow>
             </div>
@@ -198,7 +198,7 @@ export default function ConstructionPage() {
               <p>
                 We also supply FRP structural profiles for modular building systems. Our profiles can be drilled, cut, and bolted using conventional tools and standard stainless steel fasteners, with no welding required. This makes FRP framing particularly efficient for prefabricated facade panels, modular bathroom pods, and other off-site construction methods where factory assembly speed directly affects project economics.
               </p>
-              <LinkArrow href="/products/standard-profiles">
+              <LinkArrow href="/products/fiberglass-structural-shapes">
                 View structural profiles
               </LinkArrow>
 
@@ -251,7 +251,7 @@ export default function ConstructionPage() {
               </span>
             </Link>
             <Link
-              href="/products/standard-profiles"
+              href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>

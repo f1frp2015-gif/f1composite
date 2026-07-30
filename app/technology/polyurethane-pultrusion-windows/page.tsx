@@ -294,7 +294,7 @@ export default function PolyurethanePultrusionWindowsPage() {
       <section className="bg-bg2 pt-[55px] pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · GFRP-PU 90-Series preset"
             title="Check the whole-window U-value of a GFRP-PU 90-Series window"
             sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series polyurethane frame and triple glazing — see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets."
@@ -308,8 +308,8 @@ export default function PolyurethanePultrusionWindowsPage() {
             title: "FRP fenestration products",
             links: [
               { href: "/products/fenestration-systems", label: "Fiberglass windows & doors (65–140 series)" },
-              { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
-              { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
+              { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/pultrusion-process", label: "The pultrusion process explained" },
             ],
           },

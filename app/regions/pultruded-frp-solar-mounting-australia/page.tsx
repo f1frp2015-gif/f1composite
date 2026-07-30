@@ -184,7 +184,7 @@ export default function AustraliaSolarPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/custom-pultrusions">Custom solar mounting profiles</LinkArrow>
+            <LinkArrow href="/products/custom-pultruded-profiles">Custom solar mounting profiles</LinkArrow>
             <LinkArrow href="/ai/sourcing">Free FRP Sourcing Assistant</LinkArrow>
             <LinkArrow href="/resources/blog/frp-profile-cost-benchmarks-and-lead-times-2026">
               2026 FRP cost benchmarks

@@ -179,7 +179,7 @@ export default function EnergyPage() {
               <p>
                 Our cable tray systems are available in ladder, solid-bottom, and ventilated trough configurations, in widths from 150mm to 900mm and side rail heights from 50mm to 150mm. All systems include matching covers, reducers, tees, elbows, and vertical risers for complete routing solutions.
               </p>
-              <LinkArrow href="/products/gratings">
+              <LinkArrow href="/products/frp-gratings">
                 Browse cable tray and grating systems
               </LinkArrow>
 
@@ -202,7 +202,7 @@ export default function EnergyPage() {
               <p>
                 For offshore wind installations, FRP&apos;s immunity to saltwater corrosion eliminates the maintenance access challenges that corroding steel internal structures create. Offshore turbine maintenance visits cost $50,000 to $150,000 per occurrence due to vessel mobilization; any reduction in maintenance frequency delivers outsized economic benefit. FRP nacelle components and access platforms require zero corrosion maintenance over their full 25+ year turbine design life.
               </p>
-              <LinkArrow href="/products/standard-profiles">
+              <LinkArrow href="/products/fiberglass-structural-shapes">
                 Explore standard structural profiles
               </LinkArrow>
 
@@ -262,7 +262,7 @@ export default function EnergyPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/standard-profiles"
+              href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>
@@ -274,7 +274,7 @@ export default function EnergyPage() {
               </span>
             </Link>
             <Link
-              href="/products/gratings"
+              href="/products/frp-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Gratings and Cable Trays</h3>

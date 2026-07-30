@@ -184,7 +184,7 @@ export default function UAECableTrayPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/standard-profiles">FRP structural profiles for cable tray supports</LinkArrow>
+            <LinkArrow href="/products/fiberglass-structural-shapes">FRP structural profiles for cable tray supports</LinkArrow>
             <LinkArrow href="/ai/sourcing">Free FRP Sourcing Assistant</LinkArrow>
             <LinkArrow href="/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide">
               Buyer&rsquo;s guide: sourcing from China
@@ -200,7 +200,7 @@ export default function UAECableTrayPage() {
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/custom-pultrusions"
+              href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">Custom Pultrusion Services</h3>

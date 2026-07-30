@@ -366,7 +366,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     relatedLinks: [
       { label: "FRP vs Aluminum Window Frames", href: "/technology/frp-vs-aluminum-windows" },
       { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
-      { label: "Window U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
       { label: "Why FRP Outperforms Aluminum Thermally", href: "/resources/blog/frp-fenestration-thermal-performance" },
     ],
@@ -408,7 +408,7 @@ In order of effect:
 
 Theory aside, the condensation question has field answers. F1's GFRP-PU windows run condensation-free on a **−25°C chemical-industry campus in Baotou** — specified precisely because the previous aluminum frames frosted — and at **Qinling Station, Antarctica, against a −60°C design low** ([case study](/case-studies/qinling-station-antarctic-passive-windows)), where a frame-face condensation failure would not be a service call but a station-integrity problem. The same physics that streams water down an aluminum sill in Winnipeg keeps an insulating frame face dry in Antarctica; the only variable that changed is the conductivity of the material in between.
 
-To check where a specific frame and glazing build lands before specifying, run it through our [EN ISO 10077-1 U-value calculator](/technology/u-value-calculator) — it computes the whole-window value and flags the pass/fail against cold-climate program targets.`,
+To check where a specific frame and glazing build lands before specifying, run it through our [EN ISO 10077-1 U-value calculator](/technology/frp-u-value-calculator) — it computes the whole-window value and flags the pass/fail against cold-climate program targets.`,
   },
 
   {
@@ -450,8 +450,8 @@ To check where a specific frame and glazing build lands before specifying, run i
       { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
-      { label: "Fiberglass Window Reinforcements", href: "/products/window-reinforcement-profiles" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "Fiberglass Window Reinforcements", href: "/products/frp-window-reinforcement" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     sourceLinks: [
       { label: "EPTA — European Pultrusion Technology Association", href: "https://pultruders.org" },
@@ -471,7 +471,7 @@ The first thing search results blur is that "FRP window profiles" covers two dis
 
 Some suppliers do only one of these. A few, including F1 Composite, run both models from the same profile set, which matters for buyers because the certification evidence from the finished-unit business (EN 14351-1, NAFS, PHI component certification) also de-risks the profile-supply relationship: the lineals you are buying are the same sections the supplier certifies windows with.
 
-There is also a third, adjacent product this market includes: [pultruded fiberglass reinforcement cores](/products/window-reinforcement-profiles) that replace galvanized steel inserts inside uPVC window chambers — a component business selling into vinyl window systems rather than competing with them.
+There is also a third, adjacent product this market includes: [pultruded fiberglass reinforcement cores](/products/frp-window-reinforcement) that replace galvanized steel inserts inside uPVC window chambers — a component business selling into vinyl window systems rather than competing with them.
 
 ## What Is Actually Pulling Demand
 
@@ -561,9 +561,9 @@ The FRP window profile market rewards exactly one kind of participant on each si
       "Pultruded GFRP thermal break profiles for curtain walls: balanced 0°/90° modulus laminates carry glass dead load on transoms for a 25–50-year envelope life.",
     ogChips: ["Curtain wall", "Thermal break", "EN 14024"],
     relatedLinks: [
-      { label: "Facade Sunshade Panels (E40)", href: "/products/facade-sunshade-panels" },
+      { label: "Facade Sunshade Panels (E40)", href: "/products/frp-facade-panels" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
       { label: "Transverse-Reinforced Profile Architecture", href: "/resources/blog/frp-window-finish-transverse-reinforcement" },
       { label: "KNOWHOW Engineering Services", href: "/technology/knowhow-services" },
     ],
@@ -709,8 +709,8 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
       "F1 Composite Series 01 pultruded GRE / GRVE oilfield surface-gathering pipe in serial production — DN50–300, API 15LR, ISO 14692, +140 °C continuous.",
     ogChips: ["Oil & gas", "API 15HR / 15LR", "Sucker rods"],
     relatedLinks: [
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
-      { label: "Round Tube Profiles", href: "/products/standard-profiles/tube" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
+      { label: "Round Tube Profiles", href: "/products/fiberglass-structural-shapes/frp-tube" },
       { label: "Energy Industry", href: "/industries/energy" },
     ],
     sourceLinks: [
@@ -852,8 +852,8 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     ogChips: ["Mine methane", "Anti-static", "Flame-retardant"],
     relatedLinks: [
       { label: "Fire Resistance of FRP Profiles", href: "/resources/blog/frp-fire-resistance-ratings-guide" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
-      { label: "Round Tube Profiles", href: "/products/standard-profiles/tube" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
+      { label: "Round Tube Profiles", href: "/products/fiberglass-structural-shapes/frp-tube" },
     ],
     content: `Underground coal mining releases methane, and the gas has to be drained through a piped network before it can build to an explosive concentration. That pipe carries a flammable gas through an environment where one spark can be fatal, so it answers to two requirements most pipe never sees: it must not build a static charge, and it must not sustain a flame. Pultruded glass-fiber pipe meets both at the material level, which is why this is one of the few piping jobs where pultrusion is the first choice rather than a fallback.
 
@@ -953,7 +953,7 @@ For a mine operator weighing a switch from steel or PE, the case is a lower fail
     ogChips: ["Material comparison", "Lifecycle cost", "Engineering data"],
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
-      { label: "Standard Profiles", href: "/products/standard-profiles" },
+      { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
       { label: "Infrastructure", href: "/industries/infrastructure" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
@@ -1031,7 +1031,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
       { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     content: `Aluminum window frames dominate the global fenestration market. But their fundamental weakness, thermal conductivity of roughly 160 watts per meter-kelvin, creates thermal bridges that undermine building envelope performance. Pultruded FRP window frames, with thermal conductivity around 0.3 watts per meter-kelvin, remove that problem at the material level.
 
@@ -1093,7 +1093,7 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
       "Molded FRP vs galvanized steel grating: weight, corrosion, installation cost, lifecycle economics — side-by-side data for chemical, marine, and wastewater.",
     ogChips: ["Grating", "Lifecycle cost", "Corrosion resistance"],
     relatedLinks: [
-      { label: "Gratings & Decks", href: "/products/gratings" },
+      { label: "Gratings & Decks", href: "/products/frp-gratings" },
       { label: "Industrial", href: "/industries/industrial" },
       { label: "Marine", href: "/industries/marine" },
     ],
@@ -1218,7 +1218,7 @@ F1 Composite supplies pultruded FRP cable tray systems in ladder, solid-bottom, 
     relatedLinks: [
       { label: "Infrastructure", href: "/industries/infrastructure" },
       { label: "Case Studies", href: "/case-studies" },
-      { label: "Standard Profiles", href: "/products/standard-profiles" },
+      { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
     content: `Bridge infrastructure worldwide faces a compounding maintenance crisis. Reinforced concrete decks corrode from de-icing salts, freeze-thaw cycles, and increasing traffic loads. Steel decks fatigue at welded connections and require ongoing protective coating programs. Fiber reinforced polymer bridge decks offer a fundamentally different approach: a lightweight, corrosion-immune structural deck system that changes how engineers design, build, and maintain bridge infrastructure.
@@ -1287,7 +1287,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP Thermal Performance", href: "/resources/blog/frp-fenestration-thermal-performance" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     content: `Aluminum has dominated the commercial window frame market for decades. Its strength, extrudability, and established supply chain make it familiar. But aluminum also has a fundamental engineering weakness that no amount of thermal break design can fully erase: it is highly conductive. Pultruded FRP window frames offer a structurally competitive alternative that solves the thermal bridge problem at the material level.
 
@@ -1485,7 +1485,7 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     content: `Engineers rarely reject pultruded FRP because the material seems exotic. More often, they pause because a few practical questions remain unanswered. If those questions are answered with numbers, standards, and realistic section behavior, specification confidence rises quickly. These are the ten questions we hear most often.
 
@@ -1566,7 +1566,7 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
       "Why qualification speed is pultrusion's #1 pain point — and how standards alignment, test evidence, and early engineering coordination cut project friction.",
     ogChips: ["Pain point", "Qualification", "Specification risk"],
     relatedLinks: [
-      { label: "Custom Pultruded Profiles", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultruded Profiles", href: "/products/custom-pultruded-profiles" },
       { label: "Knowhow Services", href: "/technology/knowhow-services" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Contact", href: "/contact" },
@@ -1760,7 +1760,7 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Why pultruded FRP profiles are replacing steel in coastal infrastructure: corrosion economics, lifecycle data, and 30 years of field evidence.",
     ogChips: ["Lifecycle cost", "Marine", "Corrosion-free"],
     relatedLinks: [
-      { label: "FRP Gratings & Deck Panels", href: "/products/gratings" },
+      { label: "FRP Gratings & Deck Panels", href: "/products/frp-gratings" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Coastal Marina Walkway Case Study", href: "/case-studies/coastal-marina-walkway" },
       { label: "Marine Applications", href: "/industries/marine" },
@@ -1877,7 +1877,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "What Is FRP? Material and Properties", href: "/what-is-frp" },
     ],
@@ -2007,7 +2007,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     content: `"FRP composites cannot be recycled." For decades, this claim has been the single strongest objection raised against fiber reinforced polymer profiles in lifecycle assessments, green building certifications, and procurement specifications. Thermoset resins — polyester, vinyl ester, phenolic — cure through irreversible cross-linking, creating a three-dimensional polymer network that cannot be melted or reshaped. Unlike thermoplastic materials or metals, there was no practical way to recover the constituent fibers and resin from a cured composite part.
 
@@ -2108,8 +2108,8 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     ogChips: ["ASTM E84 Class A", "FSI ≤ 25", "US fire code"],
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
-      { label: "Standard Profiles", href: "/products/standard-profiles" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
       { label: "Infrastructure Applications", href: "/industries/infrastructure" },
     ],
     content: `One of the most frequently asked questions about FRP composite profiles concerns fire. Engineers, architects, and building officials want to know: how do pultruded FRP structural shapes behave when exposed to flame? Can they meet building code fire requirements? And how do they compare to steel, concrete, and timber in fire scenarios?
@@ -2235,8 +2235,8 @@ For engineers and architects specifying structural profiles in fire-regulated ap
     ogChips: ["Material science", "Impact testing", "Comparison"],
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
-      { label: "Standard Profiles", href: "/products/standard-profiles" },
-      { label: "I-Beam Profiles", href: "/products/standard-profiles/i-beam" },
+      { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
+      { label: "I-Beam Profiles", href: "/products/fiberglass-structural-shapes/frp-i-beam" },
       { label: "Infrastructure Applications", href: "/industries/infrastructure" },
     ],
     sourceLinks: [
@@ -2348,7 +2348,7 @@ For engineers designing structures that must survive impact events and remain in
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "Passivhaus Certification", href: "/resources/blog/frp-fenestration-passivhaus-certification" },
       { label: "Construction Industry", href: "/industries/construction" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     sourceLinks: [
       { label: "AS 2047-2014 — Windows and external glazed doors in buildings", href: "https://www.standards.org.au" },
@@ -2487,8 +2487,8 @@ The question for the Australian market is not whether GFRP fenestration will arr
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "FRP vs Aluminum Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     content: `For decades, aluminum has dominated the architectural fenestration market not because of its thermal performance — which is poor — but because of its finish. The anodized or powder-coated surface of an aluminum window frame delivers a precision, consistency, and visual sophistication that architects and building owners expect. That aesthetic monopoly is now over. Pultruded FRP window profiles can achieve the exact same architectural-grade finish through modern powder coating technology, while retaining the thermal insulation, dimensional stability, and corrosion resistance that make fiberglass window frames the superior engineering choice.
 
@@ -2634,7 +2634,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
       { label: "GFRP Australian Market Analysis", href: "/resources/blog/gfrp-fenestration-australian-market-as2047" },
       { label: "Fenestration Systems", href: "/products/fenestration-systems" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "U-Value Calculator", href: "/technology/u-value-calculator" },
+      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Construction Industry", href: "/industries/construction" },
     ],
     sourceLinks: [
@@ -2973,7 +2973,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     ogChips: ["Section 301 transparent", "DDP USA", "US Buyer's Guide"],
     relatedLinks: [
       { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
-      { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusion Services", href: "/products/custom-pultruded-profiles" },
       { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
       { label: "Contact F1 Composite", href: "/contact" },
     ],
@@ -3125,7 +3125,7 @@ If you need a starting point for your RFQ, F1 Composite provides complete quotes
     ogChips: ["DDP USA landed cost", "vs Strongwell/CPI", "2026 benchmark"],
     relatedLinks: [
       { label: "Buyer's Guide: Sourcing FRP from China", href: "/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide" },
-      { label: "Custom Pultrusion Services", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusion Services", href: "/products/custom-pultruded-profiles" },
       { label: "All Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
     ],
@@ -3598,7 +3598,7 @@ For a project-specific FRP solar mounting specification, full pultruded section 
     ogChips: ["E50 development", "Carbon/glass hybrid", "Braided pultrusion"],
     relatedLinks: [
       { label: "FRP Thermal Break Profiles for Curtain Walls", href: "/resources/blog/frp-thermal-break-profiles-curtain-wall" },
-      { label: "Facade Sunshade Panels (E40)", href: "/products/facade-sunshade-panels" },
+      { label: "Facade Sunshade Panels (E40)", href: "/products/frp-facade-panels" },
       { label: "CFRP Pultruded Spar Cap — Static Design", href: "/resources/blog/cfrp-pultruded-spar-cap-static-design-wind-blade" },
       { label: "GFRP Pultruded Spar Cap — Fatigue Design", href: "/resources/blog/gfrp-pultruded-spar-cap-fatigue-wind-blade" },
       { label: "KNOWHOW Engineering Services", href: "/technology/knowhow-services" },
@@ -3689,7 +3689,7 @@ For engineers and facade consultants tracking this development, or interested in
       "How EN ISO 10077-1 computes whole-window U-value from Ug, Uf, and spacer Psi — with the formula, a worked example, and why frames decide the result.",
     ogChips: ["EN ISO 10077-1", "U-value", "Thermal performance"],
     relatedLinks: [
-      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "U-Value vs SHGC", href: "/resources/blog/window-u-value-vs-shgc-climate" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
@@ -3752,7 +3752,7 @@ The practical consequence: an NFRC U-factor of 0.17 Btu/h·ft²·°F is not simp
 
 Run the formula in reverse: to hit Uw ≤ 0.80 with realistic triple glazing (Ug 0.60–0.70) on the reference window, the frame must deliver roughly Uf ≤ 1.0–1.3 with a warm-edge spacer. Thermally-broken aluminum reaches Uf 2.5–4.0 in common systems — the formula simply does not close. Insulating frame materials — pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC — are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/fenestration-systems) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
 
-To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer combination — including the pass/fail against cold-climate program targets — use the free [whole-window U-value calculator](/technology/u-value-calculator). It exposes every term of the formula above, so you can see which zone is costing you the rating.`,
+To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer combination — including the pass/fail against cold-climate program targets — use the free [whole-window U-value calculator](/technology/frp-u-value-calculator). It exposes every term of the formula above, so you can see which zone is costing you the rating.`,
   },
 
   {
@@ -3790,7 +3790,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
       "PHI certified-window criteria by climate zone (Uw 0.40-1.20 W/m2K), the 4.2 K comfort rule, Phius climate-specific guidance, and what frames qualify.",
     ogChips: ["Passive House", "PHI certification", "U-value"],
     relatedLinks: [
-      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House AI Window Selector", href: "/ai/passive-house" },
       { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/fenestration-systems" },
@@ -3850,7 +3850,7 @@ Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-
 
 Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [pultruded fiberglass window frames](/products/fenestration-systems) page carries the series-by-series data.
 
-To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/u-value-calculator) — it computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
+To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/frp-u-value-calculator) — it computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
   },
 
   {
@@ -3888,7 +3888,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       "U-value measures heat loss, SHGC measures solar gain. How to set both by climate zone — ENERGY STAR 7.0 numbers, PHI guidance, and frame effects.",
     ogChips: ["SHGC", "U-value", "Energy codes"],
     relatedLinks: [
-      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
@@ -3925,7 +3925,7 @@ Three practical rules hold across all three cases. Set the U-value according to 
 
 Coatings and gas fills live in the glazing, so SHGC tuning is mostly a glass decision — the frame only enters by occupying area (NFRC's whole-window SHGC falls as frame fraction rises). U-value is the opposite: on a typical window the frame is the thermally weakest zone and sets the floor under the whole-window number. A frame at Uf 2.5–4.0 W/m²K (thermally-broken aluminum territory) caps how far any glazing can carry the assembly; insulating frames — pultruded GFRP at roughly 0.3 W/m·K bulk conductivity, timber, uPVC — let premium glazing keep its rating at whole-window scale. The frame-material trade-offs, including why GFRP holds slim aluminum-like sightlines while insulating, are on the [FRP vs aluminum comparison](/technology/frp-vs-aluminum-windows); F1's PHI-certified GFRP-PU [fenestration systems](/products/fenestration-systems) are the applied case.
 
-To see both numbers interact on a real build — your frame, glazing package, and spacer, computed to EN ISO 10077-1 with program pass/fail flags — run the free [whole-window U-value calculator](/technology/u-value-calculator), then sanity-check the SHGC against your climate zone's table above.`,
+To see both numbers interact on a real build — your frame, glazing package, and spacer, computed to EN ISO 10077-1 with program pass/fail flags — run the free [whole-window U-value calculator](/technology/frp-u-value-calculator), then sanity-check the SHGC against your climate zone's table above.`,
   },
 
   {
@@ -3965,9 +3965,9 @@ To see both numbers interact on a real build — your frame, glazing package, an
     relatedLinks: [
       { label: "FRP Thermal Breaks for Curtain Walls (structural angle)", href: "/resources/blog/frp-thermal-break-profiles-curtain-wall" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/u-value-calculator" },
+      { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     sourceLinks: [
       { label: "Ensinger: insulbar LI foamed low-lambda profile (press release)", href: "https://www.ensingerplastics.com/en/press-and-news/press-releases/more-profile-than-anybody-else" },
@@ -4005,13 +4005,13 @@ Pultruded GFRP (E-glass in polyester, vinyl ester, or polyurethane matrix) lands
 
 ## Serial production, not a lab curiosity
 
-The honest historical knock on pultruded thermal breaks was availability: polyamide strips ship from catalog in hundreds of geometries; composite breaks were a special order. That is the part that has changed. F1 Composite runs pultruded thermal break profiles in serial production — hollow and solid sections, in the same GFRP matrix systems as our [window profiles](/technology/polyurethane-pultrusion-windows) at ≈0.3 W/m·K — and the profiles are working today in multiple completed system-window and sliding-door projects in China, where deep-break aluminum systems dominate the high-performance residential market. Dies for system-specific geometries follow the same 3–6 week tooling path as any [custom pultrusion](/products/custom-pultrusions).
+The honest historical knock on pultruded thermal breaks was availability: polyamide strips ship from catalog in hundreds of geometries; composite breaks were a special order. That is the part that has changed. F1 Composite runs pultruded thermal break profiles in serial production — hollow and solid sections, in the same GFRP matrix systems as our [window profiles](/technology/polyurethane-pultrusion-windows) at ≈0.3 W/m·K — and the profiles are working today in multiple completed system-window and sliding-door projects in China, where deep-break aluminum systems dominate the high-performance residential market. Dies for system-specific geometries follow the same 3–6 week tooling path as any [custom pultrusion](/products/custom-pultruded-profiles).
 
 ## Choosing between them
 
 If the frame is a standard-depth casement and the system house already holds EN 14024 qualification on a catalog polyamide strip, there is no reason to switch — the strip is proven, cheap, and available. The pultruded break earns its place where the polyamide playbook runs out: break zones deeper than strip extrusion serves, sliding and lift-slide sections where the break does real beam work, heavy triple glazing on wide sashes, humid or wet-service environments where PA66's conditioned properties govern, and frame designs chasing Uf numbers that need a wide insulating zone without giving up composite action.
 
-To see what a deeper, lower-conductance break zone does to a whole frame, run the numbers in our [EN ISO 10077-1 U-value calculator](/technology/u-value-calculator) — frame U-value is the single biggest lever on the whole-window result, and the break is the single biggest lever on the frame. For a break geometry against your system's section, [send the drawing](/contact); qualification data to EN 14024 and EN 13706 comes with the quote.`,
+To see what a deeper, lower-conductance break zone does to a whole frame, run the numbers in our [EN ISO 10077-1 U-value calculator](/technology/frp-u-value-calculator) — frame U-value is the single biggest lever on the whole-window result, and the break is the single biggest lever on the frame. For a break geometry against your system's section, [send the drawing](/contact); qualification data to EN 14024 and EN 13706 comes with the quote.`,
   },
 
   {
@@ -4053,7 +4053,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       { label: "Technical Data — EN 13706 Laminate Values", href: "/resources/technical-data" },
       { label: "Pultrusion Process Explained", href: "/technology/pultrusion-process" },
       { label: "Carbon-Glass Hybrid Mullion Pultrusion", href: "/resources/blog/frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultrusions" },
+      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     sourceLinks: [
       { label: "Strongwell Design Manual — Section 3, Properties of EXTREN", href: "https://www.strongwell.com/wp-content/uploads/2020/05/Section03-0520.pdf" },
@@ -4133,7 +4133,7 @@ Density is also a lever. Carbon fiber at 1.80 g/cm³ is lighter than the E-glass
 
 Every F1 datasheet declares the same laminate: 1.9 g/cm³ density, 65–70% E-glass by weight, isophthalic polyester matrix, mechanical minimums to EN 13706 grade E23. Run the check yourself — 70% glass at a 1.20 resin computes to 1.90 g/cm³ on the nose. The numbers close because they describe one real laminate, not a marketing composite of best cases.
 
-If your project needs a different point on the density map — an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram — we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultrusions) service. Send the section drawing and service conditions to Doris Li at Doris.li@f1composite.com. The resulting quote will include the laminate specification and certified test values, not just a price.`,
+If your project needs a different point on the density map — an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram — we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultruded-profiles) service. Send the section drawing and service conditions to Doris Li at Doris.li@f1composite.com. The resulting quote will include the laminate specification and certified test values, not just a price.`,
   },
 ];
 

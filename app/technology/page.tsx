@@ -72,7 +72,7 @@ const areas = [
     title: "Window U-Value Calculator",
     description:
       "Calculate whole-window thermal transmittance (Uw) per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with double, triple, and quadruple glazing.",
-    href: "/technology/u-value-calculator",
+    href: "/technology/frp-u-value-calculator",
   },
 ];
 
@@ -160,10 +160,10 @@ export default function TechnologyPage() {
             title: "Product references",
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/standard-profiles", label: "Standard FRP structural profiles" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusions" },
+              { href: "/products/fiberglass-structural-shapes", label: "Standard FRP structural profiles" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions" },
               { href: "/products/fenestration-systems", label: "FRP window frames" },
-              { href: "/products/gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/frp-gratings", label: "FRP gratings & deck panels" },
             ],
           },
           {

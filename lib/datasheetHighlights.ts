@@ -15,7 +15,7 @@ export interface DatasheetHighlightFamily {
 export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   {
     family: "Fiberglass I-Beams",
-    categoryHref: "/products/standard-profiles/i-beam",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-i-beam",
     items: [
       { slug: "i-76x38x6-4", model: "I 76×38×6.4" },
       { slug: "i-100x50x6", model: "I 100×50×6" },
@@ -29,7 +29,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Channels",
-    categoryHref: "/products/standard-profiles/channel",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-channel",
     items: [
       { slug: "u-50x25x5", model: "U 50×25×5" },
       { slug: "u-76x38x6-4", model: "U 76×38×6.4" },
@@ -43,7 +43,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Angles",
-    categoryHref: "/products/standard-profiles/angle",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-angle",
     items: [
       { slug: "l-25x25x3-2", model: "L 25×25×3.2" },
       { slug: "l-38x38x4-8", model: "L 38×38×4.8" },
@@ -57,7 +57,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Square Tubes (SHS)",
-    categoryHref: "/products/standard-profiles/square-tube",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-square-tube",
     items: [
       { slug: "shs-25x25x3-2", model: "SHS 25×25×3.2" },
       { slug: "shs-38x38x4-8", model: "SHS 38×38×4.8" },
@@ -71,7 +71,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Rectangular Tubes (RHS)",
-    categoryHref: "/products/standard-profiles/square-tube",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-square-tube",
     items: [
       { slug: "rhs-40x20x7", model: "RHS 40×20×7" },
       { slug: "rhs-40x25x8", model: "RHS 40×25×8" },
@@ -82,7 +82,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Round Tubes (CHS)",
-    categoryHref: "/products/standard-profiles/tube",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-tube",
     items: [
       { slug: "chs-25x3", model: "CHS 25×3" },
       { slug: "chs-32x3", model: "CHS 32×3" },
@@ -96,7 +96,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Rods",
-    categoryHref: "/products/standard-profiles/rod",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-rod",
     items: [
       { slug: "rod-6", model: "Rod Ø6" },
       { slug: "rod-10", model: "Rod Ø10" },
@@ -110,7 +110,7 @@ export const DATASHEET_HIGHLIGHTS: DatasheetHighlightFamily[] = [
   },
   {
     family: "Fiberglass Flat Bars",
-    categoryHref: "/products/standard-profiles/flat-bar",
+    categoryHref: "/products/fiberglass-structural-shapes/frp-flat-bar",
     items: [
       { slug: "fb-20x3", model: "FB 20×3" },
       { slug: "fb-25x3", model: "FB 25×3" },
