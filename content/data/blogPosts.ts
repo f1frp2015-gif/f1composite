@@ -1133,7 +1133,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
       "FRP cable trays are corrosion-immune, EMI-transparent (no induced currents on parallel cable runs), and install 30–50% faster than steel. They comply with NEMA VE-1, IEC 61537, ASTM E84 Class A flame spread, and EN 13501 for fire-rated tunnels, substations, and chemical-plant cable routing.",
     category: "Electrical Infrastructure",
     date: "2024-05-20",
-    updatedAt: "2026-04-01",
+    updatedAt: "2026-07-30",
     readTime: "8 min",
     excerpt:
       "FRP cable trays offer corrosion immunity, 50% faster installation, and EMI transparency. We cover specifications, standards compliance, and application guidance for engineers.",
@@ -1156,6 +1156,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
       "FRP cable trays — corrosion immunity, faster installation, EMI transparency. Standards (NEMA VE-1, IEC 61537, ASTM E84), specs, engineering guidance.",
     ogChips: ["Cable trays", "Electrical safety", "Corrosion resistance"],
     relatedLinks: [
+      { label: "FRP Cable Tray Supports", href: "/applications/frp-cable-tray-supports" },
       { label: "Energy", href: "/industries/energy" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Industrial", href: "/industries/industrial" },
@@ -1387,7 +1388,7 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
       "Seven structural questions shape the 2026 pultrusion industry conversation: design-standard convergence (ASCE/SEI 74-23 LRFD, EN 13706, ACMA pre-standards), qualification speed, ASTM E84 fire performance, thermoset circularity, PHIUS component certification, embodied-carbon EPDs (EN 15804), and real installed-cost transparency.",
     category: "Industry Insight",
     date: "2026-01-22",
-    updatedAt: "2026-03-31",
+    updatedAt: "2026-07-30",
     readTime: "9 min",
     excerpt:
       "In 2026 the pultrusion conversation has shifted from proving the material exists to proving it can be specified, qualified, priced, and scaled with less friction. These are the seven questions shaping that discussion.",
@@ -1410,6 +1411,7 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
       "7 questions shaping the 2026 pultrusion conversation — design standards, qualification speed, fire performance, circularity, and real installed cost.",
     ogChips: ["2026 outlook", "Standards", "Market questions"],
     relatedLinks: [
+      { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Knowhow Services", href: "/technology/knowhow-services" },
@@ -1541,7 +1543,7 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
       "Qualification speed — the time from engineer interest to spec-approved material — is the dominant procurement pain point in pultrusion. Pre-built standards alignment (EN 13706, ASCE/SEI 74-23, ASTM D3917), third-party test reports, and early engineering coordination consistently cut qualification timelines by 50% or more.",
     category: "Industry Analysis",
     date: "2026-03-18",
-    updatedAt: "2026-04-02",
+    updatedAt: "2026-07-30",
     readTime: "8 min",
     excerpt:
       "Pultrusion can already deliver strong, corrosion-resistant, repeatable composite sections. The biggest pain point today is how slowly projects qualify, approve, and scale those sections into real specifications.",
@@ -1564,6 +1566,7 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
       "Why qualification speed is pultrusion's #1 pain point — and how standards alignment, test evidence, and early engineering coordination cut project friction.",
     ogChips: ["Pain point", "Qualification", "Specification risk"],
     relatedLinks: [
+      { label: "Custom Pultruded Profiles", href: "/products/custom-pultrusions" },
       { label: "Knowhow Services", href: "/technology/knowhow-services" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Contact", href: "/contact" },
@@ -1611,7 +1614,7 @@ At F1 Composite, we see the most successful projects when engineering support st
       "Across 2026's design codes, leading manufacturers, trade shows, technical symposia, and patent filings, pultrusion is converging on one issue: qualification speed. Recognized standards (ASCE/SEI 74-23, CEN/TS 19101), verified EPDs (EN 15804 / ISO 14025), ASTM E84 fire data, and simulation-led design are all aimed at shortening the path from engineer interest to approved specification.",
     category: "Industry Trends",
     date: "2026-03-17",
-    updatedAt: "2026-06-02",
+    updatedAt: "2026-07-30",
     readTime: "10 min",
     excerpt:
       "Standards bodies, leading manufacturers, trade shows, technical symposia, and patent filings all point the same way in 2026: the bottleneck is qualification speed, not whether pultrusion works.",
@@ -1645,6 +1648,7 @@ At F1 Composite, we see the most successful projects when engineering support st
       "Where pultrusion is heading in 2026: recognized design codes, verified EPDs, ASTM E84 fire data, and simulation-led design shortening the qualification path.",
     ogChips: ["Standards", "Sustainability", "Qualification"],
     relatedLinks: [
+      { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Knowhow Services", href: "/technology/knowhow-services" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
@@ -1725,7 +1729,7 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Pultruded FRP profiles now replace galvanized and stainless steel as the default specification in coastal infrastructure: 75% lighter, immune to chloride stress-corrosion cracking, and projecting 50–100 year service life vs 25–40 years for steel — with documented 30-year installed evidence on marinas, piers, and offshore structures.",
     category: "Lifecycle Analysis",
     date: "2026-04-03",
-    updatedAt: "2026-04-03",
+    updatedAt: "2026-07-30",
     readTime: "8 min",
     excerpt:
       "Coastal infrastructure is among the harshest service environments for structural materials. Field data spanning 20 to 30 years now shows that pultruded FRP profiles deliver lower lifecycle cost, zero corrosion maintenance, and 75% weight reduction versus steel.",
@@ -1756,6 +1760,7 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Why pultruded FRP profiles are replacing steel in coastal infrastructure: corrosion economics, lifecycle data, and 30 years of field evidence.",
     ogChips: ["Lifecycle cost", "Marine", "Corrosion-free"],
     relatedLinks: [
+      { label: "FRP Gratings & Deck Panels", href: "/products/gratings" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Coastal Marina Walkway Case Study", href: "/case-studies/coastal-marina-walkway" },
       { label: "Marine Applications", href: "/industries/marine" },

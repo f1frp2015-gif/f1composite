@@ -17,6 +17,58 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function renderInlineMarkdown(text: string, keyPrefix: string): React.ReactNode[] {
+  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+  let part = 0;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > cursor) {
+      nodes.push(text.slice(cursor, match.index));
+    }
+
+    const token = match[0];
+    const key = `${keyPrefix}-${part++}`;
+    if (token.startsWith("**")) {
+      nodes.push(<strong key={key} className="text-t1">{token.slice(2, -2)}</strong>);
+    } else {
+      const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (link) {
+        const [, label, href] = link;
+        if (href.startsWith("/")) {
+          nodes.push(
+            <Link key={key} href={href} className="font-semibold text-teal-text hover:underline">
+              {label}
+            </Link>,
+          );
+        } else if (/^https?:\/\//.test(href)) {
+          nodes.push(
+            <a
+              key={key}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-teal-text hover:underline"
+            >
+              {label}
+            </a>,
+          );
+        } else {
+          nodes.push(token);
+        }
+      }
+    }
+    cursor = pattern.lastIndex;
+  }
+
+  if (cursor < text.length) {
+    nodes.push(text.slice(cursor));
+  }
+  return nodes;
+}
+
 export async function generateStaticParams() {
   return blogPosts.map(({ slug }) => ({ slug }));
 }
@@ -76,7 +128,7 @@ function renderArticleContent(content: string) {
               <tr className="border-b-2 border-border-default">
                 {headerCells.map((cell, ci) => (
                   <th key={ci} className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
-                    {cell}
+                    {renderInlineMarkdown(cell, `table-head-${index}-${ci}`)}
                   </th>
                 ))}
               </tr>
@@ -86,7 +138,7 @@ function renderArticleContent(content: string) {
                 <tr key={ri} className="border-b border-border-default">
                   {row.map((cell, ci) => (
                     <td key={ci} className={`py-[13px] pr-[21px] text-f15 ${ci === 0 ? "font-medium text-t1" : "text-t2"}`}>
-                      {cell}
+                      {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
                     </td>
                   ))}
                 </tr>
@@ -114,17 +166,6 @@ function renderArticleContent(content: string) {
         <h3 key={index} className="mb-[8px] mt-[21px] text-f15 font-bold text-t1">
           {paragraph.replace(/\*\*/g, "")}
         </h3>
-      );
-      continue;
-    }
-
-    if (paragraph.startsWith("**")) {
-      const parts = paragraph.split("**");
-      result.push(
-        <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
-          <strong className="text-t1">{parts[1]}</strong>
-          {parts.slice(2).join("**")}
-        </p>
       );
       continue;
     }
@@ -173,7 +214,7 @@ function renderArticleContent(content: string) {
 
     result.push(
       <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
-        {paragraph}
+        {renderInlineMarkdown(paragraph, `paragraph-${index}`)}
       </p>
     );
   }
@@ -415,7 +456,9 @@ export default async function BlogPostPage({ params }: PageProps) {
             ) : null}
 
             <div className="mt-[55px] max-w-[800px] border-t border-border-default pt-[21px]">
-              <h3 className="mb-[13px] text-f15 font-bold text-t1">Related Pages</h3>
+              <h2 className="mb-[13px] text-f19 font-bold text-t1">
+                Related FRP products, applications and tools
+              </h2>
               <div className="flex flex-wrap gap-[13px]">
                 {post.relatedLinks.map((link) => (
                   <Link
