@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description:
     "F1 Composite privacy policy: how we collect, use, store, and protect your personal information when you visit f1composite.com or contact us.",
   alternates: { canonical: absoluteUrl("/privacy") },
+  // Keep the legal page available to users and crawlable so search engines can
+  // read the directive, but do not treat it as a search landing page.
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyPage() {
