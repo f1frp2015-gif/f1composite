@@ -5,11 +5,13 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import ArticleSignals from "@/components/sections/ArticleSignals";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+import { authorsBySlug } from "@/lib/authors";
 
 // Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
 // at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
@@ -20,6 +22,10 @@ const CATALOG_WEIGHT_EXTREMES_KG_PER_M = [0.05, 16.8];
 const CATALOG_TOTAL_SKUS = "114";
 const pagePath = "/products/standard-profiles";
 const seoTarget = getSeoQueryTarget(pagePath);
+const publishedAt = "2026-04-04";
+const updatedAt = "2026-07-30";
+const author = authorsBySlug["yifan-liu"];
+const reviewer = authorsBySlug["haifeng-gong"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: seoTarget.title,
@@ -145,6 +151,19 @@ export default function StandardProfilesPage() {
           image: "/images/products/i-beam/frp-i-beam-cover.jpg",
           category: "Pultruded FRP Structural Profiles",
           productLine: "F1-STRUX",
+          schemaType: "CollectionPage",
+          datePublished: publishedAt,
+          dateModified: updatedAt,
+          author: {
+            name: author.fullName,
+            jobTitle: author.jobTitle,
+            path: `/about/authors/${author.slug}`,
+          },
+          reviewedBy: {
+            name: reviewer.fullName,
+            jobTitle: reviewer.jobTitle,
+            path: `/about/authors/${reviewer.slug}`,
+          },
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
           priceRange: (() => {
             const r = priceRangeFromWeights(CATALOG_WEIGHT_EXTREMES_KG_PER_M, 2.2, 4.5);
@@ -167,6 +186,15 @@ export default function StandardProfilesPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles" },
         ]}
+      />
+      <ArticleSignals
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+        authorName={author.fullName}
+        authorRole={author.jobTitle}
+        authorHref={`/about/authors/${author.slug}`}
+        reviewedBy={reviewer.fullName}
+        standards={["EN 13706", "ASTM D3917", "ASCE/SEI 74-23", "ISO 9001"]}
       />
 
       {/* Profile Grid */}

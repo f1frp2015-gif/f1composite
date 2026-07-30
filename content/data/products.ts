@@ -13,7 +13,7 @@ export interface ProductCategory {
 export const productCategories: ProductCategory[] = [
   {
     slug: "standard-profiles",
-    title: "Standard Profiles",
+    title: "Fiberglass Structural Shapes",
     description: "I-beams, channels, angles, tubes, and flat bars in stock sizes with certified mechanical properties.",
     icon: "profiles",
     href: "/products/standard-profiles",
@@ -21,7 +21,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "custom-pultrusions",
-    title: "Custom Pultrusions",
+    title: "Custom Pultruded Profiles",
     description: "Bespoke cross-sections engineered to your exact specifications with dedicated tooling.",
     icon: "custom",
     href: "/products/custom-pultrusions",
@@ -38,7 +38,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "gratings",
-    title: "Gratings & Decks",
+    title: "FRP Grating Manufacturer",
     description: "Molded and pultruded FRP gratings, solid-top cover plates, and structural deck panels for industrial platforms, marine environments, and pedestrian bridge decks.",
     icon: "gratings",
     href: "/products/gratings",
@@ -47,7 +47,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "fenestration-systems",
-    title: "FRP Windows & Doors",
+    title: "FRP Window Frames Manufacturer",
     description: "Finished GFRP-PU windows and doors for extreme-cold and passive house buildings — 65–140 series, U_w to 0.78, proven to −60°C.",
     icon: "fenestration",
     href: "/products/fenestration-systems",

@@ -8,17 +8,23 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import ArticleSignals from "@/components/sections/ArticleSignals";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import JumpNav from "@/components/sections/JumpNav";
 import WindowTypesGrid from "@/components/sections/WindowTypesGrid";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+import { authorsBySlug } from "@/lib/authors";
 
 const pagePath = "/products/fenestration-systems";
 const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
+const publishedAt = "2026-04-04";
+const updatedAt = "2026-07-30";
+const author = authorsBySlug["haifeng-gong"];
+const reviewer = authorsBySlug["yifan-liu"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -393,6 +399,19 @@ export default function FenestrationSystemsPage() {
           image: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
           category: "FRP Windows, Fiberglass Window Frames and Profiles",
           productLine: "F1-THERM",
+          schemaType: "CollectionPage",
+          datePublished: publishedAt,
+          dateModified: updatedAt,
+          author: {
+            name: author.fullName,
+            jobTitle: author.jobTitle,
+            path: `/about/authors/${author.slug}`,
+          },
+          reviewedBy: {
+            name: reviewer.fullName,
+            jobTitle: reviewer.jobTitle,
+            path: `/about/authors/${reviewer.slug}`,
+          },
           // Indicative per-meter profile band across the 65–140 series; finished
           // units are quoted per opening. Routes to /contact for a project quote.
           priceRange: { lowPrice: "12", highPrice: "120", offerCount: "5", unitText: "linear meter" },
@@ -417,7 +436,7 @@ export default function FenestrationSystemsPage() {
       />
       <PageHeader
         tag="FRP Windows & Doors · F1-THERM"
-        title="FRP Window Frame Manufacturer — Fiberglass Windows, Frames & Profiles"
+        title="FRP Window Frames Manufacturer — Fiberglass Windows, Frames & Profiles"
         description="F1 Composite manufactures finished FRP windows and doors, as well as pultruded fiberglass window frames, profiles and lineals for local fabrication. Available in 65–140 series for Passive House, low-energy and extreme-cold buildings, with whole-window U-values to 0.78 W/m²·K."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -434,6 +453,15 @@ export default function FenestrationSystemsPage() {
           note: "Finished units or fabrication-ready profiles · 65–140 series · engineering response within one business day.",
           stickyMobile: true,
         }}
+      />
+      <ArticleSignals
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+        authorName={author.fullName}
+        authorRole={author.jobTitle}
+        authorHref={`/about/authors/${author.slug}`}
+        reviewedBy={reviewer.fullName}
+        standards={["PHI 2491wi03", "EN 14351-1", "AS 2047", "NAFS"]}
       />
 
       <JumpNav
@@ -990,9 +1018,9 @@ export default function FenestrationSystemsPage() {
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/facade-sunshade-panels", label: "Facade sunshade panels (E40)" },
               { href: "/products/window-reinforcement-profiles", label: "Fiberglass window reinforcements (uPVC cores)" },
-              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
-              { href: "/products/standard-profiles", label: "Standard FRP profiles" },
-              { href: "/products/gratings", label: "FRP gratings" },
+              { href: "/products/custom-pultrusions", label: "Custom pultruded profiles" },
+              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+              { href: "/products/gratings", label: "FRP grating manufacturer" },
             ],
           },
           {

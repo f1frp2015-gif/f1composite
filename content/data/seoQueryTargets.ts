@@ -21,7 +21,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Pultruded FRP Profiles Manufacturer | F1 Composite",
     description:
-      "F1 Composite is a pultruded FRP profiles manufacturer supplying structural shapes, gratings, window frames and custom sections for global projects.",
+      "China-based manufacturer of pultruded FRP profiles, fiberglass structural shapes, gratings and custom sections. EN 13706 and ASTM D3917; factory-direct.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/standard-profiles",
@@ -94,9 +94,9 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/fenestration-systems",
-    primaryQuery: "FRP window frame manufacturer",
+    primaryQuery: "FRP window frames manufacturer",
     intent: "commercial",
-    title: "FRP Window Frame Manufacturer | Fiberglass Windows",
+    title: "FRP Window Frames Manufacturer | Fiberglass Windows",
     description:
       "Work with an FRP window frame manufacturer supplying finished fiberglass windows, doors and pultruded lineals in 65–140 series, with U-values to 0.78 W/m²·K.",
     supportingUrls: [

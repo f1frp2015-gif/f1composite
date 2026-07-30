@@ -6,7 +6,7 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "FRP Windows · Frames · Profiles",
-    title: "FRP Window Frame Manufacturer & Fiberglass Windows",
+    title: "FRP Window Frames Manufacturer & Fiberglass Windows",
     description:
       "Finished units or 65–140 series pultruded window profiles for local fabrication, with U-values to 0.78 W/m²K.",
     accent: "#13756f",

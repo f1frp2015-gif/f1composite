@@ -7,15 +7,21 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import ArticleSignals from "@/components/sections/ArticleSignals";
 import GratingSelectionGuide from "@/components/sections/GratingSelectionGuide";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+import { authorsBySlug } from "@/lib/authors";
 
 const pagePath = "/products/gratings";
 const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
+const publishedAt = "2026-04-04";
+const updatedAt = "2026-07-30";
+const author = authorsBySlug["yifan-liu"];
+const reviewer = authorsBySlug["haifeng-gong"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -187,6 +193,19 @@ export default function GratingsPage() {
           image: "/images/products/plank-grating.png",
           category: "FRP Gratings & Structural Deck Panels",
           productLine: "F1-GRID",
+          schemaType: "CollectionPage",
+          datePublished: publishedAt,
+          dateModified: updatedAt,
+          author: {
+            name: author.fullName,
+            jobTitle: author.jobTitle,
+            path: `/about/authors/${author.slug}`,
+          },
+          reviewedBy: {
+            name: reviewer.fullName,
+            jobTitle: reviewer.jobTitle,
+            path: `/about/authors/${reviewer.slug}`,
+          },
           // Indicative USD/m² band for the grating range (basis: ~18 kg/m² molded
           // grating; consistent with published regional grating quotes). Routes to
           // /contact for a firm price — satisfies Google's "offers required" rule.
@@ -212,6 +231,15 @@ export default function GratingsPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Gratings & Decks" },
         ]}
+      />
+      <ArticleSignals
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+        authorName={author.fullName}
+        authorRole={author.jobTitle}
+        authorHref={`/about/authors/${author.slug}`}
+        reviewedBy={reviewer.fullName}
+        standards={["ASTM E84", "BS 7976-2", "CSI 06 74 13", "ISO 9001"]}
       />
 
       {/* Grating Image */}

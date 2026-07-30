@@ -18,7 +18,7 @@ export default function SolutionsSnapshot() {
           <div>
             <SectionTag>Product systems</SectionTag>
             <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
-              One source for structural and engineered FRP
+              Our product lines for structural and engineered FRP
             </h2>
             <p className="mt-[10px] max-w-[720px] text-f15 leading-relaxed text-t2">
               Start with a stocked profile family or develop a project-specific section with tooling, material, and documentation support.
