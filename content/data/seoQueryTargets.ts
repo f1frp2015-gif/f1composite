@@ -30,14 +30,56 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/what-is-frp",
-    primaryQuery: "glass fiber reinforced plastic",
+    primaryQuery: "what is FRP",
     intent: "guide",
-    title: "Glass Fiber Reinforced Plastic (FRP) Explained",
+    title: "What Is FRP? Definition, Materials, Properties & Uses",
     description:
-      "Glass fiber reinforced plastic (FRP) combines glass reinforcement and resin. Compare properties, standards and uses, then choose profiles or request a quote.",
+      "What is FRP? Learn how fiber reinforced plastic combines glass and resin, how it is made, its properties, standards, uses and engineering limits.",
     supportingUrls: [
+      "/resources/blog/fiberglass-reinforced-plastic",
+      "/resources/blog/frp-material",
+      "/resources/blog/frp-meaning",
       "/technology/pultrusion-process",
       "/technology/frp-vs-traditional-materials",
+      "/resources/glossary",
+    ],
+  },
+  {
+    targetUrl: "/resources/blog/fiberglass-reinforced-plastic",
+    primaryQuery: "fiberglass reinforced plastic",
+    intent: "guide",
+    title: "Fiberglass Reinforced Plastic: Types, Properties & Uses",
+    description:
+      "Fiberglass reinforced plastic combines glass fibers with polymer resin. Learn its composition, forms, properties, manufacturing methods and structural uses.",
+    supportingUrls: [
+      "/what-is-frp",
+      "/resources/blog/frp-material",
+      "/pultruded-frp-profiles",
+    ],
+  },
+  {
+    targetUrl: "/resources/blog/frp-material",
+    primaryQuery: "FRP material",
+    intent: "technical",
+    title: "FRP Material: Properties, Types & Selection Guide",
+    description:
+      "Compare FRP material fibers, resins and properties. Learn how engineers select a laminate by load, corrosion, fire, temperature and manufacturing method.",
+    supportingUrls: [
+      "/what-is-frp",
+      "/resources/blog/fiberglass-reinforced-plastic",
+      "/resources/technical-data",
+    ],
+  },
+  {
+    targetUrl: "/resources/blog/frp-meaning",
+    primaryQuery: "FRP meaning",
+    intent: "guide",
+    title: "FRP Meaning: Fiber Reinforced Polymer Explained",
+    description:
+      "FRP means fiber reinforced polymer or fiber reinforced plastic. Learn FRP, GFRP, GRP and CFRP terminology and how to read the terms in specifications.",
+    supportingUrls: [
+      "/what-is-frp",
+      "/resources/blog/fiberglass-reinforced-plastic",
       "/resources/glossary",
     ],
   },
