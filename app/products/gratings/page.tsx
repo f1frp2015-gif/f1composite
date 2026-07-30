@@ -205,7 +205,7 @@ export default function GratingsPage() {
       />
       <PageHeader
         tag="Gratings & Decks · F1-GRID"
-        title="Fiberglass Gratings (FRP) & Structural Deck Panels"
+        title="FRP Grating Manufacturer — Molded, Pultruded & Structural Deck Panels"
         description="Corrosion-proof, lightweight fiberglass gratings and structural deck panels — molded and pultruded FRP grating, solid-top cover plates, and closed-top deck planks for pedestrian bridges, vehicular decks, and industrial platforms."
         breadcrumbs={[
           { label: "Home", href: "/" },

@@ -417,7 +417,7 @@ export default function FenestrationSystemsPage() {
       />
       <PageHeader
         tag="FRP Windows & Doors · F1-THERM"
-        title="Pultruded Fiberglass (FRP) Windows, Frames & Profiles"
+        title="FRP Window Frame Manufacturer — Fiberglass Windows, Frames & Profiles"
         description="F1 Composite manufactures finished FRP windows and doors, as well as pultruded fiberglass window frames, profiles and lineals for local fabrication. Available in 65–140 series for Passive House, low-energy and extreme-cold buildings, with whole-window U-values to 0.78 W/m²·K."
         breadcrumbs={[
           { label: "Home", href: "/" },
