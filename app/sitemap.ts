@@ -64,6 +64,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/technology/quality-testing`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/knowhow-services`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/frp-profile-calculator`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/frp-profile-calculator/methodology`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/frp-profile-calculator/validation`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/frp-span-tables`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/fiberglass-pultruded-profile-price`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/u-value-calculator`, changeFrequency: "monthly", priority: 0.8 },

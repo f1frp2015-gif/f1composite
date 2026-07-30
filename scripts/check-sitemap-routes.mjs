@@ -10,6 +10,8 @@ const excluded = new Set([
   "/datasheets",
   "/llms.txt",
   "/llms-full.txt",
+  "/frp-profile-calculator/embed",
+  "/frp-span-tables/embed",
 ]);
 
 function collectPages(dir) {

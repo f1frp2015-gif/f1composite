@@ -5,10 +5,9 @@
 // pattern) and every row deep-links back into the calculator via its
 // ?shape&h&b&tw&tf query preset.
 //
-// Section-property and check formulas are kept in exact parity with
-// app/frp-profile-calculator/ProfileCalculator.tsx (calcIx / calcWx /
-// calcArea / calcShearArea and the LRFD + Timoshenko beam checks). If the
-// calculator's math changes, change it here too.
+// Section properties come from the same shared engine used by
+// app/frp-profile-calculator/ProfileCalculator.tsx. This prevents the static
+// tables and interactive results from drifting when a geometry formula changes.
 //
 // Fixed design basis (one published assumption set, stated on the page —
 // other codes/environments/limits are what the calculator itself is for):
@@ -23,6 +22,7 @@
 // (lib/catalog/seed.ts) — weights are F1-published values, never computed.
 
 import { buildProducts } from "@/lib/catalog/seed";
+import { calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
 
 /* Design basis constants */
 const E_MPA = 23_000;
@@ -80,32 +80,6 @@ export interface SpanFamily {
   rows: SpanRow[];
 }
 
-/* ── Section properties — parity with ProfileCalculator.tsx ── */
-
-function calcIx(shape: string, h: number, b: number, tw: number, tf: number): number {
-  if (shape === "i-beam" || shape === "channel") {
-    return (b * h ** 3 - (b - tw) * (h - 2 * tf) ** 3) / 12;
-  }
-  if (shape === "square-tube") return (b * h ** 3 - (b - 2 * tw) * (h - 2 * tw) ** 3) / 12;
-  if (shape === "round-tube") {
-    const Ro = h / 2;
-    const Ri = Ro - tw;
-    return (Math.PI / 4) * (Ro ** 4 - Ri ** 4);
-  }
-  return 0;
-}
-
-function calcShearArea(shape: string, h: number, b: number, tw: number, tf: number): number {
-  if (shape === "i-beam" || shape === "channel") return (h - 2 * tf) * tw;
-  if (shape === "square-tube") return 2 * h * tw;
-  if (shape === "round-tube") {
-    const Ro = h / 2;
-    const Ri = Ro - tw;
-    return (Math.PI * (Ro ** 2 - Ri ** 2)) / 2;
-  }
-  return 0;
-}
-
 /* ── Allowable UDL at one span ──
    All in N and mm; a UDL in N/mm is numerically the same value in kN/m.
      bending     w_b = 8·F_b·Wx / (γ·L²)          (σ = γ·wL²/8 / Wx ≤ F_b)
@@ -145,7 +119,7 @@ function makeRow(
   weightKgPerM: number,
 ): SpanRow {
   const Ix = calcIx(shape, dims.h, dims.b, dims.tw, dims.tf);
-  const Wx = Ix / (dims.h / 2);
+  const Wx = calcWx(Ix, dims.h, shape, dims.b, dims.tw);
   const Av = calcShearArea(shape, dims.h, dims.b, dims.tw, dims.tf);
   return {
     model,

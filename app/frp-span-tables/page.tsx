@@ -11,12 +11,15 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
+import EmbedCode from "@/components/tools/EmbedCode";
+import SpanTablesContent from "@/components/tools/SpanTablesContent";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { buildSpanTables, DESIGN_BASIS, SPANS_MM } from "@/lib/spanTables";
+import { buildSpanTables, DESIGN_BASIS } from "@/lib/spanTables";
 
 const publishedAt = "2026-07-11";
-const updatedAt = "2026-07-11";
+const updatedAt = "2026-07-30";
 const pagePath = "/frp-span-tables";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -53,14 +56,6 @@ const spanTableFaqs = [
       "No — molded and pultruded gratings are plate-like panels with their own load-deflection tables per panel type and bearing-bar pitch. These tables cover single pultruded structural profiles in bending. For grating, see the FRP gratings product page or ask engineering for panel load tables against your support spacing.",
   },
 ];
-
-function formatLoad(w: number): string {
-  if (w < 0.05) return "—";
-  if (w < 1) return w.toFixed(2);
-  return w.toFixed(1);
-}
-
-const GOVERNS_MARK = { deflection: "d", bending: "b", shear: "v" } as const;
 
 export default function SpanTablesPage() {
   const families = buildSpanTables();
@@ -131,51 +126,7 @@ export default function SpanTablesPage() {
         </div>
       </section>
 
-      {families.map((family) => (
-        <section key={family.id} id={family.id} className="bg-white py-[34px]">
-          <div className="mx-auto max-w-[1280px] px-[34px]">
-            <h2 className="text-f24 font-bold text-t1">{family.title}</h2>
-            <p className="mt-[8px] max-w-[800px] text-f15 leading-golden text-t2">{family.intro}</p>
-            <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
-              <table className="w-full min-w-[880px] border-collapse text-f13">
-                <thead>
-                  <tr className="bg-slate-50 text-left text-t1">
-                    <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">Section (mm)</th>
-                    <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">kg/m</th>
-                    <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">Ix ×10⁶ mm⁴</th>
-                    {SPANS_MM.map((L) => (
-                      <th key={L} className="whitespace-nowrap px-[13px] py-[10px] text-right font-semibold">
-                        {(L / 1000).toFixed(1).replace(/\.0$/, "")} m
-                      </th>
-                    ))}
-                    <th className="px-[13px] py-[10px]" />
-                  </tr>
-                </thead>
-                <tbody>
-                  {family.rows.map((row) => (
-                    <tr key={row.model} className="border-t border-border-default/70 text-t2">
-                      <td className="whitespace-nowrap px-[13px] py-[8px] font-medium text-t1">{row.model}</td>
-                      <td className="whitespace-nowrap px-[13px] py-[8px]">{row.weightKgPerM}</td>
-                      <td className="whitespace-nowrap px-[13px] py-[8px]">{(row.IxMm4 / 1e6).toFixed(2)}</td>
-                      {row.cells.map((cell, i) => (
-                        <td key={i} className="whitespace-nowrap px-[13px] py-[8px] text-right tabular-nums">
-                          {formatLoad(cell.w)}
-                          {cell.w >= 0.05 && <sup className="text-t3">{GOVERNS_MARK[cell.governs]}</sup>}
-                        </td>
-                      ))}
-                      <td className="whitespace-nowrap px-[13px] py-[8px] text-right">
-                        <Link href={row.calculatorHref} className="text-teal-text hover:underline">
-                          Check →
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      ))}
+      <SpanTablesContent families={families} />
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -210,6 +161,40 @@ export default function SpanTablesPage() {
             </div>
           </div>
           <FAQ items={spanTableFaqs} />
+        </div>
+      </section>
+
+      <RelatedLinks
+        background="white"
+        groups={[
+          {
+            title: "Calculation record",
+            links: [
+              { href: "/frp-profile-calculator/methodology", label: "Calculator methodology and equations" },
+              { href: "/frp-profile-calculator/validation", label: "Reproducible validation benchmarks" },
+              { href: "/frp-profile-calculator", label: "Run a custom section check" },
+            ],
+          },
+          {
+            title: "Use the selected section",
+            links: [
+              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+              { href: "/datasheets", label: "Profile datasheets and drawings" },
+              { href: "/fiberglass-pultruded-profile-price", label: "Estimate profile price" },
+            ],
+          },
+        ]}
+      />
+
+      <section className="bg-white pb-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <EmbedCode
+            toolName="FRP Span Tables"
+            embedPath="/frp-span-tables/embed"
+            canonicalPath="/frp-span-tables"
+            height={920}
+            attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
+          />
         </div>
       </section>
 

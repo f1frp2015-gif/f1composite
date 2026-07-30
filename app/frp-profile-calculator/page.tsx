@@ -11,6 +11,8 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 import { BeamDeflection } from "@/components/sections/ConceptAnimations";
+import EmbedCode from "@/components/tools/EmbedCode";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 
 // publishedAt = the LRFD/ASD + CN/EU/US-standards rewrite that produced the
 // current feature set (git: "Rewrite FRP profile calculator with LRFD/ASD
@@ -18,7 +20,7 @@ import { BeamDeflection } from "@/components/sections/ConceptAnimations";
 // real calculator changes — it's a freshness signal, so it must track
 // actual edits, not just get stamped on every deploy.
 const publishedAt = "2026-05-16";
-const updatedAt = "2026-07-08";
+const updatedAt = "2026-07-30";
 const pagePath = "/frp-profile-calculator";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -259,6 +261,40 @@ export default function CalculatorPage() {
           </div>
 
           <FAQ items={calculatorFaqs} />
+        </div>
+      </section>
+
+      <RelatedLinks
+        background="white"
+        groups={[
+          {
+            title: "Calculation record",
+            links: [
+              { href: "/frp-profile-calculator/methodology", label: "Calculator methodology and equations" },
+              { href: "/frp-profile-calculator/validation", label: "Reproducible validation benchmarks" },
+              { href: "/frp-span-tables", label: "FRP span tables and load charts" },
+            ],
+          },
+          {
+            title: "From result to specification",
+            links: [
+              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+              { href: "/datasheets", label: "Profile datasheets and drawings" },
+              { href: "/fiberglass-pultruded-profile-price", label: "Pultruded profile price estimator" },
+            ],
+          },
+        ]}
+      />
+
+      <section className="bg-white pb-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <EmbedCode
+            toolName="FRP Profile Calculator"
+            embedPath="/frp-profile-calculator/embed"
+            canonicalPath="/frp-profile-calculator"
+            height={840}
+            attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
+          />
         </div>
       </section>
 
