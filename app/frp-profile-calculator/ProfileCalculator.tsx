@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import SectionPreview from "@/components/calculators/section/SectionPreview";
+import { calcArea, calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
 
 /* ──────────────────────────────────────────────────────────────────────────
    Material database — orthotropic FRP + isotropic metals
@@ -204,58 +205,6 @@ const PRESETS: Preset[] = [
   { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
 ];
 
-function calcIx(shape: string, h: number, b: number, tw: number, tf: number): number {
-  if (shape === "i-beam" || shape === "channel") {
-    return (b * h ** 3 - (b - tw) * (h - 2 * tf) ** 3) / 12;
-  }
-  if (shape === "angle") {
-    const t = tw;
-    const yBar = (h * t * h / 2 + (b - t) * t * t / 2) / (h * t + (b - t) * t);
-    const Iv = (t * h ** 3) / 12 + h * t * (h / 2 - yBar) ** 2;
-    const Ih = ((b - t) * t ** 3) / 12 + (b - t) * t * (yBar - t / 2) ** 2;
-    return Iv + Ih;
-  }
-  if (shape === "square-tube") return (b * h ** 3 - (b - 2 * tw) * (h - 2 * tw) ** 3) / 12;
-  if (shape === "round-tube") {
-    const Ro = h / 2; const Ri = Ro - tw;
-    return (Math.PI / 4) * (Ro ** 4 - Ri ** 4);
-  }
-  return 0;
-}
-
-function calcWx(Ix: number, h: number, shape?: string, b?: number, tw?: number): number {
-  if (shape === "angle" && b && tw) {
-    const t = tw;
-    const yBar = (h * t * h / 2 + (b - t) * t * t / 2) / (h * t + (b - t) * t);
-    const maxDist = Math.max(yBar, h - yBar);
-    return Ix / maxDist;
-  }
-  return Ix / (h / 2);
-}
-
-function calcArea(shape: string, h: number, b: number, tw: number, tf: number): number {
-  if (shape === "i-beam" || shape === "channel") return 2 * b * tf + (h - 2 * tf) * tw;
-  if (shape === "angle") return h * tw + (b - tw) * tw;
-  if (shape === "square-tube") return b * h - (b - 2 * tw) * (h - 2 * tw);
-  if (shape === "round-tube") {
-    const Ro = h / 2; const Ri = Ro - tw;
-    return Math.PI * (Ro ** 2 - Ri ** 2);
-  }
-  return 0;
-}
-
-// Shear area (the part resisting transverse shear — web for I/C, walls for tube)
-function calcShearArea(shape: string, h: number, b: number, tw: number, tf: number): number {
-  if (shape === "i-beam" || shape === "channel") return (h - 2 * tf) * tw;
-  if (shape === "angle") return h * tw;
-  if (shape === "square-tube") return 2 * h * tw;
-  if (shape === "round-tube") {
-    const Ro = h / 2; const Ri = Ro - tw;
-    return (Math.PI * (Ro ** 2 - Ri ** 2)) / 2;
-  }
-  return 0;
-}
-
 // Wall-slenderness advisory for local-buckling review. Outstanding (one-edge-
 // supported) elements — I/C flanges, angle legs — use b/t ≤ ~18 per ASCE/SEI
 // 74-23 Ch.3 / CEN/TS 19101 §6 for E-glass pultrusions. Box flats are supported
@@ -418,6 +367,11 @@ export default function ProfileCalculator() {
       () => {},
     );
     track("calculator_share", { shape });
+  }
+
+  function printResultReport() {
+    track("calculator_print_report", { shape, material: matKey, mode });
+    window.print();
   }
 
   /* ── Beam calculation ── */
@@ -630,9 +584,23 @@ export default function ProfileCalculator() {
 
   return (
     <section className="bg-white py-[34px]">
+      <style>{`
+        @media print {
+          body > header,
+          body > footer,
+          body > a[href="#main"],
+          .calculator-mode-tabs,
+          .calculator-input-panel,
+          .calculator-print-hide { display: none !important; }
+          body:not(:has([data-embed-shell])) main#main > *:not(#profile-calculator) { display: none !important; }
+          body > main#main { padding-top: 0 !important; }
+          .calculator-grid { display: block !important; }
+          .calculator-results-panel { border: 0 !important; background: white !important; padding: 0 !important; }
+        }
+      `}</style>
       <div className="mx-auto max-w-[1280px] px-[34px]">
         {/* Mode tabs */}
-        <div className="mb-[21px] flex gap-[8px]">
+        <div className="calculator-mode-tabs mb-[21px] flex gap-[8px]">
           <button
             onClick={() => setMode("beam")}
             className={`rounded-[6px] px-[21px] py-[8px] text-f13 font-semibold transition-colors ${mode === "beam" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
@@ -648,9 +616,9 @@ export default function ProfileCalculator() {
         </div>
 
         {mode === "beam" && (
-          <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr]">
+          <div className="calculator-grid grid gap-[21px] lg:grid-cols-[1fr_1fr]">
             {/* Input panel */}
-            <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="calculator-input-panel space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Input Parameters</SectionTag>
 
               {/* One-click scenario presets — lower activation energy */}
@@ -770,7 +738,7 @@ export default function ProfileCalculator() {
             </div>
 
             {/* Results panel */}
-            <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="calculator-results-panel space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Results</SectionTag>
 
               {!dimsOk ? (
@@ -902,14 +870,23 @@ export default function ProfileCalculator() {
               {/* Result-moment email capture — convert at the aha-moment, no page jump */}
               <ResultLeadCapture source="calculator" summary={specMessage} context={specContext} />
 
-              {/* Shareable deep link — spreads the tool + lets buyers forward the calc */}
-              <button
-                type="button"
-                onClick={copyShareLink}
-                className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
-              >
-                {copied ? "✓ Link copied" : "🔗 Copy a shareable link to this calculation"}
-              </button>
+              {/* Share + print/PDF actions keep the computed result portable. */}
+              <div className="calculator-print-hide grid gap-[8px] sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={copyShareLink}
+                  className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                >
+                  {copied ? "✓ Link copied" : "🔗 Copy shareable result link"}
+                </button>
+                <button
+                  type="button"
+                  onClick={printResultReport}
+                  className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                >
+                  Print / Save result as PDF
+                </button>
+              </div>
 
               </>)}
 

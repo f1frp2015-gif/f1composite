@@ -29,6 +29,13 @@ const CONTENT_SECURITY_POLICY = [
   .filter(Boolean)
   .join("; ");
 
+// Only the two purpose-built, noindex tool routes may be framed. Every normal
+// page keeps frame-ancestors 'none' and X-Frame-Options: DENY.
+const EMBED_CONTENT_SECURITY_POLICY = CONTENT_SECURITY_POLICY.replace(
+  "frame-ancestors 'none'",
+  "frame-ancestors *",
+);
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
@@ -136,6 +143,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      ...["/frp-profile-calculator/embed", "/frp-span-tables/embed"].map((source) => ({
+        source,
+        headers: [
+          { key: "Content-Security-Policy", value: EMBED_CONTENT_SECURITY_POLICY },
+          // Override the global DENY header. Modern browsers enforce the more
+          // expressive CSP frame-ancestors directive above.
+          { key: "X-Frame-Options", value: "ALLOWALL" },
+          { key: "X-Robots-Tag", value: "noindex, follow" },
+        ],
+      })),
       {
         // Build assets are required for rendering, so keep them crawlable, but
         // they are not search-result documents. Vercel/Next deployment skew

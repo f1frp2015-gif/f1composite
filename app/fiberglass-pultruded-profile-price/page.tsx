@@ -24,7 +24,7 @@ import {
 import PriceEstimator from "./PriceEstimator";
 
 const publishedAt = "2026-07-12";
-const updatedAt = "2026-07-12";
+const updatedAt = "2026-07-30";
 const pagePath = "/fiberglass-pultruded-profile-price";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -405,6 +405,8 @@ export default function ProfilePricePage() {
               { href: "/products/standard-profiles", label: "Fiberglass structural shapes catalog" },
               { href: "/datasheets", label: "Profile datasheets & DXF drawings" },
               { href: "/frp-profile-calculator", label: "FRP profile calculator" },
+              { href: "/frp-profile-calculator/methodology", label: "Calculator methodology" },
+              { href: "/frp-profile-calculator/validation", label: "Calculator validation benchmarks" },
               { href: "/frp-span-tables", label: "FRP span tables" },
             ],
           },
