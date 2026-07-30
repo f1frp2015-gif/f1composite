@@ -19,7 +19,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-22";
-const updatedAt = "2026-04-02";
+const updatedAt = "2026-07-30";
 const authorName = "F1 Composite Applications Engineering Team";
 const authorRole = "Material selection, design substitution, and lifecycle-cost specialists";
 const reviewedBy = "Technical Applications Group";
@@ -338,7 +338,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why FRP</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            The Case for Fiber-Reinforced Polymers
+            Why FRP differs from traditional structural materials
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
@@ -369,7 +369,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Visual Comparison</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Key Properties at a Glance
+            FRP vs steel and aluminum — key properties at a glance
           </h2>
 
           {/* Legend */}
@@ -419,7 +419,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Properties Table</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Full Property Comparison
+            FRP vs traditional materials — full property comparison
           </h2>
 
           <div className="mt-[34px] overflow-x-auto">
@@ -462,7 +462,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Detailed Analysis</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Understanding Each Property
+            How to interpret each FRP material property
           </h2>
 
           <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2">
@@ -504,7 +504,7 @@ export default function FrpVsTraditionalPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Deeper Comparisons</SectionTag>
-          <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific comparison pages</h2>
+          <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific FRP comparison pages</h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page covers the big-picture comparison across five materials. For specific applications, dedicated pages go deeper into numbers, standards, and decision criteria.
           </p>
@@ -514,7 +514,7 @@ export default function FrpVsTraditionalPage() {
             <LinkArrow href="/technology/frp-vs-steel-gratings">FRP vs steel gratings</LinkArrow>
           </div>
 
-          <h2 className="mt-[55px] text-f24 font-bold text-t1">Explore Further</h2>
+          <h2 className="mt-[55px] text-f24 font-bold text-t1">FRP products and engineering resources</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles</LinkArrow>
             <LinkArrow href="/fiberglass-pultruded-profile-price">Fiberglass profile price estimator</LinkArrow>

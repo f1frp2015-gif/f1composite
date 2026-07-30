@@ -168,28 +168,28 @@ export function buildSpanTables(): SpanFamily[] {
       id: "i-beam",
       title: "FRP I-Beam Span Table",
       intro:
-        "Allowable uniform load for pultruded fiberglass I-beams and wide-flange beams — the primary walkway, platform, and pipe-rack members.",
+        "This FRP span table lists allowable uniform service loads for pultruded fiberglass I-beams and wide-flange beams used in walkways, platforms, and pipe racks. Compare the required clear span and load, then open the linked calculator to review the governing deflection, bending, or shear check.",
       rows: iBeams,
     },
     {
       id: "channel",
       title: "FRP Channel Span Table",
       intro:
-        "Allowable uniform load for pultruded fiberglass channels (U-profiles), commonly used as stringers, cable-tray supports, and frame rails.",
+        "This FRP channel span table gives allowable uniform service loads for pultruded fiberglass U-profiles commonly used as stringers, cable-tray supports, and frame rails. Values use the design basis stated above; follow the calculator link when connection behavior, concentrated loads, or a different exposure condition governs.",
       rows: channels,
     },
     {
       id: "square-tube",
       title: "FRP Square & Rectangular Tube Span Table",
       intro:
-        "Allowable uniform load for pultruded fiberglass SHS / RHS hollow sections — solar purlins, guardrail posts, and light framing.",
+        "This FRP span table covers pultruded fiberglass square and rectangular hollow sections used for solar purlins, guardrail posts, and light framing. The values represent simply supported strong-axis members under uniform load, so designers should separately check local attachment forces, post action, and project-specific load cases.",
       rows: tubes,
     },
     {
       id: "round-tube",
       title: "FRP Round Tube Span Table",
       intro:
-        "Allowable uniform load for pultruded fiberglass round tube (CHS) — handrails, cross-members, and light spanning duty.",
+        "This FRP round-tube span table provides allowable uniform service loads for pultruded fiberglass circular hollow sections used as handrails, cross-members, and light spanning members. Select the diameter and wall thickness, compare the clear span, and verify the result in the calculator before final project specification.",
       rows: roundTubes,
     },
   ];

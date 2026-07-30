@@ -200,7 +200,38 @@ export default function StandardProfilesPage() {
       {/* Profile Grid */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
+          <div className="max-w-[920px]">
+            <h2 className="text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+              Fiberglass structural shapes — standard profile range
+            </h2>
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
+              F1 Composite manufactures 114 stock fiberglass structural shapes across the
+              I-beam, channel, angle, square and rectangular tube, round tube, flat bar, and
+              rod families. Each family page below lists the available dimensions, published
+              weight per meter, section drawing, and downloadable datasheets needed for an
+              initial specification.
+            </p>
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
+              These pultruded fiberglass structural shapes use continuous E-glass
+              reinforcement and resin systems selected for the service environment. Standard
+              production is controlled to EN 13706 and ASTM D3917 requirements; project
+              engineers should combine the catalog geometry with the applicable material
+              data, load combinations, environmental factors, connection design, and local
+              code checks.
+            </p>
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
+              Use the <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">FRP span tables</Link>{" "}
+              for preliminary member screening, the <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>{" "}
+              for section-property and design checks, or review the <Link href="/resources/technical-data" className="font-semibold text-teal-text hover:underline">FRP technical data</Link>{" "}
+              before selecting a stock size. Custom dimensions and fiber architectures are
+              handled through the custom pultrusion program.
+            </p>
+          </div>
+
+          <h2 className="mt-[55px] text-f24 font-bold text-t1">
+            Browse fiberglass structural shapes by section family
+          </h2>
+          <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             {profileTypes.map((profile) => (
               <Link
                 key={profile.slug}
