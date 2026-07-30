@@ -7,14 +7,20 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import ArticleSignals from "@/components/sections/ArticleSignals";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+import { authorsBySlug } from "@/lib/authors";
 
 const pagePath = "/products/custom-pultrusions";
 const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
+const publishedAt = "2026-04-04";
+const updatedAt = "2026-07-30";
+const author = authorsBySlug["haifeng-gong"];
+const reviewer = authorsBySlug["yifan-liu"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -181,6 +187,19 @@ export default function CustomPultrusionsPage() {
           image: "/images/products/custom-profiles-overview.webp",
           category: "Custom Pultruded FRP Profiles",
           productLine: "F1-FORM",
+          schemaType: "CollectionPage",
+          datePublished: publishedAt,
+          dateModified: updatedAt,
+          author: {
+            name: author.fullName,
+            jobTitle: author.jobTitle,
+            path: `/about/authors/${author.slug}`,
+          },
+          reviewedBy: {
+            name: reviewer.fullName,
+            jobTitle: reviewer.jobTitle,
+            path: `/about/authors/${reviewer.slug}`,
+          },
           // Custom pultrusion spans the full catalog range; indicative per-meter
           // band to /contact (final price is tooling- and volume-dependent).
           priceRange: { lowPrice: "5", highPrice: "300", offerCount: "1", unitText: "linear meter" },
@@ -212,6 +231,15 @@ export default function CustomPultrusionsPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Custom Pultrusions" },
         ]}
+      />
+      <ArticleSignals
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+        authorName={author.fullName}
+        authorRole={author.jobTitle}
+        authorHref={`/about/authors/${author.slug}`}
+        reviewedBy={reviewer.fullName}
+        standards={["EN 13706", "ASTM D3917", "ISO 9001"]}
       />
 
       {/* Engineering Drawing */}

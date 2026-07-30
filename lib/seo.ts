@@ -82,6 +82,19 @@ interface ProductFamilyPageSchemaOptions {
    * across every product family.
    */
   measurements?: Array<{ propertyID: string; value: string; unitText: string }>;
+  schemaType?: "WebPage" | "CollectionPage" | "ItemPage";
+  datePublished?: string;
+  dateModified?: string;
+  author?: {
+    name: string;
+    jobTitle?: string;
+    path?: string;
+  };
+  reviewedBy?: {
+    name: string;
+    jobTitle?: string;
+    path?: string;
+  };
 }
 
 export function absoluteUrl(path: string) {
@@ -166,6 +179,11 @@ export function buildProductFamilyPageSchema({
   category,
   material,
   productLine,
+  schemaType = "WebPage",
+  datePublished,
+  dateModified,
+  author,
+  reviewedBy,
 }: ProductFamilyPageSchemaOptions) {
   const materials = Array.isArray(material) ? material : material ? [material] : [];
 
@@ -174,7 +192,7 @@ export function buildProductFamilyPageSchema({
   // avoid Product/Offer rich-result claims that cannot be verified on-page.
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": schemaType,
     "@id": `${absoluteUrl(path)}#webpage`,
     name,
     description,
@@ -191,6 +209,27 @@ export function buildProductFamilyPageSchema({
       ...(productLine && { alternateName: productLine }),
     },
     provider: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    ...(datePublished && { datePublished }),
+    ...(dateModified && { dateModified, lastReviewed: dateModified }),
+    ...(author && {
+      author: {
+        "@type": "Person",
+        name: author.name,
+        ...(author.jobTitle && { jobTitle: author.jobTitle }),
+        ...(author.path && { url: absoluteUrl(author.path) }),
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      },
+    }),
+    ...(reviewedBy && {
+      reviewedBy: {
+        "@type": "Person",
+        name: reviewedBy.name,
+        ...(reviewedBy.jobTitle && { jobTitle: reviewedBy.jobTitle }),
+        ...(reviewedBy.path && { url: absoluteUrl(reviewedBy.path) }),
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      },
+    }),
     keywords: [category, productLine, ...materials].filter(Boolean).join(", "),
   };
 }
