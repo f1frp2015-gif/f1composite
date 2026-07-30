@@ -17,12 +17,16 @@ export interface SeoQueryTarget {
 export const seoQueryTargets = [
   {
     targetUrl: "/",
-    primaryQuery: "F1 Composite",
-    intent: "brand",
-    title: "F1 Composite | FengDu FRP Export & Project Supply",
+    primaryQuery: "FRP profiles manufacturer",
+    intent: "commercial",
+    title: "Pultruded FRP Profiles Manufacturer | F1 Composite",
     description:
-      "F1 Composite is FengDu New Material's international export company for structural profiles, gratings, window systems and custom pultrusions.",
-    supportingUrls: ["/about", "/products/product-lines", "/regions"],
+      "F1 Composite is a pultruded FRP profiles manufacturer supplying structural shapes, gratings, window frames and custom sections for global projects.",
+    supportingUrls: [
+      "/pultruded-frp-profiles",
+      "/products/standard-profiles",
+      "/about",
+    ],
   },
   {
     targetUrl: "/what-is-frp",
@@ -81,20 +85,20 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/custom-pultrusions",
-    primaryQuery: "custom pultrusions",
+    primaryQuery: "custom pultrusion manufacturer",
     intent: "commercial",
-    title: "Custom Pultrusions — Bespoke FRP Profile Manufacturer",
+    title: "Custom Pultrusion Manufacturer | Bespoke FRP Profiles",
     description:
-      "Develop custom pultruded FRP sections to 600×300 mm with in-house tooling, resin and reinforcement selection, validation, and repeat production.",
+      "Develop custom FRP sections with a custom pultrusion manufacturer offering in-house tooling, material selection and validated production up to 600×300 mm.",
     supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process"],
   },
   {
     targetUrl: "/products/fenestration-systems",
-    primaryQuery: "FRP windows",
+    primaryQuery: "FRP window frame manufacturer",
     intent: "commercial",
-    title: "FRP Windows & Fiberglass Window Frames | F1 Composite",
+    title: "FRP Window Frame Manufacturer | Fiberglass Windows",
     description:
-      "Finished FRP windows and doors plus pultruded fiberglass window frames, profiles and lineals for fabricators. 65–140 series; U-values to 0.78 W/m²·K.",
+      "Work with an FRP window frame manufacturer supplying finished fiberglass windows, doors and pultruded lineals in 65–140 series, with U-values to 0.78 W/m²·K.",
     supportingUrls: [
       "/resources/frp-windows-guide",
       "/technology/polyurethane-pultrusion-windows",
@@ -148,11 +152,11 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/gratings",
-    primaryQuery: "FRP grating",
+    primaryQuery: "FRP grating manufacturer",
     intent: "commercial",
-    title: "FRP Grating — Molded, Pultruded & Solid-Top Panels",
+    title: "FRP Grating Manufacturer | Molded & Pultruded Panels",
     description:
-      "Specify molded and pultruded FRP grating, deck panels and solid-top covers for chemical, marine and industrial walkways, with load and slip data.",
+      "Source molded and pultruded panels from an FRP grating manufacturer for chemical, marine and industrial projects, with load, slip and resin data.",
     supportingUrls: [
       "/technology/frp-vs-steel-gratings",
       "/regions/frp-grating-supplier-saudi-arabia",

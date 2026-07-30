@@ -22,7 +22,7 @@ export default function Hero() {
           </div>
 
           <h1 className="mt-[18px] text-[clamp(36px,9.8vw,68px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">
-            Pultruded FRP profiles for demanding projects
+            Pultruded FRP profiles manufacturer for demanding projects
           </h1>
 
           <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,20px)] leading-[1.55] text-white/76 sm:mt-[22px]">

@@ -11,23 +11,12 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const seoTarget = getSeoQueryTarget("/");
 
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: seoTarget.title,
-    description: seoTarget.description,
-    path: "/",
-    image: "/opengraph-image",
-  }),
-  keywords: [
-    "F1 Composite",
-    "F1 Composite manufacturer",
-    "F1 Composite China",
-    "F1-STRUX",
-    "F1-GRID",
-    "F1-THERM",
-    "F1-FORM",
-  ],
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: seoTarget.title,
+  description: seoTarget.description,
+  path: "/",
+  image: "/opengraph-image",
+});
 
 export default function HomePage() {
   return (

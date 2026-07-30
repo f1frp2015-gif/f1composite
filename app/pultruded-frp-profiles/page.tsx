@@ -18,24 +18,11 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: pageTitle,
-    description: pageDescription,
-    path: pagePath,
-  }),
-  keywords: [
-    "F1 pultruded profiles",
-    "F1 Composite pultruded profiles",
-    "F1 FRP profiles",
-    "pultruded FRP profiles",
-    "pultruded fiberglass profiles",
-    "fiberglass structural shapes",
-    "FRP profiles manufacturer",
-    "custom pultrusion services",
-    "pultruded profiles EN 13706",
-  ],
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: pagePath,
+});
 
 const profileFamily: Array<{
   slug: string;
