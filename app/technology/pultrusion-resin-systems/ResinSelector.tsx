@@ -49,7 +49,7 @@ const SYSTEMS: ResinSystem[] = [
       "The cost-efficient workhorse — the default matrix for general structural profiles unless the environment or the spec says otherwise.",
     typicalUse:
       "Standard structural shapes, gratings, cable tray, ladder rail, general fabrication stock.",
-    link: { href: "/products/standard-profiles", label: "Standard profiles" },
+    link: { href: "/products/fiberglass-structural-shapes", label: "Standard profiles" },
   },
   {
     key: "vinylester",

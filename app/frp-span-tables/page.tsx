@@ -153,7 +153,7 @@ export default function SpanTablesPage() {
                 Exact section properties (A, Ix, Iy, Sx, torsion, and EN 13706 mechanical data) for every row live in
                 the <Link href="/datasheets" className="text-teal-text hover:underline">profile datasheets</Link>, and
                 dimensioned drawings are on the{" "}
-                <Link href="/products/standard-profiles" className="text-teal-text hover:underline">fiberglass structural shapes size chart</Link>.
+                <Link href="/products/fiberglass-structural-shapes" className="text-teal-text hover:underline">fiberglass structural shapes size chart</Link>.
                 For members these tables can’t represent — angles in single-leg bending, continuous spans, frames —
                 ask <Link href="/ask" className="text-teal-text hover:underline">the FRP Engineering Advisor</Link> or
                 send the case to engineering.
@@ -178,7 +178,7 @@ export default function SpanTablesPage() {
           {
             title: "Use the selected section",
             links: [
-              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+              { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
               { href: "/datasheets", label: "Profile datasheets and drawings" },
               { href: "/fiberglass-pultruded-profile-price", label: "Estimate profile price" },
             ],

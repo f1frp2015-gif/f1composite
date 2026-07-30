@@ -204,7 +204,7 @@ export default function ChinaAlternativeWindowsPage() {
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/fenestration-systems">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
-            <LinkArrow href="/technology/u-value-calculator">Window U-value calculator</LinkArrow>
+            <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data &amp; test reports</LinkArrow>

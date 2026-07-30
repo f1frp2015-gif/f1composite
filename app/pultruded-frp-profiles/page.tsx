@@ -42,7 +42,7 @@ const profileFamily: Array<{
     sizes: "76×38 mm — 305×305 mm",
     summary:
       "Primary structural beams for walkways, platforms, and short-span bridges. Up to 75% lighter than a comparable A36 steel wide flange.",
-    href: "/products/standard-profiles/i-beam",
+    href: "/products/fiberglass-structural-shapes/frp-i-beam",
     image: "/images/products/i-beam/frp-i-beam-photo.png",
   },
   {
@@ -52,7 +52,7 @@ const profileFamily: Array<{
     sizes: "38×13 mm — 305×89 mm",
     summary:
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
-    href: "/products/standard-profiles/channel",
+    href: "/products/fiberglass-structural-shapes/frp-channel",
     image: "/images/products/channel/frp-channel-photo.webp",
   },
   {
@@ -62,7 +62,7 @@ const profileFamily: Array<{
     sizes: "25×25 mm — 152×152 mm",
     summary:
       "Equal and unequal-leg angles for stiffeners, bracing, ledger supports, and frame connectors. Isophthalic polyester or vinyl ester resin.",
-    href: "/products/standard-profiles/angle",
+    href: "/products/fiberglass-structural-shapes/frp-angle",
     image: "/images/products/angle/frp-angle-photo.webp",
   },
   {
@@ -72,7 +72,7 @@ const profileFamily: Array<{
     sizes: "25×25 mm — 240×240 mm",
     summary:
       "Superior torsional rigidity for columns, trusses, and free-standing frames. Also used for guardrails and solar racking posts.",
-    href: "/products/standard-profiles/square-tube",
+    href: "/products/fiberglass-structural-shapes/frp-square-tube",
     image: "/images/products/square-tube/frp-square-tube-photo.webp",
   },
   {
@@ -82,7 +82,7 @@ const profileFamily: Array<{
     sizes: "25 mm — 150 mm OD",
     summary:
       "Circular hollow sections for handrails, antenna masts, insulating stand-offs, and fluid-conveying applications with smooth interior bore.",
-    href: "/products/standard-profiles/tube",
+    href: "/products/fiberglass-structural-shapes/frp-tube",
     image: "/images/products/round-tube/frp-round-tube-photo.png",
   },
   {
@@ -92,7 +92,7 @@ const profileFamily: Array<{
     sizes: "12×3 mm — 305×25 mm",
     summary:
       "Solid rectangular sections for stiffeners, splice plates, wear strips. Unidirectional architecture up to 70% glass for high-modulus applications.",
-    href: "/products/standard-profiles/flat-bar",
+    href: "/products/fiberglass-structural-shapes/frp-flat-bar",
     image: "/images/products/flat-bar/frp-flat-bar-photo.png",
   },
   {
@@ -115,7 +115,7 @@ const profileFamily: Array<{
     sizes: "30×30 mm — 100×50 mm catalog sections; custom module frames",
     summary:
       "Pultruded composite module-frame profiles, ground and floating PV support members, and lightweight rooftop rails with matched clamps and splice hardware.",
-    href: "/products/solar-mounting-systems",
+    href: "/products/frp-solar-mounting-systems",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   },
   {
@@ -125,7 +125,7 @@ const profileFamily: Array<{
     sizes: "Up to 600×300 mm cross-section",
     summary:
       "Bespoke dies for EV battery trays, solar mounting, rail interiors, architectural trim, and structural replacements. 6–10 week turnaround.",
-    href: "/products/custom-pultrusions",
+    href: "/products/custom-pultruded-profiles",
     image: "/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg",
   },
   {
@@ -135,7 +135,7 @@ const profileFamily: Array<{
     sizes: "25 – 100 mm thickness",
     summary:
       "Molded and pultruded gratings, solid-top cover plates, and structural FRP deck panels for chemical plants, offshore platforms, pedestrian bridges, and vehicular access decks.",
-    href: "/products/gratings",
+    href: "/products/frp-gratings",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
   },
 ];
@@ -522,13 +522,13 @@ export default function PultrudedFRPProfilesHubPage() {
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 F1 Composite organizes its pultruded FRP range into four branded
                 product lines:{" "}
-                <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
+                <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
                 (structural profiles),{" "}
-                <Link href="/products/gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
+                <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
                 (gratings &amp; deck panels),{" "}
                 <Link href="/products/fenestration-systems" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
                 (window frames &amp; fenestration), and{" "}
-                <Link href="/products/custom-pultrusions" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
+                <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
                 (custom pultrusions) — all manufactured in-house to EN 13706 and ASTM D3917.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
@@ -820,7 +820,7 @@ export default function PultrudedFRPProfilesHubPage() {
             content, and hardness are F1 characteristic values per the cited method.
             Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are
             published on each{" "}
-            <Link href="/products/standard-profiles" className="font-semibold text-teal-text hover:text-teal">
+            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
               shape datasheet
             </Link>
             , or compute them live in the{" "}

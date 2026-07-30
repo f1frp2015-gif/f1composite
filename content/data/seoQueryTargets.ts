@@ -24,7 +24,7 @@ export const seoQueryTargets = [
       "China-based manufacturer of pultruded FRP profiles, fiberglass structural shapes, gratings and custom sections. EN 13706 and ASTM D3917; factory-direct.",
     supportingUrls: [
       "/pultruded-frp-profiles",
-      "/products/standard-profiles",
+      "/products/fiberglass-structural-shapes",
       "/about",
     ],
   },
@@ -49,23 +49,23 @@ export const seoQueryTargets = [
     description:
       "Specify pultruded FRP profiles, structural shapes, gratings, window frames and custom sections. EN 13706 and ASTM D3917; factory-direct global supply.",
     supportingUrls: [
-      "/products/standard-profiles",
-      "/products/custom-pultrusions",
+      "/products/fiberglass-structural-shapes",
+      "/products/custom-pultruded-profiles",
       "/technology/pultrusion-process",
       "/resources/how-to-choose-frp-pultrusion-supplier",
     ],
   },
   {
-    targetUrl: "/products/standard-profiles",
+    targetUrl: "/products/fiberglass-structural-shapes",
     primaryQuery: "fiberglass structural shapes",
     intent: "commercial",
     title: "Fiberglass Structural Shapes — FRP Sizes & Weights",
     description:
       "Compare 114 fiberglass structural shapes: I-beams, channels, angles, tubes, flat bars and rods, with dimensions, weights and section data.",
     supportingUrls: [
-      "/products/standard-profiles/i-beam",
-      "/products/standard-profiles/channel",
-      "/products/standard-profiles/angle",
+      "/products/fiberglass-structural-shapes/frp-i-beam",
+      "/products/fiberglass-structural-shapes/frp-channel",
+      "/products/fiberglass-structural-shapes/frp-angle",
       "/frp-span-tables",
     ],
   },
@@ -78,13 +78,13 @@ export const seoQueryTargets = [
       "Explore F1 Composite's four product lines for structural profiles, gratings, fenestration systems and custom pultrusions exported for global projects.",
     supportingUrls: [
       "/pultruded-frp-profiles",
-      "/products/gratings",
+      "/products/frp-gratings",
       "/products/fenestration-systems",
-      "/products/custom-pultrusions",
+      "/products/custom-pultruded-profiles",
     ],
   },
   {
-    targetUrl: "/products/custom-pultrusions",
+    targetUrl: "/products/custom-pultruded-profiles",
     primaryQuery: "custom pultrusion manufacturer",
     intent: "commercial",
     title: "Custom Pultruded Profiles | FRP Pultrusion Manufacturer",
@@ -124,7 +124,7 @@ export const seoQueryTargets = [
       "See each pultrusion process stage: fiber creel, resin impregnation, heated-die curing, pull control, cutoff, quality checks and production variables.",
     supportingUrls: [
       "/what-is-frp",
-      "/products/custom-pultrusions",
+      "/products/custom-pultruded-profiles",
       "/technology/pultrusion-resin-systems",
     ],
   },
@@ -151,7 +151,7 @@ export const seoQueryTargets = [
     supportingUrls: ["/products/fenestration-systems", "/technology/polyurethane-pultrusion-windows"],
   },
   {
-    targetUrl: "/products/gratings",
+    targetUrl: "/products/frp-gratings",
     primaryQuery: "FRP grating manufacturer",
     intent: "commercial",
     title: "FRP Grating Manufacturer | Molded & Pultruded Panels",
@@ -170,7 +170,7 @@ export const seoQueryTargets = [
     title: "FRP Grating vs Steel — Corrosion, Slip & Lifecycle Cost",
     description:
       "Compare FRP grating with steel on load, corrosion, weight, slip resistance, electrical safety, installation and lifecycle cost.",
-    supportingUrls: ["/products/gratings", "/industries/industrial"],
+    supportingUrls: ["/products/frp-gratings", "/industries/industrial"],
   },
   {
     targetUrl: "/frp-profile-calculator",
@@ -179,7 +179,7 @@ export const seoQueryTargets = [
     title: "Free FRP Profile Calculator — LRFD/ASD Design Checks",
     description:
       "Run bending, shear and deflection checks for pultruded FRP profiles with LRFD or ASD methods and EN 13706, GB 50608 and ASCE 74-23 inputs.",
-    supportingUrls: ["/frp-span-tables", "/products/standard-profiles"],
+    supportingUrls: ["/frp-span-tables", "/products/fiberglass-structural-shapes"],
   },
   {
     targetUrl: "/frp-span-tables",
@@ -188,7 +188,7 @@ export const seoQueryTargets = [
     title: "FRP Span Tables — Pultruded Fiberglass Load Charts",
     description:
       "Use allowable uniform-load span tables for pultruded FRP I-beams, channels and tubes based on EN 13706 E23, ASCE/SEI 74-23 and L/250 deflection.",
-    supportingUrls: ["/frp-profile-calculator", "/products/standard-profiles"],
+    supportingUrls: ["/frp-profile-calculator", "/products/fiberglass-structural-shapes"],
   },
   {
     targetUrl: "/fiberglass-pultruded-profile-price",
@@ -197,7 +197,7 @@ export const seoQueryTargets = [
     title: "Fiberglass Pultruded Profile Price — Estimator & Guide",
     description:
       "Estimate fiberglass pultruded profile prices in USD per meter and kilogram. See how section size, resin, glass content, finish and order volume affect cost.",
-    supportingUrls: ["/pultruded-frp-profiles", "/products/standard-profiles"],
+    supportingUrls: ["/pultruded-frp-profiles", "/products/fiberglass-structural-shapes"],
   },
   {
     targetUrl: "/technology/china-alternative-to-strongwell-fiberline-exel",

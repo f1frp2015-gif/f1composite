@@ -225,7 +225,7 @@ export default function FrpVsPvcWindowsPage() {
             Compare Uw across FRP, PVC, and aluminum frames on your specific window size
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K — a 35% reduction in heat loss for the same glazing package.
+            Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K — a 35% reduction in heat loss for the same glazing package.
           </p>
         </div>
       </section>
@@ -256,10 +256,10 @@ export default function FrpVsPvcWindowsPage() {
             title: "FRP fenestration products",
             links: [
               { href: "/products/fenestration-systems", label: "Fiberglass window frames (65/70/80/90/140)" },
-              { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
-              { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
+              { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
-              { href: "/products/window-reinforcement-profiles", label: "Fiberglass window reinforcements (steel replacement)" },
+              { href: "/products/frp-window-reinforcement", label: "Fiberglass window reinforcements (steel replacement)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
@@ -291,7 +291,7 @@ export default function FrpVsPvcWindowsPage() {
       <section className="bg-white pb-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · PVC vs FRP"
             title="Compare your PVC window against FRP"
             sub="Opens the U-value calculator on a multi-chamber PVC frame — switch to an F1 FRP frame on the same glazing to see the whole-window Uw delta, with no steel reinforcement needed at large sizes."

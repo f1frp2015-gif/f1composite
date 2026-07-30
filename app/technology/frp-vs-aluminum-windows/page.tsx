@@ -199,7 +199,7 @@ export default function FrpVsAluminumWindowsPage() {
             For a 1230 × 1480 mm triple-glazed window (Ug = 0.6), the whole-window Uw calculation per EN ISO 10077-1 produces Uw ≈ 1.05 W/m²·K with a 70 mm thermally-broken aluminum frame, versus Uw ≈ 0.72 W/m²·K with an F1 Composite 90-series FRP frame. The aluminum window fails the PHI 0.80 limit by 31%; the FRP window passes with 10% margin.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Try the calculation yourself with real dimensions and frame properties — our <Link href="/technology/u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements the EN ISO 10077-1 method.
+            Try the calculation yourself with real dimensions and frame properties — our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements the EN ISO 10077-1 method.
           </p>
         </div>
       </section>
@@ -245,8 +245,8 @@ export default function FrpVsAluminumWindowsPage() {
             title: "FRP fenestration products",
             links: [
               { href: "/products/fenestration-systems", label: "FRP windows and doors (65/70/80/90/140)" },
-              { href: "/products/custom-pultrusions", label: "Custom pultruded window profiles" },
-              { href: "/technology/u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
+              { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
@@ -279,7 +279,7 @@ export default function FrpVsAluminumWindowsPage() {
       <section className="bg-white pb-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/u-value-calculator?frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator?frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · aluminum vs FRP"
             title="Compare your aluminum window against FRP"
             sub="Opens the U-value calculator on a thermally-broken aluminum frame — swap to an F1 FRP frame on the same glazing and watch the whole-window Uw drop, per EN ISO 10077-1."

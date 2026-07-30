@@ -232,7 +232,7 @@ export default function FrpVsSteelGratingsPage() {
             Explore F1 Composite FRP gratings — molded and pultruded, solid-top and ventilated, grit and smooth, polyester and vinyl ester resin systems.
           </p>
           <Link
-            href="/products/gratings"
+            href="/products/frp-gratings"
             className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             View FRP Gratings →
@@ -245,10 +245,10 @@ export default function FrpVsSteelGratingsPage() {
           {
             title: "FRP grating products",
             links: [
-              { href: "/products/gratings", label: "FRP gratings & deck panels" },
-              { href: "/products/standard-profiles/i-beam", label: "FRP I-beam supports" },
-              { href: "/products/standard-profiles/channel", label: "FRP channel stringers" },
-              { href: "/products/custom-pultrusions", label: "Custom grating bearing bars" },
+              { href: "/products/frp-gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },
+              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel stringers" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom grating bearing bars" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
             ],
           },

@@ -168,7 +168,7 @@ export default function CalculatorMethodologyPage() {
             { href: "/frp-span-tables", label: "Compare published span tables" },
           ] },
           { title: "Specify and source", links: [
-            { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+            { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
             { href: "/datasheets", label: "Profile datasheets and drawings" },
             { href: "/fiberglass-pultruded-profile-price", label: "Estimate profile price" },
           ] },

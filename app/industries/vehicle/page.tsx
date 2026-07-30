@@ -166,7 +166,7 @@ export default function VehiclePage() {
               <p>
                 The corrosion immunity of FRP eliminates the primary life-limiting factor for bus bodies. While steel-framed buses in salt-exposure environments require structural repair within 8 to 12 years, FRP-framed buses maintain full structural integrity for 25+ years with zero corrosion maintenance. This enables fleet operators to align body life with drivetrain life, maximizing asset utilization.
               </p>
-              <LinkArrow href="/products/standard-profiles">
+              <LinkArrow href="/products/fiberglass-structural-shapes">
                 Browse structural profiles
               </LinkArrow>
 
@@ -186,7 +186,7 @@ export default function VehiclePage() {
               <p>
                 For utility vehicles operating in corrosive industrial environments — waste collection, chemical transport, agricultural service — FRP body structures eliminate the chronic corrosion maintenance that shortens the service life of steel-framed vehicles.
               </p>
-              <LinkArrow href="/products/custom-pultrusions">
+              <LinkArrow href="/products/custom-pultruded-profiles">
                 Custom profiles for vehicle applications
               </LinkArrow>
 
@@ -227,7 +227,7 @@ export default function VehiclePage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/standard-profiles"
+              href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>
@@ -239,7 +239,7 @@ export default function VehiclePage() {
               </span>
             </Link>
             <Link
-              href="/products/custom-pultrusions"
+              href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>

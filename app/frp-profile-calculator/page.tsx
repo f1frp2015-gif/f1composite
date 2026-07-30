@@ -200,7 +200,7 @@ export default function CalculatorPage() {
               pultruded profile price estimator
             </Link>{" "}
             gives you its budgetary USD/meter range before you send the RFQ. Compare the passing section with our{" "}
-            <Link href="/products/standard-profiles" className="text-teal-text hover:underline">
+            <Link href="/products/fiberglass-structural-shapes" className="text-teal-text hover:underline">
               fiberglass structural shapes
             </Link>{" "}
             catalog before specifying the final size.
@@ -278,7 +278,7 @@ export default function CalculatorPage() {
           {
             title: "From result to specification",
             links: [
-              { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+              { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
               { href: "/datasheets", label: "Profile datasheets and drawings" },
               { href: "/fiberglass-pultruded-profile-price", label: "Pultruded profile price estimator" },
             ],

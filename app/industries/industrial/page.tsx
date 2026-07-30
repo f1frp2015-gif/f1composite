@@ -169,7 +169,7 @@ export default function IndustrialPage() {
               <p>
                 Our chemical plant product range includes molded and pultruded gratings for process area flooring, structural profiles (I-beams, channels, angles, tubes) for equipment support frames, handrail systems for elevated walkways and tank access, and ladder systems for vertical access. All components are designed to bolt together with stainless steel fasteners, requiring no welding or hot work — a critical advantage in facilities where hot work permits are difficult to obtain and ignition sources must be minimized.
               </p>
-              <LinkArrow href="/products/gratings">
+              <LinkArrow href="/products/frp-gratings">
                 Browse chemical-resistant gratings
               </LinkArrow>
 
@@ -195,7 +195,7 @@ export default function IndustrialPage() {
               <p>
                 We supply food-grade FRP structural profiles for equipment support frames, conveyor support structures, and mezzanine framing in production areas. Our food-grade gratings with sealed top surfaces serve as floor systems in wet processing areas, providing both drainage and anti-slip safety. All food-grade profiles are available in light colors (white, cream, light gray) that make visual cleanliness inspection easier.
               </p>
-              <LinkArrow href="/products/custom-pultrusions">
+              <LinkArrow href="/products/custom-pultruded-profiles">
                 Explore custom industrial profiles
               </LinkArrow>
 
@@ -247,7 +247,7 @@ export default function IndustrialPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/gratings"
+              href="/products/frp-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Industrial Gratings</h3>
@@ -259,7 +259,7 @@ export default function IndustrialPage() {
               </span>
             </Link>
             <Link
-              href="/products/custom-pultrusions"
+              href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>

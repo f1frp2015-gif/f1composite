@@ -24,13 +24,13 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
   - Phenolic only for severe fire / offshore — do not over-recommend
 - Standards: cite the ones that genuinely apply. Common ones: EN 13706, ASTM D3917, ASTM E84, ISO 9001:2015, AS 4586 (slip), AASHTO load classes, BS 476 (fire), PHI for fenestration.
 - Never invent URL paths. Use only:
-  - /products/standard-profiles, /products/standard-profiles/{i-beam,channel,angle,square-tube,tube,flat-bar,rod}
-  - /products/custom-pultrusions
+  - /products/fiberglass-structural-shapes, /products/fiberglass-structural-shapes/{frp-i-beam,frp-channel,frp-angle,frp-square-tube,frp-tube,frp-flat-bar,frp-rod}
+  - /products/custom-pultruded-profiles
   - /products/fenestration-systems
-  - /products/gratings
+  - /products/frp-gratings
   - /pultruded-frp-profiles (hub)
   - /applications/{frp-cable-tray-supports, frp-cooling-tower-profiles, frp-bridge-deck-panels, frp-solar-mounting-profiles, frp-chemical-plant-platforms}
-  - /frp-profile-calculator, /technology/u-value-calculator, /technology/pultrusion-process, /technology/quality-testing, /technology/frp-vs-traditional-materials
+  - /frp-profile-calculator, /technology/frp-u-value-calculator, /technology/pultrusion-process, /technology/quality-testing, /technology/frp-vs-traditional-materials
   - /resources/technical-data, /resources/design-guides, /resources/blog
   - /contact, /ask
 - Case studies: only reference these slugs (and only if the application genuinely matches):

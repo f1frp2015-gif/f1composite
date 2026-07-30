@@ -29,7 +29,7 @@ const lines: Array<{
   {
     brand: "F1-STRUX",
     name: "Pultruded FRP Structural Profiles",
-    href: "/products/standard-profiles",
+    href: "/products/fiberglass-structural-shapes",
     category: "I-beam, channel, angle, square/round tube, flat bar, round rod",
     body: "F1 Composite's structural profile line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, from 10 mm to 300 mm cross-sections.",
     equivalent: "Class of Strongwell EXTREN® / Creative Pultrusions SuperStrut® structural shapes.",
@@ -37,7 +37,7 @@ const lines: Array<{
   {
     brand: "F1-GRID",
     name: "FRP Gratings & Structural Deck Panels",
-    href: "/products/gratings",
+    href: "/products/frp-gratings",
     category: "Molded & pultruded gratings, solid-top covers, AASHTO H-20 deck panels",
     body: "F1 Composite's grating and decking line — molded and pultruded FRP gratings, cover plates, and structural deck panels for platforms, walkways, and pedestrian/vehicular decks.",
     equivalent: "Class of Strongwell DURADEK® / DURAGRID® gratings and decks.",
@@ -53,7 +53,7 @@ const lines: Array<{
   {
     brand: "F1-FORM",
     name: "Custom Pultruded FRP Profiles",
-    href: "/products/custom-pultrusions",
+    href: "/products/custom-pultruded-profiles",
     category: "Bespoke dies up to 600×300 mm; polyester / vinyl ester / PU / epoxy",
     body: "F1 Composite's custom pultrusion line — bespoke cross-sections to your drawing, with 3–6 week die fabrication and 6–10 week first-production turnaround.",
     equivalent: "Custom pultrusion / bespoke die service (engineer-to-order profiles).",

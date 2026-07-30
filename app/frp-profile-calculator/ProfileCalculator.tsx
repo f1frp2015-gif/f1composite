@@ -160,13 +160,13 @@ const profileShapes = [
 
 /* Calculator shape → live F1 product page, so a finished calculation routes the
    user straight to the matching product (with the computed spec carried into the
-   RFQ). Slugs are the real /products/standard-profiles/* sub-pages. */
+   RFQ). Slugs are the real /products/fiberglass-structural-shapes/* sub-pages. */
 const PRODUCT_BY_SHAPE: Record<string, { slug: string; family: string }> = {
-  "i-beam": { slug: "i-beam", family: "FRP I-beams & wide-flange profiles" },
-  "channel": { slug: "channel", family: "FRP channels (U-profiles)" },
-  "angle": { slug: "angle", family: "FRP angles (L-profiles)" },
-  "square-tube": { slug: "square-tube", family: "FRP square & rectangular tubes" },
-  "round-tube": { slug: "tube", family: "FRP round tubes" },
+  "i-beam": { slug: "frp-i-beam", family: "FRP I-beams & wide-flange profiles" },
+  "channel": { slug: "frp-channel", family: "FRP channels (U-profiles)" },
+  "angle": { slug: "frp-angle", family: "FRP angles (L-profiles)" },
+  "square-tube": { slug: "frp-square-tube", family: "FRP square & rectangular tubes" },
+  "round-tube": { slug: "frp-tube", family: "FRP round tubes" },
 };
 
 /* Discrete F1 catalog depths (mm) for shapes whose standard series is published,
@@ -832,7 +832,7 @@ export default function ProfileCalculator() {
                 const near = nearestStandardSize(shape, dimH);
                 return (
                   <a
-                    href={`/products/standard-profiles/${prod.slug}?source=calculator`}
+                    href={`/products/fiberglass-structural-shapes/${prod.slug}?source=calculator`}
                     onClick={() => track("calculator_product_click", { shape, slug: prod.slug })}
                     className="block rounded-[6px] border border-teal/30 bg-white p-[13px] transition-colors hover:border-teal"
                   >
@@ -1110,7 +1110,7 @@ export default function ProfileCalculator() {
               {/* Product match + result-moment lead capture for the FRP-vs-metal surface */}
               {PRODUCT_BY_SHAPE[eqShape] && (
                 <a
-                  href={`/products/standard-profiles/${PRODUCT_BY_SHAPE[eqShape].slug}?source=calculator`}
+                  href={`/products/fiberglass-structural-shapes/${PRODUCT_BY_SHAPE[eqShape].slug}?source=calculator`}
                   onClick={() => track("calculator_product_click", { shape: eqShape, slug: PRODUCT_BY_SHAPE[eqShape].slug, mode: "equivalence" })}
                   className="block rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >

@@ -240,7 +240,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
               how our pultrusion lines work
             </Link>{" "}
             and our{" "}
-            <Link href="/products/custom-pultrusions" className="text-teal-text hover:underline">
+            <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">
               custom pultrusion capability
             </Link>{" "}
             for open and closed constant-cross-section geometries.
@@ -268,8 +268,8 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
           {
             title: "F1 Composite capabilities",
             links: [
-              { href: "/products/custom-pultrusions", label: "Custom pultrusion services" },
-              { href: "/products/standard-profiles", label: "Standard pultruded profiles" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
+              { href: "/products/fiberglass-structural-shapes", label: "Standard pultruded profiles" },
               { href: "/technology/quality-testing", label: "Quality & testing standards" },
               { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles hub" },
             ],

@@ -123,7 +123,7 @@ export default function PassiveHousePage() {
             <Link href="/products/fenestration-systems" className="text-f13 font-semibold text-teal-text hover:underline">
               → FRP windows and doors (65–140 series)
             </Link>
-            <Link href="/technology/u-value-calculator" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/technology/frp-u-value-calculator" className="text-f13 font-semibold text-teal-text hover:underline">
               → U-Value calculator (EN ISO 10077-1)
             </Link>
             <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">

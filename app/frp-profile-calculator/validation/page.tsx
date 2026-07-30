@@ -154,7 +154,7 @@ export default function CalculatorValidationPage() {
             { href: "/frp-span-tables", label: "Review span-table dataset" },
           ] },
           { title: "Profile data", links: [
-            { href: "/products/standard-profiles", label: "Fiberglass structural shapes" },
+            { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
             { href: "/datasheets", label: "Profile datasheets and drawings" },
             { href: "/technology/quality-testing", label: "Quality and testing" },
           ] },
