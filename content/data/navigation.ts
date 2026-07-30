@@ -23,7 +23,7 @@ export const mainNav: NavItem[] = [
       { group: "Profile systems", label: "Standard Structural Profiles", href: "/products/fiberglass-structural-shapes" },
       { group: "Profile systems", label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
       { group: "Profile systems", label: "Gratings & Decks", href: "/products/frp-gratings" },
-      { group: "Engineered systems", label: "FRP Windows & Doors", href: "/products/fenestration-systems" },
+      { group: "Engineered systems", label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
       { group: "Engineered systems", label: "Solar Frames & Mounting", href: "/products/frp-solar-mounting-systems" },
       { group: "Engineered systems", label: "Handrail Systems", href: "/products/frp-handrail-systems" },
       { group: "Browse", label: "All Products", href: "/pultruded-frp-profiles" },
@@ -78,7 +78,7 @@ export const footerNav = {
     { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
     { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     { label: "Gratings & Decks", href: "/products/frp-gratings" },
-    { label: "FRP Windows & Doors", href: "/products/fenestration-systems" },
+    { label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
     { label: "All Products", href: "/pultruded-frp-profiles" },
   ],
   explore: [

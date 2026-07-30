@@ -277,7 +277,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             F1 supplies polyurethane pultruded window profiles the same two ways as the rest of the{" "}
-            <Link href="/products/fenestration-systems" className="text-teal-text hover:underline">
+            <Link href="/products/frp-window-frames" className="text-teal-text hover:underline">
               fenestration range
             </Link>
             : as a profile set — frame, sash, mullion, transom, and glazing bead with co-extruded EPDM gasketing, corner kits, and fabrication drawings — for window fabricators who assemble locally, or as complete factory-assembled units, glazed, hardware-fitted, and leak-tested before shipment, delivered DDP with duty pre-itemized. The profiles are identical in both models; only the assembly location changes.
@@ -307,7 +307,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           {
             title: "FRP fenestration products",
             links: [
-              { href: "/products/fenestration-systems", label: "Fiberglass windows & doors (65–140 series)" },
+              { href: "/products/frp-window-frames", label: "Fiberglass windows & doors (65–140 series)" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
               { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/pultrusion-process", label: "The pultrusion process explained" },

@@ -282,7 +282,7 @@ export default function PassiveHousePage() {
           </section>
 
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <Link href="/products/fenestration-systems" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/products/frp-window-frames" className="text-f13 font-semibold text-teal-text hover:underline">
               → FRP windows and doors (65–140 series)
             </Link>
             <Link href="/technology/frp-u-value-calculator" className="text-f13 font-semibold text-teal-text hover:underline">

@@ -37,7 +37,7 @@ const secondaryLinks = [
   { label: "Design Guides", href: "/resources/design-guides" },
   { label: "Engineering Blog", href: "/resources/blog" },
   { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
-  { label: "DDP, Tariffs & HS Codes", href: "/resources/ddp-tariff-hs-code-guide" },
+  { label: "DDP, Tariffs & HS Codes", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
 ];
 
 export default function DownloadsSnapshot() {

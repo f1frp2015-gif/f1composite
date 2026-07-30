@@ -26,7 +26,7 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
 - Never invent URL paths. Use only:
   - /products/fiberglass-structural-shapes, /products/fiberglass-structural-shapes/{frp-i-beam,frp-channel,frp-angle,frp-square-tube,frp-tube,frp-flat-bar,frp-rod}
   - /products/custom-pultruded-profiles
-  - /products/fenestration-systems
+  - /products/frp-window-frames
   - /products/frp-gratings
   - /pultruded-frp-profiles (hub)
   - /applications/{frp-cable-tray-supports, frp-cooling-tower-profiles, frp-bridge-deck-panels, frp-solar-mounting-profiles, frp-chemical-plant-platforms}

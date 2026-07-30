@@ -47,7 +47,7 @@ const windowTypes = [
 /* F1 fenestration product page — the result routes here with the U-value spec
    carried into the RFQ. There is one fenestration page; the series is named in
    the message. */
-const FENESTRATION_SLUG = "/products/fenestration-systems";
+const FENESTRATION_SLUG = "/products/frp-window-frames";
 const FRP_SERIES: Record<string, string> = {
   "frp-65": "65-Series", "frp-70": "70-Series", "frp-80": "80-Series", "frp-90": "90-Series",
 };

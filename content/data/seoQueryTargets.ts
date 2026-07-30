@@ -19,12 +19,13 @@ export const seoQueryTargets = [
     targetUrl: "/",
     primaryQuery: "FRP profiles manufacturer",
     intent: "commercial",
-    title: "Pultruded FRP Profiles Manufacturer | F1 Composite",
+    title: "FRP Profiles Manufacturer — Factory-Direct | F1 Composite",
     description:
-      "China-based manufacturer of pultruded FRP profiles, fiberglass structural shapes, gratings and custom sections. EN 13706 and ASTM D3917; factory-direct.",
+      "Factory-direct FRP profiles manufacturer in China for structural shapes, gratings, window frames and custom pultrusions. EN 13706, ASTM D3917 and global supply.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/fiberglass-structural-shapes",
+      "/products/frp-pultrusion-manufacturer-factory-direct",
       "/about",
     ],
   },
@@ -121,7 +122,7 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/frp-gratings",
-      "/products/fenestration-systems",
+      "/products/frp-window-frames",
       "/products/custom-pultruded-profiles",
     ],
   },
@@ -135,10 +136,10 @@ export const seoQueryTargets = [
     supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process"],
   },
   {
-    targetUrl: "/products/fenestration-systems",
-    primaryQuery: "FRP window frames manufacturer",
+    targetUrl: "/products/frp-window-frames",
+    primaryQuery: "FRP window frames",
     intent: "commercial",
-    title: "FRP Window Frames Manufacturer | Fiberglass Windows",
+    title: "FRP Window Frames — Pultruded Profiles & Finished Units",
     description:
       "Work with an FRP window frame manufacturer supplying finished fiberglass windows, doors and pultruded lineals in 65–140 series, with U-values to 0.78 W/m²·K.",
     supportingUrls: [
@@ -149,13 +150,27 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/products/frp-pultrusion-manufacturer-factory-direct",
+    primaryQuery: "FRP pultrusion manufacturer factory direct",
+    intent: "commercial",
+    title: "FRP Pultrusion Manufacturer — Factory-Direct Supply",
+    description:
+      "Source pultruded FRP factory-direct with documented capacity, tooling, quality control, FOB or DDP delivery, and engineering support for global projects.",
+    supportingUrls: [
+      "/",
+      "/pultruded-frp-profiles",
+      "/resources/frp-pultrusion-fob-ddp-export-guide",
+      "/technology/quality-testing",
+    ],
+  },
+  {
     targetUrl: "/technology/polyurethane-pultrusion-windows",
     primaryQuery: "polyurethane pultrusion windows",
     intent: "technical",
     title: "Polyurethane Pultrusion Windows — GFRP-PU Technology",
     description:
       "Learn how GFRP-PU window frames are pultruded, why polyurethane improves toughness and thin-wall performance, and where the technology fits.",
-    supportingUrls: ["/products/fenestration-systems", "/resources/frp-windows-guide"],
+    supportingUrls: ["/products/frp-window-frames", "/resources/frp-windows-guide"],
   },
   {
     targetUrl: "/technology/pultrusion-process",
@@ -190,7 +205,7 @@ export const seoQueryTargets = [
     title: "FRP Windows Guide — Selection, U-Value & Certification",
     description:
       "Research FRP window materials, frame selection, U-value targets, PHI, NAFS and AS 2047 certification, supplier qualification and fabrication routes.",
-    supportingUrls: ["/products/fenestration-systems", "/technology/polyurethane-pultrusion-windows"],
+    supportingUrls: ["/products/frp-window-frames", "/technology/polyurethane-pultrusion-windows"],
   },
   {
     targetUrl: "/products/frp-gratings",
@@ -216,9 +231,9 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/frp-profile-calculator",
-    primaryQuery: "FRP profile calculator",
+    primaryQuery: "FRP calculator",
     intent: "technical",
-    title: "Free FRP Profile Calculator — LRFD/ASD Design Checks",
+    title: "FRP Calculator — Beam, Load & Section Properties",
     description:
       "Run bending, shear and deflection checks for pultruded FRP profiles with LRFD or ASD methods and EN 13706, GB 50608 and ASCE 74-23 inputs.",
     supportingUrls: ["/frp-span-tables", "/products/fiberglass-structural-shapes"],

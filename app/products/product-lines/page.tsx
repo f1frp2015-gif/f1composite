@@ -45,7 +45,7 @@ const lines: Array<{
   {
     brand: "F1-THERM",
     name: "Pultruded Fiberglass Window Frames & Fenestration Profiles",
-    href: "/products/fenestration-systems",
+    href: "/products/frp-window-frames",
     category: "65 / 70 / 80 / 90 / 140-series frame depths; PHI-certified 90-series",
     body: "F1 Composite's fenestration line — pultruded FRP window frames and window profiles with whole-window U-values to 0.78 W/m²·K. The 90-series is Passive House Institute (PHI) certified.",
     equivalent: "FRP / GFRP window-profile supply to fabricators (vs finished-window brands).",

@@ -55,7 +55,9 @@ export default function FactoryQuality() {
 
             <div className="mt-[20px] flex flex-wrap gap-[10px]">
               <Button href="/technology/quality-testing">Review Quality System</Button>
-              <Button href="/about" variant="secondary">About the Company</Button>
+              <Button href="/products/frp-pultrusion-manufacturer-factory-direct" variant="secondary">
+                Factory-Direct Supply
+              </Button>
             </div>
           </div>
 

@@ -5,6 +5,8 @@ export interface ProductCategory {
   icon: string;
   href: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   imageAlt?: string;
   imageScale?: number;
   imageFit?: "cover" | "contain";
@@ -18,6 +20,8 @@ export const productCategories: ProductCategory[] = [
     icon: "profiles",
     href: "/products/fiberglass-structural-shapes",
     image: "/images/products/standard-profiles-cover.jpg",
+    imageWidth: 1600,
+    imageHeight: 1600,
   },
   {
     slug: "custom-pultruded-profiles",
@@ -26,6 +30,8 @@ export const productCategories: ProductCategory[] = [
     icon: "custom",
     href: "/products/custom-pultruded-profiles",
     image: "/images/products/custom-pultrusions-cover.jpg",
+    imageWidth: 1600,
+    imageHeight: 1600,
     imageScale: 1.2,
   },
   {
@@ -35,6 +41,8 @@ export const productCategories: ProductCategory[] = [
     icon: "solar",
     href: "/products/frp-solar-mounting-systems",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+    imageWidth: 1600,
+    imageHeight: 1205,
   },
   {
     slug: "frp-gratings",
@@ -43,6 +51,8 @@ export const productCategories: ProductCategory[] = [
     icon: "gratings",
     href: "/products/frp-gratings",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
+    imageWidth: 1254,
+    imageHeight: 1254,
     imageAlt: "Pultruded FRP structural deck panel with internal reinforcing webs and an interlocking edge profile",
   },
   {
@@ -50,8 +60,10 @@ export const productCategories: ProductCategory[] = [
     title: "FRP Window Frames Manufacturer",
     description: "Finished GFRP-PU windows and doors for extreme-cold and passive house buildings — 65–140 series, U_w to 0.78, proven to −60°C.",
     icon: "fenestration",
-    href: "/products/fenestration-systems",
-    image: "/images/products/fenestration-systems-cover.webp",
+    href: "/products/frp-window-frames",
+    image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
+    imageWidth: 1600,
+    imageHeight: 1600,
     imageFit: "contain",
   },
 ];

@@ -375,9 +375,9 @@ For the broad explanation, start with [What is FRP?](/what-is-frp). For dimensio
     relatedLinks: [
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
       { label: "Quality Testing (EN 13706 / ASTM)", href: "/technology/quality-testing" },
-      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/ddp-tariff-hs-code-guide" },
+      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
     ],
     sourceLinks: [
       { label: "FGIA — Fenestration & Glazing Industry Alliance", href: "https://fgiaonline.org" },
@@ -422,7 +422,7 @@ Window lineals are architectural surfaces. The finish standard to name is **AAMA
 
 ## 9. The commercial and logistics test
 
-Finally, the commerce has to work as smoothly as the product: correct HS classification (fiberglass profiles under 3925.20 / 7019 — see our [DDP, tariffs and HS code guide](/resources/ddp-tariff-hs-code-guide)), genuine DDP capability with duty itemized in the quote, spare-parts and gasket supply policy, and a staged-order structure — first article, pilot order, production volumes — that lets you scale commitment with evidence.
+Finally, the commerce has to work as smoothly as the product: correct HS classification (fiberglass profiles under 3925.20 / 7019 — see our [DDP, tariffs and HS code guide](/resources/frp-pultrusion-fob-ddp-export-guide)), genuine DDP capability with duty itemized in the quote, spare-parts and gasket supply policy, and a staged-order structure — first article, pilot order, production volumes — that lets you scale commitment with evidence.
 
 ## The meta-signal
 
@@ -466,8 +466,8 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     relatedLinks: [
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
-      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/ddp-tariff-hs-code-guide" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
       { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
     ],
     content: `Ask five suppliers to quote "a fiberglass window frame profile" and you will get five numbers spread across a 40% band — and no way to tell whether the spread is quality, margin, or scope. That opacity is not in anyone's long-term interest, least of all ours: an unexplained cheap quote wins orders that end in disputes, and an unexplained expensive quote loses orders it deserved. So here is how the per-meter price of a pultruded window profile is actually built, driver by driver.
@@ -502,7 +502,7 @@ Pultrusion economics reward continuity: a standing order that keeps a die on the
 
 ## 8. Logistics terms — the quiet 15–30%
 
-An EXW-factory price and a DDP-jobsite price are different products. Between them sit sea freight, insurance, customs classification (fiberglass profiles under HS 3925.20 / 7019 — [our tariff guide covers this](/resources/ddp-tariff-hs-code-guide)), import duty and VAT, and broker risk. A "cheaper" EXW quote routinely loses to a DDP quote once those are priced honestly — and the DDP quote tells you the supplier has done this route before.
+An EXW-factory price and a DDP-jobsite price are different products. Between them sit sea freight, insurance, customs classification (fiberglass profiles under HS 3925.20 / 7019 — [our tariff guide covers this](/resources/frp-pultrusion-fob-ddp-export-guide)), import duty and VAT, and broker risk. A "cheaper" EXW quote routinely loses to a DDP quote once those are priced honestly — and the DDP quote tells you the supplier has done this route before.
 
 ## So what does it cost?
 
@@ -546,7 +546,7 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
       "What actually changes on a window fabrication line when you switch from uPVC or aluminum to fiberglass lineals: cutting, corner joining, hardware, glazing.",
     ogChips: ["Fabrication", "Window lineals", "Process"],
     relatedLinks: [
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Powder-Coated FRP Window Profiles", href: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish" },
@@ -629,7 +629,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     ogChips: ["Condensation", "Thermal bridging", "Cold climate"],
     relatedLinks: [
       { label: "FRP vs Aluminum Window Frames", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
       { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
       { label: "Why FRP Outperforms Aluminum Thermally", href: "/resources/blog/frp-fenestration-thermal-performance" },
@@ -711,7 +711,7 @@ To check where a specific frame and glazing build lands before specifying, run i
       "Who supplies pultruded FRP window profiles, what is pulling demand, and how to qualify a supplier — an industry analysis without invented market-size numbers.",
     ogChips: ["Window profiles", "Market analysis", "Suppliers"],
     relatedLinks: [
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Fiberglass Window Reinforcements", href: "/products/frp-window-reinforcement" },
@@ -826,7 +826,7 @@ The FRP window profile market rewards exactly one kind of participant on each si
     ogChips: ["Curtain wall", "Thermal break", "EN 14024"],
     relatedLinks: [
       { label: "Facade Sunshade Panels (E40)", href: "/products/frp-facade-panels" },
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
       { label: "Transverse-Reinforced Profile Architecture", href: "/resources/blog/frp-window-finish-transverse-reinforcement" },
       { label: "KNOWHOW Engineering Services", href: "/technology/knowhow-services" },
@@ -1292,7 +1292,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
       "A thermal-performance view of FRP fenestration, U-values, thermal bridging, and why composite frames matter in high-performance envelopes.",
     ogChips: ["Fenestration", "Thermal performance", "Low U-values"],
     relatedLinks: [
-      { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
+      { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
@@ -1548,7 +1548,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       "FRP vs aluminum windows for US: U-value, AAMA 2604/2605, PHIUS U_w 0.78 (Cert 2491wi03), structural and lifecycle data side-by-side for spec engineers.",
     ogChips: ["AAMA 2604/2605", "PHIUS-ready", "U_w 0.78"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Construction", href: "/industries/construction" },
       { label: "FRP Thermal Performance", href: "/resources/blog/frp-fenestration-thermal-performance" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
@@ -1609,7 +1609,7 @@ F1 Composite develops pultruded FRP frame systems for high-performance envelope 
       "What ASTM E1996 large-missile impact testing, AAMA 506, and the Miami-Dade NOA actually require from a hurricane-zone window — and where frame material fits in.",
     ogChips: ["ASTM E1996", "Miami-Dade NOA", "175 mph"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "FRP Lift-Sliding Door — AS 2047 Engineering Deep-Dive", href: "/resources/blog/frp-lift-sliding-door-as2047-engineering" },
       { label: "FRP Impact Resistance vs Steel & Aluminum", href: "/resources/blog/frp-impact-resistance-vs-steel-aluminum" },
     ],
@@ -2138,7 +2138,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       "F1's 90 Series PHI Cert 2491wi03 — U_w 0.78 W/m²·K, phB. Drop-in PHIUS frames for US Passive House. RAL custom AAMA 2604 finish.",
     ogChips: ["PHIUS · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
-      { label: "FRP Windows and Doors", href: "/products/fenestration-systems" },
+      { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
       { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
@@ -2270,7 +2270,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     relatedLinks: [
       { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     content: `"FRP composites cannot be recycled." For decades, this claim has been the single strongest objection raised against fiber reinforced polymer profiles in lifecycle assessments, green building certifications, and procurement specifications. Thermoset resins — polyester, vinyl ester, phenolic — cure through irreversible cross-linking, creating a three-dimensional polymer network that cannot be melted or reshaped. Unlike thermoplastic materials or metals, there was no practical way to recover the constituent fibers and resin from a cured composite part.
@@ -2609,7 +2609,7 @@ For engineers designing structures that must survive impact events and remain in
       "Intertek-certified GFRP fenestration passes Australian AS 2047. Test results, market potential, why pultruded FRP disrupts AU aluminum-dominated windows.",
     ogChips: ["Market analysis", "Australian standards", "Fenestration"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Passivhaus Certification", href: "/resources/blog/frp-fenestration-passivhaus-certification" },
       { label: "Construction Industry", href: "/industries/construction" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
@@ -2749,7 +2749,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
       "How powder-coated FRP window profiles achieve aluminum-grade metallic finishes with U_w as low as 0.78 W/m²K. AAMA 2604/2605 process and spec guide.",
     ogChips: ["Fenestration", "Surface finishing", "FRP vs aluminum"],
     relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "FRP vs Aluminum Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
@@ -2896,7 +2896,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     ogChips: ["AS 2047", "Lift-sliding door", "Engineering"],
     relatedLinks: [
       { label: "GFRP Australian Market Analysis", href: "/resources/blog/gfrp-fenestration-australian-market-as2047" },
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Construction Industry", href: "/industries/construction" },
@@ -3091,7 +3091,7 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     relatedLinks: [
       { label: "Powder Coating for FRP Window Profiles", href: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Pultrusion Process Explained", href: "/technology/pultrusion-process" },
       { label: "Construction Industry", href: "/industries/construction" },
     ],
@@ -3957,7 +3957,7 @@ For engineers and facade consultants tracking this development, or interested in
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "U-Value vs SHGC", href: "/resources/blog/window-u-value-vs-shgc-climate" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/frp-window-frames" },
     ],
     sourceLinks: [
       { label: "ISO 10077-1:2017 — Thermal performance of windows, doors and shutters (ISO)", href: "https://www.iso.org/standard/67090.html" },
@@ -4014,7 +4014,7 @@ The practical consequence: an NFRC U-factor of 0.17 Btu/h·ft²·°F is not simp
 
 ## What this means for frame material
 
-Run the formula in reverse: to hit Uw ≤ 0.80 with realistic triple glazing (Ug 0.60–0.70) on the reference window, the frame must deliver roughly Uf ≤ 1.0–1.3 with a warm-edge spacer. Thermally-broken aluminum reaches Uf 2.5–4.0 in common systems — the formula simply does not close. Insulating frame materials — pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC — are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/fenestration-systems) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
+Run the formula in reverse: to hit Uw ≤ 0.80 with realistic triple glazing (Ug 0.60–0.70) on the reference window, the frame must deliver roughly Uf ≤ 1.0–1.3 with a warm-edge spacer. Thermally-broken aluminum reaches Uf 2.5–4.0 in common systems — the formula simply does not close. Insulating frame materials — pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC — are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/frp-window-frames) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
 
 To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer combination — including the pass/fail against cold-climate program targets — use the free [whole-window U-value calculator](/technology/frp-u-value-calculator). It exposes every term of the formula above, so you can see which zone is costing you the rating.`,
   },
@@ -4057,7 +4057,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
       { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House AI Window Selector", href: "/ai/passive-house" },
-      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/frp-window-frames" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
       { label: "FRP Material and Properties Guide", href: "/what-is-frp" },
     ],
@@ -4112,7 +4112,7 @@ A window certified by PHI is not automatically Phius-verified or vice versa; cro
 
 Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-calculation) against the cool-temperate row and the constraint lands on the frame. With the reference triple glazing at Ug 0.70 and a warm-edge spacer, the frame needs roughly Uf ≤ 1.0–1.3 — territory no aluminum system reaches, thermally broken or not. That is why the PHI component database's window list is dominated by timber, timber-aluminum hybrid, uPVC, and pultruded fiberglass frames.
 
-Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [pultruded fiberglass window frames](/products/fenestration-systems) page carries the series-by-series data.
+Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78 — the [pultruded fiberglass window frames](/products/frp-window-frames) page carries the series-by-series data.
 
 To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/frp-u-value-calculator) — it computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
   },
@@ -4156,7 +4156,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/fenestration-systems" },
+      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
     ],
     sourceLinks: [
       { label: "ANSI/NFRC 200 — Solar Heat Gain Coefficient procedure (Intertek summary)", href: "https://www.intertek.com/building/standards/ansi-nfrc-200/" },
@@ -4187,7 +4187,7 @@ Three practical rules hold across all three cases. Set the U-value according to 
 
 ## Where the frame sits in both numbers
 
-Coatings and gas fills live in the glazing, so SHGC tuning is mostly a glass decision — the frame only enters by occupying area (NFRC's whole-window SHGC falls as frame fraction rises). U-value is the opposite: on a typical window the frame is the thermally weakest zone and sets the floor under the whole-window number. A frame at Uf 2.5–4.0 W/m²K (thermally-broken aluminum territory) caps how far any glazing can carry the assembly; insulating frames — pultruded GFRP at roughly 0.3 W/m·K bulk conductivity, timber, uPVC — let premium glazing keep its rating at whole-window scale. The frame-material trade-offs, including why GFRP holds slim aluminum-like sightlines while insulating, are on the [FRP vs aluminum comparison](/technology/frp-vs-aluminum-windows); F1's PHI-certified GFRP-PU [fenestration systems](/products/fenestration-systems) are the applied case.
+Coatings and gas fills live in the glazing, so SHGC tuning is mostly a glass decision — the frame only enters by occupying area (NFRC's whole-window SHGC falls as frame fraction rises). U-value is the opposite: on a typical window the frame is the thermally weakest zone and sets the floor under the whole-window number. A frame at Uf 2.5–4.0 W/m²K (thermally-broken aluminum territory) caps how far any glazing can carry the assembly; insulating frames — pultruded GFRP at roughly 0.3 W/m·K bulk conductivity, timber, uPVC — let premium glazing keep its rating at whole-window scale. The frame-material trade-offs, including why GFRP holds slim aluminum-like sightlines while insulating, are on the [FRP vs aluminum comparison](/technology/frp-vs-aluminum-windows); F1's PHI-certified GFRP-PU [fenestration systems](/products/frp-window-frames) are the applied case.
 
 To see both numbers interact on a real build — your frame, glazing package, and spacer, computed to EN ISO 10077-1 with program pass/fail flags — run the free [whole-window U-value calculator](/technology/frp-u-value-calculator), then sanity-check the SHGC against your climate zone's table above.`,
   },

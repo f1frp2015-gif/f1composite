@@ -202,7 +202,7 @@ export default function UsaRegionPage() {
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/custom-pultruded-profiles">Custom pultrusion capabilities</LinkArrow>
-            <LinkArrow href="/products/fenestration-systems">PHIUS-certified fenestration</LinkArrow>
+            <LinkArrow href="/products/frp-window-frames">PHIUS-certified fenestration</LinkArrow>
             <LinkArrow href="/products/frp-gratings">FRP gratings</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
             <LinkArrow href="/ai/passive-house">Passive house window selector</LinkArrow>

@@ -108,6 +108,7 @@ const nextConfig: NextConfig = {
         ],
         ["/products/custom-pultrusions", "/products/custom-pultruded-profiles"],
         ["/products/solar-mounting-systems", "/products/frp-solar-mounting-systems"],
+        ["/products/fenestration-systems", "/products/frp-window-frames"],
         ["/products/facade-sunshade-panels", "/products/frp-facade-panels"],
         ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
         ["/products/stair-tread-covers", "/products/frp-stair-treads"],
@@ -132,6 +133,16 @@ const nextConfig: NextConfig = {
         source: "/technology/calculator",
         destination: "/frp-profile-calculator",
         permanent: true,
+      },
+      {
+        source: "/frp-calculator",
+        destination: "/frp-profile-calculator",
+        statusCode: 301,
+      },
+      {
+        source: "/resources/ddp-tariff-hs-code-guide",
+        destination: "/resources/frp-pultrusion-fob-ddp-export-guide",
+        statusCode: 301,
       },
       {
         source: "/resources/blog/pultruded-spar-cap-laminates-wind-blades-gfrp-cfrp",

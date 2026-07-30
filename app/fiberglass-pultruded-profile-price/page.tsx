@@ -243,7 +243,7 @@ export default function ProfilePricePage() {
             ; the kg/m column is the pricing model&rsquo;s nominal-section mass — where a
             datasheet publishes a lower weight, the datasheet prevails. Other sizes scale
             with section mass. Duty and freight excluded — see the{" "}
-            <Link href="/resources/ddp-tariff-hs-code-guide" className="underline hover:text-teal-text">
+            <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="underline hover:text-teal-text">
               DDP, tariffs &amp; HS code guide
             </Link>
             .
@@ -413,7 +413,7 @@ export default function ProfilePricePage() {
           {
             title: "Buying from China",
             links: [
-              { href: "/resources/ddp-tariff-hs-code-guide", label: "DDP, tariffs & HS codes guide" },
+              { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "DDP, tariffs & HS codes guide" },
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions & tooling cost" },
               { href: "/resources/blog/fiberglass-window-profile-price-drivers", label: "Window profile price drivers" },

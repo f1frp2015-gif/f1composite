@@ -150,7 +150,7 @@ export default function StairTreadCoversPage() {
             title: "Specify & buy",
             links: [
               { href: "/fiberglass-pultruded-profile-price", label: "Profile price estimator" },
-              { href: "/resources/ddp-tariff-hs-code-guide", label: "DDP, tariffs & HS codes" },
+              { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "DDP, tariffs & HS codes" },
               { href: "/technology/quality-testing", label: "Quality & testing" },
             ],
           },
