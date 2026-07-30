@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description:
     "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services.",
   alternates: { canonical: absoluteUrl("/terms") },
+  // Keep the legal page available to users and crawlable so search engines can
+  // read the directive, but do not treat it as a search landing page.
+  robots: { index: false, follow: true },
 };
 
 export default function TermsPage() {

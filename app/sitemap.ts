@@ -115,7 +115,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/regions/frp-passive-house-windows-germany`, changeFrequency: "monthly", priority: 0.92 },
     { url: `${BASE}/regions/grp-windows-uk`, changeFrequency: "monthly", priority: 0.92 },
     { url: `${BASE}/contact`, changeFrequency: "yearly", priority: 0.8 },
-    { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 }

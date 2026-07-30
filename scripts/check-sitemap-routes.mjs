@@ -13,7 +13,13 @@ const excluded = new Set([
   "/frp-profile-calculator/embed",
   "/frp-span-tables/embed",
   "/ai/passive-house/embed",
+  // User-facing legal pages intentionally stay crawlable but are noindex and
+  // therefore must not be advertised as search-result candidates in sitemap.
+  "/privacy",
+  "/terms",
 ]);
+
+const noindexRoutes = ["/privacy", "/terms"];
 
 function collectPages(dir) {
   const pages = [];
@@ -58,4 +64,19 @@ for (const route of routes) {
   }
 }
 
-console.log(`Sitemap coverage OK: ${routes.length} static crawlable routes.`);
+for (const route of noindexRoutes) {
+  const page = join(appDir, route, "page.tsx");
+  const pageSource = readFileSync(page, "utf8");
+  if (!/robots:\s*\{\s*index:\s*false,\s*follow:\s*true\s*\}/.test(pageSource)) {
+    console.error(`Intentional noindex route is missing robots index:false, follow:true: ${route}`);
+    process.exit(1);
+  }
+  if (isInSitemap(route)) {
+    console.error(`Intentional noindex route must not appear in app/sitemap.ts: ${route}`);
+    process.exit(1);
+  }
+}
+
+console.log(
+  `Sitemap coverage OK: ${routes.length} static indexable routes; ${noindexRoutes.length} crawlable noindex routes verified.`,
+);

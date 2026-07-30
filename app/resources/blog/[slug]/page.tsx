@@ -10,7 +10,7 @@ import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
-import { authorSlugByName } from "@/lib/authors";
+import { authorSlugByName, authorsBySlug } from "@/lib/authors";
 import { prefillForBlog } from "@/lib/aiPrefill";
 
 interface PageProps {
@@ -232,6 +232,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const authorSlug = authorSlugByName(post.authorName);
   const authorHref = authorSlug ? `/about/authors/${authorSlug}` : undefined;
+  const authorRecord = authorSlug ? authorsBySlug[authorSlug] : undefined;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -245,9 +246,17 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
     author: {
       "@type": "Person",
-      name: post.authorName,
+      name: authorRecord?.name ?? post.authorName,
+      ...(authorRecord?.credentials === "Ph.D."
+        ? { honorificSuffix: "Ph.D." }
+        : {}),
       jobTitle: post.authorRole,
-      ...(authorHref ? { url: absoluteUrl(authorHref) } : {}),
+      ...(authorHref
+        ? {
+            "@id": `${absoluteUrl(authorHref)}#person`,
+            url: absoluteUrl(authorHref),
+          }
+        : {}),
       worksFor: { "@id": "https://www.f1composite.com/#organization" },
     },
     publisher: { "@id": "https://www.f1composite.com/#organization" },

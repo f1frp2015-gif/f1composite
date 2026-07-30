@@ -43,21 +43,39 @@ export default async function AuthorPage({ params }: PageProps) {
     (v): v is string => Boolean(v && v.trim()),
   );
 
-  const personSchema = {
+  const profileUrl = absoluteUrl(`/about/authors/${author.slug}`);
+  const personId = `${profileUrl}#person`;
+  const profilePageSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: author.fullName,
-    jobTitle: author.jobTitle,
-    description: author.bio,
-    url: absoluteUrl(`/about/authors/${author.slug}`),
-    worksFor: { "@id": "https://www.f1composite.com/#organization" },
-    knowsAbout: author.knowsAbout,
-    ...(sameAs.length > 0 ? { sameAs } : {}),
+    "@type": "ProfilePage",
+    "@id": `${profileUrl}#profilepage`,
+    url: profileUrl,
+    name: `${author.fullName} — F1 Composite author profile`,
+    isPartOf: { "@id": "https://www.f1composite.com/#website" },
+    mainEntity: {
+      "@type": "Person",
+      "@id": personId,
+      name: author.name,
+      ...(author.credentials === "Ph.D." ? { honorificSuffix: "Ph.D." } : {}),
+      jobTitle: author.jobTitle,
+      description: author.bio,
+      url: profileUrl,
+      worksFor: { "@id": "https://www.f1composite.com/#organization" },
+      knowsAbout: author.knowsAbout,
+      ...(sameAs.length > 0 ? { sameAs } : {}),
+    },
+    hasPart: posts.map((post) => ({
+      "@type": "TechArticle",
+      headline: post.title,
+      url: absoluteUrl(`/resources/blog/${post.slug}`),
+      dateModified: post.updatedAt,
+      author: { "@id": personId },
+    })),
   };
 
   return (
     <>
-      <JsonLd data={personSchema} />
+      <JsonLd data={profilePageSchema} />
       <PageHeader
         tag={author.bucketLabel}
         title={author.fullName}

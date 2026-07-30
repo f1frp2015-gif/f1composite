@@ -33,6 +33,8 @@ export default function robots(): MetadataRoute.Robots {
         // the rest of /api/ (chat, contact, inquiries) stays blocked. A more
         // specific allow wins over the broader /api/ disallow.
         allow: ["/", "/api/ai-context"],
+        // Legal pages intentionally remain crawlable: their page metadata uses
+        // noindex, follow, which a crawler cannot see if robots.txt blocks them.
         disallow: ["/api/", "/admin"],
       },
       {
