@@ -75,6 +75,270 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "fiberglass-reinforced-plastic",
+    title: "Fiberglass Reinforced Plastic: Composition, Types, Properties, and Uses",
+    seoTitle: "Fiberglass Reinforced Plastic: Types, Properties & Uses",
+    answerBox:
+      "Fiberglass reinforced plastic is a composite made from load-carrying glass fibers embedded in a polymer resin. The glass provides strength and stiffness; the resin holds the fibers in position, transfers load, and protects them from moisture and chemicals. Pultruded structural profiles are one form of fiberglass reinforced plastic, alongside molded panels, tanks, pipes, and laminated parts.",
+    category: "FRP Fundamentals",
+    date: "2026-07-30",
+    updatedAt: "2026-07-30",
+    readTime: "10 min",
+    excerpt:
+      "A practical guide to what fiberglass reinforced plastic is, how glass and resin work together, which manufacturing forms exist, and where structural GFRP is a better fit than metal or unreinforced plastic.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
+    coverImage: "/images/hero/frp-composite-material-hero.webp",
+    coverAlt:
+      "Pultruded fiberglass reinforced plastic structural profiles showing multiple constant cross-section shapes",
+    supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
+    supportingAlt:
+      "Fiberglass reinforced plastic production line pulling continuous glass fibers through heated pultrusion dies",
+    supportingCaption:
+      "Pultrusion aligns continuous glass reinforcement along the profile and cures the resin inside a steel die, producing repeatable structural GFRP sections.",
+    highlights: [
+      "Fiberglass reinforced plastic is a material family, not one universal grade",
+      "Glass architecture, resin chemistry, and manufacturing process jointly determine performance",
+      "Pultruded GFRP is optimized for constant-section structural profiles and directional loads",
+    ],
+    ogDescription:
+      "Fiberglass reinforced plastic combines glass fibers with polymer resin. Learn its composition, forms, properties, manufacturing methods and structural uses.",
+    ogChips: ["Fiberglass", "GFRP", "Material guide"],
+    relatedLinks: [
+      { label: "Pultruded FRP profiles — complete product hub", href: "/pultruded-frp-profiles" },
+      { label: "Fiberglass structural shapes", href: "/products/fiberglass-structural-shapes" },
+      { label: "FRP material properties and selection", href: "/resources/blog/frp-material" },
+      { label: "What is FRP? Complete guide", href: "/what-is-frp" },
+      { label: "FRP technical data", href: "/resources/technical-data" },
+    ],
+    content: `**Fiberglass reinforced plastic** is a composite material in which glass fibers reinforce a cured polymer resin. It is also called GFRP, glass fiber reinforced polymer, glass reinforced plastic, GRP, or simply fiberglass. These labels describe the same basic material architecture: strong, stiff fibers carry most of the load while a continuous resin matrix binds the fibers together and protects them from the service environment.
+
+That definition sounds simple, but fiberglass reinforced plastic is not a single recipe. A corrosion-resistant tank, a molded boat hull, a ladder rail, and a pultruded I-beam can all be GFRP while using different resins, fiber arrangements, glass contents, and manufacturing processes. Those choices decide whether the finished part is structural, chemically resistant, fire-retardant, thermally insulating, or economical to produce at scale.
+
+## What fiberglass reinforced plastic is made from
+
+Every fiberglass reinforced plastic contains two primary constituents. **Glass reinforcement** supplies tensile strength and stiffness. E-glass is the general-purpose reinforcement used in most structural profiles; ECR glass may be selected for stronger resistance to acidic environments. The glass can enter the laminate as unidirectional rovings, continuous strand mat, woven fabric, stitched multiaxial fabric, or a thin surface veil.
+
+The **polymer resin** surrounds that reinforcement. Isophthalic polyester is common for general structural duty. Vinyl ester improves resistance to hydrolysis, chlorides, and aggressive chemicals. Polyurethane can improve transverse toughness and enable thinner, more detailed sections. Phenolic systems are used where smoke and flame performance control the specification. The resin may also contain pigments, UV stabilizers, mineral fillers, and fire-retardant additives.
+
+The two constituents do different jobs. Fibers work best along their length, so their direction controls where the laminate is strongest. Resin transfers shear between fibers, supports them against local buckling, holds the cross-section, and isolates the glass from water and chemicals. Treating GFRP as if it were a homogeneous plastic or an isotropic metal misses this division of labor.
+
+## GFRP, GRP, FRP, and fiberglass: are they the same?
+
+FRP is the larger family: it means fiber reinforced polymer or fiber reinforced plastic and can use glass, carbon, aramid, or basalt reinforcement. GFRP and GRP identify the glass-reinforced branch. Fiberglass is often used for the finished composite in North America, although it can also mean the raw glass fiber itself.
+
+In a project specification, the safest practice is to name the reinforcement and matrix instead of relying on the acronym alone. “Pultruded E-glass/isophthalic polyester profile to EN 13706 E23” communicates far more than “FRP member.” Our [FRP meaning guide](/resources/blog/frp-meaning) explains how these labels appear in drawings, datasheets, and regional specifications, while [What is FRP?](/what-is-frp) covers the wider composite family.
+
+## Main manufacturing forms of fiberglass reinforced plastic
+
+**Pultrusion** continuously pulls resin-wet glass through a heated steel die. It produces constant cross-section profiles such as I-beams, channels, angles, tubes, rods, flat bars, window frames, and custom sections. Continuous rovings provide high longitudinal properties, while mats or fabrics supply transverse integrity. The method is repeatable and material-efficient for long structural members.
+
+**Molding** processes produce panels, gratings, covers, enclosures, and complex three-dimensional parts. Compression molding uses matched tools and controlled pressure; resin transfer molding injects resin into a closed fiber preform; open molding builds a laminate against one tool surface. Molded products can carry loads in several directions but do not automatically share the axial efficiency of a pultruded profile.
+
+**Filament winding** places resin-impregnated fibers around a rotating mandrel and is well suited to pipes, tanks, and pressure vessels. **Hand lay-up and vacuum infusion** remain useful for large shells and low-volume parts. The process must therefore be part of the material description: identical resin and glass can produce very different properties when the fibers are arranged differently.
+
+## Typical fiberglass reinforced plastic properties
+
+Structural GFRP combines low density with useful directional strength. Pultruded profiles commonly have a density near 1.8–2.0 g/cm³, roughly one quarter of steel by volume. They do not rust, are electrically non-conductive, and transfer far less heat than aluminum or steel. These characteristics can reduce handling equipment, eliminate recoating, prevent galvanic corrosion, and improve thermal isolation.
+
+The limitations matter just as much. GFRP has a lower elastic modulus than steel, so deflection often governs beam design. Its properties are directional, bolted joints require bearing and edge-distance checks, and the resin system controls temperature and fire behavior. Long-term design must account for sustained load, environmental exposure, UV protection, and the appropriate safety factors. A credible specification uses tested design values, not a generic “stronger than steel” slogan.
+
+For published laminate values and test methods, use the [FRP technical data page](/resources/technical-data). For preliminary section checks, the [FRP profile calculator](/frp-profile-calculator) applies selectable material and design inputs rather than assuming one universal GFRP grade.
+
+## Where fiberglass reinforced plastic is used
+
+GFRP is valuable where corrosion, weight, electrical isolation, or thermal bridging creates a lifecycle penalty for metal. Structural shapes and gratings support chemical plants, wastewater facilities, cooling towers, marine walkways, pedestrian bridges, rooftop equipment, and substations. Pultruded window profiles combine structural stability with low thermal conductivity. Custom pultrusions create cable-tray supports, façade components, solar rails, transportation parts, and reinforcement inserts that consolidate several metal pieces into one section.
+
+The material is not automatically the best answer for every project. Steel remains efficient where stiffness, very high temperature, or established fabrication infrastructure dominates. Aluminum may be preferable when ductility and familiar recycling routes control. The useful question is not “is fiberglass reinforced plastic better?” but “which service requirement creates enough value to justify this laminate and process?”
+
+## How to specify fiberglass reinforced plastic
+
+Start with the load case, span, deflection limit, temperature, chemical exposure, fire requirement, UV exposure, and expected design life. Then specify the manufacturing process, reinforcement, resin family, mechanical grade, dimensional tolerance, surface protection, and applicable tests. EN 13706 defines requirements for pultruded profiles; ASTM D3917 covers dimensional tolerances for pultruded shapes. Coupon tensile and flexural values are commonly reported using ASTM D638 and ASTM D790, but full-section design still requires section geometry and connection checks.
+
+If the project needs a catalog shape, compare the dimensions and section properties in the [pultruded FRP profiles hub](/pultruded-frp-profiles). If geometry, resin, or fiber architecture must be project-specific, use the [custom pultruded profiles](/products/custom-pultruded-profiles) route. This is the point where a broad material definition becomes an auditable engineering specification.`,
+  },
+
+  {
+    slug: "frp-material",
+    title: "FRP Material: Properties, Types, and an Engineering Selection Guide",
+    seoTitle: "FRP Material: Properties, Types & Selection Guide",
+    answerBox:
+      "FRP material is an engineered combination of reinforcing fibers and polymer resin. Engineers select it as a system: fiber type and orientation establish directional strength and stiffness; resin chemistry controls environmental, temperature, and fire performance; manufacturing method controls geometry, repeatability, and fiber architecture. There is no single set of properties that represents every FRP laminate.",
+    category: "Engineering Guide",
+    date: "2026-07-30",
+    updatedAt: "2026-07-30",
+    readTime: "11 min",
+    excerpt:
+      "How to read FRP material data and select the right fiber, resin, manufacturing process, test values, and design checks for a structural or industrial application.",
+    authorName: "Haifeng Gong, Ph.D.",
+    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790", "ASCE/SEI 74-23"],
+    coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
+    coverAlt:
+      "Engineer reviewing FRP material properties, structural profile geometry, and laminate performance data",
+    supportingImage: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg",
+    supportingAlt:
+      "FRP structural profile engineering drawing connecting material properties with cross-section design",
+    supportingCaption:
+      "An FRP material value becomes useful only when it is tied to the production laminate, fiber direction, test method, cross-section, and design condition.",
+    highlights: [
+      "FRP material properties are directional and cannot be reduced to one generic datasheet",
+      "Resin selection should follow exposure, temperature, and fire requirements—not marketing tiers",
+      "Serviceability, joints, creep, and environment often control before coupon strength",
+    ],
+    ogDescription:
+      "Compare FRP material fibers, resins and properties. Learn how engineers select a laminate by load, corrosion, fire, temperature and manufacturing method.",
+    ogChips: ["FRP material", "Properties", "Selection"],
+    relatedLinks: [
+      { label: "Pultruded FRP profiles — choose a product family", href: "/pultruded-frp-profiles" },
+      { label: "FRP technical data and test methods", href: "/resources/technical-data" },
+      { label: "FRP profile calculator", href: "/frp-profile-calculator" },
+      { label: "Fiberglass reinforced plastic guide", href: "/resources/blog/fiberglass-reinforced-plastic" },
+      { label: "Pultrusion resin systems", href: "/technology/pultrusion-resin-systems" },
+    ],
+    content: `**FRP material** is not one standardized substance in the way that 6061-T6 aluminum or A36 steel identifies a familiar grade. It is a designed material system made from reinforcement, matrix resin, additives, and a manufacturing process. Change the fiber direction, resin, glass fraction, cure, or process and the resulting laminate can have different strength, stiffness, chemical resistance, fire behavior, and cost.
+
+That variability is an advantage when it is controlled and documented. It allows an engineer to place strength where the load travels and select a matrix for the actual environment. It becomes a risk when a specification says only “FRP” and assumes every supplier's laminate is interchangeable. This guide shows how to turn the generic term into a selection that can be checked on a drawing, datasheet, quotation, and inspection report.
+
+## The four decisions inside an FRP material
+
+The first decision is **reinforcement type**. E-glass dominates general structural pultrusion because it balances performance, corrosion resistance, availability, and cost. ECR glass improves resistance in acidic service. Carbon fiber raises modulus and can reduce section size or deflection, but changes cost and electrical behavior. Aramid and basalt address narrower impact, weight, temperature, or durability requirements.
+
+The second is **fiber architecture**. Unidirectional rovings maximize properties along the profile. Continuous strand mat and woven fabrics add transverse, bearing, and splitting resistance. Surface veil creates a resin-rich corrosion and UV barrier. The percentage alone is not enough: 65% glass aligned in one direction does not behave like the same amount distributed in woven layers.
+
+The third is **resin chemistry**. Polyester serves general structural environments. Vinyl ester is commonly chosen for aggressive chemical, marine, and wet service. Polyurethane improves toughness and cross-direction performance in suitable pultrusion systems. Phenolic resin supports demanding flame, smoke, and toxicity requirements. Epoxy can provide high mechanical and fatigue performance where the process and economics justify it.
+
+The fourth is **manufacturing method**. Pultrusion fits long constant-section members; molded grating and compression molding support panels or complex parts; filament winding creates pipe and tanks; infusion makes large shells. Process and material cannot be separated because the process establishes fiber placement, void control, surface condition, and dimensional repeatability.
+
+## How to read FRP material properties
+
+Always ask three questions beside a number: in which direction, by which test, and on what specimen? Longitudinal tensile strength from a coupon cut along the pull direction is not transverse tensile strength. A flexural modulus is not an axial elastic modulus. A short-term coupon result is not an allowable design value for a member under sustained outdoor load.
+
+For pultruded structural profiles, useful data normally include longitudinal and transverse tensile properties, flexural strength and modulus, shear strength, bearing strength, density, glass content, water absorption, thermal expansion, thermal conductivity, electrical properties, and fire results where applicable. The [FRP technical data](/resources/technical-data) page maps each published property to a test method and explains what the value does—and does not—prove.
+
+Section behavior adds another layer. Beam deflection combines material modulus with the second moment of area. Buckling depends on length, boundary conditions, geometry, and elastic properties. Connections introduce bearing, net-tension, shear-out, bolt preload, and local crushing. The [FRP profile calculator](/frp-profile-calculator) and [span tables](/frp-span-tables) are preliminary tools for those section-level questions; final design still follows the project's code and engineer of record.
+
+## Selecting FRP material by service environment
+
+For corrosion service, identify the exact chemical, concentration, temperature, exposure mode, cleaning agent, and expected duration. “Chemical resistant” is not a material grade. Vinyl ester may be appropriate for one acid and unnecessary for another; a surfacing veil and adequate resin-rich barrier can be as important as the base resin.
+
+For outdoor service, specify UV protection and color stability. Pultruded profiles normally use veil, pigment, and UV inhibitors; architectural finishes may add a qualified coating. For elevated temperature, compare continuous-use and glass-transition limits with mechanical demand, not only a short excursion temperature. For fire, name the required test, class, smoke criterion, thickness, and end use. Results from one resin, color, and section should not be transferred casually to another.
+
+For electrical or thermal isolation, confirm both the base laminate and any fillers, fasteners, inserts, or surface treatments. FRP itself is non-corroding, but a completed assembly can still create galvanic or conductive paths through metal hardware. Selection therefore ends at the assembled system, not at the coupon.
+
+## A seven-step FRP material selection workflow
+
+1. **Define the function.** Is the member carrying bending, axial load, shear, impact, enclosure load, or only acting as a thermal break?
+2. **Document the environment.** Record chemicals, moisture, UV, temperature, fire, electrical, and cleaning exposure.
+3. **Set performance limits.** Include strength, deflection, creep, fatigue, dimensional tolerance, surface finish, and design life.
+4. **Choose the manufacturing family.** Select pultrusion, molding, winding, or infusion based on geometry and production volume.
+5. **Select fiber architecture and resin.** Tie each choice to a requirement rather than a generic “premium” label.
+6. **Request comparable evidence.** Require the test method, direction, specimen source, batch traceability, and applicable standard.
+7. **Verify the full member and connection.** Check section properties, stability, holes, joints, fasteners, installation, and inspection.
+
+## What to put in an FRP material specification
+
+A defensible pultruded-profile specification states the profile drawing and dimensions, manufacturing process, reinforcement type, minimum mechanical grade, resin family or exposure requirement, glass content range, dimensional tolerance, color and surface veil, fire or smoke classification where required, test methods, batch documentation, and acceptance criteria. EN 13706 can define a pultruded profile grade; ASTM D3917 can define dimensional tolerance. ASCE/SEI 74-23 provides a structural design framework where adopted or contractually referenced.
+
+Avoid copying the highest numbers from several brochures into one impossible “FRP material” line. Use one production laminate with a coherent set of values, then verify that its section and joints satisfy the load case. If a standard profile meets the requirement, compare the [fiberglass structural shapes](/products/fiberglass-structural-shapes). If the requirement demands a different geometry or laminate architecture, the [custom pultrusion](/products/custom-pultruded-profiles) path connects material selection to tooling and sample validation.`,
+  },
+
+  {
+    slug: "frp-meaning",
+    title: "FRP Meaning: Fiber Reinforced Polymer, Plastic, GFRP, and GRP Explained",
+    seoTitle: "FRP Meaning: Fiber Reinforced Polymer Explained",
+    answerBox:
+      "FRP means fiber reinforced polymer or fiber reinforced plastic: a family of composites in which strong fibers are embedded in a polymer matrix. In structural profiles, FRP usually refers to glass-fiber reinforced polymer, also written GFRP or GRP. The acronym does not identify the fiber, resin, manufacturing method, or grade, so a technical specification must add those details.",
+    category: "FRP Fundamentals",
+    date: "2026-07-30",
+    updatedAt: "2026-07-30",
+    readTime: "8 min",
+    excerpt:
+      "A plain-language map of FRP, GFRP, GRP, CFRP, fiberglass, polymer, and plastic—plus the details an engineer should expect after the acronym in a real specification.",
+    authorName: "Duowei Wang, Ph.D.",
+    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    reviewedBy: "Technical Review Board",
+    standards: ["EN 13706", "ASTM D3917", "ASCE/SEI 74-23"],
+    coverImage: "/images/hero/frp-profile-product-lineup.webp",
+    coverAlt:
+      "FRP profile lineup illustrating the meaning of fiber reinforced polymer in structural products",
+    supportingImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
+    supportingAlt:
+      "Pultrusion manufacturing line turning glass reinforcement and resin into continuous FRP profiles",
+    supportingCaption:
+      "The acronym FRP names the material family; a complete description also names the reinforcement, resin, process, grade, and product form.",
+    highlights: [
+      "FRP can mean fiber reinforced polymer or fiber reinforced plastic",
+      "GFRP and GRP specify glass reinforcement; CFRP specifies carbon fiber",
+      "The acronym alone is not a purchasing or engineering specification",
+    ],
+    ogDescription:
+      "FRP means fiber reinforced polymer or fiber reinforced plastic. Learn FRP, GFRP, GRP and CFRP terminology and how to read the terms in specifications.",
+    ogChips: ["FRP meaning", "Terminology", "Glossary"],
+    relatedLinks: [
+      { label: "Pultruded FRP profiles — see the material in products", href: "/pultruded-frp-profiles" },
+      { label: "What is FRP? Complete guide", href: "/what-is-frp" },
+      { label: "Fiberglass reinforced plastic explained", href: "/resources/blog/fiberglass-reinforced-plastic" },
+      { label: "FRP material selection guide", href: "/resources/blog/frp-material" },
+      { label: "FRP and pultrusion glossary", href: "/resources/glossary" },
+    ],
+    content: `**FRP means fiber reinforced polymer or fiber reinforced plastic.** Both expansions describe a composite in which reinforcing fibers carry load inside a polymer resin matrix. “Polymer” is the technically broader matrix term; “plastic” remains common in product names, standards, procurement language, and search. In most structural-profile conversations, FRP refers specifically to glass-fiber reinforced polymer, but the acronym can also include carbon, aramid, or basalt composites.
+
+The important point is what FRP does not mean. It does not by itself identify the fiber, resin, glass content, manufacturing process, mechanical grade, fire class, or dimensional tolerance. “FRP beam” names a family in the same way that “metal beam” does. A useful drawing or purchase specification must add the missing identity.
+
+## What does FRP stand for?
+
+**Fiber reinforced polymer** emphasizes that the matrix is a polymer: a long-chain material that can be thermoset or thermoplastic. Structural pultrusions most often use thermoset polyester, vinyl ester, polyurethane, phenolic, or epoxy resin. Once cured, that matrix holds the fibers in position and transfers load between them.
+
+**Fiber reinforced plastic** is the older and still widely used expansion. In this phrase, “plastic” describes the polymer matrix rather than an unreinforced commodity plastic. FRP does not behave like PVC sheet or injection-molded consumer plastic because continuous fibers can carry most of the structural load.
+
+Writers also use hyphens—fiber-reinforced polymer and fiber-reinforced plastic. The meaning is unchanged. A document may use FRP as a noun (“the platform is FRP”) or an adjective (“FRP grating”). Neither form defines the grade.
+
+## FRP vs GFRP vs GRP
+
+**GFRP** means glass fiber reinforced polymer or glass fiber reinforced plastic. The initial G removes ambiguity by identifying glass reinforcement. **GRP**, common in the UK, Europe, the Middle East, and Australia, means glass reinforced plastic. GFRP and GRP normally point to the same glass-and-resin material family.
+
+**Fiberglass** is the common North American label. Strictly, glass fibers are the reinforcement and fiberglass reinforced plastic is the finished composite. In everyday product language, however, fiberglass grating, GFRP grating, GRP grating, and glass-reinforced plastic grating may describe the same product. Our [fiberglass reinforced plastic guide](/resources/blog/fiberglass-reinforced-plastic) explains the material architecture behind those labels.
+
+FRP remains useful as the umbrella term. It allows one discussion to include several reinforcement systems, but that breadth is why it needs qualifiers in engineering work.
+
+## CFRP, AFRP, and BFRP meaning
+
+The first letter usually identifies the reinforcement. **CFRP** is carbon fiber reinforced polymer, selected when high stiffness-to-weight or low thermal expansion can justify its cost. **AFRP** is aramid fiber reinforced polymer, associated with low density, impact behavior, and high tensile performance. **BFRP** is basalt fiber reinforced polymer. Hybrid FRP combines two or more fiber types, such as carbon and glass, to place expensive stiffness only where it adds value.
+
+These materials are not interchangeable. A carbon laminate is electrically conductive; a glass laminate is typically insulating. Their modulus, density, compression behavior, surface treatment, joining approach, and economics differ. The acronym must therefore stay attached to a verified material record.
+
+## What FRP means in construction and infrastructure
+
+On a construction drawing, FRP may refer to pultruded beams and channels, molded grating, rebar, bridge deck panels, façade profiles, ladders, handrails, cable tray, pipes, tanks, or window frames. Product form matters because it signals how the fibers may be arranged and which properties govern.
+
+A pultruded member uses continuous fibers drawn through a heated die and is strongest along its length. Molded grating distributes reinforcement across a panel. FRP rebar is designed for axial reinforcement in concrete. A laminated shell may carry membrane loads in several directions. Calling all of these “FRP” is correct at the family level but insufficient for calculation or substitution.
+
+Regional vocabulary adds another layer. North American documents often say FRP or fiberglass. British and Middle Eastern specifications frequently say GRP. European technical writing often uses GFRP. Search and tender documents may mix all three on the same project. The commercial label can change while the material requirement stays identical.
+
+## How to read FRP on a datasheet or drawing
+
+After “FRP,” look for five qualifiers:
+
+1. **Reinforcement:** E-glass, ECR glass, carbon, aramid, basalt, or a hybrid.
+2. **Matrix:** polyester, vinyl ester, polyurethane, phenolic, epoxy, or a named thermoplastic.
+3. **Process and form:** pultruded profile, molded grating, filament-wound pipe, laminate, rebar, or another product.
+4. **Grade and evidence:** applicable standard, mechanical minimums, test direction, fire result, chemical-resistance basis, and batch traceability.
+5. **Geometry and tolerance:** drawing revision, dimensions, section properties, surface finish, hole limits, and dimensional class.
+
+For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions and tolerances per approved drawing and ASTM D3917” is actionable. “FRP channel, corrosion resistant” is not. The [FRP material selection guide](/resources/blog/frp-material) turns those qualifiers into a seven-step engineering workflow.
+
+## FRP meaning in a product search
+
+Search intent changes with the words that follow the acronym. “What is FRP?” asks for the material family. “FRP material” usually asks about properties and selection. “FRP profiles” asks for shapes or suppliers. “FRP grating” asks for a product form; “FRP vs steel” asks for a decision comparison. A useful site should give each intent a clear owner instead of repeating one generic definition on every page.
+
+For the broad explanation, start with [What is FRP?](/what-is-frp). For dimensions, section data, and commercial product families, continue to the [pultruded FRP profiles hub](/pultruded-frp-profiles). That transition—from acronym to documented product—is where the meaning becomes useful to an engineer or buyer.`,
+  },
+
+  {
     slug: "qualify-chinese-fiberglass-window-profile-supplier",
     title: "How to Qualify a Chinese Fiberglass Window Profile Supplier: A 9-Point Checklist",
     seoTitle: "Qualify a Chinese Fiberglass Window Profile Supplier",

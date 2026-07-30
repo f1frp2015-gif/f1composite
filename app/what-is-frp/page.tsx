@@ -115,12 +115,12 @@ export default function WhatIsFrpPage() {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: "Glass Fiber Reinforced Plastic (FRP): Materials, Properties, and Uses",
+    headline: "What Is FRP? Definition, Materials, Properties, and Uses",
     description: pageDescription,
     url: absoluteUrl(pagePath),
     mainEntityOfPage: absoluteUrl(pagePath),
     datePublished: "2026-04-14",
-    dateModified: "2026-07-28",
+    dateModified: "2026-07-30",
     inLanguage: "en",
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
@@ -160,7 +160,7 @@ export default function WhatIsFrpPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="FRP Guide"
-        title="What is glass fiber reinforced plastic (FRP)?"
+        title="What is FRP? Definition, materials, properties, and uses"
         description="Glass fiber reinforced plastic (FRP), also called glass fiber reinforced polymer, fiberglass, or GRP, combines glass reinforcement with a polymer resin matrix. Compare its composition, pultrusion process, properties, standards, applications, and design limits."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -794,6 +794,15 @@ export default function WhatIsFrpPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Keep exploring</h2>
           <div className="flex flex-wrap gap-[13px]">
+            <LinkArrow href="/resources/blog/fiberglass-reinforced-plastic">
+              Fiberglass reinforced plastic guide
+            </LinkArrow>
+            <LinkArrow href="/resources/blog/frp-material">
+              FRP material selection guide
+            </LinkArrow>
+            <LinkArrow href="/resources/blog/frp-meaning">
+              FRP meaning and terminology
+            </LinkArrow>
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel vs aluminum</LinkArrow>
