@@ -73,7 +73,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",
-    title: "F1-STRUX, F1-GRID, F1-THERM & F1-FORM Product Lines",
+    title: "FRP Product Lines: F1-STRUX, F1-GRID, F1-THERM, F1-FORM",
     description:
       "Explore F1 Composite's four product lines for structural profiles, gratings, fenestration systems and custom pultrusions exported for global projects.",
     supportingUrls: [

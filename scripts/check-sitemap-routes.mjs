@@ -12,6 +12,7 @@ const excluded = new Set([
   "/llms-full.txt",
   "/frp-profile-calculator/embed",
   "/frp-span-tables/embed",
+  "/ai/passive-house/embed",
 ]);
 
 function collectPages(dir) {

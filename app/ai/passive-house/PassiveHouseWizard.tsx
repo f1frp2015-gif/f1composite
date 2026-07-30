@@ -20,7 +20,7 @@ const typeOptions: Array<{ value: WindowType; label: string; seriesFit: string }
   { value: "fixed-facade", label: "Fixed facade / curtain wall", seriesFit: "90 series frames" },
 ];
 
-export default function PassiveHouseWizard() {
+export default function PassiveHouseWizard({ embedded = false }: { embedded?: boolean }) {
   const [climate, setClimate] = useState<Climate>("");
   const [windowType, setWindowType] = useState<WindowType>("");
   const [targetU, setTargetU] = useState("0.8");
@@ -39,7 +39,12 @@ export default function PassiveHouseWizard() {
 - Project size: ${units || "not yet determined"} units
 
 Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 140) with justification, explain the relevant PHI Component-ID 2491wi03 (phA arctic) certification, reference one of our comparable delivered projects, and outline the quote + lead-time path for my region.`;
-    window.location.href = `/ask?prefill=${encodeURIComponent(prompt)}`;
+    const advisorUrl = `/ask?prefill=${encodeURIComponent(prompt)}`;
+    if (embedded) {
+      window.open(advisorUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+    window.location.href = advisorUrl;
   };
 
   const selectedType = typeOptions.find((t) => t.value === windowType);

@@ -142,6 +142,80 @@ export default function ChooseSupplierGuidePage() {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
+          <SectionTag>Bid comparison</SectionTag>
+          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            How to choose an FRP pultrusion supplier when bids look similar
+          </h2>
+          <p className="mt-[21px] text-f15 leading-golden text-t2">
+            A team asking how to choose an FRP pultrusion supplier should first normalize every
+            quotation to the same technical and commercial basis. Confirm the drawing revision,
+            dimensions, tolerances, resin, reinforcement architecture, color, surface veil, fire
+            rating, cut lengths, quantity, testing, inspection, packing, Incoterm, destination, and
+            delivery date. A lower unit price is not comparable if it excludes tooling, testing,
+            protective packing, export documentation, inland freight, tariffs, or the resin system
+            required by the service environment.
+          </p>
+
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
+            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f15 font-bold text-t1">Build a compliance matrix</h3>
+              <p className="mt-[10px] text-f13 leading-golden text-t2">
+                Put each mandatory requirement in one column and require the bidder to mark
+                compliant, exception, or not offered. Reference the evidence file and report number
+                instead of accepting a general statement such as &ldquo;meets ASTM.&rdquo;
+              </p>
+            </article>
+            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f15 font-bold text-t1">Verify one production lot</h3>
+              <p className="mt-[10px] text-f13 leading-golden text-t2">
+                Agree on first-article dimensions, appearance, Barcol hardness, glass content, and
+                mechanical tests before volume production. Define who witnesses the inspection,
+                what constitutes rejection, and how replacement material will be handled.
+              </p>
+            </article>
+            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f15 font-bold text-t1">Compare landed project cost</h3>
+              <p className="mt-[10px] text-f13 leading-golden text-t2">
+                Compare usable delivered lengths, fabrication waste, installation labor, expected
+                maintenance, replacement risk, freight, duty, and schedule—not only price per meter.
+                Ask suppliers to state validity, payment milestones, and assumptions in writing.
+              </p>
+            </article>
+          </div>
+
+          <p className="mt-[29px] text-f15 leading-golden text-t2">
+            The practical answer to how to choose an FRP pultrusion supplier is therefore a
+            documented comparison: same specification, verifiable evidence, controlled first
+            article, and transparent landed cost. Keep the completed matrix with the purchase order
+            so quality inspection and future repeat orders use the same acceptance basis.
+          </p>
+
+          <h2 className="mt-[42px] text-f24 font-bold text-t1">
+            Carry the supplier evaluation into the purchase order
+          </h2>
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            Supplier qualification loses value if the purchase order contains only a part name,
+            quantity, and price. Attach the approved drawing, specification, compliance matrix,
+            color or finish standard, inspection and test plan, packing method, agreed Incoterm,
+            delivery milestone, and list of required records. Identify the governing revision and
+            state that substitutions require written approval. For custom profiles, also document
+            tooling ownership, maintenance, storage, modification authority, and the conditions for
+            repeat production.
+          </p>
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            Define the handover package before manufacturing starts: first-article report,
+            dimensional inspection, batch number, material and cure records, mill test certificate,
+            third-party reports where required, packing list, photographs, and nonconformance
+            procedure. These records make receiving inspection objective and give the next order a
+            traceable baseline. They also prevent a qualified sample from being followed by volume
+            material produced to a different undocumented standard. Record every approved exception
+            and concession with the responsible reviewer and acceptance date.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify F1 Composite against this list</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
