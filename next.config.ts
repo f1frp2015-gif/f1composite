@@ -29,7 +29,7 @@ const CONTENT_SECURITY_POLICY = [
   .filter(Boolean)
   .join("; ");
 
-// Only the two purpose-built, noindex tool routes may be framed. Every normal
+// Only purpose-built, noindex tool routes may be framed. Every normal
 // page keeps frame-ancestors 'none' and X-Frame-Options: DENY.
 const EMBED_CONTENT_SECURITY_POLICY = CONTENT_SECURITY_POLICY.replace(
   "frame-ancestors 'none'",
@@ -206,7 +206,11 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      ...["/frp-profile-calculator/embed", "/frp-span-tables/embed"].map((source) => ({
+      ...[
+        "/frp-profile-calculator/embed",
+        "/frp-span-tables/embed",
+        "/ai/passive-house/embed",
+      ].map((source) => ({
         source,
         headers: [
           { key: "Content-Security-Policy", value: EMBED_CONTENT_SECURITY_POLICY },
