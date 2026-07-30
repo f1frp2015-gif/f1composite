@@ -65,6 +65,13 @@ const nextConfig: NextConfig = {
         destination: "/pultruded-frp-profiles",
         permanent: true,
       },
+      // Preserve the legacy name used in older audits and external links. The
+      // live, indexable estimator owns the more specific commercial query.
+      {
+        source: "/price-estimator",
+        destination: "/fiberglass-pultruded-profile-price",
+        permanent: true,
+      },
       {
         source: "/technology/calculator",
         destination: "/frp-profile-calculator",

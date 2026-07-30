@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SteelVsFrpChamberCore } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "Pultruded Fiberglass Window Reinforcements — uPVC Cores";
+const pageTitle = "FRP Window Reinforcement Profiles — Fiberglass uPVC Cores";
 const pageDescription =
-  "Pultruded fiberglass window reinforcement profiles for vinyl and uPVC frames: replace steel inserts, remove the thermal bridge. Custom sections, DDP export.";
+  "FRP window reinforcement profiles for vinyl and uPVC frames replace steel inserts, reduce thermal bridging, resist corrosion and ship to custom drawings.";
 const pagePath = "/products/window-reinforcement-profiles";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -132,7 +132,7 @@ export default function WindowReinforcementProfilesPage() {
       />
       <PageHeader
         tag="Custom Pultrusion · F1-FORM"
-        title="Pultruded fiberglass window reinforcements"
+        title="FRP window reinforcement profiles for vinyl and uPVC frames"
         description="Composite reinforcement cores for vinyl and uPVC window profiles — engineered to the stiffness your chamber needs, without the thermal bridge, corrosion risk, or weight of galvanized steel inserts. Supplied as a custom pultrusion program: your chamber drawing in, qualified profiles out."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -146,7 +146,7 @@ export default function WindowReinforcementProfilesPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why Replace Steel</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            The reinforcement chamber is the last thermal bridge in a uPVC window
+            Why FRP window reinforcement profiles replace steel cores
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_320px] lg:items-start">
             <p className="text-f15 leading-golden text-t2">

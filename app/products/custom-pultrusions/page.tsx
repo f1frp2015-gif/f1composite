@@ -224,7 +224,7 @@ export default function CustomPultrusionsPage() {
       />
       <PageHeader
         tag="Custom Pultrusions · F1-FORM"
-        title="Custom Pultrusion Manufacturer — FRP Profiles Engineered to Your Specification"
+        title="Custom pultruded profiles — engineered to your specification"
         description="Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -264,7 +264,7 @@ export default function CustomPultrusionsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Development Process</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            From inquiry to production in five stages
+            Custom pultruded profiles from inquiry to production
           </h2>
 
           {/* Flow chart - horizontal on desktop, vertical on mobile */}

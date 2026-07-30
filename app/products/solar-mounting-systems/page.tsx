@@ -10,9 +10,9 @@ import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Solar Panel Frames, PV Mounting Rails & Supports";
+const pageTitle = "FRP Solar Mounting Systems — PV Frames, Rails & Supports";
 const pageDescription =
-  "Pultruded FRP solar panel frames, composite PV supports and lightweight rooftop mounting rails for coastal, floating, ground-mount and retrofit projects.";
+  "FRP solar mounting systems for PV module frames, rails and supports: corrosion-resistant pultruded profiles engineered for rooftops, farms and coastal sites.";
 const pagePath = "/products/solar-mounting-systems";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -65,7 +65,7 @@ export default function SolarMountingSystemsPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "FRP Solar Panel Frames, PV Mounting Rails and Support Profiles",
+          name: "FRP Solar Mounting Systems — Panel Frames, Rails and Supports",
           description: pageDescription,
           path: pagePath,
           image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
@@ -82,7 +82,7 @@ export default function SolarMountingSystemsPage() {
       />
       <PageHeader
         tag="Photovoltaic Products · F1-STRUX / F1-FORM"
-        title="FRP solar panel frames, mounting rails and support profiles"
+        title="FRP solar mounting systems — panel frames, rails and supports"
         description="One pultruded composite platform for the PV module perimeter, the supporting structure and the roof interface. Lightweight, corrosion resistant and electrically insulating profiles for rooftop retrofit, ground-mount, floating and coastal solar projects."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -97,7 +97,7 @@ export default function SolarMountingSystemsPage() {
             <div>
               <SectionTag>Three product families</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Composite profiles from module edge to mounting structure
+                FRP solar mounting systems from module edge to structure
               </h2>
               <div className="mt-[21px] grid gap-[13px]">
                 {[
@@ -139,7 +139,7 @@ export default function SolarMountingSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Catalog sections</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Standard support and rail profiles
+            Standard FRP solar support and rail profiles
           </h2>
           <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
             These starting sections cover light rooftop rails through primary ground-mount support. Final section selection is governed by span, module layout, wind uplift, snow, seismic load, connection capacity and the project deflection limit.

@@ -31,9 +31,9 @@ const PROPERTY_ROWS: {
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Material Properties — Mechanical & Physical Data",
+  title: "FRP Technical Data — Material Properties & Test Methods",
   description:
-    "FRP material properties for pultruded E-glass profiles: tensile, flexural, shear, density, glass content — full specification data per EN 13706 and ASTM.",
+    "FRP technical data for pultruded E-glass profiles: tensile, flexural, shear, density and glass content values with EN 13706 and ISO test methods.",
   path: "/resources/technical-data",
   image: "/resources/technical-data/opengraph-image",
 });
@@ -63,8 +63,8 @@ export default function TechnicalDataPage() {
       <JsonLd data={datasetSchema} />
       <PageHeader
         tag="Technical Data"
-        title="FRP Material Properties & Specifications"
-        description="Comprehensive mechanical, thermal, and chemical resistance data for our standard pultruded FRP profile range."
+        title="FRP technical data — material properties & specifications"
+        description="Published mechanical and physical properties for the standard pultruded E-glass profile laminate, with grade minimums, test methods, and guidance for using the data in member design."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
@@ -75,13 +75,27 @@ export default function TechnicalDataPage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[8px] text-f24 font-bold text-t1">
-            Mechanical &amp; Physical Properties — E23 General-Purpose Laminate
+            FRP technical data — E23 mechanical &amp; physical properties
           </h2>
-          <p className="mb-[21px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="max-w-[900px] text-f15 leading-golden text-t2">
             The same laminate values printed on every product datasheet (E-glass /
             isophthalic polyester, EN 13706 Grade E23), shown against the EN 13706-3
             Table 1 grade minimums. One data source feeds both this page and the
             per-size datasheets, so the numbers always match.
+          </p>
+          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+            Read this FRP technical data as material characterization, not as a complete
+            member capacity table. Pultruded profiles are anisotropic: longitudinal values
+            are dominated by continuous rovings, while transverse and connection behavior
+            depend more heavily on mats, resin, geometry, holes, and load direction. Final
+            design therefore combines these properties with section data, exposure and
+            duration factors, connection checks, and the governing project code.
+          </p>
+          <p className="mb-[21px] mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+            EN 13706 defines the pultruded-profile grade requirements; the referenced EN ISO
+            methods define how each coupon property is measured. The published column shows
+            the standard laminate data used across F1 datasheets, while the minimum column
+            makes the applicable E23 threshold visible instead of mixing the two values.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-f13">
@@ -131,6 +145,45 @@ export default function TechnicalDataPage() {
             general-purpose laminate; fire-retardant, vinyl ester, epoxy, polyurethane, and
             phenolic systems each have their own formulation sheet on the per-size datasheets.
           </p>
+
+          <div className="mt-[34px] max-w-[960px]">
+            <h2 className="text-f24 font-bold text-t1">
+              How to use FRP technical data in design
+            </h2>
+            <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
+              {[
+                {
+                  title: "1. Select the laminate",
+                  body: "Match the resin system and grade to corrosion, fire, temperature, moisture, and electrical requirements before using a mechanical property in a calculation.",
+                },
+                {
+                  title: "2. Combine material and geometry",
+                  body: "Use the relevant modulus or strength with the actual section properties, span, restraint, load direction, and connection layout from the selected profile datasheet.",
+                },
+                {
+                  title: "3. Apply design factors",
+                  body: "Convert characteristic or published values into project design values using the safety, environment, duration, temperature, and code factors required by the governing standard.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                  <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-[21px] text-f15 leading-golden text-t2">
+              For preliminary beam screening, pair this FRP technical data with the{" "}
+              <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
+                FRP span tables
+              </Link>{" "}
+              and{" "}
+              <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">
+                profile calculator
+              </Link>
+              . Project-specific engineering review remains necessary for concentrated loads,
+              buckling, holes, joints, fatigue, fire, or sustained-load conditions.
+            </p>
+          </div>
           <div className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px] text-f13 leading-golden text-t2">
             <strong>Looking for a specific size?</strong> Per-size datasheets — section drawing,
             published weight per meter, these properties, and a free DXF — live in the{" "}

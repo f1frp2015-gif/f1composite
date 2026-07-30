@@ -28,9 +28,9 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Industries Served — FRP for Construction, Marine, Energy",
+  title: "FRP Industrial Applications — Construction, Marine & Energy",
   description:
-    "Pultruded FRP profiles for construction, infrastructure, energy, marine, industrial, and vehicle sectors — corrosion-resistant fiberglass replacing steel.",
+    "Explore FRP industrial applications in construction, infrastructure, energy, marine, process plants and vehicles, with sector-specific products and guidance.",
   path: "/industries",
   image: "/industries/opengraph-image",
 });
@@ -87,7 +87,7 @@ export default function IndustriesPage() {
       <JsonLd data={industriesSchema} />
       <PageHeader
         tag="Industries"
-        title="FRP Solutions for Every Sector"
+        title="FRP industrial applications by sector"
         description="Fiber-reinforced polymer profiles deliver measurable advantages across industries where corrosion resistance, lightweight strength, and design longevity matter most."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -98,7 +98,10 @@ export default function IndustriesPage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Industries Served by Pultruded FRP</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            FRP industrial applications across six sectors
+          </h2>
+          <div className="mt-[13px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
               F1 Composite supplies pultruded fiberglass profiles to six industries where corrosion, weight, electrical neutrality, or radio transparency drive the material decision. Each industry has its own qualification standards, procurement language, and typical failure modes — we publish the engineering and specification context for each so that procurement teams and engineers can move from concept to qualified supplier without re-discovering the wheel.
             </p>

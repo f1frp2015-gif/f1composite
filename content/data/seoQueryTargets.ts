@@ -87,9 +87,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/custom-pultrusions",
     primaryQuery: "custom pultrusion manufacturer",
     intent: "commercial",
-    title: "Custom Pultrusion Manufacturer | Bespoke FRP Profiles",
+    title: "Custom Pultruded Profiles | FRP Pultrusion Manufacturer",
     description:
-      "Develop custom FRP sections with a custom pultrusion manufacturer offering in-house tooling, material selection and validated production up to 600×300 mm.",
+      "Custom pultruded profiles from an FRP pultrusion manufacturer with in-house tooling, material selection and production up to 600×300 mm.",
     supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process"],
   },
   {

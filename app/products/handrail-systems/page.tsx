@@ -9,9 +9,9 @@ import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "Fiberglass Handrail Systems — Industrial FRP Railing";
+const pageTitle = "FRP Handrail Systems — Fiberglass Industrial Railing";
 const pageDescription =
-  "Fiberglass handrail systems with nonconductive FRP rails, posts, and kick plates. OSHA and EN load criteria, safety yellow, and DDP USA quotes.";
+  "FRP handrail systems with nonconductive fiberglass rails, posts, kick plates and fittings, engineered to OSHA and EN load criteria for industrial sites.";
 const pagePath = "/products/handrail-systems";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -76,7 +76,7 @@ export default function HandrailSystemsPage() {
       />
       <PageHeader
         tag="Structural Systems · F1-STRUX"
-        title="Fiberglass handrail systems for industrial guardrail"
+        title="FRP handrail systems for industrial guardrails"
         description="Non-conductive FRP railing kits configured from published catalog sections — Ø50 round or 50×50 square rail, posts, kickplate, and fittings — engineered to OSHA 1910.29 / EN ISO 14122-3 load cases at stated post spacing. No welding, no coating cycles, no conductive path."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -89,7 +89,7 @@ export default function HandrailSystemsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>System Build-Up</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            A railing kit from catalog sections, not a custom program
+            FRP handrail system built from catalog sections
           </h2>
           <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">

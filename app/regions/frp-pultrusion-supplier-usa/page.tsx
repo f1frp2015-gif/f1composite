@@ -9,9 +9,9 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "ASTM-Compliant FRP Pultrusions — Direct to US Projects";
+const pageTitle = "FRP Pultrusion Supplier USA — ASTM-Compliant Profiles";
 const pageDescription =
-  "Engineered pultrusions for US infrastructure and Passive House projects. ASTM E84, AAMA 2604/2605, DDP pricing, and itemized Section 301 tariffs.";
+  "Choose an FRP pultrusion supplier for USA projects with ASTM-tested profiles, transparent Section 301 costs, DDP delivery and engineering support.";
 const pagePath = "/regions/frp-pultrusion-supplier-usa";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -73,8 +73,8 @@ export default function UsaRegionPage() {
 
       <PageHeader
         tag="United States"
-        title="ASTM-compliant FRP pultrusions for US projects"
-        description="Custom and standard pultruded FRP profiles, gratings, and PHIUS-certified fenestration — direct from F1 Composite. ASTM E84 Class A, AAMA 2604/2605, transparent Section 301 in every DDP USA quote."
+        title="FRP pultrusion supplier for USA projects"
+        description="Custom and standard pultruded FRP profiles, gratings, and PHIUS-certified fenestration supplied direct by F1 Composite, with ASTM documentation and transparent Section 301 costs in every DDP USA quote."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-pultrusion-supplier-usa" },
@@ -102,7 +102,7 @@ export default function UsaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why US Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Engineered FRP that meets US standards — without the landed-cost surprise
+            Why US buyers use a direct FRP pultrusion supplier
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
