@@ -126,7 +126,7 @@ export default function ChinaAlternativeWindowsPage() {
             North American window fabricators know for pultruded fiberglass
             lineals. They are capable manufacturers — and they work from the same
             physics that{" "}
-            <Link href="/products/fenestration-systems" className="font-semibold text-teal-text hover:text-teal">
+            <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">
               F1 Composite&apos;s fiberglass window profiles
             </Link>{" "}
             are built on: continuous E-glass reinforcement in a thermoset matrix,
@@ -202,7 +202,7 @@ export default function ChinaAlternativeWindowsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify the equivalence</h2>
           <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/fenestration-systems">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
+            <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>

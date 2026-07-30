@@ -101,7 +101,7 @@ export async function GET() {
       },
       {
         id: "fenestration-systems",
-        url: `${SITE}/products/fenestration-systems`,
+        url: `${SITE}/products/frp-window-frames`,
         family: "FRP Fenestration Systems",
         series: ["65", "70", "80", "90", "140"],
         wholeWindowUValueWperM2K: { min: 0.78, max: 1.6 },

@@ -17,7 +17,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug } from "@/lib/authors";
 
-const pagePath = "/products/fenestration-systems";
+const pagePath = "/products/frp-window-frames";
 const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
@@ -30,7 +30,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
-  image: "/products/fenestration-systems/opengraph-image",
+  image: "/products/frp-window-frames/opengraph-image",
 });
 
 const supplyModels = [

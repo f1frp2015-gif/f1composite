@@ -10,6 +10,8 @@ const featuredCases = [
     title: "Qinling Antarctic Research Station",
     meta: "Construction · Ross Sea, Antarctica",
     image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
+    imageWidth: 1920,
+    imageHeight: 1238,
     outcome: "PHI-certified GFRP windows engineered for an arctic climate.",
     metrics: ["−60°C design", "45 m/s wind", "phA / A+"],
   },
@@ -18,6 +20,8 @@ const featuredCases = [
     title: "FRP Factory Access Staircase",
     meta: "Industrial · Chongqing, China",
     image: "/images/case-studies/frp-factory-access-staircase-hero.webp",
+    imageWidth: 1200,
+    imageHeight: 1600,
     outcome: "A complete profile, grating, and handrail system installed in three days.",
     metrics: ["68% lighter", "0 repainting", "3-day install"],
   },
@@ -26,6 +30,8 @@ const featuredCases = [
     title: "Yancheng Talent Apartment",
     meta: "Construction · Jiangsu, China",
     image: "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
+    imageWidth: 1600,
+    imageHeight: 1102,
     outcome: "Complete FRP fenestration packages across a multi-building development.",
     metrics: ["~20 buildings", "1.6 U-value", "65 + 90 series"],
   },
@@ -72,9 +78,10 @@ export default function SocialProof() {
                 <Image
                   src={item.image}
                   alt={item.title}
-                  fill
+                  width={item.imageWidth}
+                  height={item.imageHeight}
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
                 />
               </div>
               <div className="p-[20px]">

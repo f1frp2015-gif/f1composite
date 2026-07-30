@@ -92,7 +92,7 @@ const stages: Stage[] = [
       "frp-window-finish-transverse-reinforcement",
     ],
     links: [
-      { href: "/products/fenestration-systems", label: "F1 fenestration systems (65–90 series)" },
+      { href: "/products/frp-window-frames", label: "F1 fenestration systems (65–90 series)" },
       { href: "/products/frp-window-reinforcement", label: "Window reinforcement profiles" },
       { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
     ],

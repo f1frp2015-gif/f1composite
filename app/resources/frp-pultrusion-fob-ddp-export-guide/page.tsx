@@ -9,10 +9,10 @@ import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "DDP, Tariffs & HS Codes for FRP Profile Imports";
+const pageTitle = "FRP Pultrusion FOB & DDP Export Guide — HS Codes";
 const pageDescription =
-  "Import pultruded FRP profiles: DDP vs FOB vs CIF, HTSUS/HS classification (3926.90 vs 7019), and Section 301 tariff exposure explained for US and Canada buyers.";
-const pagePath = "/resources/ddp-tariff-hs-code-guide";
+  "Compare FOB, CIF, DAP and DDP for pultruded FRP exports, including freight ownership, HS/HTSUS classification, Section 301 exposure and landed-cost checks.";
+const pagePath = "/resources/frp-pultrusion-fob-ddp-export-guide";
 const publishedAt = "2026-07-03";
 const updatedAt = "2026-07-03";
 const authorName = "Duowei Wang, Ph.D.";
@@ -145,7 +145,7 @@ export default function DdpTariffHsCodeGuidePage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Import & Trade Compliance"
-        title="DDP, Tariffs & HS Codes for FRP Profile Imports"
+        title="FRP Pultrusion FOB & DDP Export Guide"
         description="A practical guide to Incoterms, HS/HTSUS classification, and Section 301 tariff exposure for buyers importing pultruded FRP profiles — so the price you're quoted is the price that lands at your jobsite."
         breadcrumbs={[
           { label: "Home", href: "/" },

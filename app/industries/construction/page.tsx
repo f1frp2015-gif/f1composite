@@ -169,7 +169,7 @@ export default function ConstructionPage() {
               <p>
                 The dimensional stability of pultruded FRP profiles also means tighter manufacturing tolerances. Our fenestration profiles hold straightness to within 1mm per meter and cross-sectional dimensions to +/- 0.15mm, enabling precise mitre joints and reliable hardware mounting without the shimming and adjustment that field-bent aluminum sometimes requires.
               </p>
-              <LinkArrow href="/products/fenestration-systems">
+              <LinkArrow href="/products/frp-window-frames">
                 Explore fenestration systems
               </LinkArrow>
 
@@ -239,7 +239,7 @@ export default function ConstructionPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/fenestration-systems"
+              href="/products/frp-window-frames"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Fenestration Systems</h3>

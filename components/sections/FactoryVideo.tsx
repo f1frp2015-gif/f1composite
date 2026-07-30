@@ -31,9 +31,10 @@ export default function FactoryVideo() {
       <Image
         src="/images/factory/pultruded-frp-manufacturer-video-cover.jpg"
         alt="Pultruded FRP manufacturer factory tour by F1 Composite"
-        fill
+        width={1672}
+        height={941}
         sizes="(max-width: 1024px) 100vw, 50vw"
-        className="object-cover transition-transform duration-[0.55s] group-hover:scale-[1.03]"
+        className="h-full w-full object-cover transition-transform duration-[0.55s] group-hover:scale-[1.03]"
       />
       <span className="absolute inset-0 bg-deep/20 transition-colors duration-[0.34s] group-hover:bg-deep/30" />
       <span className="absolute left-1/2 top-1/2 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-teal text-white shadow-lg transition-transform duration-[0.34s] group-hover:scale-105">

@@ -7,6 +7,8 @@ interface SolutionCardProps {
   href: string;
   icon?: React.ReactNode;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   imageAlt?: string;
   imageScale?: number;
   imageFit?: "cover" | "contain";
@@ -18,11 +20,13 @@ export default function SolutionCard({
   href,
   icon,
   image,
+  imageWidth,
+  imageHeight,
   imageAlt,
   imageScale,
   imageFit = "cover",
 }: SolutionCardProps) {
-  if (image) {
+  if (image && imageWidth && imageHeight) {
     const scale = imageScale ?? 1;
     return (
       <Link
@@ -38,12 +42,13 @@ export default function SolutionCard({
           <Image
             src={image}
             alt={imageAlt ?? title}
-            fill
+            width={imageWidth}
+            height={imageHeight}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className={
               imageFit === "contain"
-                ? "object-contain"
-                : "object-cover transition-transform duration-[0.55s] scale-[var(--img-scale)] group-hover:scale-[calc(var(--img-scale)*1.05)]"
+                ? "h-full w-full object-contain"
+                : "h-full w-full object-cover transition-transform duration-[0.55s] scale-[var(--img-scale)] group-hover:scale-[calc(var(--img-scale)*1.05)]"
             }
             style={imageFit === "cover" ? { ["--img-scale" as string]: scale } : undefined}
           />

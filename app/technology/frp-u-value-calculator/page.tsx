@@ -230,7 +230,7 @@ export default function UValueCalculatorPage() {
             65/70/80/90-series with U<sub>f</sub> values from 0.85 to 1.5 W/m²K.
           </p>
           <Link
-            href="/products/fenestration-systems"
+            href="/products/frp-window-frames"
             className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore FRP windows &amp; doors →

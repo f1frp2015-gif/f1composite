@@ -60,11 +60,12 @@ export default function Hero() {
             <Image
               src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
               alt="Rows of pultrusion production lines at the F1 Composite manufacturing base in Chongqing"
-              fill
+              width={2000}
+              height={788}
               fetchPriority="high"
               loading="eager"
               sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(100vw - 56px), 48vw"
-              className="object-cover"
+              className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
             <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-[9px] border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-[10px] sm:px-[17px] sm:py-[14px]">

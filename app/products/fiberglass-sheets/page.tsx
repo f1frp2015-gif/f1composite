@@ -162,7 +162,7 @@ export default function FiberglassSheetsPage() {
             links: [
               { href: "/technology/pultrusion-resin-systems", label: "Resin system selection" },
               { href: "/fiberglass-pultruded-profile-price", label: "Profile price estimator" },
-              { href: "/resources/ddp-tariff-hs-code-guide", label: "DDP, tariffs & HS codes" },
+              { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "DDP, tariffs & HS codes" },
             ],
           },
         ]}

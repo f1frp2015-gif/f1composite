@@ -889,7 +889,7 @@ export default function FacadeSunshadePanelsPage() {
             links: [
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions — aerofoil & box blades" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bars & plates" },
-              { href: "/products/fenestration-systems", label: "FRP windows & doors" },
+              { href: "/products/frp-window-frames", label: "FRP windows & doors" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
             ],
           },

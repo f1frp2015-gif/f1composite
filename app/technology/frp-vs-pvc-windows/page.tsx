@@ -242,7 +242,7 @@ export default function FrpVsPvcWindowsPage() {
             Explore the full F1 Composite FRP fenestration range — 65/70/80/90/140-series profiles, PHI certified 90-series, custom sections available.
           </p>
           <Link
-            href="/products/fenestration-systems"
+            href="/products/frp-window-frames"
             className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore FRP windows &amp; doors →
@@ -255,7 +255,7 @@ export default function FrpVsPvcWindowsPage() {
           {
             title: "FRP fenestration products",
             links: [
-              { href: "/products/fenestration-systems", label: "Fiberglass window frames (65/70/80/90/140)" },
+              { href: "/products/frp-window-frames", label: "Fiberglass window frames (65/70/80/90/140)" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
               { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },

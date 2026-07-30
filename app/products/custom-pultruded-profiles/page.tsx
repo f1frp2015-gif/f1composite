@@ -388,7 +388,7 @@ export default function CustomPultrusionsPage() {
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/fiberglass-structural-shapes", label: "Standard FRP profiles" },
-              { href: "/products/fenestration-systems", label: "FRP fenestration systems" },
+              { href: "/products/frp-window-frames", label: "FRP fenestration systems" },
               { href: "/products/frp-gratings", label: "FRP gratings" },
             ],
           },

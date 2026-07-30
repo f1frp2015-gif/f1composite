@@ -221,7 +221,7 @@ export default function CanadaRegionPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/fenestration-systems">Fiberglass window frames (65–140)</LinkArrow>
+            <LinkArrow href="/products/frp-window-frames">Fiberglass window frames (65–140)</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/regions/frp-pultrusion-supplier-usa">Sourcing FRP for US projects</LinkArrow>

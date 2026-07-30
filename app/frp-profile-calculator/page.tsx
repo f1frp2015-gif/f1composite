@@ -151,7 +151,7 @@ export default function CalculatorPage() {
       />
       <PageHeader
         tag="Free Engineering Tool"
-        title="Free FRP Profile Calculator"
+        title="FRP Calculator for Beam, Load & Section Properties"
         description="LRFD and ASD design checks for pultruded FRP — bending, shear, Timoshenko-corrected deflection, orthotropic E_L/E_T/G_LT, environmental knockdown, and steel/aluminum equivalence. Switch between EN 13706, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022. Free, no login."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -188,7 +188,7 @@ export default function CalculatorPage() {
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="text-f24 font-bold text-t1 md:text-f31">
-            How to use the FRP profile calculator
+            How to use the FRP calculator for profile sizing
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             Prefer precomputed numbers? The{" "}

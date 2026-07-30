@@ -236,7 +236,7 @@ export default function WhatIsFrpPage() {
             efficiency is critical — from chemical plant platforms and offshore
             grating to{" "}
             <Link
-              href="/products/fenestration-systems"
+              href="/products/frp-window-frames"
               className="font-semibold text-teal-text hover:text-teal"
             >
               FRP windows and doors
@@ -759,7 +759,7 @@ export default function WhatIsFrpPage() {
               <h3 className="text-f19 font-bold text-t1">Building &amp; construction</h3>
               <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
                 <li>
-                  → <Link href="/products/fenestration-systems" className="text-teal-text hover:text-teal">
+                  → <Link href="/products/frp-window-frames" className="text-teal-text hover:text-teal">
                     pultruded window profiles
                   </Link>{" "}
                   (passive-house, low-energy buildings)

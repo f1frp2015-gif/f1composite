@@ -32,6 +32,8 @@ const profileFamily: Array<{
   summary: string;
   href: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   /** CSS object-position override for images whose subject sits off-center. */
   imagePosition?: string;
 }> = [
@@ -44,6 +46,8 @@ const profileFamily: Array<{
       "Primary structural beams for walkways, platforms, and short-span bridges. Up to 75% lighter than a comparable A36 steel wide flange.",
     href: "/products/fiberglass-structural-shapes/frp-i-beam",
     image: "/images/products/i-beam/frp-i-beam-photo.png",
+    imageWidth: 800,
+    imageHeight: 800,
   },
   {
     slug: "channel",
@@ -54,6 +58,8 @@ const profileFamily: Array<{
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
     href: "/products/fiberglass-structural-shapes/frp-channel",
     image: "/images/products/channel/frp-channel-photo.webp",
+    imageWidth: 1200,
+    imageHeight: 1200,
   },
   {
     slug: "angle",
@@ -64,6 +70,8 @@ const profileFamily: Array<{
       "Equal and unequal-leg angles for stiffeners, bracing, ledger supports, and frame connectors. Isophthalic polyester or vinyl ester resin.",
     href: "/products/fiberglass-structural-shapes/frp-angle",
     image: "/images/products/angle/frp-angle-photo.webp",
+    imageWidth: 1200,
+    imageHeight: 1200,
   },
   {
     slug: "square-tube",
@@ -74,6 +82,8 @@ const profileFamily: Array<{
       "Superior torsional rigidity for columns, trusses, and free-standing frames. Also used for guardrails and solar racking posts.",
     href: "/products/fiberglass-structural-shapes/frp-square-tube",
     image: "/images/products/square-tube/frp-square-tube-photo.webp",
+    imageWidth: 1200,
+    imageHeight: 1200,
   },
   {
     slug: "tube",
@@ -84,6 +94,8 @@ const profileFamily: Array<{
       "Circular hollow sections for handrails, antenna masts, insulating stand-offs, and fluid-conveying applications with smooth interior bore.",
     href: "/products/fiberglass-structural-shapes/frp-tube",
     image: "/images/products/round-tube/frp-round-tube-photo.png",
+    imageWidth: 1200,
+    imageHeight: 1200,
   },
   {
     slug: "flat-bar",
@@ -94,6 +106,8 @@ const profileFamily: Array<{
       "Solid rectangular sections for stiffeners, splice plates, wear strips. Unidirectional architecture up to 70% glass for high-modulus applications.",
     href: "/products/fiberglass-structural-shapes/frp-flat-bar",
     image: "/images/products/flat-bar/frp-flat-bar-photo.png",
+    imageWidth: 1200,
+    imageHeight: 1200,
   },
   {
     slug: "fenestration",
@@ -102,8 +116,10 @@ const profileFamily: Array<{
     sizes: "65 / 70 / 80 / 90 / 140-series frame depths",
     summary:
       "Pultruded fiberglass window frames and FRP window profiles — frame, sash, mullion, transom, glazing bead. Whole-window U-values down to 0.78 W/m²·K. PHI passive house certified. Direct replacement for aluminum and PVC window systems.",
-    href: "/products/fenestration-systems",
+    href: "/products/frp-window-frames",
     image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
+    imageWidth: 1600,
+    imageHeight: 1600,
     // Square cross-section render whose informative detail sits low — keep the
     // multi-chamber section inside the 4:3 crop instead of the default center.
     imagePosition: "center 68%",
@@ -117,6 +133,8 @@ const profileFamily: Array<{
       "Pultruded composite module-frame profiles, ground and floating PV support members, and lightweight rooftop rails with matched clamps and splice hardware.",
     href: "/products/frp-solar-mounting-systems",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+    imageWidth: 1600,
+    imageHeight: 1205,
   },
   {
     slug: "custom",
@@ -127,6 +145,8 @@ const profileFamily: Array<{
       "Bespoke dies for EV battery trays, solar mounting, rail interiors, architectural trim, and structural replacements. 6–10 week turnaround.",
     href: "/products/custom-pultruded-profiles",
     image: "/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg",
+    imageWidth: 800,
+    imageHeight: 555,
   },
   {
     slug: "gratings",
@@ -137,6 +157,8 @@ const profileFamily: Array<{
       "Molded and pultruded gratings, solid-top cover plates, and structural FRP deck panels for chemical plants, offshore platforms, pedestrian bridges, and vehicular access decks.",
     href: "/products/frp-gratings",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
+    imageWidth: 1254,
+    imageHeight: 1254,
   },
 ];
 
@@ -502,8 +524,11 @@ export default function PultrudedFRPProfilesHubPage() {
                 is typically 0.3–1.5 m/min, and profiles can be produced in any
                 length — standard packaging is 6 m or 12 m. As a category these are
                 known interchangeably as pultruded profiles, composite pultruded
-                profiles, or pultruded fiberglass profiles — F1 Composite is a
-                direct-factory pultruded profiles manufacturer across all of them,
+                profiles, or pultruded fiberglass profiles — F1 Composite is a{" "}
+                <Link href="/products/frp-pultrusion-manufacturer-factory-direct" className="font-semibold text-teal-text hover:text-teal">
+                  direct-factory pultruded profiles manufacturer
+                </Link>{" "}
+                across all of them,
                 and this catalog is referred to collectively as{" "}
                 <strong className="text-t1">F1 pultruded profiles</strong>.
               </p>
@@ -526,7 +551,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 (structural profiles),{" "}
                 <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
                 (gratings &amp; deck panels),{" "}
-                <Link href="/products/fenestration-systems" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
+                <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
                 (window frames &amp; fenestration), and{" "}
                 <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
                 (custom pultrusions) — all manufactured in-house to EN 13706 and ASTM D3917.
@@ -543,10 +568,12 @@ export default function PultrudedFRPProfilesHubPage() {
               <Image
                 src="/images/hero/frp-composite-material-hero.webp"
                 alt="Pultruded FRP profiles manufactured by F1 Composite — fiberglass structural shapes"
-                fill
+                width={1280}
+                height={807}
+                fetchPriority="high"
+                loading="eager"
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-                priority
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
@@ -577,9 +604,10 @@ export default function PultrudedFRPProfilesHubPage() {
                   <Image
                     src={item.image}
                     alt={`${item.name} — pultruded fiberglass profile by F1 Composite`}
-                    fill
+                    width={item.imageWidth}
+                    height={item.imageHeight}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     style={
                       item.imagePosition
                         ? { objectPosition: item.imagePosition }
