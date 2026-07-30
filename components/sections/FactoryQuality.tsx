@@ -59,7 +59,7 @@ export default function FactoryQuality() {
             </div>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-[12px] border border-border-default bg-bg2 shadow-[0_14px_38px_rgba(11,24,56,0.08)] lg:min-h-0">
+          <div className="relative aspect-video self-center overflow-hidden rounded-[12px] border border-border-default bg-bg2 shadow-[0_14px_38px_rgba(11,24,56,0.08)]">
             <FactoryVideo />
           </div>
         </div>
