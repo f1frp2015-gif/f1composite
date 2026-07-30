@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const VIDEO_ID = "JNcU9LUEMLU";
+const VIDEO_ID = "VEgnOV4G9EM";
+const VIDEO_TITLE = "How pultruded FRP profiles are made — F1 Composite factory tour";
 
 export default function FactoryVideo() {
   const [playing, setPlaying] = useState(false);
@@ -12,7 +13,7 @@ export default function FactoryVideo() {
     return (
       <iframe
         src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
-        title="F1 Composite pultrusion manufacturing facility"
+        title={VIDEO_TITLE}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         className="h-full w-full"
@@ -25,11 +26,11 @@ export default function FactoryVideo() {
       type="button"
       onClick={() => setPlaying(true)}
       className="group relative block h-full w-full cursor-pointer overflow-hidden text-left"
-      aria-label="Play video: F1 Composite pultrusion manufacturing facility"
+      aria-label={`Play video: ${VIDEO_TITLE}`}
     >
       <Image
-        src="/images/factory/pultrusion-facility-video-cover.jpg"
-        alt="F1 Composite pultrusion manufacturing facility"
+        src="/images/factory/pultruded-frp-manufacturer-video-cover.jpg"
+        alt="Pultruded FRP manufacturer factory tour by F1 Composite"
         fill
         sizes="(max-width: 1024px) 100vw, 50vw"
         className="object-cover transition-transform duration-[0.55s] group-hover:scale-[1.03]"
