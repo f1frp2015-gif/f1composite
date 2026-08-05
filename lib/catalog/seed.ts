@@ -338,6 +338,27 @@ export function buildProducts(): SeedProduct[] {
   return P;
 }
 
+/**
+ * Build-safe, read-only copy of the authoritative seed catalog.
+ *
+ * Public datasheet pages use this when the production catalog database is
+ * empty, incomplete, or temporarily unavailable. Keeping the fallback here
+ * prevents the HTML routes from drifting away from the same categories,
+ * formulation, geometry, and published weights used by the database seed.
+ */
+export function buildStaticCatalogFallback() {
+  const formulation = formulations.find((item) => item.code === "E23-ISO");
+  if (!formulation) {
+    throw new Error("Static catalog fallback is missing the E23-ISO formulation");
+  }
+
+  return {
+    categories: categories.map((category) => ({ ...category })),
+    formulation: { ...formulation },
+    products: buildProducts(),
+  };
+}
+
 // Downloads (from the previously hardcoded downloads page list)
 const downloads: {
   title: string; format: string; size: string; category: string;
