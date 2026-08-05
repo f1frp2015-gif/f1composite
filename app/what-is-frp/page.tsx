@@ -211,12 +211,12 @@ export default function WhatIsFrpPage() {
           {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
           <div className="mt-[21px] max-w-[820px] rounded-[8px] border-l-[3px] border-teal bg-bg2 p-[21px]">
             <p className="text-f15 leading-golden text-t1">
-              <strong>GFRP definition:</strong> Glass fiber reinforced plastic
-              (GFRP) is a structural composite made of high-strength glass fibers
-              bonded in a thermoset polymer resin. Also called glass fiber
-              reinforced polymer, fiberglass reinforced plastic, or GRP, it is
-              corrosion-proof, electrically non-conductive, and stronger per
-              kilogram than steel at roughly one-quarter the weight.
+              <strong>FRP definition:</strong> FRP (fiber-reinforced polymer or
+              fiber-reinforced plastic) is a composite material made from
+              reinforcing fibers—most commonly glass—embedded in a polymer
+              resin. The fibers provide strength and stiffness, while the resin
+              binds and protects them. Glass-fiber FRP is also known as GFRP,
+              GRP, or fiberglass-reinforced plastic.
             </p>
           </div>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
