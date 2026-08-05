@@ -8,6 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import DatasheetBuilder from "@/components/downloads/DatasheetBuilder";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { listDownloads } from "@/lib/catalog/db";
+import { getAllDatasheetPages } from "@/lib/catalog/public";
 import { DATASHEET_HIGHLIGHTS } from "@/lib/datasheetHighlights";
 
 // DB-driven with an hourly refresh; the hardcoded list below is the fallback
@@ -180,7 +181,15 @@ async function loadDownloads(): Promise<DownloadItem[]> {
 }
 
 export default async function DownloadsPage() {
-  const downloads = await loadDownloads();
+  const [downloads, datasheetPages] = await Promise.all([
+    loadDownloads(),
+    getAllDatasheetPages(),
+  ]);
+  const datasheetSlugs = new Set(datasheetPages.map((page) => page.slug));
+  const datasheetHighlights = DATASHEET_HIGHLIGHTS.map((family) => ({
+    ...family,
+    items: family.items.filter((item) => datasheetSlugs.has(item.slug)),
+  })).filter((family) => family.items.length > 0);
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -243,7 +252,7 @@ export default async function DownloadsPage() {
             .
           </p>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
-            {DATASHEET_HIGHLIGHTS.map((fam) => (
+            {datasheetHighlights.map((fam) => (
               <div key={fam.family} className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <h3 className="text-f15 font-bold text-t1">
                   <Link href={fam.categoryHref} className="hover:text-teal-text">

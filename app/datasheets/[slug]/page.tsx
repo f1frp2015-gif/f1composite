@@ -2,7 +2,9 @@
 // noindex (see layout.tsx) because all database records share this template.
 // One page per catalog product: cross-section drawing, exact section
 // properties, formulation mechanical data, standards, PDF download link.
-// Data comes live from the catalog DB; unknown slugs 404.
+// Database rows are preferred. The authoritative catalog seed fills missing
+// rows so published internal links do not become 404s during a DB outage or a
+// partial catalog import; truly unknown slugs still 404.
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -83,7 +85,7 @@ export default async function DatasheetPage({
   const { slug } = await params;
   const data = await getDatasheetPage(slug);
   if (!data) notFound();
-  const { product, formulation, category } = data;
+  const { product, formulation, category, source } = data;
 
   const density = formulation ? num(formulation.density_g_cm3) : null;
   const props = product.geometry
@@ -185,14 +187,23 @@ export default async function DatasheetPage({
                 </table>
               )}
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                <a
-                  href={`/api/datasheet?ids=${product.id}`}
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
-                >
-                  Download PDF datasheet →
-                </a>
+                {source === "database" ? (
+                  <a
+                    href={`/api/datasheet?ids=${product.id}`}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+                  >
+                    Download PDF datasheet →
+                  </a>
+                ) : (
+                  <Link
+                    href={`/contact?source=datasheet-${encodeURIComponent(slug)}&inquiry_type=technical`}
+                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+                  >
+                    Request certified PDF →
+                  </Link>
+                )}
                 {CAD_SLUGS.has(slug) && (
                   <a
                     href={`/cad/${slug}.dxf`}
