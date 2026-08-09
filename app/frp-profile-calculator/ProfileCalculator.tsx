@@ -5,6 +5,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import SectionPreview from "@/components/calculators/section/SectionPreview";
 import { calcArea, calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
+import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 
 /* ──────────────────────────────────────────────────────────────────────────
    Material database — orthotropic FRP + isotropic metals
@@ -299,15 +300,15 @@ export default function ProfileCalculator() {
   const [eqTargetWall, setEqTargetWall] = useState<number | "auto">("auto");
   const [copied, setCopied] = useState(false);
 
-  /* Deep-link presets: read ?shape&span&load&... once on mount so blog posts,
-     application pages, and AI agents can link straight into a pre-filled calc. */
+  /* Deep-link presets: prefer #shape&span&load&... so presets do not create
+     crawlable URL variants; legacy query-string links remain supported. */
   useEffect(() => {
-    /* One-time seed of state from the URL query (?shape&span&load…) for deep
-       links. window is only available post-mount, so a lazy useState initializer
+    /* One-time seed of state from the URL fragment (or a legacy query string).
+       window is only available post-mount, so a lazy useState initializer
        would break SSR/prerender — reading it in an effect is the correct pattern
-       here, and it no-ops (early return) for the common no-query case. */
+       here, and it no-ops (early return) for the common no-state case. */
     /* eslint-disable react-hooks/set-state-in-effect */
-    const sp = new URLSearchParams(window.location.search);
+    const sp = readToolStateParams(window.location);
     if ([...sp.keys()].length === 0) return;
     const num = (k: string, set: (n: number) => void) => {
       const v = sp.get(k);
@@ -361,7 +362,10 @@ export default function ProfileCalculator() {
       sp.set("cFc", String(customMat.sigma_c)); sp.set("cFv", String(customMat.tau));
       sp.set("cRho", String(customMat.density));
     }
-    const url = `${window.location.origin}/frp-profile-calculator?${sp.toString()}`;
+    const url = `${window.location.origin}${buildToolStateHref(
+      "/frp-profile-calculator",
+      Object.fromEntries(sp.entries()),
+    )}`;
     navigator.clipboard?.writeText(url).then(
       () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
       () => {},

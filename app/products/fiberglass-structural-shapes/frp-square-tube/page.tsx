@@ -207,7 +207,7 @@ export default async function SquareTubePage() {
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/frp-profile-calculator?shape=square-tube"
+            href="/frp-profile-calculator#shape=square-tube"
             eyebrow="Free tool · square tube preset"
             title="Size an FRP square tube — bending, shear &amp; deflection"
             sub="Opens the FRP profile calculator on a square / rectangular tube: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."

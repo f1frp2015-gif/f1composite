@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Vehicle & Transport",
+  title: "FRP Profiles for Transport & Vehicle Structures",
   description:
     "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars, and specialty transport — 75% lighter than steel, corrosion-free.",
   path: "/industries/vehicle",

@@ -208,7 +208,7 @@ export default async function AnglePage() {
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/frp-profile-calculator?shape=angle"
+            href="/frp-profile-calculator#shape=angle"
             eyebrow="Free tool · angle preset"
             title="Size an FRP angle — bending, shear &amp; deflection"
             sub="Opens the FRP profile calculator on an angle (L-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."

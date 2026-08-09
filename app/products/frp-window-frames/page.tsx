@@ -447,7 +447,7 @@ export default function FenestrationSystemsPage() {
           primary: { label: "Request Window Quote", href: quoteHref },
           secondary: {
             label: "Calculate U-Value",
-            href: "/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+            href: "/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
             variant: "secondary",
           },
           note: "Finished units or fabrication-ready profiles · 65–140 series · engineering response within one business day.",
@@ -504,7 +504,7 @@ export default function FenestrationSystemsPage() {
                 step: "02",
                 title: "Check the U-value",
                 detail: "Calculate U_w against Passive House, NFRC, CSA, and local targets.",
-                href: "/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
+                href: "/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400",
                 action: "Run the calculator",
               },
               {
@@ -1068,7 +1068,7 @@ export default function FenestrationSystemsPage() {
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · 90-Series preset"
             title="Check the whole-window U-value of an F1 90-Series window"
             sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series frame + triple glazing — see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets, then quote against your spec."

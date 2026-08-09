@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
+import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 
 /* ══════════════════════════════════════════════════════
    Data — Frame systems, glass configs, spacer types
@@ -391,10 +392,10 @@ export default function UValueCalculator() {
 
   const [copied, setCopied] = useState(false);
 
-  /* Deep-link presets: read ?frame&glass&spacer&type&w&h on mount so other pages
-     and AI agents can link into a pre-filled U-value calc. */
+  /* Deep-link presets: prefer #frame&glass&spacer&type&w&h so presets do not
+     create crawlable URL variants; legacy query-string links remain supported. */
   useEffect(() => {
-    const sp = new URLSearchParams(window.location.search);
+    const sp = readToolStateParams(window.location);
     if ([...sp.keys()].length === 0) return;
     const str = (k: string, set: (s: string) => void, allowed: string[]) => {
       const v = sp.get(k);
@@ -421,7 +422,10 @@ export default function UValueCalculator() {
     const sp = new URLSearchParams({
       frame, glass, spacer, type: winType, w: String(width), h: String(height),
     });
-    const url = `${window.location.origin}/technology/frp-u-value-calculator?${sp.toString()}`;
+    const url = `${window.location.origin}${buildToolStateHref(
+      "/technology/frp-u-value-calculator",
+      Object.fromEntries(sp.entries()),
+    )}`;
     navigator.clipboard?.writeText(url).then(
       () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
       () => {},

@@ -11,7 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Construction",
+  title: "FRP Profiles for Construction & Building Envelopes",
   description:
     "FRP profiles for construction: corrosion-free facades, PHI-certified FRP window frames, thermally broken fenestration, and lightweight cladding support.",
   path: "/industries/construction",

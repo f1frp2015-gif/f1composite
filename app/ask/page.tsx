@@ -22,7 +22,7 @@ export async function generateMetadata({
   searchParams,
 }: AskPageProps): Promise<Metadata> {
   const base = buildPageMetadata({
-    title: "FRP Engineering Advisor",
+    title: "FRP Engineering Advisor & Profile Selection Assistant",
     description:
       "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
     path: "/ask",

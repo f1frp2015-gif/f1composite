@@ -15,12 +15,12 @@ import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
 /* Pre-filled FRP profile calculator deep links — a typical span / load /
    environment per application so each page opens the tool already scoped. */
 const PROFILE_CALC_LINK: Record<string, string> = {
-  "frp-cable-tray-supports": "/frp-profile-calculator?shape=channel&span=1500&load=2&env=chemical&material=frp-e23&load_type=udl&defl=200",
-  "frp-cooling-tower-profiles": "/frp-profile-calculator?shape=square-tube&span=2000&load=3&env=chemical&material=frp-e23&load_type=udl&defl=200",
-  "frp-bridge-deck-panels": "/frp-profile-calculator?shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
-  "frp-solar-mounting-profiles": "/frp-profile-calculator?shape=square-tube&span=2200&load=2.5&env=outdoor&material=frp-e23&load_type=udl&defl=180",
-  "frp-chemical-plant-platforms": "/frp-profile-calculator?shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
-  "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator?shape=i-beam&span=6000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
+  "frp-cable-tray-supports": "/frp-profile-calculator#shape=channel&span=1500&load=2&env=chemical&material=frp-e23&load_type=udl&defl=200",
+  "frp-cooling-tower-profiles": "/frp-profile-calculator#shape=square-tube&span=2000&load=3&env=chemical&material=frp-e23&load_type=udl&defl=200",
+  "frp-bridge-deck-panels": "/frp-profile-calculator#shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
+  "frp-solar-mounting-profiles": "/frp-profile-calculator#shape=square-tube&span=2200&load=2.5&env=outdoor&material=frp-e23&load_type=udl&defl=180",
+  "frp-chemical-plant-platforms": "/frp-profile-calculator#shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
+  "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator#shape=i-beam&span=6000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
 };
 
 interface PageProps {

@@ -2,8 +2,8 @@
 // /frp-profile-calculator. The interactive calculator is client-rendered, so
 // search engines never see a computed result; these tables put the same
 // engineering output into SSR HTML (the Strongwell/Bedford design-manual
-// pattern) and every row deep-links back into the calculator via its
-// ?shape&h&b&tw&tf query preset.
+// pattern) and every row deep-links back into the calculator via client-only
+// fragment state instead of a crawlable multi-parameter query URL.
 //
 // Section properties come from the same shared engine used by
 // app/frp-profile-calculator/ProfileCalculator.tsx. This prevents the static
@@ -23,6 +23,7 @@
 
 import { buildProducts } from "@/lib/catalog/seed";
 import { calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
+import { buildToolStateHref } from "@/lib/toolStateUrl";
 
 /* Design basis constants */
 const E_MPA = 23_000;
@@ -97,19 +98,18 @@ function allowableUdl(IxMm4: number, WxMm3: number, AvMm2: number, spanMm: numbe
 }
 
 function calculatorHref(shape: SpanRow["shape"], d: SpanRow["dims"]): string {
-  const sp = new URLSearchParams({
+  return buildToolStateHref("/frp-profile-calculator", {
     shape,
-    h: String(d.h),
-    b: String(d.b),
-    tw: String(d.tw),
-    tf: String(d.tf),
+    h: d.h,
+    b: d.b,
+    tw: d.tw,
+    tf: d.tf,
     material: "frp-e23",
     env: "outdoor",
     method: "lrfd-asce",
     load_type: "udl",
-    defl: String(DEFL_LIMIT),
+    defl: DEFL_LIMIT,
   });
-  return `/frp-profile-calculator?${sp.toString()}`;
 }
 
 function makeRow(

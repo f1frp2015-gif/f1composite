@@ -294,7 +294,7 @@ export default function PolyurethanePultrusionWindowsPage() {
       <section className="bg-bg2 pt-[55px] pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · GFRP-PU 90-Series preset"
             title="Check the whole-window U-value of a GFRP-PU 90-Series window"
             sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series polyurethane frame and triple glazing — see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets."
@@ -326,6 +326,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             links: [
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: Thermal performance of FRP fenestration" },
+              { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — complete buyer library" },
               { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada" },
               { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows — Germany" },
             ],

@@ -268,6 +268,7 @@ export default function FrpVsAluminumWindowsPage() {
               { href: "/resources/blog/frp-vs-aluminum-window-frames-comparison", label: "Blog: FRP vs aluminum full comparison" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: FRP fenestration thermal performance" },
+              { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — complete buyer library" },
               { href: "/what-is-frp", label: "What is FRP? Material and properties guide" },
               { href: "/resources/design-guides", label: "Fenestration design guides" },
               { href: "/resources/downloads", label: "PHI certificates & data sheets" },
@@ -279,7 +280,7 @@ export default function FrpVsAluminumWindowsPage() {
       <section className="bg-white pb-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · aluminum vs FRP"
             title="Compare your aluminum window against FRP"
             sub="Opens the U-value calculator on a thermally-broken aluminum frame — swap to an F1 FRP frame on the same glazing and watch the whole-window Uw drop, per EN ISO 10077-1."

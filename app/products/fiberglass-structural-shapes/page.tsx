@@ -285,6 +285,8 @@ export default function StandardProfilesPage() {
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tubes" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bars" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
+              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets & FRP plate" },
+              { href: "/products/product-lines", label: "F1-STRUX / GRID / THERM / FORM product lines" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
             ],
           },
@@ -302,6 +304,7 @@ export default function StandardProfilesPage() {
               { href: "/case-studies/european-bridge-deck", label: "Case: Netherlands bridge deck" },
               { href: "/case-studies/solar-farm-mounting", label: "Case: 50 MW solar mounting" },
               { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
+              { href: "/applications/frp-pedestrian-bridge-superstructures", label: "FRP pedestrian bridge superstructures" },
             ],
           },
           {

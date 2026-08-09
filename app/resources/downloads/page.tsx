@@ -40,7 +40,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Downloads",
+  title: "FRP Datasheets, CAD Files & Certificates",
   description:
     "Download F1 Composite product catalogs, EN 13706 declarations, ISO 9001 certificates, CAD files, and technical brochures for pultruded FRP profiles.",
   path: "/resources/downloads",

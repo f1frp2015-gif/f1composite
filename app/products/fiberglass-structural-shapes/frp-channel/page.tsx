@@ -205,7 +205,7 @@ export default async function ChannelPage() {
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/frp-profile-calculator?shape=channel"
+            href="/frp-profile-calculator#shape=channel"
             eyebrow="Free tool · channel preset"
             title="Size an FRP channel — bending, shear &amp; deflection"
             sub="Opens the FRP profile calculator on a channel (U-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."

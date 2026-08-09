@@ -390,6 +390,8 @@ export default function CustomPultrusionsPage() {
               { href: "/products/fiberglass-structural-shapes", label: "Standard FRP profiles" },
               { href: "/products/frp-window-frames", label: "FRP fenestration systems" },
               { href: "/products/frp-gratings", label: "FRP gratings" },
+              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets & FRP plate" },
+              { href: "/products/product-lines", label: "F1 Composite product lines" },
             ],
           },
           {

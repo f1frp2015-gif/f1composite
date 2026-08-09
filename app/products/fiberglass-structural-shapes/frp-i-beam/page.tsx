@@ -308,7 +308,7 @@ export default async function IBeamPage() {
           </div>
           <div className="mt-[34px]">
             <CalculatorCTA
-              href="/frp-profile-calculator?shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360"
+              href="/frp-profile-calculator#shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360"
               eyebrow="Worked example · 3 m walkway beam"
               title="Size a 3 m walkway I-beam at 5 kN/m, L/360, outdoor"
               sub="Opens the calculator pre-loaded with this load case on an EN 13706 E23 I-beam — see which check governs, the steel-equivalent section, and the deflection with the Timoshenko shear correction included."
@@ -375,7 +375,7 @@ export default async function IBeamPage() {
               modulus, radius of gyration — for the exact section you order are on
               the stamped production datasheet, and you can compute them live, with
               your wall thicknesses, in the{" "}
-              <Link href="/frp-profile-calculator?shape=i-beam" className="font-semibold text-teal-text hover:text-teal">FRP profile calculator</Link>.
+              <Link href="/frp-profile-calculator#shape=i-beam" className="font-semibold text-teal-text hover:text-teal">FRP profile calculator</Link>.
               We deliberately do not publish back-calculated section properties on
               this page: pultruded I-beam wall geometry varies by size, so
               design-critical I<sub>x</sub>/S<sub>x</sub> must come from the datasheet for the
@@ -524,7 +524,7 @@ export default async function IBeamPage() {
             title: "Technical resources",
             links: [
               { href: "/frp-span-tables#i-beam", label: "FRP I-beam span table — allowable loads" },
-              { href: "/frp-profile-calculator?shape=i-beam", label: "FRP I-beam calculator" },
+              { href: "/frp-profile-calculator#shape=i-beam", label: "FRP I-beam calculator" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
               { href: "/resources/technical-data", label: "Data sheets & test certificates" },
               { href: "/resources/design-guides", label: "Design guides (ASCE / EN 13706)" },
@@ -544,7 +544,7 @@ export default async function IBeamPage() {
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/frp-profile-calculator?shape=i-beam"
+            href="/frp-profile-calculator#shape=i-beam"
             eyebrow="Free tool · I-beam preset"
             title="Size an FRP I-beam — bending, shear &amp; deflection"
             sub="Opens the FRP profile calculator on an I-beam: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."

@@ -291,7 +291,7 @@ export default function FrpVsPvcWindowsPage() {
       <section className="bg-white pb-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · PVC vs FRP"
             title="Compare your PVC window against FRP"
             sub="Opens the U-value calculator on a multi-chamber PVC frame — switch to an F1 FRP frame on the same glazing to see the whole-window Uw delta, with no steel reinforcement needed at large sizes."
