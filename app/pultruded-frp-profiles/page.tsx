@@ -925,6 +925,7 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Technical resources</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/product-lines">F1-STRUX / GRID / THERM / FORM lines</LinkArrow>
+            <LinkArrow href="/products/fiberglass-sheets">Fiberglass sheets & FRP plate</LinkArrow>
             <LinkArrow href="/resources/how-to-choose-frp-pultrusion-supplier">How to choose an FRP supplier</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel / aluminum / timber</LinkArrow>

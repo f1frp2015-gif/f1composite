@@ -265,7 +265,7 @@ export default function CanadaRegionPage() {
       <section className="bg-bg2 pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · cold-climate preset"
             title="Check a passive-house window U-value for your Canadian climate zone"
             sub="Opens the U-value calculator pre-loaded with an F1 90-Series passive-house build-up — verify the whole-window Uw against CSA A440 and Passive House targets, then quote DDP Canada, surtax-free."

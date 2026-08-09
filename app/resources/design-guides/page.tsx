@@ -26,7 +26,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Design Guides",
+  title: "FRP Design Guides, Load Tables & Connection Details",
   description:
     "Engineering design guidance for FRP structural applications. Connection details, load tables, and best practices from F1 Composite.",
   path: "/resources/design-guides",

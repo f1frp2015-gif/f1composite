@@ -30,7 +30,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Resources",
+  title: "FRP Engineering Resources, Guides & Technical Data",
   description:
     "Technical resources, design guides, blog articles, and downloadable documents from F1 Composite — your FRP pultrusion knowledge hub.",
   path: "/resources",
@@ -100,6 +100,12 @@ const resources = [
     description: "Product catalogs, certification documents, CAD files, and technical brochures in PDF format.",
     href: "/resources/downloads",
     iconKey: "downloads",
+  },
+  {
+    title: "FRP Windows Guide",
+    description: "A buyer-journey library covering frame selection, U-values, certification, sourcing, and fabrication.",
+    href: "/resources/frp-windows-guide",
+    iconKey: "design-guides",
   },
 ];
 

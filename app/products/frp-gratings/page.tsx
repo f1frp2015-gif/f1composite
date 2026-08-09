@@ -531,6 +531,7 @@ export default function GratingsPage() {
               { href: "/industries/industrial", label: "Chemical plant platforms" },
               { href: "/case-studies/coastal-marina-walkway", label: "Coastal marina case study" },
               { href: "/case-studies/chemical-plant-platform", label: "Chemical plant case study" },
+              { href: "/applications/frp-pedestrian-bridge-superstructures", label: "Pedestrian bridge superstructures" },
             ],
           },
           {

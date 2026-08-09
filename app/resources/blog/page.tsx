@@ -7,7 +7,7 @@ import { blogPosts } from "@/content/data/blogPosts";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog",
+  title: "Pultruded FRP Engineering Blog & Technical Articles",
   description:
     "Technical articles on pultruded FRP profiles: passive house fenestration, bridge decks, marine walkways, EN 13706 / ASTM standards, and engineering know-how.",
   path: "/resources/blog",

@@ -269,7 +269,7 @@ export default function UkRegionPage() {
       <section className="bg-bg2 pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
-            href="/technology/frp-u-value-calculator?frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+            href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"
             title="Check a GRP window U-value against Part L and PHI targets"
             sub="Opens the U-value calculator pre-loaded with an F1 90-Series build-up — verify the whole-window Uw against Part L 1.4/1.2 and the Passivhaus 0.80 component criterion, then quote DDP UK."

@@ -13,14 +13,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Map case-study product labels to the actual /products/* slug.
+// Map case-study product labels directly to their canonical product routes.
 // Renaming a label (e.g. "Gratings" → "Gratings & Decks") must not break the URL.
-const productLabelToSlug: Record<string, string> = {
-  "Standard Profiles": "standard-profiles",
-  "Custom Pultrusions": "custom-pultrusions",
-  "Fenestration Systems": "fenestration-systems",
-  "Gratings & Decks": "gratings",
-  "Gratings": "gratings",
+const productLabelToPath: Record<string, string> = {
+  "Standard Profiles": "/products/fiberglass-structural-shapes",
+  "Custom Pultrusions": "/products/custom-pultruded-profiles",
+  "Fenestration Systems": "/products/frp-window-frames",
+  "Gratings & Decks": "/products/frp-gratings",
+  "Gratings": "/products/frp-gratings",
 };
 
 const productLinkLabels: Record<string, string> = {
@@ -534,11 +534,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <h4 className="mb-[13px] text-f13 font-bold text-t1">Products Used</h4>
               <div className="space-y-[8px]">
                 {cs.products.map((product) => {
-                  const slug = productLabelToSlug[product] ?? product.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                  const fallbackSlug = product.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                  const path = productLabelToPath[product] ?? `/products/${fallbackSlug}`;
                   return (
                     <Link
                       key={product}
-                      href={`/products/${slug}`}
+                      href={path}
                       className="block text-f13 text-teal-text hover:underline"
                     >
                       {productLinkLabels[product] ?? product} →
