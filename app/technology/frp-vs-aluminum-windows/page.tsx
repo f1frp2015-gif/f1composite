@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
@@ -17,9 +16,6 @@ const pageDescription =
 const pagePath = "/technology/frp-vs-aluminum-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";
-const authorName = "F1 Composite Fenestration Engineering Team";
-const authorRole = "Window system design, U-value modeling, and passive house certification specialists";
-const reviewedBy = "Technical Applications Group";
 const referencedStandards = ["EN ISO 10077-1", "EN ISO 10077-2", "EN 14024", "NFRC 100", "PHI certified components"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -118,15 +114,6 @@ export default function FrpVsAluminumWindowsPage() {
           { label: "Technology", href: "/technology" },
           { label: "FRP vs Aluminum Windows" },
         ]}
-      />
-
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
       />
 
       <section className="bg-white py-[89px]">

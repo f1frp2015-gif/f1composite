@@ -6,7 +6,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
@@ -18,8 +17,6 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { buildSpanTables, DESIGN_BASIS } from "@/lib/spanTables";
 
-const publishedAt = "2026-07-11";
-const updatedAt = "2026-07-30";
 const pagePath = "/frp-span-tables";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -95,15 +92,6 @@ export default function SpanTablesPage() {
           { label: "Technology", href: "/technology" },
           { label: "FRP Span Tables" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName="Yifan Liu"
-        authorRole="Senior Application Engineer — pultruded FRP structural design"
-        authorHref="/about/authors/yifan-liu"
-        reviewedBy="Yifan Liu, Application Engineer"
-        standards={["ASCE/SEI 74-23", "EN 13706-3", "CEN/TS 19101:2022", "GB 50608-2020"]}
       />
 
       <section className="bg-white py-[55px]">

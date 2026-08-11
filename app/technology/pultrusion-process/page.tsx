@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
 import PultrusionAnimation from "./PultrusionAnimation";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -21,9 +20,6 @@ const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-15";
 const updatedAt = "2026-07-08";
-const authorName = "F1 Composite Process Engineering Team";
-const authorRole = "Pultrusion line setup, tooling, and process-control specialists";
-const reviewedBy = "Manufacturing Technology Review Group";
 const referencedStandards = ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -330,15 +326,6 @@ export default function PultrusionProcessPage() {
           { label: "Pultrusion Process" },
         ]}
       />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
-      />
-
       {/* ── Key stats bar ── */}
       <section className="bg-white py-[34px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

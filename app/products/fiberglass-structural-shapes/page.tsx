@@ -5,7 +5,6 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import AskAICard from "@/components/ai/AskAICard";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
@@ -186,15 +185,6 @@ export default function StandardProfilesPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={author.fullName}
-        authorRole={author.jobTitle}
-        authorHref={`/about/authors/${author.slug}`}
-        reviewedBy={reviewer.fullName}
-        standards={["EN 13706", "ASTM D3917", "ASCE/SEI 74-23", "ISO 9001"]}
       />
 
       {/* Profile Grid */}

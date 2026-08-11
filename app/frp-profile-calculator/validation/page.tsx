@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import PageHeader from "@/components/layout/PageHeader";
 import JsonLd from "@/components/seo/JsonLd";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -60,15 +59,6 @@ export default function CalculatorValidationPage() {
           { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
           { label: "Validation" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName="Yifan Liu"
-        authorRole="Senior Application Engineer — pultruded FRP structural design"
-        authorHref="/about/authors/yifan-liu"
-        reviewedBy="Yifan Liu, Application Engineer"
-        standards={["Classical section properties", "ASCE/SEI 74-23", "EN 13706", "ASTM D3917-23"]}
       />
 
       <article className="bg-white py-[55px]">

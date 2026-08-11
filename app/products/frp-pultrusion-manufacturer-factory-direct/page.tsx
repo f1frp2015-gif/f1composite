@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
@@ -118,15 +117,6 @@ export default function FactoryDirectPultrusionPage() {
           note: "Send a drawing or profile type, quantity, standards, application, and destination for a scoped response.",
           stickyMobile: true,
         }}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={author.fullName}
-        authorRole={author.jobTitle}
-        authorHref={`/about/authors/${author.slug}`}
-        reviewedBy={reviewer.fullName}
-        standards={["ISO 9001:2015", "EN 13706", "ASTM D3917", "Incoterms® 2020"]}
       />
 
       <section className="bg-white py-[72px]">
