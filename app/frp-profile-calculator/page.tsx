@@ -11,6 +11,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 import { BeamDeflection } from "@/components/sections/ConceptAnimations";
 import EmbedCode from "@/components/tools/EmbedCode";
+import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 
 const pagePath = "/frp-profile-calculator";
@@ -278,6 +279,14 @@ export default function CalculatorPage() {
             height={840}
             attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
           />
+          <div className="mt-[21px]">
+            <ToolCitationBlock
+              toolTitle="FRP Profile Engineering Calculator"
+              canonicalPath="/frp-profile-calculator"
+              bibtexKey="f1composite_frp_calculator_2026"
+              medium="Web application"
+            />
+          </div>
         </div>
       </section>
 

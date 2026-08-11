@@ -298,7 +298,7 @@ export default function ProfileCalculator() {
   // Target FRP wall thickness: "auto" = proportional scale (legacy); a number =
   // pin the FRP wall and reverse-solve H×B to meet the equivalence at that wall.
   const [eqTargetWall, setEqTargetWall] = useState<number | "auto">("auto");
-  const [copied, setCopied] = useState(false);
+  const [shareState, setShareState] = useState<"idle" | "copied" | "error">("idle");
 
   /* Deep-link presets: prefer #shape&span&load&... so presets do not create
      crawlable URL variants; legacy query-string links remain supported. */
@@ -326,6 +326,13 @@ export default function ProfileCalculator() {
     str("method", (v) => setDesignMethod(v as DesignMethod), Object.keys(designMethods));
     num("span", setSpan); num("load", setLoad); num("defl", setDeflLimit);
     num("h", setDimH); num("b", setDimB); num("tw", setDimTw); num("tf", setDimTf);
+    str("eq_source", setEqSourceMat, Object.keys(materials).filter((key) => materials[key].group === "Metal"));
+    str("eq_target", setEqTargetMat, [...Object.keys(materials).filter((key) => materials[key].group === "FRP"), "custom"]);
+    str("eq_shape", setEqShape, profileShapes.map((s) => s.id));
+    num("eq_h", setEqH); num("eq_b", setEqB); num("eq_tw", setEqTw); num("eq_tf", setEqTf);
+    const eqWall = sp.get("eq_wall");
+    if (eqWall === "auto") setEqTargetWall("auto");
+    else if (eqWall != null && STD_WALLS.frp.includes(+eqWall)) setEqTargetWall(+eqWall);
     // Custom FRP grade params (only meaningful when material=custom).
     const cu: Partial<CustomMat> = {};
     const cmap: [string, keyof CustomMat][] = [
@@ -349,28 +356,46 @@ export default function ProfileCalculator() {
     track("calculator_preset", { preset: p.id });
   }
 
-  function copyShareLink() {
-    const sp = new URLSearchParams({
-      shape, material: matKey, env: envKey, load_type: loadType, method: designMethod,
-      span: String(span), load: String(load), defl: String(deflLimit),
-      h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
-    });
+  async function copyShareLink() {
+    const sp = mode === "beam"
+      ? new URLSearchParams({
+          mode: "beam",
+          shape, material: matKey, env: envKey, load_type: loadType, method: designMethod,
+          span: String(span), load: String(load), defl: String(deflLimit),
+          h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
+        })
+      : new URLSearchParams({
+          mode: "equivalence",
+          eq_source: eqSourceMat,
+          eq_target: eqTargetMat,
+          eq_shape: eqShape,
+          eq_h: String(eqH),
+          eq_b: String(eqB),
+          eq_tw: String(eqTw),
+          eq_tf: String(eqTf),
+          eq_wall: String(eqTargetWall),
+        });
     // Carry the user-defined grade params so a shared custom calc restores exactly.
-    if (matKey === "custom") {
+    if ((mode === "beam" ? matKey : eqTargetMat) === "custom") {
       sp.set("cE", String(customMat.E)); sp.set("cET", String(customMat.E_T));
       sp.set("cG", String(customMat.G_LT)); sp.set("cFt", String(customMat.sigma));
       sp.set("cFc", String(customMat.sigma_c)); sp.set("cFv", String(customMat.tau));
       sp.set("cRho", String(customMat.density));
     }
-    const url = `${window.location.origin}${buildToolStateHref(
+    const href = buildToolStateHref(
       "/frp-profile-calculator",
       Object.fromEntries(sp.entries()),
-    )}`;
-    navigator.clipboard?.writeText(url).then(
-      () => { setCopied(true); setTimeout(() => setCopied(false), 2000); },
-      () => {},
     );
-    track("calculator_share", { shape });
+    const url = `${window.location.origin}${href}`;
+    window.history.replaceState(null, "", href);
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareState("copied");
+    } catch {
+      setShareState("error");
+    }
+    window.setTimeout(() => setShareState("idle"), 2500);
+    track("calculator_share", { mode, shape: mode === "beam" ? shape : eqShape });
   }
 
   function printResultReport() {
@@ -881,7 +906,7 @@ export default function ProfileCalculator() {
                   onClick={copyShareLink}
                   className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                 >
-                  {copied ? "✓ Link copied" : "🔗 Copy shareable result link"}
+                  {shareState === "copied" ? "✓ Share link copied" : shareState === "error" ? "Link ready in address bar" : "📋 Copy Share Link"}
                 </button>
                 <button
                   type="button"
@@ -1122,6 +1147,14 @@ export default function ProfileCalculator() {
                 </a>
               )}
               <ResultLeadCapture source="calculator-equivalence" summary={eqMessage} context={eqContext} />
+
+              <button
+                type="button"
+                onClick={copyShareLink}
+                className="calculator-print-hide w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+              >
+                {shareState === "copied" ? "✓ Share link copied" : shareState === "error" ? "Link ready in address bar" : "📋 Copy Share Link"}
+              </button>
 
               </>)}
 
