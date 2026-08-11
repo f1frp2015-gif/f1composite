@@ -7,7 +7,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
@@ -23,8 +22,6 @@ import {
 } from "@/lib/pricing/engine";
 import PriceEstimator from "./PriceEstimator";
 
-const publishedAt = "2026-07-12";
-const updatedAt = "2026-07-30";
 const pagePath = "/fiberglass-pultruded-profile-price";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -144,15 +141,6 @@ export default function ProfilePricePage() {
           note: "Use the estimator for a budget range; send the drawing, quantity, resin, and destination for a firm number.",
           stickyMobile: true,
         }}
-      />
-
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName="Yifan Liu"
-        authorRole="Senior Application Engineer — pultruded FRP structural design"
-        authorHref="/about/authors/yifan-liu"
-        reviewedBy="Yifan Liu, Application Engineer"
       />
 
       {/* Answer box */}

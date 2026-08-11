@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -14,9 +13,6 @@ const pageDescription =
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
 const updatedAt = "2026-07-07";
-const authorName = "F1 Composite Consulting Team";
-const authorRole = "Pultrusion startup, transfer, and commissioning specialists";
-const reviewedBy = "Operations Advisory Board";
 const standards = ["ISO 9001:2015", "EN 13706", "ASTM D3917", "EN 10204 Type 3.1"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -145,15 +141,6 @@ export default function KnowhowServicesPage() {
           { label: "Know-How & Services" },
         ]}
       />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={standards}
-      />
-
       {/* ═══ Service Tiers ═══ */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

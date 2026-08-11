@@ -7,7 +7,6 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -231,15 +230,6 @@ export default function CustomPultrusionsPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Custom Pultrusions" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={author.fullName}
-        authorRole={author.jobTitle}
-        authorHref={`/about/authors/${author.slug}`}
-        reviewedBy={reviewer.fullName}
-        standards={["EN 13706", "ASTM D3917", "ISO 9001"]}
       />
 
       {/* Engineering Drawing */}

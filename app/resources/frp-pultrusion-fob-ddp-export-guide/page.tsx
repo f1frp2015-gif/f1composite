@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
@@ -16,8 +15,6 @@ const pagePath = "/resources/frp-pultrusion-fob-ddp-export-guide";
 const publishedAt = "2026-07-03";
 const updatedAt = "2026-07-03";
 const authorName = "Duowei Wang, Ph.D.";
-const authorRole = "Industry research and education — markets, standards, and pultrusion adoption";
-const authorHref = "/about/authors/duowei-wang";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["HTSUS 3926.90", "HTSUS 7019", "Section 301 (USTR)", "Incoterms® 2020"];
 
@@ -152,16 +149,6 @@ export default function DdpTariffHsCodeGuidePage() {
           { label: "Resources", href: "/resources" },
           { label: "DDP, Tariffs & HS Codes" },
         ]}
-      />
-
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        authorHref={authorHref}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
       />
 
       <section className="bg-white py-[89px]">

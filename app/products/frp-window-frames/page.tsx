@@ -8,7 +8,6 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import JumpNav from "@/components/sections/JumpNav";
@@ -453,15 +452,6 @@ export default function FenestrationSystemsPage() {
           note: "Finished units or fabrication-ready profiles · 65–140 series · engineering response within one business day.",
           stickyMobile: true,
         }}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={author.fullName}
-        authorRole={author.jobTitle}
-        authorHref={`/about/authors/${author.slug}`}
-        reviewedBy={reviewer.fullName}
-        standards={["PHI 2491wi03", "EN 14351-1", "AS 2047", "NAFS"]}
       />
 
       <JumpNav

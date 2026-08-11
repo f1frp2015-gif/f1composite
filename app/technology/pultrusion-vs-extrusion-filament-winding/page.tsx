@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
@@ -17,8 +16,6 @@ const pagePath = "/technology/pultrusion-vs-extrusion-filament-winding";
 const publishedAt = "2026-07-03";
 const updatedAt = "2026-07-03";
 const authorName = "Haifeng Gong, Ph.D.";
-const authorRole = "R&D Lead — composite materials, pultrusion process development, and standards";
-const authorHref = "/about/authors/haifeng-gong";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["ASTM D3917", "ASTM D638", "ASTM D2996"];
 
@@ -144,15 +141,6 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
         ]}
       />
 
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        authorHref={authorHref}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
-      />
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

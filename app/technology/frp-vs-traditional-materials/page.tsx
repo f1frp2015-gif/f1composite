@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -20,9 +19,6 @@ const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-22";
 const updatedAt = "2026-07-30";
-const authorName = "F1 Composite Applications Engineering Team";
-const authorRole = "Material selection, design substitution, and lifecycle-cost specialists";
-const reviewedBy = "Technical Applications Group";
 const referencedStandards = ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -307,15 +303,6 @@ export default function FrpVsTraditionalPage() {
           { label: "FRP vs Traditional Materials" },
         ]}
       />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
-      />
-
       {/* Hero image */}
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -20,9 +19,6 @@ const pageDescription =
 const pagePath = "/technology/quality-testing";
 const publishedAt = "2024-04-05";
 const updatedAt = "2026-04-02";
-const authorName = "F1 Composite Quality Engineering Team";
-const authorRole = "QC systems, laboratory testing, and certification specialists";
-const reviewedBy = "Compliance and Testing Review Group";
 const referencedStandards = ["ISO 9001:2015", "EN 13706", "ASTM D3917", "ASTM D4385", "GB/T 31539", "CSA S807", "CNR-DT 205/2007", "ASCE Pre-Standard for LRFD"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -276,15 +272,6 @@ export default function QualityTestingPage() {
           { label: "Quality & Testing" },
         ]}
       />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
-      />
-
       {/* Hero image */}
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

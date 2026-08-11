@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
@@ -94,15 +93,6 @@ export default function PultrusionResinSystemsPage() {
           { label: "Technology", href: "/technology" },
           { label: "Resin Systems" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName="Haifeng Gong, Ph.D."
-        authorRole="R&D Lead — resin chemistry, pultrusion process development, and standards"
-        authorHref="/about/authors/haifeng-gong"
-        reviewedBy="Haifeng Gong, Ph.D."
-        standards={["EN 13706", "ASTM E84 Class A", "EN 45545-2"]}
       />
 
       {/* GEO answer box — direct definition before anything interactive */}

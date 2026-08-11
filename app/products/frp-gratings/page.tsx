@@ -7,7 +7,6 @@ import AskAICard from "@/components/ai/AskAICard";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import GratingSelectionGuide from "@/components/sections/GratingSelectionGuide";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
@@ -231,15 +230,6 @@ export default function GratingsPage() {
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Gratings & Decks" },
         ]}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={author.fullName}
-        authorRole={author.jobTitle}
-        authorHref={`/about/authors/${author.slug}`}
-        reviewedBy={reviewer.fullName}
-        standards={["ASTM E84", "BS 7976-2", "CSI 06 74 13", "ISO 9001"]}
       />
 
       {/* Grating Image */}

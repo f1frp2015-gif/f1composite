@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
@@ -14,13 +13,6 @@ import { BeamDeflection } from "@/components/sections/ConceptAnimations";
 import EmbedCode from "@/components/tools/EmbedCode";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 
-// publishedAt = the LRFD/ASD + CN/EU/US-standards rewrite that produced the
-// current feature set (git: "Rewrite FRP profile calculator with LRFD/ASD
-// and CN/EU/US standards", 2026-05-16). Bump updatedAt by hand alongside
-// real calculator changes — it's a freshness signal, so it must track
-// actual edits, not just get stamped on every deploy.
-const publishedAt = "2026-05-16";
-const updatedAt = "2026-07-30";
 const pagePath = "/frp-profile-calculator";
 const seoTarget = getSeoQueryTarget(pagePath);
 
@@ -164,15 +156,6 @@ export default function CalculatorPage() {
           note: "Run the section check, then carry the shape, load case, environment, and destination into the RFQ.",
           stickyMobile: true,
         }}
-      />
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName="Yifan Liu"
-        authorRole="Senior Application Engineer — pultruded FRP structural design"
-        authorHref="/about/authors/yifan-liu"
-        reviewedBy="Yifan Liu, Application Engineer"
-        standards={["ASCE/SEI 74-23", "CEN/TS 19101:2022", "GB 50608-2020", "EN 13706-3", "ASTM D3917"]}
       />
 
       <section className="bg-white pt-[34px]">

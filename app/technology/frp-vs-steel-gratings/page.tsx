@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import SectionTag from "@/components/ui/SectionTag";
@@ -16,9 +15,6 @@ const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-07-16";
-const authorName = "F1 Composite Gratings Engineering Team";
-const authorRole = "Platform design, load rating, and industrial walkway specialists";
-const reviewedBy = "Technical Applications Group";
 const referencedStandards = ["ASTM E2979", "ASTM F3125", "HSE UK Slip Resistance", "OSHA 1910.29", "IBC 1607.8"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -117,15 +113,6 @@ export default function FrpVsSteelGratingsPage() {
           { label: "Technology", href: "/technology" },
           { label: "FRP vs Steel Gratings" },
         ]}
-      />
-
-      <ArticleSignals
-        publishedAt={publishedAt}
-        updatedAt={updatedAt}
-        authorName={authorName}
-        authorRole={authorRole}
-        reviewedBy={reviewedBy}
-        standards={referencedStandards}
       />
 
       <section className="bg-white py-[89px]">
