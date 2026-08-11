@@ -11,6 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import EmbedCode from "@/components/tools/EmbedCode";
+import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import SpanTablesContent from "@/components/tools/SpanTablesContent";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -183,6 +184,14 @@ export default function SpanTablesPage() {
             height={920}
             attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
           />
+          <div className="mt-[21px]">
+            <ToolCitationBlock
+              toolTitle="FRP Span Tables & Load Charts"
+              canonicalPath="/frp-span-tables"
+              bibtexKey="f1composite_frp_span_tables_2026"
+              medium="Data set"
+            />
+          </div>
         </div>
       </section>
 
