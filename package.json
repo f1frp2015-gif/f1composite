@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "check:sitemap": "node scripts/check-sitemap-routes.mjs",
-    "check:editorial-signals": "node scripts/check-editorial-signals.mjs"
+    "check:editorial-signals": "node scripts/check-editorial-signals.mjs",
+    "test:indexnow": "node --test scripts/submit-indexnow.test.mjs",
+    "seo:indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.66",
