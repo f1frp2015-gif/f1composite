@@ -36,6 +36,52 @@ const EMBED_CONTENT_SECURITY_POLICY = CONTENT_SECURITY_POLICY.replace(
   "frame-ancestors *",
 );
 
+const CANONICAL_ORIGIN = "https://www.f1composite.com";
+const APEX_HOST = "f1composite.com";
+
+// 2026-07-30 keyword-path migration. Keep this mapping in one place so the
+// apex-host shortcut and the canonical-host path redirect cannot drift apart.
+const KEYWORD_PATH_REDIRECTS = [
+  ["/products/gratings", "/products/frp-gratings"],
+  ["/products/standard-profiles", "/products/fiberglass-structural-shapes"],
+  [
+    "/products/standard-profiles/i-beam",
+    "/products/fiberglass-structural-shapes/frp-i-beam",
+  ],
+  [
+    "/products/standard-profiles/angle",
+    "/products/fiberglass-structural-shapes/frp-angle",
+  ],
+  [
+    "/products/standard-profiles/channel",
+    "/products/fiberglass-structural-shapes/frp-channel",
+  ],
+  [
+    "/products/standard-profiles/square-tube",
+    "/products/fiberglass-structural-shapes/frp-square-tube",
+  ],
+  [
+    "/products/standard-profiles/tube",
+    "/products/fiberglass-structural-shapes/frp-tube",
+  ],
+  [
+    "/products/standard-profiles/flat-bar",
+    "/products/fiberglass-structural-shapes/frp-flat-bar",
+  ],
+  [
+    "/products/standard-profiles/rod",
+    "/products/fiberglass-structural-shapes/frp-rod",
+  ],
+  ["/products/custom-pultrusions", "/products/custom-pultruded-profiles"],
+  ["/products/solar-mounting-systems", "/products/frp-solar-mounting-systems"],
+  ["/products/fenestration-systems", "/products/frp-window-frames"],
+  ["/products/facade-sunshade-panels", "/products/frp-facade-panels"],
+  ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
+  ["/products/stair-tread-covers", "/products/frp-stair-treads"],
+  ["/products/handrail-systems", "/products/frp-handrail-systems"],
+  ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
+] as const;
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
@@ -51,13 +97,23 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Normalize the canonical host before route-specific redirects. Vercel's
-      // production domain must also use www as the primary domain so HTTP apex
-      // requests do not receive an extra platform-level HTTPS hop.
+      // Resolve migrated apex-host URLs directly to their final canonical URL.
+      // These specific rules must precede the catch-all host normalization rule
+      // below; otherwise an apex request first lands on the same legacy path at
+      // www and needs a second application-level redirect.
+      ...KEYWORD_PATH_REDIRECTS.map(([source, destination]) => ({
+        source,
+        has: [{ type: "host" as const, value: APEX_HOST }],
+        destination: `${CANONICAL_ORIGIN}${destination}`,
+        statusCode: 301 as const,
+      })),
+      // Normalize every other apex-host URL to www. Vercel's production domain
+      // must also use www as primary so HTTP apex requests do not receive an
+      // additional platform-level HTTPS hop in front of this rule.
       {
         source: "/:path*",
-        has: [{ type: "host", value: "f1composite.com" }],
-        destination: "https://www.f1composite.com/:path*",
+        has: [{ type: "host", value: APEX_HOST }],
+        destination: `${CANONICAL_ORIGIN}/:path*`,
         permanent: true,
       },
       {
@@ -75,46 +131,11 @@ const nextConfig: NextConfig = {
       // 2026-07-30 keyword-path migration. Keep every previously published
       // product/tool URL as a permanent redirect while all internal signals
       // point directly at the new canonical route.
-      ...[
-        ["/products/gratings", "/products/frp-gratings"],
-        ["/products/standard-profiles", "/products/fiberglass-structural-shapes"],
-        [
-          "/products/standard-profiles/i-beam",
-          "/products/fiberglass-structural-shapes/frp-i-beam",
-        ],
-        [
-          "/products/standard-profiles/angle",
-          "/products/fiberglass-structural-shapes/frp-angle",
-        ],
-        [
-          "/products/standard-profiles/channel",
-          "/products/fiberglass-structural-shapes/frp-channel",
-        ],
-        [
-          "/products/standard-profiles/square-tube",
-          "/products/fiberglass-structural-shapes/frp-square-tube",
-        ],
-        [
-          "/products/standard-profiles/tube",
-          "/products/fiberglass-structural-shapes/frp-tube",
-        ],
-        [
-          "/products/standard-profiles/flat-bar",
-          "/products/fiberglass-structural-shapes/frp-flat-bar",
-        ],
-        [
-          "/products/standard-profiles/rod",
-          "/products/fiberglass-structural-shapes/frp-rod",
-        ],
-        ["/products/custom-pultrusions", "/products/custom-pultruded-profiles"],
-        ["/products/solar-mounting-systems", "/products/frp-solar-mounting-systems"],
-        ["/products/fenestration-systems", "/products/frp-window-frames"],
-        ["/products/facade-sunshade-panels", "/products/frp-facade-panels"],
-        ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
-        ["/products/stair-tread-covers", "/products/frp-stair-treads"],
-        ["/products/handrail-systems", "/products/frp-handrail-systems"],
-        ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
-      ].map(([source, destination]) => ({ source, destination, statusCode: 301 as const })),
+      ...KEYWORD_PATH_REDIRECTS.map(([source, destination]) => ({
+        source,
+        destination,
+        statusCode: 301 as const,
+      })),
       // Normalize the original short application slugs to the descriptive,
       // query-owned canonical routes generated from lib/applicationPages.ts.
       ...[
