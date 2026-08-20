@@ -22,7 +22,7 @@ const dmSans = localFont({
 
 // Keep one canonical GA4 destination and exclude Vercel previews from
 // production analytics and tag diagnostics.
-const GA4_MEASUREMENT_ID = "G-TQV5E2KGGK";
+const GA4_MEASUREMENT_ID = "G-BRBGMB3BTW";
 const shouldLoadGA4 =
   process.env.NODE_ENV === "production" &&
   process.env.VERCEL_ENV !== "preview";
