@@ -20,6 +20,13 @@ const dmSans = localFont({
   variable: "--font-dm-sans",
 });
 
+// Keep one canonical GA4 destination and exclude Vercel previews from
+// production analytics and tag diagnostics.
+const GA4_MEASUREMENT_ID = "G-TQV5E2KGGK";
+const shouldLoadGA4 =
+  process.env.NODE_ENV === "production" &&
+  process.env.VERCEL_ENV !== "preview";
+
 export const metadata: Metadata = {
   title: {
     default: "F1 Composite — Pultruded FRP Profiles Manufacturer",
@@ -94,9 +101,7 @@ export default function RootLayout({
             <body>, where Next dropped its inline init script (gtag config +
             dataLayer) — the loader downloaded but no page_view ever fired, so
             GA4 reported "data collection isn't active". */}
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
+        {shouldLoadGA4 && <GoogleAnalytics gaId={GA4_MEASUREMENT_ID} />}
         {/* Ahrefs is secondary analytics. Load it during browser idle time so it
             cannot compete with the page's LCP image or primary content. */}
         <Script
