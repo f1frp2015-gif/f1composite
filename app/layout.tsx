@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -97,6 +98,8 @@ export default function RootLayout({
         {/* Field RUM for Core Web Vitals (LCP/INP/CLS) — privacy-safe, no cookies.
             Requires Speed Insights enabled in the Vercel project dashboard. */}
         <SpeedInsights />
+        {/* First-party, cookie-free pageview collection for Vercel Web Analytics. */}
+        <Analytics />
         {/* Must live INSIDE <body>. Previously a direct child of <html> before
             <body>, where Next dropped its inline init script (gtag config +
             dataLayer) — the loader downloaded but no page_view ever fired, so
