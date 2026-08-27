@@ -35,12 +35,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/api/ai-context"],
         // Legal pages intentionally remain crawlable: their page metadata uses
         // noindex, follow, which a crawler cannot see if robots.txt blocks them.
-        disallow: ["/api/", "/admin"],
+        disallow: ["/api/"],
       },
       {
         userAgent: AI_CRAWLERS,
         allow: ["/", "/api/ai-context"],
-        disallow: ["/api/", "/admin"],
+        disallow: ["/api/"],
       },
     ],
     sitemap: "https://www.f1composite.com/sitemap.xml",

@@ -16,10 +16,6 @@ export type ShapeId =
   | "i_beam"
   | "channel"
   | "angle"
-  | "tee"
-  | "offset_tee"
-  | "unequal_channel"
-  | "strut_channel"
   | "shs"
   | "rhs"
   | "tube"
@@ -41,7 +37,6 @@ export interface ShapeDef {
   analytic?: (d: Record<string, number>) => { A?: number; Ix?: number; Iy?: number; J?: number };
   torsion?: (d: Record<string, number>) => number;
   designation: (d: Record<string, number>) => string;
-  validate?: (d: Record<string, number>) => string | null;
 }
 
 const circle = (r: number, cx = 0, cy = 0, n = 120): Point[] => {
@@ -119,107 +114,6 @@ const angle: ShapeDef = {
   }),
   torsion: ({ a, b, t }) => (a * t ** 3 + (b - t) * t ** 3) / 3,
   designation: ({ a, b, t }) => `L ${a}×${b}×${t}`,
-};
-
-const tee: ShapeDef = {
-  id: "tee",
-  label: "T-Section",
-  family: "pultruded T-section",
-  fields: [
-    { key: "H", label: "Overall depth", symbol: "H" },
-    { key: "B", label: "Flange width", symbol: "B" },
-    { key: "tf", label: "Flange thickness", symbol: "tf" },
-    { key: "tw", label: "Web thickness", symbol: "tw" },
-  ],
-  build: ({ H, B, tf, tw }) => {
-    const hb = B / 2;
-    const hw = tw / 2;
-    return {
-      outer: [
-        [-hb, H], [hb, H], [hb, H - tf], [hw, H - tf],
-        [hw, 0], [-hw, 0], [-hw, H - tf], [-hb, H - tf],
-      ],
-    };
-  },
-  torsion: ({ H, B, tf, tw }) => (B * tf ** 3 + (H - tf) * tw ** 3) / 3,
-  designation: ({ H, B, tf, tw }) =>
-    tf === tw ? `T ${B}×${H}×${tw}` : `T ${B}×${H}×${tw}×${tf}`,
-  validate: ({ H, B, tf, tw }) =>
-    tf >= H ? "flange thickness must be smaller than depth" : tw >= B ? "web thickness must be smaller than flange width" : null,
-};
-
-const offsetTee: ShapeDef = {
-  id: "offset_tee",
-  label: "Offset T-Section (OT)",
-  family: "custom pultruded offset T-section",
-  fields: [
-    { key: "H", label: "Overall depth", symbol: "H" },
-    { key: "BL", label: "Left flange projection", symbol: "BL" },
-    { key: "BR", label: "Right flange projection", symbol: "BR" },
-    { key: "t", label: "Uniform thickness", symbol: "t" },
-  ],
-  build: ({ H, BL, BR, t }) => ({
-    outer: [
-      [-BL, H], [BR, H], [BR, H - t], [t / 2, H - t],
-      [t / 2, 0], [-t / 2, 0], [-t / 2, H - t], [-BL, H - t],
-    ],
-  }),
-  torsion: ({ H, BL, BR, t }) => ((BL + BR) * t ** 3 + (H - t) * t ** 3) / 3,
-  designation: ({ H, BL, BR, t }) => `OT ${BL}+${BR}×${H}×${t}`,
-  validate: ({ H, BL, BR, t }) =>
-    t >= H || t >= BL + BR ? "thickness must be smaller than the overall section dimensions" : null,
-};
-
-const unequalChannel: ShapeDef = {
-  id: "unequal_channel",
-  label: "Unequal Channel (UC)",
-  family: "custom pultruded unequal-flange channel",
-  fields: [
-    { key: "H", label: "Overall depth", symbol: "H" },
-    { key: "B1", label: "Long flange width", symbol: "B1" },
-    { key: "B2", label: "Short flange width", symbol: "B2" },
-    { key: "t", label: "Uniform thickness", symbol: "t" },
-  ],
-  build: ({ H, B1, B2, t }) => ({
-    outer: [
-      [0, 0], [B2, 0], [B2, t], [t, t],
-      [t, H - t], [B1, H - t], [B1, H], [0, H],
-    ],
-  }),
-  torsion: ({ H, B1, B2, t }) => (H * t ** 3 + (B1 - t) * t ** 3 + (B2 - t) * t ** 3) / 3,
-  designation: ({ H, B1, B2, t }) => `UC ${B1}×${H}×${B2}×${t}`,
-  validate: ({ H, B1, B2, t }) =>
-    t >= Math.min(H, B1, B2) ? "thickness must be smaller than depth and both flange widths" : null,
-};
-
-const strutChannel: ShapeDef = {
-  id: "strut_channel",
-  label: "Strut / Unistrut-Type Channel",
-  family: "custom pultruded lipped strut channel",
-  fields: [
-    { key: "H", label: "Overall depth", symbol: "H" },
-    { key: "B", label: "Overall width", symbol: "B" },
-    { key: "t", label: "Uniform thickness", symbol: "t" },
-    { key: "lip", label: "Inward lip length", symbol: "L" },
-    { key: "return", label: "Lip return depth", symbol: "R" },
-  ],
-  build: ({ H, B, t, lip, return: ret }) => ({
-    outer: [
-      [lip, H], [0, H], [0, 0], [B, 0], [B, H], [B - lip, H],
-      [B - lip, H - ret], [B - lip - t, H - ret], [B - lip - t, H - t],
-      [B - t, H - t], [B - t, t], [t, t], [t, H - t],
-      [t + lip, H - t], [t + lip, H - ret], [lip, H - ret],
-    ],
-  }),
-  torsion: ({ H, B, t, lip, return: ret }) =>
-    (B * t ** 3 + 2 * (H - t) * t ** 3 + 2 * lip * t ** 3 + 2 * ret * t ** 3) / 3,
-  designation: ({ H, B, t, lip, return: ret }) => `STRUT ${B}×${H}×${t} L${lip} R${ret}`,
-  validate: ({ H, B, t, lip, return: ret }) => {
-    if (2 * t >= Math.min(H, B)) return "wall thickness is too large for the overall strut dimensions";
-    if (lip + t >= B / 2) return "lip plus wall thickness must leave a positive slot opening";
-    if (ret >= H - t) return "lip return depth must be smaller than the clear channel depth";
-    return null;
-  },
 };
 
 const shs: ShapeDef = {
@@ -334,10 +228,6 @@ export const SHAPES: Record<ShapeId, ShapeDef> = {
   i_beam: iBeam,
   channel,
   angle,
-  tee,
-  offset_tee: offsetTee,
-  unequal_channel: unequalChannel,
-  strut_channel: strutChannel,
   shs,
   rhs,
   tube,
@@ -416,8 +306,6 @@ export function validateGeometry(geo: unknown): string | null {
         return `dims.${f.key} (${f.label}) must be a positive number`;
       }
     }
-    const shapeError = SHAPES[shape as ShapeId].validate?.(dims as Record<string, number>);
-    if (shapeError) return shapeError;
     return null;
   }
   if (g.kind === "polygon") {

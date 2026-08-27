@@ -5,9 +5,9 @@ import { insertInquiry, dbConfigured } from "@/lib/db";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 import {
   AI_UNAVAILABLE_MESSAGE,
-  getAIModel,
-  logAIStreamError,
-} from "@/lib/aiProvider";
+  getAIGatewayModel,
+  logAIGatewayStreamError,
+} from "@/lib/aiGateway";
 
 const SYSTEM_PROMPT = `You are the F1 Composite FRP Engineering Advisor — an expert AI assistant specializing in pultruded fiber-reinforced polymer (FRP) composite profiles.
 
@@ -352,7 +352,7 @@ function partsToText(m: UIMessage): string {
 const HIGH_INTENT_SIGNALS = new Set<IntentSignal>(["high_quote", "sourcing_china"]);
 
 export async function POST(req: Request) {
-  // Throttle: each visitor message is one AI model call. A real conversation is a
+  // Throttle: each visitor message is one AI Gateway call. A real conversation is a
   // few dozen turns at most; this caps per-IP LLM cost-abuse and chat-lead
   // email bombing while staying invisible to genuine users.
   const rl = rateLimit(req, "chat", { limit: 40, windowMs: 300_000 });
@@ -458,11 +458,14 @@ export async function POST(req: Request) {
       : "";
 
     const result = streamText({
-      model: getAIModel("chat"),
+      model: getAIGatewayModel("chat"),
       system: SYSTEM_PROMPT + pageContextBlock,
       messages: await convertToModelMessages(messages),
       maxOutputTokens: 8192,
-      onError: ({ error }) => logAIStreamError("chat", error),
+      providerOptions: {
+        openai: { reasoningEffort: "low" },
+      },
+      onError: ({ error }) => logAIGatewayStreamError("chat", error),
     });
 
     return result.toUIMessageStreamResponse({

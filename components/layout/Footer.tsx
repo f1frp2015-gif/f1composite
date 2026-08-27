@@ -141,6 +141,14 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-teal-text">Privacy</Link>
             <Link href="/terms" className="hover:text-teal-text">Terms</Link>
             <Link href="/sitemap.xml" className="hover:text-teal-text">Sitemap</Link>
+            <a
+              href="https://tradeos.f1composite.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teal-text"
+            >
+              TradeOS Login
+            </a>
           </div>
         </div>
       </div>
