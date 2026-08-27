@@ -21,7 +21,7 @@
 // Section sizes and kg/m weights come from the published catalog seed
 // (lib/catalog/seed.ts) — weights are F1-published values, never computed.
 
-import { buildProducts } from "@/lib/catalog/seed";
+import { buildProducts } from "@/lib/catalog/standardProfiles";
 import { calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
 import { buildToolStateHref } from "@/lib/toolStateUrl";
 

@@ -4,16 +4,26 @@ import { useState, useMemo, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
+import { calcWindowUw } from "@/lib/windowUValue";
 
 /* ══════════════════════════════════════════════════════
    Data — Frame systems, glass configs, spacer types
    ══════════════════════════════════════════════════════ */
 
-const frameSystems = [
+type FrameSystem = { id: string; label: string; Uf: number; depth: number; faceWidth: number; certifiedReference?: boolean };
+type GlassConfig = { id: string; label: string; Ug: number; thickness: number; certifiedReference?: boolean };
+type SpacerType = { id: string; label: string; psi: number; certifiedReference?: boolean };
+
+const PHI_FRAME_ID = "frp-90-phi-2491wi03";
+const PHI_GLASS_ID = "phi-ug070";
+const PHI_SPACER_ID = "phi-psi0023";
+
+const frameSystems: FrameSystem[] = [
   { id: "frp-65", label: "F1 FRP 65-Series (65 mm, 2-chamber)", Uf: 1.4, depth: 65, faceWidth: 54 },
   { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, depth: 70, faceWidth: 58 },
   { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, depth: 80, faceWidth: 65 },
   { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, depth: 90, faceWidth: 72 },
+  { id: PHI_FRAME_ID, label: "PHI certificate 2491wi03 — Fengdu Passive GFRP 90", Uf: 0.78, depth: 90, faceWidth: 109, certifiedReference: true },
   { id: "alu-no-break", label: "Aluminum (no thermal break)", Uf: 5.9, depth: 65, faceWidth: 50 },
   { id: "alu-break", label: "Aluminum (polyamide break)", Uf: 3.2, depth: 70, faceWidth: 55 },
   { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, depth: 70, faceWidth: 62 },
@@ -21,7 +31,7 @@ const frameSystems = [
   { id: "timber", label: "Timber (softwood, 68 mm)", Uf: 1.4, depth: 75, faceWidth: 65 },
 ];
 
-const glassConfigs = [
+const glassConfigs: GlassConfig[] = [
   { id: "dg-air", label: "Double — 4/12Air/4", Ug: 2.8, thickness: 20 },
   { id: "dg-ar", label: "Double — 4/16Ar/4 Low-E", Ug: 1.1, thickness: 24 },
   { id: "dg-ar-6", label: "Double — 6/20Ar/6 Low-E", Ug: 1.0, thickness: 32 },
@@ -29,13 +39,15 @@ const glassConfigs = [
   { id: "tg-kr", label: "Triple — 4/12Kr/4/12Kr/4 2×Low-E", Ug: 0.5, thickness: 36 },
   { id: "tg-ar-wide", label: "Triple — 4/18Ar/4/18Ar/4 2×Low-E", Ug: 0.55, thickness: 48 },
   { id: "qg-kr", label: "Quadruple — 3/12Kr/3/12Kr/3/12Kr/3 3×Low-E", Ug: 0.3, thickness: 48 },
+  { id: PHI_GLASS_ID, label: "PHI certificate reference — 48 mm glazing, Ug 0.70", Ug: 0.70, thickness: 48, certifiedReference: true },
 ];
 
-const spacerTypes = [
+const spacerTypes: SpacerType[] = [
   { id: "alu", label: "Aluminum spacer", psi: 0.08 },
   { id: "steel", label: "Steel spacer", psi: 0.06 },
   { id: "warm-basic", label: "Warm-edge (standard)", psi: 0.04 },
   { id: "warm-premium", label: "Warm-edge (premium / TGI / Swisspacer)", psi: 0.03 },
+  { id: PHI_SPACER_ID, label: "PHI certificate — Swisspacer Ultimate", psi: 0.023, certifiedReference: true },
 ];
 
 const windowTypes = [
@@ -51,12 +63,14 @@ const windowTypes = [
 const FENESTRATION_SLUG = "/products/frp-window-frames";
 const FRP_SERIES: Record<string, string> = {
   "frp-65": "65-Series", "frp-70": "70-Series", "frp-80": "80-Series", "frp-90": "90-Series",
+  [PHI_FRAME_ID]: "Fengdu Passive GFRP 90 certificate reference",
 };
 
 /* One-click scenarios. The "Aluminum → FRP upgrade" preset starts on an aluminum
    frame so the visitor sees the thermal gap and the FRP upsell card. */
 type WinPreset = { id: string; label: string; frame: string; glass: string; spacer: string; winType: string; width: number; height: number };
 const PRESETS: WinPreset[] = [
+  { id: "phi-cert", label: "PHI certificate 2491wi03", frame: PHI_FRAME_ID, glass: PHI_GLASS_ID, spacer: PHI_SPACER_ID, winType: "fixed", width: 1230, height: 1480 },
   { id: "passive", label: "Passive house window", frame: "frp-90", glass: "tg-kr", spacer: "warm-premium", winType: "casement", width: 1200, height: 1400 },
   { id: "cold", label: "Cold-climate home", frame: "frp-80", glass: "tg-ar", spacer: "warm-basic", winType: "casement", width: 1200, height: 1400 },
   { id: "commercial", label: "Commercial fixed glazing", frame: "frp-70", glass: "dg-ar-6", spacer: "warm-basic", winType: "fixed", width: 1500, height: 2000 },
@@ -68,63 +82,13 @@ const PRESETS: WinPreset[] = [
    Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af)
    ══════════════════════════════════════════════════════ */
 
-function calcUw(
-  width: number,
-  height: number,
-  faceWidth: number,
-  Uf: number,
-  Ug: number,
-  psi: number,
-  sashWidth: number,
-) {
-  // All dimensions in mm, convert to m for calculation
-  const W = width / 1000; // m
-  const H = height / 1000; // m
-  const fw = faceWidth / 1000; // projected frame face width (m)
-  const sw = sashWidth / 1000; // projected sash face width (m)
-  const totalFrameW = fw + sw; // total projected width from window edge to glass (m)
-
-  const Aw = W * H; // total window area (m²)
-  const glassW = W - 2 * totalFrameW;
-  const glassH = H - 2 * totalFrameW;
-
-  if (glassW <= 0 || glassH <= 0) return null;
-
-  const Ag = glassW * glassH; // glass area (m²)
-  const Af = Aw - Ag; // frame area (m²)
-  const lg = 2 * (glassW + glassH); // glass perimeter (m)
-
-  // EN ISO 10077-1: Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af)
-  // Numerator splits into three physical heat-loss channels (units W/K):
-  const qGlass = Ag * Ug; // heat lost through the glazing
-  const qFrame = Af * Uf; // heat lost through the frame + sash
-  const qEdge = lg * psi; // extra loss at the glass-edge thermal bridge (spacer)
-  const L = qGlass + qFrame + qEdge; // total window heat-loss coefficient (W/K)
-  const Uw = L / Aw;
-  return {
-    Uw: Math.round(Uw * 1000) / 1000,
-    Aw,
-    Ag,
-    Af,
-    glassRatio: Math.round((Ag / Aw) * 100),
-    lg,
-    glassW,
-    glassH,
-    totalFrameW,
-    qGlass,
-    qFrame,
-    qEdge,
-    L,
-  };
-}
-
 /* ══════════════════════════════════════════════════════
    Calculation model — visualizes the EN ISO 10077-1 logic:
    a scaled window diagram (Ag / Af / lg), the three heat-loss
    channels, and the formula assembled with the live numbers.
    ══════════════════════════════════════════════════════ */
 
-type CalcResult = NonNullable<ReturnType<typeof calcUw>>;
+type CalcResult = NonNullable<ReturnType<typeof calcWindowUw>>;
 
 function CalculationModel({
   result,
@@ -349,12 +313,12 @@ function CalculationModel({
    ══════════════════════════════════════════════════════ */
 
 function getRating(Uw: number) {
-  if (Uw <= 0.8) return { label: "Passive House (PHI target)", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.0) return { label: "Near-Passive / nZEB", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.3) return { label: "Low-Energy Building", color: "text-teal", bg: "bg-teal/5 border-teal-border" };
-  if (Uw <= 1.8) return { label: "Standard Compliant", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
-  if (Uw <= 2.5) return { label: "Basic / Renovation", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
-  return { label: "Below Standard", color: "text-red-600", bg: "bg-red-50 border-red-200" };
+  if (Uw <= 0.8) return { label: "At or below 0.80 target band", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
+  if (Uw <= 1.0) return { label: "0.81–1.00 performance band", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
+  if (Uw <= 1.3) return { label: "1.01–1.30 performance band", color: "text-teal", bg: "bg-teal/5 border-teal-border" };
+  if (Uw <= 1.8) return { label: "1.31–1.80 performance band", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
+  if (Uw <= 2.5) return { label: "1.81–2.50 performance band", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
+  return { label: "Above 2.50 W/m²K", color: "text-red-600", bg: "bg-red-50 border-red-200" };
 }
 
 /* ══════════════════════════════════════════════════════
@@ -368,6 +332,7 @@ export default function UValueCalculator() {
   const [winType, setWinType] = useState("casement");
   const [width, setWidth] = useState(1200);
   const [height, setHeight] = useState(1400);
+  const certificateMode = frame === PHI_FRAME_ID;
 
   const selFrame = frameSystems.find((f) => f.id === frame)!;
   const selGlass = glassConfigs.find((g) => g.id === glass)!;
@@ -375,13 +340,13 @@ export default function UValueCalculator() {
   const selWinType = windowTypes.find((w) => w.id === winType)!;
 
   const result = useMemo(
-    () => calcUw(width, height, selFrame.faceWidth, selFrame.Uf, selGlass.Ug, selSpacer.psi, selWinType.sashWidth),
+    () => calcWindowUw(width, height, selFrame.faceWidth, selFrame.Uf, selGlass.Ug, selSpacer.psi, selWinType.sashWidth),
     [width, height, selFrame, selGlass, selSpacer, selWinType],
   );
 
   // Compare with aluminum no-break baseline (fixed light, aluminum spacer)
   const baseline = useMemo(
-    () => calcUw(width, height, 50, 5.9, selGlass.Ug, 0.08, 0),
+    () => calcWindowUw(width, height, 50, 5.9, selGlass.Ug, 0.08, 0),
     [width, height, selGlass],
   );
 
@@ -395,6 +360,9 @@ export default function UValueCalculator() {
   /* Deep-link presets: prefer #frame&glass&spacer&type&w&h so presets do not
      create crawlable URL variants; legacy query-string links remain supported. */
   useEffect(() => {
+    /* One-time URL hydration; this intentionally seeds controlled inputs after
+       mount because window.location is unavailable during server rendering. */
+    /* eslint-disable react-hooks/set-state-in-effect */
     const sp = readToolStateParams(window.location);
     if ([...sp.keys()].length === 0) return;
     const str = (k: string, set: (s: string) => void, allowed: string[]) => {
@@ -403,14 +371,30 @@ export default function UValueCalculator() {
     };
     const num = (k: string, set: (n: number) => void) => {
       const v = sp.get(k);
-      if (v != null && v !== "" && Number.isFinite(+v)) set(Math.max(200, +v));
+      if (v != null && v !== "" && Number.isFinite(+v)) set(Math.min(4000, Math.max(200, +v)));
     };
     str("frame", setFrame, frameSystems.map((f) => f.id));
     str("glass", setGlass, glassConfigs.map((g) => g.id));
     str("spacer", setSpacer, spacerTypes.map((s) => s.id));
     str("type", setWinType, windowTypes.map((w) => w.id));
     num("w", setWidth); num("h", setHeight);
+    if (sp.get("frame") === PHI_FRAME_ID) {
+      setGlass(PHI_GLASS_ID); setSpacer(PHI_SPACER_ID); setWinType("fixed");
+      setWidth(1230); setHeight(1480);
+    }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
+
+  function changeFrame(next: string) {
+    setFrame(next);
+    if (next === PHI_FRAME_ID) {
+      setGlass(PHI_GLASS_ID); setSpacer(PHI_SPACER_ID); setWinType("fixed");
+      setWidth(1230); setHeight(1480);
+    } else if (certificateMode) {
+      setGlass("tg-ar"); setSpacer("warm-basic"); setWinType("casement");
+      setWidth(1200); setHeight(1400);
+    }
+  }
 
   function applyPreset(p: WinPreset) {
     setFrame(p.frame); setGlass(p.glass); setSpacer(p.spacer); setWinType(p.winType);
@@ -450,6 +434,7 @@ export default function UValueCalculator() {
       `Spacer: ${selSpacer.label} (Ψg ${selSpacer.psi} W/mK)\n` +
       `Window: ${selWinType.label}, ${width}×${height} mm, glass ratio ${result.glassRatio}%\n\n` +
       `Result: Uw = ${result.Uw.toFixed(2)} W/m²K (${rating!.label})` +
+      (certificateMode ? ` — read-only reproduction of PHI Component-ID 2491wi03 certificate inputs` : "") +
       (improvement > 0 ? `, ${improvement}% better than an aluminum-no-break baseline` : "") +
       `\n\nProject location / target standard (please add): ____\n` +
       `Quantities / sizes (please add): ____\n\nThanks.`
@@ -498,13 +483,31 @@ export default function UValueCalculator() {
               ))}
             </div>
 
+            {certificateMode && (
+              <div className="rounded-[6px] border border-teal-border bg-teal/5 px-[13px] py-[10px] text-[12px] leading-relaxed text-t2">
+                <strong className="text-t1">Read-only certified reference.</strong> PHI Component-ID 2491wi03,
+                Fengdu Passive GFRP 90 Series: test window 1230 × 1480 mm, U<sub>f</sub> 0.78,
+                U<sub>g</sub> 0.70, frame width 109 mm, Ψ<sub>g</sub> 0.023. The simplified formula
+                reproduces the certificate&apos;s U<sub>w</sub> 0.78 after rounding. Flying-mullion width
+                133 mm and installation details remain in the certificate.{" "}
+                <a href="/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">
+                  View certificate →
+                </a>
+              </div>
+            )}
+
             {/* Row 1: Frame + Glass */}
             <div className="grid gap-[21px] sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Frame System</label>
-                <select value={frame} onChange={(e) => setFrame(e.target.value)} className={selectClass}>
+                <select value={frame} onChange={(e) => changeFrame(e.target.value)} className={selectClass}>
                   <optgroup label="F1 Composite FRP">
-                    {frameSystems.filter((f) => f.id.startsWith("frp")).map((f) => (
+                    {frameSystems.filter((f) => f.id.startsWith("frp") && !f.certifiedReference).map((f) => (
+                      <option key={f.id} value={f.id}>{f.label}</option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="PHI certificate reference">
+                    {frameSystems.filter((f) => f.certifiedReference).map((f) => (
                       <option key={f.id} value={f.id}>{f.label}</option>
                     ))}
                   </optgroup>
@@ -521,7 +524,7 @@ export default function UValueCalculator() {
 
               <div>
                 <label className={labelClass}>Glass Configuration</label>
-                <select value={glass} onChange={(e) => setGlass(e.target.value)} className={selectClass}>
+                <select value={glass} onChange={(e) => setGlass(e.target.value)} disabled={certificateMode} className={`${selectClass} ${certificateMode ? "opacity-60" : ""}`}>
                   <optgroup label="Double-Glazed">
                     {glassConfigs.filter((g) => g.id.startsWith("dg")).map((g) => (
                       <option key={g.id} value={g.id}>{g.label}</option>
@@ -537,6 +540,11 @@ export default function UValueCalculator() {
                       <option key={g.id} value={g.id}>{g.label}</option>
                     ))}
                   </optgroup>
+                  <optgroup label="Certified reference">
+                    {glassConfigs.filter((g) => g.certifiedReference).map((g) => (
+                      <option key={g.id} value={g.id}>{g.label}</option>
+                    ))}
+                  </optgroup>
                 </select>
                 <span className="mt-[4px] block text-[11px] text-t3">
                   U<sub>g</sub> = {selGlass.Ug} W/m²K · {selGlass.thickness} mm thick
@@ -548,7 +556,7 @@ export default function UValueCalculator() {
             <div className="grid gap-[21px] sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Edge Spacer</label>
-                <select value={spacer} onChange={(e) => setSpacer(e.target.value)} className={selectClass}>
+                <select value={spacer} onChange={(e) => setSpacer(e.target.value)} disabled={certificateMode} className={`${selectClass} ${certificateMode ? "opacity-60" : ""}`}>
                   {spacerTypes.map((s) => (
                     <option key={s.id} value={s.id}>{s.label}</option>
                   ))}
@@ -560,7 +568,7 @@ export default function UValueCalculator() {
 
               <div>
                 <label className={labelClass}>Window Type</label>
-                <select value={winType} onChange={(e) => setWinType(e.target.value)} className={selectClass}>
+                <select value={winType} onChange={(e) => setWinType(e.target.value)} disabled={certificateMode} className={`${selectClass} ${certificateMode ? "opacity-60" : ""}`}>
                   {windowTypes.map((w) => (
                     <option key={w.id} value={w.id}>{w.label}</option>
                   ))}
@@ -579,11 +587,12 @@ export default function UValueCalculator() {
                   <input
                     type="number"
                     value={width}
-                    onChange={(e) => setWidth(Math.max(200, Number(e.target.value)))}
+                    onChange={(e) => setWidth(Math.min(4000, Math.max(200, Number(e.target.value))))}
+                    disabled={certificateMode}
                     min={200}
                     max={4000}
                     step={50}
-                    className={inputClass}
+                    className={`${inputClass} ${certificateMode ? "opacity-60" : ""}`}
                   />
                   <span className="mt-[2px] block text-center text-[11px] text-t3">Width</span>
                 </div>
@@ -592,11 +601,12 @@ export default function UValueCalculator() {
                   <input
                     type="number"
                     value={height}
-                    onChange={(e) => setHeight(Math.max(200, Number(e.target.value)))}
+                    onChange={(e) => setHeight(Math.min(4000, Math.max(200, Number(e.target.value))))}
+                    disabled={certificateMode}
                     min={200}
                     max={4000}
                     step={50}
-                    className={inputClass}
+                    className={`${inputClass} ${certificateMode ? "opacity-60" : ""}`}
                   />
                   <span className="mt-[2px] block text-center text-[11px] text-t3">Height</span>
                 </div>
@@ -609,7 +619,7 @@ export default function UValueCalculator() {
               U<sub>w</sub> = (A<sub>g</sub>·U<sub>g</sub> + A<sub>f</sub>·U<sub>f</sub> + l<sub>g</sub>·Ψ<sub>g</sub>) / (A<sub>g</sub> + A<sub>f</sub>)
               <br />
               <span className="text-t3/70">
-                Compliance targets compared: IECC / ENERGY STAR (US) · NRCan ENERGY STAR (Canada) · EPBD (EU) · GB 55015 / GB 50189 (China)
+                Numeric targets compared for screening only: IECC / ENERGY STAR (US) · NRCan (Canada) · PHI / EPBD (EU) · GB targets (China)
               </span>
             </div>
           </div>
@@ -679,13 +689,15 @@ export default function UValueCalculator() {
                       className="block rounded-[8px] border border-teal/30 bg-white p-[21px] transition-colors hover:border-teal"
                     >
                       <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
-                        {series ? "F1 makes this frame" : "Switch to F1 FRP"}
+                        {certificateMode ? "Certified reference inputs" : series ? "F1 makes this frame" : "Switch to F1 FRP"}
                       </div>
                       <div className="mt-[4px] text-f13 text-t2">
-                        {series ? (
+                        {certificateMode ? (
+                          <>PHI Component-ID 2491wi03 names the Fengdu Passive GFRP 90 Series and Chongqing Xianju New Material Co., Ltd. as manufacturer. Review the certificate before using this reference in a specification. </>
+                        ) : series ? (
                           <>This is the F1 FRP <strong className="text-t1">{series}</strong> fenestration system — request a quote against your U<sub>w</sub> {result.Uw.toFixed(2)} spec. </>
                         ) : (
-                          <>F1 FRP frames reach U<sub>w</sub> as low as <strong className="text-t1">0.78 W/m²·K</strong> (PHI-certified 90-Series){improvement > 0 ? <> — up to {improvement}% better than your selection</> : null}. </>
+                          <>The published PHI 2491wi03 reference reaches U<sub>w</sub> <strong className="text-t1">0.78 W/m²·K</strong> for its certified size and inputs{improvement > 0 ? <> — numerically up to {improvement}% better than your selection</> : null}. </>
                         )}
                         View FRP fenestration <span aria-hidden>→</span>
                       </div>
@@ -745,10 +757,10 @@ export default function UValueCalculator() {
                 </div>
               )}
 
-              {/* Standards compliance — live ✓ against the current Uw */}
+              {/* Numeric target comparison; method/certification caveats are explicit. */}
               <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <h4 className="mb-[8px] text-f11 font-bold uppercase tracking-[2px] text-t3">
-                  Standards Compliance
+                  Numeric Target Comparison — Not Compliance
                 </h4>
                 <div className="grid gap-x-[21px] gap-y-[6px] text-[12px] sm:grid-cols-2 lg:grid-cols-1">
                   {[
@@ -756,7 +768,8 @@ export default function UValueCalculator() {
                     { region: "🇪🇺 EU", label: "nZEB (typical member state)", max: 1.30, std: "EPBD" },
                     { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Northern", max: 1.25, std: "NFRC" },
                     { region: "🇺🇸 US", label: "ENERGY STAR v7.0 Southern", max: 1.82, std: "NFRC" },
-                    { region: "🇺🇸 US", label: "IECC 2024 Zones 5–6", max: 1.53, std: "IECC/IRC" },
+                    { region: "🇺🇸 US", label: "IECC 2024 Zones 5–6", max: 1.59, std: "IECC/IRC" },
+                    { region: "🇺🇸 US", label: "IECC 2024 Zones 7–8", max: 1.53, std: "IECC/IRC" },
                     { region: "🇨🇦 CA", label: "ENERGY STAR (all Canada, 2020+)", max: 1.22, std: "NRCan" },
                     { region: "🇨🇳 CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70, std: "GB 50189" },
                     { region: "🇨🇳 CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20, std: "GB 50189" },
@@ -765,12 +778,17 @@ export default function UValueCalculator() {
                       <span className="text-t3 truncate">
                         {t.region} {t.label}
                       </span>
-                      <span className={`shrink-0 font-medium ${result.Uw <= t.max ? "text-emerald-600" : "text-t3"}`}>
-                        ≤ {t.max.toFixed(2)} {result.Uw <= t.max ? "✓" : ""}
+                      <span className={`shrink-0 font-medium ${result.Uw <= t.max ? "text-teal-text" : "text-t3"}`}>
+                        ≤ {t.max.toFixed(2)} · {result.Uw <= t.max ? "at/below" : "above"}
                       </span>
                     </div>
                   ))}
                 </div>
+                <p className="mt-[10px] text-[11px] leading-relaxed text-t3">
+                  This compares numbers only. EN ISO 10077-1 output is not an NFRC/NRCan rating;
+                  ENERGY STAR also requires SHGC and certified product data; Chinese acceptance
+                  requires the applicable project limit and GB/T 8484 test evidence.
+                </p>
               </div>
             </div>
           )}
@@ -838,10 +856,10 @@ export default function UValueCalculator() {
         </div>
         {/* ── National standards reference ── */}
         <div className="mt-[55px]">
-          <h3 className="text-f24 font-bold text-t1">Window U-Value Requirements by Standard</h3>
+          <h3 className="text-f24 font-bold text-t1">Window U-Value Reference Targets</h3>
           <p className="mt-[8px] text-f13 text-t2">
-            Maximum allowable whole-window thermal transmittance (U<sub>w</sub>) under major
-            international building energy codes. Values shown are for residential windows unless noted.
+            Published U-factor limits and program targets for orientation. Calculation and certification
+            methods differ by jurisdiction, so this table is not a compliance determination.
           </p>
           <div className="mt-[21px] overflow-x-auto">
             <table className="w-full text-f13">
@@ -860,8 +878,8 @@ export default function UValueCalculator() {
                   { region: "Europe", std: "EPBD / national codes", zone: "nZEB (Central Europe, typical)", uw: "≤ 1.30", note: "Member-state specific — always check the national annex" },
                   { region: "Europe", std: "EN 14351-1", zone: "CE Marking baseline", uw: "Declared", note: "No max limit — declared value for CE marking" },
                   { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zone 4 (New York)", uw: "≤ 1.70", note: "U ≤ 0.30 Btu/h·ft²·°F; mixed humid" },
-                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 5–6 (Chicago)", uw: "≤ 1.53", note: "U ≤ 0.27 — tightened from 0.30 in IECC 2021" },
-                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 7–8 (Alaska)", uw: "≤ 1.25", note: "U ≤ 0.22 — tightened from 0.30 in IECC 2021" },
+                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 5–6 (Chicago)", uw: "≤ 1.59", note: "U-factor ≤ 0.28 Btu/h·ft²·°F" },
+                  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 7–8 (Alaska)", uw: "≤ 1.53", note: "U-factor ≤ 0.27 Btu/h·ft²·°F" },
                   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Northern Zone", uw: "≤ 1.25", note: "U ≤ 0.22; SHGC ≥ 0.17 prescriptive path; most stringent US program" },
                   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "North-Central Zone", uw: "≤ 1.42", note: "U ≤ 0.25; SHGC ≤ 0.40" },
                   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "South-Central Zone", uw: "≤ 1.59", note: "U ≤ 0.28; SHGC ≤ 0.23" },

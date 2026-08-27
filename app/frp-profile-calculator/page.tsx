@@ -32,7 +32,7 @@ const calculatorFaqs = [
   {
     question: "Which standards does the FRP calculator follow?",
     answer:
-      "The calculator supports four design frameworks: LRFD per ASCE/SEI 74-23 (US official FRP standard, published 2023 — superseding the 2010 ACMA Pre-Standard); the partial-factor method per CEN/TS 19101:2022 (the Eurocode-track Technical Specification for FRP structures); LRFD per GB 50608-2020 (China FRP application code) together with T/CECS 692-2020 for pultruded profiles; and legacy ASD using a 2.5 bending / 3.0 shear factor of safety. Load factors use each code's variable-action value (γ_Q = 1.6 / 1.5 / 1.5) since the tool's scenarios are live-load governed. Material specifications include EN 13706-3 (E17/E23 minimum-modulus grades) and ASTM D3917 (dimensional tolerance).",
+      "It is a preliminary global-beam screening tool, not a complete standards compliance calculation. The method selector applies simplified resistance and live-load factors oriented to ASCE/SEI 74-23, CEN/TS 19101:2022, or GB 50608-2020, plus a legacy ASD screen. Each method now exposes only its compatible material dataset. The tool does not perform local or lateral-torsional buckling, creep/time-effect, web crippling, connections, load combinations, system stability, or project-specific qualification checks, so a licensed engineer must complete the applicable code design.",
   },
   {
     question: "Does the calculator handle orthotropic FRP properties?",
@@ -83,9 +83,9 @@ export default function CalculatorPage() {
           inLanguage: "en",
           isAccessibleForFree: true,
           description:
-            "Structural calculator for pultruded FRP profiles with LRFD and ASD support. Aligned to EN 13706, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022. Bending, shear, Timoshenko-corrected deflection, orthotropic E_L/E_T/G_LT properties, environmental knockdown, and steel/aluminum equivalence.",
+            "Preliminary global-beam screening tool for pultruded FRP profiles. It calculates bending, average shear and Timoshenko-corrected deflection using method-specific ASCE-, CEN- or GB-oriented factors, with explicit exclusions and no compliance claim.",
           featureList: [
-            "LRFD design method — ASCE/SEI 74-23, CEN/TS 19101:2022, GB 50608-2020",
+            "Preliminary strength-factor screens oriented to ASCE/SEI 74-23, CEN/TS 19101:2022 and GB 50608-2020",
             "ASD legacy allowable-stress method (FS 2.5 bending / 3.0 shear)",
             "Orthotropic FRP properties — E_L, E_T, G_LT, F_tL, F_cL, F_vLT",
             "Environmental knockdown factor — indoor / outdoor / wet / chemical / hot",
@@ -119,7 +119,7 @@ export default function CalculatorPage() {
               "@type": "HowToStep",
               position: 1,
               name: "Pick a design framework and environment",
-              text: "Select LRFD (ASCE/SEI 74-23, CEN/TS 19101:2022, or GB 50608-2020) or legacy ASD, and the service environment, so the calculator applies the right resistance factor and FRP environmental knockdown.",
+              text: "Select a preliminary ASCE-, CEN- or GB-oriented screening basis, or the legacy ASD screen. The calculator restricts the material choices to the dataset paired with that method and applies the selected environmental reduction.",
             },
             {
               "@type": "HowToStep",
@@ -130,8 +130,8 @@ export default function CalculatorPage() {
             {
               "@type": "HowToStep",
               position: 3,
-              name: "Read the bending, shear, and deflection checks",
-              text: "The calculator returns factored bending and shear stress versus allowable, plus Timoshenko-corrected deflection versus the L/n limit. Deflection usually governs for FRP.",
+              name: "Read the preliminary bending, shear, and deflection screens",
+              text: "The calculator returns global bending and average shear demand versus its simplified screening limits, plus Timoshenko-corrected deflection versus L/n. These outputs do not replace a complete code design.",
             },
             {
               "@type": "HowToStep",
@@ -145,7 +145,7 @@ export default function CalculatorPage() {
       <PageHeader
         tag="Free Engineering Tool"
         title="FRP Calculator for Beam, Load & Section Properties"
-        description="LRFD and ASD design checks for pultruded FRP — bending, shear, Timoshenko-corrected deflection, orthotropic E_L/E_T/G_LT, environmental knockdown, and steel/aluminum equivalence. Switch between EN 13706, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022. Free, no login."
+        description="Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel/aluminum equivalence. Method-specific datasets prevent incompatible standards combinations. Free, no login."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -190,14 +190,14 @@ export default function CalculatorPage() {
             catalog before specifying the final size.
           </p>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            This calculator solves three recurring questions in FRP structural selection: whether a pultruded FRP beam satisfies bending and shear at factored load, whether deflection at service load meets the L/n limit (including the Timoshenko shear correction that matters for short-span FRP beams), and what cross-section is needed to replace a steel or aluminum member at equal stiffness or equal strength — whichever governs. Select the design framework (ASCE/SEI 74-23 LRFD, CEN/TS 19101:2022 partial-factor, GB 50608-2020 LRFD, or legacy ASD) and an environmental class; the calculator applies the appropriate resistance factor and FRP environmental knockdown to characteristic strengths.
+            This calculator screens three recurring questions in FRP profile selection: global bending, average shear, service-load deflection, and first-pass steel/aluminum equivalence. The ASCE-, CEN- and GB-oriented options apply a limited subset of factors to compatible input datasets; they are not full implementations of those standards. Local and lateral-torsional buckling, creep and time effects, web crippling, connections, complete load combinations, bracing, and system stability remain outside the model.
           </p>
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">
             <div>
               <h3 className="text-f19 font-bold text-t1">Input example — walkway beam</h3>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                A pedestrian walkway requires a 3 m simply-supported FRP beam carrying 5 kN/m service UDL (live-load governed). With LRFD ASCE/SEI 74-23 (γ_Q = 1.6, φ_b = 0.65) and outdoor exposure (Ω_E = 0.85), an EN 13706 E23 I-beam 240×120×12 (I ≈ 4.75×10⁷ mm⁴) returns factored bending stress near 23 MPa vs ~110 MPa allowable (min(F_tL, F_cL) = 200 MPa × 0.65 × 0.85), and service deflection near 5.4 mm = L/550 with a Timoshenko shear contribution of ~13% — within the L/360 walkway limit per IBC 1604.3 / GB 50352. Comfortable margin on strength, deflection-governed as expected — this is the calculator&apos;s Walkway preset, so you can reproduce it in one click.
+                The Walkway preset loads a 3 m simply supported I-section with a 5 kN/m service UDL. It uses the illustrative balanced-GFRP dataset paired with the ASCE-oriented preliminary factors and outdoor exposure. The result is useful for eliminating clearly inadequate trial sections and seeing whether global strength or deflection governs; it is not an ASCE design release, and the material properties must be replaced with project qualification data.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">How to interpret the results</h3>

@@ -6,6 +6,43 @@ export type FrpSectionShape =
   | "round-tube";
 
 /**
+ * Returns a user-facing reason when nominal section dimensions are not
+ * physically possible. All public structural calculations call this guard
+ * before displaying properties or pass/fail results.
+ */
+export function getSectionDimensionError(
+  shape: string,
+  h: number,
+  b: number,
+  tw: number,
+  tf: number,
+): string | null {
+  const required = shape === "round-tube" ? [h, tw] : shape === "i-beam" || shape === "channel" ? [h, b, tw, tf] : [h, b, tw];
+  if (!required.every((value) => Number.isFinite(value) && value > 0)) {
+    return "All section dimensions must be finite numbers greater than zero.";
+  }
+  if ((shape === "i-beam" || shape === "channel") && 2 * tf >= h) {
+    return "Flange thickness is too large: 2·tf must be less than H.";
+  }
+  if ((shape === "i-beam" || shape === "channel") && tw >= b) {
+    return "Web thickness must be less than the flange width B.";
+  }
+  if (shape === "angle" && (tw >= h || tw >= b)) {
+    return "Angle thickness t must be less than both leg dimensions.";
+  }
+  if (shape === "square-tube" && 2 * tw >= Math.min(h, b)) {
+    return "Tube wall is too large: 2·t must be less than both H and B.";
+  }
+  if (shape === "round-tube" && 2 * tw >= h) {
+    return "Tube wall is too large: 2·t must be less than the outside diameter.";
+  }
+  if (!["i-beam", "channel", "angle", "square-tube", "round-tube"].includes(shape)) {
+    return "Unsupported section shape.";
+  }
+  return null;
+}
+
+/**
  * Strong-axis second moment of area, Ix, in mm^4.
  *
  * These are geometry-only closed-form equations. Material design values and

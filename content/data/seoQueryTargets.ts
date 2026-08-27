@@ -235,7 +235,7 @@ export const seoQueryTargets = [
     intent: "technical",
     title: "FRP Calculator — Beam, Load & Section Properties",
     description:
-      "Run bending, shear and deflection checks for pultruded FRP profiles with LRFD or ASD methods and EN 13706, GB 50608 and ASCE 74-23 inputs.",
+      "Run preliminary bending, shear and deflection screens for pultruded FRP profiles with method-specific EN, GB and ASCE-oriented input datasets.",
     supportingUrls: ["/frp-span-tables", "/products/fiberglass-structural-shapes"],
   },
   {
