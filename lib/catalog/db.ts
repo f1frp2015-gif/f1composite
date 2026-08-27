@@ -12,6 +12,7 @@
 
 import postgres from "postgres";
 import type { Geometry } from "./shapes";
+import { SEP0043_PROJECT, SEP0043_SECTIONS } from "@/lib/tradeos/sep0043";
 
 function getSql() {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
@@ -98,6 +99,64 @@ export async function ensureCatalogTables(sqlIn?: NonNullable<ReturnType<typeof 
   await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS resin_family      TEXT`;
   await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_l_mpa NUMERIC`;
   await sql`ALTER TABLE catalog_formulations ADD COLUMN IF NOT EXISTS pin_bearing_t_mpa NUMERIC`;
+  await sql`ALTER TABLE catalog_products ADD COLUMN IF NOT EXISTS base_section_code  TEXT`;
+  await sql`ALTER TABLE catalog_products ADD COLUMN IF NOT EXISTS global_designation TEXT`;
+  await sql`ALTER TABLE catalog_products ADD COLUMN IF NOT EXISTS en_shape_code       TEXT`;
+  await sql`
+    CREATE TABLE IF NOT EXISTS tradeos_projects (
+      id                        BIGSERIAL PRIMARY KEY,
+      project_ref               TEXT NOT NULL UNIQUE,
+      customer                  TEXT NOT NULL,
+      title                     TEXT NOT NULL,
+      annual_volume_m           NUMERIC,
+      cut_length_min_mm         NUMERIC,
+      cut_length_max_mm         NUMERIC,
+      quote_currency            TEXT,
+      source_document           TEXT,
+      price_scope               TEXT,
+      finishing_requirement     TEXT,
+      environmental_requirement TEXT,
+      fst_requirement           TEXT,
+      grade_requirement         TEXT,
+      status                    TEXT NOT NULL DEFAULT 'scoping',
+      notes                     TEXT,
+      created_at                TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at                TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS tradeos_project_sections (
+      id                         BIGSERIAL PRIMARY KEY,
+      project_ref                TEXT NOT NULL REFERENCES tradeos_projects(project_ref) ON UPDATE CASCADE ON DELETE RESTRICT,
+      line_no                    INT NOT NULL,
+      project_item_ref           TEXT NOT NULL UNIQUE,
+      source_designation         TEXT NOT NULL,
+      global_designation         TEXT NOT NULL,
+      base_section_code          TEXT NOT NULL,
+      shape_code                 TEXT NOT NULL,
+      en_shape_code              TEXT NOT NULL,
+      section_family             TEXT,
+      geometry                   JSONB,
+      geometry_status            TEXT NOT NULL DEFAULT 'drawing_required',
+      catalog_match              TEXT,
+      pricing_requested          BOOLEAN NOT NULL DEFAULT false,
+      grade_options              TEXT,
+      resin_type_options         TEXT,
+      resin_property_options     TEXT,
+      additional_process_options TEXT,
+      measured_weight_kg_m       NUMERIC,
+      tooling_route              TEXT NOT NULL DEFAULT 'to_assess',
+      tooling_cost_gbp           NUMERIC,
+      tooling_lead_weeks         NUMERIC,
+      indicative_price_gbp_m     NUMERIC,
+      machining                  TEXT,
+      status                     TEXT NOT NULL DEFAULT 'candidate',
+      notes                      TEXT,
+      created_at                 TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at                 TIMESTAMPTZ NOT NULL DEFAULT now(),
+      UNIQUE(project_ref, line_no)
+    )
+  `;
   // single-operator back-office settings (admin password hash, etc.)
   await sql`
     CREATE TABLE IF NOT EXISTS admin_settings (
@@ -106,7 +165,72 @@ export async function ensureCatalogTables(sqlIn?: NonNullable<ReturnType<typeof 
       updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await seedSep0043Project(sql);
   ready = true;
+}
+
+async function seedSep0043Project(sql: NonNullable<ReturnType<typeof getSql>>) {
+  const p = SEP0043_PROJECT;
+  await sql`
+    INSERT INTO tradeos_projects
+      (project_ref, customer, title, annual_volume_m, cut_length_min_mm, cut_length_max_mm,
+       quote_currency, source_document, price_scope, finishing_requirement,
+       environmental_requirement, fst_requirement, grade_requirement, status, notes)
+    VALUES
+      (${p.project_ref}, ${p.customer}, ${p.title}, ${p.annual_volume_m}, ${p.cut_length_min_mm},
+       ${p.cut_length_max_mm}, ${p.quote_currency}, ${p.source_document}, ${p.price_scope},
+       ${p.finishing_requirement}, ${p.environmental_requirement}, ${p.fst_requirement},
+       ${p.grade_requirement}, ${p.status}, ${p.notes})
+    ON CONFLICT (project_ref) DO UPDATE SET
+      customer = EXCLUDED.customer,
+      title = EXCLUDED.title,
+      annual_volume_m = EXCLUDED.annual_volume_m,
+      cut_length_min_mm = EXCLUDED.cut_length_min_mm,
+      cut_length_max_mm = EXCLUDED.cut_length_max_mm,
+      quote_currency = EXCLUDED.quote_currency,
+      source_document = EXCLUDED.source_document,
+      price_scope = EXCLUDED.price_scope,
+      finishing_requirement = EXCLUDED.finishing_requirement,
+      environmental_requirement = EXCLUDED.environmental_requirement,
+      fst_requirement = EXCLUDED.fst_requirement,
+      grade_requirement = EXCLUDED.grade_requirement,
+      updated_at = now()
+  `;
+
+  for (const s of SEP0043_SECTIONS) {
+    await sql`
+      INSERT INTO tradeos_project_sections
+        (project_ref, line_no, project_item_ref, source_designation, global_designation,
+         base_section_code, shape_code, en_shape_code, section_family, geometry,
+         geometry_status, catalog_match, pricing_requested, grade_options,
+         resin_type_options, resin_property_options, additional_process_options,
+         tooling_route, status, notes)
+      VALUES
+        (${s.project_ref}, ${s.line_no}, ${s.project_item_ref}, ${s.source_designation},
+         ${s.global_designation}, ${s.base_section_code}, ${s.shape_code}, ${s.en_shape_code},
+         ${s.section_family}, ${s.geometry == null ? null : JSON.stringify(s.geometry)}::jsonb,
+         ${s.geometry_status}, ${s.catalog_match}, ${s.pricing_requested}, ${s.grade_options},
+         ${s.resin_type_options}, ${s.resin_property_options}, ${s.additional_process_options},
+         ${s.tooling_route}, ${s.status}, ${s.notes})
+      ON CONFLICT (project_ref, line_no) DO UPDATE SET
+        project_item_ref = EXCLUDED.project_item_ref,
+        source_designation = EXCLUDED.source_designation,
+        global_designation = EXCLUDED.global_designation,
+        base_section_code = EXCLUDED.base_section_code,
+        shape_code = EXCLUDED.shape_code,
+        en_shape_code = EXCLUDED.en_shape_code,
+        section_family = EXCLUDED.section_family,
+        geometry = EXCLUDED.geometry,
+        geometry_status = EXCLUDED.geometry_status,
+        catalog_match = EXCLUDED.catalog_match,
+        pricing_requested = EXCLUDED.pricing_requested,
+        grade_options = EXCLUDED.grade_options,
+        resin_type_options = EXCLUDED.resin_type_options,
+        resin_property_options = EXCLUDED.resin_property_options,
+        additional_process_options = EXCLUDED.additional_process_options,
+        updated_at = now()
+    `;
+  }
 }
 
 // ── admin settings (key/value) ──────────────────────────────────────────────
@@ -175,6 +299,9 @@ export interface ProductRow {
   category_id: number | null;
   formulation_id: number | null;
   geometry: Geometry | null;
+  base_section_code?: string | null;
+  global_designation?: string | null;
+  en_shape_code?: string | null;
   weight_per_m: number | null;
   standards: string | null;
   applications: string | null;
@@ -195,6 +322,54 @@ export interface DownloadRow {
   category: string | null;
   sort: number;
   published: boolean;
+}
+
+export interface TradeOsProjectRow {
+  id: number;
+  project_ref: string;
+  customer: string;
+  title: string;
+  annual_volume_m: number | null;
+  cut_length_min_mm: number | null;
+  cut_length_max_mm: number | null;
+  quote_currency: string | null;
+  source_document: string | null;
+  price_scope: string | null;
+  finishing_requirement: string | null;
+  environmental_requirement: string | null;
+  fst_requirement: string | null;
+  grade_requirement: string | null;
+  status: string;
+  notes: string | null;
+}
+
+export interface TradeOsProjectSectionRow {
+  id: number;
+  project_ref: string;
+  line_no: number;
+  project_item_ref: string;
+  source_designation: string;
+  global_designation: string;
+  base_section_code: string;
+  shape_code: string;
+  en_shape_code: string;
+  section_family: string | null;
+  geometry: Geometry | null;
+  geometry_status: string;
+  catalog_match: string | null;
+  pricing_requested: boolean;
+  grade_options: string | null;
+  resin_type_options: string | null;
+  resin_property_options: string | null;
+  additional_process_options: string | null;
+  measured_weight_kg_m: number | null;
+  tooling_route: string;
+  tooling_cost_gbp: number | null;
+  tooling_lead_weeks: number | null;
+  indicative_price_gbp_m: number | null;
+  machining: string | null;
+  status: string;
+  notes: string | null;
 }
 
 // ── readers (public + admin) ───────────────────────────────────────────────
@@ -262,10 +437,26 @@ const TABLE_COLUMNS: Record<string, string[]> = {
   ],
   catalog_products: [
     "model", "name", "category_id", "formulation_id", "geometry", "weight_per_m",
+    "base_section_code", "global_designation", "en_shape_code",
     "standards", "applications", "tolerances", "status", "sort",
   ],
   catalog_downloads: [
     "title", "format", "size", "description", "file_url", "category", "sort", "published",
+  ],
+  tradeos_projects: [
+    "project_ref", "customer", "title", "annual_volume_m", "cut_length_min_mm",
+    "cut_length_max_mm", "quote_currency", "source_document", "price_scope",
+    "finishing_requirement", "environmental_requirement", "fst_requirement",
+    "grade_requirement", "status", "notes",
+  ],
+  tradeos_project_sections: [
+    "project_ref", "line_no", "project_item_ref", "source_designation",
+    "global_designation", "base_section_code", "shape_code", "en_shape_code",
+    "section_family", "geometry", "geometry_status", "catalog_match",
+    "pricing_requested", "grade_options", "resin_type_options",
+    "resin_property_options", "additional_process_options", "measured_weight_kg_m",
+    "tooling_route", "tooling_cost_gbp", "tooling_lead_weeks",
+    "indicative_price_gbp_m", "machining", "status", "notes",
   ],
 };
 
@@ -364,6 +555,12 @@ export async function adminList(table: CatalogTable): Promise<Record<string, unk
   const sql = getSql();
   if (!sql) return [];
   await ensureCatalogTables(sql);
-  const order = table === "catalog_products" || table === "catalog_downloads" ? "sort, id" : "id";
+  const order = table === "catalog_products" || table === "catalog_downloads"
+    ? "sort, id"
+    : table === "tradeos_projects"
+      ? "project_ref, id"
+      : table === "tradeos_project_sections"
+        ? "project_ref, line_no, id"
+        : "id";
   return sql.unsafe<Record<string, unknown>[]>(`SELECT * FROM ${table} ORDER BY ${order}`, []);
 }

@@ -20,7 +20,13 @@ const TABLE_ALIAS: Record<string, string> = {
   formulations: "catalog_formulations",
   products: "catalog_products",
   downloads: "catalog_downloads",
+  projects: "tradeos_projects",
+  project_sections: "tradeos_project_sections",
 };
+
+function isGeometryTable(table: string) {
+  return table === "catalog_products" || table === "tradeos_project_sections";
+}
 
 async function resolveTable(ctx: Ctx) {
   const { table } = await ctx.params;
@@ -54,7 +60,7 @@ export async function POST(request: Request, ctx: Ctx) {
   } catch {
     return NextResponse.json({ ok: false, error: "Bad JSON" }, { status: 400 });
   }
-  if (table === "catalog_products" && body.geometry != null) {
+  if (isGeometryTable(table) && body.geometry != null) {
     const err = validateGeometry(body.geometry);
     if (err) return NextResponse.json({ ok: false, error: `geometry: ${err}` }, { status: 400 });
   }
@@ -76,7 +82,7 @@ export async function PUT(request: Request, ctx: Ctx) {
   if (!Number.isFinite(id) || !body.values) {
     return NextResponse.json({ ok: false, error: "id and values required" }, { status: 400 });
   }
-  if (table === "catalog_products" && body.values.geometry != null) {
+  if (isGeometryTable(table) && body.values.geometry != null) {
     const err = validateGeometry(body.values.geometry);
     if (err) return NextResponse.json({ ok: false, error: `geometry: ${err}` }, { status: 400 });
   }

@@ -3,7 +3,7 @@ import AdminApp from "./AdminApp";
 
 // Back office — never indexed, never in the sitemap, no SEO metadata pipeline.
 export const metadata: Metadata = {
-  title: "Catalog Admin",
+  title: "F1 TradeOS",
   robots: { index: false, follow: false },
 };
 
