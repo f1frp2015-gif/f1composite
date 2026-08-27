@@ -4,7 +4,7 @@ import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
-import { getAIGatewayModel, logAIGatewayStreamError } from "@/lib/aiGateway";
+import { getAIModel, logAIStreamError } from "@/lib/aiProvider";
 
 // Sourcing prompts shorter than this are throwaway and don't alert the team.
 const SOURCING_NOTIFY_MIN_LEN = 24;
@@ -47,7 +47,7 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
 Return ONLY the schema-compliant object. Never include markdown, prose preamble, or chat-style framing.`;
 
 export async function POST(req: Request) {
-  // Throttle: this surface calls AI Gateway AND fires a lead email per qualifying
+  // Throttle: this surface calls the AI provider AND fires a lead email per qualifying
   // prompt, so cap both LLM cost-abuse and notification-inbox bombing per IP.
   const rl = rateLimit(req, "sourcing", { limit: 8, windowMs: 600_000 });
   if (!rl.ok) {
@@ -117,15 +117,12 @@ export async function POST(req: Request) {
     }
 
     const result = streamObject({
-      model: getAIGatewayModel("sourcing"),
+      model: getAIModel("sourcing"),
       schema: sourcingRecommendationSchema,
       system: SYSTEM_PROMPT,
       prompt: prompt.trim(),
       maxOutputTokens: 4096,
-      providerOptions: {
-        openai: { reasoningEffort: "low" },
-      },
-      onError: ({ error }) => logAIGatewayStreamError("sourcing", error),
+      onError: ({ error }) => logAIStreamError("sourcing", error),
     });
 
     return result.toTextStreamResponse();

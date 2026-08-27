@@ -1,6 +1,6 @@
 import { streamText } from "ai";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
-import { getAIGatewayModel, logAIGatewayStreamError } from "@/lib/aiGateway";
+import { getAIModel, logAIStreamError } from "@/lib/aiProvider";
 
 const SYSTEM_PROMPT = `You are an FRP engineering article summarizer. Given a long-form technical article from F1 Composite, return three concise bullets (one line each, plain text, no markdown). Each bullet starts with "- ". Each bullet captures one engineering takeaway a specifying engineer or buyer would act on. No fluff, no preamble, no closing line. Total output under 80 words.`;
 
@@ -34,14 +34,11 @@ export async function POST(req: Request) {
     const trimmed = content.length > 12000 ? content.slice(0, 12000) : content;
 
     const result = streamText({
-      model: getAIGatewayModel("summarize"),
+      model: getAIModel("summarize"),
       system: SYSTEM_PROMPT,
       prompt: `Article title: ${title}\n\nArticle body:\n${trimmed}`,
       maxOutputTokens: 400,
-      providerOptions: {
-        openai: { reasoningEffort: "minimal" },
-      },
-      onError: ({ error }) => logAIGatewayStreamError("summarize", error),
+      onError: ({ error }) => logAIStreamError("summarize", error),
     });
 
     return result.toTextStreamResponse();

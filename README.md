@@ -16,20 +16,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The server-side AI routes use Vercel AI Gateway. Vercel deployments authenticate
-automatically with `VERCEL_OIDC_TOKEN`, so no provider API key is required in
-Production. For local development outside `vercel dev`, create an AI Gateway key
-and put it in `.env.local`:
+The server-side AI routes use the Google Gemini API. Create a Gemini API key in
+Google AI Studio and put it in `.env.local` for local development:
 
 ```bash
-AI_GATEWAY_API_KEY=your_vercel_ai_gateway_key
-# Optional global override; role-aware low-cost OpenAI defaults are used otherwise.
-AI_GATEWAY_MODEL=openai/gpt-5-mini
+GEMINI_API_KEY=your_google_gemini_api_key
+# Optional global model override.
+GOOGLE_AI_MODEL=gemini-3.7-flash
 ```
 
-The defaults are `openai/gpt-5-mini` for chat and sourcing, and
-`openai/gpt-5-nano` for summaries. Do not prefix the key with `NEXT_PUBLIC_`;
-it must remain server-only.
+The defaults are `gemini-3.7-flash` for chat and sourcing, and
+`gemini-3.5-flash-lite` for summaries. `GOOGLE_API_KEY` and
+`GOOGLE_GENERATIVE_AI_API_KEY` are accepted as compatibility aliases. Do not
+prefix the key with `NEXT_PUBLIC_`; it must remain server-only. Configure one
+of these supported key names in Vercel Production, and in Preview when preview
+deployments also need to make live Gemini requests.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

@@ -43,12 +43,53 @@ function parseGeometry(raw: unknown): Geometry | null {
       if (leg === null || t === null) return null;
       return { type: "angle", leg, t };
     }
+    case "unequal_angle": {
+      const a = num(g.a, 10, 400);
+      const b = num(g.b, 10, 400);
+      const t = num(g.t, 1, 40);
+      if (a === null || b === null || t === null || t >= Math.min(a, b)) return null;
+      return { type: "unequal_angle", a, b, t };
+    }
     case "channel": {
       const w = num(g.w, 20, 300);
       const h = num(g.h, 20, 400);
       const t = num(g.t, 1, 30);
       if (w === null || h === null || t === null) return null;
       return { type: "channel", w, h, t };
+    }
+    case "unequal_channel": {
+      const b1 = num(g.b1, 10, 400);
+      const b2 = num(g.b2, 10, 400);
+      const h = num(g.h, 20, 500);
+      const t = num(g.t, 1, 40);
+      if (b1 === null || b2 === null || h === null || t === null || t >= Math.min(b1, b2, h)) return null;
+      return { type: "unequal_channel", b1, b2, h, t };
+    }
+    case "tee": {
+      const b = num(g.b, 20, 500);
+      const h = num(g.h, 20, 600);
+      const tf = num(g.tf, 1, 50);
+      const tw = num(g.tw, 1, 50);
+      if (b === null || h === null || tf === null || tw === null || tf >= h || tw >= b) return null;
+      return { type: "tee", b, h, tf, tw };
+    }
+    case "offset_tee": {
+      const bl = num(g.bl, 5, 500);
+      const br = num(g.br, 5, 500);
+      const h = num(g.h, 20, 600);
+      const t = num(g.t, 1, 50);
+      if (bl === null || br === null || h === null || t === null || t >= h || t >= bl + br) return null;
+      return { type: "offset_tee", bl, br, h, t };
+    }
+    case "strut": {
+      const b = num(g.b, 20, 300);
+      const h = num(g.h, 20, 300);
+      const t = num(g.t, 1, 20);
+      const lip = num(g.lip, 2, 100);
+      const ret = num(g.return, 2, 100);
+      if (b === null || h === null || t === null || lip === null || ret === null) return null;
+      if (2 * t >= Math.min(b, h) || lip + t >= b / 2 || ret >= h - t) return null;
+      return { type: "strut", b, h, t, lip, return: ret };
     }
     case "i_beam": {
       const bf = num(g.bf, 20, 400);
