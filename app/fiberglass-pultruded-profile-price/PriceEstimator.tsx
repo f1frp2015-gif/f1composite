@@ -18,6 +18,8 @@ type ApiResult = {
   usdTotalLow: number;
   usdTotalHigh: number;
   kgPerMeter: number;
+  weightBasis: "published_catalog" | "calculated_nominal";
+  matchedProfileModel?: string;
   warnings: string[];
   engineVersion: string;
 };
@@ -118,15 +120,20 @@ export default function PriceEstimator() {
         totalMeters,
       }),
     })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then(async (r) => {
+        const data = await r.json();
+        if (!r.ok) throw new Error(typeof data.error === "string" ? data.error : String(r.status));
+        return data;
+      })
       .then((data: ApiResult) => {
         if (seq.current !== mySeq) return;
         setResult(data);
         setError(null);
       })
-      .catch(() => {
+      .catch((reason: unknown) => {
         if (seq.current !== mySeq) return;
-        setError("Check the dimensions — the estimator could not price this section.");
+        setResult(null);
+        setError(reason instanceof Error ? reason.message : "Check the dimensions — the estimator could not price this section.");
       })
       .finally(() => {
         if (seq.current === mySeq) setLoading(false);
@@ -234,6 +241,11 @@ export default function PriceEstimator() {
             <ul className="mt-[13px] space-y-[5px] text-f13 text-t2">
               <li>&asymp; ${fmtUsd(result.usdPerKgLow)}&ndash;${fmtUsd(result.usdPerKgHigh)} per kg</li>
               <li>Section mass: {result.kgPerMeter} kg/m</li>
+              <li className="text-f11 text-t3">
+                {result.weightBasis === "published_catalog"
+                  ? `Published catalog mass${result.matchedProfileModel ? ` — ${result.matchedProfileModel}` : ""}`
+                  : "Nominal mass calculated from section area and composite density"}
+              </li>
               <li>
                 Order total ({totalMeters.toLocaleString("en-US")} m): ${fmtUsd(result.usdTotalLow)}&ndash;$
                 {fmtUsd(result.usdTotalHigh)}
@@ -251,10 +263,10 @@ export default function PriceEstimator() {
           <p className="mt-[13px] text-f15 text-t2">Calculating&hellip;</p>
         )}
         <p className="mt-[13px] text-f11 leading-golden text-t3">
-          Budgetary estimate, &plusmn;15% band, excludes ocean freight and import duty. Section
-          mass is computed from the nominal rectangular section; where a published datasheet
-          weight exists, the datasheet prevails in quotations. Firm pricing comes from a written
-          quotation against your drawing and quantity.
+          Budgetary estimate, &plusmn;15% band, excludes ocean freight and import duty. Exact standard
+          E-glass/polyester sections use the same published kg/m values as the product catalog and
+          span tables; custom dimensions and other material systems use a labeled nominal calculation.
+          Firm pricing comes from a written quotation against your drawing and quantity.
         </p>
         <Link
           href="/contact?source=price-estimator&inquiry_type=rfq"

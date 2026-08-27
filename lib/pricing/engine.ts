@@ -12,18 +12,14 @@
 // → × (1+margin) → × (1+VAT) → ±band → CNY/m range → USD export display
 // (× (1+EXPORT_MARKUP) ÷ USD_CNY_RATE).
 
+import { findStandardProfile } from "@/lib/catalog/standardProfiles";
+import { calcArea } from "@/lib/frpSectionProperties";
+import { getPriceGeometryError, toStandardSection, type Geometry, type ProfileType } from "./geometry";
+
+export type { Geometry, ProfileType } from "./geometry";
+
 export type Fiber = "e_glass" | "ecr_glass" | "carbon";
 export type Resin = "up" | "ve" | "epoxy" | "pu" | "phenolic";
-
-export type Geometry =
-  | { type: "round"; od: number; id: number }
-  | { type: "square"; side: number; t: number }
-  | { type: "rect"; w: number; h: number; t: number }
-  | { type: "angle"; leg: number; t: number }
-  | { type: "channel"; w: number; h: number; t: number }
-  | { type: "i_beam"; bf: number; tf: number; h: number; tw: number };
-
-export type ProfileType = Geometry["type"];
 
 export interface PriceInput {
   geometry: Geometry;
@@ -46,13 +42,15 @@ export interface PriceResult {
   usdTotalLow: number;
   usdTotalHigh: number;
   kgPerMeter: number;
+  weightBasis: "published_catalog" | "calculated_nominal";
+  matchedProfileModel?: string;
   totalMeters: number;
   band: number;
   warnings: string[];
   engineVersion: string;
 }
 
-export const ENGINE_VERSION = "f1c-price-1.0+2026-05-30-r7";
+export const ENGINE_VERSION = "f1c-price-1.1+2026-08-27-p0";
 export const PRICE_BASIS_DATE = "2026-06-30";
 
 // ── Material unit prices, CNY/kg (untaxed averages, 2026-Q2 basis) ──────────
@@ -117,32 +115,10 @@ const FIBER_DENSITY: Record<Fiber, number> = { e_glass: 2.55, ecr_glass: 2.62, c
 const RESIN_DENSITY: Record<Resin, number> = { up: 1.18, epoxy: 1.2, ve: 1.12, phenolic: 1.3, pu: 1.15 };
 
 export function crossSectionMm2(g: Geometry): number {
-  switch (g.type) {
-    case "round": {
-      const R = g.od / 2;
-      const r = g.id / 2;
-      return Math.PI * (R * R - r * r);
-    }
-    case "square": {
-      const inner = Math.max(0, g.side - 2 * g.t);
-      return g.side * g.side - inner * inner;
-    }
-    case "rect": {
-      const innerW = Math.max(0, g.w - 2 * g.t);
-      const innerH = Math.max(0, g.h - 2 * g.t);
-      return g.w * g.h - innerW * innerH;
-    }
-    case "angle":
-      return 2 * g.leg * g.t - g.t * g.t;
-    case "channel": {
-      const flange = Math.max(0, g.w - g.t) * g.t;
-      return g.h * g.t + 2 * flange;
-    }
-    case "i_beam": {
-      const webHeight = Math.max(0, g.h - 2 * g.tf);
-      return 2 * g.bf * g.tf + webHeight * g.tw;
-    }
-  }
+  const error = getPriceGeometryError(g);
+  if (error) throw new RangeError(error);
+  const section = toStandardSection(g);
+  return calcArea(section.shape, section.h, section.b, section.tw, section.tf);
 }
 
 function outerPerimeterMm(g: Geometry): number {
@@ -175,12 +151,22 @@ export function weightKgPerMeter(g: Geometry, fiber: Fiber, resin: Resin, fiberC
 
 // ── Engine ──────────────────────────────────────────────────────────────────
 export function estimatePrice(input: PriceInput): PriceResult {
+  const geometryError = getPriceGeometryError(input.geometry);
+  if (geometryError) throw new RangeError(geometryError);
+  if (!Number.isFinite(input.totalMeters) || input.totalMeters <= 0) {
+    throw new RangeError("Total order length must be greater than zero.");
+  }
   const warnings: string[] = [];
   // Glass content by weight — used both for the density model and the
   // material-cost split between fiber and resin.
   const fiberWf = (input.fiberContentPct ?? 70) / 100;
 
-  const kgPerM = weightKgPerMeter(input.geometry, input.fiber, input.resin, input.fiberContentPct ?? 70);
+  const catalogProfile =
+    input.fiber === "e_glass" && input.resin === "up" && (input.fiberContentPct ?? 70) === 70
+      ? findStandardProfile(toStandardSection(input.geometry))
+      : null;
+  const weightBasis = catalogProfile ? "published_catalog" : "calculated_nominal";
+  const kgPerM = catalogProfile?.weight ?? weightKgPerMeter(input.geometry, input.fiber, input.resin, input.fiberContentPct ?? 70);
 
   const fiberKgPerM = kgPerM * fiberWf;
   const resinKgPerM = kgPerM * (1 - fiberWf);
@@ -234,6 +220,8 @@ export function estimatePrice(input: PriceInput): PriceResult {
     usdTotalLow: Math.round(usdPerMeterLow * input.totalMeters),
     usdTotalHigh: Math.round(usdPerMeterHigh * input.totalMeters),
     kgPerMeter: round2(kgPerM),
+    weightBasis,
+    ...(catalogProfile ? { matchedProfileModel: catalogProfile.model } : {}),
     totalMeters: input.totalMeters,
     band: QUOTE_BAND,
     warnings,

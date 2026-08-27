@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import SectionPreview from "@/components/calculators/section/SectionPreview";
-import { calcArea, calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
+import { calcArea, calcIx, calcShearArea, calcWx, getSectionDimensionError } from "@/lib/frpSectionProperties";
+import { findStandardProfile } from "@/lib/catalog/standardProfiles";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -42,9 +43,11 @@ const materials: Record<string, Material> = {
   // GB 50608-2020 (China FRP application code) / T/CECS 692-2020 (pultruded profile regulation)
   "frp-gb50608-i":  { label: "FRP GB 50608 Class I",  group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
   "frp-gb50608-ii": { label: "FRP GB 50608 Class II", group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 17, E_T: 5, G_LT: 3,   sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
-  // ASCE/SEI 74-23 (US official FRP design standard, 2024 — supersedes 2010 ACMA Pre-Standard)
-  "frp-asce-std":  { label: "FRP ASCE/SEI 74-23 Standard",         group: "FRP", standard: "ASCE/SEI 74-23", E: 17.2, E_T: 5.5, G_LT: 3,   sigma: 207, sigma_c: 207, tau: 31, density: 1.8 },
-  "frp-asce-high": { label: "FRP ASCE/SEI 74-23 High-Performance", group: "FRP", standard: "ASCE/SEI 74-23", E: 27.6, E_T: 8.3, G_LT: 4,   sigma: 345, sigma_c: 290, tau: 45, density: 1.9 },
+  // Illustrative balanced-GFRP screening inputs. ASCE/SEI 74-23 is a design
+  // standard, not a material grade; project qualification data must replace
+  // these values before a design is released.
+  "frp-asce-std":  { label: "Balanced GFRP — illustrative standard-property set", group: "FRP", standard: "Illustrative inputs for ASCE/SEI 74-23 screening — qualification data required", E: 17.2, E_T: 5.5, G_LT: 3, sigma: 207, sigma_c: 207, tau: 31, density: 1.8 },
+  "frp-asce-high": { label: "Balanced GFRP — illustrative high-property set", group: "FRP", standard: "Illustrative inputs for ASCE/SEI 74-23 screening — qualification data required", E: 27.6, E_T: 8.3, G_LT: 4, sigma: 345, sigma_c: 290, tau: 45, density: 1.9 },
   // Metals — single E and yield σ
   "steel-s235": { label: "Steel S235 (EN 10025)",  group: "Metal", standard: "EN 10025-2",         E: 210, sigma: 235, density: 7.85 },
   "steel-s355": { label: "Steel S355 (EN 10025)",  group: "Metal", standard: "EN 10025-2",         E: 210, sigma: 355, density: 7.85 },
@@ -97,6 +100,7 @@ function CustomGradeInputs({
             <label className={labelClass}>{f.label}</label>
             <input
               type="number"
+              min="0.001"
               step={f.step}
               value={mat[f.key]}
               onChange={(e) => setMat((m) => ({ ...m, [f.key]: +e.target.value }))}
@@ -124,10 +128,24 @@ type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
    load governed, so γ_Q applies: 1.6 (ASCE 7), 1.5 (EN 1990), 1.5 (GB 55001).
    ASCE 74-23's time-effect factor λ for sustained loads is NOT modeled. */
 const designMethods: Record<DesignMethod, { label: string; phiFlex: number; phiShear: number; loadFactor: number; basis: string }> = {
-  "lrfd-asce":       { label: "LRFD — ASCE/SEI 74-23",            phiFlex: 0.65,   phiShear: 0.65,   loadFactor: 1.6,  basis: "ASCE/SEI 74-23 — φ·R_n ≥ γ·Q (γ_Q = 1.6 live-dominated; λ not modeled)" },
-  "lrfd-cents19101": { label: "Partial-factor — CEN/TS 19101:2022", phiFlex: 1/1.5,  phiShear: 1/1.5,  loadFactor: 1.5,  basis: "CEN/TS 19101 §4 — R_k/γ_M ≥ γ_F·E_k (γ_Q = 1.5 variable actions, EN 1990)" },
-  "lrfd-gb50608":    { label: "LRFD — GB 50608-2020",              phiFlex: 1/1.6,  phiShear: 1/1.6,  loadFactor: 1.5,  basis: "GB 50608-2020 §3.3 — R_k/γ_R ≥ γ_G·G_k + γ_Q·Q_k (γ_Q = 1.5, GB 55001-2021)" },
-  "asd":             { label: "ASD — Allowable Stress (legacy)",   phiFlex: 1/2.5,  phiShear: 1/3.0,  loadFactor: 1.0,  basis: "Allowable Stress Design — σ_allow = F_u / FS (FS≈2.5 bending, 3.0 shear)" },
+  "lrfd-asce":       { label: "Preliminary LRFD screen — ASCE/SEI 74-23", phiFlex: 0.65, phiShear: 0.65, loadFactor: 1.6, basis: "Preliminary global beam screen using ASCE/SEI 74-23-style φ and live-load γ_Q; not a complete code check and λ is not modeled" },
+  "lrfd-cents19101": { label: "Preliminary partial-factor screen — CEN/TS 19101:2022", phiFlex: 1/1.5, phiShear: 1/1.5, loadFactor: 1.5, basis: "Preliminary global beam screen using CEN/TS 19101-style γ_M and EN 1990 variable-action γ_Q; not a complete code check" },
+  "lrfd-gb50608":    { label: "Preliminary LRFD screen — GB 50608-2020", phiFlex: 1/1.6, phiShear: 1/1.6, loadFactor: 1.5, basis: "Preliminary global beam screen using GB 50608-style γ_R and GB 55001 variable-action γ_Q; not a complete code check" },
+  "asd":             { label: "Preliminary ASD screen — user-selected properties", phiFlex: 1/2.5, phiShear: 1/3.0, loadFactor: 1.0, basis: "Preliminary allowable-stress screen: F/2.5 bending and F/3.0 shear; not a code compliance check" },
+};
+
+const METHOD_MATERIALS: Record<DesignMethod, string[]> = {
+  "lrfd-asce": ["frp-asce-std", "frp-asce-high"],
+  "lrfd-cents19101": ["frp-e17", "frp-e23"],
+  "lrfd-gb50608": ["frp-gb50608-i", "frp-gb50608-ii"],
+  "asd": ["frp-e17", "frp-e23", "frp-gb50608-i", "frp-gb50608-ii", "frp-asce-std", "frp-asce-high", "custom"],
+};
+
+const DEFAULT_MATERIAL_BY_METHOD: Record<DesignMethod, string> = {
+  "lrfd-asce": "frp-asce-std",
+  "lrfd-cents19101": "frp-e23",
+  "lrfd-gb50608": "frp-gb50608-i",
+  "asd": "frp-e23",
 };
 
 /* Environmental knockdown — multiplied onto FRP characteristic strengths.
@@ -200,10 +218,10 @@ type Preset = {
   dimH: number; dimB: number; dimTw: number; dimTf: number; designMethod: DesignMethod;
 };
 const PRESETS: Preset[] = [
-  { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 240, dimB: 120, dimTw: 12, dimTf: 12, designMethod: "lrfd-asce" },
-  { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 5, dimTf: 5, designMethod: "lrfd-asce" },
-  { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-e23", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
-  { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-e23", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
+  { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 360, dimH: 240, dimB: 120, dimTw: 12, dimTf: 12, designMethod: "lrfd-asce" },
+  { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 5, dimTf: 5, designMethod: "lrfd-asce" },
+  { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-asce-std", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
+  { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
 ];
 
 // Wall-slenderness advisory for local-buckling review. Outstanding (one-edge-
@@ -218,19 +236,6 @@ function slendernessCheck(shape: string, h: number, b: number, tw: number, tf: n
   if (shape === "square-tube") return { ratio: (Math.max(h, b) - 2 * tw) / tw, limit: 40, label: "box flat-width b/t" };
   if (shape === "round-tube") return { ratio: h / tw, limit: 40, label: "tube D/t" };
   return { ratio: 0, limit: 18, label: "b/t" };
-}
-
-// Numeric-path guard mirroring geometry.ts: reject degenerate dimensions
-// (walls thicker than the section allows) that would otherwise yield silently
-// wrong section properties — e.g. tw > B makes the inner term negative and
-// inflates Ix instead of failing.
-function dimsValid(shape: string, h: number, b: number, tw: number, tf: number): boolean {
-  const pos = (...vals: number[]) => vals.every((v) => Number.isFinite(v) && v > 0);
-  if (shape === "i-beam" || shape === "channel") return pos(h, b, tw, tf) && tf * 2 < h && tw < b;
-  if (shape === "angle") return pos(h, b, tw) && tw < h && tw < b;
-  if (shape === "square-tube") return pos(h, b, tw) && tw * 2 < Math.min(h, b);
-  if (shape === "round-tube") return pos(h, tw) && tw < h / 2;
-  return false;
 }
 
 /* Standard wall thicknesses (mm) offered as quick-select, per material family.
@@ -272,7 +277,7 @@ export default function ProfileCalculator() {
   const [mode, setMode] = useState<Mode>("beam");
 
   // Beam state
-  const [matKey, setMatKey] = useState("frp-e23");
+  const [matKey, setMatKey] = useState("frp-asce-std");
   const [loadType, setLoadType] = useState("udl");
   const [span, setSpan] = useState(3000);
   const [load, setLoad] = useState(5);
@@ -320,7 +325,7 @@ export default function ProfileCalculator() {
     };
     if (sp.get("mode") === "equivalence") setMode("equivalence");
     str("shape", setShape, profileShapes.map((s) => s.id));
-    str("material", setMatKey, [...Object.keys(materials), "custom"]);
+    str("material", setMatKey, [...Object.keys(materials).filter((key) => materials[key].group === "FRP"), "custom"]);
     str("env", setEnvKey, envFactors.map((e) => e.id));
     str("load_type", setLoadType, loadTypes.map((l) => l.id));
     str("method", (v) => setDesignMethod(v as DesignMethod), Object.keys(designMethods));
@@ -354,6 +359,13 @@ export default function ProfileCalculator() {
     setDimH(p.dimH); setDimB(p.dimB); setDimTw(p.dimTw); setDimTf(p.dimTf);
     setDesignMethod(p.designMethod);
     track("calculator_preset", { preset: p.id });
+  }
+
+  function changeDesignMethod(next: DesignMethod) {
+    setDesignMethod(next);
+    if (!METHOD_MATERIALS[next].includes(matKey)) {
+      setMatKey(DEFAULT_MATERIAL_BY_METHOD[next]);
+    }
   }
 
   async function copyShareLink() {
@@ -414,7 +426,18 @@ export default function ProfileCalculator() {
   const isFRP = mat.group === "FRP";
   const sectionLook = isFRP ? "frp" : matKey.startsWith("alu") ? "alu" : "steel";
 
-  const dimsOk = dimsValid(shape, dimH, dimB, dimTw, dimTf);
+  const dimensionError = getSectionDimensionError(shape, dimH, dimB, dimTw, dimTf);
+  const methodCompatible = METHOD_MATERIALS[designMethod].includes(matKey);
+  const customMaterialError = matKey === "custom" && !Object.values(customMat).every((value) => Number.isFinite(value) && value > 0)
+    ? "Every custom material property must be a finite number greater than zero."
+    : null;
+  const beamInputError = dimensionError
+    ?? (!Number.isFinite(span) || span <= 0 ? "Span must be a finite number greater than zero." : null)
+    ?? (!Number.isFinite(load) || load <= 0 ? "Service load must be a finite number greater than zero." : null)
+    ?? (!Number.isFinite(deflLimit) || deflLimit <= 0 ? "Deflection limit denominator n must be greater than zero." : null)
+    ?? (!methodCompatible ? "The selected material dataset is not compatible with this screening method. Choose one of the method-specific datasets." : null)
+    ?? customMaterialError;
+  const beamInputsOk = beamInputError === null;
   const Ix = calcIx(shape, dimH, dimB, dimTw, dimTf);
   const Wx = calcWx(Ix, dimH, shape, dimB, dimTw);
   const area = calcArea(shape, dimH, dimB, dimTw, dimTf);
@@ -459,7 +482,10 @@ export default function ProfileCalculator() {
   const defl = defl_bending * shearCorrection;
   const deflShearPct = ((shearCorrection - 1) * 100);
   const deflRatio = span / (defl || 1);
-  const weightPerM = (area * mat.density) / 1000; // mm² × g/cm³ → kg/m
+  const catalogProfile = matKey === "frp-e23"
+    ? findStandardProfile({ shape: shape as "i-beam" | "channel" | "angle" | "square-tube" | "round-tube", h: dimH, b: dimB, tw: dimTw, tf: dimTf })
+    : null;
+  const weightPerM = catalogProfile?.weight ?? (area * mat.density) / 1000; // mm² × g/cm³ → kg/m
 
   // Checks
   const stressOk = sigma_max <= F_b_allow;
@@ -468,7 +494,7 @@ export default function ProfileCalculator() {
 
   // Local-buckling slenderness warning (advisory)
   const slender = slendernessCheck(shape, dimH, dimB, dimTw, dimTf);
-  const slenderWarn = isFRP && dimsOk && slender.ratio > slender.limit;
+  const slenderWarn = isFRP && beamInputsOk && slender.ratio > slender.limit;
 
   /* ── Equivalence calculation ── */
   const srcMat = materials[eqSourceMat];
@@ -478,7 +504,12 @@ export default function ProfileCalculator() {
     eqTargetMat === "custom"
       ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined (e.g. E40)", ...customMat }
       : materials[eqTargetMat];
-  const eqDimsOk = dimsValid(eqShape, eqH, eqB, eqTw, eqTf);
+  const eqDimensionError = getSectionDimensionError(eqShape, eqH, eqB, eqTw, eqTf);
+  const eqMaterialError = eqTargetMat === "custom" && !Object.values(customMat).every((value) => Number.isFinite(value) && value > 0)
+    ? "Every custom FRP property must be a finite number greater than zero."
+    : null;
+  const eqInputError = eqDimensionError ?? eqMaterialError;
+  const eqInputsOk = eqInputError === null;
   const srcIx = calcIx(eqShape, eqH, eqB, eqTw, eqTf);
   const srcWx = calcWx(srcIx, eqH, eqShape, eqB, eqTw);
   const srcArea = calcArea(eqShape, eqH, eqB, eqTw, eqTf);
@@ -538,6 +569,7 @@ export default function ProfileCalculator() {
     bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1),
     shear_MPa: +tau_max.toFixed(1), shear_allow_MPa: +F_v_allow.toFixed(1),
     defl_mm: +defl.toFixed(1), weight_kg_m: +weightPerM.toFixed(2),
+    weight_basis: catalogProfile ? `published catalog (${catalogProfile.model})` : "nominal area × density",
   };
   const specMessage =
     `Please review this preliminary FRP profile calculation:\n\n` +
@@ -579,37 +611,7 @@ export default function ProfileCalculator() {
   const selectClass = inputClass;
   const labelClass = "block text-f11 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
 
-  const MaterialOptions = (
-    <>
-      <optgroup label="FRP — EN 13706-3">
-        <option value="frp-e17">EN 13706 Grade E17</option>
-        <option value="frp-e23">EN 13706 Grade E23</option>
-      </optgroup>
-      <optgroup label="FRP — GB 50608-2020 / T/CECS 692-2020">
-        <option value="frp-gb50608-i">GB 50608 Class I (E≈23 GPa)</option>
-        <option value="frp-gb50608-ii">GB 50608 Class II (E≈17 GPa)</option>
-      </optgroup>
-      <optgroup label="FRP — ASCE/SEI 74-23">
-        <option value="frp-asce-std">ASCE 74-23 Standard</option>
-        <option value="frp-asce-high">ASCE 74-23 High-Performance</option>
-      </optgroup>
-      <optgroup label="FRP — Custom / advanced">
-        <option value="custom">Custom grade — define parameters (e.g. E40)</option>
-      </optgroup>
-      <optgroup label="Steel — EN">
-        <option value="steel-s235">S235 (EN 10025)</option>
-        <option value="steel-s355">S355 (EN 10025)</option>
-      </optgroup>
-      <optgroup label="Steel — GB">
-        <option value="steel-q235">Q235 (GB/T 700)</option>
-        <option value="steel-q355">Q355B (GB/T 1591)</option>
-      </optgroup>
-      <optgroup label="Aluminum">
-        <option value="alu-6061">6061-T6</option>
-        <option value="alu-6063">6063-T5</option>
-      </optgroup>
-    </>
-  );
+  const beamMaterialOptions = METHOD_MATERIALS[designMethod];
 
   return (
     <section className="bg-white py-[34px]">
@@ -669,11 +671,11 @@ export default function ProfileCalculator() {
               <div className="grid gap-[13px] sm:grid-cols-2">
                 <div>
                   <label className={labelClass}>Design Method</label>
-                  <select value={designMethod} onChange={(e) => setDesignMethod(e.target.value as DesignMethod)} className={selectClass}>
-                    <option value="lrfd-asce">LRFD — ASCE/SEI 74-23 (US)</option>
-                    <option value="lrfd-cents19101">Partial-factor — CEN/TS 19101 (EU)</option>
-                    <option value="lrfd-gb50608">LRFD — GB 50608-2020 (CN)</option>
-                    <option value="asd">ASD — Allowable Stress (legacy)</option>
+                  <select value={designMethod} onChange={(e) => changeDesignMethod(e.target.value as DesignMethod)} className={selectClass}>
+                    <option value="lrfd-asce">Preliminary screen — ASCE/SEI 74-23 factors (US)</option>
+                    <option value="lrfd-cents19101">Preliminary screen — CEN/TS 19101 factors (EU)</option>
+                    <option value="lrfd-gb50608">Preliminary screen — GB 50608 factors (CN)</option>
+                    <option value="asd">Preliminary ASD screen — user properties</option>
                   </select>
                 </div>
                 <div>
@@ -690,7 +692,11 @@ export default function ProfileCalculator() {
                 <div>
                   <label className={labelClass}>Material</label>
                   <select value={matKey} onChange={(e) => setMatKey(e.target.value)} className={selectClass}>
-                    {MaterialOptions}
+                    {beamMaterialOptions.map((key) => (
+                      <option key={key} value={key}>
+                        {key === "custom" ? "Custom FRP grade — define properties below" : materials[key].label}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -712,15 +718,15 @@ export default function ProfileCalculator() {
               <div className="grid gap-[13px] sm:grid-cols-3">
                 <div>
                   <label className={labelClass}>Span (mm)</label>
-                  <input type="number" value={span} onChange={(e) => setSpan(+e.target.value)} className={inputClass} />
+                  <input type="number" value={span} min="1" onChange={(e) => setSpan(+e.target.value)} className={inputClass} />
                 </div>
                 <div>
                   <label className={labelClass}>{isDistributed ? "Service Load (kN/m)" : "Service Load (kN)"}</label>
-                  <input type="number" value={load} onChange={(e) => setLoad(+e.target.value)} step="0.1" className={inputClass} />
+                  <input type="number" value={load} min="0.001" onChange={(e) => setLoad(+e.target.value)} step="0.1" className={inputClass} />
                 </div>
                 <div>
                   <label className={labelClass}>Deflection Limit (L/n)</label>
-                  <input type="number" value={deflLimit} onChange={(e) => setDeflLimit(+e.target.value)} className={inputClass} />
+                  <input type="number" value={deflLimit} min="1" onChange={(e) => setDeflLimit(+e.target.value)} className={inputClass} />
                 </div>
               </div>
 
@@ -736,22 +742,22 @@ export default function ProfileCalculator() {
               <div className="grid gap-[13px] sm:grid-cols-4">
                 <div>
                   <label className={labelClass}>{shape === "round-tube" ? "OD (mm)" : "H (mm)"}</label>
-                  <input type="number" value={dimH} onChange={(e) => setDimH(+e.target.value)} className={inputClass} />
+                  <input type="number" value={dimH} min="0.01" onChange={(e) => setDimH(+e.target.value)} className={inputClass} />
                 </div>
                 {shape !== "round-tube" && (
                   <div>
                     <label className={labelClass}>B (mm)</label>
-                    <input type="number" value={dimB} onChange={(e) => setDimB(+e.target.value)} className={inputClass} />
+                    <input type="number" value={dimB} min="0.01" onChange={(e) => setDimB(+e.target.value)} className={inputClass} />
                   </div>
                 )}
                 <div>
                   <label className={labelClass}>{shape === "i-beam" || shape === "channel" ? "tw (mm)" : "t (mm)"}</label>
-                  <input type="number" value={dimTw} onChange={(e) => setDimTw(+e.target.value)} className={inputClass} />
+                  <input type="number" value={dimTw} min="0.01" onChange={(e) => setDimTw(+e.target.value)} className={inputClass} />
                 </div>
                 {(shape === "i-beam" || shape === "channel") && (
                   <div>
                     <label className={labelClass}>tf (mm)</label>
-                    <input type="number" value={dimTf} onChange={(e) => setDimTf(+e.target.value)} className={inputClass} />
+                    <input type="number" value={dimTf} min="0.01" onChange={(e) => setDimTf(+e.target.value)} className={inputClass} />
                   </div>
                 )}
               </div>
@@ -761,19 +767,18 @@ export default function ProfileCalculator() {
 
               {/* Basis line */}
               <p className="text-f11 text-t3">
-                <strong>Material spec:</strong> {mat.standard} · <strong>Method:</strong> {dm.basis}
+                <strong>Material dataset:</strong> {mat.standard} · <strong>Screening basis:</strong> {dm.basis}
                 {isFRP && <> · <strong>Env knockdown:</strong> ×{env.factor.toFixed(2)} ({env.note})</>}
               </p>
             </div>
 
             {/* Results panel */}
             <div className="calculator-results-panel space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <SectionTag>Results</SectionTag>
+              <SectionTag>Preliminary Results</SectionTag>
 
-              {!dimsOk ? (
+              {!beamInputsOk ? (
                 <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
-                  Invalid section dimensions — wall thicknesses must fit inside the section
-                  (t_w &lt; B and 2·t_f &lt; H). Results are hidden until the geometry is valid.
+                  {beamInputError} Results are hidden until all inputs and the method/material pairing are valid.
                 </div>
               ) : (<>
 
@@ -808,7 +813,10 @@ export default function ProfileCalculator() {
                   <div><div className="text-f15 font-bold text-t1">{(Ix / 1e4).toFixed(1)}</div><div className="text-f11 text-t3">Ix (cm⁴)</div></div>
                   <div><div className="text-f15 font-bold text-t1">{(Wx / 1e3).toFixed(1)}</div><div className="text-f11 text-t3">Wx (cm³)</div></div>
                   <div><div className="text-f15 font-bold text-t1">{(Aw / 100).toFixed(1)}</div><div className="text-f11 text-t3">A_w (cm²)</div></div>
-                  <div><div className="text-f15 font-bold text-t1">{weightPerM.toFixed(2)}</div><div className="text-f11 text-t3">kg/m</div></div>
+                  <div>
+                    <div className="text-f15 font-bold text-t1">{weightPerM.toFixed(2)}</div>
+                    <div className="text-f11 text-t3">kg/m · {catalogProfile ? `published ${catalogProfile.model}` : "nominal calc."}</div>
+                  </div>
                 </div>
               </div>
 
@@ -817,17 +825,17 @@ export default function ProfileCalculator() {
                 <div className={`rounded-[6px] p-[13px] ${stressOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
                   <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Bending</div>
                   <div className={`mt-[5px] text-f19 font-extrabold ${stressOk ? "text-teal" : "text-red-600"}`}>{sigma_max.toFixed(1)} MPa</div>
-                  <div className="text-f11 text-t3">{stressOk ? "✓" : "✗"} ≤ {F_b_allow.toFixed(1)} ({((sigma_max / F_b_allow) * 100).toFixed(0)}%)</div>
+                  <div className="text-f11 text-t3">{stressOk ? "within screen" : "exceeds screen"} · limit {F_b_allow.toFixed(1)} ({((sigma_max / F_b_allow) * 100).toFixed(0)}%)</div>
                 </div>
                 <div className={`rounded-[6px] p-[13px] ${shearOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
                   <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Shear</div>
                   <div className={`mt-[5px] text-f19 font-extrabold ${shearOk ? "text-teal" : "text-red-600"}`}>{tau_max.toFixed(1)} MPa</div>
-                  <div className="text-f11 text-t3">{shearOk ? "✓" : "✗"} ≤ {F_v_allow.toFixed(1)} ({((tau_max / F_v_allow) * 100).toFixed(0)}%)</div>
+                  <div className="text-f11 text-t3">{shearOk ? "within screen" : "exceeds screen"} · limit {F_v_allow.toFixed(1)} ({((tau_max / F_v_allow) * 100).toFixed(0)}%)</div>
                 </div>
                 <div className={`rounded-[6px] p-[13px] ${deflOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
                   <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Deflection</div>
                   <div className={`mt-[5px] text-f19 font-extrabold ${deflOk ? "text-teal" : "text-red-600"}`}>{defl.toFixed(1)} mm</div>
-                  <div className="text-f11 text-t3">{deflOk ? "✓" : "✗"} L/{deflRatio.toFixed(0)} (limit L/{deflLimit})</div>
+                  <div className="text-f11 text-t3">{deflOk ? "within screen" : "exceeds screen"} · L/{deflRatio.toFixed(0)} (limit L/{deflLimit})</div>
                 </div>
               </div>
 
@@ -849,8 +857,8 @@ export default function ProfileCalculator() {
                 {slenderWarn && (
                   <div className="border-t border-red-200 pt-[5px] text-red-700">
                     ⚠ <strong>Local-buckling advisory:</strong> {slender.label} = {slender.ratio.toFixed(1)} &gt; {slender.limit}.
-                    Pultruded FRP walls typically need {slender.label} ≤ {slender.limit} per ASCE/SEI 74-23 Ch.3 / CEN/TS 19101 §6.
-                    Verify per the full local-buckling check or thicken the wall.
+                    The value {slender.limit} is a conservative triage threshold, not a code limit.
+                    Perform the applicable ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6 local-buckling calculation before design release.
                   </div>
                 )}
               </div>
@@ -1010,22 +1018,22 @@ export default function ProfileCalculator() {
               <div className="grid gap-[13px] sm:grid-cols-4">
                 <div>
                   <label className={labelClass}>{eqShape === "round-tube" ? "OD (mm)" : "H (mm)"}</label>
-                  <input type="number" value={eqH} onChange={(e) => setEqH(+e.target.value)} className={inputClass} />
+                  <input type="number" value={eqH} min="0.01" onChange={(e) => setEqH(+e.target.value)} className={inputClass} />
                 </div>
                 {eqShape !== "round-tube" && (
                   <div>
                     <label className={labelClass}>B (mm)</label>
-                    <input type="number" value={eqB} onChange={(e) => setEqB(+e.target.value)} className={inputClass} />
+                    <input type="number" value={eqB} min="0.01" onChange={(e) => setEqB(+e.target.value)} className={inputClass} />
                   </div>
                 )}
                 <div>
                   <label className={labelClass}>{eqShape === "i-beam" || eqShape === "channel" ? "tw (mm)" : "t (mm)"}</label>
-                  <input type="number" value={eqTw} onChange={(e) => setEqTw(+e.target.value)} className={inputClass} />
+                  <input type="number" value={eqTw} min="0.01" onChange={(e) => setEqTw(+e.target.value)} className={inputClass} />
                 </div>
                 {(eqShape === "i-beam" || eqShape === "channel") && (
                   <div>
                     <label className={labelClass}>tf (mm)</label>
-                    <input type="number" value={eqTf} onChange={(e) => setEqTf(+e.target.value)} className={inputClass} />
+                    <input type="number" value={eqTf} min="0.01" onChange={(e) => setEqTf(+e.target.value)} className={inputClass} />
                   </div>
                 )}
               </div>
@@ -1057,10 +1065,9 @@ export default function ProfileCalculator() {
             <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               <SectionTag>FRP Equivalent</SectionTag>
 
-              {!eqDimsOk ? (
+              {!eqInputsOk ? (
                 <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
-                  Invalid section dimensions — wall thicknesses must fit inside the section
-                  (t_w &lt; B and 2·t_f &lt; H). Results are hidden until the geometry is valid.
+                  {eqInputError} Results are hidden until the source geometry and target properties are valid.
                 </div>
               ) : (<>
 

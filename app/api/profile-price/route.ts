@@ -4,6 +4,7 @@
 
 import { NextResponse } from "next/server";
 import { estimatePrice, type Fiber, type Geometry, type Resin } from "@/lib/pricing/engine";
+import { getPriceGeometryError } from "@/lib/pricing/geometry";
 
 const FIBERS: Fiber[] = ["e_glass", "ecr_glass", "carbon"];
 const RESINS: Resin[] = ["up", "ve", "epoxy", "pu", "phenolic"];
@@ -78,6 +79,11 @@ export async function POST(req: Request) {
 
   if (!geometry || totalMeters === null || !fiber || !resin) {
     return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+  }
+
+  const geometryError = getPriceGeometryError(geometry);
+  if (geometryError) {
+    return NextResponse.json({ error: geometryError }, { status: 400 });
   }
 
   const result = estimatePrice({
