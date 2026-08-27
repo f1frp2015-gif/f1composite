@@ -5,7 +5,7 @@ import { DefaultChatTransport } from "ai";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useMemo } from "react";
 
-export function renderMarkdown(text: string) {
+function renderMarkdown(text: string) {
   const out: string[] = [];
 
   for (const block of text.split("\n\n")) {

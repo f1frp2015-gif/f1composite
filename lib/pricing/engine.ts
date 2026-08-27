@@ -20,12 +20,7 @@ export type Geometry =
   | { type: "square"; side: number; t: number }
   | { type: "rect"; w: number; h: number; t: number }
   | { type: "angle"; leg: number; t: number }
-  | { type: "unequal_angle"; a: number; b: number; t: number }
   | { type: "channel"; w: number; h: number; t: number }
-  | { type: "unequal_channel"; b1: number; b2: number; h: number; t: number }
-  | { type: "tee"; b: number; h: number; tf: number; tw: number }
-  | { type: "offset_tee"; bl: number; br: number; h: number; t: number }
-  | { type: "strut"; b: number; h: number; t: number; lip: number; return: number }
   | { type: "i_beam"; bf: number; tf: number; h: number; tw: number };
 
 export type ProfileType = Geometry["type"];
@@ -95,12 +90,7 @@ const PROCESS_COEFF: Record<ProfileType, ProcessCoeff> = {
   square: { pullSpeedMperMin: 0.6, laborCnyPerH: 70, fixedCnyPerM: 3.0, moqMeters: 100 },
   rect: { pullSpeedMperMin: 0.5, laborCnyPerH: 75, fixedCnyPerM: 3.2, moqMeters: 150 },
   angle: { pullSpeedMperMin: 0.7, laborCnyPerH: 60, fixedCnyPerM: 2.8, moqMeters: 100 },
-  unequal_angle: { pullSpeedMperMin: 0.6, laborCnyPerH: 65, fixedCnyPerM: 3.0, moqMeters: 150 },
   channel: { pullSpeedMperMin: 0.4, laborCnyPerH: 80, fixedCnyPerM: 3.5, moqMeters: 200 },
-  unequal_channel: { pullSpeedMperMin: 0.32, laborCnyPerH: 90, fixedCnyPerM: 4.2, moqMeters: 250 },
-  tee: { pullSpeedMperMin: 0.4, laborCnyPerH: 80, fixedCnyPerM: 3.5, moqMeters: 200 },
-  offset_tee: { pullSpeedMperMin: 0.32, laborCnyPerH: 90, fixedCnyPerM: 4.2, moqMeters: 250 },
-  strut: { pullSpeedMperMin: 0.25, laborCnyPerH: 100, fixedCnyPerM: 5.0, moqMeters: 300 },
   i_beam: { pullSpeedMperMin: 0.3, laborCnyPerH: 90, fixedCnyPerM: 4.0, moqMeters: 200 },
 };
 
@@ -144,20 +134,10 @@ export function crossSectionMm2(g: Geometry): number {
     }
     case "angle":
       return 2 * g.leg * g.t - g.t * g.t;
-    case "unequal_angle":
-      return g.a * g.t + g.b * g.t - g.t * g.t;
     case "channel": {
       const flange = Math.max(0, g.w - g.t) * g.t;
       return g.h * g.t + 2 * flange;
     }
-    case "unequal_channel":
-      return g.h * g.t + Math.max(0, g.b1 - g.t) * g.t + Math.max(0, g.b2 - g.t) * g.t;
-    case "tee":
-      return g.b * g.tf + Math.max(0, g.h - g.tf) * g.tw;
-    case "offset_tee":
-      return (g.bl + g.br) * g.t + Math.max(0, g.h - g.t) * g.t;
-    case "strut":
-      return g.t * (g.b + 2 * Math.max(0, g.h - g.t) + 2 * g.lip + 2 * g.return);
     case "i_beam": {
       const webHeight = Math.max(0, g.h - 2 * g.tf);
       return 2 * g.bf * g.tf + webHeight * g.tw;
@@ -171,12 +151,7 @@ function outerPerimeterMm(g: Geometry): number {
     case "square": return 4 * g.side;
     case "rect": return 2 * (g.w + g.h);
     case "angle": return 4 * g.leg;
-    case "unequal_angle": return 2 * (g.a + g.b);
     case "channel": return 2 * (g.w + g.h);
-    case "unequal_channel": return 2 * (g.h + g.b1 + g.b2);
-    case "tee": return 2 * (g.b + g.h);
-    case "offset_tee": return 2 * (g.bl + g.br + g.h);
-    case "strut": return 2 * (g.b + 2 * g.h + 2 * g.lip + 2 * g.return);
     case "i_beam": return 4 * g.bf - 2 * g.tw + 2 * g.h;
   }
 }
