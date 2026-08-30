@@ -145,6 +145,7 @@ export default function StairTreadCoversPage() {
             title: "Build the full stairway",
             links: [
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
+              { href: "/products/frp-ladders", label: "FRP fixed access ladders" },
               { href: "/products/molded-frp-grating", label: "Molded grating stair-tread panels" },
               { href: "/products/frp-gratings", label: "Pultruded T-bar grating" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "Channels for stringers" },

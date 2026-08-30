@@ -34,6 +34,7 @@ const profileFamily: Array<{
   image: string;
   imageWidth: number;
   imageHeight: number;
+  imageAlt?: string;
   /** CSS object-position override for images whose subject sits off-center. */
   imagePosition?: string;
 }> = [
@@ -183,6 +184,32 @@ const profileFamily: Array<{
     image: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
     imageWidth: 1660,
     imageHeight: 1080,
+  },
+  {
+    slug: "frp-ladders",
+    name: "Fiberglass Fixed Ladder Systems",
+    keyword: "fiberglass fixed ladder / FRP access ladder",
+    sizes: "500 mm outside width · 300 mm rung spacing",
+    summary:
+      "Fixed industrial access ladders with pultruded side rails, fluted rungs, bracket schedules, optional cage components and separate C/U rung-cover retrofits.",
+    href: "/products/frp-ladders",
+    image: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
+    imageWidth: 1345,
+    imageHeight: 940,
+    imageAlt: "Yellow fiberglass fixed ladder with circular cage hoops and vertical cage strips",
+  },
+  {
+    slug: "frp-handrail-systems",
+    name: "Industrial FRP Handrail Systems",
+    keyword: "fiberglass handrail / FRP guardrail system",
+    sizes: "Square and round tube systems",
+    summary:
+      "Coordinated posts, top and middle rails, kick plates, splices, molded fittings and base options released against the project load and anchor basis.",
+    href: "/products/frp-handrail-systems",
+    image: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
+    imageWidth: 1345,
+    imageHeight: 940,
+    imageAlt: "Yellow fiberglass handrail and guardrail systems around industrial platforms and stairs",
   },
 ];
 
@@ -437,7 +464,7 @@ const hubDownloads = [
   { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
 ];
 
-const LAST_UPDATED = "2026-07-19";
+const LAST_UPDATED = "2026-08-30";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead — Materials & Standards", slug: "haifeng-gong" };
 
@@ -493,7 +520,7 @@ export default function PultrudedFRPProfilesHubPage() {
       <PageHeader
         tag="Pultruded FRP Profiles"
         title="Pultruded FRP profiles & fiberglass structural shapes — complete product hub"
-        description="F1 Composite supplies the full pultruded fiberglass range: FRP structural shapes (wide flange beams, channels, angles, tubes), custom pultrusions, FRP window frames, gratings, and structural deck panels. Standard shapes are listed in the stock catalog; this hub maps the complete product family, standards (CSI 06 50 00 / 06 51 00), applications, and quote path."
+        description="F1 Composite supplies pultruded fiberglass structural shapes, custom profiles, gratings, deck panels, fixed ladders, handrail systems and FRP window frames. This hub maps each product family, its specification boundary and the drawing-led quotation path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },
@@ -609,7 +636,7 @@ export default function PultrudedFRPProfilesHubPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Profile family</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Nine pultruded fiberglass product families under one factory
+            Pultruded fiberglass product families under one factory
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             Every geometry listed below is produced in-house at F1 Composite — no
@@ -627,7 +654,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                   <Image
                     src={item.image}
-                    alt={`${item.name} — pultruded fiberglass profile by F1 Composite`}
+                    alt={item.imageAlt ?? `${item.name} — pultruded fiberglass profile by F1 Composite`}
                     width={item.imageWidth}
                     height={item.imageHeight}
                     sizes="(max-width: 768px) 100vw, 33vw"

@@ -16,14 +16,14 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Round Tube & Tubing — Pultruded FRP Manufacturer";
 const pageDescription =
-  "Pultruded fiberglass round tubes, 25–150 mm OD. Nonconductive, corrosion-resistant, and compliant with EN 13706 and ASTM D3917. DDP USA quotes.";
+  "Pultruded fiberglass round tubes, 25–150 mm OD, with nominal wall and weight tables, EN 13706 / ASTM D3917 references, datasheets and global quotes.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-tube";
 
 const faqItems = [
   {
     question: "What are pultruded FRP round tubes used for?",
     answer:
-      "Pultruded FRP round tubes are used for handrail systems, guardrails, structural columns, antenna masts, electrical conduit, insulating stand-offs, and fluid-conveying applications. Their non-conductive, corrosion-free, lightweight properties make them the standard alternative to galvanized steel and stainless tubing in marine, chemical plant, electrical, and offshore environments.",
+      "Pultruded FRP round tubes are used as members in handrail systems, structural columns, antenna masts, conduits and insulating stand-offs. Their low density, resin-selected corrosion resistance and dielectric material properties can suit marine, chemical and electrical service, but the finished assembly, exposure and any metal hardware still require project review.",
   },
   {
     question: "FRP round tube vs FRP square tube — which should I use?",
@@ -33,12 +33,12 @@ const faqItems = [
   {
     question: "Can FRP round tubes be used outdoors with UV exposure?",
     answer:
-      "Yes. F1 Composite pultruded round tubes are produced with a UV-stable polyester or vinyl ester resin and a polyester surface veil that protects against UV degradation. For aggressive UV environments (desert, tropical, alpine), we recommend pigmented vinyl ester with a polyurethane topcoat — design life of 50+ years with negligible mechanical loss.",
+      "Outdoor configurations can use a UV-stabilized resin, surface veil and, where specified, a compatible coating. Appearance and mechanical-property retention depend on resin, pigment, surface system, climate and exposure duration, so state the project location and design life and request the applicable weathering evidence.",
   },
   {
     question: "What's the load capacity of FRP handrail tubes?",
     answer:
-      "Pultruded FRP handrail tubes (e.g. CHS 50×5) typically meet or exceed the 200 lbs (890 N) horizontal load requirement of OSHA 1910.29 and EN ISO 14122-3 when supported at standard 1.5 m post spacing. Full handrail load tables and bolt-down baseplate details are available on request — get a quote for project-specific calculations.",
+      "A round tube by itself cannot establish the capacity or compliance of a handrail. The complete posts, top and middle rails, fittings, splices, bases, anchors and supporting substrate must be evaluated together against the governing load and deflection criteria. Use the complete fiberglass handrail systems page for the catalog assembly and project-release boundary.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default async function TubePage() {
                 Round tubes for handrails and structures
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Pultruded FRP round tubes are a standard choice for handrail systems, guardrails, and structural applications requiring a circular cross-section. Their smooth interior bore also allows them to be used as conduits. They are nonconductive, corrosion-resistant, and available in standard gray or safety yellow.
+                Pultruded FRP round tubes are used as members in handrail systems, guardrails, and structural applications requiring a circular cross-section. Their smooth interior bore also supports conduit applications. Electrical and corrosion performance depend on the specified laminate, exposure and complete assembly; catalog tube data do not qualify a finished safety system.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Handrail systems</span>
@@ -171,6 +171,7 @@ export default async function TubePage() {
           {
             title: "Related FRP profiles",
             links: [
+              { href: "/products/frp-handrail-systems", label: "Complete fiberglass handrail systems" },
               { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tube" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP round rod" },

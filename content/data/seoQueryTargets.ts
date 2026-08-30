@@ -124,6 +124,8 @@ export const seoQueryTargets = [
       "/products/frp-gratings",
       "/products/frp-deck-panels",
       "/products/molded-frp-grating",
+      "/products/frp-ladders",
+      "/products/frp-handrail-systems",
       "/products/frp-window-frames",
       "/products/custom-pultruded-profiles",
     ],
@@ -208,6 +210,36 @@ export const seoQueryTargets = [
     description:
       "Research FRP window materials, frame selection, U-value targets, PHI, NAFS and AS 2047 certification, supplier qualification and fabrication routes.",
     supportingUrls: ["/products/frp-window-frames", "/technology/polyurethane-pultrusion-windows"],
+  },
+  {
+    targetUrl: "/products/frp-ladders",
+    primaryQuery: "fiberglass fixed ladder",
+    intent: "commercial",
+    title: "Fiberglass Fixed Ladders | Industrial FRP Ladder Systems",
+    description:
+      "Industrial fiberglass fixed ladders and FRP access systems for corrosive facilities. Compare side rails, rungs, optional cage components and drawing inputs.",
+    supportingUrls: [
+      "/products/frp-handrail-systems",
+      "/products/frp-stair-treads",
+      "/products/fiberglass-structural-shapes/frp-square-tube",
+      "/applications/frp-chemical-plant-platforms",
+      "/industries/industrial",
+    ],
+  },
+  {
+    targetUrl: "/products/frp-handrail-systems",
+    primaryQuery: "fiberglass handrail systems",
+    intent: "commercial",
+    title: "Fiberglass Handrail Systems | Industrial FRP Railing",
+    description:
+      "Industrial FRP handrail systems with fiberglass posts, top and mid rails, toe boards, fittings and base options. Configure layouts to the project load basis.",
+    supportingUrls: [
+      "/products/frp-ladders",
+      "/products/frp-stair-treads",
+      "/products/fiberglass-structural-shapes/frp-tube",
+      "/products/fiberglass-structural-shapes/frp-square-tube",
+      "/applications/frp-chemical-plant-platforms",
+    ],
   },
   {
     targetUrl: "/products/frp-gratings",

@@ -51,6 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/frp-deck-panels`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/molded-frp-grating`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/frp-stair-treads`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/frp-ladders`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/frp-handrail-systems`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-sheets`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/product-lines`, changeFrequency: "monthly", priority: 0.8 },

@@ -16,7 +16,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS";
 const pageDescription =
-  "Pultruded fiberglass square tubing, 25×25–240×240 mm. EN 13706 and ASTM D3917; 75% lighter than steel and electrically insulating. DDP USA quotes.";
+  "Pultruded fiberglass square and rectangular tubes, 25×25–240×240 mm, with SHS/RHS dimensions, nominal weights, EN 13706 and ASTM D3917 references.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-square-tube";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -116,12 +116,12 @@ export default async function SquareTubePage() {
                 Closed-section structural tubes
               </h2>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                FRP square and rectangular tubes deliver superior torsional rigidity for columns, trusses, and frame structures. Multi-axial reinforcement provides structural integrity in both directions. The smooth interior bore allows dual use as conduits or cable enclosures with inherent dielectric properties.
+                FRP square and rectangular tubes provide closed-section torsional rigidity for columns, trusses, and frame structures. Multi-axial reinforcement can support transverse demands, while the smooth interior bore allows conduit or cable-enclosure use. Electrical-insulation performance depends on the specified laminate, moisture and contamination exposure, joints and any metal hardware.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[8px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Superior torsional rigidity</span>
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">SHS + RHS available</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Dielectric</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Electrical insulation options</span>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
@@ -167,6 +167,8 @@ export default async function SquareTubePage() {
           {
             title: "Related FRP profiles",
             links: [
+              { href: "/products/frp-handrail-systems", label: "Complete fiberglass handrail systems" },
+              { href: "/products/frp-ladders", label: "Complete fiberglass fixed ladder systems" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tube" },

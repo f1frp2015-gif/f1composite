@@ -56,7 +56,7 @@ const faqs = [
   {
     question: "Can FRP handrails and guardrails meet code requirements?",
     answer:
-      "Yes. Our FRP handrail and guardrail systems are tested and certified to meet the loading requirements of IBC 2021 Section 1607.8 (200 lbf concentrated load, 50 plf distributed load), OSHA 1910.29, and EN 1991-1-1 for pedestrian barriers. All handrail systems undergo third-party structural testing and are supplied with engineering certification letters. FRP guardrails also offer the advantage of electrical non-conductivity, which is critical on rail bridges and in industrial settings near live electrical equipment.",
+      "FRP handrail and guardrail systems can be configured and evaluated against the project's adopted criteria, such as OSHA 1910.29 or a stated building-code load basis. Compliance depends on the complete posts, rails, joints, bases, anchors and supporting substrate—not on a catalog tube size or post spacing alone. Calculations, test evidence and certification documents are supplied only when they are included in the verified project scope; electrical performance must likewise be assessed for the finished assembly and its metal hardware.",
   },
   {
     question: "Are FRP utility poles as strong as wood or steel poles?",

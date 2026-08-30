@@ -311,6 +311,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/molded-frp-grating", label: "Molded FRP grating" },
       { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
       { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
+      { href: "/products/frp-ladders", label: "Industrial FRP fixed ladders" },
       { href: "/products/frp-stair-treads", label: "Stair tread covers" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/industries/industrial", label: "Industrial applications" },
