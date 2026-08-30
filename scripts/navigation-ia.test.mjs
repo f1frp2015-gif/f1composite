@@ -81,6 +81,6 @@ test("desktop mega menus and mobile navigation retain responsive and accessible 
   assert.match(navbar, /aria-controls="mobile-navigation"/);
   assert.match(navbar, /max-h-\[calc\(100dvh-72px\)\] overflow-y-auto/);
   assert.match(navbar, /aria-label=\{`\$\{expanded \? "Collapse" : "Expand"\} \$\{item\.label\}`\}/);
-  assert.match(navbar, /width=\{142\}[\s\S]{0,80}height=\{40\}/);
+  assert.match(navbar, /width=\{58\}[\s\S]{0,80}height=\{40\}/);
   assert.doesNotMatch(navbar, /className="h-\[40px\] w-auto"/);
 });

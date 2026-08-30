@@ -56,7 +56,7 @@ export default function Navbar() {
           <Image
             src="/brand/f1-logo.png"
             alt="F1 Composite"
-            width={142}
+            width={58}
             height={40}
             priority
           />
