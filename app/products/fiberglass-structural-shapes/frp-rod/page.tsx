@@ -171,6 +171,7 @@ export default async function RodPage() {
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bar" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tube" },
+              { href: "/products/frp-rebar", label: "FRP rebar for concrete" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
             ],

@@ -21,6 +21,7 @@ export const mainNav: NavItem[] = [
     href: "/pultruded-frp-profiles",
     children: [
       { group: "Structural profiles", label: "Standard Structural Profiles", href: "/products/fiberglass-structural-shapes" },
+      { group: "Structural profiles", label: "FRP Rebar", href: "/products/frp-rebar" },
       { group: "Structural profiles", label: "Fiberglass Sheets & Plate", href: "/products/fiberglass-sheets" },
       { group: "Structural profiles", label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
       { group: "Grating & decking", label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
@@ -88,6 +89,7 @@ export const footerNav = {
   profiles: [
     { label: "All Products", href: "/pultruded-frp-profiles" },
     { label: "Structural Profiles", href: "/products/fiberglass-structural-shapes" },
+    { label: "FRP Rebar", href: "/products/frp-rebar" },
     { label: "Fiberglass Sheets & Plate", href: "/products/fiberglass-sheets" },
     { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
