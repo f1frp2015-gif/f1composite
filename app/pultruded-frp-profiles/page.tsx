@@ -111,6 +111,19 @@ const profileFamily: Array<{
     imageHeight: 1200,
   },
   {
+    slug: "frp-rebar",
+    name: "FRP Rebar",
+    keyword: "GFRP rebar / fiberglass reinforcement bars",
+    sizes: "10–32 mm standard diameters",
+    summary:
+      "Sand-coated or helically wrapped concrete reinforcement in GFRP, with BFRP and CFRP options qualified to the project standard and bar schedule.",
+    href: "/products/frp-rebar",
+    image: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
+    imageWidth: 1254,
+    imageHeight: 1254,
+    imageAlt: "Three FRP rebars with helically wrapped concrete bond surfaces",
+  },
+  {
     slug: "fenestration",
     name: "FRP Window Frames & Fenestration Profiles",
     keyword: "FRP window frames / FRP window profiles",
