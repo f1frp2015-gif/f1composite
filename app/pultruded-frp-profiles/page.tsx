@@ -124,6 +124,19 @@ const profileFamily: Array<{
     imageAlt: "Three FRP rebars with helically wrapped concrete bond surfaces",
   },
   {
+    slug: "fiberglass-snow-markers",
+    name: "Fiberglass Snow Markers & Driveway Stakes",
+    keyword: "fiberglass snow markers / reflective driveway stakes",
+    sizes: '6.35 and 7.9 mm OD · 2–6 ft reference lengths',
+    summary:
+      "Solid or hollow pultruded fiberglass marker stakes configured by color, reflective-band layout, insertion tip and wholesale pack count.",
+    href: "/products/fiberglass-snow-markers",
+    image: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp",
+    imageWidth: 1254,
+    imageHeight: 1254,
+    imageAlt: "Color-coded fiberglass snow markers with reflective bands and pointed tips",
+  },
+  {
     slug: "fenestration",
     name: "FRP Window Frames & Fenestration Profiles",
     keyword: "FRP window frames / FRP window profiles",
