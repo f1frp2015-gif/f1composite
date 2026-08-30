@@ -10,8 +10,10 @@ const read = (relativePath) => readFile(path.join(root, relativePath), "utf8");
 
 const route = "/products/fiberglass-snow-markers";
 const pagePath = "app/products/fiberglass-snow-markers/page.tsx";
-const imagePath =
+const heroImagePath =
   "public/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp";
+const applicationImagePath =
+  "public/images/products/fiberglass-snow-markers/reflective-fiberglass-snow-markers-winter-road.webp";
 
 test("snow-marker page owns a complete, quote-ready product specification", async () => {
   const page = await read(pagePath);
@@ -29,11 +31,27 @@ test("snow-marker page owns a complete, quote-ready product specification", asyn
   assert.doesNotMatch(page, /\$\d|Add to Cart|Wellco|wellcowholesale/i);
 });
 
-test("snow-marker hero is a local optimized image with honest catalog labeling", async () => {
-  const [page, imageInfo] = await Promise.all([read(pagePath), stat(path.join(root, imagePath))]);
+test("snow-marker imagery is local, SEO-named, compressed and responsibly loaded", async () => {
+  const [page, heroImageInfo, applicationImageInfo] = await Promise.all([
+    read(pagePath),
+    stat(path.join(root, heroImagePath)),
+    stat(path.join(root, applicationImagePath)),
+  ]);
 
-  assert.ok(imageInfo.size > 20_000, "hero should be a real product-category image");
+  assert.ok(heroImageInfo.size > 20_000, "hero should be a real product-category image");
+  assert.ok(heroImageInfo.size < 120_000, "hero should remain compressed for fast delivery");
+  assert.ok(applicationImageInfo.size > 20_000, "application image should be a real scene");
+  assert.ok(
+    applicationImageInfo.size < 150_000,
+    "application image should remain compressed for fast delivery",
+  );
   assert.match(page, /<Image[\s\S]*preload[\s\S]*sizes="\(max-width: 1024px\) 100vw, 48vw"/);
+  assert.match(page, /reflective-fiberglass-snow-markers-winter-road\.webp/);
+  assert.match(page, /alt="Orange fiberglass snow markers lining a plowed mountain road after heavy snowfall"/);
+  assert.match(page, /loading="lazy"/);
+  assert.match(page, /quality=\{75\}/);
+  assert.match(page, /sizes="\(max-width: 1024px\) calc\(100vw - 68px\), 40vw"/);
+  assert.doesNotMatch(page, /src=\{?[^\n]*(\.png|\.jpe?g)/i);
   assert.match(page, /Catalog visualization of solid and hollow marker configurations/);
   assert.match(page, /Final[\s\S]*approved sample/);
 });

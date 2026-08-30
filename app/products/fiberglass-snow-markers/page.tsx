@@ -15,6 +15,8 @@ const pageDescription =
   "Wholesale fiberglass snow markers and reflective driveway stakes in solid or hollow 6.35–7.9 mm profiles, multiple lengths, colors and tape layouts.";
 const heroImage =
   "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp";
+const applicationImage =
+  "/images/products/fiberglass-snow-markers/reflective-fiberglass-snow-markers-winter-road.webp";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -386,6 +388,23 @@ export default function FiberglassSnowMarkersPage() {
                 can separate route types, while reflective bands help an operator find
                 the same reference under vehicle lighting and low-contrast weather.
               </p>
+              <figure className="mt-[29px]">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+                  <Image
+                    src={applicationImage}
+                    alt="Orange fiberglass snow markers lining a plowed mountain road after heavy snowfall"
+                    fill
+                    loading="lazy"
+                    quality={75}
+                    sizes="(max-width: 1024px) calc(100vw - 68px), 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+                  High-visibility fiberglass stakes preserve the road-edge reference
+                  after plowing, even when the shoulder and drainage line are buried.
+                </figcaption>
+              </figure>
             </div>
             <div className="grid gap-[13px] sm:grid-cols-2">
               {applications.map((application) => (
