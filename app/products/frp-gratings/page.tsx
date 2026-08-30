@@ -8,6 +8,7 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import GratingSelectionGuide from "@/components/sections/GratingSelectionGuide";
+import GratingClipGuide from "@/components/sections/GratingClipGuide";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -18,7 +19,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-07-30";
+const updatedAt = "2026-08-29";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -57,7 +58,7 @@ const gratingTypes = [
   {
     name: "Cover Plates (Solid Top)",
     description:
-      "FRP cover plates, also known as solid-top gratings, combine a molded or pultruded grating base with a bonded solid FRP top surface. The solid top provides a continuous walking surface that prevents small objects, tools, and liquids from falling through the grating openings, making cover plates the required specification for platforms above occupied areas, food processing facilities, and pharmaceutical clean rooms. FengDu produces cover plates with a gritted anti-slip surface that exceeds the BS 7976-2 pendulum test requirement for slip resistance in wet conditions. The solid top surface also provides a smooth substrate for directional marking, safety striping, and corporate branding using embedded pigments or applied coatings.",
+      "FRP cover plates, also known as solid-top gratings, combine a molded or pultruded grating base with a bonded solid FRP top surface. The solid top provides a continuous walking surface that prevents small objects, tools, and liquids from falling through the grating openings, making cover plates the required specification for platforms above occupied areas, food processing facilities, and pharmaceutical clean rooms. F1 cover plates use a gritted anti-slip surface engineered for wet-service slip resistance. The solid top surface also provides a smooth substrate for directional marking, safety striping, and corporate branding using embedded pigments or applied coatings.",
     specs: [
       { label: "Base thickness", value: "25 mm, 38 mm" },
       { label: "Top plate thickness", value: "3 mm, 5 mm" },
@@ -172,7 +173,17 @@ const faqItems = [
   {
     question: "Can FRP gratings be cut to fit on site?",
     answer:
-      "Yes. Both molded and pultruded FRP gratings can be cut on site using standard carbide-tipped circular saws or reciprocating saws. Molded gratings are particularly easy to cut to irregular shapes because the bi-directional fiber architecture maintains structural integrity regardless of the cut direction. Pultruded gratings should ideally be cut so that bearing bars span the load direction, and we recommend that significant cut-outs be planned during the panel layout stage rather than executed in the field. Dust extraction and particulate respiratory protection are recommended during cutting.",
+      "Yes. Both molded and pultruded FRP gratings can be cut on site using standard carbide-tipped circular saws or reciprocating saws. Molded gratings are particularly easy to cut to irregular shapes because the bi-directional fiber architecture maintains structural integrity regardless of the cut direction. Pultruded gratings should ideally be cut so that bearing bars span the load direction, and we recommend that significant cut-outs be planned during the panel layout stage rather than executed in the field. Dust extraction and particulate respiratory protection are recommended during cutting. After any field cut, re-check support bearing, cut-edge support, sealed cut surfaces, and the hold-down layout against the approved installation drawing.",
+  },
+  {
+    question: "Which FRP grating clip should I use — M, C, J, or T?",
+    answer:
+      "Use an M clip as the general top-saddle hold-down for compatible molded or pultruded grating, a C clip to align adjacent molded-panel edges, a J clamp where a lower hook can grip a support that should not be drilled, and an F1 T-type clip for the specified pultruded bearing-bar series. A C clip is only a panel-edge connector: it does not replace structural support or each panel's independent hold-downs. Because clip letters are not standardized across manufacturers, select by the F1 SKU, panel family and approved project drawing rather than by the letter alone.",
+  },
+  {
+    question: "Are the M, C, J and T grating clips supplied in 316 stainless steel?",
+    answer:
+      "Yes. The F1 M/C/J/T clip kits listed on this page are specified in 316 stainless steel for corrosion-exposed grating installations. Final clip geometry, bolt length, quantity and spacing are matched to the molded or pultruded panel depth, mesh or bearing-bar series, support flange and installation access, then confirmed on the approved project drawing before supply.",
   },
   {
     question: "What fire performance ratings do your gratings achieve?",
@@ -256,8 +267,8 @@ export default function GratingsPage() {
               FRP (fiber-reinforced polymer) gratings and structural deck panels, also known
               as GRP (glass-reinforced polymer) gratings and FRP decking, deliver the
               structural performance of steel at a fraction of the weight and with zero
-              corrosion risk. F1 Composite supplies FengDu molded and pultruded grating
-              systems, solid-top cover plates, and pultruded structural deck panels — a
+              corrosion risk. F1 Composite supplies molded and pultruded grating systems,
+              solid-top cover plates, and pultruded structural deck panels — a
               complete platform and decking solution for industrial plants, offshore
               platforms, marine vessels, wastewater treatment facilities, pedestrian bridges,
               and FRP bridge deck replacement projects.
@@ -425,6 +436,9 @@ export default function GratingsPage() {
       {/* Molded vs pultruded: process animations + comparison + fit */}
       <GratingSelectionGuide />
 
+      {/* 316SS M/C/J/T installation hardware and clip selection */}
+      <GratingClipGuide />
+
       {/* Load Ratings */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -520,13 +534,14 @@ export default function GratingsPage() {
               { href: "/industries/marine", label: "Marine & offshore gratings" },
               { href: "/industries/industrial", label: "Chemical plant platforms" },
               { href: "/case-studies/coastal-marina-walkway", label: "Coastal marina case study" },
-              { href: "/case-studies/chemical-plant-platform", label: "Chemical plant case study" },
+              { href: "/applications/frp-chemical-plant-platforms", label: "Chemical plant platform design" },
               { href: "/applications/frp-pedestrian-bridge-superstructures", label: "Pedestrian bridge superstructures" },
             ],
           },
           {
             title: "Technical resources",
             links: [
+              { href: "#grating-clips", label: "M/C/J/T grating clips & 316SS hardware" },
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings — full comparison" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
               { href: "/technology/quality-testing", label: "Fire & slip testing (BS 476 / AS 4586)" },
@@ -546,10 +561,10 @@ export default function GratingsPage() {
       </section>
 
       <AskAICard
-        prefill="I need FRP gratings/deck for [marine/chemical/industrial] application. Span [mm], live load [kN/m²], required slip resistance [R10/R11/R13], chemical exposure [list]. Molded or pultruded — which fits, and what's the panel size / weight?"
+        prefill="I need FRP grating for [application]. Panel family/depth [molded or pultruded / mm], span [mm], live load [kN/m²], support material/flange [details], underside access [yes/no], chemical exposure [list]. Please select the M/C/J/T 316SS clip kit (or advise if unsure), quantity and required installation/CAD detail."
       />
 
-      <InnerCTA title="Need FRP gratings or deck panels for your next project?" />
+      <InnerCTA title="Need FRP gratings, deck panels, or 316SS clip kits?" />
     </>
   );
 }
