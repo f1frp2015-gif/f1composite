@@ -137,6 +137,19 @@ const profileFamily: Array<{
     imageAlt: "Color-coded fiberglass snow markers with reflective bands and pointed tips",
   },
   {
+    slug: "fiberglass-stakes",
+    name: "Fiberglass Stakes & Marker Rods",
+    keyword: "fiberglass plant stakes / FRP marker stakes",
+    sizes: "5–19 mm public-market planning band",
+    summary:
+      "Solid pultruded plant, tree, vineyard, nursery and general marker stakes configured by diameter, cut length, color, end treatment, surface veil and pack count.",
+    href: "/products/fiberglass-stakes",
+    image: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt: "Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options",
+  },
+  {
     slug: "fenestration",
     name: "FRP Window Frames & Fenestration Profiles",
     keyword: "FRP window frames / FRP window profiles",

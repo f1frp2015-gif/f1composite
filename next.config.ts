@@ -123,6 +123,18 @@ const nextConfig: NextConfig = {
         destination: "/pultruded-frp-profiles",
         permanent: true,
       },
+      // Consolidate common singular and FRP-name variants into the commercial
+      // query owner. These are aliases only; the canonical plural keyword path
+      // is the page advertised in navigation, metadata and sitemap.
+      ...[
+        "/products/frp-stake",
+        "/products/frp-stakes",
+        "/products/fiberglass-stake",
+      ].map((source) => ({
+        source,
+        destination: "/products/fiberglass-stakes",
+        permanent: true,
+      })),
       // Preserve the legacy name used in older audits and external links. The
       // live, indexable estimator owns the more specific commercial query.
       {

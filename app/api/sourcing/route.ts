@@ -17,6 +17,7 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
   - Custom pultrusions (cross-sections up to 600 × 300 mm)
   - FRP fenestration systems: 65, 70, 80, 90, 140 series window/door frames (PHI Component-ID 2491wi03 for 90-series)
   - FRP gratings (molded or open pultruded) and structural deck panels (closed-profile; separate product route)
+  - Fiberglass stakes and marker rods for plant, tree, vineyard, nursery and general site marking (public 5–19 mm planning band; quote confirmation required); use the dedicated fiberglass snow-marker route for reflective plow/driveway programs
   - Industrial fixed FRP personnel-access ladders (not portable ladders or cable-ladder trays)
   - Complete square- or round-tube FRP handrail / guardrail systems
 - Recommend resin systems honestly:
@@ -32,6 +33,8 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
   - /products/frp-gratings
   - /products/frp-deck-panels
   - /products/molded-frp-grating
+  - /products/fiberglass-stakes
+  - /products/fiberglass-snow-markers
   - /products/frp-ladders
   - /products/frp-handrail-systems
   - /pultruded-frp-profiles (hub)
