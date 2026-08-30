@@ -12,7 +12,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-rebar";
 const pageTitle = "FRP Rebar Manufacturer | GFRP, BFRP & CFRP Bars";
 const pageDescription =
-  "FRP rebar in 10–32 mm standard diameters with sand-coated or helically wrapped surfaces. GFRP, BFRP and CFRP options for bridges, marine and tunnels.";
+  "FRP rebar in 4–40 mm supplier-published diameters with sand-coated or fully threaded surfaces. GFRP and BFRP size tables for bridges, marine and tunnels.";
 const heroImage =
   "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp";
 
@@ -25,22 +25,38 @@ export const metadata: Metadata = buildPageMetadata({
 
 const portfolioFacts = [
   {
-    value: "10–32 mm",
-    label: "standard diameter range",
+    value: "4–40 mm",
+    label: "GFRP straight-bar catalog range",
   },
   {
-    value: "≈2.1 g/cm³",
-    label: "supplier-published density baseline",
+    value: "15 sizes",
+    label: "published GFRP diameters",
   },
   {
-    value: "700–3000 MPa",
-    label: "published FRP family tensile range",
+    value: "10 sizes",
+    label: "published BFRP diameters",
   },
   {
     value: "2 surfaces",
-    label: "sand-coated or helically wrapped",
+    label: "sand-coated or fully threaded",
   },
 ];
+
+// Supplier catalog snapshot verified 2026-08-30. The supplier publishes
+// nominal diameters, not per-size measured area or unit weight. `nominalArea`
+// below is therefore a transparent circle-area calculation for RFQ screening
+// only, never a qualified ASTM measured area. Source URLs stay in the internal
+// SEO-PDCA action card rather than exposing the supply chain in public code.
+const GFRP_DIAMETERS = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 40] as const;
+const BFRP_DIAMETERS = new Set<number>([8, 10, 12, 14, 16, 18, 20, 25, 32, 40]);
+const STIRRUP_DIAMETERS = new Set<number>([6, 8, 10, 12, 14]);
+
+const rebarSizes = GFRP_DIAMETERS.map((diameter) => ({
+  diameter,
+  nominalArea: (Math.PI * diameter * diameter / 4).toFixed(1),
+  bfrp: BFRP_DIAMETERS.has(diameter),
+  stirrup: STIRRUP_DIAMETERS.has(diameter),
+}));
 
 const specificationRows = [
   {
@@ -50,13 +66,13 @@ const specificationRows = [
   },
   {
     item: "Nominal diameter",
-    standard: "10, 12, 14, 16, 18, 20, 22, 25, 28 and 32 mm",
-    options: "Other bar designations subject to tooling and MOQ",
+    standard: "GFRP 4–40 mm; BFRP 8–40 mm; GFRP stirrups 6–14 mm",
+    options: "Use the diameter matrix above; unlisted sizes require tooling and MOQ confirmation",
   },
   {
     item: "Surface profile",
-    standard: "Sand-coated or helically wrapped / ribbed",
-    options: "Bond pattern matched to qualification data",
+    standard: "Sand-coated or fully threaded / helically wrapped",
+    options: "BFRP shaped / polished surface and bond pattern matched to qualification data",
   },
   {
     item: "Matrix",
@@ -66,7 +82,12 @@ const specificationRows = [
   {
     item: "Supply form",
     standard: "Straight cut lengths",
-    options: "Factory-formed bends, stirrups and custom shapes by drawing",
+    options: "Factory-formed 6–14 mm stirrups and custom shapes by drawing",
+  },
+  {
+    item: "Cut length",
+    standard: "Released against the project bar schedule",
+    options: "Confirm maximum continuous length, container limit and bundle plan in the quotation",
   },
   {
     item: "Color",
@@ -218,7 +239,7 @@ const faqItems = [
   {
     question: "Which FRP rebar sizes are available?",
     answer:
-      "The standard supplier range is 10 to 32 mm nominal diameter, with straight cut lengths and sand-coated or helically wrapped surfaces. Bar designation, measured cross-sectional area, tolerance, unit weight and available factory-formed shapes are confirmed on the project data sheet before order release.",
+      "The current supplier catalog lists GFRP straight bars at 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32 and 40 mm; BFRP straight bars at 8, 10, 12, 14, 16, 18, 20, 25, 32 and 40 mm; and factory-formed GFRP stirrups at 6, 8, 10, 12 and 14 mm. Measured cross-sectional area, tolerance, unit weight, cut length and bend geometry are confirmed on the project data sheet before order release.",
   },
   {
     question: "What should I include in an FRP rebar RFQ?",
@@ -287,10 +308,10 @@ export default function FrpRebarPage() {
                 Request a rebar schedule quote
               </Link>
               <a
-                href="#standards"
+                href="#sizes"
                 className="rounded-[4px] border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
               >
-                Review standards
+                View size table
               </a>
             </div>
           </div>
@@ -330,13 +351,86 @@ export default function FrpRebarPage() {
         </p>
       </section>
 
-      <section className="bg-white py-[89px]">
+      <section id="sizes" className="scroll-mt-[120px] bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Supply scope</SectionTag>
+          <SectionTag>Diameter matrix</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Standard range and project options
+            FRP rebar size and form availability
           </h2>
+          <p className="mt-[13px] max-w-[920px] text-f15 leading-golden text-t2">
+            The current manufacturing-source catalog publishes fifteen GFRP straight-bar
+            diameters, ten BFRP straight-bar diameters and five factory-formed GFRP stirrup
+            diameters. “Published” confirms catalog availability only; stock, MOQ, cut length,
+            resin and qualification status are checked again for every quotation.
+          </p>
+          <p className="mt-[13px] text-f13 font-medium text-teal-text sm:hidden">
+            Swipe the table horizontally to compare GFRP, BFRP and stirrup availability.
+          </p>
+
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default">
+            <table className="w-full min-w-[760px] border-collapse text-left">
+              <caption className="sr-only">
+                Supplier-published FRP rebar diameter availability by fiber and supply form
+              </caption>
+              <thead className="bg-bg2">
+                <tr>
+                  <th className="sticky left-0 z-10 bg-bg2 px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    Nominal diameter
+                  </th>
+                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    Nominal circle area†
+                  </th>
+                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    GFRP straight bar
+                  </th>
+                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    BFRP straight bar
+                  </th>
+                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    GFRP stirrup
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rebarSizes.map((size) => (
+                  <tr key={size.diameter} className="border-t border-border-default">
+                    <th className="sticky left-0 z-10 bg-white px-[21px] py-[13px] text-f14 font-bold text-t1">
+                      Ø{size.diameter} mm
+                    </th>
+                    <td className="px-[21px] py-[13px] text-f14 text-t2">
+                      {size.nominalArea} mm²
+                    </td>
+                    <td className="px-[21px] py-[13px] text-f14 font-semibold text-teal-text">
+                      Published
+                    </td>
+                    <td className="px-[21px] py-[13px] text-f14 text-t2">
+                      {size.bfrp ? (
+                        <span className="font-semibold text-teal-text">Published</span>
+                      ) : (
+                        <span aria-label="Not listed in the supplier catalog">—</span>
+                      )}
+                    </td>
+                    <td className="px-[21px] py-[13px] text-f14 text-t2">
+                      {size.stirrup ? (
+                        <span className="font-semibold text-teal-text">Published</span>
+                      ) : (
+                        <span aria-label="Not listed in the supplier catalog">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-[13px] text-f12 leading-golden text-t3">
+            † Nominal circle area = πd²/4, calculated from the listed diameter for early RFQ
+            comparison. It is not the measured cross-sectional area used for ASTM
+            qualification or structural design. “—” means the size is not published for that
+            material/form; it may still be available as a custom order.
+          </p>
+
+          <h3 className="mt-[55px] text-f24 font-bold text-t1">Order configuration</h3>
+          <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
             <table className="w-full min-w-[760px] border-collapse text-left">
               <thead className="bg-bg2">
                 <tr>
