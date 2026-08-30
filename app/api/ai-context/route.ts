@@ -26,7 +26,7 @@ export async function GET() {
       sameAs: ["https://www.youtube.com/@F1Composites"],
       role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
       brandFamily: [
-        { name: "F1-STRUX", line: "Pultruded FRP structural profiles plus drawing-led fixed-ladder and handrail access systems", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-STRUX", line: "Pultruded FRP structural profiles, fiberglass stakes, and drawing-led fixed-ladder and handrail access systems", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-GRID", line: "FRP gratings, cover plates & structural deck panels", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-THERM", line: "Pultruded fiberglass window frames & fenestration profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-FORM", line: "Custom pultruded FRP profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
@@ -88,6 +88,19 @@ export async function GET() {
         resinSystems: ["polyester", "vinyl ester", "polyurethane", "phenolic", "epoxy"],
         priceBandUSDPerMeter: { min: 3, max: 30 },
         leadTimeWeeks: { stock: [2, 4], custom: [4, 6] },
+      },
+      {
+        id: "fiberglass-stakes",
+        url: `${SITE}/products/fiberglass-stakes`,
+        family: "Fiberglass Stakes and Marker Rods",
+        scope: "Solid pultruded FRP plant, tree, vineyard, nursery and general site-marker stakes; reflective snow markers have a separate product route",
+        publicMarketPlanningReferences: {
+          diameterMm: [5, 19],
+          lengthM: [1.07, 1.83],
+          status: "Public wholesale planning band only; confirm F1 offered size, tolerance and grade at quotation",
+        },
+        options: ["custom cut length", "color", "smooth or surface-veil finish", "tapered, flat or capped ends", "bundle and pallet configuration"],
+        releaseBoundary: "No universal stiffness, breaking load, UV life or electrical-safety claim applies; use environment, embedment, attachments and sample/test requirements to release the order.",
       },
       {
         id: "custom-pultrusions",
@@ -254,6 +267,7 @@ export async function GET() {
       caseStudies: `${SITE}/case-studies`,
       technology: `${SITE}/technology`,
       industries: `${SITE}/industries`,
+      fiberglassStakes: `${SITE}/products/fiberglass-stakes`,
       fixedLadders: `${SITE}/products/frp-ladders`,
       handrailSystems: `${SITE}/products/frp-handrail-systems`,
       contact: `${SITE}/contact`,

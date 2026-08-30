@@ -38,6 +38,7 @@ test("primary navigation follows buyer-oriented product and market taxonomy", as
   const requiredProductRoutes = [
     "/products/fiberglass-structural-shapes",
     "/products/fiberglass-snow-markers",
+    "/products/fiberglass-stakes",
     "/products/fiberglass-sheets",
     "/products/custom-pultruded-profiles",
     "/products/frp-gratings",

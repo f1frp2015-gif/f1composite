@@ -227,6 +227,22 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/products/fiberglass-stakes",
+    primaryQuery: "fiberglass stakes manufacturer",
+    intent: "commercial",
+    title: "Fiberglass Stakes Manufacturer | FRP Plant & Tree Stakes",
+    description:
+      "Fiberglass stakes manufacturer for 5–19 mm FRP plant, tree, vineyard and nursery rods. Compare sizes, colors, tapered ends, surface veil and RFQ inputs.",
+    supportingUrls: [
+      "/products/fiberglass-snow-markers",
+      "/products/fiberglass-structural-shapes/frp-rod",
+      "/products/custom-pultruded-profiles",
+      "/products/frp-rebar",
+      "/technology/pultrusion-process",
+      "/technology/quality-testing",
+    ],
+  },
+  {
     targetUrl: "/products/frp-handrail-systems",
     primaryQuery: "fiberglass handrail systems",
     intent: "commercial",

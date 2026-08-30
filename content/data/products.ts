@@ -35,6 +35,17 @@ export const productCategories: ProductCategory[] = [
     imageAlt: "Color-coded fiberglass snow markers with reflective bands and pointed tips",
   },
   {
+    slug: "fiberglass-stakes",
+    title: "Fiberglass Stakes & Marker Rods",
+    description: "Pultruded FRP plant, tree, vineyard, nursery and general marker stakes with quote-controlled diameter, length, color, end and surface options.",
+    icon: "profiles",
+    href: "/products/fiberglass-stakes",
+    image: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt: "Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options",
+  },
+  {
     slug: "custom-pultruded-profiles",
     title: "Custom Pultruded Profiles",
     description: "Bespoke cross-sections engineered to your exact specifications with dedicated tooling.",

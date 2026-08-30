@@ -30,8 +30,8 @@ const lines: Array<{
     brand: "F1-STRUX",
     name: "Pultruded FRP Structural Profiles",
     href: "/products/fiberglass-structural-shapes",
-    category: "Structural shapes plus fixed-ladder and handrail access systems",
-    body: "F1 Composite's structural line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, plus drawing-led fixed-ladder and handrail assemblies built from matched profiles and fittings.",
+    category: "Structural shapes, fiberglass stakes and coordinated access systems",
+    body: "F1 Composite's structural line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, application-configured stake and marker rods, plus drawing-led fixed-ladder and handrail assemblies built from matched profiles and fittings.",
     equivalent: "Class of Strongwell EXTREN® / Creative Pultrusions SuperStrut® structural shapes.",
   },
   {
@@ -64,7 +64,7 @@ const faqItems = [
   {
     question: "What are F1-STRUX, F1-GRID, F1-THERM, and F1-FORM?",
     answer:
-      "They are the four pultruded FRP product lines of F1 Composite, an industrial fiberglass profiles manufacturer. F1-STRUX = pultruded structural profiles (I-beams, channels, angles, tubes, flat bars, rods); F1-GRID = FRP gratings and structural deck panels; F1-THERM = pultruded fiberglass window frames and fenestration profiles; F1-FORM = custom pultruded profiles. All are made to EN 13706 and ASTM D3917 under ISO 9001:2015.",
+      "They are the four pultruded FRP product lines of F1 Composite, an industrial fiberglass profiles manufacturer. F1-STRUX = pultruded structural profiles, fiberglass stakes and coordinated access systems; F1-GRID = FRP gratings and structural deck panels; F1-THERM = pultruded fiberglass window frames and fenestration profiles; F1-FORM = custom pultruded profiles. Product-specific standards and release requirements still control each family.",
   },
   {
     question: "Are F1-STRUX / F1-GRID / F1-THERM / F1-FORM related to Formula 1?",
@@ -157,7 +157,11 @@ export default function ProductLinesPage() {
           </p>
 
           <p className="mt-[13px] rounded-[8px] border border-border-default bg-bg2 p-[16px] text-f14 leading-golden text-t2">
-            F1-STRUX also has two complete-system entry points: the{" "}
+            F1-STRUX also includes application-configured{" "}
+            <Link href="/products/fiberglass-stakes" className="font-semibold text-teal-text hover:text-teal">
+              fiberglass plant, tree and marker stakes
+            </Link>
+            , plus two complete-system entry points: the{" "}
             <Link href="/products/frp-ladders" className="font-semibold text-teal-text hover:text-teal">
               industrial fiberglass fixed-ladder page
             </Link>{" "}
