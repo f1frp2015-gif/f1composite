@@ -110,7 +110,7 @@ export default function Footer() {
               <Image
                 src="/brand/f1-logo.png"
                 alt="F1 Composite"
-                width={138}
+                width={57}
                 height={39}
               />
             </Link>
