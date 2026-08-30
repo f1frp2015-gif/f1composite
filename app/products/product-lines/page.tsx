@@ -30,8 +30,8 @@ const lines: Array<{
     brand: "F1-STRUX",
     name: "Pultruded FRP Structural Profiles",
     href: "/products/fiberglass-structural-shapes",
-    category: "I-beam, channel, angle, square/round tube, flat bar, round rod",
-    body: "F1 Composite's structural profile line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, from 10 mm to 300 mm cross-sections.",
+    category: "Structural shapes plus fixed-ladder and handrail access systems",
+    body: "F1 Composite's structural line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, plus drawing-led fixed-ladder and handrail assemblies built from matched profiles and fittings.",
     equivalent: "Class of Strongwell EXTREN® / Creative Pultrusions SuperStrut® structural shapes.",
   },
   {
@@ -154,6 +154,18 @@ export default function ProductLinesPage() {
               structural FRP deck-panel page
             </Link>
             .
+          </p>
+
+          <p className="mt-[13px] rounded-[8px] border border-border-default bg-bg2 p-[16px] text-f14 leading-golden text-t2">
+            F1-STRUX also has two complete-system entry points: the{" "}
+            <Link href="/products/frp-ladders" className="font-semibold text-teal-text hover:text-teal">
+              industrial fiberglass fixed-ladder page
+            </Link>{" "}
+            for vertical access, and the{" "}
+            <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:text-teal">
+              fiberglass handrail and guardrail page
+            </Link>{" "}
+            for platform and stair-edge protection.
           </p>
 
           <p className="mt-[34px] text-f15 leading-golden text-t2">

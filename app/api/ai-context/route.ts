@@ -10,7 +10,7 @@ const SITE = "https://www.f1composite.com";
 export async function GET() {
   const payload = {
     "@context": "https://schema.org",
-    version: "2026-07-01",
+    version: "2026-08-30",
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
@@ -26,7 +26,7 @@ export async function GET() {
       sameAs: ["https://www.youtube.com/@F1Composites"],
       role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
       brandFamily: [
-        { name: "F1-STRUX", line: "Pultruded FRP structural profiles (I-beam, channel, angle, tube)", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-STRUX", line: "Pultruded FRP structural profiles plus drawing-led fixed-ladder and handrail access systems", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-GRID", line: "FRP gratings, cover plates & structural deck panels", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-THERM", line: "Pultruded fiberglass window frames & fenestration profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-FORM", line: "Custom pultruded FRP profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
@@ -135,6 +135,33 @@ export async function GET() {
         loadRatingsKNperM2: [5, 10, 25],
         priceBandUSDPerM2: { molded: [60, 110] },
       },
+      {
+        id: "fixed-access-ladders",
+        url: `${SITE}/products/frp-ladders`,
+        family: "Industrial Fiberglass Fixed Ladders",
+        scope: "Permanently mounted personnel-access ladders; not portable ladders or cable-ladder trays",
+        nominalCatalogReferences: {
+          outsideWidthMm: 500,
+          rungSpacingMm: 300,
+          rung: "32 mm outside diameter × 6.4 mm wall, fluted round tube",
+          sideRail: "50.8 × 50.8 × 6.4 mm square tube",
+        },
+        options: ["project brackets", "cage components", "ladder-safety or fall-arrest interface", "C/U rung-cover retrofit"],
+        releaseBoundary: "The approved elevation, loads, anchors, fall-protection concept and BOM control; catalog dimensions do not prove OSHA or ISO compliance.",
+      },
+      {
+        id: "handrail-guardrail-systems",
+        url: `${SITE}/products/frp-handrail-systems`,
+        family: "Fiberglass Handrail and Guardrail Systems",
+        systems: ["square-tube", "round-tube"],
+        nominalCatalogReferences: {
+          maximumPostSpacingMm: 1500,
+          maximumHeightMm: 1220,
+          squareRail: "50 × 50 × 6.4 mm",
+          roundRail: "50 × 5 mm, catalog notation",
+        },
+        releaseBoundary: "The complete posts, rails, fittings, bases, anchors and substrate are evaluated against the project load basis; tube size alone does not prove compliance.",
+      },
     ],
     materialComparison: {
       density_g_per_cm3: { frp: [1.8, 2.1], carbonSteel: 7.85, aluminum6061: 2.7 },
@@ -227,6 +254,8 @@ export async function GET() {
       caseStudies: `${SITE}/case-studies`,
       technology: `${SITE}/technology`,
       industries: `${SITE}/industries`,
+      fixedLadders: `${SITE}/products/frp-ladders`,
+      handrailSystems: `${SITE}/products/frp-handrail-systems`,
       contact: `${SITE}/contact`,
       llmsTxt: `${SITE}/llms.txt`,
       sitemap: `${SITE}/sitemap.xml`,

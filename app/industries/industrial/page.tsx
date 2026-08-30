@@ -167,11 +167,13 @@ export default function IndustrialPage() {
                 We specify resin systems based on the specific chemical environment of each application. For sulfuric acid environments up to 98% concentration, we use premium bisphenol A vinyl ester resin with enhanced chemical barrier veils. For hydrochloric acid service, standard vinyl ester provides excellent resistance at concentrations up to 37% and temperatures up to 80 degrees Celsius. For mixed acid environments common in metal finishing operations, we provide detailed immersion test data specific to the customer&apos;s actual process chemistry.
               </p>
               <p>
-                Our chemical plant product range includes molded and pultruded gratings for process area flooring, structural profiles (I-beams, channels, angles, tubes) for equipment support frames, handrail systems for elevated walkways and tank access, and ladder systems for vertical access. All components are designed to bolt together with stainless steel fasteners, requiring no welding or hot work — a critical advantage in facilities where hot work permits are difficult to obtain and ignition sources must be minimized.
+                Our chemical plant product range includes molded and pultruded gratings for process area flooring, structural profiles (I-beams, channels, angles, tubes) for equipment support frames, handrail systems for elevated walkways and tank access, and fixed ladder systems for vertical access. Connection methods, hardware material and anchor details are issued on the approved project drawings; prefabricated bolted assemblies can reduce field hot work when that installation concept is selected.
               </p>
-              <LinkArrow href="/products/molded-frp-grating">
-                Browse molded chemical-resistant grating
-              </LinkArrow>
+              <div className="flex flex-wrap gap-x-[21px] gap-y-[8px]">
+                <LinkArrow href="/products/molded-frp-grating">Browse molded chemical-resistant grating</LinkArrow>
+                <LinkArrow href="/products/frp-ladders">Industrial FRP fixed ladders</LinkArrow>
+                <LinkArrow href="/products/frp-handrail-systems">Fiberglass handrail systems</LinkArrow>
+              </div>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Water and Wastewater Treatment</h3>
               <p>
@@ -181,7 +183,7 @@ export default function IndustrialPage() {
                 FRP gratings serve as walkway surfaces over treatment basins, filter galleries, and chemical storage areas. Their non-slip surfaces maintain traction even when wet with process water, and their corrosion resistance eliminates the grating replacement cycles that plague steel installations. A typical municipal wastewater plant replacing steel gratings on a 10-year cycle can expect FRP gratings to last 30+ years without replacement, delivering a lifecycle cost reduction of 40% to 55% even though the initial material cost of FRP exceeds steel by approximately 2 to 3 times.
               </p>
               <p>
-                FRP handrail and guardrail systems protect workers along basin edges, elevated walkways, and chemical dosing platforms. Our water treatment handrail systems meet OSHA 1910.23 and IBC 2021 guard loading requirements, and they are supplied with permanently colored surfaces (RAL or custom color matching) that never require repainting. The elimination of painting maintenance is particularly valuable in water treatment environments, where paint flakes from corroding handrails fall into open treatment basins and create contamination concerns.
+                FRP handrail and guardrail systems protect workers along basin edges, elevated walkways, and chemical dosing platforms. Each layout is configured and evaluated against the stated guardrail basis—such as OSHA 1910.29 or the project&apos;s adopted building code—with post spacing, rails, fittings, bases, anchors and substrate checked together. Integral pigmentation can reduce coating dependence, but resin, UV package, color retention and maintenance requirements remain project-specific.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
@@ -246,6 +248,26 @@ export default function IndustrialPage() {
             Products and Resources for Industrial Projects
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              href="/products/frp-ladders"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Industrial FRP Fixed Ladders</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Drawing-led fixed personnel-access ladders with pultruded side rails, fluted rungs, brackets and project-specific fall-protection interfaces.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
+            </Link>
+            <Link
+              href="/products/frp-handrail-systems"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Fiberglass Handrail Systems</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Square- and round-tube posts, rails, kick plates, fittings and bases coordinated against the project load and anchorage basis.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
+            </Link>
             <Link
               href="/products/molded-frp-grating"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"

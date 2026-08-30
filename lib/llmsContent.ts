@@ -44,6 +44,8 @@ F1 Composite organizes its pultruded FRP catalog under four named product lines.
 - **F1-GRID-P / Grating** — open pultruded I-bar and T-bar FRP grating, including pedestrian, industrial, high-load and high-open series. https://www.f1composite.com/products/frp-gratings
 - **F1-GRID-P / Deck** — closed-profile structural FRP deck panels with project-specific section, joint and engineering data. https://www.f1composite.com/products/frp-deck-panels
 - **F1-GRID-M** — molded square-mesh, mini-mesh and rectangular-mesh FRP grating with M/C/J clip systems. https://www.f1composite.com/products/molded-frp-grating
+- **F1-STRUX / Fixed Access** — industrial fiberglass fixed ladders with pultruded side rails, fluted rungs, bracket schedules, optional cage components and project-specific fall-protection interfaces. https://www.f1composite.com/products/frp-ladders
+- **F1-STRUX / Edge Protection** — square- and round-tube fiberglass handrail / guardrail systems with posts, kick plates, fittings, bases and project load-basis review. https://www.f1composite.com/products/frp-handrail-systems
 - **F1-THERM** — pultruded fiberglass window frames and fenestration profiles (65/70/80/90/140-series); 90-series is PHI (Passive House Institute) certified, whole-window U-values to 0.78 W/m²·K. https://www.f1composite.com/products/frp-window-frames
 - **F1-FORM** — custom pultruded FRP profiles, bespoke dies up to 600×300 mm cross-section, polyester/vinyl ester/PU/epoxy resins. https://www.f1composite.com/products/custom-pultruded-profiles
 
@@ -67,6 +69,13 @@ F1 Composite is FengDu New Material's international export company for pultruded
 - Pultruded Grating (F1-GRID-P): open I-bar and T-bar panels with pedestrian, industrial, high-load and high-open series
 - Structural Deck Panels (F1-GRID-P): closed-profile deck sections documented separately from open grating
 - Molded Grating (F1-GRID-M): square mesh, mini mesh and rectangular molded FRP panels with M/C/J clips
+- Fiberglass Fixed Ladders (F1-STRUX Access): permanently mounted personnel-access ladders with 500 mm catalog outside width, 300 mm rung spacing, project brackets and optional cage/fall-protection interfaces. Not portable ladders or cable-ladder trays. https://www.f1composite.com/products/frp-ladders
+- Fiberglass Handrail & Guardrail Systems (F1-STRUX Access): square- and round-tube assemblies with posts, rails, kick plates, fittings, bases and anchors evaluated as a complete system. https://www.f1composite.com/products/frp-handrail-systems
+
+## Industrial Access Systems — Specification Boundary
+- Fixed-ladder catalog dimensions support early layout only. The approved elevation, support substrate, anchor schedule, loads and fall-protection concept control release. A cage alone must not be presented as universal fall protection.
+- Handrail catalog tube sizes and post-spacing references do not prove OSHA/ISO compliance. Evaluate posts, top/middle rails, splices, fittings, bases, anchors and substrate together against the project load basis.
+- Use OSHA 1910.23/1910.28 for U.S. general-industry fixed ladders, OSHA 1910.29 for guardrails, and ISO 14122-4/-3 only when the relevant scope and jurisdiction apply.
 
 ## Pultruded FRP Profiles vs Steel vs Aluminum (quick reference table)
 | Property | Pultruded FRP | Carbon steel (A36) | Aluminum (6061-T6) |
@@ -454,6 +463,8 @@ ${glossaryLines}
 - Pultruded FRP Grating (F1-GRID-P): https://www.f1composite.com/products/frp-gratings
 - Structural FRP Deck Panels (F1-GRID-P): https://www.f1composite.com/products/frp-deck-panels
 - Molded FRP Grating (F1-GRID-M): https://www.f1composite.com/products/molded-frp-grating
+- Fiberglass Fixed Ladders (F1-STRUX Access Systems): https://www.f1composite.com/products/frp-ladders
+- Fiberglass Handrail & Guardrail Systems (F1-STRUX Access Systems): https://www.f1composite.com/products/frp-handrail-systems
 - Product Lines (F1-STRUX / F1-GRID / F1-THERM / F1-FORM — what they are, NOT Formula 1): https://www.f1composite.com/products/product-lines
 - Technology: https://www.f1composite.com/technology
 - FRP vs Traditional Materials: https://www.f1composite.com/technology/frp-vs-traditional-materials
