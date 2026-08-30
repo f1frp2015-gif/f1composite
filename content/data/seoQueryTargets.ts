@@ -122,6 +122,7 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/frp-gratings",
+      "/products/molded-frp-grating",
       "/products/frp-window-frames",
       "/products/custom-pultruded-profiles",
     ],
@@ -209,12 +210,27 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/frp-gratings",
-    primaryQuery: "FRP grating manufacturer",
+    primaryQuery: "pultruded FRP grating manufacturer",
     intent: "commercial",
-    title: "FRP Grating Manufacturer | Molded & Pultruded Panels",
+    title: "Pultruded FRP Grating Manufacturer | I-Bar & T-Bar",
     description:
-      "Source molded and pultruded panels from an FRP grating manufacturer for chemical, marine and industrial projects, with load, slip and resin data.",
+      "Source pultruded FRP grating in I-bar, T-bar, high-load and high-open series, with deck panels, M/J/T 316SS clips and project load-table support.",
     supportingUrls: [
+      "/products/molded-frp-grating",
+      "/technology/frp-vs-steel-gratings",
+      "/regions/frp-grating-supplier-saudi-arabia",
+      "/applications/frp-chemical-plant-platforms",
+    ],
+  },
+  {
+    targetUrl: "/products/molded-frp-grating",
+    primaryQuery: "molded FRP grating",
+    intent: "commercial",
+    title: "Molded FRP Grating Manufacturer | Mesh Sizes & Clips",
+    description:
+      "Compare molded fiberglass grating mesh, depths, panel sizes, nominal weights and open area, with gritted surfaces and matched M/C/J 316SS clips.",
+    supportingUrls: [
+      "/products/frp-gratings",
       "/technology/frp-vs-steel-gratings",
       "/regions/frp-grating-supplier-saudi-arabia",
       "/applications/frp-chemical-plant-platforms",
@@ -227,7 +243,7 @@ export const seoQueryTargets = [
     title: "FRP Grating vs Steel — Corrosion, Slip & Lifecycle Cost",
     description:
       "Compare FRP grating with steel on load, corrosion, weight, slip resistance, electrical safety, installation and lifecycle cost.",
-    supportingUrls: ["/products/frp-gratings", "/industries/industrial"],
+    supportingUrls: ["/products/molded-frp-grating", "/products/frp-gratings", "/industries/industrial"],
   },
   {
     targetUrl: "/frp-profile-calculator",

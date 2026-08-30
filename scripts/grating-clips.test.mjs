@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 import {
   buildDxf,
   CLIP_DRAWINGS,
+  FAMILY_CLIP_CODES,
+  FAMILY_OUTPUT_PATHS,
   OUTPUT_PATH,
   REQUIRED_LAYERS,
 } from "./generate-grating-clip-cad.mjs";
@@ -16,6 +18,7 @@ const repositoryRoot = path.resolve(scriptDirectory, "..");
 const dataPath = path.join(repositoryRoot, "content/data/gratingClips.ts");
 const componentPath = path.join(repositoryRoot, "components/sections/GratingClipGuide.tsx");
 const pagePath = path.join(repositoryRoot, "app/products/frp-gratings/page.tsx");
+const moldedPagePath = path.join(repositoryRoot, "app/products/molded-frp-grating/page.tsx");
 
 const expectedSkus = [
   "F1-GRID-CLIP-M-316",
@@ -34,6 +37,9 @@ const thirdPartyTokens = [
   "DURADEK",
   "DURAGRID",
   "Safe-T-Span",
+  "Strongrate",
+  "Nantong",
+  "南通盛世",
 ];
 
 function clipBlock(source, code) {
@@ -119,11 +125,29 @@ test("public grating-clip surface contains no supplier or third-party identity",
       readFile(dataPath, "utf8"),
       readFile(componentPath, "utf8"),
       readFile(pagePath, "utf8"),
+      readFile(moldedPagePath, "utf8"),
       readFile(OUTPUT_PATH, "ascii"),
+      readFile(FAMILY_OUTPUT_PATHS.molded, "ascii"),
+      readFile(FAMILY_OUTPUT_PATHS.pultruded, "ascii"),
     ])
   ).join("\n");
 
   assertNeutral(publicSurface, "public grating-clip surface");
+});
+
+test("molded and pultruded pages expose only their compatible clip families", async () => {
+  const [component, pultrudedPage, moldedPage] = await Promise.all([
+    readFile(componentPath, "utf8"),
+    readFile(pagePath, "utf8"),
+    readFile(moldedPagePath, "utf8"),
+  ]);
+
+  assert.match(component, /molded:[\s\S]*codes:\s*\["M",\s*"C",\s*"J"\]/);
+  assert.match(component, /pultruded:[\s\S]*codes:\s*\["M",\s*"J",\s*"T"\]/);
+  assert.match(moldedPage, /<GratingClipGuide family="molded" \/>/);
+  assert.match(pultrudedPage, /<GratingClipGuide family="pultruded" \/>/);
+  assert.match(moldedPage, /moldedGratingManualImageAssets/);
+  assert.match(pultrudedPage, /View molded FRP grating/);
 });
 
 test("generated file is deterministic ASCII AutoCAD R12 with required layers", async () => {
@@ -143,6 +167,26 @@ test("generated file is deterministic ASCII AutoCAD R12 with required layers", a
     CLIP_DRAWINGS.map((drawing) => drawing.sku),
     expectedSkus,
   );
+});
+
+test("family-specific DXFs keep molded M/C/J separate from pultruded M/J/T", async () => {
+  for (const [family, codes] of Object.entries(FAMILY_CLIP_CODES)) {
+    const drawings = codes.map((code) => CLIP_DRAWINGS.find((drawing) => drawing.code === code));
+    const title = `F1 ${family.toUpperCase()} GRATING CLIPS - ${codes.join(" / ")} - 316SS`;
+    const familyNote = `${family.toUpperCase()} GRATING FAMILY ONLY - USE APPROVED F1 SKU AND DRAWING`;
+    const generated = buildDxf({ drawings, title, familyNote });
+    const committed = await readFile(FAMILY_OUTPUT_PATHS[family], "ascii");
+    const notes = dxfTextValues(committed).join("\n");
+
+    assert.equal(committed, generated);
+    assert.match(committed, /\n0\nEOF\n$/);
+    assert.match(notes, new RegExp(`${family.toUpperCase()} GRATING FAMILY ONLY`));
+    for (const code of codes) assert.match(notes, new RegExp(`F1-GRID-CLIP-${code}-316`));
+
+    const excludedCode = family === "molded" ? "T" : "C";
+    assert.doesNotMatch(notes, new RegExp(`F1-GRID-CLIP-${excludedCode}-316`));
+    assertNeutral(notes, `${family} DXF notes`);
+  }
 });
 
 test("DXF includes four controlled installation schematics without manufacturing dimensions", async () => {

@@ -180,7 +180,7 @@ export default function EnergyPage() {
                 Our cable tray systems are available in ladder, solid-bottom, and ventilated trough configurations, in widths from 150mm to 900mm and side rail heights from 50mm to 150mm. All systems include matching covers, reducers, tees, elbows, and vertical risers for complete routing solutions.
               </p>
               <LinkArrow href="/products/frp-gratings">
-                Browse cable tray and grating systems
+                Browse pultruded grating systems
               </LinkArrow>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Transformer Spacers and Insulating Standoffs</h3>
@@ -277,7 +277,7 @@ export default function EnergyPage() {
               href="/products/frp-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Gratings and Cable Trays</h3>
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Pultruded Gratings and Cable Trays</h3>
               <p className="text-f13 leading-golden text-t2">
                 Non-conductive FRP cable trays and platform gratings for substations, power plants, and renewable energy facilities.
               </p>

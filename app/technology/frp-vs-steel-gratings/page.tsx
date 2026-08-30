@@ -218,12 +218,20 @@ export default function FrpVsSteelGratingsPage() {
           <p className="text-f15 leading-golden text-t2">
             Explore F1 Composite FRP gratings — molded and pultruded, solid-top and ventilated, grit and smooth, polyester and vinyl ester resin systems.
           </p>
-          <Link
-            href="/products/frp-gratings"
-            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
-          >
-            View FRP Gratings →
-          </Link>
+          <div className="mt-[21px] flex flex-wrap justify-center gap-[13px]">
+            <Link
+              href="/products/molded-frp-grating"
+              className="inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            >
+              View Molded Grating →
+            </Link>
+            <Link
+              href="/products/frp-gratings"
+              className="inline-block rounded-[8px] border border-border-default bg-white px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text transition-colors hover:border-teal"
+            >
+              View Pultruded Grating →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -232,7 +240,8 @@ export default function FrpVsSteelGratingsPage() {
           {
             title: "FRP grating products",
             links: [
-              { href: "/products/frp-gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/molded-frp-grating", label: "Molded FRP grating — square & mini mesh" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP grating & deck panels" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel stringers" },
               { href: "/products/custom-pultruded-profiles", label: "Custom grating bearing bars" },

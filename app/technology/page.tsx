@@ -163,7 +163,8 @@ export default function TechnologyPage() {
               { href: "/products/fiberglass-structural-shapes", label: "Standard FRP structural profiles" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions" },
               { href: "/products/frp-window-frames", label: "FRP window frames" },
-              { href: "/products/frp-gratings", label: "FRP gratings & deck panels" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP gratings & deck panels" },
+              { href: "/products/molded-frp-grating", label: "Molded FRP grating" },
             ],
           },
           {

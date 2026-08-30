@@ -187,7 +187,7 @@ export const applicationPages: ApplicationPage[] = [
       "Panel length limits for container loading and installation access",
     ],
     related: [
-      { href: "/products/frp-gratings", label: "FRP gratings and deck panels" },
+      { href: "/products/frp-gratings", label: "Pultruded FRP grating and deck panels" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/industries/infrastructure", label: "Infrastructure applications" },
       { href: "/case-studies/european-bridge-deck", label: "Bridge deck case study" },
@@ -308,7 +308,8 @@ export const applicationPages: ApplicationPage[] = [
       "Assembly drawings or existing steel platform dimensions",
     ],
     related: [
-      { href: "/products/frp-gratings", label: "FRP gratings" },
+      { href: "/products/molded-frp-grating", label: "Molded FRP grating" },
+      { href: "/products/frp-gratings", label: "Pultruded FRP grating & deck panels" },
       { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
       { href: "/products/frp-stair-treads", label: "Stair tread covers" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
@@ -372,7 +373,7 @@ export const applicationPages: ApplicationPage[] = [
     related: [
       { href: "/applications/frp-bridge-deck-panels", label: "FRP bridge deck panels" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
-      { href: "/products/frp-gratings", label: "FRP gratings and deck panels" },
+      { href: "/products/frp-gratings", label: "Pultruded FRP grating and deck panels" },
       { href: "/products/frp-handrail-systems", label: "FRP handrail systems" },
       { href: "/case-studies/european-bridge-deck", label: "European bridge deck case study" },
     ],

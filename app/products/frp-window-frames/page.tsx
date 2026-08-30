@@ -1010,7 +1010,7 @@ export default function FenestrationSystemsPage() {
               { href: "/products/frp-window-reinforcement", label: "Fiberglass window reinforcements (uPVC cores)" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
-              { href: "/products/frp-gratings", label: "FRP grating manufacturer" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP grating manufacturer" },
             ],
           },
           {

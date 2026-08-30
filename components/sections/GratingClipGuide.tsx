@@ -1,10 +1,8 @@
 import SectionTag from "@/components/ui/SectionTag";
 import {
-  GRATING_CLIP_DXF_HREF,
-  GRATING_CLIP_DXF_NAME,
+  GRATING_CLIP_DXF_BY_FAMILY,
   gratingClipInstallationPrinciples,
   gratingClipLayoutDisclaimer,
-  gratingClipNamingNote,
   gratingClipTypicalStartingLayout,
   gratingClips,
   type GratingClipCode,
@@ -18,6 +16,29 @@ import {
 const SUPPORT_FILL = "#e2e8f0";
 const PANEL_FILL = "#dbe7e6";
 const WHITE = "#ffffff";
+
+export type GratingClipFamily = "molded" | "pultruded";
+
+const familyContent = {
+  molded: {
+    codes: ["M", "C", "J"] as const satisfies readonly GratingClipCode[],
+    tag: "Molded Grating · 316SS Hardware",
+    title: "M, C, and J clips for molded FRP grating",
+    intro:
+      "F1 molded-grating clip kits separate panel hold-downs from panel-edge connectors. Select the hardware from the mesh, panel depth, support detail and installation access, then issue the exact assembly on the approved panel-layout drawing.",
+    naming:
+      "M, C, and J are F1-GRID molded-grating product definitions. A C connector joins compatible molded-panel edges but does not replace support or each panel's independent hold-downs.",
+  },
+  pultruded: {
+    codes: ["M", "J", "T"] as const satisfies readonly GratingClipCode[],
+    tag: "Pultruded Grating · 316SS Hardware",
+    title: "M, J, and T clips for pultruded FRP grating",
+    intro:
+      "F1 pultruded-grating clip kits are selected against the I-bar or T-bar series, panel depth, support detail and underside access. The approved drawing fixes the exact hold-down geometry and complete fastener assembly.",
+    naming:
+      "M, J, and T are F1-GRID pultruded-grating product definitions. Letter names are not standardized across manufacturers; the F1 SKU, compatible bearing-bar series and approved project drawing control.",
+  },
+} as const;
 
 function MClipFigure({ alt }: { alt: string }) {
   return (
@@ -157,26 +178,40 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function GratingClipGuide() {
+export default function GratingClipGuide({ family }: { family: GratingClipFamily }) {
+  const content = familyContent[family];
+  const familyDxf = GRATING_CLIP_DXF_BY_FAMILY[family];
+  const visibleCodes = new Set<GratingClipCode>(content.codes);
+  const visibleClips = gratingClips.filter((clip) => visibleCodes.has(clip.code));
+  const visibleStartingLayout = gratingClipTypicalStartingLayout.filter(
+    (item) => family === "molded" || item.label !== "C connectors",
+  );
+  const installationPrinciples =
+    family === "molded"
+      ? gratingClipInstallationPrinciples
+      : [
+          gratingClipInstallationPrinciples[0],
+          "Locate M, J, or T panel-to-support hold-downs only at supporting members. Secure each pultruded panel independently; clips do not increase the approved span.",
+          gratingClipInstallationPrinciples[2],
+          gratingClipInstallationPrinciples[3],
+        ];
+
   return (
     <section id="grating-clips" className="bg-white py-[55px] md:py-[89px]">
       <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
-        <SectionTag>316SS Fastening Hardware</SectionTag>
+        <SectionTag>{content.tag}</SectionTag>
         <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-          M, C, J, and T clips for FRP grating installation
+          {content.title}
         </h2>
         <p className="mt-[13px] max-w-[920px] text-f15 leading-golden text-t2">
-          F1-GRID clip kits define the connection function before the project drawing fixes the
-          geometry. Select by panel family, support detail, and access; then confirm the exact
-          hardware arrangement for the approved layout. The diagrams below explain the load path
-          and compatibility only — they are not fabrication dimensions.
+          {content.intro} The diagrams explain compatibility and load path only — they are not fabrication dimensions.
         </p>
         <p className="mt-[8px] max-w-[920px] rounded-[6px] border border-teal-border bg-teal-bg px-[13px] py-[10px] text-f13 leading-golden text-t2">
-          {gratingClipNamingNote}
+          {content.naming}
         </p>
 
-        <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
-          {gratingClips.map((clip) => (
+        <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
+          {visibleClips.map((clip) => (
             <article
               key={clip.code}
               className="overflow-hidden rounded-[8px] border border-border-default bg-white"
@@ -222,7 +257,7 @@ export default function GratingClipGuide() {
           <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px] sm:p-[34px]">
             <h3 className="text-f17 font-bold text-t1">Installation and spacing principles</h3>
             <ol className="mt-[13px] space-y-[10px]">
-              {gratingClipInstallationPrinciples.map((principle, index) => (
+              {installationPrinciples.map((principle, index) => (
                 <li key={principle} className="flex gap-[10px] text-f13 leading-golden text-t2">
                   <span className="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-full bg-teal text-f11 font-bold text-white">
                     {index + 1}
@@ -237,7 +272,7 @@ export default function GratingClipGuide() {
                 General coordination values before project-specific fastening design.
               </p>
               <dl className="mt-[13px]">
-                {gratingClipTypicalStartingLayout.map((item) => (
+                {visibleStartingLayout.map((item) => (
                   <SpecRow key={item.label} label={item.label} value={item.value} />
                 ))}
               </dl>
@@ -251,17 +286,17 @@ export default function GratingClipGuide() {
             <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal">
               Combined CAD detail
             </p>
-            <h3 className="mt-[8px] text-f19 font-bold">{GRATING_CLIP_DXF_NAME}</h3>
+            <h3 className="mt-[8px] text-f19 font-bold">{familyDxf.name}</h3>
             <p className="mt-[8px] text-f13 leading-golden text-white/75">
-              One DXF containing the four typical installation details and F1 SKU references.
+              One family-specific DXF containing the {familyDxf.codes} typical installation details and F1 SKU references.
               Project-specific geometry remains governed by the approved project drawing.
             </p>
             <a
-              href={GRATING_CLIP_DXF_HREF}
+              href={familyDxf.href}
               download
               className="mt-[21px] inline-flex min-h-[46px] w-full items-center justify-center rounded-[7px] bg-teal-text px-[21px] py-[11px] text-center text-f13 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto"
             >
-              Download combined M/C/J/T DXF
+              Download {familyDxf.codes} DXF
             </a>
             <p className="mt-[8px] text-f11 leading-golden text-white/60">
               Free DXF · no login · verify revision before issue for construction

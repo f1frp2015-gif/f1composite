@@ -28,6 +28,7 @@ const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user
   - /products/custom-pultruded-profiles
   - /products/frp-window-frames
   - /products/frp-gratings
+  - /products/molded-frp-grating
   - /pultruded-frp-profiles (hub)
   - /applications/{frp-cable-tray-supports, frp-cooling-tower-profiles, frp-bridge-deck-panels, frp-solar-mounting-profiles, frp-chemical-plant-platforms}
   - /frp-profile-calculator, /technology/frp-u-value-calculator, /technology/pultrusion-process, /technology/quality-testing, /technology/frp-vs-traditional-materials

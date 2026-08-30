@@ -169,8 +169,8 @@ export default function IndustrialPage() {
               <p>
                 Our chemical plant product range includes molded and pultruded gratings for process area flooring, structural profiles (I-beams, channels, angles, tubes) for equipment support frames, handrail systems for elevated walkways and tank access, and ladder systems for vertical access. All components are designed to bolt together with stainless steel fasteners, requiring no welding or hot work — a critical advantage in facilities where hot work permits are difficult to obtain and ignition sources must be minimized.
               </p>
-              <LinkArrow href="/products/frp-gratings">
-                Browse chemical-resistant gratings
+              <LinkArrow href="/products/molded-frp-grating">
+                Browse molded chemical-resistant grating
               </LinkArrow>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Water and Wastewater Treatment</h3>
@@ -247,7 +247,7 @@ export default function IndustrialPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/frp-gratings"
+              href="/products/molded-frp-grating"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Industrial Gratings</h3>

@@ -138,8 +138,12 @@ export default function HandrailSystemsPage() {
               fiberglass stair treads
             </Link>{" "}
             and{" "}
+            <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text hover:underline">
+              molded grating
+            </Link>{" "}
+            or{" "}
             <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:underline">
-              grating walkways
+              pultruded grating walkways
             </Link>
             .
           </p>

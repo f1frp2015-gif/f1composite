@@ -291,7 +291,7 @@ export default function InfrastructurePage() {
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams for bridges" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels for stringers" },
-              { href: "/products/frp-gratings", label: "FRP gratings & bridge deck panels" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP gratings & bridge deck panels" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions for infrastructure" },
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP rods for soil nails & rock bolts" },
               { href: "/applications/frp-pedestrian-bridge-superstructures", label: "FRP pedestrian bridge superstructures" },

@@ -10,6 +10,11 @@ export const OUTPUT_PATH = path.join(
   "public/cad/f1-grid-grating-clips-m-c-j-t-316ss.dxf",
 );
 
+export const FAMILY_OUTPUT_PATHS = {
+  molded: path.join(repositoryRoot, "public/cad/f1-molded-grating-clips-m-c-j-316ss.dxf"),
+  pultruded: path.join(repositoryRoot, "public/cad/f1-pultruded-grating-clips-m-j-t-316ss.dxf"),
+};
+
 export const REQUIRED_LAYERS = [
   "M_CLIP",
   "C_CLIP",
@@ -49,6 +54,11 @@ export const CLIP_DRAWINGS = [
     compatibility: "PULTRUDED GRATING ONLY - F1 SERIES-SPECIFIC DEFINITION",
   },
 ];
+
+export const FAMILY_CLIP_CODES = {
+  molded: ["M", "C", "J"],
+  pultruded: ["M", "J", "T"],
+};
 
 function group(code, value) {
   return `${code}\n${value}\n`;
@@ -281,30 +291,44 @@ function tablesSection() {
   return output;
 }
 
-export function buildDxf() {
+const DRAWING_RENDERERS = {
+  M: drawMClip,
+  C: drawCClip,
+  J: drawJClip,
+  T: drawTClip,
+};
+
+export function buildDxf({
+  drawings = CLIP_DRAWINGS,
+  title = "F1-GRID GRATING CLIP INSTALLATION SCHEMATICS - M / C / J / T",
+  familyNote = "FAMILY SCOPE: MOLDED M/C/J; PULTRUDED M/J/T",
+} = {}) {
   let output = group(0, "SECTION") + group(2, "HEADER");
   output += group(9, "$ACADVER") + group(1, "AC1009");
   output += group(0, "ENDSEC");
   output += tablesSection();
   output += group(0, "SECTION") + group(2, "ENTITIES");
 
-  output += text("NOTES", 10, 247, 5, "F1-GRID GRATING CLIP INSTALLATION SCHEMATICS - M / C / J / T");
+  output += text("NOTES", 10, 247, 5, title);
   output += text("NOTES", 10, 239, 3.2, "NOT FOR FABRICATION - NOT TO SCALE - NO MANUFACTURING DIMENSIONS SHOWN");
   output += text("NOTES", 10, 232, 4, "APPROVED PROJECT DRAWING CONTROLS");
   output += text("NOTES", 10, 225, 2.8, "VERIFY GRATING FAMILY, CLIP SERIES, SUPPORT, LOADS, SPACING, TORQUE, AND FASTENER ASSEMBLY");
   output += text("NOTES", 10, 219, 2.8, "CLIPS: 316 STAINLESS STEEL; VERIFY COMPLETE FASTENER ASSEMBLY ALLOY");
+  output += text("NOTES", 10, 213, 2.8, familyNote);
 
-  const views = [
-    { x: 10, y: 117, drawing: CLIP_DRAWINGS[0], render: drawMClip },
-    { x: 185, y: 117, drawing: CLIP_DRAWINGS[1], render: drawCClip },
-    { x: 10, y: 11, drawing: CLIP_DRAWINGS[2], render: drawJClip },
-    { x: 185, y: 11, drawing: CLIP_DRAWINGS[3], render: drawTClip },
+  const positions = [
+    { x: 10, y: 117 },
+    { x: 185, y: 117 },
+    { x: 10, y: 11 },
+    { x: 185, y: 11 },
   ];
 
-  for (const view of views) {
-    output += viewFrame(view.x, view.y, view.drawing);
-    output += view.render(view.x, view.y);
-  }
+  drawings.forEach((drawing, index) => {
+    const position = positions[index];
+    const render = DRAWING_RENDERERS[drawing.code];
+    output += viewFrame(position.x, position.y, drawing);
+    output += render(position.x, position.y);
+  });
 
   output += group(0, "ENDSEC") + group(0, "EOF");
 
@@ -315,14 +339,27 @@ export function buildDxf() {
   return output;
 }
 
-export async function writeDxf(outputPath = OUTPUT_PATH) {
+export async function writeDxf(outputPath = OUTPUT_PATH, options) {
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, buildDxf(), "ascii");
+  await writeFile(outputPath, buildDxf(options), "ascii");
   return outputPath;
+}
+
+export async function writeAllDxf() {
+  const outputs = [await writeDxf()];
+
+  for (const [family, codes] of Object.entries(FAMILY_CLIP_CODES)) {
+    const drawings = codes.map((code) => CLIP_DRAWINGS.find((drawing) => drawing.code === code));
+    const title = `F1 ${family.toUpperCase()} GRATING CLIPS - ${codes.join(" / ")} - 316SS`;
+    const familyNote = `${family.toUpperCase()} GRATING FAMILY ONLY - USE APPROVED F1 SKU AND DRAWING`;
+    outputs.push(await writeDxf(FAMILY_OUTPUT_PATHS[family], { drawings, title, familyNote }));
+  }
+
+  return outputs;
 }
 
 const invokedPath = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : null;
 if (invokedPath === import.meta.url) {
-  const outputPath = await writeDxf();
-  process.stdout.write(`${path.relative(repositoryRoot, outputPath)}\n`);
+  const outputPaths = await writeAllDxf();
+  process.stdout.write(`${outputPaths.map((outputPath) => path.relative(repositoryRoot, outputPath)).join("\n")}\n`);
 }
