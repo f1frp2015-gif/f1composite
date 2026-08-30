@@ -12,6 +12,8 @@
     "check:editorial-signals": "node scripts/check-editorial-signals.mjs",
     "test:indexnow": "node --test scripts/submit-indexnow.test.mjs",
     "test:calculators": "node --test scripts/calculator-p0.test.mjs",
+    "test:grating-clips": "node --test scripts/grating-clips.test.mjs",
+    "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
