@@ -59,7 +59,6 @@ export default function Navbar() {
             width={142}
             height={40}
             priority
-            className="h-[40px] w-auto"
           />
         </Link>
 
@@ -80,7 +79,7 @@ export default function Navbar() {
                 {item.children && (
                   <div className="invisible absolute left-1/2 top-[calc(100%-1px)] -translate-x-1/2 pt-[12px] opacity-0 transition-[opacity,visibility,transform] duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                     {grouped ? (
-                      <div className="grid w-[min(680px,calc(100vw-48px))] grid-cols-2 gap-x-[28px] gap-y-[20px] rounded-[12px] border border-border-default bg-white p-[24px] shadow-[0_18px_48px_rgba(11,24,56,0.14)]">
+                      <div className="grid w-[min(760px,calc(100vw-48px))] grid-cols-2 gap-x-[32px] gap-y-[20px] rounded-[12px] border border-border-default bg-white p-[24px] shadow-[0_18px_48px_rgba(11,24,56,0.14)]">
                         {groupChildren(item.children).map((group) => (
                           <div key={group.title ?? "general"}>
                             {group.title && (

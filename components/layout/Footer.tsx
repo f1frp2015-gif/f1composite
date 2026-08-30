@@ -6,17 +6,38 @@ import { useState } from "react";
 import { footerNav } from "@/content/data/navigation";
 
 const columns = [
-  { title: "Products", links: footerNav.products },
-  { title: "Explore", links: footerNav.explore },
+  { title: "Profiles & Materials", links: footerNav.profiles },
+  { title: "Engineered Systems", links: footerNav.systems },
+  { title: "Applications", links: footerNav.applications },
+  { title: "Engineering", links: footerNav.engineering },
   { title: "Company", links: footerNav.company },
 ];
+
+type FooterLink = { label: string; href: string };
+
+function FooterLinks({ links, className }: { links: FooterLink[]; className: string }) {
+  return (
+    <ul className={className}>
+      {links.map((link) => (
+        <li key={link.href}>
+          <Link
+            href={link.href}
+            className="inline-flex min-h-[34px] items-center text-f13 text-t2 transition-colors hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function FooterAccordion({
   title,
   links,
 }: {
   title: string;
-  links: Array<{ label: string; href: string }>;
+  links: FooterLink[];
 }) {
   const [open, setOpen] = useState(false);
 
@@ -25,12 +46,12 @@ function FooterAccordion({
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-[48px] w-full items-center justify-between text-left md:pointer-events-none md:min-h-0"
+        className="flex min-h-[48px] w-full items-center justify-between text-left md:hidden"
         aria-expanded={open}
       >
         <span className="text-f13 font-bold text-t1">{title}</span>
         <svg
-          className={`h-4 w-4 text-t3 transition-transform duration-200 md:hidden ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-t3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -41,22 +62,12 @@ function FooterAccordion({
         </svg>
       </button>
 
-      <ul
-        className={`space-y-[7px] overflow-hidden transition-[max-height,padding] duration-200 md:mt-[12px] md:max-h-none ${
-          open ? "max-h-[280px] pb-[14px]" : "max-h-0 md:max-h-none"
-        }`}
-      >
-        {links.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className="inline-flex min-h-[34px] items-center text-f13 text-t2 transition-colors hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {open && <FooterLinks links={links} className="space-y-[7px] pb-[14px] md:hidden" />}
+
+      <div className="hidden md:block">
+        <h2 className="text-f13 font-bold text-t1">{title}</h2>
+        <FooterLinks links={links} className="mt-[12px] space-y-[7px]" />
+      </div>
     </div>
   );
 }
@@ -93,15 +104,14 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-[1320px] px-[20px] py-[30px] sm:px-[28px] md:px-[36px] md:py-[36px]">
-        <div className="grid gap-[18px] md:grid-cols-[1.45fr_1fr_1fr_1fr] md:gap-[36px]">
-          <div className="pb-[4px]">
+        <div className="grid gap-[18px] md:grid-cols-3 md:gap-[28px] lg:grid-cols-[1.35fr_repeat(5,minmax(0,1fr))] lg:gap-[24px]">
+          <div className="pb-[4px] md:col-span-3 lg:col-span-1">
             <Link href="/" aria-label="F1 Composite home" className="inline-block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal">
               <Image
                 src="/brand/f1-logo.png"
                 alt="F1 Composite"
                 width={138}
                 height={39}
-                className="h-[39px] w-auto"
               />
             </Link>
             <p className="mt-[12px] max-w-[310px] text-f13 leading-relaxed text-t2">
