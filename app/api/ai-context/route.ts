@@ -112,10 +112,20 @@ export async function GET() {
       {
         id: "pultruded-gratings",
         url: `${SITE}/products/frp-gratings`,
-        family: "Pultruded FRP Gratings & Deck Panels",
-        types: ["pultruded-i-bar", "pultruded-t-bar", "solid-top-cover", "structural-deck"],
+        family: "Pultruded FRP Grating",
+        types: ["pultruded-i-bar", "pultruded-t-bar", "high-load", "high-open"],
         loadRatingsKNperM2: [5, 10, 25],
-        priceBandUSDPerM2: { pultruded: [85, 180], deck: [140, 320] },
+        priceBandUSDPerM2: { pultruded: [85, 180] },
+      },
+      {
+        id: "structural-deck-panels",
+        url: `${SITE}/products/frp-deck-panels`,
+        family: "Structural FRP Deck Panels",
+        types: ["closed-profile-deck", "interlocking-deck", "project-specific-deck"],
+        profileReferences: 12,
+        publishedFields: ["A", "B", "t1/t2"],
+        sourceUnitConfirmed: false,
+        priceBandUSDPerM2: { deck: [140, 320] },
       },
       {
         id: "molded-grating",

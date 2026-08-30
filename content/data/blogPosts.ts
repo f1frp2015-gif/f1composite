@@ -1358,7 +1358,7 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     ogChips: ["Grating", "Lifecycle cost", "Corrosion resistance"],
     relatedLinks: [
       { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
-      { label: "Pultruded Grating & Decks", href: "/products/frp-gratings" },
+      { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
       { label: "Industrial", href: "/industries/industrial" },
       { label: "Marine", href: "/industries/marine" },
     ],
@@ -2025,7 +2025,8 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Why pultruded FRP profiles are replacing steel in coastal infrastructure: corrosion economics, lifecycle data, and 30 years of field evidence.",
     ogChips: ["Lifecycle cost", "Marine", "Corrosion-free"],
     relatedLinks: [
-      { label: "Pultruded FRP Gratings & Deck Panels", href: "/products/frp-gratings" },
+      { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
+      { label: "Structural FRP Deck Panels", href: "/products/frp-deck-panels" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Coastal Marina Walkway Case Study", href: "/case-studies/coastal-marina-walkway" },
       { label: "Marine Applications", href: "/industries/marine" },

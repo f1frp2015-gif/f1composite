@@ -37,9 +37,9 @@ const lines: Array<{
   {
     brand: "F1-GRID",
     name: "FRP Gratings & Structural Deck Panels",
-    href: "/products/frp-gratings",
-    category: "Separate pultruded and molded grating specification pages; solid-top and structural deck panels",
-    body: "F1 Composite's grating and decking line — pultruded I-bar/T-bar panels and deck systems, plus a separate molded square-mesh/mini-mesh range for corrosive platforms and walkways.",
+    href: "/pultruded-frp-profiles",
+    category: "Separate pultruded grating, molded grating and structural deck-panel pages",
+    body: "F1 Composite's walking-surface line — open pultruded I-bar/T-bar grating, molded square/mini mesh, and closed-profile structural deck sections for project-specific assemblies.",
     equivalent: "Class of Strongwell DURADEK® / DURAGRID® gratings and decks.",
   },
   {
@@ -141,13 +141,17 @@ export default function ProductLinesPage() {
           </div>
 
           <p className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[16px] text-f14 leading-golden text-t2">
-            F1-GRID now separates the two manufacturing methods: browse the{" "}
+            F1-GRID now separates three product intents: browse the{" "}
             <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">
               pultruded I-bar / T-bar grating page
-            </Link>{" "}
-            or the{" "}
+            </Link>
+            ; the{" "}
             <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text hover:text-teal">
               molded square-mesh / mini-mesh page
+            </Link>
+            ; or the{" "}
+            <Link href="/products/frp-deck-panels" className="font-semibold text-teal-text hover:text-teal">
+              structural FRP deck-panel page
             </Link>
             .
           </p>

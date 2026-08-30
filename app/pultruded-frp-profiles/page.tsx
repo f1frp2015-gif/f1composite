@@ -150,12 +150,24 @@ const profileFamily: Array<{
   },
   {
     slug: "gratings",
-    name: "Pultruded FRP Gratings & Deck Panels",
-    keyword: "pultruded fiberglass grating and decking",
-    sizes: "25 – 100 mm thickness",
+    name: "Pultruded FRP Grating",
+    keyword: "pultruded fiberglass grating",
+    sizes: "25 – 76 mm manual-listed depths",
     summary:
-      "I-bar and T-bar pultruded grating, solid-top covers, and structural FRP deck panels for industrial platforms, cooling towers and bridge decks.",
+      "Open T-bar and I-bar grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T clips.",
     href: "/products/frp-gratings",
+    image: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
+    imageWidth: 1680,
+    imageHeight: 1160,
+  },
+  {
+    slug: "deck-panels",
+    name: "Structural FRP Deck Panels",
+    keyword: "structural fiberglass deck panels",
+    sizes: "12 cross-section references",
+    summary:
+      "Closed-profile deck sections with neutral A/B/t drawing values, distinct edge geometries and project drawing support.",
+    href: "/products/frp-deck-panels",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
     imageWidth: 1254,
     imageHeight: 1254,
@@ -561,8 +573,8 @@ export default function PultrudedFRPProfilesHubPage() {
                 product lines:{" "}
                 <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
                 (structural profiles),{" "}
-                <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
-                (gratings &amp; deck panels),{" "}
+                <Link href="/products/product-lines" className="font-semibold text-teal-text hover:text-teal">F1‑GRID</Link>{" "}
+                (pultruded/molded gratings &amp; structural deck panels),{" "}
                 <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
                 (window frames &amp; fenestration), and{" "}
                 <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}

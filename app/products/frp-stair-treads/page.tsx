@@ -146,7 +146,7 @@ export default function StairTreadCoversPage() {
             links: [
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/molded-frp-grating", label: "Molded grating stair-tread panels" },
-              { href: "/products/frp-gratings", label: "Pultruded T-bar grating & deck panels" },
+              { href: "/products/frp-gratings", label: "Pultruded T-bar grating" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "Channels for stringers" },
               { href: "/case-studies/factory-access-staircase", label: "FRP access staircase case study" },
             ],

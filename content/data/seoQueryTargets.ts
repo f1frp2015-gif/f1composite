@@ -122,6 +122,7 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/frp-gratings",
+      "/products/frp-deck-panels",
       "/products/molded-frp-grating",
       "/products/frp-window-frames",
       "/products/custom-pultruded-profiles",
@@ -212,14 +213,30 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-gratings",
     primaryQuery: "pultruded FRP grating manufacturer",
     intent: "commercial",
-    title: "Pultruded FRP Grating Manufacturer | I-Bar & T-Bar",
+    title: "Pultruded FRP Grating Manufacturer | T-Bar & I-Bar",
     description:
-      "Source pultruded FRP grating in I-bar, T-bar, high-load and high-open series, with deck panels, M/J/T 316SS clips and project load-table support.",
+      "Compare pultruded FRP grating T-bar, I-bar, high-load and high-open series with manual-derived nominal data, M/J/T 316SS clips and load-table support.",
     supportingUrls: [
+      "/products/frp-deck-panels",
       "/products/molded-frp-grating",
       "/technology/frp-vs-steel-gratings",
       "/regions/frp-grating-supplier-saudi-arabia",
       "/applications/frp-chemical-plant-platforms",
+    ],
+  },
+  {
+    targetUrl: "/products/frp-deck-panels",
+    primaryQuery: "structural FRP deck panels",
+    intent: "commercial",
+    title: "Structural FRP Deck Panels | 12 Cross-Sections",
+    description:
+      "Compare 12 structural FRP deck-panel cross-sections with neutral drawings, nominal A/B/t1/t2 values, joint geometry and project approval requirements.",
+    supportingUrls: [
+      "/applications/frp-bridge-deck-panels",
+      "/applications/frp-pedestrian-bridge-superstructures",
+      "/industries/infrastructure",
+      "/case-studies/european-bridge-deck",
+      "/products/frp-gratings",
     ],
   },
   {
