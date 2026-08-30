@@ -24,6 +24,17 @@ export const productCategories: ProductCategory[] = [
     imageHeight: 1600,
   },
   {
+    slug: "fiberglass-snow-markers",
+    title: "Fiberglass Snow Markers",
+    description: "Solid and hollow reflective driveway stakes in wholesale size, color, tape-layout and pack-count programs.",
+    icon: "profiles",
+    href: "/products/fiberglass-snow-markers",
+    image: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp",
+    imageWidth: 1254,
+    imageHeight: 1254,
+    imageAlt: "Color-coded fiberglass snow markers with reflective bands and pointed tips",
+  },
+  {
     slug: "custom-pultruded-profiles",
     title: "Custom Pultruded Profiles",
     description: "Bespoke cross-sections engineered to your exact specifications with dedicated tooling.",

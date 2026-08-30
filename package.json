@@ -15,6 +15,7 @@
     "test:grating-clips": "node --test scripts/grating-clips.test.mjs",
     "test:grating-pages": "node --test scripts/grating-page-split.test.mjs",
     "test:access-systems": "node --test scripts/access-systems-pages.test.mjs",
+    "test:snow-markers": "node --test scripts/snow-markers-page.test.mjs",
     "test:navigation": "node --test scripts/navigation-ia.test.mjs",
     "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"

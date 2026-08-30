@@ -79,6 +79,8 @@ const KEYWORD_PATH_REDIRECTS = [
   ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
   ["/products/stair-tread-covers", "/products/frp-stair-treads"],
   ["/products/handrail-systems", "/products/frp-handrail-systems"],
+  ["/products/snow-markers", "/products/fiberglass-snow-markers"],
+  ["/products/snow-stakes", "/products/fiberglass-snow-markers"],
   ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
 ] as const;
 
