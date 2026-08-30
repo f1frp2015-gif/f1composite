@@ -14,13 +14,12 @@ interface PageProps {
 }
 
 // Map case-study product labels directly to their canonical product routes.
-// Renaming a label (e.g. "Gratings" → "Gratings & Decks") must not break the URL.
 const productLabelToPath: Record<string, string> = {
   "Standard Profiles": "/products/fiberglass-structural-shapes",
   "Custom Pultrusions": "/products/custom-pultruded-profiles",
   "Fenestration Systems": "/products/frp-window-frames",
-  "Gratings & Decks": "/products/frp-gratings",
-  "Gratings": "/products/frp-gratings",
+  "Structural Deck Panels": "/products/frp-deck-panels",
+  "Molded Grating": "/products/molded-frp-grating",
 };
 
 const productLinkLabels: Record<string, string> = {
@@ -54,7 +53,7 @@ const caseStudyData: Record<
     industry: "Infrastructure",
     location: "Netherlands",
     year: "2023",
-    products: ["Custom Pultrusions", "Standard Profiles"],
+    products: ["Structural Deck Panels", "Custom Pultrusions", "Standard Profiles"],
     challenge:
       "A 45-year-old steel bridge deck in the Netherlands was suffering from severe corrosion damage, requiring increasingly frequent and costly maintenance interventions. The bridge owner needed a replacement solution that would provide a design life of 75+ years with minimal maintenance, while keeping the bridge open to traffic during installation.",
     solution:
@@ -76,7 +75,7 @@ const caseStudyData: Record<
     industry: "Marine",
     location: "United Kingdom",
     year: "2022",
-    products: ["Gratings & Decks", "Standard Profiles"],
+    products: ["Molded Grating", "Standard Profiles"],
     challenge:
       "A major UK marina required replacement of its aging timber and steel walkway infrastructure. The existing materials had deteriorated rapidly due to constant saltwater exposure, requiring annual maintenance and presenting safety hazards. The marina needed a durable, slip-resistant solution that could withstand the harsh coastal environment.",
     solution:
@@ -277,7 +276,7 @@ const caseStudyData: Record<
     industry: "Industrial",
     location: "Chongqing, China",
     year: "2024",
-    products: ["Standard Profiles", "Gratings & Decks", "Custom Pultrusions"],
+    products: ["Standard Profiles", "Molded Grating", "Custom Pultrusions"],
     challenge:
       "F1 Composite's Chongqing production base required a multi-level access staircase and intermediate platform linking the pultrusion line mezzanine to the fiber-creel area. The installation sits above the resin impregnation zone, where ambient humidity, resin vapor, and occasional chemical splash rule out painted carbon steel — historical galvanized steel stairs on this site needed re-coating every 18 months and still developed surface rust. The replacement had to be non-corroding, electrically isolating (live electrical cabinets are within 2 meters), fire-retardant to the factory's class, and installable over a 3-day shutdown window without hot work permits.",
     solution:
@@ -300,7 +299,7 @@ const caseStudyData: Record<
     industry: "Infrastructure",
     location: "Thailand",
     year: "2024",
-    products: ["Standard Profiles", "Gratings & Decks", "Custom Pultrusions"],
+    products: ["Standard Profiles", "Molded Grating", "Custom Pultrusions"],
     challenge:
       "A 120,000 m³/day municipal water treatment facility in Thailand required full replacement of its cable management and safety handrail systems. The existing galvanized steel cable trays and handrails had suffered severe corrosion after only 8 years of service due to constant exposure to chlorinated water vapor, high humidity (85–95% RH year-round), and tropical UV radiation. Annual maintenance costs had escalated to over USD 45,000, and several sections posed safety risks due to structural section loss exceeding 30%. The facility operator required a zero-maintenance solution with a minimum 25-year design life that could be installed during normal plant operation without process shutdowns.",
     solution:

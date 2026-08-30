@@ -9,6 +9,10 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
+import {
+  pultrudedGratingManualImages,
+  pultrudedGratingSpecGroups,
+} from "@/content/data/pultrudedGratingSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug } from "@/lib/authors";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
@@ -18,7 +22,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-08-29";
+const updatedAt = "2026-08-30";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -28,17 +32,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: pagePath,
   image: "/products/frp-gratings/opengraph-image",
 });
-
-const pultrudedGratingSpecs = [
-  { type: "T-2510", series: "Pedestrian T-bar", depth: "25", centers: "50.8", open: "25", weight: "13.6", ada: true },
-  { type: "T-3810", series: "Pedestrian T-bar", depth: "25", centers: "61.0", open: "38", weight: "10.2", ada: false },
-  { type: "T-2515", series: "Pedestrian T-bar", depth: "38", centers: "50.8", open: "25", weight: "16.7", ada: true },
-  { type: "I-4010", series: "Industrial I-bar", depth: "25", centers: "25.4", open: "40", weight: "17.1", ada: true },
-  { type: "I-5015", series: "Industrial I-bar", depth: "38", centers: "30.5", open: "50", weight: "19.1", ada: false },
-  { type: "I-6015", series: "Industrial I-bar", depth: "38", centers: "37.1", open: "60", weight: "16.1", ada: false },
-  { type: "HI-4720", series: "High-load I-bar", depth: "50", centers: "30.2", open: "47", weight: "54.5", ada: false },
-  { type: "SI-8315", series: "Cooling-tower I-bar", depth: "38", centers: "47.6", open: "83", weight: "12.0", ada: false },
-] as const;
 
 const pultrudedConfigurations = [
   {
@@ -69,16 +62,6 @@ const pultrudedConfigurations = [
       { label: "High-load reference", value: "HI-4720" },
       { label: "High-open reference", value: "SI-8315 · 83% nominal open area" },
       { label: "Release requirement", value: "Approved span, support, load and deflection schedule" },
-    ],
-  },
-  {
-    name: "Pultruded Cover & Deck Panels",
-    description:
-      "A bonded cover plate creates a solid-top pultruded grating, while closed-top structural deck planks use internal webs and interlocking edges for bridge, platform and access-deck layouts.",
-    specs: [
-      { label: "Surface options", value: "Open mesh, bonded solid top, gritted closed-top deck" },
-      { label: "Deck depths", value: "40, 50, 75 and 100 mm project series" },
-      { label: "Typical uses", value: "Pedestrian decks, access platforms, bridge-deck replacement" },
     ],
   },
 ] as const;
@@ -132,6 +115,11 @@ const faqItems = [
       "Pultruded grating is selected for longer one-way spans and higher directional stiffness. Molded grating is cured as a bidirectional mesh panel and is generally more forgiving when a layout needs many irregular cutouts. Molded mesh sizes, nominal panel weights and M/C/J clips are now documented on the separate molded FRP grating page.",
   },
   {
+    question: "How is pultruded grating different from a structural FRP deck panel?",
+    answer:
+      "Pultruded grating is an open-drainage assembly of one-way I-bar or T-bar bearing members and cross-rods. A structural deck panel has a continuous top surface, internal webs and profile-specific edge geometry. Deck sections, joints and A/B/t values are documented on the separate FRP deck-panels page.",
+  },
+  {
     question: "Which pultruded grating series are suitable for pedestrian routes?",
     answer:
       "Start with the dedicated T-bar pedestrian rows or the I-4010 row shown in the specification table, then verify the actual clear opening and direction of travel against the accessibility code adopted by the project. A series label or a pedestrian badge does not replace the project authority's opening and surface review.",
@@ -163,11 +151,11 @@ export default function PultrudedGratingsPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Pultruded FRP Grating & Deck Panels",
+          name: "Pultruded FRP Grating",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/frp-structural-deck-panel-hero.webp",
-          category: "Pultruded fiberglass grating and structural deck panels",
+          image: pultrudedGratingManualImages.hero,
+          category: "Pultruded fiberglass I-bar and T-bar grating",
           productLine: "F1-GRID-P",
           schemaType: "CollectionPage",
           datePublished: publishedAt,
@@ -177,16 +165,16 @@ export default function PultrudedGratingsPage() {
           material: ["Glass fiber", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
           additionalProperty: [
             { name: "Bearing-bar forms", value: "Pultruded I-bar and T-bar" },
-            { name: "Configurations", value: "Open grating, solid-top cover, structural deck panels" },
+            { name: "Series", value: "Pedestrian T-bar, industrial I-bar, high-load HI/HL, high-open SI" },
             { name: "Compatible F1 clips", value: "M, J and T clip kits in 316 stainless steel" },
           ],
         })}
       />
 
       <PageHeader
-        tag="Pultruded Grating & Decks · F1-GRID-P"
-        title="Pultruded FRP Grating Manufacturer — I-Bar, T-Bar & Structural Deck Panels"
-        description="Pultruded fiberglass grating with one-way I-bar and T-bar bearing systems, high-load and high-open series, solid-top covers, structural deck panels and matched M/J/T 316SS clips."
+        tag="Pultruded Grating · F1-GRID-P"
+        title="Pultruded FRP Grating Manufacturer — T-Bar, I-Bar & High-Load Series"
+        description="Open pultruded fiberglass grating with one-way T-bar and I-bar bearing systems, manual-verified pedestrian, industrial, high-load and high-open series, plus matched M/J/T 316SS clips."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -198,8 +186,8 @@ export default function PultrudedGratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px] bg-bg2">
             <Image
-              src="/images/products/frp-structural-deck-panel-hero.webp"
-              alt="Pultruded FRP structural deck panel with a closed top, internal reinforcing webs and an interlocking edge profile"
+              src={pultrudedGratingManualImages.hero}
+              alt="Open pultruded FRP grating installed as a rooftop walking surface"
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="object-cover"
@@ -215,34 +203,58 @@ export default function PultrudedGratingsPage() {
             <div>
               <SectionTag>Directional Stiffness · Longer Spans</SectionTag>
               <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Pultruded bearing bars for span-driven grating and deck layouts
+                Pultruded bearing bars for open, span-driven grating layouts
               </h2>
               <p className="mt-[13px] text-f19 leading-golden text-t2">
-                Pultruded FRP grating uses continuous-fiber I-bars or T-bars as one-way bearing members, connected by cross-rods into a panel. It is the F1-GRID family for longer support spacing, directional stiffness, high-open cooling-tower decks and structural deck-panel systems.
+                Pultruded FRP grating uses continuous-fiber I-bars or T-bars as one-way bearing members, connected by cross-rods into an open panel. It is the F1-GRID family for directional stiffness, pedestrian access, industrial platforms, high-load layouts and high-open cooling-tower walkways.
               </p>
               <p className="mt-[21px] text-f15 leading-golden text-t2">
                 Every selection starts with the clear span and bearing-bar direction. Match the series to load, deflection, resin, fire, slip and opening requirements; then issue the panel cut plan and M/J/T hold-down arrangement on the approved project drawing.
               </p>
             </div>
 
-            <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Looking for molded mesh?</p>
-              <h3 className="mt-[8px] text-f19 font-bold text-t1">Molded FRP grating now has a separate specification page.</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
-                Use it for manual-verified square mesh, mini mesh, panel sizes, nominal weights, open area and M/C/J clips.
-              </p>
-              <Link href="/products/molded-frp-grating" className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f13 font-bold text-white transition-colors hover:bg-teal">
-                View molded FRP grating
-              </Link>
+            <aside className="space-y-[13px] rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+              <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Other surface families</p>
+              <div>
+                <h3 className="text-f17 font-bold text-t1">Need bidirectional molded mesh?</h3>
+                <Link href="/products/molded-frp-grating" className="mt-[8px] inline-flex text-f13 font-bold text-teal-text hover:text-teal">
+                  View molded FRP grating →
+                </Link>
+              </div>
+              <div className="border-t border-teal-border pt-[13px]">
+                <h3 className="text-f17 font-bold text-t1">Need a continuous closed-profile surface?</h3>
+                <Link href="/products/frp-deck-panels" className="mt-[8px] inline-flex text-f13 font-bold text-teal-text hover:text-teal">
+                  View structural FRP deck panels →
+                </Link>
+              </div>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white pb-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <figure>
+            <div className="relative aspect-[125/41] overflow-hidden rounded-[8px] bg-bg2">
+              <Image
+                src={pultrudedGratingManualImages.closeup}
+                alt="Close-up of yellow pultruded FRP grating bearing bars with a rough walking surface and transverse cross-rods"
+                fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+              Manual-derived pultruded grating close-up. The photograph shows bar and cross-rod construction but does not establish a specific series, resin or slip rating.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Pultruded Product Configurations</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">T-bar, I-bar, high-load and closed-top systems</h2>
+          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">T-bar, I-bar, high-load and high-open systems</h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             {pultrudedConfigurations.map((configuration) => (
               <article key={configuration.name} className="rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
@@ -267,38 +279,54 @@ export default function PultrudedGratingsPage() {
           <SectionTag>Pultruded Series Data</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Common I-bar and T-bar production configurations</h2>
           <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
-            Use these nominal rows to identify a candidate series. The order-specific load/deflection table, resin, surface, panel size, cross-bar spacing and certified weight must be confirmed before design release.
+            The 36 rows below are transcribed from the manual overview table. They are nominal catalog data for series selection, not certified order values. Detailed cards in the same manual contain internal conflicts, so the F1 quotation, approved drawing and order-specific datasheet control.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white px-[13px] sm:px-[34px]">
-            <table className="w-full min-w-[820px] border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Type</th>
-                  <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Series</th>
-                  <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bar centers (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
-                  <th className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pultrudedGratingSpecs.map((row) => (
-                  <tr key={row.type} className="border-b border-border-default last:border-b-0">
-                    <td className="py-[12px] pr-[21px] text-f14 font-semibold text-t1">
-                      {row.type}
-                      {row.ada && <span className="ml-[8px] rounded-[4px] bg-teal-bg px-[7px] py-[2px] text-f11 font-semibold text-teal-text">Pedestrian</span>}
-                    </td>
-                    <td className="py-[12px] pr-[21px] text-f14 text-t2">{row.series}</td>
-                    <td className="py-[12px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}</td>
-                    <td className="py-[12px] pr-[21px] text-f14 text-t2">{row.centers}</td>
-                    <td className="py-[12px] pr-[21px] text-f14 text-t2">{row.open}%</td>
-                    <td className="py-[12px] text-f14 text-t2">{row.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-[34px] space-y-[13px]">
+            {pultrudedGratingSpecGroups.map((group, index) => (
+              <details key={group.name} open={index < 2} className="group rounded-[8px] border border-border-default bg-white">
+                <summary className="cursor-pointer list-none px-[21px] py-[16px] sm:px-[34px]">
+                  <div className="flex items-center justify-between gap-[13px]">
+                    <div>
+                      <h3 className="text-f17 font-bold text-t1">{group.name}</h3>
+                      <p className="mt-[4px] text-f12 leading-golden text-t3">{group.description}</p>
+                    </div>
+                    <span aria-hidden="true" className="text-f19 font-bold text-teal-text transition-transform group-open:rotate-45">+</span>
+                  </div>
+                </summary>
+                <div className="border-t border-border-default px-[13px] pb-[21px] sm:px-[34px] sm:pb-[34px]">
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[760px] border-collapse text-left">
+                      <thead>
+                        <tr className="border-b-2 border-border-default">
+                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Type</th>
+                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
+                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bearing-bar center (mm)</th>
+                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Cross-bar center (mm)</th>
+                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
+                          <th className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {group.rows.map((row) => (
+                          <tr key={row.type} className="border-b border-border-default last:border-b-0">
+                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-t1">{row.type}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.bearingBarCenter}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.crossBarCenter}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.openArea}</td>
+                            <td className="py-[11px] text-f14 text-t2">{row.weight}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </details>
+            ))}
           </div>
-          <p className="mt-[13px] text-f12 leading-golden text-t3">Accessibility is project-specific. “Pedestrian” marks the intended series family; verify the actual opening geometry and direction of travel against the governing code.</p>
+          <p className="mt-[13px] text-f12 leading-golden text-t3">
+            Cross-bar center is listed as 152.40 mm throughout the overview table. Accessibility, maximum panel size, stock status, resin, surface and load capacity require separate order confirmation.
+          </p>
         </div>
       </section>
 
@@ -337,6 +365,7 @@ export default function PultrudedGratingsPage() {
 
       <RelatedLinks groups={[
         { title: "Related FRP products", links: [
+          { href: "/products/frp-deck-panels", label: "Structural FRP deck panels — closed-profile surface" },
           { href: "/products/molded-frp-grating", label: "Molded FRP grating — square & mini mesh" },
           { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
           { href: "/products/frp-stair-treads", label: "Pultruded T-bar stair treads" },

@@ -241,7 +241,7 @@ export default function FrpVsSteelGratingsPage() {
             title: "FRP grating products",
             links: [
               { href: "/products/molded-frp-grating", label: "Molded FRP grating — square & mini mesh" },
-              { href: "/products/frp-gratings", label: "Pultruded FRP grating & deck panels" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel stringers" },
               { href: "/products/custom-pultruded-profiles", label: "Custom grating bearing bars" },

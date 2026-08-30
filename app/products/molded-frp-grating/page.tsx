@@ -329,7 +329,8 @@ export default function MoldedFrpGratingPage() {
           {
             title: "Related FRP products",
             links: [
-              { href: "/products/frp-gratings", label: "Pultruded FRP grating & deck panels" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
+              { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
               { href: "/products/frp-stair-treads", label: "Molded grating stair treads" },
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },

@@ -22,8 +22,9 @@ export const mainNav: NavItem[] = [
     children: [
       { group: "Profile systems", label: "Standard Structural Profiles", href: "/products/fiberglass-structural-shapes" },
       { group: "Profile systems", label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
-      { group: "Profile systems", label: "Pultruded Gratings & Decks", href: "/products/frp-gratings" },
+      { group: "Profile systems", label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
       { group: "Profile systems", label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
+      { group: "Engineered systems", label: "Structural FRP Deck Panels", href: "/products/frp-deck-panels" },
       { group: "Engineered systems", label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
       { group: "Engineered systems", label: "Solar Frames & Mounting", href: "/products/frp-solar-mounting-systems" },
       { group: "Engineered systems", label: "Handrail Systems", href: "/products/frp-handrail-systems" },
@@ -78,7 +79,8 @@ export const footerNav = {
   products: [
     { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
     { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
-    { label: "Pultruded Gratings & Decks", href: "/products/frp-gratings" },
+    { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
+    { label: "Structural FRP Deck Panels", href: "/products/frp-deck-panels" },
     { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
     { label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
     { label: "All Products", href: "/pultruded-frp-profiles" },
