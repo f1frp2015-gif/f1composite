@@ -150,15 +150,27 @@ const profileFamily: Array<{
   },
   {
     slug: "gratings",
-    name: "FRP Gratings & Deck Panels",
-    keyword: "fiberglass grating and decking",
+    name: "Pultruded FRP Gratings & Deck Panels",
+    keyword: "pultruded fiberglass grating and decking",
     sizes: "25 – 100 mm thickness",
     summary:
-      "Molded and pultruded gratings, solid-top cover plates, and structural FRP deck panels for chemical plants, offshore platforms, pedestrian bridges, and vehicular access decks.",
+      "I-bar and T-bar pultruded grating, solid-top covers, and structural FRP deck panels for industrial platforms, cooling towers and bridge decks.",
     href: "/products/frp-gratings",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
     imageWidth: 1254,
     imageHeight: 1254,
+  },
+  {
+    slug: "molded-grating",
+    name: "Molded FRP Grating",
+    keyword: "molded fiberglass grating",
+    sizes: "13 – 65 mm catalog depths",
+    summary:
+      "Square mesh, mini mesh and rectangular molded panels with manual-verified sizes, nominal weights, open area and matched M/C/J 316SS clips.",
+    href: "/products/molded-frp-grating",
+    image: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
+    imageWidth: 1660,
+    imageHeight: 1080,
   },
 ];
 

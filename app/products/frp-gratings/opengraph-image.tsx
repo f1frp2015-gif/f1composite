@@ -5,11 +5,11 @@ export const contentType = ogContentType;
 
 export default function OpenGraphImage() {
   return renderOgImage({
-    eyebrow: "FRP Gratings",
-    title: "FRP Grating Manufacturer — Molded and Pultruded Panels",
+    eyebrow: "Pultruded FRP Grating",
+    title: "I-Bar, T-Bar & Structural Deck Panels",
     description:
-      "Anti-slip, lightweight, and corrosion-resistant grating systems for platforms, stairways, wastewater plants, and offshore environments.",
+      "Directional bearing-bar systems, high-load and high-open series, closed-top decks and matched M/J/T 316SS clip kits.",
     accent: "#0d7f79",
-    chips: ["Anti-slip surfaces", "Marine ready", "Load-rated panels"],
+    chips: ["I-bar & T-bar", "One-way spans", "M/J/T clips"],
   });
 }

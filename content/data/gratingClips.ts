@@ -27,6 +27,19 @@ export const GRATING_CLIP_DXF_HREF =
 export const GRATING_CLIP_DXF_NAME =
   "F1-GRID Grating Clips — M/C/J/T (316SS)" as const;
 
+export const GRATING_CLIP_DXF_BY_FAMILY = {
+  molded: {
+    href: "/cad/f1-molded-grating-clips-m-c-j-316ss.dxf",
+    name: "F1 Molded Grating Clips — M/C/J (316SS)",
+    codes: "M/C/J",
+  },
+  pultruded: {
+    href: "/cad/f1-pultruded-grating-clips-m-j-t-316ss.dxf",
+    name: "F1 Pultruded Grating Clips — M/J/T (316SS)",
+    codes: "M/J/T",
+  },
+} as const;
+
 export const gratingClipNamingNote =
   "M, C, J, and T are F1-GRID product definitions. Letter names are not standardized across manufacturers, so compatibility must be checked against the selected F1 grating series and its approved project drawing.";
 

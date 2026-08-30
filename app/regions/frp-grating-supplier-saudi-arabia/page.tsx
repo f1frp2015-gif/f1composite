@@ -276,7 +276,8 @@ export default function SaudiGratingPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/frp-gratings">Browse all FRP grating products</LinkArrow>
+            <LinkArrow href="/products/molded-frp-grating">Browse molded FRP grating</LinkArrow>
+            <LinkArrow href="/products/frp-gratings">Browse pultruded FRP grating</LinkArrow>
             <LinkArrow href="/ai/sourcing">Free FRP Sourcing Assistant</LinkArrow>
             <LinkArrow href="/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide">
               Buyer&rsquo;s guide: sourcing from China

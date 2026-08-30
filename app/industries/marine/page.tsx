@@ -203,8 +203,8 @@ export default function MarinePage() {
               <p>
                 Anti-slip surfaces are critical in marine environments where wet, oily, and salt-crusted conditions create fall hazards. Our marine gratings incorporate bonded silica grit surfaces that achieve pendulum test values (PTV) exceeding 55 in wet conditions — significantly exceeding the HSE threshold of 36 for low-slip risk. This slip resistance is permanent, embedded in the grating surface rather than applied as a coating that can wear off.
               </p>
-              <LinkArrow href="/products/frp-gratings">
-                Explore marine grating solutions
+              <LinkArrow href="/products/molded-frp-grating">
+                Explore molded marine grating
               </LinkArrow>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
@@ -244,7 +244,7 @@ export default function MarinePage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/products/frp-gratings"
+              href="/products/molded-frp-grating"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Marine Gratings</h3>

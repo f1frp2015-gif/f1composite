@@ -38,8 +38,8 @@ const lines: Array<{
     brand: "F1-GRID",
     name: "FRP Gratings & Structural Deck Panels",
     href: "/products/frp-gratings",
-    category: "Molded & pultruded gratings, solid-top covers, AASHTO H-20 deck panels",
-    body: "F1 Composite's grating and decking line — molded and pultruded FRP gratings, cover plates, and structural deck panels for platforms, walkways, and pedestrian/vehicular decks.",
+    category: "Separate pultruded and molded grating specification pages; solid-top and structural deck panels",
+    body: "F1 Composite's grating and decking line — pultruded I-bar/T-bar panels and deck systems, plus a separate molded square-mesh/mini-mesh range for corrosive platforms and walkways.",
     equivalent: "Class of Strongwell DURADEK® / DURAGRID® gratings and decks.",
   },
   {
@@ -139,6 +139,18 @@ export default function ProductLinesPage() {
               </Link>
             ))}
           </div>
+
+          <p className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[16px] text-f14 leading-golden text-t2">
+            F1-GRID now separates the two manufacturing methods: browse the{" "}
+            <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">
+              pultruded I-bar / T-bar grating page
+            </Link>{" "}
+            or the{" "}
+            <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text hover:text-teal">
+              molded square-mesh / mini-mesh page
+            </Link>
+            .
+          </p>
 
           <p className="mt-[34px] text-f15 leading-golden text-t2">
             For the complete range, standards, and quote path, start from the{" "}

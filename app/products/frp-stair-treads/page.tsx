@@ -113,10 +113,14 @@ export default function StairTreadCoversPage() {
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Complete treads for new FRP stairs: molded grating treads in the same 25
                 and 38 mm depths as our{" "}
-                <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:underline">
-                  grating panels
+                <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text hover:underline">
+                  molded grating panels
                 </Link>
-                , or pultruded T-bar treads for longer clear widths — both with integral
+                , or{" "}
+                <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:underline">
+                  pultruded T-bar treads
+                </Link>{" "}
+                for longer clear widths — both with integral
                 grit nosing and end plates pre-drilled for stringer bolting. Pair with{" "}
                 <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:underline">
                   fiberglass handrail systems
@@ -141,7 +145,8 @@ export default function StairTreadCoversPage() {
             title: "Build the full stairway",
             links: [
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
-              { href: "/products/frp-gratings", label: "Fiberglass gratings & deck panels" },
+              { href: "/products/molded-frp-grating", label: "Molded grating stair-tread panels" },
+              { href: "/products/frp-gratings", label: "Pultruded T-bar grating & deck panels" },
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "Channels for stringers" },
               { href: "/case-studies/factory-access-staircase", label: "FRP access staircase case study" },
             ],

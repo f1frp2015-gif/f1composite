@@ -259,7 +259,7 @@ export default function FactoryDirectPultrusionPage() {
             title: "Select products",
             links: [
               { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles and structural shapes" },
-              { href: "/products/frp-gratings", label: "Factory-direct FRP gratings" },
+              { href: "/products/frp-gratings", label: "Factory-direct pultruded FRP gratings" },
               { href: "/products/frp-window-frames", label: "FRP window frames and profiles" },
             ],
           },
