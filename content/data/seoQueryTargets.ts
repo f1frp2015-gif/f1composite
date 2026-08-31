@@ -311,6 +311,20 @@ export const seoQueryTargets = [
     supportingUrls: ["/products/molded-frp-grating", "/products/frp-gratings", "/industries/industrial"],
   },
   {
+    targetUrl: "/technology/fiberglass-rebar-vs-steel",
+    primaryQuery: "fiberglass rebar vs steel",
+    intent: "comparison",
+    title: "Fiberglass Rebar vs Steel — Test Data & Design Tradeoffs",
+    description:
+      "Compare fiberglass rebar vs steel using FHWA, MnDOT, university-lab and ASTM data on strength, stiffness, weight, durability, cracking and lifecycle cost.",
+    supportingUrls: [
+      "/products/frp-rebar",
+      "/industries/infrastructure",
+      "/industries/construction",
+      "/technology/frp-vs-traditional-materials",
+    ],
+  },
+  {
     targetUrl: "/frp-profile-calculator",
     primaryQuery: "FRP calculator",
     intent: "technical",

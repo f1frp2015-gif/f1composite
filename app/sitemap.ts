@@ -63,6 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/technology/pultrusion-resin-systems`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-traditional-materials`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/technology/frp-vs-aluminum-windows`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/technology/fiberglass-rebar-vs-steel`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-steel-gratings`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-pvc-windows`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/china-alternative-to-strongwell-fiberline-exel`, changeFrequency: "monthly", priority: 0.85 },

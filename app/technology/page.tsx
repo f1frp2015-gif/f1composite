@@ -33,6 +33,13 @@ const areas = [
     href: "/technology/frp-vs-traditional-materials",
   },
   {
+    tag: "Evidence",
+    title: "Fiberglass Rebar vs Steel",
+    description:
+      "Compare GFRP and steel reinforcement using FHWA, MnDOT, university-lab and ASTM evidence on tensile behavior, stiffness, corrosion, cracking and lifecycle cost.",
+    href: "/technology/fiberglass-rebar-vs-steel",
+  },
+  {
     tag: "Materials",
     title: "Pultrusion Resin Systems",
     description:
@@ -175,6 +182,7 @@ export default function TechnologyPage() {
               { href: "/technology/pultrusion-process", label: "Pultrusion process (6 stages)" },
               { href: "/technology/pultrusion-resin-systems", label: "Resin systems: polyester vs vinyl ester vs PU" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
+              { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel (test data)" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
               { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },

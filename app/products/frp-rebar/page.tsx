@@ -515,6 +515,17 @@ export default function FrpRebarPage() {
             Treating the two materials as interchangeable hides the decisions that
             control serviceability, anchorage, temperature exposure and failure mode.
           </p>
+          <p className="mt-[18px] max-w-[900px] text-f14 leading-golden text-white/70">
+            For independent laboratory results, monitored bridge decks and a
+            project-specific lifecycle-cost sensitivity, read our{" "}
+            <Link
+              href="/technology/fiberglass-rebar-vs-steel"
+              className="font-bold text-teal-300 underline decoration-white/25 underline-offset-4 hover:decoration-teal-300"
+            >
+              fiberglass rebar vs steel evidence review
+            </Link>
+            .
+          </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-white/15">
             <table className="w-full min-w-[820px] border-collapse text-left">
               <thead className="bg-white/10">
@@ -602,6 +613,7 @@ export default function FrpRebarPage() {
           {
             title: "Engineering resources",
             links: [
+              { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel — test data" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel and aluminum" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process" },
               { href: "/technology/quality-testing", label: "Quality testing" },
