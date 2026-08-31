@@ -130,7 +130,7 @@ export default function FrpDeckPanelsPage() {
                 fill
                 sizes="(max-width: 1280px) 100vw, 1280px"
                 className="object-cover"
-                priority
+                preload
               />
             </div>
             <figcaption className="mt-[8px] text-f12 leading-golden text-t3">

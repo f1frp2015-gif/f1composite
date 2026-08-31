@@ -58,7 +58,6 @@ export default function Navbar() {
             alt="F1 Composite"
             width={58}
             height={40}
-            priority
           />
         </Link>
 

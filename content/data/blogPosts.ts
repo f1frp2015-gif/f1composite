@@ -1408,7 +1408,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
     standards: ["NEMA VE 1", "IEC 61537", "UL 467", "ASTM E84"],
     coverImage: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
     coverAlt: "FRP cable tray and handrail installation in a water treatment facility",
-    supportingImage: "/images/blog/frp-electrical-insulation-substation.jpg",
+    supportingImage: "/images/industries/frp-electric-power-substation-infrastructure.jpg",
     supportingAlt: "FRP composite structures used for electrical insulation near substation equipment",
     supportingCaption:
       "FRP cable management is attractive because it combines structural support, corrosion immunity, EMI transparency, and electrical insulation in one system.",
@@ -2117,7 +2117,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
     reviewedBy: "Technical Applications Group",
     standards: ["ISO 10077-1", "ISO 10077-2", "EN 12667", "ISO 9001", "PHI Component Certificate 2491wi03"],
-    coverImage: "/images/blog/frp-fenestration-passivhaus-cover.jpg",
+    coverImage: "/images/regions/frp-passive-house-windows-germany.jpg",
     coverAlt: "Modern house exterior with large glass doors and panoramic windows — high-performance building envelope",
     coverAttribution: pexelsCredit(
       "Max Rahubovskiy",
@@ -4214,7 +4214,7 @@ To see both numbers interact on a real build — your frame, glazing package, an
     coverAlt:
       "Residential facade grid of hundreds of identical aluminum-framed windows and balconies — every one of those frames depends on a pair of thermal break profiles to meet its energy code",
     coverAttribution: pexelsCredit("Badun", "https://www.pexels.com/photo/34776034/"),
-    supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.png",
+    supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.webp",
     supportingAlt:
       "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles rolled into both sashes, bridging a deep insulating zone no extruded strip geometry can serve",
     supportingImageFit: "contain",

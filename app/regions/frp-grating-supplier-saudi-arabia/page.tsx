@@ -104,7 +104,7 @@ export default function SaudiGratingPage() {
                 height={1350}
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="h-full w-full object-cover"
-                priority
+                preload
               />
             </div>
             <div className="lg:col-span-3">

@@ -83,7 +83,7 @@ export default async function ChannelPage() {
           name: "FRP Channel Profiles",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/channel/frp-channel-profile-200x60x12mm.png",
+          image: "/images/products/channel/frp-channel-profile-200x60x12mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
           priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
@@ -123,7 +123,7 @@ export default async function ChannelPage() {
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden rounded-[8px] bg-white">
-              <Image src="/images/products/channel/frp-channel-cover.jpg" alt="Pultruded FRP channel U-profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 20%" }} priority />
+              <Image src="/images/products/channel/frp-channel-cover.jpg" alt="Pultruded FRP channel U-profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 20%" }} preload />
             </div>
           </div>
         </div>

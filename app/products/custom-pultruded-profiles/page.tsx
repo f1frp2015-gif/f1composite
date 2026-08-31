@@ -242,7 +242,7 @@ export default function CustomPultrusionsPage() {
             height={555}
             sizes="(max-width: 800px) 100vw, 800px"
             className="h-auto w-full"
-            priority
+            preload
           />
         </div>
       </section>

@@ -126,7 +126,7 @@ export default async function AnglePage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 style={{ objectPosition: "center 25%" }}
-                priority
+                preload
               />
             </div>
           </div>

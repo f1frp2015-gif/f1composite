@@ -110,7 +110,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               height={720}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="aspect-[16/9] h-auto w-full object-cover"
-              priority
+              preload
             />
             <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t3">
               Application context for {page.shortTitle}. Final member sizes, laminate,

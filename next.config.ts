@@ -84,6 +84,25 @@ const KEYWORD_PATH_REDIRECTS = [
   ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
 ] as const;
 
+// Preserve indexed image URLs while moving heavy PNG sources to lossless WebP.
+// Internal references point directly to the new descriptive asset paths.
+const IMAGE_ASSET_REDIRECTS = [
+  ["/images/blog/pultruded-thermal-break-aluminum-sliding-section.png", "/images/blog/pultruded-thermal-break-aluminum-sliding-section.webp"],
+  ["/images/products/channel/frp-channel-profile-200x60x12mm.png", "/images/products/channel/frp-channel-profile-200x60x12mm.webp"],
+  ["/images/products/i-beam/frp-i-beam-profile-200x100x10mm.png", "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp"],
+  ["/images/products/flat-bar/frp-flat-bar-photo.png", "/images/products/flat-bar/frp-flat-bar-photo.webp"],
+  ["/images/products/i-beam/frp-i-beam-photo.png", "/images/products/i-beam/frp-i-beam-photo.webp"],
+  ["/images/products/round-tube/frp-round-tube-photo.png", "/images/products/round-tube/frp-round-tube-photo.webp"],
+  ["/images/products/round-tube/frp-round-tube-48x42mm.png", "/images/products/round-tube/frp-round-tube-photo.webp"],
+  ["/images/blog/frp-electrical-insulation-substation.jpg", "/images/industries/frp-electric-power-substation-infrastructure.jpg"],
+  ["/images/regions/frp-cable-tray-uae-oil-gas.jpg", "/images/industries/frp-electric-power-substation-infrastructure.jpg"],
+  ["/images/blog/frp-fenestration-passivhaus-cover.jpg", "/images/regions/frp-passive-house-windows-germany.jpg"],
+  ["/images/regions/frp-solar-mounting-australia.jpg", "/images/industries/frp-energy-solar-power-installation.jpg"],
+  ["/images/products/fenestration/frp-window-frame-140-series-sliding.webp", "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp"],
+  ["/images/products/fenestration/frp-window-frame-80-series-tilt-turn.webp", "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp"],
+  ["/images/products/angle/frp-angle-section-100x100x10mm.webp", "/images/products/angle/frp-angle-photo.webp"],
+] as const;
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
@@ -104,6 +123,12 @@ const nextConfig: NextConfig = {
       // below; otherwise an apex request first lands on the same legacy path at
       // www and needs a second application-level redirect.
       ...KEYWORD_PATH_REDIRECTS.map(([source, destination]) => ({
+        source,
+        has: [{ type: "host" as const, value: APEX_HOST }],
+        destination: `${CANONICAL_ORIGIN}${destination}`,
+        statusCode: 301 as const,
+      })),
+      ...IMAGE_ASSET_REDIRECTS.map(([source, destination]) => ({
         source,
         has: [{ type: "host" as const, value: APEX_HOST }],
         destination: `${CANONICAL_ORIGIN}${destination}`,
@@ -146,6 +171,11 @@ const nextConfig: NextConfig = {
       // product/tool URL as a permanent redirect while all internal signals
       // point directly at the new canonical route.
       ...KEYWORD_PATH_REDIRECTS.map(([source, destination]) => ({
+        source,
+        destination,
+        statusCode: 301 as const,
+      })),
+      ...IMAGE_ASSET_REDIRECTS.map(([source, destination]) => ({
         source,
         destination,
         statusCode: 301 as const,

@@ -46,7 +46,7 @@ const profileFamily: Array<{
     summary:
       "Primary structural beams for walkways, platforms, and short-span bridges. Up to 75% lighter than a comparable A36 steel wide flange.",
     href: "/products/fiberglass-structural-shapes/frp-i-beam",
-    image: "/images/products/i-beam/frp-i-beam-photo.png",
+    image: "/images/products/i-beam/frp-i-beam-photo.webp",
     imageWidth: 800,
     imageHeight: 800,
   },
@@ -94,7 +94,7 @@ const profileFamily: Array<{
     summary:
       "Circular hollow sections for handrails, antenna masts, insulating stand-offs, and fluid-conveying applications with smooth interior bore.",
     href: "/products/fiberglass-structural-shapes/frp-tube",
-    image: "/images/products/round-tube/frp-round-tube-photo.png",
+    image: "/images/products/round-tube/frp-round-tube-photo.webp",
     imageWidth: 1200,
     imageHeight: 1200,
   },
@@ -106,7 +106,7 @@ const profileFamily: Array<{
     summary:
       "Solid rectangular sections for stiffeners, splice plates, wear strips. Unidirectional architecture up to 70% glass for high-modulus applications.",
     href: "/products/fiberglass-structural-shapes/frp-flat-bar",
-    image: "/images/products/flat-bar/frp-flat-bar-photo.png",
+    image: "/images/products/flat-bar/frp-flat-bar-photo.webp",
     imageWidth: 1200,
     imageHeight: 1200,
   },

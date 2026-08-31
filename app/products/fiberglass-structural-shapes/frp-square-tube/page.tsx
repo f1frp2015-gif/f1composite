@@ -125,7 +125,7 @@ export default async function SquareTubePage() {
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
-              <Image src="/images/products/square-tube/frp-square-tube-cover.jpg" alt="Pultruded FRP square tube SHS profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 30%" }} priority />
+              <Image src="/images/products/square-tube/frp-square-tube-cover.jpg" alt="Pultruded FRP square tube SHS profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 30%" }} preload />
             </div>
           </div>
         </div>

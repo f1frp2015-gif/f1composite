@@ -113,7 +113,7 @@ export default function TechnologyPage() {
               height={640}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-contain bg-white"
-              priority
+              preload
             />
           </div>
         </div>

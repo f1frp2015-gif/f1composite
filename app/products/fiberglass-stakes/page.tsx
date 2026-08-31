@@ -219,7 +219,7 @@ export default function FiberglassStakesPage() {
                 src={frpStakeImageAssets.hero}
                 alt="Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options"
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 54vw"
                 className="object-cover"
               />

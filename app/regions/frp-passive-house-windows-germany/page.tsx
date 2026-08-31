@@ -97,7 +97,7 @@ export default function GermanyRegionPage() {
               height={854}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-cover"
-              priority
+              preload
             />
           </div>
         </div>
