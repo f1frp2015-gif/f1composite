@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
@@ -9,20 +10,20 @@ import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "Fiberglass Sheets Manufacturer — Pultruded FRP Plate";
+const pageTitle = "Fiberglass Sheets Manufacturer — Cut-to-Size FRP Sheet";
 const pageDescription =
-  "Fiberglass sheets manufacturer supplying pultruded FRP plate cut to size for panels, liners, covers and fabricated parts, with global project delivery.";
+  "Fiberglass sheets manufacturer supplying solid pultruded FRP sheet cut to size for liners, covers, baffles and fabricated parts, with global delivery.";
 const pagePath = "/products/fiberglass-sheets";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
+  image: "/products/fiberglass-sheets/opengraph-image",
 });
 
-// Program ranges are typical and confirmed per order — this family has no
-// published per-size weight catalog yet, so the page carries no weight table
-// (data-integrity rule; the flat-bar catalog covers narrow solid sections).
+// Program ranges are typical and confirmed per order. This solid-sheet family
+// has no published per-size weight catalog yet, so no weight table is inferred.
 const faqItems = [
   {
     question: "What thicknesses and sizes do fiberglass sheets come in?",
@@ -32,7 +33,7 @@ const faqItems = [
   {
     question: "What is the difference between fiberglass sheet and FRP plate?",
     answer:
-      "Commercially they are the same family: 'fiberglass sheet' usually means the thinner end (2–6 mm — liners, covers, kick panels), 'FRP plate' or 'structural plate' the thicker end (10–25 mm — gusset plates, base plates, wear pads). Both are E-glass laminates in a polyester or vinyl ester matrix; the thicker plates carry more multidirectional reinforcement so bolted connections load evenly.",
+      "Suppliers sometimes use sheet and plate interchangeably for flat laminate. To keep the F1 catalog unambiguous, this page covers solid flat sheet at every offered thickness; the separate fiberglass plate page covers shaped hollow and multi-cell pultruded profiles. Send a cross-section when the geometry is not simply flat.",
   },
   {
     question: "Can the sheets be supplied with an anti-slip surface?",
@@ -40,12 +41,12 @@ const faqItems = [
       "Yes — the gritted variant bonds a silica or aluminum-oxide grit surface to one face, which is exactly the material used for our stair tread covers and solid-top walkway plate. Smooth (veiled) both faces is standard for liners, baffles, and electrical applications; embossed and pigmented options are available per order.",
   },
   {
-    question: "What are typical applications for FRP flat sheet and plate?",
+    question: "What are typical applications for pultruded FRP sheet?",
     answer:
-      "Gusset and splice plates in FRP structures (bolted with the same 316 SS hardware as the profiles), tank and clarifier baffles, wear pads and bearing strips between FRP and steel, equipment covers and kick panels, trench and drain covers in gritted plate, and cut blanks that fabricators machine into brackets and spacers. In corrosive service it replaces coated steel plate; in electrical rooms it replaces conductive metal panels.",
+      "Typical uses include tank and clarifier baffles, liners, wear pads and bearing strips, equipment covers, kick panels, electrical barriers and cut blanks that fabricators machine into brackets, spacers or connection parts. Suitability for a load-bearing cover or walking surface requires a project-specific thickness, support and load check.",
   },
   {
-    question: "Which resin should I choose for sheet and plate?",
+    question: "Which resin should I choose for fiberglass sheet?",
     answer:
       "Isophthalic polyester is the general-purpose default. Move to vinyl ester for acid, caustic, hypochlorite, and marine immersion — tank internals and wastewater baffles are the classic cases. Fire-retardant polyester (the ASTM E84 Class 1 family) covers escape routes and enclosed spaces; UV-stabilized systems with surface veil are the right call for outdoor exposure.",
   },
@@ -61,11 +62,11 @@ export default function FiberglassSheetsPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Fiberglass Sheets & FRP Plate (Pultruded Flat Sheet)",
+          name: "Fiberglass Sheets (Pultruded Solid Flat Stock)",
           description: pageDescription,
           path: pagePath,
-          image: "/opengraph-image",
-          category: "FRP Sheets & Plate",
+          image: "/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp",
+          category: "Solid pultruded FRP sheet",
           productLine: "F1-FORM",
           material: ["E-glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Fire-retardant polyester resin"],
           additionalProperty: [
@@ -77,9 +78,9 @@ export default function FiberglassSheetsPage() {
         })}
       />
       <PageHeader
-        tag="Sheets & Plate · F1-FORM"
-        title="Fiberglass sheets manufacturer — FRP plate cut to size"
-        description="Flat fiberglass sheet from 2 mm liners to 25 mm structural plate — smooth, gritted anti-slip, or embossed — cut to your part sizes in E-glass with polyester, vinyl ester, or fire-retardant resin systems. The flat material behind gussets, baffles, wear pads, covers, and tread plates."
+        tag="Solid Flat Sheet · F1-FORM"
+        title="Fiberglass sheets manufacturer — solid FRP sheet cut to size"
+        description="Solid flat fiberglass sheet from 2 to 25 mm typical thickness — smooth, gritted anti-slip, or embossed — cut to part size in polyester, vinyl ester, or fire-retardant resin systems."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -87,11 +88,56 @@ export default function FiberglassSheetsPage() {
         ]}
       />
 
+      <section className="bg-white pt-[55px] md:pt-[72px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <SectionTag>Production & Edge Detail</SectionTag>
+          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+            See the solid sheet surface and an order-specific edge form
+          </h2>
+          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+            These production photos show the finished black surface and a thin-wall sample
+            with formed returns. Color, surface, thickness and any shaped detail are confirmed
+            against the order drawing; use the Plate catalog when the cross-section is not flat.
+          </p>
+          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+            <figure>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-bg2">
+                <Image
+                  src="/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp"
+                  alt="Black pultruded fiberglass sheet with a finished surface on the production line"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 610px"
+                  className="object-cover object-center"
+                  preload
+                />
+              </div>
+              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+                Finished black pultruded fiberglass sheet surface during production.
+              </figcaption>
+            </figure>
+            <figure>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-bg2">
+                <Image
+                  src="/images/products/fiberglass-sheets/pultruded-frp-sheet-formed-edge-sample.webp"
+                  alt="Black pultruded FRP sheet-program sample with thin walls and formed return edges"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 610px"
+                  className="object-cover object-center"
+                />
+              </div>
+              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+                Thin-wall sample with formed returns; confirm flat-sheet versus shaped-profile scope on the approved drawing.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Where Flat Stock Fits</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Fiberglass sheets and FRP plate for four fabrication jobs
+            Fiberglass sheet for four fabrication jobs
           </h2>
           <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
             As a fiberglass sheets manufacturer, F1 supplies pultruded flat stock as
@@ -103,9 +149,8 @@ export default function FiberglassSheetsPage() {
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
               <h3 className="text-f15 font-bold text-t1">Structural connection</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
-                Gusset, splice, and base plates for FRP frames — drilled and bolted with
-                the same stainless hardware as the profiles, no galvanic pair against the
-                laminate.
+                Cut blanks for gussets, splice parts, bearing pads and other fabricated
+                connections — machined to the approved part drawing and load case.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
@@ -118,11 +163,12 @@ export default function FiberglassSheetsPage() {
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
               <h3 className="text-f15 font-bold text-t1">Walking surfaces</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
-                Gritted plate for solid-top walkways, trench covers, and the{" "}
+                Gritted sheet for tread-cover overlays and other anti-slip surfaces,
+                including the{" "}
                 <Link href="/products/frp-stair-treads" className="font-semibold text-teal-text hover:underline">
                   stair tread covers
                 </Link>{" "}
-                program — anti-slip where open grating is not wanted.
+                program. Load-bearing covers require separate support and capacity checks.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
@@ -134,14 +180,17 @@ export default function FiberglassSheetsPage() {
               </p>
             </div>
           </div>
-          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2">
-            Narrower solid rectangles with published sizes and per-meter weights are a
-            catalog product of their own — see{" "}
+          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+            This page covers solid flat stock. Shaped hollow and multi-cell sections now
+            have a separate{" "}
+            <Link href="/products/fiberglass-plates" className="font-semibold text-teal-text hover:underline">
+              pultruded fiberglass plate profile catalog
+            </Link>
+            . Narrow solid rectangles with published sizes and per-meter weights remain in the{" "}
             <Link href="/products/fiberglass-structural-shapes/frp-flat-bar" className="font-semibold text-teal-text hover:underline">
-              fiberglass flat bars
+              fiberglass flat-bar catalog
             </Link>{" "}
-            (12×3 to 305×25 mm). This page covers the wide-format sheet and plate program
-            supplied cut to part size.
+            (12×3 to 305×25 mm).
           </p>
         </div>
       </section>
@@ -151,6 +200,7 @@ export default function FiberglassSheetsPage() {
           {
             title: "Related flat & structural stock",
             links: [
+              { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles (hollow & multi-cell)" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars (catalog sizes)" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
               { href: "/products/frp-stair-treads", label: "Stair tread covers" },
@@ -174,9 +224,9 @@ export default function FiberglassSheetsPage() {
         </div>
       </section>
 
-      <AskAICard prefill="I need FRP flat sheet/plate: thickness [mm], part sizes and quantity, surface [smooth/gritted/embossed], service [chemical/electrical/walkway], resin preference if any. What laminate and resin do you recommend, and what should the RFQ include?" />
+      <AskAICard prefill="I need solid pultruded fiberglass sheet: thickness [mm], finished part sizes and quantity, surface [smooth/gritted/embossed], service [chemical/electrical/liner/cover/fabricated blank], support/load if structural, resin preference [if any], destination [country/postcode]. What laminate and resin do you recommend, and what should the RFQ include?" />
 
-      <InnerCTA title="Send part sizes and duty — sheet quote in 24 hours." />
+      <InnerCTA title="Send the flat-sheet part sizes, surface and service duty." />
     </>
   );
 }

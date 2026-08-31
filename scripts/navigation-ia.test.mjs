@@ -40,6 +40,7 @@ test("primary navigation follows buyer-oriented product and market taxonomy", as
     "/products/fiberglass-snow-markers",
     "/products/fiberglass-stakes",
     "/products/fiberglass-sheets",
+    "/products/fiberglass-plates",
     "/products/custom-pultruded-profiles",
     "/products/frp-gratings",
     "/products/molded-frp-grating",

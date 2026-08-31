@@ -35,6 +35,8 @@ const profileFamily: Array<{
   imageWidth: number;
   imageHeight: number;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
+  rangeLabel?: string;
   /** CSS object-position override for images whose subject sits off-center. */
   imagePosition?: string;
 }> = [
@@ -109,6 +111,35 @@ const profileFamily: Array<{
     image: "/images/products/flat-bar/frp-flat-bar-photo.webp",
     imageWidth: 1200,
     imageHeight: 1200,
+  },
+  {
+    slug: "fiberglass-sheets",
+    name: "Pultruded Fiberglass Sheets",
+    keyword: "solid fiberglass sheet / FRP flat stock",
+    sizes: "2–25 mm typical thickness · cut to part size",
+    summary:
+      "Solid flat stock for liners, covers, baffles and fabricated blanks, with smooth, gritted or embossed surfaces and order-specific resin selection.",
+    href: "/products/fiberglass-sheets",
+    image: "/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp",
+    imageWidth: 1200,
+    imageHeight: 1600,
+    imageAlt: "Black pultruded fiberglass sheet with a finished surface on the production line",
+    imagePosition: "center 58%",
+  },
+  {
+    slug: "fiberglass-plates",
+    name: "Pultruded Fiberglass Plate Profiles",
+    keyword: "hollow and multi-cell FRP plate profiles",
+    sizes: "19 records · 15 source schematics",
+    summary:
+      "Drawing-led hollow, multi-cell and edge-formed plate profiles with A/B/t1/t2 values and source IDs, separate from solid sheet and engineered deck systems.",
+    href: "/products/fiberglass-plates",
+    image: "/images/products/fiberglass-plates/plate-01.webp",
+    imageWidth: 700,
+    imageHeight: 240,
+    imageAlt: "Pultruded fiberglass plate profile with internal webs and formed edges",
+    imageFit: "contain",
+    rangeLabel: "Catalog scope",
   },
   {
     slug: "frp-rebar",
@@ -644,7 +675,8 @@ export default function PultrudedFRPProfilesHubPage() {
                 <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">F1‑THERM</Link>{" "}
                 (window frames &amp; fenestration), and{" "}
                 <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">F1‑FORM</Link>{" "}
-                (custom pultrusions) — all manufactured in-house to EN 13706 and ASTM D3917.
+                (custom pultrusions). Product-specific pages and approved order documents
+                define the applicable process, material, tooling and standard.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E17 / E23</span>
@@ -678,9 +710,10 @@ export default function PultrudedFRPProfilesHubPage() {
             Pultruded fiberglass product families under one factory
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Every geometry listed below is produced in-house at F1 Composite — no
-            trading, no relabeling. Click through to each product for the full
-            size chart, mechanical data, FAQ, and ready-to-quote specifications.
+            Each family below is an F1 manufacturing or drawing-led quotation program.
+            Click through for the published geometry, selection inputs and RFQ data;
+            tooling status, material and production availability are confirmed where the
+            product page says order release is required.
           </p>
 
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
@@ -697,7 +730,9 @@ export default function PultrudedFRPProfilesHubPage() {
                     width={item.imageWidth}
                     height={item.imageHeight}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
+                      item.imageFit === "contain" ? "object-contain p-[13px]" : "object-cover"
+                    }`}
                     style={
                       item.imagePosition
                         ? { objectPosition: item.imagePosition }
@@ -709,7 +744,7 @@ export default function PultrudedFRPProfilesHubPage() {
                   <p className="text-f13 font-medium text-teal-text">{item.keyword}</p>
                   <h3 className="mt-[5px] text-f19 font-bold text-t1">{item.name}</h3>
                   <p className="mt-[8px] text-f13 text-t3">
-                    <span className="font-semibold">Size range:</span> {item.sizes}
+                    <span className="font-semibold">{item.rangeLabel ?? "Size range"}:</span> {item.sizes}
                   </p>
                   <p className="mt-[8px] text-f15 leading-golden text-t2">{item.summary}</p>
                   <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
@@ -1015,7 +1050,8 @@ export default function PultrudedFRPProfilesHubPage() {
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Technical resources</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/product-lines">F1-STRUX / GRID / THERM / FORM lines</LinkArrow>
-            <LinkArrow href="/products/fiberglass-sheets">Fiberglass sheets & FRP plate</LinkArrow>
+            <LinkArrow href="/products/fiberglass-sheets">Fiberglass sheets — solid flat stock</LinkArrow>
+            <LinkArrow href="/products/fiberglass-plates">Fiberglass plate profiles — 19 catalog references</LinkArrow>
             <LinkArrow href="/resources/how-to-choose-frp-pultrusion-supplier">How to choose an FRP supplier</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel / aluminum / timber</LinkArrow>
