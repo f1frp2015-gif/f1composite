@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Four common beam bridge configurations</title>
+  <desc id="desc">Four original engineering illustrations compare a simple span, a continuous beam, an I-girder section and a closed box girder section.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbfc"/>
+      <stop offset="1" stop-color="#eaf3f3"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#173163"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#173163"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1838" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="82" y="82" font-size="25" font-weight="750" letter-spacing="3" fill="#0a9b91">BEAM BRIDGE FAMILY</text>
+    <text x="82" y="142" font-size="50" font-weight="760" fill="#0b1838">Same load path, different configurations</text>
+    <text x="83" y="185" font-size="23" fill="#4f6275">Span arrangement describes the structure. Cross-section describes the member.</text>
+
+    <g transform="translate(82 235)" filter="url(#shadow)">
+      <rect width="696" height="255" rx="24" fill="#ffffff"/>
+      <rect x="0" y="0" width="11" height="255" rx="5" fill="#0a9b91"/>
+      <text x="38" y="48" font-size="19" font-weight="750" letter-spacing="1.5" fill="#007a74">SPAN ARRANGEMENT 01</text>
+      <text x="38" y="87" font-size="32" font-weight="750" fill="#0b1838">Simple span</text>
+      <text x="38" y="118" font-size="18" fill="#5b6d7e">One beam segment between two supports</text>
+      <rect x="82" y="160" width="528" height="24" rx="7" fill="url(#beam)"/>
+      <rect x="98" y="151" width="496" height="11" rx="4" fill="#9aadb8"/>
+      <path d="M103 188 L150 188 L171 218 L82 218 Z" fill="#0b1838"/>
+      <path d="M542 188 L589 188 L610 218 L521 218 Z" fill="#0b1838"/>
+      <path d="M322 137 Q348 150 374 137" fill="none" stroke="#ef8d32" stroke-width="4" stroke-dasharray="8 7"/>
+    </g>
+
+    <g transform="translate(822 235)" filter="url(#shadow)">
+      <rect width="696" height="255" rx="24" fill="#ffffff"/>
+      <rect x="0" y="0" width="11" height="255" rx="5" fill="#ef8d32"/>
+      <text x="38" y="48" font-size="19" font-weight="750" letter-spacing="1.5" fill="#b85f16">SPAN ARRANGEMENT 02</text>
+      <text x="38" y="87" font-size="32" font-weight="750" fill="#0b1838">Continuous beam</text>
+      <text x="38" y="118" font-size="18" fill="#5b6d7e">One continuous member over three or more supports</text>
+      <rect x="56" y="160" width="584" height="24" rx="7" fill="url(#beam)"/>
+      <rect x="72" y="151" width="552" height="11" rx="4" fill="#9aadb8"/>
+      <g fill="#0b1838">
+        <path d="M72 188 L113 188 L132 218 L53 218 Z"/>
+        <path d="M328 188 L369 188 L388 218 L309 218 Z"/>
+        <path d="M584 188 L625 188 L644 218 L565 218 Z"/>
+      </g>
+      <path d="M170 137 Q213 152 256 137 M427 137 Q470 152 513 137" fill="none" stroke="#ef8d32" stroke-width="4" stroke-dasharray="8 7"/>
+    </g>
+
+    <g transform="translate(82 530)" filter="url(#shadow)">
+      <rect width="696" height="255" rx="24" fill="#ffffff"/>
+      <rect x="0" y="0" width="11" height="255" rx="5" fill="#0a9b91"/>
+      <text x="38" y="48" font-size="19" font-weight="750" letter-spacing="1.5" fill="#007a74">MEMBER SECTION 03</text>
+      <text x="38" y="87" font-size="32" font-weight="750" fill="#0b1838">I-girder</text>
+      <text x="38" y="118" font-size="18" fill="#5b6d7e">Flanges resist bending; the web carries shear</text>
+      <g transform="translate(235 140)">
+        <rect x="0" y="0" width="225" height="24" rx="4" fill="#0b1838"/>
+        <rect x="94" y="24" width="37" height="57" fill="#173163"/>
+        <rect x="0" y="81" width="225" height="24" rx="4" fill="#0b1838"/>
+        <path d="M262 12 L262 93" stroke="#0a9b91" stroke-width="3" marker-end="url(#arrow)"/>
+        <text x="281" y="59" font-size="17" fill="#007a74">depth</text>
+      </g>
+    </g>
+
+    <g transform="translate(822 530)" filter="url(#shadow)">
+      <rect width="696" height="255" rx="24" fill="#ffffff"/>
+      <rect x="0" y="0" width="11" height="255" rx="5" fill="#ef8d32"/>
+      <text x="38" y="48" font-size="19" font-weight="750" letter-spacing="1.5" fill="#b85f16">MEMBER SECTION 04</text>
+      <text x="38" y="87" font-size="32" font-weight="750" fill="#0b1838">Box girder</text>
+      <text x="38" y="118" font-size="18" fill="#5b6d7e">Closed cell improves torsional stiffness</text>
+      <g transform="translate(230 142)">
+        <path d="M0 0 H236 L210 104 H26 Z" fill="#0b1838"/>
+        <path d="M40 25 H196 L185 78 H51 Z" fill="#ffffff"/>
+        <path d="M268 52 H326" stroke="#0a9b91" stroke-width="3" marker-end="url(#arrow)"/>
+        <text x="337" y="58" font-size="17" fill="#007a74">cell</text>
+      </g>
+    </g>
+
+    <g transform="translate(82 831)">
+      <rect width="1278" height="4" rx="2" fill="#bfd1d2"/>
+      <text x="0" y="37" font-size="18" fill="#5b6d7e">Design choice depends on span, loading, clearance, fabrication, transport and site constraints.</text>
+    </g>
+    <text x="1518" y="868" font-size="17" text-anchor="end" fill="#6b7e8e">Engineering illustration · not to scale</text>
+  </g>
+</svg>

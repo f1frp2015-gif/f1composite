@@ -1482,7 +1482,7 @@ F1 Composite supplies pultruded FRP cable tray systems in ladder, solid-bottom, 
     ogChips: ["Bridge decks", "Infrastructure", "Lightweight structures"],
     relatedLinks: [
       { label: "Infrastructure", href: "/industries/infrastructure" },
-      { label: "Case Studies", href: "/case-studies" },
+      { label: "Beam bridge design & verified case studies", href: "/case-studies/beam-bridge" },
       { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],

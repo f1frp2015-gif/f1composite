@@ -256,7 +256,7 @@ export default function FrpDeckPanelsPage() {
               { href: "/applications/frp-bridge-deck-panels", label: "FRP bridge deck panels" },
               { href: "/applications/frp-pedestrian-bridge-superstructures", label: "Pedestrian bridge superstructures" },
               { href: "/industries/infrastructure", label: "Infrastructure applications" },
-              { href: "/case-studies/european-bridge-deck", label: "European bridge deck case study" },
+              { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
             ],
           },
           {

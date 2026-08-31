@@ -302,6 +302,22 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/case-studies/beam-bridge",
+    primaryQuery: "beam bridge",
+    intent: "guide",
+    title: "Beam Bridge: Design, Diagram & 3 Case Studies",
+    description:
+      "Beam bridge guide with load-path diagrams and three verified cases, including Australia's 504 m Avon River bridge and two documented FRP girder projects.",
+    supportingUrls: [
+      "/applications/frp-bridge-deck-panels",
+      "/applications/frp-pedestrian-bridge-superstructures",
+      "/products/fiberglass-structural-shapes/frp-i-beam",
+      "/products/frp-deck-panels",
+      "/industries/infrastructure",
+      "/resources/blog/frp-bridge-deck-design-guide",
+    ],
+  },
+  {
     targetUrl: "/technology/frp-vs-steel-gratings",
     primaryQuery: "FRP grating vs steel grating",
     intent: "comparison",

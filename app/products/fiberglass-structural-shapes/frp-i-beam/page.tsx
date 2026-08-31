@@ -515,7 +515,7 @@ export default async function IBeamPage() {
             links: [
               { href: "/applications/frp-bridge-deck-panels", label: "FRP bridge deck panels" },
               { href: "/applications/frp-chemical-plant-platforms", label: "Chemical plant platforms" },
-              { href: "/case-studies/european-bridge-deck", label: "Bridge deck case study" },
+              { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
               { href: "/case-studies/factory-access-staircase", label: "Factory access staircase case study" },
               { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
             ],
