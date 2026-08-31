@@ -314,7 +314,7 @@ export default function FrpVsTraditionalPage() {
               height={500}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-cover"
-              priority
+              preload
             />
           </div>
         </div>

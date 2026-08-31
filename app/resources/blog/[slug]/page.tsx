@@ -315,7 +315,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       ? { objectPosition: post.coverImagePosition }
                       : undefined
                   }
-                  priority
+                  preload
                 />
               </div>
               <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f13 leading-golden text-t2">

@@ -130,7 +130,7 @@ export default async function FlatBarPage() {
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
-              <Image src="/images/products/flat-bar/frp-flat-bar-photo.png" alt="Pultruded FRP flat bar profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" priority />
+              <Image src="/images/products/flat-bar/frp-flat-bar-photo.webp" alt="Pultruded FRP flat bar profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" preload />
             </div>
           </div>
         </div>

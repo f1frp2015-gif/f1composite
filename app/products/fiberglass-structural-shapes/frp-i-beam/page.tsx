@@ -192,7 +192,7 @@ export default async function IBeamPage() {
           name: "FRP I-Beam Profiles",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.png",
+          image: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Phenolic resin"],
           priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
@@ -277,7 +277,7 @@ export default async function IBeamPage() {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
-                priority
+                preload
               />
             </div>
           </div>

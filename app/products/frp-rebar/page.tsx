@@ -322,7 +322,7 @@ export default function FrpRebarPage() {
                 src={heroImage}
                 alt="Three real supplier FRP rebars with helically wrapped bond surfaces on a neutral industrial background"
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover"
               />

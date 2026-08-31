@@ -87,13 +87,13 @@ export default function UAECableTrayPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/regions/frp-cable-tray-uae-oil-gas.jpg"
+              src="/images/industries/frp-electric-power-substation-infrastructure.jpg"
               alt="Corrosion-resistant pultruded FRP cable tray and ladder in a UAE oil & gas electrical installation — NEMA VE-1 / IEC 61537, sour-service rated"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="h-auto w-full object-cover"
-              priority
+              preload
             />
           </div>
         </div>

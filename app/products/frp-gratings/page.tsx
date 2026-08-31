@@ -191,7 +191,7 @@ export default function PultrudedGratingsPage() {
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="object-cover"
-              priority
+              preload
             />
           </div>
         </div>

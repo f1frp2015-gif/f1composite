@@ -444,7 +444,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 fill
                 sizes="(max-width: 768px) 100vw, 800px"
                 className="object-cover"
-                priority
+                preload
               />
             </div>
 

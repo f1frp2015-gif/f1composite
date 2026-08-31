@@ -390,7 +390,6 @@ export default function FacadeSunshadePanelsPage() {
                 height={1601}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="aspect-[4/3] w-full rounded-[8px] object-cover"
-                loading="eager"
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">
                 The E40 plate — as pultruded, before finishing
@@ -404,7 +403,6 @@ export default function FacadeSunshadePanelsPage() {
                 height={928}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="aspect-[4/3] w-full rounded-[8px] object-cover"
-                loading="eager"
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">
                 Vertical fin arrays — floor-to-floor spans
@@ -418,7 +416,6 @@ export default function FacadeSunshadePanelsPage() {
                 height={1536}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="aspect-[4/3] w-full rounded-[8px] object-cover"
-                loading="eager"
               />
               <p className="mt-[8px] text-center text-f13 font-medium text-t2">
                 Angled louver blades — combined load case

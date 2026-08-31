@@ -10,6 +10,8 @@
     "lint": "eslint",
     "check:sitemap": "node scripts/check-sitemap-routes.mjs",
     "check:editorial-signals": "node scripts/check-editorial-signals.mjs",
+    "audit:images": "node scripts/image-audit.mjs",
+    "optimize:images": "node scripts/optimize-image-assets.mjs --apply",
     "test:indexnow": "node --test scripts/submit-indexnow.test.mjs",
     "test:calculators": "node --test scripts/calculator-p0.test.mjs",
     "test:grating-clips": "node --test scripts/grating-clips.test.mjs",
@@ -18,6 +20,7 @@
     "test:stair-treads": "node --test scripts/stair-treads-page.test.mjs",
     "test:snow-markers": "node --test scripts/snow-markers-page.test.mjs",
     "test:stakes": "node --test scripts/fiberglass-stakes-page.test.mjs",
+    "test:images": "node --test scripts/image-performance.test.mjs",
     "test:navigation": "node --test scripts/navigation-ia.test.mjs",
     "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"

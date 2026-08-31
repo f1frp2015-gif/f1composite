@@ -127,7 +127,7 @@ export default async function RodPage() {
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
-              <Image src="/images/products/round-rod/frp-round-rod-solid.jpg" alt="Pultruded FRP solid round rod by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-[21px]" priority />
+              <Image src="/images/products/round-rod/frp-round-rod-solid.jpg" alt="Pultruded FRP solid round rod by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-[21px]" preload />
             </div>
           </div>
         </div>
