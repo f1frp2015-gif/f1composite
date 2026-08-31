@@ -263,7 +263,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Pultruded FRP Grating Manufacturer | T-Bar & I-Bar",
     description:
-      "Compare pultruded FRP grating T-bar, I-bar, high-load and high-open series with manual-derived nominal data, M/J/T 316SS clips and load-table support.",
+      "Compare pultruded fiberglass grating in T-bar, I-bar, high-load and high-open series, with nominal data, M/J/T 316SS clips and load-table support.",
     supportingUrls: [
       "/products/frp-deck-panels",
       "/products/molded-frp-grating",

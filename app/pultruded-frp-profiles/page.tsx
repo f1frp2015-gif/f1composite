@@ -191,7 +191,7 @@ const profileFamily: Array<{
   {
     slug: "gratings",
     name: "Pultruded FRP Grating",
-    keyword: "pultruded fiberglass grating",
+    keyword: "Also called: pultruded fiberglass grating",
     sizes: "25 – 76 mm manual-listed depths",
     summary:
       "Open T-bar and I-bar grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T clips.",

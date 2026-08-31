@@ -9,6 +9,7 @@ const root = path.resolve(scriptDirectory, "..");
 
 const files = {
   pultrudedPage: path.join(root, "app/products/frp-gratings/page.tsx"),
+  profileHub: path.join(root, "app/pultruded-frp-profiles/page.tsx"),
   moldedPage: path.join(root, "app/products/molded-frp-grating/page.tsx"),
   deckPage: path.join(root, "app/products/frp-deck-panels/page.tsx"),
   moldedOg: path.join(root, "app/products/molded-frp-grating/opengraph-image.tsx"),
@@ -130,6 +131,52 @@ test("all three product routes are discoverable without changing the existing ca
   assert.match(seo, /primaryQuery: "molded FRP grating"/);
   assert.match(seo, /primaryQuery: "pultruded FRP grating manufacturer"/);
   assert.match(seo, /primaryQuery: "structural FRP deck panels"/);
+});
+
+test("pultruded grating synonyms are scoped, explained and not stacked", async () => {
+  const [page, seo, hub] = await Promise.all([
+    readFile(files.pultrudedPage, "utf8"),
+    readFile(files.seo, "utf8"),
+    readFile(files.profileHub, "utf8"),
+  ]);
+
+  const seoBlock = seo.match(
+    /targetUrl:\s*"\/products\/frp-gratings",[\s\S]*?\n\s*supportingUrls:/,
+  )?.[0];
+  assert.ok(seoBlock, "pultruded grating SEO target should exist");
+
+  const metaDescription = seoBlock.match(/description:\s*\n?\s*"([^"]+)"/)?.[1];
+  assert.ok(metaDescription, "pultruded grating meta description should exist");
+  assert.match(metaDescription, /\bpultruded fiberglass grating\b/i);
+  assert.doesNotMatch(metaDescription, /\bpultruded FRP grating\b/i);
+
+  const intro = page.match(
+    /<SectionTag>Directional Stiffness · Longer Spans<\/SectionTag>([\s\S]*?)<aside/,
+  )?.[1];
+  assert.ok(intro, "visible pultruded grating intro should exist");
+  assert.match(intro, /\bpultruded fiberglass grating\b/i);
+  assert.match(intro, /\bpultruded FRP grating\b/i);
+  assert.match(intro, /\bGFRP\b/);
+  assert.match(intro, /For F1(?:&apos;|['’])s glass-reinforced products/i);
+  assert.match(intro, /\bsame product\b/i);
+
+  const synonymFaq = page.match(
+    /\{\s*question:\s*"[^"]*pultruded fiberglass grating[^"]*pultruded FRP grating[^"]*\?",[\s\S]*?\n\s*\},/,
+  )?.[0];
+  assert.ok(synonymFaq, "the scoped synonym FAQ should exist");
+  assert.match(synonymFaq, /For F1(?:&apos;|['’])s glass-reinforced products, yes/i);
+  assert.match(synonymFaq, /\bGFRP\b/);
+  assert.match(synonymFaq, /\bI-bar\b/i);
+  assert.match(synonymFaq, /\bT-bar\b/i);
+  assert.match(synonymFaq, /Molded FRP grating/);
+  assert.match(synonymFaq, /closed structural FRP deck panels/);
+
+  const gratingCard = hub.match(
+    /\{\s*slug:\s*"gratings",[\s\S]*?href:\s*"\/products\/frp-gratings",[\s\S]*?\n\s*\},/,
+  )?.[0];
+  assert.ok(gratingCard, "pultruded grating hub card should exist");
+  assert.match(gratingCard, /name:\s*"Pultruded FRP Grating"/);
+  assert.match(gratingCard, /keyword:\s*"Also called:\s*pultruded fiberglass grating"/i);
 });
 
 test("manual-derived public images exist and public copy is supplier-neutral", async () => {

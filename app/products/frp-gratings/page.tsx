@@ -22,7 +22,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-08-30";
+const updatedAt = "2026-08-31";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -108,6 +108,11 @@ const faqItems = [
     question: "What is pultruded FRP grating?",
     answer:
       "Pultruded FRP grating is assembled from continuous-fiber I-bars or T-bars connected by cross-rods. Most reinforcement runs along the bearing bars, producing high stiffness and strength in the designed span direction. It must be oriented and supported as a one-way spanning panel.",
+  },
+  {
+    question: "Are pultruded fiberglass grating and pultruded FRP grating the same product?",
+    answer:
+      "For F1's glass-reinforced products, yes. Both terms refer here to open, one-way GFRP panels assembled from pultruded I-bar or T-bar bearing members and cross-rods. FRP is a broader material term, so the project specification should still define the glass reinforcement, resin system, series, surface and load/deflection requirements. Molded FRP grating and closed structural FRP deck panels are separate product families.",
   },
   {
     question: "How is pultruded grating different from molded grating?",
@@ -206,7 +211,7 @@ export default function PultrudedGratingsPage() {
                 Pultruded bearing bars for open, span-driven grating layouts
               </h2>
               <p className="mt-[13px] text-f19 leading-golden text-t2">
-                Pultruded FRP grating uses continuous-fiber I-bars or T-bars as one-way bearing members, connected by cross-rods into an open panel. It is the F1-GRID family for directional stiffness, pedestrian access, industrial platforms, high-load layouts and high-open cooling-tower walkways.
+                For F1&apos;s glass-reinforced products, pultruded fiberglass grating means an open, one-way glass-fiber-reinforced polymer (GFRP) panel assembled from pultruded I-bar or T-bar bearing members and cross-rods. Project specifications often call the same product pultruded FRP grating; the quoted series, resin system, surface and load/deflection table still control.
               </p>
               <p className="mt-[21px] text-f15 leading-golden text-t2">
                 Every selection starts with the clear span and bearing-bar direction. Match the series to load, deflection, resin, fire, slip and opening requirements; then issue the panel cut plan and M/J/T hold-down arrangement on the approved project drawing.
