@@ -5,6 +5,7 @@ const APP_DIR = path.resolve("app");
 const ALLOWED_ROUTE_PREFIXES = [
   "app/resources/blog/[slug]/",
   "app/case-studies/[slug]/",
+  "app/case-studies/beam-bridge/",
 ];
 const SOURCE_EXTENSIONS = new Set([".js", ".jsx", ".ts", ".tsx"]);
 

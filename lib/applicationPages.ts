@@ -190,7 +190,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/industries/infrastructure", label: "Infrastructure applications" },
-      { href: "/case-studies/european-bridge-deck", label: "Bridge deck case study" },
+      { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
     ],
     deepDive: {
       heading: "FRP bridge deck panels from load model to installation plan",
@@ -376,7 +376,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
       { href: "/products/frp-handrail-systems", label: "FRP handrail systems" },
-      { href: "/case-studies/european-bridge-deck", label: "European bridge deck case study" },
+      { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
     ],
     deepDive: {
       heading: "FRP pedestrian bridge superstructures from concept to modules",

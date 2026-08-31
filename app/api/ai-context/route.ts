@@ -301,6 +301,26 @@ export async function GET() {
     },
     caseStudies: [
       {
+        slug: "beam-bridge",
+        title: "Beam Bridge — Design Guide & 3 Verified Public Case Studies",
+        location: "Australia and United States",
+        year: "Public engineering references",
+        sourceType: "Independent public records; not F1 Composite supply projects",
+        keyFacts: {
+          avonRiverOverallLengthM: 504,
+          avonRiverPrecastBeams: 36,
+          horseTroughPultrudedGirders: 2,
+          horseTroughGirderLengthM: 9.7,
+          route601SpanFt: 39,
+          route601PultrudedFrpBeams: 8,
+        },
+        sources: [
+          "Victoria's Big Build",
+          "Queensland Department of Transport and Main Roads TN54",
+          "Virginia Transportation Research Council 06-CR5",
+        ],
+      },
+      {
         slug: "qinling-station-antarctic-passive-windows",
         title: "Qinling Station, Antarctic Ross Sea — PHI Class A+ Passive FRP Windows",
         location: "Ross Sea, Antarctica",

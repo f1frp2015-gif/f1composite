@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Horse Trough Creek pultruded composite girder case study</title>
+  <desc id="desc">An original engineering illustration of the replacement bridge at Horse Trough Creek, Queensland, using two 9.7 metre pultruded composite girders weighing about 700 kilograms each. The bridge opened on 10 May 2005.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfc"/>
+      <stop offset="1" stop-color="#deeceb"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9e3c7"/>
+      <stop offset="0.5" stop-color="#c8d9b3"/>
+      <stop offset="1" stop-color="#dce6ca"/>
+    </linearGradient>
+    <linearGradient id="frp" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#075f5a"/>
+      <stop offset="0.45" stop-color="#0a9b91"/>
+      <stop offset="1" stop-color="#064c49"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="11" stdDeviation="13" flood-color="#0b1838" flood-opacity="0.17"/>
+    </filter>
+    <marker id="arrowTeal" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto-start-reverse">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 526 C252 448 420 514 627 477 C879 432 1050 512 1600 424 L1600 900 L0 900 Z" fill="url(#land)"/>
+  <path d="M0 745 C258 692 520 766 770 715 C1035 662 1320 728 1600 684 L1600 900 L0 900 Z" fill="#9ecfd0"/>
+  <g opacity="0.45" stroke="#ffffff" stroke-width="4">
+    <path d="M40 790 Q220 758 400 790 T760 790 T1120 790 T1480 790" fill="none"/>
+    <path d="M120 839 Q310 805 500 839 T880 839 T1260 839" fill="none"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(70 57)">
+      <rect width="400" height="42" rx="21" fill="#0b1838"/>
+      <text x="200" y="28" font-size="18" font-weight="750" letter-spacing="1.2" text-anchor="middle" fill="#ffffff">PUBLIC INDUSTRY REFERENCE</text>
+    </g>
+    <text x="70" y="150" font-size="49" font-weight="770" fill="#0b1838">Horse Trough Creek Bridge</text>
+    <text x="71" y="194" font-size="25" fill="#4f6275">Queensland, Australia · Opened 10 May 2005</text>
+
+    <g transform="translate(1075 48)">
+      <rect width="455" height="172" rx="24" fill="#ffffff" opacity="0.96"/>
+      <rect width="9" height="172" rx="4" fill="#ef8d32"/>
+      <text x="33" y="43" font-size="17" font-weight="750" letter-spacing="1" fill="#b85f16">DESIGN IDEA</text>
+      <text x="33" y="82" font-size="23" font-weight="750" fill="#0b1838">Two lightweight primary girders</text>
+      <text x="33" y="116" font-size="18" fill="#4f6275">Pultruded composite members reduced</text>
+      <text x="33" y="144" font-size="18" fill="#4f6275">individual lift weight to about 700 kg.</text>
+    </g>
+
+    <g transform="translate(197 298)" filter="url(#shadow)">
+      <g fill="#0b1838">
+        <path d="M-35 327 L95 327 L145 400 L-84 400 Z"/>
+        <path d="M1069 327 L1199 327 L1249 400 L1020 400 Z"/>
+      </g>
+      <g fill="#92a6a8">
+        <rect x="-7" y="302" width="80" height="25" rx="5"/>
+        <rect x="1097" y="302" width="80" height="25" rx="5"/>
+      </g>
+
+      <path d="M0 138 L1104 64 L1104 130 L0 219 Z" fill="#b8c2c4"/>
+      <path d="M0 138 L1104 64" fill="none" stroke="#ffffff" stroke-width="7"/>
+      <path d="M0 179 L1104 99" fill="none" stroke="#6b7c84" stroke-width="4" stroke-dasharray="22 17"/>
+      <path d="M0 219 L1104 130 L1104 150 L0 241 Z" fill="#778d98"/>
+
+      <g fill="url(#frp)" stroke="#064c49" stroke-width="3">
+        <path d="M72 240 L522 203 L522 268 L72 310 Z"/>
+        <path d="M582 198 L1032 160 L1032 225 L582 263 Z"/>
+      </g>
+      <g fill="#e8faf8" opacity="0.86">
+        <rect x="92" y="253" width="409" height="10" rx="5" transform="rotate(-4.7 92 253)"/>
+        <rect x="602" y="211" width="409" height="10" rx="5" transform="rotate(-4.7 602 211)"/>
+      </g>
+
+      <g stroke="#0b1838" stroke-width="7">
+        <path d="M23 124 V61 M1081 53 V-10"/>
+      </g>
+      <g stroke="#0b1838" stroke-width="4">
+        <path d="M3 78 L43 72 M1061 6 L1101 0"/>
+        <path d="M3 98 L43 92 M1061 26 L1101 20"/>
+      </g>
+    </g>
+
+    <g transform="translate(270 256)">
+      <line x1="0" y1="0" x2="968" y2="0" stroke="#0a9b91" stroke-width="4" marker-start="url(#arrowTeal)" marker-end="url(#arrowTeal)"/>
+      <rect x="373" y="-28" width="222" height="56" rx="28" fill="#e8faf8" stroke="#0a9b91" stroke-width="2"/>
+      <text x="484" y="8" font-size="24" font-weight="820" text-anchor="middle" fill="#007a74">9.7 m girders</text>
+    </g>
+
+    <g transform="translate(168 720)">
+      <g>
+        <rect width="390" height="108" rx="19" fill="#ffffff" opacity="0.97"/>
+        <text x="25" y="43" font-size="32" font-weight="820" fill="#0b1838">2 primary girders</text>
+        <text x="25" y="77" font-size="18" fill="#4f6275">pultruded composite members</text>
+      </g>
+      <g transform="translate(414)">
+        <rect width="390" height="108" rx="19" fill="#ffffff" opacity="0.97"/>
+        <text x="25" y="43" font-size="32" font-weight="820" fill="#0b1838">≈ 700 kg each</text>
+        <text x="25" y="77" font-size="18" fill="#4f6275">reported individual girder mass</text>
+      </g>
+      <g transform="translate(828)">
+        <rect width="390" height="108" rx="19" fill="#ffffff" opacity="0.97"/>
+        <text x="25" y="43" font-size="32" font-weight="820" fill="#0b1838">10 May 2005</text>
+        <text x="25" y="77" font-size="18" fill="#4f6275">bridge opened to traffic</text>
+      </g>
+    </g>
+
+    <text x="70" y="882" font-size="17" fill="#5b6d7e">Public industry reference · not an F1 project</text>
+    <text x="1530" y="882" font-size="17" text-anchor="end" fill="#5b6d7e">Engineering illustration · not to scale</text>
+  </g>
+</svg>

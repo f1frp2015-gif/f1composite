@@ -266,12 +266,12 @@ export default function InfrastructurePage() {
               </span>
             </Link>
             <Link
-              href="/case-studies/european-bridge-deck"
+              href="/case-studies/beam-bridge"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: European Bridge Deck</h3>
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Beam Bridge Design & Case Studies</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP deck replacement on a European bridge — 75% weight reduction, 50+ year design life.
+                Load-path diagrams and three source-backed concrete and FRP girder projects, with public references clearly separated from F1 delivery history.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
@@ -312,7 +312,7 @@ export default function InfrastructurePage() {
           {
             title: "Proof & related industries",
             links: [
-              { href: "/case-studies/european-bridge-deck", label: "European bridge deck case study" },
+              { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
               { href: "/case-studies/water-treatment-cable-tray", label: "Water treatment cable tray case study" },
               { href: "/industries/construction", label: "Construction sector" },
               { href: "/industries/marine", label: "Marine & offshore" },

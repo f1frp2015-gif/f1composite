@@ -7,14 +7,24 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Case Studies — Pultruded Profile Projects Worldwide",
+  title: "FRP Case Studies & Engineering References",
   description:
-    "Real pultruded FRP projects: bridge decks, marine walkways, chemical platforms, FRP windows, and solar mounting — with quantified outcomes.",
+    "Explore verified F1 projects and source-backed public engineering references for FRP profiles, bridge systems, windows, platforms, solar and infrastructure.",
   path: "/case-studies",
   image: "/case-studies/opengraph-image",
 });
 
 const caseStudies = [
+  {
+    slug: "beam-bridge",
+    title: "Beam Bridge — Design Guide & 3 Verified Public Case Studies",
+    industry: "Bridge Engineering",
+    location: "Australia & USA",
+    year: "Reference",
+    image: "/images/case-studies/beam-bridge/beam-bridge-load-path-diagram.svg",
+    excerpt:
+      "A visual beam bridge guide with original load-path diagrams, design trade-offs and three source-backed concrete and pultruded FRP girder projects. Public references are clearly separated from F1 delivery history.",
+  },
   {
     slug: "qinling-station-antarctic-passive-windows",
     title: "Qinling Station, Antarctic Ross Sea — PHI Class A+ Passive FRP Windows",
@@ -130,8 +140,8 @@ export default function CaseStudiesPage() {
       <JsonLd data={caseStudySchema} />
       <PageHeader
         tag="Case Studies"
-        title="Proven Results Across Industries"
-        description="Explore how F1 Composite's pultruded FRP profiles solve real-world engineering challenges — from bridge decks to offshore platforms."
+        title="Verified Projects & Engineering References"
+        description="Explore documented F1 projects alongside clearly labelled, source-backed public engineering references. Each page separates owned delivery evidence from independent industry learning."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Case Studies" },

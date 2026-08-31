@@ -482,6 +482,7 @@ ${glossaryLines}
 - Industries: https://www.f1composite.com/industries
 - Applications hub: https://www.f1composite.com/applications
 - Case Studies: https://www.f1composite.com/case-studies
+- Beam Bridge Design & 3 Verified Public Case Studies (engineering reference; not represented as F1-delivered projects): https://www.f1composite.com/case-studies/beam-bridge
 - Contact: https://www.f1composite.com/contact
 
 ## AI Surfaces (live tools — usable for AI agent integration)
@@ -514,6 +515,7 @@ ${applicationLines}
 ${blogArticleLines}
 
 ## Case Studies
+- Beam Bridge — Design Guide & 3 Verified Public Case Studies (Australia and USA): Original load-path and bridge-type diagrams plus source-backed records for the 504 m Avon River precast concrete beam bridge, Queensland's Horse Trough Creek pultruded composite girder bridge, and Virginia's Route 601 pultruded FRP double-web beam bridge. These are independent public engineering references, not F1 Composite supply projects. https://www.f1composite.com/case-studies/beam-bridge
 - Qinling Station, Antarctic Ross Sea (Antarctica, 2024): PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class, −60 °C design low, 45 m/s katabatic wind loading. https://www.f1composite.com/case-studies/qinling-station-antarctic-passive-windows
 - Yancheng Talent Apartment — Large-Scale FRP Fenestration Supply (Yancheng, Jiangsu, China, 2024): Complete FRP fenestration package — 65-series casement (inward and outward), 90-series sliding, and matching facade frames — across ~20 residential and commercial buildings of a coastal talent-housing development. https://www.f1composite.com/case-studies/yancheng-talent-apartment-fenestration
 - F1 Factory FRP Access Staircase (Chongqing, China, 2024): F1 Composite's own Chongqing production base — staircase and elevated platform built end-to-end from our pultruded FRP profiles. 68% weight reduction, zero maintenance, 3-day install window, live walkable reference for visiting customers. https://www.f1composite.com/case-studies/factory-access-staircase

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Beam bridge load path diagram</title>
+  <desc id="desc">A cutaway engineering illustration showing a simply supported beam bridge. Downward deck loads flow through the beam to the supports, with compression at the top of the beam and tension at the bottom.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfc"/>
+      <stop offset="1" stop-color="#e9f2f3"/>
+    </linearGradient>
+    <linearGradient id="deck" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#173163"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#173163"/>
+    </linearGradient>
+    <linearGradient id="compression" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffbd69"/>
+      <stop offset="0.5" stop-color="#ef8d32"/>
+      <stop offset="1" stop-color="#ffbd69"/>
+    </linearGradient>
+    <linearGradient id="tension" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4fd5ca"/>
+      <stop offset="0.5" stop-color="#0a9b91"/>
+      <stop offset="1" stop-color="#4fd5ca"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0b1838" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef8d32"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0a9b91"/>
+    </marker>
+    <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b1838"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 730 C260 680 410 740 650 704 C895 668 1110 728 1600 674 L1600 900 L0 900 Z" fill="#d6e5e6"/>
+  <path d="M0 770 C330 730 510 786 790 754 C1090 720 1270 754 1600 718" fill="none" stroke="#bdd3d5" stroke-width="3"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="94" y="92" font-size="26" font-weight="700" letter-spacing="3" fill="#0a9b91">BEAM BRIDGE BASICS</text>
+    <text x="94" y="154" font-size="52" font-weight="760" fill="#0b1838">How the load reaches the ground</text>
+    <text x="95" y="198" font-size="24" fill="#4f6275">Deck load → longitudinal beam → bearing → abutment or pier → foundation</text>
+
+    <g filter="url(#shadow)">
+      <rect x="250" y="390" width="1100" height="42" rx="8" fill="#8da0ad"/>
+      <rect x="280" y="432" width="1040" height="142" rx="9" fill="url(#deck)"/>
+      <rect x="295" y="447" width="1010" height="30" rx="4" fill="url(#compression)"/>
+      <rect x="295" y="529" width="1010" height="30" rx="4" fill="url(#tension)"/>
+      <rect x="295" y="477" width="1010" height="52" fill="#20395f"/>
+    </g>
+
+    <g fill="#0b1838">
+      <path d="M294 591 L382 591 L420 641 L256 641 Z"/>
+      <rect x="250" y="641" width="176" height="32" rx="5"/>
+      <path d="M1180 591 L1268 591 L1306 641 L1142 641 Z"/>
+      <rect x="1136" y="641" width="176" height="32" rx="5"/>
+    </g>
+    <g fill="#98adae">
+      <rect x="305" y="574" width="67" height="17" rx="4"/>
+      <rect x="1190" y="574" width="67" height="17" rx="4"/>
+    </g>
+
+    <g stroke="#0b1838" stroke-width="5" marker-end="url(#arrowNavy)">
+      <path d="M470 282 L470 361"/>
+      <path d="M680 282 L680 361"/>
+      <path d="M900 282 L900 361"/>
+      <path d="M1120 282 L1120 361"/>
+    </g>
+    <g fill="#0b1838" font-size="22" font-weight="700" text-anchor="middle">
+      <text x="470" y="255">DEAD LOAD</text>
+      <text x="680" y="255">PEOPLE</text>
+      <text x="900" y="255">VEHICLES</text>
+      <text x="1120" y="255">IMPACT</text>
+    </g>
+
+    <g stroke="#0a9b91" stroke-width="6" marker-end="url(#arrowTeal)">
+      <path d="M340 715 L340 632"/>
+      <path d="M1224 715 L1224 632"/>
+    </g>
+    <g fill="#007a74" font-size="22" font-weight="750" text-anchor="middle">
+      <text x="340" y="755">SUPPORT REACTION</text>
+      <text x="1224" y="755">SUPPORT REACTION</text>
+    </g>
+
+    <g>
+      <rect x="495" y="454" width="610" height="40" rx="20" fill="#fff6e8" stroke="#ef8d32" stroke-width="2"/>
+      <text x="800" y="481" font-size="21" font-weight="800" text-anchor="middle" fill="#b85f16">TOP ZONE · COMPRESSION</text>
+      <path d="M555 474 L640 474" stroke="#ef8d32" stroke-width="5" marker-end="url(#arrowOrange)"/>
+      <path d="M1045 474 L960 474" stroke="#ef8d32" stroke-width="5" marker-end="url(#arrowOrange)"/>
+    </g>
+    <g>
+      <rect x="495" y="511" width="610" height="40" rx="20" fill="#e8faf8" stroke="#0a9b91" stroke-width="2"/>
+      <text x="800" y="538" font-size="21" font-weight="800" text-anchor="middle" fill="#007a74">BOTTOM ZONE · TENSION</text>
+      <path d="M640 531 L555 531" stroke="#0a9b91" stroke-width="5" marker-end="url(#arrowTeal)"/>
+      <path d="M960 531 L1045 531" stroke="#0a9b91" stroke-width="5" marker-end="url(#arrowTeal)"/>
+    </g>
+
+    <g>
+      <path d="M721 369 Q800 409 879 369" fill="none" stroke="#ef8d32" stroke-width="4" stroke-dasharray="9 8"/>
+      <text x="800" y="347" font-size="22" font-weight="700" text-anchor="middle" fill="#b85f16">BENDING BETWEEN SUPPORTS</text>
+    </g>
+
+    <g transform="translate(95 800)">
+      <circle cx="10" cy="-5" r="8" fill="#ef8d32"/>
+      <text x="32" y="2" font-size="19" fill="#4f6275">Compression shortens the top fibers</text>
+      <circle cx="405" cy="-5" r="8" fill="#0a9b91"/>
+      <text x="427" y="2" font-size="19" fill="#4f6275">Tension elongates the bottom fibers</text>
+    </g>
+    <text x="1504" y="850" font-size="17" text-anchor="end" fill="#6b7e8e">Engineering illustration · not to scale</text>
+  </g>
+</svg>
