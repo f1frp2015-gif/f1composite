@@ -113,6 +113,34 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/products/fiberglass-sheets",
+    primaryQuery: "fiberglass sheets manufacturer",
+    intent: "commercial",
+    title: "Fiberglass Sheets Manufacturer — Cut-to-Size FRP Sheet",
+    description:
+      "Source solid pultruded fiberglass sheet cut to size for liners, covers, baffles and fabricated parts, with smooth, gritted and embossed surfaces.",
+    supportingUrls: [
+      "/products/fiberglass-plates",
+      "/products/fiberglass-structural-shapes/frp-flat-bar",
+      "/products/custom-pultruded-profiles",
+      "/technology/pultrusion-resin-systems",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-plates",
+    primaryQuery: "pultruded FRP plate",
+    intent: "commercial",
+    title: "Pultruded FRP Plate Profiles — 19 Section Drawings",
+    description:
+      "Compare 19 pultruded fiberglass plate profiles with hollow and multi-cell section drawings, A/B/t1/t2 source values and source IDs.",
+    supportingUrls: [
+      "/products/fiberglass-sheets",
+      "/products/custom-pultruded-profiles",
+      "/products/frp-deck-panels",
+      "/pultruded-frp-profiles",
+    ],
+  },
+  {
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",
