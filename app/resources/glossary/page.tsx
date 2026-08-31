@@ -104,6 +104,7 @@ export default function GlossaryPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Keep exploring</h2>
           <div className="flex flex-wrap gap-[13px]">
+            <LinkArrow href="/resources/blog/frp-meaning">FRP full form and meaning</LinkArrow>
             <LinkArrow href="/what-is-frp">What is FRP? (complete guide)</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel vs aluminum</LinkArrow>

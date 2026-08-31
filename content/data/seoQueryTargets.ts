@@ -73,11 +73,11 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/resources/blog/frp-meaning",
-    primaryQuery: "FRP meaning",
+    primaryQuery: "FRP full form",
     intent: "guide",
-    title: "FRP Meaning: Fiber Reinforced Polymer Explained",
+    title: "FRP Full Form: Fiber Reinforced Polymer or Plastic?",
     description:
-      "FRP means fiber reinforced polymer or fiber reinforced plastic. Learn FRP, GFRP, GRP and CFRP terminology and how to read the terms in specifications.",
+      "FRP full form is fiber reinforced polymer or fiber reinforced plastic. Learn what FRP, GFRP, GRP and CFRP mean in construction and specifications.",
     supportingUrls: [
       "/what-is-frp",
       "/resources/blog/fiberglass-reinforced-plastic",

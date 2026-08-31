@@ -801,7 +801,7 @@ export default function WhatIsFrpPage() {
               FRP material selection guide
             </LinkArrow>
             <LinkArrow href="/resources/blog/frp-meaning">
-              FRP meaning and terminology
+              FRP full form and meaning
             </LinkArrow>
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
