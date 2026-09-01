@@ -20,6 +20,10 @@ const imageAssets = [
     minBytes: 50_000,
   },
   {
+    path: "public/images/products/frp-sound-barrier-wall/interlocking-frp-sound-barrier-panel-section.webp",
+    minBytes: 4_000,
+  },
+  {
     path: "public/images/products/frp-sound-barrier-wall/outdoor-post-and-panel-wall-layout-reference.webp",
     minBytes: 50_000,
   },
@@ -46,7 +50,16 @@ test("sound-barrier page owns a bounded, assembly-specific product intent", asyn
   assert.match(specs, /NRC is assembly-specific/);
   assert.match(og, /FRP Sound Barrier Wall Panels/);
   assert.match(seo, /primaryQuery: "FRP sound barrier wall"/);
-  assert.doesNotMatch(`${page}\n${specs}\n${og}`, /Fibergrate|Soundscape|Intertek certified/i);
+  assert.doesNotMatch(`${specs}\n${og}`, /Fibergrate|Soundscape|Intertek certified/i);
+  assert.doesNotMatch(page, /Soundscape|Intertek certified/i);
+  assert.match(page, /Supplier reference rendering from/);
+  assert.match(page, /src=\{frpSoundBarrierImageAssets\.panelSection\}/);
+  assert.doesNotMatch(page, /src=\{frpSoundBarrierImageAssets\.system\}/);
+  assert.match(
+    page,
+    /href="https:\/\/www\.fibergrate\.com\/products\/unique-product-solutions\/sound-barrier-wall\/"/,
+  );
+  assert.match(page, /not an F1 project image/);
 
   const guardedSurfaces = `${page}\n${specs}\n${og}\n${aiContext}\n${chat}\n${llms}\n${sourcing}`;
   for (const prohibitedClaim of [
