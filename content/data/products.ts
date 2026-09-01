@@ -67,6 +67,17 @@ export const productCategories: ProductCategory[] = [
     imageHeight: 1205,
   },
   {
+    slug: "frp-sound-barrier-wall",
+    title: "FRP Sound Barrier Wall Panels",
+    description: "Project-engineered reflective or absorptive fiberglass noise barriers with coordinated panels, posts, sealed joints and assembly-specific evidence.",
+    icon: "custom",
+    href: "/products/frp-sound-barrier-wall",
+    image: "/images/products/frp-sound-barrier-wall/frp-sound-barrier-wall-highway.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt: "Blue and teal modular FRP sound barrier wall panels installed along a highway",
+  },
+  {
     slug: "frp-gratings",
     title: "Pultruded FRP Grating",
     description: "Open T-bar and I-bar pultruded grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T 316SS clips.",

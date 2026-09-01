@@ -36,6 +36,7 @@ export const mainNav: NavItem[] = [
       { group: "Building & energy", label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
       { group: "Building & energy", label: "Window Reinforcement Profiles", href: "/products/frp-window-reinforcement" },
       { group: "Building & energy", label: "Facade & Sunshade Panels", href: "/products/frp-facade-panels" },
+      { group: "Building & energy", label: "FRP Sound Barrier Walls", href: "/products/frp-sound-barrier-wall" },
       { group: "Building & energy", label: "Solar Frames & Mounting", href: "/products/frp-solar-mounting-systems" },
       { group: "Browse", label: "All Products", href: "/pultruded-frp-profiles" },
       { group: "Browse", label: "Technical Datasheets", href: "/datasheets" },
@@ -109,6 +110,7 @@ export const footerNav = {
     { label: "FRP Windows & Doors", href: "/products/frp-window-frames" },
     { label: "Window Reinforcement", href: "/products/frp-window-reinforcement" },
     { label: "Facade & Sunshade Panels", href: "/products/frp-facade-panels" },
+    { label: "FRP Sound Barrier Walls", href: "/products/frp-sound-barrier-wall" },
     { label: "Solar Mounting Systems", href: "/products/frp-solar-mounting-systems" },
   ],
   applications: [

@@ -227,6 +227,18 @@ export default function VehiclePage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
+              href="/products/frp-sound-barrier-wall"
+              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+            >
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Railway Noise Barrier Panels</h3>
+              <p className="text-f13 leading-golden text-t2">
+                Project-engineered FRP sound walls for trackside and transit infrastructure, with assembly-specific acoustic evidence.
+              </p>
+              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                View system →
+              </span>
+            </Link>
+            <Link
               href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >

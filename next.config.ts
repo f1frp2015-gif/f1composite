@@ -77,6 +77,7 @@ const KEYWORD_PATH_REDIRECTS = [
   ["/products/fenestration-systems", "/products/frp-window-frames"],
   ["/products/facade-sunshade-panels", "/products/frp-facade-panels"],
   ["/products/window-reinforcement-profiles", "/products/frp-window-reinforcement"],
+  ["/products/sound-barrier-wall", "/products/frp-sound-barrier-wall"],
   ["/products/stair-tread-covers", "/products/frp-stair-treads"],
   ["/products/handrail-systems", "/products/frp-handrail-systems"],
   ["/products/snow-markers", "/products/fiberglass-snow-markers"],
