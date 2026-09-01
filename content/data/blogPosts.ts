@@ -69,6 +69,13 @@ export type BlogPost = {
   ogChips: string[];
   relatedLinks: ArticleLink[];
   sourceLinks?: ArticleLink[];
+  faq?: {
+    title: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
+  };
   content: string;
 };
 
@@ -318,6 +325,36 @@ Avoid copying the highest numbers from several brochures into one impossible “
         href: "https://dfpd.gov.in/sugar-policy/en",
       },
     ],
+    faq: {
+      title: "Frequently asked questions about the FRP full form",
+      items: [
+        {
+          question: "What is the FRP full form in civil engineering?",
+          answer:
+            "It is fiber reinforced polymer or fiber reinforced plastic. Civil-engineering documents then identify the reinforcement, resin, product form, test basis, and design standard needed for the application.",
+        },
+        {
+          question: "What is the FRP material full form?",
+          answer:
+            "The answer is the same: fiber reinforced polymer or fiber reinforced plastic. “FRP material” is not one universal grade, so published properties must be tied to a specific laminate, direction, process, and test method.",
+        },
+        {
+          question: "Is FRP the same as fiberglass?",
+          answer:
+            "Not always. Fiberglass can mean the raw glass reinforcement or a finished glass-FRP composite. FRP is broader because its reinforcement may be glass, carbon, aramid, basalt, or a hybrid.",
+        },
+        {
+          question: "What is the difference between fiber and fibre reinforced polymer?",
+          answer:
+            "Only regional spelling. “Fiber” is standard American English; “fibre” is standard British English. Both expand to FRP and describe the same composite family.",
+        },
+        {
+          question: "Which page should an engineer use next?",
+          answer:
+            "For the broad material explanation, start with [What is FRP?](/what-is-frp). For material selection, use the [FRP material guide](/resources/blog/frp-material). For dimensions, section data, and commercial product families, continue to the [pultruded FRP profiles hub](/pultruded-frp-profiles). That transition—from acronym to documented product—is where the full form becomes useful to an engineer or buyer.",
+        },
+      ],
+    },
     content: `**The FRP full form in construction is fiber reinforced polymer or fiber reinforced plastic.** Both expansions describe a composite in which reinforcing fibers carry load inside a polymer resin matrix. “Polymer” is the technically broader matrix term; “plastic” remains common in product names, standards, procurement language, and search. In structural profiles, FRP most often refers to glass-fiber reinforced polymer, but the acronym can also include carbon, aramid, or basalt composites.
 
 The important point is what FRP does not mean. It does not by itself identify the fiber, resin, glass content, manufacturing process, mechanical grade, fire class, or dimensional tolerance. “FRP beam” names a family in the same way that “metal beam” does. A useful drawing or purchase specification must add the missing identity.
@@ -387,29 +424,7 @@ After “FRP,” look for five qualifiers:
 4. **Grade and evidence:** applicable standard, mechanical minimums, test direction, fire result, chemical-resistance basis, and batch traceability.
 5. **Geometry and tolerance:** drawing revision, dimensions, section properties, surface finish, hole limits, and dimensional class.
 
-For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions and tolerances per approved drawing and ASTM D3917” is actionable. “FRP channel, corrosion resistant” is not. ASCE/SEI 74-23 supplies an LRFD framework for applicable pultruded glass-FRP structural shapes, connections, and prefabricated products; it does not turn every FRP product into the same structural grade. The [FRP material selection guide](/resources/blog/frp-material) turns those qualifiers into a seven-step engineering workflow.
-
-## Frequently asked questions about the FRP full form
-
-**What is the FRP full form in civil engineering?**
-
-It is fiber reinforced polymer or fiber reinforced plastic. Civil-engineering documents then identify the reinforcement, resin, product form, test basis, and design standard needed for the application.
-
-**What is the FRP material full form?**
-
-The answer is the same: fiber reinforced polymer or fiber reinforced plastic. “FRP material” is not one universal grade, so published properties must be tied to a specific laminate, direction, process, and test method.
-
-**Is FRP the same as fiberglass?**
-
-Not always. Fiberglass can mean the raw glass reinforcement or a finished glass-FRP composite. FRP is broader because its reinforcement may be glass, carbon, aramid, basalt, or a hybrid.
-
-**What is the difference between fiber and fibre reinforced polymer?**
-
-Only regional spelling. “Fiber” is standard American English; “fibre” is standard British English. Both expand to FRP and describe the same composite family.
-
-**Which page should an engineer use next?**
-
-For the broad material explanation, start with [What is FRP?](/what-is-frp). For material selection, use the [FRP material guide](/resources/blog/frp-material). For dimensions, section data, and commercial product families, continue to the [pultruded FRP profiles hub](/pultruded-frp-profiles). That transition—from acronym to documented product—is where the full form becomes useful to an engineer or buyer.`,
+For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions and tolerances per approved drawing and ASTM D3917” is actionable. “FRP channel, corrosion resistant” is not. ASCE/SEI 74-23 supplies an LRFD framework for applicable pultruded glass-FRP structural shapes, connections, and prefabricated products; it does not turn every FRP product into the same structural grade. The [FRP material selection guide](/resources/blog/frp-material) turns those qualifiers into a seven-step engineering workflow.`,
   },
 
   {

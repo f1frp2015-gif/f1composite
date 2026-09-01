@@ -1,4 +1,5 @@
 import SectionTag from "@/components/ui/SectionTag";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
 
 export interface AnswerBlockItem {
   question: string;
@@ -31,15 +32,15 @@ export default function AnswerBlocks({
           </p>
         ) : null}
 
-        <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+        <div className="mt-[34px] grid items-start gap-[21px] md:grid-cols-2">
           {items.map((item) => (
-            <article
+            <FAQDisclosure
               key={item.question}
-              className="rounded-[8px] border border-border-default bg-bg2 p-[29px]"
-            >
-              <h3 className="text-f19 font-bold text-t1">{item.question}</h3>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">{item.answer}</p>
-            </article>
+              question={item.question}
+              answer={item.answer}
+              surface="muted"
+              size="large"
+            />
           ))}
         </div>
       </div>

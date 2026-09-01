@@ -25,6 +25,7 @@
     "test:wind-blade-panels": "node --test scripts/wind-turbine-blade-panels-page.test.mjs",
     "test:images": "node --test scripts/image-performance.test.mjs",
     "test:navigation": "node --test scripts/navigation-ia.test.mjs",
+    "test:faq": "node --test scripts/faq-layout.test.mjs",
     "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs"
   },

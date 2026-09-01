@@ -1,4 +1,5 @@
 import SectionTag from "@/components/ui/SectionTag";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
 
 const items = [
   {
@@ -31,17 +32,14 @@ export default function HomeFAQ() {
         <h2 className="mt-[8px] max-w-[800px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
           Common questions about the company and supply process
         </h2>
-        <div className="mt-[21px] space-y-[8px]">
+        <div className="mt-[21px] grid items-start gap-[8px] md:grid-cols-2">
           {items.map((item) => (
-            <details
+            <FAQDisclosure
               key={item.question}
-              className="group rounded-[8px] border border-border-default bg-bg2 px-[21px] py-[16px]"
-            >
-              <summary className="cursor-pointer text-f15 font-bold text-t1 marker:text-teal">
-                {item.question}
-              </summary>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">{item.answer}</p>
-            </details>
+              question={item.question}
+              answer={item.answer}
+              surface="muted"
+            />
           ))}
         </div>
       </div>

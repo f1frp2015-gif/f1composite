@@ -1,6 +1,9 @@
+import type { ReactNode } from "react";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+
 export interface FAQItem {
   question: string;
-  answer: string;
+  answer: ReactNode;
 }
 
 // Presentation only. Google retired FAQ rich results in May 2026, so emitting
@@ -8,23 +11,20 @@ export interface FAQItem {
 
 interface FAQProps {
   items: FAQItem[];
+  title?: string;
 }
 
-export default function FAQ({ items }: FAQProps) {
+export default function FAQ({ items, title = "Frequently Asked Questions" }: FAQProps) {
   return (
     <div className="mt-[55px]">
-      <h2 className="mb-[21px] text-f24 font-bold text-t1">Frequently Asked Questions</h2>
-      <div className="space-y-[13px]">
+      <h2 className="mb-[21px] text-f24 font-bold text-t1">{title}</h2>
+      <div className="grid items-start gap-[13px] md:grid-cols-2">
         {items.map((item, i) => (
-          <details
-            key={i}
-            className="group rounded-[8px] border border-border-default bg-white p-[21px]"
-          >
-            <summary className="cursor-pointer text-f15 font-bold text-t1 marker:text-teal">
-              {item.question}
-            </summary>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">{item.answer}</p>
-          </details>
+          <FAQDisclosure
+            key={`${i}-${item.question}`}
+            question={item.question}
+            answer={item.answer}
+          />
         ))}
       </div>
     </div>
