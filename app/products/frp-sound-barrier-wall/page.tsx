@@ -379,20 +379,30 @@ export default function FrpSoundBarrierWallPage() {
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <figure>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-[#252d3a]">
                 <Image
-                  src={frpSoundBarrierImageAssets.system}
-                  alt="Exploded visualization of interlocking pultruded FRP noise barrier planks between structural posts"
+                  src={frpSoundBarrierImageAssets.panelSection}
+                  alt="Interlocking pultruded FRP sound barrier plank sections stacked between posts"
                   fill
                   loading="lazy"
-                  quality={75}
+                  quality={85}
                   sizes="(max-width: 1024px) calc(100vw - 40px), 45vw"
-                  className="object-cover"
+                  className="object-scale-down"
                 />
               </div>
               <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                AI-generated configuration visualization. It explains a modular plank-and-post concept;
-                the project section, joint, post and optional acoustic build-up must follow the released drawings.
+                Supplier reference rendering from{" "}
+                <a
+                  href="https://www.fibergrate.com/products/unique-product-solutions/sound-barrier-wall/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-teal-text hover:underline"
+                >
+                  Fibergrate
+                </a>{" "}
+                illustrating one proprietary interlocking-plank concept. It is not an F1 project image
+                or released F1 section; project geometry, joints and acoustic build-up must follow the
+                approved drawings.
               </figcaption>
             </figure>
             <div>
