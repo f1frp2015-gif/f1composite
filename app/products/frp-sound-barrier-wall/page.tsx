@@ -379,20 +379,29 @@ export default function FrpSoundBarrierWallPage() {
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <figure>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="flex min-h-[280px] items-center justify-center overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[21px]">
                 <Image
-                  src={frpSoundBarrierImageAssets.system}
-                  alt="Exploded visualization of interlocking pultruded FRP noise barrier planks between structural posts"
-                  fill
-                  loading="lazy"
-                  quality={75}
-                  sizes="(max-width: 1024px) calc(100vw - 40px), 45vw"
-                  className="object-cover"
+                  src={frpSoundBarrierImageAssets.panelSection}
+                  alt="Reference rendering of interlocking pultruded FRP sound barrier plank sections between posts"
+                  width={259}
+                  height={194}
+                  sizes="259px"
+                  className="h-auto w-[259px] max-w-full object-contain"
                 />
               </div>
               <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                AI-generated configuration visualization. It explains a modular plank-and-post concept;
-                the project section, joint, post and optional acoustic build-up must follow the released drawings.
+                Third-party reference rendering from{" "}
+                <a
+                  href="https://www.fibergrate.com/products/unique-product-solutions/sound-barrier-wall/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-teal-text hover:underline"
+                >
+                  Fibergrate
+                </a>{" "}
+                showing one proprietary interlocking-plank concept. It is not an F1 project image or
+                released F1 section; quoted geometry, joints and acoustic build-up follow the approved
+                project drawings.
               </figcaption>
             </figure>
             <div>
@@ -417,6 +426,51 @@ export default function FrpSoundBarrierWallPage() {
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{component.body}</p>
               </article>
             ))}
+          </div>
+
+          <div className="mt-[55px] grid gap-[34px] border-t border-border-default pt-[34px] lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <figure>
+              <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+                <Image
+                  src={frpSoundBarrierImageAssets.installationReference}
+                  alt="Outdoor post-and-panel wall with horizontal infill panels at a commercial site"
+                  width={1024}
+                  height={683}
+                  loading="lazy"
+                  quality={75}
+                  sizes="(max-width: 1024px) calc(100vw - 40px), 54vw"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+                User-supplied layout reference showing a post-and-panel wall form that may inform a
+                sound-wall configuration. The pictured product&apos;s material, function and project
+                ownership are unverified; it is not an F1 project photograph or acoustic-performance
+                evidence.
+              </figcaption>
+            </figure>
+            <div>
+              <SectionTag>Plate Profile Application Path</SectionTag>
+              <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
+                Can fiberglass plate profiles become FRP sound-wall panels?
+              </h2>
+              <p className="mt-[21px] text-f15 leading-golden text-t2">
+                Some hollow or multi-cell pultruded plate sections can be evaluated as horizontal
+                sound-wall planks when their cavity, return, edge and joint geometry fit the assembly.
+                This is an application route, not a catalog equivalence: the section, laminate, sealed
+                joints, post interface, loads and any absorptive build-up must be released together.
+              </p>
+              <p className="mt-[13px] text-f14 leading-golden text-t2">
+                A plate drawing alone has no automatic NRC, STC, OITC, transmission-loss value or
+                project span. Start with the section geometry, then complete the acoustic and structural review.
+              </p>
+              <Link
+                href="/products/fiberglass-plates"
+                className="mt-[21px] inline-flex text-f14 font-bold text-teal-text hover:underline"
+              >
+                Compare hollow and multi-cell fiberglass plate profile drawings →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -574,6 +628,10 @@ export default function FrpSoundBarrierWallPage() {
           {
             title: "Related systems",
             links: [
+              {
+                href: "/products/fiberglass-plates",
+                label: "Fiberglass plate profiles — candidate hollow sections",
+              },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
               {
                 href: "/products/frp-pultrusion-manufacturer-factory-direct",
