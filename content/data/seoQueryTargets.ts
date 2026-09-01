@@ -141,6 +141,20 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/products/wind-turbine-blade-panels",
+    primaryQuery: "wind turbine blade pultruded panels",
+    intent: "commercial",
+    title: "Wind Turbine Blade Panels — GFRP, CFRP & Hybrid",
+    description:
+      "Source pultruded GFRP, CFRP and carbon-glass hybrid panels for wind turbine blades, cut to project length with report-scoped fatigue and fiber data.",
+    supportingUrls: [
+      "/industries/energy",
+      "/products/fiberglass-sheets",
+      "/products/custom-pultruded-profiles",
+      "/technology/quality-testing",
+    ],
+  },
+  {
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",

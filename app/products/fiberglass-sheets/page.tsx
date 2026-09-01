@@ -201,6 +201,7 @@ export default function FiberglassSheetsPage() {
             title: "Related flat & structural stock",
             links: [
               { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles (hollow & multi-cell)" },
+              { href: "/products/wind-turbine-blade-panels", label: "Wind turbine blade panels (GFRP, CFRP & hybrid)" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars (catalog sizes)" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
               { href: "/products/frp-stair-treads", label: "Stair tread covers" },
