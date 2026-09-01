@@ -151,6 +151,17 @@ export default function FiberglassPlatesPage() {
               </Link>
               , where support, joint and load requirements control selection.
             </p>
+            <p className="mt-[13px] text-f15 leading-golden text-t2">
+              Some hollow or multi-cell plate geometries may also be reviewed for use as{" "}
+              <Link
+                href="/products/frp-sound-barrier-wall"
+                className="font-semibold text-teal-text hover:underline"
+              >
+                engineered FRP sound barrier wall panels
+              </Link>
+              . That use requires the joint, posts, laminate, loads, closures and any acoustic build-up
+              to be checked together; a plate record alone does not establish an acoustic rating or span.
+            </p>
           </div>
 
           <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
@@ -261,6 +272,10 @@ export default function FiberglassPlatesPage() {
           {
             title: "Separate product families",
             links: [
+              {
+                href: "/products/frp-sound-barrier-wall",
+                label: "FRP sound barrier wall panels — engineered assemblies",
+              },
               { href: "/products/fiberglass-sheets", label: "Fiberglass sheets — solid flat stock" },
               { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars" },
