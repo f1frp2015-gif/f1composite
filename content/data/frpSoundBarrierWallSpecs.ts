@@ -8,8 +8,6 @@ export type SoundBarrierConfiguration = {
 
 export const frpSoundBarrierImageAssets = {
   hero: "/images/products/frp-sound-barrier-wall/frp-sound-barrier-wall-highway.webp",
-  system:
-    "/images/products/frp-sound-barrier-wall/interlocking-frp-noise-barrier-panel-system.webp",
   panelSection:
     "/images/products/frp-sound-barrier-wall/interlocking-frp-sound-barrier-panel-section.webp",
   installationReference:
