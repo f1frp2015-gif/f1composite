@@ -8,6 +8,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import AskAICard from "@/components/ai/AskAICard";
 import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
 import JsonLd from "@/components/seo/JsonLd";
+import FAQ from "@/components/ui/FAQ";
 import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { authorSlugByName, authorsBySlug } from "@/lib/authors";
@@ -233,6 +234,15 @@ export default async function BlogPostPage({ params }: PageProps) {
   const authorSlug = authorSlugByName(post.authorName);
   const authorHref = authorSlug ? `/about/authors/${authorSlug}` : undefined;
   const authorRecord = authorSlug ? authorsBySlug[authorSlug] : undefined;
+  const summarizerContent = post.faq
+    ? [
+        post.content,
+        `## ${post.faq.title}`,
+        ...post.faq.items.map(
+          (item) => `**${item.question}**\n\n${item.answer}`,
+        ),
+      ].join("\n\n")
+    : post.content;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -396,11 +406,20 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
 
             <div className="mt-[34px] max-w-[800px]">
-              <ArticleSummarizer title={post.title} content={post.content} />
+              <ArticleSummarizer title={post.title} content={summarizerContent} />
             </div>
 
             <article className="prose-f1 mt-[34px] max-w-[800px]">
               {renderArticleContent(post.content)}
+              {post.faq ? (
+                <FAQ
+                  title={post.faq.title}
+                  items={post.faq.items.map((item, index) => ({
+                    question: item.question,
+                    answer: renderInlineMarkdown(item.answer, `faq-${slug}-${index}`),
+                  }))}
+                />
+              ) : null}
             </article>
 
             <figure className="mt-[34px] overflow-hidden rounded-[8px] border border-border-default bg-white max-w-[800px]">
