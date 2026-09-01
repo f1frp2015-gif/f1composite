@@ -88,11 +88,9 @@ test("canonical sound-barrier route is present across buyer and crawler surfaces
     navigation.indexOf("export const mainNav"),
     navigation.indexOf("export const footerNav"),
   );
-  const footerNavigation = navigation.slice(navigation.indexOf("export const footerNav"));
   const routePattern = new RegExp(route.replaceAll("/", "\\/"));
 
   assert.match(mainNavigation, routePattern);
-  assert.match(footerNavigation, routePattern);
   for (const source of [products, seo, sitemap, hub]) assert.match(source, routePattern);
   assert.match(products, /frp-sound-barrier-wall-highway\.webp/);
   assert.match(hub, /interlocking-frp-noise-barrier-panel-system\.webp/);

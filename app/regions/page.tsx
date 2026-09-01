@@ -11,8 +11,8 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
  * URL template for NEW region pages (existing URLs keep their slugs — a 301
  * is not worth the equity risk): /regions/frp-<product-or-usecase>-<country>
  * e.g. frp-passive-house-windows-canada, frp-grating-supplier-saudi-arabia.
- * Keep "frp" first, country last, and register the page here + in
- * footerNav.markets + app/sitemap.ts.
+ * Keep "frp" first, country last, and register the page here + in app/sitemap.ts.
+ * Global navigation links to this hub rather than duplicating every market page.
  */
 
 export const metadata: Metadata = buildPageMetadata({

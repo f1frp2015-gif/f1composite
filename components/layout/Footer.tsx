@@ -1,28 +1,23 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { footerNav } from "@/content/data/navigation";
+import { footerNav, type NavLink } from "@/content/data/navigation";
 
 const columns = [
-  { title: "Profiles & Materials", links: footerNav.profiles },
-  { title: "Engineered Systems", links: footerNav.systems },
+  { title: "Products", links: footerNav.products },
   { title: "Applications", links: footerNav.applications },
-  { title: "Engineering", links: footerNav.engineering },
+  { title: "Resources", links: footerNav.resources },
   { title: "Company", links: footerNav.company },
-];
+] as const;
 
-type FooterLink = { label: string; href: string };
-
-function FooterLinks({ links, className }: { links: FooterLink[]; className: string }) {
+function FooterLinks({ links }: { links: readonly NavLink[] }) {
   return (
-    <ul className={className}>
+    <ul className="mt-[11px] space-y-[5px]">
       {links.map((link) => (
         <li key={link.href}>
           <Link
             href={link.href}
-            className="inline-flex min-h-[34px] items-center text-f13 text-t2 transition-colors hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            prefetch={false}
+            className="inline-flex min-h-[32px] items-center text-f13 text-t2 transition-colors hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
           >
             {link.label}
           </Link>
@@ -32,59 +27,19 @@ function FooterLinks({ links, className }: { links: FooterLink[]; className: str
   );
 }
 
-function FooterAccordion({
-  title,
-  links,
-}: {
-  title: string;
-  links: FooterLink[];
-}) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="border-b border-border-default md:border-0">
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        className="flex min-h-[48px] w-full items-center justify-between text-left md:hidden"
-        aria-expanded={open}
-      >
-        <span className="text-f13 font-bold text-t1">{title}</span>
-        <svg
-          className={`h-4 w-4 text-t3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-          aria-hidden
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-
-      {open && <FooterLinks links={links} className="space-y-[7px] pb-[14px] md:hidden" />}
-
-      <div className="hidden md:block">
-        <h2 className="text-f13 font-bold text-t1">{title}</h2>
-        <FooterLinks links={links} className="mt-[12px] space-y-[7px]" />
-      </div>
-    </div>
-  );
-}
-
 export default function Footer() {
   return (
     <footer className="bg-bg2">
       <div className="bg-deep">
-        <div className="mx-auto flex max-w-[1320px] flex-col gap-[20px] px-[20px] py-[32px] sm:px-[28px] md:flex-row md:items-center md:justify-between md:px-[36px] md:py-[38px]">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-[18px] px-[20px] py-[28px] sm:px-[28px] md:flex-row md:items-center md:justify-between md:px-[36px] md:py-[32px]">
           <div>
             <p className="text-f11 font-bold uppercase tracking-[0.14em] text-teal">Engineering &amp; RFQ support</p>
-            <p className="mt-[5px] text-[clamp(22px,2.2vw,30px)] font-bold leading-tight tracking-[-0.02em] text-white">
-              Have a project? Send the requirements.
+            <p className="mt-[5px] text-[clamp(21px,2.1vw,28px)] font-bold leading-tight tracking-[-0.02em] text-white">
+              Ready to discuss your FRP project?
             </p>
-            <p className="mt-[6px] text-f13 text-white/70">Engineering review and quotation within one business day.</p>
+            <p className="mt-[5px] text-f13 text-white/70">Send drawings, loads, quantities, standards, and delivery country.</p>
           </div>
-          <div className="flex flex-wrap gap-[10px]">
+          <div className="flex flex-wrap items-center gap-x-[18px] gap-y-[10px]">
             <Link
               href="/contact?source=footer-cta&inquiry_type=rfq"
               className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] bg-teal-text px-[20px] text-f13 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -95,18 +50,22 @@ export default function Footer() {
               href="https://wa.me/8613883338993"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] border border-white/25 px-[20px] text-f13 font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="text-f13 font-bold text-white underline decoration-white/35 underline-offset-4 transition-colors hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              WhatsApp
+              WhatsApp sales
             </a>
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1320px] px-[20px] py-[30px] sm:px-[28px] md:px-[36px] md:py-[36px]">
-        <div className="grid gap-[18px] md:grid-cols-3 md:gap-[28px] lg:grid-cols-[1.35fr_repeat(5,minmax(0,1fr))] lg:gap-[24px]">
-          <div className="pb-[4px] md:col-span-3 lg:col-span-1">
-            <Link href="/" aria-label="F1 Composite home" className="inline-block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal">
+      <div className="mx-auto max-w-[1320px] px-[20px] py-[28px] sm:px-[28px] md:px-[36px] md:py-[32px]">
+        <div className="grid grid-cols-2 gap-x-[24px] gap-y-[26px] lg:grid-cols-[1.4fr_repeat(4,minmax(0,1fr))]">
+          <div className="col-span-2 lg:col-span-1">
+            <Link
+              href="/"
+              aria-label="F1 Composite home"
+              className="inline-block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            >
               <Image
                 src="/brand/f1-logo.png"
                 alt="F1 Composite"
@@ -114,50 +73,38 @@ export default function Footer() {
                 height={39}
               />
             </Link>
-            <p className="mt-[12px] max-w-[310px] text-f13 leading-relaxed text-t2">
-              Pultruded FRP profiles, engineered systems, and factory-direct export support for projects worldwide.
+            <p className="mt-[11px] max-w-[300px] text-f13 leading-relaxed text-t2">
+              Pultruded FRP profiles, engineered systems, and factory-direct export support for global projects.
             </p>
-            <div className="mt-[13px] flex flex-wrap gap-x-[16px] gap-y-[4px]">
+            <div className="mt-[12px] flex flex-col items-start gap-[6px]">
               <a href="mailto:inquiry@f1composite.com" className="text-f13 font-semibold text-teal-text hover:text-teal">
                 inquiry@f1composite.com
-              </a>
-              <a href="tel:+8613883338993" className="text-f13 font-semibold text-teal-text hover:text-teal">
-                +86 138 8333 8993
               </a>
             </div>
           </div>
 
           {columns.map((column) => (
-            <FooterAccordion key={column.title} title={column.title} links={column.links} />
+            <section key={column.title} aria-labelledby={`footer-${column.title.toLowerCase()}`}>
+              <h2 id={`footer-${column.title.toLowerCase()}`} className="text-f13 font-bold text-t1">
+                {column.title}
+              </h2>
+              <FooterLinks links={column.links} />
+            </section>
           ))}
         </div>
 
-        <div className="mt-[22px] flex flex-col gap-[14px] border-t border-border-default pt-[18px] lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap items-center gap-x-[14px] gap-y-[7px]" aria-label="Standards and certifications">
-            {[
-              "ISO 9001:2015",
-              "EN 13706",
-              "ASTM D3917",
-              "CE Marking",
-            ].map((standard) => (
-              <span key={standard} className="text-f11 font-bold uppercase tracking-[0.08em] text-t3">
-                {standard}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-[16px] gap-y-[6px] text-f11 text-t3">
-            <span>© {new Date().getFullYear()} Chongqing F1 Composites Co., Ltd.</span>
+        <div className="mt-[22px] flex flex-col gap-[10px] border-t border-border-default pt-[17px] text-f11 text-t3 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Chongqing F1 Composites Co., Ltd.</span>
+          <div className="flex flex-wrap items-center gap-x-[16px] gap-y-[6px]">
             <Link href="/privacy" className="hover:text-teal-text">Privacy</Link>
             <Link href="/terms" className="hover:text-teal-text">Terms</Link>
-            <Link href="/sitemap.xml" className="hover:text-teal-text">Sitemap</Link>
             <a
               href="https://tradeos.f1composite.com/login"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-teal-text"
             >
-              TradeOS Login
+              Customer login
             </a>
           </div>
         </div>
