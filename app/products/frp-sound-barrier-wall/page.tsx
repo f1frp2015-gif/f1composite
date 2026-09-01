@@ -379,29 +379,20 @@ export default function FrpSoundBarrierWallPage() {
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <figure>
-              <div className="flex min-h-[280px] items-center justify-center overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
                 <Image
-                  src={frpSoundBarrierImageAssets.panelSection}
-                  alt="Reference rendering of interlocking pultruded FRP sound barrier plank sections between posts"
-                  width={259}
-                  height={194}
-                  sizes="259px"
-                  className="h-auto w-[259px] max-w-full object-contain"
+                  src={frpSoundBarrierImageAssets.system}
+                  alt="Exploded visualization of interlocking pultruded FRP noise barrier planks between structural posts"
+                  fill
+                  loading="lazy"
+                  quality={75}
+                  sizes="(max-width: 1024px) calc(100vw - 40px), 45vw"
+                  className="object-cover"
                 />
               </div>
               <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                Third-party reference rendering from{" "}
-                <a
-                  href="https://www.fibergrate.com/products/unique-product-solutions/sound-barrier-wall/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-teal-text hover:underline"
-                >
-                  Fibergrate
-                </a>{" "}
-                showing one proprietary interlocking-plank concept. It is not an F1 project image or
-                released F1 section; quoted geometry, joints and acoustic build-up follow the approved
-                project drawings.
+                AI-generated configuration visualization. It explains a modular plank-and-post concept;
+                the project section, joint, post and optional acoustic build-up must follow the released drawings.
               </figcaption>
             </figure>
             <div>
