@@ -230,10 +230,10 @@ const profileFamily: Array<{
     summary:
       "Reflective or absorptive outdoor noise-barrier systems with interlocking fiberglass panels, coordinated posts, sealed joints and drawing-led acoustic and structural release.",
     href: "/products/frp-sound-barrier-wall",
-    image: "/images/products/frp-sound-barrier-wall/interlocking-frp-noise-barrier-panel-system.webp",
-    imageWidth: 1536,
-    imageHeight: 1024,
-    imageAlt: "Exploded view of interlocking FRP noise barrier panels installed between structural posts",
+    image: "/images/products/frp-sound-barrier-wall/interlocking-frp-sound-barrier-panel-section.webp",
+    imageWidth: 259,
+    imageHeight: 194,
+    imageAlt: "Interlocking fiberglass sound barrier panel cross-section with hollow tongue-and-groove profiles",
     imageFit: "contain",
   },
   {

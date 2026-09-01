@@ -16,10 +16,6 @@ const imageAssets = [
     minBytes: 50_000,
   },
   {
-    path: "public/images/products/frp-sound-barrier-wall/interlocking-frp-noise-barrier-panel-system.webp",
-    minBytes: 50_000,
-  },
-  {
     path: "public/images/products/frp-sound-barrier-wall/interlocking-frp-sound-barrier-panel-section.webp",
     minBytes: 4_000,
   },
@@ -93,7 +89,10 @@ test("canonical sound-barrier route is present across buyer and crawler surfaces
   assert.match(mainNavigation, routePattern);
   for (const source of [products, seo, sitemap, hub]) assert.match(source, routePattern);
   assert.match(products, /frp-sound-barrier-wall-highway\.webp/);
-  assert.match(hub, /interlocking-frp-noise-barrier-panel-system\.webp/);
+  assert.match(hub, /interlocking-frp-sound-barrier-panel-section\.webp/);
+  assert.match(hub, /imageWidth: 259,[\s\S]{0,40}imageHeight: 194/);
+  assert.match(hub, /Interlocking fiberglass sound barrier panel cross-section with hollow tongue-and-groove profiles/);
+  assert.doesNotMatch(`${hub}\n${soundBarrierPage}`, /interlocking-frp-noise-barrier-panel-system\.webp/);
   assert.match(soundBarrierPage, /href="\/products\/fiberglass-plates"/);
   assert.match(platePage, /href="\/products\/frp-sound-barrier-wall"/);
   assert.doesNotMatch(sitemap, /`\$\{BASE\}\/products\/sound-barrier-wall`/);
