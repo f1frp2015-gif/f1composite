@@ -725,7 +725,13 @@ export default function WhatIsFrpPage() {
                 <li>→ Pedestrian bridges and bridge deck panels</li>
                 <li>→ Rail platform canopies and sub-structures</li>
                 <li>→ Cable trays and pipe supports for utility corridors</li>
-                <li>→ Highway noise barriers in corrosive environments</li>
+                <li>
+                  →{" "}
+                  <Link href="/products/frp-sound-barrier-wall" className="text-teal-text hover:underline">
+                    Highway FRP noise barriers
+                  </Link>{" "}
+                  in corrosive environments
+                </li>
               </ul>
               <LinkArrow href="/industries/infrastructure" className="mt-[18px]">
                 Explore infrastructure applications

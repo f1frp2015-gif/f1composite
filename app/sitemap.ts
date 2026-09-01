@@ -49,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/frp-window-frames`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/frp-facade-panels`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/frp-window-reinforcement`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-sound-barrier-wall`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/technology/china-alternative-to-tencom-creative-pultrusions-windows`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/frp-gratings`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/frp-deck-panels`, changeFrequency: "monthly", priority: 0.82 },

@@ -240,6 +240,21 @@ export const seoQueryTargets = [
     supportingUrls: ["/products/frp-window-frames", "/technology/polyurethane-pultrusion-windows"],
   },
   {
+    targetUrl: "/products/frp-sound-barrier-wall",
+    primaryQuery: "FRP sound barrier wall",
+    intent: "commercial",
+    title: "FRP Sound Barrier Wall Panels | F1 Composite",
+    description:
+      "Custom FRP sound barrier wall panels for highways, railways and industrial sites. Lightweight, corrosion-resistant fiberglass systems. Request a quote.",
+    supportingUrls: [
+      "/industries/infrastructure",
+      "/industries/industrial",
+      "/industries/vehicle",
+      "/products/custom-pultruded-profiles",
+      "/what-is-frp",
+    ],
+  },
+  {
     targetUrl: "/products/frp-ladders",
     primaryQuery: "fiberglass fixed ladder",
     intent: "commercial",

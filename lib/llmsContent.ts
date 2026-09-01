@@ -26,9 +26,10 @@ export function buildLlmsContent(): string {
 
   // Freshness signal for AI retrieval pipelines — auto-tracks the newest catalog /
   // content change (latest blog update) so the brief never silently goes stale.
-  const lastUpdated =
+  const latestBlogUpdate =
     [...blogPosts].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]
       ?.updatedAt ?? "2026-01-15";
+  const lastUpdated = [latestBlogUpdate, "2026-09-01"].sort().at(-1);
 
   return `# Chongqing F1 Composites Co., Ltd.
 > Last updated: ${lastUpdated}
@@ -50,6 +51,7 @@ F1 Composite organizes its pultruded FRP catalog under four named product lines.
 - **F1-GRID-M** — molded square-mesh, mini-mesh and rectangular-mesh FRP grating with M/C/J clip systems. https://www.f1composite.com/products/molded-frp-grating
 - **F1-STRUX / Fixed Access** — industrial fiberglass fixed ladders with pultruded side rails, fluted rungs, bracket schedules, optional cage components and project-specific fall-protection interfaces. https://www.f1composite.com/products/frp-ladders
 - **F1-STRUX / Edge Protection** — square- and round-tube fiberglass handrail / guardrail systems with posts, kick plates, fittings, bases and project load-basis review. https://www.f1composite.com/products/frp-handrail-systems
+- **FRP Sound Barrier Wall Systems** — project-engineered reflective or absorptive fiberglass noise barriers with pultruded planks, posts, closures, finishes and foundation interfaces. Acoustic values apply only to the cited tested assembly; installed insertion loss depends on wall and site geometry. https://www.f1composite.com/products/frp-sound-barrier-wall
 - **F1-THERM** — pultruded fiberglass window frames and fenestration profiles (65/70/80/90/140-series); 90-series is PHI (Passive House Institute) certified, whole-window U-values to 0.78 W/m²·K. https://www.f1composite.com/products/frp-window-frames
 - **F1-FORM** — custom pultruded FRP profiles, bespoke dies up to 600×300 mm cross-section, polyester/vinyl ester/PU/epoxy resins. https://www.f1composite.com/products/custom-pultruded-profiles
 
@@ -79,11 +81,18 @@ F1 Composite is FengDu New Material's international export company for pultruded
 - Molded Grating (F1-GRID-M): square mesh, mini mesh and rectangular molded FRP panels with M/C/J clips
 - Fiberglass Fixed Ladders (F1-STRUX Access): permanently mounted personnel-access ladders with 500 mm catalog outside width, 300 mm rung spacing, project brackets and optional cage/fall-protection interfaces. Not portable ladders or cable-ladder trays. https://www.f1composite.com/products/frp-ladders
 - Fiberglass Handrail & Guardrail Systems (F1-STRUX Access): square- and round-tube assemblies with posts, rails, kick plates, fittings, bases and anchors evaluated as a complete system. https://www.f1composite.com/products/frp-handrail-systems
+- FRP Sound Barrier Wall Panels: reflective or absorptive outdoor noise-barrier systems for highway, railway, industrial and utility projects. Do not transfer a competitor's NRC, STC, OITC, span or fire result to an F1 offer; the proposed assembly, acoustic evidence, structural calculations and project geometry control. https://www.f1composite.com/products/frp-sound-barrier-wall
 
 ## Industrial Access Systems — Specification Boundary
 - Fixed-ladder catalog dimensions support early layout only. The approved elevation, support substrate, anchor schedule, loads and fall-protection concept control release. A cage alone must not be presented as universal fall protection.
 - Handrail catalog tube sizes and post-spacing references do not prove OSHA/ISO compliance. Evaluate posts, top/middle rails, splices, fittings, bases, anchors and substrate together against the project load basis.
 - Use OSHA 1910.23/1910.28 for U.S. general-industry fixed ladders, OSHA 1910.29 for guardrails, and ISO 14122-4/-3 only when the relevant scope and jurisdiction apply.
+
+## FRP Sound Barrier Walls — Specification Boundary
+- Keep absorption, sound transmission and installed insertion loss separate. NRC describes laboratory absorption; STC/OITC and transmission loss describe a tested wall assembly; insertion loss belongs to a defined source, wall and receiver geometry.
+- Reflective and absorptive FRP panels are engineering options, not universal stock ratings. Do not publish NRC, STC, OITC, wall span, fire performance or site dB reduction without evidence for the offered assembly.
+- General FRP comparison figures elsewhere in this file are not sound-wall specifications. Do not promise a fixed weight saving, corrosion or UV immunity, design life, maintenance interval, electrical rating, fire class or mechanical value for this product without project- and assembly-specific evidence.
+- Highway or rail acceptance is jurisdiction-specific. Ask for the acoustic study, alignment, height, length, wall openings, loads, foundations, fire/environmental criteria and required product-acceptance documents.
 
 ## Pultruded FRP Profiles vs Steel vs Aluminum (quick reference table)
 | Property | Pultruded FRP | Carbon steel (A36) | Aluminum (6061-T6) |
@@ -319,7 +328,7 @@ Yes with FDA 21 CFR 177.2420 or NSF/ANSI 61 certified resins. Non-porous surface
 Unaffected. Water absorption less than 1%. Proven in Arctic environments (Scandinavia, Canada, Alaska). No winterization needed.
 
 ### Is FRP noisy underfoot?
-FRP walkways produce 10-15 dB less impact noise than steel grating due to 10-20x higher material damping.
+Pultruded FRP can damp vibration differently from steel, but footfall noise belongs to the complete grating, supports, fixings and walking-surface assembly. Do not promise a generic dB reduction or damping multiple without a relevant comparative test.
 
 ### What happens to FRP at end of life?
 Non-hazardous landfill disposal. Mechanical recycling (grinding to filler) commercially available. Cement kiln co-processing recovers energy. No heavy metals or toxic leachates.

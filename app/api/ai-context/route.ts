@@ -10,7 +10,7 @@ const SITE = "https://www.f1composite.com";
 export async function GET() {
   const payload = {
     "@context": "https://schema.org",
-    version: "2026-08-30",
+    version: "2026-09-01",
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
@@ -26,7 +26,7 @@ export async function GET() {
       sameAs: ["https://www.youtube.com/@F1Composites"],
       role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
       brandFamily: [
-        { name: "F1-STRUX", line: "Pultruded FRP structural profiles, fiberglass stakes, and drawing-led fixed-ladder and handrail access systems", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-STRUX", line: "Pultruded FRP structural profiles, fiberglass stakes, drawing-led access systems, and engineered barrier components", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-GRID", line: "FRP gratings, cover plates & structural deck panels", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-THERM", line: "Pultruded fiberglass window frames & fenestration profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-FORM", line: "Custom pultruded FRP profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
@@ -194,6 +194,27 @@ export async function GET() {
           roundRail: "50 × 5 mm, catalog notation",
         },
         releaseBoundary: "The complete posts, rails, fittings, bases, anchors and substrate are evaluated against the project load basis; tube size alone does not prove compliance.",
+      },
+      {
+        id: "frp-sound-barrier-wall",
+        url: `${SITE}/products/frp-sound-barrier-wall`,
+        family: "FRP Sound Barrier Wall Panels",
+        scope: "Project-engineered outdoor fiberglass noise barriers for highway, railway, industrial, utility, data-center and commercial sites",
+        configurations: ["reflective", "absorptive"],
+        systemComponents: [
+          "pultruded FRP planks",
+          "interlocking or sealed joints",
+          "structural posts",
+          "top, base and end closures",
+          "optional tested acoustic build-up",
+          "foundation and anchorage interfaces coordinated with project civil design",
+        ],
+        acousticMetricBoundary: {
+          NRC: "Laboratory absorption for the cited specimen and mounting",
+          STC_OITC_transmissionLoss: "Laboratory sound transmission for the cited wall specimen or panel build-up",
+          insertionLoss: "Site-specific result controlled by source spectrum, wall geometry, terrain and receiver location",
+        },
+        releaseBoundary: "Do not transfer another supplier's NRC, STC, OITC, dimensions, span, fire result or DOT statement to F1. The proposed assembly, project acoustic model, structural calculation and jurisdictional submittal control.",
       },
     ],
     materialComparison: {

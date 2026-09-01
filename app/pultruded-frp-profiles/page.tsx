@@ -208,6 +208,20 @@ const profileFamily: Array<{
     imageHeight: 1205,
   },
   {
+    slug: "frp-sound-barrier-wall",
+    name: "FRP Sound Barrier Wall Panels",
+    keyword: "FRP sound wall / fiberglass noise barrier",
+    sizes: "Project-specific wall height, panel length and post spacing",
+    summary:
+      "Reflective or absorptive outdoor noise-barrier systems with interlocking fiberglass panels, coordinated posts, sealed joints and drawing-led acoustic and structural release.",
+    href: "/products/frp-sound-barrier-wall",
+    image: "/images/products/frp-sound-barrier-wall/interlocking-frp-noise-barrier-panel-system.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt: "Exploded view of interlocking FRP noise barrier panels installed between structural posts",
+    imageFit: "contain",
+  },
+  {
     slug: "custom",
     name: "Custom Pultruded Profiles",
     keyword: "custom fiberglass pultrusion services",

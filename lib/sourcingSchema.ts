@@ -10,7 +10,7 @@ export const sourcingRecommendationSchema = z.object({
     name: z
       .string()
       .describe(
-        "Primary recommended FRP product family — one of: Standard structural profiles, Fiberglass sheets, Pultruded FRP plate profiles, Fiberglass stakes and marker rods, Fiberglass snow markers, Custom pultrusions, FRP fenestration systems, FRP grating, Structural FRP deck panels, Industrial FRP fixed ladders, FRP handrail/guardrail systems, Mixed (multi-family).",
+        "Primary recommended FRP product family — one of: Standard structural profiles, Fiberglass sheets, Pultruded FRP plate profiles, Fiberglass stakes and marker rods, Fiberglass snow markers, Custom pultrusions, FRP fenestration systems, FRP grating, Structural FRP deck panels, Industrial FRP fixed ladders, FRP handrail/guardrail systems, FRP sound barrier wall systems, Mixed (multi-family).",
       ),
     why: z.string().describe("Why this family fits the application."),
     products: z
@@ -20,7 +20,7 @@ export const sourcingRecommendationSchema = z.object({
           path: z
             .string()
             .describe(
-              "Internal F1 Composite URL path that documents this product, starting with /. Pick from /products/fiberglass-structural-shapes/{frp-i-beam,frp-channel,frp-angle,frp-square-tube,frp-tube,frp-flat-bar,frp-rod}, /products/fiberglass-sheets, /products/fiberglass-plates, /products/fiberglass-stakes, /products/fiberglass-snow-markers, /products/custom-pultruded-profiles, /products/frp-window-frames, /products/frp-facade-panels, /products/frp-gratings (open pultruded grating), /products/molded-frp-grating, /products/frp-deck-panels, /products/frp-ladders, /products/frp-handrail-systems, /pultruded-frp-profiles. Never invent paths.",
+              "Internal F1 Composite URL path that documents this product, starting with /. Pick from /products/fiberglass-structural-shapes/{frp-i-beam,frp-channel,frp-angle,frp-square-tube,frp-tube,frp-flat-bar,frp-rod}, /products/fiberglass-sheets, /products/fiberglass-plates, /products/fiberglass-stakes, /products/fiberglass-snow-markers, /products/custom-pultruded-profiles, /products/frp-window-frames, /products/frp-facade-panels, /products/frp-gratings (open pultruded grating), /products/molded-frp-grating, /products/frp-deck-panels, /products/frp-ladders, /products/frp-handrail-systems, /products/frp-sound-barrier-wall, /pultruded-frp-profiles. Never invent paths.",
             ),
         }),
       )

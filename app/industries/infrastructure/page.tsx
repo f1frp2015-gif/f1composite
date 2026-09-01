@@ -293,6 +293,7 @@ export default function InfrastructurePage() {
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels for stringers" },
               { href: "/products/frp-deck-panels", label: "Structural FRP bridge deck panels" },
               { href: "/products/frp-gratings", label: "Pultruded FRP grating walkways" },
+              { href: "/products/frp-sound-barrier-wall", label: "FRP sound barrier wall panels" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions for infrastructure" },
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP rods for soil nails & rock bolts" },
               { href: "/applications/frp-pedestrian-bridge-superstructures", label: "FRP pedestrian bridge superstructures" },
