@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Coronation Drive cycleway FRP girder public reference</title>
+  <desc id="desc">An original orthographic schematic scales the published 3000 millimetre overall width, 2720 millimetre effective width and six independent pultruded FRP hollow-section main girders at 575 millimetre centres. The longitudinal span remains explicitly unpublished.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbfdfd"/><stop offset="1" stop-color="#eaf2f2"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="11" flood-color="#0b1838" flood-opacity="0.12"/></filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/></marker>
+    <marker id="arrowNavy" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#17315f"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="82" y="48" width="360" height="42" rx="21" fill="#e5f7f5" stroke="#0a9b91" stroke-width="2"/>
+    <text x="262" y="76" text-anchor="middle" font-size="19" font-weight="780" letter-spacing="1.2" fill="#007a74">PUBLIC REFERENCE · NOT AN F1 PROJECT</text>
+    <text x="82" y="145" font-size="49" font-weight="760" fill="#0b1838">Coronation Drive cycleway: six-girder FRP system</text>
+    <text x="83" y="190" font-size="24" fill="#4f6275">Published transverse geometry is scaled; the unreported longitudinal span is not inferred.</text>
+
+    <g transform="translate(82 225)" filter="url(#shadow)">
+      <rect width="978" height="500" rx="24" fill="#ffffff"/>
+      <text x="30" y="43" font-size="21" font-weight="770" letter-spacing="1.4" fill="#0a9b91">PUBLISHED TRANSVERSE SECTION · DIMENSIONALLY MAPPED</text>
+
+      <!-- 3000 mm overall = 720 SVG units. Effective width 2720 mm = 652.8 units. -->
+      <path d="M130 160 H850 L830 226 H150 Z" fill="#d8e4e4" stroke="#8198a1" stroke-width="4"/>
+      <path d="M130 160 H850" stroke="#0a9b91" stroke-width="8"/>
+      <text x="490" y="139" text-anchor="middle" font-size="22" font-weight="770" fill="#0b1838">ECC PLATE DECK</text>
+
+      <!-- Barrier inside faces define the published 2720 mm effective width. -->
+      <g stroke="#0b1838" stroke-width="7" fill="none" stroke-linecap="round">
+        <path d="M144 160 V86 M164 160 V88 M144 87 H164 M138 116 H170"/>
+        <path d="M816 160 V86 M836 160 V88 M816 87 H836 M810 116 H842"/>
+      </g>
+      <path d="M164 95 H816" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <text x="490" y="84" text-anchor="middle" font-size="20" font-weight="770" fill="#007a74">2,720 mm EFFECTIVE WIDTH</text>
+
+      <!-- Six independent RHS centre lines: x = 145 + n×138; 138 units maps 575 mm. -->
+      <g stroke="#d18b2e" stroke-width="5"><path d="M145 216 V238"/><path d="M283 216 V238"/><path d="M421 216 V238"/><path d="M559 216 V238"/><path d="M697 216 V238"/><path d="M835 216 V238"/></g>
+      <g fill="#e9f6f5" stroke="#087f78" stroke-width="5">
+        <rect x="133" y="238" width="24" height="92" rx="2"/><rect x="271" y="238" width="24" height="92" rx="2"/><rect x="409" y="238" width="24" height="92" rx="2"/>
+        <rect x="547" y="238" width="24" height="92" rx="2"/><rect x="685" y="238" width="24" height="92" rx="2"/><rect x="823" y="238" width="24" height="92" rx="2"/>
+      </g>
+      <g fill="#0a9b91"><rect x="130" y="226" width="30" height="12"/><rect x="268" y="226" width="30" height="12"/><rect x="406" y="226" width="30" height="12"/><rect x="544" y="226" width="30" height="12"/><rect x="682" y="226" width="30" height="12"/><rect x="820" y="226" width="30" height="12"/></g>
+      <text x="490" y="360" text-anchor="middle" font-size="23" font-weight="790" fill="#0b1838">6 INDEPENDENT PULTRUDED FRP HOLLOW-SECTION GIRDERS</text>
+      <text x="490" y="389" text-anchor="middle" font-size="19" fill="#596d7d">RHS depth and wall thickness are symbolic because they are not dimensions cited here.</text>
+
+      <path d="M145 424 H835" stroke="#17315f" stroke-width="3" marker-start="url(#arrowNavy)" marker-end="url(#arrowNavy)"/>
+      <g stroke="#17315f" stroke-width="2"><path d="M145 336 V440"/><path d="M283 408 V440"/><path d="M421 408 V440"/><path d="M559 408 V440"/><path d="M697 408 V440"/><path d="M835 336 V440"/></g>
+      <text x="490" y="417" text-anchor="middle" font-size="20" font-weight="770" fill="#17315f">5 EQUAL CENTRE SPACES @ 575 mm = 2,875 mm</text>
+
+      <path d="M130 470 H850" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <text x="490" y="463" text-anchor="middle" font-size="21" font-weight="790" fill="#007a74">3,000 mm OVERALL WIDTH</text>
+    </g>
+
+    <g transform="translate(1088 225)">
+      <g filter="url(#shadow)">
+        <rect width="430" height="220" rx="24" fill="#0b1838"/>
+        <text x="27" y="44" font-size="19" font-weight="770" letter-spacing="1.3" fill="#62d5cc">SYSTEM-TYPE GUIDANCE</text>
+        <text x="27" y="98" font-size="27" font-weight="780" fill="#ffffff">Useful for difficult-access</text>
+        <text x="27" y="139" font-size="36" font-weight="800" fill="#62d5cc">short spans up to 12 m</text>
+        <rect x="27" y="164" width="376" height="34" rx="17" fill="#fff4e7"/>
+        <text x="215" y="187" text-anchor="middle" font-size="18" font-weight="790" fill="#8b4c0c">TYPE GUIDANCE · NOT PROJECT SPAN</text>
+      </g>
+      <g transform="translate(0 246)" filter="url(#shadow)">
+        <rect width="430" height="254" rx="24" fill="#ffffff"/>
+        <rect width="11" height="254" rx="5" fill="#e58a2b"/>
+        <text x="36" y="44" font-size="19" font-weight="770" letter-spacing="1.2" fill="#b55e16">EVIDENCE BOUNDARY</text>
+        <text x="36" y="94" font-size="25" font-weight="790" fill="#0b1838">Longitudinal span</text>
+        <text x="36" y="128" font-size="29" font-weight="800" fill="#0b1838">not published</text>
+        <path d="M36 151 H394" stroke="#d7e3e3" stroke-width="2"/>
+        <text x="36" y="186" font-size="19" font-weight="750" fill="#007a74">Published facts used in the drawing:</text>
+        <text x="36" y="216" font-size="18" fill="#596d7d">widths · girder count · centre spacing</text>
+        <text x="36" y="241" font-size="18" fill="#596d7d">ECC deck · glued pultruded RHS system</text>
+      </g>
+    </g>
+
+    <g transform="translate(82 752)">
+      <rect width="1436" height="72" rx="17" fill="#ffffff" stroke="#c5d5d6" stroke-width="2"/>
+      <text x="25" y="30" font-size="20" font-weight="770" fill="#0b1838">DESIGN TRANSFER</text>
+      <text x="25" y="56" font-size="18" fill="#596d7d">Independently verify RHS properties, adhesive joints, deck compatibility, fire, drainage, vibration, durability and owner acceptance.</text>
+      <text x="1410" y="46" text-anchor="end" font-size="18" fill="#647789">No longitudinal span or RHS size inferred</text>
+    </g>
+    <text x="82" y="869" font-size="18" fill="#647789">Source: Queensland TMR · Options for designers of pedestrian and cyclist bridges (2023)</text>
+    <text x="1518" y="869" font-size="18" text-anchor="end" fill="#647789">Original explanatory schematic · section dimensions mapped from published values</text>
+  </g>
+</svg>

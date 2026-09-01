@@ -17,13 +17,13 @@ export const metadata: Metadata = buildPageMetadata({
 const caseStudies = [
   {
     slug: "beam-bridge",
-    title: "Beam Bridge — Design Guide & 3 Verified Public Case Studies",
-    industry: "Bridge Engineering",
-    location: "Australia & USA",
+    title: "Beam Bridge Design — Pedestrian & Cycle Guide",
+    industry: "Active-Transport Bridge Engineering",
+    location: "Australia & Portugal",
     year: "Reference",
-    image: "/images/case-studies/beam-bridge/beam-bridge-load-path-diagram.svg",
+    image: "/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg",
     excerpt:
-      "A visual beam bridge guide with original load-path diagrams, design trade-offs and three source-backed concrete and pultruded FRP girder projects. Public references are clearly separated from F1 delivery history.",
+      "A research-backed guide to pedestrian and cycle beam bridges: load path, clear width, barriers, vibration, FRP detailing and three public reference projects.",
   },
   {
     slug: "qinling-station-antarctic-passive-windows",

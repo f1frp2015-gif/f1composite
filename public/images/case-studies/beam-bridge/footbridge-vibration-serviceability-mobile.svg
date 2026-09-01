@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="vibrationMobileTitle vibrationMobileDesc">
+  <title id="vibrationMobileTitle">Mobile footbridge vibration serviceability workflow</title>
+  <desc id="vibrationMobileDesc">A vertical four-step engineering workflow moves from pedestrian excitation to modal analysis, response and comfort assessment, and mitigation. Frequency values are investigation triggers, not pass or fail criteria.</desc>
+  <defs>
+    <linearGradient id="vibrationMobileBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#e8f1f2"/>
+    </linearGradient>
+    <filter id="vibrationMobileShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0b1838" flood-opacity="0.12"/>
+    </filter>
+    <marker id="vibrationMobileArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#vibrationMobileBg)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="52" y="64" font-size="32" font-weight="760" letter-spacing="2.3" fill="#0a9b91">VIBRATION SERVICEABILITY</text>
+    <text x="52" y="124" font-size="48" font-weight="780" fill="#0b1838">Comfort is the final check</text>
+
+    <g transform="translate(52 156)">
+      <rect width="796" height="90" rx="18" fill="#fff4e8" stroke="#e58a2b" stroke-width="3"/>
+      <rect width="12" height="90" rx="6" fill="#e58a2b"/>
+      <text x="35" y="39" font-size="30" font-weight="780" fill="#b55e16">INVESTIGATE:</text>
+      <text x="295" y="39" font-size="30" font-weight="760" fill="#0b1838">vertical &lt; 5 Hz · lateral &lt; 1.5 Hz</text>
+      <text x="35" y="75" font-size="30" font-weight="720" fill="#b55e16">Trigger ≠ pass/fail criterion</text>
+    </g>
+
+    <!-- 1. Excitation -->
+    <g transform="translate(52 278)" filter="url(#vibrationMobileShadow)">
+      <rect width="796" height="176" rx="22" fill="#ffffff"/>
+      <circle cx="53" cy="54" r="31" fill="#0a9b91"/>
+      <text x="53" y="65" text-anchor="middle" font-size="32" font-weight="800" fill="#ffffff">1</text>
+      <text x="104" y="64" font-size="34" font-weight="790" fill="#0b1838">EXCITATION</text>
+      <text x="104" y="111" font-size="30" font-weight="680" fill="#536879">Cadence · crowd density</text>
+      <text x="104" y="147" font-size="30" font-weight="680" fill="#536879">Synchronisation</text>
+      <g transform="translate(583 22)" stroke="#0b1838" stroke-width="6" stroke-linecap="round" fill="none">
+        <circle cx="45" cy="33" r="15"/>
+        <path d="M45 48 V92 M45 61 L22 72 M45 61 L69 72 M45 92 L25 119 M45 92 L67 119"/>
+        <path d="M88 111 C105 82 122 139 139 111 S173 82 190 111" stroke="#e58a2b"/>
+      </g>
+    </g>
+    <path d="M450 461 V492" stroke="#0a9b91" stroke-width="6" marker-end="url(#vibrationMobileArrow)"/>
+
+    <!-- 2. Modal analysis -->
+    <g transform="translate(52 500)" filter="url(#vibrationMobileShadow)">
+      <rect width="796" height="176" rx="22" fill="#ffffff"/>
+      <circle cx="53" cy="54" r="31" fill="#0a9b91"/>
+      <text x="53" y="65" text-anchor="middle" font-size="32" font-weight="800" fill="#ffffff">2</text>
+      <text x="104" y="64" font-size="34" font-weight="790" fill="#0b1838">MODAL ANALYSIS</text>
+      <text x="104" y="111" font-size="30" font-weight="680" fill="#536879">Frequency · mode shape</text>
+      <text x="104" y="147" font-size="30" font-weight="680" fill="#536879">Damping ratio</text>
+      <g transform="translate(556 28)">
+        <path d="M12 108 H220" stroke="#9cb0b5" stroke-width="5"/>
+        <path d="M12 108 Q116 18 220 108" fill="none" stroke="#0a9b91" stroke-width="7"/>
+        <path d="M12 131 C64 91 168 171 220 131" fill="none" stroke="#17315f" stroke-width="5" stroke-dasharray="13 10"/>
+      </g>
+    </g>
+    <path d="M450 683 V714" stroke="#0a9b91" stroke-width="6" marker-end="url(#vibrationMobileArrow)"/>
+
+    <!-- 3. Response and comfort -->
+    <g transform="translate(52 722)" filter="url(#vibrationMobileShadow)">
+      <rect width="796" height="176" rx="22" fill="#ffffff"/>
+      <circle cx="53" cy="54" r="31" fill="#0a9b91"/>
+      <text x="53" y="65" text-anchor="middle" font-size="32" font-weight="800" fill="#ffffff">3</text>
+      <text x="104" y="64" font-size="34" font-weight="790" fill="#0b1838">RESPONSE + COMFORT</text>
+      <text x="104" y="111" font-size="30" font-weight="680" fill="#536879">Acceleration response</text>
+      <text x="104" y="147" font-size="30" font-weight="680" fill="#536879">Versus user criterion</text>
+      <g transform="translate(585 27)">
+        <path d="M8 130 V21 M8 130 H177" stroke="#758a97" stroke-width="4"/>
+        <path d="M18 115 C42 105 51 46 75 76 S112 126 134 65 S165 54 181 34" fill="none" stroke="#e58a2b" stroke-width="7"/>
+        <path d="M18 69 H181" stroke="#0a9b91" stroke-width="4" stroke-dasharray="12 9"/>
+      </g>
+    </g>
+    <path d="M450 905 V936" stroke="#0a9b91" stroke-width="6" marker-end="url(#vibrationMobileArrow)"/>
+
+    <!-- 4. Mitigation -->
+    <g transform="translate(52 944)" filter="url(#vibrationMobileShadow)">
+      <rect width="796" height="176" rx="22" fill="#0b1838"/>
+      <circle cx="53" cy="54" r="31" fill="#0a9b91"/>
+      <text x="53" y="65" text-anchor="middle" font-size="32" font-weight="800" fill="#ffffff">4</text>
+      <text x="104" y="64" font-size="34" font-weight="790" fill="#ffffff">MITIGATION</text>
+      <text x="104" y="111" font-size="30" font-weight="680" fill="#d5e2e8">Stiffness · mass · damping</text>
+      <text x="104" y="147" font-size="30" font-weight="680" fill="#d5e2e8">Support layout</text>
+      <path d="M620 126 L683 63 L722 102 L775 39" fill="none" stroke="#62d5cc" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M745 39 H775 V69" fill="none" stroke="#62d5cc" stroke-width="7" stroke-linecap="round"/>
+    </g>
+
+    <text x="52" y="1172" font-size="30" font-weight="720" fill="#536879">Project owner criteria govern · validate where needed</text>
+  </g>
+</svg>

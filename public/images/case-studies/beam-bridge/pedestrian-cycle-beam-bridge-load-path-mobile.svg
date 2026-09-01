@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="loadPathMobileTitle loadPathMobileDesc">
+  <title id="loadPathMobileTitle">Mobile load-path diagram for a pedestrian and cycle beam bridge</title>
+  <desc id="loadPathMobileDesc">A vertical engineering schematic traces user and self-weight loads through the deck, transverse cross-member, longitudinal girder, bearings and common substructure. The illustration is not to scale.</desc>
+  <defs>
+    <linearGradient id="loadMobileBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#e8f1f2"/>
+    </linearGradient>
+    <linearGradient id="loadMobileGirder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#17315f"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#17315f"/>
+    </linearGradient>
+    <filter id="loadMobileShadow" x="-20%" y="-25%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#0b1838" flood-opacity="0.14"/>
+    </filter>
+    <marker id="loadMobileArrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+    <marker id="loadMobileArrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#e58a2b"/>
+    </marker>
+    <style>
+      .load-trace {
+        opacity: 0;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: load-mobile-trace 0.6s ease-out 1 both;
+      }
+      .load-trace-1 { animation-delay: 0.15s; }
+      .load-trace-2 { animation-delay: 1.05s; }
+      .load-trace-3 { animation-delay: 1.95s; }
+      .load-trace-4 { animation-delay: 2.85s; }
+      .load-trace-5 { animation-delay: 3.75s; }
+      @keyframes load-mobile-trace {
+        0% { opacity: 0; stroke-dashoffset: 1; }
+        16% { opacity: 1; }
+        100% { opacity: 1; stroke-dashoffset: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .load-trace { opacity: 1; stroke-dashoffset: 0; animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#loadMobileBg)"/>
+  <path d="M0 1052 C185 1018 307 1072 460 1042 C620 1010 744 1053 900 1020 V1200 H0 Z" fill="#d6e5e6"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="54" y="65" font-size="32" font-weight="760" letter-spacing="2.5" fill="#0a9b91">BEAM BRIDGE LOAD PATH</text>
+    <text x="54" y="125" font-size="48" font-weight="780" fill="#0b1838">Surface to foundation</text>
+    <text x="54" y="168" font-size="30" fill="#536879">Illustrative engineering sequence · not to scale</text>
+
+    <!-- Active users and applied actions -->
+    <g stroke="#0b1838" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="300" cy="237" r="18"/>
+      <path d="M300 255 V302 M300 268 L270 282 M300 268 L331 282 M300 302 L277 333 M300 302 L326 333"/>
+      <circle cx="526" cy="297" r="34"/>
+      <circle cx="657" cy="297" r="34"/>
+      <path d="M526 297 L584 237 L631 297 H573 Z M584 237 L552 210 H619 M584 237 L657 297 M573 297 L513 241 M584 237 L536 237"/>
+      <circle cx="635" cy="185" r="18"/>
+      <path d="M635 203 L605 239 L559 247 M605 239 L642 263"/>
+    </g>
+
+    <g fill="none" stroke="#e58a2b" stroke-width="6" stroke-linecap="round" marker-end="url(#loadMobileArrowOrange)">
+      <path class="load-trace load-trace-1" pathLength="1" d="M300 186 V344"/>
+      <path class="load-trace load-trace-1" pathLength="1" d="M593 158 V344"/>
+    </g>
+    <g transform="translate(56 206)">
+      <rect width="226" height="49" rx="24.5" fill="#fff4e8" stroke="#e58a2b" stroke-width="3"/>
+      <text x="113" y="34" text-anchor="middle" font-size="30" font-weight="780" fill="#b55e16">USER LOAD</text>
+    </g>
+
+    <!-- Deck and transverse distribution -->
+    <g filter="url(#loadMobileShadow)">
+      <path d="M105 352 H795 L773 411 H127 Z" fill="#dce8e9" stroke="#718896" stroke-width="4"/>
+      <path d="M122 367 H778" stroke="#0a9b91" stroke-width="7"/>
+      <rect x="166" y="417" width="568" height="47" rx="8" fill="#17315f"/>
+      <path d="M204 431 H696" stroke="#34588b" stroke-width="6" stroke-dasharray="22 16"/>
+    </g>
+    <g transform="translate(555 335)">
+      <rect width="272" height="49" rx="24.5" fill="#ffffff" stroke="#9cb1b7" stroke-width="3"/>
+      <text x="136" y="34" text-anchor="middle" font-size="30" font-weight="780" fill="#0b1838">DECK ACTION</text>
+    </g>
+    <g transform="translate(433 430)">
+      <rect width="394" height="49" rx="24.5" fill="#e7f8f6" stroke="#0a9b91" stroke-width="3"/>
+      <text x="197" y="34" text-anchor="middle" font-size="30" font-weight="780" fill="#007a74">CROSS-MEMBER</text>
+    </g>
+    <path class="load-trace load-trace-2" pathLength="1" d="M450 387 V421" fill="none" stroke="#0a9b91" stroke-width="6" stroke-linecap="round" marker-end="url(#loadMobileArrowTeal)"/>
+
+    <!-- Longitudinal girder elevation -->
+    <g filter="url(#loadMobileShadow)">
+      <path d="M176 526 H724 V565 H651 V670 H724 V709 H176 V670 H249 V565 H176 Z" fill="url(#loadMobileGirder)"/>
+      <path d="M218 546 H682" stroke="#34588b" stroke-width="6"/>
+      <path d="M218 690 H682" stroke="#07122d" stroke-width="6" opacity="0.7"/>
+    </g>
+    <g transform="translate(385 592)">
+      <rect width="442" height="51" rx="25.5" fill="#ffffff" stroke="#9cb1b7" stroke-width="3"/>
+      <text x="221" y="35" text-anchor="middle" font-size="30" font-weight="780" fill="#0b1838">LONGITUDINAL GIRDER</text>
+    </g>
+    <path class="load-trace load-trace-3" pathLength="1" d="M450 468 V520" fill="none" stroke="#0a9b91" stroke-width="6" stroke-linecap="round" marker-end="url(#loadMobileArrowTeal)"/>
+
+    <!-- Bearings and common substructure -->
+    <g>
+      <rect x="231" y="744" width="138" height="34" rx="8" fill="#0a9b91"/>
+      <rect x="531" y="744" width="138" height="34" rx="8" fill="#0a9b91"/>
+      <path d="M211 786 H389 L420 824 H180 Z" fill="#17315f"/>
+      <path d="M511 786 H689 L720 824 H480 Z" fill="#17315f"/>
+      <rect x="130" y="824" width="640" height="63" rx="10" fill="#0b1838"/>
+      <path d="M330 887 H570 L548 1032 H352 Z" fill="#17315f"/>
+      <path d="M276 1032 H624 L671 1090 H229 Z" fill="#a8babc" stroke="#718896" stroke-width="4"/>
+    </g>
+    <g transform="translate(56 730)">
+      <rect width="204" height="49" rx="24.5" fill="#e7f8f6" stroke="#0a9b91" stroke-width="3"/>
+      <text x="102" y="34" text-anchor="middle" font-size="30" font-weight="780" fill="#007a74">BEARINGS</text>
+    </g>
+    <g transform="translate(478 904)">
+      <rect width="349" height="51" rx="25.5" fill="#ffffff" stroke="#9cb1b7" stroke-width="3"/>
+      <text x="174.5" y="35" text-anchor="middle" font-size="30" font-weight="780" fill="#0b1838">SUBSTRUCTURE</text>
+    </g>
+    <g fill="none" stroke="#0a9b91" stroke-width="6" stroke-linecap="round" marker-end="url(#loadMobileArrowTeal)">
+      <path class="load-trace load-trace-4" pathLength="1" d="M300 711 V738"/>
+      <path class="load-trace load-trace-4" pathLength="1" d="M600 711 V738"/>
+      <path class="load-trace load-trace-5" pathLength="1" d="M450 781 V1016"/>
+    </g>
+
+    <path d="M450 1141 V1068" fill="none" stroke="#0a9b91" stroke-width="7" stroke-linecap="round" marker-end="url(#loadMobileArrowTeal)"/>
+    <text x="450" y="1175" text-anchor="middle" font-size="30" font-weight="760" fill="#007a74">GROUND REACTION</text>
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">São Silvestre GFRP footbridge mobile public research case study</title>
+  <desc id="desc">A mobile engineering schematic of the public São Silvestre footbridge research case. It records an 11 metre overall length, a 10 metre installed support span, a 2 metre deck width, two pultruded GFRP I-girders measuring 400 by 200 by 15 millimetres, and a 37.5 millimetre SFRSCC deck.</desc>
+  <defs>
+    <linearGradient id="saoBackground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#e9f2f2"/>
+    </linearGradient>
+    <linearGradient id="saoGirder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#17315f"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#17315f"/>
+    </linearGradient>
+    <filter id="saoShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1838" flood-opacity="0.12"/>
+    </filter>
+    <marker id="saoArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#saoBackground)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(45 45)" filter="url(#saoShadow)">
+      <rect width="810" height="440" rx="24" fill="#ffffff"/>
+      <text x="30" y="55" font-size="31" font-weight="780" letter-spacing="1.2" fill="#0a9b91">SIMPLY SUPPORTED ELEVATION</text>
+
+      <path d="M98 164 H712" stroke="#0a9b91" stroke-width="6"/>
+      <rect x="82" y="169" width="646" height="30" rx="5" fill="#a9babc"/>
+      <rect x="92" y="199" width="626" height="95" rx="5" fill="url(#saoGirder)"/>
+      <rect x="111" y="294" width="76" height="18" rx="4" fill="#0a9b91"/>
+      <rect x="623" y="294" width="76" height="18" rx="4" fill="#0a9b91"/>
+      <path d="M101 318 H197 L224 358 H74 Z M613 318 H709 L736 358 H586 Z" fill="#0b1838"/>
+
+      <text x="405" y="112" text-anchor="middle" font-size="31" font-weight="790" fill="#007a74">10.0 m INSTALLED SUPPORT SPAN</text>
+      <path d="M124 137 H686" stroke="#0a9b91" stroke-width="4" marker-start="url(#saoArrow)" marker-end="url(#saoArrow)"/>
+      <path d="M124 129 V199 M686 129 V199" stroke="#0a9b91" stroke-width="3"/>
+
+      <text x="405" y="390" text-anchor="middle" font-size="31" font-weight="780" fill="#0b1838">11.0 m OVERALL LENGTH</text>
+      <path d="M82 415 H728" stroke="#17315f" stroke-width="4" marker-start="url(#saoArrow)" marker-end="url(#saoArrow)"/>
+    </g>
+
+    <g transform="translate(45 520)" filter="url(#saoShadow)">
+      <rect width="810" height="390" rx="24" fill="#ffffff"/>
+      <text x="30" y="55" font-size="31" font-weight="780" letter-spacing="1.2" fill="#0a9b91">STRUCTURAL CROSS-SECTION</text>
+
+      <rect x="118" y="130" width="574" height="34" rx="5" fill="#a9babc" stroke="#7e939d" stroke-width="3"/>
+      <text x="405" y="110" text-anchor="middle" font-size="30" font-weight="760" fill="#0b1838">37.5 mm SFRSCC DECK</text>
+      <g fill="#0b1838">
+        <path d="M175 164 H343 V194 H287 V285 H343 V315 H175 V285 H231 V194 H175 Z"/>
+        <path d="M467 164 H635 V194 H579 V285 H635 V315 H467 V285 H523 V194 H467 Z"/>
+      </g>
+
+      <text x="405" y="349" text-anchor="middle" font-size="31" font-weight="790" fill="#007a74">2.0 m DECK WIDTH · 2 GFRP I-GIRDERS</text>
+      <path d="M118 375 H692" stroke="#0a9b91" stroke-width="4" marker-start="url(#saoArrow)" marker-end="url(#saoArrow)"/>
+    </g>
+
+    <g transform="translate(45 945)">
+      <g filter="url(#saoShadow)">
+        <rect width="385" height="155" rx="20" fill="#ffffff"/>
+        <text x="24" y="51" font-size="30" font-weight="780" letter-spacing="1" fill="#0a9b91">MAIN GIRDER</text>
+        <text x="24" y="115" font-size="39" font-weight="800" fill="#0b1838">400 × 200 × 15 mm</text>
+      </g>
+      <g transform="translate(425 0)" filter="url(#saoShadow)">
+        <rect width="385" height="155" rx="20" fill="#ffffff"/>
+        <text x="24" y="51" font-size="30" font-weight="780" letter-spacing="1" fill="#0a9b91">DECK SYSTEM</text>
+        <text x="24" y="115" font-size="39" font-weight="800" fill="#0b1838">37.5 mm SFRSCC</text>
+      </g>
+    </g>
+
+    <text x="45" y="1148" font-size="30" font-weight="700" fill="#0b1838">Source · peer-reviewed public research</text>
+    <text x="45" y="1185" font-size="30" fill="#647789">Original explanatory graphic · illustrative · not to scale</text>
+  </g>
+</svg>
