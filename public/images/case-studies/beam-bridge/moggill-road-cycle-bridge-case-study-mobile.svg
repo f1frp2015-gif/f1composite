@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Moggill Road Cycle Bridge mobile public case-study diagram</title>
+  <desc id="desc">A mobile engineering schematic of the public Moggill Road Cycle Bridge reference. It records the 218 metre overall length, nine spans in the published 17 to 32 metre range, and a prestressed-concrete T-girder superstructure. Individual span lengths are not mapped.</desc>
+  <defs>
+    <linearGradient id="moggillBackground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#e9f2f2"/>
+    </linearGradient>
+    <linearGradient id="moggillDeck" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#17315f"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#17315f"/>
+    </linearGradient>
+    <filter id="moggillShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1838" flood-opacity="0.12"/>
+    </filter>
+    <marker id="moggillArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#moggillBackground)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(45 45)" filter="url(#moggillShadow)">
+      <rect width="810" height="500" rx="24" fill="#ffffff"/>
+      <text x="30" y="52" font-size="31" font-weight="780" letter-spacing="1.2" fill="#0a9b91">CONCEPTUAL ELEVATION</text>
+
+      <path d="M42 333 C190 298 320 351 460 307 C588 270 691 322 768 284 V446 H42 Z" fill="#e3ecec"/>
+      <rect x="48" y="160" width="714" height="30" rx="5" fill="#9cafb7"/>
+      <rect x="48" y="190" width="714" height="54" rx="5" fill="url(#moggillDeck)"/>
+      <path d="M48 154 H762" stroke="#0a9b91" stroke-width="6"/>
+
+      <g fill="#7f949e">
+        <rect x="38" y="244" width="20" height="120" rx="4"/>
+        <rect x="118" y="244" width="18" height="99" rx="4"/>
+        <rect x="197" y="244" width="18" height="84" rx="4"/>
+        <rect x="276" y="244" width="18" height="74" rx="4"/>
+        <rect x="355" y="244" width="18" height="89" rx="4"/>
+        <rect x="434" y="244" width="18" height="78" rx="4"/>
+        <rect x="513" y="244" width="18" height="102" rx="4"/>
+        <rect x="592" y="244" width="18" height="91" rx="4"/>
+        <rect x="671" y="244" width="18" height="69" rx="4"/>
+        <rect x="752" y="244" width="20" height="56" rx="4"/>
+      </g>
+
+      <g stroke="#0b1838" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="584" cy="112" r="17"/>
+        <circle cx="646" cy="112" r="17"/>
+        <path d="M584 112 L615 82 L634 112 L604 112 Z M615 82 L599 60 L640 60 M615 82 L646 112"/>
+      </g>
+
+      <path d="M48 418 H762" stroke="#0a9b91" stroke-width="4" marker-start="url(#moggillArrow)" marker-end="url(#moggillArrow)"/>
+      <text x="405" y="469" text-anchor="middle" font-size="32" font-weight="790" fill="#007a74">9 SPANS · PUBLISHED RANGE 17–32 m</text>
+    </g>
+
+    <g transform="translate(45 580)">
+      <g filter="url(#moggillShadow)">
+        <rect width="385" height="175" rx="20" fill="#ffffff"/>
+        <text x="24" y="51" font-size="30" font-weight="780" letter-spacing="1" fill="#0a9b91">OVERALL LENGTH</text>
+        <text x="24" y="126" font-size="50" font-weight="800" fill="#0b1838">218 m</text>
+      </g>
+      <g transform="translate(425 0)" filter="url(#moggillShadow)">
+        <rect width="385" height="175" rx="20" fill="#ffffff"/>
+        <text x="24" y="51" font-size="30" font-weight="780" letter-spacing="1" fill="#0a9b91">PRIMARY STRUCTURE</text>
+        <text x="24" y="105" font-size="35" font-weight="790" fill="#0b1838">Prestressed concrete</text>
+        <text x="24" y="145" font-size="35" font-weight="790" fill="#0b1838">T-girders</text>
+      </g>
+    </g>
+
+    <g transform="translate(45 795)" filter="url(#moggillShadow)">
+      <rect width="810" height="220" rx="22" fill="#0b1838"/>
+      <text x="28" y="50" font-size="30" font-weight="780" letter-spacing="1" fill="#62d5cc">EVIDENCE BOUNDARY</text>
+      <path d="M30 88 H780" stroke="#2b456d" stroke-width="3"/>
+      <text x="28" y="139" font-size="34" font-weight="760" fill="#ffffff">Individual span lengths are not mapped.</text>
+      <text x="28" y="184" font-size="30" fill="#c8d7df">The elevation shows nine schematic bays only.</text>
+    </g>
+
+    <text x="45" y="1085" font-size="30" font-weight="700" fill="#0b1838">Source · Queensland Transport and Main Roads</text>
+    <text x="45" y="1145" font-size="30" fill="#647789">Original explanatory graphic · illustrative · not to scale</text>
+  </g>
+</svg>

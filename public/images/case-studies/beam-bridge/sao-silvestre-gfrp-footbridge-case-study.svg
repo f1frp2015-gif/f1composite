@@ -1,103 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">São Silvestre GFRP footbridge public research case study</title>
-  <desc id="desc">An original engineering schematic presents the 11 metre overall, 2 metre wide São Silvestre footbridge with a 10 metre installed support span, two pultruded GFRP I-girders and a 37.5 millimetre SFRSCC deck. A note distinguishes the earlier 10.5 metre prototype test span.</desc>
+  <desc id="desc">An original proportional engineering schematic presents the 11 metre overall length, 10 metre installed support span, 2 metre width, two 400 by 200 by 15 millimetre pultruded GFRP I-girders and 37.5 millimetre SFRSCC deck. The earlier 10.5 metre prototype support span is separately identified.</desc>
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fbfdfd"/>
-      <stop offset="1" stop-color="#e9f2f2"/>
-    </linearGradient>
-    <linearGradient id="girder" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#17315f"/>
-      <stop offset="0.5" stop-color="#0b1838"/>
-      <stop offset="1" stop-color="#17315f"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
-      <feDropShadow dx="0" dy="9" stdDeviation="11" flood-color="#0b1838" flood-opacity="0.13"/>
-    </filter>
-    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse">
-      <path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/>
-    </marker>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbfdfd"/><stop offset="1" stop-color="#eaf2f2"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="11" flood-color="#0b1838" flood-opacity="0.12"/></filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/></marker>
+    <marker id="arrowNavy" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#17315f"/></marker>
   </defs>
-
   <rect width="1600" height="900" fill="url(#background)"/>
   <g font-family="Inter, Arial, sans-serif">
-    <rect x="82" y="48" width="322" height="38" rx="19" fill="#e5f7f5" stroke="#0a9b91" stroke-width="2"/>
-    <text x="243" y="74" text-anchor="middle" font-size="17" font-weight="780" letter-spacing="1.2" fill="#007a74">PUBLIC REFERENCE · NOT AN F1 PROJECT</text>
-    <text x="82" y="139" font-size="48" font-weight="760" fill="#0b1838">São Silvestre GFRP footbridge</text>
-    <text x="83" y="181" font-size="22" fill="#4f6275">A full-scale Portuguese research bridge linking material design to measured behaviour.</text>
+    <rect x="82" y="48" width="360" height="42" rx="21" fill="#e5f7f5" stroke="#0a9b91" stroke-width="2"/>
+    <text x="262" y="76" text-anchor="middle" font-size="19" font-weight="780" letter-spacing="1.2" fill="#007a74">PUBLIC REFERENCE · NOT AN F1 PROJECT</text>
+    <text x="82" y="145" font-size="50" font-weight="760" fill="#0b1838">São Silvestre GFRP footbridge</text>
+    <text x="83" y="190" font-size="24" fill="#4f6275">Known longitudinal and section dimensions are drawn proportionally, with enlargements where needed.</text>
 
-    <g transform="translate(82 220)">
+    <g transform="translate(82 225)" filter="url(#shadow)">
+      <rect width="930" height="350" rx="24" fill="#ffffff"/>
+      <text x="28" y="43" font-size="21" font-weight="770" letter-spacing="1.3" fill="#0a9b91">INSTALLED ELEVATION · LENGTH AND MEMBER DEPTH PROPORTIONAL</text>
+
+      <!-- 11.0 m = 760 units; 10.0 m support span = 690.91 units; 0.4 m girder = 27.64 units. -->
+      <path d="M85 202 H845" stroke="#0a9b91" stroke-width="4"/>
+      <rect x="85" y="206" width="760" height="3" fill="#a9babc"/>
+      <rect x="85" y="209" width="760" height="4" fill="#17315f"/>
+      <rect x="85" y="213" width="760" height="20" fill="#17315f" opacity="0.92"/>
+      <rect x="85" y="233" width="760" height="4" fill="#0b1838"/>
+      <text x="465" y="264" text-anchor="middle" font-size="18" fill="#647789">Near I-girder in side elevation; the second main girder is behind it.</text>
+
+      <!-- Bearings are located at the support centre lines, 34.55 units from each end. -->
+      <g fill="#0a9b91"><rect x="102" y="237" width="36" height="12" rx="3"/><rect x="792" y="237" width="36" height="12" rx="3"/></g>
+      <g fill="#0b1838"><path d="M94 249 H146 L162 274 H78 Z"/><path d="M784 249 H836 L852 274 H768 Z"/></g>
+
+      <path d="M120 111 H810" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <path d="M120 103 V249 M810 103 V249" stroke="#0a9b91" stroke-width="2"/>
+      <rect x="300" y="86" width="330" height="44" rx="22" fill="#e5f7f5"/>
+      <text x="465" y="115" text-anchor="middle" font-size="21" font-weight="790" fill="#007a74">10.0 m INSTALLED SUPPORT SPAN</text>
+
+      <path d="M85 310 H845" stroke="#17315f" stroke-width="3" marker-start="url(#arrowNavy)" marker-end="url(#arrowNavy)"/>
+      <path d="M85 278 V322 M845 278 V322" stroke="#17315f" stroke-width="2"/>
+      <text x="465" y="303" text-anchor="middle" font-size="21" font-weight="790" fill="#17315f">11.0 m OVERALL LENGTH</text>
+    </g>
+
+    <g transform="translate(1040 225)" filter="url(#shadow)">
+      <rect width="478" height="350" rx="24" fill="#ffffff"/>
+      <text x="26" y="43" font-size="21" font-weight="770" letter-spacing="1.3" fill="#0a9b91">TRANSVERSE SECTION</text>
+      <text x="26" y="72" font-size="18" fill="#647789">Section sizes to scale · girder spacing schematic</text>
+
+      <!-- 2.0 m width = 400 units; 37.5 mm deck = 7.5 units. -->
+      <rect x="39" y="126" width="400" height="7.5" rx="2" fill="#a9babc" stroke="#7e939d" stroke-width="2"/>
+      <text x="239" y="114" text-anchor="middle" font-size="18" font-weight="750" fill="#596d7d">37.5 mm SFRSCC DECK</text>
+
+      <!-- Each exact I-section: 200 mm wide = 40 units; 400 mm deep = 80 units; t = 15 mm = 3 units. -->
+      <g fill="#0b1838">
+        <path d="M129 134 H169 V137 H150.5 V211 H169 V214 H129 V211 H147.5 V137 H129 Z"/>
+        <path d="M309 134 H349 V137 H330.5 V211 H349 V214 H309 V211 H327.5 V137 H309 Z"/>
+      </g>
+      <path d="M39 250 H439" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <text x="239" y="243" text-anchor="middle" font-size="21" font-weight="790" fill="#007a74">2.0 m OVERALL WIDTH</text>
+      <text x="239" y="287" text-anchor="middle" font-size="20" font-weight="790" fill="#0b1838">2 × GFRP I 400 × 200 × 15 mm</text>
+      <text x="239" y="317" text-anchor="middle" font-size="18" fill="#596d7d">Girder centre spacing is not dimensioned here.</text>
+    </g>
+
+    <g transform="translate(82 606)">
       <g filter="url(#shadow)">
-        <rect width="900" height="334" rx="24" fill="#ffffff"/>
-        <text x="27" y="41" font-size="18" font-weight="760" letter-spacing="1.3" fill="#0a9b91">SIMPLY SUPPORTED ELEVATION</text>
-        <g transform="translate(40 46)">
-          <path d="M59 111 H753" stroke="#0a9b91" stroke-width="6"/>
-          <rect x="59" y="116" width="694" height="22" rx="5" fill="#a9babc"/>
-          <rect x="65" y="138" width="682" height="77" rx="5" fill="url(#girder)"/>
-          <g stroke="#0b1838" stroke-width="5" fill="none">
-            <path d="M73 111 V64 M95 111 V66 M73 64 H95 M71 79 H97 M71 95 H97"/>
-            <path d="M717 111 V64 M739 111 V66 M717 64 H739 M715 79 H741 M715 95 H741"/>
-          </g>
-          <rect x="88" y="215" width="72" height="17" rx="4" fill="#0a9b91"/>
-          <rect x="646" y="215" width="72" height="17" rx="4" fill="#0a9b91"/>
-          <path d="M79 237 H169 L190 267 H58 Z M637 237 H727 L748 267 H616 Z" fill="#0b1838"/>
-
-          <path d="M88 49 H718" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-          <path d="M88 41 V111 M718 41 V111" stroke="#0a9b91" stroke-width="2"/>
-          <rect x="268" y="24" width="270" height="44" rx="22" fill="#e5f7f5"/>
-          <text x="403" y="53" text-anchor="middle" font-size="18" font-weight="780" fill="#007a74">10.0 m INSTALLED SUPPORT SPAN</text>
-
-          <path d="M59 293 H753" stroke="#17315f" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-          <text x="406" y="286" text-anchor="middle" font-size="17" font-weight="760" fill="#0b1838">11.0 m OVERALL LENGTH</text>
-        </g>
+        <rect width="430" height="112" rx="19" fill="#ffffff"/>
+        <text x="23" y="35" font-size="19" font-weight="770" letter-spacing="1.1" fill="#0a9b91">MAIN GIRDER SECTION</text>
+        <text x="23" y="79" font-size="31" font-weight="800" fill="#0b1838">400 × 200 × 15 mm</text>
+        <text x="23" y="101" font-size="18" fill="#596d7d">Pultruded GFRP I-shape</text>
       </g>
-
-      <g transform="translate(928 0)" filter="url(#shadow)">
-        <rect width="508" height="334" rx="24" fill="#ffffff"/>
-        <text x="27" y="41" font-size="18" font-weight="760" letter-spacing="1.3" fill="#0a9b91">STRUCTURAL CROSS-SECTION</text>
-        <g transform="translate(56 76)">
-          <rect x="0" y="20" width="396" height="20" rx="4" fill="#a9babc" stroke="#7e939d" stroke-width="2"/>
-          <text x="198" y="14" text-anchor="middle" font-size="15" font-weight="720" fill="#596d7d">37.5 mm SFRSCC DECK</text>
-          <g fill="#0b1838">
-            <path d="M54 40 H174 V58 H132 V183 H174 V201 H54 V183 H96 V58 H54 Z"/>
-            <path d="M222 40 H342 V58 H300 V183 H342 V201 H222 V183 H264 V58 H222 Z"/>
-          </g>
-          <path d="M0 230 H396" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-          <text x="198" y="224" text-anchor="middle" font-size="18" font-weight="780" fill="#007a74">2.0 m WIDTH</text>
-          <text x="198" y="263" text-anchor="middle" font-size="16" font-weight="720" fill="#0b1838">TWO PULTRUDED GFRP I-GIRDERS</text>
-        </g>
+      <g transform="translate(454 0)" filter="url(#shadow)">
+        <rect width="420" height="112" rx="19" fill="#ffffff"/>
+        <text x="23" y="35" font-size="19" font-weight="770" letter-spacing="1.1" fill="#0a9b91">DECK SYSTEM</text>
+        <text x="23" y="77" font-size="28" font-weight="790" fill="#0b1838">37.5 mm SFRSCC plate</text>
+        <text x="23" y="101" font-size="18" fill="#596d7d">Steel-fibre-reinforced concrete</text>
+      </g>
+      <g transform="translate(898 0)" filter="url(#shadow)">
+        <rect width="538" height="112" rx="19" fill="#ffffff"/>
+        <text x="23" y="35" font-size="19" font-weight="770" letter-spacing="1.1" fill="#0a9b91">CONNECTION EVIDENCE</text>
+        <text x="23" y="77" font-size="27" font-weight="790" fill="#0b1838">M10 stainless bolts + GFRP angles</text>
+        <text x="23" y="101" font-size="18" fill="#596d7d">Main-to-secondary topology; count and spacing not inferred</text>
       </g>
     </g>
 
-    <g transform="translate(82 587)">
-      <g filter="url(#shadow)">
-        <rect width="451" height="116" rx="20" fill="#ffffff"/>
-        <text x="23" y="35" font-size="16" font-weight="760" letter-spacing="1.2" fill="#0a9b91">MAIN GIRDER SECTION</text>
-        <text x="23" y="79" font-size="31" font-weight="790" fill="#0b1838">400 × 200 × 15 mm</text>
-        <text x="23" y="101" font-size="15" fill="#596d7d">Pultruded GFRP I-shape</text>
-      </g>
-      <g transform="translate(475 0)" filter="url(#shadow)">
-        <rect width="452" height="116" rx="20" fill="#ffffff"/>
-        <text x="23" y="35" font-size="16" font-weight="760" letter-spacing="1.2" fill="#0a9b91">DECK SYSTEM</text>
-        <text x="23" y="77" font-size="26" font-weight="780" fill="#0b1838">37.5 mm SFRSCC plate</text>
-        <text x="23" y="101" font-size="15" fill="#596d7d">Steel fibre-reinforced self-compacting concrete</text>
-      </g>
-      <g transform="translate(951 0)" filter="url(#shadow)">
-        <rect width="485" height="116" rx="20" fill="#ffffff"/>
-        <text x="23" y="35" font-size="16" font-weight="760" letter-spacing="1.2" fill="#0a9b91">CONNECTION DETAIL</text>
-        <text x="23" y="77" font-size="25" font-weight="780" fill="#0b1838">M10 stainless bolts + GFRP angles</text>
-        <text x="23" y="101" font-size="15" fill="#596d7d">Main-to-secondary member connection</text>
-      </g>
+    <g transform="translate(82 748)">
+      <rect width="1436" height="76" rx="18" fill="#0b1838"/>
+      <text x="27" y="31" font-size="20" font-weight="770" letter-spacing="1.2" fill="#62d5cc">RESEARCH VALUE</text>
+      <text x="27" y="58" font-size="19" fill="#ffffff">Full-scale static, dynamic and creep testing preceded service; later monitoring calibrated modal behaviour and damping.</text>
+      <rect x="1118" y="18" width="290" height="40" rx="20" fill="#fff4e7"/>
+      <text x="1263" y="44" text-anchor="middle" font-size="18" font-weight="790" fill="#8b4c0c">PROTOTYPE TEST SPAN · 10.5 m</text>
     </g>
-
-    <g transform="translate(82 736)">
-      <rect width="1436" height="88" rx="19" fill="#0b1838"/>
-      <text x="27" y="34" font-size="17" font-weight="760" letter-spacing="1.2" fill="#62d5cc">RESEARCH VALUE</text>
-      <text x="27" y="62" font-size="18" fill="#ffffff">Full-scale static, dynamic and creep testing preceded service; later monitoring calibrated modal behaviour and damping.</text>
-      <text x="1408" y="62" font-size="16" text-anchor="end" fill="#aebfca">Illustrative · not to scale</text>
-    </g>
-
-    <text x="82" y="866" font-size="16" fill="#647789">Sources: peer-reviewed studies by FEUP / CONSTRUCT, CERIS / Instituto Superior Técnico and University of Minho researchers</text>
-    <text x="1518" y="866" font-size="16" text-anchor="end" fill="#647789">2014 prototype test span: 10.5 m · operational since 2015</text>
+    <text x="82" y="866" font-size="18" fill="#647789">Sources: Gonilha et al. (2014) and Dacol et al. (2022) · peer-reviewed research</text>
+    <text x="1518" y="866" font-size="18" text-anchor="end" fill="#647789">Installed support span: 10.0 m · operational since 2015</text>
   </g>
 </svg>

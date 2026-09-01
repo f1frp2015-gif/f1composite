@@ -253,6 +253,7 @@ const caseStudies = [
     location: "Indooroopilly, Brisbane, Australia",
     system: "Prestressed-concrete T-girder cycle bridge",
     image: "/images/case-studies/beam-bridge/moggill-road-cycle-bridge-case-study.svg",
+    mobileImage: "/images/case-studies/beam-bridge/moggill-road-cycle-bridge-case-study-mobile.svg",
     alt: "Engineering schematic of the nine-span Moggill Road prestressed-concrete T-girder cycle bridge",
     summary:
       "A cycle-only crossing that demonstrates how a conventional repeated-girder system can be designed around rider continuity, off-site fabrication and maintenance access—not just structural capacity.",
@@ -278,6 +279,7 @@ const caseStudies = [
     location: "Bicentennial Bikeway, Brisbane, Australia",
     system: "Glued pultruded-FRP girder system",
     image: "/images/case-studies/beam-bridge/coronation-drive-frp-cycleway-case-study.svg",
+    mobileImage: "/images/case-studies/beam-bridge/coronation-drive-frp-cycleway-case-study-mobile.svg",
     alt: "Engineering schematic of the lightweight FRP girder bridge on the Coronation Drive cycleway",
     summary:
       "Queensland TMR documents a cycleway bridge using glued pultruded-FRP hollow sections with an engineered cementitious composite plate deck—a useful short-span reference where access and lifting mass matter.",
@@ -304,6 +306,7 @@ const caseStudies = [
     location: "Ovar, Portugal",
     system: "Hybrid GFRP–SFRSCC simply supported beam bridge",
     image: "/images/case-studies/beam-bridge/sao-silvestre-gfrp-footbridge-case-study.svg",
+    mobileImage: "/images/case-studies/beam-bridge/sao-silvestre-gfrp-footbridge-case-study-mobile.svg",
     alt: "Engineering schematic of the São Silvestre hybrid GFRP and concrete pedestrian beam bridge",
     summary:
       "Developed through Portuguese university–industry research, this full-scale bridge links laboratory static, dynamic and creep testing with an in-service pedestrian beam system monitored after installation.",
@@ -494,6 +497,33 @@ function SourceLink({ href, children }: { href: string; children: ReactNode }) {
   );
 }
 
+function ResponsiveDiagram({
+  src,
+  mobileSrc,
+  alt,
+  preload = false,
+}: {
+  src: string;
+  mobileSrc: string;
+  alt: string;
+  preload?: boolean;
+}) {
+  return (
+    <picture className="block">
+      <source media="(max-width: 639px)" srcSet={mobileSrc} type="image/svg+xml" />
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        height={900}
+        sizes="(max-width: 1440px) 100vw, 1292px"
+        preload={preload}
+        className="aspect-[3/4] h-auto w-full object-contain sm:aspect-video"
+      />
+    </picture>
+  );
+}
+
 function CheckList({ items, inverted = false }: { items: readonly string[]; inverted?: boolean }) {
   return (
     <ul className={`space-y-[10px] text-f13 leading-golden ${inverted ? "text-white/80" : "text-t2"}`}>
@@ -537,31 +567,23 @@ export default function BeamBridgeCaseStudiesPage() {
             href: "/products/fiberglass-structural-shapes/frp-i-beam",
             variant: "secondary",
           },
-          note: "Concept screening only. The bridge owner and appointed engineer define the governing code, loads and acceptance criteria.",
         }}
-      />
-
-      <ArticleSignals
-        publishedAt="2026-08-31"
-        updatedAt="2026-09-01"
-        authorName="Yifan Liu"
-        authorRole="Senior Application Engineer — pultruded FRP structural applications"
-        authorHref="/about/authors/yifan-liu"
-        reviewedBy="Haifeng Gong, Ph.D."
-        standards={["AS/NZS 5100:2017", "Austroads ATS 5880-25", "AASHTO FRP Guide, 2nd Ed. (2025)"]}
       />
 
       <main>
         <section className="bg-white py-[42px] md:py-[64px]">
-          <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:px-[34px]">
-            <div>
+          <div className="mx-auto flex max-w-[1360px] flex-col px-[20px] sm:px-[28px] lg:px-[34px]">
+            <div className="order-2 mt-[28px] grid gap-[18px] border-b border-border-default pb-[26px] md:order-1 md:mt-0 lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px] lg:pb-[34px]">
+              <div>
               <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                 Direct answer
               </p>
-              <h2 className="mt-[10px] text-[clamp(28px,3.2vw,42px)] font-extrabold tracking-[-0.03em] text-t1">
+              <h2 className="mt-[10px] text-[clamp(30px,3.2vw,42px)] font-extrabold leading-[1.12] tracking-[-0.03em] text-t1">
                 What is a beam bridge?
               </h2>
-              <p className="mt-[16px] text-f19 leading-relaxed text-t1">
+              </div>
+              <div>
+              <p className="text-f19 leading-relaxed text-t1">
                 A <dfn className="font-bold not-italic">beam bridge</dfn> carries its deck on
                 horizontal beams or girders between supports. On a pedestrian or cycle crossing,
                 the load path normally runs from the deck through cross-members or deck action into
@@ -574,53 +596,65 @@ export default function BeamBridgeCaseStudiesPage() {
                 <SourceLink href={sourceUrls.bending}>FHWA beam-bending reference</SourceLink>.
                 The animated diagram is conceptual, not a project design.
               </p>
-              <nav
-                aria-label="On this page"
-                className="mt-[24px] rounded-[8px] border border-border-default bg-bg2 p-[18px]"
-              >
-                <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                  On this page
-                </p>
-                <div className="mt-[10px] flex flex-wrap gap-x-[18px] gap-y-[8px] text-f13 font-semibold">
-                  <a className="text-teal-text hover:text-teal" href="#load-path">
-                    Load path
-                  </a>
-                  <a className="text-teal-text hover:text-teal" href="#active-use-design">
-                    Active-use design
-                  </a>
-                  <a className="text-teal-text hover:text-teal" href="#vibration">
-                    Vibration
-                  </a>
-                  <a className="text-teal-text hover:text-teal" href="#case-studies">
-                    Case studies
-                  </a>
-                  <a className="text-teal-text hover:text-teal" href="#frp-design">
-                    FRP design
-                  </a>
-                  <a className="text-teal-text hover:text-teal" href="#sources">
-                    Sources
-                  </a>
-                </div>
-              </nav>
+              </div>
             </div>
 
-            <figure className="overflow-hidden rounded-[12px] border border-border-default bg-[#f7faf9] shadow-[0_14px_40px_rgba(11,24,56,0.08)]">
-              <Image
+            <figure className="order-1 overflow-hidden rounded-[10px] border border-border-default bg-[#f7faf9] shadow-[0_18px_50px_rgba(11,24,56,0.09)] md:order-2 md:mt-[34px]">
+              <ResponsiveDiagram
                 src="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg"
+                mobileSrc="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path-mobile.svg"
                 alt="Animated engineering diagram showing pedestrian and cycle deck loads transferring through beam bridge girders, bearings and supports"
-                width={1600}
-                height={900}
-                sizes="(max-width: 1024px) 100vw, 58vw"
                 preload
-                className="h-auto w-full"
               />
-              <figcaption className="border-t border-border-default bg-white px-[16px] py-[10px] text-f11 leading-relaxed text-t3">
+              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
                 Original one-shot engineering animation. Motion is disabled when reduced motion is
-                requested. Illustrative only; not to scale.
+                requested. Illustrative only; not to scale. {" "}
+                <SourceLink href="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg">
+                  Open full-resolution diagram ↗
+                </SourceLink>
               </figcaption>
             </figure>
+
+            <nav
+              aria-label="On this page"
+              className="order-3 mt-[18px] flex flex-col gap-[10px] rounded-[9px] border border-border-default bg-bg2 px-[18px] py-[15px] md:flex-row md:items-center md:gap-[24px]"
+            >
+              <p className="shrink-0 text-f11 font-bold uppercase tracking-[0.14em] text-t3">
+                On this page
+              </p>
+              <div className="flex flex-wrap gap-x-[18px] gap-y-[8px] text-f13 font-semibold">
+                <a className="text-teal-text hover:text-teal" href="#load-path">
+                  Load path
+                </a>
+                <a className="text-teal-text hover:text-teal" href="#active-use-design">
+                  Active-use design
+                </a>
+                <a className="text-teal-text hover:text-teal" href="#vibration">
+                  Vibration
+                </a>
+                <a className="text-teal-text hover:text-teal" href="#case-studies">
+                  Case studies
+                </a>
+                <a className="text-teal-text hover:text-teal" href="#frp-design">
+                  FRP design
+                </a>
+                <a className="text-teal-text hover:text-teal" href="#sources">
+                  Sources
+                </a>
+              </div>
+            </nav>
           </div>
         </section>
+
+        <ArticleSignals
+          publishedAt="2026-08-31"
+          updatedAt="2026-09-01"
+          authorName="Yifan Liu"
+          authorRole="Senior Application Engineer — pultruded FRP structural applications"
+          authorHref="/about/authors/yifan-liu"
+          reviewedBy="Haifeng Gong, Ph.D."
+          standards={["AS/NZS 5100:2017", "Austroads ATS 5880-25", "AASHTO FRP Guide, 2nd Ed. (2025)"]}
+        />
 
         <section id="load-path" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[78px]">
           <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
@@ -629,7 +663,7 @@ export default function BeamBridgeCaseStudiesPage() {
                 <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                   Structural behaviour
                 </p>
-                <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
+                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
                   The complete beam bridge load path
                 </h2>
               </div>
@@ -661,7 +695,7 @@ export default function BeamBridgeCaseStudiesPage() {
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="mt-[14px] text-f17 font-bold text-t1">{step.label}</h3>
+                  <h3 className="mt-[14px] text-f19 font-bold text-t1">{step.label}</h3>
                   <p className="mt-[6px] text-f13 leading-golden text-t2">{step.copy}</p>
                 </li>
               ))}
@@ -687,62 +721,69 @@ export default function BeamBridgeCaseStudiesPage() {
         </section>
 
         <section id="active-use-design" className="scroll-mt-[110px] bg-white py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
+          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
+            <div className="grid gap-[18px] lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px]">
               <div>
                 <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                   Pedestrian and bicycle geometry
                 </p>
-                <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
+                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
                   Design the path and bridge as one system
                 </h2>
+              </div>
+              <div>
                 <p className="mt-[16px] text-f15 leading-golden text-t2">
                   An active-user beam bridge is not a road bridge with traffic loads removed. The
                   usable corridor is defined by clear width, approach alignment, gradients,
                   sightlines, barrier geometry, joints, drainage, lighting and the behaviour of
                   people on foot, bicycles, wheelchairs and mobility devices.
                 </p>
-                <div className="mt-[22px] rounded-[9px] border-l-[4px] border-[#d69535] bg-[#fff8e9] p-[18px]">
-                  <h3 className="text-f15 font-bold text-t1">There is no universal minimum width</h3>
-                  <p className="mt-[7px] text-f13 leading-golden text-t2">
-                    Queensland TMR lists 3.0 m minimum clear width between barriers for two-way
-                    cycling and shared pedestrian–cycle use. The Transport for NSW toolbox gives a
-                    4.0 m desired minimum for a shared path. Both are jurisdiction-specific; demand,
-                    separation and owner approval govern the project.
-                  </p>
-                  <p className="mt-[9px] text-f11 text-t3">
-                    Sources:{" "}
-                    <SourceLink href={sourceUrls.tmrCriteria}>Queensland TMR 2024 criteria</SourceLink>{" "}
-                    and{" "}
-                    <SourceLink href={sourceUrls.nswToolbox}>Transport for NSW toolbox</SourceLink>.
-                  </p>
-                </div>
               </div>
-
-              <figure className="overflow-hidden rounded-[12px] border border-border-default bg-bg2">
-                <Image
-                  src="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg"
-                  alt="Pedestrian and cycle beam bridge cross-section showing clear width, barriers, drainage, deck, crossbeam, main girders and bearings"
-                  width={1600}
-                  height={900}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="h-auto w-full"
-                />
-                <figcaption className="border-t border-border-default bg-white px-[16px] py-[10px] text-f11 leading-relaxed text-t3">
-                  Clear width is measured between barriers. Values and edge details must be approved
-                  by the owner and governing jurisdiction. Illustrative only; not to scale.
-                </figcaption>
-              </figure>
             </div>
 
-            <div className="mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
+            <figure className="mt-[30px] overflow-hidden rounded-[10px] border border-border-default bg-bg2 shadow-[0_16px_44px_rgba(11,24,56,0.06)] md:mt-[38px]">
+              <ResponsiveDiagram
+                src="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg"
+                mobileSrc="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section-mobile.svg"
+                alt="Pedestrian and cycle beam bridge cross-section showing clear width, barriers, drainage, deck, crossbeam, main girders and bearings"
+              />
+              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
+                Clear width is measured between barriers. Values and edge details must be approved
+                by the owner and governing jurisdiction. Illustrative only; not to scale. {" "}
+                <SourceLink href="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg">
+                  Open full-resolution diagram ↗
+                </SourceLink>
+              </figcaption>
+            </figure>
+
+            <div className="mt-[20px] grid gap-[12px] rounded-[9px] border-l-[4px] border-[#d69535] bg-[#fff8e9] p-[18px] md:grid-cols-[0.66fr_1.34fr] md:gap-[30px] md:p-[22px]">
+              <h3 className="text-f19 font-bold text-t1">There is no universal minimum width</h3>
+              <div>
+                <p className="text-f13 leading-golden text-t2">
+                  Queensland TMR lists 3.0 m minimum clear width between barriers for two-way
+                  cycling and shared pedestrian–cycle use. The Transport for NSW toolbox gives a
+                  4.0 m desired minimum for a shared path. Both are jurisdiction-specific; demand,
+                  separation and owner approval govern the project.
+                </p>
+                <p className="mt-[9px] text-f11 text-t3">
+                  Sources:{" "}
+                  <SourceLink href={sourceUrls.tmrCriteria}>Queensland TMR 2024 criteria</SourceLink>{" "}
+                  and{" "}
+                  <SourceLink href={sourceUrls.nswToolbox}>Transport for NSW toolbox</SourceLink>.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-[28px] grid gap-px overflow-hidden rounded-[9px] border border-border-default bg-border-default sm:grid-cols-2 lg:grid-cols-3">
               {activeUseDecisions.map((item) => (
-                <article key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[20px]">
-                  <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-white text-teal-text shadow-sm">
+                <article key={item.title} className="flex gap-[13px] bg-white p-[18px]">
+                  <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[7px] bg-teal-bg text-teal-text">
                     <BridgeIcon name={item.icon} />
                   </span>
-                  <h3 className="mt-[13px] text-f17 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[6px] text-f13 leading-golden text-t2">{item.copy}</p>
+                  <div>
+                    <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
+                    <p className="mt-[4px] text-f13 leading-golden text-t2">{item.copy}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -767,43 +808,57 @@ export default function BeamBridgeCaseStudiesPage() {
         </section>
 
         <section id="vibration" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[89px]">
-          <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-[34px]">
-            <figure className="overflow-hidden rounded-[12px] border border-border-default bg-white shadow-[0_12px_34px_rgba(11,24,56,0.05)]">
-              <Image
+          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
+            <div className="grid gap-[18px] lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px]">
+              <div>
+                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
+                  Dynamic serviceability
+                </p>
+                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
+                  Natural frequency is a screen, not a verdict
+                </h2>
+              </div>
+              <div className="text-f15 leading-golden text-t2">
+                <p>
+                  Walking, running and crowd movement can excite vertical, lateral and torsional
+                  modes. In the AS/NZS 5100-based TMR guidance, a pedestrian bridge with vertical
+                  resonant frequency below 5 Hz requires a vibration serviceability investigation;
+                  special consideration is also required when the fundamental horizontal frequency
+                  is below 1.5 Hz.
+                </p>
+                <p className="mt-[13px] hidden sm:block">
+                  Passing those screens does not prove comfort. The analysis still needs mode shape,
+                  modal mass, damping, pedestrian density and peak acceleration. The European
+                  Commission JRC/HIVOSS guide frames the same problem around comfort, lock-in risk,
+                  intentional excitation, testing and response mitigation.
+                </p>
+              </div>
+            </div>
+
+            <figure className="mt-[30px] overflow-hidden rounded-[10px] border border-border-default bg-white shadow-[0_16px_44px_rgba(11,24,56,0.06)] md:mt-[38px]">
+              <ResponsiveDiagram
                 src="/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg"
+                mobileSrc="/images/case-studies/beam-bridge/footbridge-vibration-serviceability-mobile.svg"
                 alt="Footbridge vibration workflow showing vertical and lateral modes, Australian screening triggers, acceleration-based comfort assessment and mitigation"
-                width={1600}
-                height={900}
-                sizes="(max-width: 1024px) 100vw, 55vw"
-                className="h-auto w-full"
               />
-              <figcaption className="border-t border-border-default bg-white px-[16px] py-[10px] text-f11 leading-relaxed text-t3">
+              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
                 The 5 Hz vertical and 1.5 Hz lateral values are Australian investigation triggers,
-                not pass/fail comfort limits.
+                not pass/fail comfort limits. {" "}
+                <SourceLink href="/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg">
+                  Open full-resolution diagram ↗
+                </SourceLink>
               </figcaption>
             </figure>
 
-            <div>
-              <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                Dynamic serviceability
-              </p>
-              <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
-                Natural frequency is a screen, not a verdict
-              </h2>
-              <p className="mt-[16px] text-f15 leading-golden text-t2">
-                Walking, running and crowd movement can excite vertical, lateral and torsional
-                modes. In the AS/NZS 5100-based TMR guidance, a pedestrian bridge with vertical
-                resonant frequency below 5 Hz requires a vibration serviceability investigation;
-                special consideration is also required when the fundamental horizontal frequency
-                is below 1.5 Hz.
-              </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
-                Passing those screens does not prove comfort. The analysis still needs mode shape,
-                modal mass, damping, pedestrian density and peak acceleration. The European
-                Commission JRC/HIVOSS guide frames the same problem around comfort, lock-in risk,
-                intentional excitation, testing and response mitigation.
-              </p>
-              <div className="mt-[20px] rounded-[9px] border border-[#e5bd7b] bg-[#fff8e9] p-[18px]">
+            <p className="mt-[18px] text-f15 leading-golden text-t2 sm:hidden">
+              Passing those screens does not prove comfort. The analysis still needs mode shape,
+              modal mass, damping, pedestrian density and peak acceleration. The European
+              Commission JRC/HIVOSS guide frames the same problem around comfort, lock-in risk,
+              intentional excitation, testing and response mitigation.
+            </p>
+
+            <div className="mt-[22px] grid gap-[16px] lg:grid-cols-[1.18fr_0.82fr]">
+              <div className="rounded-[10px] border border-[#e5bd7b] bg-[#fff8e9] p-[20px] md:p-[24px]">
                 <div className="flex gap-[12px]">
                   <span className="mt-[1px] flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] bg-white text-[#8a5b12]">
                     <BridgeIcon name="vibration" />
@@ -820,12 +875,22 @@ export default function BeamBridgeCaseStudiesPage() {
                   </div>
                 </div>
               </div>
-              <p className="mt-[13px] text-f11 leading-relaxed text-t3">
-                Sources:{" "}
-                <SourceLink href={sourceUrls.tmrGuide}>Queensland TMR 2023 guideline</SourceLink>,{" "}
-                <SourceLink href={sourceUrls.jrcVibration}>European Commission JRC/HIVOSS</SourceLink>{" "}
-                and <SourceLink href={sourceUrls.monashResearch}>Monash research paper</SourceLink>.
-              </p>
+              <aside className="rounded-[10px] border border-border-default bg-white p-[20px] md:p-[24px]">
+                <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
+                  Evidence trail
+                </p>
+                <p className="mt-[10px] text-f13 leading-golden text-t2">
+                  Screening criteria and comfort assessment must be traced to the adopted owner
+                  guidance and a project-specific dynamic model.
+                </p>
+                <p className="mt-[12px] text-f13 leading-golden">
+                  <SourceLink href={sourceUrls.tmrGuide}>Queensland TMR 2023 guideline</SourceLink>
+                  <br />
+                  <SourceLink href={sourceUrls.jrcVibration}>European Commission JRC/HIVOSS</SourceLink>
+                  <br />
+                  <SourceLink href={sourceUrls.monashResearch}>Monash research paper</SourceLink>
+                </p>
+              </aside>
             </div>
           </div>
         </section>
@@ -837,7 +902,7 @@ export default function BeamBridgeCaseStudiesPage() {
                 <p className="text-f11 font-bold uppercase tracking-[0.18em] text-[#62d8cf]">
                   Balanced assessment
                 </p>
-                <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em]">
+                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em]">
                   Where beam bridges work—and what governs
                 </h2>
               </div>
@@ -876,12 +941,12 @@ export default function BeamBridgeCaseStudiesPage() {
         </section>
 
         <section id="case-studies" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1180px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
             <div className="max-w-[840px]">
               <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                 Evidence-led examples
               </p>
-              <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
+              <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
                 Three pedestrian and cycle beam bridge case studies
               </h2>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
@@ -891,29 +956,15 @@ export default function BeamBridgeCaseStudiesPage() {
               </p>
             </div>
 
-            <div className="mt-[34px] space-y-[28px]">
+            <div className="mt-[34px] space-y-[38px] md:space-y-[50px]">
               {caseStudies.map((caseStudy) => (
                 <article
                   id={caseStudy.id}
                   key={caseStudy.id}
-                  className="scroll-mt-[110px] overflow-hidden rounded-[12px] border border-border-default bg-white shadow-[0_12px_34px_rgba(11,24,56,0.05)]"
+                  className="scroll-mt-[110px] overflow-hidden rounded-[10px] border border-border-default bg-white shadow-[0_16px_44px_rgba(11,24,56,0.06)]"
                 >
-                  <div className="grid lg:grid-cols-[0.96fr_1.04fr]">
-                    <figure className="self-start bg-white lg:border-r lg:border-border-default">
-                      <Image
-                        src={caseStudy.image}
-                        alt={caseStudy.alt}
-                        width={1600}
-                        height={900}
-                        sizes="(max-width: 1024px) 100vw, 48vw"
-                        className="h-auto w-full"
-                      />
-                      <figcaption className="border-t border-border-default bg-white px-[16px] py-[10px] text-f11 leading-relaxed text-t3">
-                        Original explanatory schematic based on the cited public record; not a
-                        project drawing and not to scale.
-                      </figcaption>
-                    </figure>
-                    <div className="p-[24px] md:p-[30px]">
+                  <header className="grid gap-[20px] p-[24px] md:p-[34px] lg:grid-cols-[0.82fr_1.18fr] lg:gap-[64px] lg:p-[40px]">
+                    <div>
                       <div className="flex flex-wrap items-center gap-[8px]">
                         <span className="text-f11 font-extrabold tracking-[0.16em] text-teal-text">
                           CASE {caseStudy.number}
@@ -922,46 +973,89 @@ export default function BeamBridgeCaseStudiesPage() {
                           Public reference · not an F1 project
                         </span>
                       </div>
-                      <h3 className="mt-[10px] text-f28 font-extrabold tracking-[-0.025em] text-t1">
+                      <h3 className="mt-[10px] text-[clamp(26px,2.5vw,34px)] font-extrabold leading-[1.18] tracking-[-0.025em] text-t1">
                         {caseStudy.name}
                       </h3>
                       <p className="mt-[5px] text-f13 font-semibold text-t3">
                         {caseStudy.location} · {caseStudy.system}
                       </p>
-                      <p className="mt-[14px] text-f15 leading-golden text-t2">{caseStudy.summary}</p>
+                    </div>
+                    <div className="hidden border-t border-border-default pt-[18px] sm:block lg:border-l lg:border-t-0 lg:pl-[34px] lg:pt-0">
+                      <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
+                        Why this case matters
+                      </p>
+                      <p className="mt-[9px] text-f19 leading-golden text-t2">{caseStudy.summary}</p>
+                    </div>
+                  </header>
 
-                      <dl className="mt-[20px] grid grid-cols-2 gap-[8px]">
+                  <figure className="border-y border-border-default bg-[#f7faf9]">
+                    <ResponsiveDiagram
+                      src={caseStudy.image}
+                      mobileSrc={caseStudy.mobileImage}
+                      alt={caseStudy.alt}
+                    />
+                    <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
+                      Original explanatory schematic based on the cited public record; not a
+                      project drawing and not to scale. {" "}
+                      <SourceLink href={caseStudy.image}>Open full-resolution diagram ↗</SourceLink>
+                    </figcaption>
+                  </figure>
+
+                  <div className="border-b border-border-default p-[20px] sm:hidden">
+                    <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
+                      Why this case matters
+                    </p>
+                    <p className="mt-[8px] text-f15 leading-golden text-t2">{caseStudy.summary}</p>
+                  </div>
+
+                  <div className="p-[24px] md:p-[34px] lg:p-[40px]">
+                      <dl className="grid grid-cols-2 gap-[9px] lg:grid-cols-4">
                         {caseStudy.stats.map(([label, value]) => (
-                          <div key={label} className="rounded-[7px] border border-border-default bg-bg2 p-[12px]">
+                          <div key={label} className="rounded-[8px] border border-border-default bg-bg2 p-[14px] md:p-[16px]">
                             <dt className="text-[10px] font-bold uppercase tracking-[0.1em] text-t3">
                               {label}
                             </dt>
-                            <dd className="mt-[3px] text-f15 font-extrabold text-t1">{value}</dd>
+                            <dd className="mt-[4px] text-f19 font-extrabold text-t1">{value}</dd>
                           </div>
                         ))}
                       </dl>
 
-                      <h4 className="mt-[20px] text-f13 font-bold uppercase tracking-[0.08em] text-t1">
-                        What the record shows
-                      </h4>
-                      <div className="mt-[10px]">
-                        <CheckList items={caseStudy.lessons} />
-                      </div>
-                      <p className="mt-[16px] text-f13">
-                        <SourceLink href={caseStudy.source}>
-                          Primary source: {caseStudy.sourceLabel} ↗
-                        </SourceLink>
-                        {"secondarySource" in caseStudy ? (
-                          <>
-                            <br />
-                            <SourceLink href={caseStudy.secondarySource}>
-                              Supporting source: {caseStudy.secondarySourceLabel} ↗
+                      <div className="mt-[26px] grid gap-[22px] lg:grid-cols-[0.7fr_1.3fr] lg:gap-[48px]">
+                        <aside className="rounded-[10px] border border-border-default bg-bg2 p-[18px] md:p-[22px]">
+                          <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
+                            Evidence boundary
+                          </p>
+                          <p className="mt-[9px] text-f13 leading-golden text-t2">
+                            Publicly documented reference. F1 Composite did not design, supply or
+                            construct this project.
+                          </p>
+                          <p className="mt-[13px] text-f13 leading-golden">
+                            <SourceLink href={caseStudy.source}>
+                              Primary source: {caseStudy.sourceLabel} ↗
                             </SourceLink>
-                          </>
-                        ) : null}
-                      </p>
+                            {"secondarySource" in caseStudy ? (
+                              <>
+                                <br />
+                                <SourceLink href={caseStudy.secondarySource}>
+                                  Supporting source: {caseStudy.secondarySourceLabel} ↗
+                                </SourceLink>
+                              </>
+                            ) : null}
+                          </p>
+                        </aside>
+                        <details className="group">
+                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-[8px] border border-border-default bg-white px-[14px] py-[12px] text-f13 font-bold uppercase tracking-[0.08em] text-t1 sm:pointer-events-none sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 [&::-webkit-details-marker]:hidden">
+                            <span>What the record shows</span>
+                            <span className="normal-case tracking-normal text-teal-text sm:hidden">
+                              {caseStudy.lessons.length} findings +
+                            </span>
+                          </summary>
+                          <div className="mt-[12px] hidden group-open:block sm:block">
+                            <CheckList items={caseStudy.lessons} />
+                          </div>
+                        </details>
+                      </div>
                     </div>
-                  </div>
                 </article>
               ))}
             </div>
@@ -974,7 +1068,7 @@ export default function BeamBridgeCaseStudiesPage() {
               <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                 Research basis
               </p>
-              <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
+              <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
                 What each institution contributes
               </h2>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
@@ -1033,7 +1127,7 @@ export default function BeamBridgeCaseStudiesPage() {
                   <span className="flex h-[42px] w-[42px] items-center justify-center rounded-[8px] bg-white text-teal-text shadow-sm">
                     <BridgeIcon name={item.icon} />
                   </span>
-                  <h3 className="mt-[13px] text-f17 font-bold text-t1">{item.heading}</h3>
+                  <h3 className="mt-[13px] text-f19 font-bold text-t1">{item.heading}</h3>
                   <p className="mt-[7px] text-f13 leading-golden text-t2">{item.copy}</p>
                   <p className="mt-[10px] text-f11">
                     <SourceLink href={item.href}>{item.link} ↗</SourceLink>
@@ -1051,7 +1145,7 @@ export default function BeamBridgeCaseStudiesPage() {
                 <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
                   FRP beam bridge design
                 </p>
-                <h2 className="mt-[10px] text-f32 font-extrabold tracking-[-0.025em] text-t1">
+                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
                   Lightweight does not mean lightly engineered
                 </h2>
               </div>
@@ -1088,7 +1182,7 @@ export default function BeamBridgeCaseStudiesPage() {
 
             <div className="mt-[26px] grid gap-[16px] md:grid-cols-2">
               <article className="rounded-[10px] border-l-[4px] border-teal-text bg-teal-bg p-[20px] md:p-[24px]">
-                <h3 className="text-f17 font-bold text-t1">Durability needs two columns, not one slogan</h3>
+                <h3 className="text-f19 font-bold text-t1">Durability needs two columns, not one slogan</h3>
                 <p className="mt-[8px] text-f13 leading-golden text-t2">
                   A 2026 long-term Pontresina study reported unchanged global bridge stiffness after
                   25 years, while alpine-exposed material samples retained about 70% of initial
@@ -1100,7 +1194,7 @@ export default function BeamBridgeCaseStudiesPage() {
                 </p>
               </article>
               <article className="rounded-[10px] border-l-[4px] border-[#d69535] bg-[#fff8e9] p-[20px] md:p-[24px]">
-                <h3 className="text-f17 font-bold text-t1">Fire performance is system-specific</h3>
+                <h3 className="text-f19 font-bold text-t1">Fire performance is system-specific</h3>
                 <p className="mt-[8px] text-f13 leading-golden text-t2">
                   Resin chemistry, member geometry, exposed surface, protective layers, design load
                   and fire scenario determine performance. Neither “fireproof” nor a blanket failure
@@ -1131,7 +1225,7 @@ export default function BeamBridgeCaseStudiesPage() {
             </div>
 
             <div className="mt-[22px] rounded-[10px] border-l-[4px] border-teal-text bg-teal-bg p-[20px] md:p-[24px]">
-              <h3 className="text-f17 font-bold text-t1">Use calculators for screening only</h3>
+              <h3 className="text-f19 font-bold text-t1">Use calculators for screening only</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
                 The F1{" "}
                 <Link className="font-semibold text-teal-text underline underline-offset-4" href="/frp-profile-calculator">
@@ -1156,9 +1250,9 @@ export default function BeamBridgeCaseStudiesPage() {
             <h2 className="text-f24 font-extrabold text-t1">Primary sources and visual methodology</h2>
             <p className="mt-[10px] max-w-[880px] text-f13 leading-golden text-t2">
               Project measurements are transcribed from transport-agency records or peer-reviewed
-              research. The six diagrams are original explanatory graphics, not copied project
-              drawings or photographic proof. Every project is labelled as a public reference and
-              not an F1 Composite delivery.
+              research. The six diagram subjects use original desktop and mobile compositions, not
+              copied project drawings or photographic proof. Every project is labelled as a public
+              reference and not an F1 Composite delivery.
             </p>
 
             <div className="mt-[22px] grid gap-[24px] lg:grid-cols-2">
@@ -1191,7 +1285,7 @@ export default function BeamBridgeCaseStudiesPage() {
                 <section key={group.heading} aria-labelledby={`source-${group.heading.replaceAll(" ", "-").toLowerCase()}`}>
                   <h3
                     id={`source-${group.heading.replaceAll(" ", "-").toLowerCase()}`}
-                    className="text-f17 font-bold text-t1"
+                    className="text-f19 font-bold text-t1"
                   >
                     {group.heading}
                   </h3>

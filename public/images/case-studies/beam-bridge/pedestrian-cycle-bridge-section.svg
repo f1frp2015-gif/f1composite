@@ -1,97 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Pedestrian and cycle beam bridge cross-section</title>
-  <desc id="desc">An engineering cross-section identifies the owner-defined clear width, barriers, deck crossfall and drainage, longitudinal girders, crossbeam and bearings.</desc>
+  <title id="title">Pedestrian and cycle beam bridge support-line cross-section</title>
+  <desc id="desc">An orthographic support-line section identifies clear width, barriers, an exaggerated deck crossfall, edge drainage, three longitudinal girders, segmented transverse diaphragms, bearings and a common pier cap.</desc>
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fbfdfd"/>
-      <stop offset="1" stop-color="#edf4f4"/>
-    </linearGradient>
-    <linearGradient id="deck" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#dce8e9"/>
-      <stop offset="0.5" stop-color="#f4f8f8"/>
-      <stop offset="1" stop-color="#dce8e9"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-25%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="11" stdDeviation="12" flood-color="#0b1838" flood-opacity="0.13"/>
-    </filter>
-    <marker id="arrowTeal" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse">
-      <path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/>
-    </marker>
-    <marker id="arrowNavy" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M0 0 L9 4.5 L0 9 Z" fill="#0b1838"/>
-    </marker>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfdfd"/><stop offset="1" stop-color="#edf4f4"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-25%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="11" flood-color="#0b1838" flood-opacity="0.12"/></filter>
+    <marker id="arrowTeal" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/></marker>
+    <marker id="arrowNavy" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#0b1838"/></marker>
   </defs>
-
   <rect width="1600" height="900" fill="url(#background)"/>
   <g font-family="Inter, Arial, sans-serif">
-    <text x="82" y="81" font-size="24" font-weight="750" letter-spacing="3" fill="#0a9b91">CROSS-SECTION CONTROL POINTS</text>
-    <text x="82" y="142" font-size="49" font-weight="760" fill="#0b1838">The usable path is only one design layer</text>
-    <text x="83" y="185" font-size="22" fill="#4f6275">Geometry, drainage, containment and inspection access must work as one section.</text>
+    <text x="82" y="81" font-size="26" font-weight="750" letter-spacing="3" fill="#0a9b91">SUPPORT-LINE CROSS-SECTION</text>
+    <text x="82" y="144" font-size="52" font-weight="760" fill="#0b1838">Clear width, drainage and support access</text>
+    <text x="83" y="191" font-size="25" fill="#4f6275">A common cap supports the longitudinal girders; transverse members stop at the girder webs.</text>
 
-    <g transform="translate(0 12)">
-      <path d="M270 389 L1330 389 L1289 507 L311 507 Z" fill="url(#deck)" stroke="#8ca2aa" stroke-width="4" filter="url(#shadow)"/>
-      <path d="M292 410 L1308 410" stroke="#0a9b91" stroke-width="7"/>
-      <path d="M292 423 L1308 423" stroke="#b5c8ca" stroke-width="2" stroke-dasharray="10 9"/>
+    <!-- Dimension is tied to the inside faces of the barriers. -->
+    <path d="M350 318 H1250" fill="none" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrowTeal)" marker-end="url(#arrowTeal)"/>
+    <path d="M350 298 V363 M1250 298 V375" stroke="#0a9b91" stroke-width="2"/>
+    <rect x="576" y="291" width="448" height="50" rx="25" fill="#e5f7f5" stroke="#0a9b91" stroke-width="2"/>
+    <text x="800" y="323" text-anchor="middle" font-size="21" font-weight="770" fill="#007a74">CLEAR WIDTH · OWNER / JURISDICTION DEFINED</text>
 
-      <g fill="#0b1838">
-        <path d="M362 507 H542 V535 H480 V670 H542 V698 H362 V670 H424 V535 H362 Z"/>
-        <path d="M710 507 H890 V535 H828 V670 H890 V698 H710 V670 H772 V535 H710 Z"/>
-        <path d="M1058 507 H1238 V535 H1176 V670 H1238 V698 H1058 V670 H1120 V535 H1058 Z"/>
-      </g>
-      <rect x="390" y="560" width="820" height="42" rx="7" fill="#17315f" opacity="0.94"/>
-      <g fill="#0a9b91">
-        <rect x="400" y="699" width="104" height="22" rx="6"/>
-        <rect x="748" y="699" width="104" height="22" rx="6"/>
-        <rect x="1096" y="699" width="104" height="22" rx="6"/>
-      </g>
-      <g fill="#a8babc">
-        <path d="M388 725 H516 L543 758 H361 Z"/>
-        <path d="M736 725 H864 L891 758 H709 Z"/>
-        <path d="M1084 725 H1212 L1239 758 H1057 Z"/>
-      </g>
+    <!-- Barrier posts terminate at the edge beam; rail geometry is schematic. -->
+    <g fill="none" stroke="#0b1838" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M305 390 V255 M338 390 V260 M305 255 H338 M298 297 H345 M298 340 H345"/>
+      <path d="M1262 403 V255 M1295 403 V260 M1262 255 H1295 M1255 297 H1302 M1255 340 H1302"/>
+    </g>
+    <g fill="#17315f"><rect x="292" y="373" width="59" height="45" rx="4"/><rect x="1249" y="386" width="59" height="45" rx="4"/></g>
 
-      <g fill="none" stroke="#0b1838" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M292 410 V279 M323 410 V283 M292 279 H323 M286 319 H329 M286 361 H329"/>
-        <path d="M1277 410 V279 M1308 410 V283 M1277 279 H1308 M1271 319 H1314 M1271 361 H1314"/>
-      </g>
-      <rect x="280" y="394" width="55" height="39" rx="5" fill="#17315f"/>
-      <rect x="1265" y="394" width="55" height="39" rx="5" fill="#17315f"/>
+    <!-- The riding surface visibly falls to the right; slope is intentionally exaggerated. -->
+    <path d="M280 373 L1320 387 L1290 468 H310 Z" fill="#e2ecec" stroke="#8ca2aa" stroke-width="4" filter="url(#shadow)"/>
+    <path d="M301 389 L1299 403" stroke="#0a9b91" stroke-width="8"/>
+    <path d="M522 391 L1060 399" stroke="#e58a2b" stroke-width="4" marker-end="url(#arrowNavy)"/>
+    <text x="785" y="432" text-anchor="middle" font-size="20" font-weight="750" fill="#b55e16">CROSSFALL · SLOPE EXAGGERATED</text>
 
-      <path d="M448 368 H1152" fill="none" stroke="#0a9b91" stroke-width="3" marker-start="url(#arrowTeal)" marker-end="url(#arrowTeal)"/>
-      <path d="M448 346 V389 M1152 346 V389" stroke="#0a9b91" stroke-width="2"/>
-      <rect x="610" y="322" width="380" height="44" rx="22" fill="#e5f7f5" stroke="#0a9b91" stroke-width="2"/>
-      <text x="800" y="351" text-anchor="middle" font-size="18" font-weight="760" fill="#007a74">CLEAR WIDTH · OWNER / JURISDICTION DEFINED</text>
+    <!-- Low-edge scupper/outlet is outside the clear user corridor. -->
+    <rect x="1278" y="405" width="31" height="30" rx="3" fill="#ffffff" stroke="#0a9b91" stroke-width="4"/>
+    <path d="M1294 435 V492 H1342" fill="none" stroke="#0a9b91" stroke-width="5" marker-end="url(#arrowTeal)"/>
+    <text x="1364" y="500" font-size="20" font-weight="750" fill="#007a74">LOW-EDGE SCUPPER</text>
 
-      <path d="M665 442 L930 455" fill="none" stroke="#e58a2b" stroke-width="4" marker-end="url(#arrowNavy)"/>
-      <circle cx="952" cy="456" r="11" fill="#0a9b91"/>
-      <path d="M952 456 V492" stroke="#0a9b91" stroke-width="4" marker-end="url(#arrowTeal)"/>
-      <text x="798" y="477" text-anchor="middle" font-size="17" font-weight="700" fill="#b55e16">CROSSFALL</text>
-
-      <g stroke="#566b7b" stroke-width="3" fill="none">
-        <path d="M229 260 H292"/>
-        <path d="M1371 260 H1308"/>
-        <path d="M1355 475 H1292"/>
-        <path d="M1370 569 H1210"/>
-        <path d="M1350 693 H1199"/>
-        <path d="M223 625 H389"/>
-      </g>
-      <g font-size="18" font-weight="730" fill="#0b1838">
-        <text x="219" y="250" text-anchor="end">BARRIER / RAILING</text>
-        <text x="1381" y="250">BARRIER / RAILING</text>
-        <text x="1365" y="466">DECK + WEARING SURFACE</text>
-        <text x="1380" y="562">TRANSVERSE CROSSBEAM</text>
-        <text x="1360" y="686">BEARING</text>
-        <text x="213" y="618" text-anchor="end">LONGITUDINAL GIRDER</text>
-      </g>
-      <text x="974" y="493" font-size="16" font-weight="700" fill="#007a74">DRAIN / SCUPPER</text>
+    <!-- Three longitudinal I-girders are cut transversely. -->
+    <g fill="#0b1838">
+      <path d="M330 468 H530 V494 H461 V641 H530 V667 H330 V641 H399 V494 H330 Z"/>
+      <path d="M700 468 H900 V494 H831 V641 H900 V667 H700 V641 H769 V494 H700 Z"/>
+      <path d="M1070 468 H1270 V494 H1201 V641 H1270 V667 H1070 V641 H1139 V494 H1070 Z"/>
     </g>
 
-    <g transform="translate(82 786)">
-      <rect width="1436" height="67" rx="16" fill="#ffffff" stroke="#c5d5d6" stroke-width="2"/>
-      <rect width="10" height="67" rx="5" fill="#0a9b91"/>
-      <text x="34" y="28" font-size="17" font-weight="760" fill="#0b1838">DESIGN NOTE</text>
-      <text x="34" y="51" font-size="16" fill="#536777">Confirm effective width between obstacles, barrier geometry, surface drainage and bearing access in the owner-approved design brief.</text>
-      <text x="1411" y="42" font-size="16" text-anchor="end" fill="#647789">Illustrative · not to scale</text>
+    <!-- Diaphragm/crossbeam segments connect between webs; they do not pass through them. -->
+    <g fill="#294675" stroke="#17315f" stroke-width="3" stroke-dasharray="8 6">
+      <rect x="461" y="548" width="308" height="42" rx="4"/><rect x="831" y="548" width="308" height="42" rx="4"/>
+    </g>
+
+    <!-- Bearings sit on one continuous cap at the support line. -->
+    <g fill="#0a9b91"><rect x="386" y="667" width="88" height="19" rx="4"/><rect x="756" y="667" width="88" height="19" rx="4"/><rect x="1126" y="667" width="88" height="19" rx="4"/></g>
+    <rect x="270" y="686" width="1060" height="48" rx="5" fill="#17315f"/>
+    <path d="M650 734 H950 L1000 785 H600 Z" fill="#a8babc"/>
+
+    <!-- Callouts use orthographic leaders. -->
+    <g stroke="#566b7b" stroke-width="3" fill="none">
+      <path d="M248 264 H305"/><path d="M1352 264 H1295"/><path d="M1285 415 H1320"/><path d="M1140 563 H1160"/><path d="M1214 676 H1440"/><path d="M1330 710 H1360"/><path d="M242 603 H399"/>
+    </g>
+    <g font-size="20" font-weight="740" fill="#0b1838">
+      <text x="236" y="257" text-anchor="end">BARRIER / RAILING</text><text x="1364" y="257">BARRIER / RAILING</text>
+      <text x="1540" y="408" text-anchor="end">DECK + WEARING SURFACE</text><text x="1540" y="556" text-anchor="end">SEGMENTED TRANSVERSE DIAPHRAGM</text>
+      <text x="1540" y="669" text-anchor="end">BEARING</text><text x="1540" y="703" text-anchor="end">COMMON PIER / ABUTMENT CAP</text><text x="230" y="596" text-anchor="end">LONGITUDINAL GIRDER</text>
+    </g>
+
+    <g transform="translate(82 806)">
+      <rect width="1436" height="64" rx="15" fill="#ffffff" stroke="#c5d5d6" stroke-width="2"/>
+      <rect width="10" height="64" rx="5" fill="#0a9b91"/>
+      <text x="34" y="27" font-size="19" font-weight="770" fill="#0b1838">DESIGN NOTE</text>
+      <text x="34" y="51" font-size="18" fill="#536777">Confirm width, barriers, drainage, diaphragm connections, replaceable bearings and inspection access.</text>
+      <text x="1410" y="42" font-size="18" text-anchor="end" fill="#647789">Illustrative topology · no project dimensions implied</text>
     </g>
   </g>
 </svg>
