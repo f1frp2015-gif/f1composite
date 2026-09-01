@@ -205,6 +205,9 @@ export default function EnergyPage() {
               <LinkArrow href="/products/fiberglass-structural-shapes">
                 Explore standard structural profiles
               </LinkArrow>
+              <LinkArrow href="/products/wind-turbine-blade-panels">
+                Review wind turbine blade panels and GFP-WE20 test data
+              </LinkArrow>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Solar Panel Frames and Mounting Systems</h3>
               <p>

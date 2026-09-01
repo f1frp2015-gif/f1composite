@@ -262,6 +262,7 @@ export default function FiberglassPlatesPage() {
             title: "Separate product families",
             links: [
               { href: "/products/fiberglass-sheets", label: "Fiberglass sheets — solid flat stock" },
+              { href: "/products/wind-turbine-blade-panels", label: "Wind turbine blade panels — GFRP, CFRP & hybrid" },
               { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },

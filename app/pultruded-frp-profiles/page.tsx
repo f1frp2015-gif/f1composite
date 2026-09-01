@@ -142,6 +142,21 @@ const profileFamily: Array<{
     rangeLabel: "Catalog scope",
   },
   {
+    slug: "wind-turbine-blade-panels",
+    name: "Wind Turbine Blade Panels",
+    keyword: "pultruded GFRP / CFRP / carbon-glass hybrid panels",
+    sizes: "Project-specific section and finished cut length",
+    summary:
+      "Wind-energy spar-cap and reinforcement laminates with grade-specific qualification, order-defined cut lengths and report-scoped GFP-WE20 fatigue data.",
+    href: "/products/wind-turbine-blade-panels",
+    image: "/images/products/wind-turbine-blade-panels/carbon-glass-hybrid-wind-blade-panel.webp",
+    imageWidth: 605,
+    imageHeight: 165,
+    imageAlt: "Carbon-glass hybrid pultruded panels for wind turbine blade reinforcement",
+    imageFit: "contain",
+    rangeLabel: "Supply basis",
+  },
+  {
     slug: "frp-rebar",
     name: "FRP Rebar",
     keyword: "GFRP rebar / fiberglass reinforcement bars",

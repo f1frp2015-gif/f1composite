@@ -59,6 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/frp-handrail-systems`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-sheets`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-plates`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/wind-turbine-blade-panels`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/product-lines`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/technology/pultrusion-process`, changeFrequency: "monthly", priority: 0.8 },

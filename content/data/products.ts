@@ -78,6 +78,18 @@ export const productCategories: ProductCategory[] = [
     imageAlt: "Blue and teal modular FRP sound barrier wall panels installed along a highway",
   },
   {
+    slug: "wind-turbine-blade-panels",
+    title: "Wind Turbine Blade Panels",
+    description: "Pultruded GFRP, CFRP and carbon-glass hybrid laminates with project-specific cut lengths and report-scoped fatigue data.",
+    icon: "custom",
+    href: "/products/wind-turbine-blade-panels",
+    image: "/images/products/wind-turbine-blade-panels/carbon-glass-hybrid-wind-blade-panel.webp",
+    imageWidth: 605,
+    imageHeight: 165,
+    imageAlt: "Carbon-glass hybrid pultruded panels for wind turbine blade reinforcement",
+    imageFit: "contain",
+  },
+  {
     slug: "frp-gratings",
     title: "Pultruded FRP Grating",
     description: "Open T-bar and I-bar pultruded grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T 316SS clips.",
