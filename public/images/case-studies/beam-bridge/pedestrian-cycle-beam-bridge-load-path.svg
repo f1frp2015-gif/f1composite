@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pedestrian and cycle beam bridge load path</title>
+  <desc id="desc">An animated engineering schematic showing pedestrian and cyclist loads moving from the deck through crossbeams and longitudinal girders to bearings, supports and foundations.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#eaf2f2"/>
+    </linearGradient>
+    <linearGradient id="girder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#17315f"/>
+      <stop offset="0.5" stop-color="#0b1838"/>
+      <stop offset="1" stop-color="#17315f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#0b1838" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0b1838"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0a9b91"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#e58a2b"/>
+    </marker>
+    <style>
+      .load-step { opacity: 1; animation: step-in 0.55s ease-out 1 both; }
+      .step-1 { animation-delay: 0.2s; }
+      .step-2 { animation-delay: 1.05s; }
+      .step-3 { animation-delay: 1.9s; }
+      .step-4 { animation-delay: 2.75s; }
+      .step-5 { animation-delay: 3.6s; }
+      @keyframes step-in {
+        from { opacity: 0; transform: translateY(-7px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .load-step { opacity: 1; animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <path d="M0 746 C260 712 430 770 680 730 C940 690 1180 758 1600 706 L1600 900 L0 900 Z" fill="#d9e7e7"/>
+  <path d="M0 793 C330 753 550 810 835 777 C1110 745 1330 781 1600 748" fill="none" stroke="#bdd3d4" stroke-width="3"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="86" y="82" font-size="24" font-weight="750" letter-spacing="3" fill="#0a9b91">ACTIVE-USER BEAM BRIDGE</text>
+    <text x="86" y="143" font-size="50" font-weight="760" fill="#0b1838">Load path: surface to foundation</text>
+    <text x="87" y="188" font-size="23" fill="#4f6275">A continuous, inspectable sequence—not a collection of isolated parts.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="218" y="388" width="1164" height="42" rx="8" fill="#8da2ae"/>
+      <rect x="250" y="430" width="1100" height="24" rx="5" fill="#d4e2e3"/>
+      <rect x="278" y="454" width="1044" height="118" rx="8" fill="url(#girder)"/>
+      <rect x="278" y="471" width="1044" height="17" fill="#244575"/>
+      <rect x="278" y="537" width="1044" height="18" fill="#07122d" opacity="0.65"/>
+    </g>
+
+    <g stroke="#0b1838" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="620" cy="323" r="18"/>
+      <path d="M620 341 L620 376 M620 352 L593 363 M620 352 L648 363 M620 376 L598 405 M620 376 L643 405"/>
+      <circle cx="910" cy="352" r="29"/>
+      <circle cx="1000" cy="352" r="29"/>
+      <path d="M910 352 L950 306 L981 352 L941 352 Z M950 306 L929 277 L986 277 M950 306 L1000 352 M941 352 L898 307 M950 306 L917 306"/>
+      <circle cx="989" cy="255" r="16"/>
+      <path d="M989 271 L967 302 L934 310 M967 302 L997 321"/>
+    </g>
+
+    <g>
+      <rect x="306" y="572" width="92" height="19" rx="5" fill="#0a9b91"/>
+      <rect x="1202" y="572" width="92" height="19" rx="5" fill="#0a9b91"/>
+      <path d="M286 603 L418 603 L450 650 L254 650 Z" fill="#0b1838"/>
+      <path d="M1182 603 L1314 603 L1346 650 L1150 650 Z" fill="#0b1838"/>
+      <rect x="247" y="650" width="210" height="36" rx="6" fill="#17315f"/>
+      <rect x="1143" y="650" width="210" height="36" rx="6" fill="#17315f"/>
+      <path d="M272 686 H432 L467 738 H237 Z M1168 686 H1328 L1363 738 H1133 Z" fill="#aebfc1"/>
+    </g>
+
+    <g class="load-step step-1">
+      <g stroke="#e58a2b" stroke-width="6" marker-end="url(#arrowOrange)">
+        <path d="M620 223 V294"/>
+        <path d="M955 194 V244"/>
+      </g>
+      <text x="792" y="220" text-anchor="middle" font-size="20" font-weight="750" fill="#b55e16">1 · USER + SELF-WEIGHT LOAD</text>
+    </g>
+
+    <g class="load-step step-2">
+      <path d="M800 344 V421" fill="none" stroke="#0b1838" stroke-width="6" marker-end="url(#arrowNavy)"/>
+      <rect x="704" y="298" width="192" height="40" rx="20" fill="#ffffff" stroke="#c4d3d5" stroke-width="2"/>
+      <text x="800" y="325" text-anchor="middle" font-size="19" font-weight="750" fill="#0b1838">2 · DECK</text>
+    </g>
+
+    <g class="load-step step-3">
+      <path d="M800 433 V501" fill="none" stroke="#0a9b91" stroke-width="6" marker-end="url(#arrowTeal)"/>
+      <rect x="626" y="458" width="202" height="40" rx="20" fill="#e6f8f6" stroke="#0a9b91" stroke-width="2" transform="translate(0 -63)"/>
+      <text x="727" y="422" text-anchor="middle" font-size="18" font-weight="750" fill="#007a74">3 · CROSSBEAMS</text>
+    </g>
+
+    <g class="load-step step-4">
+      <path d="M800 505 C675 532 555 550 354 578" fill="none" stroke="#0a9b91" stroke-width="6" marker-end="url(#arrowTeal)"/>
+      <path d="M800 505 C925 532 1045 550 1248 578" fill="none" stroke="#0a9b91" stroke-width="6" marker-end="url(#arrowTeal)"/>
+      <rect x="649" y="507" width="302" height="41" rx="20" fill="#ffffff" stroke="#0a9b91" stroke-width="2"/>
+      <text x="800" y="535" text-anchor="middle" font-size="18" font-weight="750" fill="#007a74">4 · LONGITUDINAL GIRDERS</text>
+    </g>
+
+    <g class="load-step step-5">
+      <g stroke="#0b1838" stroke-width="6" marker-end="url(#arrowNavy)">
+        <path d="M352 592 V630"/>
+        <path d="M1248 592 V630"/>
+      </g>
+      <g stroke="#0a9b91" stroke-width="6" marker-end="url(#arrowTeal)">
+        <path d="M352 790 V697"/>
+        <path d="M1248 790 V697"/>
+      </g>
+      <text x="352" y="827" text-anchor="middle" font-size="18" font-weight="750" fill="#007a74">FOUNDATION REACTION</text>
+      <text x="1248" y="827" text-anchor="middle" font-size="18" font-weight="750" fill="#007a74">FOUNDATION REACTION</text>
+      <rect x="622" y="628" width="356" height="45" rx="22" fill="#ffffff" stroke="#c4d3d5" stroke-width="2"/>
+      <text x="800" y="657" text-anchor="middle" font-size="18" font-weight="750" fill="#0b1838">5 · BEARINGS → SUPPORTS → GROUND</text>
+    </g>
+
+    <text x="86" y="866" font-size="17" fill="#647789">Illustrative · not to scale</text>
+    <text x="1514" y="866" font-size="17" text-anchor="end" fill="#647789">Animation plays once · reduced-motion preference respected</text>
+  </g>
+</svg>

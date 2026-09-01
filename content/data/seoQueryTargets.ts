@@ -362,9 +362,9 @@ export const seoQueryTargets = [
     targetUrl: "/case-studies/beam-bridge",
     primaryQuery: "beam bridge",
     intent: "guide",
-    title: "Beam Bridge: Design, Diagram & 3 Case Studies",
+    title: "Beam Bridge Design: Pedestrian & Cycle Bridge Guide",
     description:
-      "Beam bridge guide with load-path diagrams and three verified cases, including Australia's 504 m Avon River bridge and two documented FRP girder projects.",
+      "Beam bridge design guide for pedestrian and cycle crossings: load paths, width, vibration, FRP detailing and three source-backed bridge case studies.",
     supportingUrls: [
       "/applications/frp-bridge-deck-panels",
       "/applications/frp-pedestrian-bridge-superstructures",

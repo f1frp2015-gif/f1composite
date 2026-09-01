@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Footbridge vibration serviceability workflow</title>
+  <desc id="desc">A static engineering workflow connects pedestrian excitation to modal analysis, acceleration and comfort assessment, and mitigation. Australian frequency thresholds are identified as investigation triggers rather than pass or fail limits.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfdfd"/>
+      <stop offset="1" stop-color="#e9f2f2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1838" flood-opacity="0.11"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#0a9b91"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="82" y="80" font-size="24" font-weight="750" letter-spacing="3" fill="#0a9b91">VIBRATION SERVICEABILITY</text>
+    <text x="82" y="141" font-size="49" font-weight="760" fill="#0b1838">Frequency starts the check; comfort finishes it</text>
+    <text x="83" y="184" font-size="22" fill="#4f6275">Walking and cycling excitation must be assessed with modal properties, damping, response and user criteria.</text>
+
+    <g transform="translate(82 230)" filter="url(#shadow)">
+      <rect width="1436" height="129" rx="22" fill="#ffffff"/>
+      <rect width="12" height="129" rx="6" fill="#e58a2b"/>
+      <text x="39" y="39" font-size="18" font-weight="780" letter-spacing="1.5" fill="#b55e16">AUSTRALIAN SCREENING CONTEXT</text>
+      <g transform="translate(39 58)">
+        <rect width="320" height="49" rx="24" fill="#fff4e7" stroke="#e58a2b" stroke-width="2"/>
+        <text x="160" y="32" text-anchor="middle" font-size="21" font-weight="780" fill="#0b1838">VERTICAL &lt; 5 Hz · INVESTIGATE</text>
+        <rect x="345" width="335" height="49" rx="24" fill="#e7f8f6" stroke="#0a9b91" stroke-width="2"/>
+        <text x="512" y="32" text-anchor="middle" font-size="21" font-weight="780" fill="#0b1838">LATERAL &lt; 1.5 Hz · SPECIAL CHECK</text>
+        <text x="714" y="31" font-size="18" font-weight="720" fill="#b55e16">Investigation triggers—not pass/fail comfort limits.</text>
+      </g>
+    </g>
+
+    <g transform="translate(82 403)">
+      <g transform="translate(0 0)" filter="url(#shadow)">
+        <rect width="316" height="245" rx="22" fill="#ffffff"/>
+        <circle cx="42" cy="42" r="24" fill="#0a9b91"/>
+        <text x="42" y="50" text-anchor="middle" font-size="21" font-weight="800" fill="#ffffff">1</text>
+        <text x="78" y="49" font-size="20" font-weight="780" fill="#0b1838">EXCITATION</text>
+        <g stroke="#0b1838" stroke-width="5" stroke-linecap="round" fill="none">
+          <circle cx="99" cy="117" r="14"/>
+          <path d="M99 131 V166 M99 143 L79 154 M99 143 L120 154 M99 166 L82 191 M99 166 L118 191"/>
+        </g>
+        <path d="M149 173 C169 139 189 207 209 173 S249 139 269 173" fill="none" stroke="#e58a2b" stroke-width="5"/>
+        <text x="24" y="222" font-size="16" fill="#596d7d">Pace, crowd density, synchronisation</text>
+      </g>
+
+      <path d="M326 122 H361" stroke="#0a9b91" stroke-width="4" marker-end="url(#arrow)"/>
+
+      <g transform="translate(373 0)" filter="url(#shadow)">
+        <rect width="316" height="245" rx="22" fill="#ffffff"/>
+        <circle cx="42" cy="42" r="24" fill="#0a9b91"/>
+        <text x="42" y="50" text-anchor="middle" font-size="21" font-weight="800" fill="#ffffff">2</text>
+        <text x="78" y="49" font-size="20" font-weight="780" fill="#0b1838">MODAL ANALYSIS</text>
+        <path d="M35 154 H281" stroke="#a4b6ba" stroke-width="5"/>
+        <path d="M35 154 Q158 76 281 154" fill="none" stroke="#0a9b91" stroke-width="6"/>
+        <path d="M35 186 C96 138 219 233 281 186" fill="none" stroke="#17315f" stroke-width="5" stroke-dasharray="9 8"/>
+        <text x="48" y="105" font-size="15" font-weight="700" fill="#007a74">vertical mode</text>
+        <text x="48" y="214" font-size="15" font-weight="700" fill="#17315f">lateral mode</text>
+        <text x="212" y="105" font-size="15" fill="#596d7d">f + damping</text>
+      </g>
+
+      <path d="M699 122 H734" stroke="#0a9b91" stroke-width="4" marker-end="url(#arrow)"/>
+
+      <g transform="translate(746 0)" filter="url(#shadow)">
+        <rect width="316" height="245" rx="22" fill="#ffffff"/>
+        <circle cx="42" cy="42" r="24" fill="#0a9b91"/>
+        <text x="42" y="50" text-anchor="middle" font-size="21" font-weight="800" fill="#ffffff">3</text>
+        <text x="78" y="49" font-size="20" font-weight="780" fill="#0b1838">RESPONSE + COMFORT</text>
+        <path d="M40 194 V88 M40 194 H278" stroke="#758a97" stroke-width="3"/>
+        <path d="M53 178 C80 168 94 98 122 137 S165 189 191 119 S232 109 267 78" fill="none" stroke="#e58a2b" stroke-width="5"/>
+        <path d="M53 112 H270" stroke="#0a9b91" stroke-width="3" stroke-dasharray="8 7"/>
+        <text x="272" y="105" font-size="14" text-anchor="end" fill="#007a74">criterion</text>
+        <text x="49" y="220" font-size="15" fill="#596d7d">Peak / RMS acceleration by use case</text>
+      </g>
+
+      <path d="M1072 122 H1107" stroke="#0a9b91" stroke-width="4" marker-end="url(#arrow)"/>
+
+      <g transform="translate(1120 0)" filter="url(#shadow)">
+        <rect width="316" height="245" rx="22" fill="#ffffff"/>
+        <circle cx="42" cy="42" r="24" fill="#0a9b91"/>
+        <text x="42" y="50" text-anchor="middle" font-size="21" font-weight="800" fill="#ffffff">4</text>
+        <text x="78" y="49" font-size="20" font-weight="780" fill="#0b1838">MITIGATION</text>
+        <g font-size="17" fill="#0b1838">
+          <circle cx="47" cy="101" r="6" fill="#0a9b91"/><text x="66" y="107">Change mass or stiffness</text>
+          <circle cx="47" cy="137" r="6" fill="#0a9b91"/><text x="66" y="143">Increase damping</text>
+          <circle cx="47" cy="173" r="6" fill="#0a9b91"/><text x="66" y="179">Tune span / support layout</text>
+          <circle cx="47" cy="209" r="6" fill="#0a9b91"/><text x="66" y="215">Validate by testing</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(82 687)">
+      <rect width="1436" height="127" rx="20" fill="#0b1838"/>
+      <text x="32" y="40" font-size="18" font-weight="780" letter-spacing="1.5" fill="#62d5cc">ENGINEERING INTERPRETATION</text>
+      <text x="32" y="75" font-size="22" font-weight="690" fill="#ffffff">A bridge above a screening frequency can still require a response check.</text>
+      <text x="32" y="104" font-size="17" fill="#c8d7df">Apply the governing owner standard and project-specific comfort criteria; use field testing where uncertainty remains.</text>
+      <text x="1406" y="104" font-size="16" text-anchor="end" fill="#aebfca">Illustrative · not to scale</text>
+    </g>
+
+    <text x="82" y="863" font-size="16" fill="#647789">Threshold context: Queensland TMR guidance referencing AS/NZS 5100.</text>
+    <text x="1518" y="863" font-size="16" text-anchor="end" fill="#647789">Workflow informed by JRC guidance on human-induced footbridge vibration.</text>
+  </g>
+</svg>
