@@ -99,10 +99,17 @@ export const blogPosts: BlogPost[] = [
     authorRole: "Independent industry commentary",
     reviewedBy: "Editorial source check",
     standards: [],
-    coverImage: "/images/blog/pengshui-frp-bridge-mountain-access.svg",
+    coverImage: "/images/blog/pengshui-mao-yisheng-charity-bridge-foundation.jpg",
     coverAlt:
-      "Original concept illustration of a composite truss connecting a mountain village and a school across a river; not a photograph or construction drawing",
+      "The Mao Yisheng Charity Bridge in Pengshui at its completion ceremony, with the truss spanning the river and stepped approaches; photograph published by the Mao Yisheng Foundation",
     coverImageFit: "contain",
+    coverAttribution: {
+      creator: "Original project photographer (not named in the source)",
+      href: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145",
+      source: "Mao Yisheng Science and Technology Education Foundation project archive",
+      license: "Rights remain with the original rights holder",
+      licenseHref: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145",
+    },
     supportingImage: "/images/blog/pengshui-frp-bridge-prefabrication.svg",
     supportingAlt:
       "Original conceptual diagram separating factory prefabrication, transport planning and on-site assembly of an FRP bridge",
@@ -177,7 +184,7 @@ For anyone considering a similar application, the next step should be a project 
 
 Pengshui is a useful reference because the ambition was tangible: apply composite structural technology to a crossing people needed. Its wider lesson is to consider material selection together with rural access, fabrication and construction planning.
 
-The images on this page are original editorial schematics, not project photographs or construction drawings. For the actual bridge and its setting, view the [foundation's original illustrated account](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145) and the [Tsinghua report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+The cover is a real project photograph published in the [foundation's original illustrated account](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145); its photographer is not identified there. It shows the original project, not F1's work. The prefabrication diagram below is an original editorial schematic, not a construction drawing. See also the [Tsinghua report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
 
 For further material background, explore [pultruded FRP profiles](/pultruded-frp-profiles) and our [pedestrian bridge engineering guide](/case-studies/beam-bridge). These F1 resources discuss the broader application; they do not represent participation in the Pengshui project.`,
   },

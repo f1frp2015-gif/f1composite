@@ -25,7 +25,7 @@ Publication date: 2026-09-08. Route: `/resources/blog/china-first-all-composite-
 - Omit beneficiary counts because source descriptions use different counts and scopes. Do not combine them.
 - Keep 2012 historical completion distinct from the 2026 article date; no current inspection or condition claim.
 - Source photograph inspected: https://www.mysf.org.cn/filespath/images/20200330123034.jpg . It shows the actual through-truss, river and stepped approaches. No material or structural capacity is inferred from appearance.
-- No reproduction license was established for source photos. Link to the original illustrated accounts and publish original clearly labeled SVG concept diagrams instead. The drawings are not photographic reconstructions or construction details.
+- The user explicitly requested using the linked real project photographs. The foundation's original JPEG is used unchanged as the cover, with a source link, no invented photographer name, and a notice that rights remain with the original rights holder. No Creative Commons or stock-photo license is asserted. An original SVG explains prefabrication and is labeled as a concept, not a construction drawing.
 - General mountain logistics discussion is explicitly editorial interpretation; it does not assert particular equipment, road restrictions, labor, installation time, cost savings or current compliance for Pengshui.
 - No standards are assigned to the historical project.
 - Scope: independent industry perspective in the blog, not an F1 delivery case study.
