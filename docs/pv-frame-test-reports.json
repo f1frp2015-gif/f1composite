@@ -1,0 +1,32 @@
+[
+  {
+    "source": "GZMR260702529004-V0.pdf",
+    "output": "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-en.pdf",
+    "pages": 6,
+    "kind": "original pages with English sidebar",
+    "source_sha256": "ab6dc6827f98ae02dad31a1d221d9cb98fb14931a91c527e3b91a50de22ec283",
+    "original_download": "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-original-zh.pdf"
+  },
+  {
+    "source": "2025DACS20319(重庆纤居）PDF报告.pdf",
+    "output": "frp-pv-module-frame-material-performance-test-report-2025dacs20319-en.pdf",
+    "pages": 9,
+    "kind": "original pages with English sidebar",
+    "source_sha256": "86c37a8406a61188cc883365f47e658edd3c2c10352759fdf4da49c4cfcd4ddc",
+    "original_download": "frp-pv-module-frame-material-performance-test-report-2025dacs20319-original-zh.pdf"
+  },
+  {
+    "source": "风渡&莱茵佐敦涂料测试报告TRF_CN24KZ3A-002-ss - 码.pdf",
+    "output": "frp-pv-module-frame-jotun-coating-tuv-test-report-cn24kz3a-002.pdf",
+    "pages": 9,
+    "kind": "byte-identical English original",
+    "source_sha256": "a8afcbdae59837ad010b1541c172486f5f8c192b7b5061b47aab06d28f9b7880"
+  },
+  {
+    "source": "风渡&莱茵静电涂料测试报告TRF_CN24KZ3A 003-ss - 码.pdf",
+    "output": "frp-pv-module-frame-b9986s-coating-tuv-test-report-cn24kz3a-003.pdf",
+    "pages": 9,
+    "kind": "byte-identical English original",
+    "source_sha256": "7b11c4e091bdded752ad1e1d7de4a95eaef5ca279b68b4218416d24155ed67e9"
+  }
+]
