@@ -44,6 +44,7 @@ export type BlogPost = {
   readTime: string;
   excerpt: string;
   authorName: string;
+  authorType?: "Person" | "Organization";
   authorRole: string;
   reviewedBy: string;
   standards: string[];
@@ -80,6 +81,125 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+
+  {
+    slug: "china-first-all-composite-truss-bridge-pengshui",
+    title: "China's First All-Composite Truss Bridge: Mountain Access",
+    seoTitle: "China's First All-Composite Truss Bridge: Mountain Access",
+    masterComparison: {
+      label: "Beam bridges: pedestrian and cycle design guide",
+      href: "/case-studies/beam-bridge",
+      note: "For beam bridges, explore girder load paths, deck arrangements and serviceability in our main guide. This article covers the Pengshui truss milestone.",
+    },
+    answerBox:
+      "Completed in 2012 in Pengshui, Chongqing, this was China's first Mao Yisheng Charity Bridge and, according to the foundation, China's first all-composite truss bridge. It joined a rural school-access initiative with an FRP structural demonstration. F1 Composite had no role in the project.",
+    category: "Industry Perspectives",
+    date: "2026-09-08",
+    updatedAt: "2026-09-08",
+    readTime: "5 min",
+    excerpt:
+      "Explore China's first all-composite truss bridge in Pengshui: a 20 m FRP crossing for rural school access, with original project credits.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Independent industry commentary",
+    reviewedBy: "Editorial source check",
+    standards: [],
+    coverImage: "/images/blog/pengshui-mao-yisheng-charity-bridge-foundation.jpg",
+    coverAlt:
+      "The Mao Yisheng Charity Bridge in Pengshui at its completion ceremony, with the truss spanning the river and stepped approaches; photograph published by the Mao Yisheng Foundation",
+    coverImageFit: "contain",
+    coverAttribution: {
+      creator: "Original project photographer (not named in the source)",
+      href: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145",
+      source: "Mao Yisheng Science and Technology Education Foundation project archive",
+      license: "Rights remain with the original rights holder",
+      licenseHref: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145",
+    },
+    supportingImage: "/images/blog/pengshui-frp-bridge-prefabrication.svg",
+    supportingAlt:
+      "Original conceptual diagram separating factory prefabrication, transport planning and on-site assembly of an FRP bridge",
+    supportingImageFit: "contain",
+    supportingCaption:
+      "Original editorial schematic. The factory-to-site sequence explains a construction concept; member sizes, joints, equipment and installation steps are not an as-built record or erection instructions.",
+    highlights: [
+      "Two firsts: China's first Mao Yisheng Charity Bridge and first all-composite truss bridge.",
+      "Prefabrication makes transport and assembly part of the design discussion.",
+      "Original project teams receive credit; F1 Composite is the editorial publisher only.",
+    ],
+    ogDescription:
+      "China's first all-composite truss bridge: rural FRP pedestrian access, original project credits, and lessons for comparing truss and beam bridges.",
+    ogChips: ["China milestone", "Rural access", "Independent reference"],
+    relatedLinks: [
+      { label: "Beam bridges: FRP pedestrian and cycle bridge design", href: "/case-studies/beam-bridge" },
+      { label: "Pultruded FRP profiles", href: "/pultruded-frp-profiles" },
+    ],
+    sourceLinks: [
+      { label: "Tsinghua University: completion report, June 6, 2012 (Chinese)", href: "https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm" },
+      { label: "Mao Yisheng Science and Technology Education Foundation: Pengshui project record and photograph (Chinese)", href: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145" },
+      { label: "Feng, Jin and Ye: structural performance and design criteria for FRP pedestrian bridges, 2011", href: "https://jace.chd.edu.cn/oa/DArticle.aspx?id=201103003&type=view" },
+      { label: "FHWA Covered Bridge Manual: beam bending and truss axial load paths", href: "https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf" },
+    ],
+    content: `A river crossing can determine whether a child reaches school. In the mountains of Chongqing, the Mao Yisheng Charity Bridge brought pultruded FRP profiles into a public footbridge serving that everyday need. This early application of FRP pedestrian bridges connects composite bridge design with rural access.
+
+**Project attribution:** F1 Composite did not design, manufacture, supply or construct this bridge. This article discusses a Chinese engineering milestone and its wider application concept. Credit belongs to the original organizations identified below.
+
+## A bridge for the journey to school
+
+The crossing serves Taiyuan Central School in Pengshui Miao and Tujia Autonomous County. Tsinghua University's completion report records a 20 m span, an approximately 2.8 m width and a completion ceremony on June 4, 2012. It describes a charity initiative intended to provide children in remote communities with safer routes to school, alongside practical engineering experience for university students. [Tsinghua completion report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+
+For a rural community, the value of a bridge is measured in ordinary journeys: school attendance, access to services and visits between households. That is the useful lens for this project. The material innovation served a local access problem.
+
+## Two firsts: a charity bridge and a composite truss
+
+This was also China's first Mao Yisheng Charity Bridge, the inaugural crossing in the foundation's Small Bridge Project. Tsinghua's report explicitly identifies it as the first bridge in that charitable initiative. Its opening marked both a public-service beginning and a materials milestone. [Tsinghua completion report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+
+The foundation calls Pengshui China's first all-composite truss bridge. That description has a specific scope: it does not establish priority across every kind of composite bridge. The reported superstructure uses pultruded glass-fiber-reinforced composite profiles; the abutments and foundations are concrete. [Foundation project record](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145).
+
+This distinction matters when discussing FRP internationally. GFRP and GRP refer to glass-fiber composites within the broader FRP family. A structural truss, an FRP bridge deck on conventional girders, and reinforcement inside concrete are different applications. Pengshui's significance lies in putting the composite truss itself into community service.
+
+## Beam bridges vs. truss bridges for rural crossings
+
+Beam bridges carry deck loads through the bending resistance of their main beams or girders. A truss instead uses an arrangement of chords and web members whose principal action is axial tension or compression, although real members and joints can also experience bending. These are structural concepts, independent of whether the material is steel, timber or FRP. [FHWA Covered Bridge Manual](https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf).
+
+Pengshui belongs to the truss category. Engineers considering composite bridges for another rural crossing can compare a beam arrangement with a truss while reviewing structural depth, connection details and the proposed delivery units. The material label alone does not decide the structural form. Our guide to [beam bridges](/case-studies/beam-bridge) explains pedestrian and cycle bridge load paths and discusses public FRP beam bridge examples.
+
+## Prefabricated FRP pedestrian bridges in mountain settings
+
+The foundation reports that the bridge body was factory-prefabricated in three sections, then assembled and installed on site. [Construction account](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145).
+
+Our reading of that approach is that access should shape the bridge concept from the start. For a future mountain crossing, a design discussion would need to cover the delivery route, the space available beside the river and how the proposed sections could be handled. The relevant comparison is the complete journey from factory to installed structure.
+
+Prefabrication can move some work into a controlled production setting, but a project team still has to plan the interfaces with site construction. A concept drawing should therefore distinguish the supplied superstructure from the foundations, approaches and assembly work. The illustration accompanying this article explains that separation without claiming to reproduce Pengshui's erection procedure.
+
+## Original design and construction credits
+
+The foundation records these project roles. Organization names below are English translations of its Chinese listings. [Full project credits](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145).
+
+| Role | Organization |
+| --- | --- |
+| Organizer | Beijing Mao Yisheng Science and Technology Education Foundation |
+| Project owner | Taiyuan Township Government, Pengshui County |
+| Design unit | Chongqing Wanzhou District Transport Design Institute |
+| Implementation partners | Tsinghua University; Chongqing Jiaotong University; Beijing FRP Institute Composites Co., Ltd.; MCC Central Research Institute of Building and Construction; Chongqing Huilan Mingyue Construction Engineering Co., Ltd. |
+
+Tsinghua separately credits its Department of Civil Engineering with developing the FRP truss technology. Its faculty and students participated in design, fabrication, testing, transportation and installation. [University account](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+
+The foundation lists the construction company among the implementation partners; it does not define a sole general contractor or divide the work into individual contracts. The credits here preserve that distinction. Neither source identifies F1 Composite as a participant, and these references imply no endorsement of F1 by the project team.
+
+## A material concept still needs bridge engineering
+
+Lightweight composite members do not by themselves establish how a pedestrian bridge will feel under use. Research by Peng Feng, Feifei Jin and Lieping Ye on a separate FRP pedestrian bridge identifies deformation and vibration comfort as important design controls. That study supports an engineering lesson, not a claim about Pengshui's measured performance. [Research article](https://jace.chd.edu.cn/oa/DArticle.aspx?id=201103003&type=view).
+
+For anyone considering a similar application, the next step should be a project brief covering pedestrian use, the river crossing and construction access, followed by qualified bridge design. The historical reports are not a substitute for design calculations, an inspection record or a current assessment of this bridge. They also do not justify assigning it a present-day condition rating or a maintenance-free service life.
+
+## A Chinese breakthrough with a practical purpose
+
+Pengshui is a useful reference because the ambition was tangible: apply composite structural technology to a crossing people needed. Its wider lesson is to consider material selection together with rural access, fabrication and construction planning.
+
+The cover is a real project photograph published in the [foundation's original illustrated account](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145); its photographer is not identified there. It shows the original project, not F1's work. The prefabrication diagram below is an original editorial schematic, not a construction drawing. See also the [Tsinghua report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+
+For further material background, explore [pultruded FRP profiles](/pultruded-frp-profiles) and our [pedestrian bridge engineering guide](/case-studies/beam-bridge). These F1 resources discuss the broader application; they do not represent participation in the Pengshui project.`,
+  },
 
   {
     slug: "fiberglass-reinforced-plastic",

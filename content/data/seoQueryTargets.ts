@@ -372,6 +372,7 @@ export const seoQueryTargets = [
       "/products/frp-deck-panels",
       "/industries/infrastructure",
       "/resources/blog/frp-bridge-deck-design-guide",
+      "/resources/blog/china-first-all-composite-truss-bridge-pengshui",
     ],
   },
   {

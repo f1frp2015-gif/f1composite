@@ -254,7 +254,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       absoluteUrl(post.coverImage),
       absoluteUrl(`/resources/blog/${slug}/opengraph-image`),
     ],
-    author: {
+    author: post.authorType === "Organization" ? {
+      "@type": "Organization",
+      name: post.authorName,
+      url: absoluteUrl("/about"),
+    } : {
       "@type": "Person",
       name: authorRecord?.name ?? post.authorName,
       ...(authorRecord?.credentials === "Ph.D."

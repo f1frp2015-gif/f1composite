@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="742" viewBox="0 0 1200 742" role="img" aria-labelledby="title desc">
+  <title id="title">From factory to rural crossing</title>
+  <desc id="desc">An original schematic presents factory prefabrication, transport planning and site assembly as linked design considerations. The diagram is conceptual and does not specify an erection procedure.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#008d85"/></marker></defs>
+  <rect width="1200" height="742" fill="#f0f6f5"/>
+  <g font-family="Arial, sans-serif">
+    <text x="60" y="70" font-size="20" font-weight="700" letter-spacing="2" fill="#007e78">THE PREFABRICATION CONCEPT</text>
+    <text x="60" y="129" font-size="46" font-weight="700" fill="#102c52">Design the journey to the site</text>
+    <text x="60" y="172" font-size="24" fill="#4b6173">Factory work and site construction meet at planned interfaces.</text>
+    <g fill="#fff" stroke="#d6e4e1" stroke-width="2"><rect x="60" y="219" width="330" height="354" rx="18"/><rect x="435" y="219" width="330" height="354" rx="18"/><rect x="810" y="219" width="330" height="354" rx="18"/></g>
+    <g font-size="25" font-weight="700" fill="#102c52"><text x="85" y="267">Factory prefabrication</text><text x="460" y="267">Transport planning</text><text x="835" y="267">Site assembly</text></g>
+    <g stroke="#008d85" stroke-width="5" fill="none" marker-end="url(#arrow)"><path d="M396 394H422"/><path d="M771 394H797"/></g>
+    <g stroke="#0c6670" stroke-width="6" fill="none" stroke-linejoin="round">
+      <path d="M101 342H341V382H101Z M101 382 161 342 221 382 281 342 341 382"/>
+      <path d="M101 405H341V445H101Z M101 445 161 405 221 445 281 405 341 445"/>
+    </g>
+    <path d="M491 425Q503 378 550 404T654 387L705 342" fill="none" stroke="#c7d9d6" stroke-width="26" stroke-linecap="round"/>
+    <path d="M491 425Q503 378 550 404T654 387L705 342" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="9 9"/>
+    <g fill="#008d85"><circle cx="491" cy="425" r="12"/><circle cx="705" cy="342" r="12"/></g>
+    <path d="M850 462Q965 435 1100 462" fill="none" stroke="#a9d9de" stroke-width="19"/>
+    <g fill="#8a9b9b"><path d="M851 419H881V468H843Z"/><path d="M1069 419H1099L1107 468H1069Z"/></g>
+    <g fill="none" stroke="#0c6670" stroke-width="6" stroke-linejoin="round"><path d="M866 413V337H1084V413Z M866 413 920 337 975 413 1029 337 1084 413"/></g>
+    <path d="M851 421H1099" stroke="#102c52" stroke-width="9"/>
+    <g font-size="22" fill="#4b6173"><text x="85" y="510">Prepare structural sections.</text><text x="85" y="543">Define the interfaces.</text><text x="460" y="510">Review the delivery route.</text><text x="460" y="543">Plan handling and access.</text><text x="835" y="510">Coordinate the crossing.</text><text x="835" y="543">Connect to site works.</text></g>
+    <rect x="60" y="607" width="1080" height="101" rx="12" fill="#102c52"/>
+    <text x="85" y="647" font-size="23" font-weight="700" fill="#fff">ORIGINAL EDITORIAL SCHEMATIC</text>
+    <text x="85" y="683" font-size="21" fill="#c5dedf">Concept only · Not to scale · Not an erection procedure or F1 project record</text>
+  </g>
+</svg>
