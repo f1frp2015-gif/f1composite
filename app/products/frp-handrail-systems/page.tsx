@@ -1,3 +1,4 @@
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +21,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-handrail-systems";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-08-30";
+const updatedAt = "2026-09-08";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -153,6 +154,10 @@ export default function HandrailSystemsPage() {
           { label: "FRP Handrail Systems" },
         ]}
       />
+
+      <MaterialTerminologyNote title="Specifying GRP handrails or guardrails?">
+        These glass-reinforced systems are also called GRP handrails. A graspable handrail and an edge-protection guardrail serve different functions: confirm the layout, loading and connections before ordering. A material name alone does not establish system compliance.
+      </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">

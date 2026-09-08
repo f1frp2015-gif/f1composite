@@ -1,3 +1,4 @@
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +24,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-08-29";
-const updatedAt = "2026-08-29";
+const updatedAt = "2026-09-08";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -138,6 +139,10 @@ export default function MoldedFrpGratingPage() {
           { label: "Molded FRP Grating" },
         ]}
       />
+
+      <MaterialTerminologyNote title="Molded FRP or moulded GRP grating?">
+        Both names describe the glass-reinforced molded panels on this page; “moulded” is the British spelling. Choose mesh opening, panel depth, surface and resin for your application. Pultruded bearing-bar grating is a different construction with its own load tables.
+      </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">

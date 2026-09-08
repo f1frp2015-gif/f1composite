@@ -21,7 +21,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "FRP Profiles Manufacturer — Factory-Direct | F1 Composite",
     description:
-      "Factory-direct FRP profiles manufacturer in China for structural shapes, gratings, window frames and custom pultrusions. EN 13706, ASTM D3917 and global supply.",
+      "Factory-direct FRP profiles manufacturer in China. Glass-reinforced GRP shapes, gratings, window frames and custom pultrusions with global delivery support.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/fiberglass-structural-shapes",
@@ -33,9 +33,9 @@ export const seoQueryTargets = [
     targetUrl: "/what-is-frp",
     primaryQuery: "what is FRP",
     intent: "guide",
-    title: "What Is FRP? Definition, Materials, Properties & Uses",
+    title: "What Is FRP? GRP vs FRP, Materials & Uses",
     description:
-      "What is FRP? Learn how fiber reinforced plastic combines glass and resin, how it is made, its properties, standards, uses and engineering limits.",
+      "What is FRP, and how does it differ from GRP and GFRP? Compare reinforcement types, regional terminology, material properties and specification requirements.",
     supportingUrls: [
       "/resources/blog/fiberglass-reinforced-plastic",
       "/resources/blog/frp-material",
@@ -88,9 +88,9 @@ export const seoQueryTargets = [
     targetUrl: "/pultruded-frp-profiles",
     primaryQuery: "pultruded FRP profiles",
     intent: "commercial",
-    title: "Pultruded FRP Profiles & Structural Shapes — EN 13706",
+    title: "Pultruded FRP & GRP Profiles | Product Range",
     description:
-      "Specify pultruded FRP profiles, structural shapes, gratings, window frames and custom sections. EN 13706 and ASTM D3917; factory-direct global supply.",
+      "Explore pultruded FRP and GRP profiles: structural shapes, tubes, gratings, window frames and custom sections. Select a product family and request a quote.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes",
       "/products/custom-pultruded-profiles",
@@ -104,7 +104,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Fiberglass Structural Shapes — FRP Sizes & Weights",
     description:
-      "Compare 114 fiberglass structural shapes: I-beams, channels, angles, tubes, flat bars and rods, with dimensions, weights and section data.",
+      "Compare 114 fiberglass structural shapes, also called GRP sections: beams, channels, angles, tubes, flat bars and rods, with sizes and weights.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes/frp-i-beam",
       "/products/fiberglass-structural-shapes/frp-channel",
@@ -272,9 +272,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-ladders",
     primaryQuery: "fiberglass fixed ladder",
     intent: "commercial",
-    title: "Fiberglass Fixed Ladders | Industrial FRP Ladder Systems",
+    title: "Fiberglass Fixed Ladders | FRP & GRP Access Systems",
     description:
-      "Industrial fiberglass fixed ladders and FRP access systems for corrosive facilities. Compare side rails, rungs, optional cage components and drawing inputs.",
+      "Industrial fiberglass fixed ladders, also called GRP ladders. Compare rails, rungs, optional cage components and project-specific access drawings.",
     supportingUrls: [
       "/products/frp-handrail-systems",
       "/products/frp-stair-treads",
@@ -305,7 +305,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Fiberglass Handrail Systems | Industrial FRP Railing",
     description:
-      "Industrial FRP handrail systems with fiberglass posts, top and mid rails, toe boards, fittings and base options. Configure layouts to the project load basis.",
+      "Specify fiberglass handrail systems, also called GRP handrails, with posts, rails, toe boards and fittings. Confirm layout, loads and anchors for each project.",
     supportingUrls: [
       "/products/frp-ladders",
       "/products/frp-stair-treads",
@@ -318,9 +318,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-gratings",
     primaryQuery: "pultruded FRP grating manufacturer",
     intent: "commercial",
-    title: "Pultruded FRP Grating Manufacturer | T-Bar & I-Bar",
+    title: "Pultruded FRP & GRP Grating | T-Bar & I-Bar",
     description:
-      "Compare pultruded fiberglass grating in T-bar, I-bar, high-load and high-open series, with nominal data, M/J/T 316SS clips and load-table support.",
+      "Compare pultruded fiberglass grating, also called GRP grating, in T-bar and I-bar series with panel data, load-table support and matched 316SS clips.",
     supportingUrls: [
       "/products/frp-deck-panels",
       "/products/molded-frp-grating",
@@ -348,9 +348,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/molded-frp-grating",
     primaryQuery: "molded FRP grating",
     intent: "commercial",
-    title: "Molded FRP Grating Manufacturer | Mesh Sizes & Clips",
+    title: "Molded FRP Grating | Moulded GRP Mesh & Sizes",
     description:
-      "Compare molded fiberglass grating mesh, depths, panel sizes, nominal weights and open area, with gritted surfaces and matched M/C/J 316SS clips.",
+      "Molded FRP grating, also known as moulded GRP grating, with square and mini mesh, panel depths, gritted surfaces, nominal weights and matched 316SS clips.",
     supportingUrls: [
       "/products/frp-gratings",
       "/technology/frp-vs-steel-gratings",

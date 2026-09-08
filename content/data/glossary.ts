@@ -37,7 +37,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "GRP / GFRP",
     category: "Materials & constituents",
     definition:
-      "(Glass) Fiber Reinforced Polymer or Plastic — the common UK, European, and Australian name for glass-fiber FRP. GRP and GFRP are interchangeable with 'fiberglass FRP'; the term specifies that the reinforcement is glass fiber.",
+      "GRP means Glass Reinforced Plastic; GFRP means Glass Fiber Reinforced Polymer or Plastic. Both specify the glass-reinforced subset of FRP, not carbon or basalt composites. GRP is common in UK and European product literature; other markets use both FRP and GRP. The abbreviation alone does not define a resin, grade or performance rating.",
   },
   {
     id: "fiberglass",
