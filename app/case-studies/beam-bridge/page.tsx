@@ -1333,6 +1333,7 @@ export default function BeamBridgeCaseStudiesPage() {
             title: "Engineering resources",
             links: [
               { href: "/resources/blog/frp-bridge-deck-design-guide", label: "FRP bridge deck design guide" },
+              { href: "/resources/blog/china-first-all-composite-truss-bridge-pengshui", label: "Composite truss bridges in rural China: the Pengshui milestone" },
               { href: "/frp-profile-calculator", label: "FRP beam calculator" },
               { href: "/frp-span-tables", label: "FRP span tables" },
             ],

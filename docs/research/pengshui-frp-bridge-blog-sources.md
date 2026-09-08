@@ -29,3 +29,12 @@ Publication date: 2026-09-08. Route: `/resources/blog/china-first-all-composite-
 - General mountain logistics discussion is explicitly editorial interpretation; it does not assert particular equipment, road restrictions, labor, installation time, cost savings or current compliance for Pengshui.
 - No standards are assigned to the historical project.
 - Scope: independent industry perspective in the blog, not an F1 delivery case study.
+
+## Keyword placement
+
+- Primary article intent: China's first all-composite truss bridge / Pengshui Mao Yisheng Charity Bridge.
+- Secondary phrases: beam bridges, FRP pedestrian bridges, composite bridges, composite bridge design, prefabricated FRP pedestrian bridges, rural crossings.
+- Keep `/case-studies/beam-bridge` as the main beam-bridge resource. Link from a prominent guide card, a beam-versus-truss section and related resources; do not relabel the Pengshui truss as a beam bridge.
+- Place beam bridges in the meta description, an H2 and a contextual exact-match link. Keep the title focused on the historical truss milestone.
+- The user supplied an Ahrefs keyword URL for beam bridges. No search-volume, difficulty or ranking statistics were retrieved or asserted.
+- Structural distinction source: FHWA Covered Bridge Manual, https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf . This explains beam bending versus principal axial action in trusses; it is not a design standard assigned to Pengshui.

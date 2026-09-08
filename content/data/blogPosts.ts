@@ -86,6 +86,11 @@ export const blogPosts: BlogPost[] = [
     slug: "china-first-all-composite-truss-bridge-pengshui",
     title: "China's First All-Composite Truss Bridge: Mountain Access",
     seoTitle: "China's First All-Composite Truss Bridge: Mountain Access",
+    masterComparison: {
+      label: "Beam bridges: pedestrian and cycle design guide",
+      href: "/case-studies/beam-bridge",
+      note: "For beam bridges, explore girder load paths, deck arrangements and serviceability in our main guide. This article covers the Pengshui truss milestone.",
+    },
     answerBox:
       "Completed in 2012 in Pengshui, Chongqing, this was China's first Mao Yisheng Charity Bridge and, according to the foundation, China's first all-composite truss bridge. It joined a rural school-access initiative with an FRP structural demonstration. F1 Composite had no role in the project.",
     category: "Industry Perspectives",
@@ -122,18 +127,19 @@ export const blogPosts: BlogPost[] = [
       "Original project teams receive credit; F1 Composite is the editorial publisher only.",
     ],
     ogDescription:
-      "Explore China's first all-composite truss bridge in Pengshui: a 20 m FRP crossing for rural school access, with original project credits.",
+      "China's first all-composite truss bridge: rural FRP pedestrian access, original project credits, and lessons for comparing truss and beam bridges.",
     ogChips: ["China milestone", "Rural access", "Independent reference"],
     relatedLinks: [
-      { label: "Pedestrian bridge engineering and public research cases", href: "/case-studies/beam-bridge" },
+      { label: "Beam bridges: FRP pedestrian and cycle bridge design", href: "/case-studies/beam-bridge" },
       { label: "Pultruded FRP profiles", href: "/pultruded-frp-profiles" },
     ],
     sourceLinks: [
       { label: "Tsinghua University: completion report, June 6, 2012 (Chinese)", href: "https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm" },
       { label: "Mao Yisheng Science and Technology Education Foundation: Pengshui project record and photograph (Chinese)", href: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145" },
       { label: "Feng, Jin and Ye: structural performance and design criteria for FRP pedestrian bridges, 2011", href: "https://jace.chd.edu.cn/oa/DArticle.aspx?id=201103003&type=view" },
+      { label: "FHWA Covered Bridge Manual: beam bending and truss axial load paths", href: "https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf" },
     ],
-    content: `A river crossing can determine whether a child reaches school. In the mountains of Chongqing, the Mao Yisheng Charity Bridge brought pultruded FRP profiles into a public footbridge serving that everyday need. It offers a concrete example of how composite bridge technology can matter beyond a laboratory.
+    content: `A river crossing can determine whether a child reaches school. In the mountains of Chongqing, the Mao Yisheng Charity Bridge brought pultruded FRP profiles into a public footbridge serving that everyday need. This early application of FRP pedestrian bridges connects composite bridge design with rural access.
 
 **Project attribution:** F1 Composite did not design, manufacture, supply or construct this bridge. This article discusses a Chinese engineering milestone and its wider application concept. Credit belongs to the original organizations identified below.
 
@@ -151,7 +157,13 @@ The foundation calls Pengshui China's first all-composite truss bridge. That des
 
 This distinction matters when discussing FRP internationally. GFRP and GRP refer to glass-fiber composites within the broader FRP family. A structural truss, an FRP bridge deck on conventional girders, and reinforcement inside concrete are different applications. Pengshui's significance lies in putting the composite truss itself into community service.
 
-## Why prefabrication matters in mountain settings
+## Beam bridges vs. truss bridges for rural crossings
+
+Beam bridges carry deck loads through the bending resistance of their main beams or girders. A truss instead uses an arrangement of chords and web members whose principal action is axial tension or compression, although real members and joints can also experience bending. These are structural concepts, independent of whether the material is steel, timber or FRP. [FHWA Covered Bridge Manual](https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf).
+
+Pengshui belongs to the truss category. Engineers considering composite bridges for another rural crossing can compare a beam arrangement with a truss while reviewing structural depth, connection details and the proposed delivery units. The material label alone does not decide the structural form. Our guide to [beam bridges](/case-studies/beam-bridge) explains pedestrian and cycle bridge load paths and discusses public FRP beam bridge examples.
+
+## Prefabricated FRP pedestrian bridges in mountain settings
 
 The foundation reports that the bridge body was factory-prefabricated in three sections, then assembled and installed on site. [Construction account](https://www.mysf.org.cn/Detail/index.html?id=685&aid=145).
 
