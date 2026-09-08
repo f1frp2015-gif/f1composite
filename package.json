@@ -13,6 +13,7 @@
     "audit:images": "node scripts/image-audit.mjs",
     "optimize:images": "node scripts/optimize-image-assets.mjs --apply",
     "test:indexnow": "node --test scripts/submit-indexnow.test.mjs",
+    "test:beam-bridge": "node --test scripts/beam-bridge.test.mjs",
     "test:calculators": "node --test scripts/calculator-p0.test.mjs",
     "test:grating-clips": "node --test scripts/grating-clips.test.mjs",
     "test:grating-pages": "node --test scripts/grating-page-split.test.mjs",

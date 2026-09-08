@@ -343,10 +343,13 @@ export async function GET() {
     caseStudies: [
       {
         slug: "beam-bridge",
-        title: "Beam Bridge Design — Pedestrian & Cycle Guide",
-        location: "Australia and Portugal",
-        year: "Public engineering references",
-        sourceType: "Independent public records; not F1 Composite supply projects",
+        title: "FRP Beam Bridges — Four Manufacturing Routes",
+        location: "F1 capabilities and global engineering references",
+        year: "2026 engineering guide",
+        sourceType: "F1 fabrication capability plus explicitly independent public bridge references",
+        conceptRoutes: ["A: three nominal 4 m modules", "B: deep multicell box", "C: standard pultruded I-beam assembly", "D: custom curved hand-laid GRP"],
+        conceptLimits: "12 m body and 2.15 m target width are illustrative; 250/970 mm reference depths are not verified designs. Bespoke tooling and process capability require project confirmation.",
+        calculationScope: "One straight simply supported girder, equal load sharing, bending-only service response. No curved-box sizing or bridge compliance decision.",
         keyFacts: {
           moggillOverallLengthM: 218,
           moggillSpans: 9,

@@ -2,412 +2,114 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
-import PageHeader from "@/components/layout/PageHeader";
-import ArticleSignals from "@/components/sections/ArticleSignals";
-import InnerCTA from "@/components/sections/InnerCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { BEAM_BRIDGE_METHOD_SOURCES } from "@/lib/engineering/beam-bridge";
+import BeamExplorer from "./BeamExplorer";
+import BridgeConceptDiagram from "./BridgeConceptDiagram";
+import { caseStudies, faqs, sourceUrls } from "./bridge-data";
+import "./beam-bridge.css";
 
 const pagePath = "/case-studies/beam-bridge";
-
-const title = "Beam Bridge Design: Pedestrian & Cycle Bridge Guide";
+const title = "FRP Beam Bridge Design: Four Manufacturing Routes";
 const description =
-  "Beam bridge design guide for pedestrian and cycle crossings: load paths, width, vibration, FRP detailing and three source-backed bridge case studies.";
-
+  "Explore four FRP pedestrian bridge concepts, F1 fabrication capabilities, transparent beam calculations and documented bridge case studies.";
 export const metadata: Metadata = buildPageMetadata({
   title,
   description,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
 });
+const inquiry = "/contact?source=beam-bridge-guide&inquiry_type=engineering";
+const pengshuiPath =
+  "/resources/blog/china-first-all-composite-truss-bridge-pengshui";
 
-const sourceUrls = {
-  definition:
-    "https://bigbuild.vic.gov.au/projects/gippsland-line-upgrade/construction/avon-river-bridge/learning-resources/bridge-match",
-  bending:
-    "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/04098/05.cfm",
-  bridgeTypes:
-    "https://www.environment.fhwa.dot.gov/env_topics/historic_pres/post1945_engineering/this_bridge.aspx?AspxAutoDetectCookieSupport=1",
-  tmrGuide:
-    "https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Bridges-marine-and-other-structures/Options-for-Designers-of-Pedestrian-Cyclist-Bridges/Option_Design_Ped_Cyc_Bridges.pdf?hash=18C0BC79B5B71A7DC5AE4E947287A857&la=en",
-  tmrCriteria:
-    "https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Bridges-marine-and-other-structures/Bridge-design-and-assessment-criteria-manual/DesignCriteriaforBridgesandOtherStructures.pdf",
-  austroadsPart6A: "https://austroads.gov.au/publications/road-design/agrd06a",
-  nswToolbox:
-    "https://www.transport.nsw.gov.au/system/files/media/documents/2023/Cycleway-Design-Toolbox-Web.pdf",
-  jrcVibration: "https://publications.jrc.ec.europa.eu/repository/handle/JRC53442",
-  monashResearch: "https://www.open-access.bcu.ac.uk/14288/",
-  moggill:
-    "https://www.tmr.qld.gov.au/travel-and-transport/cycling/infrastructure-projects/moggill-road-cycle-bridge",
-  saoSilvestre:
-    "https://www.sciencedirect.com/science/article/pii/S0263822314003997",
-  saoSilvestreDynamic: "https://onlinelibrary.wiley.com/doi/full/10.1002/stc.3137",
-  aashtoFrp: "https://store.transportation.org/Item/PublicationDetail?ID=5405",
-  ats5880: "https://austroads.gov.au/publications/test-methods/ats-5880",
-  pontresina:
-    "https://research.birmingham.ac.uk/en/publications/durability-of-pultruded-fibre-polymer-composite-structures-under-/",
-  as5100: "https://www.standards.org.au/sector-case-studies/construction",
-} as const;
-
-type BridgeIconName =
-  | "deck"
-  | "girder"
-  | "bearing"
-  | "foundation"
-  | "width"
-  | "barrier"
-  | "drainage"
-  | "joint"
-  | "vibration"
-  | "wind"
-  | "vehicle"
-  | "connection"
-  | "durability"
-  | "fire"
-  | "inspection"
-  | "delivery"
-  | "check";
-
-const iconPaths: Record<BridgeIconName, ReactNode> = {
-  deck: (
-    <>
-      <path d="M3 9h18v4H3z" />
-      <path d="M6 17h12M8 13v4m8-4v4" />
-    </>
-  ),
-  girder: (
-    <>
-      <path d="M5 4h14M5 20h14M9 4v16m6-16v16" />
-      <path d="M9 8h6m-6 8h6" />
-    </>
-  ),
-  bearing: (
-    <>
-      <path d="M5 5h14v4H5zM7 15h10v4H7z" />
-      <path d="m8 15 2-6m6 6-2-6" />
-    </>
-  ),
-  foundation: (
-    <>
-      <path d="M7 4h10v7H7zM5 11h14v4H5zM3 20h18" />
-      <path d="M7 15v5m5-5v5m5-5v5" />
-    </>
-  ),
-  width: (
-    <>
-      <path d="M4 12h16M4 12l3-3m-3 3 3 3m13-3-3-3m3 3-3 3" />
-      <path d="M4 5v14m16-14v14" />
-    </>
-  ),
-  barrier: (
-    <>
-      <path d="M5 20V5m14 15V5M5 8h14M5 13h14" />
-      <path d="M9 8v12m6-12v12" />
-    </>
-  ),
-  drainage: (
-    <>
-      <path d="M4 8h16l-4 4H8zM12 12v8" />
-      <path d="m9 17 3 3 3-3" />
-    </>
-  ),
-  joint: (
-    <>
-      <path d="M3 8h7v8H3zM14 8h7v8h-7z" />
-      <path d="m10 12 2-2 2 2-2 2z" />
-    </>
-  ),
-  vibration: (
-    <>
-      <path d="M3 13c2.2-7 4.4 7 6.6 0s4.4-7 6.6 0 3.2 2 4.8-1" />
-      <path d="M4 5h16M4 19h16" />
-    </>
-  ),
-  wind: (
-    <>
-      <path d="M3 8h12c3.5 0 3.5-5 0-5-1.4 0-2.3.8-2.7 1.8M3 12h17c2.7 0 2.7 4 0 4-1.2 0-2-.7-2.3-1.5M3 16h9" />
-    </>
-  ),
-  vehicle: (
-    <>
-      <path d="M4 15V9h11l4 4v2" />
-      <path d="M3 15h18M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM15 9v4h4" />
-    </>
-  ),
-  connection: (
-    <>
-      <path d="M4 7h7v10H4zM13 7h7v10h-7z" />
-      <path d="M9 10h6m-6 4h6" />
-      <circle cx="12" cy="10" r="1" />
-      <circle cx="12" cy="14" r="1" />
-    </>
-  ),
-  durability: (
-    <>
-      <path d="M12 3 5 6v5c0 4.5 2.7 7.9 7 10 4.3-2.1 7-5.5 7-10V6z" />
-      <path d="m9 12 2 2 4-5" />
-    </>
-  ),
-  fire: (
-    <>
-      <path d="M13 3c1 4-2 5-2 8 0 1.6 1 2.6 2.3 2.6 2.2 0 3.7-2.1 2.7-5.1 3 2.2 4 5 2.7 8-1.1 2.7-3.6 4.5-6.7 4.5-4.4 0-7-2.8-7-6.4 0-3.1 1.8-5.8 4.5-8.4-.1 3.2 1.2 4.2 2.3 3.4C13 8.7 14 6.5 13 3Z" />
-    </>
-  ),
-  inspection: (
-    <>
-      <circle cx="10" cy="10" r="5" />
-      <path d="m14 14 6 6M8 10h4m-2-2v4" />
-    </>
-  ),
-  delivery: (
-    <>
-      <path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z" />
-      <circle cx="7" cy="18" r="2" />
-      <circle cx="17" cy="18" r="2" />
-    </>
-  ),
-  check: <path d="m5 12 4 4L19 6" />,
-};
-
-function BridgeIcon({ name, className = "h-[24px] w-[24px]" }: { name: BridgeIconName; className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      {iconPaths[name]}
-    </svg>
-  );
-}
-
-const loadPathSteps = [
+const routes = [
   {
-    icon: "deck" as const,
-    label: "Deck and surface",
-    copy: "Pedestrians, cycles, barriers, wind and self-weight first act on the deck system.",
+    id: "A",
+    title: "Three straight modules",
+    subtitle: "Repeat the module. Shorten the span.",
+    process: "Modular multicell construction",
+    geometry: "3 × 4 m modules · 4 support locations",
+    depth: "≈250 mm reference depth",
+    benefit:
+      "A shallow profile and smaller transport units where intermediate supports are feasible.",
+    scope:
+      "Profile and deck selection, module detailing, connection coordination and packing development.",
+    resolve:
+      "Confirm actual bearing centres, foundations, joints and local cell-wall stability. The three 4 m dimensions describe module lengths; final structural spans follow the support design.",
+    link: "/products/frp-deck-panels",
+    label: "Explore deck and section options",
   },
   {
-    icon: "girder" as const,
-    label: "Distribution and girders",
-    copy: "Deck action and cross-members distribute load into the longitudinal beams or girders.",
+    id: "B",
+    title: "Straight deep box",
+    subtitle: "Make structural depth do the work.",
+    process: "Custom multicell box development",
+    geometry: "12 m bridge body · 2 support locations",
+    depth: "≈970 mm reference depth",
+    benefit:
+      "A concept for a crossing with end supports and space for a deeper structure below the deck.",
+    scope:
+      "Custom section development, laminate and connection coordination, manufacturing and long-load review.",
+    resolve:
+      "Establish the actual support span, laminate, shear webs, end diaphragms and bearings. Review lifting, mould or assembly strategy and the long-load transport envelope.",
+    link: "/products/custom-pultruded-profiles",
+    label: "Explore custom section development",
   },
   {
-    icon: "bearing" as const,
-    label: "Bearings or end connections",
-    copy: "Support details transfer reactions while accommodating the movement defined by the design.",
+    id: "C",
+    title: "Standard I-beam assembly",
+    subtitle: "Start with the standard-profile route.",
+    process: "Pultrusion + component assembly",
+    geometry: "12 m overall assembly · supports by design",
+    depth: "Member depth selected by calculation",
+    benefit:
+      "A practical starting point for a cost study using longitudinal I-beams, cross-members and a selected deck.",
+    scope:
+      "Pultruded profiles, cut-to-length and drilling coordination, deck and handrail integration, and assembly detailing.",
+    resolve:
+      "Confirm section and tooling availability. Calculate girder spacing, support spacing, lateral restraint, deck distribution and every connection; 12 m overall does not establish a 12 m clear span.",
+    link: "/products/fiberglass-structural-shapes/frp-i-beam",
+    label: "Explore FRP I-beams",
   },
   {
-    icon: "foundation" as const,
-    label: "Substructure and ground",
-    copy: "Abutments, piers and foundations complete the load path into competent ground.",
+    id: "D",
+    title: "Custom curved GRP",
+    subtitle: "Let geometry shape the process.",
+    process: "Bespoke mould + hand-laid laminate",
+    geometry: "12 m along the bridge · curved alignment",
+    depth: "Section and laminate developed to brief",
+    benefit:
+      "A bespoke route for landscape crossings where the alignment and architectural form drive the design.",
+    scope:
+      "Geometry, tooling and process development, with bonded-web details and a controlled cure plan.",
+    resolve:
+      "Confirm large-mould production capacity for the project, laminate placement, bond qualification and inspection access. Curvature needs a spatial model for bending, shear and torsion; mould, labour and transport shape the cost.",
+    link: inquiry,
+    label: "Discuss a bespoke bridge form",
   },
 ] as const;
 
-const activeUseDecisions = [
+const questions = [
   {
-    icon: "width" as const,
-    title: "Clear width and user mix",
-    copy: "Measure between barriers and size for forecast peak demand, operating envelope, passing and any pedestrian–cycle separation.",
-  },
-  {
-    icon: "barrier" as const,
-    title: "Barriers and handrails",
-    copy: "Cyclist edge protection, accessible handrails, openings, pannier clearance and post setbacks are separate geometric decisions.",
-  },
-  {
-    icon: "joint" as const,
-    title: "Joints and ride quality",
-    copy: "Keep the wheel path free of abrupt lips, unsafe gaps and loose cover plates; coordinate movement with a smooth surface detail.",
-  },
-  {
-    icon: "drainage" as const,
-    title: "Surface and drainage",
-    copy: "Coordinate slip resistance, crossfall, scuppers, kerbs and discharge so water does not pond or create hazards below.",
-  },
-  {
-    icon: "vehicle" as const,
-    title: "Maintenance vehicle decision",
-    copy: "Explicitly include or exclude service and emergency vehicles in the design brief and drawings; do not leave the load model implicit.",
-  },
-  {
-    icon: "inspection" as const,
-    title: "Inspection access",
-    copy: "Bearings, cross-members, drainage and concealed connections need a safe inspection and replacement strategy from day one.",
-  },
-] as const;
-
-const caseStudies = [
-  {
-    id: "moggill-road-cycle-bridge",
-    number: "01",
-    name: "Moggill Road Cycle Bridge",
-    location: "Indooroopilly, Brisbane, Australia",
-    system: "Prestressed-concrete T-girder cycle bridge",
-    image: "/images/case-studies/beam-bridge/moggill-road-cycle-bridge-case-study.svg",
-    mobileImage: "/images/case-studies/beam-bridge/moggill-road-cycle-bridge-case-study-mobile.svg",
-    alt: "Engineering schematic of the nine-span Moggill Road prestressed-concrete T-girder cycle bridge",
-    summary:
-      "A cycle-only crossing that demonstrates how a conventional repeated-girder system can be designed around rider continuity, off-site fabrication and maintenance access—not just structural capacity.",
-    stats: [
-      ["Overall length", "218 m"],
-      ["Structural layout", "9 spans"],
-      ["Span range", "17–32 m"],
-      ["2016 use", "820 riders/day"],
-    ],
-    lessons: [
-      "The superstructure uses prestressed-concrete T-girders, a reinforced-concrete deck and precast kerbs.",
-      "Girders weighing up to 103 t were prefabricated off site and installed with 350 t and 500 t mobile cranes.",
-      "The deck expansion joint was selected specifically to avoid gaps or bumps and maintain a smooth cycle path.",
-      "Barrier, lighting and inspection access were treated as maintainable parts of the bridge system.",
-    ],
-    source: sourceUrls.moggill,
-    sourceLabel: "Queensland TMR project case study",
-  },
-  {
-    id: "coronation-drive-frp-cycleway",
-    number: "02",
-    name: "Coronation Drive FRP Cycleway Crossing",
-    location: "Bicentennial Bikeway, Brisbane, Australia",
-    system: "Glued pultruded-FRP girder system",
-    image: "/images/case-studies/beam-bridge/coronation-drive-frp-cycleway-case-study.svg",
-    mobileImage: "/images/case-studies/beam-bridge/coronation-drive-frp-cycleway-case-study-mobile.svg",
-    alt: "Engineering schematic of the lightweight FRP girder bridge on the Coronation Drive cycleway",
-    summary:
-      "Queensland TMR documents a cycleway bridge using glued pultruded-FRP hollow sections with an engineered cementitious composite plate deck—a useful short-span reference where access and lifting mass matter.",
-    stats: [
-      ["Overall width", "3,000 mm"],
-      ["Effective width", "2,720 mm"],
-      ["Main girders", "6 at 575 mm c/c"],
-      ["Longitudinal span", "Not published"],
-    ],
-    lessons: [
-      "Low transport mass can be valuable at constrained sites, but temporary stability and lift points remain design actions.",
-      "TMR describes this bridge type as useful for difficult-access short spans up to about 12 m; that is system guidance, not the verified span of this bridge.",
-      "The documented section combines glued FRP hollow-section girders with an ECC plate deck; it is a hybrid system, not an all-FRP bridge.",
-      "Adhesive joints, drainage, fire exposure, bearings and inspection access still require project-specific qualification.",
-      "The record is evidence of an FRP beam concept in public service, not a generic approval of catalogue profiles.",
-    ],
-    source: sourceUrls.tmrGuide,
-    sourceLabel: "Queensland TMR active-user bridge guideline",
-  },
-  {
-    id: "sao-silvestre-footbridge",
-    number: "03",
-    name: "São Silvestre Footbridge",
-    location: "Ovar, Portugal",
-    system: "Hybrid GFRP–SFRSCC simply supported beam bridge",
-    image: "/images/case-studies/beam-bridge/sao-silvestre-gfrp-footbridge-case-study.svg",
-    mobileImage: "/images/case-studies/beam-bridge/sao-silvestre-gfrp-footbridge-case-study-mobile.svg",
-    alt: "Engineering schematic of the São Silvestre hybrid GFRP and concrete pedestrian beam bridge",
-    summary:
-      "Developed through Portuguese university–industry research, this full-scale bridge links laboratory static, dynamic and creep testing with an in-service pedestrian beam system monitored after installation.",
-    stats: [
-      ["Overall length", "11 m"],
-      ["Installed span", "10 m"],
-      ["Deck width", "2 m"],
-      ["Main girders", "2 pultruded GFRP"],
-    ],
-    lessons: [
-      "Each main I-girder is 400 × 200 × 15 mm; the steel-fibre-reinforced self-compacting concrete deck is 37.5 mm thick.",
-      "The hybrid interface combines an epoxy layer with mechanical detailing, while local concrete jackets protect the thin webs near concentrated support reactions.",
-      "The earlier full-scale prototype was tested at a 10.5 m support span; the 2022 in-service study records a 10.0 m installed span.",
-      "The research programme tested static, dynamic and creep behaviour before the bridge entered service in 2015.",
-      "Later operational modal research reinforces a central lesson: damping and vibration results belong to the complete bridge system, not to GFRP as a universal material constant.",
-    ],
-    source: sourceUrls.saoSilvestre,
-    sourceLabel: "Composite Structures research paper",
-    secondarySource: sourceUrls.saoSilvestreDynamic,
-    secondarySourceLabel: "2022 operational modal study",
-  },
-] as const;
-
-const frpChecks = [
-  {
-    icon: "girder" as const,
-    title: "Orthotropic member properties",
-    copy: "Use direction-specific tension, compression, bending and shear data. Thin webs and flanges also need local buckling and support checks.",
-  },
-  {
-    icon: "vibration" as const,
-    title: "Deflection and vibration",
-    copy: "Lower modulus and low mass can make serviceability govern. Include bending, shear deformation, creep, modal mass, damping and acceleration.",
-  },
-  {
-    icon: "connection" as const,
-    title: "Connections and local loads",
-    copy: "Qualify bolt bearing, net section, adhesive durability, slip, deck-to-girder transfer, barrier anchors and concentrated bearing reactions.",
-  },
-  {
-    icon: "durability" as const,
-    title: "Exposure and durability",
-    copy: "Define resin, UV protection, temperature and moisture reductions, wear surface, drainage and a damage-tolerant inspection plan.",
-  },
-  {
-    icon: "fire" as const,
-    title: "Fire and accidental actions",
-    copy: "Fire response depends on resin, geometry, protection, exposed faces and load. Treat vandalism, impact and replacement access explicitly.",
-  },
-  {
-    icon: "delivery" as const,
-    title: "Manufacture and erection",
-    copy: "Specify traceability, production verification, lift points, temporary bracing, transport envelope, tolerances and bearing installation.",
-  },
-] as const;
-
-const faqs = [
-  {
-    question: "What is a beam bridge?",
+    question: "Can F1 support different FRP bridge manufacturing routes?",
     answer:
-      "A beam bridge carries its deck on one or more horizontal beams or girders spanning between abutments, piers or both. Deck loads reach the main members through deck action or cross-members, then pass through bearings or end connections into the substructure and foundations.",
+      "F1 supports standard pultruded profiles, deck and handrail integration, fabrication and engineering coordination. A project can begin with a standard I-beam assembly or develop a modular, custom box or curved moulded concept. Bespoke sections, large moulds, laminate processes and testing are confirmed for the specific project before manufacturing is committed.",
   },
   {
-    question: "Is a girder bridge the same as a beam bridge?",
+    question: "Does a 12 m bridge body mean a 12 m clear span?",
     answer:
-      "The terms are often used interchangeably. In practice, girder usually describes a larger primary beam, while I-girder, T-girder and box-girder identify member geometry. The structural family is still governed by beam action: bending and shear between supports.",
+      "No. Overall body length, module length, distance between bearing centres and clear opening are different dimensions. Three nominal 4 m modules may have four support locations, while a 12 m body on two supports has a different structural demand. The structural model uses the actual support arrangement and bearing-centre span.",
   },
-  {
-    question: "How wide should a pedestrian or cycle bridge be?",
-    answer:
-      "There is no universal width. Clear width is measured between barriers and must follow the owner, jurisdiction, forecast peak flow, user mix and separation strategy. Queensland lists 3.0 m minimum clear width for two-way cycling and shared use, while the Transport for NSW toolbox gives a 4.0 m desired minimum for a shared path—showing why the jurisdiction must be stated.",
-  },
-  {
-    question: "Why do footbridges need a vibration check?",
-    answer:
-      "People can excite vertical, lateral and torsional modes through walking, running and crowd movement. Natural frequency is only a screening variable; modal mass, damping, mode shape, pedestrian density and peak acceleration determine comfort. In the Australian framework, vertical frequencies below 5 Hz trigger investigation and lateral frequencies below 1.5 Hz require special consideration.",
-  },
-  {
-    question: "Can an FRP beam bridge be maintenance-free?",
-    answer:
-      "No bridge should be specified as maintenance-free. FRP avoids conventional steel-corrosion mechanisms in the composite member, but surfacing, joints, drainage, bearings, bolts, adhesive interfaces, UV protection, fire damage and concealed deck-to-girder connections still need planned inspection and repair access.",
-  },
-  {
-    question: "Can a maintenance vehicle use a pedestrian bridge?",
-    answer:
-      "Only when the design brief and governing load model include it. The owner should deliberately include or exclude maintenance and emergency vehicles, state the decision on the drawings and control physical access accordingly.",
-  },
-  {
-    question: "How long can a pedestrian beam bridge span?",
-    answer:
-      "There is no single material limit. Span is a system decision involving girder depth, continuity, deck action, vibration, transport, erection and owner criteria. Queensland TMR describes multi-beam FRP systems as a practical short-span option around 12 m, while longer active-user beam bridges commonly use steel or prestressed concrete; neither figure is a universal maximum.",
-  },
+  ...faqs.filter(
+    (faq) =>
+      !faq.question.includes("How wide") &&
+      !faq.question.includes("Why do footbridges") &&
+      !faq.question.includes("How long"),
+  ),
 ];
-
-const images = [
-  "/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg",
-  "/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg",
-  "/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg",
-  ...caseStudies.map((caseStudy) => caseStudy.image),
-];
-
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -415,932 +117,799 @@ const structuredData = {
       "@type": "TechArticle",
       "@id": `${absoluteUrl(pagePath)}#article`,
       headline: title,
-      name: "Beam Bridge Design for Pedestrian and Cycle Bridges",
       description,
       url: absoluteUrl(pagePath),
       mainEntityOfPage: absoluteUrl(pagePath),
       datePublished: "2026-08-31",
-      dateModified: "2026-09-01",
+      dateModified: "2026-09-08",
       isAccessibleForFree: true,
-      image: images.map(absoluteUrl),
       author: {
-        "@type": "Person",
-        name: "Yifan Liu",
-        jobTitle: "Senior Application Engineer",
-        url: absoluteUrl("/about/authors/yifan-liu"),
-      },
-      reviewedBy: {
-        "@type": "Person",
-        name: "Haifeng Gong, Ph.D.",
-        url: absoluteUrl("/about/authors/haifeng-gong"),
+        "@type": "Organization",
+        name: "F1 Composite",
+        url: absoluteUrl("/about"),
       },
       publisher: { "@id": `${absoluteUrl("/")}#organization` },
-      about: [
-        { "@type": "Thing", name: "Beam bridge" },
-        { "@type": "Thing", name: "Pedestrian bridge" },
-        { "@type": "Thing", name: "Cycle bridge" },
-        { "@type": "Thing", name: "Pultruded GFRP girder" },
-        { "@type": "Thing", name: "Footbridge vibration serviceability" },
+      image: caseStudies.map((item) => absoluteUrl(item.image)),
+      citation: [
+        sourceUrls.tmrGuide,
+        sourceUrls.jrcVibration,
+        sourceUrls.ats5880,
+        sourceUrls.aashtoFrp,
+        sourceUrls.moggill,
+        sourceUrls.saoSilvestre,
+        sourceUrls.saoSilvestreDynamic,
+        BEAM_BRIDGE_METHOD_SOURCES[0].href,
+        absoluteUrl(pengshuiPath),
       ],
-      citation: Object.values(sourceUrls),
-    },
-    {
-      "@type": "ItemList",
-      "@id": `${absoluteUrl(pagePath)}#case-studies`,
-      name: "Pedestrian and cycle beam bridge case studies",
-      numberOfItems: caseStudies.length,
-      itemListElement: caseStudies.map((caseStudy, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: `${absoluteUrl(pagePath)}#${caseStudy.id}`,
-        item: {
-          "@type": "CreativeWork",
-          name: caseStudy.name,
-          description: caseStudy.summary,
-          contentLocation: caseStudy.location,
-          citation: caseStudy.source,
-        },
-      })),
     },
     {
       "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
+      mainEntity: questions.map((faq) => ({
         "@type": "Question",
         name: faq.question,
         acceptedAnswer: { "@type": "Answer", text: faq.answer },
       })),
     },
     {
+      "@type": "ItemList",
+      "@id": `${absoluteUrl(pagePath)}#case-studies`,
+      name: "Public bridge engineering references",
+      numberOfItems: caseStudies.length,
+      itemListElement: caseStudies.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${absoluteUrl(pagePath)}#${item.id}`,
+        name: item.name,
+      })),
+    },
+    {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl("/"),
+        },
         {
           "@type": "ListItem",
           position: 2,
           name: "Case Studies",
           item: absoluteUrl("/case-studies"),
         },
-        { "@type": "ListItem", position: 3, name: "Beam Bridge" },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Beam Bridge",
+          item: absoluteUrl(pagePath),
+        },
       ],
     },
   ],
 };
-
-const externalLinkClass =
-  "font-semibold text-teal-text underline decoration-teal-border underline-offset-4 transition-colors hover:text-teal";
-
 function SourceLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a className={externalLinkClass} href={href} target="_blank" rel="noreferrer">
-      {children}
+    <a href={href} target="_blank" rel="noreferrer" className="bb-text-link">
+      {children} <span aria-hidden="true">↗</span>
     </a>
   );
 }
-
-function ResponsiveDiagram({
-  src,
-  mobileSrc,
-  alt,
-  preload = false,
+function SectionTitle({
+  number,
+  eyebrow,
+  title: heading,
+  children,
 }: {
-  src: string;
-  mobileSrc: string;
-  alt: string;
-  preload?: boolean;
+  number: string;
+  eyebrow: string;
+  title: string;
+  children?: ReactNode;
 }) {
   return (
-    <picture className="block">
-      <source media="(max-width: 639px)" srcSet={mobileSrc} type="image/svg+xml" />
-      <Image
-        src={src}
-        alt={alt}
-        width={1600}
-        height={900}
-        sizes="(max-width: 1440px) 100vw, 1292px"
-        preload={preload}
-        className="aspect-[3/4] h-auto w-full object-contain sm:aspect-video"
-      />
-    </picture>
-  );
-}
-
-function CheckList({ items, inverted = false }: { items: readonly string[]; inverted?: boolean }) {
-  return (
-    <ul className={`space-y-[10px] text-f13 leading-golden ${inverted ? "text-white/80" : "text-t2"}`}>
-      {items.map((item) => (
-        <li key={item} className="grid grid-cols-[22px_1fr] gap-[8px]">
-          <span
-            aria-hidden="true"
-            className={`mt-[2px] flex h-[19px] w-[19px] items-center justify-center rounded-full ${
-              inverted ? "bg-white/10 text-[#7be3da]" : "bg-teal-bg text-teal-text"
-            }`}
-          >
-            <BridgeIcon name="check" className="h-[13px] w-[13px]" />
-          </span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
+    <div className="bb-section-heading">
+      <div>
+        <p className="bb-eyebrow">
+          <span>{number}</span> {eyebrow}
+        </p>
+        <h2>{heading}</h2>
+      </div>
+      {children && <div className="bb-section-intro">{children}</div>}
+    </div>
   );
 }
 
 export default function BeamBridgeCaseStudiesPage() {
   return (
-    <>
+    <div className="bridge-page">
       <JsonLd data={structuredData} />
-      <PageHeader
-        tag="Engineering Guide + Public Research Cases"
-        title="Beam Bridge Design for Pedestrian and Cycle Bridges"
-        description="A source-backed guide to active-user beam bridges: load paths, clear width, barriers, joints, vibration, FRP detailing and three public case studies."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Beam Bridge" },
-        ]}
-        actions={{
-          primary: {
-            label: "Discuss an FRP Bridge Concept",
-            href: "/contact?source=beam-bridge-guide&inquiry_type=engineering",
-          },
-          secondary: {
-            label: "View FRP I-Beams",
-            href: "/products/fiberglass-structural-shapes/frp-i-beam",
-            variant: "secondary",
-          },
-        }}
-      />
-
-      <main>
-        <section className="bg-white py-[42px] md:py-[64px]">
-          <div className="mx-auto flex max-w-[1360px] flex-col px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="order-2 mt-[28px] grid gap-[18px] border-b border-border-default pb-[26px] md:order-1 md:mt-0 lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px] lg:pb-[34px]">
-              <div>
-              <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                Direct answer
-              </p>
-              <h2 className="mt-[10px] text-[clamp(30px,3.2vw,42px)] font-extrabold leading-[1.12] tracking-[-0.03em] text-t1">
-                What is a beam bridge?
-              </h2>
-              </div>
-              <div>
-              <p className="text-f19 leading-relaxed text-t1">
-                A <dfn className="font-bold not-italic">beam bridge</dfn> carries its deck on
-                horizontal beams or girders between supports. On a pedestrian or cycle crossing,
-                the load path normally runs from the deck through cross-members or deck action into
-                the longitudinal girders, then through bearings or end connections to the
-                substructure, foundations and ground.
-              </p>
-              <p className="mt-[13px] text-f13 leading-golden text-t2">
-                The structural definition follows public explanations from{" "}
-                <SourceLink href={sourceUrls.definition}>Victoria&apos;s Big Build</SourceLink> and the{" "}
-                <SourceLink href={sourceUrls.bending}>FHWA beam-bending reference</SourceLink>.
-                The animated diagram is conceptual, not a project design.
-              </p>
-              </div>
-            </div>
-
-            <figure className="order-1 overflow-hidden rounded-[10px] border border-border-default bg-[#f7faf9] shadow-[0_18px_50px_rgba(11,24,56,0.09)] md:order-2 md:mt-[34px]">
-              <ResponsiveDiagram
-                src="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg"
-                mobileSrc="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path-mobile.svg"
-                alt="Animated engineering diagram showing pedestrian and cycle deck loads transferring through beam bridge girders, bearings and supports"
-                preload
-              />
-              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
-                Original one-shot engineering animation. Motion is disabled when reduced motion is
-                requested. Illustrative only; not to scale. {" "}
-                <SourceLink href="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg">
-                  Open full-resolution diagram ↗
-                </SourceLink>
-              </figcaption>
-            </figure>
-
-            <nav
-              aria-label="On this page"
-              className="order-3 mt-[18px] flex flex-col gap-[10px] rounded-[9px] border border-border-default bg-bg2 px-[18px] py-[15px] md:flex-row md:items-center md:gap-[24px]"
-            >
-              <p className="shrink-0 text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                On this page
-              </p>
-              <div className="flex flex-wrap gap-x-[18px] gap-y-[8px] text-f13 font-semibold">
-                <a className="text-teal-text hover:text-teal" href="#load-path">
-                  Load path
-                </a>
-                <a className="text-teal-text hover:text-teal" href="#active-use-design">
-                  Active-use design
-                </a>
-                <a className="text-teal-text hover:text-teal" href="#vibration">
-                  Vibration
-                </a>
-                <a className="text-teal-text hover:text-teal" href="#case-studies">
-                  Case studies
-                </a>
-                <a className="text-teal-text hover:text-teal" href="#frp-design">
-                  FRP design
-                </a>
-                <a className="text-teal-text hover:text-teal" href="#sources">
-                  Sources
-                </a>
-              </div>
-            </nav>
-          </div>
-        </section>
-
-        <ArticleSignals
-          publishedAt="2026-08-31"
-          updatedAt="2026-09-01"
-          authorName="Yifan Liu"
-          authorRole="Senior Application Engineer — pultruded FRP structural applications"
-          authorHref="/about/authors/yifan-liu"
-          reviewedBy="Haifeng Gong, Ph.D."
-          standards={["AS/NZS 5100:2017", "Austroads ATS 5880-25", "AASHTO FRP Guide, 2nd Ed. (2025)"]}
-        />
-
-        <section id="load-path" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[78px]">
-          <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[30px] lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                  Structural behaviour
-                </p>
-                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                  The complete beam bridge load path
-                </h2>
-              </div>
-              <div className="text-f15 leading-golden text-t2">
-                <p>
-                  Downward loading bends the main girders: the upper region is generally in
-                  compression and the lower region in tension, with high shear demand toward the
-                  supports. A continuous bridge also develops negative bending over intermediate
-                  supports. The deck, connections, bearings and substructure are not secondary
-                  annotations—they are the links that make the path complete.
-                </p>
-                <p className="mt-[13px]">
-                  Lateral load follows a different route through the deck diaphragm, cross-frames,
-                  bearings or restraints and substructure. Wind on a high barrier or screen can
-                  alter both force and aerodynamic response, so the edge system must be included in
-                  the structural model.
-                </p>
-              </div>
-            </div>
-
-            <ol className="mt-[32px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-              {loadPathSteps.map((step, index) => (
-                <li key={step.label} className="rounded-[8px] border border-border-default bg-white p-[20px]">
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-teal-bg text-teal-text">
-                      <BridgeIcon name={step.icon} />
-                    </span>
-                    <span className="text-f11 font-extrabold tracking-[0.12em] text-t3">
-                      0{index + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-[14px] text-f19 font-bold text-t1">{step.label}</h3>
-                  <p className="mt-[6px] text-f13 leading-golden text-t2">{step.copy}</p>
-                </li>
-              ))}
-            </ol>
-
-            <div className="mt-[22px] grid gap-[13px] md:grid-cols-3">
-              {[
-                ["Simple span", "Positive bending dominates between two supports; movement is usually managed at the ends."],
-                ["Continuous span", "Continuity can reduce midspan demand but adds negative bending and restraint effects over piers."],
-                ["Girder geometry", "I-, T- and box-girders are member forms. The FHWA notes that beam and girder are often used interchangeably."],
-              ].map(([heading, copy]) => (
-                <div key={heading} className="border-t-[3px] border-teal-border bg-white p-[18px]">
-                  <h3 className="text-f15 font-bold text-t1">{heading}</h3>
-                  <p className="mt-[6px] text-f13 leading-golden text-t2">{copy}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-[12px] text-f11 leading-relaxed text-t3">
-              Terminology reference:{" "}
-              <SourceLink href={sourceUrls.bridgeTypes}>FHWA bridge types and girder forms</SourceLink>.
-            </p>
-          </div>
-        </section>
-
-        <section id="active-use-design" className="scroll-mt-[110px] bg-white py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[18px] lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                  Pedestrian and bicycle geometry
-                </p>
-                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                  Design the path and bridge as one system
-                </h2>
-              </div>
-              <div>
-                <p className="mt-[16px] text-f15 leading-golden text-t2">
-                  An active-user beam bridge is not a road bridge with traffic loads removed. The
-                  usable corridor is defined by clear width, approach alignment, gradients,
-                  sightlines, barrier geometry, joints, drainage, lighting and the behaviour of
-                  people on foot, bicycles, wheelchairs and mobility devices.
-                </p>
-              </div>
-            </div>
-
-            <figure className="mt-[30px] overflow-hidden rounded-[10px] border border-border-default bg-bg2 shadow-[0_16px_44px_rgba(11,24,56,0.06)] md:mt-[38px]">
-              <ResponsiveDiagram
-                src="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg"
-                mobileSrc="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section-mobile.svg"
-                alt="Pedestrian and cycle beam bridge cross-section showing clear width, barriers, drainage, deck, crossbeam, main girders and bearings"
-              />
-              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
-                Clear width is measured between barriers. Values and edge details must be approved
-                by the owner and governing jurisdiction. Illustrative only; not to scale. {" "}
-                <SourceLink href="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg">
-                  Open full-resolution diagram ↗
-                </SourceLink>
-              </figcaption>
-            </figure>
-
-            <div className="mt-[20px] grid gap-[12px] rounded-[9px] border-l-[4px] border-[#d69535] bg-[#fff8e9] p-[18px] md:grid-cols-[0.66fr_1.34fr] md:gap-[30px] md:p-[22px]">
-              <h3 className="text-f19 font-bold text-t1">There is no universal minimum width</h3>
-              <div>
-                <p className="text-f13 leading-golden text-t2">
-                  Queensland TMR lists 3.0 m minimum clear width between barriers for two-way
-                  cycling and shared pedestrian–cycle use. The Transport for NSW toolbox gives a
-                  4.0 m desired minimum for a shared path. Both are jurisdiction-specific; demand,
-                  separation and owner approval govern the project.
-                </p>
-                <p className="mt-[9px] text-f11 text-t3">
-                  Sources:{" "}
-                  <SourceLink href={sourceUrls.tmrCriteria}>Queensland TMR 2024 criteria</SourceLink>{" "}
-                  and{" "}
-                  <SourceLink href={sourceUrls.nswToolbox}>Transport for NSW toolbox</SourceLink>.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-[28px] grid gap-px overflow-hidden rounded-[9px] border border-border-default bg-border-default sm:grid-cols-2 lg:grid-cols-3">
-              {activeUseDecisions.map((item) => (
-                <article key={item.title} className="flex gap-[13px] bg-white p-[18px]">
-                  <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[7px] bg-teal-bg text-teal-text">
-                    <BridgeIcon name={item.icon} />
-                  </span>
-                  <div>
-                    <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-                    <p className="mt-[4px] text-f13 leading-golden text-t2">{item.copy}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-[26px] grid gap-[16px] rounded-[10px] border border-border-default bg-[#0b1838] p-[22px] text-white md:grid-cols-[0.72fr_1.28fr] md:p-[28px]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.16em] text-[#62d8cf]">
-                  Australian project route
-                </p>
-                <h3 className="mt-[8px] text-f24 font-extrabold">Code plus owner criteria</h3>
-              </div>
-              <p className="text-f13 leading-golden text-white/80">
-                Australian bridge work starts with the adopted AS/NZS 5100 series, then applies the
-                road authority&apos;s active-transport requirements and the current Austroads Guide to
-                Road Design Part 6A. Adoption, editions and project amendments must be confirmed in
-                the brief; a web article cannot establish compliance. See{" "}
-                <SourceLink href={sourceUrls.as5100}>Standards Australia</SourceLink> and{" "}
-                <SourceLink href={sourceUrls.austroadsPart6A}>Austroads Part 6A</SourceLink>.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="vibration" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[18px] lg:grid-cols-[0.72fr_1.28fr] lg:gap-[64px]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                  Dynamic serviceability
-                </p>
-                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                  Natural frequency is a screen, not a verdict
-                </h2>
-              </div>
-              <div className="text-f15 leading-golden text-t2">
-                <p>
-                  Walking, running and crowd movement can excite vertical, lateral and torsional
-                  modes. In the AS/NZS 5100-based TMR guidance, a pedestrian bridge with vertical
-                  resonant frequency below 5 Hz requires a vibration serviceability investigation;
-                  special consideration is also required when the fundamental horizontal frequency
-                  is below 1.5 Hz.
-                </p>
-                <p className="mt-[13px] hidden sm:block">
-                  Passing those screens does not prove comfort. The analysis still needs mode shape,
-                  modal mass, damping, pedestrian density and peak acceleration. The European
-                  Commission JRC/HIVOSS guide frames the same problem around comfort, lock-in risk,
-                  intentional excitation, testing and response mitigation.
-                </p>
-              </div>
-            </div>
-
-            <figure className="mt-[30px] overflow-hidden rounded-[10px] border border-border-default bg-white shadow-[0_16px_44px_rgba(11,24,56,0.06)] md:mt-[38px]">
-              <ResponsiveDiagram
-                src="/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg"
-                mobileSrc="/images/case-studies/beam-bridge/footbridge-vibration-serviceability-mobile.svg"
-                alt="Footbridge vibration workflow showing vertical and lateral modes, Australian screening triggers, acceleration-based comfort assessment and mitigation"
-              />
-              <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
-                The 5 Hz vertical and 1.5 Hz lateral values are Australian investigation triggers,
-                not pass/fail comfort limits. {" "}
-                <SourceLink href="/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg">
-                  Open full-resolution diagram ↗
-                </SourceLink>
-              </figcaption>
-            </figure>
-
-            <p className="mt-[18px] text-f15 leading-golden text-t2 sm:hidden">
-              Passing those screens does not prove comfort. The analysis still needs mode shape,
-              modal mass, damping, pedestrian density and peak acceleration. The European
-              Commission JRC/HIVOSS guide frames the same problem around comfort, lock-in risk,
-              intentional excitation, testing and response mitigation.
-            </p>
-
-            <div className="mt-[22px] grid gap-[16px] lg:grid-cols-[1.18fr_0.82fr]">
-              <div className="rounded-[10px] border border-[#e5bd7b] bg-[#fff8e9] p-[20px] md:p-[24px]">
-                <div className="flex gap-[12px]">
-                  <span className="mt-[1px] flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] bg-white text-[#8a5b12]">
-                    <BridgeIcon name="vibration" />
-                  </span>
-                  <div>
-                    <h3 className="text-f15 font-bold text-t1">A useful academic counterexample</h3>
-                    <p className="mt-[6px] text-f13 leading-golden text-t2">
-                      A 2023 Monash pultruded-GFRP research footbridge measured first vertical
-                      frequencies around 5.9–6.2 Hz, yet walking tests produced a reported peak
-                      acceleration of 2.86 m/s². It was a specific 9 m prototype without its final
-                      accessories—not a universal FRP result—but it shows why frequency alone is
-                      insufficient.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <aside className="rounded-[10px] border border-border-default bg-white p-[20px] md:p-[24px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                  Evidence trail
-                </p>
-                <p className="mt-[10px] text-f13 leading-golden text-t2">
-                  Screening criteria and comfort assessment must be traced to the adopted owner
-                  guidance and a project-specific dynamic model.
-                </p>
-                <p className="mt-[12px] text-f13 leading-golden">
-                  <SourceLink href={sourceUrls.tmrGuide}>Queensland TMR 2023 guideline</SourceLink>
+      <header className="bb-hero">
+        <div className="bb-shell">
+          <nav className="bb-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <Link href="/case-studies">Case studies</Link>
+            <span>/</span>
+            <span>Beam bridges</span>
+          </nav>
+          <div className="bb-hero-layout">
+            <div className="bb-hero-copy">
+              <p className="bb-eyebrow">F1 COMPOSITE / BRIDGE ENGINEERING</p>
+              <h1>
+                FRP beam bridges.
+                <br />
+                <span>
+                  Built around
                   <br />
-                  <SourceLink href={sourceUrls.jrcVibration}>European Commission JRC/HIVOSS</SourceLink>
-                  <br />
-                  <SourceLink href={sourceUrls.monashResearch}>Monash research paper</SourceLink>
-                </p>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0b1838] py-[55px] text-white md:py-[78px]">
-          <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[28px] lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-[#62d8cf]">
-                  Balanced assessment
-                </p>
-                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em]">
-                  Where beam bridges work—and what governs
-                </h2>
-              </div>
-              <div className="grid gap-[16px] md:grid-cols-2">
-                <article className="rounded-[10px] border border-white/15 bg-white/[0.06] p-[22px]">
-                  <h3 className="text-f19 font-bold text-[#7be3da]">Strengths of the form</h3>
-                  <div className="mt-[15px]">
-                    <CheckList
-                      inverted
-                      items={[
-                        "Direct and legible structural load path",
-                        "Repeatable members suit off-site fabrication",
-                        "Multiple material and deck-system options",
-                        "Exposed girders can support straightforward inspection",
-                      ]}
-                    />
-                  </div>
-                </article>
-                <article className="rounded-[10px] border border-white/15 bg-white/[0.06] p-[22px]">
-                  <h3 className="text-f19 font-bold text-[#ffcb83]">Common governing checks</h3>
-                  <div className="mt-[15px]">
-                    <CheckList
-                      inverted
-                      items={[
-                        "Deflection, acceleration and lateral stability",
-                        "Joint, bearing and drainage maintainability",
-                        "Barrier, wind and accidental-load effects",
-                        "Transport depth, lift mass and erection sequence",
-                      ]}
-                    />
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="case-studies" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1360px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="max-w-[840px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                Evidence-led examples
+                  your crossing.
+                </span>
+              </h1>
+              <p className="bb-hero-description">
+                From pultruded I-beam assemblies to bespoke moulded forms.
+                Connect the right process, a clear load path and a practical
+                delivery plan.
               </p>
-              <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                Three pedestrian and cycle beam bridge case studies
-              </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
-                These are publicly documented references selected for different lessons: a major
-                concrete cycle bridge, a lightweight FRP cycleway system and a university-tested
-                hybrid GFRP footbridge. None is represented as an F1 Composite project.
-              </p>
-            </div>
-
-            <div className="mt-[34px] space-y-[38px] md:space-y-[50px]">
-              {caseStudies.map((caseStudy) => (
-                <article
-                  id={caseStudy.id}
-                  key={caseStudy.id}
-                  className="scroll-mt-[110px] overflow-hidden rounded-[10px] border border-border-default bg-white shadow-[0_16px_44px_rgba(11,24,56,0.06)]"
+              <div className="bb-actions">
+                <a
+                  className="bb-button bb-button-primary"
+                  href="#bridge-options"
                 >
-                  <header className="grid gap-[20px] p-[24px] md:p-[34px] lg:grid-cols-[0.82fr_1.18fr] lg:gap-[64px] lg:p-[40px]">
-                    <div>
-                      <div className="flex flex-wrap items-center gap-[8px]">
-                        <span className="text-f11 font-extrabold tracking-[0.16em] text-teal-text">
-                          CASE {caseStudy.number}
-                        </span>
-                        <span className="rounded-full border border-[#e5bd7b] bg-[#fff8e9] px-[9px] py-[3px] text-[10px] font-bold uppercase tracking-[0.08em] text-[#7a4c08]">
-                          Public reference · not an F1 project
-                        </span>
-                      </div>
-                      <h3 className="mt-[10px] text-[clamp(26px,2.5vw,34px)] font-extrabold leading-[1.18] tracking-[-0.025em] text-t1">
-                        {caseStudy.name}
-                      </h3>
-                      <p className="mt-[5px] text-f13 font-semibold text-t3">
-                        {caseStudy.location} · {caseStudy.system}
-                      </p>
-                    </div>
-                    <div className="hidden border-t border-border-default pt-[18px] sm:block lg:border-l lg:border-t-0 lg:pl-[34px] lg:pt-0">
-                      <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                        Why this case matters
-                      </p>
-                      <p className="mt-[9px] text-f19 leading-golden text-t2">{caseStudy.summary}</p>
-                    </div>
-                  </header>
-
-                  <figure className="border-y border-border-default bg-[#f7faf9]">
-                    <ResponsiveDiagram
-                      src={caseStudy.image}
-                      mobileSrc={caseStudy.mobileImage}
-                      alt={caseStudy.alt}
-                    />
-                    <figcaption className="border-t border-border-default bg-white px-[16px] py-[11px] text-[13px] leading-[1.5] text-t3">
-                      Original explanatory schematic based on the cited public record; not a
-                      project drawing and not to scale. {" "}
-                      <SourceLink href={caseStudy.image}>Open full-resolution diagram ↗</SourceLink>
-                    </figcaption>
-                  </figure>
-
-                  <div className="border-b border-border-default p-[20px] sm:hidden">
-                    <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                      Why this case matters
-                    </p>
-                    <p className="mt-[8px] text-f15 leading-golden text-t2">{caseStudy.summary}</p>
-                  </div>
-
-                  <div className="p-[24px] md:p-[34px] lg:p-[40px]">
-                      <dl className="grid grid-cols-2 gap-[9px] lg:grid-cols-4">
-                        {caseStudy.stats.map(([label, value]) => (
-                          <div key={label} className="rounded-[8px] border border-border-default bg-bg2 p-[14px] md:p-[16px]">
-                            <dt className="text-[10px] font-bold uppercase tracking-[0.1em] text-t3">
-                              {label}
-                            </dt>
-                            <dd className="mt-[4px] text-f19 font-extrabold text-t1">{value}</dd>
-                          </div>
-                        ))}
-                      </dl>
-
-                      <div className="mt-[26px] grid gap-[22px] lg:grid-cols-[0.7fr_1.3fr] lg:gap-[48px]">
-                        <aside className="rounded-[10px] border border-border-default bg-bg2 p-[18px] md:p-[22px]">
-                          <p className="text-f11 font-bold uppercase tracking-[0.14em] text-t3">
-                            Evidence boundary
-                          </p>
-                          <p className="mt-[9px] text-f13 leading-golden text-t2">
-                            Publicly documented reference. F1 Composite did not design, supply or
-                            construct this project.
-                          </p>
-                          <p className="mt-[13px] text-f13 leading-golden">
-                            <SourceLink href={caseStudy.source}>
-                              Primary source: {caseStudy.sourceLabel} ↗
-                            </SourceLink>
-                            {"secondarySource" in caseStudy ? (
-                              <>
-                                <br />
-                                <SourceLink href={caseStudy.secondarySource}>
-                                  Supporting source: {caseStudy.secondarySourceLabel} ↗
-                                </SourceLink>
-                              </>
-                            ) : null}
-                          </p>
-                        </aside>
-                        <details className="group">
-                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-[8px] border border-border-default bg-white px-[14px] py-[12px] text-f13 font-bold uppercase tracking-[0.08em] text-t1 sm:pointer-events-none sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 [&::-webkit-details-marker]:hidden">
-                            <span>What the record shows</span>
-                            <span className="normal-case tracking-normal text-teal-text sm:hidden">
-                              {caseStudy.lessons.length} findings +
-                            </span>
-                          </summary>
-                          <div className="mt-[12px] hidden group-open:block sm:block">
-                            <CheckList items={caseStudy.lessons} />
-                          </div>
-                        </details>
-                      </div>
-                    </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="research-basis" className="scroll-mt-[110px] bg-white py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="max-w-[820px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                Research basis
-              </p>
-              <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                What each institution contributes
-              </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
-                No single publication covers the whole decision. The design picture becomes more
-                reliable when owner guidance, standards bodies, full-scale research and long-term
-                field evidence are read together.
+                  Explore the four routes <span>↗</span>
+                </a>
+                <a className="bb-button bb-button-quiet" href="#calculation">
+                  Follow the calculation <span>↓</span>
+                </a>
+              </div>
+              <p className="bb-hero-caption">
+                Pedestrian bridges · Landscape crossings · Cycleways
               </p>
             </div>
-
-            <div className="mt-[30px] grid gap-[13px] md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  icon: "barrier" as const,
-                  heading: "Queensland TMR",
-                  copy: "Owner guidance for active-user geometry, barriers, loads, vibration screening, maintenance access and value-for-money system selection.",
-                  href: sourceUrls.tmrGuide,
-                  link: "Read the 2023 technical guideline",
-                },
-                {
-                  icon: "vibration" as const,
-                  heading: "European Commission JRC / HIVOSS",
-                  copy: "A human-induced vibration methodology covering comfort, lock-in risk, measurement, modal identification and response control.",
-                  href: sourceUrls.jrcVibration,
-                  link: "Read the JRC research guide",
-                },
-                {
-                  icon: "girder" as const,
-                  heading: "Lisbon, Minho and Porto research teams",
-                  copy: "Full-scale static, dynamic and creep testing plus later in-service modal assessment of the São Silvestre hybrid footbridge.",
-                  href: sourceUrls.saoSilvestre,
-                  link: "Review the full-scale study",
-                },
-                {
-                  icon: "connection" as const,
-                  heading: "AASHTO",
-                  copy: "The 2025 second-edition LRFD guide updates the US design route for FRP pedestrian bridges and delegated system design.",
-                  href: sourceUrls.aashtoFrp,
-                  link: "View the current publication record",
-                },
-                {
-                  icon: "inspection" as const,
-                  heading: "Austroads",
-                  copy: "ATS 5880-25 treats FRP bridge members as controlled, documented and tested manufactured products, not dimension-only catalogue items.",
-                  href: sourceUrls.ats5880,
-                  link: "View ATS 5880-25 Ed. 1.1",
-                },
-                {
-                  icon: "durability" as const,
-                  heading: "University of Birmingham / EPFL evidence",
-                  copy: "Twenty-five-year Pontresina evidence shows why retained stiffness must not be presented as unchanged strength or maintenance-free service.",
-                  href: sourceUrls.pontresina,
-                  link: "Review the 2026 durability study",
-                },
-              ].map((item) => (
-                <article key={item.heading} className="rounded-[9px] border border-border-default bg-bg2 p-[20px]">
-                  <span className="flex h-[42px] w-[42px] items-center justify-center rounded-[8px] bg-white text-teal-text shadow-sm">
-                    <BridgeIcon name={item.icon} />
-                  </span>
-                  <h3 className="mt-[13px] text-f19 font-bold text-t1">{item.heading}</h3>
-                  <p className="mt-[7px] text-f13 leading-golden text-t2">{item.copy}</p>
-                  <p className="mt-[10px] text-f11">
-                    <SourceLink href={item.href}>{item.link} ↗</SourceLink>
-                  </p>
-                </article>
-              ))}
+            <figure className="bb-hero-figure">
+              <div className="bb-drawing-label">
+                <span>STRUCTURAL SYSTEM / EXPLODED VIEW</span>
+                <span>FIG. 01</span>
+              </div>
+              <BridgeConceptDiagram variant="C" hero />
+              <figcaption>
+                <span>
+                  <i /> Deck
+                </span>
+                <span>
+                  <i /> Cross-members
+                </span>
+                <span>
+                  <i /> Main girders
+                </span>
+              </figcaption>
+              <p>Concept assembly · support spacing established by design</p>
+            </figure>
+          </div>
+          <div className="bb-hero-bottom">
+            <span>ONE PROJECT BRIEF. FOUR FABRICATION ROUTES.</span>
+            <div>
+              <span>
+                <b>A</b> Modular box
+              </span>
+              <span>
+                <b>B</b> Deep box
+              </span>
+              <span>
+                <b>C</b> I-beam assembly
+              </span>
+              <span>
+                <b>D</b> Curved moulding
+              </span>
             </div>
           </div>
-        </section>
+        </div>
+      </header>
+      <nav className="bb-page-nav" aria-label="On this page">
+        <div className="bb-shell">
+          <a href="#capability">01 / F1 capability</a>
+          <a href="#bridge-options">02 / Four routes</a>
+          <a href="#calculation">03 / Calculation</a>
+          <a href="#load-path">04 / Design checks</a>
+          <a href="#case-studies">05 / Case evidence</a>
+          <a href="#delivery">06 / Your project</a>
+        </div>
+      </nav>
 
-        <section id="frp-design" className="scroll-mt-[110px] bg-bg2 py-[55px] md:py-[89px]">
-          <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <div className="grid gap-[32px] lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.18em] text-teal-text">
-                  FRP beam bridge design
-                </p>
-                <h2 className="mt-[10px] text-[clamp(30px,3vw,42px)] font-extrabold leading-[1.12] tracking-[-0.025em] text-t1">
-                  Lightweight does not mean lightly engineered
-                </h2>
-              </div>
-              <div>
-                <p className="text-f15 leading-golden text-t2">
-                  Pultruded FRP can reduce lifting mass and remove conventional steel corrosion from
-                  the composite member, which is useful at corrosive or difficult-access sites. It
-                  is not a one-for-one steel substitution. Pultruded members are orthotropic, and
-                  lower stiffness means deflection, shear deformation, vibration, local bearing and
-                  connection deformation can govern before material strength is fully used.
-                </p>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">
-                  The current design and procurement route depends on jurisdiction. In the United
-                  States, AASHTO published the second edition of its LRFD guide for FRP pedestrian
-                  bridges in 2025. In Australia and New Zealand, Austroads ATS 5880-25 Ed. 1.1 sets
-                  manufacturing requirements for members assembled from standard pultrusions or
-                  bespoke vacuum-infused mouldings. The bridge owner&apos;s code and specifications
-                  still govern the final system.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-[30px] grid gap-[13px] md:grid-cols-2 lg:grid-cols-3">
-              {frpChecks.map((item) => (
-                <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[20px]">
-                  <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-teal-bg text-teal-text">
-                    <BridgeIcon name={item.icon} />
-                  </span>
-                  <h3 className="mt-[13px] text-f15 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[7px] text-f13 leading-golden text-t2">{item.copy}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-[26px] grid gap-[16px] md:grid-cols-2">
-              <article className="rounded-[10px] border-l-[4px] border-teal-text bg-teal-bg p-[20px] md:p-[24px]">
-                <h3 className="text-f19 font-bold text-t1">Durability needs two columns, not one slogan</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">
-                  A 2026 long-term Pontresina study reported unchanged global bridge stiffness after
-                  25 years, while alpine-exposed material samples retained about 70% of initial
-                  tensile strength. Pontresina is a truss, not a beam-bridge case; the evidence is
-                  used here only to show that stiffness retention is not proof of unchanged strength.
-                </p>
-                <p className="mt-[9px] text-f11 text-t3">
-                  Source: <SourceLink href={sourceUrls.pontresina}>Liu &amp; Keller, Composite Structures (2026)</SourceLink>.
-                </p>
-              </article>
-              <article className="rounded-[10px] border-l-[4px] border-[#d69535] bg-[#fff8e9] p-[20px] md:p-[24px]">
-                <h3 className="text-f19 font-bold text-t1">Fire performance is system-specific</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">
-                  Resin chemistry, member geometry, exposed surface, protective layers, design load
-                  and fire scenario determine performance. Neither “fireproof” nor a blanket failure
-                  statement is defensible without a tested assembly and project fire strategy.
-                </p>
-              </article>
-            </div>
-
-            <div className="mt-[30px] rounded-[10px] border border-border-default bg-white p-[20px] md:p-[24px]">
-              <div className="grid gap-[18px] md:grid-cols-[0.72fr_1.28fr]">
-                <div>
-                  <h3 className="text-f19 font-bold text-t1">Minimum RFQ inputs</h3>
-                  <p className="mt-[7px] text-f13 leading-golden text-t2">
-                    Screen the whole bridge system before asking for a profile quotation.
-                  </p>
-                </div>
-                <CheckList
-                  items={[
-                    "Clear span, overall width, support condition and required structural depth",
-                    "Pedestrian, cycle, crowd, wind and any maintenance-vehicle load models",
-                    "Deflection, vertical/lateral vibration and acceleration criteria",
-                    "Exposure, resin, UV, fire, surface, drainage and design-life requirements",
-                    "Deck-to-girder, barrier, bearing and splice concepts with inspection access",
-                    "Transport limits, lifting plan, temporary stability and owner specification",
-                  ]}
-                />
-              </div>
-            </div>
-
-            <div className="mt-[22px] rounded-[10px] border-l-[4px] border-teal-text bg-teal-bg p-[20px] md:p-[24px]">
-              <h3 className="text-f19 font-bold text-t1">Use calculators for screening only</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
-                The F1{" "}
-                <Link className="font-semibold text-teal-text underline underline-offset-4" href="/frp-profile-calculator">
-                  FRP beam calculator
-                </Link>{" "}
-                and{" "}
-                <Link className="font-semibold text-teal-text underline underline-offset-4" href="/frp-span-tables">
-                  span tables
-                </Link>{" "}
-                organise preliminary member checks. They do not model pedestrian vibration,
-                bearings, bridge-system load distribution, fatigue, accidental actions or owner
-                acceptance.
-              </p>
-            </div>
-
-            <FAQ items={faqs} />
-          </div>
-        </section>
-
-        <section id="sources" className="scroll-mt-[110px] border-t border-border-default bg-white py-[55px]">
-          <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[28px] lg:px-[34px]">
-            <h2 className="text-f24 font-extrabold text-t1">Primary sources and visual methodology</h2>
-            <p className="mt-[10px] max-w-[880px] text-f13 leading-golden text-t2">
-              Project measurements are transcribed from transport-agency records or peer-reviewed
-              research. The six diagram subjects use original desktop and mobile compositions, not
-              copied project drawings or photographic proof. Every project is labelled as a public
-              reference and not an F1 Composite delivery.
+      <section id="capability" className="bb-section">
+        <div className="bb-shell">
+          <SectionTitle
+            number="01"
+            eyebrow="CAPABILITY, CONNECTED"
+            title="A bridge is a system. So is our approach."
+          >
+            <p>
+              F1 brings pultruded profiles, walking surfaces, connection
+              detailing and fabrication support into one project conversation.
+              The route develops around your site, geometry and performance
+              requirements.
             </p>
-
-            <div className="mt-[22px] grid gap-[24px] lg:grid-cols-2">
-              {[
-                {
-                  heading: "Bridge form and active-use criteria",
-                  links: [
-                    ["Victoria's Big Build — beam bridge definition", sourceUrls.definition],
-                    ["FHWA — bending behaviour of beams", sourceUrls.bending],
-                    ["Queensland TMR — pedestrian and cyclist bridge options", sourceUrls.tmrGuide],
-                    ["Queensland TMR — bridge design criteria", sourceUrls.tmrCriteria],
-                    ["Austroads — Guide to Road Design Part 6A", sourceUrls.austroadsPart6A],
-                    ["Transport for NSW — Cycleway Design Toolbox", sourceUrls.nswToolbox],
+          </SectionTitle>
+          <div className="bb-capability-layout">
+            <figure className="bb-factory-proof">
+              <Image
+                src="/images/case-studies/frp-factory-access-staircase-hero.webp"
+                alt="F1 factory FRP staircase and elevated access platform assembled from composite structural profiles and grating"
+                width={1200}
+                height={900}
+                sizes="(max-width: 767px) 100vw, 50vw"
+              />
+              <figcaption>
+                <span>F1 FACTORY / CHONGQING</span>
+                <strong>Our profiles. An assembled structure.</strong>
+                <Link href="/case-studies/factory-access-staircase">
+                  View the factory access case <span>↗</span>
+                </Link>
+              </figcaption>
+            </figure>
+            <div className="bb-capability-copy">
+              <p className="bb-eyebrow">FROM COMPONENT TO ASSEMBLY</p>
+              <h3>Practical experience behind the bridge conversation.</h3>
+              <p>
+                Our in-house staircase and platform bring together pultruded
+                structural members, grating, handrails and bolted connections.
+                This is a tangible reference for component fabrication and
+                assembly—the same disciplines that a bridge package needs.
+              </p>
+              <div className="bb-capability-lines">
+                {[
+                  [
+                    "01",
+                    "Pultruded structural components",
+                    "I-beams, hollow sections, channels and project-specific profiles.",
                   ],
-                },
-                {
-                  heading: "Research, cases and FRP specifications",
-                  links: [
-                    ["European Commission JRC — human-induced vibration", sourceUrls.jrcVibration],
-                    ["Queensland TMR — Moggill Road Cycle Bridge", sourceUrls.moggill],
-                    ["Gonilha et al. — São Silvestre full-scale study", sourceUrls.saoSilvestre],
-                    ["Dacol et al. — São Silvestre modal study", sourceUrls.saoSilvestreDynamic],
-                    ["AASHTO — 2025 FRP pedestrian bridge guide", sourceUrls.aashtoFrp],
-                    ["Austroads — ATS 5880-25 FRP bridge members", sourceUrls.ats5880],
-                    ["University of Birmingham — 25-year durability study", sourceUrls.pontresina],
-                    ["Monash pGFRP footbridge research", sourceUrls.monashResearch],
+                  [
+                    "02",
+                    "Fabrication and system integration",
+                    "Cut lengths, hole patterns, walking surfaces, handrails and connection coordination.",
                   ],
-                },
-              ].map((group) => (
-                <section key={group.heading} aria-labelledby={`source-${group.heading.replaceAll(" ", "-").toLowerCase()}`}>
-                  <h3
-                    id={`source-${group.heading.replaceAll(" ", "-").toLowerCase()}`}
-                    className="text-f19 font-bold text-t1"
-                  >
-                    {group.heading}
-                  </h3>
-                  <ol className="mt-[12px] space-y-[8px] text-f13 leading-golden text-t2">
-                    {group.links.map(([label, href], index) => (
-                      <li key={href} className="grid grid-cols-[24px_1fr] rounded-[7px] border border-border-default bg-bg2 p-[12px]">
-                        <span className="font-bold text-t3">{index + 1}.</span>
-                        <SourceLink href={href}>{label} ↗</SourceLink>
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-              ))}
+                  [
+                    "03",
+                    "Custom route development",
+                    "Section geometry, moulding strategy, laminate requirements and production qualification.",
+                  ],
+                  [
+                    "04",
+                    "A coordinated delivery package",
+                    "Drawings, quality records, module packing and installation planning.",
+                  ],
+                ].map(([n, heading, body]) => (
+                  <div key={n}>
+                    <span>{n}</span>
+                    <div>
+                      <h4>{heading}</h4>
+                      <p>{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="bb-small">
+                The factory case demonstrates fabrication and assembly. Bridge
+                loads, fatigue, dynamics and owner acceptance require their own
+                verification.
+              </p>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <AskAICard
-        title="Screen an FRP pedestrian bridge concept"
-        description="Give the advisor your span, clear width, user mix, load model, exposure and governing owner. It will organise missing inputs and relevant F1 profile data; it does not replace the bridge engineer."
-        prefill="I am evaluating an FRP pedestrian or cycle beam bridge. Help me structure the preliminary inputs for geometry, loads, vibration, connections, durability, erection and the RFQ without treating the result as final bridge design."
-        ctaLabel="Start the engineering screen →"
-      />
+      <section id="bridge-options" className="bb-section bb-tinted">
+        <div className="bb-shell">
+          <SectionTitle
+            number="02"
+            eyebrow="THE MANUFACTURING ROUTES"
+            title="One crossing. Four ways to make it."
+          >
+            <p>
+              Compare the structural arrangement first, then the manufacturing
+              process. Each route below has a different balance of supports,
+              structural depth, tooling and site work.
+            </p>
+          </SectionTitle>
+          <div className="bb-brief-strip">
+            <div>
+              <span>COMMON CONCEPT BRIEF</span>
+              <strong>
+                12 m <small>bridge body</small>
+              </strong>
+            </div>
+            <div>
+              <span>WIDTH TARGET</span>
+              <strong>2.15 m</strong>
+            </div>
+            <p>
+              Concept geometry for comparison. Define whether the width is
+              overall or clear between barriers. The ≈250 mm and ≈970 mm depths
+              are reference dimensions requiring structural verification.
+            </p>
+          </div>
+          <div className="bb-routes">
+            {routes.map((route) => (
+              <article
+                className="bb-route"
+                id={`route-${route.id.toLowerCase()}`}
+                key={route.id}
+              >
+                <div className="bb-route-top">
+                  <span className="bb-route-letter">{route.id}</span>
+                  <div>
+                    <p className="bb-eyebrow">{route.process}</p>
+                    <h3>{route.title}</h3>
+                  </div>
+                </div>
+                <figure className="bb-route-drawing">
+                  <BridgeConceptDiagram variant={route.id} />
+                  <figcaption>{route.depth}</figcaption>
+                </figure>
+                <div className="bb-route-body">
+                  <p className="bb-route-geometry">{route.geometry}</p>
+                  <h4>{route.subtitle}</h4>
+                  <p>{route.benefit}</p>
+                  <div className="bb-route-scope">
+                    <span>F1 PROJECT SCOPE</span>
+                    <p>{route.scope}</p>
+                  </div>
+                  <details>
+                    <summary>
+                      What the design must resolve{" "}
+                      <span aria-hidden="true">+</span>
+                    </summary>
+                    <p>{route.resolve}</p>
+                  </details>
+                  <Link className="bb-text-link" href={route.link}>
+                    {route.label} <span aria-hidden="true">↗</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="bb-decision-note">
+            <strong>Start with C for a standard-profile cost study.</strong>
+            <p>
+              Study A where intermediate supports are feasible; B where depth
+              can support an end-supported concept; D where curvature is
+              essential. Bespoke boxes and large mouldings proceed through
+              tooling, process-capacity and structural review before production.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <RelatedLinks
-        groups={[
-          {
-            title: "Bridge applications",
-            links: [
-              { href: "/applications/frp-pedestrian-bridge-superstructures", label: "FRP pedestrian bridge superstructures" },
-              { href: "/applications/frp-bridge-deck-panels", label: "FRP bridge deck panels" },
-              { href: "/industries/infrastructure", label: "FRP for infrastructure" },
-            ],
-          },
-          {
-            title: "Products",
-            links: [
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "Pultruded FRP I-beams" },
-              { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
-              { href: "/products/frp-handrail-systems", label: "FRP handrail systems" },
-            ],
-          },
-          {
-            title: "Engineering resources",
-            links: [
-              { href: "/resources/blog/frp-bridge-deck-design-guide", label: "FRP bridge deck design guide" },
-              { href: "/resources/blog/china-first-all-composite-truss-bridge-pengshui", label: "Composite truss bridges in rural China: the Pengshui milestone" },
-              { href: "/frp-profile-calculator", label: "FRP beam calculator" },
-              { href: "/frp-span-tables", label: "FRP span tables" },
-            ],
-          },
-        ]}
-      />
-      <InnerCTA title="Planning a pedestrian or cycle beam bridge?" />
-    </>
+      <section id="calculation" className="bb-section">
+        <div className="bb-shell">
+          <SectionTitle
+            number="03"
+            eyebrow="MAKE THE ENGINEERING LEGIBLE"
+            title="The support span changes everything."
+          >
+            <p>
+              A 12 m bridge body is a geometric brief. The distance between
+              supports drives the beam response. Explore one straight, simply
+              supported girder to see how the calculation connects.
+            </p>
+          </SectionTitle>
+          <BeamExplorer />
+          <p className="bb-source-note">
+            Beam-theory reference:{" "}
+            <SourceLink href={BEAM_BRIDGE_METHOD_SOURCES[0].href}>
+              University of South Florida, uniform-load deflection
+            </SourceLink>
+            . The explorer illustrates mechanics; it does not size the four
+            concept sections.
+          </p>
+        </div>
+      </section>
+
+      <section id="load-path" className="bb-section bb-navy">
+        <div className="bb-shell">
+          <SectionTitle
+            number="04"
+            eyebrow="FROM FORCES TO PERFORMANCE"
+            title="Trace the load. Check the whole bridge."
+          >
+            <p>
+              A beam bridge carries its deck on longitudinal beams or girders
+              between supports. Every interface must transfer its share of the
+              load, from the walking surface down to the ground.
+            </p>
+          </SectionTitle>
+          <ol className="bb-load-path">
+            {[
+              [
+                "01",
+                "Deck & surface",
+                "Users and permanent weight enter the deck.",
+              ],
+              [
+                "02",
+                "Girders & cross-members",
+                "Bending and shear carry the distributed load.",
+              ],
+              [
+                "03",
+                "Bearings & end details",
+                "Reactions and movement reach the supports.",
+              ],
+              [
+                "04",
+                "Foundations & ground",
+                "Abutments and piers complete the load path.",
+              ],
+            ].map(([n, heading, body]) => (
+              <li key={n}>
+                <span>
+                  {n} <b aria-hidden="true">→</b>
+                </span>
+                <h3>{heading}</h3>
+                <p>{body}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="bb-check-grid">
+            <article id="active-use-design">
+              <p className="bb-eyebrow">GEOMETRY & USE</p>
+              <h3>Start with the people using it.</h3>
+              <p>
+                Define clear width, user mix, passing, accessible approaches,
+                barrier height and the maintenance-vehicle decision. Coordinate
+                slip resistance, drainage and smooth joints for small wheels.
+              </p>
+              <div className="bb-check-emphasis">
+                The 2.15 m target is a concept input. It does not establish a
+                compliant shared pedestrian–cycle width.
+              </div>
+              <SourceLink href={sourceUrls.tmrGuide}>
+                Queensland TMR design guidance
+              </SourceLink>
+            </article>
+            <article id="vibration">
+              <p className="bb-eyebrow">DYNAMIC SERVICEABILITY</p>
+              <h3>Comfort needs more than stiffness.</h3>
+              <p>
+                Walking and running excite vertical, lateral and torsional
+                modes. Establish mode shapes, modal mass, damping and pedestrian
+                loading, then compare accelerations with the adopted comfort
+                criteria.
+              </p>
+              <div className="bb-check-emphasis">
+                Natural frequency is a screening variable. Static deflection
+                alone cannot demonstrate pedestrian comfort.
+              </div>
+              <SourceLink href={sourceUrls.jrcVibration}>
+                JRC guide to human-induced vibration
+              </SourceLink>
+            </article>
+            <article id="frp-design">
+              <p className="bb-eyebrow">MATERIAL & CONNECTIONS</p>
+              <h3>Detail for directional properties.</h3>
+              <p>
+                Specify longitudinal and transverse properties, shear stiffness,
+                environmental reductions and creep. Check local buckling, bolt
+                bearing, net sections, bonded interfaces and concentrated
+                support loads.
+              </p>
+              <div className="bb-check-emphasis">
+                A multicell outline is not a laminate design. Skin thickness,
+                fibre direction and web connections create its stiffness.
+              </div>
+              <SourceLink href={sourceUrls.ats5880}>
+                Austroads FRP manufacturing specification
+              </SourceLink>
+            </article>
+          </div>
+          <div className="bb-technical-links">
+            <a
+              href="/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Load-path drawing ↗
+            </a>
+            <a
+              href="/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Pedestrian / cycle section ↗
+            </a>
+            <a
+              href="/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Vibration workflow ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="case-studies" className="bb-section">
+        <div className="bb-shell">
+          <SectionTitle
+            number="05"
+            eyebrow="LEARN FROM BUILT STRUCTURES"
+            title="Different projects. Useful engineering lessons."
+          >
+            <p>
+              The following public projects show how bridge teams use
+              prefabrication, composite members and system testing. They are
+              industry references; they were not designed, supplied or
+              constructed by F1.
+            </p>
+          </SectionTitle>
+          <article className="bb-pengshui">
+            <div>
+              <p className="bb-eyebrow">PENGSHUI / CHONGQING, CHINA</p>
+              <h3>
+                Factory modules.
+                <br />A site-ready assembly strategy.
+              </h3>
+              <p>
+                The Pengshui composite truss bridge demonstrates factory
+                prefabrication in three transport sections followed by site
+                assembly. Its lesson for this brief is the coordination of
+                members, joints, transport and erection.
+              </p>
+              <div className="bb-case-metrics">
+                <div>
+                  <strong>20 m</strong>
+                  <span>reported bridge span</span>
+                </div>
+                <div>
+                  <strong>3</strong>
+                  <span>prefabricated sections</span>
+                </div>
+              </div>
+              <p className="bb-small">
+                Transport sections do not create three structural spans. This is
+                a truss reference, distinct from the three supported modules in
+                route A.
+              </p>
+              <Link href={pengshuiPath} className="bb-text-link">
+                Read the Pengshui case and sources ↗
+              </Link>
+            </div>
+            <figure>
+              <Image
+                src="/images/blog/pengshui-frp-bridge-prefabrication.svg"
+                alt="Concept diagram linking factory prefabrication, transport planning and site assembly"
+                width={1600}
+                height={900}
+                sizes="(max-width: 767px) 100vw, 50vw"
+              />
+              <figcaption>
+                Prefabrication concept only; not the Pengshui erection
+                procedure.
+              </figcaption>
+            </figure>
+          </article>
+          <div className="bb-case-grid">
+            {caseStudies.map((item, index) => (
+              <article className="bb-case" id={item.id} key={item.id}>
+                <div className="bb-case-heading">
+                  <span>REFERENCE 0{index + 1}</span>
+                  <span>{index === 0 ? "CONCRETE" : "FRP HYBRID"}</span>
+                </div>
+                <h3>{item.name}</h3>
+                <p className="bb-case-location">{item.location}</p>
+                <div className="bb-case-key">
+                  <strong>
+                    {index === 0 ? "218 m" : index === 1 ? "6 girders" : "10 m"}
+                  </strong>
+                  <span>
+                    {index === 0
+                      ? "overall length · nine spans"
+                      : index === 1
+                        ? "glued pultruded hollow sections"
+                        : "installed support span"}
+                  </span>
+                </div>
+                <p>
+                  {index === 0
+                    ? "A conventional T-girder bridge connects structural design with ride quality, prefabrication and inspection access. A useful cycleway-system reference."
+                    : index === 1
+                      ? "Pultruded hollow-section girders and an ECC plate deck demonstrate how bonded components become a bridge system. A reference for connection and deck integration."
+                      : "Two pultruded GFRP I-girders work with a concrete deck. Full-scale static, dynamic and creep testing shows the validation route behind a hybrid bridge."}
+                </p>
+                <details>
+                  <summary>
+                    Project data & design lessons{" "}
+                    <span aria-hidden="true">+</span>
+                  </summary>
+                  <dl>
+                    {item.stats.map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <ul>
+                    {item.lessons.map((lesson) => (
+                      <li key={lesson}>{lesson}</li>
+                    ))}
+                  </ul>
+                  <SourceLink href={item.image}>
+                    Open the explanatory diagram
+                  </SourceLink>
+                  {"secondarySource" in item && (
+                    <p>
+                      <SourceLink href={item.secondarySource}>
+                        {item.secondarySourceLabel}
+                      </SourceLink>
+                    </p>
+                  )}
+                </details>
+                <SourceLink href={item.source}>{item.sourceLabel}</SourceLink>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="delivery" className="bb-section bb-tinted">
+        <div className="bb-shell">
+          <SectionTitle
+            number="06"
+            eyebrow="FROM CONCEPT TO DELIVERY"
+            title="Turn a bridge idea into a defined package."
+          >
+            <p>
+              Bring F1 into the conversation with your site constraints and
+              design basis. We can help organise the component scope,
+              manufacturing route and information needed for a meaningful
+              quotation.
+            </p>
+          </SectionTitle>
+          <div className="bb-delivery-grid">
+            {[
+              [
+                "01",
+                "Define",
+                "Site and owner brief",
+                "Support locations, body length, clear width, access, governing code, pedestrian and wind loads, and maintenance vehicles.",
+              ],
+              [
+                "02",
+                "Develop",
+                "System and fabrication",
+                "Girder or box geometry, laminate, deck, joints, bearings, tooling and the intended manufacturing process.",
+              ],
+              [
+                "03",
+                "Verify",
+                "Calculations and qualification",
+                "Strength, stability, serviceability, fatigue, accidental actions, connection tests, process records, exposure, fire and quality requirements.",
+              ],
+              [
+                "04",
+                "Deliver",
+                "Factory-to-site plan",
+                "Approved drawings, part identification, assembly sequence, lifting, packing, transport and inspection access.",
+              ],
+            ].map(([n, title, sub, copy]) => (
+              <article key={n}>
+                <span>{n}</span>
+                <h3>{title}</h3>
+                <h4>{sub}</h4>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="bb-project-cta">
+            <div>
+              <p className="bb-eyebrow">LET’S START WITH YOUR CROSSING</p>
+              <h3>
+                Send the geometry.
+                <br />
+                Define the right route with F1.
+              </h3>
+              <p>
+                Site sketch · support span · width · load criteria · delivery
+                location
+              </p>
+            </div>
+            <div>
+              <Link className="bb-button bb-button-primary" href={inquiry}>
+                Discuss your bridge concept <span>↗</span>
+              </Link>
+              <Link className="bb-text-link" href="/frp-profile-calculator">
+                Open the FRP member calculator ↗
+              </Link>
+              <Link className="bb-text-link" href="/frp-span-tables">
+                Explore preliminary span tables ↗
+              </Link>
+            </div>
+          </div>
+          <FAQ items={questions} />
+        </div>
+      </section>
+      <section id="sources" className="bb-sources">
+        <div className="bb-shell">
+          <div className="bb-source-heading">
+            <div>
+              <p className="bb-eyebrow">REFERENCES & METHOD</p>
+              <h2>Follow the evidence.</h2>
+            </div>
+            <p>
+              Published 31 August 2026 · Updated 8 September 2026
+              <br />
+              F1 Composite · Engineering and application guide
+            </p>
+          </div>
+          <div className="bb-source-grid">
+            {[
+              [
+                "01 / Manufacturing & system design",
+                [
+                  [
+                    "F1 factory access structure",
+                    absoluteUrl("/case-studies/factory-access-staircase"),
+                  ],
+                  [
+                    "Austroads ATS 5880-25: pultruded and vacuum-infused members",
+                    sourceUrls.ats5880,
+                  ],
+                  ["AASHTO: FRP pedestrian bridge guide", sourceUrls.aashtoFrp],
+                ],
+              ],
+              [
+                "02 / Loads, geometry & comfort",
+                [
+                  [
+                    "Queensland TMR: pedestrian and cyclist bridge options",
+                    sourceUrls.tmrGuide,
+                  ],
+                  [
+                    "JRC: human-induced vibration of footbridges",
+                    sourceUrls.jrcVibration,
+                  ],
+                  [
+                    "USF: uniform-load beam deflection",
+                    BEAM_BRIDGE_METHOD_SOURCES[0].href,
+                  ],
+                ],
+              ],
+              [
+                "03 / Public project records",
+                [
+                  ["Queensland TMR: Moggill Road", sourceUrls.moggill],
+                  [
+                    "São Silvestre: full-scale bridge research",
+                    sourceUrls.saoSilvestre,
+                  ],
+                  [
+                    "Pengshui: sourced prefabrication report",
+                    absoluteUrl(pengshuiPath),
+                  ],
+                ],
+              ],
+            ].map(([heading, links]) => (
+              <div key={heading as string}>
+                <h3>{heading as string}</h3>
+                <ul>
+                  {(links as string[][]).map(([label, href]) => (
+                    <li key={href}>
+                      <SourceLink href={href}>{label}</SourceLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="bb-source-note">
+            The four route drawings are original explanatory schematics
+            developed from the concept brief, not project drawings or
+            construction details. Timber-coloured surfaces indicate a finish
+            concept. Manufacturing standards must match the selected process:
+            vacuum infusion and hand lay-up are distinct methods. All project
+            requirements and the adopted standard editions are agreed with the
+            bridge owner.
+          </p>
+        </div>
+      </section>
+    </div>
   );
 }
