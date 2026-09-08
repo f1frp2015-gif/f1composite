@@ -120,7 +120,7 @@ export default function WhatIsFrpPage() {
     url: absoluteUrl(pagePath),
     mainEntityOfPage: absoluteUrl(pagePath),
     datePublished: "2026-04-14",
-    dateModified: "2026-07-30",
+    dateModified: "2026-09-08",
     inLanguage: "en",
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
@@ -161,7 +161,7 @@ export default function WhatIsFrpPage() {
       <PageHeader
         tag="FRP Guide"
         title="What is FRP? Definition, materials, properties, and uses"
-        description="Glass fiber reinforced plastic (FRP), also called glass fiber reinforced polymer, fiberglass, or GRP, combines glass reinforcement with a polymer resin matrix. Compare its composition, pultrusion process, properties, standards, applications, and design limits."
+        description="FRP means fiber reinforced polymer or plastic. Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "What is FRP?" },
@@ -302,7 +302,7 @@ export default function WhatIsFrpPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Terminology</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Glass fiber reinforced plastic vs FRP, GFRP, and fiberglass
+            GRP vs FRP: terminology and regional buying language
           </h2>
           <div className="mt-[21px] max-w-[860px] rounded-[8px] border-l-[4px] border-teal bg-white p-[21px]">
             <p className="text-f15 leading-golden text-t2">
@@ -314,6 +314,32 @@ export default function WhatIsFrpPage() {
               remains common in specifications and search.
             </p>
           </div>
+          <div className="mt-[21px] grid gap-[13px] md:grid-cols-3">
+            {[
+              { title: "United States", text: "Supplier catalogs often lead with fiberglass structural shapes or FRP. In material specifications, GFRP makes the glass reinforcement explicit." },
+              { title: "United Kingdom & European suppliers", text: "GRP profiles, GRP grating and glass fibre are common English-language terms. GRP sections and fiberglass structural shapes can describe the same glass-reinforced product family." },
+              { title: "Australia & India", text: "FRP and GRP appear together in supplier catalogs. Moulded and molded are spelling variants; neither changes the panel construction or its load rating." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f13 leading-golden text-t2">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-[13px] text-f13 leading-golden text-t2">
+            These are naming patterns, not separate material grades. For a like-for-like
+            quote, match reinforcement, resin, dimensions, load case and test requirements.
+            Browse our <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text underline">FRP and GRP profiles</Link>,{" "}
+            <Link href="/products/frp-gratings" className="font-semibold text-teal-text underline">pultruded GRP grating</Link> or{" "}
+            <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text underline">moulded GRP grating</Link> for product-specific data.
+          </p>
+          <p className="mt-[13px] text-f12 leading-golden text-t2">
+            Examples of supplier terminology:{" "}
+            <a href="https://www.strongwell.com/products/structural-shapes-and-plate/" className="underline">Strongwell (US)</a>,{" "}
+            <a href="https://fibrolux.com/en/products/grp-profiles/" className="underline">Fibrolux (Europe)</a>,{" "}
+            <a href="https://terrafirmaindustries.com.au/frp-grates-products/" className="underline">Terra Firma (Australia)</a> and{" "}
+            <a href="https://satyamindia.net/product/frp-grp-grating" className="underline">Satyam (India)</a>.
+          </p>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             The terminology around fiber composites is regional and often
             overlapping. In engineering practice:
@@ -321,13 +347,15 @@ export default function WhatIsFrpPage() {
           <ul className="mt-[21px] space-y-[13px] text-f15 leading-golden text-t2">
             <li>
               <strong className="text-t1">FRP</strong> — Fiber Reinforced Polymer.
-              The generic North American term. Can use glass, carbon, aramid, or
+              An umbrella term used internationally. Can use glass, carbon, aramid, or
               basalt fibers.
             </li>
             <li>
-              <strong className="text-t1">GRP / GFRP</strong> — (Glass) Fiber
-              Reinforced Polymer / Plastic. Common in the UK, EU, and Australia.
-              Specifies glass-fiber reinforcement.
+              <strong className="text-t1">GRP / GFRP</strong> — Glass Reinforced
+              Plastic / Glass Fiber Reinforced Polymer (or Plastic). Both identify
+              glass reinforcement; neither describes carbon-fiber FRP. GRP is
+              common in UK and European supplier literature, while Australian
+              and Indian suppliers also use FRP and GRP together.
             </li>
             <li>
               <strong className="text-t1">Glass fiber reinforced plastic</strong> —

@@ -1,3 +1,4 @@
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -186,6 +187,10 @@ export default function PultrudedGratingsPage() {
           { label: "Pultruded FRP Grating" },
         ]}
       />
+
+      <MaterialTerminologyNote title="Specifying pultruded GRP grating?">
+        These glass-reinforced FRP panels are also known as pultruded GRP grating. Continuous bearing bars carry load in one direction; specify bar depth, clear span, load and resin. For a bidirectional mesh panel, see the separate molded grating range.
+      </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">

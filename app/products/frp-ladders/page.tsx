@@ -1,3 +1,4 @@
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +24,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-ladders";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-08-30";
+const updatedAt = "2026-09-08";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -146,6 +147,10 @@ export default function FrpLaddersPage() {
           { label: "FRP Fixed Ladders" },
         ]}
       />
+
+      <MaterialTerminologyNote title="GRP ladders for permanent access">
+        GRP ladders and fiberglass fixed ladders describe the glass-reinforced access assemblies shown here. This range is for permanent industrial access; portable stepladders and extension ladders require different specifications. Confirm the installation geometry and fall-protection interfaces.
+      </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
