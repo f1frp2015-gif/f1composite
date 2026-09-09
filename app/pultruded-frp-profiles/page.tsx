@@ -43,7 +43,7 @@ const profileFamily: Array<{
   {
     slug: "i-beam",
     name: "FRP I-Beam / Wide Flange",
-    keyword: "fiberglass I-beam",
+    keyword: "GRP I-beam",
     sizes: "76×38 mm — 305×305 mm",
     summary:
       "Primary structural beams for walkways, platforms, and short-span bridges. Up to 75% lighter than a comparable A36 steel wide flange.",
@@ -55,7 +55,7 @@ const profileFamily: Array<{
   {
     slug: "channel",
     name: "FRP Channel (C and U)",
-    keyword: "fiberglass channel",
+    keyword: "GRP channel",
     sizes: "38×13 mm — 305×89 mm",
     summary:
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
@@ -67,7 +67,7 @@ const profileFamily: Array<{
   {
     slug: "angle",
     name: "FRP Angle (L-profile)",
-    keyword: "fiberglass angle",
+    keyword: "GRP angle",
     sizes: "25×25 mm — 152×152 mm",
     summary:
       "Equal and unequal-leg angles for stiffeners, bracing, ledger supports, and frame connectors. Isophthalic polyester or vinyl ester resin.",
@@ -79,7 +79,7 @@ const profileFamily: Array<{
   {
     slug: "square-tube",
     name: "FRP Square & Rectangular Tube",
-    keyword: "fiberglass square tube",
+    keyword: "GRP box section",
     sizes: "25×25 mm — 240×240 mm",
     summary:
       "Superior torsional rigidity for columns, trusses, and free-standing frames. Also used for guardrails and solar racking posts.",
@@ -91,7 +91,7 @@ const profileFamily: Array<{
   {
     slug: "tube",
     name: "FRP Round Tube",
-    keyword: "fiberglass tube",
+    keyword: "GRP round tube",
     sizes: "25 mm — 150 mm OD",
     summary:
       "Circular hollow sections for handrails, antenna masts, insulating stand-offs, and fluid-conveying applications with smooth interior bore.",
@@ -563,7 +563,7 @@ const hubDownloads = [
   { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },
 ];
 
-const LAST_UPDATED = "2026-08-30";
+const LAST_UPDATED = "2026-09-08";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead — Materials & Standards", slug: "haifeng-gong" };
 
@@ -618,8 +618,8 @@ export default function PultrudedFRPProfilesHubPage() {
 
       <PageHeader
         tag="Pultruded FRP Profiles"
-        title="Pultruded FRP profiles & fiberglass structural shapes — complete product hub"
-        description="F1 Composite supplies pultruded fiberglass structural shapes, custom profiles, gratings, deck panels, fixed ladders, handrail systems and FRP window frames. This hub maps each product family, its specification boundary and the drawing-led quotation path."
+        title="Pultruded FRP & GRP profiles"
+        description="Find glass-reinforced plastic (GRP) profiles, also specified as fiberglass or glass-fiber FRP: standard sections, custom shapes, gratings and access systems. Select a product family below for dimensions, material options and quotation inputs."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },
@@ -681,6 +681,16 @@ export default function PultrudedFRPProfilesHubPage() {
                 across all of them,
                 and this catalog is referred to collectively as{" "}
                 <strong className="text-t1">F1 pultruded profiles</strong>.
+              </p>
+              <p className="mt-[13px] text-f15 leading-golden text-t2">
+                Looking for <strong className="text-t1">GRP profiles</strong>?
+                Our glass-reinforced sections are the products also described as
+                fiberglass structural shapes or GFRP profiles. Match the shape,
+                resin and required performance, rather than the abbreviation.
+                Carbon and carbon-glass hybrid products are identified separately.{" "}
+                <Link href="/what-is-frp#terminology" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+                  Compare FRP, GRP and GFRP terminology
+                </Link>.
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Compared to conventional materials, pultruded fiberglass reinforced

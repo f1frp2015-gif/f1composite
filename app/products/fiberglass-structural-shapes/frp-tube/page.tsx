@@ -1,3 +1,4 @@
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -14,9 +15,9 @@ import { getCategorySizes } from "@/lib/catalog/public";
 // as build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "Fiberglass Round Tube & Tubing — Pultruded FRP Manufacturer";
+const pageTitle = "Fiberglass Round Tube | Pultruded FRP & GRP Tubing";
 const pageDescription =
-  "Pultruded fiberglass round tubes, 25–150 mm OD, with nominal wall and weight tables, EN 13706 / ASTM D3917 references, datasheets and global quotes.";
+  "Pultruded fiberglass round tube, also called GRP tube, in 25–150 mm OD. Compare nominal walls and weights for structural tubing and request a drawing-led quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-tube";
 
 const faqItems = [
@@ -111,6 +112,10 @@ export default async function TubePage() {
           { label: "Round Tube" },
         ]}
       />
+
+      <MaterialTerminologyNote title="GRP tube for structural applications">
+        GRP tube and fiberglass round tubing refer to the glass-reinforced pultrusions in this range. Select outside diameter, wall thickness and resin against the design load. Structural tube dimensions do not establish a pressure rating; pressure pipe needs a separately qualified specification.
+      </MaterialTerminologyNote>
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

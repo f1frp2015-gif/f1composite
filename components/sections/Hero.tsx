@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 const standards = ["EN 13706", "ASTM D3917", "ISO 9001"];
@@ -27,6 +28,12 @@ export default function Hero() {
 
           <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,20px)] leading-[1.55] text-white/76 sm:mt-[22px]">
             Structural profiles, gratings, window systems, and custom sections — manufactured in China with documented quality control and global delivery support.
+          </p>
+
+          <p className="mt-[13px] text-f13 leading-golden text-white/75">
+            Specifying glass-reinforced plastic? Explore our{" "}
+            <Link href="/pultruded-frp-profiles" className="font-semibold text-white underline underline-offset-4 hover:text-teal">GRP profiles</Link>
+            {" "}by shape, application and resin system.
           </p>
 
           <div className="mt-[24px] flex flex-wrap gap-[11px] sm:mt-[30px]">
