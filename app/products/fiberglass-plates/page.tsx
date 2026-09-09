@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -303,6 +304,7 @@ export default function FiberglassPlatesPage() {
 
       <AskAICard prefill="I need a pultruded fiberglass plate profile for [application]. Candidate source ID [ID or unsure], section drawing [Plate 01–19], confirm A/B/t1/t2 units and tolerances, cut length and quantity [details], orientation/support spacing/load [details], resin/exposure/fire/finish [details], destination [country/postcode]. Please identify missing inputs and the drawing/engineering checks needed before quotation." />
 
+      <ProductNextSteps path="/products/fiberglass-plates" />
       <InnerCTA title="Choose a plate drawing—then release the right laminate and dimensions." />
     </>
   );

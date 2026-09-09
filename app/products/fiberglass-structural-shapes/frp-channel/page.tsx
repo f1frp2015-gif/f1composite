@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -213,6 +214,7 @@ export default async function ChannelPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-channel" />
       <InnerCTA title="Need engineering data or a quotation for channel profiles?" />
     </>
   );

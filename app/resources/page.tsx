@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "Do you publish failure / lessons-learned data?",
     answer:
-      "Yes. The blog includes incident retrospectives — UV degradation in unprotected solar racks, galvanic corrosion in mixed FRP-aluminum window assemblies, creep failure in undersized handrails. These are written from real returns, anonymized.",
+      "Articles distinguish engineering references from documented project experience. Ask for the source and applicability of any failure analysis before using it in a design.",
   },
   {
     question: "Can engineers request a topic?",
@@ -77,6 +77,7 @@ const icons: Record<string, React.ReactNode> = {
 };
 
 const resources = [
+  { title: "Product Evidence & Reports", description: "Match original certificates, test reports and technical references to the proposed product and configuration.", href: "/resources/evidence", iconKey: "downloads" },
   {
     title: "Technical Data",
     description: "Mechanical properties, chemical resistance charts, and specification sheets for all standard FRP profiles.",

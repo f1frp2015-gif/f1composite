@@ -892,7 +892,7 @@ To check where a specific frame and glazing build lands before specifying, run i
       "The FRP window profile market splits into two businesses: pultruded lineals sold to window fabricators, and finished fiberglass windows. Demand is pulled by energy codes (GEG 2024, BC Step Code, ENERGY STAR, Passive House), aluminum's thermal-bridge ceiling, and uPVC's span and dark-color limits. Supply is concentrated — North American lineal specialists (Tencom, Creative Pultrusions, Inline Fiberglass), vertically integrated window brands with in-house pultrusion (Marvin, Pella), and factory-direct exporters like F1 Composite. Buyers should verify dimensional consistency (ASTM D3917, batch mill certificates), the certification stack (EN 14351-1 / NAFS / PHI), and run staged qualification orders.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-07-07",
+    updatedAt: "2026-09-09",
     readTime: "10 min",
     excerpt:
       "Search interest in the 'FRP window profile market' is usually a fabricator or specifier trying to answer three practical questions: who actually supplies pultruded window lineals, what is pulling demand, and how do you qualify a supplier you have not worked with. This analysis answers those three questions without the invented market-size numbers that plague this topic.",
@@ -954,7 +954,7 @@ Demand for FRP window profiles is code-pulled, not fashion-pulled. Four mechanis
 
 **uPVC's physical limits cap its share of the performance segment.** Above roughly 1.2 m spans, uPVC needs internal steel reinforcement that re-introduces a thermal bridge; dark frame colors on sun-exposed elevations push uPVC toward its softening range; and deep-cold embrittlement makes severe-cold codes cautious about it. Each limit hands the performance tier of the market to stiffer, more temperature-stable frame materials.
 
-**The passive house pipeline is growing from a small base.** Certified-component fenestration — the segment where FRP frames are structurally advantaged — tracks the growth of passive house and near-zero-energy construction in Germany, the Nordics, Canada, and the northern US. The Passive House Institute's public component database is the verifiable proxy: the number of certified window systems, including fiberglass entries such as F1's Component Certificate 2491wi03 at the phA arctic class, grows year over year.
+**The passive house pipeline is growing from a small base.** Certified-component fenestration — the segment where FRP frames are structurally advantaged — tracks the growth of passive house and near-zero-energy construction in Germany, the Nordics, Canada, and the northern US. The Passive House Institute's public component database is the verifiable proxy: the number of certified window systems, including fiberglass entries such as F1's Component Certificate 2491wi03 at the phB efficiency class for the cool-temperate climate zone, grows year over year.
 
 **Trade friction on competing frame materials.** Aluminum extrusions face anti-dumping duties into the EU and, for Chinese material, Canada's 25% surtax on steel and aluminum — measures that do not apply to FRP profiles. This does not create demand by itself, but it shifts relative landed costs at the margin where frame-material decisions are made.
 

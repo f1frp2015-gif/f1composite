@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -622,6 +623,7 @@ export default function FrpSoundBarrierWallPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/frp-sound-barrier-wall" />
       <InnerCTA title="Send the noise study and wall alignment for engineering review" />
 
       <RelatedLinks

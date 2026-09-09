@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -922,6 +923,7 @@ export default function FacadeSunshadePanelsPage() {
         prefill="I'm designing a facade sunshade array: [vertical fins / horizontal louvers / angled blades]. Blade size roughly [width × thickness mm], span between brackets [m], wind load [kPa or wind speed], location [city / coastal?]. Deflection limit [L/180 / L/240 / other]. Can the E40 plate carry this, what thickness do you recommend, and how does it compare to the aluminum alternative?"
       />
 
+      <ProductNextSteps path="/products/frp-facade-panels" />
       <InnerCTA title="Specify FRP sunshade blades for your facade project" />
     </>
   );

@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -309,6 +310,7 @@ export default function HandrailSystemsPage() {
       </section>
 
       <AskAICard prefill="I need an industrial fiberglass handrail / guardrail system: total run and layout [attach plan/elevation], straight/stair/corner/gate conditions, governing load standard, target height and post-spacing limit, base substrate, kick-plate requirement, environment, color and destination. Compare square and round systems and list the drawing/BOM checks required before release." />
+      <ProductNextSteps path="/products/frp-handrail-systems" />
       <InnerCTA title="Send the platform or stair layout — receive a system-led RFQ review." />
     </>
   );

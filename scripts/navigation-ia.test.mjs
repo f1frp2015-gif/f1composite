@@ -126,7 +126,7 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
     "/case-studies",
     "/resources",
     "/resources/technical-data",
-    "/technology/quality-testing",
+    "/resources/evidence",
     "/about",
     "/contact",
   ]) {

@@ -110,12 +110,12 @@ const faqs = [
   {
     question: "Who supplies polyurethane pultruded window profiles?",
     answer:
-      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. FengDu produces the GFRP-PU profiles; F1 Composite supplies them internationally as profile sets for local fabricators or as factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same profile set sits behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class).",
+      "A small group of pultruders worldwide run polyurethane window lines, because PU requires dedicated closed-injection equipment and tighter process control than open-bath polyester. FengDu produces the GFRP-PU profiles; F1 Composite supplies them internationally as profile sets for local fabricators or as factory-assembled, glazed, and leak-tested window and door units delivered DDP. The same profile set sits behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone).",
   },
   {
     question: "Are polyurethane pultrusion windows suitable for Passive House projects?",
     answer:
-      "Yes — they are one of the few frame technologies certified at the coldest Passive House component class. F1's 90-series GFRP-PU frame holds PHI Component Certificate 2491wi03 at U_w 0.78 W/m²·K in the phA (arctic) climate class, and the same system is installed at Qinling Station in Antarctica against a −60°C design low. Because the polyurethane matrix keeps its impact strength in deep cold and the profile needs no steel reinforcement, the frame carries no metallic thermal bridge — the failure point that limits aluminum and steel-reinforced PVC frames in passive house detailing.",
+      "Cold-climate projects require a complete window and installation review. F1's 90-series GFRP-PU frame holds PHI Component Certificate 2491wi03 at U_w 0.78 W/m²·K in the phB efficiency class for the cool-temperate climate zone, and the same system is installed at Qinling Station in Antarctica against a −60°C design low. Because the polyurethane matrix keeps its impact strength in deep cold and the profile needs no steel reinforcement, the frame carries no metallic thermal bridge — the failure point that limits aluminum and steel-reinforced PVC frames in passive house detailing.",
   },
   {
     question: "Do polyurethane pultrusion windows cost more than standard FRP windows?",
@@ -168,7 +168,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window — but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            F1 Composite supplies GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phA arctic class) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
+            F1 Composite supplies GFRP-PU window profiles as standard for its 90-series fenestration system — the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
           </p>
         </div>
       </section>
@@ -228,7 +228,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             >
               <h3 className="text-[17px] font-bold text-t1">Qinling Station, Antarctica — −60°C design low</h3>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phA arctic class, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.
+                90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phB efficiency class for the cool-temperate climate zone, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text">Read the case study →</span>
             </Link>

@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -227,6 +228,7 @@ export default function FiberglassSheetsPage() {
 
       <AskAICard prefill="I need solid pultruded fiberglass sheet: thickness [mm], finished part sizes and quantity, surface [smooth/gritted/embossed], service [chemical/electrical/liner/cover/fabricated blank], support/load if structural, resin preference [if any], destination [country/postcode]. What laminate and resin do you recommend, and what should the RFQ include?" />
 
+      <ProductNextSteps path="/products/fiberglass-sheets" />
       <InnerCTA title="Send the flat-sheet part sizes, surface and service duty." />
     </>
   );

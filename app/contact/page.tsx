@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Request a Quote or Engineering Review",
   description:
-    "Send F1 Composite your drawing, dimensions, quantity, and project requirements. Our engineering and sales team responds within one business day.",
+    "Send F1 Composite your drawing, dimensions, quantity, and project requirements. Our team acknowledges requirements within one business day.",
   alternates: { canonical: absoluteUrl("/contact") },
 };
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
           <div>
             <SectionTag>Project inquiry</SectionTag>
             <h2 className="mb-[22px] mt-[12px] text-f24 font-bold tracking-[-0.02em] text-t1">
-              Engineering review within one business day
+              Tell us what you need to specify
             </h2>
             <Suspense fallback={<div className="text-f13 text-t3">Loading inquiry form…</div>}>
               <ContactForm />

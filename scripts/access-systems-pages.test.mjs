@@ -1,3 +1,4 @@
+import { publicSurface } from "./load-project-module.mjs";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -112,7 +113,7 @@ test("both access-system routes are discoverable with distinct SEO ownership", a
       files.productLines,
       files.applicationPages,
       files.stairTreads,
-    ].map((file) => readFile(file, "utf8")),
+    ].map((file) => publicSurface(file) ?? readFile(file, "utf8")),
   );
 
   for (const source of sources) {

@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -125,7 +126,7 @@ const systemSeries = [
     glassRange: "44 - 60 mm",
     applications: "Ultra-low-energy buildings, arctic and extreme climate zones, institutional projects",
     description:
-      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and three-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.78 W/m²K with appropriate glazing selection. This is the frame behind PHI Component Certificate 2491wi03 at the phA arctic climate class — the coldest tier the international Passive House component rating recognizes. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester or polyurethane resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
+      "Our flagship 90-series represents the pinnacle of pultruded FRP fenestration performance, engineered for projects in extreme climate zones and ultra-low-energy building standards such as Passive House Premium and MINERGIE-P. The 90 mm frame depth and three-chamber geometry provide a thermal barrier equivalent to approximately 100 mm of mineral wool insulation, achieving certified whole-window K-values as low as 0.78 W/m²K with appropriate glazing selection. This is the frame behind PHI Component Certificate 2491wi03 at the phB efficiency class for the cool-temperate climate zone; this does not establish Arctic-climate certification. The 90-series profile set includes entrance door frame and leaf profiles capable of supporting door leaves weighing up to 130 kg on concealed hinges, as well as lift-and-slide door tracks rated for leaves up to 400 kg. All 90-series profiles are manufactured in vinyl ester or polyurethane resin as standard, providing superior long-term dimensional stability and resistance to the moisture cycling that can compromise PVC frames in high-humidity environments.",
   },
   {
     name: "140-Series",
@@ -226,9 +227,9 @@ const targetRegions = [
 
 const coldProof = [
   {
-    title: "Qinling Station, Antarctica — −60°C, PHI phA arctic",
+    title: "Qinling Station, Antarctica — −60°C, PHI phB, cool-temperate",
     body:
-      "90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the arctic climate class — factory-assembled and leak-tested in China, then shipped in a single Antarctic summer cycle to survive a −60°C design low and 45 m/s katabatic winds.",
+      "90-series GFRP-PU passive windows with PHI Component-ID 2491wi03 for the stated cool-temperate reference configuration — factory-assembled and leak-tested in China, then shipped in a single Antarctic summer cycle to survive a −60°C design low and 45 m/s katabatic winds.",
     href: "/case-studies/qinling-station-antarctic-passive-windows",
   },
   {
@@ -320,7 +321,7 @@ const faqItems = [
   {
     question: "How do FRP windows perform in extreme cold — −40°C and below?",
     answer:
-      "This is where FRP separates from aluminum and PVC. The whole frame is intrinsically insulating (conductivity ≈ 0.3 W/m·K), so there is no metallic thermal bridge to drive interior condensation or frost — the interior frame face stays warm and dry. FRP keeps its impact strength at −40°C where PVC can embrittle, and its expansion coefficient is close to glass, so seals stay compressed across 200-plus freeze-thaw cycles a year. Our 90-series holds PHI Component Certificate 2491wi03 at the phA arctic class and is installed at Qinling Station, Antarctica, against a −60°C design low and 45 m/s katabatic winds.",
+      "This is where FRP separates from aluminum and PVC. The whole frame is intrinsically insulating (conductivity ≈ 0.3 W/m·K), so there is no metallic thermal bridge to drive interior condensation or frost — the interior frame face stays warm and dry. FRP keeps its impact strength at −40°C where PVC can embrittle, and its expansion coefficient is close to glass, so seals stay compressed across 200-plus freeze-thaw cycles a year. Our 90-series holds PHI Component Certificate 2491wi03 at the phB efficiency class for the cool-temperate climate zone and is installed at Qinling Station, Antarctica, against a −60°C design low and 45 m/s katabatic winds.",
   },
   {
     question: "Are F1 windows suitable for the Russian and Siberian market?",
@@ -350,7 +351,7 @@ const faqItems = [
   {
     question: "Are your fenestration systems certified to international standards?",
     answer:
-      "Complete window and door units are tested to EN 14351-1 for CE marking (air permeability, water tightness, wind resistance, operating forces) and to NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 for North America. Thermal performance is the PHI Component Certificate 2491wi03 (U_w 0.78, phA arctic class), with NFRC 100 and CSA A440.2/.3 simulation on request. Profiles are characterized to EN ISO 10077-2 and EN 14024. For Russia and the EAEU we support GOST 23166 and EAC documentation per project. Every shipment includes the test reports and certificates your submission requires.",
+      "Complete window and door units are tested to EN 14351-1 for CE marking (air permeability, water tightness, wind resistance, operating forces) and to NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 for North America. Thermal performance is the PHI Component Certificate 2491wi03 (U_w 0.78, phB efficiency class for the cool-temperate climate zone), with NFRC 100 and CSA A440.2/.3 simulation on request. Profiles are characterized to EN ISO 10077-2 and EN 14024. For Russia and the EAEU we support GOST 23166 and EAC documentation per project. Every shipment includes the test reports and certificates your submission requires.",
   },
   {
     question: "What CSI MasterFormat section covers fiberglass (FRP) windows?",
@@ -420,7 +421,7 @@ export default function FenestrationSystemsPage() {
             { name: "Product form", value: "Finished factory-assembled units or pultruded profiles for fabricators" },
             { name: "Series", value: "65 / 70 / 80 / 90 / 140" },
             { name: "Frame U-value", value: "From 0.78 W/m²·K (90-series)" },
-            { name: "Certification", value: "PHI Component 2491wi03 (phA arctic) · EN 14351-1 · NAFS" },
+            { name: "Certification", value: "PHI Component 2491wi03 (phB, cool-temperate) · EN 14351-1 · NAFS" },
             { name: "Operating range", value: "−60°C to +80°C (proven at Qinling Station, Antarctica)" },
             { name: "Thermal conductivity", value: "0.3 W/m·K (vs aluminum 160 W/m·K)" },
             { name: "Target climates", value: "Canada, Russia/Siberia, Nordics, Northern US, severe-cold zones" },
@@ -1016,7 +1017,7 @@ export default function FenestrationSystemsPage() {
           {
             title: "Cold-climate case studies",
             links: [
-              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Qinling Antarctic — −60°C, PHI phA" },
+              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Qinling Antarctic — −60°C, PHI component reference" },
               { href: "/case-studies/chemical-plant-platform", label: "Baotou severe-cold industrial windows" },
               { href: "/case-studies/fenestration-residential", label: "Wanhua Yantai zero-carbon community" },
               { href: "/case-studies", label: "All case studies" },
@@ -1070,6 +1071,7 @@ export default function FenestrationSystemsPage() {
         prefill="I'm specifying FRP windows/doors for a project in [Canada / Russia / Nordics / other cold climate]. Design low temperature [°C]. I need [finished units / profiles for a local fabricator]. Window/door types: [tilt-turn / casement / fixed / lift-slide / entrance door]. Target U-value [W/m²K]. Which series (65/70/80/90/140) fits, and what's the cost vs aluminum?"
       />
 
+      <ProductNextSteps path="/products/frp-window-frames" />
       <InnerCTA title="Specify FRP windows & doors for your cold-climate project" />
     </>
   );

@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -382,6 +383,7 @@ export default function WindTurbineBladePanelsPage() {
 
       <AskAICard prefill="I need pultruded wind turbine blade panels: material family [GFRP/CFRP/carbon-glass hybrid], drawing/section, finished cut length and tolerance, quantity, fiber/resin requirements, surface and bonding preparation, mechanical and fatigue qualification requirements, packing constraints, destination and target delivery date. Help me prepare the RFQ and identify missing release data." />
 
+      <ProductNextSteps path="/products/wind-turbine-blade-panels" />
       <InnerCTA title="Send the panel drawing, finished cut length and qualification plan." />
     </>
   );

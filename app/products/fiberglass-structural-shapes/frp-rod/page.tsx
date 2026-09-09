@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -204,6 +205,7 @@ export default async function RodPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-rod" />
       <InnerCTA title="Need engineering data or a quotation for round rods?" />
     </>
   );

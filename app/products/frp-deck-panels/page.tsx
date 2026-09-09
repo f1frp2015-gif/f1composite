@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -281,6 +282,7 @@ export default function FrpDeckPanelsPage() {
         prefill="I need structural FRP deck panels for [application]. Candidate Profile [01-12 or unsure], confirm drawing unit [required], clear support spacing [value/unit], deck width and length [value/unit], uniform/point/wheel loads [details], load footprint [details], deflection/vibration criteria [details], resin/exposure/surface/fire requirements [details], and preferred joint/connection. Please identify missing inputs and the approval drawing/calculation package required."
       />
 
+      <ProductNextSteps path="/products/frp-deck-panels" />
       <InnerCTA title="Need an FRP deck section and project-specific approval drawing?" />
     </>
   );

@@ -16,7 +16,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "fiberglass-structural-shapes",
     title: "Fiberglass Structural Shapes",
-    description: "I-beams, channels, angles, tubes, and flat bars in stock sizes with certified mechanical properties.",
+    description: "I-beams, channels, angles, tubes and flat bars with catalog dimensions, section drawings and project-specific material review.",
     icon: "profiles",
     href: "/products/fiberglass-structural-shapes",
     image: "/images/products/standard-profiles-cover.jpg",
@@ -92,7 +92,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "frp-gratings",
     title: "Pultruded FRP Grating",
-    description: "Open T-bar and I-bar pultruded grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T 316SS clips.",
+    description: "Pultruded fiberglass grating for walkways and platforms. Compare bar geometry, panel sizes, resin options and matched hold-downs.",
     icon: "gratings",
     href: "/products/frp-gratings",
     image: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
@@ -103,7 +103,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "frp-deck-panels",
     title: "Structural FRP Deck Panels",
-    description: "Closed-profile fiberglass deck panels with 12 neutral cross-section references, nominal A/B/t values, joint geometry and drawing support.",
+    description: "Closed-profile fiberglass deck panels with section and joint options. Confirm dimensions, material and load requirements on the project drawing.",
     icon: "gratings",
     href: "/products/frp-deck-panels",
     image: "/images/products/frp-structural-deck-panel-cover.webp",
@@ -114,7 +114,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "molded-frp-grating",
     title: "Molded FRP Grating",
-    description: "Square mesh, mini mesh and rectangular molded fiberglass grating with manual-verified panel data and M/C/J 316SS clip kits.",
+    description: "Square, mini and rectangular mesh grating with panel size, surface, resin and fixing options for project review.",
     icon: "gratings",
     href: "/products/molded-frp-grating",
     image: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
@@ -125,7 +125,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "frp-ladders",
     title: "Fiberglass Fixed Ladder Systems",
-    description: "Industrial fixed FRP ladders with manual-verified side-rail, rung, cage-component and rung-cover references for drawing-led project release.",
+    description: "Fixed fiberglass ladders with side rails, rungs, brackets and project-specific fall-protection interfaces.",
     icon: "profiles",
     href: "/products/frp-ladders",
     image: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
@@ -136,7 +136,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "frp-handrail-systems",
     title: "Industrial FRP Handrail Systems",
-    description: "Square- and round-tube fiberglass handrails with manual-verified posts, rails, kick plates, fittings and drawing-release notes.",
+    description: "Square- and round-tube handrail assemblies. Review posts, rails, fittings, anchors and project loads together.",
     icon: "profiles",
     href: "/products/frp-handrail-systems",
     image: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
@@ -147,7 +147,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "fenestration-systems",
     title: "FRP Window Frames Manufacturer",
-    description: "Finished GFRP-PU windows and doors for extreme-cold and passive house buildings — 65–140 series, U_w to 0.78, proven to −60°C.",
+    description: "GFRP-PU window and door systems. Match the series, glazing and hardware to thermal targets, component certificates and project test reports.",
     icon: "fenestration",
     href: "/products/frp-window-frames",
     image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",

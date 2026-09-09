@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -372,6 +373,7 @@ export default function MoldedFrpGratingPage() {
         prefill="I need molded FRP grating for [application]. Mesh/depth [mm], panel quantity or layout [details], clear support spacing [mm], design load [kN/m² or point load], resin/chemical exposure [details], surface [concave/fine grit/coarse grit], support flange and underside access [details]. Please confirm the catalog row, M/C/J 316SS clips, panel layout and required approval documents."
       />
 
+      <ProductNextSteps path="/products/molded-frp-grating" />
       <InnerCTA title="Need molded FRP grating panels and matched 316SS clip kits?" />
     </>
   );

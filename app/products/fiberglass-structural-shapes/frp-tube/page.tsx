@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -225,6 +226,7 @@ export default async function TubePage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-tube" />
       <InnerCTA title="Need engineering data or a quotation for round tube profiles?" />
     </>
   );

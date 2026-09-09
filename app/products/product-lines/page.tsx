@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -189,6 +190,7 @@ export default function ProductLinesPage() {
         items={faqItems}
       />
 
+      <ProductNextSteps path="/products/product-lines" />
       <InnerCTA title="Not sure which product line you need? Tell us your application." />
     </>
   );

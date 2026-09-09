@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -216,6 +217,7 @@ export default async function AnglePage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-angle" />
       <InnerCTA title="Need engineering data or a quotation for angle profiles?" />
     </>
   );

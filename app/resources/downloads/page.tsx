@@ -1,3 +1,5 @@
+import { engineeringEvidence, commercialFacts } from "@/content/data/engineeringEvidence";
+import { buildRfqHref } from "@/lib/rfq";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -25,7 +27,7 @@ const faqs = [
   {
     question: "How do I get a project-specific MTC?",
     answer:
-      "After purchase, your sales contact issues an MTC tied to the production batch and shipment. The sample MTC available here lets your QA team review the format in advance.",
+      "Agree the required batch identification, inspection records and report format before production. Ask your sales contact for the available sample format and testing scope.",
   },
   {
     question: "Are documents available in languages other than English?",
@@ -35,7 +37,7 @@ const faqs = [
   {
     question: "Why do certain documents ask for a project name before download?",
     answer:
-      "Certification documents are issued at a specific revision and may need to be re-issued mid-project if the underlying standard updates. Capturing the project name lets us push a revised certification to you automatically.",
+      "Some documents require us to match the offered product, report holder and project requirements first. A document request does not guarantee that a certificate exists for every configuration.",
   },
 ];
 
@@ -95,7 +97,7 @@ const fallbackDownloads: DownloadItem[] = [
     title: "PHI Component Certificate — 90-Series GFRP Window",
     format: "PDF",
     size: "0.4 MB",
-    description: "Passive House Institute (PHI) component certification for the 90-series pultruded GFRP window. Component-ID 2491wi03, phA arctic climate class. Issued by PHI Darmstadt.",
+    description: "Passive House Institute (PHI) component certification for the 90-series pultruded GFRP window. Component-ID 2491wi03, phB efficiency class for the cool-temperate climate zone. Issued by PHI Darmstadt.",
     file: "/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf",
   },
   {
@@ -142,13 +144,13 @@ const fallbackDownloads: DownloadItem[] = [
     title: "ISO 9001:2015 Certificate",
     format: "PDF",
     size: "0.5 MB",
-    description: "Current ISO 9001:2015 quality management system certification.",
+    description: "Request the current quality-management certificate holder, validity and scope for your proposed supply.",
   },
   {
     title: "CE Declaration of Performance",
     format: "PDF",
     size: "1 MB",
-    description: "EN 13706 Declaration of Performance for CE-marked structural profiles.",
+    description: "Request product-specific performance and applicable conformity documentation; confirm the intended use and assessment route.",
   },
   {
     title: "Standard Profiles — CAD Library",
@@ -181,7 +183,7 @@ async function loadDownloads(): Promise<DownloadItem[]> {
 }
 
 export default async function DownloadsPage() {
-  const [downloads, datasheetPages] = await Promise.all([
+  const [loadedDownloads, datasheetPages] = await Promise.all([
     loadDownloads(),
     getAllDatasheetPages(),
   ]);
@@ -190,6 +192,7 @@ export default async function DownloadsPage() {
     ...family,
     items: family.items.filter((item) => datasheetSlugs.has(item.slug)),
   })).filter((family) => family.items.length > 0);
+  const downloads = loadedDownloads.map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -279,6 +282,7 @@ export default async function DownloadsPage() {
 
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
+          <p className="mb-[24px] text-f15 text-t2">Check document applicability in the <Link href="/resources/evidence" className="font-semibold text-teal-text underline">product evidence index</Link> before using a report in your project.</p>
           <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
             {downloads.map((dl) => (
               <div
@@ -289,7 +293,7 @@ export default async function DownloadsPage() {
                   <span className="rounded-[4px] bg-teal-bg px-[8px] py-[3px] text-f11 font-bold text-teal-text">
                     {dl.format}
                   </span>
-                  <span className="text-f11 text-t3">{dl.size}</span>
+                  <span className="text-f11 text-t3">{dl.file ? dl.size : "Available on request, subject to scope"}</span>
                 </div>
                 <h3 className="mb-[8px] text-f15 font-bold text-t1">{dl.title}</h3>
                 <p className="mb-[13px] text-f13 leading-golden text-t2">{dl.description}</p>
@@ -304,7 +308,7 @@ export default async function DownloadsPage() {
                   </a>
                 ) : (
                   <Link
-                    href="/contact"
+                    href={buildRfqHref({ source: "download-request", product: dl.title, message: `Please confirm availability and applicability of: ${dl.title}` })}
                     className="text-f13 font-semibold text-teal-text hover:underline"
                   >
                     Request download →
@@ -321,10 +325,10 @@ export default async function DownloadsPage() {
           <SectionTag>How Specifiers Use This Set</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
-              Most engineers building an approval package combine three downloads: (1) the product catalog page covering the chosen profile family, (2) the relevant certification (ISO 9001 + EN 13706 grade declaration is the typical default), and (3) the connection detail typical drawing. Procurement adds the sustainability and REACH declarations for European projects. QA teams add the MTC sample and FAI report sample to set their incoming inspection criteria.
+              {commercialFacts.compliance}
             </p>
             <p>
-              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to inquiry@f1composite.com with the project name and we can release within one business day.
+              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to inquiry@f1composite.com with your product and acceptance requirements. We will confirm availability and any additional testing needed.
             </p>
           </div>
           <FAQ items={faqs} />

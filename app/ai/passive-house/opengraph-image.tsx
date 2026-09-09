@@ -10,6 +10,6 @@ export default function OpenGraphImage() {
     description:
       "Free AI tool: enter climate zone, target U-value, and window type — get the matching F1 Composite PHI-certified pultruded FRP fenestration series with U_w and case-study evidence.",
     accent: "#117d76",
-    chips: ["PHI Component-ID 2491wi03", "U_w 0.78 W/m²·K", "phA arctic certified"],
+    chips: ["PHI Component-ID 2491wi03", "U_w 0.78 W/m²·K", "phB · cool-temperate"],
   });
 }

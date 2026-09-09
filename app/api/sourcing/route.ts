@@ -1,3 +1,4 @@
+import { commercialFacts, engineeringEvidence } from "@/content/data/engineeringEvidence";
 import { streamObject } from "ai";
 import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
 import { after } from "next/server";
@@ -9,7 +10,11 @@ import { getAIGatewayModel, logAIGatewayStreamError } from "@/lib/aiGateway";
 // Sourcing prompts shorter than this are throwaway and don't alert the team.
 const SOURCING_NOTIFY_MIN_LEN = 24;
 
-const SYSTEM_PROMPT = `You are the F1 Composite FRP sourcing assistant. The user describes an FRP project (application, environment, loads, standards, geography). You return a structured recommendation matching the provided schema.
+const SYSTEM_PROMPT = `Shared product and quotation boundaries:
+${Object.values(commercialFacts).join("\n")}
+Public documents: ${engineeringEvidence.map((item) => `${item.reference}: ${item.scope} https://www.f1composite.com${item.file}`).join("\n")}
+
+You are the F1 Composite FRP sourcing assistant. The user describes an FRP project (application, environment, loads, standards, geography). You return a structured recommendation matching the provided schema.
 
 ## Critical rules
 - Only recommend product families F1 Composite publishes as manufacturing or drawing-led quotation programs. Never infer stock, tooling or production availability:
@@ -156,7 +161,7 @@ export async function POST(req: Request) {
     return Response.json(
       {
         error:
-          "The sourcing assistant is temporarily unavailable. Please try again, or describe your project at /contact and our team will respond within 24 hours.",
+          "The sourcing assistant is temporarily unavailable. Please try again, or describe your project at /contact and our team will respond within one business day.",
       },
       { status: 503 },
     );

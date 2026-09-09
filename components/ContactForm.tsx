@@ -1,8 +1,10 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
+import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
+import { attributionPath, attributionToken } from "@/lib/rfq";
 
 const countries = [
   "United States",
@@ -45,6 +47,7 @@ const inquiryTypes = [
 interface FormState {
   success: boolean;
   message: string;
+  receiptId?: string;
 }
 
 const initialState: FormState = { success: false, message: "" };
@@ -58,7 +61,9 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
     const data = await res.json().catch(() => ({
       message: "The inquiry could not be processed. Please check the attachment size and try again.",
     }));
-    return { success: res.ok, message: data.message };
+    const success = res.ok && data.accepted === true && Boolean(data.receiptId);
+    if (success) trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"));
+    return { success, message: data.message, receiptId: data.receiptId };
   } catch {
     return {
       success: false,
@@ -73,6 +78,7 @@ const inputCls =
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
   const [attachmentName, setAttachmentName] = useState("");
+  const started = useRef(false);
   const searchParams = useSearchParams();
   const prefillRef = searchParams.get("ref");
   const prefillCompany = searchParams.get("company") ?? "";
@@ -81,6 +87,13 @@ export default function ContactForm() {
   const prefillMessage = searchParams.get("message") ?? "";
   const prefillSource = searchParams.get("source") ?? prefillRef ?? "contact";
   const prefillContext = searchParams.get("context") ?? "";
+  const product = searchParams.get("product") ?? "";
+  const productPath = attributionPath(searchParams.get("product_path") ?? "");
+  const specification = searchParams.get("specification") ?? "";
+  const evidenceId = searchParams.get("evidence_id") ?? "";
+  let inheritedContext: unknown = null;
+  try { inheritedContext = prefillContext ? JSON.parse(prefillContext) : null; } catch { inheritedContext = { raw: prefillContext }; }
+  const context = JSON.stringify({ ...(inheritedContext && typeof inheritedContext === "object" && !Array.isArray(inheritedContext) ? inheritedContext : { inheritedContext }), product, productPath, specification, evidenceId });
   const isFromAiSourcing = prefillRef === "ai-sourcing";
 
   if (state.success) {
@@ -90,17 +103,20 @@ export default function ContactForm() {
         <p className="mt-[13px] text-f15 leading-golden text-t2">
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
+        {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
       </div>
     );
   }
 
   return (
-    <form action={formAction} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
+    <form action={formAction} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
-      {prefillContext && <input type="hidden" name="context" defaultValue={prefillContext} />}
+      <input type="hidden" name="context" value={context} />
+      <input type="hidden" name="product_path" value={productPath} />
+      {(product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Add quantities, delivery destination and any corrections in the message below.</p></div>}
       {isFromAiSourcing && (
         <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
-          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact information, and submit the form. We&rsquo;ll respond with a formal quote within 24 hours.
+          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact information, and submit the form. We will acknowledge your requirements within one business day; a formal quote follows specification review.
         </div>
       )}
 

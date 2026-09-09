@@ -66,14 +66,6 @@ const websiteSchema = {
     "Pultruded FRP profiles manufacturer — fiberglass structural shapes, FRP window frames, gratings & decks, and custom pultrusions to EN 13706 and ASTM D3917.",
   inLanguage: "en",
   publisher: { "@id": "https://www.f1composite.com/#organization" },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://www.f1composite.com/ask?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export default function RootLayout({

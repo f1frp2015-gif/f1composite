@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 
-// AI / LLM crawlers we explicitly welcome so F1 Composite is eligible for
-// citation in ChatGPT, Claude, Perplexity, Google AI Overviews, etc.
-// (GEO: being crawlable by these agents is a precondition for being cited.)
+// Preserve the existing crawler permissions. Search retrieval (OAI-SearchBot),
+// user-triggered fetching and training controls (GPTBot / Google-Extended) have
+// different purposes; allowing training is not required for search inclusion.
+// robots permission alone does not guarantee crawling, indexing or citation.
 const AI_CRAWLERS = [
   "GPTBot",
   "OAI-SearchBot",

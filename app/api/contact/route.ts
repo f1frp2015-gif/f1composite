@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { insertInquiry, markInquiryEmailed } from "@/lib/db";
 import { NOTIFY_EMAILS } from "@/lib/notify";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
+import { inquiryReceipt } from "@/lib/inquiryReceipt";
 
 export const runtime = "nodejs";
 
@@ -149,50 +150,47 @@ export async function POST(request: NextRequest) {
     console.error("Inquiry DB insert failed:", dbErr);
   }
 
-  // Send notification email via Resend
-  const { error } = await getResend().emails.send({
-    from: "F1 Composite Inquiry <inquiry@f1composite.com>",
-    to: NOTIFY_EMAILS,
-    replyTo: email!,
-    subject: `[Inquiry] ${inquiryType ?? ""} from ${name ?? ""} — ${country ?? ""}`.slice(0, 200),
-    attachments: attachmentName && attachmentContent
-      ? [{
-          filename: attachmentName,
-          content: attachmentContent,
-          contentType: attachment?.type || "application/octet-stream",
-        }]
-      : undefined,
-    html: `
-      <div style="font-family: -apple-system, sans-serif; max-width: 600px; color: #1a1a1a;">
-        <h2 style="color: #00A199; margin-bottom: 24px;">New Inquiry from f1composite.com</h2>
-        <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-          <tr><td style="padding: 8px 12px; font-weight: 600; width: 120px; vertical-align: top;">Name</td><td style="padding: 8px 12px;">${esc(name)}</td></tr>
-          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Company</td><td style="padding: 8px 12px;">${esc(company)}</td></tr>
-          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Email</td><td style="padding: 8px 12px;"><a href="mailto:${encodeURIComponent(email!)}" style="color: #00A199;">${esc(email)}</a></td></tr>
-          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Phone</td><td style="padding: 8px 12px;">${esc(phone)}</td></tr>
-          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${esc(country)}</td></tr>
-          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
-          <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
-          <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
-        </table>
-        <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>
-      </div>
-    `,
-  });
+  // Either persistence or the mail provider must acknowledge the submission.
+  let emailId: string | null = null;
+  try {
+    const { data, error } = await getResend().emails.send({
+      from: "F1 Composite Inquiry <inquiry@f1composite.com>",
+      to: NOTIFY_EMAILS,
+      replyTo: email!,
+      subject: `[Inquiry] ${inquiryType ?? ""} from ${name ?? ""} — ${country ?? ""}`.slice(0, 200),
+      attachments: attachmentName && attachmentContent
+        ? [{
+            filename: attachmentName,
+            content: attachmentContent,
+            contentType: attachment?.type || "application/octet-stream",
+          }]
+        : undefined,
+      html: `
+        <div style="font-family: -apple-system, sans-serif; max-width: 600px; color: #1a1a1a;">
+          <h2 style="color: #00A199; margin-bottom: 24px;">New Inquiry from f1composite.com</h2>
+          <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+            <tr><td style="padding: 8px 12px; font-weight: 600; width: 120px; vertical-align: top;">Name</td><td style="padding: 8px 12px;">${esc(name)}</td></tr>
+            <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Company</td><td style="padding: 8px 12px;">${esc(company)}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Email</td><td style="padding: 8px 12px;"><a href="mailto:${encodeURIComponent(email!)}" style="color: #00A199;">${esc(email)}</a></td></tr>
+            <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Phone</td><td style="padding: 8px 12px;">${esc(phone)}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${esc(country)}</td></tr>
+            <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Source / context</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(String(formData.get("source") ?? "contact"))}<br />${esc(String(formData.get("context") ?? ""))}</td></tr>
+            <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
+          </table>
+          <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>
+        </div>
+      `,
+    });
 
-  if (error) {
-    console.error("Resend error:", error);
-    return NextResponse.json(
-      {
-        message: inquiryId
-          ? "Thank you — your inquiry has been recorded and our team will follow up within one business day."
-          : "Your inquiry was received but email notification failed. Our team will still follow up.",
-      },
-      { status: 200 },
-    );
+    if (error) console.error("Inquiry email notification failed");
+    else emailId = data?.id ?? null;
+  } catch {
+    console.error("Inquiry email provider unavailable");
   }
 
-  if (inquiryId != null) {
+  if (inquiryId != null && emailId) {
     try {
       await markInquiryEmailed(inquiryId);
     } catch {
@@ -200,8 +198,6 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  return NextResponse.json({
-    message:
-      "Thank you for your inquiry. Our team will review your message and respond within one business day.",
-  });
+  const { status, ...receipt } = inquiryReceipt({ inquiryId, emailId, hasAttachment: Boolean(attachment) });
+  return NextResponse.json(receipt, { status });
 }

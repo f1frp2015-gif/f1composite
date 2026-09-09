@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -347,6 +348,7 @@ export default function FrpLaddersPage() {
       </section>
 
       <AskAICard prefill="I need an industrial fiberglass fixed ladder: vertical rise [mm], lower/upper landing and top-exit geometry [describe or attach drawing], support substrate [concrete/steel/FRP], wall stand-off [mm], environment [chemical/coastal/electrical], governing standard [OSHA/ISO/local], and fall-protection concept [cage/ladder-safety system]. Build the RFQ checklist and flag what needs engineering approval." />
+      <ProductNextSteps path="/products/frp-ladders" />
       <InnerCTA title="Send the ladder elevation — receive a drawing-led RFQ review." />
     </>
   );
