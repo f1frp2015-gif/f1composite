@@ -17,13 +17,13 @@ export const metadata: Metadata = buildPageMetadata({
 const caseStudies = [
   {
     slug: "beam-bridge",
-    title: "Beam Bridge Design — Pedestrian & Cycle Guide",
+    title: "FRP Beam Bridges — Four Manufacturing Routes",
     industry: "Active-Transport Bridge Engineering",
-    location: "Australia & Portugal",
+    location: "F1 capabilities & global references",
     year: "Reference",
     image: "/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg",
     excerpt:
-      "A research-backed guide to pedestrian and cycle beam bridges: load path, clear width, barriers, vibration, FRP detailing and three public reference projects.",
+      "Four FRP bridge concepts, F1 fabrication and assembly capabilities, interactive beam calculations and source-backed engineering references.",
   },
   {
     slug: "qinling-station-antarctic-passive-windows",

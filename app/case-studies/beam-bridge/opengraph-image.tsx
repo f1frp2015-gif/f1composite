@@ -1,16 +1,16 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Pedestrian and cycle beam bridge design guide with source-backed case studies";
+export const alt = "Four FRP bridge manufacturing routes with transparent calculations and F1 fabrication capabilities";
 export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function OpenGraphImage() {
   return renderOgImage({
-    eyebrow: "Pedestrian + Cycle Beam Bridges",
-    title: "Beam Bridge Design for Active-Use Crossings",
+    eyebrow: "F1 Composite / Bridge Engineering",
+    title: "FRP Beam Bridges. Four Routes.",
     description:
-      "Load path, clear width, vibration, FRP detailing and three public research cases.",
-    accent: "#0a9b91",
-    chips: ["Owner guidance", "Academic evidence", "Original diagrams"],
+      "Compare modular boxes, deep boxes, I-beam assemblies and curved moulded forms.",
+    accent: "#245cce",
+    chips: ["F1 capabilities", "Worked calculations", "Public case evidence"],
   });
 }

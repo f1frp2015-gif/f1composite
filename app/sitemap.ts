@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/case-studies`, changeFrequency: "weekly", priority: 0.8 },
     {
       url: `${BASE}/case-studies/beam-bridge`,
-      lastModified: "2026-09-01",
+      lastModified: "2026-09-08",
       changeFrequency: "monthly",
       priority: 0.9,
       images: [
