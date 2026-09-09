@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
@@ -24,7 +23,8 @@ const dmSans = localFont({
 // Keep one canonical GA4 destination and exclude Vercel previews from
 // production analytics and tag diagnostics.
 const GA4_MEASUREMENT_ID = "G-BRBGMB3BTW";
-const shouldLoadGA4 =
+const GOOGLE_ADS_ID = "AW-18301008520";
+const shouldLoadTracking =
   process.env.NODE_ENV === "production" &&
   process.env.VERCEL_ENV !== "preview";
 
@@ -83,6 +83,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
+      <head>
+        {shouldLoadTracking && (
+          <>
+            <script
+              id="google-ads-base"
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+            />
+            <script
+              id="google-ads-init"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', '${GA4_MEASUREMENT_ID}');
+gtag('config', '${GOOGLE_ADS_ID}');`,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body className="min-h-screen font-sans antialiased">
         {/* Skip-to-content link (WCAG 2.4.1) — visually hidden until focused. */}
         <a
@@ -100,11 +121,7 @@ export default function RootLayout({
         <SpeedInsights />
         {/* First-party, cookie-free pageview collection for Vercel Web Analytics. */}
         <Analytics />
-        {/* Must live INSIDE <body>. Previously a direct child of <html> before
-            <body>, where Next dropped its inline init script (gtag config +
-            dataLayer) — the loader downloaded but no page_view ever fired, so
-            GA4 reported "data collection isn't active". */}
-        {shouldLoadGA4 && <GoogleAnalytics gaId={GA4_MEASUREMENT_ID} />}
+        {/* GA4 + Google Ads use the unified gtag() initialization above. */}
         {/* Ahrefs is secondary analytics. Load it during browser idle time so it
             cannot compete with the page's LCP image or primary content. */}
         <Script
