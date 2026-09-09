@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -217,6 +218,7 @@ export default async function SquareTubePage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-square-tube" />
       <InnerCTA title="Need engineering data or a quotation for square tube profiles?" />
     </>
   );

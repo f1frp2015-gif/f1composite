@@ -125,6 +125,7 @@ export const mainNav = [
           { label: "Pultrusion Resin Systems", href: "/technology/pultrusion-resin-systems" },
           { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
           { label: "Quality & Testing", href: "/technology/quality-testing" },
+          { label: "Product Evidence & Reports", href: "/resources/evidence" },
           { label: "Know-How & Services", href: "/technology/knowhow-services" },
         ],
       },
@@ -219,7 +220,7 @@ export const footerNav = {
     { label: "Downloads & CAD", href: "/resources/downloads" },
     { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     { label: "Engineering Blog", href: "/resources/blog" },
-    { label: "Quality & Testing", href: "/technology/quality-testing" },
+    { label: "Product Evidence & Reports", href: "/resources/evidence" },
   ],
   company: [
     { label: "About F1 Composite", href: "/about" },

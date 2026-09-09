@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -403,6 +404,7 @@ export default function PultrudedGratingsPage() {
 
       <AskAICard prefill="I need pultruded FRP grating for [application]. Candidate I-bar/T-bar series [or unsure], clear span [mm], support width [mm], uniform and point loads [details], deflection limit [L/...], opening/accessibility requirement [details], resin/chemical exposure [details], support flange and underside access [details]. Please select the panel series, M/J/T 316SS clips and required load-table/approval documents." />
 
+      <ProductNextSteps path="/products/frp-gratings" />
       <InnerCTA title="Need pultruded I-bar or T-bar grating with matched 316SS clip kits?" />
     </>
   );

@@ -173,7 +173,7 @@ export default function DesignGuidesPage() {
               <li><strong>EN 13706</strong> Reinforced plastics composites — Specifications for pultruded profiles (Parts 1-3)</li>
               <li><strong>ASTM D2344, D790, D695, D2583, D5379</strong> for material property test methods</li>
               <li><strong>AS 2047</strong> Windows and external glazed doors in buildings (Australia)</li>
-              <li><strong>PHI Passive House Component certification</strong> Class A+/A</li>
+              <li><strong>PHI Passive House Component reference</strong> 2491wi03: phB efficiency class, cool-temperate configuration</li>
               <li><strong>ASTM E84</strong> Surface burning characteristics</li>
             </ul>
           </div>

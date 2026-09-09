@@ -1,3 +1,4 @@
+import { buildRfqHref } from "@/lib/rfq";
 import SectionTag from "@/components/ui/SectionTag";
 import Button from "@/components/ui/Button";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/layout/Breadcrumbs";
@@ -25,12 +26,7 @@ interface PageHeaderProps {
 }
 
 function productQuoteHref(title: string) {
-  const params = new URLSearchParams({
-    source: "product-header",
-    inquiry_type: "rfq",
-    message: `I am interested in ${title}. Please send me the available sizes or system options, technical data, minimum order quantity, lead time, and delivered pricing.`,
-  });
-  return `/contact?${params.toString()}`;
+  return buildRfqHref({ source: "product-header", product: title });
 }
 
 function productAdvisorHref(title: string) {
@@ -47,7 +43,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
     (isProductPage
       ? {
           primary: { label: "Quote This Product", href: productQuoteHref(title) },
-          secondary: { label: "Ask an Engineer", href: productAdvisorHref(title), variant: "secondary" },
+          secondary: { label: "Ask the AI Assistant", href: productAdvisorHref(title), variant: "secondary" },
           note: "Send the dimensions, quantity, service environment, and destination for a scoped response.",
           stickyMobile: true,
         }
@@ -55,7 +51,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
 
   return (
     <>
-      <section className="border-b border-border-default bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fa_100%)] py-[52px] md:py-[72px]">
+      <section className="border-b border-border-default bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fa_100%)] py-[32px] md:py-[44px]">
         <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
           <Breadcrumbs items={breadcrumbs} />
           <SectionTag>{tag}</SectionTag>

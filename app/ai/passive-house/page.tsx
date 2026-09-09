@@ -18,7 +18,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI Passive House Window Selector — PHIUS FRP Tool",
+  title: "AI Passive House Window Selector — PHI Window Tool",
   description:
     "Free AI tool for Passive House windows: match climate, target U-value, and opening type to PHI-certified FRP frame series, calculators, and case studies.",
   path: "/ai/passive-house",
@@ -52,7 +52,7 @@ export default function PassiveHousePage() {
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
             <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
-              Free · PHI Component-ID 2491wi03 · Class A+ / phA · No Login
+              Free · PHI Component-ID 2491wi03 · phB · cool-temperate · No Login
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
               AI Passive House Window Selector
@@ -134,11 +134,10 @@ export default function PassiveHousePage() {
               </div>
               <div>
                 <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
-                  PHI Arctic certification
+                  PHI component reference
                 </div>
                 <p className="mt-[4px] text-f13 leading-golden text-t2">
-                  Our 90-series is certified by Passive House Institute Darmstadt at phA (arctic)
-                  climate class — the ceiling of the standard. Deployed at{" "}
+                  The PHI 2491wi03 reference covers the stated 90-series configuration at phB efficiency class in the cool-temperate zone. Separately, see the project account at{" "}
                   <Link href="/case-studies/qinling-station-antarctic-passive-windows" className="font-semibold text-teal-text hover:underline">
                     Qinling Station, Antarctic Ross Sea
                   </Link>

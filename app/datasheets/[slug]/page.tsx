@@ -1,3 +1,4 @@
+import { buildRfqHref } from "@/lib/rfq";
 // Customer-facing HTML twin of the PDF. The route segment is intentionally
 // noindex (see layout.tsx) because all database records share this template.
 // One page per catalog product: cross-section drawing, exact section
@@ -198,10 +199,10 @@ export default async function DatasheetPage({
                   </a>
                 ) : (
                   <Link
-                    href={`/contact?source=datasheet-${encodeURIComponent(slug)}&inquiry_type=technical`}
+                    href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
                     className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
                   >
-                    Request certified PDF →
+                    Request applicable product data →
                   </Link>
                 )}
                 {CAD_SLUGS.has(slug) && (
@@ -316,7 +317,7 @@ export default async function DatasheetPage({
         </div>
       </section>
 
-      <InnerCTA title={`Need a quote for ${product.model}?`} />
+      <InnerCTA title={`Need a quote for ${product.model}?`} quoteHref={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model })} />
     </>
   );
 }

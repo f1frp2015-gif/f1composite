@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -259,6 +260,7 @@ export default function StairTreadCoversPage() {
 
       <section className="bg-bg2 py-[55px] md:py-[89px]"><div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]"><FAQ items={faqItems} /></div></section>
       <AskAICard prefill="I need FRP stair treads. Existing stair and substrate [details], option [cover / molded / pultruded / unsure], quantity and dimensions [width × depth × nose], span and loads for full treads [details], environment and surface/fire/accessibility requirements [details], destination [city/country]. Please recommend the family and list missing RFQ inputs." />
+      <ProductNextSteps path="/products/frp-stair-treads" />
       <InnerCTA title="Send your tread schedule—get a qualified shortlist before pricing." />
     </>
   );

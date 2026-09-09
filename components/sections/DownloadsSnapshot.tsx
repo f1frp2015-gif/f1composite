@@ -51,7 +51,7 @@ export default function DownloadsSnapshot() {
               Find the data before you send the RFQ
             </h2>
             <p className="mt-[10px] max-w-[720px] text-f15 leading-relaxed text-t2">
-              Four focused entry points replace separate technology, resource, calculator, and AI menus.
+              Find section data, drawings, test evidence and preliminary tools for your FRP project.
             </p>
           </div>
           <LinkArrow href="/resources" className="shrink-0">Visit engineering center</LinkArrow>

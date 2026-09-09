@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -430,6 +431,7 @@ export default function FiberglassStakesPage() {
       </section>
 
       <AskAICard prefill="I need fiberglass stakes for [plant/tree/vineyard/nursery/site marking]. Target diameter or flexibility: [ ], overall and exposed length: [ ], embedment/soil: [ ], color and visibility: [ ], surface/end treatment: [ ], quantity and pack: [ ], destination and Incoterm: [ ]. Build a quote-ready specification and flag what needs sample or test confirmation." />
+      <ProductNextSteps path="/products/fiberglass-stakes" />
       <InnerCTA title="Send your stake use case — receive a size, finish and packing review." />
     </>
   );

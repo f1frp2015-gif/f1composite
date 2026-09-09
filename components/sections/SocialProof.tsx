@@ -12,8 +12,8 @@ const featuredCases = [
     image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     imageWidth: 1920,
     imageHeight: 1238,
-    outcome: "PHI-certified GFRP windows engineered for an arctic climate.",
-    metrics: ["−60°C design", "45 m/s wind", "phA / A+"],
+    outcome: "GFRP window project account; review component and project evidence separately.",
+    metrics: ["−60°C design", "45 m/s wind", "Project reference"],
   },
   {
     slug: "factory-access-staircase",
@@ -23,7 +23,7 @@ const featuredCases = [
     imageWidth: 1200,
     imageHeight: 1600,
     outcome: "A complete profile, grating, and handrail system installed in three days.",
-    metrics: ["68% lighter", "0 repainting", "3-day install"],
+    metrics: ["Profiles + grating", "Connection details", "Site reference"],
   },
   {
     slug: "yancheng-talent-apartment-fenestration",
@@ -51,7 +51,7 @@ export default function SocialProof() {
               Explore the market first, then verify the solution through a comparable delivered project.
             </p>
           </div>
-          <LinkArrow href="/industries" className="shrink-0">All applications</LinkArrow>
+          <LinkArrow href="/applications" className="shrink-0">All applications</LinkArrow>
         </div>
 
         <nav aria-label="Industries" className="mt-[26px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-6">

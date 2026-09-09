@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -630,6 +631,7 @@ export default function FrpRebarPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/frp-rebar" />
       <InnerCTA title="Send your FRP rebar schedule for a grade-specific quotation" />
     </>
   );

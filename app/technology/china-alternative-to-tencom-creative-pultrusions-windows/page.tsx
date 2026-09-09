@@ -30,7 +30,7 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Thermal certification",
-    f1: "PHI Component Certificate 2491wi03 — U_w 0.78 W/m²·K, phA arctic class",
+    f1: "PHI Component Certificate 2491wi03 — U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone",
     incumbents: "Varies by system; certification is usually carried by the window fabricator, not the profile supplier",
   },
   {
@@ -64,7 +64,7 @@ const faqItems = [
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",
     answer:
-      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite supplies to the same pultrusion fundamentals — continuous E-glass reinforcement, thermoset matrix, heated-die forming — with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phA arctic class, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
+      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite supplies to the same pultrusion fundamentals — continuous E-glass reinforcement, thermoset matrix, heated-die forming — with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phB efficiency class for the cool-temperate climate zone, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
   },
   {
     question: "How consistent are Chinese pultruded window profiles across production runs?",
@@ -74,7 +74,7 @@ const faqItems = [
   {
     question: "What certifications back F1's window profiles compared to North American suppliers?",
     answer:
-      "F1's fenestration system carries certification at both the component and the unit level: PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phA arctic climate class) on the 90-series frame, EN 14351-1 testing for CE marking, and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) testing for North American specification. Profile-level properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply either model — certified finished units, or profiles plus the simulation data a fabricator needs for its own certification path.",
+      "F1's fenestration system carries certification at both the component and the unit level: PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) on the 90-series frame, EN 14351-1 testing for CE marking, and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) testing for North American specification. Profile-level properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply either model — certified finished units, or profiles plus the simulation data a fabricator needs for its own certification path.",
   },
   {
     question: "Why source fiberglass window profiles from China instead of a North American pultruder?",

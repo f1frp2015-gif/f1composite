@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -281,6 +282,7 @@ export default function FactoryDirectPultrusionPage() {
           },
         ]}
       />
+      <ProductNextSteps path="/products/frp-pultrusion-manufacturer-factory-direct" />
       <InnerCTA title="Qualify a factory-direct FRP profile supply route" />
     </>
   );

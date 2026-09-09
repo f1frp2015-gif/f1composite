@@ -16,6 +16,14 @@ export interface SeoQueryTarget {
 
 export const seoQueryTargets = [
   {
+    targetUrl: "/resources/evidence",
+    primaryQuery: "FRP test reports and product certificates",
+    intent: "technical",
+    title: "FRP Test Reports & Product Evidence",
+    description: "Review original component certificates, test reports and technical references with product scope and project applicability guidance.",
+    supportingUrls: ["/technology/quality-testing", "/resources/downloads", "/products/frp-window-frames"],
+  },
+  {
     targetUrl: "/",
     primaryQuery: "FRP profiles manufacturer",
     intent: "commercial",

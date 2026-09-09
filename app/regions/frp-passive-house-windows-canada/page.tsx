@@ -255,8 +255,8 @@ export default function CanadaRegionPage() {
               href="/case-studies/qinling-station-antarctic-passive-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">phA arctic-class case study</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">FRP passive windows certified at the arctic ceiling of the standard — Qinling Station.</p>
+              <h3 className="text-f15 font-bold text-t1">Antarctic window project account</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">Qinling Station project account. The PHI component reference covers a cool-temperate configuration; confirm separate cold-climate project requirements.</p>
             </Link>
           </div>
         </div>

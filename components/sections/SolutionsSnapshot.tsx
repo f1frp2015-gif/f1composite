@@ -3,9 +3,11 @@ import SectionTag from "@/components/ui/SectionTag";
 import SolutionCard from "@/components/ui/SolutionCard";
 import { productCategories } from "@/content/data/products";
 
+const homeProducts = ["fiberglass-structural-shapes", "frp-gratings", "fenestration-systems", "custom-pultruded-profiles"].map((slug) => productCategories.find((product) => product.slug === slug)!);
+
 const advantages = [
-  { value: "Up to 75%", label: "lighter than steel" },
-  { value: "No rust", label: "or repainting cycles" },
+  { value: "Up to 75%", label: "lower density than steel; compare equivalent designs" },
+  { value: "Resin selection", label: "matched to the service environment" },
   { value: "Dielectric", label: "electrical insulation" },
   { value: "4+ resins", label: "matched to exposure" },
 ];
@@ -21,16 +23,16 @@ export default function SolutionsSnapshot() {
               Our product lines for structural and engineered FRP
             </h2>
             <p className="mt-[10px] max-w-[720px] text-f15 leading-relaxed text-t2">
-              Start with a stocked profile family or develop a project-specific section with tooling, material, and documentation support.
+              Choose standard sections, grating and access systems, windows, or custom development. Review the specification and supporting evidence before sending your requirements.
             </p>
           </div>
           <LinkArrow href="/pultruded-frp-profiles" className="shrink-0">
-            Browse all products
+            All products & specialty profiles
           </LinkArrow>
         </div>
 
-        <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-          {productCategories.map((product) => (
+        <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
+          {homeProducts.map((product) => (
             <SolutionCard
               key={product.slug}
               title={product.title}
@@ -59,6 +61,8 @@ export default function SolutionsSnapshot() {
         </div>
 
         <div className="mt-[14px] flex flex-wrap gap-x-[24px] gap-y-[10px]">
+          <LinkArrow href="/resources/evidence">Product evidence & reports</LinkArrow>
+          <LinkArrow href="/products/custom-pultruded-profiles">Drawing review & custom tooling</LinkArrow>
           <LinkArrow href="/what-is-frp">
             What is glass fiber reinforced plastic (FRP)?
           </LinkArrow>

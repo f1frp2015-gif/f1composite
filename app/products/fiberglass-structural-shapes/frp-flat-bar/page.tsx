@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -207,6 +208,7 @@ export default async function FlatBarPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-flat-bar" />
       <InnerCTA title="Need engineering data or a quotation for flat bar profiles?" />
     </>
   );

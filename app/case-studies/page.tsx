@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
+import CaseStudyGrid from "@/components/sections/CaseStudyGrid";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
@@ -9,7 +8,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Case Studies & Engineering References",
   description:
-    "Explore verified F1 projects and source-backed public engineering references for FRP profiles, bridge systems, windows, platforms, solar and infrastructure.",
+    "Explore F1 project accounts and source-backed public engineering references for FRP profiles, bridge systems, windows, platforms, solar and infrastructure.",
   path: "/case-studies",
   image: "/case-studies/opengraph-image",
 });
@@ -27,13 +26,13 @@ const caseStudies = [
   },
   {
     slug: "qinling-station-antarctic-passive-windows",
-    title: "Qinling Station, Antarctic Ross Sea — PHI Class A+ Passive FRP Windows",
+    title: "Qinling Station, Antarctic Ross Sea — GFRP Window Project",
     industry: "Construction",
     location: "Ross Sea, Antarctica",
     year: "2024",
     image: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     excerpt:
-      "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phA arctic climate class, −60 °C design low, 45 m/s katabatic wind loading.",
+      "PHI-certified (Component-ID 2491wi03) 90-series pultruded GFRP Passive House windows at China's fifth Antarctic research station — phB efficiency class for the cool-temperate climate zone, −60 °C design low, 45 m/s katabatic wind loading.",
   },
   {
     slug: "yancheng-talent-apartment-fenestration",
@@ -73,7 +72,7 @@ const caseStudies = [
     year: "2022",
     image: "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
     excerpt:
-      "Designed and supplied a complete FRP grating and handrail system for a 500m coastal marina walkway, eliminating maintenance cycles in the saltwater environment.",
+      "Designed and supplied a complete FRP grating and handrail system for a 500m coastal marina walkway, designed for saltwater exposure with resin selection and periodic inspection.",
   },
   {
     slug: "chemical-plant-platform",
@@ -103,7 +102,7 @@ const caseStudies = [
     year: "2024",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
     excerpt:
-      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanized steel, keeping the retrofit inside the original roof's as-designed live-load reserve while eliminating the rooftop corrosion and recoating cycle.",
+      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanized steel, keeping the retrofit inside the original roof's as-designed live-load reserve with project-specific connection and inspection requirements.",
   },
   {
     slug: "water-treatment-cable-tray",
@@ -113,11 +112,10 @@ const caseStudies = [
     year: "2024",
     image: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
     excerpt:
-      "Replaced corroding galvanized steel cable trays and handrails across a 120,000 m³/day water treatment facility with pultruded FRP, eliminating maintenance in high-humidity chlorine environments.",
+      "Replaced corroding galvanized steel cable trays and handrails across a 120,000 m³/day water treatment facility with pultruded FRP, with resin selection and inspection requirements for high-humidity chlorine environments.",
   },
 ];
 
-const industries = ["All", "Infrastructure", "Marine", "Industrial", "Construction", "Energy"];
 
 export default function CaseStudiesPage() {
   const caseStudySchema = {
@@ -140,8 +138,8 @@ export default function CaseStudiesPage() {
       <JsonLd data={caseStudySchema} />
       <PageHeader
         tag="Case Studies"
-        title="Verified Projects & Engineering References"
-        description="Explore documented F1 projects alongside clearly labelled, source-backed public engineering references. Each page separates owned delivery evidence from independent industry learning."
+        title="Projects & Engineering References"
+        description="Browse F1 project accounts and source-backed public engineering references. Ask for project-specific records when evaluating a similar supply."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Case Studies" },
@@ -150,53 +148,7 @@ export default function CaseStudiesPage() {
 
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          {/* Filter tabs */}
-          <div className="mb-[34px] flex flex-wrap gap-[8px]">
-            {industries.map((ind) => (
-              <span
-                key={ind}
-                className="cursor-pointer rounded-[4px] border border-border-default px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text first:border-teal-text first:bg-teal-text first:text-white"
-              >
-                {ind}
-              </span>
-            ))}
-          </div>
-
-          {/* Grid */}
-          <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
-            {caseStudies.map((cs) => (
-              <Link
-                key={cs.slug}
-                href={`/case-studies/${cs.slug}`}
-                className="group rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-              >
-                {/* Case study image */}
-                <div className="relative aspect-[1.618] overflow-hidden bg-bg2">
-                  <Image
-                    src={cs.image}
-                    alt={cs.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
-                  />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
-                    {cs.industry}
-                  </span>
-                </div>
-                <div className="p-[21px]">
-                  <h3 className="line-clamp-2 text-[17px] font-bold text-t1 group-hover:text-teal-text">
-                    {cs.title}
-                  </h3>
-                  <p className="mt-[8px] line-clamp-3 text-f13 leading-golden text-t2">{cs.excerpt}</p>
-                  <div className="mt-[13px] flex gap-[13px] text-f11 text-t3">
-                    <span>{cs.location}</span>
-                    <span>•</span>
-                    <span>{cs.year}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <CaseStudyGrid items={caseStudies} />
         </div>
       </section>
 

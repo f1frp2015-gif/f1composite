@@ -1,3 +1,5 @@
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -42,12 +44,12 @@ const faqItems = [
   {
     question: "Are F1 Composite standard profiles certified to EN 13706 and ASTM D3917?",
     answer:
-      "Yes. All standard pultruded FRP profiles are produced under ISO 9001:2015 quality management and tested to EN 13706 (Reinforced plastics composites — Specifications for pultruded profiles) and ASTM D3917 (Standard Specification for Dimensional Tolerance of Pultruded Shapes). Mill test certificates are issued per production batch and full third-party test reports are available on request.",
+      commercialFacts.compliance,
   },
   {
-    question: "What are typical lead times for stock FRP profiles?",
+    question: "Are catalog sections available from stock?",
     answer:
-      "Common standard profiles (I-beams, channels, angles, square tubes, round tubes, flat bars, rods in popular sizes) ship from stock in 2–4 weeks for full-container orders, including ocean freight booking. Less-common sizes are produced on a 4–6 week lead time. Custom pultruded profiles requiring new tooling take 6–10 weeks total (3–6 weeks die fabrication + production).",
+      commercialFacts.availability,
   },
   {
     question: "Can FRP profiles be cut, drilled, and bolted on-site?",
@@ -62,7 +64,7 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Strongwell, Creative Pultrusions, Fiberline, or Exel?",
     answer:
-      "Yes. F1 Composite's F1-STRUX structural profiles are a direct, standards-equivalent China alternative to EXTREN® (Strongwell), Creative Pultrusions, Fiberline, and Exel — produced to EN 13706 and ASTM D3917 under ISO 9001:2015, with custom-die tooling in 3–6 weeks and factory-direct export to 30+ countries on FOB or DDP terms. See the full comparison: China alternative to Strongwell, Fiberline & Exel.",
+      "Compare the proposed geometry, material grade, mechanical properties, tolerances and inspection evidence against the original specification. A similar section or standard reference does not establish interchangeability. Send the project requirements for a product-specific comparison.",
   },
 ];
 
@@ -172,14 +174,14 @@ export default function StandardProfilesPage() {
             { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
             { name: "Size Range", value: "12×3 mm to 305×305 mm" },
             { name: "Standard Length", value: "6 m (custom lengths on request)" },
-            { name: "Lead Time (stock sizes)", value: "2–4 weeks" },
+            { name: "Production timing", value: "Confirm in quotation" },
           ],
         })}
       />
       <PageHeader
         tag="Standard Profiles · F1-STRUX"
-        title="Fiberglass structural shapes catalog — FRP sizes, weights & section data"
-        description="Dimensions, weight per meter, and section properties for F1-STRUX stock profiles — I-beams, channels, angles, tubes, flat bars, and rods to EN 13706 and ASTM D3917. This catalog is for engineers who already know the shape and need the numbers; for the complete product family and applications, start with the pultruded FRP profiles overview."
+        title="Fiberglass structural shapes & sizes"
+        description="Choose a section family to review dimensions, weight, drawings and datasheets. Confirm the material, available production run and project requirements before ordering."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -188,37 +190,9 @@ export default function StandardProfilesPage() {
       />
 
       {/* Profile Grid */}
-      <section className="bg-bg2 py-[89px]">
+      <section className="bg-bg2 py-[36px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[920px]">
-            <h2 className="text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              Fiberglass structural shapes — standard profile range
-            </h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
-              F1 Composite manufactures 114 stock fiberglass structural shapes across the
-              I-beam, channel, angle, square and rectangular tube, round tube, flat bar, and
-              rod families. Each family page below lists the available dimensions, published
-              weight per meter, section drawing, and downloadable datasheets needed for an
-              initial specification.
-            </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
-              These pultruded fiberglass structural shapes use continuous E-glass
-              reinforcement and resin systems selected for the service environment. Standard
-              production is controlled to EN 13706 and ASTM D3917 requirements; project
-              engineers should combine the catalog geometry with the applicable material
-              data, load combinations, environmental factors, connection design, and local
-              code checks.
-            </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
-              Use the <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">FRP span tables</Link>{" "}
-              for preliminary member screening, the <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>{" "}
-              for section-property and design checks, or review the <Link href="/resources/technical-data" className="font-semibold text-teal-text hover:underline">FRP technical data</Link>{" "}
-              before selecting a stock size. Custom dimensions and fiber architectures are
-              handled through the custom pultrusion program.
-            </p>
-          </div>
-
-          <h2 className="mt-[55px] text-f24 font-bold text-t1">
+          <h2 className="text-f24 font-bold text-t1">
             Browse fiberglass structural shapes by section family
           </h2>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
@@ -335,6 +309,7 @@ export default function StandardProfilesPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes" />
       <InnerCTA title="Need engineering data or a quotation for standard profiles?" />
     </>
   );

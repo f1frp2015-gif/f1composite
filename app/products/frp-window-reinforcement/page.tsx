@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -253,6 +254,7 @@ export default function WindowReinforcementProfilesPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/frp-window-reinforcement" />
       <InnerCTA title="Send your chamber drawing for a reinforcement section proposal" />
     </>
   );

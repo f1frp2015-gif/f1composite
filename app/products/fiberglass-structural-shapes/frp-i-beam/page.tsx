@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -552,6 +553,7 @@ export default async function IBeamPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-i-beam" />
       <InnerCTA title="Need engineering data or a quotation for I-beam profiles?" />
     </>
   );

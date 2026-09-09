@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-const standards = ["EN 13706", "ASTM D3917", "ISO 9001"];
+const standards = ["EN 13706", "ASTM D3917", "Inspection plan"];
 
 export default function Hero() {
   return (
@@ -15,14 +15,14 @@ export default function Hero() {
         }}
       />
 
-      <div className="mx-auto grid max-w-[1320px] items-center gap-[28px] px-[20px] py-[44px] sm:px-[28px] md:py-[64px] lg:min-h-[610px] lg:grid-cols-[1.04fr_0.96fr] lg:gap-[42px] lg:px-[36px] lg:py-[76px]">
+      <div className="mx-auto grid max-w-[1320px] items-center gap-[28px] px-[20px] py-[44px] sm:px-[28px] md:py-[64px] lg:min-h-[520px] lg:grid-cols-[1.04fr_0.96fr] lg:gap-[42px] lg:px-[36px] lg:py-[48px]">
         <div className="relative z-10 max-w-[690px]">
           <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f11 font-bold uppercase tracking-[0.12em] text-white/75">
             <span className="h-[7px] w-[7px] rounded-full bg-teal" aria-hidden />
             Factory-direct · Engineering support
           </div>
 
-          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,68px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">
+          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">
             Pultruded FRP profiles manufacturer for demanding projects
           </h1>
 
@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-[26px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] border-t border-white/12 pt-[17px] sm:mt-[32px] sm:pt-[19px]">
-            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Built to project standards</span>
+            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Discuss specification requirements</span>
             {standards.map((standard) => (
               <span key={standard} className="text-f13 font-semibold text-white/78">
                 {standard}

@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -337,6 +338,7 @@ export default function SolarMountingSystemsPage() {
       </section>
 
       <AskAICard prefill="I need FRP photovoltaic profiles for [module frame / rooftop rail / ground-mount / floating PV]. Module size and layout: [...]. Site: [...]. Wind/snow/seismic loads: [...]. Roof or foundation interface: [...]. Recommend a profile family, resin system, hardware concept, and RFQ inputs." />
+      <ProductNextSteps path="/products/frp-solar-mounting-systems" />
       <InnerCTA title="Send the module, array and load drawings — get a solar-profile proposal." />
     </>
   );

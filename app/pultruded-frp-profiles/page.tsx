@@ -1,3 +1,4 @@
+import { commercialFacts, quotationChecklist } from "@/content/data/engineeringEvidence";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -369,7 +370,7 @@ const applicationLinks = [
     href: "/applications/frp-chemical-plant-platforms",
     title: "FRP chemical plant platforms",
     description:
-      "Corrosion-proof beams, gratings, stair treads, and handrails for acid splash zones and process access platforms.",
+      "Corrosion-resistant beams, gratings, stair treads, and handrails for acid splash zones and process access platforms.",
   },
 ];
 
@@ -405,7 +406,7 @@ const comparisonRows: Array<{
   },
   {
     property: "Corrosion",
-    frp: "Immune",
+    frp: "Resin- and exposure-dependent",
     steel: "Requires galvanizing / painting",
     aluminum: "Galvanic & chloride pitting",
   },
@@ -417,53 +418,9 @@ const comparisonRows: Array<{
   },
   {
     property: "Typical service life",
-    frp: "50–100 years (no maintenance)",
-    steel: "25–40 years (re-coat every 5–7 yrs)",
-    aluminum: "25–50 years",
-  },
-];
-
-const competitorComparison: Array<{
-  manufacturer: string;
-  products: string;
-  certification: string;
-  pricing: string;
-  sourcing: string;
-}> = [
-  {
-    manufacturer: "F1 Composite",
-    products: "Full range (I-beam, channel, angle, tube, flat bar, window frames, gratings, custom)",
-    certification: "EN 13706 E17/E23 · ASTM D3917 · ISO 9001:2015 · PHI certified",
-    pricing: "Direct-from-factory · 30–50% below regional distributors",
-    sourcing: "Direct from China · FOB/CIF/DDP · 370 pultrusion lines · 150,000 t/year capacity",
-  },
-  {
-    manufacturer: "Strongwell (EXTREN®)",
-    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
-    certification: "EN 13706 · ASTM D3917 · ISO 9001",
-    pricing: "Regional distributor markup · 40–60% above factory pricing",
-    sourcing: "US-based · Regional distributors · No factory-direct purchasing",
-  },
-  {
-    manufacturer: "Fiberline Composites",
-    products: "I-beam, channel, angle, tube, flat bar, panels, custom",
-    certification: "EN 13706 · DIBt certification · ISO 9001",
-    pricing: "European distributor network · 30–50% above factory pricing",
-    sourcing: "Denmark-based · Regional distributors · Limited custom capacity",
-  },
-  {
-    manufacturer: "Creative Pultrusions (SuperStrut®)",
-    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
-    certification: "EN 13706 · ASTM D3917 · ISO 9001",
-    pricing: "North American distributor markup · 35–55% above factory pricing",
-    sourcing: "US-based · Regional distributors · Limited export focus",
-  },
-  {
-    manufacturer: "Bedford Reinforced Plastics",
-    products: "I-beam, channel, angle, tube, flat bar, gratings, custom",
-    certification: "ASTM D3917 · ISO 9001 · UL listed",
-    pricing: "Regional distributor markup · 30–50% above factory pricing",
-    sourcing: "US-based · Regional distributors · Limited international reach",
+    frp: "Project-specific design and inspection plan",
+    steel: "Exposure and protection dependent",
+    aluminum: "Alloy and exposure dependent",
   },
 ];
 
@@ -471,12 +428,12 @@ const faqItems = [
   {
     question: "What are pultruded FRP profiles?",
     answer:
-      "Pultruded FRP (fiber-reinforced polymer) profiles are continuous fiberglass structural shapes produced by pulling reinforcing fibers through a resin bath and a heated steel die. The result is a constant cross-section profile — I-beams, channels, angles, tubes, rods — with 60–70% glass fiber content by weight, high strength-to-weight ratio, and full corrosion resistance.",
+      "Pultruded FRP (fiber-reinforced polymer) profiles are continuous fiberglass structural shapes produced by pulling reinforcing fibers through a resin bath and a heated steel die. The result is a constant cross-section profile — I-beams, channels, angles, tubes, rods — with 60–70% glass fiber content by weight, high strength-to-weight ratio, and resin-dependent chemical resistance.",
   },
   {
     question: "How do pultruded FRP profiles compare with steel?",
     answer:
-      "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³), has comparable tensile strength (240–400 MPa vs 400 MPa for A36), but lower elastic modulus (~25 GPa vs 200 GPa). FRP does not corrode, does not conduct electricity, and has thermal conductivity ~170× lower than steel. Stiffness or deflection usually governs FRP design rather than strength.",
+      "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³), has comparable tensile strength (240–400 MPa vs 400 MPa for A36), but lower elastic modulus (~25 GPa vs 200 GPa). FRP does not rust like steel; chemical and electrical performance depend on the material and exposure, and has thermal conductivity ~170× lower than steel. Stiffness or deflection usually governs FRP design rather than strength.",
   },
   {
     question: "Are pultruded FRP profiles certified to international standards?",
@@ -550,8 +507,8 @@ const keyFacts = [
   { label: "Weight vs steel", value: "~75% lighter" },
   { label: "Grades", value: "EN 13706 E17 / E23" },
   { label: "Tolerance", value: "ASTM D3917 · ±0.25 mm" },
-  { label: "Corrosion", value: "Immune · zero coating" },
-  { label: "Design life", value: "50–100 years" },
+  { label: "Corrosion", value: "Match resin to exposure" },
+  { label: "Design life", value: "Project-specific" },
   { label: "Standard shapes", value: "I-beam, channel, angle, SHS/RHS, tube, rod, flat bar" },
   { label: "Lead time", value: "Stock 2–4 wk · custom 4–8 wk" },
 ];
@@ -912,56 +869,14 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
-      {/* Competitor comparison */}
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Manufacturer comparison</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            How F1 Composite compares to other pultrusion manufacturers
-          </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Direct-from-factory pricing eliminates regional distributor markup. All manufacturers listed produce to EN 13706 and ASTM D3917 standards.
-          </p>
-
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">Manufacturer</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Product range</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Certification</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Pricing structure</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Sourcing model</th>
-                </tr>
-              </thead>
-              <tbody>
-                {competitorComparison.map((row, index) => (
-                  <tr
-                    key={row.manufacturer}
-                    className={`border-b border-border-default ${
-                      index === 0 ? 'bg-teal/5' : ''
-                    }`}
-                  >
-                    <td className={`py-[13px] pr-[21px] align-top ${index === 0 ? 'font-bold text-teal-text' : 'text-f15 font-medium text-t1'}`}>
-                      {row.manufacturer}
-                      {index === 0 && <span className="ml-[8px] rounded-[4px] bg-teal px-[8px] py-[2px] text-[10px] font-bold uppercase text-white">Recommended</span>}
-                    </td>
-                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t2">{row.products}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t2">{row.certification}</td>
-                    <td className={`py-[13px] pr-[21px] align-top ${index === 0 ? 'font-medium text-teal-text' : 'text-f13 text-t2'}`}>{row.pricing}</td>
-                    <td className="py-[13px] align-top text-f13 text-t2">{row.sourcing}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-[21px] rounded-[8px] border-2 border-teal bg-bg2 p-[21px]">
-            <p className="text-f15 font-bold text-teal-text">Key advantage: Factory-direct pricing and a complete product range</p>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">
-              F1 Composite delivers the same EN 13706/ASTM D3917 compliance as Strongwell, Fiberline, and Creative Pultrusions — but at 30–50% lower landed cost by shipping direct from our FengDu manufacturing base (370 pultrusion lines, 150,000 t/year capacity). No distributor markup, full traceability, and 48-hour RFQ response.
-            </p>
-          </div>
+      <section className="bg-bg2 py-[48px]">
+        <div className="mx-auto max-w-[1280px] px-[24px]">
+          <SectionTag>Compare project quotations</SectionTag>
+          <h2 className="mt-[12px] text-f31 font-bold">Compare the same specification and delivery scope</h2>
+          <p className="mt-[16px] text-f15 text-t2">{commercialFacts.pricing}</p>
+          <dl className="mt-[24px] grid gap-[20px] md:grid-cols-2">{quotationChecklist.map((item) => <div key={item.topic}><dt className="font-bold text-t1">{item.topic}</dt><dd className="mt-[6px] text-f13 text-t2">{item.requirement}</dd></div>)}</dl>
+          <p className="mt-[24px] text-f13 text-t2">{commercialFacts.response}</p>
+          <Link href="/resources/evidence" className="mt-[14px] inline-block font-bold text-teal-text underline">Review product evidence and document scope</Link>
         </div>
       </section>
 

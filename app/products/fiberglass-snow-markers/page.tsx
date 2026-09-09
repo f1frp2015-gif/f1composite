@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -487,6 +488,7 @@ export default function FiberglassSnowMarkersPage() {
         </div>
       </section>
 
+      <ProductNextSteps path="/products/fiberglass-snow-markers" />
       <InnerCTA title="Send your snow-marker size, tape and pack specification for quotation" />
     </>
   );

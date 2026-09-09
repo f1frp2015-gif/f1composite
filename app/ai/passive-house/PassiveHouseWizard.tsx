@@ -6,11 +6,11 @@ type Climate = "arctic" | "cold" | "cool" | "warm" | "hot" | "";
 type WindowType = "casement" | "tilt-turn" | "sliding" | "fixed-facade" | "";
 
 const climateOptions: Array<{ value: Climate; label: string; help: string }> = [
-  { value: "arctic", label: "Arctic (phA)", help: "−40 °C design low — Scandinavia, N. Canada, Antarctica, Tibet" },
-  { value: "cold", label: "Cold (phB)", help: "−16 °C design low — Germany, Poland, N. China, UK" },
-  { value: "cool", label: "Cool-temperate (phC)", help: "−8 °C design low — Netherlands, N. US, Japan, S. China" },
-  { value: "warm", label: "Warm-temperate (phD)", help: "Mild — S. Europe, Spain, Mediterranean, S. US" },
-  { value: "hot", label: "Hot (phE/F)", help: "Middle East, tropical SE Asia, N. Australia" },
+  { value: "arctic", label: "Arctic", help: "−40 °C design low — Scandinavia, N. Canada, Antarctica, Tibet" },
+  { value: "cold", label: "Cold", help: "−16 °C design low — Germany, Poland, N. China, UK" },
+  { value: "cool", label: "Cool-temperate", help: "−8 °C design low — Netherlands, N. US, Japan, S. China" },
+  { value: "warm", label: "Warm-temperate", help: "Mild — S. Europe, Spain, Mediterranean, S. US" },
+  { value: "hot", label: "Hot", help: "Middle East, tropical SE Asia, N. Australia" },
 ];
 
 const typeOptions: Array<{ value: WindowType; label: string; seriesFit: string }> = [
@@ -38,7 +38,7 @@ export default function PassiveHouseWizard({ embedded = false }: { embedded?: bo
 - Target U_w: ${targetU} W/m²K
 - Project size: ${units || "not yet determined"} units
 
-Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 140) with justification, explain the relevant PHI Component-ID 2491wi03 (phA arctic) certification, reference one of our comparable delivered projects, and outline the quote + lead-time path for my region.`;
+Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 140) with justification, explain the relevant PHI Component-ID 2491wi03 (phB, cool-temperate) certification, reference one of our comparable delivered projects, and outline the quote + lead-time path for my region.`;
     const advisorUrl = `/ask?prefill=${encodeURIComponent(prompt)}`;
     if (embedded) {
       window.open(advisorUrl, "_blank", "noopener,noreferrer");

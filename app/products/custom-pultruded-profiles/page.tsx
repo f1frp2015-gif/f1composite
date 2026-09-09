@@ -1,3 +1,4 @@
+import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -451,6 +452,7 @@ export default function CustomPultrusionsPage() {
         prefill="I need a custom pultruded FRP cross-section. Dimensions roughly [HxW mm], wall thickness [t mm], environment is [chemical/UV/load], target quantity [meters]. Is this feasible, and what's the tooling cost + lead time?"
       />
 
+      <ProductNextSteps path="/products/custom-pultruded-profiles" />
       <InnerCTA title="Have a custom profile requirement? Let&rsquo;s engineer it together." />
     </>
   );

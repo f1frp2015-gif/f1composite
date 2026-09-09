@@ -1,3 +1,4 @@
+import { publicSurface } from "./load-project-module.mjs";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -7,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(scriptDirectory, "..");
 const fromRoot = (relativePath) => path.join(root, relativePath);
-const read = (relativePath) => readFile(fromRoot(relativePath), "utf8");
+const read = (relativePath) => publicSurface(relativePath) ?? readFile(fromRoot(relativePath), "utf8");
 
 const route = "/products/fiberglass-stakes";
 

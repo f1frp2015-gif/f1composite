@@ -1,16 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { sendGAEvent } from "@next/third-parties/google";
+import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
 
-/** GA4 event helper — never throws if analytics isn't loaded yet. */
-export function track(name: string, params?: Record<string, unknown>) {
-  try {
-    sendGAEvent("event", name, params ?? {});
-  } catch {
-    /* GA not ready — non-fatal */
-  }
-}
+export const track = trackEvent;
 
 /* Result-moment lead capture shared by the engineering calculators. The
    single-field "email me this" converts the calc aha-moment without a page jump:
@@ -50,11 +43,12 @@ export function ResultLeadCapture({
       fd.set("source", source);
       fd.set("context", JSON.stringify(context));
       const res = await fetch("/api/contact", { method: "POST", body: fd });
-      if (res.ok) {
+      const j = await res.json().catch(() => ({}));
+      if (res.ok && j.accepted === true && j.receiptId) {
+        trackInquirySuccess(j.receiptId, source);
         setStatus("ok");
         track("calculator_lead", { source });
       } else {
-        const j = (await res.json().catch(() => ({}))) as { message?: string };
         setStatus("error");
         setErr(j?.message || "Could not send — please use the quote button instead.");
       }
@@ -67,7 +61,7 @@ export function ResultLeadCapture({
   if (status === "ok") {
     return (
       <div className="rounded-[6px] border border-teal/30 bg-teal/10 p-[13px] text-f13 text-teal-text">
-        ✓ Sent. Our engineering team has your calculation and will reply with a matching product and quote within one business day.
+        ✓ Sent. Our engineering team has your calculation and will acknowledge your requirements within one business day. A quotation follows specification review.
       </div>
     );
   }
