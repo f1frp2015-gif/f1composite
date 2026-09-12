@@ -315,7 +315,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[34px] lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div>
+          <div className="min-w-0">
             <figure className="overflow-hidden rounded-[8px] border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image

@@ -49,3 +49,9 @@ Sharp WebP quality 82, effort 6, automatic orientation, proportional resize with
 ## Related article correction
 
 The existing `frp-cable-tray-specifications-advantages` entry is retained at its URL, linked reciprocally, and revised to remove unsupported installation percentages, universal compliance, corrosion immunity and misleading EMI/fire statements. Its update date changes to September 12, 2026. Other articles remain outside this task.
+
+## Verification
+
+Metadata: title 44 characters; description 148 characters. The standalone article and BlogPost content match. All external inline citations have sourceLinks entries, and IndexNow discovers the new slug. Lint passes with one pre-existing SectionViewer3D hook warning. Production build, site-audit tests and IndexNow tests pass. Desktop layout and visible image attribution were inspected.
+
+At a 390 px viewport, comparison-table intrinsic widths exposed a blog layout issue: the article grid column expanded the document to about 437 px. The grid child now uses `min-w-0`, allowing the existing horizontal table scrollers to contain table width. This small shared layout correction is necessary for this article's mobile presentation.
