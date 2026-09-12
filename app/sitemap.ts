@@ -75,6 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/technology/polyurethane-pultrusion-windows`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/quality-testing`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/technology/knowhow-services`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/frp-density-calculator`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/frp-profile-calculator`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/frp-profile-calculator/methodology`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/frp-profile-calculator/validation`, changeFrequency: "monthly", priority: 0.75 },
