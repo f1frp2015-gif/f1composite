@@ -368,13 +368,12 @@ export default function Navbar() {
                       className="grid gap-[16px] pb-[18px] sm:grid-cols-2"
                     >
                       {item.sections.map((section) => (
-                        <section key={section.id} aria-labelledby={`mobile-heading-${section.id}`}>
-                          <h2
-                            id={`mobile-heading-${section.id}`}
-                            className="mb-[5px] text-f11 font-bold uppercase tracking-[0.12em] text-t3"
+                        <details key={section.id} className="group rounded-[7px] border border-border-default px-[12px]">
+                          <summary
+                            className="min-h-[44px] cursor-pointer py-[12px] text-f13 font-bold text-t1"
                           >
                             {section.label}
-                          </h2>
+                          </summary>
                           {section.links.map((link) => (
                             <Link
                               key={link.href}
@@ -389,7 +388,7 @@ export default function Navbar() {
                               {link.label}
                             </Link>
                           ))}
-                        </section>
+                        </details>
                       ))}
                     </div>
                   )}

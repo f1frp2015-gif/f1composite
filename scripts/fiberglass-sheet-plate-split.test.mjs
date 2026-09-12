@@ -38,7 +38,7 @@ test("fiberglass sheet and plate have separate static product routes", async () 
   assert.match(sheetPage, /href="\/products\/fiberglass-plates"/);
   assert.doesNotMatch(sheetPage, /fiberglassPlateSpecs/);
 
-  assert.match(platePage, /19 Hollow Profile References/);
+  assert.match(platePage, /Hollow & multi-cell fiberglass profiles/);
   assert.match(platePage, /fiberglassPlateSpecs/);
   assert.match(platePage, /href="\/products\/fiberglass-sheets"/);
   assert.match(platePage, /href="\/products\/frp-deck-panels"/);
@@ -99,12 +99,12 @@ test("sheet and plate are separately discoverable and own distinct queries", asy
     assert.match(source, /\/products\/fiberglass-plates/);
   }
 
-  assert.match(navigation, /label: "Fiberglass Sheets", href: "\/products\/fiberglass-sheets"/);
-  assert.match(navigation, /label: "Fiberglass Plate Profiles", href: "\/products\/fiberglass-plates"/);
+  assert.match(navigation, /label: "Solid Sheets", href: "\/products\/fiberglass-sheets"/);
+  assert.match(navigation, /label: "Hollow & Multi-cell Profiles", href: "\/products\/fiberglass-plates"/);
   assert.doesNotMatch(navigation, /Fiberglass Sheets & Plate/);
   assert.match(seo, /primaryQuery: "fiberglass sheets manufacturer"/);
   assert.match(seo, /primaryQuery: "pultruded FRP plate"/);
-  const plateTitle = "Pultruded FRP Plate Profiles — 19 Section Drawings";
-  assert.match(platePage, new RegExp(plateTitle));
-  assert.match(seo, new RegExp(plateTitle));
+  const plateTitle = "Hollow & Multi-cell FRP Profiles | Section Drawings";
+  assert.match(platePage, new RegExp(plateTitle.replace("|", "\\|")));
+  assert.match(seo, new RegExp(plateTitle.replace("|", "\\|")));
 });

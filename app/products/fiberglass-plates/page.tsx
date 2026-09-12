@@ -17,7 +17,7 @@ import {
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/fiberglass-plates";
-const pageTitle = "Pultruded FRP Plate Profiles — 19 Section Drawings";
+const pageTitle = "Hollow & Multi-cell FRP Profiles | Section Drawings";
 const pageDescription =
   "Compare 19 pultruded fiberglass plate profiles with hollow and multi-cell section drawings, nominal A/B/t1/t2 source values and source IDs.";
 
@@ -61,7 +61,7 @@ const faqItems = [
   {
     question: "What is the difference between a fiberglass plate and a fiberglass sheet?",
     answer:
-      "On these F1 pages, plate refers to a shaped pultruded section with closed cavities, internal webs or formed edges. Sheet means solid flat laminate supplied cut to size. The distinction prevents a hollow profile drawing from being mistaken for ordinary flat stock.",
+      "This catalog contains hollow, multi-cell and edge-formed pultruded profiles. The legacy Plate labels identify source drawings; they do not mean solid flat stock. For solid flat laminate, use the fiberglass sheets page. Specify the actual cross-section rather than relying on the word plate.",
   },
   {
     question: "How is this plate catalog different from the structural FRP deck-panel page?",
@@ -100,7 +100,7 @@ export default function FiberglassPlatesPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Pultruded Fiberglass Plate Profiles",
+          name: "Hollow & Multi-cell Fiberglass Profiles",
           description: pageDescription,
           path: pagePath,
           image: "/images/products/fiberglass-plates/plate-01.webp",
@@ -118,8 +118,8 @@ export default function FiberglassPlatesPage() {
       />
 
       <PageHeader
-        tag="Drawing-Led Plate Profiles"
-        title="Pultruded FRP Plate — 19 Hollow Profile References"
+        tag="Panel & Hollow Profiles"
+        title="Hollow & multi-cell fiberglass profiles"
         description="Compare hollow, multi-cell and edge-formed fiberglass plate sections by drawing, A/B/t1/t2 source values and source ID. Final dimensions, material, tooling status and capacity are confirmed on the approved quotation drawing."
         breadcrumbs={[
           { label: "Home", href: "/" },

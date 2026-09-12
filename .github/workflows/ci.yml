@@ -17,6 +17,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - run: node --test scripts/navigation-ia.test.mjs scripts/taxonomy-upgrade.test.mjs
       - run: npm run test:site-audit
       - run: npm run test:indexnow
       - run: npm run build

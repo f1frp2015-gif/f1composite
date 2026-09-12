@@ -1,31 +1,19 @@
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionTag from "@/components/ui/SectionTag";
 import FactoryVideo from "@/components/sections/FactoryVideo";
 
 const checkpoints = [
-  {
-    number: "01",
-    title: "Profile and tooling review",
-    description: "Geometry, tolerances, die design, sampling, and validation before production release.",
-  },
-  {
-    number: "02",
-    title: "Material architecture",
-    description: "Resin chemistry and fiber schedule matched to load, exposure, fire, and thermal requirements.",
-  },
-  {
-    number: "03",
-    title: "Controlled production",
-    description: "Dimensional, surface, cure, and batch checks with project-level traceability.",
-  },
-  {
-    number: "04",
-    title: "Export-ready delivery",
-    description: "Cutting, machining, labeling, packaging, documentation, and global freight coordination.",
-  },
+  { number: "01", title: "Materials and production", description: "Match the resin and reinforcement schedule to the agreed profile specification." },
+  { number: "02", title: "Dimensional inspection", description: "Check section dimensions, straightness, surface condition and cut length against the approved drawing." },
+  { number: "03", title: "Technical documentation", description: "Review the applicable material data, test scope and batch inspection documents." },
+  { number: "04", title: "Fabrication and packing", description: "Confirm cutting, drilling, labeling, protective packing and shipment documents for the order." },
 ];
-
-const standards = ["ISO 9001:2015", "EN 13706", "ASTM D3917", "CE project support"];
+const standards = [
+  { label: "Design references", href: "/resources/design-guides" },
+  { label: "Material data", href: "/resources/technical-data" },
+  { label: "Test reports & certificates", href: "/resources/evidence" },
+];
 
 export default function FactoryQuality() {
   return (
@@ -35,10 +23,10 @@ export default function FactoryQuality() {
           <div className="flex flex-col">
             <SectionTag>Manufacturing &amp; quality</SectionTag>
             <h2 className="mt-[12px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
-              A controlled path from drawing to delivery
+              Manufacturing & quality control
             </h2>
             <p className="mt-[10px] max-w-[660px] text-f15 leading-relaxed text-t2">
-              F1 Composite combines manufacturing capacity with the engineering, documentation, and export support international projects require.
+              F1 Composite coordinates international supply with manufacturing partner FengDu New Material. Review the production process, inspection scope and documents available for your product.
             </p>
 
             <ol className="mt-[24px] divide-y divide-border-default border-y border-border-default">
@@ -67,12 +55,12 @@ export default function FactoryQuality() {
         </div>
 
         <div className="mt-[28px] flex flex-col gap-[10px] rounded-[9px] border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-f13 font-bold text-t1">Documented standards and project compliance</p>
+          <p className="text-f13 font-bold text-t1">Technical documents for your specification</p>
           <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
             {standards.map((standard) => (
-              <span key={standard} className="text-f11 font-bold uppercase tracking-[0.07em] text-t3">
-                {standard}
-              </span>
+              <Link href={standard.href} key={standard.href} className="text-f11 font-bold uppercase tracking-[0.07em] text-t3">
+                {standard.label}
+              </Link>
             ))}
           </div>
         </div>

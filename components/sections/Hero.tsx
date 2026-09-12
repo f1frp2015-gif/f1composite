@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { buildRfqHref } from "@/lib/rfq";
 import Button from "@/components/ui/Button";
 
-const standards = ["EN 13706", "ASTM D3917", "Inspection plan"];
+const standards = ["Standard sections", "Custom cross-sections", "Drawing-led supply"];
 
 export default function Hero() {
   return (
@@ -23,11 +24,11 @@ export default function Hero() {
           </div>
 
           <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">
-            Pultruded FRP profiles manufacturer for demanding projects
+            Standard & Custom Pultruded FRP Profiles
           </h1>
 
           <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,20px)] leading-[1.55] text-white/76 sm:mt-[22px]">
-            Structural profiles, gratings, window systems, and custom sections — manufactured in China with documented quality control and global delivery support.
+            Choose a standard section or develop a profile to your drawing. We also supply FRP grating, window and door profiles, and finished windows and doors.
           </p>
 
           <p className="mt-[13px] text-f13 leading-golden text-white/75">
@@ -38,22 +39,22 @@ export default function Hero() {
 
           <div className="mt-[24px] flex flex-wrap gap-[11px] sm:mt-[30px]">
             <Button
-              href="/contact?source=homepage-hero&inquiry_type=rfq"
+              href="/products/fiberglass-structural-shapes"
               className="!bg-teal-text !text-white hover:!bg-teal"
             >
-              Get a Quote
+              Browse Standard Profiles
             </Button>
             <Button
-              href="/pultruded-frp-profiles"
+              href={buildRfqHref({ source: "homepage-custom", product: "Custom Pultruded Profiles", productPath: "/products/custom-pultruded-profiles", message: "Please review my custom profile.\nDrawing / cross-section:\nMaterial or service environment:\nLength and quantity:\nDelivery country:" })}
               variant="secondary"
               className="!border-white/25 !bg-transparent !text-white hover:!border-white/45 hover:!bg-white/10"
             >
-              Explore Products
+              Send Your Drawing
             </Button>
           </div>
 
           <div className="mt-[26px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] border-t border-white/12 pt-[17px] sm:mt-[32px] sm:pt-[19px]">
-            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Discuss specification requirements</span>
+            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Choose your supply route</span>
             {standards.map((standard) => (
               <span key={standard} className="text-f13 font-semibold text-white/78">
                 {standard}
@@ -65,23 +66,23 @@ export default function Hero() {
         <div className="relative lg:pl-[10px]">
           <div className="relative aspect-[1.38] overflow-hidden rounded-[14px] border border-white/15 bg-[#17284b] shadow-[0_28px_70px_rgba(0,0,0,0.28)] sm:aspect-[1.2] lg:aspect-[1.08] lg:rounded-[16px]">
             <Image
-              src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
-              alt="Rows of pultrusion production lines at the F1 Composite manufacturing base in Chongqing"
-              width={2000}
-              height={788}
+              src="/images/products/standard-profiles-cover.jpg"
+              alt="Pultruded fiberglass I-beam"
+              width={1600}
+              height={1600}
               fetchPriority="high"
               loading="eager"
               sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(100vw - 56px), 48vw"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain bg-white p-[20px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
             <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-[9px] border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-[10px] sm:px-[17px] sm:py-[14px]">
               <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
-                <p className="mt-[2px] text-f15 font-bold text-white">370 pultrusion lines across 5 bases</p>
+                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Core product range</p>
+                <p className="mt-[2px] text-f15 font-bold text-white">Standard sections & custom profiles</p>
               </div>
               <span className="hidden rounded-full bg-teal px-[10px] py-[5px] text-f11 font-bold text-white sm:inline-flex">
-                Chongqing
+                FRP / GRP
               </span>
             </div>
           </div>

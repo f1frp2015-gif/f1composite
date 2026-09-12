@@ -34,18 +34,8 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const supplyModels = [
-  {
-    name: "Complete window & door units",
-    tag: "Finished product · ready to install",
-    description:
-      "We supply the finished article: GFRP-PU window and door units factory-assembled, glazed, hardware-fitted, gasketed, leak-tested, and palletized for shipment. Each unit arrives squared, sealed, and ready to set into the rough opening — no local fabrication, no glazing line, no hardware sourcing. This is the model we use for extreme-cold and Passive House projects where envelope air-tightness and thermal performance must be guaranteed at the factory, not assembled on a jobsite. Every unit ships with its certification pack, spare gaskets, and mounting hardware, and we quote DDP to your port or jobsite with duty pre-itemized.",
-  },
-  {
-    name: "Pultruded profiles for local fabricators",
-    tag: "Profile supply · fabricator model",
-    description:
-      "For markets with an established window-fabrication base, we ship the pultruded FRP profile set — known in the North American trade as window lineals: frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing, reinforced corner kits, and fabrication drawings, so a local fabricator cuts, joins, glazes, and finishes the units to your specification. This is the route many North American projects take through a fabricator-partner. The profiles are identical to those in our finished units; only the assembly location changes. Choose this model when local content, local glazing supply, or local service warranties favor in-country assembly.",
-  },
+  { name: "Pultruded profiles for fabricators", tag: "Profile supply", href: "/products/window-door-profiles", description: "Frame, sash, mullion and other agreed lineals for local cutting, joining and glazing. Specify profile sets, cut lengths, machining and accessories separately from finished-unit supply." },
+  { name: "Finished window & door units", tag: "Assembled units", href: "/products/fiberglass-windows-doors", description: "Project-specified fiberglass windows and doors. Confirm the opening schedule, glazing, hardware, assembly documentation, packing and delivery scope for the offered configuration." },
 ];
 
 const productTypes = [
@@ -316,7 +306,7 @@ const faqItems = [
   {
     question: "Do you supply finished windows and doors, or only FRP profiles?",
     answer:
-      "Both. For extreme-cold and Passive House projects we supply complete window and door units — factory-assembled, glazed, hardware-fitted, gasketed, and leak-tested, delivered DDP ready to install. For markets with a local fabrication base, we also supply the pultruded FRP profile set with gaskets, corner kits, and drawings so a local fabricator builds the units. The profiles are identical in both models; only the assembly location changes. Choose finished units when you need factory-verified air-tightness and thermal performance, or profiles when local content and local service warranties favor in-country assembly.",
+      "Both. Choose profiles for local fabrication or finished units built to an agreed opening schedule. Glazing, hardware, accessories, documents and delivery terms are confirmed separately for the selected configuration.",
   },
   {
     question: "How do FRP windows perform in extreme cold — −40°C and below?",
@@ -436,7 +426,7 @@ export default function FenestrationSystemsPage() {
       />
       <PageHeader
         tag="FRP Windows & Doors · F1-THERM"
-        title="FRP Window Frames Manufacturer — Fiberglass Windows, Frames & Profiles"
+        title="FRP window frames, profiles & finished units"
         description="F1 Composite manufactures finished FRP windows and doors, as well as pultruded fiberglass window frames, profiles and lineals for local fabrication. Available in 65–140 series for Passive House, low-energy and extreme-cold buildings, with whole-window U-values to 0.78 W/m²·K."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -454,6 +444,8 @@ export default function FenestrationSystemsPage() {
           stickyMobile: true,
         }}
       />
+
+      <section className="bg-white py-[28px]"><div className="mx-auto grid max-w-[1280px] gap-[18px] px-[24px] md:grid-cols-2">{supplyModels.map(model => <Link key={model.href} href={model.href} className="rounded-[10px] border border-teal-border bg-teal-bg p-[24px]"><p className="text-f12 font-bold uppercase text-teal-text">{model.tag}</p><h2 className="mt-[8px] text-f24 font-bold text-t1">{model.name}</h2><p className="mt-[10px] text-f15 leading-relaxed text-t2">{model.description}</p><span className="mt-[14px] block text-f14 font-bold text-teal-text">Review supply requirements →</span></Link>)}</div></section>
 
       <JumpNav
         items={[
@@ -695,7 +687,7 @@ export default function FenestrationSystemsPage() {
             Finished units, or profiles for your fabricator
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Two supply models from one product line. The pultruded profiles are identical;
+            Two purchasing routes within the window and door range;
             you choose where the units are assembled.
           </p>
 

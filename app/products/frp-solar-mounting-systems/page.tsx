@@ -11,7 +11,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Solar Mounting Systems — PV Frames, Rails & Supports";
+const pageTitle = "FRP Solar Profiles: Module Frames, Rails & Supports";
 const pageDescription =
   "FRP solar mounting systems for PV module frames, rails and supports: corrosion-resistant pultruded profiles engineered for rooftops, farms and coastal sites.";
 const pagePath = "/products/frp-solar-mounting-systems";
@@ -82,9 +82,9 @@ export default function SolarMountingSystemsPage() {
         })}
       />
       <PageHeader
-        tag="Photovoltaic Products · F1-STRUX / F1-FORM"
-        title="FRP solar mounting systems — panel frames, rails and supports"
-        description="One pultruded composite platform for the PV module perimeter, the supporting structure and the roof interface. Lightweight, corrosion resistant and electrically insulating profiles for rooftop retrofit, ground-mount, floating and coastal solar projects."
+        tag="Solar Profile Catalog"
+        title="FRP solar profiles — module frames, rails and supports"
+        description="Choose module-frame sections, support profiles and rooftop rails from the catalog below. F1 supplies specified pultruded components; connection hardware, fabrication and any assembly scope are confirmed on the quotation."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -92,13 +92,14 @@ export default function SolarMountingSystemsPage() {
         ]}
       />
 
+      <div className="mx-auto max-w-[1280px] px-[24px] py-[24px] text-f15 text-t2">This page covers component selection and supply. For wind, span and connection considerations, <Link href="/applications/frp-solar-mounting-profiles" className="font-bold text-teal-text">read the PV support design guide →</Link></div>
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid items-center gap-[34px] lg:grid-cols-[1.05fr_.95fr]">
             <div>
-              <SectionTag>Three product families</SectionTag>
+              <SectionTag>Three component roles</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                FRP solar mounting systems from module edge to structure
+                Profile supply from module edge to support structure
               </h2>
               <div className="mt-[21px] grid gap-[13px]">
                 {[

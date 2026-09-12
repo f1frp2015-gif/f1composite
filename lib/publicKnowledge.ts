@@ -1,3 +1,5 @@
+import { productFamilies as commercialFamilies, applicationGroups, taxonomyRevision } from "@/content/data/productTaxonomy";
+import { windowProcurement } from "@/content/data/windowProcurement";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
@@ -9,6 +11,10 @@ export function buildPublicKnowledge() {
   const payload = {
     "@context": "https://schema.org",
     version: evidenceRevision,
+    taxonomyRevision,
+    commercialProductFamilies: commercialFamilies.map(family => ({ id: family.id, name: family.label, description: family.description, url: `${SITE}${family.href}`, products: family.links.map(link => ({ name: link.label, url: `${SITE}${link.href}` })) })),
+    applicationDirectory: applicationGroups.map(group => ({ name: group.label, description: group.description, url: `${SITE}${group.href}`, productFamilies: group.products })),
+    windowPurchasingRoutes: Object.values(windowProcurement).map(page => ({ name: page.h1, url: `${SITE}${page.path}`, description: page.intro, supply: page.supply, buyer: page.buyer, quotationInputs: page.checklist })),
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
@@ -24,9 +30,9 @@ export function buildPublicKnowledge() {
       sameAs: ["https://www.youtube.com/@F1Composites"],
       role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
       brandFamily: [
-        { name: "F1-STRUX", line: "Pultruded FRP structural profiles, fiberglass stakes, drawing-led access systems, and engineered barrier components", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
-        { name: "F1-GRID", line: "FRP gratings, cover plates & structural deck panels", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
-        { name: "F1-THERM", line: "Pultruded fiberglass window frames & fenestration profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-STRUX", line: "Standard Pultruded Profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-GRID", line: "Molded and pultruded FRP grating", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
+        { name: "F1-THERM", line: "Window and door profiles, reinforcement profiles, and finished units", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-FORM", line: "Custom pultruded FRP profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
       ],
       manufacturingEntity: {
@@ -91,7 +97,7 @@ export function buildPublicKnowledge() {
       {
         id: "fiberglass-plate-profiles",
         url: `${SITE}/products/fiberglass-plates`,
-        family: "Pultruded Fiberglass Plate Profiles",
+        family: "Hollow & Multi-cell Fiberglass Profiles",
         scope: "Hollow, multi-cell and edge-formed constant-section profiles; separate from solid flat sheet and engineered deck systems",
         profileReferences: 19,
         schematicFamilies: 15,
@@ -217,6 +223,7 @@ export function buildPublicKnowledge() {
       evidence: `${SITE}/resources/evidence`,
     },
     aiSurfaces: [
+      { name: "FRP Density & Weight Calculator", path: "/frp-density-calculator", purpose: "Estimate density and weight per metre from composition, layup and geometry." },
       { name: "FRP Engineering Advisor (chat)", path: "/ask", endpoint: "/api/chat", method: "POST" },
       { name: "AI sourcing assistant (structured)", path: "/ai/sourcing", endpoint: "/api/sourcing", method: "POST" },
       { name: "AI passive-house window selector", path: "/ai/passive-house" },

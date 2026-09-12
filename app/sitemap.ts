@@ -32,6 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: BASE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/pultruded-frp-profiles`, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/what-is-frp`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/products/window-door-profiles`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/fiberglass-windows-doors`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/grating`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/industries/water-wastewater`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     // /products permanently redirects to /pultruded-frp-profiles (see next.config.ts)
     { url: `${BASE}/products/fiberglass-structural-shapes`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-i-beam`, changeFrequency: "monthly", priority: 0.7 },

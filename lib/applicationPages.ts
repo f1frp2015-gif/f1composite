@@ -203,14 +203,14 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-solar-mounting-profiles",
-    lastModified: "2026-07-30",
-    title: "FRP Solar Mounting Profiles — Lightweight PV Racking",
+    lastModified: "2026-09-12",
+    title: "FRP Solar Support Design: Loads, Spans & Connections",
     shortTitle: "FRP solar mounting profiles",
     description:
-      "FRP solar mounting profiles for PV farms where lightweight, corrosion resistance, UV stability and electrical isolation matter.",
-    h1: "FRP solar mounting profiles for PV support structures",
+      "Plan FRP solar support structures around wind and snow loads, spans, clamp zones and connections. Link the design requirements to a specified profile schedule.",
+    h1: "FRP solar support design: spans, loads and connections",
     intro:
-      "F1 Composite supplies pultruded mounting structure for PV projects where aluminum or galvanized steel creates corrosion, grounding, or logistics penalties. The fiberglass sections are lightweight, electrically non-conductive, and stable in long-term outdoor UV exposure when specified with the correct veil and coating system.",
+      "This guide covers the use of FRP profiles in PV support structures. Begin with the array layout and load path, then specify rail and post sections, clamp zones and attachments. Use the linked solar product catalog for dimensions and component supply; final structural and electrical design remains project-specific.",
     environment:
       "Best fit: coastal solar farms, floating PV, agricultural PV, corrosive industrial sites, and off-grid structures where weight reduction simplifies transport and installation.",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
@@ -251,7 +251,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
       { href: "/industries/energy", label: "Energy applications" },
       { href: "/case-studies/solar-farm-mounting", label: "Solar mounting case study" },
-      { href: "/products/frp-solar-mounting-systems", label: "FRP solar mounting systems" },
+      { href: "/products/frp-solar-mounting-systems", label: "Solar profile catalog and component supply" },
     ],
     deepDive: {
       heading: "Specifying FRP solar mounting profiles as a PV system",

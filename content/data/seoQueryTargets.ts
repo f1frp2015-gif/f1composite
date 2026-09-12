@@ -16,6 +16,31 @@ export interface SeoQueryTarget {
 
 export const seoQueryTargets = [
   {
+    targetUrl: "/products/window-door-profiles", primaryQuery: "fiberglass window and door profiles", intent: "commercial",
+    title: "Fiberglass Window & Door Profiles for Fabricators",
+    description: "Pultruded fiberglass window and door profiles for fabricators. Specify frame, sash, mullion and sill sections, cut lengths, machining and supporting documents.",
+    supportingUrls: ["/products/frp-window-frames", "/products/frp-window-reinforcement", "/products/custom-pultruded-profiles"],
+  },
+  {
+    targetUrl: "/products/fiberglass-windows-doors", primaryQuery: "finished fiberglass windows and doors", intent: "commercial",
+    title: "Finished Fiberglass Windows & Doors | F1 Composite",
+    description: "Specify finished fiberglass windows and doors by opening schedule, glazing, hardware and project requirements. Review assembly scope, reports and packing.",
+    supportingUrls: ["/products/frp-window-frames", "/resources/frp-windows-guide", "/industries/construction"],
+  },
+  {
+    targetUrl: "/products/grating", primaryQuery: "molded vs pultruded FRP grating", intent: "commercial",
+    title: "FRP Grating: Molded vs Pultruded | F1 Composite",
+    description: "Compare molded and pultruded FRP grating by construction, span direction, mesh, surface and resin. Find fiberglass grating specifications and quotation inputs.",
+    supportingUrls: ["/products/frp-gratings", "/products/molded-frp-grating", "/products/frp-stair-treads"],
+  },
+  {
+    targetUrl: "/industries/water-wastewater", primaryQuery: "FRP profiles for water and wastewater", intent: "commercial",
+    title: "FRP for Water & Wastewater | Profiles & Grating",
+    description: "FRP profiles and grating for water and wastewater facilities. Review cable supports, access frames, walkways, chemical exposure and component supply scope.",
+    supportingUrls: ["/applications/frp-cable-tray-supports", "/applications/frp-chemical-plant-platforms", "/products/grating"],
+  },
+
+  {
     targetUrl: "/resources/evidence",
     primaryQuery: "FRP test reports and product certificates",
     intent: "technical",
@@ -27,9 +52,9 @@ export const seoQueryTargets = [
     targetUrl: "/",
     primaryQuery: "FRP profiles manufacturer",
     intent: "commercial",
-    title: "FRP Profiles Manufacturer — Factory-Direct | F1 Composite",
+    title: "Pultruded FRP Profiles Manufacturer | F1 Composite",
     description:
-      "Factory-direct FRP profiles manufacturer in China. Glass-reinforced GRP shapes, gratings, window frames and custom pultrusions with global delivery support.",
+      "Standard and custom pultruded FRP profiles from F1 Composite. Explore fiberglass structural shapes, grating, window and door profiles, and finished units.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/fiberglass-structural-shapes",
@@ -138,7 +163,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/fiberglass-plates",
     primaryQuery: "pultruded FRP plate",
     intent: "commercial",
-    title: "Pultruded FRP Plate Profiles — 19 Section Drawings",
+    title: "Hollow & Multi-cell FRP Profiles | Section Drawings",
     description:
       "Compare 19 pultruded fiberglass plate profiles with hollow and multi-cell section drawings, A/B/t1/t2 source values and source IDs.",
     supportingUrls: [
@@ -166,9 +191,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",
-    title: "FRP Product Lines: F1-STRUX, F1-GRID, F1-THERM, F1-FORM",
+    title: "FRP Products: Profiles, Windows, Doors & Grating",
     description:
-      "Explore F1 Composite's four product lines for structural profiles, gratings, fenestration systems and custom pultrusions exported for global projects.",
+      "Browse F1 Composite products: standard and custom pultruded profiles, window and door profiles, finished units, and molded or pultruded fiberglass grating.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/frp-gratings",
@@ -195,7 +220,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "FRP Window Frames — Pultruded Profiles & Finished Units",
     description:
-      "Work with an FRP window frame manufacturer supplying finished fiberglass windows, doors and pultruded lineals in 65–140 series, with U-values to 0.78 W/m²·K.",
+      "Explore FRP window frames by series and supply route. Compare profiles for fabricators with finished fiberglass windows and doors, with scoped technical data.",
     supportingUrls: [
       "/resources/frp-windows-guide",
       "/technology/polyurethane-pultrusion-windows",

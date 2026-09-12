@@ -10,21 +10,9 @@ import { industries } from "@/content/data/industries";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const faqs = [
-  {
-    question: "Which industry has the longest project lead time, and why?",
-    answer:
-      "Construction (fenestration) and Infrastructure (bridge deck) typically run 6-12 months because of mock-up testing and code-stamping requirements. Industrial process equipment can ship in 6-10 weeks once resin is qualified.",
-  },
-  {
-    question: "Which standards apply to which industry?",
-    answer:
-      "Construction: AS 2047, PHI, NFRC. Infrastructure: AASHTO, ASCE Pre-Standard, EN 13706. Energy: AS/NZS 1170, IEC 61730, IBC. Marine: IMO, ISO 12215, ABS. Industrial: customer-specific (Aramco SAES-W-018, SABIC PSPC, ADNOC). Vehicle: OEM-specific.",
-  },
-  {
-    question: "Do you have references in my industry?",
-    answer:
-      "Yes for all six industries above; deployment scale varies. Industry-specific reference lists are available on request — inquiry@f1composite.com.",
-  },
+  { question: "How do industries differ from applications?", answer: "Industries describe the project sector, such as water treatment or energy. Applications describe the component's use, such as cable supports or walkways. One profile may serve several sectors with different material and connection requirements." },
+  { question: "Does an industry page describe a complete system supply?", answer: "No. Start with the profiles, grating or window products required. Confirm engineering, cutting, drilling, fittings and any assembly scope on the quotation; complete equipment, civil works and site installation are separate scopes." },
+  { question: "How should I specify a product for my sector?", answer: "Provide the component drawing, service environment, loads and connections, quantity, required documents and destination. Use data for the offered section and material rather than assuming that every FRP product meets the same requirements." },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -140,6 +128,8 @@ export default function IndustriesPage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-[1280px] px-[24px] py-[24px] text-f15"><Link href="/applications" className="font-bold text-teal-text">Browse by application: platforms, cooling towers, solar and more →</Link></div>
+
       <RelatedLinks
         groups={[
           {
@@ -166,7 +156,7 @@ export default function IndustriesPage() {
           {
             title: "Proof & resources",
             links: [
-              { href: "/case-studies", label: "Case studies in 30+ countries" },
+              { href: "/case-studies", label: "Selected supply projects" },
               { href: "/resources/blog", label: "Engineering blog" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/resources/technical-data", label: "Data sheets" },

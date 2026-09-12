@@ -89,7 +89,7 @@ export default function IndustrialPage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
-          { label: "Industrial" },
+          { label: "Industrial & Chemical" },
         ]}
       />
 

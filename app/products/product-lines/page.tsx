@@ -1,197 +1,115 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import SectionTag from "@/components/ui/SectionTag";
-import JsonLd from "@/components/seo/JsonLd";
+import ProductFamilyCards from "@/components/sections/ProductFamilyCards";
+import CollectionSchema from "@/components/seo/CollectionSchema";
+import {
+  productFamilies,
+  applicationGroups,
+} from "@/content/data/productTaxonomy";
+import { buildPageMetadata } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pagePath = "/products/product-lines";
-const seoTarget = getSeoQueryTarget(pagePath);
-const ORG_ID = "https://www.f1composite.com/#organization";
-
+const path = "/products/product-lines";
+const target = getSeoQueryTarget(path);
 export const metadata: Metadata = buildPageMetadata({
-  title: seoTarget.title,
-  description: seoTarget.description,
-  path: pagePath,
+  title: target.title,
+  description: target.description,
+  path,
 });
-
-const lines: Array<{
-  brand: string;
-  name: string;
-  href: string;
-  category: string;
-  body: string;
-  equivalent: string;
-}> = [
-  {
-    brand: "F1-STRUX",
-    name: "Pultruded FRP Structural Profiles",
-    href: "/products/fiberglass-structural-shapes",
-    category: "Structural shapes, fiberglass stakes and coordinated access systems",
-    body: "F1 Composite's structural line — stock pultruded fiberglass shapes to EN 13706 E17/E23 and ASTM D3917, application-configured stake and marker rods, plus drawing-led fixed-ladder and handrail assemblies built from matched profiles and fittings.",
-    equivalent: "Class of Strongwell EXTREN® / Creative Pultrusions SuperStrut® structural shapes.",
-  },
-  {
-    brand: "F1-GRID",
-    name: "FRP Gratings & Structural Deck Panels",
-    href: "/pultruded-frp-profiles",
-    category: "Separate pultruded grating, molded grating and structural deck-panel pages",
-    body: "F1 Composite's walking-surface line — open pultruded I-bar/T-bar grating, molded square/mini mesh, and closed-profile structural deck sections for project-specific assemblies.",
-    equivalent: "Class of Strongwell DURADEK® / DURAGRID® gratings and decks.",
-  },
-  {
-    brand: "F1-THERM",
-    name: "Pultruded Fiberglass Window Frames & Fenestration Profiles",
-    href: "/products/frp-window-frames",
-    category: "65 / 70 / 80 / 90 / 140-series frame depths; PHI-certified 90-series",
-    body: "F1 Composite's fenestration line — pultruded FRP window frames and window profiles with whole-window U-values to 0.78 W/m²·K. The 90-series is Passive House Institute (PHI) certified.",
-    equivalent: "FRP / GFRP window-profile supply to fabricators (vs finished-window brands).",
-  },
-  {
-    brand: "F1-FORM",
-    name: "Custom Pultruded FRP Profiles",
-    href: "/products/custom-pultruded-profiles",
-    category: "Bespoke dies up to 600×300 mm; polyester / vinyl ester / PU / epoxy",
-    body: "F1 Composite's custom pultrusion line — bespoke cross-sections to your drawing, with 3–6 week die fabrication and 6–10 week first-production turnaround.",
-    equivalent: "Custom pultrusion / bespoke die service (engineer-to-order profiles).",
-  },
-];
-
-const faqItems = [
-  {
-    question: "What are F1-STRUX, F1-GRID, F1-THERM, and F1-FORM?",
-    answer:
-      "They are the four pultruded FRP product lines of F1 Composite, an industrial fiberglass profiles manufacturer. F1-STRUX = pultruded structural profiles, fiberglass stakes and coordinated access systems; F1-GRID = FRP gratings and structural deck panels; F1-THERM = pultruded fiberglass window frames and fenestration profiles; F1-FORM = custom pultruded profiles. Product-specific standards and release requirements still control each family.",
-  },
-  {
-    question: "Are F1-STRUX / F1-GRID / F1-THERM / F1-FORM related to Formula 1?",
-    answer:
-      "No. These are industrial composite product-line names from F1 Composite, a pultruded FRP (fiberglass) profiles manufacturer in Chongqing, China. The \"F1\" stands for \"Fiber One\" (fiberglass) — they have no connection to Formula 1, the FIA, or motorsport. The names denote FRP product families used in construction, infrastructure, energy, marine, and industrial applications.",
-  },
-  {
-    question: "Which F1 Composite product line do I need?",
-    answer:
-      "Choose F1-STRUX for structural framing, walkways, and platforms; F1-GRID for gratings, deck panels, and walking surfaces; F1-THERM for window frames and fenestration profiles (including Passive House); and F1-FORM when you need a custom cross-section to your own drawing. If you are unsure, the pultruded FRP profiles hub maps all four, or the AI sourcing assistant can recommend a line from your application.",
-  },
-];
-
-export default function ProductLinesPage() {
-  const brandGraph = {
-    "@context": "https://schema.org",
-    "@graph": lines.map((l) => ({
-      "@type": "Brand",
-      "@id": `${absoluteUrl(l.href)}#brand`,
-      name: l.brand,
-      alternateName: l.name,
-      description: l.body,
-      url: absoluteUrl(l.href),
-      disambiguatingDescription: `${l.brand} is an industrial pultruded FRP (fiberglass) product line by F1 Composite — not affiliated with Formula 1 / motorsport.`,
-      manufacturer: { "@id": ORG_ID },
-    })),
-  };
-
+export default function ProductsPage() {
   return (
     <>
-      <JsonLd data={brandGraph} />
-      <PageHeader
-        tag="Product Lines"
-        title="F1-STRUX, F1-GRID, F1-THERM & F1-FORM — F1 Composite's FRP product lines"
-        description="F1 Composite organizes its pultruded FRP catalog under four named product lines. These are industrial fiberglass composite brands — not Formula 1 motorsport — used in construction, infrastructure, energy, marine, and industrial projects worldwide."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
-          { label: "Product Lines" },
-        ]}
+      <CollectionSchema
+        name="F1 Composite Products"
+        description={target.description}
+        path={path}
+        links={productFamilies}
       />
-
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>The four lines</SectionTag>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Cite these by name — F1 Composite&apos;s branded FRP product lines
+      <PageHeader
+        tag="Products"
+        title="FRP profiles, windows, doors & grating"
+        description="F1 Composite specializes in standard and custom pultruded profiles. Our complementary range includes window and door profiles, finished windows and doors, and molded and pultruded grating."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
+      />
+      <section className="bg-white py-[48px]">
+        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+          <h2 className="mb-[22px] text-f31 font-bold text-t1">
+            Choose your product family
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
-            F1 Composite groups its pultruded fiberglass range into four product
-            lines, the way Strongwell uses EXTREN® or Creative Pultrusions uses
-            SuperStrut®. Each maps to a product family produced in-house to{" "}
-            <strong className="text-t1">EN 13706</strong> and{" "}
-            <strong className="text-t1">ASTM D3917</strong>.
-          </p>
-
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
-            {lines.map((l) => (
-              <Link
-                key={l.brand}
-                href={l.href}
-                className="group rounded-[8px] border border-border-default bg-bg2 p-[29px] transition-colors hover:border-teal"
-              >
-                <p className="text-f19 font-extrabold text-teal-text">{l.brand}</p>
-                <h3 className="mt-[5px] text-f15 font-bold text-t1">{l.name}</h3>
-                <p className="mt-[8px] text-f13 text-t3">{l.category}</p>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{l.body}</p>
-                <p className="mt-[13px] text-f13 italic text-t3">{l.equivalent}</p>
-                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
-                  Explore {l.brand} →
-                </span>
-              </Link>
-            ))}
+          <ProductFamilyCards />
+          <div className="mt-[28px] rounded-[10px] border border-border-default bg-bg2 p-[24px]">
+            <h2 className="text-f24 font-bold text-t1">
+              Standard section or custom development?
+            </h2>
+            <p className="mt-[10px] text-f15 leading-relaxed text-t2">
+              Choose standard profiles when an established cross-section fits
+              your design. Standard does not mean in stock: material, quantity,
+              availability and delivery are confirmed at quotation. Choose
+              custom profiles when a new geometry, interface or material
+              requirement needs development. The same profile may serve several
+              industries.
+            </p>
+            <p className="mt-[12px] text-f14 text-t2">
+              The product-line names F1-STRUX, F1-FORM, F1-THERM and F1-GRID
+              correspond respectively to standard profiles, custom profiles,
+              windows and doors, and grating. Product specifications and supply
+              scope are confirmed separately for each order.
+            </p>
           </div>
-
-          <p className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[16px] text-f14 leading-golden text-t2">
-            F1-GRID now separates three product intents: browse the{" "}
-            <Link href="/products/frp-gratings" className="font-semibold text-teal-text hover:text-teal">
-              pultruded I-bar / T-bar grating page
-            </Link>
-            ; the{" "}
-            <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text hover:text-teal">
-              molded square-mesh / mini-mesh page
-            </Link>
-            ; or the{" "}
-            <Link href="/products/frp-deck-panels" className="font-semibold text-teal-text hover:text-teal">
-              structural FRP deck-panel page
-            </Link>
-            .
-          </p>
-
-          <p className="mt-[13px] rounded-[8px] border border-border-default bg-bg2 p-[16px] text-f14 leading-golden text-t2">
-            F1-STRUX also includes application-configured{" "}
-            <Link href="/products/fiberglass-stakes" className="font-semibold text-teal-text hover:text-teal">
-              fiberglass plant, tree and marker stakes
-            </Link>
-            , plus two complete-system entry points: the{" "}
-            <Link href="/products/frp-ladders" className="font-semibold text-teal-text hover:text-teal">
-              industrial fiberglass fixed-ladder page
-            </Link>{" "}
-            for vertical access, and the{" "}
-            <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:text-teal">
-              fiberglass handrail and guardrail page
-            </Link>{" "}
-            for platform and stair-edge protection.
-          </p>
-
-          <p className="mt-[34px] text-f15 leading-golden text-t2">
-            For the complete range, standards, and quote path, start from the{" "}
-            <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
-              pultruded FRP profiles hub
-            </Link>
-            .
-          </p>
         </div>
       </section>
-
-      <AnswerBlocks
-        tag="Product-line FAQ"
-        title="F1-STRUX, F1-GRID, F1-THERM & F1-FORM — frequently asked questions"
-        description="What F1 Composite's four pultruded FRP product lines are, and which one fits your application."
-        items={faqItems}
-      />
-
-      <ProductNextSteps path="/products/product-lines" />
-      <InnerCTA title="Not sure which product line you need? Tell us your application." />
+      <section className="bg-bg2 py-[48px]">
+        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+          <h2 className="text-f31 font-bold text-t1">
+            Panel profiles & application-specific components
+          </h2>
+          <p className="mt-[10px] max-w-[860px] text-f15 leading-relaxed text-t2">
+            Browse existing commercial pages by use. Deck panels are profiles;
+            molded grating uses a different manufacturing process. Concrete
+            reinforcing bars have their own specification and are not
+            interchangeable with ordinary solid rods.
+          </p>
+          <div className="mt-[20px] flex flex-wrap gap-[18px] text-f14 font-semibold text-teal-text">
+            <Link href="/products/fiberglass-sheets">Solid sheets →</Link>
+            <Link href="/products/fiberglass-plates">
+              Hollow & multi-cell profiles →
+            </Link>
+            <Link href="/products/frp-deck-panels">
+              Decking & interlocking profiles →
+            </Link>
+          </div>
+          <div className="mt-[26px] grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
+            {applicationGroups.map((group) => (
+              <div
+                key={group.label}
+                className="rounded-[10px] border border-border-default bg-white p-[22px]"
+              >
+                <h3 className="text-f19 font-bold text-t1">{group.label}</h3>
+                <ul className="mt-[12px] space-y-[10px]">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-f14 text-teal-text hover:underline"
+                      >
+                        {link.label} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-[26px] flex flex-wrap gap-[24px] text-f14 font-bold text-teal-text">
+            <Link href="/industries">Find your industry →</Link>
+            <Link href="/applications">Explore applications →</Link>
+            <Link href="/pultruded-frp-profiles">
+              Pultruded FRP & GRP overview →
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { productFamilies } from "@/content/data/productTaxonomy";
+import { buildRfqHref } from "@/lib/rfq";
 import Image from "next/image";
 import Link from "next/link";
 import { footerNav, type NavLink } from "@/content/data/navigation";
@@ -35,9 +37,10 @@ export default function Footer() {
           <div>
             <p className="text-f11 font-bold uppercase tracking-[0.14em] text-teal">Engineering &amp; RFQ support</p>
             <p className="mt-[5px] text-[clamp(21px,2.1vw,28px)] font-bold leading-tight tracking-[-0.02em] text-white">
-              Ready to discuss your FRP project?
+              Tell us what you need
             </p>
-            <p className="mt-[5px] text-f13 text-white/70">Send drawings, loads, quantities, standards, and delivery country.</p>
+            <p className="mt-[5px] text-f13 text-white/70">Share your section, drawing or application, quantities and delivery destination.</p>
+            <div className="mt-[12px] flex flex-wrap gap-x-[18px] gap-y-[8px]">{productFamilies.map(family => <Link key={family.id} href={buildRfqHref({ source: "footer-family", product: family.label, productPath: family.href })} className="inline-flex min-h-[32px] items-center text-f12 font-semibold text-white underline underline-offset-4 hover:text-teal">{family.label}</Link>)}</div>
           </div>
           <div className="flex flex-wrap items-center gap-x-[18px] gap-y-[10px]">
             <Link
@@ -74,7 +77,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-[11px] max-w-[300px] text-f13 leading-relaxed text-t2">
-              Pultruded FRP profiles, engineered systems, and factory-direct export support for global projects.
+              Standard and custom pultruded FRP profiles, grating, window and door profiles, and finished windows and doors.
             </p>
             <div className="mt-[12px] flex flex-col items-start gap-[6px]">
               <a href="mailto:inquiry@f1composite.com" className="text-f13 font-semibold text-teal-text hover:text-teal">

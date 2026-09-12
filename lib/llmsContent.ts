@@ -17,7 +17,13 @@ ${knowledge.entity.role}. ${knowledge.entity.manufacturingEntity.relationship}
 Legal name: ${knowledge.entity.legalName}
 Website: ${knowledge.entity.url}
 
-## Products
+## Core product families
+${knowledge.commercialProductFamilies.map(family => `- ${family.name}: ${family.description} ${family.url}\n${family.products.map(product => `  - ${product.name}: ${product.url}`).join("\n")}`).join("\n")}
+
+## Window purchasing routes
+${knowledge.windowPurchasingRoutes.map(page => `- ${page.name}: ${page.url}\n  ${page.description}\n  Buyer: ${page.buyer}\n  Supply: ${page.supply}`).join("\n")}
+
+## Application-specific products and catalog references
 ${products}
 
 ## Product specification references
