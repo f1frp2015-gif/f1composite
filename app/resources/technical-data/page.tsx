@@ -172,6 +172,7 @@ export default function TechnicalDataPage() {
               ))}
             </div>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
+              Calculate material mass with the <Link href="/frp-density-calculator" className="font-semibold text-teal-text hover:underline">FRP density calculator</Link>.{" "}
               For preliminary beam screening, pair this FRP technical data with the{" "}
               <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
                 FRP span tables

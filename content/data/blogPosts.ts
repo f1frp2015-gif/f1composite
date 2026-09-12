@@ -4524,6 +4524,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       "Pultruded FRP density runs 1.7–2.1 g/cm³: E-glass at 2.54, cured resin near 1.2, plus fillers and voids. Here is the math behind fiberglass profile density.",
     ogChips: ["1.7–2.1 g/cm³", "EN 13706 E23", "ASTM D792", "Rule of mixtures"],
     relatedLinks: [
+      { label: "FRP Density & Profile Weight Calculator", href: "/frp-density-calculator" },
       { label: "FRP Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "Technical Data — EN 13706 Laminate Values", href: "/resources/technical-data" },
       { label: "Pultrusion Process Explained", href: "/technology/pultrusion-process" },

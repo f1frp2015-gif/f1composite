@@ -29,7 +29,8 @@
     "test:faq": "node --test scripts/faq-layout.test.mjs",
     "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
-    "test:site-audit": "node --test scripts/site-audit-improvements.test.mjs scripts/contact-delivery.test.mjs"
+    "test:site-audit": "node --test scripts/site-audit-improvements.test.mjs scripts/contact-delivery.test.mjs",
+    "test:density": "node --test scripts/frp-density.test.mjs"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.66",

@@ -77,6 +77,7 @@ const icons: Record<string, React.ReactNode> = {
 };
 
 const resources = [
+  { title: "FRP Density Calculator", description: "Convert fiberglass density into profile weight, or estimate density from sample mass and net section area.", href: "/frp-density-calculator", iconKey: "technical-data" },
   { title: "Product Evidence & Reports", description: "Match original certificates, test reports and technical references to the proposed product and configuration.", href: "/resources/evidence", iconKey: "downloads" },
   {
     title: "Technical Data",
