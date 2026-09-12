@@ -12,7 +12,7 @@ const resources = [
   },
   {
     index: "02",
-    title: "Calculators & Span Tables",
+    title: "Profile & Span Tools",
     description: "Shortlist a profile, check section properties, and review preliminary span guidance.",
     href: "/frp-profile-calculator",
     action: "Open tools",
@@ -26,10 +26,10 @@ const resources = [
   },
   {
     index: "04",
-    title: "Engineering Assistant",
-    description: "Ask a product, specification, comparison, or sourcing question against the F1 knowledge base.",
-    href: "/ask",
-    action: "Ask a question",
+    title: "Density & Weight Calculator",
+    description: "Estimate FRP density and weight per metre from composition, layup and section geometry.",
+    href: "/frp-density-calculator",
+    action: "Calculate density & weight",
   },
 ];
 
@@ -46,15 +46,15 @@ export default function DownloadsSnapshot() {
       <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
         <div className="flex flex-col gap-[16px] sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <SectionTag>Engineering center</SectionTag>
+            <SectionTag>Engineering resources</SectionTag>
             <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
-              Find the data before you send the RFQ
+              Engineering resources for profile selection
             </h2>
             <p className="mt-[10px] max-w-[720px] text-f15 leading-relaxed text-t2">
               Find section data, drawings, test evidence and preliminary tools for your FRP project.
             </p>
           </div>
-          <LinkArrow href="/resources" className="shrink-0">Visit engineering center</LinkArrow>
+          <LinkArrow href="/resources" className="shrink-0">Browse resources</LinkArrow>
         </div>
 
         <div className="mt-[28px] grid overflow-hidden rounded-[11px] border border-border-default bg-white md:grid-cols-2 xl:grid-cols-4">

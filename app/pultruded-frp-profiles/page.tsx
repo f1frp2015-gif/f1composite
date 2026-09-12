@@ -129,7 +129,7 @@ const profileFamily: Array<{
   },
   {
     slug: "fiberglass-plates",
-    name: "Pultruded Fiberglass Plate Profiles",
+    name: "Hollow & Multi-cell Profiles",
     keyword: "hollow and multi-cell FRP plate profiles",
     sizes: "19 records · 15 source schematics",
     summary:
@@ -141,101 +141,6 @@ const profileFamily: Array<{
     imageAlt: "Pultruded fiberglass plate profile with internal webs and formed edges",
     imageFit: "contain",
     rangeLabel: "Catalog scope",
-  },
-  {
-    slug: "wind-turbine-blade-panels",
-    name: "Wind Turbine Blade Panels",
-    keyword: "pultruded GFRP / CFRP / carbon-glass hybrid panels",
-    sizes: "Project-specific section and finished cut length",
-    summary:
-      "Wind-energy spar-cap and reinforcement laminates with grade-specific qualification, order-defined cut lengths and report-scoped GFP-WE20 fatigue data.",
-    href: "/products/wind-turbine-blade-panels",
-    image: "/images/products/wind-turbine-blade-panels/carbon-glass-hybrid-wind-blade-panel.webp",
-    imageWidth: 605,
-    imageHeight: 165,
-    imageAlt: "Carbon-glass hybrid pultruded panels for wind turbine blade reinforcement",
-    imageFit: "contain",
-    rangeLabel: "Supply basis",
-  },
-  {
-    slug: "frp-rebar",
-    name: "FRP Rebar",
-    keyword: "GFRP rebar / fiberglass reinforcement bars",
-    sizes: "4–40 mm supplier-published diameters",
-    summary:
-      "Sand-coated or fully threaded concrete reinforcement with a published GFRP/BFRP size matrix, plus project-specific CFRP options qualified to the bar schedule.",
-    href: "/products/frp-rebar",
-    image: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
-    imageWidth: 1254,
-    imageHeight: 1254,
-    imageAlt: "Three FRP rebars with helically wrapped concrete bond surfaces",
-  },
-  {
-    slug: "fiberglass-snow-markers",
-    name: "Fiberglass Snow Markers & Driveway Stakes",
-    keyword: "fiberglass snow markers / reflective driveway stakes",
-    sizes: '6.35 and 7.9 mm OD · 2–6 ft reference lengths',
-    summary:
-      "Solid or hollow pultruded fiberglass marker stakes configured by color, reflective-band layout, insertion tip and wholesale pack count.",
-    href: "/products/fiberglass-snow-markers",
-    image: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp",
-    imageWidth: 1254,
-    imageHeight: 1254,
-    imageAlt: "Color-coded fiberglass snow markers with reflective bands and pointed tips",
-  },
-  {
-    slug: "fiberglass-stakes",
-    name: "Fiberglass Stakes & Marker Rods",
-    keyword: "fiberglass plant stakes / FRP marker stakes",
-    sizes: "5–19 mm public-market planning band",
-    summary:
-      "Solid pultruded plant, tree, vineyard, nursery and general marker stakes configured by diameter, cut length, color, end treatment, surface veil and pack count.",
-    href: "/products/fiberglass-stakes",
-    image: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp",
-    imageWidth: 1536,
-    imageHeight: 1024,
-    imageAlt: "Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options",
-  },
-  {
-    slug: "fenestration",
-    name: "FRP Window Frames & Fenestration Profiles",
-    keyword: "FRP window frames / FRP window profiles",
-    sizes: "65 / 70 / 80 / 90 / 140-series frame depths",
-    summary:
-      "Pultruded fiberglass window frames and FRP window profiles — frame, sash, mullion, transom, glazing bead. Whole-window U-values down to 0.78 W/m²·K. PHI passive house certified. Direct replacement for aluminum and PVC window systems.",
-    href: "/products/frp-window-frames",
-    image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
-    imageWidth: 1600,
-    imageHeight: 1600,
-    // Square cross-section render whose informative detail sits low — keep the
-    // multi-chamber section inside the 4:3 crop instead of the default center.
-    imagePosition: "center 68%",
-  },
-  {
-    slug: "solar-mounting",
-    name: "FRP Solar Module Frames & Mounting",
-    keyword: "fiberglass solar panel frames / PV mounting rails",
-    sizes: "30×30 mm — 100×50 mm catalog sections; custom module frames",
-    summary:
-      "Pultruded composite module-frame profiles, ground and floating PV support members, and lightweight rooftop rails with matched clamps and splice hardware.",
-    href: "/products/frp-solar-mounting-systems",
-    image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
-    imageWidth: 1600,
-    imageHeight: 1205,
-  },
-  {
-    slug: "frp-sound-barrier-wall",
-    name: "FRP Sound Barrier Wall Panels",
-    keyword: "FRP sound wall / fiberglass noise barrier",
-    sizes: "Project-specific wall height, panel length and post spacing",
-    summary:
-      "Reflective or absorptive outdoor noise-barrier systems with interlocking fiberglass panels, coordinated posts, sealed joints and drawing-led acoustic and structural release.",
-    href: "/products/frp-sound-barrier-wall",
-    image: "/images/products/frp-sound-barrier-wall/interlocking-frp-sound-barrier-panel-section.webp",
-    imageWidth: 259,
-    imageHeight: 194,
-    imageAlt: "Interlocking fiberglass sound barrier panel cross-section with hollow tongue-and-groove profiles",
-    imageFit: "contain",
   },
   {
     slug: "custom",
@@ -250,18 +155,6 @@ const profileFamily: Array<{
     imageHeight: 555,
   },
   {
-    slug: "gratings",
-    name: "Pultruded FRP Grating",
-    keyword: "Also called: pultruded fiberglass grating",
-    sizes: "25 – 76 mm manual-listed depths",
-    summary:
-      "Open T-bar and I-bar grating with manual-derived pedestrian, industrial, high-load and high-open series data plus M/J/T clips.",
-    href: "/products/frp-gratings",
-    image: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
-    imageWidth: 1680,
-    imageHeight: 1160,
-  },
-  {
     slug: "deck-panels",
     name: "Structural FRP Deck Panels",
     keyword: "structural fiberglass deck panels",
@@ -274,43 +167,11 @@ const profileFamily: Array<{
     imageHeight: 1254,
   },
   {
-    slug: "molded-grating",
-    name: "Molded FRP Grating",
-    keyword: "molded fiberglass grating",
-    sizes: "13 – 65 mm catalog depths",
-    summary:
-      "Square mesh, mini mesh and rectangular molded panels with manual-verified sizes, nominal weights, open area and matched M/C/J 316SS clips.",
-    href: "/products/molded-frp-grating",
-    image: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
-    imageWidth: 1660,
-    imageHeight: 1080,
+    slug: "rod", name: "FRP Solid Rod", keyword: "fiberglass rod",
+    sizes: "Select diameter and cut length", summary: "Solid circular pultrusions for specified support, spacer and fabricated rod applications. Reinforcing rebar has a separate specification.",
+    href: "/products/fiberglass-structural-shapes/frp-rod", image: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", imageWidth: 1536, imageHeight: 1024,
   },
-  {
-    slug: "frp-ladders",
-    name: "Fiberglass Fixed Ladder Systems",
-    keyword: "fiberglass fixed ladder / FRP access ladder",
-    sizes: "500 mm outside width · 300 mm rung spacing",
-    summary:
-      "Fixed industrial access ladders with pultruded side rails, fluted rungs, bracket schedules, optional cage components and separate C/U rung-cover retrofits.",
-    href: "/products/frp-ladders",
-    image: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
-    imageWidth: 1345,
-    imageHeight: 940,
-    imageAlt: "Yellow fiberglass fixed ladder with circular cage hoops and vertical cage strips",
-  },
-  {
-    slug: "frp-handrail-systems",
-    name: "Industrial FRP Handrail Systems",
-    keyword: "fiberglass handrail / FRP guardrail system",
-    sizes: "Square and round tube systems",
-    summary:
-      "Coordinated posts, top and middle rails, kick plates, splices, molded fittings and base options released against the project load and anchor basis.",
-    href: "/products/frp-handrail-systems",
-    image: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
-    imageWidth: 1345,
-    imageHeight: 940,
-    imageAlt: "Yellow fiberglass handrail and guardrail systems around industrial platforms and stairs",
-  },
+
 ];
 
 const resinOptions: Array<{ system: string; use: string; notes: string }> = [
@@ -528,7 +389,7 @@ export default function PultrudedFRPProfilesHubPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Pultruded FRP Profiles — Complete Product Range",
+    name: "Pultruded FRP Profiles — Standard & Custom Sections",
     alternateName: [
       "F1 pultruded profiles",
       "F1 Composite pultruded profiles",
@@ -576,7 +437,7 @@ export default function PultrudedFRPProfilesHubPage() {
       <PageHeader
         tag="Pultruded FRP Profiles"
         title="Pultruded FRP & GRP profiles"
-        description="Find glass-reinforced plastic (GRP) profiles, also specified as fiberglass or glass-fiber FRP: standard sections, custom shapes, gratings and access systems. Select a product family below for dimensions, material options and quotation inputs."
+        description="Find glass-reinforced plastic (GRP) profiles, also specified as fiberglass or glass-fiber FRP: standard sections and custom cross-sections. Review geometry, materials and supply requirements, then open the detailed specification page."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Pultruded FRP Profiles" },
@@ -698,12 +559,13 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-[1280px] px-[24px] py-[24px] text-f15 text-t2">Looking for grating or finished windows? <Link href="/products/product-lines" className="font-bold text-teal-text">Browse all four product families →</Link></div>
       {/* Profile Family Grid */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Profile family</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Pultruded fiberglass product families under one factory
+            Standard sections and custom pultruded profiles
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             Each family below is an F1 manufacturing or drawing-led quotation program.

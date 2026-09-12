@@ -89,7 +89,7 @@ export default function ConstructionPage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
-          { label: "Construction" },
+          { label: "Buildings & Construction" },
         ]}
       />
 

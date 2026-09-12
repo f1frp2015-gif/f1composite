@@ -89,7 +89,7 @@ export default function VehiclePage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
-          { label: "Vehicle" },
+          { label: "Transportation & Rail" },
         ]}
       />
 

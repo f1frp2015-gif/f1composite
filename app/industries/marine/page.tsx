@@ -89,7 +89,7 @@ export default function MarinePage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
-          { label: "Marine" },
+          { label: "Marine & Offshore" },
         ]}
       />
 

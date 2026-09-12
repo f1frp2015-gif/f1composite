@@ -1,6 +1,8 @@
+import HomeJourneyAnalytics from "@/components/sections/HomeJourneyAnalytics";
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
-import TrustStrip from "@/components/sections/TrustStrip";
+import CustomProfilePreview from "@/components/sections/CustomProfilePreview";
+import ApplicationsSnapshot from "@/components/sections/ApplicationsSnapshot";
 import SolutionsSnapshot from "@/components/sections/SolutionsSnapshot";
 import FactoryQuality from "@/components/sections/FactoryQuality";
 import SocialProof from "@/components/sections/SocialProof";
@@ -22,11 +24,13 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={organizationSchema} />
+      <HomeJourneyAnalytics />
       <Hero />
-      <TrustStrip />
       <SolutionsSnapshot />
-      <SocialProof />
+      <CustomProfilePreview />
       <FactoryQuality />
+      <ApplicationsSnapshot />
+      <SocialProof />
       <DownloadsSnapshot />
     </>
   );

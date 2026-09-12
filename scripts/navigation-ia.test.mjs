@@ -1,3 +1,4 @@
+import { loadTestData } from "./load-test-data.mjs";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
@@ -21,85 +22,18 @@ async function fileExists(filePath) {
   }
 }
 
-test("primary navigation follows a product-to-project buyer journey", async () => {
-  const navigation = await read("content/data/navigation.ts");
-  const mainNavigation = navigation.slice(
-    navigation.indexOf("export const mainNav"),
-    navigation.indexOf("export const footerNav"),
-  );
-
-  const topLevel = [
-    ["products", "Products", "/pultruded-frp-profiles"],
-    ["applications", "Applications", "/applications"],
-    ["engineering", "Engineering", "/technology"],
-    ["resources", "Resources", "/resources"],
-    ["company", "Company", "/about"],
-  ];
-
-  let previousIndex = -1;
-  for (const [id, label, href] of topLevel) {
-    const pattern = new RegExp(`id: "${id}",[\\s\\S]{0,80}label: "${label}",[\\s\\S]{0,80}href: "${href.replaceAll("/", "\\/")}"`);
-    assert.match(mainNavigation, pattern);
-    const itemIndex = mainNavigation.indexOf(`id: "${id}"`);
-    assert.ok(itemIndex > previousIndex, `${label} should follow the intended buyer-journey order`);
-    previousIndex = itemIndex;
-  }
-
-  for (const section of [
-    "Profiles & materials",
-    "Grating, decking & access",
-    "Building & infrastructure",
-    "Energy & specialty",
-    "By application",
-    "By industry",
-    "Proof & markets",
-    "Technology & validation",
-    "Engineering tools",
-    "Specification resources",
-    "Learn",
-    "Buyer guides",
-  ]) {
-    assert.match(mainNavigation, new RegExp(`label: "${section.replace(/[&]/g, "&")}"`));
-  }
-
-  const requiredRoutes = [
-    "/products/fiberglass-structural-shapes",
-    "/products/frp-rebar",
-    "/products/fiberglass-sheets",
-    "/products/fiberglass-plates",
-    "/products/custom-pultruded-profiles",
-    "/products/frp-gratings",
-    "/products/molded-frp-grating",
-    "/products/frp-deck-panels",
-    "/products/frp-stair-treads",
-    "/products/frp-ladders",
-    "/products/frp-handrail-systems",
-    "/products/frp-window-frames",
-    "/products/frp-window-reinforcement",
-    "/products/frp-facade-panels",
-    "/products/frp-sound-barrier-wall",
-    "/products/frp-solar-mounting-systems",
-    "/products/wind-turbine-blade-panels",
-    "/products/fiberglass-snow-markers",
-    "/products/fiberglass-stakes",
-    "/applications/frp-cooling-tower-profiles",
-    "/applications/frp-pedestrian-bridge-superstructures",
-    "/technology/quality-testing",
-    "/resources/technical-data",
-    "/resources/downloads",
-    "/about/authors",
-  ];
-  for (const route of requiredRoutes) {
-    assert.match(mainNavigation, new RegExp(route.replaceAll("/", "\\/")));
-  }
-
-  const hrefs = extractHrefs(mainNavigation);
-  assert.equal(new Set(hrefs).size, hrefs.length, "global navigation routes should not be duplicated");
-  assert.ok(hrefs.length <= 65, "global navigation should retain a bounded link budget");
-  assert.equal([...mainNavigation.matchAll(/label: "Case Studies"/g)].length, 1);
-  assert.doesNotMatch(mainNavigation, /label: "All Products"/);
-  assert.doesNotMatch(mainNavigation, /label: "About F1 Composite"/);
-  assert.doesNotMatch(mainNavigation, /label: "F1 Product Lines"/);
+test("primary navigation distinguishes four product families from industry and use", async () => {
+  const { mainNav } = await loadTestData("content/data/navigation.ts");
+  assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries & Applications", "Engineering", "Resources", "Company"]);
+  assert.equal(mainNav[0].href, "/products/product-lines");
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating"]);
+  const productLinks = mainNav[0].sections.flatMap(section => section.links.map(link => link.href));
+  for (const route of ["/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
+  for (const route of ["/products/frp-rebar", "/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
+  const allLinks = mainNav.flatMap(item => [item.href, ...item.sections.flatMap(section => section.links.map(link => link.href))]);
+  assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
+  assert.ok(allLinks.length <= 70, "keep a bounded desktop and mobile menu");
+  assert.ok(mainNav[2].sections.find(section => section.label === "Engineering tools").links.some(link => link.href === "/frp-density-calculator"));
 });
 
 test("footer is a concise set of hubs instead of a second mega menu", async () => {
@@ -120,7 +54,7 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
   assert.equal(new Set(hrefs).size, hrefs.length, "footer routes should be unique");
   assert.ok(hrefs.length <= 20, `footer should stay at 20 navigation links or fewer, found ${hrefs.length}`);
   for (const route of [
-    "/pultruded-frp-profiles",
+    "/products/product-lines",
     "/applications",
     "/industries",
     "/case-studies",

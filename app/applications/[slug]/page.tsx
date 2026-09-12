@@ -100,6 +100,8 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <div className="mx-auto max-w-[1280px] px-[24px] pb-[28px]"><div className="rounded-[10px] border border-border-default bg-bg2 p-[22px]"><h2 className="text-f19 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f15 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. Confirm fasteners, engineering and installation responsibilities on the quotation. The application describes how the products are used; it does not by itself include complete project delivery.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
+
       <section className="bg-white pb-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
