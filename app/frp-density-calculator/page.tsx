@@ -103,7 +103,7 @@ export default function DensityPage() {
         description="Calculate fiberglass density from mat and fabric layup, roving tex and your profile section, turn density into profile weight, or check a weighed sample. Calculate tubes, rods, angles, channels and beams in seconds."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Resources", href: "/resources" },
+          { label: "Engineering", href: "/technology" },
           { label: "FRP Density Calculator" },
         ]}
         actions={{

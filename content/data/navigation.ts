@@ -134,6 +134,7 @@ export const mainNav = [
         label: "Engineering tools",
         links: [
           { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
+          { label: "FRP Density & Weight Calculator", href: "/frp-density-calculator" },
           { label: "FRP Span Tables", href: "/frp-span-tables" },
           { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
           { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
