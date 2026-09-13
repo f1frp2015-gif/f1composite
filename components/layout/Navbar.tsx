@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type FocusEvent } from "react";
-import { mainNav, type NavItem } from "@/content/data/navigation";
+import { mainNav, pultrudedOverviewLink, type NavItem } from "@/content/data/navigation";
 
 function pathMatches(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -12,6 +12,7 @@ function pathMatches(pathname: string, href: string) {
 }
 
 function itemMatches(pathname: string, item: NavItem) {
+  if (item.id === "products" && pathMatches(pathname, pultrudedOverviewLink.href)) return true;
   if (pathMatches(pathname, item.href)) return true;
   return item.sections?.some((section) =>
     section.links.some((link) => pathMatches(pathname, link.href)),
@@ -243,6 +244,13 @@ export default function Navbar() {
                     <div
                       className={`grid max-h-[calc(100dvh-96px)] gap-x-[28px] gap-y-[22px] overflow-y-auto overscroll-contain rounded-[12px] border border-border-default bg-white p-[22px] shadow-[0_18px_48px_rgba(11,24,56,0.14)] ${menuLayout(sectionCount)}`}
                     >
+                      {item.id === "products" && (
+                        <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
+                          aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
+                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[14px] py-[12px] text-f15 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          {pultrudedOverviewLink.label} <span aria-hidden>→</span>
+                        </Link>
+                      )}
                       {item.sections.map((section) => (
                         <section
                           key={section.id}
@@ -367,6 +375,13 @@ export default function Navbar() {
                       hidden={!expanded}
                       className="grid gap-[16px] pb-[18px] sm:grid-cols-2"
                     >
+                      {item.id === "products" && (
+                        <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
+                          aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
+                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[12px] py-[12px] text-f15 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          {pultrudedOverviewLink.label} <span aria-hidden>→</span>
+                        </Link>
+                      )}
                       {item.sections.map((section) => (
                         <details key={section.id} className="group rounded-[7px] border border-border-default px-[12px]">
                           <summary
