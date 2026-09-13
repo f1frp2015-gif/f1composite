@@ -42,7 +42,9 @@ Homepage order: product-led hero → four families with standard/custom emphasis
 
 The hero routes standard buyers to the catalog and custom buyers to a drawing-led RFQ. The two window buying routes preserve distinct checklists and product attribution through the existing contact form. No extra lead form or attachment endpoint was added. The density/weight calculator is explicitly linked from the homepage, navigation, footer and existing public knowledge index.
 
-The previous unsourced capacity strip is no longer mounted on the homepage. Factory information is tied to the manufacturing partnership and documentation. Project cards state component supply without broadening that into general turnkey contracting. The two existing cases used here are not new project claims.
+Following the owner's review, the homepage again displays the original production-line photograph and established capacity figures: 370 lines, five manufacturing bases and 150,000 tonnes annual capacity, attributed to the FengDu manufacturing network. The capability strip also retains 30+ export countries. The homepage does not infer a global or national number-one ranking from capacity alone. Project cards state component supply without broadening that into general turnkey contracting. The two existing cases used here are not new project claims.
+
+The ranking-preservation follow-up gives `/pultruded-frp-profiles` a prominent link above all four menu families, the primary homepage product button, a footer link, and explicit parent breadcrumbs in the standard and custom catalogs. A compact application-specific pultrusion section restores links to downstream uses while keeping molded grating outside the pultrusion catalog. The four ranking pages reviewed from the owner's keyword screenshot retain their titles, canonical URLs and H1s; their observed ranking changes cannot be attributed to the release without fresh query/country data.
 
 ## SEO and AI retrieval
 

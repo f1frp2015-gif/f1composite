@@ -16,6 +16,11 @@ export type NavItem = {
   sections?: readonly NavSection[];
 };
 
+export const pultrudedOverviewLink = {
+  label: "Pultruded FRP Profiles",
+  href: "/pultruded-frp-profiles",
+} as const;
+
 /**
  * Global navigation follows the way an industrial buyer narrows a project:
  * product family -> application -> engineering validation -> source files -> supplier.
@@ -47,7 +52,6 @@ export const mainNav = [
         id: "custom-profiles", label: "Custom Pultruded Profiles",
         links: [
           { label: "Custom Profile Development", href: "/products/custom-pultruded-profiles" },
-          { label: "Pultruded FRP & GRP Overview", href: "/pultruded-frp-profiles" },
         ],
       },
       {
@@ -202,7 +206,7 @@ export const mainNav = [
 export const footerNav = {
   products: [
     { label: "All Products", href: "/products/product-lines" },
-    { label: "Standard Pultruded Profiles", href: "/products/fiberglass-structural-shapes" },
+    { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
     { label: "Custom Pultruded Profiles", href: "/products/custom-pultruded-profiles" },
     { label: "Windows & Doors", href: "/products/frp-window-frames" },
     { label: "FRP Grating", href: "/products/grating" },

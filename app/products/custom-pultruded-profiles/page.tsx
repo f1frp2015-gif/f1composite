@@ -228,7 +228,8 @@ export default function CustomPultrusionsPage() {
         description="Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
+          { label: "Products", href: "/products/product-lines" },
+          { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
           { label: "Custom Pultrusions" },
         ]}
       />

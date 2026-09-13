@@ -184,7 +184,8 @@ export default function StandardProfilesPage() {
         description="Choose a section family to review dimensions, weight, drawings and datasheets. Confirm the material, available production run and project requirements before ordering."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
+          { label: "Products", href: "/products/product-lines" },
+          { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
           { label: "Standard Profiles" },
         ]}
       />

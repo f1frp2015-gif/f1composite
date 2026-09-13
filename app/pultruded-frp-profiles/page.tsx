@@ -559,7 +559,25 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1280px] px-[24px] py-[24px] text-f15 text-t2">Looking for grating or finished windows? <Link href="/products/product-lines" className="font-bold text-teal-text">Browse all four product families →</Link></div>
+      <section className="mx-auto max-w-[1280px] px-[24px] py-[32px]" aria-labelledby="profile-applications-heading">
+        <h2 id="profile-applications-heading" className="text-f24 font-bold text-t1">Application-specific pultrusions</h2>
+        <p className="mt-[12px] text-f15 leading-golden text-t2">Standard and custom sections also become window lineals, solar supports, wind-blade reinforcement, concrete reinforcing bars and fabricated access components. Select the application for its specification and supply scope.</p>
+        <ul className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          {[
+            ["Window & door profiles", "/products/window-door-profiles"],
+            ["Solar frames & supports", "/products/frp-solar-mounting-systems"],
+            ["Wind turbine blade panels", "/products/wind-turbine-blade-panels"],
+            ["FRP rebar", "/products/frp-rebar"],
+            ["Fiberglass stakes", "/products/fiberglass-stakes"],
+            ["Snow markers", "/products/fiberglass-snow-markers"],
+            ["Sound barrier profiles", "/products/frp-sound-barrier-wall"],
+            ["Pultruded grating", "/products/frp-gratings"],
+            ["Ladders", "/products/frp-ladders"],
+            ["Handrails", "/products/frp-handrail-systems"],
+          ].map(([label, href]) => <li key={href}><Link href={href} className="inline-flex min-h-[40px] items-center underline underline-offset-4">{label}</Link></li>)}
+        </ul>
+        <p className="mt-[16px] text-f15 text-t2">For molded grating and finished window assemblies, <Link href="/products/product-lines" className="font-bold text-teal-text underline underline-offset-4">browse all four product families</Link>.</p>
+      </section>
       {/* Profile Family Grid */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

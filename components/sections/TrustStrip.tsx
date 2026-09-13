@@ -1,13 +1,13 @@
 const signals = [
+  { value: "370", label: "Pultrusion lines" },
+  { value: "5", label: "Manufacturing bases" },
+  { value: "150,000", label: "Tonnes annual capacity" },
   { value: "30+", label: "Countries supplied" },
-  { value: "150K", label: "Tons annual capacity" },
-  { value: "800+", label: "Custom geometries" },
-  { value: "1 day", label: "RFQ response target" },
 ];
 
 export default function TrustStrip() {
   return (
-    <section className="border-b border-border-default bg-white" aria-label="F1 Composite capability summary">
+    <section className="border-b border-border-default bg-white" aria-label="F1 Composite and FengDu manufacturing and export capacity">
       <div className="mx-auto grid max-w-[1320px] grid-cols-2 px-[20px] sm:px-[28px] md:grid-cols-4 lg:px-[36px]">
         {signals.map((signal, index) => (
           <div
