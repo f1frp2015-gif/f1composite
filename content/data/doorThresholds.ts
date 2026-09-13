@@ -6,7 +6,33 @@ export const doorThresholds = {
     "F1 pultruded fiberglass door thresholds and GRP sill profiles for door fabricators. Develop hinged and sliding door sill sections around your frame drawings.",
   intro:
     "F1 Composite supplies pultruded fiberglass door thresholds and GRP sill profiles for door fabricators and system developers. The composite section forms the base of the opening, with geometry developed around the frame, seals, drainage and floor connection.",
-  image: "/images/products/door-thresholds/fiberglass-door-threshold-section.svg",
+  image: "/images/products/door-thresholds/fiberglass-door-threshold-outward-hook.webp",
+  profileVariants: [
+    {
+      id: "inward-closed",
+      title: "Inward-opening · closed base",
+      body: "A narrow raised deck above two hollow chambers, with a continuous closed base.",
+      alt: "Dark fiberglass threshold with a narrow raised deck and two hollow chambers above a closed base, extruded continuously along its length",
+    },
+    {
+      id: "inward-hook",
+      title: "Inward-opening · hooked base",
+      body: "A narrow raised deck with a shallow lower chamber and an open hooked edge.",
+      alt: "Dark fiberglass threshold with a narrow raised deck, two through chambers and a continuous open hook along the lower edge",
+    },
+    {
+      id: "outward-closed",
+      title: "Outward-opening · closed base",
+      body: "A wider raised deck with longitudinal ribs, a stepped chamber and a closed base.",
+      alt: "Dark fiberglass threshold with a wide ribbed deck, a stepped hollow chamber and a second rectangular chamber above a closed base",
+    },
+    {
+      id: "outward-hook",
+      title: "Outward-opening · hooked base",
+      body: "A wider ribbed deck and stepped chamber, with a continuous open hooked edge.",
+      alt: "Dark fiberglass threshold with a wide ribbed deck, two through chambers and an open hooked edge extending the full profile length",
+    },
+  ],
   scope:
     "Custom pultruded threshold profiles, cut lengths and agreed secondary machining for integration into a specified door system. Seals, end blocks, tracks and assembly are defined separately in the quotation.",
   buyer: "Door fabricators, frame-system developers and OEM procurement teams",
