@@ -149,6 +149,11 @@ export default function WindowProcurementPage({
                 </Link>
               </li>
               <li>
+                <Link href="/products/fiberglass-door-thresholds">
+                  Fiberglass door thresholds &amp; sill profiles →
+                </Link>
+              </li>
+              <li>
                 <Link href="/resources/evidence">
                   Original reports and their scope →
                 </Link>
