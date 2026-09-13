@@ -1001,6 +1001,7 @@ export default function FenestrationSystemsPage() {
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/frp-facade-panels", label: "Facade sunshade panels (E40)" },
               { href: "/products/frp-window-reinforcement", label: "Fiberglass window reinforcements (uPVC cores)" },
+              { href: "/products/fiberglass-door-thresholds", label: "Fiberglass door thresholds & GRP sill profiles" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
               { href: "/products/frp-gratings", label: "Pultruded FRP grating manufacturer" },

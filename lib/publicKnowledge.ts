@@ -1,5 +1,6 @@
 import { productFamilies as commercialFamilies, applicationGroups, taxonomyRevision } from "@/content/data/productTaxonomy";
 import { windowProcurement } from "@/content/data/windowProcurement";
+import { doorThresholds } from "@/content/data/doorThresholds";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
@@ -76,6 +77,16 @@ export function buildPublicKnowledge() {
       },
     },
     productFamilies: [
+      {
+        id: "fiberglass-door-thresholds",
+        url: `${SITE}${doorThresholds.path}`,
+        family: "Fiberglass Door Thresholds & GRP Sill Profiles",
+        scope: doorThresholds.scope,
+        buyer: doorThresholds.buyer,
+        applications: doorThresholds.applications.map(item => item.title),
+        quotationInputs: doorThresholds.checklist,
+        releaseBoundary: "Section geometry, tooling, material, mating interfaces and supply scope require quotation review. Concept illustrations do not establish dimensions, system compatibility or whole-door performance.",
+      },
       {
         id: "standard-profiles",
         url: `${SITE}/products/fiberglass-structural-shapes`,
