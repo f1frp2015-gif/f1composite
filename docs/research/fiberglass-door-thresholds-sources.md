@@ -10,7 +10,7 @@ The user identified pultruded fiber-reinforced door thresholds, requested F1 bra
 
 - User reference: https://www.venstertechniek.nl/oplossingen/kunststof-kozijnen/profine
 - Read the public HTML on 2026-09-13. It describes glass-reinforced polymer sill solutions for a specific uPVC frame system and separates hinged and lift-slide uses.
-- Used only to understand the application category. No source photographs, CAD geometry, logos, proprietary names, compatibility claims, certificates or dimension tables are reproduced on the public F1 page. The source itself gives differing standard-length figures, so neither is adopted.
+- Initially used only to understand the application category. No source photographs, logos, proprietary names, compatibility claims, certificates or dimension tables are reproduced on the public F1 page. The source itself gives differing standard-length figures, so neither is adopted. Subsequent user-provided section sketches are recorded below.
 - F1 prose is original and addresses profile procurement, interfaces, drainage, support and quotation inputs. It does not claim F1 makes the pictured third-party door, owns the referenced supplier, or supplies an approved replacement for a named frame series.
 
 ## Licensed application photograph
@@ -29,7 +29,16 @@ The user identified pultruded fiber-reinforced door thresholds, requested F1 bra
 - `public/images/products/door-thresholds/fiberglass-door-threshold-section.svg`
 - Original generic section illustration authored for this page; no supplier CAD tracing. Shows a hollow profile, separate seal interface, exterior fall and supported base.
 - The public caption identifies it as a concept. It contains no production dimensions, conformity marks or rated performance.
-- A PNG render of the same original SVG is used for social sharing compatibility.
+- This diagram and its PNG are retained at their existing URLs; the page and social preview now use the profile renders below.
+
+## Four continuous profile renders — 2026-09-13 revision
+
+- User supplied a product perspective reference and a four-section dimension sketch, then explicitly requested matching profile-only renders with all end fittings removed.
+- Newly rendered assets: `fiberglass-door-threshold-{inward-closed,inward-hook,outward-closed,outward-hook}.webp` in the same public asset directory; `fiberglass-door-threshold-social.png` is the social preview.
+- Geometry is reconstructed from those user-provided sketches. These are original rendered views of referenced shapes, not a claim that F1 originated the underlying section designs or that these are independently licensed supplier CAD files.
+- Early generative-image attempts were rejected for inconsistent extrusion. Published assets instead come from the deterministic Three.js workbench in `scripts/threshold-render/`. All steps, ribs and cavity walls are extruded together from one 2D section through the same length, with one camera across all four variants.
+- The 120 mm width, 55 mm overall envelope and 48.5 / 93 mm raised widths guide proportions. Unspecified wall thicknesses, small details and corner radii are illustrative. The public page does not treat these as approved production drawings, stock models or evidence of compatibility with a named supplier system.
+- No supplier names, identifying text, photographs, fittings or logos appear in these renders. The page retains its URL, title, canonical, navigation and inquiry path.
 
 ## Discoverability and validation
 

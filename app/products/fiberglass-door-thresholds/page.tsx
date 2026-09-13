@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: page.title,
   description: page.description,
   path: page.path,
-  image: "/images/products/door-thresholds/fiberglass-door-threshold-section.png",
+  image: "/images/products/door-thresholds/fiberglass-door-threshold-social.png",
 });
 
 const wrap = "mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]";
@@ -58,15 +58,15 @@ export default function DoorThresholdsPage() {
           <figure className="min-w-0">
             <Image
               src={page.image}
-              alt="Concept cross-section of a hollow fiberglass door threshold with a seal interface and an exterior drainage slope"
-              width={1200}
-              height={780}
+              alt={page.profileVariants[3].alt}
+              width={1440}
+              height={1098}
               sizes="(max-width: 1024px) 100vw, 55vw"
               loading="eager"
               className="h-auto w-full rounded-[14px]"
             />
             <figcaption className="mt-[12px] text-f12 leading-relaxed text-t3">
-              F1 concept illustration. Geometry is schematic; dimensions and interfaces are developed from your door-system drawings.
+              F1 profile illustration. Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.
             </figcaption>
           </figure>
           <div>
@@ -96,7 +96,40 @@ export default function DoorThresholdsPage() {
         </div>
       </section>
 
-      <section className="bg-bg2 py-[48px] md:py-[64px]">
+      <section className="bg-bg2 py-[48px] md:py-[64px]" aria-labelledby="profile-configurations">
+        <div className={wrap}>
+          <SectionTag>Threshold profile configurations</SectionTag>
+          <h2 id="profile-configurations" className="mt-[16px] text-f31 font-bold text-t1">Four continuous sill sections</h2>
+          <p className="mt-[16px] max-w-[800px] text-f15 leading-relaxed text-t2">
+            Compare closed and hooked bases for inward- and outward-opening door layouts.
+            Each profile has a constant cross-section: chambers, steps and ribs run along its full length.
+            Final selection depends on the mating frame and installation drawing.
+          </p>
+          <div className="mt-[28px] grid gap-[24px] md:grid-cols-2">
+            {page.profileVariants.map((item) => (
+              <figure key={item.id} className="overflow-hidden rounded-[14px] border border-border-default bg-white">
+                <a href={`/images/products/door-thresholds/fiberglass-door-threshold-${item.id}.webp`} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
+                  <Image
+                    src={`/images/products/door-thresholds/fiberglass-door-threshold-${item.id}.webp`}
+                    alt={item.alt}
+                    width={1440}
+                    height={1098}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1320px) 50vw, 624px"
+                    className="h-auto w-full object-contain"
+                  />
+                </a>
+                <figcaption className="p-[24px]">
+                  <h3 className="text-f20 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[10px] text-f14 leading-relaxed text-t2">{item.body}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="mt-[20px] text-f12 leading-relaxed text-t3">Illustrative section options. Seals, end blocks and other assembly components are specified separately.</p>
+        </div>
+      </section>
+
+      <section className="bg-white py-[48px] md:py-[64px]">
         <div className={wrap}>
           <SectionTag>Door threshold applications</SectionTag>
           <h2 className="mt-[16px] text-f31 font-bold text-t1">Choose the opening before the section</h2>
