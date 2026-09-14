@@ -8,6 +8,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import AskAICard from "@/components/ai/AskAICard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import PedestrianBridgeGuide, { bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
@@ -20,7 +21,7 @@ const PROFILE_CALC_LINK: Record<string, string> = {
   "frp-bridge-deck-panels": "/frp-profile-calculator#shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
   "frp-solar-mounting-profiles": "/frp-profile-calculator#shape=square-tube&span=2200&load=2.5&env=outdoor&material=frp-e23&load_type=udl&defl=180",
   "frp-chemical-plant-platforms": "/frp-profile-calculator#shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
-  "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator#shape=i-beam&span=6000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360",
+  "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator#shape=i-beam",
 };
 
 interface PageProps {
@@ -64,6 +65,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     mainEntityOfPage: absoluteUrl(`/applications/${page.slug}`),
     dateModified: page.lastModified,
+    image: absoluteUrl(page.image),
   };
 
   return (
@@ -108,15 +110,14 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
             <Image
               src={page.image}
               alt={page.imageAlt}
-              width={1280}
-              height={720}
+              width={page.imageSize?.width ?? 1280}
+              height={page.imageSize?.height ?? 720}
               sizes="(max-width: 1280px) 100vw, 1280px"
-              className="aspect-[16/9] h-auto w-full object-cover"
+              className={page.imageSize ? "h-auto w-full" : "aspect-[16/9] h-auto w-full object-cover"}
               preload
             />
             <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t3">
-              Application context for {page.shortTitle}. Final member sizes, laminate,
-              connections, and code checks remain project-specific.
+              {page.imageCaption ?? `Application context for ${page.shortTitle}. Final member sizes, laminate, connections, and code checks remain project-specific.`}
             </figcaption>
           </figure>
         </div>
@@ -189,13 +190,15 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </section>
       )}
 
+      {page.slug === "frp-pedestrian-bridge-superstructures" && <PedestrianBridgeGuide />}
+
       <section className="bg-white pt-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <CalculatorCTA
             href={PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator"}
-            eyebrow="Free tool · pre-filled for this application"
+            eyebrow={page.slug === "frp-pedestrian-bridge-superstructures" ? "Free tool · preliminary member screening" : "Free tool · pre-filled for this application"}
             title={`Size an FRP profile for ${page.shortTitle}`}
-            sub="Opens the FRP profile calculator pre-loaded with a typical span, load, and environment for this application — bending, shear, and Timoshenko-corrected deflection in one screen, then quote against your spec."
+            sub={page.slug === "frp-pedestrian-bridge-superstructures" ? "Enter your own member span, loads and material data. This calculator screens individual profiles; it does not verify a complete bridge, its connections, stability or pedestrian vibration." : "Opens the FRP profile calculator pre-loaded with a typical span, load, and environment for this application — bending, shear, and Timoshenko-corrected deflection in one screen, then quote against your spec."}
           />
         </div>
       </section>
@@ -230,7 +233,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <InnerCTA title={`Need a quote for ${page.shortTitle}?`} />
+      <InnerCTA title={`Need a quote for ${page.shortTitle}?`} quoteHref={page.slug === "frp-pedestrian-bridge-superstructures" ? bridgeRfqHref : undefined} />
     </>
   );
 }
