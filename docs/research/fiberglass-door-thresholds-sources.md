@@ -55,6 +55,12 @@ The user identified pultruded fiber-reinforced door thresholds, requested F1 bra
 
 ## Discoverability and validation
 
+### Uniform charcoal revision
+
+- The user subsequently requested that all four cut ends match the body color, removing the white/light-gray contrast against the background. This supersedes the earlier white cut faces and the image-2-only gray treatment.
+- The published charcoal assets are built-in imagegen color edits of the four existing renders, with prompts constraining the section shape, cavities, hook, camera and composition. They are illustrative edited images, not direct exports of the deterministic geometry workbench. Geometric tests validate the source model, not the edited raster pixels.
+- Standalone images contain no labels. Content-hash filenames cover all four variants, the hero and social preview, while historical image URLs are retained.
+
 - Added to the existing Windows & Doors menu and product-family directory.
 - Linked from the window range and both window procurement pages. Existing URLs, redirects, titles and canonical targets remain intact.
 - Dedicated title, description, canonical, sitemap entry and ItemPage JSON-LD. No fabricated Offer, price, rating or certification schema.
