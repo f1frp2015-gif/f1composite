@@ -66,9 +66,9 @@ export const seoQueryTargets = [
     targetUrl: "/what-is-frp",
     primaryQuery: "what is FRP",
     intent: "guide",
-    title: "What Is FRP? GRP vs FRP, Materials & Uses",
+    title: "What Is FRP? FRP vs Fiberglass, GRP & Materials",
     description:
-      "What is FRP, and how does it differ from GRP and GFRP? Compare reinforcement types, regional terminology, material properties and specification requirements.",
+      "Understand FRP vs fiberglass and GRP: compare material names, fibers, resins and uses, then find tubing and solid sheet specifications for your project.",
     supportingUrls: [
       "/resources/blog/fiberglass-reinforced-plastic",
       "/resources/blog/frp-material",
@@ -144,6 +144,24 @@ export const seoQueryTargets = [
       "/products/fiberglass-structural-shapes/frp-angle",
       "/frp-span-tables",
     ],
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-tube",
+    primaryQuery: "fiberglass tubing",
+    intent: "commercial",
+    title: "Fiberglass Round Tube | Pultruded FRP & GRP Tubing",
+    description:
+      "Pultruded fiberglass round tube, also called GRP tube, in 25–150 mm OD. Compare nominal walls and weights for structural tubing and request a drawing-led quote.",
+    supportingUrls: ["/what-is-frp", "/products/fiberglass-structural-shapes", "/frp-span-tables", "/products/custom-pultruded-profiles"],
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-square-tube",
+    primaryQuery: "fiberglass square tube",
+    intent: "commercial",
+    title: "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS",
+    description:
+      "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.",
+    supportingUrls: ["/what-is-frp", "/products/fiberglass-structural-shapes", "/frp-span-tables", "/products/custom-pultruded-profiles"],
   },
   {
     targetUrl: "/products/fiberglass-sheets",
