@@ -40,6 +40,19 @@ The user identified pultruded fiber-reinforced door thresholds, requested F1 bra
 - The 120 mm width, 55 mm overall envelope and 48.5 / 93 mm raised widths guide proportions. Unspecified wall thicknesses, small details and corner radii are illustrative. The public page does not treat these as approved production drawings, stock models or evidence of compatibility with a named supplier system.
 - No supplier names, identifying text, photographs, fittings or logos appear in these renders. The page retains its URL, title, canonical, navigation and inquiry path.
 
+### Section fidelity correction
+
+- User accepted image 3 (outward-opening closed base) and rejected the other three.
+- Images 1, 2 and 4 were rebuilt with independent reference outlines instead of shared simplified geometry. Cavity-roof steps, the right-cavity interface notch, asymmetric top ribs, underside lands and hooked toe ridges follow the supplied sketch.
+- The loops explicitly use opposite winding for outer boundaries and holes. Added front-face ray checks catch invisible cavity walls, which a double-sided topology check alone cannot detect.
+- Image 3 remains byte-for-byte unchanged. Corrected images require visual comparison with the supplied cross-sections in addition to geometric invariants.
+
+### Approved image release
+
+- The user requested publication of the final four images after receiving the English-only export. The four standalone product renders contain no text; their existing English page captions and alt text remain in place.
+- Image 2 uses a neutral gray cut face to make the open hooked edge legible against the background. Image 3 retains the previously accepted pixels.
+- The hero, gallery, full-size links, structured data and social metadata now reference content-hash asset filenames. This changes the image-optimizer cache key, avoiding stale images under the site's 31-day minimum image cache TTL. Earlier asset URLs remain available.
+
 ## Discoverability and validation
 
 - Added to the existing Windows & Doors menu and product-family directory.

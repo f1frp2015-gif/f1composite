@@ -2,6 +2,7 @@
 // Unspecified wall details are illustrative. One polygon and its two holes
 // are extruded without taper or intermediate geometry, including every rib.
 import * as THREE from 'three';
+import { tracedContours } from './reference-sections.mjs';
 
 const upper = (wide) => wide
   ? [[27,53],[39,53],[40,55],[46,55],[47,53],[56,53],[57,55],[63,55],[64,53],[73,53],[74,55],[80,55],[81,53],[90,53],[91,55],[97,55],[98,53],[107,53],[108,55],[114,55],[115,53],[120,53]]
@@ -15,6 +16,8 @@ export const sections = [
 ];
 
 export function sectionContours(section) {
+  const trace = tracedContours(section.id);
+  if (trace) return trace;
   const {wide,hook}=section;
   const top=upper(wide);
   const shoulder=wide?27:71.5;
