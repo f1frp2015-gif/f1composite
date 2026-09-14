@@ -19,6 +19,10 @@ does not establish manufacturing tolerances. Profile 3 and its accepted image
 are retained. Outer and hole loops are explicitly oppositely wound so cavity
 walls remain visible with normal front-face rendering.
 
+Image 2 uses a neutral gray, unlit cut-face material so the open hooked edge
+and bottom support lands remain distinguishable from the pale floor/background.
+Its profile geometry and camera are unchanged by this readability adjustment.
+
 `scene.mjs` uses a shared perspective camera, lighting and surface materials.
 The renderer is an offline asset workbench; it adds no client-side Three.js to
 the threshold product page. Export each canvas and encode to WebP at quality 90.

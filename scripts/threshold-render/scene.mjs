@@ -23,7 +23,9 @@ const camera=new THREE.PerspectiveCamera(29,innerWidth/innerHeight,1,2500);
 camera.position.set(-275,212,375);camera.lookAt(0,26,0);
 
 const dark=new THREE.MeshStandardMaterial({color:'#292c30',roughness:0.34,metalness:0.08});
-const cut=new THREE.MeshStandardMaterial({color:'#dadbd5',roughness:0.88,metalness:0});
+const cut=section.id==='inward-hook'
+  ? new THREE.MeshBasicMaterial({color:'#c5c7c2',toneMapped:false})
+  : new THREE.MeshStandardMaterial({color:'#dadbd5',roughness:0.88,metalness:0});
 for(const [material,isCut] of [[dark,false],[cut,true]]){
   material.onBeforeCompile=shader=>{
     shader.vertexShader='varying vec3 vProfilePosition;\n'+shader.vertexShader;
