@@ -1,4 +1,7 @@
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
+import SheetQuoteForm from "@/components/sections/SheetQuoteForm";
+import { buildRfqHref } from "@/lib/rfq";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,6 +30,11 @@ export const metadata: Metadata = buildPageMetadata({
 // has no published per-size weight catalog yet, so no weight table is inferred.
 const faqItems = [
   {
+    question: "Is pultruded fiberglass sheet the same as G10, FR4 or a roofing panel?",
+    answer:
+      "These names cover different product specifications. This page offers solid pultruded fiberglass flat stock for fabrication. A G10 or FR4 laminate, corrugated roof panel or decorative wall liner needs its own material and product specification. If your drawing names one of those products, include the exact grade and intended use for review rather than substituting by the word fiberglass alone.",
+  },
+  {
     question: "What thicknesses and sizes do fiberglass sheets come in?",
     answer:
       "The pultruded flat-sheet program typically runs 2–25 mm thick in panel widths up to about 1,000–1,220 mm, supplied cut to your part sizes rather than as fixed stock panels. Narrow solid sections up to 305×25 mm are a separate, catalogued product — see the fiberglass flat bar page with published sizes and weights. State the finished part dimensions and quantity in the RFQ; nesting and cutting are done in production.",
@@ -49,7 +57,7 @@ const faqItems = [
   {
     question: "Which resin should I choose for fiberglass sheet?",
     answer:
-      "Isophthalic polyester is the general-purpose default. Move to vinyl ester for acid, caustic, hypochlorite, and marine immersion — tank internals and wastewater baffles are the classic cases. Fire-retardant polyester (the ASTM E84 Class 1 family) covers escape routes and enclosed spaces; UV-stabilized systems with surface veil are the right call for outdoor exposure.",
+      "Polyester and vinyl ester systems are available for review. State the chemical, concentration, temperature and exposure duration so the laminate can be selected for the actual service. Outdoor and fire-performance requirements also need a specified surface system and applicable test evidence; a resin name alone does not establish a fire classification or chemical compatibility.",
   },
   {
     question: "Do you publish mechanical data for the sheet program?",
@@ -82,6 +90,12 @@ export default function FiberglassSheetsPage() {
         tag="Solid Flat Sheet · F1-FORM"
         title="Fiberglass sheets manufacturer — solid FRP sheet cut to size"
         description="Solid flat fiberglass sheet from 2 to 25 mm typical thickness — smooth, gritted anti-slip, or embossed — cut to part size in polyester, vinyl ester, or fire-retardant resin systems."
+        actions={{
+          primary: { label: "Enter your sheet dimensions", href: "#sheet-quote" },
+          secondary: { label: "Send a drawing", href: buildRfqHref({ source: "sheet-product-header", product: "Solid pultruded fiberglass sheet", productPath: pagePath }), variant: "secondary" },
+          note: "Specify finished part sizes and surface, then add your drawing and delivery requirements.",
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -195,6 +209,17 @@ export default function FiberglassSheetsPage() {
           </p>
         </div>
       </section>
+
+      <section id="sheet-quote" className="scroll-mt-[100px] bg-bg2 py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <SectionTag>Prepare your inquiry</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Request solid fiberglass sheet cut to size</h2>
+          <p className="mt-[13px] max-w-[850px] text-f15 leading-golden text-t2">Start with one part size below. For several sizes, include a cutting list or drawing with your inquiry. The typical program is 2–25 mm thick; the available width, laminate and surface are confirmed for your order.</p>
+          <SheetQuoteForm />
+        </div>
+      </section>
+
+      <ProfileSupplyGuide sheet />
 
       <RelatedLinks
         groups={[

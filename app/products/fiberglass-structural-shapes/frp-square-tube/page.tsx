@@ -1,3 +1,6 @@
+import TubeSizeTable from "@/components/sections/TubeSizeTable";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
+import { buildRfqHref } from "@/lib/rfq";
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -17,7 +20,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS";
 const pageDescription =
-  "Pultruded fiberglass square and rectangular tubes, 25×25–240×240 mm, with SHS/RHS dimensions, nominal weights, EN 13706 and ASTM D3917 references.";
+  "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-square-tube";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -52,6 +55,14 @@ const fallbackSizes = [
 
 const faqItems = [
   {
+    question: "Can I order fiberglass tubing cut to length?",
+    answer: "Include finished length per piece, piece count, end cuts or holes, and tolerances with your selected section. We review the cutting and machining scope, material and packing before confirming the quotation. Catalog dimensions are section options, not a live stock list.",
+  },
+  {
+    question: "What is the minimum order quantity and lead time?",
+    answer: "Minimum quantity and timing are confirmed for the section, resin, tooling and processing required. Send your trial quantity, expected repeat demand, destination and target date. Ask for sample arrangements and production and shipping timing to be listed separately in the quotation.",
+  },
+  {
     question: "What is the advantage of FRP square tubes over open profiles?",
     answer:
       "Closed-section square tubes deliver superior torsional rigidity compared to I-beams or channels, making them ideal for columns, trusses, and structures that resist combined bending and torsion. The smooth interior bore also allows use as conduits or cable enclosures.",
@@ -59,7 +70,7 @@ const faqItems = [
   {
     question: "Are rectangular hollow sections (RHS) available?",
     answer:
-      "Yes. In addition to square sections (SHS), we stock rectangular hollow sections including 80×60, 100×60, and 120×60 mm. Custom rectangular sizes are available via our custom pultrusion service.",
+      "Yes. The catalog includes rectangular hollow sections such as 80×60, 100×60 and 120×60 mm alongside square sections. Confirm tooling, material, production quantity and timing in your quotation. Send a drawing for a custom rectangular size.",
   },
 ];
 
@@ -100,6 +111,12 @@ export default async function SquareTubePage() {
         tag="Square Tube"
         title="Fiberglass Square & Rectangular Tubes (FRP)"
         description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm."
+        actions={{
+          primary: { label: "Choose a size", href: "#sizes" },
+          secondary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product: "Pultruded fiberglass square and rectangular tubing", productPath: pagePath }), variant: "secondary" },
+          note: "Select a catalog section, then add cut lengths, quantity and service requirements.",
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -109,7 +126,7 @@ export default async function SquareTubePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
               <SectionTag>SHS & RHS Profiles</SectionTag>
@@ -132,36 +149,20 @@ export default async function SquareTubePage() {
         </div>
       </section>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+      <section id="sizes" className="scroll-mt-[100px] bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">H (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{s.model}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.h}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f15 text-teal-text font-medium">{s.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass square and rectangular tube sizes</h2>
+          <TubeSizeTable
+            sizes={sizes.map((s) => ({ model: s.model, dimensions: [s.h, s.b, s.t], weight: s.weight }))}
+            columns={["H (mm)", "B (mm)", "Wall (mm)"]}
+            product="Pultruded fiberglass square and rectangular tubing"
+            productPath={pagePath}
+          />
         </div>
       </section>
+
+      <ProfileSupplyGuide />
 
       <RelatedLinks
         groups={[
@@ -202,13 +203,13 @@ export default async function SquareTubePage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=square-tube"
             eyebrow="Free tool · square tube preset"

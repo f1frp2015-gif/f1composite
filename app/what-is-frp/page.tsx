@@ -26,6 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const toc = [
   { id: "definition", label: "What is FRP?" },
+  { id: "frp-vs-fiberglass", label: "FRP vs fiberglass" },
   { id: "terminology", label: "FRP vs GRP vs composites" },
   { id: "components", label: "Materials and composition" },
   { id: "pultrusion", label: "How pultruded FRP is made" },
@@ -46,7 +47,7 @@ const faqItems = [
   {
     question: "Is FRP the same as fiberglass?",
     answer:
-      "Fiberglass is the reinforcement material (glass fiber) used inside FRP composites. Everyday use often treats 'fiberglass' and 'FRP' as synonymous, but strictly speaking fiberglass is the raw fiber and FRP is the finished composite that combines fiberglass with a polymer resin. A fiberglass I-beam is therefore a pultruded FRP I-beam made with E-glass reinforcement.",
+      "Fiberglass can mean glass fibers or a finished glass-reinforced composite. FRP is the broader family of fiber-reinforced polymers and can use glass, carbon or other fibers. Glass-reinforced FRP is called GFRP or GRP. For a structural fiberglass tube or sheet, compare the resin, reinforcement, dimensions and supporting data rather than assuming the names define a material grade.",
   },
   {
     question: "Are FRP composites considered advanced composites?",
@@ -120,7 +121,7 @@ export default function WhatIsFrpPage() {
     url: absoluteUrl(pagePath),
     mainEntityOfPage: absoluteUrl(pagePath),
     datePublished: "2026-04-14",
-    dateModified: "2026-09-08",
+    dateModified: "2026-09-14",
     inLanguage: "en",
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
@@ -293,6 +294,28 @@ export default function WhatIsFrpPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="frp-vs-fiberglass" className="scroll-mt-[100px] bg-white py-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <SectionTag>Material names</SectionTag>
+          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">FRP vs fiberglass: what is the difference?</h2>
+          <p className="mt-[21px] max-w-[860px] text-f15 leading-golden text-t2"><strong className="text-t1">FRP is the material family; fiberglass describes glass fibers or a glass-reinforced product.</strong> Glass fibers combined with a polymer resin make GFRP, also called GRP. Carbon-fiber reinforced polymer is FRP too, but it is not fiberglass. In a supplier catalog, a fiberglass tube commonly means a finished glass-and-resin composite tube.</p>
+          <div className="mt-[24px] grid gap-[16px] md:grid-cols-3">
+            {[
+              { title: "FRP", text: "Fiber-reinforced polymer (or plastic). The reinforcement and resin must still be specified." },
+              { title: "GFRP / GRP", text: "The glass-reinforced part of the FRP family. These names do not set a strength, resin or fire rating." },
+              { title: "Fiberglass", text: "May refer to glass fiber itself or a finished composite. Read the product description to identify which." },
+            ].map((item) => <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><h3 className="text-f19 font-bold text-t1">{item.title}</h3><p className="mt-[10px] text-f13 leading-golden text-t2">{item.text}</p></div>)}
+          </div>
+          <h3 className="mt-[28px] text-f19 font-bold text-t1">Buying a fiberglass product?</h3>
+          <p className="mt-[10px] max-w-[860px] text-f15 leading-golden text-t2">Match the shape, resin, reinforcement, dimensions and service conditions. A structural tube, solid sheet and pressure pipe need different specifications even when all are described as FRP.</p>
+          <div className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[14px] text-f15 font-semibold text-teal-text">
+            <Link href="/products/fiberglass-structural-shapes/frp-tube" className="underline underline-offset-4">Fiberglass tubing sizes →</Link>
+            <Link href="/products/fiberglass-structural-shapes/frp-square-tube" className="underline underline-offset-4">Fiberglass square tube sizes →</Link>
+            <Link href="/products/fiberglass-sheets" className="underline underline-offset-4">Solid fiberglass sheets →</Link>
           </div>
         </div>
       </section>

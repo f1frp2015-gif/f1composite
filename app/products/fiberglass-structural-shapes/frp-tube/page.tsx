@@ -1,3 +1,6 @@
+import TubeSizeTable from "@/components/sections/TubeSizeTable";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
+import { buildRfqHref } from "@/lib/rfq";
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
@@ -23,6 +26,14 @@ const pagePath = "/products/fiberglass-structural-shapes/frp-tube";
 
 const faqItems = [
   {
+    question: "Can I order fiberglass tubing cut to length?",
+    answer: "Include finished length per piece, piece count, end cuts or holes, and tolerances with your selected section. We review the cutting and machining scope, material and packing before confirming the quotation. Catalog dimensions are section options, not a live stock list.",
+  },
+  {
+    question: "What is the minimum order quantity and lead time?",
+    answer: "Minimum quantity and timing are confirmed for the section, resin, tooling and processing required. Send your trial quantity, expected repeat demand, destination and target date. Ask for sample arrangements and production and shipping timing to be listed separately in the quotation.",
+  },
+  {
     question: "What are pultruded FRP round tubes used for?",
     answer:
       "Pultruded FRP round tubes are used as members in handrail systems, structural columns, antenna masts, conduits and insulating stand-offs. Their low density, resin-selected corrosion resistance and dielectric material properties can suit marine, chemical and electrical service, but the finished assembly, exposure and any metal hardware still require project review.",
@@ -30,7 +41,7 @@ const faqItems = [
   {
     question: "FRP round tube vs FRP square tube — which should I use?",
     answer:
-      "Round tubes are preferred for handrails, antennas, columns under axial load, and any application requiring smooth interior bore (e.g. conduit, fluid passage). Square tubes (SHS) provide higher torsional rigidity, easier bolted connections, and flat bearing surfaces — choose them for trusses, frames, free-standing structures, and solar racking posts. Both are available in equivalent size ranges.",
+      "Round tubing suits circular grips and members such as handrails and masts. Square and rectangular tubing provides flat bearing faces for frames and bolted connections. Compare the actual section properties, laminate, span and load case; the shape name alone does not establish which section is stiffer or stronger. Structural tubing is not a pressure-pipe specification.",
   },
   {
     question: "Can FRP round tubes be used outdoors with UV exposure?",
@@ -106,6 +117,12 @@ export default async function TubePage() {
         tag="Round Tube"
         title="Fiberglass Round Tubes & Tubing (FRP)"
         description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD."
+        actions={{
+          primary: { label: "Choose a size", href: "#sizes" },
+          secondary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product: "Pultruded fiberglass round tubing", productPath: pagePath }), variant: "secondary" },
+          note: "Select a catalog section, then add cut lengths, quantity and service requirements.",
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -119,7 +136,7 @@ export default async function TubePage() {
       </MaterialTerminologyNote>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>Circular Hollow Sections</SectionTag>
@@ -142,34 +159,20 @@ export default async function TubePage() {
         </div>
       </section>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+      <section id="sizes" className="scroll-mt-[100px] bg-bg2 py-[89px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">OD (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{s.model}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.od}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f15 text-teal-text font-medium">{s.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass round tube sizes</h2>
+          <TubeSizeTable
+            sizes={sizes.map((s) => ({ model: s.model, dimensions: [s.od, s.t], weight: s.weight }))}
+            columns={["OD (mm)", "Wall (mm)"]}
+            product="Pultruded fiberglass round tubing"
+            productPath={pagePath}
+          />
         </div>
       </section>
+
+      <ProfileSupplyGuide />
 
       <RelatedLinks
         background="white"
@@ -210,13 +213,13 @@ export default async function TubePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=round-tube"
             eyebrow="Free tool · round tube preset"
