@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: page.title,
   description: page.description,
   path: page.path,
-  image: "/images/products/door-thresholds/fiberglass-door-threshold-social.png",
+  image: page.socialImage,
 });
 
 const wrap = "mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]";
@@ -108,9 +108,9 @@ export default function DoorThresholdsPage() {
           <div className="mt-[28px] grid gap-[24px] md:grid-cols-2">
             {page.profileVariants.map((item) => (
               <figure key={item.id} className="overflow-hidden rounded-[14px] border border-border-default bg-white">
-                <a href={`/images/products/door-thresholds/fiberglass-door-threshold-${item.id}.webp`} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
+                <a href={item.image} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
                   <Image
-                    src={`/images/products/door-thresholds/fiberglass-door-threshold-${item.id}.webp`}
+                    src={item.image}
                     alt={item.alt}
                     width={1440}
                     height={1098}
