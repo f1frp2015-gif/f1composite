@@ -29,6 +29,17 @@ for (const section of sections) {
     assert.equal(shoot(99, 37).length, 0, 'Right chamber is open through the entire profile');
     assert.ok(shoot(118, 30).length >= 2, 'Outer wall has material at both ends');
     assert.equal(shoot(50, 3).length === 0, section.hook, 'Hook remains open; closed base retains its bottom wall');
+    for (const [x,y] of [[45,28],[99,37]]) {
+      for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]) {
+        const ray = new THREE.Raycaster(new THREE.Vector3(x-60,y,0),new THREE.Vector3(dx,dy,0),0,150);
+        mesh.material.side = THREE.DoubleSide;
+        const doubleSided = ray.intersectObject(mesh)[0];
+        mesh.material.side = THREE.FrontSide;
+        const frontSided = ray.intersectObject(mesh)[0];
+        assert.ok(frontSided && doubleSided, 'Cavity walls must be visible from inside the hole');
+        assert.ok(Math.abs(frontSided.distance-doubleSided.distance)<0.001, 'Internal normals must face the cavity, without backface-culling holes');
+      }
+    }
     geometry.dispose();
     mesh.material.dispose();
   });
