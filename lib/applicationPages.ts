@@ -9,6 +9,8 @@ export interface ApplicationPage {
   environment: string;
   image: string;
   imageAlt: string;
+  imageSize?: { width: number; height: number };
+  imageCaption?: string;
   recommendedProfiles: string[];
   resinSystem: string;
   standards: string[];
@@ -328,19 +330,21 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-pedestrian-bridge-superstructures",
-    lastModified: "2026-07-30",
-    title: "FRP Pedestrian Bridge Superstructures — Design Guide",
+    lastModified: "2026-09-14",
+    title: "FRP Pedestrian Bridges: Truss, Deck & Design Guide",
     shortTitle: "FRP pedestrian bridge superstructures",
     description:
-      "FRP pedestrian bridge superstructures using pultruded beams, trusses, deck panels and handrails for lightweight, corrosion-resistant crossings.",
+      "Specify FRP pedestrian bridges: compare beam and truss systems, review vibration, joints, decking and installation, and prepare a component RFQ.",
     h1: "FRP pedestrian bridge superstructures for lightweight crossings",
     intro:
       "F1 Composite supplies pultruded members and coordinated component packages for pedestrian bridge superstructures where low dead load, corrosion resistance, rapid installation, or difficult site access govern the concept. The scope can include primary beams or trusses, cross-members, deck panels, bracing, parapets, and handrail profiles.",
     environment:
       "Best fit: coastal and riverside crossings, park and trail bridges, utility access bridges, replacement superstructures on retained abutments, and remote sites where smaller lifts and prefabricated modules reduce construction disruption.",
-    image: "/images/industries/frp-infrastructure-bridge-structure.jpg",
+    image: "/images/applications/frp-pedestrian-bridge-truss-superstructure.webp",
     imageAlt:
-      "Bridge structure representing a lightweight FRP pedestrian bridge superstructure and deck system",
+      "FRP pedestrian bridge with gray truss members spanning a stream beside a hillside stairway",
+    imageSize: { width: 1920, height: 1280 },
+    imageCaption: "Pedestrian truss bridge showing the main chords, diagonal members and end connections. Final member sizes, material specifications and capacity require the project drawings and engineering records.",
     recommendedProfiles: [
       "I-beams, channels, or box members for primary longitudinal girders",
       "Square tubes and custom closed sections for trusses and cross-bracing",
@@ -348,8 +352,8 @@ export const applicationPages: ApplicationPage[] = [
       "Round and square tubes for parapets, handrails, and approach guards",
     ],
     resinSystem:
-      "UV-stabilized isophthalic polyester is a baseline for many inland bridges. Vinyl ester is recommended for coastal, de-icing-salt, wastewater, and persistently wet environments. Fire and smoke requirements are reviewed separately where the bridge forms part of an egress route or enclosed transport facility.",
-    standards: ["ASCE/SEI 74-23", "EN 13706", "AASHTO LRFD / EN 1991-2 as applicable", "AS 4586", "ISO 9001:2015"],
+      "Specify the resin, reinforcement, protective surface and service temperature together. Compare polyester and vinyl ester systems using supplier data for the actual wet, salt or chemical exposure; resin name alone does not establish durability. Request the relevant retained-property and weathering evidence. Fire and smoke criteria need separate review for enclosed crossings or egress routes.",
+    standards: ["Owner-adopted pedestrian bridge criteria", "ASCE/SEI 74-23 where applicable", "Project-specific deck slip testing"],
     designChecks: [
       {
         title: "Global stiffness and vibration",
@@ -383,7 +387,7 @@ export const applicationPages: ApplicationPage[] = [
       paragraphs: [
         "The superstructure is the complete load-carrying assembly above the bearings, not only the walking deck. A typical FRP pedestrian bridge combines longitudinal girders or trusses, cross-members, lateral bracing, a deck system, parapets, and connection plates. Low mass can reduce foundation reactions and allow longer prefabricated modules, but the design still has to resolve global stability, lateral-torsional behavior, member buckling, pedestrian vibration, wind, snow, thermal movement, and the transfer of parapet loads into the main structure.",
         "Pultruded FRP has lower elastic modulus than structural steel, so deflection and vibration frequently govern before material strength. Efficient concepts use section depth, closed or built-up geometry, truss action, and realistic restraint instead of simply substituting equal-size profiles. Connections deserve the same attention: bolt bearing, net-section rupture, block shear, adhesive durability, edge distance, and inspection access determine whether the modular bridge behaves as the analytical model assumes.",
-        "A quote-ready concept includes the site survey, clear span and width, load criteria, allowable structural depth, bearing and abutment interfaces, deck and parapet requirements, transport envelope, and proposed lift sequence. F1 can develop the pultruded member schedule, deck and handrail package, preliminary calculations, and fabrication drawings; the bridge owner's appointed engineer retains responsibility for the governing code, foundations, site actions, and final stamped design.",
+        "A quote-ready concept includes the site survey, clear span and width, load criteria, allowable structural depth, bearing and abutment interfaces, deck and parapet requirements, transport envelope, and proposed lift sequence. Request a pultruded member schedule, deck and handrail package, calculation scope, and fabrication drawings as explicit quotation deliverables; the bridge owner's appointed engineer retains responsibility for the governing code, foundations, site actions, and final stamped design.",
       ],
     },
   },
