@@ -1,3 +1,4 @@
+import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
 import Link from "next/link";
 import { commercialFacts, engineeringEvidence } from "@/content/data/engineeringEvidence";
 import { buildRfqHref } from "@/lib/rfq";
@@ -11,6 +12,8 @@ const journeys = {
 };
 
 export default function ProductNextSteps({ path }: { path: string }) {
+  if (path === "/products/molded-frp-grating") return <GratingBuyingGuide family="molded" />;
+  if (path === "/products/frp-gratings") return <GratingBuyingGuide family="pultruded" />;
   const journey = /window-frames/.test(path) ? journeys.windows : /wind-turbine/.test(path) ? journeys.wind : /custom-pultruded/.test(path) ? journeys.custom : /structural-shapes|grating|stair-treads|handrail|ladder|deck-panels/.test(path) ? journeys.structural : journeys.specialty;
   const document = engineeringEvidence.find((entry) => entry.id === journey.evidence);
   return (

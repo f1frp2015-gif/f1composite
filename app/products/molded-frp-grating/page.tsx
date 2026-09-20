@@ -4,7 +4,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AskAICard from "@/components/ai/AskAICard";
-import PageHeader from "@/components/layout/PageHeader";
+import GratingHero from "@/components/sections/GratingHero";
+import GratingQuickSpecifications from "@/components/sections/GratingQuickSpecifications";
+import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
+import { gratingInquiryHref, moldedGratingSelection } from "@/lib/gratingInquiry";
+import { approximateInches } from "@/lib/productInquiry";
 import GratingClipGuide from "@/components/sections/GratingClipGuide";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -25,7 +29,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-08-29";
-const updatedAt = "2026-09-08";
+const updatedAt = "2026-09-20";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -50,7 +54,7 @@ const moldedAdvantages = [
   {
     label: "Catalog glass content",
     value: "30–35% by total weight",
-    detail: "The supplied manual describes interlaced glass roving thermally cured in a resin-filled mold.",
+    detail: "Interlaced glass roving is thermally cured in a resin-filled mold.",
   },
   {
     label: "Walking surfaces",
@@ -73,7 +77,7 @@ const faqItems = [
   {
     question: "Are the panel sizes and weights on this page certified design values?",
     answer:
-      "They are nominal production-catalog values transcribed from the supplied molded-grating manual. Use them for product selection and logistics planning. The F1 quotation, approved panel-layout drawing and order-specific certified datasheet control final dimensions, tolerances, resin, surface, load capacity and delivered weight.",
+      "They are nominal product-selection values. Use them for product selection and logistics planning. The F1 quotation, approved panel-layout drawing and order-specific certified datasheet control final dimensions, tolerances, resin, surface, load capacity and delivered weight.",
   },
   {
     question: "Can molded fiberglass grating be cut around pipes and equipment?",
@@ -93,7 +97,7 @@ const faqItems = [
   {
     question: "When should I choose pultruded instead of molded grating?",
     answer:
-      "Choose pultruded FRP grating when the design is governed by longer one-way spans, higher stiffness in the bearing-bar direction, dedicated I-bar or T-bar series, or structural deck-panel options. Use the separate pultruded FRP grating page so its bearing-bar data and M/J/T clips are not mixed with molded mesh specifications.",
+      "Choose pultruded FRP grating when the design is governed by longer one-way spans, higher stiffness in the bearing-bar direction, dedicated I-bar or T-bar series, or higher open-area configurations. Use the separate pultruded FRP grating page so its bearing-bar data and M/J/T clips are not mixed with molded mesh specifications.",
   },
 ];
 
@@ -130,40 +134,18 @@ export default function MoldedFrpGratingPage() {
         })}
       />
 
-      <PageHeader
-        tag="Molded Grating · F1-GRID-M"
-        title="Molded FRP Grating Manufacturer — Square Mesh, Mini Mesh & 316SS Clips"
-        description="Molded fiberglass grating in square mesh, mini mesh and rectangular mesh configurations — with manual-verified panel sizes, nominal weights, open area and matched M/C/J installation clips."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
-          { label: "Molded FRP Grating" },
-        ]}
-      />
+      <GratingHero family="molded" title="Molded FRP Grating — Square & Mini Mesh"
+        description="Compare molded fiberglass grating by mesh, depth, panel size and surface. Select a configuration for your project quotation, with matched M/C/J stainless-steel clips."
+        image={moldedGratingManualImageAssets.closeup} imageAlt="Green molded fiberglass square mesh with a gritted surface"
+        caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."
+        facts={[{ label: "Depth range", value: "13–65 mm" }, { label: "Listed configurations", value: "26 mesh/depth rows" }, { label: "Load direction", value: "Two-way mesh" }, { label: "Fixing hardware", value: "M/C/J · 316SS" }]} />
+      <GratingQuickSpecifications family="molded" />
 
       <MaterialTerminologyNote title="Molded FRP or moulded GRP grating?">
         Both names describe the glass-reinforced molded panels on this page; “moulded” is the British spelling. Choose mesh opening, panel depth, surface and resin for your application. Pultruded bearing-bar grating is a different construction with its own load tables.
       </MaterialTerminologyNote>
 
-      <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
-          <figure>
-            <div className="relative aspect-[83/54] w-full overflow-hidden rounded-[8px] bg-bg2">
-              <Image
-                src={moldedGratingManualImageAssets.hero}
-                alt="Molded FRP grating installed as a corrosion-resistant coastal observation walkway"
-                fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover"
-                preload
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Molded open-mesh grating used as an outdoor walking surface. Image isolated from the supplied product manual without catalog branding.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+
 
       <section className="bg-white py-[55px] md:py-[89px]">
         <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.05fr_0.95fr] lg:px-[34px]">
@@ -176,7 +158,7 @@ export default function MoldedFrpGratingPage() {
               Molded fiberglass grating is cured as one panel with glass reinforcement running in both directions. It is the F1-GRID choice when the layout contains frequent penetrations, loads can approach from more than one direction, or the project needs resin-rich corrosion performance with a wide choice of square and mini meshes.
             </p>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
-              The supplied manual describes interlaced glass roving in a polyester-resin mold, thermally cured to a finished panel with 30–35% glass content by total weight. Its fire-retardant formulation is described as ASTM E84 Class 1 with a flame-spread index of 25 or less. Those are catalog construction references; the resin, fire report and batch documentation named in the F1 order govern the delivered product.
+              Interlaced glass roving is thermally cured in a resin-filled mold. The listed construction has 30–35% glass content by total weight. For fire-retardant options, request the report for the proposed resin and panel configuration; confirm the required fire classification and test scope before ordering.
             </p>
           </div>
 
@@ -209,12 +191,12 @@ export default function MoldedFrpGratingPage() {
 
       <section id="molded-grating-specifications" className="bg-bg2 py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
-          <SectionTag>Manual-Verified Specifications</SectionTag>
+          <SectionTag>Molded Panel Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Molded grating mesh, depth, panel size, weight and open area
           </h2>
           <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
-            The matrix below transcribes the principal square-mesh and mini-mesh production rows from the supplied molded-grating manual. Dimensions are millimeters; weight is nominal kg/m². Use these values to shortlist tooling, then obtain the F1 quotation, certified datasheet and approved panel-layout drawing for the project release.
+            Compare all 26 square-mesh and mini-mesh configurations below. Dimensions are millimeters; weight is nominal kg/m². Approximate inch depths are for reference. Choose a row to prefill your quotation request, then confirm final dimensions, tolerances and load data for the project.
           </p>
 
           <div className="mt-[34px] space-y-[13px]">
@@ -234,25 +216,28 @@ export default function MoldedFrpGratingPage() {
                   </div>
                 </summary>
                 <div className="border-t border-border-default px-[13px] pb-[21px] sm:px-[34px] sm:pb-[34px]">
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto" role="region" aria-label="Molded specifications, scroll horizontally" tabIndex={0}>
                     <table className="w-full min-w-[820px] border-collapse text-left">
+                      <caption className="sr-only">Molded grating nominal selection specifications</caption>
                       <thead>
                         <tr className="border-b-2 border-border-default">
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bar top / bottom (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Standard panel sizes (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
-                          <th className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bar top / bottom (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Standard panel sizes (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
+                          <th scope="col" className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
+                          <th scope="col" className="py-[13px] pl-[16px] text-f12 font-bold text-t1">Quotation</th>
                         </tr>
                       </thead>
                       <tbody>
                         {group.rows.map((row) => (
                           <tr key={`${group.mesh}-${row.depth}-${row.barThickness}`} className="border-b border-border-default last:border-b-0">
-                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}<span className="block whitespace-nowrap text-f11 font-normal text-t3">≈ {approximateInches(parseFloat(row.depth))} in</span></td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.barThickness}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.panelSizes}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.weight}</td>
                             <td className="py-[11px] text-f14 text-t2">{row.openArea}</td>
+                            <td className="py-[11px] pl-[16px]"><Link href={gratingInquiryHref("molded", moldedGratingSelection(group.mesh, row), "grating-spec-row")} className="relative inline-flex min-h-[44px] items-center whitespace-nowrap text-f13 font-bold text-teal-text underline underline-offset-4">Quote this spec<span className="sr-only">: { group.mesh + ", " + row.depth + " mm, bar " + row.barThickness }</span></Link></td>
                           </tr>
                         ))}
                       </tbody>
@@ -266,7 +251,7 @@ export default function MoldedFrpGratingPage() {
           <div className="mt-[34px] rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
             <h3 className="text-f17 font-bold text-t1">Additional catalog mesh families</h3>
             <p className="mt-[8px] text-f13 leading-golden text-t2">
-              These additional molds appear in the supplied manual. Request the exact row and project load table before specifying.
+              Further mesh and depth options are listed below. Request the exact configuration and project load table before specifying.
             </p>
             <div className="mt-[16px] grid gap-[10px] sm:grid-cols-2 lg:grid-cols-3">
               {moldedAdditionalMeshFamilies.map((item) => (
@@ -303,10 +288,31 @@ export default function MoldedFrpGratingPage() {
                 />
               </div>
               <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                Hardware-family photograph isolated from the supplied manual without supplier marks.
+                Hardware-family reference. Match the clip assembly to panel geometry and support access.
               </figcaption>
             </figure>
           </div>
+        </div>
+      </section>
+
+      <GratingSelectionCriteria />
+
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <figure>
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-[8px] bg-bg2">
+              <Image
+                src={moldedGratingManualImageAssets.hero}
+                alt="Molded FRP grating installed as a corrosion-resistant coastal observation walkway"
+                fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+              Application reference: molded open-mesh grating as an outdoor walking surface. Final support and fixing details depend on the project.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -318,7 +324,7 @@ export default function MoldedFrpGratingPage() {
             <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal">Separate product family</p>
             <h2 className="mt-[8px] text-[clamp(22px,3vw,30px)] font-extrabold">Need longer one-way spans or I-bar / T-bar panels?</h2>
             <p className="mt-[8px] max-w-[760px] text-f14 leading-golden text-white/75">
-              Pultruded grating now has its own page, specification table and M/J/T clip selection so its bearing-bar data is not mixed with molded mesh.
+              Compare pultruded bearing-bar configurations, one-way span requirements and M/J/T fixing options.
             </p>
           </div>
           <Link
@@ -357,13 +363,15 @@ export default function MoldedFrpGratingPage() {
               { href: "#molded-grating-specifications", label: "Molded grating specification matrix" },
               { href: "#grating-clips", label: "M/C/J clips & 316SS hardware" },
               { href: "/technology/frp-vs-steel-gratings", label: "FRP grating vs steel" },
-              { href: "/resources/design-guides", label: "Grating design guides" },
+              { href: "#grating-engineering", label: "Grating downloads & project documents" },
             ],
           },
         ]}
       />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
+      <ProductNextSteps path="/products/molded-frp-grating" />
+
+      <section id="grating-faq" className="bg-white py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <FAQ items={faqItems} />
         </div>
@@ -373,8 +381,7 @@ export default function MoldedFrpGratingPage() {
         prefill="I need molded FRP grating for [application]. Mesh/depth [mm], panel quantity or layout [details], clear support spacing [mm], design load [kN/m² or point load], resin/chemical exposure [details], surface [concave/fine grit/coarse grit], support flange and underside access [details]. Please confirm the catalog row, M/C/J 316SS clips, panel layout and required approval documents."
       />
 
-      <ProductNextSteps path="/products/molded-frp-grating" />
-      <InnerCTA title="Need molded FRP grating panels and matched 316SS clip kits?" />
+      <InnerCTA quoteHref={gratingInquiryHref("molded", undefined, "grating-footer")} title="Need molded FRP grating panels and matched 316SS clip kits?" />
     </>
   );
 }

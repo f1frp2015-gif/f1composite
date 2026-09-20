@@ -28,9 +28,9 @@ export const seoQueryTargets = [
     supportingUrls: ["/products/frp-window-frames", "/resources/frp-windows-guide", "/industries/construction"],
   },
   {
-    targetUrl: "/products/grating", primaryQuery: "molded vs pultruded FRP grating", intent: "commercial",
-    title: "FRP Grating: Molded vs Pultruded | F1 Composite",
-    description: "Compare molded and pultruded FRP grating by construction, span direction, mesh, surface and resin. Find fiberglass grating specifications and quotation inputs.",
+    targetUrl: "/products/grating", primaryQuery: "fiberglass grating", intent: "commercial",
+    title: "Fiberglass Grating & FRP Grating Panels | F1 Composite",
+    description: "Compare molded and pultruded fiberglass grating panels, mesh sizes, surfaces and fixing clips. Download specifications and request a project quote.",
     supportingUrls: ["/products/frp-gratings", "/products/molded-frp-grating", "/products/frp-stair-treads"],
   },
   {

@@ -60,15 +60,15 @@ test("molded, pultruded and deck products have separate static routes", async ()
     readFile(files.redirects, "utf8"),
   ]);
 
-  assert.match(pultruded, /Pultruded FRP Grating Manufacturer/);
-  assert.match(pultruded, /T-Bar, I-Bar & High-Load Series/);
+  assert.match(pultruded, /Pultruded FRP Grating — T-Bar & I-Bar/);
+  assert.match(pultruded, /High-Load & Cooling-Tower Series/);
   assert.doesNotMatch(pultruded, /moldedGratingSpecGroups/);
   assert.doesNotMatch(pultruded, /frp-structural-deck-panel-hero/);
   assert.doesNotMatch(pultruded, /Pultruded Cover & Deck Panels/);
 
-  assert.match(molded, /Molded FRP Grating Manufacturer/);
+  assert.match(molded, /Molded FRP Grating — Square & Mini Mesh/);
   assert.match(molded, /moldedGratingSpecGroups/);
-  assert.match(molded, /manual-verified panel sizes/i);
+  assert.match(molded, /Compare all 26 square-mesh and mini-mesh configurations/i);
   assert.match(moldedOg, /Molded FRP Grating/);
 
   assert.match(deck, /Structural FRP Deck Panels/);
