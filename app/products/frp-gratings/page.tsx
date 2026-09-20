@@ -4,7 +4,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AskAICard from "@/components/ai/AskAICard";
-import PageHeader from "@/components/layout/PageHeader";
+import GratingHero from "@/components/sections/GratingHero";
+import GratingQuickSpecifications from "@/components/sections/GratingQuickSpecifications";
+import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
+import { gratingInquiryHref, pultrudedGratingSelection } from "@/lib/gratingInquiry";
+import { approximateInches } from "@/lib/productInquiry";
 import GratingClipGuide from "@/components/sections/GratingClipGuide";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -24,7 +28,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-08-31";
+const updatedAt = "2026-09-20";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -52,7 +56,7 @@ const pultrudedConfigurations = [
       "Pultruded I-shaped bearing bars concentrate continuous glass reinforcement in the span direction. Select the series from support spacing, deflection limit, open area and project load case.",
     specs: [
       { label: "Bearing-bar form", value: "Pultruded I-bar" },
-      { label: "Catalog depths", value: "25, 38 and 50 mm listed below" },
+      { label: "Catalog depths", value: "25, 30 and 38 mm listed below" },
       { label: "Typical uses", value: "Industrial access, chemical plants, offshore walkways, cooling towers" },
     ],
   },
@@ -79,7 +83,7 @@ const selectionChecks = [
   },
   {
     title: "Choose the walking surface",
-    body: "Match open area and slot direction to drainage, airflow, accessibility and dropped-object requirements; then specify concave, fine-grit or coarse-grit top treatment.",
+    body: "Match open area and slot direction to drainage, airflow, accessibility and dropped-object requirements; then confirm a profiled surface or a fine-grit or coarse-grit treatment for the selected series.",
   },
   {
     title: "Issue the clip layout",
@@ -89,9 +93,9 @@ const selectionChecks = [
 
 const antiSlipGrades = [
   {
-    grade: "Standard Concave",
+    grade: "Profiled Surface",
     description:
-      "An uncoated pultruded walking surface for dry indoor and light-duty access where the project does not require an added grit layer.",
+      "Confirm the bearing-bar surface profile and whether added grit is required for the selected series. Specify the slip-test method and service conditions; a profiled finish is different from a molded concave surface.",
   },
   {
     grade: "Fine Grit",
@@ -178,35 +182,18 @@ export default function PultrudedGratingsPage() {
         })}
       />
 
-      <PageHeader
-        tag="Pultruded Grating · F1-GRID-P"
-        title="Pultruded FRP Grating Manufacturer — T-Bar, I-Bar & High-Load Series"
-        description="Open pultruded fiberglass grating with one-way T-bar and I-bar bearing systems, manual-verified pedestrian, industrial, high-load and high-open series, plus matched M/J/T 316SS clips."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
-          { label: "Pultruded FRP Grating" },
-        ]}
-      />
+      <GratingHero family="pultruded" title="Pultruded FRP Grating — T-Bar & I-Bar"
+        description="Select pultruded fiberglass grating for one-way spans, industrial platforms and walkways. Compare 36 T-bar, I-bar and specialty configurations with matched M/J/T clips."
+        image={pultrudedGratingManualImages.closeup} imageAlt="Yellow pultruded fiberglass bearing bars and transverse cross-rods"
+        caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."
+        facts={[{ label: "Depth range", value: "25–76 mm" }, { label: "Listed configurations", value: "36 bearing-bar rows" }, { label: "Load direction", value: "Along bearing bars" }, { label: "Fixing hardware", value: "M/J/T · 316SS" }]} />
+      <GratingQuickSpecifications family="pultruded" />
 
       <MaterialTerminologyNote title="Specifying pultruded GRP grating?">
         These glass-reinforced FRP panels are also known as pultruded GRP grating. Continuous bearing bars carry load in one direction; specify bar depth, clear span, load and resin. For a bidirectional mesh panel, see the separate molded grating range.
       </MaterialTerminologyNote>
 
-      <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px] bg-bg2">
-            <Image
-              src={pultrudedGratingManualImages.hero}
-              alt="Open pultruded FRP grating installed as a rooftop walking surface"
-              fill
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="object-cover"
-              preload
-            />
-          </div>
-        </div>
-      </section>
+
 
       <section className="bg-white py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
@@ -256,7 +243,7 @@ export default function PultrudedGratingsPage() {
               />
             </div>
             <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Manual-derived pultruded grating close-up. The photograph shows bar and cross-rod construction but does not establish a specific series, resin or slip rating.
+              Pultruded grating construction detail. The photograph shows bar and cross-rod construction but does not establish a specific series, resin or slip rating.
             </figcaption>
           </figure>
         </div>
@@ -290,7 +277,7 @@ export default function PultrudedGratingsPage() {
           <SectionTag>Pultruded Series Data</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Common I-bar and T-bar production configurations</h2>
           <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
-            The 36 rows below are transcribed from the manual overview table. They are nominal catalog data for series selection, not certified order values. Detailed cards in the same manual contain internal conflicts, so the F1 quotation, approved drawing and order-specific datasheet control.
+            Compare all 36 bearing-bar configurations below. Dimensions are millimeters; weight is nominal kg/m². Approximate inch depths are for reference. Choose a row to prefill your quotation request. Confirm resin, dimensions, tolerances and project load/deflection data before release.
           </p>
           <div className="mt-[34px] space-y-[13px]">
             {pultrudedGratingSpecGroups.map((group, index) => (
@@ -305,27 +292,30 @@ export default function PultrudedGratingsPage() {
                   </div>
                 </summary>
                 <div className="border-t border-border-default px-[13px] pb-[21px] sm:px-[34px] sm:pb-[34px]">
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto" role="region" aria-label="Pultruded specifications, scroll horizontally" tabIndex={0}>
                     <table className="w-full min-w-[760px] border-collapse text-left">
+                      <caption className="sr-only">Pultruded grating nominal selection specifications</caption>
                       <thead>
                         <tr className="border-b-2 border-border-default">
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Type</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bearing-bar center (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Cross-bar center (mm)</th>
-                          <th className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
-                          <th className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Type</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bearing-bar center (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Cross-bar center (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
+                          <th scope="col" className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
+                          <th scope="col" className="py-[13px] pl-[16px] text-f12 font-bold text-t1">Quotation</th>
                         </tr>
                       </thead>
                       <tbody>
                         {group.rows.map((row) => (
                           <tr key={row.type} className="border-b border-border-default last:border-b-0">
                             <td className="py-[11px] pr-[21px] text-f14 font-semibold text-t1">{row.type}</td>
-                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}</td>
+                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}<span className="block whitespace-nowrap text-f11 font-normal text-t3">≈ {approximateInches(parseFloat(row.depth))} in</span></td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.bearingBarCenter}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.crossBarCenter}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.openArea}</td>
                             <td className="py-[11px] text-f14 text-t2">{row.weight}</td>
+                            <td className="py-[11px] pl-[16px]"><Link href={gratingInquiryHref("pultruded", pultrudedGratingSelection(row), "grating-spec-row")} className="relative inline-flex min-h-[44px] items-center whitespace-nowrap text-f13 font-bold text-teal-text underline underline-offset-4">Quote this spec<span className="sr-only">: { row.type }</span></Link></td>
                           </tr>
                         ))}
                       </tbody>
@@ -357,12 +347,28 @@ export default function PultrudedGratingsPage() {
         </div>
       </section>
 
+      <GratingSelectionCriteria />
+
+      <section className="bg-white pt-[55px]">
+        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px] bg-bg2">
+            <Image
+              src={pultrudedGratingManualImages.hero}
+              alt="Open pultruded FRP grating installed as a rooftop walking surface"
+              fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       <GratingClipGuide family="pultruded" />
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Walking Surface Options</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Concave, fine-grit and coarse-grit pultruded surfaces</h2>
+          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Profiled, fine-grit and coarse-grit pultruded surfaces</h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {antiSlipGrades.map((grade) => (
               <article key={grade.grade} className="rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
@@ -393,19 +399,19 @@ export default function PultrudedGratingsPage() {
           { href: "#pultruded-grating-specifications", label: "Pultruded I-bar & T-bar specifications" },
           { href: "#grating-clips", label: "M/J/T clips & 316SS hardware" },
           { href: "/technology/frp-vs-steel-gratings", label: "FRP grating vs steel" },
-          { href: "/resources/design-guides", label: "Grating design guides" },
-          { href: "/resources/technical-data", label: "Load tables & technical data" },
+          { href: "#grating-engineering", label: "Grating downloads & project documents" },
         ]},
       ]} />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
+      <ProductNextSteps path="/products/frp-gratings" />
+
+      <section id="grating-faq" className="bg-white py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]"><FAQ items={faqItems} /></div>
       </section>
 
       <AskAICard prefill="I need pultruded FRP grating for [application]. Candidate I-bar/T-bar series [or unsure], clear span [mm], support width [mm], uniform and point loads [details], deflection limit [L/...], opening/accessibility requirement [details], resin/chemical exposure [details], support flange and underside access [details]. Please select the panel series, M/J/T 316SS clips and required load-table/approval documents." />
 
-      <ProductNextSteps path="/products/frp-gratings" />
-      <InnerCTA title="Need pultruded I-bar or T-bar grating with matched 316SS clip kits?" />
+      <InnerCTA quoteHref={gratingInquiryHref("pultruded", undefined, "grating-footer")} title="Need pultruded I-bar or T-bar grating with matched 316SS clip kits?" />
     </>
   );
 }

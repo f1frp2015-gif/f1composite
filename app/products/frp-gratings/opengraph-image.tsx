@@ -8,7 +8,7 @@ export default function OpenGraphImage() {
     eyebrow: "Pultruded FRP Grating",
     title: "T-Bar, I-Bar & High-Load Grating",
     description:
-      "Open one-way bearing-bar systems with manual-derived series tables and matched M/J/T 316SS clip kits.",
+      "Open one-way bearing-bar systems with bearing-bar selection tables and matched M/J/T 316SS clip kits.",
     accent: "#0d7f79",
     chips: ["I-bar & T-bar", "One-way spans", "M/J/T clips"],
   });
