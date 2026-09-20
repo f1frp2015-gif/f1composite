@@ -36,8 +36,8 @@ export const pultrudedGratingSpecGroups: readonly PultrudedGratingSpecGroup[] = 
     ],
   },
   {
-    name: "Industrial I-bar series",
-    description: "Pultruded I bearing bars for one-way industrial platform spans.",
+    name: "Industrial I-bar & T-bar series",
+    description: "I-bar configurations and deeper T-bar options for one-way industrial platform spans.",
     rows: [
       { type: "I-4010", depth: "25", bearingBarCenter: "25.4", crossBarCenter: CROSS_BAR_CENTER, openArea: "40%", weight: "17.1" },
       { type: "I-5010", depth: "25", bearingBarCenter: "30.0", crossBarCenter: CROSS_BAR_CENTER, openArea: "50%", weight: "14.2" },

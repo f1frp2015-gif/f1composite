@@ -31,3 +31,9 @@ Validated on 2026-09-20:
 - Browser: all three pages have a single H1, working section targets, and no document overflow at 390 px. Detail pages render all 26/36 rows. Molded 13 mm and pultruded T-1210 row clicks populate the correct product, exact specification and message in the contact form. No inquiry was submitted.
 - Full-site image audit: new image has no missing references or implementation issues. The pre-existing fiberglass-door-thresholds/page.tsx eager-image warning fails the broad image test (confirmed present in HEAD). This unrelated page is unchanged.
 - Engineering load/test documents remain request-based; publishing project-specific values requires actual matching documents.
+
+## Supplier manual cross-check
+
+The user subsequently provided the supplier PDF for a second check. All 26 molded rows match its printed pages 10–11, and all 36 pultruded rows match its page 17 overview. Several detail cards contradict that overview; no numerical value was replaced from those cards. The existing I-bar overview was corrected to 25/30/38 mm, while its mixed industrial group is now explicitly labeled I-bar & T-bar. Pultruded concave wording was corrected to a confirmed profile/grit selection, distinct from molded concave finishes.
+
+The PDF alone does not establish F1's 316SS material, T-clip offering, fastening spacings or polyurethane grating availability. These pre-existing F1-specific specifications were not silently replaced with the supplier's different catalogue. Load appendices require source clarification before publication because their applicability and several cells are inconsistent.

@@ -56,7 +56,7 @@ const pultrudedConfigurations = [
       "Pultruded I-shaped bearing bars concentrate continuous glass reinforcement in the span direction. Select the series from support spacing, deflection limit, open area and project load case.",
     specs: [
       { label: "Bearing-bar form", value: "Pultruded I-bar" },
-      { label: "Catalog depths", value: "25, 38 and 50 mm listed below" },
+      { label: "Catalog depths", value: "25, 30 and 38 mm listed below" },
       { label: "Typical uses", value: "Industrial access, chemical plants, offshore walkways, cooling towers" },
     ],
   },
@@ -83,7 +83,7 @@ const selectionChecks = [
   },
   {
     title: "Choose the walking surface",
-    body: "Match open area and slot direction to drainage, airflow, accessibility and dropped-object requirements; then specify concave, fine-grit or coarse-grit top treatment.",
+    body: "Match open area and slot direction to drainage, airflow, accessibility and dropped-object requirements; then confirm a profiled surface or a fine-grit or coarse-grit treatment for the selected series.",
   },
   {
     title: "Issue the clip layout",
@@ -93,9 +93,9 @@ const selectionChecks = [
 
 const antiSlipGrades = [
   {
-    grade: "Standard Concave",
+    grade: "Profiled Surface",
     description:
-      "An uncoated pultruded walking surface for dry indoor and light-duty access where the project does not require an added grit layer.",
+      "Confirm the bearing-bar surface profile and whether added grit is required for the selected series. Specify the slip-test method and service conditions; a profiled finish is different from a molded concave surface.",
   },
   {
     grade: "Fine Grit",
@@ -368,7 +368,7 @@ export default function PultrudedGratingsPage() {
       <section className="bg-bg2 py-[55px] md:py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Walking Surface Options</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Concave, fine-grit and coarse-grit pultruded surfaces</h2>
+          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Profiled, fine-grit and coarse-grit pultruded surfaces</h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {antiSlipGrades.map((grade) => (
               <article key={grade.grade} className="rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
