@@ -9,7 +9,7 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 
 const description =
-  "Explore FRP profile applications in platforms, bridges, cooling towers, cable supports, solar and facades, with product links and specification guidance.";
+  "Explore FRP applications in agriculture, plant support, platforms, bridges, cooling towers, cable supports and solar, with product and selection guidance.";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profile Applications | Components & Selection",
   description,
@@ -27,7 +27,7 @@ export default function ApplicationsPage() {
       <PageHeader
         tag="Industries & Applications"
         title="Find FRP profiles by application"
-        description="Start with the part you need to build: a support frame, a walking surface, a cable support or an architectural component. Each application connects the use case to profiles, grating and the inputs needed for selection."
+        description="Start with the task: supporting a crop, building a platform, carrying cables or assembling a structure. Each application connects the use case to F1 products and the inputs needed for selection."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications" }]}
       />
       <section className="bg-white py-[48px]">

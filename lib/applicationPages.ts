@@ -23,6 +23,28 @@ export interface ApplicationPage {
 
 export const applicationPages: ApplicationPage[] = [
   {
+    slug: "agriculture-horticulture-stakes",
+    lastModified: "2026-09-21",
+    title: "Fiberglass Stakes for Agriculture & Horticulture",
+    shortTitle: "Agriculture & horticulture stakes",
+    description: "Plan fiberglass stakes for nurseries, vineyards, orchards and crops. Compare configurations, qualify samples and prepare a bulk planting stake enquiry.",
+    h1: "Fiberglass stakes for agriculture & horticulture",
+    intro: "Plan plant support for nurseries, vineyards, young orchards and growing programs. Match F1 fiberglass stakes to your crop, field conditions and planting schedule—from initial selection to sample approval and bulk supply.",
+    environment: "Nurseries, vineyards, young orchards, vegetable and flower production, and compatible tree-shelter programs.",
+    image: "/images/products/fiberglass-stakes/frp-stakes-vineyard-training.webp",
+    imageAlt: "Application visualization of fiberglass stakes for young vine training",
+    imageSize: { width: 1536, height: 1024 },
+    imageCaption: "Application visualization, not a documented F1 installation. Confirm stake geometry and attachments for the project.",
+    recommendedProfiles: ["Solid round pultruded fiberglass stakes with agreed diameter, cut length, surface and end treatment"],
+    resinSystem: "Confirm resin, UV package and finish against actual outdoor, irrigation and chemical exposure.",
+    standards: [],
+    designChecks: [
+      { title: "Plant and support assembly", body: "Review exposed height, stiffness, soil, embedment and tie or shelter interface before choosing the rod." },
+    ],
+    rfqInputs: ["Crop and growth stage", "Dimensions, soil, wind and attachments", "Quantity, destination and planting date"],
+    related: [{ href: "/products/fiberglass-stakes", label: "Fiberglass stakes" }],
+  },
+  {
     slug: "frp-cable-tray-supports",
     lastModified: "2026-09-21",
     title: "FRP Cable Trays & Cable Ladders | Selection Guide",

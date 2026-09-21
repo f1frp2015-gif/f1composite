@@ -1,4 +1,4 @@
-import { publicSurface } from "./load-project-module.mjs";
+import { loadProjectModule, publicSurface } from "./load-project-module.mjs";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -59,7 +59,16 @@ test("fiberglass stakes route is discoverable across every buyer and AI surface"
     ].map(read),
   );
 
-  for (const source of sources) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  // Navigation now points to hubs; the product hub renders the shared taxonomy.
+  // Check the real crawlable path instead of requiring inline leaf URLs.
+  const { mainNav } = loadProjectModule("content/data/navigation.ts");
+  const { applicationGroups } = loadProjectModule("content/data/productTaxonomy.ts");
+  assert.ok(mainNav.some((item) => item.href === "/products/product-lines"));
+  assert.ok(applicationGroups.some((group) => group.links.some((link) => link.href === route)));
+  assert.match(sources[5], /applicationGroups\.map/);
+  for (const [index, source] of sources.entries()) {
+    if (index !== 0 && index !== 5) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
+  }
   assert.match(sources[2], /primaryQuery: "fiberglass stakes manufacturer"/);
   assert.match(sources[6], /Public wholesale planning band only/);
   assert.match(sources[7], /Never present that band as certified F1 stock or design data/);
