@@ -22,12 +22,12 @@ async function fileExists(filePath) {
   }
 }
 
-test("primary navigation distinguishes five product families from industry and use", async () => {
+test("primary navigation distinguishes six product families from industry and use", async () => {
   const { mainNav, pultrudedOverviewLink } = await loadTestData("content/data/navigation.ts");
   assert.equal(pultrudedOverviewLink.href, "/pultruded-frp-profiles");
   assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries & Applications", "Engineering", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating", "FRP Rebar"]);
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating", "FRP Rebar", "Fasteners & Fittings"]);
   const productLinks = mainNav[0].sections.flatMap(section => section.links.map(link => link.href));
   for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
   for (const route of ["/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);

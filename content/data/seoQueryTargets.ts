@@ -214,14 +214,23 @@ export const seoQueryTargets = [
     supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines"],
   },
   {
+    targetUrl: "/products/frp-fasteners-fittings",
+    primaryQuery: "FRP fasteners and fittings",
+    intent: "commercial",
+    title: "FRP Fasteners & Fittings | Threaded Rods, Nuts & Washers",
+    description: "Explore fiberglass threaded rods, nuts, washers and molded fittings. Compare UNC and metric sizes and request matched components for your FRP assembly.",
+    supportingUrls: ["/products/product-lines", "/products/frp-handrail-systems", "/products/frp-gratings", "/products/molded-frp-grating"],
+  },
+  {
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",
-    title: "FRP Products: Profiles, Windows, Grating & Rebar",
+    title: "FRP Products: Profiles, Grating, Rebar & Fasteners",
     description:
-      "Browse standard and custom FRP profiles, window and door products, molded and pultruded grating, and GFRP rebar for concrete reinforcement.",
+      "Browse standard and custom FRP profiles, windows and doors, grating, GFRP rebar, and fiberglass fasteners and fittings for project supply.",
     supportingUrls: [
       "/pultruded-frp-profiles",
+      "/products/frp-fasteners-fittings",
       "/products/frp-gratings",
       "/products/frp-deck-panels",
       "/products/molded-frp-grating",

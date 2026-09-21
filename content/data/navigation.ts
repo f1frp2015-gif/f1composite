@@ -82,6 +82,12 @@ export const mainNav = [
           { label: "Build a Rebar Schedule", href: "/products/frp-rebar#request-quote" },
         ],
       },
+      {
+        id: "fasteners", label: "Fasteners & Fittings",
+        links: [
+          { label: "Fasteners & Fittings Range", href: "/products/frp-fasteners-fittings" },
+        ],
+      },
     ],
   },
   {
