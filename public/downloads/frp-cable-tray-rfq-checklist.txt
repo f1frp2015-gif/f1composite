@@ -1,0 +1,53 @@
+F1 COMPOSITE — FRP CABLE TRAY & CABLE LADDER RFQ CHECKLIST
+Application guide: https://www.f1composite.com/applications/frp-cable-tray-supports
+Contact: https://www.f1composite.com/contact
+Revision: 2026-09-21
+
+Start with your name and email. Drawings and technical details can follow.
+
+1. CONTACT
+Name:
+Email:
+Company / project:
+
+2. SUPPLY SCOPE
+Raw profiles / cut-and-drilled parts / fabricated supports / complete tray system:
+Engineering and installation responsibilities:
+
+3. ROUTE AND CABLES
+Tray type (ladder / ventilated / solid bottom / covered / trunking):
+Usable width and loading depth / ladder rail depth:
+Tray: solid or ventilated base, opening pattern, base and wall thickness:
+Ladder: rung spacing, rung profile and cable restraint requirements:
+Straight-section length (separate from support span):
+Route length and drawing reference:
+Cable schedule, mass per metre and future allowance:
+Minimum cable bend radius:
+Bends, tees, crosses, reducers and risers:
+Dividers, covers, cover clamps and cable cleats:
+
+4. SUPPORTS AND LOADS
+Support spacing and end-span arrangement:
+Wall / suspended / floor-mounted supports:
+Bracket projection and supporting structure:
+Point loads, installation loads and site actions:
+Deflection requirements:
+Anchor, hole pattern and hardware requirements:
+
+5. ENVIRONMENT AND ACCEPTANCE
+Chemicals, concentration and exposure mode:
+Operating temperature range:
+UV / coastal / washdown / other exposure:
+Governing standards and editions:
+Required fire, smoke and toxicity evidence:
+Electrical bonding, segregation and short-circuit requirements:
+System load test, certification and inspection documents required:
+
+6. DELIVERY
+Quantity:
+Destination:
+Required date:
+Transport length limits, kit marking and packing:
+
+Confirm the offered scope, configuration and supporting documents in the quotation.
+This checklist is an enquiry aid, not a design approval or a system certification.

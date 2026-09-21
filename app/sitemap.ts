@@ -2,6 +2,7 @@ import { evidenceRevision } from "@/content/data/engineeringEvidence";
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
+import { performanceReviewed } from "@/content/data/pultrudedPerformance";
 
 const BASE = "https://www.f1composite.com";
 
@@ -30,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // date is less useful than no date and quickly becomes inaccurate.
   return [
     { url: BASE, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${BASE}/technology/pultruded-profile-performance`, lastModified: performanceReviewed, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/pultruded-frp-profiles`, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/what-is-frp`, lastModified: "2026-09-14", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/window-door-profiles`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },

@@ -77,6 +77,12 @@ export default function TechnicalDataPage() {
           <h2 className="mb-[8px] text-f24 font-bold text-t1">
             FRP technical data — E23 mechanical &amp; physical properties
           </h2>
+          <p className="mb-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+            For dimensions, thermal, electrical, fire and chemical requirements, use the{" "}
+            <Link href="/technology/pultruded-profile-performance" className="font-semibold text-teal-text underline">
+              pultruded profile performance and standards guide
+            </Link>.
+          </p>
           <p className="max-w-[900px] text-f15 leading-golden text-t2">
             The same laminate values printed on every product datasheet (E-glass /
             isophthalic polyester, EN 13706 Grade E23), shown against the EN 13706-3

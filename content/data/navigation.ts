@@ -99,7 +99,7 @@ export const mainNav = [
         id: "by-application",
         label: "By application",
         links: [
-          { label: "Cable Tray Supports", href: "/applications/frp-cable-tray-supports" },
+          { label: "Cable Trays & Ladders", href: "/applications/frp-cable-tray-supports" },
           { label: "Cooling Tower Profiles", href: "/applications/frp-cooling-tower-profiles" },
           { label: "Bridge Deck Panels", href: "/applications/frp-bridge-deck-panels" },
           { label: "Chemical Plant Platforms", href: "/applications/frp-chemical-plant-platforms" },
@@ -141,6 +141,7 @@ export const mainNav = [
         label: "Technology & validation",
         links: [
           { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
+          { label: "Pultruded Profile Performance", href: "/technology/pultruded-profile-performance" },
           { label: "Pultrusion Resin Systems", href: "/technology/pultrusion-resin-systems" },
           { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
           { label: "Quality & Testing", href: "/technology/quality-testing" },

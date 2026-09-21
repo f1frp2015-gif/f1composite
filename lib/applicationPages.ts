@@ -24,19 +24,21 @@ export interface ApplicationPage {
 export const applicationPages: ApplicationPage[] = [
   {
     slug: "frp-cable-tray-supports",
-    lastModified: "2026-07-30",
-    title: "FRP Cable Tray Supports — Channels & Brackets",
-    shortTitle: "FRP cable tray supports",
+    lastModified: "2026-09-21",
+    title: "FRP Cable Trays & Cable Ladders | Selection Guide",
+    shortTitle: "FRP cable trays & ladders",
     description:
-      "FRP cable tray supports using pultruded channels, angles and brackets for substations, tunnels, wastewater plants and corrosive industrial cable routing.",
-    h1: "FRP cable tray supports for corrosive and electrical environments",
+      "Compare FRP cable trays and cable ladders for corrosive environments. Define tray bases, ladder rungs, resins, supports, fittings and project requirements.",
+    h1: "FRP cable trays & cable ladders",
     intro:
-      "F1 Composite supplies pultruded support systems for projects where steel tray frames create corrosion, grounding, or hot-work problems. Typical assemblies use fiberglass channels, angles, square tubes, and custom brackets — including strut-compatible sections — to carry ladder trays, perforated trays, and instrument runs.",
+      "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the enquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
-    image: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
+    image: "/images/applications/frp-cable-ladder-gray-product.webp",
     imageAlt:
-      "FRP cable tray supports and handrail profiles installed in a humid water-treatment facility",
+      "Illustration of a gray pultruded fiberglass cable ladder with channel side rails and transverse rungs",
+    imageSize: { width: 1536, height: 1024 },
+    imageCaption: "AI-generated product illustration informed by supplier references. Geometry and connections are illustrative; confirm the offered configuration in the quotation.",
     recommendedProfiles: [
       "Channel sections for tray stringers and wall-mounted supports",
       "Angles for cleats, ledgers, and bracing",
@@ -44,8 +46,8 @@ export const applicationPages: ApplicationPage[] = [
       "Custom pultruded brackets and fiberglass strut for repeat modular assemblies",
     ],
     resinSystem:
-      "Isophthalic polyester is the standard choice. Vinyl ester is recommended for acid splash, wastewater, saltwater, and aggressive chemical exposure. Fire-retardant resin systems are available when tunnels or transit infrastructure require tighter flame-spread limits.",
-    standards: ["EN 13706", "ASTM D3917", "ASTM E84", "ISO 9001:2015"],
+      "Evaluate isophthalic polyester or vinyl ester against the actual chemicals, concentrations, temperature and exposure duration. State fire, smoke and toxicity requirements separately and confirm evidence for the offered resin and system.",
+    standards: ["IEC 61537 · system scope", "UL 568 · nonmetallic trays", "EN 13706 · profiles"],
     designChecks: [
       {
         title: "Support spacing and serviceability",
@@ -74,14 +76,6 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/industries/energy", label: "Energy applications" },
       { href: "/case-studies/water-treatment-cable-tray", label: "Water-treatment cable tray case study" },
     ],
-    deepDive: {
-      heading: "Engineering FRP cable tray supports as a complete load path",
-      paragraphs: [
-        "An FRP cable tray support is more than a channel under a tray. The design load starts with installed cable mass and future fill allowance, moves through tray rungs and rails into the support channel, and then passes through a wall bracket, post, or trapeze frame into the building structure. Deflection often controls the FRP member before material strength does, while bearing at bolts and anchors can govern the connection. A useful quotation therefore states the tray type, route geometry, support spacing, cable load, attachment surface, and any maintenance point loads together.",
-        "Material selection follows the environment. Isophthalic polyester covers many outdoor and humid industrial routes; vinyl ester is the safer starting point where acid splash, chlorides, hydrogen sulfide, or wastewater chemistry is present. Tunnel and transit work may add project-specific flame, smoke, and toxicity criteria. Those requirements must be tied to the actual laminate offered, not inferred from a generic fiberglass datasheet.",
-        "For repeat routes, factory-cut and pre-drilled support kits reduce field decisions. F1 can supply channel, angle, square-tube posts, custom brackets, splice plates, and fastener schedules as one coordinated package. The engineering review checks member deflection, bracket action, hole geometry, and environmental compatibility before the cutting list is released, while the linked calculator provides a transparent preliminary screen for the channel member itself.",
-      ],
-    },
   },
   {
     slug: "frp-cooling-tower-profiles",
