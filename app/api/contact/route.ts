@@ -7,6 +7,7 @@ import { inquiryReceipt } from "@/lib/inquiryReceipt";
 
 import { MAX_ATTACHMENT_BYTES, ALLOWED_ATTACHMENT_EXTENSIONS, validateContactAttachment } from "@/lib/contactAttachment";
 import { parseWindowInquiry, mergeWindowContext, windowInquirySummary } from "@/lib/windowInquiry";
+import { parseRebarInquiry, rebarInquirySummary } from "@/lib/rebarInquiry";
 
 export const runtime = "nodejs";
 
@@ -61,7 +62,7 @@ export async function POST(request: NextRequest) {
   for (const [key, value] of formData.entries()) {
     if (typeof value === "string") textBytes += Buffer.byteLength(value, "utf8");
     if (typeof value !== "string" && key !== "attachment") return NextResponse.json({ message: "Unexpected file field." }, { status: 400 });
-    if (typeof value === "string" && value.length > (key === "context" || key === "window_inquiry" || key === "message" ? 20000 : 500)) return NextResponse.json({ message: "An inquiry field is too long." }, { status: 400 });
+    if (typeof value === "string" && value.length > (key === "context" || key === "window_inquiry" || key === "rebar_inquiry" || key === "message" ? 20000 : 500)) return NextResponse.json({ message: "An inquiry field is too long." }, { status: 400 });
   }
   if (textBytes > 64 * 1024) return NextResponse.json({ message: "Please shorten the inquiry text or attach a schedule." }, { status: 400 });
   if (formData.getAll("attachment").filter(value => value instanceof File && value.size > 0).length > 1) return NextResponse.json({ message: "Please attach one file or a single ZIP bundle." }, { status: 400 });
@@ -75,11 +76,19 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json({ message: error instanceof SyntaxError ? "Invalid window inquiry data." : error instanceof Error ? error.message : "Please review your window requirements." }, { status: 400 });
   }
+  let rebarInquiry;
+  try {
+    const raw = text("rebar_inquiry");
+    rebarInquiry = parseRebarInquiry(raw ? JSON.parse(raw) : null);
+    if (rebarInquiry) context = { ...(context && typeof context === "object" && !Array.isArray(context) ? context : { inheritedContext: context }), rebarInquiry };
+  } catch (error) {
+    return NextResponse.json({ message: error instanceof SyntaxError ? "Invalid rebar inquiry data." : error instanceof Error ? error.message : "Please review your rebar requirements." }, { status: 400 });
+  }
   const name = text("name");
   const email = text("email");
   const country = text("country");
   const inquiryType = text("inquiry_type")?.trim() || "rfq";
-  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(part => part?.trim()).join("\n\n") || "Initial inquiry — no requirements provided yet. Please contact the customer to discuss their needs.";
+  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(part => part?.trim()).join("\n\n") || "Initial inquiry — no requirements provided yet. Please contact the customer to discuss their needs.";
   const company = text("company");
   const phone = text("phone");
   const attachmentEntry = formData.get("attachment");

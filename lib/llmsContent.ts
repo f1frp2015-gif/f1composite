@@ -20,6 +20,9 @@ Website: ${knowledge.entity.url}
 ## Core product families
 ${knowledge.commercialProductFamilies.map(family => `- ${family.name}: ${family.description} ${family.url}\n${family.products.map(product => `  - ${product.name}: ${product.url}`).join("\n")}`).join("\n")}
 
+## Concrete reinforcement
+${JSON.stringify(knowledge.rebarPurchasing)}
+
 ## Window purchasing routes
 ${knowledge.windowPurchasingRoutes.map(page => `- ${page.name}: ${page.url}\n  ${page.description}\n  Buyer: ${page.buyer}\n  Supply: ${page.supply}`).join("\n")}
 

@@ -16,9 +16,9 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-08-31";
-const updatedAt = "2026-08-31";
+const updatedAt = "2026-09-21";
 const heroImage =
-  "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp";
+  "/images/products/frp-rebar/gfrp-straight-bars.webp";
 
 const sources = {
   kentucky: "https://rosap.ntl.bts.gov/view/dot/20392",
@@ -36,7 +36,7 @@ const sources = {
   fdot: "https://www.fdot.gov/structures/innovation/frp.shtm",
   aci440:
     "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units",
-  astmD7957: "https://store.astm.org/d7957_d7957m-25.html",
+  astmD7957: "https://store.astm.org/d7957_d7957m-26.html",
   astmD7205: "https://store.astm.org/d7205_d7205m-26.html",
   astmA615: "https://store.astm.org/a0615_a0615m-26.html",
 } as const;
@@ -209,7 +209,7 @@ const standards = [
     href: sources.aci440,
   },
   {
-    code: "ASTM D7957/D7957M-25",
+    code: "ASTM D7957/D7957M-26",
     title: "Solid round GFRP bars for concrete reinforcement",
     note:
       "Product specification for qualification and lot acceptance, including physical properties, tensile force/modulus/strain, shear, bond and bent-bar requirements.",
@@ -333,7 +333,7 @@ export default function FiberglassRebarVsSteelPage() {
             <div className="relative aspect-[4/3]">
               <Image
                 src={heroImage}
-                alt="Three sand-coated helically wrapped fiberglass rebar samples"
+                alt="Supplier photograph of helically surfaced GFRP reinforcing bars"
                 fill
                 sizes="(max-width: 1024px) 100vw, 44vw"
                 className="object-cover"
@@ -341,7 +341,7 @@ export default function FiberglassRebarVsSteelPage() {
               />
             </div>
             <figcaption className="border-t border-border-default bg-white px-[21px] py-[16px] text-f12 leading-relaxed text-t3">
-              Sand-coated helical GFRP bars. Surface profile, resin, fiber fraction, diameter and cure all influence qualification results.
+              Supplier photograph of GFRP bars. Surface profile, resin, fiber fraction, diameter and cure all influence qualification results.
             </figcaption>
           </figure>
         </div>
@@ -574,7 +574,7 @@ export default function FiberglassRebarVsSteelPage() {
                 ))}
               </div>
               <p className="mt-[21px] text-f13 leading-golden text-t2">
-                GFRP cannot rust, but glass–resin interfaces and bond can still change under hot, wet, alkaline or sustained-load exposure. That is why ASTM D7957 qualification, environmental reduction factors and lot traceability matter. <SourceLink href={sources.astmD7957}>ASTM D7957/D7957M-25 scope</SourceLink>.
+                GFRP cannot rust, but glass–resin interfaces and bond can still change under hot, wet, alkaline or sustained-load exposure. That is why ASTM D7957 qualification, environmental reduction factors and lot traceability matter. <SourceLink href={sources.astmD7957}>ASTM D7957/D7957M-26 scope</SourceLink>.
               </p>
             </article>
           </div>

@@ -3,6 +3,8 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import WindowInquiryFields from "./WindowInquiryFields";
+import RebarInquiryFields from "./RebarInquiryFields";
+import { REBAR_DRAFT_KEY, REBAR_FORMS, REBAR_STAGES, emptyRebarInquiry, parseRebarInquiry, rebarInquirySummary, type RebarInquiry, type RebarStage, type RebarForm } from "@/lib/rebarInquiry";
 import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
 import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
 import dynamic from "next/dynamic";
@@ -85,12 +87,36 @@ const inputCls =
   "w-full rounded-[7px] border border-border-default bg-white px-[13px] py-[12px] text-f15 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  return <ContactFormContent key={searchParams.toString()} />;
+}
+
+function ContactFormContent() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
   const [attachmentName, setAttachmentName] = useState("");
   const started = useRef(false);
   const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
   const windowMode = searchParams.get("window_mode");
+  const rebarStage = searchParams.get("rebar_stage");
+  const hasRebarDraft = searchParams.get("rebar_draft") === "1";
+  const [rebarInquiry, setRebarInquiry] = useState<RebarInquiry | null>(() => {
+    if (!rebarStage || !Object.hasOwn(REBAR_STAGES, rebarStage)) return null;
+    const form = searchParams.get("rebar_form");
+    return emptyRebarInquiry(rebarStage as RebarStage, form && Object.hasOwn(REBAR_FORMS, form) ? form as RebarForm : undefined);
+  });
+  const [rebarDraftNotice, setRebarDraftNotice] = useState("");
+  useEffect(() => {
+    if (!hasRebarDraft || !rebarStage || !Object.hasOwn(REBAR_STAGES, rebarStage)) return;
+    try {
+      const stored = sessionStorage.getItem(REBAR_DRAFT_KEY);
+      const draft = stored ? parseRebarInquiry(JSON.parse(stored)) : null;
+      if (!draft) throw new Error("Missing draft");
+      startTransition(() => setRebarInquiry(draft));
+    } catch {
+      startTransition(() => setRebarDraftNotice("Your schedule is unavailable in this tab. Add the details below or attach your bar schedule; you can still send an inquiry."));
+    }
+  }, [hasRebarDraft, rebarStage]);
   const [windowInquiry, setWindowInquiry] = useState<WindowInquiry | null>(() => {
     if (windowMode !== "profiles" && windowMode !== "finished") return null;
     const data: WindowInquiry = { mode: windowMode };
@@ -144,13 +170,15 @@ export default function ContactForm() {
     <form aria-label="Request a quote" onSubmit={(event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n"));
+      setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
     }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
-      <input type="hidden" name="inquiry_type" value={inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
+      <input type="hidden" name="inquiry_type" value={rebarInquiry ? (rebarInquiry.stage === "technical" ? "technical" : "rfq") : inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
+      {rebarInquiry && <input type="hidden" name="rebar_inquiry" value={JSON.stringify(rebarInquiry)} />}
+      {rebarDraftNotice && <p role="status" className="rounded-md bg-amber-50 p-4 text-sm text-t1">{rebarDraftNotice}</p>}
       {windowInquiry && <p className="rounded-md bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-sm font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
       {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
@@ -172,7 +200,7 @@ export default function ContactForm() {
         <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-t1">Email <span className="text-red-500">*</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" className={inputCls} /></div>
       </div>
       <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-t1">What do you need? <span className="font-normal text-t3">(optional)</span></label><textarea ref={messageRef} id="message" name="message" rows={3} maxLength={16000} defaultValue={prefillMessage} placeholder="A short note is enough. We can work out the details together." className={inputCls} /></div>
-      <details className="rounded-lg border border-border-default px-4">
+      <details open={Boolean(rebarInquiry)} className="rounded-lg border border-border-default px-4">
         <summary className="cursor-pointer py-3 text-sm font-semibold text-t1">Add company, delivery details or a file (optional)</summary>
         <div className="space-y-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -215,6 +243,7 @@ export default function ContactForm() {
         </div>
       </details>
       {windowInquiry && <WindowInquiryFields value={windowInquiry} onChange={setWindowInquiry} />}
+      {rebarInquiry && <RebarInquiryFields value={rebarInquiry} onChange={next => { setRebarInquiry(next); if (hasRebarDraft) { try { sessionStorage.setItem(REBAR_DRAFT_KEY, JSON.stringify(next)); } catch { /* Submission still carries the current form state. */ } } }} />}
       <Button type="submit" disabled={isPending} className={`w-full sm:w-auto ${isPending ? "pointer-events-none opacity-60" : ""}`}>
         {isPending ? "Sending..." : "Send Inquiry"}
       </Button>

@@ -1,3 +1,4 @@
+import { rebarCatalog } from "@/content/data/frpRebar";
 import { productFamilies as commercialFamilies, applicationGroups, taxonomyRevision } from "@/content/data/productTaxonomy";
 import { windowProcurement } from "@/content/data/windowProcurement";
 import { doorThresholds } from "@/content/data/doorThresholds";
@@ -15,6 +16,7 @@ export function buildPublicKnowledge() {
     taxonomyRevision,
     commercialProductFamilies: commercialFamilies.map(family => ({ id: family.id, name: family.label, description: family.description, url: `${SITE}${family.href}`, products: family.links.map(link => ({ name: link.label, url: `${SITE}${link.href}` })) })),
     applicationDirectory: applicationGroups.map(group => ({ name: group.label, description: group.description, url: `${SITE}${group.href}`, productFamilies: group.products })),
+    rebarPurchasing: { url: `${SITE}${rebarCatalog.path}`, revision: rebarCatalog.revision, description: rebarCatalog.description, diameters: rebarCatalog.diameters, sizeBasis: "Supplier-listed nominal diameters in mm; grade, measured properties, availability and qualification require quotation review.", forms: rebarCatalog.forms.map(form => ({ name: form.title, description: form.body, inquiryInputs: form.inputs })) },
     windowPurchasingRoutes: Object.values(windowProcurement).map(page => ({ name: page.h1, url: `${SITE}${page.path}`, description: page.intro, supply: page.supply, buyer: page.buyer, quotationInputs: page.checklist })),
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",

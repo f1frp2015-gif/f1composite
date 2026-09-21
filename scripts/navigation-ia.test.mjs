@@ -22,18 +22,18 @@ async function fileExists(filePath) {
   }
 }
 
-test("primary navigation distinguishes four product families from industry and use", async () => {
+test("primary navigation distinguishes five product families from industry and use", async () => {
   const { mainNav, pultrudedOverviewLink } = await loadTestData("content/data/navigation.ts");
   assert.equal(pultrudedOverviewLink.href, "/pultruded-frp-profiles");
   assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries & Applications", "Engineering", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating"]);
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating", "FRP Rebar"]);
   const productLinks = mainNav[0].sections.flatMap(section => section.links.map(link => link.href));
-  for (const route of ["/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
-  for (const route of ["/products/frp-rebar", "/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
+  for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
+  for (const route of ["/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...item.sections.flatMap(section => section.links.map(link => link.href))])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  assert.ok(allLinks.length <= 70, "keep a bounded desktop and mobile menu");
+  assert.ok(allLinks.length <= 75, "keep a bounded desktop and mobile menu");
   assert.ok(mainNav[2].sections.find(section => section.label === "Engineering tools").links.some(link => link.href === "/frp-density-calculator"));
 });
 
@@ -53,7 +53,7 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
   }
 
   assert.equal(new Set(hrefs).size, hrefs.length, "footer routes should be unique");
-  assert.ok(hrefs.length <= 20, `footer should stay at 20 navigation links or fewer, found ${hrefs.length}`);
+  assert.ok(hrefs.length <= 21, `footer should stay at 21 navigation links or fewer, found ${hrefs.length}`);
   for (const route of [
     "/products/product-lines",
     "/applications",
@@ -113,8 +113,8 @@ test("every navigation data route resolves to a real page or registered applicat
   const routes = [...new Set(extractHrefs(navigation))];
 
   for (const route of routes) {
-    assert.match(route, /^\/[a-z0-9/?=&.-]+$/i, `unexpected navigation route format: ${route}`);
-    const pathname = route.split("?")[0];
+    assert.match(route, /^\/[a-z0-9/?=&#.-]+$/i, `unexpected navigation route format: ${route}`);
+    const pathname = route.split(/[?#]/)[0];
     const directPage = path.join(root, "app", pathname.slice(1), "page.tsx");
     if (await fileExists(directPage)) continue;
 

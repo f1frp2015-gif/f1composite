@@ -21,6 +21,7 @@ jobs:
       - run: npm run test:site-audit
       - run: npm run test:grating-pages
       - run: npm run test:product-inquiry
+      - run: node --test scripts/rebar-inquiry.test.mjs
       - run: npm run test:window-inquiry
       - run: npm run test:indexnow
       - run: npm run build

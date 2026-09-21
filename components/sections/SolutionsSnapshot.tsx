@@ -20,7 +20,7 @@ export default function SolutionsSnapshot() {
             </h2>
             <p className="mt-[12px] max-w-[740px] text-f15 leading-relaxed text-t2">
               Start with a standard section or a custom profile. Explore window
-              and door products and both types of fiberglass grating below.
+              and door products, fiberglass grating and concrete reinforcement below.
             </p>
           </div>
           <Link

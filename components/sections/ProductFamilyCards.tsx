@@ -9,7 +9,7 @@ export default function ProductFamilyCards() {
         <article
           key={family.id}
           id={family.id}
-          className={`overflow-hidden rounded-[12px] border border-border-default ${index < 2 ? "bg-white" : "bg-bg2"}`}
+          className={`${family.id === "rebar" ? "md:col-span-2" : ""} overflow-hidden rounded-[12px] border border-border-default ${index < 2 ? "bg-white" : "bg-bg2"}`}
         >
           <div
             className={`grid ${index < 2 ? "sm:grid-cols-[0.85fr_1.15fr]" : "grid-cols-[100px_1fr] sm:grid-cols-[150px_1fr]"}`}
