@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import infrastructureApplication from "@/public/images/industries/frp-infrastructure-pultruded-profiles-rendering.webp";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
@@ -96,17 +97,20 @@ export default function InfrastructurePage() {
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+          <figure className="overflow-hidden rounded-[8px]">
             <Image
-              src="/images/industries/frp-infrastructure-bridge-structure.jpg"
-              alt="Bridge infrastructure with composite structural profiles for long-span applications"
-              width={1280}
-              height={600}
-              sizes="(max-width: 1280px) 100vw, 1280px"
+              src={infrastructureApplication}
+              alt="Concept rendering of a riverside pedestrian bridge with gray pultruded FRP beams, anti-slip decking, yellow handrails and cable tray supports"
+              sizes="(max-width: 1280px) calc(100vw - 68px), 1212px"
               className="h-auto w-full object-cover"
               preload
             />
-          </div>
+            <figcaption className="mt-[12px] text-f14 leading-relaxed text-t2">
+              Application concept: pultruded FRP structural profiles, bridge
+              decking, handrails and cable tray supports in riverside
+              infrastructure. Illustrative rendering.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
