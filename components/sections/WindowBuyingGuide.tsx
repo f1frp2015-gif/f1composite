@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { windowBuyerPaths, windowPurchaseSteps, windowScopeRows, type WindowSupplyMode } from "@/content/data/windowBuying";
-import { windowProcurement } from "@/content/data/windowProcurement";
+import { windowProcurement, windowSurfaceFinish } from "@/content/data/windowProcurement";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
 export const windowWrap = "mx-auto max-w-[1320px] px-5 sm:px-7 lg:px-9";
@@ -9,7 +9,7 @@ export const windowWrap = "mx-auto max-w-[1320px] px-5 sm:px-7 lg:px-9";
 export function WindowSupplyRoutes() {
   return <div className="grid gap-5 lg:grid-cols-[1.6fr_1fr]">
     <Link href="/products/window-door-profiles" className="group overflow-hidden rounded-2xl border border-teal-border bg-teal-bg p-6 md:p-8">
-      <div className="grid items-center gap-5 sm:grid-cols-[1.1fr_1fr]"><div><p className="text-xs font-bold uppercase tracking-[0.12em] text-teal-text">For local fabrication</p><h2 className="mt-3 text-3xl font-bold leading-tight text-t1">FRP system profiles</h2><p className="mt-4 text-sm leading-relaxed text-t2">Source compatible frame, sash and mullion sections. Define the accessories, samples and machining your production needs.</p><p className="mt-6 font-bold text-teal-text">Explore profile systems <span aria-hidden="true">→</span></p></div><div className="relative aspect-square rounded-xl bg-white"><Image src={windowProcurement.profiles.image} alt={windowProcurement.profiles.imageAlt} fill sizes="(max-width: 640px) 85vw, 28vw" className="object-contain p-4" /></div></div>
+      <div className="grid items-center gap-5 sm:grid-cols-[1.1fr_1fr]"><div><p className="text-xs font-bold uppercase tracking-[0.12em] text-teal-text">For local fabrication</p><h2 className="mt-3 text-3xl font-bold leading-tight text-t1">Fiberglass system profiles</h2><p className="mt-4 text-sm leading-relaxed text-t2">Source compatible frame, sash and mullion sections. Define the accessories, samples and machining your production needs.</p><p className="mt-4 text-sm font-semibold leading-relaxed text-teal-text">{windowSurfaceFinish.title}</p><p className="mt-6 font-bold text-teal-text">Explore profile systems <span aria-hidden="true">→</span></p></div><div className="relative aspect-square rounded-xl bg-white"><Image src={windowProcurement.profiles.image} alt={windowProcurement.profiles.imageAlt} fill sizes="(max-width: 640px) 85vw, 28vw" className="object-contain p-4" /></div></div>
       <p className="mt-5 border-t border-teal-border pt-4 text-xs text-t2">Manufacturers · OEM system teams · Profile distributors</p>
     </Link>
     <Link href="/products/fiberglass-windows-doors" className="group flex flex-col rounded-2xl border border-border-default bg-white p-6 md:p-8">

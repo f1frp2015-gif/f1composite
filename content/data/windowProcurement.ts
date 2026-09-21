@@ -1,3 +1,8 @@
+export const windowSurfaceFinish = {
+  title: "Fiberglass profiles. The appearance of aluminum.",
+  description: "Our specialized surface-coating process gives fiberglass profiles the appearance of aluminum. Review the color and surface finish on a physical sample before confirming your order.",
+};
+
 export const windowProcurement = {
   profiles: {
     path: "/products/window-door-profiles",
