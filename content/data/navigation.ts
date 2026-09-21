@@ -93,7 +93,7 @@ export const mainNav = [
         id: "by-application",
         label: "By application",
         links: [
-          { label: "Cable Tray Supports", href: "/applications/frp-cable-tray-supports" },
+          { label: "Cable Trays & Ladders", href: "/applications/frp-cable-tray-supports" },
           { label: "Cooling Tower Profiles", href: "/applications/frp-cooling-tower-profiles" },
           { label: "Bridge Deck Panels", href: "/applications/frp-bridge-deck-panels" },
           { label: "Chemical Plant Platforms", href: "/applications/frp-chemical-plant-platforms" },
