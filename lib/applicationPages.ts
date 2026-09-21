@@ -145,7 +145,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-bridge-deck-panels",
-    lastModified: "2026-07-30",
+    lastModified: "2026-09-21",
     title: "FRP Bridge Deck Panels - Lightweight Pultruded Decking",
     shortTitle: "FRP bridge deck panels",
     description:
@@ -155,9 +155,12 @@ export const applicationPages: ApplicationPage[] = [
       "Pultruded deck panels replace steel, timber, and concrete systems where weight, corrosion, and installation access control the project economics. F1 Composite supplies closed-top planks, gratings, and support profiles for pedestrian bridges and light vehicular access decks.",
     environment:
       "Best fit: pedestrian bridges, coastal boardwalks, utility access decks, replacement decks on aging structures, and projects where a lighter deck reduces crane size or substructure reinforcement.",
-    image: "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
+    image: "/images/applications/frp-decking-bridge-marina.webp",
     imageAlt:
-      "Lightweight FRP bridge deck replacement panels installed on an infrastructure project",
+      "Gray closed-top FRP deck panels with an anti-slip surface on a coastal pedestrian bridge leading to a marina and vessel-access gangway",
+    imageSize: { width: 1672, height: 941 },
+    imageCaption:
+      "Illustrative application concept: closed-top FRP decking for coastal pedestrian bridges, marina walkways and vessel access. Final panel sizes, supports and connections require project-specific engineering.",
     recommendedProfiles: [
       "Closed-top deck panels for continuous walking surfaces",
       "Pultruded gratings for drainage and ventilation",
