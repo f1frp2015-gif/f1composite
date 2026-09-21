@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import MobileActionBar from "@/components/layout/MobileActionBar";
-import GratingProjectPlanner from "./GratingProjectPlanner";
-import GratingVisualGuide from "./GratingVisualGuide";
 import Button from "@/components/ui/Button";
 import { type GratingFamily } from "@/lib/gratingInquiry";
 
@@ -16,7 +13,7 @@ export default function GratingHero({ family, title, description, image, imageAl
   caption: string;
   facts: readonly { label: string; value: string }[];
 }) {
-  const primary = { label: "Choose or Quote Grating", href: "#grating-planner" };
+  const primary = { label: "Get a Project Quote", href: "#grating-quote" };
   const secondary = { label: "View Specifications", href: family ? `#${family}-grating-specifications` : "#grating-configurations", variant: "secondary" as const };
   return <>
     <section className="border-b border-border-default bg-[linear-gradient(140deg,#f0f7f6_0%,#ffffff_65%)] py-[24px] md:py-[40px]">
@@ -29,9 +26,9 @@ export default function GratingHero({ family, title, description, image, imageAl
             <p className="mt-[16px] max-w-[620px] text-f17 leading-relaxed text-t2">{description}</p>
             <div id="page-header-actions" className="mt-[22px] flex flex-wrap gap-[10px]">
               <Button href={primary.href}>{primary.label}</Button>
-              <Button href={secondary.href} variant="secondary">{secondary.label}</Button>
+              <Button href="#grating-help" variant="secondary">Help Me Select</Button>
             </div>
-            <p className="mt-[12px] text-f12 leading-relaxed text-t3">Send a panel schedule or ask for help choosing. Include quantity and delivery destination.</p>
+            <p className="mt-[12px] text-f12 leading-relaxed text-t3">Whole panels or drawing-based requirements. Quantities, fabrication and delivery scope confirmed with your quote.</p>
           </div>
           <figure className="min-w-0">
             <div className="relative aspect-[3/2] overflow-hidden rounded-[12px] border border-border-default bg-bg2">
@@ -57,8 +54,6 @@ export default function GratingHero({ family, title, description, image, imageAl
         <Link className="py-[9px] text-teal-text" href="#grating-faq">FAQs</Link>
       </div>
     </nav>
-    <GratingProjectPlanner family={family} />
-    <GratingVisualGuide />
-    <MobileActionBar targetId="page-header-actions" primary={primary} secondary={secondary} />
+
   </>;
 }

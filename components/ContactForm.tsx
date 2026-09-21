@@ -3,6 +3,8 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
+import dynamic from "next/dynamic";
+const GratingInquiryReview = dynamic(() => import("./GratingInquiryReview"));
 import Button from "@/components/ui/Button";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
 import { attributionPath, attributionToken } from "@/lib/rfq";
@@ -80,6 +82,7 @@ export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
   const [attachmentName, setAttachmentName] = useState("");
   const started = useRef(false);
+  const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
   const prefillRef = searchParams.get("ref");
   const prefillCompany = searchParams.get("company") ?? "";
@@ -114,16 +117,20 @@ export default function ContactForm() {
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
         {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
+        <ol className="mt-5 space-y-3 text-sm text-t2"><li><strong>1. Requirement review.</strong> We check the product, drawing and delivery scope.</li><li><strong>2. Clarifications.</strong> We identify any missing dimensions, load conditions or documentation.</li><li><strong>3. Next step.</strong> We confirm the technical review, sample arrangements or quotation needed for your request.</li></ol>
+        {submittedMessage && <details className="mt-5"><summary className="cursor-pointer py-3 font-semibold">View submitted requirements</summary><pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words font-sans text-sm">{submittedMessage}</pre></details>}
+        <p className="mt-4 text-sm">Need to add a drawing or correction? Email <a className="font-bold underline" href="mailto:inquiry@f1composite.com">inquiry@f1composite.com</a> and include your reference.</p>
       </div>
     );
   }
 
   return (
-    <form action={formAction} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
+    <form onSubmit={() => { setSubmittedMessage(messageRef.current?.value || ""); }} action={formAction} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
-      {(product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Add quantities, delivery destination and any corrections in the message below.</p></div>}
+      {gratingProject && <GratingInquiryReview />}
+      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Add quantities, delivery destination and any corrections in the message below.</p></div>}
       {isFromAiSourcing && (
         <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
           <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact information, and submit the form. We will acknowledge your requirements within one business day; a formal quote follows specification review.
@@ -135,6 +142,35 @@ export default function ContactForm() {
           {state.message}
         </div>
       )}
+
+      <div>
+        <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
+          Drawing or specification file <span className="font-normal text-t3">(optional)</span>
+        </label>
+        <div className="flex min-h-[47px] items-center gap-[12px] rounded-[7px] border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
+          <input
+            id="attachment"
+            name="attachment"
+            type="file"
+            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
+            className="sr-only"
+            aria-label="Choose an attachment"
+            aria-describedby="attachment-selection attachment-help"
+            onChange={(event) => setAttachmentName(event.currentTarget.files?.[0]?.name ?? "")}
+          />
+          <label
+            htmlFor="attachment"
+            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f13 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+          >
+            Choose File
+          </label>
+          <span id="attachment-selection" className="min-w-0 truncate text-f14 text-t2" aria-live="polite">
+            {attachmentName || "No file selected"}
+          </span>
+        </div>
+        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · 4 MB maximum</p>
+      </div>
+
 
       <div className="grid gap-[21px] sm:grid-cols-2">
         <div>
@@ -168,7 +204,7 @@ export default function ContactForm() {
       <div className="grid gap-[21px] sm:grid-cols-2">
         <div>
           <label htmlFor="email" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Email <span className="text-red-500">*</span>
+            Work email <span className="text-red-500">*</span>
           </label>
           <input
             id="email"
@@ -222,6 +258,7 @@ export default function ContactForm() {
         </div>
       </div>
 
+      <details open={!gratingProject}><summary className="cursor-pointer py-3 text-sm font-semibold">Review or edit the full inquiry message</summary>
       <div>
         <label htmlFor="message" className="mb-[5px] block text-f13 font-semibold text-t1">
           Message <span className="text-red-500">*</span>
@@ -238,37 +275,13 @@ export default function ContactForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
-          Drawing or specification file <span className="font-normal text-t3">(optional)</span>
-        </label>
-        <div className="flex min-h-[47px] items-center gap-[12px] rounded-[7px] border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
-          <input
-            id="attachment"
-            name="attachment"
-            type="file"
-            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
-            className="sr-only"
-            aria-label="Choose an attachment"
-            aria-describedby="attachment-selection attachment-help"
-            onChange={(event) => setAttachmentName(event.currentTarget.files?.[0]?.name ?? "")}
-          />
-          <label
-            htmlFor="attachment"
-            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f13 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
-          >
-            Choose File
-          </label>
-          <span id="attachment-selection" className="min-w-0 truncate text-f14 text-t2" aria-live="polite">
-            {attachmentName || "No file selected"}
-          </span>
-        </div>
-        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · 4 MB maximum</p>
-      </div>
 
+      </details>
+
+      <p className="text-sm leading-relaxed text-t2">We acknowledge requirements within one business day. A formal quotation follows specification and delivery review.</p>
       <div className="flex flex-col gap-[9px] sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" disabled={isPending} className={isPending ? "pointer-events-none opacity-60" : ""}>
-          {isPending ? "Sending..." : "Send for Engineering Review"}
+          {isPending ? "Sending..." : gratingProject ? "Send Grating Inquiry" : "Send for Engineering Review"}
         </Button>
         <p className="max-w-[300px] text-f11 leading-relaxed text-t3">
           Your project information is used only to review and respond to this inquiry.

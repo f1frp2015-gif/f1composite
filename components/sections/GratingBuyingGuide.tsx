@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { moldedGratingSpecGroups } from "@/content/data/moldedGratingSpecs";
+import { pultrudedGratingSpecGroups } from "@/content/data/pultrudedGratingSpecs";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
 import { gratingInquiryHref, gratingProducts, type GratingFamily } from "@/lib/gratingInquiry";
 
@@ -19,7 +21,7 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
         <p className="mt-[12px] max-w-[850px] text-f15 leading-relaxed text-t2">Download the current selection data and clip drawings. For a load/deflection table or test report, identify the panel and service conditions so the documents match the proposed supply.</p>
         <div className="mt-[24px] grid gap-[18px] lg:grid-cols-3">
           <article className="rounded-[10px] border border-border-default bg-white p-[24px]">
-            <h3 className="text-f19 font-bold">Panel selection data</h3>
+            <div aria-label="Selection data preview" className="mb-4 overflow-hidden rounded-md border border-border-default bg-bg2 p-3 text-xs"><p className="mb-2 font-bold uppercase tracking-wide text-teal-text">Inside the selection CSV</p><table className="w-full text-left"><thead><tr><th>Depth</th><th>Weight</th><th>Open area</th></tr></thead><tbody>{(family === 'pultruded' ? pultrudedGratingSpecGroups[0].rows : moldedGratingSpecGroups[0].rows).slice(0,3).map((r,i) => <tr key={i} className="border-t border-border-default"><td className="py-2">{r.depth} mm</td><td>{r.weight} kg/m²</td><td>{r.openArea}</td></tr>)}</tbody></table><p className="mt-2 text-t3">Nominal selection data · not a load table</p></div><h3 className="text-f19 font-bold">Panel selection data</h3>
             <p className="mt-[10px] text-f13 leading-relaxed text-t2">Spreadsheet-ready CSV with the same dimensions, nominal weights and open areas shown on our product pages. Selection reference, not a load table.</p>
             {families.map(item => <a key={item} className="mt-[14px] block min-h-[36px] text-f14 font-bold text-teal-text underline underline-offset-4" href={`/api/grating-specifications?family=${item}`} download>Download {item} specifications (CSV) ↓</a>)}
           </article>
@@ -44,8 +46,9 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
         <div className="mt-[24px] grid gap-[20px] sm:grid-cols-2 lg:grid-cols-4">{supply.map((item, index) => <article key={item.title}><span className="text-f13 font-bold text-teal-text">0{index + 1}</span><h3 className="mt-[10px] text-f17 font-bold text-t1">{item.title}</h3><p className="mt-[10px] text-f14 leading-relaxed text-t2">{item.body}</p></article>)}</div>
         <div className="mt-[28px] flex flex-col gap-[18px] rounded-[10px] bg-deep p-[24px] text-white md:flex-row md:items-center md:justify-between">
           <div><h3 className="text-f19 font-bold">Have a drawing, or still choosing?</h3><p className="mt-[8px] max-w-[740px] text-f13 leading-relaxed text-white/80">{commercialFacts.response} Attach your layout to the enquiry, or describe the application and ask us to help shortlist a configuration.</p></div>
-          <Link className="inline-flex min-h-[46px] shrink-0 items-center justify-center rounded-[6px] bg-white px-[20px] text-f14 font-bold text-deep" href={gratingInquiryHref(family, undefined, "grating-supply")}>Send a grating enquiry →</Link>
+          <Link className="inline-flex min-h-[46px] shrink-0 items-center justify-center rounded-[6px] bg-white px-[20px] text-f14 font-bold text-deep" href="#grating-quote">Quote a drawing or schedule →</Link>
         </div>
+        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-teal-text"><Link className="inline-flex min-h-11 items-center underline" href="#grating-budget">Get a budget estimate</Link><Link className="inline-flex min-h-11 items-center underline" href="#grating-review">Prepare a specification review</Link><Link className="inline-flex min-h-11 items-center underline" href={gratingInquiryHref(family, 'Sample request: please confirm the configuration, finish, sample cost and shipping arrangements.', 'grating-sample')}>Request a sample</Link></div>
         <p className="mt-[12px] text-f12 leading-relaxed text-t3">{commercialFacts.availability}</p>
       </div>
     </section>

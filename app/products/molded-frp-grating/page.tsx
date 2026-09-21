@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AskAICard from "@/components/ai/AskAICard";
 import GratingHero from "@/components/sections/GratingHero";
-import GratingQuickSpecifications from "@/components/sections/GratingQuickSpecifications";
+import GratingProjectPlanner from "@/components/sections/GratingProjectPlanner";
+import GratingVisualGuide from "@/components/sections/GratingVisualGuide";
 import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
 import { gratingInquiryHref, moldedGratingSelection } from "@/lib/gratingInquiry";
 import { approximateInches } from "@/lib/productInquiry";
@@ -139,7 +140,7 @@ export default function MoldedFrpGratingPage() {
         image={moldedGratingManualImageAssets.closeup} imageAlt="Green molded fiberglass square mesh with a gritted surface"
         caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."
         facts={[{ label: "Depth range", value: "13–65 mm" }, { label: "Listed configurations", value: "26 mesh/depth rows" }, { label: "Load direction", value: "Two-way mesh" }, { label: "Fixing hardware", value: "M/C/J · 316SS" }]} />
-      <GratingQuickSpecifications family="molded" />
+      <GratingProjectPlanner family="molded" />
 
       <MaterialTerminologyNote title="Molded FRP or moulded GRP grating?">
         Both names describe the glass-reinforced molded panels on this page; “moulded” is the British spelling. Choose mesh opening, panel depth, surface and resin for your application. Pultruded bearing-bar grating is a different construction with its own load tables.
@@ -295,6 +296,7 @@ export default function MoldedFrpGratingPage() {
         </div>
       </section>
 
+      <GratingVisualGuide />
       <GratingSelectionCriteria />
 
       <section className="bg-white pt-[55px]">

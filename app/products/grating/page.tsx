@@ -1,8 +1,10 @@
+import GratingApplicationCards from "@/components/sections/GratingApplicationCards";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import GratingHero from "@/components/sections/GratingHero";
-import GratingQuickSpecifications from "@/components/sections/GratingQuickSpecifications";
+import GratingProjectPlanner from "@/components/sections/GratingProjectPlanner";
+import GratingVisualGuide from "@/components/sections/GratingVisualGuide";
 import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
 import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
 import CollectionSchema from "@/components/seo/CollectionSchema";
@@ -37,6 +39,7 @@ export default function GratingPage() {
   return <>
     <CollectionSchema name="Fiberglass & FRP Grating" description={seo.description} path={path} links={links} />
     <GratingHero title="Fiberglass Grating for Industrial Projects" description="Choose molded mesh or pultruded bearing-bar panels for walkways, platforms and access systems. Compare configurations, review the engineering inputs and send a panel schedule for quotation." image="/images/products/grating/grating-panel-comparison.webp" imageAlt="Illustrative green molded square-mesh and yellow pultruded grating samples side by side" caption="AI-generated product illustration showing two constructions; not a dimensioned specification or project photograph." facts={[{ label: "Constructions", value: "Molded & pultruded" }, { label: "Selection data", value: "Dimensions & weights" }, { label: "Fixing systems", value: "Matched 316SS clips" }, { label: "Procurement", value: "Project & bulk enquiries" }]} />
+    <GratingApplicationCards />
     <section id="grating-types" className="bg-white py-[40px] md:py-[56px]">
       <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
         <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Choose the construction</p>
@@ -53,7 +56,8 @@ export default function GratingPage() {
         </div>
       </div>
     </section>
-    <GratingQuickSpecifications />
+    <GratingProjectPlanner />
+    <GratingVisualGuide />
     <GratingSelectionCriteria />
     <GratingBuyingGuide />
     <section className="bg-bg2 py-[44px] md:py-[60px]">

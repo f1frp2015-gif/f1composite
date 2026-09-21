@@ -46,3 +46,14 @@ The three product pages now share task-based entry points, a 62-configuration se
 The hub hero uses the existing product construction photographs. Two new inline SVG guides explain clear span/bearing direction and whole-panel/cut-panel/fixing-kit supply scope. The existing clear-opening diagram and clip drawings remain available. No new supplier photography or unsupported surface/packing evidence was fabricated.
 
 RFQ summaries can be downloaded as text or printed. Browser tests verified model search, comparison, a T-1210 panel at 1000 × 500 mm / 4 pieces producing 2.000 m², destination transfer, and draft restoration across families. At 390 px the pultruded planner had no document overflow. No inquiry was submitted. Automated tests cover all specification mappings, area conversion/invalid quantities and draft parsing. Grating tests are now included in CI.
+
+
+## Conversion design release
+
+The hub now introduces application reference photographs and construction comparison before the planner. Repeated quick-configuration cards are removed; the HTML specification tables and CSV sources remain unchanged. The hero prioritizes project quotation and assisted selection. Budget, specification-review and sample entry points preserve intent without implying immediate pricing or free samples. Selection CSV cards preview actual current data.
+
+The planner uses three reversible steps with a desktop project sidebar and a mobile progress bar. Existing drawing inquiries go directly to sizes/supply, while all 62 configurations remain searchable. Switching steps retains the project; entry links work with Next.js same-page navigation and direct hashes. The starting-point chooser collapses after selection. Print explicitly expands the full summary before invoking the browser print flow.
+
+The contact form displays an imported panel schedule, prioritizes attachment upload and collapses the editable full message for project handoffs. The displayed snapshot is clearly labeled; edits in the message take precedence. Successful submissions show the receipt, submitted text, subsequent review stages and a way to provide corrections. API delivery and validation logic are unchanged; no live test inquiry was sent.
+
+Validation: lint, production build, existing 15 grating tests and 6 site/contact tests; browser flow through all three steps, same-page quote entry, 1200 × 600 mm / 3 panels and Perth destination carried intact into contact, structured schedule preview, upload order and 390 px no-overflow check. Existing SectionViewer3D lint warning is unrelated.

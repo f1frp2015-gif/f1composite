@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AskAICard from "@/components/ai/AskAICard";
 import GratingHero from "@/components/sections/GratingHero";
-import GratingQuickSpecifications from "@/components/sections/GratingQuickSpecifications";
+import GratingProjectPlanner from "@/components/sections/GratingProjectPlanner";
+import GratingVisualGuide from "@/components/sections/GratingVisualGuide";
 import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
 import { gratingInquiryHref, pultrudedGratingSelection } from "@/lib/gratingInquiry";
 import { approximateInches } from "@/lib/productInquiry";
@@ -187,7 +188,7 @@ export default function PultrudedGratingsPage() {
         image={pultrudedGratingManualImages.closeup} imageAlt="Yellow pultruded fiberglass bearing bars and transverse cross-rods"
         caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."
         facts={[{ label: "Depth range", value: "25–76 mm" }, { label: "Listed configurations", value: "36 bearing-bar rows" }, { label: "Load direction", value: "Along bearing bars" }, { label: "Fixing hardware", value: "M/J/T · 316SS" }]} />
-      <GratingQuickSpecifications family="pultruded" />
+      <GratingProjectPlanner family="pultruded" />
 
       <MaterialTerminologyNote title="Specifying pultruded GRP grating?">
         These glass-reinforced FRP panels are also known as pultruded GRP grating. Continuous bearing bars carry load in one direction; specify bar depth, clear span, load and resin. For a bidirectional mesh panel, see the separate molded grating range.
@@ -347,6 +348,7 @@ export default function PultrudedGratingsPage() {
         </div>
       </section>
 
+      <GratingVisualGuide />
       <GratingSelectionCriteria />
 
       <section className="bg-white pt-[55px]">
