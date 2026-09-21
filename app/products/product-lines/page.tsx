@@ -28,8 +28,8 @@ export default function ProductsPage() {
       />
       <PageHeader
         tag="Products"
-        title="FRP profiles, windows, doors & grating"
-        description="F1 Composite specializes in standard and custom pultruded profiles. Our complementary range includes window and door profiles, finished windows and doors, and molded and pultruded grating."
+        title="FRP profiles, windows, grating & rebar"
+        description="F1 Composite specializes in standard and custom pultruded profiles. Our complementary range includes window and door profiles, finished windows and doors, molded and pultruded grating, and GFRP concrete reinforcement."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
       <section className="bg-white py-[48px]">

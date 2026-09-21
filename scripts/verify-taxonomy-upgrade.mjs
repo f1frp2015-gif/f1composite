@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 // Read-only HTTP verification against the built site or its Vercel deployment.
 const base = process.argv[2] ?? "http://localhost:3024";
 const canonicalBase = "https://www.f1composite.com";
-const paths = ["/", "/products/product-lines", "/pultruded-frp-profiles", "/applications", "/industries", "/products/frp-window-frames", "/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/grating", "/industries/water-wastewater", "/products/frp-solar-mounting-systems", "/applications/frp-solar-mounting-profiles"];
+const paths = ["/products/frp-rebar", "/technology/fiberglass-rebar-vs-steel", "/", "/products/product-lines", "/pultruded-frp-profiles", "/applications", "/industries", "/products/frp-window-frames", "/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/grating", "/industries/water-wastewater", "/products/frp-solar-mounting-systems", "/applications/frp-solar-mounting-profiles"];
 const discovered = new Set();
 const titles = new Set();
 const decode = value => value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&#x27;", "'");
@@ -43,7 +43,7 @@ assert.deepEqual(failures, [], "all linked pages and documents resolve");
 const sitemap = await (await fetch(new URL("/sitemap.xml", base))).text();
 for (const path of paths.filter(path => path !== "/")) assert.ok(sitemap.includes(`${canonicalBase}${path}</loc>`), `${path}: sitemap`);
 const knowledge = await (await fetch(new URL("/api/ai-context", base))).json();
-assert.equal(knowledge.commercialProductFamilies.length, 4);
+assert.equal(knowledge.commercialProductFamilies.length, 5);
 assert.equal(knowledge.windowPurchasingRoutes.length, 2);
 const llms = await (await fetch(new URL("/llms.txt", base))).text();
 for (const family of knowledge.commercialProductFamilies) assert.ok(llms.includes(family.url), `public context agrees: ${family.name}`);

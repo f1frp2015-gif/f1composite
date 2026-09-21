@@ -73,6 +73,15 @@ export const mainNav = [
           { label: "Stair Treads & Covers", href: "/products/frp-stair-treads" },
         ],
       },
+      {
+        id: "rebar", label: "FRP Rebar",
+        links: [
+          { label: "Rebar Supply & Sizes", href: "/products/frp-rebar" },
+          { label: "Stirrups & Bends", href: "/products/frp-rebar#stirrups-bends" },
+          { label: "Reinforcement Mesh", href: "/products/frp-rebar#mesh" },
+          { label: "Build a Rebar Schedule", href: "/products/frp-rebar#request-quote" },
+        ],
+      },
     ],
   },
   {
@@ -211,6 +220,7 @@ export const footerNav = {
     { label: "Custom Pultruded Profiles", href: "/products/custom-pultruded-profiles" },
     { label: "Windows & Doors", href: "/products/frp-window-frames" },
     { label: "FRP Grating", href: "/products/grating" },
+    { label: "FRP Rebar", href: "/products/frp-rebar" },
   ],
   applications: [
     { label: "Applications", href: "/applications" },

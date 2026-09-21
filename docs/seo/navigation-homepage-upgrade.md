@@ -2,6 +2,10 @@
 
 Implemented: 2026-09-12. Scope: the two-step navigation and homepage plan approved by the site owner.
 
+## September 21, 2026 extension
+
+The approved rebar procurement release adds FRP Rebar as the fifth commercial family, with homepage, directory, primary menu and footer entry points. This supersedes the four-family count below, which records the September 12 release. Concrete reinforcement now has a dedicated buying route rather than a specialized-component listing. See `docs/research/frp-rebar-procurement.md`.
+
 ## Commercial structure
 
 The shared taxonomy in `content/data/productTaxonomy.ts` identifies four purchasing families, in this order:

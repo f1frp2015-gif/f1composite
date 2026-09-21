@@ -8,8 +8,8 @@ const { seoQueryTargets } = await loadTestData("content/data/seoQueryTargets.ts"
 const { buildRfqHref } = await loadTestData("lib/rfq.ts");
 
 test("one commercial family owns each buying route", () => {
-  assert.deepEqual(productFamilies.map(family => family.id), ["standard", "custom", "windows", "grating"]);
-  assert.equal(new Set(productFamilies.map(family => family.href)).size, 4);
+  assert.deepEqual(productFamilies.map(family => family.id), ["standard", "custom", "windows", "grating", "rebar"]);
+  assert.equal(new Set(productFamilies.map(family => family.href)).size, 5);
   assert.equal(standardProfileLinks.length, 7);
   for (const group of applicationGroups) for (const familyId of group.products) {
     assert.ok(productFamilies.some(family => family.id === familyId), `${group.label}: unknown family ${familyId}`);
@@ -18,7 +18,7 @@ test("one commercial family owns each buying route", () => {
 
 test("long-tail products remain linked after leaving the primary product menu", () => {
   const routes = new Set(applicationGroups.flatMap(group => group.links.map(link => link.href)));
-  for (const route of ["frp-rebar", "fiberglass-snow-markers", "fiberglass-stakes", "frp-ladders", "frp-handrail-systems", "frp-sound-barrier-wall", "wind-turbine-blade-panels", "frp-solar-mounting-systems", "frp-facade-panels"]) {
+  for (const route of ["fiberglass-snow-markers", "fiberglass-stakes", "frp-ladders", "frp-handrail-systems", "frp-sound-barrier-wall", "wind-turbine-blade-panels", "frp-solar-mounting-systems", "frp-facade-panels"]) {
     assert.ok(routes.has(`/products/${route}`), `orphaned commercial entry: ${route}`);
   }
 });

@@ -206,12 +206,20 @@ export const seoQueryTargets = [
     ],
   },
   {
+    targetUrl: "/products/frp-rebar",
+    primaryQuery: "FRP rebar supplier",
+    intent: "commercial",
+    title: "FRP Rebar | GFRP Bars, Stirrups & Reinforcement Mesh",
+    description: "Explore GFRP straight bars, factory-formed stirrups and reinforcement mesh. Review inquiry sizes, prepare a bar schedule and request a project quote.",
+    supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines"],
+  },
+  {
     targetUrl: "/products/product-lines",
     primaryQuery: "F1 Composite product lines",
     intent: "brand",
-    title: "FRP Products: Profiles, Windows, Doors & Grating",
+    title: "FRP Products: Profiles, Windows, Grating & Rebar",
     description:
-      "Browse F1 Composite products: standard and custom pultruded profiles, window and door profiles, finished units, and molded or pultruded fiberglass grating.",
+      "Browse standard and custom FRP profiles, window and door products, molded and pultruded grating, and GFRP rebar for concrete reinforcement.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/frp-gratings",

@@ -105,6 +105,21 @@ export const productFamilies = [
       { label: "Stair Treads & Covers", href: "/products/frp-stair-treads" },
     ],
   },
+  {
+    id: "rebar",
+    label: "FRP Rebar",
+    brand: "F1 Composite",
+    href: "/products/frp-rebar",
+    description: "GFRP straight bars, factory-formed stirrups and reinforcement mesh for concrete. Review application requirements, prepare a bar schedule and confirm grade-specific documents.",
+    image: "/images/products/frp-rebar/gfrp-straight-bars.webp",
+    imageAlt: "GFRP reinforcing bars with helical surfaces",
+    links: [
+      { label: "Straight Bars", href: "/products/frp-rebar#straight-bars" },
+      { label: "Stirrups & Bends", href: "/products/frp-rebar#stirrups-bends" },
+      { label: "Reinforcement Mesh", href: "/products/frp-rebar#mesh" },
+      { label: "Build a Rebar Schedule", href: "/products/frp-rebar#request-quote" },
+    ],
+  },
 ] as const;
 
 export const applicationGroups = [
@@ -244,12 +259,8 @@ export const applicationGroups = [
         label: "Plant, Tree & Vineyard Stakes",
         href: "/products/fiberglass-stakes",
       },
-      {
-        label: "Concrete Reinforcement: FRP Rebar",
-        href: "/products/frp-rebar",
-      },
     ],
   },
 ] as const;
 
-export const taxonomyRevision = "2026-09-12";
+export const taxonomyRevision = "2026-09-21";
