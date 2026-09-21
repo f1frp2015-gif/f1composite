@@ -99,6 +99,7 @@ export const mainNav = [
         id: "by-application",
         label: "By application",
         links: [
+          { label: "Agriculture & Horticulture", href: "/applications/agriculture-horticulture-stakes" },
           { label: "Cable Trays & Ladders", href: "/applications/frp-cable-tray-supports" },
           { label: "Cooling Tower Profiles", href: "/applications/frp-cooling-tower-profiles" },
           { label: "Bridge Deck Panels", href: "/applications/frp-bridge-deck-panels" },

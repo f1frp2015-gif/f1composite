@@ -138,6 +138,16 @@ export const productFamilies = [
 
 export const applicationGroups = [
   {
+    label: "Agriculture & Horticulture",
+    description: "Plant support for nurseries, vineyards, orchards and crops, from stake selection and field trials to bulk supply.",
+    href: "/applications/agriculture-horticulture-stakes",
+    products: ["standard", "custom"],
+    links: [
+      { label: "Planting Stake Application Guide", href: "/applications/agriculture-horticulture-stakes" },
+      { label: "Fiberglass Stakes Product Range", href: "/products/fiberglass-stakes" },
+    ],
+  },
+  {
     label: "Platforms, Walkways & Access",
     description:
       "Structural profiles and grating for access frameworks and walking surfaces.",

@@ -213,6 +213,13 @@ export default function FiberglassStakesPage() {
                 Compare reference sizes
               </a>
             </div>
+            <p className="mt-[21px] text-f15 leading-golden text-t2">
+              Planning a growing program? Follow our{" "}
+              <Link href="/applications/agriculture-horticulture-stakes" className="font-semibold text-teal-text underline">
+                agriculture and horticulture application guide
+              </Link>{" "}
+              for crop-specific selection inputs, field trials and a step-by-step route to bulk supply.
+            </p>
           </div>
           <figure>
             <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
