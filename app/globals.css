@@ -122,3 +122,9 @@ body {
 .group:hover .card-topbar {
   transform: scaleX(1);
 }
+
+/* Print only the customer-reviewed grating requirement, without page navigation. */
+@media print {
+  body:has(#grating-print-summary) * { visibility: hidden; }
+  body:has(#grating-print-summary) #grating-print-summary { visibility: visible; position: absolute; left: 0; top: 0; width: 100%; max-height: none; overflow: visible; color: black; background: white; font-size: 11pt; }
+}

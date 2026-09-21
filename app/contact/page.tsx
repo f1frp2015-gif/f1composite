@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const quoteChecklist = [
-  "Profile drawing or target dimensions",
+  "Product / panel drawing or target dimensions",
   "Estimated quantity or project scale",
   "Load case and service environment",
   "Required resin, standard, or test",
@@ -39,7 +39,7 @@ export default function ContactPage() {
       <PageHeader
         tag="Engineering & RFQ support"
         title="Send your project requirements"
-        description="Upload a drawing or describe the application. We will review the profile, material, documentation, quantity, and delivery requirements before responding."
+        description="Upload a drawing or describe the application. We will review the product, material, documentation, quantity, and delivery requirements before responding."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Request a Quote" },

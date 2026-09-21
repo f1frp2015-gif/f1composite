@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import MobileActionBar from "@/components/layout/MobileActionBar";
+import GratingProjectPlanner from "./GratingProjectPlanner";
+import GratingVisualGuide from "./GratingVisualGuide";
 import Button from "@/components/ui/Button";
-import { gratingInquiryHref, type GratingFamily } from "@/lib/gratingInquiry";
+import { type GratingFamily } from "@/lib/gratingInquiry";
 
 export default function GratingHero({ family, title, description, image, imageAlt, caption, facts }: {
   family?: GratingFamily;
@@ -14,7 +16,7 @@ export default function GratingHero({ family, title, description, image, imageAl
   caption: string;
   facts: readonly { label: string; value: string }[];
 }) {
-  const primary = { label: "Get a Grating Quote", href: gratingInquiryHref(family, undefined, "grating-header") };
+  const primary = { label: "Choose or Quote Grating", href: "#grating-planner" };
   const secondary = { label: "View Specifications", href: family ? `#${family}-grating-specifications` : "#grating-configurations", variant: "secondary" as const };
   return <>
     <section className="border-b border-border-default bg-[linear-gradient(140deg,#f0f7f6_0%,#ffffff_65%)] py-[24px] md:py-[40px]">
@@ -33,9 +35,12 @@ export default function GratingHero({ family, title, description, image, imageAl
           </div>
           <figure className="min-w-0">
             <div className="relative aspect-[3/2] overflow-hidden rounded-[12px] border border-border-default bg-bg2">
-              <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 48vw" className={family ? "object-contain" : "object-cover"} preload />
+              {family ? <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 48vw" className="object-contain" preload /> : <div className="grid h-full grid-cols-2 gap-2 p-3">{[
+                ["/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", "Molded square mesh"],
+                ["/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp", "Pultruded bearing bars"],
+              ].map(([src, label]) => <div key={src} className="relative overflow-hidden rounded-lg"><Image src={src} alt={label} fill sizes="(max-width: 1023px) 44vw, 23vw" className="object-cover" preload /><span className="absolute inset-x-0 bottom-0 bg-deep/90 p-3 text-sm font-bold text-white">{label}</span></div>)}</div>}
             </div>
-            <figcaption className="mt-[7px] text-f11 leading-relaxed text-t3">{caption}</figcaption>
+            <figcaption className="mt-[7px] text-f11 leading-relaxed text-t3">{family ? caption : "Product construction photographs. Compare the integral molded mesh with directional pultruded bars; images are not to a common scale."}</figcaption>
           </figure>
         </div>
         <dl className="mt-[24px] grid grid-cols-2 gap-[16px] border-t border-border-default pt-[20px] md:grid-cols-4">
@@ -52,6 +57,8 @@ export default function GratingHero({ family, title, description, image, imageAl
         <Link className="py-[9px] text-teal-text" href="#grating-faq">FAQs</Link>
       </div>
     </nav>
+    <GratingProjectPlanner family={family} />
+    <GratingVisualGuide />
     <MobileActionBar targetId="page-header-actions" primary={primary} secondary={secondary} />
   </>;
 }

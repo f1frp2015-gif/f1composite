@@ -16,7 +16,7 @@
     "test:beam-bridge": "node --test scripts/beam-bridge.test.mjs",
     "test:calculators": "node --test scripts/calculator-p0.test.mjs",
     "test:grating-clips": "node --test scripts/grating-clips.test.mjs",
-    "test:grating-pages": "node --test scripts/grating-page-split.test.mjs scripts/grating-inquiry.test.mjs",
+    "test:grating-pages": "node --test scripts/grating-page-split.test.mjs scripts/grating-inquiry.test.mjs scripts/grating-project.test.mjs",
     "test:access-systems": "node --test scripts/access-systems-pages.test.mjs",
     "test:stair-treads": "node --test scripts/stair-treads-page.test.mjs",
     "test:snow-markers": "node --test scripts/snow-markers-page.test.mjs",
