@@ -4,23 +4,14 @@ import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/layout/PageHeader";
 import JsonLd from "@/components/seo/JsonLd";
 import LegalEntityNote from "@/components/sections/LegalEntityNote";
-import SectionTag from "@/components/ui/SectionTag";
 import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Request a Quote or Engineering Review",
+  title: "Request a Quote | F1 Composite",
   description:
-    "Send F1 Composite your drawing, dimensions, quantity, and project requirements. Our team acknowledges requirements within one business day.",
+    "Start your F1 Composite inquiry with just your name and email. Drawings and specifications are optional. Our team will help confirm the details.",
   alternates: { canonical: absoluteUrl("/contact") },
 };
-
-const quoteChecklist = [
-  "Product / panel drawing or target dimensions",
-  "Estimated quantity or project scale",
-  "Load case and service environment",
-  "Required resin, standard, or test",
-  "Destination and target delivery date",
-];
 
 export default function ContactPage() {
   const contactPageSchema = {
@@ -28,7 +19,7 @@ export default function ContactPage() {
     "@type": "ContactPage",
     name: "Request a Quote from F1 Composite",
     description:
-      "Send F1 Composite your drawing, dimensions, quantity, and project requirements for engineering review and quotation.",
+      "Start an inquiry with your name and email. Add product details or drawings whenever you are ready.",
     url: absoluteUrl("/contact"),
     mainEntity: { "@id": "https://www.f1composite.com/#organization" },
   };
@@ -37,22 +28,19 @@ export default function ContactPage() {
     <>
       <JsonLd data={contactPageSchema} />
       <PageHeader
-        tag="Engineering & RFQ support"
-        title="Send your project requirements"
-        description="Upload a drawing or describe the application. We will review the product, material, documentation, quantity, and delivery requirements before responding."
+        tag="Request a quote"
+        title="Request a quote"
+        description="Tell us how to reach you. No drawings or complete specifications needed to get started."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Request a Quote" },
         ]}
       />
 
-      <section className="bg-bg2 py-[56px] md:py-[72px]">
+      <section className="bg-bg2 py-6 md:py-8">
         <div className="mx-auto grid max-w-[1320px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.15fr_0.85fr] lg:px-[36px]">
           <div>
-            <SectionTag>Project inquiry</SectionTag>
-            <h2 className="mb-[22px] mt-[12px] text-f24 font-bold tracking-[-0.02em] text-t1">
-              Tell us what you need to specify
-            </h2>
+            <h2 className="sr-only">Start your inquiry</h2>
             <Suspense fallback={<div className="text-f13 text-t3">Loading inquiry form…</div>}>
               <ContactForm />
             </Suspense>
@@ -84,17 +72,10 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-[11px] border border-border-default bg-deep p-[22px] text-white">
-              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal">For a faster quote</p>
-              <h2 className="mt-[7px] text-f19 font-bold">Include these five project details</h2>
-              <ul className="mt-[14px] space-y-[9px]">
-                {quoteChecklist.map((item) => (
-                  <li key={item} className="flex gap-[9px] text-f13 text-white/78">
-                    <span className="mt-[7px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="rounded-[11px] bg-deep p-[22px] text-white">
+              <h2 className="text-f19 font-bold">Still working out the details?</h2>
+              <p className="mt-3 text-sm text-white/80">Send your inquiry now. We can help confirm the right product, quantity and delivery requirements together.</p>
+              <p className="mt-3 text-sm text-white/80">Already have a drawing or specification? You can attach it as an optional extra or send it after we reply.</p>
             </div>
 
             <div className="rounded-[11px] border border-border-default bg-white p-[22px]">

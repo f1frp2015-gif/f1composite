@@ -44,7 +44,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
       ? {
           primary: { label: "Quote This Product", href: productQuoteHref(title) },
           secondary: { label: "Ask the AI Assistant", href: productAdvisorHref(title), variant: "secondary" },
-          note: "Send the dimensions, quantity, service environment, and destination for a scoped response.",
+          note: "Start with your name and email. Product details and drawings can follow.",
           stickyMobile: true,
         }
       : undefined);

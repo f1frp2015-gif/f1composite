@@ -78,8 +78,8 @@ export async function POST(request: NextRequest) {
   const name = text("name");
   const email = text("email");
   const country = text("country");
-  const inquiryType = text("inquiry_type");
-  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n");
+  const inquiryType = text("inquiry_type")?.trim() || "rfq";
+  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(part => part?.trim()).join("\n\n") || "Initial inquiry — no requirements provided yet. Please contact the customer to discuss their needs.";
   const company = text("company");
   const phone = text("phone");
   const attachmentEntry = formData.get("attachment");
@@ -115,9 +115,6 @@ export async function POST(request: NextRequest) {
   const missing: string[] = [];
   if (!name?.trim()) missing.push("Name");
   if (!email?.trim()) missing.push("Email");
-  if (!country?.trim()) missing.push("Country");
-  if (!inquiryType?.trim()) missing.push("Inquiry Type");
-  if (!message?.trim()) missing.push("Message");
 
   if (missing.length > 0) {
     return NextResponse.json(
