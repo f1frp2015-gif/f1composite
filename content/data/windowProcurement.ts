@@ -8,8 +8,8 @@ export const windowProcurement = {
     intro:
       "F1 Composite supplies FRP window and door profiles, also called fiberglass lineals or GRP profiles, for local fabrication. This route covers the profile set and agreed accessories; cutting, joining, glazing and final assembly are defined with the fabricator.",
     image:
-      "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
-    imageAlt: "Corner section of a pultruded fiberglass window frame",
+      "/images/products/window-systems/profile-samples.webp",
+    imageAlt: "Five dark gray FRP window and door profile samples showing their cross-sections",
     buyer:
       "Window and door manufacturers, fabricators and OEM development teams",
     supply:
@@ -74,8 +74,8 @@ export const windowProcurement = {
     intro:
       "F1 Composite supplies finished windows and doors built with pultruded FRP profiles. This route is for project buyers who need assembled units rather than lineals. Frame series, glazing, hardware, accessories and delivery scope are confirmed against the opening schedule.",
     image:
-      "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
-    imageAlt: "Finished fiberglass window with glazing and an operable sash",
+      "/images/products/window-systems/70.jpg",
+    imageAlt: "70 series glazed window corner assembly",
     buyer:
       "Building-project procurement teams, contractors and window distributors",
     supply:
