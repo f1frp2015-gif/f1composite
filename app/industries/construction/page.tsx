@@ -3,308 +3,230 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import JumpNav from "@/components/sections/JumpNav";
 import SectionTag from "@/components/ui/SectionTag";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
-import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import CollectionSchema from "@/components/seo/CollectionSchema";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildRfqHref } from "@/lib/rfq";
+import {
+  constructionApplications,
+  constructionSupportingProducts,
+  constructionFaqs,
+} from "@/content/data/construction";
+
+const pageTitle = "FRP Products for Buildings & Construction";
+const pageDescription =
+  "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application.";
+const pagePath = "/industries/construction";
+const conceptImage = "/images/industries/frp-building-applications-concept.webp";
+const quoteHref = buildRfqHref({
+  source: "construction-industry",
+  product: "FRP products for a building project",
+  productPath: pagePath,
+});
+const container = "mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]";
+const heading = "mt-[13px] text-[clamp(26px,3vw,36px)] font-bold leading-tight tracking-[-0.025em] text-t1";
+const productLinks = Array.from(
+  new Map(
+    [...constructionApplications.flatMap((group) => [...group.products]), ...constructionSupportingProducts]
+      .filter((product) => product.href.startsWith("/products/"))
+      .map((product) => [product.href, product]),
+  ).values(),
+);
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Construction & Building Envelopes",
-  description:
-    "FRP profiles for construction: corrosion-free facades, PHI-certified FRP window frames, thermally broken fenestration, and lightweight cladding support.",
-  path: "/industries/construction",
-  image: "/industries/construction/opengraph-image",
+  title: pageTitle,
+  description: pageDescription,
+  path: pagePath,
+  image: conceptImage,
 });
 
-const answerItems = [
-  {
-    question: "Why use FRP in construction?",
-    answer:
-      "FRP is used in construction because it combines low thermal conductivity, corrosion resistance, and high specific strength, making it well suited to facades, fenestration, and lightweight support structures.",
-  },
-  {
-    question: "Can FRP replace aluminum in window and facade systems?",
-    answer:
-      "Yes. FRP can replace aluminum in many window, curtain wall, and facade support applications where thermal bridging, corrosion, or galvanic compatibility are major design constraints.",
-  },
-  {
-    question: "What is the main thermal advantage of FRP?",
-    answer:
-      "The main thermal advantage is that FRP is inherently insulating, so it can provide structural framing without the separate thermal break assemblies required by aluminum systems.",
-  },
-  {
-    question: "Where is FRP most valuable in buildings?",
-    answer:
-      "FRP is most valuable in thermally demanding envelopes, coastal buildings, corrosive environments, and modular systems where lower weight and lower maintenance improve project economics.",
-  },
+const selectionRows = [
+  ["Window openings", "Profiles, reinforcement, thresholds or finished units", "Supply scope, complete-window performance and installation details"],
+  ["Fins & support frames", "Flat, hollow or standard structural sections", "Stiffness, wind loads, joints and exposed finish"],
+  ["Walking surfaces", "Molded grating, pultruded grating or closed deck", "Span direction, point loads, mesh opening, slip surface and drainage"],
+  ["Concrete reinforcement", "Qualified FRP bars and factory-formed shapes", "Design basis, bond, serviceability, anchorage and fire exposure"],
+  ["Rooftop installations", "Module frames, mounting rails or equipment supports", "Equipment interfaces, uplift, roof capacity and waterproofing"],
 ];
 
-const faqs = [
-  {
-    question: "Can FRP profiles replace aluminum in curtain wall systems?",
-    answer:
-      "Yes. Pultruded FRP profiles match or exceed the structural performance of aluminum extrusions in curtain wall mullions and transoms, while delivering thermal conductivity that is roughly 1/500th that of aluminum. This eliminates the need for separate thermal break inserts and simplifies fabrication. Our fenestration-grade profiles are engineered to meet EN 14024 and AAMA 507 performance requirements for curtain wall framing.",
-  },
-  {
-    question: "What fire rating can FRP profiles achieve in buildings?",
-    answer:
-      "Our construction-grade FRP profiles are formulated with halogen-free flame-retardant resin systems that achieve Class B-s1, d0 reaction to fire per EN 13501-1, equivalent to Euroclass B. For specific projects requiring additional compliance, we offer profiles tested to ASTM E84 Class A (flame spread index under 25, smoke-developed index under 450). Fire performance data sheets are available upon request.",
-  },
-  {
-    question: "How do FRP profiles perform in seismic zones?",
-    answer:
-      "FRP profiles offer significant advantages in seismic design. At roughly one-quarter the density of steel, FRP reduces dead load on structural connections and foundations, lowering seismic forces proportionally. The material also absorbs vibration energy effectively due to its viscoelastic resin matrix. Our profiles have been specified in seismic retrofit projects across Japan, Turkey, and the western United States.",
-  },
-  {
-    question: "What is the expected lifespan of FRP in a building envelope?",
-    answer:
-      "Pultruded FRP profiles carry a design life of 50 to 75 years in building envelope applications when specified correctly. Unlike aluminum, FRP does not corrode in coastal or industrial atmospheres. Unlike timber, it does not rot or attract insects. Accelerated aging tests per ASTM G154 and ISO 4892-3 confirm that UV-stabilized FRP profiles retain over 90% of their flexural strength after the equivalent of 30 years of outdoor exposure.",
-  },
+const resources = [
+  { label: "Product evidence & reports", href: "/resources/evidence", description: "Check the scope of available test records for the proposed material or system." },
+  { label: "Technical data & submittals", href: "/resources/technical-data", description: "Identify the material properties and project documentation to request." },
+  { label: "Design guides", href: "/resources/design-guides", description: "Continue into member selection, fabrication and connection considerations." },
+  { label: "Downloads & CAD", href: "/resources/downloads", description: "Find drawings and reference documents for the product you are evaluating." },
 ];
 
 export default function ConstructionPage() {
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "FRP Composite Profiles for Construction",
-    description:
-      "FRP profiles for construction: corrosion-free facades, FRP window frames and FRP window profiles, thermally broken fenestration systems, lightweight cladding support. Outperforms steel, aluminum, and PVC.",
-    url: absoluteUrl("/industries/construction"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for the construction industry",
-    },
-    provider: { "@id": "https://www.f1composite.com/#organization" },
-  };
-
   return (
     <>
-      <JsonLd data={webPageSchema} />
+      <CollectionSchema name={pageTitle} description={pageDescription} path={pagePath} links={productLinks} />
       <PageHeader
-        tag="Industries / Construction"
-        title="FRP Composite Profiles for Construction"
-        description="Fiber-reinforced polymer (FRP) profiles are redefining how architects and structural engineers approach building envelopes, facades, and structural framing — replacing steel and aluminum with corrosion-free, thermally efficient alternatives."
+        tag="Industries / Buildings & Construction"
+        title={pageTitle}
+        description="From the window opening to the rooftop: find the right fiberglass product for each part of a building, understand the design decisions, and build a coordinated enquiry."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
           { label: "Buildings & Construction" },
         ]}
+        actions={{
+          primary: { label: "Find building products", href: "#products" },
+          secondary: { label: "Discuss your project", href: quoteHref },
+        }}
       />
+      <JumpNav items={[
+        { label: "Application map", href: "#application-map" },
+        { label: "Product directory", href: "#products" },
+        { label: "Design guide", href: "#design-guide" },
+        { label: "Selection checklist", href: "#specification" },
+        { label: "Resources & FAQ", href: "#resources" },
+      ]} />
 
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
-            <Image
-              src="/images/industries/frp-construction-modern-building-facade.jpg"
-              alt="Modern building facade with composite structural profiles for construction applications"
-              width={1280}
-              height={600}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-              preload
-            />
+      <section id="application-map" className="scroll-mt-28 bg-white py-[40px] md:py-[55px]">
+        <div className={container}>
+          <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <SectionTag>One building, six application areas</SectionTag>
+              <h2 className={heading}>Where FRP fits in construction</h2>
+            </div>
+            <p className="max-w-[600px] text-f15 leading-relaxed text-t2">
+              Fiber-reinforced polymer combines fibers with a resin matrix. The glass-fiber products in this guide are also called GFRP, GRP or fiberglass. Start with the component&apos;s job, then choose its geometry, material and supply scope.
+            </p>
+          </div>
+          <figure className="mt-[28px]">
+            <div className="overflow-hidden rounded-[12px] border border-border-default bg-white">
+              <Image src={conceptImage} alt="Concept building with six numbered FRP applications: 01 window frames, 02 facade fins, 03 secondary support frame, 04 grating stairs and handrails, 05 slab reinforcement, and 06 rooftop solar supports."
+                width={1536} height={1024} sizes="(max-width: 1280px) 100vw, 1212px" className="h-auto w-full" preload />
+            </div>
+            <figcaption className="mt-[10px] text-f13 text-t3">
+              Concept illustration. Teal highlights potential FRP components; connections and proportions are schematic. Select an application below to explore its products.
+            </figcaption>
+          </figure>
+          <nav aria-label="Building application legend" className="mt-[21px] grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3">
+            {constructionApplications.map((group) => (
+              <a key={group.id} href={`#products-${group.id}`} className="flex items-center gap-[12px] rounded-[8px] border border-border-default px-[16px] py-[13px] text-f13 font-semibold text-t1 transition-colors hover:border-teal-border hover:bg-teal-bg">
+                <span className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-deep text-white">{group.number}</span>
+                <span>{group.title}</span><span aria-hidden="true" className="ml-auto text-teal-text">↗</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      <section id="products" className="scroll-mt-28 border-y border-border-default bg-bg2 py-[55px]">
+        <div className={container}>
+          <SectionTag>Construction product directory</SectionTag>
+          <h2 className={heading}>Go straight to the product you need</h2>
+          <p className="mt-[16px] max-w-[780px] text-f15 leading-relaxed text-t2">Browse F1&apos;s current product pages by building function. Each page explains the available formats and enquiry route; final dimensions, material, fabrication and documentation are confirmed for the order.</p>
+          <div className="mt-[28px] grid gap-[20px] md:grid-cols-2 lg:grid-cols-3">
+            {constructionApplications.map((group) => (
+              <div key={group.id} id={`products-${group.id}`} className="flex scroll-mt-28 flex-col rounded-[10px] border border-border-default bg-white p-[24px]">
+                <span className="text-f13 font-bold tracking-widest text-teal-text">{group.number}</span>
+                <h3 className="mt-[8px] text-f19 font-bold text-t1">{group.title}</h3>
+                <p className="mt-[8px] text-f13 leading-relaxed text-t2">{group.summary}</p>
+                <ul className="my-[18px] divide-y divide-border-default border-y border-border-default">
+                  {group.products.map((product) => (
+                    <li key={product.href}><Link href={product.href} className="flex items-center justify-between gap-[12px] py-[11px] text-f13 font-medium text-t1 hover:text-teal-text">
+                      {product.label}<span aria-hidden="true" className="shrink-0 text-teal-text">→</span>
+                    </Link></li>
+                  ))}
+                </ul>
+                <a href={`#guide-${group.id}`} className="mt-auto text-f13 font-semibold text-teal-text underline decoration-teal-border underline-offset-4">Read the {group.title.toLowerCase()} guide ↓</a>
+              </div>
+            ))}
+          </div>
+          <h3 className="mt-[36px] text-f24 font-bold text-t1">More components for the building and its site</h3>
+          <div className="mt-[18px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+            {constructionSupportingProducts.map((product) => (
+              <Link key={product.href} href={product.href} className="rounded-[8px] border border-border-default bg-white p-[20px] transition-colors hover:border-teal-border">
+                <h4 className="font-bold text-t1">{product.label} <span aria-hidden="true" className="text-teal-text">→</span></h4>
+                <p className="mt-[8px] text-f13 leading-relaxed text-t2">{product.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <AnswerBlocks
-        tag="Construction Answers"
-        title="Short answers for facade, envelope, and framing decisions"
-        description="These answer blocks make the construction use case easier to quote, summarize, and reuse in search and AI-generated responses."
-        items={answerItems}
-      />
-
-      {/* Challenge Section */}
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Why Traditional Materials Fall Short in Modern Construction
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <p>
-                Modern construction demands materials that perform across multiple axes simultaneously: structural capacity, thermal efficiency, corrosion resistance, design flexibility, and long-term durability. Traditional materials — steel, aluminum, and timber — excel in some of these areas but fall critically short in others. Steel corrodes aggressively in coastal and industrial atmospheres, requiring ongoing maintenance cycles that drive lifecycle costs well above initial material savings. Aluminum, while corrosion-resistant, conducts heat at roughly 200 W/mK, creating thermal bridges that undermine building envelope performance and violate increasingly stringent energy codes.
-              </p>
-              <p>
-                Thermal bridging alone accounts for up to 30% of total heat loss through a building facade, according to research published by the Passive House Institute. In curtain wall and window framing applications, aluminum extrusions require complex polyamide thermal break inserts to meet modern U-value targets. These multi-piece assemblies increase fabrication cost, introduce potential failure points at adhesive bonds, and still conduct more heat than a monolithic FRP profile.
-              </p>
-              <p>
-                Weight is another persistent challenge. Steel facade support structures add significant dead load to the primary structure, increasing foundation requirements and material quantities throughout the building. In high-rise construction, every kilogram of facade dead load translates directly to additional steel tonnage in the structural frame and increased concrete volume in foundations.
-              </p>
-            </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <p>
-                Corrosion represents perhaps the most insidious cost driver. A 2019 study by the National Association of Corrosion Engineers estimated that corrosion costs the global construction industry over $2.5 trillion annually. Steel window lintels, balcony connections, and facade brackets embedded in concrete are particularly vulnerable — once corrosion initiates behind cladding or within wall cavities, remediation requires partial facade disassembly, creating disruption and expense that far exceeds the original material cost.
-              </p>
-              <p>
-                Moisture management compounds the problem. Galvanic corrosion occurs wherever dissimilar metals contact each other — a common scenario in facade assemblies that combine steel structure, aluminum cladding support, and stainless steel fixings. Isolating these materials with nylon washers and neoprene gaskets adds labor and still leaves residual risk.
-              </p>
-              <p>
-                These converging challenges — thermal performance, weight, corrosion, and galvanic compatibility — create a clear engineering case for a material that addresses all four simultaneously. Fiber-reinforced polymer (FRP) composites, produced through the pultrusion process, deliver exactly that combination.
-              </p>
-            </div>
+      <section id="design-guide" className="scroll-mt-28 bg-white py-[55px]">
+        <div className={container}>
+          <SectionTag>Application & specification guide</SectionTag>
+          <h2 className={heading}>Make the material choice at the component level</h2>
+          <div className="mt-[20px] grid gap-[20px] text-f15 leading-relaxed text-t2 lg:grid-cols-2">
+            <p>FRP earns its place when a specific building problem matters: heat flow through an opening, corrosion around wet equipment, handling weight on a retrofit, or repeated maintenance of exposed components. A useful comparison follows the complete installed component, including its fixings, finish and expected inspection needs.</p>
+            <p>Different products use different fiber layouts, resins and manufacturing methods. A grating panel, window profile and reinforcing bar cannot share one set of design properties. Compare the proposed assembly with steel, aluminum or other options against the same loads, performance requirements and service environment.</p>
+          </div>
+          <div className="mt-[40px] divide-y divide-border-default">
+            {constructionApplications.map((group) => (
+              <article key={group.id} id={`guide-${group.id}`} className="grid scroll-mt-28 gap-[28px] py-[36px] first:pt-0 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-[55px]">
+                <div>
+                  <p className="text-f13 font-bold uppercase tracking-wider text-teal-text">{group.number} / {group.title}</p>
+                  <h3 className="mt-[12px] text-f24 font-bold leading-snug text-t1">{group.heading}</h3>
+                  <div className="mt-[20px] space-y-[16px] text-f15 leading-[1.8] text-t2">
+                    {group.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                </div>
+                <aside className="self-start rounded-[8px] border border-border-default bg-bg2 p-[22px]" aria-label={`${group.title} specification inputs`}>
+                  <h4 className="font-bold text-t1">Bring to the specification</h4>
+                  <ul className="mt-[16px] list-disc space-y-[12px] pl-[18px] text-f13 leading-relaxed text-t2">
+                    {group.checks.map((check) => <li key={check}>{check}</li>)}
+                  </ul>
+                  <a href={`#products-${group.id}`} className="mt-[20px] inline-block text-f13 font-semibold text-teal-text">Browse this product group ↑</a>
+                </aside>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FRP Solutions Section */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Pultruded FRP Profiles for Building Envelopes and Structural Framing
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Window Frames and Fenestration Systems</h3>
-              <p>
-                FRP window and door frames offer a thermal conductivity of approximately 0.3 W/mK — roughly 1/500th that of aluminum and comparable to high-performance timber. This means an FRP frame achieves Passive House-level thermal performance without the complex multi-chamber polyamide break inserts that aluminum systems require. A single FRP extrusion replaces what would otherwise be a three-piece aluminum and thermal break assembly.
-              </p>
-              <p>
-                Our fenestration-grade profiles are engineered with a coefficient of thermal expansion (CTE) closely matching that of glass at approximately 8 x 10^-6 /K. This thermal compatibility reduces stress on sealant joints and minimizes the risk of seal failure over repeated heating and cooling cycles. By contrast, aluminum frames expand at roughly three times the rate of glass, placing constant cyclic stress on perimeter seals.
-              </p>
-              <p>
-                The dimensional stability of pultruded FRP profiles also means tighter manufacturing tolerances. Our fenestration profiles hold straightness to within 1mm per meter and cross-sectional dimensions to +/- 0.15mm, enabling precise mitre joints and reliable hardware mounting without the shimming and adjustment that field-bent aluminum sometimes requires.
-              </p>
-              <LinkArrow href="/products/frp-window-frames">
-                Explore fenestration systems
-              </LinkArrow>
-
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Cladding Support and Facade Brackets</h3>
-              <p>
-                Pultruded FRP angles, channels, and custom brackets replace galvanized steel and aluminum in rainscreen and ventilated facade support systems. At approximately 1.8 g/cm3, FRP is roughly 75% lighter than steel and 35% lighter than aluminum, reducing dead load on the primary structure and simplifying installation logistics.
-              </p>
-              <p>
-                FRP cladding support is inherently immune to both atmospheric corrosion and galvanic corrosion. This is particularly valuable in ventilated facade cavities where condensation is common and different metals traditionally require isolation. An FRP bracket can directly contact aluminum cladding, stainless steel fixings, or concrete embedments without any risk of galvanic reaction. This eliminates isolator gaskets and simplifies detailing.
-              </p>
-              <p>
-                We supply standard L-angles, T-profiles, and U-channels suitable for common facade systems, alongside custom-pultruded bracket profiles designed to specific project geometries and load requirements. All cladding support profiles are available with UV-stabilized surfaces or factory-applied coatings for exposed applications.
-              </p>
-              <LinkArrow href="/products/fiberglass-structural-shapes">
-                Browse standard profiles
-              </LinkArrow>
+      <section id="specification" className="scroll-mt-28 border-y border-border-default bg-bg2 py-[55px]">
+        <div className={container}>
+          <SectionTag>From concept to an enquiry</SectionTag>
+          <h2 className={heading}>Resolve the choices that change the specification</h2>
+          <p className="mt-[16px] max-w-[780px] text-f15 text-t2">Use this comparison to turn a general request for “FRP for a building” into a defined component package.</p>
+          <div role="region" aria-label="Construction product selection comparison" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+            <table className="w-full min-w-[700px] text-left text-f13">
+              <caption className="sr-only">Building component, product choice and specification priority</caption>
+              <thead className="bg-deep text-white"><tr>{["Building component", "Product choice", "What decides the specification"].map((label) => <th key={label} scope="col" className="px-[22px] py-[16px] font-semibold">{label}</th>)}</tr></thead>
+              <tbody>{selectionRows.map(([component, choice, decision]) => <tr key={component} className="border-t border-border-default"><th scope="row" className="px-[22px] py-[18px] font-semibold text-t1">{component}</th><td className="px-[22px] py-[18px] text-t2">{choice}</td><td className="px-[22px] py-[18px] text-t2">{decision}</td></tr>)}</tbody>
+            </table>
+          </div>
+          <div className="mt-[32px] grid gap-[24px] md:grid-cols-2">
+            <div className="rounded-[10px] border border-border-default bg-white p-[26px]">
+              <h3 className="text-f19 font-bold text-t1">Define the package</h3>
+              <ol className="mt-[16px] list-decimal space-y-[12px] pl-[20px] text-f15 text-t2">
+                <li>Mark each FRP component on a drawing and state its job.</li>
+                <li>Add section or opening dimensions, lengths, quantities and the delivery destination.</li>
+                <li>Provide loads, support spacing, exposure and required performance where available.</li>
+                <li>State the supply scope: profiles, cut and drilled parts, fabricated assemblies or finished units.</li>
+              </ol>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Structural Profiles for Framing and Reinforcement</h3>
-              <p>
-                Pultruded FRP I-beams, H-sections, tubes, and box profiles provide structural framing solutions for applications where corrosion, thermal performance, or electromagnetic transparency is critical. While FRP has a lower elastic modulus than steel (typically 25-40 GPa versus 200 GPa for steel), its high strength-to-weight ratio means that appropriately sized FRP members can match the load-carrying capacity of steel sections at roughly 20% of the weight.
-              </p>
-              <p>
-                In concrete reinforcement applications, FRP rebar and dowel bars eliminate corrosion-induced spalling — the single largest cause of concrete structure deterioration in coastal and de-icing salt environments. FRP-reinforced concrete balcony slabs and parapets are increasingly specified by structural engineers who need to eliminate cold bridges at slab edges. Because FRP has thermal conductivity comparable to concrete itself, an FRP connection through an insulation layer does not create the thermal bridge that a steel connection would.
-              </p>
-              <p>
-                We also supply FRP structural profiles for modular building systems. Our profiles can be drilled, cut, and bolted using conventional tools and standard stainless steel fasteners, with no welding required. This makes FRP framing particularly efficient for prefabricated facade panels, modular bathroom pods, and other off-site construction methods where factory assembly speed directly affects project economics.
-              </p>
-              <LinkArrow href="/products/fiberglass-structural-shapes">
-                View structural profiles
-              </LinkArrow>
-
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
-              <ul className="list-none space-y-[13px]">
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">75% weight reduction</strong> versus steel in facade support brackets, enabling faster installation and reduced crane time</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Thermal conductivity of 0.3 W/mK</strong> — eliminates the need for separate thermal break inserts in window and curtain wall framing</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Zero corrosion maintenance</strong> for 50+ years, even in coastal and industrial atmospheres</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">CTE matching glass</strong> at 8 x 10^-6 /K, reducing sealant stress and improving long-term weathertightness</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Class B-s1, d0 fire rating</strong> available per EN 13501-1 for facade and interior applications</span>
-                </li>
-              </ul>
+            <div className="rounded-[10px] border border-border-default bg-white p-[26px]">
+              <h3 className="text-f19 font-bold text-t1">Agree the submittal and acceptance basis</h3>
+              <p className="mt-[16px] text-f15 leading-relaxed text-t2">Match drawings and material declarations to the offered product. Agree which calculations, fire or thermal reports, coating evidence, samples and batch records the project needs. A report for a different laminate or assembly should be reviewed for applicability before it is used.</p>
+              <p className="mt-[14px] text-f15 leading-relaxed text-t2">For custom work, settle tooling, sample approval, dimensional tolerances, inspection and packing before production. Compare quotations on that same scope so fabrication and documentation are included consistently.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Products and Cross-links */}
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Products and Resources for Construction Projects
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/products/frp-window-frames"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-            >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Fenestration Systems</h3>
-              <p className="text-f13 leading-golden text-t2">
-                Thermally broken FRP window and door frame profiles for Passive House and high-performance building envelopes.
-              </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/products/fiberglass-structural-shapes"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-            >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>
-              <p className="text-f13 leading-golden text-t2">
-                I-beams, angles, channels, and tubes for structural framing and facade support in construction applications.
-              </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/case-studies/fenestration-residential"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-            >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Residential Fenestration</h3>
-              <p className="text-f13 leading-golden text-t2">
-                FRP window and door frames delivering thermal performance and durability in residential construction.
-              </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View case studies →
-              </span>
-            </Link>
-            <Link
-              href="/technology/frp-vs-aluminum-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-            >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Aluminum Windows</h3>
-              <p className="text-f13 leading-golden text-t2">
-                U-value, thermal bridging, condensation, and passive-house suitability compared between pultruded FRP and thermally-broken aluminum frames.
-              </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read comparison →
-              </span>
-            </Link>
-            <Link
-              href="/technology/frp-vs-pvc-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
-            >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs PVC Windows</h3>
-              <p className="text-f13 leading-golden text-t2">
-                Thermal performance, structural capacity, UV stability, and fire safety compared between pultruded FRP and triple-chamber uPVC window frames.
-              </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read comparison →
-              </span>
-            </Link>
+      <section id="resources" className="scroll-mt-28 bg-white py-[55px]">
+        <div className={container}>
+          <SectionTag>Continue your project</SectionTag>
+          <h2 className={heading}>Drawings, evidence and design resources</h2>
+          <div className="mt-[24px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+            {resources.map((resource) => <Link key={resource.href} href={resource.href} className="rounded-[8px] border border-border-default p-[22px] hover:border-teal-border"><h3 className="font-bold text-t1">{resource.label} <span aria-hidden="true" className="text-teal-text">→</span></h3><p className="mt-[10px] text-f13 leading-relaxed text-t2">{resource.description}</p></Link>)}
           </div>
-
-          <FAQ items={faqs} />
+          <div className="mt-[26px] flex flex-wrap gap-x-[26px] gap-y-[12px]">
+            <LinkArrow href="/technology/frp-vs-aluminum-windows">FRP vs aluminum windows</LinkArrow>
+            <LinkArrow href="/technology/fiberglass-rebar-vs-steel">FRP rebar vs steel</LinkArrow>
+            <LinkArrow href="/case-studies">Explore project case studies</LinkArrow>
+          </div>
+          <FAQ items={[...constructionFaqs]} title="Questions about FRP in buildings" />
         </div>
       </section>
-
-      <InnerCTA title="Planning a construction project with FRP?" />
+      <InnerCTA title="Bring your building drawings to the discussion" quoteHref={quoteHref} />
     </>
   );
 }
