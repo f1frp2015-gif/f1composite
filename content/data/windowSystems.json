@@ -1,0 +1,477 @@
+{
+  "revision": "2026-09-20",
+  "sourceNote": "July 2026 supplier catalog, PDF pages 9 and 11-15; current codes and 140 side-pressure naming follow the approved September 2026 product mapping. Dimensions, mass and leaf loads are catalog references, not verified ratings or guarantees. Confirm drawing revision, hardware, glazing, size, testing and supply scope for each order. Uf describes the frame; Ug the glass; Uw the complete window. No universal thermal or certification claim is made.",
+  "series": [
+    {
+      "id": "50",
+      "name": "50 Series Window System",
+      "kind": "casement",
+      "depthMm": 50,
+      "wallThicknessMm": 2.5,
+      "referenceMaxLeafKg": 65,
+      "summary": "50 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/50.jpg",
+      "imageAlt": "50 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Outward-opening",
+        "Tilt-and-turn",
+        "Top-hung outward",
+        "Tilt-in"
+      ],
+      "profiles": [
+        {
+          "code": "GF0701",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.038
+        },
+        {
+          "code": "GF0702",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.214
+        },
+        {
+          "code": "GF0703",
+          "label": "Window sash",
+          "status": "configuration-review",
+          "referenceKgM": 1.141
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/50-sections.jpg",
+      "sectionImageAlt": "50 Series Window System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "55",
+      "name": "55 Series Window & Door System",
+      "kind": "casement",
+      "depthMm": 55,
+      "wallThicknessMm": 2.7,
+      "referenceMaxLeafKg": 70,
+      "summary": "55 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/55.jpg",
+      "imageAlt": "55 Series Window & Door System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Outward-opening",
+        "Tilt-and-turn",
+        "Top-hung outward",
+        "Tilt-in",
+        "Double-leaf",
+        "Inward-opening door",
+        "Outward-opening door"
+      ],
+      "profiles": [
+        {
+          "code": "GF0801",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.147
+        },
+        {
+          "code": "GF0802",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.323
+        },
+        {
+          "code": "GF0803",
+          "label": "Window sash",
+          "status": "configuration-review",
+          "referenceKgM": 1.438
+        },
+        {
+          "code": "GF0804",
+          "label": "Adapter frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.051
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/55-sections.jpg",
+      "sectionImageAlt": "55 Series Window & Door System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "60",
+      "name": "60 Series Window System",
+      "kind": "casement",
+      "depthMm": 60,
+      "wallThicknessMm": 2.5,
+      "referenceMaxLeafKg": 75,
+      "summary": "60 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/60.jpg",
+      "imageAlt": "60 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Outward-opening",
+        "Tilt-and-turn",
+        "Top-hung outward",
+        "Tilt-in"
+      ],
+      "profiles": [
+        {
+          "code": "CP6001",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.395
+        },
+        {
+          "code": "CP6002",
+          "label": "Outward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 1.457
+        },
+        {
+          "code": "CP6003",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.702
+        },
+        {
+          "code": "CP6004",
+          "label": "Adapter frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.262
+        },
+        {
+          "code": "CP6005",
+          "label": "Outward-opening door leaf",
+          "status": "configuration-review",
+          "referenceKgM": 1.997
+        },
+        {
+          "code": "CP6006",
+          "label": "Door false mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.432
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/60-sections.jpg",
+      "sectionImageAlt": "60 Series Window System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "65",
+      "name": "65 Series Window System",
+      "kind": "casement",
+      "depthMm": 65,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 110,
+      "summary": "65 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/65.jpg",
+      "imageAlt": "65 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Outward-opening",
+        "Tilt-and-turn",
+        "Top-hung outward",
+        "Tilt-in"
+      ],
+      "profiles": [
+        {
+          "code": "GF0201",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.637
+        },
+        {
+          "code": "GF0202",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.922
+        },
+        {
+          "code": "GF0203",
+          "label": "Inward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 1.395
+        },
+        {
+          "code": "GF0204",
+          "label": "Outward-opening adapter frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.395
+        },
+        {
+          "code": "GF0205",
+          "label": "Outward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 1.395
+        },
+        {
+          "code": "GF0206",
+          "label": "Outward-opening window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.532
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/65-sections.jpg",
+      "sectionImageAlt": "65 Series Window System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "70",
+      "name": "70 Series Window & Door System",
+      "kind": "casement",
+      "depthMm": 70,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 120,
+      "summary": "70 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/70.jpg",
+      "imageAlt": "70 Series Window & Door System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Outward-opening",
+        "Tilt-and-turn",
+        "Top-hung outward",
+        "Tilt-in",
+        "Double-leaf",
+        "Inward-opening door",
+        "Outward-opening door"
+      ],
+      "profiles": [
+        {
+          "code": "GF0301",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.797
+        },
+        {
+          "code": "GF0302",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 1.981
+        },
+        {
+          "code": "GF0303",
+          "label": "Inward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 2.288
+        },
+        {
+          "code": "GF0304",
+          "label": "Outward-opening adapter frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.53
+        },
+        {
+          "code": "GF0305",
+          "label": "Outward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 2.404
+        },
+        {
+          "code": "GF0306",
+          "label": "Outward-opening window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.701
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/70-sections.jpg",
+      "sectionImageAlt": "70 Series Window & Door System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "80",
+      "name": "80 Series Window System",
+      "kind": "casement",
+      "depthMm": 80,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 130,
+      "summary": "80 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/80.jpg",
+      "imageAlt": "80 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Tilt-and-turn"
+      ],
+      "profiles": [
+        {
+          "code": "GF0501",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 1.915
+        },
+        {
+          "code": "GF0502",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 2.1
+        },
+        {
+          "code": "GF0503",
+          "label": "Inward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 2.343
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/80-sections.jpg",
+      "sectionImageAlt": "80 Series Window System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "90-casement",
+      "name": "90 Series Casement / Tilt-and-Turn System",
+      "kind": "casement",
+      "depthMm": 90,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 130,
+      "summary": "90 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
+      "image": "/images/products/window-systems/90-casement.jpg",
+      "imageAlt": "90 Series Casement / Tilt-and-Turn System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Inward-opening",
+        "Tilt-and-turn",
+        "Double-leaf",
+        "Inward-opening door",
+        "Outward-opening door"
+      ],
+      "profiles": [
+        {
+          "code": "GF0601",
+          "label": "Window frame",
+          "status": "configuration-review",
+          "referenceKgM": 2.083
+        },
+        {
+          "code": "GF0602",
+          "label": "Mullion",
+          "status": "configuration-review",
+          "referenceKgM": 2.418
+        },
+        {
+          "code": "GF0603",
+          "label": "Inward-opening window sash",
+          "status": "configuration-review",
+          "referenceKgM": 2.451
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/90-casement-sections.jpg",
+      "sectionImageAlt": "90 Series Casement / Tilt-and-Turn System source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    },
+    {
+      "id": "90-sliding",
+      "name": "90 Series Sliding Window System",
+      "kind": "sliding",
+      "depthMm": 90,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 120,
+      "summary": "Sliding window system with five current profile codes. Section drawings and component names must be confirmed during technical review.",
+      "image": "/images/products/window-systems/90-sliding.jpg",
+      "imageAlt": "90 Series Sliding Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Sliding"
+      ],
+      "profiles": [
+        {
+          "code": "CP001",
+          "label": "Section details on request",
+          "status": "drawing-required"
+        },
+        {
+          "code": "CP002",
+          "label": "Section details on request",
+          "status": "drawing-required"
+        },
+        {
+          "code": "CP003",
+          "label": "Section details on request",
+          "status": "drawing-required"
+        },
+        {
+          "code": "CP004",
+          "label": "Section details on request",
+          "status": "drawing-required"
+        },
+        {
+          "code": "CP005",
+          "label": "Section details on request",
+          "status": "drawing-required"
+        }
+      ]
+    },
+    {
+      "id": "140",
+      "name": "140 Series Compression-Seal Sliding Door",
+      "kind": "compression-sliding",
+      "depthMm": 140,
+      "wallThicknessMm": 3,
+      "referenceMaxLeafKg": 200,
+      "summary": "Side-pressure compression-seal sliding system. Confirm current assembly drawings and hardware; historical inward-opening component labels remain traceable.",
+      "image": "/images/products/window-systems/140.jpg",
+      "imageAlt": "140 Series Compression-Seal Sliding Door corner assembly illustration extracted from the July 2026 source catalog",
+      "openingTypes": [
+        "Sliding with side-pressure compression seal"
+      ],
+      "profiles": [
+        {
+          "code": "CP006",
+          "label": "Outer frame",
+          "status": "configuration-review",
+          "legacyCode": "GF0801",
+          "referenceKgM": 2.82
+        },
+        {
+          "code": "CP007",
+          "label": "Former inward-opening mullion - assembly to confirm",
+          "status": "configuration-review",
+          "legacyCode": "GF0802",
+          "referenceKgM": 3.162
+        },
+        {
+          "code": "CP008",
+          "label": "Sliding mullion",
+          "status": "configuration-review",
+          "legacyCode": "GF0803",
+          "referenceKgM": 1.448
+        },
+        {
+          "code": "CP009",
+          "label": "Sliding inner sash",
+          "status": "configuration-review",
+          "legacyCode": "GF0804",
+          "referenceKgM": 2.036
+        },
+        {
+          "code": "CP010",
+          "label": "Former inward-opening inner sash - assembly to confirm",
+          "status": "configuration-review",
+          "legacyCode": "GF0805",
+          "referenceKgM": 1.945
+        },
+        {
+          "code": "CP011",
+          "label": "Outer-frame closure",
+          "status": "configuration-review",
+          "legacyCode": "GF0806",
+          "referenceKgM": 1.145
+        }
+      ],
+      "sectionImage": "/images/products/window-systems/140-sections.jpg",
+      "sectionImageAlt": "140 Series Compression-Seal Sliding Door source-catalog profile cross-sections in current code-list order; reference geometry only, not dimensioned production drawings"
+    }
+  ],
+  "subframes": [
+    {
+      "id": "65x24",
+      "label": "65 x 24 Subframe",
+      "dimensionsNote": "Catalog size designation; units, tolerances and interfaces require the approved drawing."
+    },
+    {
+      "id": "75x25",
+      "label": "75 x 25 Subframe",
+      "dimensionsNote": "Catalog size designation; units, tolerances and interfaces require the approved drawing."
+    },
+    {
+      "id": "75x50",
+      "label": "75 x 50 Subframe",
+      "dimensionsNote": "Catalog size designation; units, tolerances and interfaces require the approved drawing."
+    },
+    {
+      "id": "90x25",
+      "label": "90 x 25 Subframe",
+      "dimensionsNote": "Catalog size designation; units, tolerances and interfaces require the approved drawing."
+    },
+    {
+      "id": "90x50",
+      "label": "90 x 50 Subframe",
+      "dimensionsNote": "Catalog size designation; units, tolerances and interfaces require the approved drawing."
+    }
+  ]
+}

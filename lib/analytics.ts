@@ -1,6 +1,7 @@
 "use client";
 
 import { attributionPath, attributionToken } from "@/lib/rfq";
+import { WINDOW_SERIES, WINDOW_STAGES } from "@/lib/windowInquiry";
 
 type TrackingWindow = Window & { gtag?: (...args: unknown[]) => void };
 const sentReceipts = new Set<string>();
@@ -12,7 +13,7 @@ export function trackEvent(name: string, params: Record<string, unknown> = {}) {
   try { (window as TrackingWindow).gtag?.("event", name, params); } catch { /* Analytics never blocks a customer action. */ }
 }
 
-export function trackInquirySuccess(receiptId: string | null | undefined, source: string, productPath = "", inquiryType = "rfq") {
+export function trackInquirySuccess(receiptId: string | null | undefined, source: string, productPath = "", inquiryType = "rfq", windowContext?: { mode?: string; series?: string; stage?: string }) {
   if (!receiptId || sentReceipts.has(receiptId)) return;
   sentReceipts.add(receiptId);
   const params = {
@@ -21,6 +22,11 @@ export function trackInquirySuccess(receiptId: string | null | undefined, source
     product_path: attributionPath(productPath),
     form_path: typeof window === "undefined" ? "" : attributionPath(window.location.pathname),
     inquiry_type: attributionToken(inquiryType),
+    ...(windowContext?.mode === "profiles" || windowContext?.mode === "finished" ? {
+      window_mode: windowContext.mode,
+      ...(WINDOW_SERIES.some(series => series === windowContext.series) ? { window_series: windowContext.series } : {}),
+      ...(WINDOW_STAGES.some(stage => stage === windowContext.stage) ? { window_stage: windowContext.stage } : {}),
+    } : {}),
   };
   trackEvent("inquiry_submit_success", params);
   if (inquiryType === "rfq") {

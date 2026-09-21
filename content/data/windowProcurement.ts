@@ -4,7 +4,7 @@ export const windowProcurement = {
     title: "Fiberglass Window & Door Profiles for Fabricators",
     description:
       "Pultruded fiberglass window and door profiles for fabricators. Specify frame, sash, mullion and sill sections, cut lengths, machining and supporting documents.",
-    h1: "Pultruded window & door profiles for fabricators",
+    h1: "FRP window & door system profiles",
     intro:
       "F1 Composite supplies FRP window and door profiles, also called fiberglass lineals or GRP profiles, for local fabrication. This route covers the profile set and agreed accessories; cutting, joining, glazing and final assembly are defined with the fabricator.",
     image:
@@ -92,8 +92,8 @@ export const windowProcurement = {
         "Choose opening direction and handing, ventilation requirements, hardware and restrictors. Confirm allowable unit size and the applicable test configuration during specification review.",
       ],
       [
-        "Sliding and lift-and-slide doors",
-        "State panel arrangement, clear opening, threshold detail, operating hardware and glass weight. The offered configuration and transport constraints require project review.",
+        "90 sliding windows and 140 compression-seal sliding doors",
+        "Select the opening system first, then state panel arrangement, clear opening, threshold detail, operating hardware and glass weight. The 140 series uses side-pressure sealing; review the offered assembly and transport constraints for the project.",
       ],
       [
         "Entrance doors",
@@ -112,7 +112,7 @@ export const windowProcurement = {
       "Please review my finished window and door schedule.\nProject location:\nOpening types, dimensions and quantities:\nGlass and hardware requirements:\nThermal / air / water / wind requirements:\nInstallation interface and accessories:\nDelivery destination:",
     action: "Request Finished Units",
     evidence:
-      "Review the original turn-and-tilt window and lift-sliding door reports against the offered size, glass, hardware and test conditions. Whole-window U-value differs from glass-only Ug and frame-only Uf. Report or certificate coverage must be checked for the specific configuration; it is not a blanket claim for every unit.",
+      "Review each original report against the offered opening type, size, glass, hardware and test conditions. The historical lift-sliding door report does not automatically cover the current 140 compression-seal series. Whole-window Uw differs from glass-only Ug and frame-only Uf; documentation coverage must be checked for the specific configuration.",
     faq: [
       {
         question: "What is included in a finished-unit quotation?",

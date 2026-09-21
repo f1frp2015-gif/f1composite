@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import { buildWindowRfqHref } from "@/lib/windowInquiry";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { blogPosts } from "@/content/data/blogPosts";
@@ -66,7 +66,7 @@ const stages: Stage[] = [
     step: "3",
     title: "Certify and comply",
     description:
-      "The certification stack by market: PHI component certification, NAFS, hurricane zones, AS 2047.",
+      "Match reports to the offered configuration: PHI component scope, market requirements and AS 2047 specimen results. Historical lift-sliding evidence does not automatically cover the current 140 compression-seal door.",
     slugs: [
       "frp-fenestration-passivhaus-certification",
       "frp-windows-hurricane-wind-borne-debris-resistance",
@@ -81,9 +81,9 @@ const stages: Stage[] = [
   },
   {
     step: "4",
-    title: "Source and fabricate",
+    title: "Choose a supply path and prepare the RFQ",
     description:
-      "Qualifying a profile supplier, decomposing quotes, and running fiberglass lineals through a window shop.",
+      "For local fabrication, prepare a profile BOM; for finished units, prepare a window schedule. Compare scope, drawings, configuration and evidence before quoting.",
     slugs: [
       "qualify-chinese-fiberglass-window-profile-supplier",
       "fiberglass-window-profile-price-drivers",
@@ -92,6 +92,8 @@ const stages: Stage[] = [
       "frp-window-finish-transverse-reinforcement",
     ],
     links: [
+      { href: "/products/window-door-profiles", label: "System profiles — series selection and BOM" },
+      { href: "/products/fiberglass-windows-doors", label: "Finished units — configuration and window schedule" },
       { href: "/products/frp-window-frames", label: "F1 fenestration systems (65–90 series)" },
       { href: "/products/frp-window-reinforcement", label: "Window reinforcement profiles" },
       { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
@@ -228,7 +230,16 @@ export default function FrpWindowsGuidePage() {
         </div>
       </section>
 
-      <InnerCTA title="Working on a fenestration project? Send the spec — we quote profiles or finished units." />
+      <section className="border-y border-border-default bg-white py-[38px]">
+        <div className="mx-auto max-w-[1280px] px-[34px]">
+          <h2 className="text-f24 font-bold text-t1">Prepare your window and door inquiry</h2>
+          <p className="mt-[8px] text-f15 text-t2">Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have.</p>
+          <div className="mt-[21px] flex flex-wrap gap-[13px]">
+            <Link className="rounded-[6px] bg-teal px-[21px] py-[13px] font-semibold text-white" href={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}>Request system profiles →</Link>
+            <Link className="rounded-[6px] border border-teal px-[21px] py-[13px] font-semibold text-teal-text" href={buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath })}>Request finished units →</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

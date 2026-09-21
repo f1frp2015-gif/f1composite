@@ -903,7 +903,7 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
     relatedLinks: [
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Quality Testing (EN 13706 / ASTM)", href: "/technology/quality-testing" },
       { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
     ],
@@ -994,7 +994,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     relatedLinks: [
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "DDP, Tariffs & HS Codes Guide", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
       { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
     ],
@@ -1074,7 +1074,7 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
       "What actually changes on a window fabrication line when you switch from uPVC or aluminum to fiberglass lineals: cutting, corner joining, hardware, glazing.",
     ogChips: ["Fabrication", "Window lineals", "Process"],
     relatedLinks: [
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Powder-Coated FRP Window Profiles", href: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish" },
@@ -1157,7 +1157,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     ogChips: ["Condensation", "Thermal bridging", "Cold climate"],
     relatedLinks: [
       { label: "FRP vs Aluminum Window Frames", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
       { label: "Why FRP Outperforms Aluminum Thermally", href: "/resources/blog/frp-fenestration-thermal-performance" },
@@ -1239,7 +1239,7 @@ To check where a specific frame and glazing build lands before specifying, run i
       "Who supplies pultruded FRP window profiles, what is pulling demand, and how to qualify a supplier — an industry analysis without invented market-size numbers.",
     ogChips: ["Window profiles", "Market analysis", "Suppliers"],
     relatedLinks: [
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Fiberglass Window Reinforcements", href: "/products/frp-window-reinforcement" },
@@ -1287,7 +1287,7 @@ Supply is more concentrated than the demand story would suggest, because the bar
 
 **European suppliers.** Europe's pultrusion industry is strong in structural profiles, but dedicated window-lineal supply is thinner than in North America; much of Europe's high-performance window market runs on timber-aluminum hybrids and premium uPVC instead. This is one reason certified fiberglass systems imported into the EU compete on performance rather than against entrenched local FRP suppliers.
 
-**Factory-direct exporters from China.** F1 Composite supplies a five-series fenestration family (65–140 mm frame depths) as both profile sets and finished units, with the certification stack — PHI Component 2491wi03, EN 14351-1, NAFS — carried by the supplier rather than left to the fabricator, exported FOB or DDP. For a fuller like-for-like evaluation against the North American lineal suppliers, see our [comparison page](/technology/china-alternative-to-tencom-creative-pultrusions-windows).
+**Factory-direct exporters from China.** F1 Composite supplies a nine-series fenestration range (50–140 mm nominal frame depths) through separate system-profile and finished-unit purchasing paths. Match evidence, including the configuration-specific PHI Component 2491wi03 certificate, to the offered assembly and destination requirements; confirm the delivery term in the quotation. For a fuller like-for-like evaluation against the North American lineal suppliers, see our [comparison page](/technology/china-alternative-to-tencom-creative-pultrusions-windows).
 
 ## The Materials Story Inside the Market
 
@@ -3138,7 +3138,7 @@ For engineers designing structures that must survive impact events and remain in
     updatedAt: "2026-04-06",
     readTime: "9 min",
     excerpt:
-      "Two pultruded GFRP fenestration systems — an 80 Series turn-and-tilt window and a 140 Series lift-sliding door — have passed full AS 2047-2014 compliance testing by Intertek. With all tests cleared for wind pressure, air infiltration, water penetration, and ultimate strength, glass fiber reinforced polymer is now a code-compliant fenestration material for the Australian construction market.",
+      "Intertek reports document AS 2047-2014 testing of an 80 Series turn-and-tilt window and a historical 140 Series Lift-Sliding Door specimen. Results apply to the stated specimens and test conditions; they do not automatically establish project compliance or cover the current 140 Series Compression-Seal Sliding Door.",
     authorName: "Duowei Wang, Ph.D.",
     authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
     reviewedBy: "Technical Applications Group",
@@ -3169,7 +3169,9 @@ For engineers designing structures that must survive impact events and remain in
       { label: "AS 2047-2014 — Windows and external glazed doors in buildings", href: "https://www.standards.org.au" },
       { label: "NCC 2022 — National Construction Code of Australia", href: "https://ncc.abcb.gov.au" },
     ],
-    content: `In October 2024, two pultruded glass fiber reinforced polymer (GFRP) fenestration systems underwent full performance testing at Intertek's IAS-accredited laboratory under AS/NZS 4420.1-2016 test methods, evaluated against AS 2047-2014 specification requirements. Both systems passed every test category. This is the first independently verified demonstration that GFRP pultruded fenestration can meet Australian building code requirements — and it opens a market opportunity that the Australian construction industry has not yet recognized.
+    content: `**Current product scope:** This article discusses historical tested specimens. Intertek 240821010SHF-002 retains the original name **140 Series Lift-Sliding Door**. The current product is the **140 Series Compression-Seal Sliding Door** (CP006–CP011). The historical report does not automatically cover the current compression-seal configuration; dimensions, profiles, glazing, hardware and seals require technical verification before evidence can be applied.
+
+In October 2024, two pultruded glass fiber reinforced polymer (GFRP) fenestration systems underwent full performance testing at Intertek's IAS-accredited laboratory under AS/NZS 4420.1-2016 test methods, evaluated against AS 2047-2014 specification requirements. Both systems passed every test category. This is the first independently verified demonstration that GFRP pultruded fenestration can meet Australian building code requirements — and it opens a market opportunity that the Australian construction industry has not yet recognized.
 
 ## The Test Results
 
@@ -3418,13 +3420,13 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     title: "FRP Lift-Sliding Door — AS 2047 Engineering Deep-Dive on a 3m × 2.4m Pultruded GFRP Patio Door",
     seoTitle: "FRP Lift-Sliding Door — AS 2047 Engineering Guide",
     answerBox:
-      "A 3 m × 2.4 m pultruded GFRP lift-sliding door passes all AS 2047 test sequences with engineering margin: rated wind pressure, operating force < 100 N, controlled air infiltration, water-penetration sealed, and ultimate-strength factor of safety > 2.0 — documented in the Intertek certification report.",
+      "Intertek 240821010SHF-002 records testing of a historical 3 m × 2.4 m 140 Series Lift-Sliding Door specimen. Its results apply to the reported configuration and do not automatically cover the current 140 Series Compression-Seal Sliding Door.",
     category: "Engineering Deep-Dive",
     date: "2026-04-30",
     updatedAt: "2026-04-30",
     readTime: "12 min",
     excerpt:
-      "Intertek tested a full-size 3000 × 2400 mm pultruded GFRP lift-sliding door (140 Series) to AS 2047-2014 / AS/NZS 4420.1-2016 — every category passed. This article unpacks the actual test numbers, what each result means for an Australian specifier, how the door maps to AS 4055 wind regions N1–N5, and where pultruded fiberglass fenestration sits against Capral, Vantage, and Stegbar on the same performance lines.",
+      "Historical report review: Intertek tested a 3000 × 2400 mm 140 Series Lift-Sliding Door to AS 2047-2014 / AS/NZS 4420.1-2016. Review the specimen and conditions before using these results; this report is not automatic evidence for the current 140 compression-seal door.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
     reviewedBy: "Technical Applications Group",
@@ -3458,7 +3460,9 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
       { label: "AS 4055-2021 — Wind loads for housing", href: "https://www.standards.org.au" },
       { label: "NCC 2022 — National Construction Code", href: "https://ncc.abcb.gov.au" },
     ],
-    content: `Australian specifiers asking whether pultruded FRP fenestration is ready for premium projects have, until recently, faced a data gap. European PHI certifications and ASTM laboratory results existed, but the specific Australian test regime — AS/NZS 4420.1-2016 methods evaluated against AS 2047-2014 specification — had not been independently performed at scale-realistic dimensions on a glass fiber reinforced polymer (GFRP) lift-sliding door.
+    content: `**Current product scope:** This article discusses historical tested specimens. Intertek 240821010SHF-002 retains the original name **140 Series Lift-Sliding Door**. The current product is the **140 Series Compression-Seal Sliding Door** (CP006–CP011). The historical report does not automatically cover the current compression-seal configuration; dimensions, profiles, glazing, hardware and seals require technical verification before evidence can be applied.
+
+Australian specifiers asking whether pultruded FRP fenestration is ready for premium projects have, until recently, faced a data gap. European PHI certifications and ASTM laboratory results existed, but the specific Australian test regime — AS/NZS 4420.1-2016 methods evaluated against AS 2047-2014 specification — had not been independently performed at scale-realistic dimensions on a glass fiber reinforced polymer (GFRP) lift-sliding door.
 
 That gap has now closed. Intertek Report No. 240821010SHF-002 documents a full performance evaluation of a 3000 mm × 2400 mm pultruded GFRP lift-sliding door at the IAS-accredited Intertek Shanghai Fengxian laboratory, completed October 9, 2024 and issued December 11, 2024. Every test category passed.
 
@@ -3992,7 +3996,7 @@ Grating pricing is per square meter of grating panel, including standard end ban
 | 70 Series | 70 mm | Commercial casement, dual-glazed | $10–14 / m |
 | 80 Series | 80 mm | High-perf residential, U_w 1.0–1.2 | $14–20 / m |
 | 90 Series | 90 mm | Passivhaus-certified, U_w 0.78 | $22–32 / m |
-| 140 Series | 140 mm | Extreme-climate / curtain wall | $35–50 / m |
+| 140 Series | 140 mm | Compression-seal sliding door; configuration review required | Request a configuration-specific quote |
 
 Fenestration profile pricing assumes raw profile only (no glazing, hardware, or assembly). PHI-certified 90 Series runs at the upper end of its range; non-PHI 90 Series equivalents are 15–20% below.
 
@@ -4508,7 +4512,7 @@ For engineers and facade consultants tracking this development, or interested in
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "U-Value vs SHGC", href: "/resources/blog/window-u-value-vs-shgc-climate" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Pultruded Fiberglass Window Frames — Nine-Series Range", href: "/products/frp-window-frames" },
     ],
     sourceLinks: [
       { label: "ISO 10077-1:2017 — Thermal performance of windows, doors and shutters (ISO)", href: "https://www.iso.org/standard/67090.html" },
@@ -4608,7 +4612,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
       { label: "Window U-Value Calculator (EN ISO 10077-1)", href: "/technology/frp-u-value-calculator" },
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House AI Window Selector", href: "/ai/passive-house" },
-      { label: "Pultruded Fiberglass Window Frames (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Pultruded Fiberglass Window Frames — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
       { label: "FRP Material and Properties Guide", href: "/what-is-frp" },
     ],
@@ -4707,7 +4711,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       { label: "How Whole-Window U-Value Is Calculated", href: "/resources/blog/en-iso-10077-window-u-value-calculation" },
       { label: "Passive House Window U-Value Requirements", href: "/resources/blog/passive-house-window-u-value-requirements" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
-      { label: "Fenestration Systems (65–140 series)", href: "/products/frp-window-frames" },
+      { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
     ],
     sourceLinks: [
       { label: "ANSI/NFRC 200 — Solar Heat Gain Coefficient procedure (Intertek summary)", href: "https://www.intertek.com/building/standards/ansi-nfrc-200/" },

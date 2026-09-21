@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 type Climate = "arctic" | "cold" | "cool" | "warm" | "hot" | "";
-type WindowType = "casement" | "tilt-turn" | "sliding" | "fixed-facade" | "";
+type WindowType = "casement" | "tilt-turn" | "sliding" | "compression-seal" | "fixed-facade" | "";
 
 const climateOptions: Array<{ value: Climate; label: string; help: string }> = [
   { value: "arctic", label: "Arctic", help: "−40 °C design low — Scandinavia, N. Canada, Antarctica, Tibet" },
@@ -14,10 +14,11 @@ const climateOptions: Array<{ value: Climate; label: string; help: string }> = [
 ];
 
 const typeOptions: Array<{ value: WindowType; label: string; seriesFit: string }> = [
-  { value: "casement", label: "Casement (inward / outward)", seriesFit: "65 / 70 / 80 / 90" },
-  { value: "tilt-turn", label: "Tilt-turn", seriesFit: "80 / 90 / 140" },
-  { value: "sliding", label: "Sliding / lift-slide", seriesFit: "90 / 140" },
-  { value: "fixed-facade", label: "Fixed facade / curtain wall", seriesFit: "90 series frames" },
+  { value: "casement", label: "Casement — direction depends on series", seriesFit: "50 / 55 / 60 / 65 / 70 / 80 / 90 casement" },
+  { value: "tilt-turn", label: "Tilt-turn", seriesFit: "50 / 55 / 60 / 65 / 70 / 80 / 90 casement" },
+  { value: "sliding", label: "Sliding window", seriesFit: "90 sliding" },
+  { value: "compression-seal", label: "Compression-seal sliding door", seriesFit: "140" },
+  { value: "fixed-facade", label: "Fixed window combination", seriesFit: "confirm the proposed combination" },
 ];
 
 export default function PassiveHouseWizard({ embedded = false }: { embedded?: boolean }) {
@@ -38,7 +39,7 @@ export default function PassiveHouseWizard({ embedded = false }: { embedded?: bo
 - Target U_w: ${targetU} W/m²K
 - Project size: ${units || "not yet determined"} units
 
-Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 140) with justification, explain the relevant PHI Component-ID 2491wi03 (phB, cool-temperate) certification, reference one of our comparable delivered projects, and outline the quote + lead-time path for my region.`;
+Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 casement, 90 sliding, or 140 compression-seal sliding) against the opening and project requirements. Distinguish profile supply from finished units. PHI Component-ID 2491wi03 covers the stated Fengdu Passive GFRP 90 Series configuration only: phB, cool-temperate, Uw 0.78 with Ug 0.70 W/(m²·K). Do not extend that certificate to other configurations or apply the historical Intertek lift-sliding report to the current 140 compression-seal door. Identify missing dimensions, glazing and evidence before proposing a quote or lead time.`;
     const advisorUrl = `/ask?prefill=${encodeURIComponent(prompt)}`;
     if (embedded) {
       window.open(advisorUrl, "_blank", "noopener,noreferrer");
@@ -100,7 +101,7 @@ Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 14
           </div>
           {selectedType && (
             <p className="mt-[8px] text-f11 text-t3">
-              F1 recommends {selectedType.seriesFit} for {selectedType.label.toLowerCase()}.
+              Initial series shortlist: {selectedType.seriesFit}. Confirm opening, glazing and hardware against the project requirements.
             </p>
           )}
         </div>
@@ -119,7 +120,7 @@ Please recommend the appropriate F1 Composite FRP series (65 / 70 / 80 / 90 / 14
               className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f13 outline-none focus:border-teal"
             />
             <p className="mt-[4px] text-f11 text-t3">
-              Passivhaus reqs: typically ≤0.8 (cold) / ≤1.0 (cool-temperate). Chinese JGJ 75: ≤1.6.
+              Enter the project target. Whole-window performance depends on dimensions, glazing, spacer and frame configuration.
             </p>
           </div>
           <div>

@@ -5,22 +5,10 @@ import { NOTIFY_EMAILS } from "@/lib/notify";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 import { inquiryReceipt } from "@/lib/inquiryReceipt";
 
-export const runtime = "nodejs";
+import { MAX_ATTACHMENT_BYTES, ALLOWED_ATTACHMENT_EXTENSIONS, validateContactAttachment } from "@/lib/contactAttachment";
+import { parseWindowInquiry, mergeWindowContext, windowInquirySummary } from "@/lib/windowInquiry";
 
-const MAX_ATTACHMENT_BYTES = 4 * 1024 * 1024;
-const ALLOWED_ATTACHMENT_EXTENSIONS = new Set([
-  "pdf",
-  "dwg",
-  "dxf",
-  "step",
-  "stp",
-  "iges",
-  "igs",
-  "zip",
-  "jpg",
-  "jpeg",
-  "png",
-]);
+export const runtime = "nodejs";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -68,13 +56,32 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const name = formData.get("name") as string | null;
-  const email = formData.get("email") as string | null;
-  const country = formData.get("country") as string | null;
-  const inquiryType = formData.get("inquiry_type") as string | null;
-  const message = formData.get("message") as string | null;
-  const company = formData.get("company") as string | null;
-  const phone = formData.get("phone") as string | null;
+  // Keep multipart overhead comfortably below the serverless request limit.
+  let textBytes = 0;
+  for (const [key, value] of formData.entries()) {
+    if (typeof value === "string") textBytes += Buffer.byteLength(value, "utf8");
+    if (typeof value !== "string" && key !== "attachment") return NextResponse.json({ message: "Unexpected file field." }, { status: 400 });
+    if (typeof value === "string" && value.length > (key === "context" || key === "window_inquiry" || key === "message" ? 20000 : 500)) return NextResponse.json({ message: "An inquiry field is too long." }, { status: 400 });
+  }
+  if (textBytes > 64 * 1024) return NextResponse.json({ message: "Please shorten the inquiry text or attach a schedule." }, { status: 400 });
+  if (formData.getAll("attachment").filter(value => value instanceof File && value.size > 0).length > 1) return NextResponse.json({ message: "Please attach one file or a single ZIP bundle." }, { status: 400 });
+  const text = (key: string) => { const value = formData.get(key); return typeof value === "string" ? value : null; };
+  let context = parseContext(text("context"));
+  let windowInquiry;
+  try {
+    const raw = text("window_inquiry");
+    windowInquiry = parseWindowInquiry(raw ? JSON.parse(raw) : null);
+    if (windowInquiry) context = mergeWindowContext(context, windowInquiry);
+  } catch (error) {
+    return NextResponse.json({ message: error instanceof SyntaxError ? "Invalid window inquiry data." : error instanceof Error ? error.message : "Please review your window requirements." }, { status: 400 });
+  }
+  const name = text("name");
+  const email = text("email");
+  const country = text("country");
+  const inquiryType = text("inquiry_type");
+  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n");
+  const company = text("company");
+  const phone = text("phone");
   const attachmentEntry = formData.get("attachment");
   const attachment = attachmentEntry instanceof File && attachmentEntry.size > 0
     ? attachmentEntry
@@ -87,7 +94,7 @@ export async function POST(request: NextRequest) {
     const extension = attachment.name.split(".").pop()?.toLowerCase() ?? "";
     if (!ALLOWED_ATTACHMENT_EXTENSIONS.has(extension)) {
       return NextResponse.json(
-        { message: "Unsupported attachment type. Please send PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG." },
+        { message: "Unsupported attachment type. Please send PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG." },
         { status: 400 },
       );
     }
@@ -100,6 +107,8 @@ export async function POST(request: NextRequest) {
 
     attachmentName = attachment.name.replace(/[^a-zA-Z0-9._() -]/g, "_").slice(0, 140);
     attachmentContent = Buffer.from(await attachment.arrayBuffer());
+    try { validateContactAttachment(attachment.name, attachmentContent); }
+    catch (error) { return NextResponse.json({ message: error instanceof Error ? error.message : "Invalid attachment content." }, { status: 400 }); }
   }
 
   // Validate required fields
@@ -142,7 +151,7 @@ export async function POST(request: NextRequest) {
       inquiryType,
       message: attachmentName ? `${message!}\n\nAttachment: ${attachmentName}` : message!,
       source: (formData.get("source") as string | null) || "contact",
-      context: parseContext(formData.get("context") as string | null),
+      context,
       userAgent: request.headers.get("user-agent"),
       referer: request.headers.get("referer"),
     });
@@ -176,7 +185,7 @@ export async function POST(request: NextRequest) {
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${esc(country)}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
-            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Source / context</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(String(formData.get("source") ?? "contact"))}<br />${esc(String(formData.get("context") ?? ""))}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Source / context</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(String(formData.get("source") ?? "contact"))}<br />${esc(context == null ? "" : JSON.stringify(context))}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
           </table>
           <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>
