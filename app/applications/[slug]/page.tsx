@@ -9,6 +9,7 @@ import AskAICard from "@/components/ai/AskAICard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import PedestrianBridgeGuide, { bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
+import CableTrayApplication from "@/components/sections/CableTrayApplication";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
@@ -67,6 +68,10 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     dateModified: page.lastModified,
     image: absoluteUrl(page.image),
   };
+
+  if (page.slug === "frp-cable-tray-supports") {
+    return <><JsonLd data={schema} /><CableTrayApplication page={page} /></>;
+  }
 
   return (
     <>
