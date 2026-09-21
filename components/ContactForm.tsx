@@ -1,7 +1,9 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import WindowInquiryFields from "./WindowInquiryFields";
+import { WINDOW_FIELDS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
 import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
 import dynamic from "next/dynamic";
 const GratingInquiryReview = dynamic(() => import("./GratingInquiryReview"));
@@ -65,7 +67,11 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
       message: "The inquiry could not be processed. Please check the attachment size and try again.",
     }));
     const success = res.ok && data.accepted === true && Boolean(data.receiptId);
-    if (success) trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"));
+    if (success) {
+      let windowContext: WindowInquiry | null = null;
+      try { windowContext = parseWindowInquiry(JSON.parse(String(formData.get("window_inquiry") || "null"))); } catch { /* Invalid client context must not affect an accepted receipt. */ }
+      trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"), windowContext || undefined);
+    }
     return { success, message: data.message, receiptId: data.receiptId };
   } catch {
     return {
@@ -84,6 +90,17 @@ export default function ContactForm() {
   const started = useRef(false);
   const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
+  const windowMode = searchParams.get("window_mode");
+  const [windowStep, setWindowStep] = useState(0);
+  const [windowInquiry, setWindowInquiry] = useState<WindowInquiry | null>(() => {
+    if (windowMode !== "profiles" && windowMode !== "finished") return null;
+    const data: WindowInquiry = { mode: windowMode };
+    for (const key of ["series", "stage", "role"]) {
+      const value = searchParams.get(`window_${key}`);
+      if (value && WINDOW_FIELDS[key].values?.includes(value)) data[key] = value;
+    }
+    return data;
+  });
   const prefillRef = searchParams.get("ref");
   const prefillCompany = searchParams.get("company") ?? "";
   const prefillCountry = searchParams.get("country") ?? "";
@@ -125,10 +142,17 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={() => { setSubmittedMessage(messageRef.current?.value || ""); }} action={formAction} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      if (windowInquiry && windowStep !== 2) { setWindowStep(windowStep + 1); return; }
+      const data = new FormData(event.currentTarget);
+      setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n"));
+      startTransition(() => formAction(data));
+    }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
+      {windowInquiry && <WindowInquiryFields value={windowInquiry} onChange={setWindowInquiry} step={windowStep} onStep={setWindowStep} />}
       {gratingProject && <GratingInquiryReview />}
       {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Add quantities, delivery destination and any corrections in the message below.</p></div>}
       {isFromAiSourcing && (
@@ -143,6 +167,7 @@ export default function ContactForm() {
         </div>
       )}
 
+      <fieldset hidden={Boolean(windowInquiry && windowStep !== 2)} disabled={Boolean(windowInquiry && windowStep !== 2)} className="min-w-0 space-y-[19px]">
       <div>
         <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
@@ -152,11 +177,16 @@ export default function ContactForm() {
             id="attachment"
             name="attachment"
             type="file"
-            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png"
+            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.jpg,.jpeg,.png,.xlsx,.csv"
             className="sr-only"
             aria-label="Choose an attachment"
             aria-describedby="attachment-selection attachment-help"
-            onChange={(event) => setAttachmentName(event.currentTarget.files?.[0]?.name ?? "")}
+            onChange={(event) => {
+              const file = event.currentTarget.files?.[0];
+              event.currentTarget.setCustomValidity(file && file.size > 4 * 1024 * 1024 ? "The attachment exceeds the 4 MB limit. Please send a smaller file or ZIP bundle." : "");
+              setAttachmentName(file?.name ?? "");
+              event.currentTarget.reportValidity();
+            }}
           />
           <label
             htmlFor="attachment"
@@ -168,7 +198,7 @@ export default function ContactForm() {
             {attachmentName || "No file selected"}
           </span>
         </div>
-        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, ZIP, JPG, or PNG · 4 MB maximum</p>
+        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
       </div>
 
 
@@ -247,7 +277,7 @@ export default function ContactForm() {
           <label htmlFor="inquiry_type" className="mb-[5px] block text-f13 font-semibold text-t1">
             Inquiry Type <span className="text-red-500">*</span>
           </label>
-          <select id="inquiry_type" name="inquiry_type" required defaultValue={prefillInquiryType} className={inputCls}>
+          <select id="inquiry_type" name="inquiry_type" required defaultValue={prefillInquiryType || (windowInquiry ? "rfq" : "")} className={inputCls}>
             <option value="">Select inquiry type</option>
             {inquiryTypes.map((t) => (
               <option key={t.value} value={t.value}>
@@ -261,13 +291,13 @@ export default function ContactForm() {
       <details open={!gratingProject}><summary className="cursor-pointer py-3 text-sm font-semibold">Review or edit the full inquiry message</summary>
       <div>
         <label htmlFor="message" className="mb-[5px] block text-f13 font-semibold text-t1">
-          Message <span className="text-red-500">*</span>
+          Message {windowInquiry ? <span className="font-normal text-t3">(optional)</span> : <span className="text-red-500">*</span>}
         </label>
         <textarea
           ref={messageRef}
           id="message"
           name="message"
-          required
+          required={!windowInquiry}
           rows={6}
           defaultValue={prefillMessage}
           placeholder="Describe your application, product or panel specifications, quantities and delivery requirements..."
@@ -287,6 +317,7 @@ export default function ContactForm() {
           Your project information is used only to review and respond to this inquiry.
         </p>
       </div>
+      </fieldset>
     </form>
   );
 }

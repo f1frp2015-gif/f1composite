@@ -301,7 +301,7 @@ export const seoQueryTargets = [
     intent: "guide",
     title: "FRP Windows Guide — Selection, U-Value & Certification",
     description:
-      "Research FRP window materials, frame selection, U-value targets, PHI, NAFS and AS 2047 certification, supplier qualification and fabrication routes.",
+      "Explore FRP frame selection, Uw, Uf and Ug, configuration-specific reports, supplier qualification, and profile or finished-unit buying routes.",
     supportingUrls: ["/products/frp-window-frames", "/technology/polyurethane-pultrusion-windows"],
   },
   {

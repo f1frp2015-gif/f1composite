@@ -73,10 +73,10 @@ const fallbackDownloads: DownloadItem[] = [
     file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
   },
   {
-    title: "Pultruded FRP Window & Door Catalog",
+    title: "Nine-Series FRP Window & Door Purchasing Catalog",
     format: "PDF",
-    size: "830 KB",
-    description: "Full F1 Composite fenestration catalog — 70/80/90/140 series window and door frame profiles. Material comparison vs aluminum / PVC-U / pine, profile specifications, recommended glazing builds and U-values, energy-code matching for EN 14351-1, PHI passive-house, AS 2047 and NFRC. Includes sub-frame range and custom-pultrusion options.",
+    size: "2026 edition",
+    description: "Nine series, two purchasing paths: system profiles for local fabrication and finished units for local installation. Updated 50/55/90-sliding/140 profile codes, configuration review, BOM and window-schedule requirements.",
     file: "/downloads/f1composite-frp-window-door-catalog.pdf",
   },
   {
@@ -138,7 +138,7 @@ const fallbackDownloads: DownloadItem[] = [
     title: "Fenestration Systems Brochure",
     format: "PDF",
     size: "8 MB",
-    description: "Detailed brochure covering 70/80/90-series FRP window and door frame systems.",
+    description: "Project-specific window and door information; use the nine-series purchasing catalog for the current range.",
   },
   {
     title: "ISO 9001:2015 Certificate",
@@ -192,7 +192,13 @@ export default async function DownloadsPage() {
     ...family,
     items: family.items.filter((item) => datasheetSlugs.has(item.slug)),
   })).filter((family) => family.items.length > 0);
-  const downloads = loadedDownloads.map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
+  const windowDownloads: DownloadItem[] = [
+    fallbackDownloads.find((item) => item.file === "/downloads/f1composite-frp-window-door-catalog.pdf")!,
+    { title: "Window Profile BOM Template", format: "CSV", size: "Editable template", description: "For profile supply: series, section code, drawing revision, lengths, quantities, finishing and requested accessories.", file: "/downloads/f1-window-profile-bom-template.csv" },
+    { title: "Finished Window & Door Schedule Template", format: "CSV", size: "Editable template", description: "For finished units: opening ID, series, dimensions, opening type, glazing, hardware, quantity and delivery requirements.", file: "/downloads/f1-window-schedule-template.csv" },
+  ];
+  const windowFiles = new Set(windowDownloads.map((item) => item.file));
+  const downloads = [...windowDownloads, ...loadedDownloads.filter((item) => !windowFiles.has(item.file))].map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -304,7 +310,7 @@ export default async function DownloadsPage() {
                     rel="noopener"
                     className="text-f13 font-semibold text-teal-text hover:underline"
                   >
-                    Download PDF →
+                    Download {dl.format} →
                   </a>
                 ) : (
                   <Link

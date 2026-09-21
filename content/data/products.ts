@@ -147,7 +147,7 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "fenestration-systems",
     title: "FRP Window Frames Manufacturer",
-    description: "GFRP-PU window and door systems. Match the series, glazing and hardware to thermal targets, component certificates and project test reports.",
+    description: "Nine GFRP-PU window and door series. Choose system profiles for local fabrication or finished units for local installation; match the configuration to project evidence.",
     icon: "fenestration",
     href: "/products/frp-window-frames",
     image: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",

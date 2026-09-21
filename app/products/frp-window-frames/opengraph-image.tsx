@@ -8,8 +8,8 @@ export default function OpenGraphImage() {
     eyebrow: "FRP Windows · Frames · Profiles",
     title: "FRP Window Frames: Profiles & Finished Units",
     description:
-      "Finished units or 65–140 series pultruded window profiles for local fabrication, with U-values to 0.78 W/m²K.",
+      "Explore nine FRP window and door systems. Source profiles for local fabrication or specify complete units for your project.",
     accent: "#13756f",
-    chips: ["0.78 W/m2K", "Passive-house ready", "Corrosion free"],
+    chips: ["9 systems", "System profiles", "Finished units"],
   });
 }

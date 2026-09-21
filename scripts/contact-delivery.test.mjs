@@ -17,14 +17,17 @@ function mockRoute({ db = null, mail = null, dbThrows = false, mailThrows = fals
     "@/lib/notify": { NOTIFY_EMAILS: ["test@example.invalid"] },
     "@/lib/rateLimit": { rateLimit: () => ({ ok: true }) },
     "@/lib/inquiryReceipt": { inquiryReceipt },
+    "@/lib/windowInquiry": loadProjectModule("lib/windowInquiry.ts"),
+    "@/lib/contactAttachment": loadProjectModule("lib/contactAttachment.ts"),
   };
   const exports = {};
   new Function("require", "exports", compiled)((id) => { if (!mocks[id]) throw new Error(`Unmocked dependency ${id}`); return mocks[id]; }, exports);
   return { state, POST: exports.POST };
 }
-function request(attachment = false) {
+function request(attachment = false, extra = {}) {
   const form = new FormData();
   for (const [key, value] of Object.entries({ name: "QA", email: "test@example.invalid", country: "Test", inquiry_type: "rfq", message: "Drawing review", source: "evidence-library", context: JSON.stringify({ product: "I-beam", specification: "152×76×6.4", evidenceId: "structural-design" }) })) form.set(key, value);
+  for (const [key, value] of Object.entries(extra)) form.set(key, value);
   if (attachment) form.set("attachment", new File(["test"], "drawing.pdf", { type: "application/pdf" }));
   return new Request("http://local.test/api/contact", { method: "POST", body: form });
 }
@@ -56,4 +59,42 @@ test("contact endpoint accepts email-only delivery and marks persisted successfu
     assert.equal(route.state.marked, db);
     assert.ok(Buffer.isBuffer(route.state.mailed.attachments[0].content));
   }
+});
+
+for (const mode of ["profiles", "finished"]) {
+  test(`window ${mode}: early lead preserves context, series and requirements in both delivery channels`, async () => {
+    const route = mockRoute({ db: 42, mail: "mock-mail" });
+    const response = await route.POST(request(false, { message: "", window_inquiry: JSON.stringify({ mode, series: "140", stage: "sample", dimensionBasis: "unknown", sections: "CP006: 6 m × 20 pieces" }) }));
+    assert.equal(response.status, 200);
+    assert.equal(route.state.stored.context.specification, "152×76×6.4");
+    assert.equal(route.state.stored.context.windowInquiry.series, "140");
+    assert.equal(route.state.stored.context.windowInquiry.mode, mode);
+    assert.match(route.state.stored.message, /System series: 140/);
+    assert.match(route.state.mailed.html, /System series: 140/);
+    assert.equal(mode === "profiles" ? route.state.stored.context.windowInquiry.dimensionBasis : route.state.stored.context.windowInquiry.sections, undefined);
+  });
+}
+test("invalid window mode is rejected before persistence or email", async () => {
+  const route = mockRoute({ db: 42, mail: "mock-mail" });
+  const response = await route.POST(request(false, { window_inquiry: JSON.stringify({ mode: "unsafe" }) }));
+  assert.equal(response.status, 400);
+  assert.equal(route.state.stored, null);
+  assert.equal(route.state.mailed, null);
+});
+test("CSV file reaches sales unchanged; renamed binary CSV never reaches delivery", async () => {
+  const valid = mockRoute({ db: 42, mail: "mock-mail" });
+  const attachment = new File(["opening,width,height\nW1,1200,1500"], "schedule.csv", { type: "text/csv" });
+  assert.equal((await valid.POST(request(false, { attachment }))).status, 200);
+  assert.equal(valid.state.mailed.attachments[0].filename, "schedule.csv");
+  const invalid = mockRoute({ db: 42, mail: "mock-mail" });
+  assert.equal((await invalid.POST(request(false, { attachment: new File([new Uint8Array([0, 1, 44])], "schedule.csv") }))).status, 400);
+  assert.equal(invalid.state.stored, null);
+  assert.equal(invalid.state.mailed, null);
+});
+test("discuss project first accepts only buying intent with empty optional message", async () => {
+  const route = mockRoute({ db: 42, mail: "mock-mail" });
+  const response = await route.POST(request(false, { message: "", window_inquiry: JSON.stringify({ mode: "profiles" }) }));
+  assert.equal(response.status, 200);
+  assert.match(route.state.stored.message, /Profiles for fabrication/);
+  assert.deepEqual(route.state.stored.context.windowInquiry, { mode: "profiles" });
 });

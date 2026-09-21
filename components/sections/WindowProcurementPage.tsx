@@ -3,196 +3,36 @@ import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import JumpNav from "@/components/sections/JumpNav";
+import WindowSystemExplorer from "@/components/sections/WindowSystemExplorer";
+import WindowTypesGrid from "@/components/sections/WindowTypesGrid";
+import { WindowBuyerPaths, WindowComponentMap, WindowEvidenceCards, WindowPackingGuide, WindowPurchaseFlow, WindowRfqClose, WindowSampleGuide, WindowScopeTable, windowWrap } from "@/components/sections/WindowBuyingGuide";
 import { windowProcurement } from "@/content/data/windowProcurement";
+import systems from "@/content/data/windowSystems.json";
 import { buildProductFamilyPageSchema } from "@/lib/seo";
-import { buildRfqHref } from "@/lib/rfq";
+import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
-export default function WindowProcurementPage({
-  mode,
-}: {
-  mode: keyof typeof windowProcurement;
-}) {
+export default function WindowProcurementPage({ mode }: { mode: keyof typeof windowProcurement }) {
   const page = windowProcurement[mode];
-  const other =
-    windowProcurement[mode === "profiles" ? "finished" : "profiles"];
-  const quote = buildRfqHref({
-    source: "window-procurement",
-    product: page.h1,
-    productPath: page.path,
-    message: page.message,
-  });
-  const wrap = "mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]";
-  return (
-    <>
-      <JsonLd
-        data={buildProductFamilyPageSchema({
-          name: page.h1,
-          description: page.description,
-          path: page.path,
-          image: page.image,
-          category: "Windows & Doors",
-          schemaType: "ItemPage",
-        })}
-      />
-      <PageHeader
-        tag="Windows & Doors"
-        title={page.h1}
-        description={page.intro}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/products/product-lines" },
-          { label: "Windows & Doors", href: "/products/frp-window-frames" },
-          {
-            label:
-              mode === "profiles"
-                ? "Profiles for Fabricators"
-                : "Finished Units",
-          },
-        ]}
-        actions={{
-          primary: { label: page.action, href: quote },
-          secondary: {
-            label:
-              mode === "profiles"
-                ? "Need Finished Units?"
-                : "Need Profiles Only?",
-            href: other.path,
-          },
-        }}
-      />
-      <section className="bg-white py-[48px]">
-        <div className={`${wrap} grid items-center gap-[32px] lg:grid-cols-2`}>
-          <div>
-            <h2 className="text-f24 font-bold text-t1">
-              Define the purchasing scope
-            </h2>
-            <dl className="mt-[20px] space-y-[16px]">
-              <div>
-                <dt className="text-f13 font-bold text-teal-text">
-                  Who this is for
-                </dt>
-                <dd className="mt-[6px] text-f15 text-t2">{page.buyer}</dd>
-              </div>
-              <div>
-                <dt className="text-f13 font-bold text-teal-text">
-                  What is supplied
-                </dt>
-                <dd className="mt-[6px] text-f15 text-t2">{page.supply}</dd>
-              </div>
-            </dl>
-            <p className="mt-[20px] text-f15 leading-relaxed text-t2">
-              {page.decision}
-            </p>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-bg2">
-            <Image
-              src={page.image}
-              alt={page.imageAlt}
-              fill
-              sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-contain p-[18px]"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="bg-bg2 py-[48px]">
-        <div className={wrap}>
-          <h2 className="text-f31 font-bold text-t1">
-            {mode === "profiles"
-              ? "Specify the profile set"
-              : "Choose the opening type"}
-          </h2>
-          <div className="mt-[24px] grid gap-[20px] md:grid-cols-2">
-            {page.sections.map(([title, body]) => (
-              <article
-                key={title}
-                className="rounded-[10px] border border-border-default bg-white p-[24px]"
-              >
-                <h3 className="text-f19 font-bold text-t1">{title}</h3>
-                <p className="mt-[10px] text-f15 leading-relaxed text-t2">
-                  {body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-[48px]">
-        <div className={`${wrap} grid gap-[32px] lg:grid-cols-2`}>
-          <div>
-            <h2 className="text-f24 font-bold text-t1">
-              Information for your quotation
-            </h2>
-            <ul className="mt-[16px] list-disc space-y-[10px] pl-[20px] text-f15 text-t2">
-              {page.checklist.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <Link
-              href={quote}
-              className="mt-[24px] inline-flex min-h-[46px] items-center rounded-[7px] bg-teal-text px-[22px] text-f14 font-bold text-white"
-            >
-              {page.action}
-            </Link>
-          </div>
-          <div>
-            <h2 className="text-f24 font-bold text-t1">
-              Data and assembly performance
-            </h2>
-            <p className="mt-[16px] text-f15 leading-relaxed text-t2">
-              {page.evidence}
-            </p>
-            <ul className="mt-[18px] space-y-[12px] text-f14 font-semibold text-teal-text">
-              <li>
-                <Link href="/downloads/f1composite-frp-window-door-catalog.pdf">
-                  Window and door catalog (PDF) →
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/fiberglass-door-thresholds">
-                  Fiberglass door thresholds &amp; sill profiles →
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources/evidence">
-                  Original reports and their scope →
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={
-                    mode === "profiles"
-                      ? "/products/frp-window-reinforcement"
-                      : "/technology/frp-u-value-calculator"
-                  }
-                >
-                  {mode === "profiles"
-                    ? "Window reinforcement profiles"
-                    : "Window U-value calculator"}{" "}
-                  →
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries/construction">
-                  Building applications →
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section className="bg-bg2 py-[48px]">
-        <div className={wrap}>
-          <h2 className="text-f24 font-bold text-t1">Purchasing questions</h2>
-          <FAQ items={[...page.faq]} />
-          <Link
-            href={other.path}
-            className="mt-[20px] inline-block text-f15 font-bold text-teal-text"
-          >
-            {other.h1} →
-          </Link>
-        </div>
-      </section>
-    </>
-  );
+  const profiles = mode === "profiles";
+  const other = windowProcurement[profiles ? "finished" : "profiles"];
+  const quote = buildWindowRfqHref({ mode, source: "window-procurement", productPath: page.path });
+  const template = profiles ? "/downloads/f1-window-profile-bom-template.csv" : "/downloads/f1-window-schedule-template.csv";
+  return <>
+    <JsonLd data={buildProductFamilyPageSchema({ name: page.h1, description: page.description, path: page.path, image: page.image, category: "Windows & Doors", schemaType: "ItemPage", additionalProperty: [{ name: "Supply route", value: profiles ? "System profiles for local fabrication" : "Finished units to an agreed window schedule" }, { name: "Series", value: "50, 55, 60, 65, 70, 80, 90 casement, 90 sliding, 140 compression-seal sliding" }] })} />
+    <PageHeader tag={profiles ? "Windows & Doors · System Profiles" : "Windows & Doors · Finished Units"} title={page.h1} description={page.intro} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors", href: "/products/frp-window-frames" }, { label: profiles ? "Profiles for Fabricators" : "Finished Units" }]} actions={{ primary: { label: profiles ? "Request a Profile Quote" : "Request a Finished-Unit Quote", href: quote }, secondary: { label: profiles ? "Download Profile BOM" : "Download Window Schedule", href: template }, note: "Start with a sample, budget estimate, technical review or formal quotation.", stickyMobile: true }} />
+    <JumpNav items={[{ href: "#supply", label: "What you buy" }, { href: "#series", label: "Compare 9 systems" }, { href: "#buyers", label: "Your buying path" }, { href: "#procurement", label: "How to order" }, { href: "#documents", label: "Documents & templates" }, { href: "#faq", label: "Questions" }]} />
+    <section id="supply" className="bg-white py-12"><div className={`${windowWrap} grid items-center gap-8 lg:grid-cols-2`}><div><p className="text-xs font-bold uppercase tracking-widest text-teal-text">{profiles ? "Build locally with a compatible system" : "Supply specified around your openings"}</p><h2 className="mt-3 text-3xl font-bold leading-tight text-t1">{profiles ? "A profile set your factory can evaluate" : "A complete configuration you can approve"}</h2><p className="mt-5 text-t2">{page.decision}</p><dl className="mt-6 space-y-4 text-sm"><div><dt className="font-bold text-t1">Who buys this</dt><dd className="mt-1 text-t2">{page.buyer}</dd></div><div><dt className="font-bold text-t1">Supply scope</dt><dd className="mt-1 text-t2">{page.supply}</dd></div></dl><Link href={other.path} className="mt-6 inline-block py-2 text-sm font-bold text-teal-text">{profiles ? "Need factory-assembled units? Explore finished windows & doors" : "Fabricating locally? Explore system profiles"} →</Link></div><figure className="relative aspect-[4/3] rounded-2xl border border-border-default bg-bg2"><Image src={profiles ? "/images/products/window-systems/90-casement.jpg" : page.image} alt={profiles ? "90 series frame and sash corner assembly with glazing" : page.imageAlt} fill preload sizes="(max-width: 1024px) 90vw, 44vw" className="object-contain p-6" /></figure></div></section>
+    <section id="series" className="bg-bg2 py-14"><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">System selection</p><h2 className="mt-3 text-3xl font-bold text-t1">Compare nine window &amp; door systems</h2><p className="mb-7 mt-4 max-w-3xl text-t2">Start with the opening you need, then review the matching profile set. The 90 casement and 90 sliding systems are distinct; the 140 series uses compression-seal sliding operation.</p><WindowSystemExplorer mode={mode} productPath={page.path} /></div></section>
+    <section className="bg-white py-14"><div className={windowWrap}>{profiles ? <WindowComponentMap /> : <><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Operation &amp; handing</p><h2 className="mt-3 text-3xl font-bold text-t1">Show us how each opening should work</h2><p className="mb-6 mt-4 max-w-3xl text-t2">Use the operation diagrams to describe the opening. Mark left/right handing and whether drawings are viewed from inside or outside. Confirm available configurations for the chosen series.</p><WindowTypesGrid /></>}</div></section>
+    <section id="buyers" className="bg-bg2 py-14"><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Choose your starting point</p><h2 className="mb-7 mt-3 text-3xl font-bold text-t1">{profiles ? "From fabrication to repeat supply" : "From specification to project delivery"}</h2><WindowBuyerPaths mode={mode} /></div></section>
+    <section className="bg-white py-14"><div className={windowWrap}><h2 className="text-3xl font-bold text-t1">{profiles ? "Agree the complete supply boundary" : "Know what your finished-unit quote includes"}</h2><p className="mb-7 mt-4 max-w-3xl text-t2">Use the scope below when comparing quotations. Availability, quantities, lead time and support are confirmed for the selected specification.</p><WindowScopeTable mode={mode} />
+      {profiles ? <div className="mt-9 grid gap-6 md:grid-cols-2"><article className="rounded-xl bg-bg2 p-6"><h3 className="text-xl font-bold">Adopt an existing system</h3><p className="mt-3 text-sm text-t2">Review the current sections, gasket grooves, joining method, glazing and hardware interfaces. Evaluate samples and your fabrication sequence before releasing a production order.</p><Link href={buildWindowRfqHref({ mode, stage: "sample", source: "window-existing-system" })} className="mt-5 inline-block text-sm font-bold text-teal-text">Evaluate a system sample →</Link></article><article className="rounded-xl bg-bg2 p-6"><h3 className="text-xl font-bold">Develop a custom profile</h3><p className="mt-3 text-sm text-t2">Provide a drawing or concept with critical dimensions, material and finish needs, tolerances and expected demand. Agree design, tooling, first articles and validation as separate stages.</p><Link href={buildWindowRfqHref({ mode, role: "oem", stage: "technical", source: "window-custom-system" })} className="mt-5 inline-block text-sm font-bold text-teal-text">Request a drawing review →</Link></article></div> : <div className="mt-9 grid gap-5 md:grid-cols-3">{[["Glass", "Specify build-up, safety requirements, coatings, spacer and gas-fill preferences. Whole-window Uw differs from glass-only Ug."], ["Hardware & finish", "Confirm handles, locks, restrictors, access requirements, and interior/exterior colors against the intended opening."], ["Wall interface", "Provide sill, jamb and head details, waterproofing and fixing requirements. Identify the local installer and dimension approval responsibility."]].map(([title, body]) => <article key={title} className="rounded-xl bg-bg2 p-5"><h3 className="font-bold text-t1">{title}</h3><p className="mt-3 text-sm text-t2">{body}</p></article>)}</div>}
+    </div></section>
+    {profiles && <section className="bg-bg2 py-14"><div className={windowWrap}><h2 className="mb-7 text-3xl font-bold text-t1">Choose a sample for the decision you need to make</h2><WindowSampleGuide /><div className="mt-10 grid items-center gap-8 rounded-xl border border-border-default bg-white p-6 lg:grid-cols-2"><div><h3 className="text-xl font-bold">Subframes &amp; installation profiles</h3><p className="mt-3 text-sm text-t2">Review the connection between the main frame and the building opening. Confirm the cross-section, fixing and wall interface against current drawings.</p><ul className="mt-4 flex flex-wrap gap-2">{systems.subframes.map((frame) => <li key={frame.id} className="rounded border border-border-default px-3 py-2 text-sm font-semibold">{frame.label}</li>)}</ul><p className="mt-3 text-xs text-t3">Catalog size designations. Confirm dimensions, units and tolerances on the approved drawing.</p><Link href={buildWindowRfqHref({ mode, stage: "technical", source: "window-subframes" })} className="mt-4 inline-block py-2 text-sm font-bold text-teal-text">Discuss an installation profile →</Link></div><div className="relative aspect-[2/1]"><Image src="/images/products/window-systems/subframes.jpg" alt="Five subframe shapes from the source product catalog" fill sizes="(max-width: 1024px) 80vw, 40vw" className="object-contain" /></div></div></div></section>}
+    <section id="procurement" className={profiles ? "bg-white py-14" : "bg-bg2 py-14"}><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">A clear route to an order</p><h2 className="mt-3 text-3xl font-bold text-t1">{profiles ? "How profile procurement works" : "How finished-unit procurement works"}</h2><p className="mb-7 mt-4 max-w-3xl text-t2">At each stage, agree the information to supply, the next review and the confirmation needed to proceed.</p><WindowPurchaseFlow mode={mode} /></div></section>
+    <section id="documents" className="bg-bg2 py-14"><div className={windowWrap}><div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]"><div><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Prepare a useful RFQ</p><h2 className="mt-3 text-3xl font-bold text-t1">{profiles ? "A section list starts the conversation" : "A window schedule makes the quote comparable"}</h2><p className="mt-4 text-sm text-t2">{profiles ? "List each profile by series, section code and drawing revision. Add length, quantity and units, then describe accessories and fabrication work." : "Use a separate row for every opening configuration. Mark whether dimensions refer to the rough opening or the finished frame, and state the viewing side for handing."}</p><Link href={template} className="mt-5 inline-flex min-h-12 items-center rounded-lg bg-teal-text px-5 py-3 text-sm font-bold text-white">{profiles ? "Download blank profile BOM (CSV)" : "Download blank window schedule (CSV)"}</Link><p className="mt-3 text-xs text-t3">Open the template in Excel or another spreadsheet app. Attach CSV, XLSX, drawings or one ZIP bundle to your RFQ; 4 MB maximum per submission.</p></div><div className="rounded-xl border border-border-default bg-white p-5"><h3 className="font-bold text-t1">{profiles ? "Example of a section request" : "Example of a schedule row"}</h3><dl className="mt-4 grid grid-cols-2 gap-4 text-sm">{(profiles ? [["Series", "70"], ["Section", "GF0301 · frame"], ["Cut length", "State length + unit"], ["Quantity", "State metres / pieces"], ["Finish", "Color and surface"], ["Scope", "Profiles + listed accessories"]] : [["Window ID", "W01 (example)"], ["Size", "Width × height + unit"], ["Basis", "Rough opening / frame"], ["Operation", "Type + handing + viewpoint"], ["Configuration", "Glass, hardware, finish"], ["Delivery", "Quantity + phase"]]).map(([label, value]) => <div key={label}><dt className="text-xs text-t3">{label}</dt><dd className="mt-1 font-semibold">{value}</dd></div>)}</dl><p className="mt-5 border-t border-border-default pt-4 text-xs text-t3">Illustrative format only. Unspecified information can be clarified during review; this is not a production schedule.</p></div></div><div className="mt-12"><h2 className="mb-6 text-2xl font-bold text-t1">Evidence that matches your specification</h2><WindowEvidenceCards /></div><Link href="/downloads/f1composite-frp-window-door-catalog.pdf" className="mt-7 inline-block py-2 text-sm font-bold text-teal-text">Download the nine-series window &amp; door catalog (PDF) →</Link></div></section>
+    <section className="bg-white py-12"><div className={windowWrap}><WindowPackingGuide mode={mode} /></div></section>
+    <section id="faq" className="bg-bg2 py-12"><div className={windowWrap}><h2 className="mb-6 text-3xl font-bold text-t1">Purchasing questions</h2><FAQ items={[...page.faq]} /><div className="mt-10"><WindowRfqClose mode={mode} /></div></div></section>
+  </>;
 }
