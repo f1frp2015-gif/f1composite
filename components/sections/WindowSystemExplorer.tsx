@@ -21,7 +21,7 @@ export default function WindowSystemExplorer({ mode = "profiles", productPath }:
       <p className="mb-5 text-sm text-t2" role="status">{visible.length} systems shown. Compare up to three; open a card for sections and supply details.</p>
       <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
         {visible.map((series) => <article key={series.id} id={`system-${series.id}`} className="scroll-mt-28 overflow-hidden rounded-xl border border-border-default bg-white">
-          <div className="relative aspect-[4/3] bg-[#fafbfc]">
+          <div className="relative aspect-[4/3] bg-white">
             <Image src={series.image} alt={series.imageAlt} fill sizes="(max-width: 768px) 90vw, (max-width: 1280px) 44vw, 29vw" className="object-contain p-4" />
             <span className="absolute left-4 top-4 rounded bg-white/95 px-2.5 py-1 text-xs font-bold text-teal-text">{series.depthMm} mm frame depth</span>
           </div>
