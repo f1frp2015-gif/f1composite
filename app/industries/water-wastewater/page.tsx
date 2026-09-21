@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import waterTreatmentApplication from "@/public/images/industries/frp-pultruded-profiles-water-treatment-rendering.webp";
 import PageHeader from "@/components/layout/PageHeader";
 import CollectionSchema from "@/components/seo/CollectionSchema";
 import { buildPageMetadata } from "@/lib/seo";
@@ -54,6 +56,25 @@ export default function WaterIndustryPage() {
       />
       <section className="bg-white py-[48px]">
         <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+          <figure className="mb-[40px] overflow-hidden rounded-[10px] border border-border-default bg-bg2">
+            <Image
+              src={waterTreatmentApplication}
+              alt="Concept rendering of gray pultruded FRP beams, columns and bracing supporting a grating access platform with yellow handrails beside wastewater treatment basins"
+              sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(100vw - 56px), (max-width: 1319px) calc(100vw - 72px), 1248px"
+              className="h-auto w-full"
+            />
+            <figcaption className="px-[20px] py-[18px] sm:px-[24px]">
+              <p className="text-f19 font-bold text-t1">
+                Pultruded FRP profiles in water treatment
+              </p>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">
+                Application concept showing structural profiles, grating access
+                platforms, stairs and handrails around treatment
+                basins. Illustrative rendering; final members and connections
+                are designed for the project loads and exposure.
+              </p>
+            </figcaption>
+          </figure>
           <h2 className="text-f31 font-bold text-t1">
             Components used around treatment equipment
           </h2>
