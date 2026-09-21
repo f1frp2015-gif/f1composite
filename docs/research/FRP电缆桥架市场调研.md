@@ -2,12 +2,13 @@
 type: customer-research
 topic: FRP电缆桥架与支撑系统页面对标
 biz: f1composite
-version: v1.0
+version: v1.1
 last_updated: 2026-09-21
 maintainer: F1 Composite
 update-cadence: on-event
 sensitivity: 内部
 changelog:
+  - "v1.1 (2026-09-21): 根据用户反馈恢复可辨认的纵向玻纤与拉挤纹理，减弱金属反光；以现有 FRP 角材为参考，替换两张图片并更换文件名避免旧图缓存。"
   - "v1.0 (2026-09-21): 复核全球五家系统厂商资料，完成应用页面方案、选型内容、询盘清单与应用图；按用户反馈微调材料真实性。"
 related:
   - "frp-cable-tray-trunking-ladder-sources.md"
@@ -84,8 +85,8 @@ F1 当前可直接支撑的表述是拉挤型材及约定加工件供应。完�
 
 两张图片均用内置 image_gen 生成，页面显示 AI-generated application concept，不作为交付项目或施工图。
 
-- `public/images/applications/frp-cable-ladder-water-treatment-concept.webp`：滨海水处理路线全景。
-- `public/images/applications/frp-cable-tray-wall-support-concept.webp`：墙装支撑与连接近景。
+- `public/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp`：滨海水处理路线全景。
+- `public/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp`：墙装支撑与连接近景。
 
 用户反馈初版细节过于 AI、材质需要接近实际产品。修订以真实 Fibrolux 安装照片作材料观察参考：平滑树脂富集表面、较弱纵向痕迹、无夸张玻纤丝和金属拉丝感、合理壁厚与拼接。外部照片仅作参考，不复制或发布其原图。
 
@@ -102,3 +103,7 @@ F1 当前可直接支撑的表述是拉挤型材及约定加工件供应。完�
 - RFQ 下载使用本地静态 `.txt` 文件；图片为 WebP，主图 1672×941 / 138,446 bytes，节点图 1536×1024 / 86,620 bytes。
 - 两张修订图均使用真实安装照片作材质参考；概念图仍需与最终供货几何区别，不能作为施工细节。
 - 从新获取的 `origin/main` 建立 `codex/frp-cable-tray-guide`。`main` 已由另一工作树占用，因此不切换或修改该工作树；当前任务直接基于远程生产分支。
+
+### v1.1 图片验收
+
+用户认为上一版纹理不足、过于像金属。本次以内置 image_gen 编辑，参考仓库实际 FRP 角材图，恢复沿各型材轴向的玻纤束和模具痕迹，降低镜面反光，保持原构图。两张图片使用新文件名避免 CDN/浏览器旧图缓存。WebP quality 88：主图 1672×941 / 205,424 bytes，节点图 1536×1024 / 151,172 bytes。完整提示词已追加到图片记录。

@@ -34,7 +34,7 @@ export const applicationPages: ApplicationPage[] = [
       "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the enquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
-    image: "/images/applications/frp-cable-ladder-water-treatment-concept.webp",
+    image: "/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp",
     imageAlt:
       "Application concept of gray FRP cable ladders and support posts beside coastal water-treatment basins",
     imageSize: { width: 1672, height: 941 },
