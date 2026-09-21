@@ -135,6 +135,7 @@ export const mainNav = [
         label: "Technology & validation",
         links: [
           { label: "Pultrusion Process", href: "/technology/pultrusion-process" },
+          { label: "Pultruded Profile Performance", href: "/technology/pultruded-profile-performance" },
           { label: "Pultrusion Resin Systems", href: "/technology/pultrusion-resin-systems" },
           { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
           { label: "Quality & Testing", href: "/technology/quality-testing" },

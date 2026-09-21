@@ -19,6 +19,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const areas = [
   {
+    tag: "Performance",
+    title: "Pultruded Profile Performance",
+    description:
+      "Dimensions, physical and mechanical properties, thermal behavior, electrical insulation, fire and chemical resistance: specify the test methods, conditions and supporting evidence for your profile.",
+    href: "/technology/pultruded-profile-performance",
+  },
+  {
     tag: "Process",
     title: "Pultrusion Process",
     description:
@@ -130,7 +137,7 @@ export default function TechnologyPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Technology Areas</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Four Pillars of Our Technical Capability
+            Pultrusion Engineering Resources
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             Each discipline reinforces the others — precise process control enables
