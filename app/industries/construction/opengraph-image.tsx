@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "Construction",
-    title: "FRP for Facades, Fenestration, Envelope Supports, and Lightweight Building Systems",
+    title: "FRP Products for Buildings & Construction",
     description:
-      "Construction use cases where pultruded FRP improves thermal performance, corrosion resistance, and low-maintenance envelope detailing.",
+      "Find windows, facade fins, structural profiles, grating, access systems, rebar and rooftop supports by building application.",
     accent: "#0f7a73",
-    chips: ["Facade systems", "Thermal break advantage", "Lightweight framing"],
+    chips: ["6 application areas", "Product directory", "Design guidance"],
   });
 }
