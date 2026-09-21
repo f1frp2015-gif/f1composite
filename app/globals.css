@@ -125,6 +125,7 @@ body {
 
 /* Print only the customer-reviewed grating requirement, without page navigation. */
 @media print {
-  body:has(#grating-print-summary) * { visibility: hidden; }
-  body:has(#grating-print-summary) #grating-print-summary { visibility: visible; position: absolute; left: 0; top: 0; width: 100%; max-height: none; overflow: visible; color: black; background: white; font-size: 11pt; }
+  body:has(#grating-print-summary) *:not(:has(#grating-print-summary)):not(#grating-print-summary) { display: none !important; }
+  body:has(#grating-print-summary) *:has(#grating-print-summary) { display: block !important; margin: 0 !important; padding: 0 !important; background: white !important; }
+  body:has(#grating-print-summary) #grating-print-summary { display: block; position: static; margin: 0; width: 100%; max-height: none; overflow: visible; color: black; background: white; font-size: 11pt; }
 }
