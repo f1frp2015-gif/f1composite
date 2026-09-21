@@ -25,20 +25,20 @@ export const applicationPages: ApplicationPage[] = [
   {
     slug: "frp-cable-tray-supports",
     lastModified: "2026-09-21",
-    title: "FRP Cable Trays, Ladders & Supports | Selection Guide",
-    shortTitle: "FRP cable tray supports",
+    title: "FRP Cable Trays & Cable Ladders | Selection Guide",
+    shortTitle: "FRP cable trays & ladders",
     description:
-      "Specify fiberglass cable trays, ladders and support profiles for corrosive environments. Compare systems, resins, load checks and project requirements.",
-    h1: "FRP cable trays, ladders & supports",
+      "Compare FRP cable trays and cable ladders for corrosive environments. Define tray bases, ladder rungs, resins, supports, fittings and project requirements.",
+    h1: "FRP cable trays & cable ladders",
     intro:
       "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the enquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
-    image: "/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp",
+    image: "/images/applications/frp-cable-ladder-gray-product.webp",
     imageAlt:
-      "Application concept of gray FRP cable ladders and support posts beside coastal water-treatment basins",
-    imageSize: { width: 1672, height: 941 },
-    imageCaption: "AI-generated application concept: fiberglass cable ladders on a coastal water-treatment route. Illustrative geometry; not an F1 project photograph or installation drawing.",
+      "Illustration of a gray pultruded fiberglass cable ladder with channel side rails and transverse rungs",
+    imageSize: { width: 1536, height: 1024 },
+    imageCaption: "AI-generated product illustration informed by supplier references. Geometry and connections are illustrative; confirm the offered configuration in the quotation.",
     recommendedProfiles: [
       "Channel sections for tray stringers and wall-mounted supports",
       "Angles for cleats, ledgers, and bracing",

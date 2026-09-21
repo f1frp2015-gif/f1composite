@@ -1,4 +1,4 @@
-F1 COMPOSITE — FRP CABLE TRAY & SUPPORT RFQ CHECKLIST
+F1 COMPOSITE — FRP CABLE TRAY & CABLE LADDER RFQ CHECKLIST
 Application guide: https://www.f1composite.com/applications/frp-cable-tray-supports
 Contact: https://www.f1composite.com/contact
 Revision: 2026-09-21
@@ -16,7 +16,10 @@ Engineering and installation responsibilities:
 
 3. ROUTE AND CABLES
 Tray type (ladder / ventilated / solid bottom / covered / trunking):
-Tray width and loading depth:
+Usable width and loading depth / ladder rail depth:
+Tray: solid or ventilated base, opening pattern, base and wall thickness:
+Ladder: rung spacing, rung profile and cable restraint requirements:
+Straight-section length (separate from support span):
 Route length and drawing reference:
 Cable schedule, mass per metre and future allowance:
 Minimum cable bend radius:

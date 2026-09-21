@@ -180,14 +180,14 @@ export const applicationGroups = [
     ],
   },
   {
-    label: "Cable & Electrical Supports",
+    label: "Cable Trays & Ladders",
     description:
-      "Channels, angles and brackets for cable routes and equipment supports.",
+      "Tray and ladder selection, with profiles, brackets and fittings for cable routes.",
     href: "/applications/frp-cable-tray-supports",
     products: ["standard", "custom"],
     links: [
       {
-        label: "Cable Tray Supports",
+        label: "Cable Trays & Ladders",
         href: "/applications/frp-cable-tray-supports",
       },
     ],

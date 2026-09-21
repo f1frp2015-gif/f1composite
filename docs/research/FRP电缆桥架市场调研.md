@@ -2,12 +2,13 @@
 type: customer-research
 topic: FRP电缆桥架与支撑系统页面对标
 biz: f1composite
-version: v1.1
+version: v1.2
 last_updated: 2026-09-21
 maintainer: F1 Composite
 update-cadence: on-event
 sensitivity: 内部
 changelog:
+  - "v1.2 (2026-09-21): 按用户新增 Sai Seeya 与 Eaton 供应商参考，将 tray 与 ladder 合并为一个双产品页面，重做灰色拉挤材质产品图，增加独立参数与询盘入口。"
   - "v1.1 (2026-09-21): 根据用户反馈恢复可辨认的纵向玻纤与拉挤纹理，减弱金属反光；以现有 FRP 角材为参考，替换两张图片并更换文件名避免旧图缓存。"
   - "v1.0 (2026-09-21): 复核全球五家系统厂商资料，完成应用页面方案、选型内容、询盘清单与应用图；按用户反馈微调材料真实性。"
 related:
@@ -107,3 +108,32 @@ F1 当前可直接支撑的表述是拉挤型材及约定加工件供应。完�
 ### v1.1 图片验收
 
 用户认为上一版纹理不足、过于像金属。本次以内置 image_gen 编辑，参考仓库实际 FRP 角材图，恢复沿各型材轴向的玻纤束和模具痕迹，降低镜面反光，保持原构图。两张图片使用新文件名避免 CDN/浏览器旧图缓存。WebP quality 88：主图 1672×941 / 205,424 bytes，节点图 1536×1024 / 151,172 bytes。完整提示词已追加到图片记录。
+
+
+## 8. v1.2：两类产品整合与供应商实物参考
+
+用户要求 FRP cable tray 与 cable ladder 同页展示。保留现有 URL，以「FRP Cable Trays & Cable Ladders」为标题、导航和询盘主线；顶部并列产品图，下设两类产品独立锚点与询盘参数，支架和配件作为共同系统内容。
+
+| 供应商参考 | 核实到的做法 | 对本页的应用 |
+| --- | --- | --- |
+| [Eaton fiberglass cable ladder and cable channel tray](https://www.eaton.com/us/en-us/catalog/support-systems/fiberglass-cable-channel-tray.html) | 同页分开 ladder 与 channel，分别组织直段、弯通、连接板和盖板；描述富树脂表面 veil、机械固定与粘接横档；channel 区分 ventilated / non-ventilated | 采用同页双产品结构，槽式强调底板，梯式强调侧梁和横档，附件共同列清单。Eaton 树脂代码、规格、承载值和认证不移植为 F1 参数 |
+| [Sai Seeya ladder-type FRP cable trays](https://www.frpcabletrays.com/ladder-type-frp-cable-trays.html) | 灰色槽形侧梁、规则横档、简单连接；照片显示克制的树脂表面，而非金色金属反光 | 用实物照片作几何和材质参考生成原创梯式图；说明 ladder-type cable tray 与 cable ladder 的术语关系 |
+| [Sai Seeya perforated cable trays](https://www.frpcabletrays.com/perforated-cable-trays.html) | 连续槽形底板，与开放横档结构明确区分；配套路线与安装内容 | 槽式产品图使用灰色开孔底板；参数增加底板类型、开孔、壁厚、盖板，不虚构标准尺寸 |
+
+frpcabletrays.com 页脚主体为 Sai Seeya Composite Pvt. Ltd.，部分图片替代文本与旧目录保留 Sharda 名称。本次按页面当前主体标注来源，不将其当作两家独立同行。Eaton 文本已读取；其原图下载超时，未作为生成工具输入。
+
+### 图片与内容决策
+
+- 两张新图为内置 image_gen 生成的产品示意图。仅以供应商照片观察形态，不把供应商原图发布成 F1 项目照片。
+- 灰色、低光泽富树脂表面，弱纵向拉挤痕迹，切口可见复材厚度。去除早期过强金属感以及后续夸张粗糙纹理。
+- 两类产品使用相同角度和光线，便于比较连续底板与开放横档。移除本页原有大型应用图和支架细节图，避免两类产品被泛场景遮蔽；旧资源保留为历史版本。
+- 页面说明产品图为生成示意，孔型和连接需按所供型号确认。
+- 槽式询盘独立收集底板/开孔；梯式询盘独立收集横档间距；公共清单区分横档间距、成品长度与支架跨距。
+- 尚无已验证的 F1 整套系统规格与认证目录，因此完整供货范围和测试资料仍需在报价中确认。
+
+### 本次验证
+
+- lint 无错误，仍有既有 SectionViewer3D hook dependency warning。
+- 图片 1536×1024，槽式 63,360 bytes、梯式 63,094 bytes。完整提示词保存于 `frp-cable-tray-image-prompts.md`。
+- production build 通过；导航 4 项与询盘 3 项现有测试通过，git diff --check 通过。
+- 浏览器验证 1280px / 390px 无页面横向溢出，单个 H1，全部页内锚点存在，两张图加载成功。分别实际点击 tray 与 ladder CTA，询盘产品名及差异化参数正确，无提交测试询盘。
