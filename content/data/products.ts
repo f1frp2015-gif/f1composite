@@ -14,6 +14,17 @@ export interface ProductCategory {
 
 export const productCategories: ProductCategory[] = [
   {
+    slug: "frp-fasteners-fittings",
+    title: "FRP Fasteners & Fittings",
+    description: "Fiberglass threaded rods, nuts, washers and molded fittings with metric and UNC size references and project-specific connection review.",
+    icon: "profiles",
+    href: "/products/frp-fasteners-fittings",
+    image: "/images/products/frp-fasteners-fittings/frp-hex-nuts.webp",
+    imageWidth: 600,
+    imageHeight: 400,
+    imageAlt: "Composite hexagonal and square nuts for FRP connections",
+  },
+  {
     slug: "fiberglass-structural-shapes",
     title: "Fiberglass Structural Shapes",
     description: "I-beams, channels, angles, tubes and flat bars with catalog dimensions, section drawings and project-specific material review.",

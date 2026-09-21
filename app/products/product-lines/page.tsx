@@ -28,8 +28,8 @@ export default function ProductsPage() {
       />
       <PageHeader
         tag="Products"
-        title="FRP profiles, windows, grating & rebar"
-        description="F1 Composite specializes in standard and custom pultruded profiles. Our complementary range includes window and door profiles, finished windows and doors, molded and pultruded grating, and GFRP concrete reinforcement."
+        title="FRP profiles, systems & connection components"
+        description="F1 Composite specializes in standard and custom pultruded profiles. Explore windows and doors, molded and pultruded grating, GFRP concrete reinforcement, and fiberglass fasteners and fittings for complete project supply."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
       <section className="bg-white py-[48px]">

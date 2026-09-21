@@ -120,6 +120,20 @@ export const productFamilies = [
       { label: "Build a Rebar Schedule", href: "/products/frp-rebar#request-quote" },
     ],
   },
+  {
+    id: "fasteners",
+    label: "Fasteners & Fittings",
+    brand: "F1 Composite",
+    href: "/products/frp-fasteners-fittings",
+    description: "Fiberglass threaded rods, nuts, washers and molded connection fittings. Match the thread, resin and complete joint before ordering.",
+    image: "/images/products/frp-fasteners-fittings/frp-hex-nuts.webp",
+    imageAlt: "Composite hexagonal and square nuts for FRP connections",
+    links: [
+      { label: "Threaded Rods & Sizes", href: "/products/frp-fasteners-fittings#thread-sizes" },
+      { label: "Nuts & Washers", href: "/products/frp-fasteners-fittings#nuts" },
+      { label: "Molded Fittings", href: "/products/frp-fasteners-fittings#molded-fittings" },
+    ],
+  },
 ] as const;
 
 export const applicationGroups = [

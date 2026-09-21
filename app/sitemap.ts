@@ -47,6 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-flat-bar`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/frp-rebar`, lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE}/products/frp-fasteners-fittings`, lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/fiberglass-snow-markers`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/fiberglass-stakes`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/custom-pultruded-profiles`, changeFrequency: "monthly", priority: 0.8 },

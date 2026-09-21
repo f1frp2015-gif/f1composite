@@ -20,6 +20,9 @@ function itemMatches(pathname: string, item: NavItem) {
 }
 
 function menuLayout(sectionCount: number) {
+  if (sectionCount >= 6) {
+    return "w-[min(1240px,calc(100vw-48px))] grid-cols-3 xl:grid-cols-6";
+  }
   if (sectionCount >= 5) {
     return "w-[min(1240px,calc(100vw-48px))] grid-cols-3 xl:grid-cols-5";
   }

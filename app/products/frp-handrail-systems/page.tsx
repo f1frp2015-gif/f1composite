@@ -294,6 +294,7 @@ export default function HandrailSystemsPage() {
           {
             title: "System components",
             links: [
+              { href: "/products/frp-fasteners-fittings", label: "FRP fasteners and molded fittings" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Fiberglass round tubes" },
               { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "Fiberglass square tubes" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bars and kick plates" },

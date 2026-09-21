@@ -332,6 +332,7 @@ export default function FrpLaddersPage() {
           {
             title: "Profiles and engineering",
             links: [
+              { href: "/products/frp-fasteners-fittings", label: "FRP fasteners and connection fittings" },
               { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "Fiberglass square tubes" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Fiberglass round tubes" },
               { href: "/applications/frp-chemical-plant-platforms", label: "Chemical plant access platforms" },

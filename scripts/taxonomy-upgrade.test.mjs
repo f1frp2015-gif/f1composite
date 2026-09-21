@@ -8,8 +8,8 @@ const { seoQueryTargets } = await loadTestData("content/data/seoQueryTargets.ts"
 const { buildRfqHref } = await loadTestData("lib/rfq.ts");
 
 test("one commercial family owns each buying route", () => {
-  assert.deepEqual(productFamilies.map(family => family.id), ["standard", "custom", "windows", "grating", "rebar"]);
-  assert.equal(new Set(productFamilies.map(family => family.href)).size, 5);
+  assert.deepEqual(productFamilies.map(family => family.id), ["standard", "custom", "windows", "grating", "rebar", "fasteners"]);
+  assert.equal(new Set(productFamilies.map(family => family.href)).size, 6);
   assert.equal(standardProfileLinks.length, 7);
   for (const group of applicationGroups) for (const familyId of group.products) {
     assert.ok(productFamilies.some(family => family.id === familyId), `${group.label}: unknown family ${familyId}`);
