@@ -37,3 +37,12 @@ Validated on 2026-09-20:
 The user subsequently provided the supplier PDF for a second check. All 26 molded rows match its printed pages 10–11, and all 36 pultruded rows match its page 17 overview. Several detail cards contradict that overview; no numerical value was replaced from those cards. The existing I-bar overview was corrected to 25/30/38 mm, while its mixed industrial group is now explicitly labeled I-bar & T-bar. Pultruded concave wording was corrected to a confirmed profile/grit selection, distinct from molded concave finishes.
 
 The PDF alone does not establish F1's 316SS material, T-clip offering, fastening spacings or polyurethane grating availability. These pre-existing F1-specific specifications were not silently replaced with the supplier's different catalogue. Load appendices require source clarification before publication because their applicability and several cells are inconsistent.
+
+
+## Procurement workflow, second release
+
+The three product pages now share task-based entry points, a 62-configuration search/filter, three-way comparison and a 30-line panel schedule. Same-tab session storage preserves the draft between product pages; a separate summary key transfers it to the existing contact form without placing project text in a URL. Contact details and drawings are still entered on that form, with the existing delivery safeguards. Unknown fields are explicit; complete positive dimensions and integer panel counts produce net area only, excluding waste. No load suitability, prices or stock promises are calculated.
+
+The hub hero uses the existing product construction photographs. Two new inline SVG guides explain clear span/bearing direction and whole-panel/cut-panel/fixing-kit supply scope. The existing clear-opening diagram and clip drawings remain available. No new supplier photography or unsupported surface/packing evidence was fabricated.
+
+RFQ summaries can be downloaded as text or printed. Browser tests verified model search, comparison, a T-1210 panel at 1000 × 500 mm / 4 pieces producing 2.000 m², destination transfer, and draft restoration across families. At 390 px the pultruded planner had no document overflow. No inquiry was submitted. Automated tests cover all specification mappings, area conversion/invalid quantities and draft parsing. Grating tests are now included in CI.

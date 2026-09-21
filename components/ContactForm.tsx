@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
 import Button from "@/components/ui/Button";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
 import { attributionPath, attributionToken } from "@/lib/rfq";
@@ -85,6 +86,15 @@ export default function ContactForm() {
   const prefillCountry = searchParams.get("country") ?? "";
   const prefillInquiryType = searchParams.get("inquiry_type") ?? "";
   const prefillMessage = searchParams.get("message") ?? "";
+  const gratingProject = searchParams.get("grating_project") === "1";
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    if (!gratingProject || !messageRef.current) return;
+    try {
+      const summary = sessionStorage.getItem(SUMMARY_KEY);
+      messageRef.current.value = summary || "My grating project draft is unavailable in this tab. Please add the panel schedule, quantity and destination here, or attach your saved summary.";
+    } catch { messageRef.current.value = "Please paste your saved grating RFQ summary here."; }
+  }, [gratingProject]);
   const prefillSource = searchParams.get("source") ?? prefillRef ?? "contact";
   const prefillContext = searchParams.get("context") ?? "";
   const product = searchParams.get("product") ?? "";
@@ -217,12 +227,13 @@ export default function ContactForm() {
           Message <span className="text-red-500">*</span>
         </label>
         <textarea
+          ref={messageRef}
           id="message"
           name="message"
           required
           rows={6}
           defaultValue={prefillMessage}
-          placeholder="Describe your project requirements, desired profile specifications, or questions..."
+          placeholder="Describe your application, product or panel specifications, quantities and delivery requirements..."
           className={inputCls}
         />
       </div>
