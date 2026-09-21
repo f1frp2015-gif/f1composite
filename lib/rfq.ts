@@ -13,7 +13,7 @@ export function buildRfqHref(selection: RfqSelection): string {
   if (selection.productPath) params.set("product_path", selection.productPath);
   if (selection.specification) params.set("specification", selection.specification);
   if (selection.evidenceId) params.set("evidence_id", selection.evidenceId);
-  params.set("message", selection.message ?? `Please review ${selection.product ?? "my FRP project"}${selection.specification ? ` (${selection.specification})` : ""}. I will provide the quantity, service environment and delivery requirements below.`);
+  params.set("message", selection.message ?? `Please review ${selection.product ?? "my FRP project"}${selection.specification ? ` (${selection.specification})` : ""}. Please contact me to discuss the details and quotation.`);
   return `/contact?${params.toString()}`;
 }
 

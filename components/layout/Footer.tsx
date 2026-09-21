@@ -39,7 +39,7 @@ export default function Footer() {
             <p className="mt-[5px] text-[clamp(21px,2.1vw,28px)] font-bold leading-tight tracking-[-0.02em] text-white">
               Tell us what you need
             </p>
-            <p className="mt-[5px] text-f13 text-white/70">Share your section, drawing or application, quantities and delivery destination.</p>
+            <p className="mt-[5px] text-f13 text-white/70">Start with your name and email. We can confirm product details together.</p>
             <div className="mt-[12px] flex flex-wrap gap-x-[18px] gap-y-[8px]">{productFamilies.map(family => <Link key={family.id} href={buildRfqHref({ source: "footer-family", product: family.label, productPath: family.href })} className="inline-flex min-h-[32px] items-center text-f12 font-semibold text-white underline underline-offset-4 hover:text-teal">{family.label}</Link>)}</div>
           </div>
           <div className="flex flex-wrap items-center gap-x-[18px] gap-y-[10px]">

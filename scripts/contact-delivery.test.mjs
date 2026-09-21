@@ -98,3 +98,42 @@ test("discuss project first accepts only buying intent with empty optional messa
   assert.match(route.state.stored.message, /Profiles for fabrication/);
   assert.deepEqual(route.state.stored.context.windowInquiry, { mode: "profiles" });
 });
+
+for (const mode of [null, "profiles", "finished"]) {
+  test(`minimal inquiry (${mode || "general"}) accepts name and email without optional fields`, async () => {
+    const route = mockRoute({ db: 42, mail: "mock-mail" });
+    const form = new FormData();
+    form.set("name", "First-time buyer");
+    form.set("email", "buyer@example.invalid");
+    if (mode) {
+      form.set("window_inquiry", JSON.stringify({ mode, series: "90-sliding", stage: "sample" }));
+      form.set("source", "window-series");
+      form.set("context", JSON.stringify({ productPath: "/products/frp-window-frames" }));
+    }
+    const response = await route.POST(new Request("http://local.test/api/contact", { method: "POST", body: form }));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).accepted, true);
+    assert.equal(route.state.stored.country, null);
+    assert.equal(route.state.stored.inquiryType, "rfq");
+    if (mode) {
+      assert.equal(route.state.stored.context.windowInquiry.mode, mode);
+      assert.equal(route.state.stored.context.windowInquiry.series, "90-sliding");
+      assert.equal(route.state.stored.source, "window-series");
+      assert.match(route.state.mailed.html, /90-sliding/);
+    } else {
+      assert.match(route.state.stored.message, /no requirements provided yet/);
+    }
+  });
+}
+
+test("minimal inquiry still rejects missing name and invalid email without delivering", async () => {
+  for (const fields of [{ email: "buyer@example.invalid" }, { name: "Buyer", email: "invalid" }, { name: "Buyer" }]) {
+    const route = mockRoute({ db: 42, mail: "mock-mail" });
+    const form = new FormData();
+    for (const [key, value] of Object.entries(fields)) form.set(key, value);
+    const response = await route.POST(new Request("http://local.test/api/contact", { method: "POST", body: form }));
+    assert.equal(response.status, 400);
+    assert.equal(route.state.stored, null);
+    assert.equal(route.state.mailed, null);
+  }
+});

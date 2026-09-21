@@ -3,7 +3,7 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import WindowInquiryFields from "./WindowInquiryFields";
-import { WINDOW_FIELDS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
+import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
 import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
 import dynamic from "next/dynamic";
 const GratingInquiryReview = dynamic(() => import("./GratingInquiryReview"));
@@ -91,7 +91,6 @@ export default function ContactForm() {
   const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
   const windowMode = searchParams.get("window_mode");
-  const [windowStep, setWindowStep] = useState(0);
   const [windowInquiry, setWindowInquiry] = useState<WindowInquiry | null>(() => {
     if (windowMode !== "profiles" && windowMode !== "finished") return null;
     const data: WindowInquiry = { mode: windowMode };
@@ -112,8 +111,8 @@ export default function ContactForm() {
     if (!gratingProject || !messageRef.current) return;
     try {
       const summary = sessionStorage.getItem(SUMMARY_KEY);
-      messageRef.current.value = summary || "My grating project draft is unavailable in this tab. Please add the panel schedule, quantity and destination here, or attach your saved summary.";
-    } catch { messageRef.current.value = "Please paste your saved grating RFQ summary here."; }
+      messageRef.current.value = summary || "My grating project draft is unavailable in this tab. Please contact me to discuss my requirements.";
+    } catch { messageRef.current.value = "Please contact me to discuss my grating requirements."; }
   }, [gratingProject]);
   const prefillSource = searchParams.get("source") ?? prefillRef ?? "contact";
   const prefillContext = searchParams.get("context") ?? "";
@@ -134,7 +133,7 @@ export default function ContactForm() {
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
         {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
-        <ol className="mt-5 space-y-3 text-sm text-t2"><li><strong>1. Requirement review.</strong> We check the product, drawing and delivery scope.</li><li><strong>2. Clarifications.</strong> We identify any missing dimensions, load conditions or documentation.</li><li><strong>3. Next step.</strong> We confirm the technical review, sample arrangements or quotation needed for your request.</li></ol>
+        <p className="mt-5 text-sm text-t2">Our team will contact you to clarify any missing details and help with your quote. You do not need to complete anything else now.</p>
         {submittedMessage && <details className="mt-5"><summary className="cursor-pointer py-3 font-semibold">View submitted requirements</summary><pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words font-sans text-sm">{submittedMessage}</pre></details>}
         <p className="mt-4 text-sm">Need to add a drawing or correction? Email <a className="font-bold underline" href="mailto:inquiry@f1composite.com">inquiry@f1composite.com</a> and include your reference.</p>
       </div>
@@ -142,9 +141,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={(event) => {
+    <form aria-label="Request a quote" onSubmit={(event) => {
       event.preventDefault();
-      if (windowInquiry && windowStep !== 2) { setWindowStep(windowStep + 1); return; }
       const data = new FormData(event.currentTarget);
       setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
@@ -152,12 +150,13 @@ export default function ContactForm() {
       <input type="hidden" name="source" defaultValue={prefillSource} />
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
-      {windowInquiry && <WindowInquiryFields value={windowInquiry} onChange={setWindowInquiry} step={windowStep} onStep={setWindowStep} />}
-      {gratingProject && <GratingInquiryReview />}
-      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Add quantities, delivery destination and any corrections in the message below.</p></div>}
+      <input type="hidden" name="inquiry_type" value={inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
+      {windowInquiry && <p className="rounded-md bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
+      {gratingProject && <details><summary className="cursor-pointer py-2 text-sm font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
+      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (
         <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
-          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Review the project description below, add your contact information, and submit the form. We will acknowledge your requirements within one business day; a formal quote follows specification review.
+          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Your project details are included. Just add your name and email to get started.
         </div>
       )}
 
@@ -167,7 +166,20 @@ export default function ContactForm() {
         </div>
       )}
 
-      <fieldset hidden={Boolean(windowInquiry && windowStep !== 2)} disabled={Boolean(windowInquiry && windowStep !== 2)} className="min-w-0 space-y-[19px]">
+      <p className="text-sm leading-relaxed text-t2">Only your name and email are required. No drawings or complete specifications needed to get started.</p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div><label htmlFor="name" className="mb-2 block text-sm font-semibold text-t1">Name <span className="text-red-500">*</span></label><input id="name" name="name" type="text" autoComplete="name" required maxLength={200} placeholder="Your name" className={inputCls} /></div>
+        <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-t1">Email <span className="text-red-500">*</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" className={inputCls} /></div>
+      </div>
+      <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-t1">What do you need? <span className="font-normal text-t3">(optional)</span></label><textarea ref={messageRef} id="message" name="message" rows={3} maxLength={16000} defaultValue={prefillMessage} placeholder="A short note is enough. We can work out the details together." className={inputCls} /></div>
+      <details className="rounded-lg border border-border-default px-4">
+        <summary className="cursor-pointer py-3 text-sm font-semibold text-t1">Add company, delivery details or a file (optional)</summary>
+        <div className="space-y-4 pb-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div><label htmlFor="company" className="mb-2 block text-sm font-semibold">Company</label><input id="company" name="company" autoComplete="organization" defaultValue={prefillCompany} maxLength={200} className={inputCls} /></div>
+            <div><label htmlFor="phone" className="mb-2 block text-sm font-semibold">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={100} className={inputCls} /></div>
+          </div>
+          <div><label htmlFor="country" className="mb-2 block text-sm font-semibold">Country</label><select id="country" name="country" autoComplete="country-name" defaultValue={prefillCountry} className={inputCls}><option value="">To be confirmed</option>{countries.map(country => <option key={country} value={country}>{country}</option>)}</select></div>
       <div>
         <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
@@ -200,124 +212,14 @@ export default function ContactForm() {
         </div>
         <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
       </div>
-
-
-      <div className="grid gap-[21px] sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="Your full name"
-            className={inputCls}
-          />
         </div>
-        <div>
-          <label htmlFor="company" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Company
-          </label>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            defaultValue={prefillCompany}
-            placeholder="Company name"
-            className={inputCls}
-          />
-        </div>
-      </div>
-
-      <div className="grid gap-[21px] sm:grid-cols-2">
-        <div>
-          <label htmlFor="email" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Work email <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="you@company.com"
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label htmlFor="phone" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Phone
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="+1 (555) 000-0000"
-            className={inputCls}
-          />
-        </div>
-      </div>
-
-      <div className="grid gap-[21px] sm:grid-cols-2">
-        <div>
-          <label htmlFor="country" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Country <span className="text-red-500">*</span>
-          </label>
-          <select id="country" name="country" required defaultValue={prefillCountry} className={inputCls}>
-            <option value="">Select your country</option>
-            {countries.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="inquiry_type" className="mb-[5px] block text-f13 font-semibold text-t1">
-            Inquiry Type <span className="text-red-500">*</span>
-          </label>
-          <select id="inquiry_type" name="inquiry_type" required defaultValue={prefillInquiryType || (windowInquiry ? "rfq" : "")} className={inputCls}>
-            <option value="">Select inquiry type</option>
-            {inquiryTypes.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <details open={!gratingProject}><summary className="cursor-pointer py-3 text-sm font-semibold">Review or edit the full inquiry message</summary>
-      <div>
-        <label htmlFor="message" className="mb-[5px] block text-f13 font-semibold text-t1">
-          Message {windowInquiry ? <span className="font-normal text-t3">(optional)</span> : <span className="text-red-500">*</span>}
-        </label>
-        <textarea
-          ref={messageRef}
-          id="message"
-          name="message"
-          required={!windowInquiry}
-          rows={6}
-          defaultValue={prefillMessage}
-          placeholder="Describe your application, product or panel specifications, quantities and delivery requirements..."
-          className={inputCls}
-        />
-      </div>
-
-
       </details>
-
-      <p className="text-sm leading-relaxed text-t2">We acknowledge requirements within one business day. A formal quotation follows specification and delivery review.</p>
-      <div className="flex flex-col gap-[9px] sm:flex-row sm:items-center sm:justify-between">
-        <Button type="submit" disabled={isPending} className={isPending ? "pointer-events-none opacity-60" : ""}>
-          {isPending ? "Sending..." : gratingProject ? "Send Grating Inquiry" : "Send for Engineering Review"}
-        </Button>
-        <p className="max-w-[300px] text-f11 leading-relaxed text-t3">
-          Your project information is used only to review and respond to this inquiry.
-        </p>
-      </div>
-      </fieldset>
+      {windowInquiry && <WindowInquiryFields value={windowInquiry} onChange={setWindowInquiry} />}
+      <Button type="submit" disabled={isPending} className={`w-full sm:w-auto ${isPending ? "pointer-events-none opacity-60" : ""}`}>
+        {isPending ? "Sending..." : "Send Inquiry"}
+      </Button>
+      <p className="text-sm leading-relaxed text-t2">We will respond within one business day and help confirm the details for your quote.</p>
+      <p className="text-f11 leading-relaxed text-t3">Your information is used only to respond to this inquiry.</p>
     </form>
   );
 }
