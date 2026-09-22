@@ -1,3 +1,4 @@
+import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
@@ -237,6 +238,8 @@ export default function StandardProfilesPage() {
       <AskAICard
         prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
       />
+
+      <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]"><E40EvidenceLink /></div>
 
       <RelatedLinks
         groups={[

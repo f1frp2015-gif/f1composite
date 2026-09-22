@@ -1,3 +1,4 @@
+import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -774,6 +775,7 @@ export default function FacadeSunshadePanelsPage() {
             Representative values for the multi-layer fabric plate. Project laminates are
             tuned to the blade section and span, with test data supplied for submission.
           </p>
+          <E40EvidenceLink facade />
 
           <div className="mt-[34px] overflow-x-auto">
             <table className="w-full border-collapse text-left">
