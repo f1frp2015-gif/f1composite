@@ -1,3 +1,4 @@
+import { e40EvidenceHref, e40Reports, e40ReportScope } from "@/content/data/e40Evidence";
 import { engineeringEvidence, commercialFacts } from "@/content/data/engineeringEvidence";
 import { buildRfqHref } from "@/lib/rfq";
 import type { Metadata } from "next";
@@ -197,8 +198,18 @@ export default async function DownloadsPage() {
     { title: "Window Profile BOM Template", format: "CSV", size: "Editable template", description: "For profile supply: series, section code, drawing revision, lengths, quantities, finishing and requested accessories.", file: "/downloads/f1-window-profile-bom-template.csv" },
     { title: "Finished Window & Door Schedule Template", format: "CSV", size: "Editable template", description: "For finished units: opening ID, series, dimensions, opening type, glazing, hardware, quantity and delivery requirements.", file: "/downloads/f1-window-schedule-template.csv" },
   ];
-  const windowFiles = new Set(windowDownloads.map((item) => item.file));
-  const downloads = [...windowDownloads, ...loadedDownloads.filter((item) => !windowFiles.has(item.file))].map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
+  const pinnedDownloads: DownloadItem[] = [
+    ...e40Reports.map((report) => ({
+      title: `E40 evidence — SGS full-section test, ${report.average} GPa`,
+      format: "PDF",
+      size: report.size,
+      description: `${report.reference}. ${e40ReportScope(report)}`,
+      file: report.file,
+    })),
+    ...windowDownloads,
+  ];
+  const pinnedFiles = new Set(pinnedDownloads.map((item) => item.file));
+  const downloads = [...pinnedDownloads, ...loadedDownloads.filter((item) => !pinnedFiles.has(item.file))].map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -246,6 +257,7 @@ export default async function DownloadsPage() {
           per family for customers who do not need the full DB-driven index. */}
       <section id="datasheets" className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
+          <p className="mb-[21px] text-f15 text-t2">New: <Link href={e40EvidenceHref} className="font-semibold text-teal-text underline">SGS E40 / 40 GPa-class full-section test reports</Link> — review the measured results and size-identification notes before selecting a datasheet.</p>
           <SectionTag>FRP Profile Technical Datasheets</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Technical datasheets — most-requested sizes

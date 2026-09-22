@@ -1,5 +1,7 @@
+import { e40EvidenceHref, e40Reports, e40ReportScope } from "./e40Evidence";
+
 /** Public document index. A listed file is not a blanket certification claim. */
-export const evidenceRevision = "2026-09-20";
+export const evidenceRevision = "2026-09-22";
 
 export const commercialFacts = {
   response: "We will acknowledge your requirements within one business day and confirm the next step. A formal quotation follows specification and delivery review.",
@@ -20,9 +22,21 @@ export interface EvidenceRecord {
   product: string;
   productLabel: string;
   scope: string;
+  contextHref?: string;
 }
 
 export const engineeringEvidence: EvidenceRecord[] = [
+  ...e40Reports.map((report): EvidenceRecord => ({
+    id: report.id,
+    title: `E40 evidence — SGS full-section test, ${report.average} GPa`,
+    kind: "Test report",
+    reference: report.reference,
+    file: report.file,
+    product: "/products/fiberglass-structural-shapes/frp-square-tube",
+    productLabel: "Square and rectangular tubes",
+    scope: e40ReportScope(report),
+    contextHref: e40EvidenceHref,
+  })),
   { id: "phi-2491wi03", title: "90-series GFRP window component certificate", kind: "Component certificate", reference: "PHI 2491wi03", file: "/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf", product: "/products/frp-window-frames", productLabel: "FRP windows and doors", scope: "PHI 2491wi03 names Chongqing Xianju New Material Co., Ltd. and Fengdu Passive GFRP 90 Series. The stated configuration is cool-temperate, efficiency class phB, Uw 0.78 W/(m²·K) with Ug 0.70; valid until 31 December 2026. It is not Arctic-climate, PHIUS or blanket F1-window certification. Confirm the original and proposed configuration." },
   { id: "intertek-turn-tilt", title: "Turn-and-tilt GFRP window test report", kind: "Test report", reference: "Intertek 240821010SHF-001", file: "/downloads/intertek-report-240821010SHF-001-turn-tilt-window.pdf", product: "/products/frp-window-frames", productLabel: "FRP windows and doors", scope: "AS 2047 testing of the identified window specimen. Match dimensions, glazing, hardware, pressure and test conditions before using the results." },
   { id: "intertek-sliding", title: "Lift-sliding GFRP door test report", kind: "Test report", reference: "Intertek 240821010SHF-002", file: "/downloads/intertek-report-240821010SHF-002-lift-sliding-door.pdf", product: "/products/frp-window-frames", productLabel: "FRP windows and doors", scope: "Historical 140 Series Lift-Sliding Door specimen, 3000 × 2400 mm, as named in Intertek 240821010SHF-002. The original report is preserved. It does not automatically cover the current 140 Series Compression-Seal Sliding Door; configuration equivalence requires technical verification." },

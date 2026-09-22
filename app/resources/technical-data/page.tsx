@@ -1,3 +1,5 @@
+import E40TestEvidence from "@/components/sections/E40TestEvidence";
+import { e40EvidenceHref } from "@/content/data/e40Evidence";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -33,7 +35,7 @@ const PROPERTY_ROWS: {
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Technical Data — Material Properties & Test Methods",
   description:
-    "FRP technical data for pultruded E-glass profiles: tensile, flexural, shear, density and glass content values with EN 13706 and ISO test methods.",
+    "FRP material properties and original SGS full-section reports: 40.8 and 41.5 GPa E40-class results, EN 13706 test methods and sample-specific scope notes.",
   path: "/resources/technical-data",
   image: "/resources/technical-data/opengraph-image",
 });
@@ -71,6 +73,12 @@ export default function TechnicalDataPage() {
           { label: "Technical Data" },
         ]}
       />
+
+      <div className="mx-auto max-w-[1280px] px-[20px] pt-[21px] sm:px-[28px] lg:px-[34px]">
+        <Link href={e40EvidenceHref} className="inline-flex min-h-[44px] items-center font-semibold text-teal-text underline">
+          E40 test evidence: view original SGS reports — 40.8 / 41.5 GPa →
+        </Link>
+      </div>
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
@@ -205,6 +213,8 @@ export default function TechnicalDataPage() {
           </div>
         </div>
       </section>
+
+      <E40TestEvidence />
 
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">

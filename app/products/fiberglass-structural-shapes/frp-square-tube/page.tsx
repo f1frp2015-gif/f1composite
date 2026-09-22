@@ -1,3 +1,4 @@
+import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
 import TubeSizeTable from "@/components/sections/TubeSizeTable";
 import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import { buildRfqHref } from "@/lib/rfq";
@@ -153,6 +154,7 @@ export default async function SquareTubePage() {
         <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass square and rectangular tube sizes</h2>
+          <E40EvidenceLink />
           <TubeSizeTable
             sizes={sizes.map((s) => ({ model: s.model, dimensions: [s.h, s.b, s.t], weight: s.weight }))}
             columns={["H (mm)", "B (mm)", "Wall (mm)"]}
