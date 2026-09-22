@@ -226,6 +226,7 @@ export default function DoorThresholdsPage() {
             <ul className="mt-[18px] grid gap-[14px] text-f14 font-semibold text-teal-text sm:grid-cols-2">
               {[
                 ["Window & door profiles for fabricators", "/products/window-door-profiles"],
+                ["FRP door frame profiles for jambs & heads", "/products/frp-door-frames"],
                 ["Pultruded FRP profiles overview", "/pultruded-frp-profiles"],
                 ["Finished fiberglass windows & doors", "/products/fiberglass-windows-doors"],
                 ["FRP density & weight-per-metre calculator", "/frp-density-calculator"],
