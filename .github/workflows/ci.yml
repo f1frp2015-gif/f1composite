@@ -17,11 +17,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: node --test scripts/navigation-ia.test.mjs scripts/taxonomy-upgrade.test.mjs
-      - run: npm run test:site-audit
-      - run: npm run test:grating-pages
-      - run: npm run test:product-inquiry
-      - run: node --test scripts/rebar-inquiry.test.mjs
-      - run: npm run test:window-inquiry
-      - run: npm run test:indexnow
+      - run: npm test
+      - run: npm run check:sitemap
       - run: npm run build

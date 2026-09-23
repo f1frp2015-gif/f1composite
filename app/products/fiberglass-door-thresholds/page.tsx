@@ -62,7 +62,7 @@ export default function DoorThresholdsPage() {
               width={1440}
               height={1098}
               sizes="(max-width: 1024px) 100vw, 55vw"
-              loading="eager"
+              preload
               className="h-auto w-full rounded-[14px]"
             />
             <figcaption className="mt-[12px] text-f12 leading-relaxed text-t3">

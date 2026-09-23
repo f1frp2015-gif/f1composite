@@ -39,7 +39,7 @@ export default function DoorFramesPage() {
       <div className={`${wrap} grid items-center gap-8 lg:grid-cols-[1.2fr_1fr]`}>
         <figure className="min-w-0">
           <a href={page.image} aria-label="View full-size fiberglass door frame profile rendering">
-            <Image src={page.image} alt="Three fiberglass door frame profiles with continuous hollow raised stops running the full length: two open-back frame sections and one closed mullion concept" width={1536} height={1024} sizes="(max-width: 1024px) 100vw, 55vw" loading="eager" className="h-auto w-full rounded-2xl" />
+            <Image src={page.image} alt="Three fiberglass door frame profiles with continuous hollow raised stops running the full length: two open-back frame sections and one closed mullion concept" width={1536} height={1024} sizes="(max-width: 1024px) 100vw, 55vw" preload className="h-auto w-full rounded-2xl" />
           </a>
           <figcaption className="mt-3 text-f12 leading-relaxed text-t3">AI product visualization. Integral stops and chambers run continuously along the profile. Final geometry follows the approved section drawing.</figcaption>
         </figure>
