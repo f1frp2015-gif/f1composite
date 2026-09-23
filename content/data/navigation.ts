@@ -60,6 +60,7 @@ export const mainNav = [
           { label: "Window & Door Range", href: "/products/frp-window-frames" },
           { label: "Profiles for Fabricators", href: "/products/window-door-profiles" },
           { label: "Window Reinforcement Profiles", href: "/products/frp-window-reinforcement" },
+          { label: "FRP Door Frame Profiles", href: "/products/frp-door-frames" },
           { label: "Fiberglass Door Thresholds", href: "/products/fiberglass-door-thresholds" },
           { label: "Finished Windows & Doors", href: "/products/fiberglass-windows-doors" },
         ],

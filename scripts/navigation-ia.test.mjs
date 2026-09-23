@@ -29,11 +29,12 @@ test("primary navigation distinguishes six product families from industry and us
   assert.equal(mainNav[0].href, "/products/product-lines");
   assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating", "FRP Rebar", "Fasteners & Fittings"]);
   const productLinks = mainNav[0].sections.flatMap(section => section.links.map(link => link.href));
-  for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
+  for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
   for (const route of ["/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...item.sections.flatMap(section => section.links.map(link => link.href))])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  assert.ok(allLinks.length <= 75, "keep a bounded desktop and mobile menu");
+  // Includes the dedicated door-frame profile entry in Windows & Doors.
+  assert.ok(allLinks.length <= 76, "keep a bounded desktop and mobile menu");
   assert.ok(mainNav[2].sections.find(section => section.label === "Engineering tools").links.some(link => link.href === "/frp-density-calculator"));
 });
 
