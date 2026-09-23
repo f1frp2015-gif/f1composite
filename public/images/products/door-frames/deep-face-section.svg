@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#007A74"/></marker></defs>
+<rect width="800" height="640" rx="18" fill="#F3F6F8"/>
+<g font-family="Arial,sans-serif" fill="#142337"><text x="42" y="48" font-size="27">Deep-face frame</text>
+<path d="M100 170H268V116H432V170H600V518H558V506H588V182H112V506H142V518H100Z M280 128H420V170H280Z" fill="#D5E7E6" fill-rule="evenodd" stroke="#142337" stroke-width="3" stroke-linejoin="round"/>
+<g stroke="#007A74" stroke-width="2"><line x1="100" y1="162" x2="100" y2="78" /><line x1="600" y1="162" x2="600" y2="78" /><line x1="105" y1="88" x2="595" y2="88" marker-start="url(#arrow)" marker-end="url(#arrow)"/><line x1="610" y1="170" x2="670" y2="170" /><line x1="610" y1="518" x2="670" y2="518" /><line x1="655" y1="175" x2="655" y2="513" marker-start="url(#arrow)" marker-end="url(#arrow)"/><line x1="142" y1="524" x2="142" y2="573" /><line x1="558" y1="524" x2="558" y2="573" /><line x1="146" y1="561" x2="554" y2="561" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="340" y="552" font-size="22">T</text></g>
+<text x="340" y="79" font-size="22">D</text><text x="675" y="348" font-size="22">F</text>
+<text x="42" y="610" font-size="18">SCHEMATIC SECTION · WALLS &amp; RADII TO BE SPECIFIED</text>
+</g></svg>
