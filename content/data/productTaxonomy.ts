@@ -84,6 +84,10 @@ export const productFamilies = [
         href: "/products/fiberglass-door-thresholds",
       },
       {
+        label: "FRP Door Frame Profiles",
+        href: "/products/frp-door-frames",
+      },
+      {
         label: "Finished Windows & Doors",
         href: "/products/fiberglass-windows-doors",
       },

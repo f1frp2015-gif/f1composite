@@ -36,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/what-is-frp`, lastModified: "2026-09-14", changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/window-door-profiles`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-door-thresholds`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-door-frames`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-windows-doors`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/grating`, lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/industries/water-wastewater`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },

@@ -1,0 +1,43 @@
+# FRP door frame profile page — source and scope notes
+
+Reviewed: 2026-09-22. Route: `/products/frp-door-frames`.
+
+## Supplier references requested by the user
+
+- [Bedford — Door Frame](https://bedfordreinforced.com/product/door-frame/): establishes a dedicated door-frame profile category and special-order supply. Its dimensions and weight are Bedford-specific and are not F1 specifications. No supplier photography or drawings are reused.
+- [CORRIM — FRP Frames](https://corrim.com/products/frp-frames/): despite the broad page title, the body refers to fixed window frames. Used only as context for pultruded frame components, wall interfaces and hardware coordination. Its glass fraction, finishes, ratings and warranties are not attributed to F1.
+- [Fiber Tech — FRP Door Frames](https://fibertech.co.in/frp-door-frames.html): supports the door-frame use case and general purchasing themes of moisture, corrosion, fabrication and thermal conductivity. Broad claims of universal chemical resistance, waterproofing and fire performance are not repeated. The trailing full-width semicolon in the supplied URL was removed.
+
+## F1 scope and editorial decisions
+
+- Existing F1 pages `/products/custom-pultruded-profiles`, `/products/window-door-profiles` and `/products/fiberglass-door-thresholds` establish custom profile development, profile supply, machining and separate assembly scopes.
+- New copy describes inputs for engineering review, not validated stock tooling, verified installation examples or guaranteed performance. The revised page includes clearly labeled reference dimensions, but no material test values, prices, lead times, fire ratings or certificates.
+- The initial generic component diagram is superseded by an AI profile visualization and original section/elevation linework. These are not production drawings or product photographs.
+- Primary query: `frp door frame`. Secondary query: `fiberglass door frame`. Related terminology: GRP door frame, pultruded door frame profiles, jambs and heads.
+- The page owns custom door-frame profile intent. Existing window-system and finished-door pages retain their distinct scopes.
+- User-facing content is original English product copy; competitor reference notes stay here for maintenance and review.
+
+## User-provided technical PDF
+
+Source: `FRP-Frames-2023.pdf`, supplied locally by the user. Six pages, technical fact sheet 30-23. The original file remains outside public assets. Supplier identity is retained only in this research record, not in page text, generated images, filenames, alt text or diagrams.
+
+| Page | Verified reference | Use in the updated page |
+| --- | --- | --- |
+| 1 | Isometric open-back frame and corner | Visual topology reference only |
+| 2 | 45-degree miters, corner brackets and screws, optional bonded assembly, hardware preparation and hospital stops | Fabrication discussion; no transfer of supplier hardware sizes into an F1 offer |
+| 3 | Jamb/mullion/sill interfaces and entrances with sidelights or transoms | Original simplified elevation concepts; separate leaf and glazing scope |
+| 4 | Existing-wall fixing approaches for masonry, timber and steel; concealed access hole and cap | Substrate-specific fixing discussion; no universal anchor size or spacing |
+| 5 | New-masonry wire/strap anchors and new-stud block/compression anchor details | Installation interface choices to review, not included standard F1 accessories |
+| 6 | Open-back, deep-face and closed mullion sections; door handing | Original section linework, reference dimension table, plan-view scheduling guidance |
+
+Reference table conversions use exactly 25.4 mm/in and round to one decimal: 5.75 in = 146.1 mm; 2 in = 50.8 mm; 4 in = 101.6 mm; 0.625 in = 15.9 mm; 1.875 in = 47.6 mm; 1.9375 in = 49.2 mm; 4.75 in = 120.7 mm. The page explicitly describes these as example reference geometry, not stocked sizes or an approved F1 section. The section linework uses illustrative wall thickness and radii, which the PDF does not specify. D denotes overall jamb depth, F face width and T open-back throat.
+
+The supplied PDF establishes door-frame content more clearly than the supplier web page, whose body uses fixed-window wording. It does not establish F1 tooling ownership, production capability for the exact sections, certification or interchangeability.
+
+## Image correction and acceptance
+
+- Built-in image generation was used with rendered PDF pages as visual references.
+- The initial product rendering incorrectly terminated the raised stops near the cut ends. A targeted edit now shows longitudinal stops continuing along the profile length.
+- The user rejected both corner-render attempts for incorrect/intersecting geometry and instructed us to remove image 2 and retain image 1 only. No corner render is used or kept in public assets.
+- The sole retained AI image is `fiberglass-door-frame-continuous-profiles-v2.webp`. The original cross-section linework is generated by `scripts/generate-door-frame-diagrams.mjs`. Only secondary fabrication deliberately interrupts the continuous section.
+- Prompt history and output paths are recorded in `docs/research/frp-door-frame-image-prompts.md`. No supplier PDF or rasterized source pages are published.

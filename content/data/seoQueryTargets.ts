@@ -16,6 +16,12 @@ export interface SeoQueryTarget {
 
 export const seoQueryTargets = [
   {
+    targetUrl: "/products/frp-door-frames", primaryQuery: "frp door frame", intent: "commercial",
+    title: "FRP Door Frame & Fiberglass Door Frame | F1 Composite",
+    description: "Custom FRP door frame profiles for fabricators. Develop a pultruded fiberglass door frame with matched jambs, heads, seals and hardware. Request a quote.",
+    supportingUrls: ["/products/window-door-profiles", "/products/fiberglass-door-thresholds", "/products/frp-window-frames"],
+  },
+  {
     targetUrl: "/products/window-door-profiles", primaryQuery: "fiberglass window and door profiles", intent: "commercial",
     title: "Fiberglass Window & Door Profiles for Fabricators",
     description: "Pultruded fiberglass window and door profiles for fabricators. Specify frame, sash, mullion and sill sections, cut lengths, machining and supporting documents.",
