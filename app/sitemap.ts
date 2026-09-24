@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
+import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
 
 const BASE = "https://www.f1composite.com";
 
@@ -15,6 +16,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogEntries = blogPosts.map((post) => ({
     url: `${BASE}/resources/blog/${post.slug}`,
     lastModified: post.updatedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  // Datasheet indexing pilot: only these sizes are indexable (lib/datasheetContent.ts).
+  const datasheetEntries = INDEXED_DATASHEET_SLUGS.map((slug) => ({
+    url: `${BASE}/datasheets/${slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -49,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-tube`, lastModified: "2026-09-14", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-flat-bar`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod`, changeFrequency: "monthly", priority: 0.7 },
+    ...datasheetEntries,
     { url: `${BASE}/products/frp-rebar`, lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/frp-fasteners-fittings`, lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/fiberglass-snow-markers`, changeFrequency: "monthly", priority: 0.82 },

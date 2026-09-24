@@ -17,6 +17,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { buildSpanTables, DESIGN_BASIS } from "@/lib/spanTables";
+import { datasheetHrefForModel } from "@/lib/datasheetContent";
 
 const pagePath = "/frp-span-tables";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -58,6 +59,12 @@ const spanTableFaqs = [
 export default function SpanTablesPage() {
   const families = buildSpanTables();
   const totalRows = families.reduce((n, f) => n + f.rows.length, 0);
+  const datasheetHrefs = Object.fromEntries(
+    families.flatMap((family) => family.rows.flatMap((row) => {
+      const href = datasheetHrefForModel(row.model);
+      return href ? [[row.model, href]] : [];
+    })),
+  );
 
   return (
     <>
@@ -115,7 +122,7 @@ export default function SpanTablesPage() {
         </div>
       </section>
 
-      <SpanTablesContent families={families} />
+      <SpanTablesContent families={families} datasheetHrefs={datasheetHrefs} />
 
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
