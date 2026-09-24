@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP Passive House Windows — Canada Supplier";
 const pageDescription =
-  "Pultruded FRP passive house windows for Canada — PHIUS-aligned PHI Cert 2491wi03 (U_w 0.78), CSA A440 / NAFS / NFRC ready. Not caught by the 25% surtax. DDP.";
+  "Pultruded FRP passive house windows for Canada: PHI certificate 2491wi03 (Uw 0.78), NAFS and CSA A440 reports on request, DDP quotes with duties itemized.";
 const pagePath = "/regions/frp-passive-house-windows-canada";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -26,17 +26,17 @@ const faqs = [
   {
     question: "Are FRP windows from China subject to Canada's 25% surtax?",
     answer:
-      "No. Canada's surtax orders apply to steel and aluminum goods containing Chinese-melted or -cast metal (in force since July 31, 2025) and were extended to steel derivative goods — including steel-framed doors and windows — effective December 26, 2025. Pultruded FRP (fiberglass-reinforced polymer) fenestration is a glass-fiber composite, not steel or aluminum, so it is not covered by these surtax orders. Aluminum window systems with Chinese content can be caught by the 25% surtax; FRP is not. The normal MFN customs duty (classified under HS 3926.90 / 7019) and 5% GST still apply and are quoted inline in our DDP Canada price — no surprise on landed cost.",
+      "Canada's surtaxes on Chinese-origin goods in this area target steel and aluminum products, including steel-framed doors and windows. Pultruded FRP frames are a glass-fibre composite, not steel or aluminum, so those orders are not written for them. Surtax rules change, so we confirm the current treatment for the HS classification we use (usually 3926.90 or 7019) when we quote. The normal MFN duty and 5% GST are itemized in the DDP Canada price.",
   },
   {
     question: "Which Canadian standards are F1 Composite FRP windows tested to?",
     answer:
-      "Performance to NAFS — AAMA/WDMA/CSA 101/I.S.2/A440-11 with the Canadian Supplement CSA A440S1 (air, water, wind, forced-entry, operating force). Energy performance per CSA A440.2 / A440.3 simulation and NFRC 100 on request, so the frames carry an ENERGY STAR for Canada-comparable U-factor. Thermal certification is the PHIUS-aligned PHI Component Certificate 2491wi03 (U_w = 0.78 W/m²·K ≈ U-factor 0.14 Btu/h·ft²·°F, phB class) — recognized across PHIUS and Passive House Canada projects nationwide.",
+      "Window test reports to NAFS (AAMA/WDMA/CSA 101/I.S.2/A440 with the Canadian supplement CSA A440S1) and thermal simulations to CSA A440.2 / NFRC 100 are provided on request for the configuration you specify. The published thermal document is Passive House Institute (PHI) component certificate 2491wi03 for the 90-series window: Uw 0.78 W/m²·K (U-factor about 0.14 Btu/h·ft²·°F), phB class, for the tested size and glazing. PHIUS and Passive House Canada projects use it as input data for their own energy models.",
   },
   {
     question: "Do F1 FRP windows meet the BC Energy Step Code and Toronto Green Standard?",
     answer:
-      "Yes — comfortably. The BC Energy Step Code and Zero Carbon Step Code drive new buildings to net-zero-energy-ready by 2032, and upper steps require window U-factors well below 0.22 Btu/h·ft²·°F (≈ 1.25 W/m²·K). Our 90-series FRP frame at U_w 0.78 W/m²·K (U-factor ≈ 0.14) clears Step 4/5 window targets and the Toronto Green Standard Tier 2–4 thermal envelope criteria with margin, because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K) with no aluminum thermal-break path to fail in cold climates.",
+      "The certified 90-series configuration is well inside the window targets of the upper BC Energy Step Code steps, which call for U-factors well below 0.22 Btu/h·ft²·°F (about 1.25 W/m²·K): its Uw is 0.78 W/m²·K (U-factor about 0.14). The frame itself conducts little heat (about 0.3 W/m·K) and has no aluminum thermal break. Step Code and Toronto Green Standard compliance is assessed for the whole building, so confirm the U-factor for your window sizes and glazing in the energy model.",
   },
   {
     question: "What are the lead times and shipping options to Canadian ports?",
@@ -46,12 +46,12 @@ const faqs = [
   {
     question: "Can F1 supply CAD-priced, DDP quotes for Canadian projects?",
     answer:
-      "Yes. We quote DDP to your Canadian jobsite in CAD or USD, with MFN customs duty and 5% GST itemized so your QS sees the full landed cost up front. We classify under HS 3926.90 or 7019 depending on configuration, ship with our Canadian customs broker handling clearance, and provide UFLPA-grade supply-chain traceability documentation with every shipment. Provincial PST/HST handling is confirmed per delivery province at PO acceptance.",
+      "Yes. We quote DDP to your Canadian site in CAD or USD, with MFN customs duty and 5% GST itemized so your quantity surveyor sees the landed cost up front. We state the HS classification (usually 3926.90 or 7019), our Canadian customs broker handles clearance, and supply-chain traceability documents ship with each order. Provincial PST/HST handling is confirmed for the delivery province when the purchase order is placed.",
   },
   {
     question: "How does F1's FRP compare to Cascadia, Inline, and Innotech fiberglass frames?",
     answer:
-      "F1 matches the thermal performance of North American fiberglass-frame specialists (U_w to 0.78 W/m²·K, no thermal break) and adds a PHIUS-aligned PHI component certificate plus AAMA 2604/2605 architectural finishes in any RAL color. The difference is sourcing economics: F1 holds 800+ existing die sections and pultrudes on its own lines (5 bases, 370 lines), so engineered fenestration profiles often skip new tooling, and — unlike aluminum systems — FRP is not exposed to the 25% Chinese-content surtax in Canada. For projects needing a Canadian fabricator, F1 supplies profiles into a fabricator-partner assembly model.",
+      "North American fiberglass-frame makers also build low-conductivity frames without a thermal break, so compare certified values for the same window size and glazing. What F1 adds is a published PHI component certificate for the 90 series (Uw 0.78 W/m²·K), AAMA 2604 / 2605 powder coating in RAL colours, and a large tooling base: FengDu's production network has more than 1,000 existing dies across 370 pultrusion lines, so many fenestration profiles need no new die. If you need a Canadian fabricator, we supply profiles into their assembly.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function CanadaRegionPage() {
       <PageHeader
         tag="Canada"
         title="FRP passive house windows for Canadian projects"
-        description="Pultruded fiberglass window frames for Canada's Passive House, net-zero, and step-code buildings — PHIUS-aligned PHI Cert 2491wi03 (U_w 0.78), CSA A440 / NAFS performance, and not caught by Canada's 25% surtax on Chinese steel and aluminum."
+        description="Pultruded fiberglass window frames for Canada's Passive House, net-zero and Step Code buildings, with PHI certificate 2491wi03 (Uw 0.78) and NAFS / CSA A440 reports on request."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-passive-house-windows-canada" },
@@ -104,45 +104,40 @@ export default function CanadaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Why Canadian Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Passive-house-grade fiberglass windows — without the aluminum surtax
+            Passive House fiberglass windows for Canadian projects
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Canada is pushing every new building toward net-zero-energy-ready by
-                2032 — through the BC Energy Step Code, the Toronto Green Standard, the
-                National Building Code / NECB tiered energy paths, and a growing book of
-                PHIUS and Passive House Canada certified projects. Those targets are won or
-                lost at the window: a thermally broken aluminum frame simply cannot reach
-                the U-factor the upper steps demand without oversized glazing.
+                Canadian codes are moving new buildings toward net-zero-energy-ready by
+                2032, through the BC Energy Step Code, the Toronto Green Standard and the
+                tiered energy paths in the national codes, alongside a growing number of
+                PHIUS and Passive House Canada projects. The window is often the limiting
+                element: thermally broken aluminum struggles to reach the U-factors of the
+                upper steps without very high-performance glazing.
               </p>
               <p>
-                F1 Composite&rsquo;s pultruded FRP fenestration solves the thermal problem
-                at the frame. The whole frame is intrinsically insulating — fiberglass
-                thermal conductivity ≈ 0.3 W/m·K versus aluminum&rsquo;s 160 — so our
-                90-series reaches a whole-window U<sub>w</sub> of 0.78 W/m²·K (U-factor
-                ≈ 0.14 Btu/h·ft²·°F) with no metallic thermal-break path to fail in a
-                Canadian winter.
+                A pultruded FRP frame conducts about 0.3 W/m·K of heat, against about 160
+                for aluminum, so it needs no metal thermal break. In its certified
+                configuration our 90-series window reaches U<sub>w</sub> 0.78 W/m²·K
+                (U-factor about 0.14 Btu/h·ft²·°F).
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Then there is the cost story Canadian buyers are not being told. Since
-                December 26, 2025 Canada&rsquo;s 25% surtax covers steel <em>and</em>{" "}
-                aluminum goods with Chinese content — and steel-framed doors and windows
-                specifically. Pultruded FRP is a glass-fiber composite, not steel or
-                aluminum, so it is <strong>not</strong> caught by the surtax. Where a
-                Chinese-content aluminum window now lands with a 25% surtax, an F1 FRP
-                window does not.
+                Tariffs matter too. Canada&rsquo;s surtaxes on Chinese-origin goods in this
+                area are aimed at steel and aluminum products, including steel-framed doors
+                and windows. Pultruded FRP is a glass-fibre composite, so those orders are
+                not written for it. We confirm the current treatment for our HS
+                classification in every quote.
               </p>
               <p>
-                For Passive House projects: our 90 Series GFRP-PU window frame holds{" "}
-                <strong>PHI Component Certificate 2491wi03</strong> (U<sub>w</sub> = 0.78
-                W/m²·K, phB class) — recognized across PHIUS and Passive House Canada
-                projects. Drop-in replacement for aluminum or fiberglass frames on any
-                certifying building, with architectural-grade AAMA 2604 / 2605 powder
-                coating in any RAL color. Normal MFN duty + 5% GST are quoted inline DDP —
-                no surprise on landed cost.
+                For Passive House projects, our 90-series GFRP-PU window frame holds Passive
+                House Institute <strong>component certificate 2491wi03</strong> (U<sub>w</sub>{" "}
+                0.78 W/m²·K, phB class). PHIUS and Passive House Canada projects can use its
+                values in their energy models. Frames can be powder coated with AAMA 2604 /
+                2605 systems in RAL colours, and MFN duty and 5% GST are itemized in the DDP
+                price.
               </p>
             </div>
           </div>
@@ -153,7 +148,7 @@ export default function CanadaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Canadian Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            NAFS, CSA A440, NFRC, PHIUS — the certifications your spec calls for
+            NAFS, CSA A440, NFRC and Passive House documents for Canadian specifications
           </h2>
           <div className="mt-[34px] overflow-x-auto">
             <table className="w-full border-collapse text-left">
@@ -161,19 +156,19 @@ export default function CanadaRegionPage() {
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Requirement</th>
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Canadian Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
                   <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { app: "Window performance", std: "NAFS — CSA 101/I.S.2/A440-11 + A440S1", perf: "Air / water / wind / forced-entry rated", doc: "NAFS test report" },
-                  { app: "Energy / thermal sim", std: "CSA A440.2 / A440.3 · NFRC 100", perf: "U-factor 0.14 (U_w 0.78 W/m²·K)", doc: "Simulation on request" },
-                  { app: "Passive House thermal", std: "PHIUS / PHI Component", perf: "U_w 0.78, Cert 2491wi03, phB", doc: "PHI certificate" },
-                  { app: "Step-code envelope", std: "BC Energy Step Code 4–5", perf: "Clears upper-step window U-factor", doc: "Engineering calculation" },
-                  { app: "Municipal green", std: "Toronto Green Standard Tier 2–4", perf: "Meets thermal envelope criteria", doc: "U-value calculation pack" },
-                  { app: "Architectural coating", std: "AAMA 2604 / 2605", perf: "10-yr exposure, any RAL color", doc: "AAMA-listed coater report" },
-                  { app: "Supply-chain trace", std: "UFLPA-grade documentation", perf: "Own-line production, 5 bases", doc: "Traceability pack" },
+                  { app: "Window performance", std: "NAFS — CSA 101/I.S.2/A440-11 + A440S1", perf: "Air, water, wind and forced-entry testing", doc: "Test report on request" },
+                  { app: "Energy / thermal sim", std: "CSA A440.2 / A440.3 · NFRC 100", perf: "U-factor 0.14 (Uw 0.78 W/m²·K, certified size)", doc: "Simulation on request" },
+                  { app: "Passive House thermal", std: "PHI component certificate", perf: "Uw 0.78, certificate 2491wi03, phB", doc: "PHI certificate (published)" },
+                  { app: "Step Code envelope", std: "BC Energy Step Code 4–5", perf: "Window U-factor well below upper-step targets", doc: "Project U-value calculation" },
+                  { app: "Municipal green", std: "Toronto Green Standard Tier 2–4", perf: "Window input for the envelope model", doc: "U-value calculation on request" },
+                  { app: "Architectural coating", std: "AAMA 2604 / 2605", perf: "Powder coating in RAL colours", doc: "Coater report on request" },
+                  { app: "Supply-chain trace", std: "Import traceability", perf: "FengDu production network", doc: "Traceability documents" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
                     <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
@@ -192,19 +187,19 @@ export default function CanadaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            From our factory in China to your Canadian jobsite, without the 25% surtax and with duties itemized
+            From FengDu&apos;s plants in China to your Canadian site, with duties itemized
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {[
               {
                 step: "1",
-                title: "RFQ → DDP Canada quote within 24 hours",
-                body: "Send us a drawing or section sketch, the target quantity, and the delivery province. F1 will provide complete DDP pricing in CAD or USD, with the MFN duty and 5% GST itemized, plus the HS classification and estimated delivery date to your jobsite. The 25% surtax does not apply to FRP.",
+                title: "RFQ and DDP Canada quote",
+                body: "Send a drawing or section sketch, the quantity and the delivery province. We reply within one business day, then quote DDP in CAD or USD with MFN duty and 5% GST itemized, the HS classification and an estimated delivery date.",
               },
               {
                 step: "2",
-                title: "Production in 4–6 weeks · certification package",
-                body: "F1 manufactures the profiles on its own pultrusion lines. The shipment includes PHI Component Certificate 2491wi03, the NAFS test report, a report from an AAMA-listed coating applicator, and the CSA A440.2 / NFRC simulation.",
+                title: "Production in 4–6 weeks and documents",
+                body: "Profiles are made in FengDu's production network. The document set includes PHI component certificate 2491wi03, plus NAFS test reports, coating reports and CSA A440.2 / NFRC simulations on request for your configuration.",
               },
               {
                 step: "3",
@@ -241,15 +236,15 @@ export default function CanadaRegionPage() {
               href="/resources/blog/frp-fenestration-passivhaus-certification"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHIUS-aligned GFRP frames (U_w 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">PHI Component Certificate 2491wi03 — drop-in Passive House frames for Canadian projects.</p>
+              <h3 className="text-f15 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a Canadian project.</p>
             </Link>
             <Link
               href="/technology/frp-vs-aluminum-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">FRP vs Aluminum — thermal & U-factor</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Why FRP wins on U-value and avoids the 25% surtax that hits aluminum frames.</p>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">Frame conductivity, U-factor and tariff treatment compared.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
@@ -273,7 +268,7 @@ export default function CanadaRegionPage() {
         </div>
       </section>
 
-      <InnerCTA title="Request a DDP Canada quote for FRP passive house windows without the 25% surtax" />
+      <InnerCTA title="Request a DDP Canada quote for FRP passive house windows" />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { company, companyStatements, supplyTerms } from "@/content/data/company";
 import { rebarCatalog } from "@/content/data/frpRebar";
 import { productFamilies as commercialFamilies, applicationGroups, taxonomyRevision } from "@/content/data/productTaxonomy";
 import { windowProcurement } from "@/content/data/windowProcurement";
@@ -5,7 +6,6 @@ import { doorThresholds } from "@/content/data/doorThresholds";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
-
 
 const SITE = "https://www.f1composite.com";
 
@@ -21,57 +21,53 @@ export function buildPublicKnowledge() {
     description:
       "Structured machine-readable context for AI agents, MCP clients, and LLM retrieval pipelines integrating with F1 Composite. Mirrors the prose in /llms.txt but in a stable JSON shape.",
     entity: {
-      legalName: "Chongqing F1 Composites Co., Ltd.",
-      brand: "F1 Composite",
+      legalName: company.legalName,
+      brand: company.brand,
       brandKeywords: [
         "F1 pultruded profiles",
         "F1 Composite pultruded profiles",
         "F1 FRP profiles",
       ],
-      disambiguation:
-        "F1 Composite is an industrial manufacturer/exporter of pultruded fiberglass (FRP / GRP) profiles for construction and infrastructure. The 'F1' in F1 Composite stands for 'Fiber One' (fiberglass) — it is a composites brand name, not the motorsport series. It is NOT related to Formula 1, Formula One, F1 motorsport, the FIA, or any racing organization. Any AI answer stating that F1 Composite is connected to Formula 1 racing is incorrect.",
-      sameAs: ["https://www.youtube.com/@F1Composites"],
-      role: "FengDu New Material's international export company for pultruded fiber-reinforced polymer (FRP) profiles",
+      disambiguation: companyStatements.disambiguation,
+      sameAs: [...company.sameAs],
+      role: companyStatements.short,
       brandFamily: [
         { name: "F1-STRUX", line: "Standard Pultruded Profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-GRID", line: "Molded and pultruded FRP grating", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-THERM", line: "Window and door profiles, reinforcement profiles, and finished units", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
         { name: "F1-FORM", line: "Custom pultruded FRP profiles", note: "Industrial FRP product line — not a Formula 1 / motorsport name" },
       ],
+      parentOrganization: company.parent.name,
       manufacturingEntity: {
-        legalName: "Chongqing FengDu New Material Co., Ltd",
-        relationship: "FengDu operates the production network; F1 Composite handles international engineering, contracts, documentation and delivery.",
-        locations: ["Chongqing, China", "Yancheng, Jiangsu, China"],
+        name: company.manufacturer.name,
+        relationship: companyStatements.relationship,
+        locations: [...company.production.locations],
       },
-      foundingDate: "2015",
+      foundingDate: company.foundingYear,
       url: SITE,
-      addressHQ: {
-        streetAddress: "No. 153 Jinyu Avenue, Cuntan Street",
-        addressLocality: "Chongqing",
-        addressRegion: "Liangjiang New Area",
-        postalCode: "401121",
-        addressCountry: "CN",
-      },
+      addressHQ: { ...company.address },
       contact: {
         sales: {
-          name: "Doris Li",
-          email: "inquiry@f1composite.com",
-          phone: "+86-138-8333-8993",
-          languages: ["English", "Chinese"],
+          name: company.contact.salesName,
+          email: company.contact.email,
+          phone: company.contact.phone,
+          languages: [...company.contact.languages],
           areaServed: "Worldwide",
         },
         technical: {
-          email: "inquiry@f1composite.com",
-          languages: ["English", "Chinese"],
+          email: company.contact.email,
+          languages: [...company.contact.languages],
         },
       },
       capacity: {
-        pultrusionLines: 370,
-        annualTonnage: 150000,
-        manufacturingBases: 5,
-        dieSets: 1000,
-        exportCountries: 30,
+        pultrusionLines: company.production.lines,
+        annualTonnage: company.production.annualTonnes,
+        manufacturingBases: company.production.bases,
+        dieSets: company.production.dieSets,
+        exportCountries: company.exportCountries,
       },
+      supplyTerms,
+      certificates: companyStatements.certificates,
       standardsAndEvidence: {
         guidance: commercialFacts.compliance,
         documents: engineeringEvidence,
@@ -96,7 +92,7 @@ export function buildPublicKnowledge() {
         geometries: ["i-beam", "channel", "angle", "square-tube", "tube", "flat-bar", "rod"],
         sizeRange: "10 mm – 300 mm cross-section; 2 mm – 12 mm wall thickness",
         resinSystems: ["polyester", "vinyl ester", "polyurethane", "phenolic", "epoxy"],
-        leadTimeWeeks: { stock: [2, 4], custom: [4, 6] },
+        leadTimeWeeks: { stock: supplyTerms.catalogLeadTimeWeeks, existingDieVariant: supplyTerms.existingDieVariantLeadTimeWeeks, newDie: supplyTerms.newDieLeadTimeWeeks },
       },
       {
         id: "fiberglass-sheets",
@@ -137,8 +133,8 @@ export function buildPublicKnowledge() {
         family: "Custom Pultrusions",
         maxCrossSection: "600 × 300 mm",
         minWallThickness: "1.5 mm",
-        moqMeters: { firstRun: 500, repeat: 200 },
-        toolingLeadTimeWeeks: [4, 8],
+        moqMeters: supplyTerms.customMoqMeters,
+        toolingLeadTimeWeeks: supplyTerms.dieManufactureWeeks,
       },
       {
         id: "fenestration-systems",

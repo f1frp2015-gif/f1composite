@@ -8,8 +8,8 @@ export default function OpenGraphImage() {
     eyebrow: "Canada · FRP Passive House Windows",
     title: "Fiberglass passive house windows, DDP Canada from F1 Composite",
     description:
-      "Pultruded FRP fenestration for Canada's net-zero and step-code buildings. PHIUS-aligned PHI Cert 2491wi03, U_w 0.78 — not caught by the 25% surtax.",
+      "Pultruded FRP window frames for Canada's net-zero and Step Code buildings, with PHI component certificate 2491wi03 (Uw 0.78).",
     accent: "#d52b1e",
-    chips: ["PHIUS 2491wi03 · U-factor 0.14", "CSA A440 / NAFS", "Surtax-free · DDP Canada"],
+    chips: ["PHI 2491wi03 · U-factor 0.14", "NAFS / CSA A440 on request", "DDP Canada"],
   });
 }

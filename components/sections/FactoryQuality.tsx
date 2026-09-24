@@ -26,7 +26,7 @@ export default function FactoryQuality() {
               Manufacturing & quality control
             </h2>
             <p className="mt-[10px] max-w-[660px] text-f15 leading-relaxed text-t2">
-              F1 Composite coordinates international supply with manufacturing partner FengDu New Material. Review the production process, inspection scope and documents available for your product.
+              Profiles are made in the FengDu New Material production network, F1 Composite&apos;s parent group. These are the checks each order goes through before it ships.
             </p>
 
             <ol className="mt-[24px] divide-y divide-border-default border-y border-border-default">

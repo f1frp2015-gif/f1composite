@@ -26,11 +26,11 @@ const markets = [
   {
     region: "United States",
     flag: "🇺🇸",
-    title: "ASTM-Compliant FRP Pultrusions — Direct to US Projects",
+    title: "Pultruded FRP Profiles for US Projects, Delivered DDP",
     href: "/regions/frp-pultrusion-supplier-usa",
     focus:
-      "ASTM E84 Class A, AAMA 2604/2605 finishes, PHIUS-aligned frames, DDP with Section 301 duty pre-itemized.",
-    standards: ["ASTM E84", "AAMA 2605", "PHIUS"],
+      "ASTM test methods, AAMA 2604/2605 finishes, PHI-certified window frames, and DDP quotes with US duties itemized.",
+    standards: ["ASTM", "AAMA 2605", "PHI 2491wi03"],
   },
   {
     region: "Canada",
@@ -38,8 +38,8 @@ const markets = [
     title: "FRP Passive House Windows — Canada",
     href: "/regions/frp-passive-house-windows-canada",
     focus:
-      "NRCan ENERGY STAR and PHI-certified fenestration for cold-climate and passive house projects.",
-    standards: ["PHI", "NRCan ENERGY STAR", "NAFS"],
+      "PHI-certified window frames for cold-climate and Passive House projects, with NAFS and CSA A440 reports on request.",
+    standards: ["PHI 2491wi03", "NAFS", "CSA A440"],
   },
   {
     region: "Germany",
@@ -47,7 +47,7 @@ const markets = [
     title: "FRP Passive House Windows — Germany",
     href: "/regions/frp-passive-house-windows-germany",
     focus:
-      "PHI component-certified frames (U_f 0.85 W/m²·K class) for Passivhaus and EnEV/GEG projects.",
+      "PHI-certified 90-series frames (Uf 0.78 W/m²·K) for Passivhaus and GEG projects.",
     standards: ["PHI 2491wi03", "EN 14351-1"],
   },
   {
@@ -65,8 +65,8 @@ const markets = [
     title: "FRP Grating Supplier — Saudi Arabia",
     href: "/regions/frp-grating-supplier-saudi-arabia",
     focus:
-      "Gratings and structural profiles for Aramco, SABIC and Maaden environments — vinyl ester duty, Jubail/Dammam/Riyadh logistics.",
-    standards: ["Aramco specs", "ISO 9001"],
+      "Grating and structural profiles for petrochemical, desalination and mining sites, with vinyl ester options and delivery to Jubail, Dammam or Riyadh.",
+    standards: ["Vinyl ester", "EN 13706"],
   },
   {
     region: "United Arab Emirates",
@@ -74,8 +74,8 @@ const markets = [
     title: "FRP Cable Tray — UAE Oil & Gas",
     href: "/regions/frp-cable-tray-uae-oil-gas",
     focus:
-      "Cable tray and support systems for ADNOC / DUSUP oil and gas infrastructure.",
-    standards: ["NEMA FG-1", "IEC 61537"],
+      "Cable tray and support systems for UAE oil and gas projects, with vinyl ester options and fire test reports on request.",
+    standards: ["NEMA FG 1", "IEC 61537"],
   },
   {
     region: "Australia",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { customerReviews } from "@/content/data/reviews";
+import { company, companyStatements } from "@/content/data/company";
 
 const SITE_URL = "https://www.f1composite.com";
 
@@ -7,9 +8,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
-  name: "F1 Composite",
-  alternateName: ["F1 Composites", "Chongqing F1 Composites Co., Ltd."],
-  legalName: "Chongqing F1 Composites Co., Ltd.",
+  name: company.brand,
+  alternateName: [...company.alternateNames],
+  legalName: company.legalName,
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -17,27 +18,32 @@ export const organizationSchema = {
     width: 512,
     height: 512,
   },
-  description:
-    "F1 Composite is FengDu New Material's international export company for pultruded FRP profiles, serving construction, infrastructure, energy, marine, industrial, and fenestration projects worldwide.",
-  foundingDate: "2015",
+  description: companyStatements.relationship,
+  disambiguatingDescription: companyStatements.disambiguation,
+  foundingDate: company.foundingYear,
+  parentOrganization: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#fengdu-new-material`,
+    name: company.parent.name,
+    subOrganization: {
+      "@type": "Organization",
+      name: company.manufacturer.name,
+    },
+  },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "No. 153 Jinyu Avenue, Cuntan Street",
-    addressLocality: "Chongqing",
-    addressRegion: "Liangjiang New Area",
-    postalCode: "401121",
-    addressCountry: "CN",
+    ...company.address,
   },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "inquiry@f1composite.com",
-    telephone: "+86-138-8333-8993",
-    availableLanguage: ["English", "Chinese"],
+    email: company.contact.email,
+    telephone: company.contact.phone,
+    availableLanguage: [...company.contact.languages],
     areaServed: "Worldwide",
   },
   naics: "326199",
-  sameAs: ["https://www.youtube.com/@F1Composites"],
+  sameAs: [...company.sameAs],
 };
 
 interface PageMetadataOptions {

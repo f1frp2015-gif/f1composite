@@ -364,11 +364,11 @@ export default function ProfilePricePage() {
           <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
             <p>
               Send the section drawing (or catalog model number), total quantity with cut
-              lengths, resin and performance requirements, and the destination port. You get
-              a written quotation within 24 hours &mdash; per-meter and per-piece pricing,
+              lengths, resin and performance requirements, and the destination port. We reply
+              within one business day, then send a written quotation: per-meter and per-piece pricing,
               packing specification, lead time, and for US destinations a DDP option with
-              Section 301 duty pre-quoted line by line. Mechanical certificates to EN 13706
-              and mill test reports ship with every order; see{" "}
+              US duties itemized line by line. Mill test reports ship with every order, and
+              EN 13706 test data is available on request; see{" "}
               <Link href="/technology/quality-testing" className="font-semibold text-teal-text hover:text-teal">
                 quality &amp; testing
               </Link>{" "}
@@ -412,7 +412,7 @@ export default function ProfilePricePage() {
 
       <AskAICard prefill="I need budgetary pricing for a pultruded FRP profile: shape [I-beam/channel/tube], dimensions [mm], resin [polyester/VE/PU], quantity [meters], destination [port/country]. What drives the price here and what would you quote indicatively?" />
 
-      <InnerCTA title="Ready for firm pricing? Send us your drawing for a quote within 24 hours." />
+      <InnerCTA title="Ready for firm pricing? Send us your drawing for a quote." />
     </>
   );
 }

@@ -81,7 +81,7 @@ export default function ContactPage() {
             <div className="rounded-[11px] border border-border-default bg-white p-[22px]">
               <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">Contracting entity</p>
               <p className="mt-[8px] text-f13 leading-relaxed text-t2">
-                F1 Composite is FengDu New Material&apos;s international export company. FengDu operates the manufacturing bases; F1 handles international engineering support, contracts, documentation, and delivery.
+                Chongqing F1 Composites Co., Ltd. is the export company of FengDu New Material. FengDu runs the factories; F1 signs the contract and handles engineering support, documents and delivery.
               </p>
             </div>
           </aside>

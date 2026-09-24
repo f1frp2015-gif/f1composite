@@ -5,35 +5,39 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { company, companyStatements, supplyTerms } from "@/content/data/company";
+
+const PAGE_TITLE = "About F1 Composite — FengDu's FRP Export Company, China";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About F1 Composite — FRP Profiles Manufacturer, China",
+  title: PAGE_TITLE,
   description:
-    "F1 Composite is FengDu New Material's international export company, supplying pultruded FRP profiles, windows, gratings and custom sections to 30+ countries.",
+    "F1 Composite (Chongqing F1 Composites Co., Ltd.) is the export company of FengDu New Material, supplying pultruded FRP profiles to 30+ countries.",
   path: "/about",
 });
 
 const milestones = [
-  { year: "2015", event: "F1 Composite founded by a team of FRP engineers" },
-  { year: "2017", event: "First export shipment — profiles delivered to Southeast Asia" },
-  { year: "2019", event: "KNOWHOW technical services launched for custom profile development" },
-  { year: "2021", event: "Catalog reaches 100+ standard pultruded profile types" },
-  { year: "2023", event: "Fenestration systems division established; PHI component certification achieved" },
-  { year: "2025", event: "200+ engineered profiles serving five continents; Qinling Antarctic Station delivered" },
+  { year: "2015", event: "F1 Composite founded in Chongqing" },
+  { year: "2017", event: "First export shipment: profiles to Southeast Asia" },
+  { year: "2019", event: "KNOWHOW technical services start for custom profile development" },
+  { year: "2021", event: "Catalog passes 100 standard pultruded profile types" },
+  { year: "2023", event: "Window and door systems division set up; PHI component certificate issued for the 90 series" },
+  { year: "2024", event: "90-series windows supplied for Qinling Station, Antarctica" },
+  { year: "2025", event: "More than 200 engineered profiles, with customers on five continents" },
 ];
 
-const certifications = [
-  "ISO 9001:2015 Quality Management System",
-  "CE Marking (EU Construction Products Regulation)",
-  "EN 13706 Structural FRP Profile Compliance",
-  "ASTM Standard Test Method Compliance",
+const publishedReports = [
+  "PHI component certificate 2491wi03 for the Fengdu Passive GFRP 90 Series window",
+  "SGS full-section modulus tests to EN 13706-2 Annex D",
+  "Intertek AS 2047 tests on a turn-and-tilt window and a lift-sliding door",
+  "CABR 3-star green building material certificate and EPD for the window range",
 ];
 
 const ORG_ID = "https://www.f1composite.com/#organization";
 
 export default function AboutPage() {
-  // Reference the single canonical Organization entity (defined globally in
-  // layout.tsx with @id #organization) instead of emitting a second, weaker
+  // Reference the single canonical Organization entity (emitted on every page
+  // by app/layout.tsx with @id #organization) instead of emitting a second, weaker
   // Organization node here — two Organization nodes on one page fragment the
   // entity in knowledge graphs. AboutPage points at that one entity and carries
   // the explicit Formula 1 disambiguation so the page AI cites for
@@ -43,9 +47,8 @@ export default function AboutPage() {
     "@type": "AboutPage",
     "@id": absoluteUrl("/about") + "#aboutpage",
     url: absoluteUrl("/about"),
-    name: "About F1 Composite — FRP Profiles Manufacturer, China",
-    description:
-      "F1 Composite is FengDu New Material's international export company for pultruded fiberglass profiles. The \"F1\" stands for \"Fiber One\" and is not affiliated with Formula 1 motorsport.",
+    name: PAGE_TITLE,
+    description: `${companyStatements.relationship} ${companyStatements.disambiguation}`,
     inLanguage: "en",
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     mainEntity: { "@id": ORG_ID },
@@ -57,8 +60,8 @@ export default function AboutPage() {
       <JsonLd data={aboutPageSchema} />
       <PageHeader
         tag="About"
-        title="Engineering Composites for the World"
-        description="Chongqing F1 Composites Co., Ltd. was founded by engineers with deep fiber reinforced polymer expertise. Headquartered in China, we serve global markets with precision-engineered pultruded profiles."
+        title="About F1 Composite"
+        description="Chongqing F1 Composites Co., Ltd. is the export company of FengDu New Material. We sell FengDu's pultruded FRP profiles, grating and window systems to buyers outside China."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About" },
@@ -70,14 +73,18 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>What F1 Composite Is</SectionTag>
           <p className="mt-[21px] text-f18 leading-golden text-t1">
-            <strong>F1 Composite is FengDu New Material&apos;s international export
-            company for pultruded fiberglass (FRP / GRP) profiles</strong> — structural
-            shapes, window frames, gratings, and custom pultrusions for global projects.
+            <strong>F1 Composite is the export company of FengDu New Material.</strong> We
+            supply pultruded fiberglass (FRP/GRP) structural shapes, custom sections, window
+            and door profiles and grating to projects outside China.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            The &ldquo;F1&rdquo; in F1 Composite stands for <strong>&ldquo;Fiber One&rdquo;
-            (fiberglass)</strong> — our composites brand name, not the racing series. We are{" "}
-            <strong>not affiliated with Formula 1, Formula One motorsport, or the FIA</strong>.
+            FengDu New Material is the parent company and runs the factories. Its subsidiary{" "}
+            {company.manufacturer.name} is named on several of our test documents,
+            including PHI certificate 2491wi03.
+          </p>
+          <p className="mt-[13px] text-f15 leading-golden text-t2">
+            The &ldquo;F1&rdquo; stands for <strong>&ldquo;Fiber One&rdquo;</strong> (fiberglass). We are{" "}
+            <strong>not affiliated with Formula 1, Formula One motorsport or the FIA</strong>.
           </p>
         </div>
       </section>
@@ -87,26 +94,26 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
-              <SectionTag>Our Mission</SectionTag>
+              <SectionTag>What we do</SectionTag>
               <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
-                The most trusted pultruded composite profile service partner
+                Export sales, engineering support and documents
               </h2>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                We exist to be the world&apos;s most trusted partner for pultruded composite profiles.
-                Every profile we engineer, every technical consultation we provide, and every
-                KNOWHOW engagement we deliver is guided by this single commitment.
+                We check your drawing or specification against the existing dies, quote a new
+                die when the section does not exist yet, and prepare the test reports, packing
+                lists and export paperwork for your order. Enquiries get a reply within{" "}
+                {supplyTerms.responseTime}.
               </p>
             </div>
             <div>
-              <SectionTag>Our Vision</SectionTag>
+              <SectionTag>Who we work with</SectionTag>
               <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
-                Advancing infrastructure through engineered composites
+                Distributors, fabricators, contractors and OEMs
               </h2>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                We envision a built environment where fiber reinforced polymers replace legacy
-                materials wherever strength, durability, and corrosion resistance matter. Our
-                engineering-first approach accelerates that transition across construction,
-                infrastructure, energy, and marine industries worldwide.
+                We sell to distributors and fabricators who stock or process FRP profiles, to
+                contractors buying for a single project, and to manufacturers developing their
+                own section. Window and door fabricators can buy profiles only or finished units.
               </p>
             </div>
           </div>
@@ -116,37 +123,34 @@ export default function AboutPage() {
       {/* Company Story */}
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Our Story</SectionTag>
+          <SectionTag>Background</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
-            From engineering roots to global reach
+            One export team in front of FengDu&apos;s factories
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite was established as FengDu New Material&apos;s international
-                export company, combining FengDu&apos;s five production bases and 370
-                pultrusion lines with English-language engineering, documentation,
-                contracting, and project delivery for overseas customers.
+                Chongqing F1 Composites Co., Ltd. was founded in {company.foundingYear} and is
+                FengDu New Material&apos;s export company. FengDu runs {company.production.bases}{" "}
+                production bases with {company.production.lines} pultrusion lines. F1 is the
+                part of the group that works with overseas buyers in English.
               </p>
               <p>
-                International orders are handled by Chongqing F1 Composites Co., Ltd.,
-                including engineering review, quality documentation, export paperwork,
-                logistics, and after-sales coordination.
+                We sign the contract and handle engineering review, quality documents,
+                export paperwork, logistics and after-sales questions for every international
+                order.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Today, F1 Composite serves architects, engineers, distributors, and OEMs
-                across 30+ countries — from standard structural profiles to PHI-certified
-                fenestration systems. The Fengdu Passive GFRP 90 Series window frame we export holds
-                Passive House Institute certification (Component-ID 2491wi03), demonstrating
-                the engineering depth behind every product we deliver.
+                We now ship to more than 30 countries. The range runs from catalog I-beams and
+                tubes to the Fengdu Passive GFRP 90 Series window, which holds Passive House
+                Institute component certificate 2491wi03.
               </p>
               <p>
-                What sets us apart is not manufacturing scale alone — it is the combination
-                of deep polymer expertise, proactive technical support, and a genuine
-                commitment to making our clients more capable in specifying and deploying
-                pultruded FRP.
+                Because F1 and the factories belong to one group, questions about a drawing,
+                a die or an inspection plan go straight to the production team before an order
+                is released.
               </p>
             </div>
           </div>
@@ -156,21 +160,20 @@ export default function AboutPage() {
       {/* Production Capacity */}
       <section className="bg-bg2 py-[89px]">
         <div className="mx-auto max-w-[1280px] px-[34px]">
-          <SectionTag>Production Scale</SectionTag>
+          <SectionTag>Production</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
-            Manufacturing at scale, engineered to precision
+            FengDu&apos;s production network
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            FengDu&apos;s production network spans five bases across China, giving F1
-            Composite customers the capacity, redundancy, and quality consistency that
-            large-scale infrastructure projects demand.
+            {companyStatements.production} Plants include Chongqing and Yancheng in Jiangsu
+            province.
           </p>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { value: "5", label: "Manufacturing Bases", detail: "Nationwide production network" },
-              { value: "370", label: "Pultrusion Lines", detail: "Continuous production capacity" },
-              { value: "150,000", label: "Tons / Year", detail: "Annual profile output" },
-              { value: "1,000+", label: "Die Sets", detail: "Custom tooling library" },
+              { value: String(company.production.bases), label: "Manufacturing bases", detail: "In China" },
+              { value: String(company.production.lines), label: "Pultrusion lines", detail: "Across the five bases" },
+              { value: company.production.annualTonnes.toLocaleString("en-US"), label: "Tonnes per year", detail: "Annual capacity" },
+              { value: `${company.production.dieSets.toLocaleString("en-US")}+`, label: "Existing dies", detail: "Catalog and custom sections" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -190,7 +193,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Milestones</SectionTag>
           <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
-            Key moments in our journey
+            Company timeline
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             {milestones.map((m) => (
@@ -211,29 +214,32 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
-              <SectionTag>Certifications</SectionTag>
+              <SectionTag>Certificates and reports</SectionTag>
               <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
-                Quality you can verify
+                Published reports and documents on request
               </h2>
               <ul className="mt-[21px] space-y-[13px]">
-                {certifications.map((cert) => (
-                  <li key={cert} className="flex items-start gap-[13px] text-f15 leading-golden text-t2">
+                {publishedReports.map((report) => (
+                  <li key={report} className="flex items-start gap-[13px] text-f15 leading-golden text-t2">
                     <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-teal" />
-                    {cert}
+                    {report}
                   </li>
                 ))}
               </ul>
+              <p className="mt-[21px] text-f15 leading-golden text-t2">{companyStatements.certificates}</p>
+              <div className="mt-[13px]">
+                <LinkArrow href="/resources/evidence">See the published reports</LinkArrow>
+              </div>
             </div>
             <div>
-              <SectionTag>Global Reach</SectionTag>
+              <SectionTag>Where we ship</SectionTag>
               <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
-                Engineered in China, delivered worldwide
+                More than 30 countries
               </h2>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                From our production base in China, we ship pultruded FRP profiles to over 30
-                countries across Asia-Pacific, Europe, the Middle East, Africa, and the Americas.
-                Every order is backed by English-language documentation, international logistics
-                coordination, and responsive project support.
+                We ship from China to customers in Asia-Pacific, Europe, the Middle East, Africa
+                and the Americas. Documents are prepared in English, and we quote FOB or DDP
+                depending on how you want to handle import.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <LinkArrow href="/technology">Explore Our Technology</LinkArrow>
@@ -255,7 +261,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <InnerCTA title="Ready to work with a trusted FRP partner?" />
+      <InnerCTA title="Send us your drawing or specification" />
     </>
   );
 }

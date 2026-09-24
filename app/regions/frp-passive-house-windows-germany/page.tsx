@@ -38,7 +38,7 @@ const faqs = [
     question:
       "Do F1 FRP windows meet GEG 2024, BEG funding, and Passivhaus targets?",
     answer:
-      "Yes, with margin at every tier. The GEG 2024 reference building assumes a window U_w of 1.3 W/m²·K; BEG funding for a single window-replacement measure requires U_w ≤ 0.95; and a PHI-certified component for the cool-temperate climate zone must reach U_w ≤ 0.80. Our 90-series GFRP-PU frame is certified at U_w 0.78 W/m²·K (PHI 2491wi03, phB). Because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K versus 160 for aluminum), there is no metallic thermal-break path or steel reinforcement conducting heat as there is in uPVC frames.",
+      "Yes. The GEG 2024 reference building assumes a window U_w of 1.3 W/m²·K; BEG funding for a single window-replacement measure requires U_w ≤ 0.95; and a PHI-certified component for the cool-temperate climate zone must reach U_w ≤ 0.80. Our 90-series GFRP-PU frame is certified at U_w 0.78 W/m²·K (PHI 2491wi03, phB). Because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K versus 160 for aluminum), there is no metallic thermal-break path or steel reinforcement conducting heat as there is in uPVC frames.",
   },
   {
     question: "What are the lead times and shipping options to German jobsites?",
@@ -54,7 +54,7 @@ const faqs = [
     question:
       "Does F1 supply profiles to German window fabricators, or only finished windows?",
     answer:
-      "Both models run in parallel. For Passivhaus and Effizienzhaus projects that want guaranteed factory airtightness, we ship complete GFRP-PU window units — assembled, glazed, gasketed, and leak-tested, including tilt-turn (Dreh-Kipp) configurations in the 80-series. For Germany's established window-fabrication industry (Fensterbau), we supply the pultruded profile set — frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing and fabrication drawings, so a German fabricator assembles locally. F1 holds 800+ existing die sections and pultrudes on its own lines (5 bases, 370 lines), so engineered profiles often skip new tooling; finishes are AAMA 2604/2605 architectural powder coating in any RAL color.",
+      "Both models run in parallel. For Passivhaus and Effizienzhaus projects that want the glazing and gaskets fitted in the factory, we ship complete GFRP-PU window units, assembled, glazed and gasketed in the factory, including tilt-turn (Dreh-Kipp) configurations in the 80-series. For Germany's established window-fabrication industry (Fensterbau), we supply the pultruded profile set — frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing and fabrication drawings, so a German fabricator assembles locally. FengDu's production network has more than 1,000 existing dies on 370 lines across 5 bases, so many engineered profiles need no new die; finishes are AAMA 2604/2605 architectural powder coating in any RAL color.",
   },
 ];
 
@@ -143,11 +143,11 @@ export default function GermanyRegionPage() {
                 are quoted inline DDP — no surprise on landed cost.
               </p>
               <p>
-                German projects choose the supply model: complete factory-glazed,
-                leak-tested window units — including tilt-turn (Dreh-Kipp)
-                configurations — for Passivhaus jobs where airtightness must be
-                guaranteed at the factory, or pultruded profile sets into
-                Germany&rsquo;s established Fensterbau industry for local assembly.
+                German projects choose the supply model: complete factory-glazed
+                window units, including tilt-turn (Dreh-Kipp) configurations, for
+                Passivhaus jobs that want glazing and gaskets fitted in the factory, or
+                pultruded profile sets for Germany&rsquo;s Fensterbau industry to assemble
+                locally.
                 Architectural AAMA 2604 / 2605 powder coating in any RAL color, matching
                 the finish German architects specify on aluminum.
               </p>
@@ -205,8 +205,8 @@ export default function GermanyRegionPage() {
             {[
               {
                 step: "1",
-                title: "RFQ → DDP Germany quote within 24 hours",
-                body: "Send us a drawing or section sketch, the target quantity, and the delivery region. F1 will provide complete DDP pricing in EUR or USD, with EU duties and the 19% import VAT itemized, plus the HS classification and estimated delivery date. Aluminum anti-dumping duties and CBAM charges do not apply.",
+                title: "RFQ and DDP Germany quote",
+                body: "Send a drawing or section sketch, the quantity and the delivery region. We reply within one business day, then quote DDP in EUR or USD with EU duties and 19% import VAT itemized, the HS classification and an estimated delivery date. Under current rules, aluminum anti-dumping duties and CBAM charges do not apply to FRP frames.",
               },
               {
                 step: "2",

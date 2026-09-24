@@ -8,8 +8,8 @@ export default function OpenGraphImage() {
     eyebrow: "Free AI Tool",
     title: "FRP Sourcing Assistant — describe your project and get a specification and factory-pricing path in 60 seconds",
     description:
-      "Free, no-login AI sourcing assistant. Tell our AI your application — environment, load, standards, geography — and get an instant FRP spec, recommended resin, certifications, and 48-hour quote path.",
+      "Free, no-login AI sourcing assistant. Describe the application, environment, loads, standards and destination, and get a draft FRP specification to send for a quote.",
     accent: "#0d9a92",
-    chips: ["Free · No login", "Spec in 60 seconds", "48-hour quote path"],
+    chips: ["Free · No login", "Draft spec in minutes", "Reply within 1 business day"],
   });
 }

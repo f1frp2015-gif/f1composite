@@ -40,7 +40,7 @@ const faqItems = [
   {
     question: "Which FRP profile do I need for my application?",
     answer:
-      "For walkways, platforms, and bridges → FRP I-beam (max stiffness). For framing, cable trays, modular skids → FRP channel. For stiffeners, bracing, ledgers → FRP angle. For trusses, columns, frames → FRP square tube (max torsional rigidity). For handrails, antennas, conduits → FRP round tube. For concrete reinforcement requiring a bond surface and bar-specific qualification, use the dedicated FRP rebar range rather than a smooth structural rod. Use our AI sourcing assistant or request a 24-hour engineering review.",
+      "For walkways, platforms, and bridges → FRP I-beam (max stiffness). For framing, cable trays, modular skids → FRP channel. For stiffeners, bracing, ledgers → FRP angle. For trusses, columns, frames → FRP square tube (max torsional rigidity). For handrails, antennas, conduits → FRP round tube. For concrete reinforcement requiring a bond surface and bar-specific qualification, use the dedicated FRP rebar range rather than a smooth structural rod. Use our AI sourcing assistant or send the span and load for an engineering review.",
   },
   {
     question: "Are F1 Composite standard profiles certified to EN 13706 and ASTM D3917?",

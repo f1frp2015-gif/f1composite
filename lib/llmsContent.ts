@@ -13,7 +13,7 @@ export function buildLlmsContent(): string {
 > Public engineering and procurement reference. Product documents and quotation drawings control applicability.
 
 ## Company
-${knowledge.entity.role}. ${knowledge.entity.manufacturingEntity.relationship}
+${knowledge.entity.manufacturingEntity.relationship}
 Legal name: ${knowledge.entity.legalName}
 Website: ${knowledge.entity.url}
 

@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
+import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
 // Self-hosted DM Sans (variable, wght 400-800) — next/font/google fetched
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | F1 Composite",
   },
   description:
-    "Leading pultruded FRP profiles and fiberglass structural shapes manufacturer. I-beams, channels, angles, custom pultrusions, FRP window frames & window profiles, gratings & deck panels. ISO 9001, EN 13706, 30+ countries.",
+    "Pultruded FRP profiles from FengDu's 370-line production network: fiberglass structural shapes, custom sections, window and door profiles, grating and rebar.",
   metadataBase: new URL("https://www.f1composite.com"),
   openGraph: {
     type: "website",
@@ -105,6 +106,7 @@ gtag('config', '${GOOGLE_ADS_ID}');`,
           Skip to content
         </a>
         <JsonLd data={websiteSchema} />
+        <JsonLd data={organizationSchema} />
         <Navbar />
         <main id="main" className="pt-[72px]">{children}</main>
         <Footer />

@@ -17,9 +17,9 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI FRP Sourcing Assistant — Free 48-Hour Quote",
+  title: "AI FRP Sourcing Assistant — Free Project Specification",
   description:
-    "Use the AI FRP sourcing assistant to match profiles, resin systems, standards, and case studies, then prepare a factory-direct quote request within 48 hours.",
+    "Use the free AI FRP sourcing assistant to match profiles, resin systems, standards and case studies to your project, then send the result as a quote request.",
   path: "/ai/sourcing",
 });
 
@@ -90,8 +90,8 @@ export default function SourcingPage() {
               Skip the brochure search. Describe the structure, exposure, loads, standards, and
               destination to our AI FRP sourcing assistant. It organizes those inputs into a
               recommended profile family, resin system, applicable EN, ASTM, or GB standards,
-              comparable case studies, and the information needed for a factory-direct quote from
-              F1 Composite within 48 hours.
+              comparable case studies, and the information F1 Composite needs to quote. We reply to
+              every request within one business day.
             </p>
           </div>
 

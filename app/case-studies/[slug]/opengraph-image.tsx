@@ -10,14 +10,14 @@ const caseStudyOgContent: Record<
   "european-bridge-deck": {
     title: "European Bridge Deck Replacement",
     description:
-      "A bridge rehabilitation project in the Netherlands using pultruded FRP deck elements to reduce weight, speed installation, and remove corrosion maintenance.",
-    chips: ["Netherlands", "40% weight reduction", "100-year design life"],
+      "A bridge deck replacement in the Netherlands using pultruded FRP deck elements to cut weight and speed up installation.",
+    chips: ["Netherlands", "1,200 m² deck", "40% weight reduction"],
   },
   "coastal-marina-walkway": {
     title: "Coastal Marina Walkway System",
     description:
-      "A marine walkway project in the United Kingdom using FRP grating and profiles to eliminate saltwater corrosion and reduce lifecycle maintenance.",
-    chips: ["United Kingdom", "500 m walkway", "60% lifecycle savings"],
+      "A marine walkway project in the United Kingdom using FRP grating and profiles for saltwater exposure.",
+    chips: ["United Kingdom", "500 m walkway", "Molded grating + profiles"],
   },
 };
 
