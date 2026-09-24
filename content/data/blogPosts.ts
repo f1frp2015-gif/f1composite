@@ -1495,7 +1495,7 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
     highlights: [
       "F1 Composite Series 01 in serial production: DN50–DN300, 0.7–3.5 MPa, +140 °C continuous, API 15LR / ISO 14692",
       "Vinyl-ester, epoxy, and polyurethane matrices; 0.5–2.5 mm resin-rich liner: novolac VE for sour H₂S / CO₂ service",
-      "−15% artificial-lift pumping energy vs carbon steel · −75% weight · no cathodic protection",
+      "−15% artificial-lift pumping energy vs carbon steel · −75% weight · no cathodic protection · ≥ 25-year service life",
     ],
     ogDescription:
       "F1 Composite Series 01 pultruded GRE / GRVE oilfield surface-gathering pipe in serial production: DN50–300, API 15LR, ISO 14692, +140 °C continuous.",
@@ -1606,7 +1606,7 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     title: "Pultruded FRP Pipe for Coal Mine Gas Drainage: Anti-Static and Flame-Retardant by Design",
     seoTitle: "FRP Pipe for Coal Mine Gas Drainage",
     answerBox:
-      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, does not corrode in mine water, and weighs a fraction of steel. F1 Composite ships this as Series 02: pultruded GFRP CMM drainage pipe in serial production, DN25–DN300, 0.6–1.6 MPa, MT 558.2 / GB 16413 / MT 113 with surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, and UL 94 V-0, with ASTM E84 Class I results on request.",
+      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, a 50-year design service life and a fraction of steel's weight. F1 Composite ships this as Series 02: pultruded GFRP CMM drainage pipe in serial production, DN25–DN300, 0.6–1.6 MPa, MT 558.2 / GB 16413 / MT 113 with surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, and UL 94 V-0, with ASTM E84 Class I results on request.",
     category: "Coal Mine Safety",
     date: "2026-06-02",
     updatedAt: "2026-06-03",
@@ -1637,7 +1637,7 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     highlights: [
       "F1 Composite Series 02 in serial production: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, UL 94 V-0",
       "ATH 50 / APP 8 / AOM 3 flame package + conductive carbon-veil outer layer clear MT 558 / GB 16413 / MT 113 in one pull",
-      "No corrosion in wet, acidic mine air · bell-and-spigot or quick-lock joints replace the leak-prone gasketed steel/PE alternatives",
+      "50-year design service life · low maintenance · bell-and-spigot or quick-lock joints replace the leak-prone gasketed steel/PE alternatives",
     ],
     ogDescription:
       "F1 Composite Series 02 pultruded GFRP coal-mine methane drainage pipe in serial production: DN25–300, MT 558, UL 94 V-0, ≤3×10⁸ Ω surface resistance.",
@@ -1680,7 +1680,7 @@ Field studies of non-metallic mine pipe point to a consistent set of failures, a
 
 ## F1 Composite Series 02: in serial production
 
-F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground as a replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
+F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground with a 50-year design service life, as a low-maintenance replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
 
 **Series 02: Mine Methane Drainage Pipe**
 
@@ -1695,7 +1695,7 @@ F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, se
 | Flame package | ATH 50 / APP 8 / AOM 3 + carbon-veil outer layer |
 | Surface enhancement | Glass veil · biaxial fabric · carbon veil |
 | Jointing | Bell-and-spigot · quick-lock |
-| Service life | Set by the project design; no corrosion or recoating |
+| Service life | 50-year design service life · low maintenance |
 | Pultrusion speed | 0.8 – 1.4 m/min |
 | Standards | MT 558.2 · GB 16413 · MT 113 · ISO 4589-2 · UL 94 V-0 · ASTM E84 Class I |
 | Capacity | FengDu base · 5 sites · 370 pultrusion lines · 150,000 t/yr |
@@ -1706,7 +1706,7 @@ The 3-page edition 2026.06 product catalog has the full specification, the resin
 
 [Download the F1 Composite Pipe Catalog 2026 (PDF, 3 pages)](/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf)
 
-For a mine operator weighing a switch from steel or PE, the case rests on fewer failures and a longer service life, which is an argument about total cost rather than purchase price. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
+For a mine operator weighing a switch from steel or PE, the case rests on fewer failures and a 50-year design service life, which is an argument about total cost rather than purchase price. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
   },
   {
     slug: "frp-vs-steel-structural-profiles",
@@ -3842,7 +3842,7 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 Sourcing pultruded FRP profiles directly from a qualified Chinese manufacturer is, in 2026, a standard procurement pattern across construction, infrastructure, energy, and marine projects worldwide. The savings versus regional distributors are real and the quality gap is largely closed at the top tier of Chinese factories. The buyer-side process is not standardized, and that is where most of the avoidable risk sits.
 
-If you need a starting point for your RFQ, F1 Composite provides complete quotes within 48 business hours through [our contact form](/contact). For application-driven sourcing, the [AI Sourcing Assistant](/ai/sourcing) turns a free-form project description into a specification recommendation, certification guidance, and a clear path to a quote.`,
+If you need a starting point for your RFQ, send it through [our contact form](/contact); F1 Composite replies within one business day. For application-driven sourcing, the [AI Sourcing Assistant](/ai/sourcing) turns a free-form project description into a specification recommendation, certification guidance, and a clear path to a quote.`,
   },
   {
     slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
@@ -4002,7 +4002,7 @@ The same project sourced from a UK distributor at $42–48/m delivered would cos
 
 These benchmarks shift quarter-to-quarter on three drivers: glass fiber raw material cost (currently stable), resin cost (polyester/vinyl ester moved -3% in Q1 2026 versus Q4 2025), and container freight (volatile; check the [Drewry World Container Index](https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry) for current spot rates).
 
-For a project-specific quote based on current pricing, contact F1 Composite through [the contact form](/contact) for a complete response within 48 business hours. You can also describe the application in the [AI Sourcing Assistant](/ai/sourcing) to receive a specification recommendation and a clear path to pricing in one response.`,
+For a project-specific quote based on current pricing, contact F1 Composite through [the contact form](/contact); we reply within one business day. You can also describe the application in the [AI Sourcing Assistant](/ai/sourcing) to receive a specification recommendation and a clear path to pricing in one response.`,
   },
   {
     slug: "gfrp-pultruded-spar-cap-fatigue-wind-blade",

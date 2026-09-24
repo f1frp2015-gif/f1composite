@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Is PVC still the right choice for any project?",
     answer:
-      "Yes: PVC remains the lowest first-cost option and the right choice for budget-driven residential retrofit, low-rise housing in mild climates, and projects where 30-year design life is acceptable. Modern triple-chamber uPVC can reach Uw below 1.0 W/m²·K with proper glazing. For those projects PVC's price advantage is real. FRP becomes the better choice when the project requires passive-house Uw ≤ 0.80, dark colors or south-facing elevations, spans above 2 m, fire performance without toxic HCl emission, or 50+ year design life.",
+      "Yes: PVC remains the lowest first-cost option and the right choice for budget-driven residential retrofit, low-rise housing in mild climates, and projects where 30-year design life is acceptable. Modern triple-chamber uPVC can reach Uw below 1.0 W/m²·K with proper glazing. For those projects PVC's price advantage is real. FRP becomes the better choice when the project requires passive-house Uw ≤ 0.80, dark colors or south-facing elevations, spans above 2 m, fire performance without toxic HCl emission, or a longer design life than PVC is usually specified for.",
   },
   {
     question: "How do FRP and PVC compare on fire safety?",
@@ -127,7 +127,7 @@ export default function FrpVsPvcWindowsPage() {
             uPVC remains the lowest first-cost window frame material and is the right specification for budget-sensitive residential retrofit and small windows in mild climates. Three technical limits cap its performance: the frame needs internal steel reinforcement above about 1.2 m span, dark colors warp on sun-exposed elevations, and UV embrittlement shortens service life to roughly 30 years. Pultruded FRP removes all three constraints (it needs no reinforcement, takes any color and does not embrittle in UV) while adding passive-house-class thermal performance and cleaner fire behavior.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            This page compares FRP and PVC across 15 properties that drive specification. The verdict is context-dependent: for small casements in mild climates PVC is genuinely competitive; for any window that is large, dark-colored, south-facing, or required to last 50+ years, FRP is the only material that delivers.
+            This page compares FRP and PVC across 15 properties that drive specification. The verdict is context-dependent: for small casements in mild climates PVC is genuinely competitive; for windows that are large, dark-colored, south-facing or expected to outlast a typical PVC design life, FRP is the stronger choice.
           </p>
         </div>
       </section>
@@ -196,7 +196,7 @@ export default function FrpVsPvcWindowsPage() {
                 <li>• Windows over 1.5 m span without visible reinforcement</li>
                 <li>• Dark colors or south/west solar exposure</li>
                 <li>• Hot climates (Uf ambient &gt; 40°C)</li>
-                <li>• 50+ year building design life</li>
+                <li>• Long building design life</li>
                 <li>• Fire safety with low smoke toxicity required</li>
                 <li>• Coastal or high-UV climate (30+ years UV stable)</li>
               </ul>

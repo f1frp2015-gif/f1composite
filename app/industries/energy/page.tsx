@@ -65,7 +65,7 @@ const faqs = [
   {
     question: "How do FRP cross-arms compare to wood and steel in transmission lines?",
     answer:
-      "FRP cross-arms weigh 60-70% less than wood equivalents, do not rot or attract woodpeckers, and maintain consistent dielectric properties over 50+ years. Unlike wood, FRP does not absorb moisture, so its insulation value remains stable in rain, fog, and high-humidity conditions. Compared to steel cross-arms, FRP eliminates the need for separate post insulators and grounding systems. Lifecycle cost analysis typically shows 30-40% savings over wood and 50%+ savings over steel when maintenance, replacement, and outage costs are included.",
+      "FRP cross-arms weigh 60-70% less than wood equivalents, do not rot or attract woodpeckers, and keep stable dielectric properties in service. Unlike wood, FRP does not absorb moisture, so its insulation value remains stable in rain, fog, and high-humidity conditions. Compared to steel cross-arms, FRP eliminates the need for separate post insulators and grounding systems. Lifecycle cost analysis typically shows 30-40% savings over wood and 50%+ savings over steel when maintenance, replacement, and outage costs are included.",
   },
   {
     question: "Can FRP replace steel in substation structural frameworks?",

@@ -209,7 +209,7 @@ export default function IndustrialPage() {
                 For cleanroom construction, our FRP profiles provide framing for modular wall systems, ceiling grids, and equipment platforms. FRP&apos;s dimensional stability — it does not expand, contract, or warp with humidity changes — maintains the tight tolerances required for cleanroom envelope integrity. This stability is particularly valuable in facilities with adjacent areas at different pressure differentials, where even slight dimensional changes in framing can compromise room pressurization.
               </p>
               <p>
-                Our pharmaceutical-grade FRP profiles are available with FM 4910 approval for use in semiconductor and pharmaceutical cleanroom environments, meeting the maximum fire propagation and smoke generation limits required for materials installed in clean manufacturing spaces.
+                Semiconductor and pharmaceutical cleanrooms also set fire-propagation and smoke limits for installed materials, for example FM 4910. These depend on the resin formulation, so state the requirement at the RFQ stage and we will agree the material and test route.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>

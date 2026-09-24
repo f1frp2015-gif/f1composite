@@ -195,7 +195,7 @@ export default function InfrastructurePage() {
                 FRP poles provide inherent electrical insulation, reducing fault current propagation and improving line worker safety. They do not burn in wildfire zones — a critical advantage in regions where wood pole ignition has been identified as a wildfire initiation vector. Pacific Gas & Electric and other western US utilities have begun deploying FRP poles in high fire-threat districts specifically for this reason.
               </p>
               <p>
-                Our FRP lighting standards and signal poles serve municipal and highway applications. These poles resist salt spray corrosion in coastal environments and de-icing chemical exposure along roadways, maintaining their structural integrity and appearance for 50+ years without repainting or retreatment.
+                Our FRP lighting standards and signal poles serve municipal and highway applications. These poles resist salt spray corrosion in coastal environments and de-icing chemical exposure along roadways, and need no repainting or retreatment to keep their structural integrity and appearance.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Cable Trays and Conduit Systems</h3>

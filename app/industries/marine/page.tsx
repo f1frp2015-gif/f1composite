@@ -211,7 +211,7 @@ export default function MarinePage() {
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Zero corrosion</strong> in continuous saltwater immersion and splash zone exposure for 50+ years</span>
+                  <span><strong className="text-t1">No corrosion</strong> in continuous saltwater immersion and splash-zone exposure, with no coating to renew</span>
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />

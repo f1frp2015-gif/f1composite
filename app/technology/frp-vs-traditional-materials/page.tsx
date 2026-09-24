@@ -188,7 +188,7 @@ const propertyCards: PropertyCard[] = [
   {
     title: "Corrosion Resistance",
     icon: "0",
-    headline: "Zero corrosion — no rust, no coating, no maintenance for 50+ years",
+    headline: "No corrosion: no rust and no coating to maintain",
     detail: [
       "Corrosion resistance is the most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments, requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
       "FRP is inherently immune to electrochemical corrosion because it contains no metal. Vinyl ester and epoxy resin systems resist a wide range of acids, alkalis, solvents, and salt solutions at elevated temperatures. In chemical plants, wastewater facilities, marine structures, and coastal buildings, FRP profiles need no corrosion protection or recoating, which often pays back the higher initial cost within 5–10 years.",
