@@ -3,6 +3,7 @@ import { productFamilies } from "@/content/data/productTaxonomy";
 import { buildRfqHref } from "@/lib/rfq";
 import Image from "next/image";
 import Link from "next/link";
+import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
 import { footerNav, type NavLink } from "@/content/data/navigation";
 
 const columns = [
@@ -102,6 +103,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-[16px] gap-y-[6px]">
             <Link href="/privacy" className="hover:text-teal-text">Privacy</Link>
             <Link href="/terms" className="hover:text-teal-text">Terms</Link>
+            <CookieSettingsButton className="hover:text-teal-text" />
             <a
               href="https://tradeos.f1composite.com/login"
               target="_blank"
