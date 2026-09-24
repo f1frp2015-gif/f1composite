@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/layout/PageHeader";
+import WhatsAppButton from "@/components/contact/WhatsAppButton";
 import JsonLd from "@/components/seo/JsonLd";
 import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import { absoluteUrl } from "@/lib/seo";
@@ -57,14 +58,7 @@ export default function ContactPage() {
                 <a href="tel:+8613883338993" className="block font-semibold text-teal-text hover:text-teal">
                   +86 138 8333 8993
                 </a>
-                <a
-                  href="https://wa.me/8613883338993"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[42px] items-center rounded-[7px] bg-[#128c53] px-[14px] font-bold text-white hover:bg-[#0d7c48]"
-                >
-                  Chat on WhatsApp
-                </a>
+                <WhatsAppButton location="contact-page" label="Chat on WhatsApp" />
               </div>
               <p className="mt-[15px] border-t border-border-default pt-[13px] text-f13 leading-relaxed text-t2">
                 Monday–Friday · 08:30–17:30 GMT+8<br />

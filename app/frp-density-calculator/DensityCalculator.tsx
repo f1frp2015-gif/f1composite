@@ -591,7 +591,7 @@ export default function DensityCalculator() {
           </div>
         </div>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border-default bg-white px-4 py-3 shadow-lg lg:hidden">
+      <div data-page-bottom-bar className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border-default bg-white px-4 py-3 shadow-lg lg:hidden">
         <div className="text-sm text-t1" aria-live="polite">
           {result.error ? (
             "Check calculation inputs"

@@ -275,6 +275,8 @@ f1composite.com
 - **寿命与维护**：不写"50+/75+/100 年设计寿命""免维护"之类的通用承诺；有产品目录依据的具体数值（如管材系列）可以写。
 - **文案检查**：`npm run check:copy`（CI 中运行）会拦截已撤回的说法，并提示破折号密度和"不是 X——而是 Y"句式。
 - **Cookie**：Consent Mode v2，欧洲经济区/英国/瑞士默认拒绝；横幅按欧洲时区显示，页脚"Cookie settings"可随时修改。隐私政策在 `/privacy`。
+- **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
+- **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。
 
 ---
 
@@ -287,4 +289,4 @@ f1composite.com
 | 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实 | 待核实 |
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
 | 中 | 隐私政策由法务审阅 | 待审阅 |
-| 中 | CSP 补充 Google Ads 转化所需域名（www.google.com、googleadservices.com） | 待评估 |
+| 高 | 在 GA4 把 `whatsapp_click`、`email_click`、`phone_click` 标为关键事件，再导入 Google Ads 作为次要转化 | 待操作 |

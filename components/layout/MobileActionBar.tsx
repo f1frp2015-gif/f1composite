@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
+import WhatsAppButton from "@/components/contact/WhatsAppButton";
 
 interface MobileAction {
   label: string;
@@ -13,10 +14,13 @@ export default function MobileActionBar({
   targetId,
   primary,
   secondary,
+  whatsappTopic,
 }: {
   targetId: string;
   primary: MobileAction;
   secondary?: MobileAction;
+  /** Product or page topic for the pre-filled WhatsApp message. */
+  whatsappTopic?: string;
 }) {
   const [visible, setVisible] = useState(false);
 
@@ -40,12 +44,13 @@ export default function MobileActionBar({
 
   return (
     <div
+      data-page-bottom-bar
       className={`fixed inset-x-0 bottom-0 z-[60] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-[0_-10px_28px_rgba(11,24,56,0.12)] backdrop-blur-md transition-transform duration-200 md:hidden ${
         visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
       aria-hidden={!visible}
     >
-      <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[8px]">
+      <div className="mx-auto grid max-w-[520px] grid-cols-[1fr_1fr_46px] gap-[8px]">
         <Button href={primary.href} variant={primary.variant ?? "primary"} className="w-full px-[10px]">
           {primary.label}
         </Button>
@@ -58,6 +63,7 @@ export default function MobileActionBar({
             Send Requirements
           </Button>
         )}
+        <WhatsAppButton topic={whatsappTopic} location="mobile-product-bar" label="Chat on WhatsApp" iconOnly />
       </div>
     </div>
   );

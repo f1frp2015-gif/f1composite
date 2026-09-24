@@ -4,6 +4,7 @@ import { buildRfqHref } from "@/lib/rfq";
 import Image from "next/image";
 import Link from "next/link";
 import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
+import { whatsappHref, whatsappMessage } from "@/lib/contact";
 import { footerNav, type NavLink } from "@/content/data/navigation";
 
 const columns = [
@@ -33,7 +34,7 @@ function FooterLinks({ links }: { links: readonly NavLink[] }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-bg2">
+    <footer className="bg-bg2 pb-[72px] md:pb-0">
       <div className="bg-deep">
         <div className="mx-auto flex max-w-[1320px] flex-col gap-[18px] px-[20px] py-[28px] sm:px-[28px] md:flex-row md:items-center md:justify-between md:px-[36px] md:py-[32px]">
           <div>
@@ -52,9 +53,11 @@ export default function Footer() {
               Get a Quote
             </Link>
             <a
-              href="https://wa.me/8613883338993"
+              href={whatsappHref(whatsappMessage())}
               target="_blank"
               rel="noopener noreferrer"
+              data-contact-location="footer-cta"
+              data-whatsapp-topic=""
               className="text-f13 font-bold text-white underline decoration-white/35 underline-offset-4 transition-colors hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               WhatsApp sales

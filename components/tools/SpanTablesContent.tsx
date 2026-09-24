@@ -125,6 +125,7 @@ export default function SpanTablesContent({ families }: { families: SpanFamily[]
       {copiedValue && (
         <div
           role="status"
+          data-page-bottom-bar
           className="fixed bottom-[21px] left-[21px] right-[21px] z-50 rounded-[8px] border border-teal-border bg-white p-[16px] shadow-xl sm:left-auto sm:max-w-[560px]"
         >
           <div className="flex items-start justify-between gap-[13px]">

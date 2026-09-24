@@ -38,6 +38,10 @@ npm run build          # also enforces title ≤ 60 and description 120–160 ch
 - `content/data/blogPosts.ts`: blog articles (markdown in template strings).
 - `lib/seo.ts`: `buildPageMetadata` and structured data helpers.
 - `lib/consent.ts`, `components/consent/`: Google Consent Mode v2 and the cookie banner.
+- `lib/contact.ts`, `components/contact/`: WhatsApp links, the mobile contact bar and the
+  `whatsapp_click` / `email_click` / `phone_click` GA4 events.
+- `next.config.ts`: security headers, including the Content-Security-Policy. A new
+  third-party script or pixel needs its hosts added there.
 - `lib/llmsContent.ts`, `lib/publicKnowledge.ts`: the llms.txt index, the full brief and
   the JSON knowledge base.
 

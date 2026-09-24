@@ -3,6 +3,7 @@ import SectionTag from "@/components/ui/SectionTag";
 import Button from "@/components/ui/Button";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/layout/Breadcrumbs";
 import MobileActionBar from "@/components/layout/MobileActionBar";
+import WhatsAppButton from "@/components/contact/WhatsAppButton";
 
 interface PageHeaderAction {
   label: string;
@@ -48,6 +49,8 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
           stickyMobile: true,
         }
       : undefined);
+  // Product titles read naturally in "I'm interested in …"; other pages send the page address only.
+  const whatsappTopic = isProductPage ? title : undefined;
 
   return (
     <>
@@ -72,6 +75,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
                   {resolvedActions.secondary.label}
                 </Button>
               ) : null}
+              <WhatsAppButton topic={whatsappTopic} location="page-header" variant="outline" />
               {resolvedActions.note ? (
                 <p className="max-w-[430px] text-f12 leading-relaxed text-t3 sm:ml-[4px]">
                   {resolvedActions.note}
@@ -87,6 +91,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
           targetId="page-header-actions"
           primary={resolvedActions.primary}
           secondary={resolvedActions.secondary}
+          whatsappTopic={whatsappTopic}
         />
       ) : null}
     </>
