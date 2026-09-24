@@ -1,20 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# f1composite.com
 
-## Getting Started
+Website of F1 Composite (Chongqing F1 Composites Co., Ltd.), the export company of
+FengDu New Material. Next.js 16 App Router, Tailwind CSS v4, deployed on Vercel.
 
-First, run the development server:
+Read [AGENTS.md](AGENTS.md) before changing anything: it covers the Git-to-production
+workflow and the Next.js version notes. [WEBSITE.md](WEBSITE.md) (Chinese) is the site
+overview, URL intent map and open items.
+
+## Local development
+
+Use Node 22.18 or later (the tests import TypeScript files directly).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Checks
+
+CI runs these on every pull request; run them before pushing.
+
+```bash
+npm run lint
+npm test               # node:test suites listed in package.json
+npm run check:copy     # retracted claims (errors), em-dash density and reveals (warnings)
+npm run check:sitemap
+npm run build          # also enforces title ≤ 60 and description 120–160 characters
+```
+
+`npm run test:images` checks public image weight and duplicates.
+
+## Where things live
+
+- `content/data/company.ts`: company facts, production figures, lead times, MOQs and
+  the reply time. Pages, the Organization schema, `/llms.txt`, `/llms-full.txt`,
+  `/api/ai-context` and the assistant prompts all read from it.
+- `content/data/blogPosts.ts`: blog articles (markdown in template strings).
+- `lib/seo.ts`: `buildPageMetadata` and structured data helpers.
+- `lib/consent.ts`, `components/consent/`: Google Consent Mode v2 and the cookie banner.
+- `lib/llmsContent.ts`, `lib/publicKnowledge.ts`: the llms.txt index, the full brief and
+  the JSON knowledge base.
+
+## AI routes
 
 The server-side AI routes use Vercel AI Gateway. Vercel deployments authenticate
 automatically with `VERCEL_OIDC_TOKEN`, so no provider API key is required in
@@ -30,22 +57,3 @@ AI_GATEWAY_MODEL=openai/gpt-5-mini
 The defaults are `openai/gpt-5-mini` for chat and sourcing, and
 `openai/gpt-5-nano` for summaries. Do not prefix the key with `NEXT_PUBLIC_`;
 it must remain server-only.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

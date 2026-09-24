@@ -62,6 +62,21 @@ test("contact endpoint accepts email-only delivery and marks persisted successfu
   }
 });
 
+test("contact endpoint rejects the spam trap and sub-second submissions before storing anything", async () => {
+  for (const extra of [{ company_website: "https://spam.example" }, { form_elapsed_ms: "250" }]) {
+    const route = mockRoute({ db: 42, mail: "mock-mail" });
+    const response = await route.POST(request(false, extra));
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).accepted, false);
+    assert.equal(route.state.stored, null);
+    assert.equal(route.state.mailed, null);
+  }
+  const person = mockRoute({ db: 42, mail: "mock-mail" });
+  const response = await person.POST(request(false, { company_website: "", form_elapsed_ms: "8000" }));
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).accepted, true);
+});
+
 for (const mode of ["profiles", "finished"]) {
   test(`window ${mode}: early lead preserves context, series and requirements in both delivery channels`, async () => {
     const route = mockRoute({ db: 42, mail: "mock-mail" });

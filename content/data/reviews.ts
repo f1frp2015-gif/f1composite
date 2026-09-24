@@ -3,15 +3,15 @@
 // Do NOT fabricate reviews. Emitting AggregateRating / Review schema without
 // genuine reviews violates Google's structured-data policy and can trigger a
 // manual action (and it is dishonest). This array is intentionally empty: until
-// real reviews are pasted here, buildAggregateRating() (lib/seo.ts) returns null
-// and no rating schema is emitted anywhere.
+// real reviews are pasted here, buildAggregateRating() (lib/seo.ts) returns null.
+// Nothing calls it yet, so no rating schema is emitted anywhere.
 //
 // To enable SERP star eligibility:
 //   1. Collect 5-10 real reviews (buyer emails/testimonials, verified orders).
 //   2. Add each below with the buyer's real name/company, rating, verbatim text.
-//   3. The Organization schema in app/layout.tsx then includes AggregateRating.
-//      For per-product stars (stronger for B2B SERP), pass the fragment into
-//      buildProductSchema on the relevant product page instead.
+//   3. Spread buildAggregateRating() into the Product node of the product page
+//      the reviews are about. Do not add it to the Organization schema: Google
+//      does not show self-serving review stars for Organization markup.
 
 export interface CustomerReview {
   /** Reviewer name or company — real and attributable. */

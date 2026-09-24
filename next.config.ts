@@ -294,7 +294,9 @@ const nextConfig: NextConfig = {
           },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
+          // "0" disables the legacy XSS auditor, which could itself be abused;
+          // the CSP above is the XSS defence (OWASP / MDN recommendation).
+          { key: "X-XSS-Protection", value: "0" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",
