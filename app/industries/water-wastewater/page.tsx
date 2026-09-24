@@ -8,6 +8,39 @@ import { buildPageMetadata } from "@/lib/seo";
 
 const description =
   "FRP profiles and grating for water and wastewater facilities. Review cable supports, access frames, walkways, chemical exposure and component supply scope.";
+const zones = [
+  {
+    zone: "Headworks and screening",
+    exposure: "Hydrogen sulfide, high humidity and wash-down",
+    parts: "Walkway grating, covers, cable supports",
+    note: "Vinyl ester resin and a surface veil are the usual starting point where H₂S builds up under covers.",
+  },
+  {
+    zone: "Aeration and biological basins",
+    exposure: "Constant splash and humidity, outdoor UV",
+    parts: "Access walkways, handrails, pipe and cable supports",
+    note: "Long runs along basin edges make weight and no recoating the main reasons to use FRP.",
+  },
+  {
+    zone: "Clarifiers and settling tanks",
+    exposure: "Immersion or splash at the water line",
+    parts: "Baffles and plates cut from solid sheet, walkway grating",
+    note: "Parts that sit in the water need the resin and cut-edge sealing checked for immersion.",
+  },
+  {
+    zone: "Chemical dosing rooms",
+    exposure: "Sodium hypochlorite, ferric chloride, caustic, acids",
+    parts: "Platforms, grating, cable trays, equipment frames",
+    note: "Send the chemical list with concentrations and temperatures; compatibility is confirmed per chemical.",
+  },
+  {
+    zone: "Sludge handling and digesters",
+    exposure: "Hydrogen sulfide, methane, heat",
+    parts: "Cable trays and ladders, access frames, grating",
+    note: "Non-conductive trays and supports help where electrical isolation near equipment matters.",
+  },
+];
+
 const uses = [
   {
     label: "Cable Tray Supports",
@@ -97,6 +130,52 @@ export default function WaterIndustryPage() {
               </article>
             ))}
           </div>
+          <h2 className="mt-[48px] text-f31 font-bold text-t1">
+            FRP around the plant, zone by zone
+          </h2>
+          <p className="mt-[12px] max-w-[860px] text-f15 leading-relaxed text-t2">
+            Exposure changes from one part of a treatment plant to the next, so the parts and the
+            resin change too. This is where pultruded FRP is most often used, and what to check in
+            each area.
+          </p>
+          <div className="mt-[20px] overflow-x-auto">
+            <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+              <thead>
+                <tr className="border-b-2 border-border-default text-t1">
+                  <th className="py-[10px] pr-[16px] font-bold">Area</th>
+                  <th className="py-[10px] pr-[16px] font-bold">Exposure</th>
+                  <th className="py-[10px] pr-[16px] font-bold">Typical FRP parts</th>
+                  <th className="py-[10px] font-bold">What to check</th>
+                </tr>
+              </thead>
+              <tbody>
+                {zones.map((row) => (
+                  <tr key={row.zone} className="border-b border-border-default align-top text-t2">
+                    <td className="py-[12px] pr-[16px] font-semibold text-t1">{row.zone}</td>
+                    <td className="py-[12px] pr-[16px]">{row.exposure}</td>
+                    <td className="py-[12px] pr-[16px]">{row.parts}</td>
+                    <td className="py-[12px]">{row.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-[16px] text-f14 leading-relaxed text-t2">
+            For cable routes, see how{" "}
+            <Link href="/resources/blog/frp-cable-tray-specifications-advantages" className="font-semibold text-teal-text">
+              to specify FRP cable tray
+            </Link>
+            ; for walkways, the{" "}
+            <Link href="/resources/blog/frp-grating-vs-steel-grating-cost-comparison" className="font-semibold text-teal-text">
+              grating lifecycle cost example
+            </Link>{" "}
+            compares FRP with galvanized steel. Solid{" "}
+            <Link href="/products/fiberglass-sheets" className="font-semibold text-teal-text">
+              fiberglass sheet
+            </Link>{" "}
+            is cut to size for baffles and cover plates.
+          </p>
+
           <div className="mt-[36px] grid gap-[30px] md:grid-cols-2">
             <div>
               <h2 className="text-f24 font-bold text-t1">

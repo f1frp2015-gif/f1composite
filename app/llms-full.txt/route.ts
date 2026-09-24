@@ -1,8 +1,7 @@
 import { buildLlmsContent } from "@/lib/llmsContent";
 
-// Some AI crawlers probe /llms-full.txt for the complete machine-readable
-// brief. We serve the same comprehensive document as /llms.txt from one
-// source of truth (lib/llmsContent.ts).
+// /llms.txt is the short index; /llms-full.txt carries the complete brief with
+// specifications and document scope. Both come from lib/llmsContent.ts.
 export async function GET() {
   return new Response(buildLlmsContent(), {
     headers: {

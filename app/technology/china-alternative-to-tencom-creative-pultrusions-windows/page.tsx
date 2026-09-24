@@ -13,7 +13,7 @@ const pagePath = "/technology/china-alternative-to-tencom-creative-pultrusions-w
 export const metadata: Metadata = buildPageMetadata({
   title: "China Alternative to Tencom & Creative Pultrusions Windows",
   description:
-    "F1-THERM pultruded fiberglass window profiles: a China alternative to Tencom, Creative Pultrusions and Inline — PHI-certified, EN 14351-1 / NAFS tested, DDP.",
+    "F1-THERM pultruded fiberglass window profiles, a China alternative to Tencom, Creative Pultrusions and Inline: PHI-certified 90 series, test reports on request.",
   path: pagePath,
 });
 
@@ -30,12 +30,12 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Thermal certification",
-    f1: "PHI Component Certificate 2491wi03 — U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone",
+    f1: "PHI Component Certificate 2491wi03: U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone",
     incumbents: "Varies by system; certification is usually carried by the window fabricator, not the profile supplier",
   },
   {
     dimension: "Unit-level testing",
-    f1: "EN 14351-1 (CE) and NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 test reports ship with finished units",
+    f1: "EN 14351-1 (CE) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports on request for finished units",
     incumbents: "Profile suppliers generally leave unit testing to the fabricator",
   },
   {
@@ -59,27 +59,27 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Tencom fiberglass window profiles?",
     answer:
-      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set — frame, sash, mullion, transom, and glazing bead in 65/70/80/90/140-series frame depths — with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K).",
+      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom, and glazing bead in 65/70/80/90/140-series frame depths) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K).",
   },
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",
     answer:
-      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite supplies to the same pultrusion fundamentals — continuous E-glass reinforcement, thermoset matrix, heated-die forming — with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phB efficiency class for the cool-temperate climate zone, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
+      "Creative Pultrusions (part of Creative Composites Group, USA) and Inline Fiberglass (Canada) are established, capable manufacturers of fiberglass window lineals. F1 Composite supplies to the same pultrusion fundamentals (continuous E-glass reinforcement, thermoset matrix, heated-die forming) with two differences in emphasis: a dedicated fenestration system (rather than lineals within a broader custom program) that includes polyurethane-resin 90-series profiles certified by PHI at the phB efficiency class for the cool-temperate climate zone, and a factory-direct export model on FOB or DDP terms rather than North-America-centric distribution.",
   },
   {
     question: "How consistent are Chinese pultruded window profiles across production runs?",
     answer:
-      "Consistency is a fair concern when qualifying any new pultrusion supplier, and it should be verified with data rather than promised. F1 Composite holds window profiles to ASTM D3917 dimensional tolerance classes (±0.25 mm on critical dimensions), issues mill test certificates per production batch, and pultrudes gasket channels co-continuously with the profile so seal fit does not drift between runs. For qualification, we support third-party inspection (SGS/BV), pre-shipment dimensional reports against the die drawing, and staged orders — a first article run, then production volumes — so a fabricator can verify run-to-run repeatability on their own equipment before committing.",
+      "Consistency is a fair concern when qualifying any new pultrusion supplier, and it should be verified with data rather than promised. F1 Composite holds window profiles to ASTM D3917 dimensional tolerance classes (±0.25 mm on critical dimensions), issues mill test certificates per production batch, and pultrudes gasket channels co-continuously with the profile so seal fit does not drift between runs. For qualification, we support third-party inspection (SGS/BV), pre-shipment dimensional reports against the die drawing, and staged orders (a first article run, then production volumes) so a fabricator can verify run-to-run repeatability on their own equipment before committing.",
   },
   {
     question: "What certifications back F1's window profiles compared to North American suppliers?",
     answer:
-      "F1's fenestration system carries certification at both the component and the unit level: PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) on the 90-series frame, EN 14351-1 testing for CE marking, and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) testing for North American specification. Profile-level properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply either model — certified finished units, or profiles plus the simulation data a fabricator needs for its own certification path.",
+      "The 90-series frame holds PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone). EN 14351-1 (CE marking) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports are provided on request for the configuration you specify. Profile properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply finished units, or profiles plus the simulation data a fabricator needs for its own certification.",
   },
   {
     question: "Why source fiberglass window profiles from China instead of a North American pultruder?",
     answer:
-      "The case is specification-parity at factory-direct economics, plus system depth: a complete five-series fenestration profile family (65–140 mm frame depths) from one supplier, polyurethane-resin profiles where the performance tier demands it, PHI/EN 14351-1/NAFS certification already in place, and export on FOB or DDP terms with duty pre-itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
+      "The argument is comparable specifications at factory-direct prices, plus system depth: a five-series window profile family (65–140 mm frame depths) from one supplier, polyurethane-resin profiles where the performance level calls for them, the PHI component certificate with EN 14351-1 and NAFS test reports on request, and export on FOB or DDP terms with duty itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function ChinaAlternativeWindowsPage() {
       <PageHeader
         tag="Comparison · F1-THERM"
         title="China alternative to Tencom, Creative Pultrusions & Inline window profiles"
-        description="F1 Composite's F1-THERM fenestration line is a standards-equivalent, factory-direct China alternative to the established North American fiberglass window lineal suppliers — with PHI component certification, EN 14351-1 and NAFS unit testing, and both profile-set and finished-unit supply models."
+        description="F1-THERM is a factory-direct alternative from China to the established North American fiberglass window lineal suppliers. It has a PHI component certificate, EN 14351-1 and NAFS test reports on request, and is sold as profile sets or finished units."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -121,11 +121,10 @@ export default function ChinaAlternativeWindowsPage() {
             Same pultrusion fundamentals, a deeper window system, factory-direct
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites
-            Group, USA), and Inline Fiberglass (Toronto, Canada) are the names
-            North American window fabricators know for pultruded fiberglass
-            lineals. They are capable manufacturers — and they work from the same
-            physics that{" "}
+            Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites Group, USA),
+            and Inline Fiberglass (Toronto, Canada) are the names North American window
+            fabricators know for pultruded fiberglass lineals. They are capable manufacturers,
+            and they work from the same physics that{" "}
             <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">
               F1 Composite&apos;s fiberglass window profiles
             </Link>{" "}
@@ -134,17 +133,17 @@ export default function ChinaAlternativeWindowsPage() {
             frame move with its glass instead of against it.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            The reason fabricators evaluate a China alternative is usually not
-            the material — it is system depth and route to market. F1 supplies a
-            complete five-series fenestration family (65–140 mm frame depths)
+            Fabricators usually look at a China-made alternative for system depth
+            and route to market rather than for the material itself. F1 supplies a
+            five-series window profile family (65–140 mm frame depths)
             including{" "}
             <Link href="/technology/polyurethane-pultrusion-windows" className="font-semibold text-teal-text hover:text-teal">
               polyurethane (GFRP-PU) profiles
             </Link>{" "}
-            on the performance tier, with PHI component certification and EN
-            14351-1 / NAFS unit testing already in place, shipped factory-direct
-            on FOB or DDP terms — and offers both supply models: profiles for
-            your fabrication line, or complete factory-assembled units.
+            on the performance tier. The 90 series holds a PHI component
+            certificate, EN 14351-1 and NAFS test reports are available on request,
+            and everything ships factory-direct on FOB or DDP terms. You can buy
+            profiles for your own fabrication line or complete factory-assembled units.
           </p>
         </div>
       </section>
@@ -157,9 +156,9 @@ export default function ChinaAlternativeWindowsPage() {
             F1-THERM vs the North American lineal suppliers
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            A fair, specification-level comparison. Where a competitor detail
-            varies by program or die, it is described rather than asserted —
-            verify per supplier during qualification.
+            A fair, specification-level comparison. Where a competitor detail varies by program
+            or die, it is described rather than asserted: verify per supplier during
+            qualification.
           </p>
 
           <div className="mt-[34px] overflow-x-auto">
@@ -206,7 +205,7 @@ export default function ChinaAlternativeWindowsPage() {
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
-            <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
+            <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows: Canada</LinkArrow>
             <LinkArrow href="/resources/technical-data">Technical data &amp; test reports</LinkArrow>
           </div>
         </div>
@@ -214,7 +213,7 @@ export default function ChinaAlternativeWindowsPage() {
 
       <AnswerBlocks
         tag="China alternative FAQ"
-        title="China alternative to Tencom, Creative Pultrusions & Inline — window profile FAQ"
+        title="China alternative to Tencom, Creative Pultrusions & Inline: window profile FAQ"
         description="Specification-level answers for window fabricators and procurement teams evaluating a China-based fiberglass window profile supplier against the North American incumbents."
         items={faqItems}
       />

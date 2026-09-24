@@ -6,12 +6,12 @@
  */
 
 export function prefillForBlog(post: { title: string; slug: string; category?: string }) {
-  return `I just read the F1 Composite article "${post.title}" (/resources/blog/${post.slug}). Based on what's in this article, give me the practical engineering takeaways and tell me which F1 Composite products or applications it points to.`;
+  return `I read the F1 Composite article "${post.title}" (/resources/blog/${post.slug}). What are the practical takeaways for a project, and which F1 Composite products does it relate to?`;
 }
 
 export function prefillForCaseStudy(cs: { title: string; slug: string; industry?: string; location?: string }) {
   const where = cs.location ? ` in ${cs.location}` : "";
-  return `I'm looking at the F1 Composite case study "${cs.title}"${where} (/case-studies/${cs.slug}). What materials, profile families, resin systems, and standards drove this project — and what would I need to provide for a similar RFQ?`;
+  return `I'm looking at the F1 Composite case study "${cs.title}"${where} (/case-studies/${cs.slug}). Which materials, profiles, resin and standards did it use, and what would I need to send for a similar quotation?`;
 }
 
 export function prefillForApplication(slug: string, shortTitle: string) {

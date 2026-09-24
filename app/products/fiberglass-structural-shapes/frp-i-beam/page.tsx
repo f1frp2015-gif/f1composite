@@ -18,7 +18,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes";
 const pageDescription =
-  "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, ~75% lighter than steel, EN 13706 E23, ASTM E84 Class A. Size + steel-weight table. DDP USA.";
+  "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, about 75% lighter than steel, EN 13706 E23. Size and steel-weight table, DDP USA.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-i-beam";
 
 const LAST_UPDATED = "2026-06-30";
@@ -116,9 +116,9 @@ const keyFacts = [
   { label: "vs steel (same depth)", value: "~68–83% lighter" },
   { label: "Grade", value: "EN 13706 E23" },
   { label: "Resins", value: "Polyester · vinyl ester · PU · phenolic" },
-  { label: "Fire", value: "ASTM E84 Class A" },
+  { label: "Fire", value: "FR grades; ASTM E84 report on request" },
   { label: "Tolerance", value: "ASTM D3917 · ±0.25 mm" },
-  { label: "Lead time", value: "Stock 2–4 wk · custom 4–8 wk" },
+  { label: "Lead time", value: "Stock 2–4 wk · new die 6–10 wk" },
 ];
 
 const faqItems = [
@@ -145,7 +145,7 @@ const faqItems = [
   {
     question: "Which standards do F1 Composite I-beams meet?",
     answer:
-      "Profiles are produced to EN 13706 grade E23 (≥23 GPa full-section flexural modulus) and ASTM D3917 (±0.25 mm tolerance), with ISO 9001:2015 quality management and ASTM E84 Class A flame spread. Design references: ASCE/SEI 74-23 (US LRFD), CEN/TS 19101 (EU), GB 50608 / CECS 692 (China).",
+      "Profiles are produced to EN 13706 grade E23 (≥23 GPa full-section flexural modulus) and ASTM D3917 (±0.25 mm tolerance). Fire-retardant grades are available, with ASTM E84 flame-spread reports on request, as is the ISO 9001 certificate. Design references: ASCE/SEI 74-23 (US LRFD), CEN/TS 19101 (EU), GB 50608 / CECS 692 (China).",
   },
   {
     question: "What is the lead time and minimum order for FRP I-beams?",
@@ -266,9 +266,9 @@ export default async function IBeamPage() {
               </p>
               <div className="mt-[16px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E23</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Corrosion-free</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">No rust</span>
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Non-conductive</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ISO 9001:2015</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASTM D3917 tolerances</span>
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
@@ -441,7 +441,7 @@ export default async function IBeamPage() {
                 <li>Coastal, chemical, wastewater, or de-icing-salt exposure where steel needs recoating cycles.</li>
                 <li>Electrical insulation or nonmagnetic performance is required (substations, rail systems, and MRI rooms).</li>
                 <li>Manual handling matters — crews lift FRP sections without cranes or hot-work permits.</li>
-                <li>A maintenance-free design life of 25–50+ years makes FRP more competitive on lifecycle cost.</li>
+                <li>The structure should last decades without recoating, which is where FRP wins on lifecycle cost.</li>
               </ul>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">

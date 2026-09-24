@@ -15,7 +15,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profiles for Bridges & Infrastructure",
   description:
-    "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails, utility poles. 75+ year design life, zero corrosion.",
+    "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails and utility poles that do not rust and need no recoating.",
   path: "/industries/infrastructure",
   image: "/industries/infrastructure/opengraph-image",
 });
@@ -34,7 +34,7 @@ const answerItems = [
   {
     question: "How long can FRP infrastructure components last?",
     answer:
-      "Properly specified FRP infrastructure components are commonly designed for 75 to 100 years of service life, with far lower corrosion-related maintenance than steel alternatives.",
+      "Properly specified FRP infrastructure components can be designed for 75- to 100-year service lives when the resin, UV protection, connections and inspection plan support it, and they avoid the corrosion maintenance of steel.",
   },
   {
     question: "What is the main economic advantage of FRP for bridge rehabilitation?",
@@ -72,7 +72,7 @@ export default function InfrastructurePage() {
     "@type": "WebPage",
     name: "FRP Composite Profiles for Infrastructure",
     description:
-      "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails, utility poles. 75+ year design life, zero corrosion.",
+      "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails and utility poles that do not rust and need no recoating.",
     url: absoluteUrl("/industries/infrastructure"),
     about: {
       "@type": "Thing",
@@ -87,7 +87,7 @@ export default function InfrastructurePage() {
       <PageHeader
         tag="Industries / Infrastructure"
         title="FRP Composite Profiles for Infrastructure"
-        description="Fiber-reinforced polymer (FRP) profiles deliver 75+ year design life for bridge decks, pedestrian structures, handrails, and utility infrastructure — eliminating the corrosion cycle that degrades steel and concrete assets."
+        description="Fiber-reinforced polymer (FRP) profiles for bridge decks, pedestrian structures, handrails and utility infrastructure. They do not rust, so they avoid the corrosion cycle that wears out steel and reinforced concrete."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
@@ -195,7 +195,7 @@ export default function InfrastructurePage() {
                 FRP poles provide inherent electrical insulation, reducing fault current propagation and improving line worker safety. They do not burn in wildfire zones — a critical advantage in regions where wood pole ignition has been identified as a wildfire initiation vector. Pacific Gas & Electric and other western US utilities have begun deploying FRP poles in high fire-threat districts specifically for this reason.
               </p>
               <p>
-                Our FRP lighting standards and signal poles serve municipal and highway applications. These poles resist salt spray corrosion in coastal environments and de-icing chemical exposure along roadways, maintaining their structural integrity and appearance for 50+ years without repainting or retreatment.
+                Our FRP lighting standards and signal poles serve municipal and highway applications. These poles resist salt spray corrosion in coastal environments and de-icing chemical exposure along roadways, and need no repainting or retreatment to keep their structural integrity and appearance.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Cable Trays and Conduit Systems</h3>
@@ -217,7 +217,7 @@ export default function InfrastructurePage() {
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">75+ year design life</strong> with zero corrosion maintenance in de-icing salt and coastal environments</span>
+                  <span><strong className="text-t1">No rust and no recoating</strong> in de-icing salt and coastal environments</span>
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />

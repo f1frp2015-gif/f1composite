@@ -18,7 +18,6 @@ test("every reusable FAQ surface is one column on mobile and two columns from md
   const paths = [
     "components/ui/FAQ.tsx",
     "components/sections/AnswerBlocks.tsx",
-    "components/sections/HomeFAQ.tsx",
   ];
   const sources = await Promise.all(paths.map(readSource));
 

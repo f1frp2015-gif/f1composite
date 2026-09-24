@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profiles for Transport & Vehicle Structures",
   description:
-    "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars, and specialty transport — 75% lighter than steel, corrosion-free.",
+    "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars and specialty transport: about 75% lighter than steel, and they do not rust.",
   path: "/industries/vehicle",
   image: "/industries/vehicle/opengraph-image",
 });

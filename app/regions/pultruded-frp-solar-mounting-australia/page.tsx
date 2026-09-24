@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "FRP Solar Mounting Australia — Fiberglass Racking Supplier";
 const pageDescription =
-  "Pultruded FRP solar racking for AU utility, commercial, rooftop. Corrosion-proof, AS/NZS-compliant, lower foundation cost than aluminum, 25-yr UV-stable.";
+  "Pultruded FRP solar racking for Australian utility, commercial and rooftop projects: rust-free, designed to AS/NZS 1170.2 wind loads, lighter foundations.";
 const pagePath = "/regions/pultruded-frp-solar-mounting-australia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -75,7 +75,7 @@ export default function AustraliaSolarPage() {
       <PageHeader
         tag="Australia"
         title="Pultruded FRP Solar Mounting for Australian Projects"
-        description="Direct-from-factory fiberglass solar racking and mounting profiles for Australian utility-scale, commercial, and rooftop solar. AS/NZS 1170.2 wind compliant, 25-year UV-stable, 30% lighter than aluminum 6063. CIF or DAP to all major Australian ports."
+        description="Fiberglass solar racking and mounting profiles for Australian utility-scale, commercial and rooftop solar, designed to AS/NZS 1170.2 wind loads with UV-stabilised resin. CIF or DAP to all major Australian ports."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/pultruded-frp-solar-mounting-australia" },
@@ -207,11 +207,11 @@ export default function AustraliaSolarPage() {
               <p className="mt-[5px] text-f13 leading-golden text-t2">FRP profiles in solar mounting, wind turbine secondary structures, and substation hardware.</p>
             </Link>
             <Link
-              href="/case-studies/solar-farm-mounting"
+              href="/case-studies/chongqing-rooftop-pv-frp-rail"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Case Study: Solar Farm Mounting</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Project-scale FRP solar racking — installed weight, foundation savings, and 10-year UV inspection report.</p>
+              <h3 className="text-f15 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">Pultruded GFRP H-rail on colour steel-tile roofs, installed within the roofs&rsquo; original load reserve.</p>
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"

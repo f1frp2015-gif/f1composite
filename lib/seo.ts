@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { customerReviews } from "@/content/data/reviews";
+import { company, companyStatements } from "@/content/data/company";
 
 const SITE_URL = "https://www.f1composite.com";
 
@@ -7,9 +8,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
-  name: "F1 Composite",
-  alternateName: ["F1 Composites", "Chongqing F1 Composites Co., Ltd."],
-  legalName: "Chongqing F1 Composites Co., Ltd.",
+  name: company.brand,
+  alternateName: [...company.alternateNames],
+  legalName: company.legalName,
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -17,27 +18,32 @@ export const organizationSchema = {
     width: 512,
     height: 512,
   },
-  description:
-    "F1 Composite is FengDu New Material's international export company for pultruded FRP profiles, serving construction, infrastructure, energy, marine, industrial, and fenestration projects worldwide.",
-  foundingDate: "2015",
+  description: companyStatements.relationship,
+  disambiguatingDescription: companyStatements.disambiguation,
+  foundingDate: company.foundingYear,
+  parentOrganization: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#fengdu-new-material`,
+    name: company.parent.name,
+    subOrganization: {
+      "@type": "Organization",
+      name: company.manufacturer.name,
+    },
+  },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "No. 153 Jinyu Avenue, Cuntan Street",
-    addressLocality: "Chongqing",
-    addressRegion: "Liangjiang New Area",
-    postalCode: "401121",
-    addressCountry: "CN",
+    ...company.address,
   },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "inquiry@f1composite.com",
-    telephone: "+86-138-8333-8993",
-    availableLanguage: ["English", "Chinese"],
+    email: company.contact.email,
+    telephone: company.contact.phone,
+    availableLanguage: [...company.contact.languages],
     areaServed: "Worldwide",
   },
   naics: "326199",
-  sameAs: ["https://www.youtube.com/@F1Composites"],
+  sameAs: [...company.sameAs],
 };
 
 interface PageMetadataOptions {
@@ -45,6 +51,13 @@ interface PageMetadataOptions {
   description: string;
   path: string;
   image?: string;
+  /** Emits og:type "article" with article:* tags (blog posts and case studies). */
+  article?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    authors?: string[];
+    section?: string;
+  };
 }
 
 interface ProductFamilyPageSchemaOptions {
@@ -140,6 +153,7 @@ export function buildPageMetadata({
   description,
   path,
   image = "/opengraph-image",
+  article,
 }: PageMetadataOptions): Metadata {
   enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
@@ -155,13 +169,25 @@ export function buildPageMetadata({
     alternates: {
       canonical: url,
     },
-    openGraph: {
-      title,
-      description,
-      url,
-      type: "website",
-      images: [{ url: imageUrl, width: 1200, height: 630 }],
-    },
+    openGraph: article
+      ? {
+          title,
+          description,
+          url,
+          type: "article",
+          images: [{ url: imageUrl, width: 1200, height: 630 }],
+          ...(article.publishedTime && { publishedTime: article.publishedTime }),
+          ...(article.modifiedTime && { modifiedTime: article.modifiedTime }),
+          ...(article.authors?.length && { authors: article.authors }),
+          ...(article.section && { section: article.section }),
+        }
+      : {
+          title,
+          description,
+          url,
+          type: "website",
+          images: [{ url: imageUrl, width: 1200, height: 630 }],
+        },
     twitter: {
       card: "summary_large_image",
       title,

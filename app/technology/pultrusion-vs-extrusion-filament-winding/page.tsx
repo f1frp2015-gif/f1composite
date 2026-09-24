@@ -42,9 +42,9 @@ const comparisonData: CompRow[] = [
   },
   {
     property: "Matrix material",
-    pultrusion: "Thermoset resin (polyester, vinyl ester, PU, phenolic) — cures in the die",
-    extrusion: "Thermoplastic (PVC, ABS, nylon, aluminum) — cools and solidifies after the die",
-    filamentWinding: "Thermoset resin (epoxy, vinyl ester) — cures on or off the mandrel",
+    pultrusion: "Thermoset resin (polyester, vinyl ester, PU, phenolic): cures in the die",
+    extrusion: "Thermoplastic (PVC, ABS, nylon, aluminum): cools and solidifies after the die",
+    filamentWinding: "Thermoset resin (epoxy, vinyl ester): cures on or off the mandrel",
   },
   {
     property: "Fiber orientation",
@@ -60,9 +60,9 @@ const comparisonData: CompRow[] = [
   },
   {
     property: "Continuous open sections (I-beam, channel, angle)?",
-    pultrusion: "Yes — this is pultrusion's core capability",
-    extrusion: "Yes, in aluminum or rigid PVC — but without continuous-fiber reinforcement",
-    filamentWinding: "No — winding a fiber tow onto a mandrel cannot produce an open section",
+    pultrusion: "Yes. This is pultrusion's core capability",
+    extrusion: "Yes, in aluminum or rigid PVC, but without continuous-fiber reinforcement",
+    filamentWinding: "No: winding a fiber tow onto a mandrel cannot produce an open section",
   },
   {
     property: "Longitudinal tensile strength (typical)",
@@ -82,17 +82,17 @@ const faqs = [
   {
     question: "Is pultrusion the same as extrusion?",
     answer:
-      "No. Both processes push or pull material through a shaping die to produce a constant cross-section, which is why the names sound similar, but the material physics are different. Pultrusion pulls continuous fiber reinforcement through a resin bath and then a heated die, where a thermoset resin cures into a rigid, fiber-reinforced composite. Extrusion pushes a heated thermoplastic (or a thermoplastic with short/chopped fiber filler) through a die under pressure, then cools it to solidify — there is no continuous fiber running the length of the part. The result: pultruded FRP achieves substantially higher longitudinal tensile strength and stiffness-to-weight than an extruded plastic profile of the same cross-section.",
+      "No. Both processes push or pull material through a shaping die to produce a constant cross-section, which is why the names sound similar, but the material physics are different. Pultrusion pulls continuous fiber reinforcement through a resin bath and then a heated die, where a thermoset resin cures into a rigid, fiber-reinforced composite. Extrusion pushes a heated thermoplastic (or a thermoplastic with short/chopped fiber filler) through a die under pressure, then cools it to solidify. There is no continuous fiber running the length of the part. The result: pultruded FRP achieves substantially higher longitudinal tensile strength and stiffness-to-weight than an extruded plastic profile of the same cross-section.",
   },
   {
     question: "Can extrusion produce the same structural shapes as pultrusion?",
     answer:
-      "Aluminum and rigid PVC extrusion can produce visually similar open shapes — I-beams, channels, angles, window frames. The limitation is material, not geometry: without continuous fiber reinforcement, an extruded profile's longitudinal strength and stiffness are governed by the base material alone (aluminum's modulus, or unreinforced/short-fiber-filled thermoplastic's much lower strength). For structural spans, corrosion-critical environments, or electrical/thermal insulation requirements, pultruded FRP outperforms extruded alternatives at a comparable or lighter cross-section.",
+      "Aluminum and rigid PVC extrusion can produce visually similar open shapes: I-beams, channels, angles, window frames. The limitation is material, not geometry: without continuous fiber reinforcement, an extruded profile's longitudinal strength and stiffness are governed by the base material alone (aluminum's modulus, or unreinforced/short-fiber-filled thermoplastic's much lower strength). For structural spans, corrosion-critical environments, or electrical/thermal insulation requirements, pultruded FRP outperforms extruded alternatives at a comparable or lighter cross-section.",
   },
   {
     question: "Why can't filament winding make an I-beam or channel?",
     answer:
-      "Filament winding wraps a resin-wetted fiber tow around a rotating mandrel. The mandrel geometry has to allow the finished part to be removed or dissolved after cure, which restricts the process to hollow, rotationally symmetric shapes — pipes, tanks, pressure vessels. There is no mandrel geometry that produces an open cross-section like an I-beam or channel, so filament winding and pultrusion serve different shape families rather than competing on the same part.",
+      "Filament winding wraps a resin-wetted fiber tow around a rotating mandrel. The mandrel geometry has to allow the finished part to be removed or dissolved after cure, which restricts the process to hollow, rotationally symmetric shapes: pipes, tanks, pressure vessels. There is no mandrel geometry that produces an open cross-section like an I-beam or channel, so filament winding and pultrusion serve different shape families rather than competing on the same part.",
   },
   {
     question: "Which process gives the highest fiber-direction strength?",
@@ -102,7 +102,7 @@ const faqs = [
   {
     question: "Does F1 Composite manufacture filament-wound products?",
     answer:
-      "No — F1 Composite specializes in pultrusion: continuous, constant-cross-section structural profiles, gratings, and fenestration systems (I-beams, channels, angles, tubes, flat bars, rods, and custom sections). We do not filament-wind pipe or pressure vessels, and we do not pretend otherwise. If a project needs a filament-wound tank or large-diameter pressure pipe, that requires a different specialist process; our custom pultrusion capability covers open and closed constant-cross-section geometries instead.",
+      "No. F1 Composite specializes in pultrusion: continuous, constant-cross-section structural profiles, gratings, and fenestration systems (I-beams, channels, angles, tubes, flat bars, rods, and custom sections). We do not filament-wind pipe or pressure vessels, and we do not pretend otherwise. If a project needs a filament-wound tank or large-diameter pressure pipe, that requires a different specialist process; our custom pultrusion capability covers open and closed constant-cross-section geometries instead.",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       <PageHeader
         tag="Manufacturing Process Comparison"
         title="Pultrusion vs Extrusion vs Filament Winding"
-        description="Three continuous composite/plastic manufacturing processes are often confused because they all push or pull material through a die or mandrel. Here's how they actually differ — and which shapes each one can and cannot make."
+        description="Three continuous composite/plastic manufacturing processes are often confused because they all push or pull material through a die or mandrel. Here's how they actually differ, and which shapes each one can and cannot make."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -149,10 +149,10 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
             Same-sounding names, three different shape and property envelopes
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Pultrusion, extrusion, and filament winding are all continuous manufacturing processes that shape material by moving it through (or around) a tool. That surface similarity is where the resemblance ends. Pultrusion pulls continuous fiber through a heated die to make open or closed constant-cross-section structural profiles. Extrusion pushes a thermoplastic melt through a die to make thin-wall profiles with no continuous fiber reinforcement. Filament winding wraps continuous fiber around a rotating mandrel to build hollow, rotationally symmetric shapes like pipe and tanks — geometrically incapable of producing an open section such as an I-beam.
+            Pultrusion, extrusion, and filament winding are all continuous manufacturing processes that shape material by moving it through (or around) a tool. That surface similarity is where the resemblance ends. Pultrusion pulls continuous fiber through a heated die to make open or closed constant-cross-section structural profiles. Extrusion pushes a thermoplastic melt through a die to make thin-wall profiles with no continuous fiber reinforcement. Filament winding wraps continuous fiber around a rotating mandrel to build hollow, rotationally symmetric shapes like pipe and tanks, geometrically incapable of producing an open section such as an I-beam.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Confusing the three usually happens at the RFQ stage — a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
+            Confusing the three usually happens at the RFQ stage: a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
           </p>
           <div className="mt-[21px] max-w-[860px]">
             <ProcessTrio />
@@ -167,7 +167,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
             Side-by-side: pultrusion, extrusion, and filament winding
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Property ranges are representative figures for typical material combinations in each process (E-glass/polyester pultrusion, rigid PVC or aluminum extrusion, E-glass/epoxy filament winding) — not a single-product datasheet.
+            Property ranges are representative figures for typical material combinations in each process (E-glass/polyester pultrusion, rigid PVC or aluminum extrusion, E-glass/epoxy filament winding). They are not a single-product datasheet.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
             <table className="w-full min-w-[900px] border-collapse text-f13">
@@ -201,7 +201,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
             Same die concept, different material physics
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Both processes force material through a fixed-geometry die to produce a constant cross-section — this is why the two get confused, and why &ldquo;pull&rdquo; and &ldquo;extrusion&rdquo; were combined to name pultrusion in the first place. The difference is what goes into the die. Pultrusion pulls continuous fiber roving through a resin bath and then the heated die, where the thermoset resin cures irreversibly. Extrusion pushes a thermoplastic melt (with no continuous fiber, or only short/chopped fiber filler) through the die and cools it to solidify — a reversible physical change, which is also why extruded thermoplastics can be reground and re-extruded, while cured thermoset FRP cannot.
+            Both processes force material through a fixed-geometry die to produce a constant cross-section. This is why the two get confused, and why &ldquo;pull&rdquo; and &ldquo;extrusion&rdquo; were combined to name pultrusion in the first place. The difference is what goes into the die. Pultrusion pulls continuous fiber roving through a resin bath and then the heated die, where the thermoset resin cures irreversibly. Extrusion pushes a thermoplastic melt (with no continuous fiber, or only short/chopped fiber filler) through the die and cools it to solidify: a reversible physical change, which is also why extruded thermoplastics can be reground and re-extruded, while cured thermoset FRP cannot.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             The practical consequence for a specifying engineer: an extruded aluminum or PVC profile and a pultruded FRP profile can look identical on a drawing, but they are not interchangeable on load-bearing, corrosion, or electrical-insulation performance. Aluminum extrusion is genuinely strong and stiff (see the{" "}
@@ -220,10 +220,10 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
             Open sections vs hollow rotational shapes
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Pultrusion and filament winding both lay continuous fiber into a thermoset matrix, so the raw materials can be nearly identical — the difference is entirely in the tooling geometry and fiber path. Pultrusion pulls fiber lengthwise through a stationary die, which is why it can produce open sections (I-beams, channels, angles) as easily as closed ones (tubes, rods). Filament winding wraps fiber around a rotating mandrel at a controlled helix or hoop angle, which only works for hollow, axisymmetric parts that can be slid or dissolved off the mandrel after cure — pipe, tanks, and pressure vessels.
+            Pultrusion and filament winding both lay continuous fiber into a thermoset matrix, so the raw materials can be nearly identical: the difference is entirely in the tooling geometry and fiber path. Pultrusion pulls fiber lengthwise through a stationary die, which is why it can produce open sections (I-beams, channels, angles) as easily as closed ones (tubes, rods). Filament winding wraps fiber around a rotating mandrel at a controlled helix or hoop angle, which only works for hollow, axisymmetric parts that can be slid or dissolved off the mandrel after cure: pipe, tanks, and pressure vessels.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            This is a hard geometric boundary, not a cost or quality trade-off: no amount of tooling investment lets filament winding produce an I-beam, and pultrusion cannot economically produce a large-diameter pressure vessel with hoop-dominant fiber orientation. F1 Composite&rsquo;s process is pultrusion — see{" "}
+            This is a hard geometric boundary, not a cost or quality trade-off: no amount of tooling investment lets filament winding produce an I-beam, and pultrusion cannot economically produce a large-diameter pressure vessel with hoop-dominant fiber orientation. F1 Composite&rsquo;s process is pultrusion; see{" "}
             <Link href="/technology/pultrusion-process" className="text-teal-text hover:underline">
               how our pultrusion lines work
             </Link>{" "}

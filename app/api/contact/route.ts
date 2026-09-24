@@ -67,6 +67,13 @@ export async function POST(request: NextRequest) {
   if (textBytes > 64 * 1024) return NextResponse.json({ message: "Please shorten the inquiry text or attach a schedule." }, { status: 400 });
   if (formData.getAll("attachment").filter(value => value instanceof File && value.size > 0).length > 1) return NextResponse.json({ message: "Please attach one file or a single ZIP bundle." }, { status: 400 });
   const text = (key: string) => { const value = formData.get(key); return typeof value === "string" ? value : null; };
+  // Spam trap from the contact form: the hidden company_website field is never
+  // shown to people, and no one completes the form in under 0.8 s. Both checks
+  // apply only when the form sent those fields.
+  const elapsed = Number(text("form_elapsed_ms"));
+  if (text("company_website")?.trim() || (text("form_elapsed_ms") !== null && Number.isFinite(elapsed) && elapsed < 800)) {
+    return NextResponse.json({ accepted: false, message: "We could not accept this submission. Please email inquiry@f1composite.com instead." }, { status: 400 });
+  }
   let context = parseContext(text("context"));
   let windowInquiry;
   try {

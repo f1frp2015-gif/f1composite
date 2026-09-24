@@ -11,7 +11,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP Pultrusion Supplier USA — ASTM-Compliant Profiles";
 const pageDescription =
-  "Choose an FRP pultrusion supplier for USA projects with ASTM-tested profiles, transparent Section 301 costs, DDP delivery and engineering support.";
+  "Pultruded FRP profiles for USA projects: ASTM test methods, US duties itemized in every DDP quote, and engineering support from F1 Composite.";
 const pagePath = "/regions/frp-pultrusion-supplier-usa";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -24,22 +24,22 @@ const faqs = [
   {
     question: "How does F1 Composite handle Section 301 tariffs on FRP from China?",
     answer:
-      "We quote Section 301 25% inline in every DDP USA price — no surprise on landed cost, no last-minute customs charge. We classify under HTSUS 3926.90 or 7019 depending on configuration; the duty rate is locked into the quote at PO acceptance, and we ship under DDP with our US customs broker handling clearance. For projects that require duty optimization, we discuss Foreign Trade Zone delivery and Mexico nearshoring as a Year 2+ option — but for Day 1 the COO is honestly China, and the tariff is paid transparently. Buyers consistently tell us that transparent landed-cost beats undisclosed surprise charges by competitors.",
+      "Every DDP USA quote itemizes the US duties that apply at the time of shipment, including Section 301 duties on goods from China, so the landed cost has no hidden customs charge. We state the HTSUS classification we use (usually 3926.90 or 7019, depending on the product), and our customs broker handles clearance. If your project needs duty planning, raise it at the RFQ stage; the country of origin for F1 profiles is China.",
   },
   {
     question: "Which US standards are F1 Composite FRP profiles tested to?",
     answer:
-      "Our standard portfolio is tested to: ASTM E84 (Class A / Class 1 flame spread, FSI ≤ 25), AAMA 2604 and 2605 (architectural-grade powder coatings, 10-year South Florida exposure), ASTM D635 (self-extinguishing), ASTM D790 (flexural), ASTM D638 (tensile), ASTM D2344 (shear), and ASTM D3917 (pultrusion dimensional tolerance). Fenestration carries PHIUS-aligned PHI Component Certificate 2491wi03 (U_w = 0.78 W/m²·K, phB class), which is recognized across PHIUS projects in the United States and Canada. For Davis-Bacon, federal, or BABA-restricted projects, we route through US specifier and EPC partners rather than direct supply — see the next FAQ.",
+      "Mechanical and dimensional QA uses ASTM D638 (tensile), D790 (flexural), D2344 (short-beam shear) and D3917 (dimensional tolerance). Fire test reports (ASTM E84, ASTM D635) for fire-retardant formulations and coating reports (AAMA 2604 / 2605) for finished sections are provided on request with the report number and scope, so you can match them to the exact product. For windows, the 90-series frame holds Passive House Institute (PHI) component certificate 2491wi03 (Uw 0.78 W/m²·K, phB class). PHIUS runs its own certification, so for a PHIUS project we supply the PHI certificate and frame data for your energy model. For Davis-Bacon, federal or BABA-restricted projects, see the next question.",
   },
   {
     question: "Can I use F1 Composite FRP on Buy America Act / BABA federal projects?",
     answer:
-      "Not directly on federal-funded BABA projects requiring US-manufactured content. F1's Day 1 production is all in Chongqing, China; we do not pretend otherwise. For BABA-covered work, the practical path is OEM/specifier partnership: a US fabricator installs F1 profiles into a finished assembly that qualifies for substantial transformation under their domestic manufacturing operation. State DOT projects, private EPC, and most commercial / industrial work outside federal grants are fully open. We can introduce you to US-based fabrication partners who routinely take our profiles and produce BABA-eligible assemblies.",
+      "Not directly on federally funded BABA projects that require US-manufactured content: F1 profiles are made in China. A US fabricator may be able to process F1 profiles into a finished assembly under its own domestic manufacturing; confirm eligibility with the funding agency before you specify. State DOT projects, private EPC work and most commercial and industrial projects outside federal grants have no such restriction.",
   },
   {
     question: "What are the lead times and shipping options to US ports?",
     answer:
-      "Standard schedule from PO: 4–6 weeks production + 16–22 days sea freight to Los Angeles / Long Beach (West Coast) or 28–32 days to New York / Savannah / Houston (East and Gulf Coast). Total PO-to-jobsite is typically 8–12 weeks DDP. For urgent samples or replacement parts, air freight ex-Shanghai to any major US hub adds 4–6 days at premium cost. Starting Month 6, F1 maintains a US 3PL buffer stock in NJ and TX for the most common standard sections — enables 1-week DAP delivery to most CONUS destinations on stock items.",
+      "Production takes 2–4 weeks for catalog sections and 4–6 weeks for variants on an existing die. Sea freight adds about 16–22 days to Los Angeles or Long Beach and 28–32 days to New York, Savannah or Houston, so purchase order to jobsite is typically 8–12 weeks DDP. Urgent samples or replacement parts can go by air from Shanghai to a major US hub at extra cost.",
   },
   {
     question: "What is the MOQ for custom pultrusion in the US market?",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "How does F1's FRP compare to Strongwell, Creative Pultrusions, and Bedford Reinforced?",
     answer:
-      "F1 matches or exceeds those vendors on ASTM E84 fire performance and EN 13706 mechanical grade, with comparable resin chemistry options (isophthalic polyester, vinyl ester, fire-retardant, premium phenolic). Differences: F1 holds 800+ existing die sections (vs ~200–300 at most US competitors), so engineered profiles often don't require new tooling. Pricing on standard sections is 30–50% below Strongwell/CPI before Section 301; even after 25% duty, F1 lands at 5–20% below US-stocked equivalent on most sections. For ASCE/SEI 74-23 LRFD design data and ICC-ES recognition, our partner-fabricator program supplies the same compliance documentation as a US-stocked profile. Detailed head-to-head at /resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide.",
+      "The resin options are comparable: isophthalic polyester, vinyl ester, fire-retardant grades and phenolic. The main practical difference is tooling. FengDu's production network has more than 1,000 existing dies, so many engineered profiles do not need a new die. On price, send us your section list and quantities and we will quote DDP to your site, so you can compare landed cost with your current supplier line by line. For ASCE/SEI 74-23 design data, ask for the section properties and test reports for the profiles you plan to use.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function UsaRegionPage() {
       <PageHeader
         tag="United States"
         title="FRP pultrusion supplier for USA projects"
-        description="Custom and standard pultruded FRP profiles, gratings, and PHIUS-certified fenestration supplied direct by F1 Composite, with ASTM documentation and transparent Section 301 costs in every DDP USA quote."
+        description="Custom and standard pultruded FRP profiles, grating and PHI-certified window frames from F1 Composite, with ASTM test documentation and US duties itemized in every DDP quote."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-pultrusion-supplier-usa" },
@@ -107,21 +107,22 @@ export default function UsaRegionPage() {
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                US specifiers and EPC procurement teams sourcing FRP face three structural challenges that domestic distributors don&rsquo;t advertise: Section 301 25% tariff on Chinese composites that is often quoted opaquely, BABA / Buy America restrictions on federal-funded projects, and UFLPA supply-chain traceability requirements. F1 Composite addresses all three head-on. Section 301 is pre-quoted in every DDP USA price. BABA-covered work is routed through US specifier-fabricator partnerships rather than direct supply. UFLPA traceability documentation is supplied as standard with every shipment.
+                Buying FRP from China raises three questions for US specifiers and EPC buyers: what the duties add to the price, whether the project falls under Buy America / BABA rules, and what supply-chain documents customs will ask for under UFLPA. We answer them up front. Duties, including Section 301, are itemized in every DDP quote. BABA-covered work needs a US manufacturing step, so we do not supply it directly. Supply-chain traceability documents are prepared with each shipment.
               </p>
               <p>
-                What remains is what US buyers actually want from a pultrusion source: ASTM E84 Class A fire performance, AAMA 2604 / 2605 architectural finishes, PHIUS-aligned thermal performance, and engineered custom cross-sections cut from F1&rsquo;s library of 800+ existing dies. The combination delivers 5–20% landed cost savings versus US-stocked equivalents on most sections, with engineering response times measured in days, not weeks.
+                The rest is the usual engineering work: fire-retardant formulations with ASTM E84 reports on request, AAMA 2604 / 2605 coatings for architectural sections, low-conductivity window frames, and custom sections that can often use one of FengDu&rsquo;s more than 1,000 existing dies. Send a section list and we will quote DDP so you can compare landed cost with your current supplier.
               </p>
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                F1 Composite is FengDu New Material&rsquo;s international export company.
-                FengDu operates 5 production bases, 370 pultrusion lines, 150,000
-                tons/year capacity, and 1,000+ existing die sets; F1 handles U.S.
-                engineering support, contracts, documentation, and delivery.
+                F1 Composite is the export company of FengDu New Material. FengDu
+                runs 5 production bases with 370 pultrusion lines, about 150,000
+                tonnes a year of capacity and more than 1,000 existing dies. F1
+                handles engineering support, contracts, documents and delivery for
+                U.S. buyers.
               </p>
               <p>
-                For Passive House projects specifically: our 90 Series GFRP-PU window frame system holds <strong>PHI Component Certificate 2491wi03</strong> (U_w = 0.78 W/m²·K, phB class) — recognized across PHIUS projects in the United States and Canada. Drop-in replacement for aluminum or fiberglass frames on any PHIUS-certifying building, with architectural-grade powder coating in any RAL color via AAMA 2604 / 2605 systems.
+                For Passive House projects, our 90-series GFRP-PU window frame holds Passive House Institute <strong>component certificate 2491wi03</strong> (Uw 0.78 W/m²·K, phB class). PHIUS certifies buildings with its own window data, so for a PHIUS project we provide the PHI certificate and frame values for your energy model. Frames can be powder coated in RAL colors with AAMA 2604 / 2605 systems.
               </p>
             </div>
           </div>
@@ -132,7 +133,7 @@ export default function UsaRegionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>US Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            ASTM, AAMA, PHIUS — the certifications your spec engineer is looking for
+            ASTM, AAMA and Passive House documents for US specifications
           </h2>
           <div className="mt-[34px] overflow-x-auto">
             <table className="w-full border-collapse text-left">
@@ -140,20 +141,20 @@ export default function UsaRegionPage() {
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Application</th>
                   <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">US Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
+                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
                   <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { app: "Fire — interior structural", std: "ASTM E84 Class A", perf: "FSI ≤ 25 · SDI ≤ 450", doc: "3rd-party test report" },
-                  { app: "Fenestration thermal", std: "PHIUS / PHI Component", perf: "U_w 0.78, Cert 2491wi03", doc: "PHI certificate" },
-                  { app: "Architectural coating", std: "AAMA 2604", perf: "10-yr South Florida verified", doc: "AAMA-listed coater report" },
-                  { app: "Premium coating (PVDF)", std: "AAMA 2605", perf: "Highest exterior tier", doc: "AAMA-listed coater report" },
-                  { app: "Grating slip resistance", std: "ASTM F3125 / AS 4586", perf: "Class R10–R13 surface", doc: "Slip test report" },
-                  { app: "Tensile / flexural QA", std: "ASTM D638 / D790", perf: "Per-batch MTC", doc: "Batch test certificate" },
-                  { app: "Pultrusion tolerance", std: "ASTM D3917", perf: "±0.25 mm (tighter than ±0.3)", doc: "Dimensional report" },
-                  { app: "Bridge / vehicular deck", std: "AASHTO H-5 / H-10 / H-20", perf: "Pultruded deck plank options", doc: "Engineering calculation pack" },
+                  { app: "Fire — interior structural", std: "ASTM E84 (FSI ≤ 25 target)", perf: "Fire-retardant formulations", doc: "Test report on request" },
+                  { app: "Window thermal", std: "PHI component certificate", perf: "Uw 0.78, certificate 2491wi03", doc: "PHI certificate (published)" },
+                  { app: "Architectural coating", std: "AAMA 2604", perf: "Powder coating on finished sections", doc: "Coater report on request" },
+                  { app: "Premium coating (PVDF)", std: "AAMA 2605", perf: "PVDF coating on finished sections", doc: "Coater report on request" },
+                  { app: "Grating slip resistance", std: "AS 4586 surface classes", perf: "Gritted grating surfaces", doc: "Slip test report on request" },
+                  { app: "Tensile / flexural QA", std: "ASTM D638 / D790", perf: "Batch testing", doc: "Batch test certificate" },
+                  { app: "Pultrusion tolerance", std: "ASTM D3917", perf: "Dimensional checks per order", doc: "Dimensional report" },
+                  { app: "Bridge / vehicular deck", std: "AASHTO load classes", perf: "Pultruded deck plank options", doc: "Project calculation on request" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
                     <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
@@ -178,18 +179,18 @@ export default function UsaRegionPage() {
             {[
               {
                 step: "1",
-                title: "RFQ → DDP USA quote within 24 hours",
-                body: "Send us a drawing or section sketch, the target quantity, and the delivery state. F1 will provide complete DDP pricing for the United States, with the 25% Section 301 tariff itemized, plus the HTSUS classification and estimated delivery date to your jobsite.",
+                title: "RFQ and DDP USA quote",
+                body: "Send a drawing or section sketch, the quantity and the delivery state. We reply within one business day, then quote DDP to your site with US duties itemized, the HTSUS classification and an estimated delivery date.",
               },
               {
                 step: "2",
-                title: "Production in 4–6 weeks · MTC for each batch",
-                body: "We manufacture the order at one of five F1 production facilities. Each batch includes a Mill Test Certificate. A report from an AAMA-listed coating applicator is included for finished sections, and third-party fire and slip-resistance test reports are available on request.",
+                title: "Production and batch certificates",
+                body: "Catalog sections take 2–4 weeks and variants on an existing die 4–6 weeks, in FengDu's production network. Each batch ships with a mill test certificate. Coating reports for finished sections and third-party fire and slip-resistance reports are provided on request.",
               },
               {
                 step: "3",
                 title: "Ocean freight and DDP delivery",
-                body: "Ocean transit takes 16–22 days to Los Angeles or Long Beach and 28–32 days to New York, Savannah, or Houston. The total lead time from purchase order to jobsite is 8–12 weeks. Starting in month six, buffer stock at third-party logistics facilities in New Jersey and Texas enables one-week DAP delivery for common sections.",
+                body: "Ocean transit takes 16–22 days to Los Angeles or Long Beach and 28–32 days to New York, Savannah or Houston. Purchase order to jobsite is typically 8–12 weeks.",
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
@@ -202,7 +203,7 @@ export default function UsaRegionPage() {
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/custom-pultruded-profiles">Custom pultrusion capabilities</LinkArrow>
-            <LinkArrow href="/products/frp-window-frames">PHIUS-certified fenestration</LinkArrow>
+            <LinkArrow href="/products/frp-window-frames">PHI-certified window frames</LinkArrow>
             <LinkArrow href="/products/frp-gratings">Pultruded FRP gratings</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
             <LinkArrow href="/ai/passive-house">Passive house window selector</LinkArrow>
@@ -225,28 +226,28 @@ export default function UsaRegionPage() {
               href="/resources/blog/frp-fenestration-passivhaus-certification"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHIUS-certified GFRP frames (U_w 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">PHI Component Certificate 2491wi03 — drop-in Passive House frames for US projects.</p>
+              <h3 className="text-f15 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a US project.</p>
             </Link>
             <Link
               href="/resources/blog/frp-fire-resistance-ratings-guide"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">ASTM E84 Class A — FRP fire ratings</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">How resin chemistry and additives achieve North American Class 1 / Class A flame spread.</p>
+              <h3 className="text-f15 font-bold text-t1">ASTM E84 and FRP fire ratings</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">How resin chemistry and additives affect flame spread, and what a Class A report covers.</p>
             </Link>
             <Link
-              href="/resources/blog/frp-vs-aluminum-window-frames-comparison"
+              href="/technology/frp-vs-aluminum-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">FRP vs Aluminum — AAMA & thermal</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Why FRP wins on U-value and AAMA 2604/2605 architectural finishes for US projects.</p>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">U-values, structure and AAMA 2604 / 2605 finishes compared for US projects.</p>
             </Link>
           </div>
         </div>
       </section>
 
-      <InnerCTA title="Request a DDP USA quote with the Section 301 tariff itemized" />
+      <InnerCTA title="Request a DDP USA quote with duties itemized" />
     </>
   );
 }

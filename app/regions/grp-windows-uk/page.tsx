@@ -30,17 +30,17 @@ const faqs = [
   {
     question: "Do GRP windows meet Approved Document Part L and the Future Homes Standard?",
     answer:
-      "With margin. Part L in England sets a maximum U-value of 1.4 W/m²·K for replacement windows and points new dwellings toward 1.2, and the Future Homes Standard is tightening the envelope further. F1's 70-series GRP frames deliver whole-window U_w of 1.1–1.3 with standard triple glazing, and the 90-series is PHI-certified at U_w 0.78 W/m²·K (Component Certificate 2491wi03) — below the Passivhaus 0.80 criterion, which no Part L tier approaches. Because the entire frame is intrinsically insulating, these values need no thermal-break inserts and no steel stiffeners that bridge heat.",
+      "Yes. Part L in England sets a maximum U-value of 1.4 W/m²·K for replacement windows and points new dwellings toward 1.2, and the Future Homes Standard is tightening the envelope further. F1's 70-series GRP frames typically reach a whole-window U_w of 1.1–1.3 with triple glazing, depending on size, and the 90-series holds PHI component certificate 2491wi03 at U_w 0.78 W/m²·K, below the Passivhaus 0.80 criterion. The GRP frame needs no metal thermal break and no steel stiffeners that bridge heat.",
   },
   {
     question: "Are GRP windows suitable for UK Passivhaus and EnerPHit projects?",
     answer:
-      "Yes — this is the segment where GRP frames are strongest. The UK Passivhaus pipeline is growing, led by the social-housing and education sectors, and Scotland has moved to legislate a Passivhaus-equivalent standard for new homes. F1's 90-series GFRP-PU frame carries PHI Component Certificate 2491wi03 at U_w 0.78 W/m²·K, and the same system is installed at Qinling Station in Antarctica against a −60°C design low — the certification and the field evidence both sit below the 0.80 W/m²·K component criterion UK Passivhaus designers specify to.",
+      "Yes — this is the segment where GRP frames are strongest. The UK Passivhaus pipeline is growing, led by the social-housing and education sectors, and Scotland has moved to legislate a Passivhaus-equivalent standard for new homes. F1's 90-series GFRP-PU frame holds PHI component certificate 2491wi03 at U_w 0.78 W/m²·K, below the 0.80 W/m²·K component criterion UK Passivhaus designers work to. The same 90-series system was supplied for Qinling Station in Antarctica.",
   },
   {
     question: "What about CE marking, UKCA, and import duties for GRP windows into the UK?",
     answer:
-      "Windows are construction products. EN 14351-1 type testing for air permeability, watertightness, and wind resistance supports the Declaration of Performance, and CE marking remains recognized for construction products in Great Britain while the UKCA regime evolves. We provide the required documentation for each project. GRP is a glass-fiber composite classified under HS 3925.20 or 7019, so it falls outside the metal-focused trade remedies that affect aluminum extrusions and outside the scope of the UK CBAM announced for 2027, which covers iron, steel, and aluminum. Standard UK customs duties and 20% import VAT still apply and are itemized in our DDP quote.",
+      "Windows are construction products. EN 14351-1 type testing for air permeability, watertightness, and wind resistance supports the Declaration of Performance, and CE marking remains recognized for construction products in Great Britain while the UKCA regime evolves. CE / UKCA documentation for the supplied configuration is provided on request. GRP is a glass-fiber composite classified under HS 3925.20 or 7019, so it falls outside the metal-focused trade remedies that affect aluminum extrusions and outside the scope of the UK CBAM announced for 2027, which covers iron, steel, and aluminum. Standard UK customs duties and 20% import VAT still apply and are itemized in our DDP quote.",
   },
   {
     question: "What are lead times and shipping options to UK sites?",
@@ -140,9 +140,9 @@ export default function UkRegionPage() {
                 full landed cost before ordering.
               </p>
               <p>
-                UK projects choose the supply model: complete factory-glazed,
-                leak-tested GRP window units for Passivhaus and EnerPHit work where
-                airtightness must be guaranteed before shipment, or the pultruded
+                UK projects choose the supply model: complete factory-glazed GRP
+                window units for Passivhaus and EnerPHit work that want glazing and
+                gaskets fitted in the factory, or the pultruded
                 profile set — frame, sash, mullion, transom, glazing bead with
                 co-extruded EPDM gasketing — supplied to UK fabricators for local
                 assembly. EN 14351-1 type testing backs the Declaration of
@@ -203,8 +203,8 @@ export default function UkRegionPage() {
             {[
               {
                 step: "1",
-                title: "RFQ → DDP UK quote within 24 hours",
-                body: "Send us a drawing or section sketch, the target quantity, and the delivery region. F1 will provide complete DDP pricing in GBP or USD, with UK duties and 20% import VAT itemized, plus the HS classification and estimated delivery date.",
+                title: "RFQ and DDP UK quote",
+                body: "Send a drawing or section sketch, the quantity and the delivery region. We reply within one business day, then quote DDP in GBP or USD with UK duties and 20% import VAT itemized, the HS classification and an estimated delivery date.",
               },
               {
                 step: "2",

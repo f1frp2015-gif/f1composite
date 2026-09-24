@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "Quality and Testing",
-    title: "Certifications, QC Procedures, Mechanical Testing, and Batch Traceability",
+    title: "Quality control, mechanical testing and batch traceability",
     description:
-      "An overview of F1 Composite quality systems, EN and ASTM references, and the testing workflow behind each production run.",
+      "How F1 Composite profiles are inspected and tested, which EN and ASTM methods apply, and which reports come with an order.",
     accent: "#106f68",
-    chips: ["ISO 9001", "EN and ASTM", "Batch traceability"],
+    chips: ["EN and ASTM methods", "Published test reports", "Batch traceability"],
   });
 }

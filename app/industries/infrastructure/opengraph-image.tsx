@@ -8,8 +8,8 @@ export default function OpenGraphImage() {
     eyebrow: "Infrastructure",
     title: "FRP for Bridge Decks, Walkways, Utility Structures, and Civil Assets",
     description:
-      "Infrastructure applications where pultruded FRP reduces dead load, eliminates corrosion maintenance, and supports longer design life.",
+      "Infrastructure applications where pultruded FRP cuts dead load and avoids the recoating cycle of steel.",
     accent: "#11857d",
-    chips: ["Bridges and walkways", "75+ year design life", "Lower dead load"],
+    chips: ["Bridges and walkways", "No rust or recoating", "Lower dead load"],
   });
 }

@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP for Marine — Saltwater Structures & Docks",
   description:
-    "Pultruded FRP profiles and gratings for marine: docks, offshore platforms, walkways, tie-rods. 50+ year life in saltwater. EN 13706, ISO 9001.",
+    "Pultruded FRP profiles and grating for docks, offshore platforms, walkways and tie-rods: no rust in saltwater, vinyl ester options, EN 13706 profiles.",
   path: "/industries/marine",
   image: "/industries/marine/opengraph-image",
 });
@@ -146,7 +146,7 @@ export default function MarinePage() {
                 Timber has historically served marine applications well — dock decking, fender systems, and vessel interiors — but sustainability concerns and declining availability of naturally durable tropical hardwoods have reduced its viability. Treated softwoods leach preservative chemicals into marine environments, creating regulatory conflicts with water quality standards. Tropical hardwood alternatives face FSC certification requirements and supply chain uncertainties that complicate long-term specification.
               </p>
               <p>
-                These combined pressures — relentless corrosion, weight constraints, maintenance costs, and material sustainability — create a compelling case for fiber-reinforced polymer (FRP) composites. Pultruded FRP profiles are inherently immune to saltwater corrosion, weigh approximately 75% less than steel, and deliver a design life of 50+ years with zero maintenance in the most aggressive marine exposure conditions.
+                These combined pressures — relentless corrosion, weight constraints, maintenance costs, and material sustainability — create a compelling case for fiber-reinforced polymer (FRP) composites. Pultruded FRP profiles do not rust in saltwater, weigh about 75% less than steel, and need no recoating; with a suitable resin, UV protection and periodic inspection they suit even aggressive marine exposure.
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function MarinePage() {
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Zero corrosion</strong> in continuous saltwater immersion and splash zone exposure for 50+ years</span>
+                  <span><strong className="text-t1">No corrosion</strong> in continuous saltwater immersion and splash-zone exposure, with no coating to renew</span>
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
@@ -219,7 +219,7 @@ export default function MarinePage() {
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">60-70% reduction in maintenance costs</strong> versus steel dock structures over a 30-year lifecycle</span>
+                  <span><strong className="text-t1">Lower maintenance cost</strong> than steel dock structures over a 30-year lifecycle, because there is no recoating</span>
                 </li>
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />

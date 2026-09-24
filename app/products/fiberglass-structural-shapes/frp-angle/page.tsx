@@ -1,4 +1,5 @@
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -54,7 +55,7 @@ const faqItems = [
   {
     question: "Can FRP angles be used in concrete-embedded connections?",
     answer:
-      "FRP angles are excellent for embedded connections in reinforced concrete. The coefficient of thermal expansion closely matches concrete, preventing differential thermal movement that would compromise bond integrity over time — a common issue with steel embedments.",
+      "They can, but the detail needs design. Along the profile, pultruded GFRP expands about 7–9 × 10⁻⁶/°C, close to concrete and steel (about 10–12 × 10⁻⁶/°C); across the profile it expands two to three times as much, and FRP is far less stiff than steel. Check anchorage, bearing and edge distances, and choose a resin suited to the alkaline concrete environment, usually vinyl ester. Send us the detail and we will review it.",
   },
 ];
 
@@ -164,6 +165,8 @@ export default async function AnglePage() {
           </div>
         </div>
       </section>
+
+      <ProfileSupplyGuide product="angles" />
 
       <RelatedLinks
         groups={[

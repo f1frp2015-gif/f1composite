@@ -93,7 +93,7 @@ const capabilities = {
       { name: "Fluorocarbon (PVDF)", note: "20+ year UV and weather resistance." },
       { name: "Powder Coating", note: "Durable color finish, RAL options." },
       { name: "Film Lamination", note: "Wood-grain, marble, or custom patterns." },
-      { name: "Weather-Resistant (No Coat)", note: "Built-in UV stability, zero maintenance." },
+      { name: "Weather-Resistant (No Coat)", note: "UV-stabilised resin and veil, no paint to renew." },
     ],
   },
 };

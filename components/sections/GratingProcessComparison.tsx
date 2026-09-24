@@ -248,8 +248,8 @@ const comparisonRows = [
   },
   {
     attr: "Fire rating",
-    molded: "ASTM E84 Class 1 (FSI ≤25)",
-    pultruded: "ASTM E84 Class 1 (FSI ≤25)",
+    molded: "FR grades, ASTM E84 Class 1 target (FSI ≤25); report on request",
+    pultruded: "FR grades, ASTM E84 Class 1 target (FSI ≤25); report on request",
   },
 ];
 

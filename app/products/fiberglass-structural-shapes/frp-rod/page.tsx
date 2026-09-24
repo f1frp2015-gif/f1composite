@@ -1,4 +1,5 @@
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -38,7 +39,7 @@ const faqItems = [
   {
     question: "Can FRP round rods be used as rebar in concrete?",
     answer:
-      "Yes. Sand-coated or helically wound FRP rods are used as non-corrosive concrete reinforcement, particularly in marine structures, bridge decks, parking decks, and chemically aggressive slabs. They eliminate corrosion-induced concrete spalling, extending service life to 75+ years. Bond strength is comparable to deformed steel rebar when surface treatment is specified correctly.",
+      "Yes. Sand-coated or helically wound FRP rods are used as non-corrosive concrete reinforcement, particularly in marine structures, bridge decks, parking decks, and chemically aggressive slabs. They remove the cause of corrosion-induced concrete spalling, which extends the service life of the structure. Bond strength is comparable to deformed steel rebar when surface treatment is specified correctly.",
   },
 ];
 
@@ -161,6 +162,8 @@ export default async function RodPage() {
           </div>
         </div>
       </section>
+
+      <ProfileSupplyGuide product="rods" />
 
       <RelatedLinks
         background="white"

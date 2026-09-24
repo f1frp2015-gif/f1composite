@@ -212,6 +212,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/industries/infrastructure", label: "Infrastructure applications" },
       { href: "/case-studies/beam-bridge", label: "Pedestrian & cycle beam bridge design guide" },
+      { href: "/resources/blog/frp-bridge-deck-design-guide", label: "FRP bridge deck design: engineering guide" },
     ],
     deepDive: {
       heading: "FRP bridge deck panels from load model to installation plan",
@@ -271,7 +272,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels" },
       { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
       { href: "/industries/energy", label: "Energy applications" },
-      { href: "/case-studies/solar-farm-mounting", label: "Solar mounting case study" },
+      { href: "/case-studies/chongqing-rooftop-pv-frp-rail", label: "Rooftop PV rail case study" },
       { href: "/products/frp-solar-mounting-systems", label: "Solar profile catalog and component supply" },
     ],
     deepDive: {
@@ -400,6 +401,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
       { href: "/products/frp-handrail-systems", label: "FRP handrail systems" },
       { href: "/case-studies/beam-bridge", label: "Pedestrian & cycle beam bridge design guide" },
+      { href: "/resources/blog/china-first-all-composite-truss-bridge-pengshui", label: "China's first all-composite truss bridge (Pengshui)" },
     ],
     deepDive: {
       heading: "FRP pedestrian bridge superstructures from concept to modules",

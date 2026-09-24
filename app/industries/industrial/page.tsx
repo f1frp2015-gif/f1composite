@@ -55,7 +55,7 @@ const faqs = [
   {
     question: "What fire performance do FRP profiles achieve in industrial settings?",
     answer:
-      "Our industrial-grade FRP profiles are available with halogen-free flame-retardant resin systems achieving UL 94 V-0 self-extinguishing rating, ASTM E84 Class 1 (flame spread index under 25), and FM 4910 approval for use in semiconductor cleanroom environments. For process plant applications, we offer profiles tested to ASTM E119 for structural fire resistance. All fire-retardant profiles generate low smoke density (under 50 Ds per ASTM E662) and low toxicity emissions, meeting the requirements of BS 6853 for reduced toxicity. Fire test certificates from accredited third-party laboratories accompany all orders.",
+      "Fire-retardant resin systems, including halogen-free options, are available for industrial profiles. A pultruded composite profile has an SGS report for UL 94 V-0 self-extinguishing behaviour, published on the evidence page. ASTM E84 flame-spread (Class 1 target, flame spread index 25 or less), ASTM E662 smoke density, BS 6853 toxicity and ASTM E119 fire-resistance reports are provided on request for the formulation you specify. If a cleanroom project requires FM 4910, raise it at the RFQ stage so the material and test route can be agreed.",
   },
   {
     question: "Can FRP profiles support the same loads as steel in structural applications?",
@@ -85,7 +85,7 @@ export default function IndustrialPage() {
       <PageHeader
         tag="Industries / Industrial"
         title="FRP Composite Profiles for Industrial Applications"
-        description="Fiber-reinforced polymer (FRP) profiles deliver chemical resistance, fire retardancy, and maintenance-free structural performance for processing plants, water treatment facilities, and manufacturing environments where steel corrodes and fails."
+        description="Fiber-reinforced polymer (FRP) profiles for processing plants, water treatment facilities and manufacturing sites where steel corrodes: chemical-resistant resins, fire-retardant grades and low maintenance."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
@@ -209,7 +209,7 @@ export default function IndustrialPage() {
                 For cleanroom construction, our FRP profiles provide framing for modular wall systems, ceiling grids, and equipment platforms. FRP&apos;s dimensional stability — it does not expand, contract, or warp with humidity changes — maintains the tight tolerances required for cleanroom envelope integrity. This stability is particularly valuable in facilities with adjacent areas at different pressure differentials, where even slight dimensional changes in framing can compromise room pressurization.
               </p>
               <p>
-                Our pharmaceutical-grade FRP profiles are available with FM 4910 approval for use in semiconductor and pharmaceutical cleanroom environments, meeting the maximum fire propagation and smoke generation limits required for materials installed in clean manufacturing spaces.
+                Semiconductor and pharmaceutical cleanrooms also set fire-propagation and smoke limits for installed materials, for example FM 4910. These depend on the resin formulation, so state the requirement at the RFQ stage and we will agree the material and test route.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
@@ -303,15 +303,15 @@ export default function IndustrialPage() {
               </span>
             </Link>
             <Link
-              href="/case-studies/chemical-plant-platform"
+              href="/resources/blog/frp-pipe-for-coal-mine-gas-drainage"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Chemical Plant Platform</h3>
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP platforms and walkways in aggressive chemical environment — vinyl ester resin, zero maintenance.
+                How anti-static, flame-retardant pultruded pipe is specified for underground gas drainage lines.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read case study →
+                Read article →
               </span>
             </Link>
             <Link
@@ -332,7 +332,7 @@ export default function IndustrialPage() {
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Factory Access Staircase</h3>
               <p className="text-f13 leading-golden text-t2">
-                F1&apos;s own Chongqing pultrusion line staircase, built from our profiles — 18 months zero-maintenance service beside live electrical cabinets and resin vapor.
+                The access staircase in our own Chongqing plant, built from our profiles and in service since 2024 beside live electrical cabinets and resin vapor.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →

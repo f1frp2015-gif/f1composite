@@ -95,6 +95,9 @@ function ContactFormContent() {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
   const [attachmentName, setAttachmentName] = useState("");
   const started = useRef(false);
+  // Set after mount; the API treats a sub-second submission as automated.
+  const mountedAt = useRef(0);
+  useEffect(() => { mountedAt.current = Date.now(); }, []);
   const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
   const windowMode = searchParams.get("window_mode");
@@ -170,10 +173,16 @@ function ContactFormContent() {
     <form aria-label="Request a quote" onSubmit={(event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
+      if (mountedAt.current) data.set("form_elapsed_ms", String(Date.now() - mountedAt.current));
       setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
     }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
+      {/* Spam trap: off-screen and out of the tab order, so only bots fill it in. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="company_website">Leave this field empty</label>
+        <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
       <input type="hidden" name="inquiry_type" value={rebarInquiry ? (rebarInquiry.stage === "technical" ? "technical" : "rfq") : inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />

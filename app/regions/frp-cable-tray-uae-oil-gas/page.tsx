@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle =
-  "FRP Cable Tray Supplier UAE — ADNOC / DUSUP Oil & Gas";
+  "FRP Cable Tray Supplier UAE — Oil & Gas Projects";
 const pageDescription =
-  "FRP cable trays & ladders for UAE oil & gas — ADNOC, DUSUP, Emirates Steel. NEMA VE-1 / IEC 61537, 25-yr H₂S/sour-service. Jebel Ali / Khalifa Port delivery.";
+  "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.";
 const pagePath = "/regions/frp-cable-tray-uae-oil-gas";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -25,12 +25,12 @@ const faqs = [
   {
     question: "Why is FRP cable tray preferred over galvanized steel in UAE oil and gas service?",
     answer:
-      "UAE oil and gas service combines three corrosion drivers that destroy galvanized steel cable tray within 8–12 years: (1) coastal salt-laden air across Abu Dhabi, Dubai, Ras Al Khaimah, and Fujairah operations; (2) sour-service H₂S and CO₂ exposure on upstream and midstream assets; (3) chemical splash and oil-mist contamination on process platforms. FRP cable tray is fundamentally inert to all three. NEMA VE-1 and IEC 61537 qualified pultruded FRP cable tray delivers 25+ year design life with zero coating maintenance — versus galvanized steel cable tray that typically requires partial or full replacement within the asset's first major shutdown cycle.",
+      "UAE oil and gas sites combine three things that wear out galvanized steel cable tray: salty coastal air across Abu Dhabi, Dubai, Ras Al Khaimah and Fujairah; H₂S and CO₂ on sour-service upstream and midstream assets; and chemical splash and oil mist on process platforms. FRP cable tray does not rust, and a vinyl ester resin handles most of this exposure without coatings. Galvanized steel tray in the same service often needs partial or full replacement within the asset's first major shutdown cycle. Design life for FRP still depends on the resin, UV protection and inspection.",
   },
   {
     question: "Which standards do ADNOC and UAE EPC contractors specify for FRP cable tray?",
     answer:
-      "The standards stack typically referenced: NEMA VE-1 (load classification 8A through 24C), IEC 61537 (cable tray and cable ladder systems), ASTM E84 (Class 1 / Class A flame spread), UL 568 / cUL listing for indoor / hazardous-location applications, and project-specific ADNOC AGES-PH-04-001 or DUSUP material selection criteria for cable management in process areas. F1 Composite supplies FRP cable tray to all of these standards in vinyl ester or premium isophthalic polyester resin, with batch Mill Test Certificates and third-party fire and chemical test reports as required.",
+      "UAE project specifications usually reference NEMA FG 1 (fiberglass cable tray, with load/span classes), IEC 61537 (cable tray and cable ladder systems), ASTM E84 flame spread (Class 1 / Class A), UL 568 for nonmetallic cable tray where a listing is required, and the operator's own material selection specifications for cable management in process areas. We supply FRP cable tray in vinyl ester or isophthalic polyester resin, with batch mill test certificates; fire, chemical and load test reports are provided on request.",
   },
   {
     question: "What FRP cable tray cross-sections and load classes are most commonly ordered for UAE projects?",
@@ -40,12 +40,12 @@ const faqs = [
   {
     question: "How does FRP cable tray weight reduction affect installation cost on UAE process plants?",
     answer:
-      "Pultruded FRP cable tray weighs approximately 50% of equivalent galvanized steel cable tray and 70% of aluminum cable tray at the same load class. On a typical UAE process platform with 2,000+ linear meters of cable tray, this is 8–12 tonnes of weight reduction. The installation impact is direct: longer span between supports (5 m typical for FRP vs 3 m for steel), faster manual installation (2-person lift versus mechanical lift for many sizes), reduced support steel quantity, and reduced rigging requirements. Total installed cost is typically 10–18% below galvanized steel for medium-to-large project quantities, even with FRP material cost being higher per linear meter.",
+      "Pultruded FRP cable tray weighs roughly half as much as galvanized steel tray of the same load class. On a process platform with more than 2,000 m of tray, that is 8–12 tonnes less to lift. Most sizes can be carried and fitted by two people without mechanical lifting, and there is less rigging and no hot work. FRP costs more per metre than galvanized steel, so whether the installed cost comes out lower depends on quantities, support spacing and site labour; we can price both options for your layout.",
   },
   {
     question: "Does FRP cable tray meet UAE Civil Defense fire safety requirements?",
     answer:
-      "Yes. F1 Composite FRP cable tray is supplied with ASTM E84 Class 1 / Class A flame spread (FSI ≤ 25, smoke developed ≤ 450) using fire-retardant resin formulations. Higher-performance fire-rated grades meet EN 13501-1 B-s1,d0 and BS 476 Part 7 Class 1 for projects requiring full European or UK fire spec compliance. UAE Civil Defense (DCD / Abu Dhabi CD) generally accepts the ASTM E84 Class 1 specification for non-life-safety installations and the EN 13501-1 B-s1,d0 specification for buildings and life-safety routes. Fire performance certificates are supplied with each shipment.",
+      "It can, with the right resin and test evidence. Fire-retardant formulations are tested for ASTM E84 flame spread (Class 1 / Class A: FSI ≤ 25, smoke developed ≤ 450), and higher-performance grades for EN 13501-1 and BS 476 Part 7 where a project calls for European or UK classifications. UAE Civil Defence (DCD / Abu Dhabi CD) acceptance depends on the building type and route, so confirm the required classification with the consultant. Fire test reports for the supplied formulation are provided on request.",
   },
   {
     question: "What lead times and ports apply for UAE oil and gas FRP cable tray orders?",
@@ -75,7 +75,7 @@ export default function UAECableTrayPage() {
       <PageHeader
         tag="UAE / Oil & Gas"
         title="FRP Cable Tray Supplier for UAE Oil & Gas"
-        description="Pultruded fiberglass cable trays and ladders for ADNOC, DUSUP, Emirates Steel, and onshore and offshore oil and gas operations. Compliant with NEMA VE-1, IEC 61537, and ASTM E84; vinyl ester resin for durability in sour service; CIF Jebel Ali or DAP delivery to the project site."
+        description="Pultruded fiberglass cable trays and ladders for onshore and offshore oil and gas projects in the UAE, with vinyl ester resin for sour service, NEMA FG 1 and IEC 61537 references, and CIF Jebel Ali or DAP delivery to site."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/frp-cable-tray-uae-oil-gas" },
@@ -88,7 +88,7 @@ export default function UAECableTrayPage() {
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/industries/frp-electric-power-substation-infrastructure.jpg"
-              alt="Corrosion-resistant pultruded FRP cable tray and ladder in a UAE oil & gas electrical installation — NEMA VE-1 / IEC 61537, sour-service rated"
+              alt="Pultruded FRP cable tray and cable ladder in an oil and gas electrical installation"
               width={1280}
               height={600}
               sizes="(max-width: 1280px) 100vw, 1280px"
@@ -103,12 +103,12 @@ export default function UAECableTrayPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>UAE Oil & Gas Service Reality</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Coastal salt + sour service + chemical splash — the three failure modes galvanized cable tray cannot survive
+            Coastal salt, sour service and chemical splash: why galvanized cable tray wears out
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                ADNOC Onshore, ADNOC Offshore, ADNOC Refining, ADNOC Gas, and the broader DUSUP / Emirates Steel / Borouge UAE industrial network operate cable management infrastructure across the harshest combined-corrosion environment in the global oil and gas industry. The physical service reality: 45–50°C summer ambient, Gulf coastal salt-laden air, episodic H₂S and CO₂ in sour-service operations, and chemical splash and oil-mist contamination across process platforms.
+                UAE upstream, refining and gas plants run cable management in one of the hardest corrosion environments in the industry: 45–50°C summer air, salty Gulf coastal air, H₂S and CO₂ in sour-service operations, and chemical splash and oil mist on process platforms.
               </p>
               <p>
                 Galvanized steel cable tray under these combined conditions typically reaches the end of its service life within 8–12 years. The dominant failure mode is loss of sacrificial zinc in the splash zone, followed by accelerated steel corrosion at galvanic discontinuities — most often at field-cut ends and field-welded supports where the galvanizing was not properly restored. Replacement programs are operationally expensive because they require shutdown windows, scaffold access, hot-work permits, and crew mobilization.
@@ -116,10 +116,10 @@ export default function UAECableTrayPage() {
             </div>
             <div className="space-y-[21px] text-f15 leading-golden text-t2">
               <p>
-                Pultruded FRP cable tray in vinyl ester resin is fundamentally inert to all three corrosion drivers, with a 25-year design life. FRP cable management has a UAE track record going back to early-2000s oil &amp; gas projects; in documented installations, maintenance is limited to dust removal during scheduled shutdowns, and structural inspection has reported no findings on tray held in continuous splash-zone service for over 20 years.
+                Pultruded FRP cable tray in vinyl ester resin does not rust and handles most of this exposure without coatings. FRP cable management has been used on Gulf oil and gas projects for many years; maintenance is mainly cleaning and inspection during scheduled shutdowns.
               </p>
               <p>
-                F1 Composite manufactures FRP cable tray in China to NEMA VE-1, IEC 61537, ASTM E84 Class 1, and project-specific ADNOC AGES requirements. CIF Jebel Ali is the most common Incoterm for projects staged through Dubai or Sharjah. DAP delivery to the project site is preferred for ADNOC Onshore locations such as Habshan, Bab, and Bu Hasa; ADNOC Refining in Ruwais; and offshore operations supported through Mussafah Port.
+                We supply FRP cable tray made in China with NEMA FG 1 and IEC 61537 references, and test reports (including ASTM E84) on request against the operator&apos;s project requirements. CIF Jebel Ali is the most common Incoterm for projects staged through Dubai or Sharjah. DAP to site suits onshore locations such as Habshan, Bab and Bu Hasa, the Ruwais refinery area, and offshore work supported through Mussafah Port.
               </p>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function UAECableTrayPage() {
                 {[
                   { c: "8A / 8B / 8C", l: "50 / 75 / 100 lb/ft (74 / 112 / 149 kg/m)", s: "8 ft / 2.4 m", a: "Light cable, instrument runs" },
                   { c: "12A / 12B / 12C", l: "50 / 75 / 100 lb/ft", s: "12 ft / 3.7 m", a: "General process / utility runs" },
-                  { c: "16A / 16B / 16C", l: "50 / 75 / 100 lb/ft (74 / 112 / 149 kg/m)", s: "16 ft / 4.9 m", a: "ADNOC/DUSUP main process trays" },
+                  { c: "16A / 16B / 16C", l: "50 / 75 / 100 lb/ft (74 / 112 / 149 kg/m)", s: "16 ft / 4.9 m", a: "Main process trays" },
                   { c: "20A / 20B / 20C", l: "50 / 75 / 100 lb/ft", s: "20 ft / 6.1 m", a: "Heavy power cable, refinery main" },
                   { c: "24A / 24B / 24C", l: "50 / 75 / 100 lb/ft", s: "24 ft / 7.3 m", a: "High-load main / pipe-rack runs" },
                 ].map((row) => (
@@ -189,6 +189,7 @@ export default function UAECableTrayPage() {
             <LinkArrow href="/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide">
               Buyer&rsquo;s guide: sourcing from China
             </LinkArrow>
+            <LinkArrow href="/resources/blog/pultruded-frp-pipe-oil-and-gas">Where pultruded FRP pipe fits in oil and gas</LinkArrow>
           </div>
 
           <FAQ items={faqs} />

@@ -25,7 +25,7 @@ const uValueFaqs = [
   {
     question: "Why do FRP frames out-perform thermally broken aluminum on U-value?",
     answer:
-      "FRP thermal conductivity is approximately 0.3–0.4 W/m·K — hundreds of times lower than aluminum (~160 W/m·K) and of the same order as PVC (~0.17 W/m·K). FRP frames reach low U_f not through wall conductivity alone: slim, stiff pultruded walls allow deep multi-chamber (and foam-fillable) profiles with no metal reinforcement bridging the section, whereas PVC of equal stiffness needs a steel core that short-circuits its chambers. Thermally broken aluminum retains a continuous metallic path and typically lands at U_f ≈ 2.8–3.4 W/m²·K for standard polyamide-break systems (premium multi-break systems ≈ 1.6–2.5). Pultruded FRP frames achieve U_f of 0.85–1.4 W/m²·K with no thermal break required.",
+      "FRP thermal conductivity is approximately 0.3–0.4 W/m·K: hundreds of times lower than aluminum (~160 W/m·K) and of the same order as PVC (~0.17 W/m·K). FRP frames reach low U_f not through wall conductivity alone: slim, stiff pultruded walls allow deep multi-chamber (and foam-fillable) profiles with no metal reinforcement bridging the section, whereas PVC of equal stiffness needs a steel core that short-circuits its chambers. Thermally broken aluminum retains a continuous metallic path and typically lands at U_f ≈ 2.8–3.4 W/m²·K for standard polyamide-break systems (premium multi-break systems ≈ 1.6–2.5). Pultruded FRP frames achieve U_f of 0.85–1.4 W/m²·K with no thermal break required.",
   },
   {
     question: "What inputs does the calculator need?",
@@ -40,7 +40,7 @@ const uValueFaqs = [
   {
     question: "How does this compare with NFRC simulation in the US/Canada?",
     answer:
-      "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM at fixed model sizes and different boundary conditions, rather than the simplified EN ISO 10077-1 approach. For symmetric frame profiles results typically agree within ±0.1–0.2 W/m²·K, but the ratings are not interchangeable — an EN ISO 10077-1 value cannot be quoted as an NFRC U-factor. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
+      "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM at fixed model sizes and different boundary conditions, rather than the simplified EN ISO 10077-1 approach. For symmetric frame profiles results typically agree within ±0.1–0.2 W/m²·K, but the ratings are not interchangeable: an EN ISO 10077-1 value cannot be quoted as an NFRC U-factor. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function UValueCalculatorPage() {
               "@type": "HowToStep",
               position: 1,
               name: "Choose frame, glass, and spacer",
-              text: "Select the frame system (FRP, aluminum, PVC, or timber), the glazing build-up (double / triple / quadruple), and the edge spacer — or load a quick-start preset.",
+              text: "Select the frame system (FRP, aluminum, PVC, or timber), the glazing build-up (double / triple / quadruple), and the edge spacer, or load a quick-start preset.",
             },
             {
               "@type": "HowToStep",
@@ -155,7 +155,7 @@ export default function UValueCalculatorPage() {
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">
             <div>
-              <h3 className="text-f19 font-bold text-t1">Input example — passive house window</h3>
+              <h3 className="text-f19 font-bold text-t1">Input example: passive house window</h3>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 A passive house project specifies a 1230 × 1480 mm fixed window. The designer compares three frame options: a 70 mm aluminum frame with thermal break (U<sub>f</sub> ≈ 1.8 W/m²·K), a 70 mm PVC frame (U<sub>f</sub> ≈ 1.3 W/m²·K), and an F1 Composite 90-series FRP frame (U<sub>f</sub> = 0.85 W/m²·K). All three are paired with Ug = 0.6 triple glazing, warm-edge spacer (ψ = 0.035 W/m·K), and a frame-area ratio typical of fenestration profiles.
               </p>
@@ -169,7 +169,7 @@ export default function UValueCalculatorPage() {
                   <strong className="text-t1">Frame dominates on small windows.</strong> A 600 × 900 mm sash has 35–40% of its area covered by the frame, so frame U<sub>f</sub> drives U<sub>w</sub> more than glazing. On a 2400 × 2400 mm picture window, frame area is under 15% and Ug dominates. Always compute with realistic dimensions.
                 </li>
                 <li>
-                  <strong className="text-t1">Warm-edge spacer matters more than people think.</strong> Switching from an aluminum spacer (ψ ≈ 0.065) to a warm-edge stainless or composite spacer (ψ ≈ 0.035) reduces U<sub>w</sub> by roughly 0.05–0.12 W/m²·K depending on window size — often the cheapest single improvement.
+                  <strong className="text-t1">Warm-edge spacer matters more than people think.</strong> Switching from an aluminum spacer (ψ ≈ 0.065) to a warm-edge stainless or composite spacer (ψ ≈ 0.035) reduces U<sub>w</sub> by roughly 0.05–0.12 W/m²·K depending on window size, often the cheapest single improvement.
                 </li>
                 <li>
                   <strong className="text-t1">Triple glazing without a good frame is wasteful.</strong> Upgrading from Ug = 1.0 double to Ug = 0.6 triple only delivers its full benefit if the frame U<sub>f</sub> is below about 1.2 W/m²·K. Pairing Ug = 0.6 glass with an aluminum frame at U<sub>f</sub> = 2.0 wastes most of the glass upgrade.
@@ -184,10 +184,10 @@ export default function UValueCalculatorPage() {
                   <strong className="text-t1">Quoting U<sub>f</sub> instead of U<sub>w</sub>.</strong> Manufacturer datasheets often advertise frame-only U<sub>f</sub> or center-of-glass Ug. Energy codes and PHI certification are based on whole-window U<sub>w</sub>. Always ask for the U<sub>w</sub> at the specific size being installed.
                 </li>
                 <li>
-                  <strong className="text-t1">Ignoring installation psi (ψ<sub>inst</sub>).</strong> The window-to-wall joint adds another linear thermal bridge typically worth 0.02–0.10 W/m·K. Under strict certification schemes this must be included separately — this calculator gives the assembly U<sub>w</sub>, not the installed U<sub>w,inst</sub>.
+                  <strong className="text-t1">Ignoring installation psi (ψ<sub>inst</sub>).</strong> The window-to-wall joint adds another linear thermal bridge typically worth 0.02–0.10 W/m·K. Under strict certification schemes this must be included separately. This calculator gives the assembly U<sub>w</sub>, not the installed U<sub>w,inst</sub>.
                 </li>
                 <li>
-                  <strong className="text-t1">Assuming aluminum with thermal break is &quot;good enough.&quot;</strong> Even premium thermally-broken aluminum frames rarely reach U<sub>f</sub> below 1.4 W/m²·K. For passive house or net-zero buildings, aluminum cannot meet the target without resorting to oversized glazing cavities — FRP, fiberglass, or triple-chamber PVC become the only viable frame choices.
+                  <strong className="text-t1">Assuming aluminum with thermal break is &quot;good enough.&quot;</strong> Even premium thermally-broken aluminum frames rarely reach U<sub>f</sub> below 1.4 W/m²·K. For passive house or net-zero buildings, aluminum cannot meet the target without resorting to oversized glazing cavities: FRP, fiberglass, or triple-chamber PVC become the only viable frame choices.
                 </li>
               </ul>
 
@@ -209,7 +209,7 @@ export default function UValueCalculatorPage() {
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px] text-center">
           <p className="text-f15 leading-golden text-t2">
-            Explore our complete range of pultruded FRP window and door frame systems —
+            Explore our complete range of pultruded FRP window and door frame systems:
             65/70/80/90-series with U<sub>f</sub> values from 0.85 to 1.5 W/m²K.
           </p>
           <Link
@@ -237,7 +237,7 @@ export default function UValueCalculatorPage() {
 
       <AskAICard
         title="Want help spec'ing a passive house window?"
-        description="Open the FRP Engineering Advisor with your climate zone and U-value target — it will match an F1 Composite series, suggest glazing, and outline the certification path."
+        description="Open the FRP Engineering Advisor with your climate zone and U-value target. It will match an F1 Composite series, suggest glazing, and outline the certification path."
         prefill={prefillForCalculator({ name: "U-Value Calculator", path: "/technology/frp-u-value-calculator" })}
       />
 

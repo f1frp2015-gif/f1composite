@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/fiberglass-windows-doors`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/grating`, lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/industries/water-wastewater`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
-    // /products permanently redirects to /pultruded-frp-profiles (see next.config.ts)
+    // /products permanently redirects to /products/product-lines (see next.config.ts)
     { url: `${BASE}/products/fiberglass-structural-shapes`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-i-beam`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-angle`, changeFrequency: "monthly", priority: 0.7 },
@@ -117,9 +117,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     { url: `${BASE}/case-studies/european-bridge-deck`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/coastal-marina-walkway`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/case-studies/chemical-plant-platform`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/case-studies/fenestration-residential`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/case-studies/solar-farm-mounting`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/case-studies/baotou-industrial-gfrp-pu-windows`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/case-studies/wanhua-yantai-zero-carbon-windows`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/case-studies/chongqing-rooftop-pv-frp-rail`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/water-treatment-cable-tray`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/qinling-station-antarctic-passive-windows`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/case-studies/yancheng-talent-apartment-fenestration`, changeFrequency: "monthly", priority: 0.8 },

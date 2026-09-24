@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import { supplyTerms } from "@/content/data/company";
 
 interface InnerCTAProps {
   title?: string;
@@ -12,7 +13,7 @@ export default function InnerCTA({ title = "Ready to discuss your project?", quo
         <div>
           <h2 className="text-f24 font-bold tracking-[-0.02em] text-t1">{title}</h2>
           <p className="mt-[6px] max-w-[650px] text-f15 leading-relaxed text-t2">
-            Send the dimensions, quantity, service environment, and destination. We acknowledge requirements within one business day.
+            Send the dimensions, quantity, service conditions and destination. We reply within {supplyTerms.responseTime}.
           </p>
         </div>
         <div className="flex shrink-0 flex-wrap gap-[10px]">

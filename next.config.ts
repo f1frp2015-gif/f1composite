@@ -144,9 +144,11 @@ const nextConfig: NextConfig = {
         destination: `${CANONICAL_ORIGIN}/:path*`,
         permanent: true,
       },
+      // /products lands on the all-products hub the main navigation uses;
+      // /pultruded-frp-profiles stays the profile-family hub.
       {
         source: "/products",
-        destination: "/pultruded-frp-profiles",
+        destination: "/products/product-lines",
         permanent: true,
       },
       // Consolidate common singular and FRP-name variants into the commercial
@@ -195,6 +197,16 @@ const nextConfig: NextConfig = {
         destination: `/applications/frp-${slug}`,
         permanent: true,
       })),
+      // 2026-09-24: case-study slugs renamed to match their content.
+      ...[
+        ["chemical-plant-platform", "baotou-industrial-gfrp-pu-windows"],
+        ["fenestration-residential", "wanhua-yantai-zero-carbon-windows"],
+        ["solar-farm-mounting", "chongqing-rooftop-pv-frp-rail"],
+      ].map(([from, to]) => ({
+        source: `/case-studies/${from}`,
+        destination: `/case-studies/${to}`,
+        permanent: true,
+      })),
       {
         source: "/technology/calculator",
         destination: "/frp-profile-calculator",
@@ -231,7 +243,14 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/resources/blog/frp-vs-aluminium-window-frames-comparison",
-        destination: "/resources/blog/frp-vs-aluminum-window-frames-comparison",
+        destination: "/technology/frp-vs-aluminum-windows",
+        permanent: true,
+      },
+      // 2026-09-24: the FRP-vs-aluminum post duplicated the master comparison
+      // page's head query and structure; consolidate into the master page.
+      {
+        source: "/resources/blog/frp-vs-aluminum-window-frames-comparison",
+        destination: "/technology/frp-vs-aluminum-windows",
         permanent: true,
       },
       // 2026-06-02: consolidated 5 thin "2026 signal" observation posts into a
@@ -275,7 +294,9 @@ const nextConfig: NextConfig = {
           },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
+          // "0" disables the legacy XSS auditor, which could itself be abused;
+          // the CSP above is the XSS defence (OWASP / MDN recommendation).
+          { key: "X-XSS-Protection", value: "0" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",

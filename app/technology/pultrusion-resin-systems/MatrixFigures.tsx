@@ -119,8 +119,8 @@ export function MatrixFormationFigure() {
         </text>
       </svg>
       <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
-        The resin matrix is not applied to the profile — it is formed around every fiber
-        filament during pultrusion. Dry rovings are wetted out in the impregnation stage,
+        The resin matrix forms around every fiber filament during pultrusion rather than
+        being applied to the finished profile. Dry rovings are wetted out in the impregnation stage,
         then the heated die crosslinks the liquid resin into the solid, irreversible matrix.
         The resin you choose here is the resin the profile lives with for decades.
       </figcaption>

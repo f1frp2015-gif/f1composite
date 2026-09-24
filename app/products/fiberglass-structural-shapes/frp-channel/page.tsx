@@ -1,4 +1,5 @@
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -160,6 +161,8 @@ export default async function ChannelPage() {
           </div>
         </div>
       </section>
+
+      <ProfileSupplyGuide product="channels" />
 
       <RelatedLinks
         groups={[

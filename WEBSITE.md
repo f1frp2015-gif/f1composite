@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-03-29
+> 最后更新: 2026-09-24
 
 ---
 
@@ -11,11 +11,11 @@
 | 网站地址 | https://f1composite.com |
 | 备用地址 | https://www.f1composite.com |
 | Vercel 地址 | https://f1composite.vercel.app |
-| 技术栈 | Next.js 16.2.1 + Turbopack + Tailwind CSS v4 + Framer Motion |
+| 技术栈 | Next.js 16.2.9 (App Router) + Turbopack + Tailwind CSS v4 |
 | 部署平台 | Vercel (team: f1composite) |
-| 代码路径 | `/Users/ori/Projects/f1composite` |
+| 代码仓库 | GitHub `f1frp2015-gif/f1composite`（`main` = 生产，流程见 AGENTS.md） |
 | 域名 DNS | 阿里云万网 (A → 76.76.21.21, CNAME www → cname.vercel-dns.com) |
-| 页面总数 | 27 个路由页面 |
+| 页面总数 | 约 156 个可索引页面（以 sitemap.xml 为准） |
 
 ---
 
@@ -41,7 +41,7 @@ f1composite.com
 ├── /technology                    技术中心
 │   ├── /pultrusion-process        拉挤工艺流程详解
 │   ├── /frp-vs-traditional-materials  FRP vs 钢/铝/木/混凝土 对比
-│   ├── /quality-testing           质量检测 — ISO 9001 / EN 13706 / ASTM
+│   ├── /quality-testing           质量检测 — EN 13706 / ASTM 测试方法
 │   └── /knowhow-services         KNOWHOW 技术服务/咨询
 │
 ├── /industries                    行业应用
@@ -65,13 +65,14 @@ f1composite.com
 │   │   └── frp-fenestration-thermal-performance  FRP门窗隔热优势 (7min)
 │   ├── /technical-data            技术数据 — 力学性能表 (ASTM标准)
 │   ├── /design-guides             设计指南 — 部分在建
-│   └── /downloads                 下载中心 — 6个文件 (PDF/CAD, 待上传实际文件)
+│   └── /downloads                 下载中心 — 目录、数据表、已公开的测试报告；证书按需提供
 │
-├── /about                         关于我们 — 使命/愿景/故事/里程碑/认证/全球覆盖
+├── /about                         关于我们 — 风渡出口公司定位 / 产能 / 里程碑 / 已公开报告
 ├── /contact                       联系方式 — 表单 + 公司信息 (电话地址待更新)
 ├── /robots.txt                    SEO robots
 ├── /sitemap.xml                   SEO sitemap
-└── /llms.txt                      LLM 元数据
+├── /llms.txt                      LLM 索引（llmstxt.org 格式）
+└── /llms-full.txt                 LLM 完整简报（与 /api/ai-context 同源）
 ```
 
 ---
@@ -266,16 +267,24 @@ f1composite.com
 
 ---
 
+## 内容与事实规则（2026-09 全站体检后）
+
+- **公司事实唯一来源**：`content/data/company.ts`（法律名称、与风渡/纤居的关系、产能、交期、回复时效、证书说明）。页面、Organization schema、llms.txt、/api/ai-context 和 AI 助手提示词都从这里读取，不要在页面里手写这些数字。
+- **主体关系**：Chongqing F1 Composites Co., Ltd. 是风渡新材料的出口公司；风渡是重庆纤居新材料有限公司的母公司，负责生产。
+- **证书**：ISO 9001、CE、ASTM E84、BS 476、运营商认可等一律写"按需提供"（附持证方、编号、范围）；PHI 2491wi03 是 PHI 证书，不是 PHIUS。
+- **寿命与维护**：不写"50+/75+/100 年设计寿命""免维护"之类的通用承诺；有产品目录依据的具体数值（如管材系列）可以写。
+- **文案检查**：`npm run check:copy`（CI 中运行）会拦截已撤回的说法，并提示破折号密度和"不是 X——而是 Y"句式。
+- **Cookie**：Consent Mode v2，欧洲经济区/英国/瑞士默认拒绝；横幅按欧洲时区显示，页脚"Cookie settings"可随时修改。隐私政策在 `/privacy`。
+
+---
+
 ## 待办事项
 
 | 优先级 | 事项 | 状态 |
 |--------|------|------|
-| 高 | 联系方式页面填入真实电话和地址 | 待更新 |
-| 高 | 下载中心上传6个实际文件 (产品目录/证书/CAD等) | 待上传 |
-| 高 | Google Search Console + GA4 配置 | 待配置 |
-| 中 | 补充3个案例内容 (化工厂/门窗住宅/太阳能) | 待补充 |
-| 中 | 替换 public/images/ 中的 .docx 占位文件为实际图片 | 待替换 |
-| 中 | 添加 Product/FAQ/Article Schema 结构化数据 | 待开发 |
-| 中 | 每页独立 OG 图片 (1200x630) | 待制作 |
-| 低 | Git 仓库推送到 GitHub (当前仅本地) | 待确认 |
-| 低 | Phase 1: FRP 选型 AI 助手上线 | 待启动 |
+| 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI | 待确认 |
+| 高 | 风渡的英文法定名称（目前 schema 只用品牌名 FengDu New Material） | 待确认 |
+| 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实 | 待核实 |
+| 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
+| 中 | 隐私政策由法务审阅 | 待审阅 |
+| 中 | CSP 补充 Google Ads 转化所需域名（www.google.com、googleadservices.com） | 待评估 |

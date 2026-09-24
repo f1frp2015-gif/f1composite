@@ -8,8 +8,8 @@ export default function OpenGraphImage() {
     eyebrow: "Pultruded FRP Profiles",
     title: "Pultruded FRP profiles — structural shapes, fenestration, gratings, and custom",
     description:
-      "Direct-from-factory pultruded fiberglass profiles to EN 13706 and ASTM D3917. 4 product families covering structural, fenestration, gratings, and custom pultrusions.",
+      "Pultruded fiberglass profiles supplied to EN 13706 and ASTM D3917: structural shapes, window and door profiles, grating and custom sections.",
     accent: "#0f8a83",
-    chips: ["EN 13706 / ASTM D3917", "ISO 9001", "30+ countries"],
+    chips: ["EN 13706 / ASTM D3917", "Custom dies", "30+ countries"],
   });
 }

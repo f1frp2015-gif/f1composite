@@ -13,15 +13,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Tests import .ts modules directly, which needs Node 22.18+ type stripping.
+          node-version: 22
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: node --test scripts/navigation-ia.test.mjs scripts/taxonomy-upgrade.test.mjs
-      - run: npm run test:site-audit
-      - run: npm run test:grating-pages
-      - run: npm run test:product-inquiry
-      - run: node --test scripts/rebar-inquiry.test.mjs
-      - run: npm run test:window-inquiry
-      - run: npm run test:indexnow
+      - run: npm test
+      - run: npm run check:copy
+      - run: npm run check:sitemap
       - run: npm run build

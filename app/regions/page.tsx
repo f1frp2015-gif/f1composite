@@ -4,6 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { company } from "@/content/data/company";
 
 /**
  * Hub for the country / market landing pages.
@@ -26,11 +27,11 @@ const markets = [
   {
     region: "United States",
     flag: "🇺🇸",
-    title: "ASTM-Compliant FRP Pultrusions — Direct to US Projects",
+    title: "Pultruded FRP Profiles for US Projects, Delivered DDP",
     href: "/regions/frp-pultrusion-supplier-usa",
     focus:
-      "ASTM E84 Class A, AAMA 2604/2605 finishes, PHIUS-aligned frames, DDP with Section 301 duty pre-itemized.",
-    standards: ["ASTM E84", "AAMA 2605", "PHIUS"],
+      "ASTM test methods, AAMA 2604/2605 finishes, PHI-certified window frames, and DDP quotes with US duties itemized.",
+    standards: ["ASTM", "AAMA 2605", "PHI 2491wi03"],
   },
   {
     region: "Canada",
@@ -38,8 +39,8 @@ const markets = [
     title: "FRP Passive House Windows — Canada",
     href: "/regions/frp-passive-house-windows-canada",
     focus:
-      "NRCan ENERGY STAR and PHI-certified fenestration for cold-climate and passive house projects.",
-    standards: ["PHI", "NRCan ENERGY STAR", "NAFS"],
+      "PHI-certified window frames for cold-climate and Passive House projects, with NAFS and CSA A440 reports on request.",
+    standards: ["PHI 2491wi03", "NAFS", "CSA A440"],
   },
   {
     region: "Germany",
@@ -47,7 +48,7 @@ const markets = [
     title: "FRP Passive House Windows — Germany",
     href: "/regions/frp-passive-house-windows-germany",
     focus:
-      "PHI component-certified frames (U_f 0.85 W/m²·K class) for Passivhaus and EnEV/GEG projects.",
+      "PHI-certified 90-series frames (Uf 0.78 W/m²·K) for Passivhaus and GEG projects.",
     standards: ["PHI 2491wi03", "EN 14351-1"],
   },
   {
@@ -56,7 +57,7 @@ const markets = [
     title: "GRP Windows UK — Pultruded Fiberglass Frames",
     href: "/regions/grp-windows-uk",
     focus:
-      "GRP fenestration and profiles for UK fabricators — UKCA/CE pathways and document support.",
+      "GRP window profiles for UK fabricators, with help on the UKCA and CE marking documents.",
     standards: ["UKCA", "EN 14351-1"],
   },
   {
@@ -65,8 +66,8 @@ const markets = [
     title: "FRP Grating Supplier — Saudi Arabia",
     href: "/regions/frp-grating-supplier-saudi-arabia",
     focus:
-      "Gratings and structural profiles for Aramco, SABIC and Maaden environments — vinyl ester duty, Jubail/Dammam/Riyadh logistics.",
-    standards: ["Aramco specs", "ISO 9001"],
+      "Grating and structural profiles for petrochemical, desalination and mining sites, with vinyl ester options and delivery to Jubail, Dammam or Riyadh.",
+    standards: ["Vinyl ester", "EN 13706"],
   },
   {
     region: "United Arab Emirates",
@@ -74,8 +75,8 @@ const markets = [
     title: "FRP Cable Tray — UAE Oil & Gas",
     href: "/regions/frp-cable-tray-uae-oil-gas",
     focus:
-      "Cable tray and support systems for ADNOC / DUSUP oil and gas infrastructure.",
-    standards: ["NEMA FG-1", "IEC 61537"],
+      "Cable tray and support systems for UAE oil and gas projects, with vinyl ester options and fire test reports on request.",
+    standards: ["NEMA FG 1", "IEC 61537"],
   },
   {
     region: "Australia",
@@ -107,7 +108,7 @@ export default function RegionsHubPage() {
       <PageHeader
         tag="Markets"
         title="FRP Supply by Market"
-        description="Every export market has its own standards stack, duty regime, and failure modes. These market pages cover what actually changes by geography — certifications, compliance documents, logistics, and the FRP product families each market buys most."
+        description="Standards, import duties and site conditions differ from one market to the next. Each page below covers the standards and documents a market asks for, how we ship there, and the FRP products we supply to it most often."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Markets" }]}
       />
       <section className="bg-white pb-[89px]">
@@ -134,14 +135,14 @@ export default function RegionsHubPage() {
             ))}
           </div>
           <p className="mt-[34px] text-f13 leading-golden text-t2">
-            Shipping to a market not listed here? We export worldwide — the market pages
-            above are simply where we maintain dedicated standards and logistics
-            documentation. Send your project location and spec via the RFQ form and we
-            will map the compliance path for your jurisdiction.
+            Market not listed? We ship to {company.exportCountries} countries; these pages
+            only cover the markets where we keep standards and shipping notes on file. Send
+            your project location and specification through the RFQ form and we will tell
+            you which standards and documents apply.
           </p>
         </div>
       </section>
-      <InnerCTA title="Tell us your project location — we will quote with the right standards and duty treatment." />
+      <InnerCTA title="Tell us where the project is, and we will quote with the right standards and duties." />
     </>
   );
 }

@@ -1,8 +1,10 @@
+import { company } from "@/content/data/company";
+
 const signals = [
-  { value: "370", label: "Pultrusion lines" },
-  { value: "5", label: "Manufacturing bases" },
-  { value: "150,000", label: "Tonnes annual capacity" },
-  { value: "30+", label: "Countries supplied" },
+  { value: String(company.production.lines), label: "Pultrusion lines" },
+  { value: String(company.production.bases), label: "Manufacturing bases" },
+  { value: company.production.annualTonnes.toLocaleString("en-US"), label: "Tonnes annual capacity" },
+  { value: company.exportCountries, label: "Countries supplied" },
 ];
 
 export default function TrustStrip() {

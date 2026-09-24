@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "UAE · Oil & Gas Cable Tray",
-    title: "FRP cable tray for UAE oil and gas — corrosion-immune, EMI-transparent, fire-rated",
+    title: "FRP cable tray for UAE oil and gas projects",
     description:
-      "Pultruded FRP cable tray systems for UAE upstream and downstream projects. Vinyl ester resin for sour-service tolerance, ASTM E84 Class 1 fire ratings.",
+      "Pultruded FRP cable tray and ladder systems for UAE upstream and downstream projects, with vinyl ester options and fire test reports on request.",
     accent: "#117d76",
-    chips: ["NEMA VE 1 / IEC 61537", "ASTM E84 Class 1", "Corrosion-immune"],
+    chips: ["NEMA / IEC 61537 references", "Vinyl ester options", "Non-conductive"],
   });
 }

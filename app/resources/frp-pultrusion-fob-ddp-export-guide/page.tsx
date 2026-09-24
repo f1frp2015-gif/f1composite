@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Can I avoid Section 301 tariffs on FRP sourced from China?",
     answer:
-      "Not through misclassification — that is a compliance risk, not a savings strategy, and correcting an under-declared classification after the fact typically costs far more than the original duty. Legitimate levers are: (1) confirming your profile is classified under its correct, lowest-applicable heading rather than a higher-duty default; (2) checking whether your specific HTSUS subheading currently holds an active USTR exclusion; (3) longer term, Foreign Trade Zone (FTZ) delivery or a non-China production step that changes country of origin under substantial-transformation rules. There is no shortcut that avoids a correctly-classified, currently-tariffed heading.",
+      "Not by misclassifying the goods. That is a compliance risk rather than a saving, and correcting an under-declared classification afterwards usually costs far more than the original duty. Legitimate levers are: (1) confirming your profile is classified under its correct, lowest-applicable heading rather than a higher-duty default; (2) checking whether your specific HTSUS subheading currently holds an active USTR exclusion; (3) longer term, Foreign Trade Zone (FTZ) delivery or a non-China production step that changes country of origin under substantial-transformation rules. There is no shortcut that avoids a correctly-classified, currently-tariffed heading.",
   },
   {
     question: "Is DDP more expensive than FOB in total landed cost?",

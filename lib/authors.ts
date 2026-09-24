@@ -27,12 +27,12 @@ export const authors: Author[] = [
     fullName: "Yifan Liu, Application Engineer",
     credentials: "Application Engineer",
     jobTitle:
-      "Senior Application Engineer — pultruded FRP structural design and project specification",
+      "Senior Application Engineer, pultruded FRP structural design and project specification",
     seoDescription:
-      "Yifan Liu — F1 Composite Application Engineer. Pultruded FRP structural design, connection detailing, lifecycle-cost framing for procurement and EPC teams.",
+      "Yifan Liu, Application Engineer at F1 Composite: pultruded FRP structural design, connection details and lifecycle-cost comparisons for procurement teams.",
     bucket: "engineering-case",
     bucketLabel: "Engineering & Case Studies",
-    bio: "Yifan leads project-side application engineering at F1 Composite. The work is the practical translation between client load cases, environmental constraints, and the stock or custom pultruded section that actually meets the brief — including connection detailing, field installation guidance, and lifecycle-cost framing for procurement.",
+    bio: "Yifan leads application engineering on customer projects at F1 Composite: taking a client's load cases and site conditions and finding the catalog or custom pultruded section that meets them. That includes connection details, installation guidance and lifecycle-cost comparisons for procurement teams.",
     expertise: [
       "Pultruded FRP structural design",
       "Bridge deck and walkway specification",
@@ -56,12 +56,12 @@ export const authors: Author[] = [
     fullName: "Haifeng Gong, Ph.D.",
     credentials: "Ph.D.",
     jobTitle:
-      "R&D Lead — composite materials, pultrusion process development, and standards",
+      "R&D Lead for composite materials, pultrusion process development and standards",
     seoDescription:
-      "Haifeng Gong, Ph.D. — F1 Composite R&D Lead. Resin chemistry, pultrusion process, fire/thermal performance, PHIUS-aligned standards (PHI Cert 2491wi03).",
+      "Haifeng Gong, Ph.D., R&D Lead at F1 Composite: resin chemistry, pultrusion process, fire and thermal performance, and the PHI 2491wi03 window certificate.",
     bucket: "rd-tech",
     bucketLabel: "R&D & Materials Science",
-    bio: "Haifeng leads materials and process R&D at F1 Composite. The focus areas are resin chemistry selection (polyester, vinyl ester, polyurethane, phenolic), fiber architecture for cross-direction strength without surface telegraph, fire and thermal performance, and standards research that turns lab capability into specifications customers can defend in design review.",
+    bio: "Haifeng leads materials and process R&D at F1 Composite. The work covers resin selection (polyester, vinyl ester, polyurethane and phenolic), fiber layouts that add transverse strength without print-through on the surface, fire and thermal performance, and the standards work needed before a lab result can go into a customer specification.",
     expertise: [
       "Composite materials science",
       "Pultrusion process development and simulation",
@@ -85,12 +85,12 @@ export const authors: Author[] = [
     fullName: "Duowei Wang, Ph.D.",
     credentials: "Ph.D.",
     jobTitle:
-      "Industry research and education — markets, standards, and pultrusion adoption",
+      "Industry research and education: markets, standards and pultrusion adoption",
     seoDescription:
-      "Duowei Wang, Ph.D. — F1 industry research. Global pultrusion markets, ACMA/EPTA/EuCIA standards, US/EU/AU sourcing economics, procurement education.",
+      "Duowei Wang, Ph.D., industry research at F1 Composite: global pultrusion markets, ACMA, EPTA and EuCIA standards work, sourcing economics and buyer education.",
     bucket: "education",
     bucketLabel: "Industry Research & Education",
-    bio: "Duowei leads industry research at F1 Composite. The work is to keep the picture of the global pultrusion market — peer activity, association priorities, exhibition signals, patent themes, and procurement reality — grounded in primary sources, then translate that picture into education content engineers and buyers can actually use.",
+    bio: "Duowei leads industry research at F1 Composite, following the global pultrusion market through competitors, industry associations, trade shows, patent filings and how buyers actually purchase, working from primary sources. That research feeds the guides for engineers and buyers on this site.",
     expertise: [
       "Pultrusion industry research and competitive benchmarking",
       "Standards tracking (ACMA, EPTA, EuCIA, ISO, EN, ASTM)",

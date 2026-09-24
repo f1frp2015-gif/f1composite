@@ -273,7 +273,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             <section className="rounded-[12px] border-2 border-teal-border bg-teal-bg p-[24px]">
               <h3 className="text-f17 font-bold text-t1">Ready for a formal quote?</h3>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
-                Your project description and this AI recommendation will be added to the contact form automatically. Doris on the F1 sales team will respond within 24 hours with a DDP USA quote that itemizes the Section 301 tariff.
+                Your project description and this AI recommendation will be added to the contact form automatically. Doris on the F1 sales team replies within one business day and quotes once the drawings and quantities are reviewed; US quotes are DDP with duties itemized.
               </p>
               <Link
                 href={buildContactPrefillHref(value, object)}

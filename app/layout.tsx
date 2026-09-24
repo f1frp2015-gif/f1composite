@@ -5,7 +5,10 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/consent/CookieConsent";
 import JsonLd from "@/components/seo/JsonLd";
+import { consentBootstrapScript } from "@/lib/consent";
+import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
 // Self-hosted DM Sans (variable, wght 400-800) — next/font/google fetched
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | F1 Composite",
   },
   description:
-    "Leading pultruded FRP profiles and fiberglass structural shapes manufacturer. I-beams, channels, angles, custom pultrusions, FRP window frames & window profiles, gratings & deck panels. ISO 9001, EN 13706, 30+ countries.",
+    "Pultruded FRP profiles from FengDu's 370-line production network: fiberglass structural shapes, custom sections, window and door profiles, grating and rebar.",
   metadataBase: new URL("https://www.f1composite.com"),
   openGraph: {
     type: "website",
@@ -78,20 +81,18 @@ export default function RootLayout({
       <head>
         {shouldLoadTracking && (
           <>
+            {/* Consent Mode v2: defaults (denied in the EEA, UK and Switzerland)
+                and any stored choice are queued before the tag config. */}
+            <script
+              id="google-ads-init"
+              dangerouslySetInnerHTML={{
+                __html: consentBootstrapScript([GA4_MEASUREMENT_ID, GOOGLE_ADS_ID]),
+              }}
+            />
             <script
               id="google-ads-base"
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-            />
-            <script
-              id="google-ads-init"
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);} 
-gtag('js', new Date());
-gtag('config', '${GA4_MEASUREMENT_ID}');
-gtag('config', '${GOOGLE_ADS_ID}');`,
-              }}
             />
           </>
         )}
@@ -105,6 +106,7 @@ gtag('config', '${GOOGLE_ADS_ID}');`,
           Skip to content
         </a>
         <JsonLd data={websiteSchema} />
+        <JsonLd data={organizationSchema} />
         <Navbar />
         <main id="main" className="pt-[72px]">{children}</main>
         <Footer />
@@ -113,7 +115,9 @@ gtag('config', '${GOOGLE_ADS_ID}');`,
         <SpeedInsights />
         {/* First-party, cookie-free pageview collection for Vercel Web Analytics. */}
         <Analytics />
-        {/* GA4 + Google Ads use the unified gtag() initialization above. */}
+        {/* GA4 + Google Ads use the unified gtag() initialization above; the
+            banner records the visitor's choice and updates consent. */}
+        <CookieConsent />
         {/* Ahrefs is secondary analytics. Load it during browser idle time so it
             cannot compete with the page's LCP image or primary content. */}
         <Script

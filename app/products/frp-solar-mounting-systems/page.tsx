@@ -324,7 +324,7 @@ export default function SolarMountingSystemsPage() {
           {
             title: "Proof & project detail",
             links: [
-              { href: "/case-studies/solar-farm-mounting", label: "Chongqing rooftop PV retrofit" },
+              { href: "/case-studies/chongqing-rooftop-pv-frp-rail", label: "Chongqing rooftop PV retrofit" },
               { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting for Australia" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
             ],
