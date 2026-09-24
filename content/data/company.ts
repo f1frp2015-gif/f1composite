@@ -32,6 +32,8 @@ export const company = {
     salesName: "Doris Li",
     email: "inquiry@f1composite.com",
     phone: "+86-138-8333-8993",
+    /** WhatsApp runs on the sales phone number (digits only, for wa.me links). */
+    whatsapp: "8613883338993",
     languages: ["English", "Chinese"],
   },
   sameAs: ["https://www.youtube.com/@F1Composites"],

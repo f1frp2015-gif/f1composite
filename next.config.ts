@@ -3,24 +3,32 @@ import type { NextConfig } from "next";
 // Content-Security-Policy. Allowlist is the full set of origins the site loads:
 //   - 'self'                       app pages, /api/* (incl. AI streaming), images, self-hosted next/font
 //   - googletagmanager / *-analytics / doubleclick   Google Analytics 4 (gtag)
+//   - googleadservices / *.google.com / pagead2 / td.doubleclick   Google Ads
+//     conversion and remarketing pings sent by the same gtag (Google's tag CSP
+//     guide). Without them the Ads conversion after an RFQ is blocked. Regional
+//     www.google.<TLD> hosts cover remarketing pings from the main export markets.
 //   - analytics.ahrefs.com         Ahrefs Web Analytics loader + beacon
 //   - vitals.vercel-insights.com   Vercel Speed Insights beacon
 // script-src/style-src keep 'unsafe-inline' because Next injects inline bootstrap
 // scripts and the GA component an inline gtag-config block; removing it requires a
 // per-request nonce via middleware (future hardening). Even so, object-src 'none',
 // base-uri/form-action 'self' and frame-ancestors 'none' close large attack classes.
+const GOOGLE_REGIONAL_HOSTS = ["ca", "de", "co.uk", "com.au", "ae", "com.sa"]
+  .map((tld) => `https://www.google.${tld}`)
+  .join(" ");
+
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "base-uri 'self'",
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://analytics.ahrefs.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net",
+  `img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://*.google.com ${GOOGLE_REGIONAL_HOSTS}`,
   "font-src 'self'",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://analytics.ahrefs.com https://vitals.vercel-insights.com",
-  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+  `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.googleadservices.com https://*.google.com https://pagead2.googlesyndication.com ${GOOGLE_REGIONAL_HOSTS} https://analytics.ahrefs.com https://vitals.vercel-insights.com`,
+  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://td.doubleclick.net https://bid.g.doubleclick.net https://www.googletagmanager.com",
   "manifest-src 'self'",
   // Keep local HTTP previews usable while preserving automatic upgrades on the
   // production HTTPS deployment.

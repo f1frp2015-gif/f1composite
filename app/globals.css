@@ -129,3 +129,8 @@ body {
   body:has(#grating-print-summary) *:has(#grating-print-summary) { display: block !important; margin: 0 !important; padding: 0 !important; background: white !important; }
   body:has(#grating-print-summary) #grating-print-summary { display: block; position: static; margin: 0; width: 100%; max-height: none; overflow: visible; color: black; background: white; font-size: 11pt; }
 }
+
+/* Pages that render their own bottom action bar hide the sitewide mobile contact bar. */
+body:has([data-page-bottom-bar]) [data-site-contact-bar] {
+  display: none;
+}

@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import { supplyTerms } from "@/content/data/company";
+import WhatsAppButton from "@/components/contact/WhatsAppButton";
 
 interface InnerCTAProps {
   title?: string;
@@ -18,6 +19,7 @@ export default function InnerCTA({ title = "Ready to discuss your project?", quo
         </div>
         <div className="flex shrink-0 flex-wrap gap-[10px]">
           <Button href={quoteHref}>Get a Quote</Button>
+          <WhatsAppButton location="inner-cta" variant="outline" />
           <Button href="/pultruded-frp-profiles" variant="secondary">
             View Products
           </Button>

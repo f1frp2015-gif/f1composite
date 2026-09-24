@@ -6,6 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/consent/CookieConsent";
+import ContactClickTracker from "@/components/contact/ContactClickTracker";
+import MobileContactBar from "@/components/contact/MobileContactBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { consentBootstrapScript } from "@/lib/consent";
 import { organizationSchema } from "@/lib/seo";
@@ -118,6 +120,9 @@ export default function RootLayout({
         {/* GA4 + Google Ads use the unified gtag() initialization above; the
             banner records the visitor's choice and updates consent. */}
         <CookieConsent />
+        {/* WhatsApp / email / phone click events, and the mobile quote + WhatsApp bar. */}
+        <ContactClickTracker />
+        <MobileContactBar />
         {/* Ahrefs is secondary analytics. Load it during browser idle time so it
             cannot compete with the page's LCP image or primary content. */}
         <Script
