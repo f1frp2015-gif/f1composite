@@ -4,6 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { company } from "@/content/data/company";
 
 /**
  * Hub for the country / market landing pages.
@@ -56,7 +57,7 @@ const markets = [
     title: "GRP Windows UK — Pultruded Fiberglass Frames",
     href: "/regions/grp-windows-uk",
     focus:
-      "GRP fenestration and profiles for UK fabricators — UKCA/CE pathways and document support.",
+      "GRP window profiles for UK fabricators, with help on the UKCA and CE marking documents.",
     standards: ["UKCA", "EN 14351-1"],
   },
   {
@@ -107,7 +108,7 @@ export default function RegionsHubPage() {
       <PageHeader
         tag="Markets"
         title="FRP Supply by Market"
-        description="Every export market has its own standards stack, duty regime, and failure modes. These market pages cover what actually changes by geography — certifications, compliance documents, logistics, and the FRP product families each market buys most."
+        description="Standards, import duties and site conditions differ from one market to the next. Each page below covers the standards and documents a market asks for, how we ship there, and the FRP products we supply to it most often."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Markets" }]}
       />
       <section className="bg-white pb-[89px]">
@@ -134,14 +135,14 @@ export default function RegionsHubPage() {
             ))}
           </div>
           <p className="mt-[34px] text-f13 leading-golden text-t2">
-            Shipping to a market not listed here? We export worldwide — the market pages
-            above are simply where we maintain dedicated standards and logistics
-            documentation. Send your project location and spec via the RFQ form and we
-            will map the compliance path for your jurisdiction.
+            Market not listed? We ship to {company.exportCountries} countries; these pages
+            only cover the markets where we keep standards and shipping notes on file. Send
+            your project location and specification through the RFQ form and we will tell
+            you which standards and documents apply.
           </p>
         </div>
       </section>
-      <InnerCTA title="Tell us your project location — we will quote with the right standards and duty treatment." />
+      <InnerCTA title="Tell us where the project is, and we will quote with the right standards and duties." />
     </>
   );
 }

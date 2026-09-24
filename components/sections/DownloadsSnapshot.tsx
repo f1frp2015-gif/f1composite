@@ -20,7 +20,7 @@ const resources = [
   {
     index: "03",
     title: "Downloads & CAD",
-    description: "Catalogs, product datasheets, certificates, design guides, and available CAD files.",
+    description: "Catalogs, product datasheets, published test reports, design guides and available CAD files.",
     href: "/resources/downloads",
     action: "Browse downloads",
   },

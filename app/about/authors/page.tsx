@@ -12,7 +12,7 @@ const pagePath = "/about/authors";
 export const metadata: Metadata = buildPageMetadata({
   title: "F1 Composite Authors — Engineering, R&D, Research",
   description:
-    "Named experts behind F1 Composite content: application engineers, R&D leads, industry researchers writing articles, case studies, procurement guides.",
+    "Who writes F1 Composite's technical articles and guides: our application engineer, R&D lead and industry researcher, with their fields and articles.",
   path: pagePath,
 });
 
@@ -23,7 +23,7 @@ const authorsCollectionSchema = {
   url: "https://www.f1composite.com/about/authors",
   name: "F1 Composite Authors",
   description:
-    "Named experts who author F1 Composite engineering content across application engineering, R&D, and industry research.",
+    "The people who write F1 Composite's technical articles: application engineering, materials R&D and industry research.",
   isPartOf: { "@id": "https://www.f1composite.com/#website" },
   publisher: { "@id": "https://www.f1composite.com/#organization" },
   breadcrumb: {
@@ -62,8 +62,8 @@ export default function AuthorsIndexPage() {
       <JsonLd data={authorsCollectionSchema} />
       <PageHeader
         tag="Authors"
-        title="The named experts behind F1 Composite content"
-        description="Application engineering, materials R&D, and industry research — three named expertise tracks driving every technical article, comparison, case study, and procurement guide on this site."
+        title="Who writes our technical content"
+        description="The articles, comparisons and guides on this site are written by an application engineer, our R&D lead and an industry researcher."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
@@ -75,10 +75,10 @@ export default function AuthorsIndexPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Author roster</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Three expertise tracks. One engineering source.
+            Authors
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Every blog post, comparison, and case-study article on F1 Composite is attributed to a named author with a specific area of accountability. That keeps the content honest about who is responsible for the conclusions and where the underlying expertise sits.
+            Each article names the person responsible for it. News commentary and sourcing guides without a single author are published under the company name.
           </p>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
@@ -106,7 +106,7 @@ export default function AuthorsIndexPage() {
         </div>
       </section>
 
-      <InnerCTA title="Have a question for one of our authors? Engineering responds within one business day." />
+      <InnerCTA title="Questions about an article? Send them to our engineering team." />
     </>
   );
 }

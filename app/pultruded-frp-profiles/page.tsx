@@ -45,7 +45,7 @@ const profileFamily: Array<{
     slug: "i-beam",
     name: "FRP I-Beam / Wide Flange",
     keyword: "GRP I-beam",
-    sizes: "76×38 mm — 305×305 mm",
+    sizes: "76×38 mm to 305×305 mm",
     summary:
       "Primary structural beams for walkways, platforms, and short-span bridges. Up to 75% lighter than a comparable A36 steel wide flange.",
     href: "/products/fiberglass-structural-shapes/frp-i-beam",
@@ -57,7 +57,7 @@ const profileFamily: Array<{
     slug: "channel",
     name: "FRP Channel (C and U)",
     keyword: "GRP channel",
-    sizes: "38×13 mm — 305×89 mm",
+    sizes: "38×13 mm to 305×89 mm",
     summary:
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
     href: "/products/fiberglass-structural-shapes/frp-channel",
@@ -69,7 +69,7 @@ const profileFamily: Array<{
     slug: "angle",
     name: "FRP Angle (L-profile)",
     keyword: "GRP angle",
-    sizes: "25×25 mm — 152×152 mm",
+    sizes: "25×25 mm to 152×152 mm",
     summary:
       "Equal and unequal-leg angles for stiffeners, bracing, ledger supports, and frame connectors. Isophthalic polyester or vinyl ester resin.",
     href: "/products/fiberglass-structural-shapes/frp-angle",
@@ -81,7 +81,7 @@ const profileFamily: Array<{
     slug: "square-tube",
     name: "FRP Square & Rectangular Tube",
     keyword: "GRP box section",
-    sizes: "25×25 mm — 240×240 mm",
+    sizes: "25×25 mm to 240×240 mm",
     summary:
       "Superior torsional rigidity for columns, trusses, and free-standing frames. Also used for guardrails and solar racking posts.",
     href: "/products/fiberglass-structural-shapes/frp-square-tube",
@@ -93,7 +93,7 @@ const profileFamily: Array<{
     slug: "tube",
     name: "FRP Round Tube",
     keyword: "GRP round tube",
-    sizes: "25 mm — 150 mm OD",
+    sizes: "25 mm to 150 mm OD",
     summary:
       "Circular hollow sections for handrails, antenna masts, insulating stand-offs, and fluid-conveying applications with smooth interior bore.",
     href: "/products/fiberglass-structural-shapes/frp-tube",
@@ -105,7 +105,7 @@ const profileFamily: Array<{
     slug: "flat-bar",
     name: "FRP Flat Bar",
     keyword: "fiberglass flat bar",
-    sizes: "12×3 mm — 305×25 mm",
+    sizes: "12×3 mm to 305×25 mm",
     summary:
       "Solid rectangular sections for stiffeners, splice plates, wear strips. Unidirectional architecture up to 70% glass for high-modulus applications.",
     href: "/products/fiberglass-structural-shapes/frp-flat-bar",
@@ -289,7 +289,7 @@ const faqItems = [
   {
     question: "What are pultruded FRP profiles?",
     answer:
-      "Pultruded FRP (fiber-reinforced polymer) profiles are continuous fiberglass structural shapes produced by pulling reinforcing fibers through a resin bath and a heated steel die. The result is a constant cross-section profile — I-beams, channels, angles, tubes, rods — with 60–70% glass fiber content by weight, high strength-to-weight ratio, and resin-dependent chemical resistance.",
+      "Pultruded FRP (fiber-reinforced polymer) profiles are continuous fiberglass structural shapes produced by pulling reinforcing fibers through a resin bath and a heated steel die. The result is a profile with a constant cross-section, such as an I-beam, channel, angle, tube or rod, with 60–70% glass fiber by weight, a high strength-to-weight ratio and chemical resistance that depends on the resin.",
   },
   {
     question: "How do pultruded FRP profiles compare with steel?",
@@ -304,7 +304,7 @@ const faqItems = [
   {
     question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
     answer:
-      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06 — most commonly Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates). FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) issued per production batch — the documentation package a PE stamping the spec expects to receive.",
+      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06, most often Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates). FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) for each production batch. These are the documents an engineer of record usually asks to review.",
   },
   {
     question: "What is the typical lead time for pultruded FRP profiles?",
@@ -335,7 +335,7 @@ const faqItems = [
     question:
       "Where can I buy pultruded FRP profiles, and how do I source FRP pultruded profiles from China?",
     answer:
-      "F1 Composite sells pultruded FRP profiles direct from the factory — no distributor markup — and exports to 30+ countries on FOB or DDP terms. Send your profile geometry (or a drawing), quantity, resin system, and destination port for a quote: stock standard sections ship in 2–4 weeks and custom-die profiles in 6–10 weeks. Buyers sourcing FRP pultruded profiles from China typically request EN 13706 / ASTM D3917 test data, a Barcol-hardness and glass-content report, and a pre-shipment inspection — all supplied by F1 Composite as standard.",
+      "F1 Composite sells pultruded FRP profiles direct from the production network, without a distributor, and exports to 30+ countries on FOB or DDP terms. For a quote, send the profile geometry or a drawing, the quantity, resin system and destination port. Catalog sections ship in 2–4 weeks; profiles that need a new die take 6–10 weeks. Buyers sourcing pultruded profiles from China usually ask for EN 13706 or ASTM D3917 test data, a Barcol hardness and glass content report, and a pre-shipment inspection; we provide these on request.",
   },
 ];
 
@@ -353,13 +353,13 @@ const en13706Rows = [
 ];
 
 const hubGlossary = [
-  { term: "Pultrusion", def: "A continuous process that pulls fiber reinforcement through a resin bath and a heated die to form a constant cross-section profile — a portmanteau of “pull” and “extrusion.”" },
+  { term: "Pultrusion", def: "A continuous process that pulls fiber reinforcement through a resin bath and a heated die to form a profile with a constant cross-section. The name combines “pull” and “extrusion.”" },
   { term: "E-glass roving", def: "Continuous bundles of electrical-grade glass filaments that carry the longitudinal load in a pultruded profile." },
   { term: "Continuous strand mat (CSM)", def: "A randomly-oriented glass mat layered between rovings to build transverse (cross-direction) strength." },
   { term: "Surfacing veil", def: "A thin veil at the surface that creates a resin-rich, UV- and corrosion-resistant outer layer." },
-  { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus — 17 GPa (E17) and 23 GPa (E23)." },
+  { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus: 17 GPa (E17) and 23 GPa (E23)." },
   { term: "ASTM D3917", def: "The dimensional-tolerance standard for pultruded shapes; F1 Composite holds ±0.25 mm." },
-  { term: "Vinyl ester resin", def: "A corrosion-grade matrix for acid, alkali, chlorine, and marine service — a step above general-purpose isophthalic polyester." },
+  { term: "Vinyl ester resin", def: "A corrosion-grade resin for acid, alkali, chlorine and marine service, one step up from general-purpose isophthalic polyester." },
   { term: "Barcol hardness", def: "A surface-indentation test (ASTM D2583) used as a quick proxy for adequate cure of a pultruded profile." },
 ];
 
@@ -383,7 +383,7 @@ const hubDownloads = [
 
 const LAST_UPDATED = "2026-09-08";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
-const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead — Materials & Standards", slug: "haifeng-gong" };
+const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead, Materials & Standards", slug: "haifeng-gong" };
 
 export default function PultrudedFRPProfilesHubPage() {
   const collectionSchema = {
@@ -489,16 +489,14 @@ export default function PultrudedFRPProfilesHubPage() {
                 a resin bath and then through a heated steel die. The resin cures
                 inside the die, producing a constant cross-section pultruded
                 fiberglass profile with 60–70% glass content by weight. Throughput
-                is typically 0.3–1.5 m/min, and profiles can be produced in any
-                length — standard packaging is 6 m or 12 m. As a category these are
-                known interchangeably as pultruded profiles, composite pultruded
-                profiles, or pultruded fiberglass profiles — F1 Composite is a{" "}
+                is typically 0.3–1.5 m/min. Profiles can be made to any length;
+                standard lengths are 6 m and 12 m. The same products are also sold as
+                composite pultruded profiles or pultruded fiberglass profiles. F1
+                Composite supplies them{" "}
                 <Link href="/products/frp-pultrusion-manufacturer-factory-direct" className="font-semibold text-teal-text hover:text-teal">
-                  direct-factory pultruded profiles manufacturer
-                </Link>{" "}
-                across all of them,
-                and this catalog is referred to collectively as{" "}
-                <strong className="text-t1">F1 pultruded profiles</strong>.
+                  direct from the FengDu production network
+                </Link>
+                .
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
                 Looking for <strong className="text-t1">GRP profiles</strong>?
@@ -511,13 +509,12 @@ export default function PultrudedFRPProfilesHubPage() {
                 </Link>.
               </p>
               <p className="mt-[13px] text-f15 leading-golden text-t2">
-                Compared to conventional materials, pultruded fiberglass reinforced
-                polymer (also called GRP — glass reinforced polymer — or fiber
-                reinforced plastic) is approximately{" "}
-                <strong className="text-t1">75% lighter than steel</strong>,{" "}
-                <strong className="text-t1">corrosion-immune</strong>,{" "}
-                <strong className="text-t1">electrically non-conductive</strong>,
-                and has <strong className="text-t1">thermal conductivity 170× lower than steel</strong>.
+                Pultruded fiberglass reinforced polymer (also called GRP, glass
+                reinforced plastic, or fiber reinforced plastic){" "}
+                <strong className="text-t1">weighs about 75% less than steel</strong>,{" "}
+                <strong className="text-t1">does not rust</strong>,{" "}
+                <strong className="text-t1">does not conduct electricity</strong>,
+                and <strong className="text-t1">conducts heat about 170 times less than steel</strong>.
                 Pultruded FRP is used in bridges, walkways, cooling towers, offshore
                 platforms, chemical plants, rail, solar farms, and passive-house
                 window systems worldwide.
@@ -667,7 +664,7 @@ export default function PultrudedFRPProfilesHubPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Resin systems</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Five resin systems — matched to environment and code
+            Five resin systems, chosen by environment and code
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             All pultruded FRP profiles in the F1 Composite range can be produced
@@ -765,7 +762,7 @@ export default function PultrudedFRPProfilesHubPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Standards &amp; grades</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            EN 13706 E17 and E23 — what the grades mean
+            What the EN 13706 grades E17 and E23 mean
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             EN 13706-3 classifies pultruded structural profiles by their minimum
@@ -773,9 +770,9 @@ export default function PultrudedFRPProfilesHubPage() {
             <strong className="text-t1">grade E17 = 17 GPa</strong> and{" "}
             <strong className="text-t1">grade E23 = 23 GPa</strong> (the standard also
             requires the axial tensile modulus to meet the grade number). The grade
-            is a floor, not the typical value — F1 Composite standard structural
-            profiles are produced to <strong className="text-t1">E23</strong>, and
-            high-fiber-content sections run stiffer than the 23 GPa minimum. Each
+            is a minimum, not a typical value. F1 Composite&rsquo;s standard structural
+            profiles are made to <strong className="text-t1">E23</strong>, and sections
+            with a high fiber content are stiffer than the 23 GPa minimum. Each
             property below is paired with the test method that produces it.
           </p>
 
@@ -967,23 +964,23 @@ export default function PultrudedFRPProfilesHubPage() {
             href="/frp-profile-calculator"
             eyebrow="Free tool · no login"
             title="Size a pultruded FRP profile in your browser"
-            sub="Run bending, shear, and Timoshenko-corrected deflection on any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608, or ASD — and find the section that replaces a steel or aluminum member at equal stiffness, then quote against your spec."
+            sub="Check bending, shear and Timoshenko-corrected deflection for any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608 or ASD, and find the section that matches a steel or aluminum member's stiffness. You can request a quote from the result."
           />
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Looking up rather than computing? The{" "}
+            Prefer a table? The{" "}
             <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
               FRP span tables
             </Link>{" "}
-            publish the allowable uniform load for every standard{" "}
+            give the allowable uniform load for every standard{" "}
             <Link href="/frp-span-tables#i-beam" className="text-teal-text hover:underline">fiberglass I-beam</Link>,{" "}
             <Link href="/frp-span-tables#channel" className="text-teal-text hover:underline">channel</Link>, and{" "}
             <Link href="/frp-span-tables#square-tube" className="text-teal-text hover:underline">tube</Link>{" "}
-            over 1–6 m simple spans — EN 13706 E23 basis, deflection-checked. Once the
-            section is fixed, the{" "}
+            over simple spans of 1–6 m, on an EN 13706 E23 basis with deflection checked.
+            Once the section is chosen, the{" "}
             <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:underline">
               fiberglass pultruded profile price estimator
             </Link>{" "}
-            turns it into a budgetary USD-per-meter range with quantity breaks.
+            gives a budget price range in USD per meter, with quantity breaks.
           </p>
         </div>
       </section>

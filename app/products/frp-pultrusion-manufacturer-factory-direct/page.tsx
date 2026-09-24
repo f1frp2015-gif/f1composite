@@ -51,23 +51,23 @@ const evidence = [
 const qualificationSteps = [
   {
     title: "Define the service requirement",
-    body: "Start with the load case, span, deflection limit, temperature, chemical exposure, fire or smoke requirement, UV exposure, design life, quantity, and destination. A useful factory RFQ describes the application rather than asking for a generic FRP grade. That lets engineering select the resin family, reinforcement architecture, surface veil, and mechanical grade against the actual duty.",
+    body: "Start with the load case, span, deflection limit, temperature, chemical exposure, fire or smoke requirement, UV exposure, design life, quantity and destination. Describe the application rather than asking for a generic FRP grade; that lets our engineers choose the resin family, reinforcement, surface veil and mechanical grade for the actual duty.",
   },
   {
     title: "Freeze the drawing and acceptance criteria",
-    body: "For standard shapes, identify the catalog model and the properties that govern. For custom pultrusions, issue a controlled drawing with critical dimensions, tolerances, straightness, cut length, hole pattern, finish, color, and interface dimensions. The approved drawing becomes the shared reference for die design, first-article inspection, production checks, and incoming inspection at the buyer's site.",
+    body: "For standard shapes, give the catalog model and the properties that govern. For custom pultrusions, issue a controlled drawing with critical dimensions, tolerances, straightness, cut length, hole pattern, finish, color and interface dimensions. The approved drawing is then the reference for die design, first-article inspection, production checks and your incoming inspection.",
   },
   {
     title: "Validate material and tooling",
-    body: "The manufacturer reviews resin chemistry, glass architecture, die envelope, pulling force, cure window, and expected production rate before quoting tooling. A first-article plan should state which dimensions and material properties are measured, which reports are supplied, and what happens if the sample does not meet the agreed criteria. This is where factory-direct engineering reduces rework before volume production begins.",
+    body: "Before tooling is quoted, the resin, glass architecture, die envelope, pulling force, cure window and expected production rate are reviewed. The first-article plan should say which dimensions and properties are measured, which reports you receive, and what happens if the sample misses the agreed criteria. Problems caught at this stage never reach volume production.",
   },
   {
     title: "Release controlled production",
-    body: "Production records should connect the finished profile to raw-material lots, process settings, dimensional inspections, and any agreed coupon tests. Cut-to-length, drilling, CNC machining, labeling, protective film, and export packaging are added only after the profile itself is stable. For repeat orders, the same approved drawing and inspection plan keep the qualification history attached to the product.",
+    body: "Production records link each finished profile to its raw-material lots, process settings, dimensional inspections and any agreed coupon tests. Cutting, drilling, CNC machining, labeling, protective film and export packing are added once the profile itself is stable. Repeat orders use the same approved drawing and inspection plan, so the qualification history stays with the product.",
   },
   {
     title: "Agree the export and landed-cost basis",
-    body: "FOB leaves international freight, import clearance, and duty with the buyer. DDP places those tasks with the seller to the named destination, but the quotation must still state the assumed HS classification, duty exposure, delivery point, unloading responsibility, and exclusions. Comparing suppliers on the same Incoterm and destination prevents a low unit price from hiding a higher landed cost.",
+    body: "Under FOB, international freight, import clearance and duty stay with the buyer. Under DDP the seller takes them on to the named destination, and the quotation should state the assumed HS classification, duty, delivery point, unloading responsibility and exclusions. Compare suppliers on the same Incoterm and destination, or a low unit price can hide a higher landed cost.",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function FactoryDirectPultrusionPage() {
       <PageHeader
         tag="Factory-Direct FRP Supply"
         title="FRP Pultrusion Manufacturer for Factory-Direct Global Projects"
-        description="Qualify a pultruded FRP factory by its engineering evidence, process controls, tooling path, inspection records, and landed-cost terms—not by a unit-price claim alone. F1 Composite coordinates standard and custom profile supply from drawing review through FOB or DDP delivery."
+        description="Judge a pultruded FRP supplier on engineering evidence, process controls, tooling, inspection records and landed cost as well as unit price. F1 Composite handles standard and custom profile supply from drawing review to FOB or DDP delivery."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -125,16 +125,16 @@ export default function FactoryDirectPultrusionPage() {
           <div>
             <SectionTag>What factory-direct should prove</SectionTag>
             <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
-              A manufacturer relationship, not an anonymous trading quote
+              Why buy from the production network
             </h2>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
-              A factory-direct FRP purchase should shorten the path between the project requirement and the people who control the die, reinforcement schedule, resin mix, pull speed, cure temperature, and inspection plan. The practical benefit is not simply a lower sales margin. It is the ability to resolve a tolerance, surface, load, fire, corrosion, machining, or packaging question before it becomes a production defect.
+              Buying direct puts your project requirements in front of the people who control the die, reinforcement schedule, resin mix, pull speed, cure temperature and inspection plan. The saving on sales margin is the smaller part of it. The bigger benefit is that tolerance, surface, load, fire, corrosion, machining and packaging questions get settled before production instead of turning up as defects.
             </p>
             <p className="mt-[13px] text-f15 leading-golden text-t2">
-              F1 Composite is the international project and export interface for FengDu manufacturing. The operating footprint covers five production bases and 370 pultrusion lines. That scale matters only when it is paired with product-specific controls: an approved drawing, a defined material system, first-article evidence, traceable inspection, and a shipment specification that reaches the buyer unchanged.
+              F1 Composite handles international projects and export for FengDu&rsquo;s production network: five production bases with 370 pultrusion lines. Each order runs against an approved drawing, a defined material system, first-article checks, traceable inspection records and a shipping specification agreed with the buyer.
             </p>
             <p className="mt-[13px] text-f15 leading-golden text-t2">
-              Buyers can begin with the complete <Link href="/pultruded-frp-profiles" className="text-teal-text hover:underline">pultruded FRP profile range</Link>, then use this page to qualify the manufacturing and export route. The two pages serve different intents: the catalog owns profile selection, while this factory-direct guide owns supplier verification and procurement execution.
+              If you are still choosing a profile, start with the <Link href="/pultruded-frp-profiles" className="text-teal-text hover:underline">pultruded FRP profile range</Link>. This page covers how to check the supplier and plan the purchase.
             </p>
           </div>
           <Image
@@ -152,7 +152,7 @@ export default function FactoryDirectPultrusionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Verifiable scope</SectionTag>
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
-            Factory capacity is useful only when the order has a controlled path
+            Capacity figures, and what they cover
           </h2>
           <div className="mt-[34px] grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             {evidence.map((item) => (
@@ -164,7 +164,7 @@ export default function FactoryDirectPultrusionPage() {
             ))}
           </div>
           <p className="mt-[21px] max-w-[960px] text-f15 leading-golden text-t2">
-            These figures define the available platform; they do not replace qualification of the exact profile. Mechanical values, resin chemistry, glass architecture, fire performance, tolerances, and certificate requirements must be tied to the quoted section and production plan. Review the <Link href="/technology/quality-testing" className="text-teal-text hover:underline">FRP quality-testing system</Link> for the distinction between incoming materials, in-process checks, coupon testing, and project acceptance evidence.
+            These figures describe the production network. They do not qualify a specific profile: mechanical values, resin, glass architecture, fire performance, tolerances and certificates are tied to the quoted section and its production plan. The <Link href="/technology/quality-testing" className="text-teal-text hover:underline">FRP quality-testing</Link> page explains how incoming material checks, in-process checks, coupon tests and project acceptance evidence differ.
           </p>
         </div>
       </section>
@@ -173,7 +173,7 @@ export default function FactoryDirectPultrusionPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Supply range</SectionTag>
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
-            What a factory-direct FRP pultrusion manufacturer can quote
+            What you can order direct
           </h2>
           <div className="mt-[34px] overflow-x-auto rounded-[10px] border border-border-default">
             <table className="w-full min-w-[820px] border-collapse bg-white text-f13">
@@ -196,7 +196,7 @@ export default function FactoryDirectPultrusionPage() {
             </table>
           </div>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Standard structural profiles use established dies and published section data, which usually makes them the fastest qualification route. A <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">custom pultruded profile</Link> adds a tooling and first-article phase but can remove secondary assembly, reduce part count, integrate channels or fastening features, and place reinforcement where the application needs it. The quotation should separate recurring profile cost from one-time tooling, testing, machining, and certification costs.
+            Standard structural profiles use existing dies and published section data, so they are usually the quickest to qualify. A <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">custom pultruded profile</Link> adds tooling and a first-article stage, but it can remove secondary assembly, cut the part count, build in channels or fastening features, and put reinforcement where the load is. The quotation should list recurring profile cost separately from one-time tooling, testing, machining and certification costs.
           </p>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function FactoryDirectPultrusionPage() {
         <div className="mx-auto max-w-[1060px] px-[34px]">
           <SectionTag>Qualification workflow</SectionTag>
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
-            Five gates from project specification to repeat shipment
+            Five steps from specification to repeat orders
           </h2>
           <ol className="mt-[34px] space-y-[18px]">
             {qualificationSteps.map((step, index) => (
@@ -228,17 +228,17 @@ export default function FactoryDirectPultrusionPage() {
           <div>
             <SectionTag>FOB or DDP</SectionTag>
             <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
-              Compare the same landed-cost boundary
+              Compare quotes on the same delivery terms
             </h2>
             <p className="mt-[21px] text-f15 leading-golden text-t2">
-              FOB is appropriate when the buyer already controls freight forwarding, customs brokerage, insurance, and import compliance. DDP is useful when the buyer wants one delivered number and the seller can state the classification and duty assumptions behind it. CIF and DAP divide the responsibilities differently. None is universally cheaper; the correct comparison includes the same port or jobsite, shipment size, packaging, insurance, customs clearance, tariffs, local charges, unloading, and tax treatment.
+              FOB suits buyers who already handle freight forwarding, customs brokerage, insurance and import compliance. DDP suits buyers who want one delivered price, provided the seller states the classification and duty assumptions behind it. CIF and DAP split the responsibilities in other ways. No Incoterm is always cheaper, so compare quotes on the same port or site, shipment size, packing, insurance, customs clearance, tariffs, local charges, unloading and tax treatment.
             </p>
             <p className="mt-[13px] text-f15 leading-golden text-t2">
-              The <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="text-teal-text hover:underline">FRP pultrusion FOB and DDP export guide</Link> explains those boundaries, HS/HTSUS classification, and Section 301 exposure in detail. It is a procurement guide, not customs or legal advice; the importer should confirm the final classification with its broker or customs authority for the exact section and intended use.
+              The <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="text-teal-text hover:underline">FRP pultrusion FOB and DDP export guide</Link> covers these terms, HS/HTSUS classification and Section 301 duties in more detail. It is a purchasing guide, not customs or legal advice: the importer should confirm the classification with its broker or customs authority for the exact section and use.
             </p>
           </div>
           <div className="rounded-[10px] border border-border-default bg-bg2 p-[26px]">
-            <h2 className="text-f19 font-bold text-t1">Send these inputs for a comparable factory quote</h2>
+            <h2 className="text-f19 font-bold text-t1">What to send for a comparable quote</h2>
             <ul className="mt-[18px] space-y-[10px] text-f15 leading-relaxed text-t2">
               <li>• Drawing, catalog model, or application with critical dimensions</li>
               <li>• Quantity by length, cut schedule, annual demand, and order cadence</li>
@@ -248,7 +248,7 @@ export default function FactoryDirectPultrusionPage() {
               <li>• Named destination and Incoterm: EXW, FOB, CIF, DAP, or DDP</li>
             </ul>
             <p className="mt-[18px] text-f13 leading-relaxed text-t3">
-              A quote that omits these inputs is a preliminary price indication, not a controlled production offer. The final commercial offer should reference the approved specification and identify exclusions.
+              Without these details we can only give an indicative price. The final offer references the approved specification and lists what is excluded.
             </p>
           </div>
         </div>

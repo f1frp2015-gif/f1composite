@@ -13,7 +13,7 @@ const pagePath = "/technology/china-alternative-to-tencom-creative-pultrusions-w
 export const metadata: Metadata = buildPageMetadata({
   title: "China Alternative to Tencom & Creative Pultrusions Windows",
   description:
-    "F1-THERM pultruded fiberglass window profiles: a China alternative to Tencom, Creative Pultrusions and Inline — PHI-certified, EN 14351-1 / NAFS tested, DDP.",
+    "F1-THERM pultruded fiberglass window profiles, a China alternative to Tencom, Creative Pultrusions and Inline: PHI-certified 90 series, test reports on request.",
   path: pagePath,
 });
 
@@ -35,7 +35,7 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Unit-level testing",
-    f1: "EN 14351-1 (CE) and NAFS — AAMA/WDMA/CSA 101/I.S.2/A440 test reports ship with finished units",
+    f1: "EN 14351-1 (CE) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports on request for finished units",
     incumbents: "Profile suppliers generally leave unit testing to the fabricator",
   },
   {
@@ -74,12 +74,12 @@ const faqItems = [
   {
     question: "What certifications back F1's window profiles compared to North American suppliers?",
     answer:
-      "F1's fenestration system carries certification at both the component and the unit level: PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) on the 90-series frame, EN 14351-1 testing for CE marking, and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) testing for North American specification. Profile-level properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply either model — certified finished units, or profiles plus the simulation data a fabricator needs for its own certification path.",
+      "The 90-series frame holds PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone). EN 14351-1 (CE marking) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports are provided on request for the configuration you specify. Profile properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply finished units, or profiles plus the simulation data a fabricator needs for its own certification.",
   },
   {
     question: "Why source fiberglass window profiles from China instead of a North American pultruder?",
     answer:
-      "The case is specification-parity at factory-direct economics, plus system depth: a complete five-series fenestration profile family (65–140 mm frame depths) from one supplier, polyurethane-resin profiles where the performance tier demands it, PHI/EN 14351-1/NAFS certification already in place, and export on FOB or DDP terms with duty pre-itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
+      "The argument is comparable specifications at factory-direct prices, plus system depth: a five-series window profile family (65–140 mm frame depths) from one supplier, polyurethane-resin profiles where the performance level calls for them, the PHI component certificate with EN 14351-1 and NAFS test reports on request, and export on FOB or DDP terms with duty itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function ChinaAlternativeWindowsPage() {
       <PageHeader
         tag="Comparison · F1-THERM"
         title="China alternative to Tencom, Creative Pultrusions & Inline window profiles"
-        description="F1 Composite's F1-THERM fenestration line is a standards-equivalent, factory-direct China alternative to the established North American fiberglass window lineal suppliers — with PHI component certification, EN 14351-1 and NAFS unit testing, and both profile-set and finished-unit supply models."
+        description="F1-THERM is a factory-direct alternative from China to the established North American fiberglass window lineal suppliers. It has a PHI component certificate, EN 14351-1 and NAFS test reports on request, and is sold as profile sets or finished units."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -134,17 +134,17 @@ export default function ChinaAlternativeWindowsPage() {
             frame move with its glass instead of against it.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            The reason fabricators evaluate a China alternative is usually not
-            the material — it is system depth and route to market. F1 supplies a
-            complete five-series fenestration family (65–140 mm frame depths)
+            Fabricators usually look at a China-made alternative for system depth
+            and route to market rather than for the material itself. F1 supplies a
+            five-series window profile family (65–140 mm frame depths)
             including{" "}
             <Link href="/technology/polyurethane-pultrusion-windows" className="font-semibold text-teal-text hover:text-teal">
               polyurethane (GFRP-PU) profiles
             </Link>{" "}
-            on the performance tier, with PHI component certification and EN
-            14351-1 / NAFS unit testing already in place, shipped factory-direct
-            on FOB or DDP terms — and offers both supply models: profiles for
-            your fabrication line, or complete factory-assembled units.
+            on the performance tier. The 90 series holds a PHI component
+            certificate, EN 14351-1 and NAFS test reports are available on request,
+            and everything ships factory-direct on FOB or DDP terms. You can buy
+            profiles for your own fabrication line or complete factory-assembled units.
           </p>
         </div>
       </section>

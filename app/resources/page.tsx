@@ -32,7 +32,7 @@ const faqs = [
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Engineering Resources, Guides & Technical Data",
   description:
-    "Technical resources, design guides, blog articles, and downloadable documents from F1 Composite — your FRP pultrusion knowledge hub.",
+    "Design guides, span tables, technical articles, test reports and downloadable documents from F1 Composite for specifying pultruded FRP profiles and grating.",
   path: "/resources",
   image: "/resources/opengraph-image",
 });

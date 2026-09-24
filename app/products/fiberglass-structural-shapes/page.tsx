@@ -60,7 +60,7 @@ const faqItems = [
   {
     question: "Who are the top pultruded FRP profile manufacturers, and where does F1 Composite fit?",
     answer:
-      "The global market for pultruded FRP structural profiles includes Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), Exel Composites (Finland), and large manufacturers based in China. F1 Composite manufactures the complete F1-STRUX structural range — I-beams, channels, angles, tubes, flat bars, and rods — to EN 13706 E17/E23 and ASTM D3917 requirements. Products ship directly from our factory in China without a regional distributor markup.",
+      "The global market for pultruded FRP structural profiles includes Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites (Denmark), Exel Composites (Finland), and large manufacturers based in China. F1 Composite's F1-STRUX structural range (I-beams, channels, angles, tubes, flat bars and rods) is made to EN 13706 E17/E23 and ASTM D3917 requirements. Products ship directly from our factory in China without a regional distributor markup.",
   },
   {
     question: "Is there a China-based alternative to Strongwell, Creative Pultrusions, Fiberline, or Exel?",
@@ -83,7 +83,7 @@ const profileTypes: Array<{
     name: "I-Beam",
     subtitle: "Wide Flange Profiles",
     image: "/images/products/i-beam/frp-i-beam-photo.webp",
-    sizes: "76×38 mm — 305×305 mm",
+    sizes: "76×38 mm to 305×305 mm",
     brief: "Up to 75% lighter than steel. Maximum flexural stiffness for walkways, bridges, and platforms.",
   },
   {
@@ -91,7 +91,7 @@ const profileTypes: Array<{
     name: "Angle",
     subtitle: "L-Profiles",
     image: "/images/products/angle/frp-angle-photo.webp",
-    sizes: "25×25 mm — 152×152 mm",
+    sizes: "25×25 mm to 152×152 mm",
     brief: "Equal and unequal-leg options. Ideal as stiffeners, bracing, and ledger supports.",
   },
   {
@@ -99,7 +99,7 @@ const profileTypes: Array<{
     name: "Channel",
     subtitle: "U-Profiles",
     image: "/images/products/channel/frp-channel-photo.webp",
-    sizes: "38×13 mm — 305×89 mm",
+    sizes: "38×13 mm to 305×89 mm",
     brief: "Versatile open-section framing for cable management and modular assemblies.",
   },
   {
@@ -107,7 +107,7 @@ const profileTypes: Array<{
     name: "Square Tube",
     subtitle: "SHS & RHS Profiles",
     image: "/images/products/square-tube/frp-square-tube-photo.webp",
-    sizes: "25×25 mm — 240×240 mm",
+    sizes: "25×25 mm to 240×240 mm",
     brief: "Superior torsional rigidity for columns, trusses, and frame structures.",
   },
   {
@@ -115,7 +115,7 @@ const profileTypes: Array<{
     name: "Round Tube",
     subtitle: "Circular Hollow Sections",
     image: "/images/products/round-tube/frp-round-tube-photo.webp",
-    sizes: "25 mm — 150 mm OD",
+    sizes: "25 mm to 150 mm OD",
     brief: "Handrails, guardrails, and structural tubes with smooth interior bore.",
   },
   {
@@ -123,7 +123,7 @@ const profileTypes: Array<{
     name: "Flat Bar",
     subtitle: "Solid Rectangular Sections",
     image: "/images/products/flat-bar/frp-flat-bar-photo.webp",
-    sizes: "12×3 mm — 305×25 mm",
+    sizes: "12×3 mm to 305×25 mm",
     brief: "Stiffeners, splice plates, wear strips. High-modulus options up to 70% glass.",
   },
 ];
@@ -308,7 +308,7 @@ export default function StandardProfilesPage() {
             href="/frp-profile-calculator"
             eyebrow="Free tool · no login"
             title="Size and verify an FRP profile in your browser"
-            sub="Pick a shape — I-beam, channel, angle, square tube, or round tube — enter your span and load, and get bending, shear, and Timoshenko-corrected deflection plus the steel/aluminum-equivalent section, then quote against your spec."
+            sub="Pick a shape (I-beam, channel, angle, square tube or round tube), enter the span and load, and get bending, shear and Timoshenko-corrected deflection, plus the equivalent steel or aluminum section."
           />
         </div>
       </section>

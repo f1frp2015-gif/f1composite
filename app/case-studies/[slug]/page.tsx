@@ -486,8 +486,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </h2>
             <p className="mb-[34px] text-f15 leading-golden text-t2">
               {cs.industry} project in {cs.location}, {cs.year}. Products supplied:{" "}
-              {cs.products.join(", ")}. The sections below cover the site conditions, what F1
-              supplied and the results.
+              {cs.products.join(", ")}.
             </p>
 
             <h2 className="mb-[13px] text-f24 font-bold text-t1">
@@ -650,7 +649,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <AskAICard
         title={`Have a similar project to ${cs.title.split("—")[0].trim()}?`}
-        description="Open the FRP Engineering Advisor with this case study loaded as context. Ask about specs, profile families, resin selection, or how to build your own RFQ."
+        description="The advisor opens with a question about this project. Add your own site conditions to see which profiles and resin would carry over, and what a quotation needs."
         prefill={prefillForCaseStudy({
           title: cs.title,
           slug,

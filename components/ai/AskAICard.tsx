@@ -15,7 +15,7 @@ interface AskAICardProps {
  */
 export default function AskAICard({
   title = "Have a question about this product?",
-  description = "Our FRP Engineering Advisor answers spec, sizing, and chemical-compatibility questions instantly — and routes complex ones to the right human.",
+  description = "Ask the FRP Engineering Advisor about specifications, sizing or chemical resistance. Treat its answer as a starting point: our engineers confirm anything that goes into a quotation.",
   prefill,
   ctaLabel = "Ask the AI advisor →",
 }: AskAICardProps) {

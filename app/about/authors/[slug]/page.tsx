@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const author = authorsBySlug[slug];
   if (!author) return {};
   const desc = author.seoDescription
-    ?? `${author.name} — ${author.jobTitle.slice(0, 110)}`.slice(0, 155);
+    ?? `${author.name}, ${author.jobTitle.slice(0, 110)}`.slice(0, 155);
   return buildPageMetadata({
     title: `${author.fullName} — F1 Composite`,
     description: desc,
@@ -171,7 +171,7 @@ export default async function AuthorPage({ params }: PageProps) {
         </div>
       </section>
 
-      <InnerCTA title={`Reach the ${author.bucketLabel.toLowerCase()} desk — engineering responds within one business day.`} />
+      <InnerCTA title={`Questions for ${author.name}? Send them to our engineering team.`} />
     </>
   );
 }

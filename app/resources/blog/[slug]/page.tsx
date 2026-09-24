@@ -531,9 +531,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Need Project Support
               </p>
               <p className="mt-[8px] text-f13 leading-golden text-t2">
-                If you need section sizing, specification language, or qualification support,
-                our engineering team can help define the shortest path from idea to approved
-                pultruded solution.
+                Need a section sized, specification wording checked, or test documents for an
+                approval? Send the details to our engineering team.
               </p>
               <Link
                 href="/contact"
@@ -548,7 +547,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       <AskAICard
         title={`Have questions about "${post.title}"?`}
-        description="Open the FRP Engineering Advisor with the article context already loaded. Ask about specs, standards, profile families, or how to apply this to your project."
+        description="The advisor opens with a question about this article. Follow up with your own loads, environment or standard to see how it applies to your project."
         prefill={prefillForBlog({ title: post.title, slug: post.slug })}
       />
 

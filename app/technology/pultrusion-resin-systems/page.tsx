@@ -19,7 +19,7 @@ const updatedAt = "2026-07-08";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pultrusion Resin Systems: Polyester vs Vinyl Ester vs PU",
   description:
-    "Compare polyester, vinyl ester, PU, epoxy & phenolic resin systems for pultruded FRP profiles — HDT, corrosion, fire, cost — interactive selection matrix.",
+    "Compare polyester, vinyl ester, PU, epoxy and phenolic resins for pultruded FRP profiles by HDT, corrosion, fire and cost, with an interactive selection matrix.",
   path: "/technology/pultrusion-resin-systems",
 });
 
@@ -73,7 +73,7 @@ export default function PultrusionResinSystemsPage() {
             "@type": "Person",
             name: "Haifeng Gong",
             url: absoluteUrl("/about/authors/haifeng-gong"),
-            jobTitle: "R&D Lead — composite materials and pultrusion process development",
+            jobTitle: "R&D Lead for composite materials and pultrusion process development",
           },
           publisher: { "@id": "https://www.f1composite.com/#organization" },
           about: [

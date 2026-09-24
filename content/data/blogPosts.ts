@@ -533,8 +533,8 @@ For further material background, explore [pultruded FRP profiles](/pultruded-frp
     excerpt:
       "A practical guide to what fiberglass reinforced plastic is, how glass and resin work together, which manufacturing forms exist, and where structural GFRP is a better fit than metal or unreinforced plastic.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
     coverImage: "/images/hero/frp-composite-material-hero.webp",
     coverAlt:
@@ -619,8 +619,8 @@ If the project needs a catalog shape, compare the dimensions and section propert
     excerpt:
       "How to read FRP material data and select the right fiber, resin, manufacturing process, test values, and design checks for a structural or industrial application.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790", "ASCE/SEI 74-23"],
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt:
@@ -705,8 +705,8 @@ Avoid copying the highest numbers from several brochures into one impossible “
     excerpt:
       "The FRP full form is fiber reinforced polymer or fiber reinforced plastic. This guide maps FRP, GFRP, GRP, CFRP, and fiberglass in engineering use.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Review Board",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASCE/SEI 74-23"],
     coverImage: "/images/hero/frp-composite-material-hero.webp",
     coverAlt: "Structural profiles made from fiber reinforced polymer composites",
@@ -879,8 +879,8 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
     excerpt:
       "Every window fabricator evaluating a Chinese profile supplier asks the same underlying question: will run number forty look like run number one? This checklist turns that question into nine concrete, verifiable checks — the same ones our own customers put us through — so qualification runs on evidence instead of assurances.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Review Board",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM D3917", "EN 13706", "EN 14351-1", "NAFS (AAMA/WDMA/CSA 101)", "AAMA 2604 / 2605"],
     coverImage: "/images/blog/supplier-qualification-facade-inspection.jpg",
     coverAlt:
@@ -970,8 +970,8 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     excerpt:
       "Nobody in this industry publishes how window profile pricing actually works, which leaves buyers comparing quotes they cannot decompose. Here are the eight cost drivers, what each one does to the per-meter number, and why two quotes for 'the same profile' can differ by 40% without anyone cheating.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Review Board",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM D3917", "EN 13706", "AAMA 2604 / 2605"],
     coverImage: "/images/blog/window-profile-price-yellow-facade.jpg",
     coverAlt:
@@ -1052,8 +1052,8 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
     excerpt:
       "The question every fabricator asks before ordering the first container of fiberglass lineals: how much of my line do I have to change? Here is the station-by-station answer — cutting, machining, corner joining, hardware, glazing — from the process differences that matter to the ones that only look scary.",
     authorName: "Yifan Liu",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM D3917", "EN 14351-1", "AAMA 2604 / 2605"],
     coverImage: "/images/blog/fiberglass-casement-open-fabrication.jpg",
     coverAlt:
@@ -1134,8 +1134,8 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     excerpt:
       "The service call every cold-climate building manager knows: water pooling on aluminum window sills in January, frost on the frame by February, and a mold remediation quote by spring. This is not a defect — it is the frame material doing exactly what physics says it must. Here is the mechanism, the metric that predicts it, and what actually fixes it.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN ISO 10077-1", "AAMA 1503 (CRF)", "EN ISO 13788"],
     coverImage: "/images/blog/cold-climate-window-interior.jpg",
     coverAlt:
@@ -1216,8 +1216,8 @@ To check where a specific frame and glazing build lands before specifying, run i
     excerpt:
       "Search interest in the 'FRP window profile market' is usually a fabricator or specifier trying to answer three practical questions: who actually supplies pultruded window lineals, what is pulling demand, and how do you qualify a supplier you have not worked with. This analysis answers those three questions without the invented market-size numbers that plague this topic.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Review Board",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "EN 14351-1", "ASTM D3917", "PHI Component Criteria", "NAFS (AAMA/WDMA/CSA 101)"],
     coverImage: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
     coverAlt:
@@ -1328,8 +1328,8 @@ The FRP window profile market rewards exactly one kind of participant on each si
     excerpt:
       "The thermal break in a curtain wall is not the same part as the thermal break in a window. It sits in the primary load path — clamped by pressure-plate screws, pulled by wind suction, and on transoms, loaded around the clock by the dead weight of the glass, transverse to the pultrusion axis. That load case is why F1 laminates isolator profiles with balanced 0°/90° moduli.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 14024", "EN 13830", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
     coverImage: "/images/blog/curtain-wall-blue-glass-facade-clean.jpg",
     coverAlt:
@@ -1473,8 +1473,8 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
       "Pultruded FRP does not replace filament-wound high-pressure trunklines. It earns its place in oilfield piping where loads are axial or pressure is low to moderate — threaded line pipe, gathering lines, fuel-station double-wall pipe, and continuous sucker rods.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole:
-      "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Technical Review Board",
+      "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["API 15LR", "API 15HR", "API 15S", "ISO 14692", "NORSOK M-622", "ASTM D2992", "SY/T 6266", "NACE MR0175"],
     coverImage: "/images/blog/oil-gas-pipeline-industrial-plant.jpg",
     coverAlt:
@@ -1615,8 +1615,8 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
       "Draining methane underground demands a pipe that will not spark and will not carry flame. Pultruded GFRP pipe — anti-static and flame-retardant by formulation — is one of the few cases where pultrusion is the best process, not a compromise.",
     authorName: "Haifeng Gong, Ph.D.",
     authorRole:
-      "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+      "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["MT 558.2", "MT 558.3", "GB 16413", "MT 113", "ISO 4589-2", "UL 94 V-0", "ASTM E84", "ISO 9001"],
     coverImage: "/images/blog/coal-mine-underground-tunnel-track.jpg",
     coverAlt:
@@ -1726,8 +1726,8 @@ For a mine operator weighing a switch from steel or PE, the case is a lower fail
     excerpt:
       "An engineering comparison of pultruded FRP and structural steel across weight, corrosion resistance, thermal conductivity, lifecycle cost, and environmental impact.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Materials Comparison Desk",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"],
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt: "Engineering analysis of FRP material performance for structural applications",
@@ -1801,8 +1801,8 @@ At F1 Composite, we help engineers compare materials based on actual service con
     excerpt:
       "Pultruded FRP window frames deliver thermal conductivity 500× lower than aluminum. We break down the physics, the U-value impact, and the energy savings.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Envelope Systems Review Group",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["Passivhaus reference methodology", "EN 12667", "ISO 10077"],
     coverImage: "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
     coverAlt: "High-performance building facade using FRP fenestration systems",
@@ -1867,8 +1867,8 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     excerpt:
       "A detailed engineering comparison of molded FRP grating and hot-dip galvanized steel grating across weight, corrosion resistance, installation cost, and 20-year lifecycle economics.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Industrial Products Review Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM E84", "OSHA 1910.23", "EN ISO 14122", "ASTM D6272"],
     coverImage: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
     coverAlt: "FRP grating access platform in an industrial chemical facility",
@@ -1931,7 +1931,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
     excerpt:
       "Specify FRP cable trays with verified load, span, resin and fire evidence. Understand IEC 61537 scope and compare complete cable support systems.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "Editorial source check",
     standards: ["IEC 61537:2023", "UL 568", "ASTM E84"],
     coverImage: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
@@ -2012,8 +2012,8 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     excerpt:
       "FRP bridge decks are 80% lighter than concrete, enabling longer spans and rapid installation. This guide covers design criteria, deflection limits, durability, and lifecycle cost analysis.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Structural Engineering Review Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["AASHTO LRFD", "EN 1991-2", "BD 90/05", "ASTM D7290"],
     coverImage: "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
     coverAlt: "FRP bridge deck replacement project using lightweight composite panels",
@@ -2074,8 +2074,8 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
     excerpt:
       "ASTM E1996, AAMA 506, and the Miami-Dade NOA govern what a hurricane-zone window has to survive. Here is what each standard actually tests, and why frame material impact behavior is only part of getting a project certified.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM E1996", "ASTM E1886", "AAMA 506", "Florida Building Code HVHZ"],
     coverImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
     coverAlt: "Pultruded FRP 140-series sliding door and window frame profile detail",
@@ -2141,8 +2141,8 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     excerpt:
       "In 2026 the pultrusion conversation has shifted from proving the material exists to proving it can be specified, qualified, priced, and scaled with less friction. These are the seven questions shaping that discussion.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Commercial Applications Review Group",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM E84"],
     coverImage: "/images/technology/resin-formulation-laboratory-testing.jpg",
     coverAlt: "Resin formulation and process control work in an advanced pultrusion laboratory",
@@ -2213,8 +2213,8 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     excerpt:
       "Engineers rarely reject pultruded FRP because they dislike the material. They reject it when key design questions are left vague. These are the ten questions we hear most before a specification moves forward.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Technical Review Board",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM D3917"],
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt: "Engineering team reviewing FRP section performance and structural data",
@@ -2296,8 +2296,8 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
     excerpt:
       "Pultrusion can already deliver strong, corrosion-resistant, repeatable composite sections. The biggest pain point today is how slowly projects qualify, approve, and scale those sections into real specifications.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Executive Engineering Review Group",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ISO 9001"],
     coverImage: "/images/technology/quality-control-inspection-testing.jpg",
     coverAlt: "Quality inspection workflow for pultruded FRP profiles during qualification",
@@ -2368,8 +2368,8 @@ At F1 Composite, we see the most successful projects when engineering support st
       "Standards bodies, leading manufacturers, trade shows, technical symposia, and patent filings all point the same way in 2026: the bottleneck is qualification speed, not whether pultrusion works.",
     authorName: "Duowei Wang, Ph.D.",
     authorRole:
-      "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Executive Engineering Review Group",
+      "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 15804", "ASTM E84"],
     coverImage: "/images/blog/pultrusion-patents-2026-cover.jpg",
     coverAlt:
@@ -2482,8 +2482,8 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
     excerpt:
       "Coastal infrastructure is among the harshest service environments for structural materials. Field data spanning 20 to 30 years now shows that pultruded FRP profiles deliver lower lifecycle cost, zero corrosion maintenance, and 75% weight reduction versus steel.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ISO 9001", "ASCE Pre-Standard for LRFD of Pultruded FRP"],
     coverImage: "/images/blog/frp-coastal-infrastructure-cover.jpg",
     coverAlt: "Coastal dock and pier structure extending over water — typical marine infrastructure environment",
@@ -2597,8 +2597,8 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     excerpt:
       "Pultruded FRP window frames achieve Passivhaus certification through inherent material properties — 500x lower thermal conductivity than aluminum, CTE matching glass, and slim profiles that maximize glazing area.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ISO 10077-1", "ISO 10077-2", "EN 12667", "ISO 9001", "PHI Component Certificate 2491wi03"],
     coverImage: "/images/regions/frp-passive-house-windows-germany.jpg",
     coverAlt: "Modern house exterior with large glass doors and panoramic windows — high-performance building envelope",
@@ -2735,8 +2735,8 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     excerpt:
       "Thermoset FRP composites were long considered non-recyclable. A new chemical degradation process dissolves cured polyester and vinyl ester matrices at just 100 °C, recovering clean glass fibers for reuse and reclaiming the solvent in a closed loop.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ISO 14001", "EU End-of-Life Vehicles Directive 2000/53/EC", "EU Waste Framework Directive 2008/98/EC"],
     coverImage: "/images/blog/frp-recycling/frp-chemical-recycling-lab-setup.jpg",
     coverAlt: "Laboratory setup for chemical recycling of thermoset FRP composites showing fenestration profile sample and TS degradation solution",
@@ -2838,8 +2838,8 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     excerpt:
       "How do pultruded FRP profiles behave in fire? This guide explains the fire-resistance mechanisms of fiber reinforced polymers, the role of resin chemistry and flame-retardant additives, classification standards from Euroclass to ASTM E84, and where fire-rated FRP is already deployed.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13501-1", "ASTM E84", "BS 476", "EN 45545-2", "ASTM E162", "ASTM D635"],
     coverImage: "/images/blog/frp-fire-resistance/frp-i-beam-torch-flame-test.jpg",
     coverAlt: "Pultruded FRP I-beam profile undergoing direct flame exposure test with a butane torch",
@@ -2965,8 +2965,8 @@ For engineers and architects specifying structural profiles in fire-regulated ap
     excerpt:
       "A 3-point bending drop test by Covestro's polyurethane research team puts seven materials head-to-head: sheet steel, stainless steel, two aluminum alloys, PVC, plywood, and polyurethane pultruded composite. The results reveal why FRP's unique combination of toughness and elastic recovery outperforms every conventional alternative.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM D790", "ISO 178", "ASTM D6110", "EN 13706"],
     coverImage: "/images/blog/frp-impact-resistance/material-comparison-after-drop-test.jpg",
     coverAlt: "Seven material samples after 3-point bending drop test — metals permanently deformed, wood broken, PVC damaged, PUR pultruded profile intact",
@@ -3074,8 +3074,8 @@ For engineers designing structures that must survive impact events and remain in
     excerpt:
       "Intertek reports document AS 2047-2014 testing of an 80 Series turn-and-tilt window and a historical 140 Series Lift-Sliding Door specimen. Results apply to the stated specimens and test conditions; they do not automatically establish project compliance or cover the current 140 Series Compression-Seal Sliding Door.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["AS 2047-2014", "AS/NZS 4420.1-2016", "NCC 2022", "WERS"],
     coverImage: "/images/blog/gfrp-australia/modern-glazing-structure-facade.webp",
     coverAlt: "Modern architectural glazing structure with curved frame profiles and glass panels — representative of high-performance fenestration systems",
@@ -3218,8 +3218,8 @@ The question for the Australian market is not whether GFRP fenestration will arr
     excerpt:
       "Pultruded FRP window profiles can now achieve the same sleek, metallic finish as aluminum frames through architectural-grade powder coating — without sacrificing the thermal insulation, corrosion resistance, and dimensional stability that make fiberglass window frames superior.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Coatings and Surface Engineering Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["ISO 10077-2", "EN 12206-1", "AAMA 2604", "Qualicoat Class 2", "GSB Master"],
     coverImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
     coverAlt: "Pultruded FRP profiles entering a Gema powder coating oven on a factory production line",
@@ -3362,8 +3362,8 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     excerpt:
       "Historical report review: Intertek tested a 3000 × 2400 mm 140 Series Lift-Sliding Door to AS 2047-2014 / AS/NZS 4420.1-2016. Review the specimen and conditions before using these results; this report is not automatic evidence for the current 140 compression-seal door.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Technical Applications Group",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["AS 2047-2014", "AS/NZS 4420.1-2016", "AS 4055-2021", "AS 1170.2-2021", "NCC 2022 Section J"],
     coverImage: "/images/blog/gfrp-australia/lift-sliding-door-veranda-residence.jpg",
     coverAlt: "Bright open-plan residential interior with wooden flooring and large sliding glass doors opening onto a veranda — the form factor tested in this AS 2047 evaluation",
@@ -3560,8 +3560,8 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     excerpt:
       "Why premium architectural fenestration still chooses aluminum over fiberglass, and how a transversely reinforced pultrusion architecture places cross-direction reinforcement deeper in the profile to produce powder-coated finishes that are indistinguishable from aluminum.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Architectural Coatings Advisory Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["AAMA 2604", "AAMA 2605", "Qualicoat Class 1", "Qualicoat Class 2", "ISO 2409", "ISO 2813", "ASTM D2244", "EN 13706"],
     coverImage: "/images/blog/frp-window-finish-metallic-samples.webp",
     coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite gray, and matte black — visually identical to architectural-grade powder-coated aluminum",
@@ -3707,7 +3707,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     excerpt:
       "A buyer's guide for sourcing pultruded FRP profiles directly from a Chinese manufacturer in 2026: how to qualify factories, what MOQ and lead times to expect, RFQ checklist, EN 13706 / ASTM D3917 verification, Incoterms, container loading, and how to avoid the 5 most common procurement mistakes.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "Sales & Engineering",
     standards: ["EN 13706", "ASTM D3917", "ISO 9001", "Incoterms 2020"],
     coverImage: "/images/blog/frp-specification-procurement.jpg",
@@ -3859,7 +3859,7 @@ If you need a starting point for your RFQ, F1 Composite provides complete quotes
     excerpt:
       "2026 reference benchmarks for pultruded FRP profile pricing, MOQ, custom tooling lead times, container freight rates, and Incoterms cost deltas — calibrated against direct-from-factory China sourcing.",
     authorName: "Duowei Wang, Ph.D.",
-    authorRole: "Industry research and education — markets, standards, and pultrusion adoption",
+    authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "Export Operations",
     standards: ["EN 13706", "ASTM D3917", "Incoterms 2020"],
     coverImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
@@ -4019,8 +4019,8 @@ For a project-specific quote based on current pricing, contact F1 Composite thro
     excerpt:
       "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. The article walks the tension-tension S-N fatigue data per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
-    reviewedBy: "Composites Engineering Review Group",
+    authorRole: "Senior Application Engineer, pultruded composite laminates for wind energy and infrastructure",
+    reviewedBy: "F1 Composite engineering team",
     standards: [
       "DNVGL-ST-0376",
       "GL 2010",
@@ -4111,8 +4111,8 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
     excerpt:
       "WE-C100 is F1 Composite's unidirectional carbon / epoxy pultruded laminate for the spar caps of long wind blades. The article walks the full static mechanical data (tension, compression, shear, flexure, ILSS) and explains how the DNVGL-ST-0376 characteristic value Rk differs from the panel average, and why blade designers must build the layup on Rk rather than the mean.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded composite laminates for wind energy and infrastructure",
-    reviewedBy: "Composites Engineering Review Group",
+    authorRole: "Senior Application Engineer, pultruded composite laminates for wind energy and infrastructure",
+    reviewedBy: "F1 Composite engineering team",
     standards: [
       "DNVGL-ST-0376",
       "GL 2010",
@@ -4214,8 +4214,8 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
     excerpt:
       "Offshore, tidal-flat, and wind-solar-fishery PV plants expose mounts and module frames to salt, humidity, UV, and constant vibration. Pultruded FRP covers both the mounting structure and the module frame on intrinsic corrosion immunity, dielectric performance, and a 25-year maintenance-free life.",
     authorName: "Yifan Liu, Application Engineer",
-    authorRole: "Senior Application Engineer — pultruded FRP structural design and project specification",
-    reviewedBy: "Materials Comparison Desk",
+    authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASTM G154", "ASTM B117", "IEC 61215"],
     coverImage: "/images/blog/frp-pultruded-offshore-fishery-solar-mount.webp",
     coverAlt: "Wind-solar-fishery hybrid plant with PV arrays over saline water and an offshore wind turbine in the distance, the operating environment for pultruded FRP solar mounts and module frames",
@@ -4327,8 +4327,8 @@ For a project-specific FRP solar mounting specification, full pultruded section 
     excerpt:
       "F1's curtain wall isolator profiles already carry glass dead load across the thermal break. The next step is harder: a primary structural mullion or transom that replaces the aluminum extrusion itself, at the stiffness a modern unitized facade demands. This is why that step needs carbon/glass hybrid reinforcement and braided pultrusion, not just more glass roving.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 14024", "AAMA 507", "EN 13501-1", "DNVGL-ST-0376"],
     coverImage: "/images/blog/frp-curtain-wall-facade-blue-glass-grid.webp",
     coverAlt:
@@ -4420,8 +4420,8 @@ For engineers and facade consultants tracking this development, or interested in
     excerpt:
       "Specifiers compare windows by U-value every day, yet the number on the datasheet is the output of a calculation most spec sheets never show. Here is the EN ISO 10077-1 method in full: the three-zone formula, a worked example on the reference window, why European and North American numbers refuse to match, and where the result is actually won — the frame.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN ISO 10077-1", "EN ISO 10077-2", "EN 673", "NFRC 100"],
     coverImage: "/images/blog/window-corner-joint-interior.jpg",
     coverAlt:
@@ -4521,8 +4521,8 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
     excerpt:
       "The 0.80 W/m²K number every passive house designer quotes is real — but it is one row of a seven-zone table, it applies to the whole window rather than the glass, and it comes bundled with an installed-state limit, a comfort criterion, and efficiency classes that decide how a window actually gets certified. Here is the full PHI requirement set, the Phius counterpart, and what frame constructions can meet them.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN ISO 10077-1", "PHI Component Criteria v5.6", "EN 673", "EN ISO 13788"],
     coverImage: "/images/blog/cold-climate-window-interior.jpg",
     coverAlt:
@@ -4619,8 +4619,8 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
     excerpt:
       "One number describes how a window leaks heat, the other how it harvests or blocks the sun — and specifying fenestration is largely the art of setting both for your climate. Definitions, the g-value vs SHGC reporting trap, ENERGY STAR 7.0's zone table, and where the frame material quietly shapes both numbers.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — thermal performance and Passivhaus certification work",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["NFRC 200", "NFRC 100", "EN ISO 10077-1", "EN 410"],
     coverImage: "/images/blog/window-facade-solar-grid-modern.jpg",
     coverAlt:
@@ -4694,8 +4694,8 @@ To see both numbers interact on a real build — your frame, glazing package, an
     excerpt:
       "The polyamide strip is one of the quiet success stories of building products — two extrusions of PA66-GF25 turned thermally hopeless aluminum frames into code-compliant windows, and two European specialists wrote the rulebook. But strip extrusion has geometric and mechanical ceilings, and wide sliding doors sit right at them. Here is what the research from Technoform and Ensinger actually establishes, and where a pultruded GFRP break changes the design space.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 14024", "EN ISO 10077-2", "AAMA TIR A8", "EN 13706"],
     coverImage: "/images/blog/facade-balcony-window-grid-thermal-break.jpg",
     coverAlt:
@@ -4780,8 +4780,8 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
     excerpt:
       "Steel has one density. A fiberglass profile has a recipe: glass fiber at 2.54 g/cm³, cured resin near 1.2, plus fillers and voids. Where a pultruded profile lands between those poles — and what that single number tells you about the laminate inside — is all arithmetic.",
     authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Technical Review Board",
+    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
+    reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D792", "ASTM D2584", "ISO 1172", "ASTM D2734"],
     coverImage: "/images/products/standard-profiles-cover.jpg",
     coverAlt:
