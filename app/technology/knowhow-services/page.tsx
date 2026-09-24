@@ -9,7 +9,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Pultrusion Tech Transfer & Consulting — Turnkey Lines";
 const pageDescription =
-  "Pultrusion technology transfer, consulting, turnkey FRP line setup. Feasibility, die design, commissioning, ISO 9001 / EN 13706 handover. 30+ years expertise.";
+  "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
 const updatedAt = "2026-07-07";

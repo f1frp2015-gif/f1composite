@@ -58,7 +58,7 @@ export const authors: Author[] = [
     jobTitle:
       "R&D Lead — composite materials, pultrusion process development, and standards",
     seoDescription:
-      "Haifeng Gong, Ph.D. — F1 Composite R&D Lead. Resin chemistry, pultrusion process, fire/thermal performance, PHIUS-aligned standards (PHI Cert 2491wi03).",
+      "Haifeng Gong, Ph.D. — F1 Composite R&D Lead. Resin chemistry, pultrusion process, fire and thermal performance, Passive House certification (PHI 2491wi03).",
     bucket: "rd-tech",
     bucketLabel: "R&D & Materials Science",
     bio: "Haifeng leads materials and process R&D at F1 Composite. The focus areas are resin chemistry selection (polyester, vinyl ester, polyurethane, phenolic), fiber architecture for cross-direction strength without surface telegraph, fire and thermal performance, and standards research that turns lab capability into specifications customers can defend in design review.",

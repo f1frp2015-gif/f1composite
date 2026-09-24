@@ -69,7 +69,7 @@ const faqs = [
   {
     question: "What is the lifecycle difference between FRP and PVC windows?",
     answer:
-      "Quality uPVC window frames in moderate climates last 30–40 years before UV-induced embrittlement, sealant degradation, or dimensional creep forces replacement. Pultruded FRP frames carry 50–75 year design life under the same conditions, with negligible change in U-value or mechanical properties over the service period. Life-cycle cost (LCC) analysis at a 60-year building horizon typically shows FRP is 20–35% lower total cost because PVC requires one full replacement cycle while FRP does not.",
+      "Quality uPVC window frames in moderate climates last 30–40 years before UV-induced embrittlement, sealant degradation, or dimensional creep forces replacement. Pultruded FRP frames do not embrittle under UV in the same way and keep their stiffness in heat, so they are expected to outlast uPVC; confirm the design life for your exposure with the system supplier. Life-cycle cost (LCC) analysis at a 60-year building horizon typically shows FRP is 20–35% lower total cost because PVC requires one full replacement cycle while FRP does not.",
   },
   {
     question: "Is PVC still the right choice for any project?",

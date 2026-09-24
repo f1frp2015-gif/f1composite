@@ -299,7 +299,7 @@ const faqItems = [
   {
     question: "Are pultruded FRP profiles certified to international standards?",
     answer:
-      "Yes. F1 Composite supplies to EN 13706-1/2/3 (European pultruded profile standard, E17 and E23 grades) and ASTM D3917 (dimensional tolerances). Mechanical testing follows ASTM D638 (tensile), D790 (flexural), and D695 (compression). The company holds ISO 9001:2015, and fire-rated products are certified to BS 476, ASTM E84, and EN 45545-2.",
+      "Profiles are supplied to EN 13706-1/2/3 (the European pultruded profile standard, grades E17 and E23) and ASTM D3917 (dimensional tolerances), and mechanical testing follows ASTM D638 (tensile), D790 (flexural) and D695 (compression). ISO 9001 and fire test reports for fire-retardant formulations (BS 476, ASTM E84, EN 45545-2) are provided on request with the holder, number and scope.",
   },
   {
     question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
@@ -314,7 +314,7 @@ const faqItems = [
   {
     question: "Is FRP more expensive than steel?",
     answer:
-      "On a per-meter basis, pultruded FRP costs 50–100% more than carbon steel. However, installed cost is often comparable or lower due to 40–60% lower freight, no hot-work permits, 20–40% less labor, and no cranes for most members. Over a 30-year life in corrosive environments, FRP lifecycle cost (TCO) is 20–40% lower than steel because FRP needs no recoating.",
+      "On a per-meter basis, pultruded FRP costs 50–100% more than carbon steel. However, installed cost is often comparable or lower due to 40–60% lower freight, no hot-work permits, 20–40% less labor, and no cranes for most members. Over a 30-year period in corrosive environments, published comparisons put FRP lifecycle cost (TCO) 20–40% below steel, mainly because FRP needs no recoating.",
   },
   {
     question: "Can FRP profiles be used for primary structural members?",
@@ -538,9 +538,9 @@ export default function PultrudedFRPProfilesHubPage() {
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E17 / E23</span>
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ISO 9001:2015</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Certificates on request</span>
                 <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASCE/SEI 74-23 LRFD</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">PHI (passive house) certified</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-neutral-50">

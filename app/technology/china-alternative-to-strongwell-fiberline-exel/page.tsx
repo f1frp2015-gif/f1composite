@@ -21,7 +21,7 @@ export const metadata: Metadata = buildPageMetadata({
 const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string }> = [
   {
     dimension: "Product standards",
-    f1: "EN 13706 E17/E23, ASTM D3917, ISO 9001:2015",
+    f1: "EN 13706 E17/E23, ASTM D3917; ISO 9001 certificate on request",
     incumbents: "EN 13706 / ASTM D3917 (same international specs)",
   },
   {
@@ -60,12 +60,12 @@ const faqItems = [
   {
     question: "How does F1 Composite compare with Creative Pultrusions, Fiberline, and Exel?",
     answer:
-      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Composites (Denmark), and Exel Composites (Finland) under ISO 9001:2015 quality management. Like Strongwell, Creative, and Fiberline, F1 supplies the full structural range plus gratings, fenestration, and custom pultrusions. The difference is the route to market: F1 ships factory-direct for export on FOB or DDP terms rather than through regional distribution.",
+      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Composites (Denmark) and Exel Composites (Finland). Like Strongwell, Creative and Fiberline, F1 supplies the full structural range plus grating, window profiles and custom pultrusions. The difference is the route to market: F1 is the export company of the manufacturer, FengDu New Material, and ships on FOB or DDP terms rather than through regional distribution.",
   },
   {
     question: "Are Chinese pultruded FRP profiles made to the same standards as Western brands?",
     answer:
-      "F1 Composite's profiles are tested and certified to the same international standards as the Western incumbents — EN 13706 for pultruded profiles (structural grades E17 and E23), ASTM D3917 for dimensional tolerance (±0.25 mm), and mechanical testing to ASTM D638 / D790 / D695, all under ISO 9001:2015. Mill test certificates are issued per production batch and third-party test reports are available on request, so specifying engineers can verify equivalence before purchase.",
+      "F1 Composite's profiles are supplied to the same international standards the Western brands use: EN 13706 for pultruded profiles (structural grades E17 and E23), ASTM D3917 for dimensional tolerance (±0.25 mm), and mechanical testing to ASTM D638 / D790 / D695. Mill test certificates are issued for each production batch, and third-party test reports and the ISO 9001 certificate are provided on request, so specifying engineers can check equivalence before purchase. Two SGS full-section modulus reports to EN 13706-2 Annex D are published on the evidence page.",
   },
   {
     question: "Is there a Pultex or EXTREN crossover chart to F1-STRUX profiles?",
@@ -126,8 +126,7 @@ export default function ChinaAlternativePage() {
               F1 Composite&apos;s pultruded FRP profiles
             </Link>{" "}
             are built to: <strong className="text-t1">EN 13706</strong> (E17/E23
-            structural grades) and <strong className="text-t1">ASTM D3917</strong>,
-            under ISO 9001:2015.
+            structural grades) and <strong className="text-t1">ASTM D3917</strong>.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             The reason buyers look for a China alternative is rarely the

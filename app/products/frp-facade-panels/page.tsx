@@ -746,7 +746,7 @@ export default function FacadeSunshadePanelsPage() {
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             Shading systems are won and lost at the bracket. These are the connection and
-            installation details behind a thin, light, weather-proof, maintenance-free
+            installation details behind a thin, light, weather-proof, low-maintenance
             blade array.
           </p>
 

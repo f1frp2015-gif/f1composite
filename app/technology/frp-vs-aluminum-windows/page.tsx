@@ -10,9 +10,9 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { HeatFlowFrameComparison } from "@/components/sections/ConceptAnimations";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost, PHIUS Data";
+const pageTitle = "FRP vs Aluminum Windows — Thermal, Cost & U-Value Data";
 const pageDescription =
-  "FRP vs aluminum windows: U-value, thermal bridging, condensation, lifecycle cost, PHIUS suitability. Why pultruded FRP outperforms thermally-broken aluminum.";
+  "FRP vs aluminum windows compared on U-value, thermal bridging, condensation, lifecycle cost and Passive House suitability, with certified frame data.";
 const pagePath = "/technology/frp-vs-aluminum-windows";
 const publishedAt = "2026-04-15";
 const updatedAt = "2026-04-15";
@@ -63,7 +63,7 @@ const faqs = [
   {
     question: "Is FRP more expensive than aluminum for window frames?",
     answer:
-      "At bare frame cost, FRP and premium thermally-broken aluminum systems are comparable — FRP is typically 10–20% higher per linear meter. Over a 30-year service life the economics reverse: FRP requires no painting, no break-assembly maintenance, and no gasket replacement from thermal cycling stress. Lifecycle cost analysis for passive house residential projects shows FRP at 15–25% lower total cost when reduced HVAC sizing (from lower Uw) is included.",
+      "At bare frame cost, FRP and premium thermally-broken aluminum systems are comparable — FRP is typically 10–20% higher per linear meter. Over a 30-year period the economics can reverse: FRP frames need no repainting and have no thermal-break assembly to maintain, though gaskets and hardware still need normal upkeep. Lifecycle cost analysis for passive house residential projects shows FRP at 15–25% lower total cost when reduced HVAC sizing (from lower Uw) is included.",
   },
   {
     question: "How does FRP handle thermal expansion compared to aluminum?",
@@ -76,9 +76,9 @@ const faqs = [
       "Yes. FRP window frames perform across the full climate range from -50°C to +80°C without any change in thermal or structural behavior. The low thermal conductivity reduces heat loss in cold climates and heat gain in hot climates equally. In tropical coastal projects, FRP additionally solves the aluminum pitting-corrosion problem that typically drives aluminum frame replacement in 15–20 years.",
   },
   {
-    question: "What certifications does F1 Composite hold for window frames?",
+    question: "What certificates does F1 Composite have for window frames?",
     answer:
-      "F1 Composite 90-series FRP fenestration profiles are certified by the Passive House Institute (PHI) with Uf = 0.78 W/m²·K. Additional certifications include ISO 9001:2015 quality management, EN 14024 for thermally insulated profiles, and project-specific fire testing to EN 13501-1 Class B-s1,d0. Test certificates from accredited third-party laboratories accompany all export shipments.",
+      "The 90-series window frame holds Passive House Institute (PHI) component certificate 2491wi03, with Uf 0.78 W/m²·K and Uw 0.78 W/m²·K for the 1.23 × 1.48 m test window with Ug 0.70. Intertek AS 2047 reports cover a turn-and-tilt window and a lift-sliding door. ISO 9001, EN 14024 and fire test documents (for example EN 13501-1) are provided on request for the configuration you specify.",
   },
 ];
 

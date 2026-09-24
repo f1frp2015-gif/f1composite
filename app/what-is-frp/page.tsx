@@ -62,7 +62,7 @@ const faqItems = [
   {
     question: "Does FRP rust or corrode?",
     answer:
-      "No. FRP does not rust, pit, or suffer galvanic corrosion. The polymer matrix is inert to most acids, bases, salts, and chlorinated environments. Vinyl ester resin is specified for aggressive chemical or marine environments, and vinyl ester FRP shows negligible property degradation after 30+ years of service in saltwater splash zones.",
+      "No. FRP does not rust, pit, or suffer galvanic corrosion. The polymer matrix is inert to most acids, bases, salts, and chlorinated environments. Vinyl ester resin is specified for aggressive chemical or marine environments, and field reports on vinyl ester FRP in saltwater splash zones show little property loss after 30 years or more of service.",
   },
   {
     question: "Is FRP flammable?",
@@ -72,7 +72,7 @@ const faqItems = [
   {
     question: "How long do FRP composites last?",
     answer:
-      "Pultruded FRP structures have a design life of 50–100 years with negligible maintenance when specified correctly (UV-stable surface, appropriate resin). Real-world installations in chemical plants, bridges, and marine environments have demonstrated 30+ years of service without measurable loss of mechanical properties.",
+      "Pultruded FRP structures can be designed for 50–100 years when the resin, UV protection, connections and inspection plan are right, and they need no painting or galvanizing. Installations in chemical plants, bridges and marine sites have been in service for 30 years or more.",
   },
   {
     question: "Can FRP be recycled?",
@@ -652,7 +652,7 @@ export default function WhatIsFrpPage() {
               },
               {
                 title: "Low maintenance",
-                body: "50–100 year design life with no painting, galvanizing, or recoating cycles. Zero-maintenance TCO advantage over 30 years.",
+                body: "No painting, galvanizing or recoating cycles over a long design life, which is where FRP gains its lifecycle-cost advantage.",
               },
               {
                 title: "Easy fabrication",
@@ -739,7 +739,7 @@ export default function WhatIsFrpPage() {
               </thead>
               <tbody>
                 {[
-                  ["ISO 9001:2015", "Quality management system. F1 Composite certified."],
+                  ["ISO 9001:2015", "Quality management system standard. Ask any supplier for the certificate holder, number and scope; F1's certificate is available on request."],
                   ["EN 13706-1/2/3", "European pultruded profile standard. Defines structural grades E17 and E23, test methods, and classification."],
                   ["ASTM D3917", "Standard specification for dimensional tolerance of thermosetting glass-reinforced plastic pultruded shapes."],
                   ["ASTM D638 / D790 / D695 / D2344", "Test methods for tensile, flexural, compressive, and interlaminar shear properties."],

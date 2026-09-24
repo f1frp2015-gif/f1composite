@@ -64,7 +64,7 @@ const areas = [
     tag: "Quality",
     title: "Quality & Testing",
     description:
-      "ISO 9001 certified production with EN 13706 and ASTM compliance. Every profile undergoes tensile, flexural, impact, and Barcol hardness testing before shipment.",
+      "Inspection and testing to EN 13706 and ASTM methods: tensile, flexural and Barcol hardness checks by batch, with test reports for each order.",
     href: "/technology/quality-testing",
   },
   {

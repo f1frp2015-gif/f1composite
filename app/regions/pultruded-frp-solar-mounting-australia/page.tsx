@@ -12,7 +12,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 const pageTitle =
   "FRP Solar Mounting Australia — Fiberglass Racking Supplier";
 const pageDescription =
-  "Pultruded FRP solar racking for AU utility, commercial, rooftop. Corrosion-proof, AS/NZS-compliant, lower foundation cost than aluminum, 25-yr UV-stable.";
+  "Pultruded FRP solar racking for Australian utility, commercial and rooftop projects: rust-free, designed to AS/NZS 1170.2 wind loads, lighter foundations.";
 const pagePath = "/regions/pultruded-frp-solar-mounting-australia";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -75,7 +75,7 @@ export default function AustraliaSolarPage() {
       <PageHeader
         tag="Australia"
         title="Pultruded FRP Solar Mounting for Australian Projects"
-        description="Direct-from-factory fiberglass solar racking and mounting profiles for Australian utility-scale, commercial, and rooftop solar. AS/NZS 1170.2 wind compliant, 25-year UV-stable, 30% lighter than aluminum 6063. CIF or DAP to all major Australian ports."
+        description="Fiberglass solar racking and mounting profiles for Australian utility-scale, commercial and rooftop solar, designed to AS/NZS 1170.2 wind loads with UV-stabilised resin. CIF or DAP to all major Australian ports."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Regions", href: "/regions/pultruded-frp-solar-mounting-australia" },

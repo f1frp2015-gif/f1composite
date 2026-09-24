@@ -13,7 +13,7 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profiles for Energy, Power & Solar Projects",
   description:
-    "FRP profiles for substations, cross-arms, cable trays, solar mounting, and transformer spacers — non-conductive, non-magnetic, maintenance-free.",
+    "FRP profiles for substations, cross-arms, cable trays, solar mounting and transformer spacers: non-conductive, non-magnetic and low maintenance.",
   path: "/industries/energy",
   image: "/industries/energy/opengraph-image",
 });
@@ -60,7 +60,7 @@ const faqs = [
   {
     question: "How do FRP profiles perform in high-temperature environments near transformers?",
     answer:
-      "Standard pultruded FRP profiles with polyester resin retain full mechanical properties at continuous operating temperatures up to 120 degrees Celsius. For applications near transformers, switchgear, or other heat-generating equipment, we offer profiles with high-temperature vinyl ester resin systems rated for continuous operation at 150 to 180 degrees Celsius. Our transformer spacer and standoff profiles are specifically formulated to maintain dimensional stability and dielectric performance under combined thermal and electrical stress over a 30+ year service life.",
+      "Standard pultruded FRP profiles with polyester resin retain full mechanical properties at continuous operating temperatures up to 120 degrees Celsius. For applications near transformers, switchgear, or other heat-generating equipment, we offer profiles with high-temperature vinyl ester resin systems rated for continuous operation at 150 to 180 degrees Celsius. Our transformer spacer and standoff profiles are formulated to keep their dimensions and dielectric performance under combined thermal and electrical stress; confirm the temperature class and test data for your equipment.",
   },
   {
     question: "How do FRP cross-arms compare to wood and steel in transmission lines?",
@@ -225,7 +225,7 @@ export default function EnergyPage() {
                 Pultruded FRP I-beams, channels, and angles serve as bus support structures, equipment stands, and cable trench covers in substations from 33 kV to 500 kV. The inherent non-conductivity eliminates touch and step potential hazards during fault events. For a typical 220 kV substation, this removes $200,000-$500,000 in grounding infrastructure.
               </p>
               <p>
-                FRP transmission line cross-arms replace wood and steel from 11 kV to 220 kV. Unlike wood, FRP does not absorb moisture — maintaining full insulation value in rain, fog, and ice conditions. FRP cross-arms weigh 60-70% less than wood, last 50+ years with zero maintenance, and eliminate the 15-25 year replacement cycle and associated planned outages.
+                FRP transmission line cross-arms replace wood and steel from 11 kV to 220 kV. Unlike wood, FRP does not absorb moisture — maintaining full insulation value in rain, fog, and ice conditions. FRP cross-arms weigh 60-70% less than wood, do not rot, and avoid the 15-25 year replacement cycle of wooden arms and the planned outages that come with it.
               </p>
 
               <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
@@ -294,7 +294,7 @@ export default function EnergyPage() {
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Solar Farm Mounting</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP mounting structures for solar farms — non-conductive, corrosion-free, 30+ year service life.
+                FRP mounting structures for solar farms: non-conductive and rust-free.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →

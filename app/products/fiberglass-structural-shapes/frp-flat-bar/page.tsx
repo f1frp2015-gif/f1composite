@@ -38,7 +38,7 @@ const faqItems = [
   {
     question: "Can FRP flat bars replace steel rebar in concrete?",
     answer:
-      "Yes. Pultruded FRP flat bars and rods with 65–70% unidirectional glass roving are used as non-corrosive reinforcement in concrete, especially in marine structures, parking decks, MRI rooms, and chemically exposed slabs. They eliminate corrosion-induced cracking and have a 50–100 year design life. Sand-coated or helically wound surfaces improve concrete bond.",
+      "Yes. Pultruded FRP flat bars and rods with 65–70% unidirectional glass roving are used as non-corrosive reinforcement in concrete, especially in marine structures, parking decks, MRI rooms, and chemically exposed slabs. They cannot rust, so they remove corrosion-induced cracking; the design life comes from the project's design and exposure. Sand-coated or helically wound surfaces improve concrete bond.",
   },
 ];
 

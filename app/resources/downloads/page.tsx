@@ -45,7 +45,7 @@ const faqs = [
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Datasheets, CAD Files & Certificates",
   description:
-    "Download F1 Composite product catalogs, EN 13706 declarations, ISO 9001 certificates, CAD files, and technical brochures for pultruded FRP profiles.",
+    "Download F1 Composite catalogs, design manuals, published test reports and DXF drawings for pultruded FRP profiles. Certificates are sent on request.",
   path: "/resources/downloads",
   image: "/resources/downloads/opengraph-image",
 });
@@ -242,10 +242,10 @@ export default async function DownloadsPage() {
           <SectionTag>Specification, Certification, and CAD Documents</SectionTag>
           <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
             <p>
-              The Downloads center holds every document a specifier, fabricator, or QA team needs to evaluate, qualify, and procure pultruded FRP profiles from F1 Composite. All documents below are current and stamped with revision date and document number. Distributors preparing customer submittal packages and engineers building approval drawings typically pull from this set.
+              These are the documents specifiers, fabricators and QA teams use to check and buy pultruded FRP profiles from F1 Composite. Files with a download link are public. The rest are sent on request, with the certificate holder, report number and scope, so you can match each document to the product you are buying.
             </p>
             <p>
-              We organize documents into five categories. <strong>Product Catalogs</strong> cover standard profiles, custom pultrusion capabilities, fenestration systems for AS 2047 / PHI / NFRC, and pultruded gratings. <strong>Certifications</strong> include ISO 9001:2015, EN 13706 Grade E23 conformity, CE Marking under EAD 130026-00-0304, ASTM E84 Class 1 surface burning, and Aramco SAES-W-018 vendor approval. <strong>CAD Libraries</strong> ship standard profiles in DWG, DXF, STEP, plus BIM (IFC, Revit RFA) for fenestration and structural families, and connection detail typical drawings. <strong>Approval-Package Templates</strong> include submittal package, mock-up testing protocol for fenestration projects, MTC sample, and First Article Inspection (FAI) report sample. <strong>Sustainability and Compliance</strong> covers verified EPD, REACH SVHC declaration, RoHS conformity, and California Proposition 65 statement.
+              <strong>Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, the FRP profile design manual, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:text-teal">datasheet</Link>. <strong>On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
             </p>
           </div>
         </div>

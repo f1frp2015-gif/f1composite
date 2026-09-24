@@ -1793,7 +1793,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
     title: "Why FRP Window Frames Outperform Aluminum in Thermal Insulation",
     seoTitle: "FRP vs Aluminum Windows — Thermal Performance",
     answerBox:
-      "Pultruded GFRP-PU window frames deliver U_f as low as 0.78 W/m²·K — roughly 500× lower thermal conductivity than aluminum — without thermal-break inserts. F1's 90 Series carries PHI Component Certificate 2491wi03 (phB class) and is qualified for PHIUS Passive House projects across the US and Canada.",
+      "Pultruded GFRP-PU window frames deliver U_f as low as 0.78 W/m²·K — roughly 500× lower thermal conductivity than aluminum — without a metal thermal break. F1's 90 Series carries PHI Component Certificate 2491wi03 (phB class); on PHIUS projects in the US and Canada its PHI data is used as input to the energy model.",
     category: "Fenestration",
     date: "2024-03-10",
     updatedAt: "2026-03-28",
@@ -2095,8 +2095,8 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       "Supports slim profiles with lower condensation risk",
     ],
     ogDescription:
-      "FRP vs aluminum windows for US: U-value, AAMA 2604/2605, PHIUS U_w 0.78 (Cert 2491wi03), structural and lifecycle data side-by-side for spec engineers.",
-    ogChips: ["AAMA 2604/2605", "PHIUS-ready", "U_w 0.78"],
+      "FRP vs aluminum windows for US: U-value, AAMA 2604/2605, PHI U_w 0.78 (Cert 2491wi03), structural and lifecycle data side-by-side for spec engineers.",
+    ogChips: ["AAMA 2604/2605", "PHI 2491wi03", "U_w 0.78"],
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "Construction", href: "/industries/construction" },
@@ -2653,9 +2653,9 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
   {
     slug: "frp-fenestration-passivhaus-certification",
     title: "FRP Fenestration: How Pultruded Window Frames Achieve Passivhaus Certification",
-    seoTitle: "PHIUS-Certified GFRP Window Frames — U_w 0.78, Cert 2491wi03",
+    seoTitle: "PHI-Certified GFRP Window Frames — U_w 0.78, Cert 2491wi03",
     answerBox:
-      "F1 Composite's Fengdu Passive GFRP 90 Series carries PHI Component Certificate 2491wi03 — U_w 0.78 W/m²·K, phB class, U_f uniform across all sections. Tested with Ug 0.70 + Swisspacer Ultimate; installed U_w 0.82–0.84 depending on wall type. Drop-in PHIUS-compliant for US, Canadian, and European Passive House projects.",
+      "F1 Composite's Fengdu Passive GFRP 90 Series carries PHI Component Certificate 2491wi03 — U_w 0.78 W/m²·K, phB class, U_f uniform across all sections. Tested with Ug 0.70 + Swisspacer Ultimate; installed U_w 0.82–0.84 depending on wall type. Its PHI data can be used in US, Canadian and European Passive House energy models.",
     category: "Thermal Performance",
     date: "2026-04-03",
     updatedAt: "2026-04-03",
@@ -2686,8 +2686,8 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
       "Frame U_f = 0.78 W/(m²·K) uniform across all sections, no thermal break needed",
     ],
     ogDescription:
-      "F1's 90 Series PHI Cert 2491wi03 — U_w 0.78 W/m²·K, phB. Drop-in PHIUS frames for US Passive House. RAL custom AAMA 2604 finish.",
-    ogChips: ["PHIUS · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
+      "F1's 90 Series PHI Cert 2491wi03 — U_w 0.78 W/m²·K, phB. For US Passive House projects, the PHI data feeds the PHIUS energy model. RAL custom AAMA 2604 finish.",
+    ogChips: ["PHI · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
       { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
       { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },

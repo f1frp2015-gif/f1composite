@@ -149,7 +149,7 @@ export default function PassiveHousePage() {
                   No repainting
                 </div>
                 <p className="mt-[4px] text-f13 leading-golden text-t2">
-                  Pigment is in-profile, not applied. UV-stable across a 25+ year service life in
+                  Pigment is in the profile, not applied, so there is no paint layer to renew in
                   coastal and high-altitude exposure.
                 </p>
               </div>

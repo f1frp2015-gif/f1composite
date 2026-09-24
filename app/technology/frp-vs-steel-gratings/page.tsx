@@ -177,7 +177,7 @@ export default function FrpVsSteelGratingsPage() {
           </h2>
           <ul className="mt-[21px] space-y-[21px] text-f15 leading-golden text-t2">
             <li>
-              <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. FRP vinyl ester gratings carry 50+ year design life with zero maintenance. The European Water Industry has specified FRP as default for new-build secondary and tertiary treatment since the 2010s.
+              <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. Vinyl ester FRP grating does not rust and needs no recoating in the same service, which is why many water utilities now specify it for treatment works.
             </li>
             <li>
               <strong className="text-t1">Offshore platforms and coastal marinas.</strong> Saltwater and salt spray pit galvanized coatings within 5–10 years. Stainless steel grating costs 3–4× FRP. Every major offshore operator now specifies FRP gratings for secondary walkways, helideck surrounds, and engine-room access platforms.

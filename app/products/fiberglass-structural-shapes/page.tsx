@@ -148,7 +148,7 @@ export default function StandardProfilesPage() {
         data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Standard Structural Profiles",
           description:
-            "Stock pultruded FRP structural shapes — I-beams, channels, angles, square tubes, round tubes, flat bars, and rods. EN 13706 and ASTM D3917 compliant, ISO 9001 manufactured, 6 m standard lengths.",
+            "Stock pultruded FRP structural shapes: I-beams, channels, angles, square tubes, round tubes, flat bars and rods, made to EN 13706 and ASTM D3917 in 6 m standard lengths.",
           path: "/products/fiberglass-structural-shapes",
           image: "/images/products/i-beam/frp-i-beam-cover.jpg",
           category: "Pultruded FRP Structural Profiles",

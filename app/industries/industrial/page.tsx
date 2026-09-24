@@ -55,7 +55,7 @@ const faqs = [
   {
     question: "What fire performance do FRP profiles achieve in industrial settings?",
     answer:
-      "Our industrial-grade FRP profiles are available with halogen-free flame-retardant resin systems achieving UL 94 V-0 self-extinguishing rating, ASTM E84 Class 1 (flame spread index under 25), and FM 4910 approval for use in semiconductor cleanroom environments. For process plant applications, we offer profiles tested to ASTM E119 for structural fire resistance. All fire-retardant profiles generate low smoke density (under 50 Ds per ASTM E662) and low toxicity emissions, meeting the requirements of BS 6853 for reduced toxicity. Fire test certificates from accredited third-party laboratories accompany all orders.",
+      "Fire-retardant resin systems, including halogen-free options, are available for industrial profiles. A pultruded composite profile has an SGS report for UL 94 V-0 self-extinguishing behaviour, published on the evidence page. ASTM E84 flame-spread (Class 1 target, flame spread index 25 or less), ASTM E662 smoke density, BS 6853 toxicity and ASTM E119 fire-resistance reports are provided on request for the formulation you specify. If a cleanroom project requires FM 4910, raise it at the RFQ stage so the material and test route can be agreed.",
   },
   {
     question: "Can FRP profiles support the same loads as steel in structural applications?",
@@ -85,7 +85,7 @@ export default function IndustrialPage() {
       <PageHeader
         tag="Industries / Industrial"
         title="FRP Composite Profiles for Industrial Applications"
-        description="Fiber-reinforced polymer (FRP) profiles deliver chemical resistance, fire retardancy, and maintenance-free structural performance for processing plants, water treatment facilities, and manufacturing environments where steel corrodes and fails."
+        description="Fiber-reinforced polymer (FRP) profiles for processing plants, water treatment facilities and manufacturing sites where steel corrodes: chemical-resistant resins, fire-retardant grades and low maintenance."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
@@ -308,7 +308,7 @@ export default function IndustrialPage() {
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Chemical Plant Platform</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP platforms and walkways in aggressive chemical environment — vinyl ester resin, zero maintenance.
+                FRP platforms and walkways in an aggressive chemical environment, in vinyl ester resin with no recoating.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
@@ -332,7 +332,7 @@ export default function IndustrialPage() {
             >
               <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Factory Access Staircase</h3>
               <p className="text-f13 leading-golden text-t2">
-                F1&apos;s own Chongqing pultrusion line staircase, built from our profiles — 18 months zero-maintenance service beside live electrical cabinets and resin vapor.
+                The access staircase in our own Chongqing plant, built from our profiles and in service since 2024 beside live electrical cabinets and resin vapor.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
