@@ -401,6 +401,8 @@ export default function PultrudedGratingsPage() {
           { href: "#pultruded-grating-specifications", label: "Pultruded I-bar & T-bar specifications" },
           { href: "#grating-clips", label: "M/J/T clips & 316SS hardware" },
           { href: "/technology/frp-vs-steel-gratings", label: "FRP grating vs steel" },
+          { href: "/resources/blog/how-to-read-frp-grating-load-table", label: "How to read a grating load table" },
+          { href: "/resources/blog/how-to-install-frp-grating", label: "How to install FRP grating" },
           { href: "#grating-engineering", label: "Grating downloads & project documents" },
         ]},
       ]} />

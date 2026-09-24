@@ -742,6 +742,8 @@ export default function FiberglassRebarVsSteelPage() {
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs traditional materials" },
               { href: "/technology/quality-testing", label: "FRP quality testing" },
               { href: "/resources/technical-data", label: "Technical data" },
+              { href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957", label: "GFRP rebar specification guide" },
+              { href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide", label: "GFRP stirrups and bent bars" },
               { href: "/contact", label: "Submit a bar schedule" },
             ],
           },

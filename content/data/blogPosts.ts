@@ -4887,6 +4887,761 @@ Every F1 datasheet declares the same laminate: 1.9 g/cm³ density, 65–70% E-gl
 
 If your project needs a different point on the density map (an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram) we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultruded-profiles) service. Send the section drawing and service conditions to Doris Li at Doris.li@f1composite.com. The resulting quote will include the laminate specification and certified test values, not just a price.`,
   },
+  {
+    slug: "frp-handrail-guardrail-requirements-osha-ibc-iso-14122",
+    title: "FRP Handrail and Guardrail Requirements: OSHA 1910.29, IBC and EN ISO 14122-3",
+    seoTitle: "FRP Guardrail Requirements: OSHA, IBC and ISO 14122-3",
+    answerBox: "OSHA 1910.29 sets the guardrail top edge at 42 in (107 cm), plus or minus 3 in, and requires it to withstand 200 lb, with midrails that withstand 150 lb and toeboards at least 3.5 in high. EN ISO 14122-3 sets a 1,100 mm minimum height, openings of no more than 500 mm, a toe plate and stanchions no more than 1,500 mm apart. An FRP handrail system meets either rule only as a detailed and verified assembly, so the RFQ should name the governing standard.",
+    category: "Access & Safety",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "10 min",
+    excerpt: "What OSHA 1910.29, the IBC with ASCE 7 and EN ISO 14122-3 require of guardrails and handrails, and how to specify an FRP system that can be checked against them.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "OSHA 29 CFR 1910.28",
+      "OSHA 29 CFR 1910.29",
+      "IBC Sections 1014, 1015 and 1607",
+      "ASCE/SEI 7 Section 4.5",
+      "EN ISO 14122-3:2016",
+    ],
+    coverImage: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
+    coverAlt: "Yellow fiberglass handrail and guardrail systems around industrial platforms and stairs",
+    supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
+    supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
+    supportingImageFit: "contain",
+    supportingCaption: "A square-section FRP handrail layout: top rail, knee rail, posts and kick plate. Catalog layouts are product references; heights, post spacing and fixings are set on the approved project drawing against the governing standard.",
+    highlights: [
+      "OSHA general industry: top rail at 42 in plus or minus 3 in, 200 lb top-rail load, 150 lb midrail load, toeboards at least 3.5 in high.",
+      "IBC guards apply above 30 in, stand at least 42 in high and carry the ASCE 7 loads of 50 lb/ft and 200 lb, with 20 lb/ft for some non-public industrial areas.",
+      "EN ISO 14122-3: 1,100 mm minimum height, openings of 500 mm or less, stanchions at 1,500 mm or less, 30 mm maximum deflection under 300 N/m.",
+      "For FRP, post bases, connections and the substrate usually decide the result, so verify the whole assembly.",
+    ],
+    ogDescription: "OSHA 1910.29, IBC with ASCE 7 and EN ISO 14122-3 guardrail heights, loads, toeboards and post spacing, and what an FRP handrail RFQ should state.",
+    ogChips: [
+      "OSHA 1910.29",
+      "EN ISO 14122-3",
+      "42 in / 1,100 mm",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Handrail & Guardrail Systems", href: "/products/frp-handrail-systems" },
+      { label: "FRP Fixed Ladders: OSHA and ISO 14122-4 Requirements", href: "/resources/blog/fixed-ladder-requirements-osha-iso-14122-4" },
+      { label: "FRP Stair Treads", href: "/products/frp-stair-treads" },
+      { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
+      { label: "FRP Square Tube Sizes", href: "/products/fiberglass-structural-shapes/frp-square-tube" },
+      { label: "FRP Round Tube Sizes", href: "/products/fiberglass-structural-shapes/frp-tube" },
+    ],
+    sourceLinks: [
+      { label: "OSHA 29 CFR 1910.29: fall protection systems criteria and practices", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" },
+      { label: "OSHA 29 CFR 1910.28: duty to have fall protection", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28" },
+      { label: "OSHA interim enforcement guidance on handrail and stair rail systems (February 26, 2026)", href: "https://www.osha.gov/laws-regs/standardinterpretations/2026-02-26" },
+      { label: "IBC 1015.4: guard opening limitations (UpCodes)", href: "https://up.codes/s/opening-limitations" },
+      { label: "IBC 1607.9.1: handrails and guards (UpCodes)", href: "https://up.codes/s/handrails-and-guards" },
+      { label: "ISO 14122-3:2016: stairs, stepladders and guard-rails", href: "https://www.iso.org/standard/61282.html" },
+    ],
+    faq: {
+      title: "FRP handrail and guardrail questions",
+      items: [
+        {
+          question: "What height should an FRP guardrail be?",
+          answer: "Under OSHA 1910.29 the top edge sits 42 in (107 cm) above the walking-working surface, plus or minus 3 in, and must not drop below 39 in when the 200 lb test load pushes down. The IBC requires guards of at least 42 in. EN ISO 14122-3, used for permanent access to machinery in Europe, sets 1,100 mm as the minimum.",
+        },
+        {
+          question: "Does a fiberglass guardrail need a toeboard?",
+          answer: "Where objects could fall onto people below, yes. OSHA 1910.29(k) requires toeboards at least 3.5 in high that withstand 50 lb. EN ISO 14122-3 requires a toe plate set no more than 10 mm above the walking level. FRP kick plates are supplied as part of the handrail system.",
+        },
+        {
+          question: "Can FRP handrails be used on stairs?",
+          answer: "Yes, as stair rail systems and handrails. OSHA 1910.29(f) sets handrails between 30 and 38 in above the leading edge of the tread, and OSHA's February 2026 interim enforcement guidance covers stair rail height and when a top rail may also serve as the handrail. The IBC sets handrails at 34 to 38 in.",
+        },
+        {
+          question: "What does F1 need to quote a handrail system?",
+          answer: "Plan and elevations with runs, corners, gates and stair flights; the governing standard; target height and post-spacing limit; the base substrate and fixing method; the exposure; the color; and quantities. F1 returns the configuration and the documents available for it. Catalog dimensions alone are not a compliance certificate.",
+        },
+      ],
+    },
+    content: `Fiberglass guardrails go where steel rusts or conducts: wastewater plants, chemical platforms, cooling towers, coastal walkways and substations. The material decides how long the rail lasts. The height, the openings and the loads it has to resist come from the rule that governs the site, and that rule differs by country and by building type. This guide sets the three common rulebooks side by side and shows what they mean for an FRP system.
+
+## Which rule applies
+
+| Setting | Rule | What it covers |
+| --- | --- | --- |
+| U.S. workplaces (general industry) | OSHA 29 CFR 1910.28 and 1910.29 | When fall protection is required, and the criteria a guardrail, stair rail or handrail must meet |
+| U.S. buildings | IBC Chapter 10 with ASCE/SEI 7 | Where guards and handrails are required in buildings, their geometry and design loads |
+| Machinery access in Europe | EN ISO 14122-3:2016 | Guard-rails, stairs and stepladders that give permanent access to machinery |
+| Owner standards | Oil and gas, utility or rail specifications | Additional loads, colors, materials and inspection requirements |
+
+Under OSHA 1910.28, an unprotected side or edge 4 ft (1.2 m) or more above a lower level needs fall protection, and a guardrail system is one of the permitted methods. The IBC requires guards where a walking surface is more than 30 in above the floor or grade below. For building guarding in European countries, national building regulations apply rather than EN ISO 14122-3.
+
+## OSHA 1910.29 guardrail criteria
+
+| Element | Requirement |
+| --- | --- |
+| Top rail height | 42 in (107 cm), plus or minus 3 in, above the walking-working surface |
+| Top rail strength | At least 200 lb (890 N) applied downward or outward within 2 in of the top edge, at any point |
+| Top rail under load | Must not deflect below 39 in (99 cm) when the 200 lb load is applied downward |
+| Midrails and screens | At least 150 lb (667 N) in any downward or outward direction |
+| Midrail position | Midway between the top edge and the walking-working surface |
+| Toeboards | At least 3.5 in (9 cm) high, able to withstand 50 lb (222 N), with no more than 0.25 in clearance above the surface |
+
+The 200 lb load can act anywhere along the run: between posts, at a corner or on an end post. For FRP, that load case mostly tests the stiffness of posts and the fixing at their bases. An EN 13706 grade E23 profile has a longitudinal modulus of 23 GPa, roughly one ninth of steel, so a post that is strong enough can still let the top rail drop too far if its section or base plate is undersized. Post spacing, the post section, the base plate and anchor, and the substrate together decide whether the rail stays above 39 in. Evidence should therefore cover the assembled system, fittings included, rather than a single tube.
+
+## IBC and ASCE 7 for buildings
+
+| Element | Requirement |
+| --- | --- |
+| Where guards are required | Walking surfaces more than 30 in above the floor or grade below |
+| Guard height | At least 42 in |
+| Openings | No 4 in sphere may pass; at elevated walking surfaces for access to electrical, mechanical or plumbing equipment, no 21 in sphere |
+| Handrail height at stairs | 34 to 38 in above the line of the tread nosings |
+| Design loads (ASCE 7 Section 4.5) | 50 lb/ft (0.73 kN/m) along the top and a 200 lb (0.89 kN) concentrated load, each in any direction |
+| Reduced line load | 20 lb/ft (0.29 kN/m) in Group I-3, F, H and S areas not accessible to the general public with an occupant load under 50 |
+
+The 21 in sphere provision matters for industrial platforms: an equipment-access walkway often needs only a top rail and one knee rail, while a public stair needs infill that stops a 4 in sphere. Decide which condition applies before selecting the rail layout, because it changes the component count more than any other choice.
+
+## EN ISO 14122-3 for machinery access in Europe
+
+| Element | Requirement |
+| --- | --- |
+| Guard-rail height | At least 1,100 mm above the walking level |
+| Knee rail | At least one; clear openings above and below it no more than 500 mm |
+| Toe plate | Placed no more than 10 mm above the walking level |
+| Stanchion spacing | Axes no more than 1,500 mm apart |
+| Load check | 300 N/m multiplied by the stanchion spacing, with deflection of no more than 30 mm |
+
+The F1 catalog handrail systems list a 1,500 mm maximum post spacing, which lines up with the EN ISO 14122-3 stanchion limit. The catalog value is a starting point: the height, knee-rail position and toe plate still have to be set on the drawing for the standard you name.
+
+## Side by side
+
+| Item | OSHA 1910.29 | IBC with ASCE 7 | EN ISO 14122-3 |
+| --- | --- | --- | --- |
+| Minimum height | 39 in (42 in nominal) | 42 in | 1,100 mm |
+| Intermediate protection | Midrail midway, 150 lb | 4 in sphere, or 21 in at equipment platforms | Knee rail, 500 mm openings |
+| Top load | 200 lb point | 50 lb/ft line and 200 lb point | 300 N/m line, 30 mm deflection |
+| Toe protection | Toeboard, 3.5 in minimum, 50 lb | Not part of the guard provisions; workplace and owner rules apply | Toe plate |
+
+## Detailing an FRP system to the rule
+
+**Posts and bases.** Choose between top-mounted base plates and side (fascia) mounting early, because the anchor layout and the edge distance on the supporting steel or concrete depend on it. FRP is weaker across the fibers than along them, so bolted connections need edge distances and washers sized for the transverse direction.
+
+**Rails and fittings.** Square and round FRP rail systems join through internal or external fittings that are bonded and mechanically fastened. The fitting type affects both the stiffness of the frame and how the system reacts to the 200 lb test at a corner.
+
+**Stairs and openings.** Stair rail systems, handrails and gates at ladder openings each have their own geometry. Mark every stair flight, landing and opening on the layout drawing so each run is detailed to the right requirement.
+
+**Exposure.** Safety yellow and gray are common colors. Outdoor rails need UV-stabilized resin and a surface veil, and chemical service needs the resin matched to the medium and temperature. Near energized equipment, FRP rails remain non-conductive, although metal fasteners and base plates still need attention.
+
+## What to send with an RFQ
+
+Send a plan and elevations with every run, corner, gate and stair flight; the governing standard and edition; target height and post-spacing limit; the substrate and preferred fixing; toe protection; the exposure and any fire requirement; the color; and quantities with the delivery destination. See the [fiberglass handrail systems](/products/frp-handrail-systems) page for the catalog profiles and fittings, and pair the rail layout with the access ladders covered in our [fixed ladder requirements guide](/resources/blog/fixed-ladder-requirements-osha-iso-14122-4).`,
+  },
+  {
+    slug: "fixed-ladder-requirements-osha-iso-14122-4",
+    title: "Fixed Ladder Requirements for FRP Ladders: OSHA 1910.23, 1910.28 and EN ISO 14122-4",
+    seoTitle: "FRP Fixed Ladder Requirements: OSHA and ISO 14122-4",
+    answerBox: "OSHA general-industry rules space fixed-ladder rungs 10 to 14 in apart, require at least 16 in clear width and 7 in clearance behind the rungs, and extend side rails 42 in above the landing. Fixed ladders that extend more than 24 ft above a lower level need a ladder safety or personal fall arrest system if installed on or after November 19, 2018, and every such ladder needs one by November 18, 2036. EN ISO 14122-4 requires a safety cage or a guided fall arrester where the fall height exceeds 3 m.",
+    category: "Access & Safety",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "9 min",
+    excerpt: "OSHA 1910.23 geometry, the 1910.28(b)(9) fall protection timeline and EN ISO 14122-4 cage rules for fixed ladders, and how they shape an FRP ladder order.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "OSHA 29 CFR 1910.23",
+      "OSHA 29 CFR 1910.28(b)(9)",
+      "EN ISO 14122-4:2016",
+    ],
+    coverImage: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
+    coverAlt: "Fiberglass fixed ladder with a safety cage fixed to an industrial structure",
+    supportingImage: "/images/products/frp-ladders/frp-safety-cage-layout.webp",
+    supportingAlt: "Layout drawing of an FRP fixed ladder with cage hoops, vertical cage strips and wall brackets",
+    supportingImageFit: "contain",
+    supportingCaption: "A catalog cage layout for an FRP fixed ladder. Cage dimensions in a catalog are references; the fall protection method, cage geometry and brackets are set on the approved drawing for the jurisdiction and ladder height.",
+    highlights: [
+      "OSHA 1910.23: rungs 10 to 14 in apart, 16 in minimum clear width, 7 in clearance behind the rungs, side rails 42 in above the landing.",
+      "Ladders over 24 ft installed on or after November 19, 2018 need a ladder safety or personal fall arrest system; cages alone no longer qualify for them.",
+      "By November 18, 2036 every fixed ladder over 24 ft needs a ladder safety or personal fall arrest system.",
+      "EN ISO 14122-4 requires a cage or guided fall arrester above a 3 m fall height, so one FRP design rarely fits both markets unchanged.",
+    ],
+    ogDescription: "OSHA 1910.23 ladder geometry, the 1910.28(b)(9) cage phase-out to 2036 and EN ISO 14122-4 cage rules, applied to specifying FRP fixed ladders.",
+    ogChips: [
+      "OSHA 1910.23",
+      "Cage phase-out 2036",
+      "EN ISO 14122-4",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Fixed Ladders & Cages", href: "/products/frp-ladders" },
+      { label: "FRP Guardrail Requirements: OSHA, IBC and ISO 14122-3", href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" },
+      { label: "Fiberglass Handrail & Guardrail Systems", href: "/products/frp-handrail-systems" },
+      { label: "FRP Fasteners and Fittings", href: "/products/frp-fasteners-fittings" },
+      { label: "FRP for Water & Wastewater", href: "/industries/water-wastewater" },
+    ],
+    sourceLinks: [
+      { label: "OSHA 29 CFR 1910.23: ladders", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" },
+      { label: "OSHA 29 CFR 1910.28: duty to have fall protection", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28" },
+      { label: "OSHA interpretation: fall protection requirements for fixed ladders (2021)", href: "https://www.osha.gov/laws-regs/standardinterpretations/2021-09-10" },
+      { label: "OSHA walking-working surfaces final rule FAQ", href: "https://www.osha.gov/walking-working-surfaces/faq" },
+      { label: "ISO 14122-4:2016: fixed ladders", href: "https://www.iso.org/standard/61283.html" },
+    ],
+    faq: {
+      title: "FRP fixed ladder questions",
+      items: [
+        {
+          question: "Are ladder cages still allowed under OSHA?",
+          answer: "On fixed ladders installed before November 19, 2018, a cage or well remains an accepted option until the cage, the well or a ladder section is replaced, or until November 18, 2036, whichever comes first. Ladders over 24 ft installed on or after November 19, 2018 need a ladder safety or personal fall arrest system. A cage may stay alongside such a system if it does not interfere with it.",
+        },
+        {
+          question: "What rung spacing does a fixed ladder need?",
+          answer: "OSHA 1910.23 spaces rungs, steps and cleats 10 to 14 in apart, measured between centerlines, with separate limits for elevator pits and telecommunication towers. EN ISO 14122-4 sets its own geometry, so design to the standard named for the site rather than mixing the two.",
+        },
+        {
+          question: "Can a fiberglass ladder carry a ladder safety system?",
+          answer: "Yes, when the rail or cable system's anchorage and bracket loads, as specified by its manufacturer, are checked against the FRP side rails, the connections and the wall or frame they fix to. Name the system and model in the RFQ so the brackets are designed for it.",
+        },
+        {
+          question: "Why use FRP rather than galvanized steel for fixed ladders?",
+          answer: "FRP does not rust in wastewater, chemical and marine atmospheres, it does not conduct near energized equipment, and it is light enough to handle in long sections. It needs UV-stabilized resin outdoors, and its lower stiffness means brackets and rungs are checked for deflection as well as strength.",
+        },
+      ],
+    },
+    content: `A fixed ladder is a small structure with strict geometry. The rules that govern it set the rung spacing, the clear width, the clearances and, above a certain height, the way a climber is protected from falling. In the United States those rules changed in 2016, and the change is still working its way through existing plants: cages are being phased out as fall protection. In Europe the machinery-access standard still relies on cages. An FRP ladder can be built for either, but not with the same drawing.
+
+## OSHA 1910.23: geometry for fixed ladders
+
+| Element | Requirement |
+| --- | --- |
+| Rung, step and cleat spacing | 10 to 14 in (25 to 36 cm) between centerlines |
+| Minimum clear width | 16 in (41 cm), measured before any ladder safety system is installed |
+| Clearance behind the ladder | 7 in (18 cm) from the rung centerline to the nearest permanent object (4.5 in for elevator pit ladders) |
+| Side rails at the top | Through and side-step ladders extend 42 in (1.1 m) above the access level or landing |
+
+These apply to fixed ladders in general industry. Elevator shafts and telecommunication towers have their own spacing rules, and construction sites fall under 29 CFR 1926 rather than 1910.
+
+## OSHA 1910.28(b)(9): the fall protection timeline
+
+The trigger is height: a fixed ladder that extends more than 24 ft (7.3 m) above a lower level.
+
+| Ladder situation | Required protection |
+| --- | --- |
+| Installed before November 19, 2018 | Personal fall arrest system, ladder safety system, cage or well |
+| Installed on or after November 19, 2018 | Personal fall arrest system or ladder safety system |
+| A ladder section, cage or well is replaced | Personal fall arrest system or ladder safety system, at least in the replaced section |
+| From November 18, 2036 | Every such fixed ladder has a personal fall arrest system or ladder safety system |
+
+A ladder safety system is a rail or cable fixed to the ladder with a sleeve or carrier connected to the climber's harness. The cage has not been banned outright: it can remain on a ladder that also has a ladder safety system, provided it does not interfere with the system. But a new ladder over 24 ft that relies on a cage alone does not meet the rule.
+
+For an FRP ladder, the practical consequence is structural. The ladder safety system brings anchorage and bracket loads that its manufacturer specifies, and those loads flow into the FRP side rails, the brackets and the wall or frame. Choose the system before the ladder is detailed, so the rails, splices and brackets are designed for it.
+
+## EN ISO 14122-4 in Europe
+
+EN ISO 14122-4:2016 covers fixed ladders that give permanent access to machinery. Where the fall height exceeds 3,000 mm, it requires fall protection: a safety cage or a guided-type fall arrester. Cage hoops typically start between about 2,200 and 3,000 mm above the base and are spaced no more than 1,500 mm apart, with vertical strips between them. The standard also sets rung spacing, clear width, landing and rest-platform arrangements; check the edition named in the project specification.
+
+The contrast with the U.S. rule is the point to plan around. A caged FRP ladder detailed for a European plant may be exactly right there and still fall short of the OSHA rule for a new U.S. installation over 24 ft. When a product line serves both markets, state the destination standard on every drawing.
+
+## What changes when the ladder is FRP
+
+**Electrical isolation.** Fiberglass side rails and rungs do not conduct, which is why FRP ladders are specified around substations, rail equipment and electrolytic plants. Metal brackets, fasteners and a steel ladder safety rail still conduct, so the electrical safety review should include them.
+
+**Grip.** Fluted or gritted rungs and rung covers give a slip-resistant surface in wet and oily areas.
+
+**Stiffness.** FRP is less stiff than steel. Rungs, side rails and bracket stand-offs are checked for deflection under the climber and the fall protection loads, not only for strength.
+
+**Exposure and hardware.** Outdoor ladders need UV-stabilized resin and a surface veil. Stainless steel fasteners are common in corrosive service, and the resin is matched to the chemicals present.
+
+## What to send with an RFQ
+
+Send the vertical rise; the top and bottom landing geometry and the top exit (through or side-step); the wall or frame substrate and bracket locations; the stand-off; the jurisdiction and governing standard; the fall protection concept, including the ladder safety system brand and model if one is chosen; the exposure; the color; quantities; and the delivery destination. The [fiberglass fixed ladder](/products/frp-ladders) page lists the catalog rails, rungs, cage components and layout references. Combine the ladder with the platform edge protection described in our [guardrail requirements guide](/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122).`,
+  },
+  {
+    slug: "gfrp-rebar-specification-guide-aci-440-astm-d7957",
+    title: "GFRP Rebar Specification Guide: ACI 440.11, ASTM D7957, CSA S807 and What to Submit",
+    seoTitle: "GFRP Rebar Specification Guide: ACI 440.11 & ASTM D7957",
+    answerBox: "A GFRP rebar specification names three things: the design code (ACI CODE-440.11-22 for buildings, the AASHTO GFRP-2 guide specification for bridges, or an owner rule such as UFC 3-301-01), the product standard with its edition (ASTM D7957/D7957M or CSA S807), and the submittals, from qualification reports and lot tests to bent-bar data and handling instructions. Design for serviceability as well as strength: tested GFRP bar moduli of about 40 to 55 GPa are roughly a quarter of steel's.",
+    category: "Concrete Reinforcement",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "10 min",
+    excerpt: "How to write a GFRP rebar specification: design code, ASTM D7957 or CSA S807 edition control, the submittals to request and the site rules that stay fixed.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ACI CODE-440.11-22",
+      "ASTM D7957/D7957M-26",
+      "ASTM D7205/D7205M-26",
+      "ACI SPEC-440.5-22",
+      "AASHTO GFRP-2 (2018)",
+      "CSA S807:19 (R2024)",
+      "ISO 10406-1:2025",
+    ],
+    coverImage: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
+    coverAlt: "Glass-fiber reinforced polymer reinforcing bars with a sand-coated helical surface for bond to concrete",
+    coverImageFit: "contain",
+    supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
+    supportingAlt: "Straight GFRP reinforcing bars of several diameters",
+    supportingImageFit: "contain",
+    supportingCaption: "Straight GFRP bars from the manufacturing source's catalog. Product illustration only: the grade, surface, dimensions and documents are confirmed for the bar actually offered.",
+    highlights: [
+      "Name the design code, the product standard and its edition, and the submittals: three layers, not one line item.",
+      "ACI CODE-440.11-22 references ASTM D7957-22; a newer ASTM edition does not update the code or an existing test report by itself.",
+      "Tested GFRP bar moduli in U.S. research sit near 40 to 55 GPa against about 196 GPa for steel, so cracking and deflection often govern.",
+      "Bends are made in the factory; cured bars are never field-bent, heated or welded.",
+    ],
+    ogDescription: "Specify GFRP rebar by design code, ASTM D7957 or CSA S807 edition and submittals, with the serviceability checks and site rules that apply.",
+    ogChips: [
+      "ACI 440.11-22",
+      "ASTM D7957",
+      "CSA S807",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "GFRP Stirrups and Bent Bars: Detailing and Ordering", href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide" },
+      { label: "FRP for Infrastructure", href: "/industries/infrastructure" },
+      { label: "FRP for Water & Wastewater", href: "/industries/water-wastewater" },
+    ],
+    sourceLinks: [
+      { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
+      { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "ASTM D7205/D7205M-26: tensile properties of FRP matrix composite bars", href: "https://store.astm.org/d7205_d7205m-26.html" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?Format=PROTECTED_PDF&ItemID=4405U22&Language=English&Units=US_Units" },
+      { label: "AASHTO LRFD Bridge Design Guide Specifications for GFRP-Reinforced Concrete, 2nd edition", href: "https://store.transportation.org/Item/PublicationDetail?ID=4148" },
+      { label: "CSA S807:19 (R2024): specification for fibre-reinforced polymers", href: "https://www.csagroup.org/store/product/CSA%20S807:19/" },
+      { label: "ISO 10406-1:2025: test methods for FRP bars and grids", href: "https://www.iso.org/standard/84321.html" },
+      { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026)", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
+      { label: "Iowa State / MnDOT: Assessment of Bridge Decks with GFRP Reinforcement (2023)", href: "https://rosap.ntl.bts.gov/view/dot/67149" },
+      { label: "University of Kentucky / FHWA: GFRP Reinforced Concrete Bridges (2000)", href: "https://rosap.ntl.bts.gov/view/dot/20392/dot_20392_DS1.pdf" },
+    ],
+    faq: {
+      title: "GFRP rebar specification questions",
+      items: [
+        {
+          question: "Which ASTM standard covers GFRP rebar?",
+          answer: "ASTM D7957/D7957M covers solid round glass-fiber reinforced polymer bars for concrete reinforcement. The current edition is D7957/D7957M-26, while ACI CODE-440.11-22 references the 2022 edition, so state which edition the project accepts. Pre-manufactured mesh is outside the standard's scope.",
+        },
+        {
+          question: "Can GFRP rebar replace steel bar for bar?",
+          answer: "No. The lower modulus changes crack widths and deflections, development and splice lengths differ, and bends have their own capacity. Reinforcement is redesigned to ACI CODE-440.11 or the governing code by the engineer of record.",
+        },
+        {
+          question: "Can GFRP rebar be used in fire-rated or seismic elements?",
+          answer: "That depends on the code and the owner. ACI CODE-440.11-22 has its own provisions for elevated temperature, and UFC 3-301-01 restricts GFRP in fire-rated and seismic-force-resisting systems under specified Department of Defense conditions. The engineer of record decides for each element.",
+        },
+        {
+          question: "What modulus should I design with?",
+          answer: "The certified value of the grade actually supplied. For orientation, U.S. research lots measured about 40.0 GPa (University of Kentucky, 2000) and 54.3 GPa (Iowa State for MnDOT, 2023); the steel bars in the Kentucky program measured about 196 GPa.",
+        },
+      ],
+    },
+    content: `Glass-fiber reinforced polymer (GFRP) bars earn their place where steel reinforcement is the weak point: chloride-exposed seawalls and bridge decks, concrete near MRI rooms and other magnetically sensitive equipment, electrical isolation zones and tunnel soft-eyes that a boring machine has to cut through. Getting them onto a project takes a specification that says more than "GFRP rebar, 16 mm". It has three layers, and each one needs its edition written down.
+
+## The three layers of a GFRP specification
+
+| Layer | Documents | What it controls |
+| --- | --- | --- |
+| Design code | ACI CODE-440.11-22 for buildings; AASHTO GFRP-2 (2nd edition, 2018) for bridges; owner rules such as UFC 3-301-01 Appendix G | Strength, serviceability, durability, development, splices and fire provisions |
+| Product standard | ASTM D7957/D7957M; CSA S807:19 (R2024) in Canada | Qualification, production-lot control, physical and mechanical properties, bends |
+| Test methods | ASTM D7205/D7205M for tension; ISO 10406-1:2025 for bars and grids | How the reported values were measured |
+| Construction | ACI SPEC-440.5-22 | Submittals, storage, handling, placement, tolerances and inspection |
+
+ACI CODE-440.11-22 is the consensus building-code route for concrete reinforced with qualifying solid, round, vinyl-ester GFRP bars. CSA S807 classifies FRP bars by fiber, strength, modulus and durability, and covers E-CR glass, carbon, aramid and basalt fibers with isophthalic polyester, vinyl ester or epoxy resins. The AASHTO guide specification, first issued in 2009 for decks and railings, now also covers girders, bent caps, substructure and foundation elements.
+
+## Edition control
+
+The newest ASTM edition does not silently update an older code reference or an older test report. ASTM D7957/D7957M-26 is current, but ACI CODE-440.11-22 was written around the 2022 edition. The specification should say which edition the qualification reports were run against and whether the project accepts results to a later edition. The same applies to ASTM D7205, which measures short-term static tensile properties and, by its own scope, does not account for sustained or fatigue loading.
+
+## Design differences to expect
+
+**Stiffness.** Research lots tested in U.S. programs measured moduli of about 40.0 GPa (University of Kentucky for FHWA, 2000) and 54.3 GPa (Iowa State for MnDOT, 2023). The epoxy-coated steel bars in the Kentucky program measured about 196 GPa. With a quarter of the stiffness, crack widths and deflections often control the reinforcement area, not ultimate strength.
+
+**No yield plateau.** GFRP bars stay linear to failure. The Iowa State tests recorded stress rising linearly to a sudden rupture, which is why the codes use different strength reduction and sustained-stress limits from steel design. UFC 3-301-01, for example, caps sustained stress at 0.3 of the ultimate tensile stress for Department of Defense work.
+
+**Compression and temperature.** UFC 3-301-01 ignores GFRP compression strength in covered design, and fire and elevated-temperature behavior depend on the resin. Fire-rated and seismic-force-resisting members need an explicit decision from the engineer of record.
+
+**Thermal movement.** An FHWA study measured a longitudinal coefficient of thermal expansion of about 9.2 microstrain per degree Celsius for a tested GFRP bar against 11.9 for Grade 60 steel. The difference is small, but it belongs in the design record for long pavements and decks.
+
+The consequence is simple to state: GFRP does not replace steel bar for bar. The detailed trade-offs, with the field evidence and a lifecycle cost study, are in our [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel).
+
+## What to put in the submittal list
+
+**Qualification report.** Laboratory, standard and edition, specimen sizes, and results for tensile force, modulus and strain, transverse shear, bond and the other properties the product standard requires.
+
+**Production-lot certificates.** Lot identification tied to the delivered bars, with the lot tests the standard requires.
+
+**Bent-bar data.** Shapes, inside radii and the tested capacity of the bent portion for the diameters ordered. Bends are covered in our [GFRP stirrups and bent bars guide](/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide).
+
+**Dimensions and marking.** Nominal diameter, measured area, unit mass, surface type and the labeling that lets an inspector match bundles to certificates.
+
+**Handling and storage instructions.** Support spacing for storage, protection from impact and prolonged sunlight where the product instructions require it, and the approved cutting method.
+
+**Accessories.** Chairs, spacers and ties chosen to suit the design intent; non-metallic accessories where the reinforcement must stay magnetically or electrically inert.
+
+## Site rules that do not change
+
+Cured GFRP bars are never field-bent, heated or welded: every bend is ordered from the factory. Bars are cut with the method in the product instructions, typically a diamond or abrasive blade, rather than sheared, with dust protection for the crew. Cover, spacing and laps are inspected against the approved drawings before the pour, with the bars tied so they stay in place while concrete is placed.
+
+## How F1 handles GFRP rebar enquiries
+
+F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh from its manufacturing source, against a project schedule. The inquiry list covers nominal diameters from 6 to 36 mm. Grade, resin, dimensions and the evidence available are confirmed for the bar actually offered, and the standard and edition your project requires are part of that confirmation. Send a BOQ or drawing, or fill in the [bar schedule template](/downloads/f1-rebar-schedule-template.csv), through the [FRP rebar page](/products/frp-rebar).`,
+  },
+  {
+    slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide",
+    title: "GFRP Bent Bars, Stirrups and Mesh: How to Detail, Schedule and Order Them",
+    seoTitle: "GFRP Stirrups and Bent Bars: Detailing and Ordering",
+    answerBox: "Cured GFRP bars cannot be bent, heated or welded on site, so every stirrup, hook and bend is formed in the factory from an approved drawing before shipment. Schedule each shape with a bar mark, diameter, leg dimensions, inside bend radius and quantity, and request test data for the bent portion, which carries less tensile force than the straight bar. Pre-manufactured mesh is outside ASTM D7957, so it needs its own drawing and test scope.",
+    category: "Concrete Reinforcement",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "8 min",
+    excerpt: "Why GFRP bends are made in the factory, what a bar bending schedule must contain, how bent-bar capacity and mesh are specified, and when to order them.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM D7957/D7957M-26",
+      "ACI CODE-440.11-22",
+      "ACI SPEC-440.5-22",
+      "ISO 10406-1:2025",
+    ],
+    coverImage: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
+    coverAlt: "Factory-formed rectangular GFRP stirrups",
+    coverImageFit: "contain",
+    supportingImage: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
+    supportingAlt: "GFRP reinforcement mesh panel with bars in two directions",
+    supportingImageFit: "contain",
+    supportingCaption: "GFRP reinforcement mesh from the manufacturing source's catalog. Product illustration only: rod diameter, spacing, intersections and test scope are confirmed for the mesh actually offered.",
+    highlights: [
+      "Every GFRP bend is made in the factory while the resin cures; nothing is bent, heated or welded on site.",
+      "A bend schedule needs bar mark, shape, diameter, leg dimensions, inside radius, quantity and tolerances.",
+      "The bent portion carries less tensile force than the straight bar, so request bent-bar data for each diameter and radius.",
+      "Mesh sits outside ASTM D7957 and needs its own drawing, intersection detail and test scope.",
+    ],
+    ogDescription: "GFRP bends are made in the factory. What a GFRP bar bending schedule needs, how bent-bar capacity and mesh are specified, and when to order them.",
+    ogChips: [
+      "Factory bends only",
+      "Bend schedule",
+      "GFRP mesh",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "GFRP Rebar Specification Guide", href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "GFRP Bar Schedule Template (CSV)", href: "/downloads/f1-rebar-schedule-template.csv" },
+    ],
+    sourceLinks: [
+      { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?Format=PROTECTED_PDF&ItemID=4405U22&Language=English&Units=US_Units" },
+      { label: "ISO 10406-1:2025: test methods for FRP bars and grids", href: "https://www.iso.org/standard/84321.html" },
+      { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026)", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
+    ],
+    faq: {
+      title: "GFRP bends and mesh questions",
+      items: [
+        {
+          question: "Can GFRP stirrups be made in any shape?",
+          answer: "Common shapes such as closed rectangular stirrups, L-bars and U-bars are routine. Other shapes depend on the forming tools available for the diameter and radius. Send the drawing with dimensions, inside radii and tolerances, and the shape is confirmed before production.",
+        },
+        {
+          question: "Can GFRP bars be cut on site?",
+          answer: "Straight bars can be cut to length on site with the method in the product instructions, typically a diamond or abrasive blade, with dust protection. Shearing, heating and welding are not permitted, and a cut bar cannot be reshaped into a bend.",
+        },
+        {
+          question: "Is GFRP mesh covered by ASTM D7957?",
+          answer: "No. Pre-manufactured mesh is outside the scope of ASTM D7957/D7957M. Specify the rod diameter and spacing in both directions, the sheet size and the intersection detail, and agree the test scope; ISO 10406-1 includes test methods for grids.",
+        },
+        {
+          question: "How early should bends and mesh be ordered?",
+          answer: "As soon as the bar schedule is approved. Bends and mesh need drawings, forming and curing before shipment, so they usually take longer than straight bars. The production timing for your quantities is confirmed in the quotation.",
+        },
+      ],
+    },
+    content: `On a steel-reinforced job, a bar bender shapes stirrups on site from straight stock. With glass-fiber reinforced polymer (GFRP) the shape is fixed when the resin cures in the factory, and after that it cannot change. That single fact moves bends from the site to the drawing office: every hook, stirrup and bend has to be scheduled, approved and made before the bars ship.
+
+## Why GFRP cannot be bent on site
+
+A GFRP bar is glass fibers locked in a cured thermoset resin, typically vinyl ester for concrete reinforcement. Bending a cured bar breaks fibers and cracks the matrix; heating it degrades the resin. Construction specifications and product instructions therefore prohibit field bending, heating and welding, and owner rules such as UFC 3-301-01 state the same prohibition for Department of Defense work. The only way to get a bent GFRP bar is to form it before the resin cures, which is what the manufacturer's bending line does.
+
+## What a bend schedule must contain
+
+| Field | Why it matters |
+| --- | --- |
+| Bar mark | Ties each bundle to the drawing and the inspection record |
+| Shape code or sketch | Defines the geometry the factory forms |
+| Nominal diameter | Sets the forming tool and the bent-bar data that apply |
+| Leg dimensions | Measured the way the drawing states: outside, inside or centerline |
+| Inside bend radius | Checked against the minimum for the diameter and product |
+| Quantity | Pieces per mark, including spares agreed with the contractor |
+| Tolerances | Leg length and angle tolerances agreed before production |
+
+Straight bars need only diameter, cut length and quantity. Keep the two lists separate so nobody reads a straight length as a bent shape. Our [bar schedule template](/downloads/f1-rebar-schedule-template.csv) has columns for both.
+
+## Bent-portion capacity and radius
+
+The bent portion of a GFRP bar carries less tensile force than the straight bar, and the design codes account for that reduction. ASTM D7957/D7957M addresses the minimum bend diameter for bent shapes as well as cut lengths, and ACI CODE-440.11-22 governs how bends and hooks are used in design. For the submittal, ask for the tested capacity of the bent portion for each diameter and radius ordered, measured to a stated method and edition. Bent-bar data from one diameter or one radius does not transfer to another.
+
+Closed stirrups need a stated closure: the overlap length or the hook arrangement shown on the drawing. Check it against the design, because the closure is where a stirrup's capacity is decided.
+
+## Mesh and intersections
+
+Pre-manufactured GFRP mesh is outside the scope of ASTM D7957. A mesh order therefore needs its own specification: rod diameter and center-to-center spacing in both directions, overall sheet dimensions, the intersection type, edge distances, quantity and the approved drawing. The mesh from F1's manufacturing source uses glass fiber with an epoxy resin and custom spacing and sheet sizes, and its properties are confirmed for the configuration offered rather than borrowed from straight-bar data. ISO 10406-1:2025 provides test methods for FRP bars and grids when the project needs its own test scope.
+
+## Timing and logistics
+
+Bends and mesh need drawings, forming and curing before they ship, so they usually take longer than straight bars. Release the bend schedule as early as the design allows, and keep a small agreed allowance of spare shapes for site damage, because a replacement cannot be bent on site. Ask for packing by bar mark with labels that match the certificates, and follow the storage instructions supplied with the bars: support them evenly, protect them from impact, and keep them out of prolonged sunlight where the instructions say so.
+
+## Checklist before release
+
+Before the schedule goes to production, confirm that every shape has a mark, a sketch, dimensions, an inside radius and a quantity; that the bent-bar data cover every diameter and radius on the list; that closures on stirrups match the design; that mesh has a drawing and its own test scope; and that the edition of each standard is written down. The [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957) covers the rest of the submittal list, and the [FRP rebar page](/products/frp-rebar) takes a BOQ, a drawing or a completed schedule.`,
+  },
+  {
+    slug: "how-to-install-frp-grating",
+    title: "How to Install FRP Grating: Supports, Hold-Down Clips, Cutting and Edge Sealing",
+    seoTitle: "How to Install FRP Grating: Supports, Clips and Cutting",
+    answerBox: "Set FRP grating on level supports with at least 38 mm (1.5 in) of bearing and, for pultruded grating, the bearing bars spanning between supports. Fasten every panel with at least four panel-to-support hold-downs, at least two on each support line and no more than 1,200 mm (4 ft) apart. Cut with carbide or diamond tools under dust extraction, support cut bearing-bar ends, seal every cut surface with a compatible resin and recheck the clip layout. The approved drawing sets the final layout.",
+    category: "Grating",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "9 min",
+    excerpt: "A step-by-step FRP grating installation guide: support checks, panel orientation, hold-down clip layout, cutting, cut-edge sealing and final inspection.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM F3059-24",
+      "OSHA 29 CFR 1910.22",
+    ],
+    coverImage: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
+    coverAlt: "Molded FRP grating installed as a coastal observation walkway",
+    supportingImage: "/images/products/molded-frp-grating/grating-clips-hardware-reference.webp",
+    supportingAlt: "Reference layout of stainless steel hold-down clips and connectors used with FRP grating",
+    supportingImageFit: "contain",
+    supportingCaption: "Hold-down clips and panel connectors for FRP grating. Clip letters are not standardized across manufacturers: select the clip from the grating series, bar geometry and support detail on the approved drawing.",
+    highlights: [
+      "Check that supports are level and coplanar and give at least 38 mm (1.5 in) of bearing before the first panel goes down.",
+      "Pultruded grating spans one way: the bearing bars must run between the supports.",
+      "Start from at least four hold-downs per panel, two per support line and 1,200 mm (4 ft) maximum spacing, then follow the approved drawing.",
+      "Every cut surface is supported and sealed with a compatible resin, and the clip layout is rechecked after cutting.",
+    ],
+    ogDescription: "How to install FRP grating: support and bearing checks, panel orientation, hold-down clip layout, cutting, sealing cut edges and final inspection.",
+    ogChips: [
+      "4 clips per panel",
+      "38 mm bearing",
+      "Seal cut edges",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Grating: Molded and Pultruded", href: "/products/grating" },
+      { label: "Molded FRP Grating and Clips", href: "/products/molded-frp-grating#grating-clips" },
+      { label: "Pultruded FRP Grating and Clips", href: "/products/frp-gratings#grating-clips" },
+      { label: "How to Read an FRP Grating Load Table", href: "/resources/blog/how-to-read-frp-grating-load-table" },
+      { label: "FRP Stair Treads", href: "/products/frp-stair-treads" },
+      { label: "FRP Guardrail Requirements: OSHA, IBC and ISO 14122-3", href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" },
+    ],
+    sourceLinks: [
+      { label: "Strongwell: fiberglass grating installation guidelines", href: "https://www.strongwell.com/downloads/Offshore-Book-Guide-AOG-0223-c.pdf" },
+      { label: "ASTM F3059: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-18.html" },
+      { label: "OSHA 29 CFR 1910.22: walking-working surfaces, general requirements", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.22" },
+    ],
+    faq: {
+      title: "FRP grating installation questions",
+      items: [
+        {
+          question: "How many clips does an FRP grating panel need?",
+          answer: "A common starting layout is at least four panel-to-support hold-downs per panel, at least two on each support line and no more than 1,200 mm (4 ft) apart along a support. Long panels, wind, vibration and traffic can require more. The approved project drawing sets the final count and spacing.",
+        },
+        {
+          question: "Do cut edges of fiberglass grating need sealing?",
+          answer: "Yes. Cutting exposes glass fibers. Seal every cut surface with a resin compatible with the grating resin, as supplied or specified by the manufacturer, especially in chemical, marine and outdoor service.",
+        },
+        {
+          question: "What tools cut FRP grating?",
+          answer: "Circular saws, grinders or jigsaws fitted with carbide- or diamond-tipped blades. Use dust extraction, a suitable respirator, eye protection and covered skin, because glass and resin dust irritates.",
+        },
+        {
+          question: "Can molded and pultruded grating use the same clips?",
+          answer: "Some clip types fit both, others fit only one. In F1's range the M hold-down and the J support-hook clamp are listed for both families, the C connector for molded panels only and the T clip for specific F1 pultruded series. Match the clip to the exact series and bar geometry.",
+        },
+      ],
+    },
+    content: `FRP grating is easy to handle and forgiving to cut, which is part of why it is chosen. Most installation problems still come from a handful of avoidable decisions: supports that are not level, panels laid the wrong way round, too few hold-downs, and cut edges left open. This guide walks through an installation in the order a crew meets those decisions.
+
+## Before the panels arrive
+
+Work from the approved layout drawing. It should show every panel mark, the span direction, cut-outs for pipes and equipment, the support members and the clip positions. Check the support steel or concrete against it: supports level and coplanar, spacing no wider than the span the grating was selected for, and flanges wide enough to give the required bearing. A support that is out of level by a few millimeters turns into a rocking panel and a trip edge.
+
+Keep molded and pultruded panels apart in storage and on the drawing. They use different clips, and pultruded panels have a direction.
+
+## Orientation and bearing
+
+**Pultruded grating spans one way.** Its strength comes from bearing bars joined by cross rods, so the bearing bars must run between the supports. Laid the other way, the panel is carried by the cross rods and will not perform to its load table.
+
+**Molded grating spans two ways** with square mesh, which makes it tolerant of cut-outs and irregular layouts. Rectangular-mesh molded panels still have a stronger direction, so follow the drawing.
+
+**Bearing.** A common starting value is at least 38 mm (1.5 in) of bearing on each support. Panel edges at cut-outs, trenches and penetrations need their own support: add trimmer angles or support frames rather than leaving an edge cantilevered.
+
+## Hold-down clips
+
+F1's clip layout guidance gives these starting values for coordination, before the project drawing fixes the final design:
+
+| Location | Starting value |
+| --- | --- |
+| Each panel | At least 4 panel-to-support hold-downs |
+| Each support line | At least 2 panel-to-support hold-downs |
+| Along a support | No more than 1,200 mm (4 ft) between hold-downs |
+| Molded panel joints | C connectors typically every 600 to 900 mm (2 to 3 ft) |
+| Bearing at support | At least 38 mm (1.5 in) |
+
+Clip letters are not standardized between manufacturers, so select by function:
+
+| F1 clip | Function | Grating family |
+| --- | --- | --- |
+| M hold-down | Seats across two adjacent bars and holds the panel to its support | Molded and pultruded |
+| J support-hook clamp | Clamps the panel to a support flange from below, without drilling the support | Molded and pultruded |
+| C panel connector | Aligns adjacent molded panel edges; it does not replace support or a hold-down | Molded |
+| T clip | Series-specific hold-down for selected F1 pultruded bearing-bar series | Pultruded |
+
+The F1 clips are 316 stainless steel. Tighten fasteners to the value on the drawing, and add hold-downs where wind, vibration or vehicle traffic act on the panels. Details for each family are on the [molded grating](/products/molded-frp-grating#grating-clips) and [pultruded grating](/products/frp-gratings#grating-clips) pages, with DXF drawings of the clips.
+
+## Cutting and sealing
+
+Cut with carbide- or diamond-tipped blades on a circular saw, grinder or jigsaw, with dust extraction, a suitable respirator, eye protection and covered skin. Plan cuts so that cut bearing-bar ends of pultruded panels land on a support or on added framing.
+
+Cutting exposes glass fibers. Grind the cut smooth and seal every cut surface with a resin compatible with the grating resin, as supplied or specified by the manufacturer. Sealing keeps moisture and chemicals from wicking along the fibers and protects the edge from UV. After cutting, recheck the hold-down layout: a cut-out often removes the clip position the drawing relied on.
+
+## Inspection after installation
+
+Walk the finished area. Look for rocking or springy panels, loose or missing clips, height steps between panels that create a trip edge, damaged grit surfaces and unsealed cuts. OSHA 1910.22 requires walking-working surfaces in general industry to be kept free of hazards such as sharp or protruding objects, loose boards and spills, and to be inspected regularly, so add the grating to the site's inspection routine.
+
+## Marine and offshore projects
+
+ASTM F3059 sets testing and performance requirements for FRP gratings used in marine construction and shipbuilding, as an equivalency to steel gratings rated for up to 94 lbf/ft² (4.5 kN/m²). Its tests cover deflection, assembled grating ultimate failure, wheel loading, impact, skid resistance, durability, UV, salt spray, surface flammability and structural fire integrity under ASTM E119 exposure; it does not address hydrocarbon pool or jet fires. The flag state or class society decides which fire category applies on a given deck.
+
+To choose the grating itself, compare [molded and pultruded fiberglass grating](/products/grating) and check spans with the [load table guide](/resources/blog/how-to-read-frp-grating-load-table).`,
+  },
+  {
+    slug: "how-to-read-frp-grating-load-table",
+    title: "How to Read an FRP Grating Load Table: Span, Load Type and Deflection",
+    seoTitle: "How to Read an FRP Grating Load Table (Span & Deflection)",
+    answerBox: "An FRP grating load table lists, for one grating type and depth, the deflection or allowable load at each clear span, usually for a uniform load in kPa or lb/ft² and for a concentrated load at midspan. Find the clear span, read across to the design load, and compare the deflection with the project limit. Deflection usually governs FRP because its stiffness is far below steel's. Tables assume simple supports, room temperature and, for pultruded grating, bearing bars spanning the supports.",
+    category: "Grating",
+    date: "2026-09-24",
+    updatedAt: "2026-09-24",
+    readTime: "8 min",
+    excerpt: "What an FRP grating load table assumes, how uniform and concentrated loads are shown, how to check deflection, and what to ask a supplier for.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM F3059-24",
+    ],
+    coverImage: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
+    coverAlt: "Open pultruded FRP grating installed as a rooftop walkway",
+    supportingImage: "/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp",
+    supportingAlt: "Close-up of pultruded FRP grating with T-shaped bearing bars and cross rods",
+    supportingImageFit: "contain",
+    supportingCaption: "Pultruded grating carries load along its bearing bars, which is why its load table only applies with the bars spanning between supports.",
+    highlights: [
+      "One table covers one grating type, depth and resin: never borrow values across series.",
+      "The span in the table is the clear span between supports, with the bearing bars running between them.",
+      "Uniform loads are in kPa or lb/ft²; concentrated loads are line or point loads whose definition sits in the footnotes.",
+      "Deflection usually governs FRP, and room-temperature tables overstate stiffness in hot service.",
+    ],
+    ogDescription: "How to read an FRP grating load table: clear span, uniform and concentrated loads, deflection limits, temperature and what to ask a supplier.",
+    ogChips: [
+      "Clear span",
+      "Uniform vs concentrated",
+      "Deflection governs",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Grating: Molded and Pultruded", href: "/products/grating" },
+      { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
+      { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
+      { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
+      { label: "FRP Grating vs Steel Grating", href: "/technology/frp-vs-steel-gratings" },
+      { label: "Pultrusion Resin Systems", href: "/technology/pultrusion-resin-systems" },
+    ],
+    sourceLinks: [
+      { label: "ASTM F3059: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-18.html" },
+      { label: "McNichols: bar grating load tables explained", href: "https://www.mcnichols.com/blog/bar-grating-load-tables-explained" },
+    ],
+    faq: {
+      title: "FRP grating load table questions",
+      items: [
+        {
+          question: "What deflection limit should FRP grating meet?",
+          answer: "The one in the project specification. Many specifications for pedestrian areas borrow the 1/4 in (6 mm) comfort limit used for metal bar grating, and others use a span ratio. State the limit in the RFQ so the supplier checks the right number.",
+        },
+        {
+          question: "Why does FRP grating deflect more than steel grating?",
+          answer: "Glass-fiber composites are far less stiff than steel: an EN 13706 grade E23 pultruded profile has a longitudinal modulus of 23 GPa against about 200 GPa for steel. At the same depth and span, FRP grating deflects more, so deeper bars or closer supports are the usual answer.",
+        },
+        {
+          question: "Do load tables apply at high temperature?",
+          answer: "No. Published tables are normally for room temperature. Stiffness falls as the service temperature approaches the resin's heat-distortion or glass transition temperature, so ask for reduced values or retained-property data for hot areas.",
+        },
+        {
+          question: "Where can I get a load table for F1 grating?",
+          answer: "Send the grating series or mesh, clear span, support width, load type, deflection limit, resin and service conditions from the grating pages. F1 returns the applicable load and deflection table with the product documents.",
+        },
+      ],
+    },
+    content: `Every grating supplier publishes load tables, and most specification errors with FRP grating start with one of them being read wrong. The table itself is simple. The assumptions behind it, which live in the column headings and the footnotes, are what make a panel pass or fail on site.
+
+## One table, one product
+
+A load table belongs to one grating type, one depth, and usually one resin system. Molded grating with square mesh, molded grating with rectangular mesh, and each pultruded bearing-bar series all have their own tables. A 38 mm molded panel and a 38 mm pultruded panel carry very different loads over the same span. Before reading any number, confirm that the table matches the series, depth, mesh and resin you are specifying.
+
+## What the table assumes
+
+**Clear span.** The span is the clear distance between supports, not the panel length. Panels bear on the supports beyond it.
+
+**Simple supports.** Values assume the panel rests on its supports without continuity. Continuity over a middle support helps, but tables do not count on it.
+
+**Direction.** For pultruded grating, the bearing bars span between the supports. The table does not apply to a panel laid the other way.
+
+**Temperature and resin.** Values are for room temperature and the resin named on the table.
+
+**Safety factor.** Some manufacturers derive recommended loads by dividing the ultimate capacity by a safety factor, 2.5 for example. The note under the table says which factor was used, if any.
+
+## Uniform and concentrated loads
+
+Tables usually show two load cases. A uniform load is spread over the whole panel and is given as a pressure: kPa (kN/m²) or lb/ft². One kPa is about 20.9 lb/ft². A concentrated load is given either as a line load across the panel width at midspan, in kN/m or lb/ft of width, or as a point load on a small plate. The plate size, such as 100 × 100 mm or 200 × 200 mm, belongs in the footnotes. Point-load values from a table that uses a large plate are not comparable with values from a table that uses a small one.
+
+For comparison with marine and offshore requirements, ASTM F3059 frames its FRP grating tests as an equivalency to steel gratings rated for up to 94 lbf/ft² (4.5 kN/m²).
+
+## Deflection usually governs
+
+Glass-fiber composites are far less stiff than steel. A pultruded profile to EN 13706 grade E23 has a longitudinal modulus of 23 GPa, against about 200 GPa for steel, so an FRP panel that is strong enough can still bend too much underfoot. That is why many FRP tables show deflection at each load and span rather than a single allowable load. The limit comes from the project. Metal bar grating practice commonly caps deflection under the design uniform load at 1/4 in (6 mm) for pedestrian comfort, and many FRP specifications borrow that figure; others use a span ratio. Whatever the limit, write it into the specification so everyone checks the same number.
+
+## Reading the table, step by step
+
+First, find the column for your clear span. If your span falls between two columns, use the longer span or ask the supplier for the exact value rather than interpolating in your favor.
+
+Second, read down to the row for your design uniform load and note the deflection. Compare it with the project limit.
+
+Third, repeat for the concentrated load case, using the row or column that matches how the table defines the load: line or point, and the plate size.
+
+Fourth, check the footnotes for temperature, resin, safety factor and support width. If any of them differ from your project, the table value needs adjusting before it is used.
+
+If the panel fails the check, the usual fixes are a deeper panel, a stiffer series, or an extra support to shorten the span.
+
+## Temperature, chemicals and resin
+
+Stiffness falls as the service temperature approaches the resin's heat-distortion or glass transition temperature. Tables are room-temperature values, so hot areas near process equipment or in direct sun in hot climates need reduced values or retained-property data from the supplier. The resin also sets chemical resistance: vinyl ester for most chemical service, phenolic where fire behavior governs. Our guide to [pultrusion resin systems](/technology/pultrusion-resin-systems) compares them.
+
+## What to ask a supplier for
+
+Ask for the table for the exact series, depth, mesh and resin; its load definitions, including plate size for point loads; the safety factor; whether the values come from tests or calculation; the temperature basis; and the support width assumed. With F1 grating, send the series or mesh, clear span, support width, load type and deflection limit, resin and service conditions through the [grating page](/products/grating), and the applicable load and deflection table comes back with the product documents. Installation details, including bearing and clip layout, are in [how to install FRP grating](/resources/blog/how-to-install-frp-grating).`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(
