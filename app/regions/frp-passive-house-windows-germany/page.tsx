@@ -258,7 +258,7 @@ export default function GermanyRegionPage() {
               <p className="mt-[5px] text-f13 leading-golden text-t2">Why GFK frames need no steel reinforcement — larger sashes, no hidden thermal bridge.</p>
             </Link>
             <Link
-              href="/case-studies/fenestration-residential"
+              href="/case-studies/wanhua-yantai-zero-carbon-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">Zero-carbon community case study</h3>

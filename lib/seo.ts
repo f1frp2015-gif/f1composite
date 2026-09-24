@@ -51,6 +51,13 @@ interface PageMetadataOptions {
   description: string;
   path: string;
   image?: string;
+  /** Emits og:type "article" with article:* tags (blog posts and case studies). */
+  article?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    authors?: string[];
+    section?: string;
+  };
 }
 
 interface ProductFamilyPageSchemaOptions {
@@ -146,6 +153,7 @@ export function buildPageMetadata({
   description,
   path,
   image = "/opengraph-image",
+  article,
 }: PageMetadataOptions): Metadata {
   enforceSeoLimits(path, title, description);
   const url = absoluteUrl(path);
@@ -161,13 +169,25 @@ export function buildPageMetadata({
     alternates: {
       canonical: url,
     },
-    openGraph: {
-      title,
-      description,
-      url,
-      type: "website",
-      images: [{ url: imageUrl, width: 1200, height: 630 }],
-    },
+    openGraph: article
+      ? {
+          title,
+          description,
+          url,
+          type: "article",
+          images: [{ url: imageUrl, width: 1200, height: 630 }],
+          ...(article.publishedTime && { publishedTime: article.publishedTime }),
+          ...(article.modifiedTime && { modifiedTime: article.modifiedTime }),
+          ...(article.authors?.length && { authors: article.authors }),
+          ...(article.section && { section: article.section }),
+        }
+      : {
+          title,
+          description,
+          url,
+          type: "website",
+          images: [{ url: imageUrl, width: 1200, height: 630 }],
+        },
     twitter: {
       card: "summary_large_image",
       title,

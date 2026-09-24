@@ -237,7 +237,7 @@ export default function UsaRegionPage() {
               <p className="mt-[5px] text-f13 leading-golden text-t2">How resin chemistry and additives affect flame spread, and what a Class A report covers.</p>
             </Link>
             <Link
-              href="/resources/blog/frp-vs-aluminum-window-frames-comparison"
+              href="/technology/frp-vs-aluminum-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f15 font-bold text-t1">FRP vs Aluminum — AAMA & thermal</h3>

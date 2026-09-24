@@ -289,12 +289,12 @@ export default function EnergyPage() {
               </span>
             </Link>
             <Link
-              href="/case-studies/solar-farm-mounting"
+              href="/case-studies/chongqing-rooftop-pv-frp-rail"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Solar Farm Mounting</h3>
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP mounting structures for solar farms: non-conductive and rust-free.
+                Pultruded GFRP H-rail on colour steel-tile factory roofs, about 75% less rail dead load than galvanized steel.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →

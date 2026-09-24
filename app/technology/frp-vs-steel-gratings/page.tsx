@@ -255,8 +255,7 @@ export default function FrpVsSteelGratingsPage() {
               { href: "/industries/industrial", label: "Chemical plant & processing platforms" },
               { href: "/industries/infrastructure", label: "Water treatment & infrastructure" },
               { href: "/case-studies/coastal-marina-walkway", label: "Case: UK coastal marina walkway" },
-              { href: "/case-studies/chemical-plant-platform", label: "Case: Saudi petrochemical platforms" },
-              { href: "/case-studies/water-treatment-cable-tray", label: "Case: Thailand water treatment plant" },
+                            { href: "/case-studies/water-treatment-cable-tray", label: "Case: Thailand water treatment plant" },
               { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
             ],
           },
@@ -265,7 +264,7 @@ export default function FrpVsSteelGratingsPage() {
             links: [
               { href: "/technology/quality-testing", label: "Quality testing (BS 476 / AS 4586 R11)" },
               { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
-              { href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison", label: "Blog: FRP vs steel grating lifecycle cost" },
+              { href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison", label: "Blog: FRP grating lifecycle cost, worked example" },
               { href: "/resources/blog/frp-fire-resistance-ratings-guide", label: "Blog: FRP fire resistance ratings" },
               { href: "/resources/technical-data", label: "Load tables & data sheets" },
               { href: "/resources/design-guides", label: "Grating design guides" },

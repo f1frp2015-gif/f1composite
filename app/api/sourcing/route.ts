@@ -59,7 +59,7 @@ You are the F1 Composite FRP sourcing assistant. The user describes an FRP proje
   - qinling-station-antarctic-passive-windows (PHI passive house, polar climate)
   - european-bridge-deck (FRP deck replacement)
   - coastal-marina-walkway (marine pedestrian)
-  - solar-farm-mounting (PV support)
+  - chongqing-rooftop-pv-frp-rail (rooftop PV rail)
   - water-treatment-platforms (corrosive process)
   - factory-staircase-platforms (industrial access)
   - talent-apartment-yancheng (residential FRP windows)

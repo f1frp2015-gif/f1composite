@@ -248,6 +248,7 @@ export function buildPublicKnowledge() {
     ],
     keyPages: {
       home: SITE,
+      about: `${SITE}/about`,
       pultrudedFrpProfilesHub: `${SITE}/pultruded-frp-profiles`,
       whatIsFrp: `${SITE}/what-is-frp`,
       applications: `${SITE}/applications`,
@@ -329,7 +330,7 @@ export function buildPublicKnowledge() {
         keyFacts: { buildings: 20, productSeries: ["65 casement", "90 sliding", "facade frames"] },
       },
       {
-        slug: "fenestration-residential",
+        slug: "wanhua-yantai-zero-carbon-windows",
         title: "Wanhua Yantai Zero-Carbon Community — Pultruded GFRP-PU Passive House Windows",
         location: "Yantai, Shandong, China",
         year: "2022",
@@ -343,7 +344,7 @@ export function buildPublicKnowledge() {
         },
       },
       {
-        slug: "chemical-plant-platform",
+        slug: "baotou-industrial-gfrp-pu-windows",
         title: "Baotou Industrial Park Fenestration — Severe-Cold-Climate GFRP-PU Windows under Chemical Exposure",
         location: "Baotou, Inner Mongolia, China",
         year: "2024",
@@ -356,7 +357,7 @@ export function buildPublicKnowledge() {
         },
       },
       {
-        slug: "solar-farm-mounting",
+        slug: "chongqing-rooftop-pv-frp-rail",
         title: "Chongqing Industrial Rooftop PV Retrofit — Pultruded FRP H-Rail on Colored Steel-Tile Roofs",
         location: "Chongqing, China",
         year: "2024",

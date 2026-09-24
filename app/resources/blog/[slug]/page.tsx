@@ -87,6 +87,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: post.ogDescription ?? post.excerpt,
     path: `/resources/blog/${slug}`,
     image: `/resources/blog/${slug}/opengraph-image`,
+    article: {
+      publishedTime: post.date,
+      modifiedTime: post.updatedAt,
+      authors: [post.authorName],
+      section: post.category,
+    },
   });
 }
 

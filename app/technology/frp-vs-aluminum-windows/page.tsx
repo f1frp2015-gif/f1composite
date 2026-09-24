@@ -244,17 +244,17 @@ export default function FrpVsAluminumWindowsPage() {
             links: [
               { href: "/industries/construction", label: "Construction & building envelopes" },
               { href: "/ai/passive-house", label: "Passive House window selector (AI)" },
-              { href: "/case-studies/fenestration-residential", label: "Case: German PHI residential tower" },
-              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Case: Qinling Antarctic PHI A+ windows" },
+              { href: "/case-studies/wanhua-yantai-zero-carbon-windows", label: "Case: Wanhua Yantai zero-carbon dormitories" },
+              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Case: Qinling Station, Antarctica" },
               { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Case: Yancheng coastal residential" },
             ],
           },
           {
             title: "Deeper reading",
             links: [
-              { href: "/resources/blog/frp-vs-aluminum-window-frames-comparison", label: "Blog: FRP vs aluminum full comparison" },
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
-              { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: FRP fenestration thermal performance" },
+              { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: thermal performance of FRP window frames" },
+              { href: "/resources/blog/pultruded-thermal-break-profiles-aluminum-windows", label: "Blog: GFRP vs polyamide thermal breaks in aluminum windows" },
               { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — complete buyer library" },
               { href: "/what-is-frp", label: "What is FRP? Material and properties guide" },
               { href: "/resources/design-guides", label: "Fenestration design guides" },

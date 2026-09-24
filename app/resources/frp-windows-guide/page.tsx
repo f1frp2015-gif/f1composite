@@ -39,8 +39,8 @@ const stages: Stage[] = [
     description:
       "Why specifiers move from aluminum or PVC to pultruded fiberglass — and when they should not.",
     slugs: [
-      "frp-vs-aluminum-window-frames-comparison",
       "aluminum-window-condensation-cold-climate",
+      "fabricating-fiberglass-window-lineals-switching-guide",
     ],
     links: [
       { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum windows — master comparison" },
@@ -112,9 +112,9 @@ const stages: Stage[] = [
 ];
 
 const caseStudies = [
-  { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Qinling Station, Antarctica — passive windows at −40 °C" },
-  { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Yancheng talent apartments — 11,000 m² fenestration" },
-  { href: "/case-studies/fenestration-residential", label: "Residential fenestration retrofit" },
+  { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Qinling Station, Antarctica — 90-series windows, −60 °C design low" },
+  { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Yancheng talent apartments — windows for about 20 coastal buildings" },
+  { href: "/case-studies/wanhua-yantai-zero-carbon-windows", label: "Wanhua Yantai zero-carbon community — 13,657 m² of GFRP-PU windows" },
 ];
 
 const postBySlug = new Map(blogPosts.map((p) => [p.slug, p]));

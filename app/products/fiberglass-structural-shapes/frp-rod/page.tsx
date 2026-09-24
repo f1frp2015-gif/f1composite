@@ -1,4 +1,5 @@
 import ProductNextSteps from "@/components/sections/ProductNextSteps";
+import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -161,6 +162,8 @@ export default async function RodPage() {
           </div>
         </div>
       </section>
+
+      <ProfileSupplyGuide product="rods" />
 
       <RelatedLinks
         background="white"

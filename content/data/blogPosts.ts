@@ -1160,7 +1160,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
       { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Qinling Antarctic Windows Case Study", href: "/case-studies/qinling-station-antarctic-passive-windows" },
-      { label: "Why FRP Outperforms Aluminum Thermally", href: "/resources/blog/frp-fenestration-thermal-performance" },
+      { label: "Thermal Performance of FRP Window Frames", href: "/resources/blog/frp-fenestration-thermal-performance" },
     ],
     content: `The failure arrives on a schedule. First cold snap of the year: a call about "leaking windows" that are not leaking — the water pooling on the sill condensed there. Deep winter: frost growing on the interior of the frame itself. Spring: a mold remediation quote for the drywall returns below the windows. Building managers in Winnipeg, Oslo, Harbin, and Ulaanbaatar know this sequence by heart, and it repeats because it is not a defect. It is the frame material obeying physics.
 
@@ -1790,8 +1790,8 @@ At F1 Composite, we help engineers compare materials based on actual service con
       href: "/technology/frp-vs-aluminum-windows",
       note: "This article goes deep on thermal physics. For the complete FRP-vs-aluminum frame decision (cost, structure, durability, certification), see the master comparison page.",
     },
-    title: "Why FRP Window Frames Outperform Aluminum in Thermal Insulation",
-    seoTitle: "FRP vs Aluminum Windows — Thermal Performance",
+    title: "Thermal Performance of FRP Window Frames: Uf, Thermal Bridging and Condensation",
+    seoTitle: "FRP Window Frame Thermal Performance — Uf & Thermal Bridging",
     answerBox:
       "Pultruded GFRP-PU window frames deliver U_f as low as 0.78 W/m²·K — roughly 500× lower thermal conductivity than aluminum — without a metal thermal break. F1's 90 Series carries PHI Component Certificate 2491wi03 (phB class); on PHIUS projects in the US and Canada its PHI data is used as input to the energy model.",
     category: "Fenestration",
@@ -1822,7 +1822,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
     relatedLinks: [
       { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
       { label: "Construction", href: "/industries/construction" },
-      { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
+      { label: "FRP vs Aluminum Windows (full comparison)", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     content: `Aluminum window frames dominate the global fenestration market. But their fundamental weakness, thermal conductivity of roughly 160 watts per meter-kelvin, creates thermal bridges that undermine building envelope performance. Pultruded FRP window frames, with thermal conductivity around 0.3 watts per meter-kelvin, remove that problem at the material level.
@@ -1856,10 +1856,10 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
       href: "/technology/frp-vs-steel-gratings",
       note: "This article focuses on lifecycle cost math. For the complete FRP-vs-steel grating comparison (load, safety, corrosion, installation), see the master comparison page.",
     },
-    title: "FRP Grating vs Steel Grating: Cost, Weight, and Lifecycle Comparison",
-    seoTitle: "FRP vs Steel Grating — Cost & Lifecycle Compared",
+    title: "FRP Grating Lifecycle Cost: A Worked Comparison with Galvanized Steel",
+    seoTitle: "FRP Grating Lifecycle Cost — Worked Example vs Steel",
     answerBox:
-      "Molded FRP grating lasts 25+ years in chlorinated, saltwater, and acid-splash service vs 5–8 years for hot-dip galvanized steel. Installation is 30–50% faster (no welding, no hot work), and total lifecycle cost is 20–40% lower over a 30-year operating window across chemical-plant and wastewater applications.",
+      "Molded FRP grating needs no recoating in chlorinated, saltwater and acid-splash service, where hot-dip galvanized steel grating often needs replacing within 5–8 years. Installation is 30–50% faster because there is no welding or hot work, and published comparisons put 30-year lifecycle cost 20–40% lower for chemical-plant and wastewater applications. This article works through the cost model.",
     category: "Industrial Systems",
     date: "2024-04-15",
     updatedAt: "2026-04-01",
@@ -1920,8 +1920,8 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
   },
   {
     slug: "frp-cable-tray-specifications-advantages",
-    title: "FRP Cable Tray Systems: Specifications, Standards, and Engineering Advantages",
-    seoTitle: "FRP Cable Tray Systems — Specs & Engineering Guide",
+    title: "How to Specify FRP Cable Tray: Loads, Standards and an RFQ Checklist",
+    seoTitle: "How to Specify FRP Cable Tray — Standards & RFQ Checklist",
     answerBox:
       "FRP cable trays can provide corrosion resistance and electrical insulation when the resin and system suit the application. Specify load, span, temperature and fire evidence. IEC 61537 covers tray and ladder systems; NEMA VE 1 covers metal trays and does not establish FRP compliance.",
     category: "Electrical Infrastructure",
@@ -2060,72 +2060,6 @@ One of the largest practical advantages of FRP bridge decks is installation spee
 The higher initial material price is real, but bridge owners are increasingly making decisions around lifecycle maintenance, disruption cost, and resilience in aggressive environments. FRP bridge decks are not a universal answer, but in the right rehabilitation and corrosion-driven projects they can be the highest-value answer.
 
 F1 Composite supports bridge and access-structure teams with load-deflection analysis, system detailing, and pultruded deck concept development for fast-install infrastructure applications.`,
-  },
-  {
-    slug: "frp-vs-aluminum-window-frames-comparison",
-    masterComparison: {
-      label: "FRP vs Aluminum Windows — master comparison page",
-      href: "/technology/frp-vs-aluminum-windows",
-      note: "This post is the narrative walk-through. The master page carries the maintained decision matrix, U-value data, and certification comparison — cite that one in specs.",
-    },
-    title: "FRP vs Aluminum Window Frames: Thermal, Structural, and Lifecycle Performance",
-    seoTitle: "FRP vs Aluminum Window Frames — Structural & Finish Guide",
-    answerBox:
-      "Aluminum conducts heat at 160 W/m·K; FRP at ~0.3 W/m·K — roughly 500× lower. Pultruded FRP frames reach U_w 0.78 (PHI Component Certificate 2491wi03) without thermal breaks, accept AAMA 2604 / 2605 architectural finishes in any RAL color, and outperform thermally-broken aluminum on US Passive House and high-performance commercial projects.",
-    category: "Fenestration",
-    date: "2024-07-10",
-    updatedAt: "2026-04-01",
-    readTime: "8 min",
-    excerpt:
-      "Aluminum conducts heat at 160 W/m·K while FRP is around 0.3 W/m·K. We compare frame U-values, structural capacity, dimensional stability, and long-term performance for fenestration engineers.",
-    authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead — composite materials, pultrusion process development, and standards",
-    reviewedBy: "Envelope Systems Review Group",
-    standards: ["ISO 10077-2", "EN 14351-1", "Passivhaus criteria", "ASTM E283"],
-    coverImage: "/images/industries/frp-construction-modern-building-facade.jpg",
-    coverAlt: "Modern building facade using high-performance FRP frame systems",
-    supportingImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
-    supportingAlt: "FRP sliding window and door frame profile detail",
-    supportingImageFit: "contain",
-    supportingCaption:
-      "The strongest FRP window case is not only low U-value. It is the combination of low thermal conductivity, structural capacity, and thermal movement compatibility with glass.",
-    highlights: [
-      "Far lower thermal conductivity than aluminum",
-      "Better CTE compatibility with glazing",
-      "Supports slim profiles with lower condensation risk",
-    ],
-    ogDescription:
-      "FRP vs aluminum windows for US: U-value, AAMA 2604/2605, PHI U_w 0.78 (Cert 2491wi03), structural and lifecycle data side-by-side for spec engineers.",
-    ogChips: ["AAMA 2604/2605", "PHI 2491wi03", "U_w 0.78"],
-    relatedLinks: [
-      { label: "Fenestration Systems", href: "/products/frp-window-frames" },
-      { label: "Construction", href: "/industries/construction" },
-      { label: "FRP Thermal Performance", href: "/resources/blog/frp-fenestration-thermal-performance" },
-      { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
-    ],
-    content: `Aluminum has dominated the commercial window frame market for decades. Its strength, extrudability, and established supply chain make it familiar. But aluminum also has a fundamental engineering weakness that no amount of thermal break design can fully erase: it is highly conductive. Pultruded FRP window frames offer a structurally competitive alternative that solves the thermal bridge problem at the material level.
-
-## The Aluminum Thermal Bridge Problem
-
-Aluminum transfers heat dramatically faster than FRP and many times faster than the insulated glass unit it frames. In a well-insulated wall assembly, that makes the frame a local weak point. The result is lower overall envelope performance, colder inside-surface temperatures, and higher condensation risk in heating climates.
-
-## FRP: Natural Thermal Insulation
-
-Pultruded FRP profiles do not need separate thermal break strips to reach strong frame U-values because the entire section is already insulating. That simplifies the thermal logic of the frame and reduces the number of interfaces that must remain stable over decades of service.
-
-## Dimensional Stability
-
-FRP also has a coefficient of thermal expansion much closer to glass than aluminum does. That helps maintain seal compression and weather performance as temperatures cycle. On long-life envelope systems, that compatibility is an important durability advantage.
-
-## Structural Performance
-
-Pultruded FRP window profiles can deliver strong tensile and flexural performance while remaining relatively lightweight. That allows slimmer frame sections than PVC and competitive span capability versus aluminum in many window-wall and curtain-wall-adjacent applications.
-
-## Lifecycle and Sustainability
-
-FRP frames do not corrode, do not require protective metal finishing to remain structurally sound, and can be engineered for long service life in coastal and industrial climates. The stronger the project's thermal target and the harsher the environment, the more serious the FRP-aluminum comparison becomes.
-
-F1 Composite develops pultruded FRP frame systems for high-performance envelope applications where thermal performance and structural stability must be achieved in the same section.`,
   },
   {
     slug: "frp-windows-hurricane-wind-borne-debris-resistance",
@@ -2690,8 +2624,8 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     ogChips: ["PHI · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
       { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
-      { label: "Residential Fenestration Case Study", href: "/case-studies/fenestration-residential" },
-      { label: "FRP vs Aluminum Window Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
+      { label: "Wanhua Yantai Zero-Carbon Windows Case Study", href: "/case-studies/wanhua-yantai-zero-carbon-windows" },
+      { label: "FRP vs Aluminum Windows (full comparison)", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "What Is FRP? Material and Properties", href: "/what-is-frp" },
@@ -3303,7 +3237,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
     ogChips: ["Fenestration", "Surface finishing", "FRP vs aluminum"],
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/frp-window-frames" },
-      { label: "FRP vs Aluminum Frames", href: "/resources/blog/frp-vs-aluminum-window-frames-comparison" },
+      { label: "FRP vs Aluminum Windows (full comparison)", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
     ],

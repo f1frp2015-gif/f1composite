@@ -88,7 +88,7 @@ const caseStudyData: Record<
       { value: "Coastal", label: "Exposure" },
     ],
   },
-  "chemical-plant-platform": {
+  "baotou-industrial-gfrp-pu-windows": {
     title: "Baotou Industrial Park: GFRP-PU Windows for Severe Cold and Chemical Exposure",
     seoTitle: "Baotou Industrial Fenestration — GFRP-PU Windows",
     seoDescription:
@@ -130,7 +130,7 @@ const caseStudyData: Record<
       },
     ],
   },
-  "fenestration-residential": {
+  "wanhua-yantai-zero-carbon-windows": {
     title: "Wanhua Yantai Zero-Carbon Community: GFRP-PU Passive Windows",
     seoTitle: "Wanhua Yantai Zero-Carbon — GFRP-PU Passive Windows",
     seoDescription:
@@ -172,7 +172,7 @@ const caseStudyData: Record<
       },
     ],
   },
-  "solar-farm-mounting": {
+  "chongqing-rooftop-pv-frp-rail": {
     title: "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Colour Steel-Tile Roofs",
     seoTitle: "Chongqing PV Rooftop Retrofit — FRP H-Rail Mounting",
     seoDescription:
@@ -318,9 +318,9 @@ const caseStudyData: Record<
 const caseStudyImages: Record<string, string> = {
   "european-bridge-deck": "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
   "coastal-marina-walkway": "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
-  "chemical-plant-platform": "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
-  "fenestration-residential": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
-  "solar-farm-mounting": "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+  "baotou-industrial-gfrp-pu-windows": "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
+  "wanhua-yantai-zero-carbon-windows": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
+  "chongqing-rooftop-pv-frp-rail": "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
   "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.webp",
   "yancheng-talent-apartment-fenestration": "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
@@ -330,15 +330,15 @@ const caseStudyImages: Record<string, string> = {
 // Hero image alt text and disclosure. Architectural renderings are labelled so
 // they are not read as site photographs. Other slugs fall back to the title.
 const caseStudyImageMeta: Record<string, { alt: string; caption?: string }> = {
-  "chemical-plant-platform": {
+  "baotou-industrial-gfrp-pu-windows": {
     alt: "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block",
     caption: "Architectural rendering of the project, not a site photograph.",
   },
-  "fenestration-residential": {
+  "wanhua-yantai-zero-carbon-windows": {
     alt: "Architectural rendering of the Wanhua Yantai zero-carbon community from above",
     caption: "Architectural rendering of the project, not a site photograph.",
   },
-  "solar-farm-mounting": {
+  "chongqing-rooftop-pv-frp-rail": {
     alt: "PV modules on pultruded FRP rails over a blue colour steel-tile factory roof in Chongqing",
   },
   "qinling-station-antarctic-passive-windows": {
@@ -383,7 +383,7 @@ const caseStudyContentImages: Record<string, { src: string; alt: string }[]> = {
       alt: "FRP handrail and walkway system installed at municipal water treatment facility with corrosion-resistant railing",
     },
   ],
-  "fenestration-residential": [
+  "wanhua-yantai-zero-carbon-windows": [
     {
       src: "/images/case-studies/frp-wanhua-yantai-passive-house-building.webp",
       alt: "Wanhua Yantai Zero-Carbon Community — close view of a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
@@ -412,6 +412,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     path: `/case-studies/${slug}`,
     image: `/case-studies/${slug}/opengraph-image`,
+    article: { section: "Case Studies", authors: ["F1 Composite"] },
   });
 }
 

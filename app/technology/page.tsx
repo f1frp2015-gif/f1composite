@@ -196,6 +196,9 @@ export default function TechnologyPage() {
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
               { href: "/resources/design-guides", label: "Engineering design guides" },
+              { href: "/resources/blog/engineers-most-asked-questions-pultruded-frp", label: "10 questions engineers ask before specifying FRP" },
+              { href: "/resources/blog/thermoset-frp-recycling-breakthrough", label: "Recycling thermoset FRP by chemical recovery" },
+              { href: "/resources/blog/pultrusion-industry-trends-2026", label: "Pultrusion industry trends 2026" },
             ],
           },
           {

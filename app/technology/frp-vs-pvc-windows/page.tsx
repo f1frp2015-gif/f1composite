@@ -256,9 +256,9 @@ export default function FrpVsPvcWindowsPage() {
             links: [
               { href: "/industries/construction", label: "Construction & building envelopes" },
               { href: "/ai/passive-house", label: "Passive House window selector (AI)" },
-              { href: "/case-studies/fenestration-residential", label: "Case: German PHI residential tower" },
+              { href: "/case-studies/wanhua-yantai-zero-carbon-windows", label: "Case: Wanhua Yantai zero-carbon dormitories" },
               { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Case: Yancheng coastal residential" },
-              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Case: Qinling Antarctic PHI A+ windows" },
+              { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Case: Qinling Station, Antarctica" },
             ],
           },
           {

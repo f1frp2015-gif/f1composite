@@ -303,15 +303,15 @@ export default function IndustrialPage() {
               </span>
             </Link>
             <Link
-              href="/case-studies/chemical-plant-platform"
+              href="/resources/blog/frp-pipe-for-coal-mine-gas-drainage"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Chemical Plant Platform</h3>
+              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
               <p className="text-f13 leading-golden text-t2">
-                FRP platforms and walkways in an aggressive chemical environment, in vinyl ester resin with no recoating.
+                How anti-static, flame-retardant pultruded pipe is specified for underground gas drainage lines.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read case study →
+                Read article →
               </span>
             </Link>
             <Link

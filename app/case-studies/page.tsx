@@ -75,7 +75,7 @@ const caseStudies = [
       "Designed and supplied a complete FRP grating and handrail system for a 500m coastal marina walkway, designed for saltwater exposure with resin selection and periodic inspection.",
   },
   {
-    slug: "chemical-plant-platform",
+    slug: "baotou-industrial-gfrp-pu-windows",
     title: "Baotou Industrial Park Fenestration — Severe-Cold-Climate GFRP-PU Windows under Chemical Exposure",
     industry: "Industrial",
     location: "Baotou, Inner Mongolia, China",
@@ -85,7 +85,7 @@ const caseStudies = [
       "Supplied 70/80/90-series pultruded GFRP-PU window-frame profiles across an industrial manufacturing campus combining chemical-exposure workshops with an administrative and welfare block. The GFRP-PU frame solves the severe-cold-zone (−25 °C design low, 200-day heating season) thermal-bridge problem and the chemical-aerosol corrosion problem in one material specification.",
   },
   {
-    slug: "fenestration-residential",
+    slug: "wanhua-yantai-zero-carbon-windows",
     title: "Wanhua Yantai Zero-Carbon Community — GFRP-PU Passive House Windows",
     industry: "Construction",
     location: "Yantai, Shandong, China",
@@ -95,7 +95,7 @@ const caseStudies = [
       "Supplied 65 / 90-series pultruded GFRP-PU window-frame profiles for the 13,657 m² employee-dormitory envelope of Wanhua Chemical's first end-to-end zero-carbon community. Whole-window U = 0.99 W/m²·K, N50 = 1.0 airtightness, 61.11 % comprehensive energy-saving rate verified at handover.",
   },
   {
-    slug: "solar-farm-mounting",
+    slug: "chongqing-rooftop-pv-frp-rail",
     title: "Chongqing Rooftop PV Retrofit — Pultruded FRP H-Rail on Industrial Colored Steel-Tile Roofs",
     industry: "Energy",
     location: "Chongqing, China",

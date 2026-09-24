@@ -189,6 +189,7 @@ export default function UAECableTrayPage() {
             <LinkArrow href="/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide">
               Buyer&rsquo;s guide: sourcing from China
             </LinkArrow>
+            <LinkArrow href="/resources/blog/pultruded-frp-pipe-oil-and-gas">Where pultruded FRP pipe fits in oil and gas</LinkArrow>
           </div>
 
           <FAQ items={faqs} />

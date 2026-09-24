@@ -233,7 +233,7 @@ export default function PolyurethanePultrusionWindowsPage() {
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text">Read the case study →</span>
             </Link>
             <Link
-              href="/case-studies/chemical-plant-platform"
+              href="/case-studies/baotou-industrial-gfrp-pu-windows"
               className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-[17px] font-bold text-t1">Baotou Industrial Park — −25°C plus chemical exposure</h3>
@@ -243,12 +243,12 @@ export default function PolyurethanePultrusionWindowsPage() {
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text">Read the case study →</span>
             </Link>
             <Link
-              href="/case-studies/fenestration-residential"
+              href="/case-studies/wanhua-yantai-zero-carbon-windows"
               className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-[17px] font-bold text-t1">Wanhua Yantai Zero-Carbon Community — 13,657 m² of GFRP-PU fenestration</h3>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Verified whole-window U_w 0.99 W/m²·K and N50 = 1.0 air changes on a near-zero-energy residential development — passive-house air-tightness delivered at production scale with polyurethane pultrusion frames.
+                Whole-window U_w 0.99 W/m²·K across 13,657 m² of dormitory windows on a near-zero energy development, with measured airtightness of N50 = 1.0.
               </p>
               <span className="mt-[13px] block text-f13 font-semibold text-teal-text">Read the case study →</span>
             </Link>

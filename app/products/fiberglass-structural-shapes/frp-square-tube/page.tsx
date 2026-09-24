@@ -164,7 +164,7 @@ export default async function SquareTubePage() {
         </div>
       </section>
 
-      <ProfileSupplyGuide />
+      <ProfileSupplyGuide product="square and rectangular tubes" />
 
       <RelatedLinks
         groups={[

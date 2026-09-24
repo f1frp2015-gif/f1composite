@@ -207,11 +207,11 @@ export default function AustraliaSolarPage() {
               <p className="mt-[5px] text-f13 leading-golden text-t2">FRP profiles in solar mounting, wind turbine secondary structures, and substation hardware.</p>
             </Link>
             <Link
-              href="/case-studies/solar-farm-mounting"
+              href="/case-studies/chongqing-rooftop-pv-frp-rail"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Case Study: Solar Farm Mounting</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Project-scale FRP solar racking — installed weight, foundation savings, and 10-year UV inspection report.</p>
+              <h3 className="text-f15 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
+              <p className="mt-[5px] text-f13 leading-golden text-t2">Pultruded GFRP H-rail on colour steel-tile roofs, installed within the roofs&rsquo; original load reserve.</p>
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"

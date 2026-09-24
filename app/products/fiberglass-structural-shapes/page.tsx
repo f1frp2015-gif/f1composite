@@ -272,7 +272,7 @@ export default function StandardProfilesPage() {
               { href: "/regions/frp-cable-tray-uae-oil-gas", label: "FRP cable tray · UAE oil & gas" },
               { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles · Australia" },
               { href: "/case-studies/european-bridge-deck", label: "Case: Netherlands bridge deck" },
-              { href: "/case-studies/solar-farm-mounting", label: "Case: 50 MW solar mounting" },
+              { href: "/case-studies/chongqing-rooftop-pv-frp-rail", label: "Case: Chongqing rooftop PV rail" },
               { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
               { href: "/applications/frp-pedestrian-bridge-superstructures", label: "FRP pedestrian bridge superstructures" },
             ],

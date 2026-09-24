@@ -3,6 +3,15 @@ import ChatPanel from "@/components/chat/ChatPanel";
 import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { supplyTerms } from "@/content/data/company";
+
+const exampleQuestions = [
+  "Vinyl ester or polyester for a walkway over chlorinated wastewater?",
+  "Which FRP I-beam should I check for a 3 m span, and how do I verify deflection?",
+  "What does PHI certificate 2491wi03 cover, and does it apply to my window size?",
+  "Which documents come with a grating order shipped to Saudi Arabia?",
+  "How long does a new custom die take, and what is the minimum first run?",
+];
 
 interface AskPageProps {
   searchParams: Promise<{ prefill?: string; q?: string }>;
@@ -24,7 +33,7 @@ export async function generateMetadata({
   const base = buildPageMetadata({
     title: "FRP Engineering Advisor & Profile Selection Assistant",
     description:
-      "Ask the F1 Composite AI advisor about FRP profile selection, comparisons, specs, and applications. Instant engineering guidance for pultruded projects.",
+      "Ask the F1 Composite AI advisor about FRP profile selection, resins, standards and documents. Answers link to catalog data and published test reports.",
     path: "/ask",
   });
   const { prefill, q } = await searchParams;
@@ -81,6 +90,35 @@ export default async function AskPage({ searchParams }: AskPageProps) {
         <div className="mt-[21px]">
           <LegalEntityNote variant="compact" />
         </div>
+
+        <section className="mt-[34px] space-y-[21px] text-f15 leading-golden text-t2">
+          <div>
+            <h2 className="text-f19 font-bold text-t1">What the advisor can help with</h2>
+            <p className="mt-[8px]">
+              It answers questions about pultruded FRP profiles using the data published on this
+              site: catalog sections and weights, resin systems, test reports, window certificates
+              and our supply terms. Answers link to the page or document they come from, so you can
+              check the source.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-f19 font-bold text-t1">Questions people ask</h2>
+            <ul className="mt-[8px] list-disc space-y-[6px] pl-[21px]">
+              {exampleQuestions.map((question) => (
+                <li key={question}>{question}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-f19 font-bold text-t1">What it does not do</h2>
+            <p className="mt-[8px]">
+              The advisor gives preliminary guidance. It is not an engineer&apos;s approval, a
+              quotation or a certificate. Prices, lead times and documents are confirmed in writing
+              by our team, who reply within {supplyTerms.responseTime}. Chats are processed by a
+              third-party AI model, so send confidential drawings by email instead.
+            </p>
+          </div>
+        </section>
       </div>
     </>
   );
