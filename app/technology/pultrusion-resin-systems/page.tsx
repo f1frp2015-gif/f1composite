@@ -32,7 +32,7 @@ const resinFaqs = [
   {
     question: "What is the difference between polyester and vinyl ester in pultrusion?",
     answer:
-      "Vinyl ester chemistry combines an epoxy backbone with polyester-style processing. Compared with isophthalic polyester it delivers substantially better resistance to acids, chlorides, and caustics, higher heat-distortion temperature (typically 100–150 °C vs 80–110 °C), and better toughness — at roughly 1.5–2× the resin cost. The practical rule: polyester for general atmospheric service, vinyl ester the moment the environment involves chemical exposure, immersion, or marine splash zones.",
+      "Vinyl ester chemistry combines an epoxy backbone with polyester-style processing. Compared with isophthalic polyester it delivers substantially better resistance to acids, chlorides, and caustics, higher heat-distortion temperature (typically 100–150 °C vs 80–110 °C), and better toughness, at roughly 1.5–2× the resin cost. The practical rule: polyester for general atmospheric service, vinyl ester the moment the environment involves chemical exposure, immersion, or marine splash zones.",
   },
   {
     question: "Does the resin matrix affect the strength of an FRP profile?",
@@ -42,17 +42,17 @@ const resinFaqs = [
   {
     question: "Which resin system should I specify for corrosive environments?",
     answer:
-      "Vinyl ester is the default for chemical plants, wastewater treatment, cooling towers, and marine splash zones. For a specific chemical, concentration, and temperature, check the resin supplier corrosion-resistance guide — resistance is chemistry-specific, not generic. A matrix-rich surface veil layer (typically a C-glass or synthetic veil) should always accompany the resin choice, because the corrosion barrier is the veil-plus-resin skin, not the structural core.",
+      "Vinyl ester is the default for chemical plants, wastewater treatment, cooling towers, and marine splash zones. For a specific chemical, concentration, and temperature, check the resin supplier corrosion-resistance guide: resistance is chemistry-specific, not generic. A matrix-rich surface veil layer (typically a C-glass or synthetic veil) should always accompany the resin choice, because the corrosion barrier is the veil-plus-resin skin, not the structural core.",
   },
   {
     question: "Which resin is best for fire performance?",
     answer:
-      "Phenolic resin is inherently fire-resistant with low smoke and toxicity, which is why it is specified for rail interiors (EN 45545-2), tunnels, and offshore platforms. For building applications, ATH-filled polyester and vinyl ester grades reach ASTM E84 Class A flame spread (25 or less) at lower cost. The specification mistake to avoid: fire performance belongs to the specific FR formulation, not the resin family — always require the test report for the actual formulation being quoted.",
+      "Phenolic resin is inherently fire-resistant with low smoke and toxicity, which is why it is specified for rail interiors (EN 45545-2), tunnels, and offshore platforms. For building applications, ATH-filled polyester and vinyl ester grades reach ASTM E84 Class A flame spread (25 or less) at lower cost. The specification mistake to avoid: fire performance belongs to the specific FR formulation rather than the resin family, so always ask for the test report on the formulation being quoted.",
   },
   {
     question: "Can I choose the resin system per order, or is it fixed per product?",
     answer:
-      "Resin systems are selected per production run — the same die can run polyester one week and vinyl ester the next. FengDu pultrudes polyester, vinyl ester, and polyurethane systems in serial production and epoxy or phenolic for qualified projects; F1 Composite handles international specification and supply. State the service environment (chemicals, temperature, fire code, UV) in your RFQ and the resin system becomes part of the quoted specification, documented on the mill certificate.",
+      "Resin systems are selected per production run: the same die can run polyester one week and vinyl ester the next. FengDu pultrudes polyester, vinyl ester, and polyurethane systems in serial production and epoxy or phenolic for qualified projects; F1 Composite handles international specification and supply. State the service environment (chemicals, temperature, fire code, UV) in your RFQ and the resin system becomes part of the quoted specification, documented on the mill certificate.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function PultrusionResinSystemsPage() {
           "@type": "TechArticle",
           headline: "Pultrusion Resin Systems: Choosing the Right Matrix",
           description:
-            "Engineering guide to the five thermoset resin systems used in FRP pultrusion — polyester, vinyl ester, polyurethane, epoxy, phenolic — with typical property ranges and a selection matrix.",
+            "Engineering guide to the five thermoset resin systems used in FRP pultrusion (polyester, vinyl ester, polyurethane, epoxy, phenolic) with typical property ranges and a selection matrix.",
           url: absoluteUrl("/technology/pultrusion-resin-systems"),
           datePublished: publishedAt,
           dateModified: updatedAt,
@@ -87,7 +87,7 @@ export default function PultrusionResinSystemsPage() {
       <PageHeader
         tag="Materials Science"
         title="Pultrusion Resin Systems: Choosing the Right Matrix"
-        description="The glass fiber gives a pultruded FRP profile its stiffness — the resin matrix decides whether it survives the chemicals, the heat, the fire code, and the decades. This guide compares the five thermoset systems we pultrude and shows how to match a matrix to your project."
+        description="The glass fiber gives a pultruded FRP profile its stiffness: the resin matrix decides whether it survives the chemicals, the heat, the fire code, and the decades. This guide compares the five thermoset systems we pultrude and shows how to match a matrix to your project."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -102,13 +102,13 @@ export default function PultrusionResinSystemsPage() {
             What is the resin matrix in pultruded FRP?
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            The resin matrix is the cured thermoset polymer that surrounds every glass
-            fiber in a pultruded profile — typically 30–45 % of the composite by volume.
-            The fibers carry the axial load; the matrix binds them, transfers load
-            between them in shear, stops fiber buckling under compression, and forms
-            the barrier between the reinforcement and the environment. In practice this
-            means the matrix — not the glass — determines a profile&apos;s corrosion
-            resistance, temperature limit, fire behavior, and service life.
+            The resin matrix is the cured thermoset polymer that surrounds every glass fiber in
+            a pultruded profile, typically 30–45 % of the composite by volume. The fibers carry
+            the axial load; the matrix binds them, transfers load between them in shear, stops
+            fiber buckling under compression, and forms the barrier between the reinforcement
+            and the environment. In practice the matrix, rather than the glass, determines a
+            profile&apos;s corrosion resistance, temperature limit, fire behavior and service
+            life.
           </p>
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-3">
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
@@ -116,8 +116,8 @@ export default function PultrusionResinSystemsPage() {
                 Fiber decides
               </p>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Axial stiffness and tensile strength — the numbers on the datasheet
-                that barely change when you switch resin.
+                Axial stiffness and tensile strength: the numbers on the datasheet that barely
+                change when you switch resin.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
@@ -125,8 +125,8 @@ export default function PultrusionResinSystemsPage() {
                 Matrix decides
               </p>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                Corrosion, fire, temperature limit, transverse strength, impact
-                toughness, fatigue — everything that determines service life.
+                Corrosion, fire, temperature limit, transverse strength, impact toughness and
+                fatigue, which together decide service life.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
@@ -134,8 +134,8 @@ export default function PultrusionResinSystemsPage() {
                 You decide
               </p>
               <p className="mt-[8px] text-f15 leading-golden text-t2">
-                The resin system is selected per production run — so it belongs in
-                your RFQ, not in the fine print of the quote you accept.
+                The resin system is selected per production run, so it belongs in your RFQ, not
+                in the fine print of the quote you accept.
               </p>
             </div>
           </div>
@@ -154,12 +154,11 @@ export default function PultrusionResinSystemsPage() {
             Inside the laminate: fiber, mat, and matrix
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            A pultruded section is not a uniform material — it is an engineered stack.
-            Unidirectional rovings in the core carry axial load, continuous filament
-            mat (CFM) layers add transverse strength, and a matrix-rich surface veil
-            forms the corrosion and UV barrier. Drag the slider to see how fiber
-            volume fraction trades stiffness against the matrix content that binds
-            and protects the laminate.
+            A pultruded section is an engineered stack of layers rather than a uniform material.
+            Unidirectional rovings in the core carry axial load, continuous filament mat (CFM)
+            layers add transverse strength, and a matrix-rich surface veil forms the corrosion
+            and UV barrier. Drag the slider to see how fiber volume fraction trades stiffness
+            against the matrix content that binds and protects the laminate.
           </p>
           <div className="mt-[21px]">
             <LaminateMicrograph />
@@ -176,9 +175,9 @@ export default function PultrusionResinSystemsPage() {
             The five resin systems, side by side
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Typical published ranges for pultrusion-grade formulations. Individual
-            formulations vary — the values on a project datasheet and resin TDS govern;
-            use this table to shortlist, not to certify.
+            Typical published ranges for pultrusion-grade formulations. Individual formulations
+            vary: the values on a project datasheet and resin TDS govern; use this table to
+            shortlist, not to certify.
           </p>
           <div className="mt-[21px] overflow-x-auto">
             <table className="w-full min-w-[880px] border-collapse text-f13">
@@ -229,11 +228,11 @@ export default function PultrusionResinSystemsPage() {
                   </td>
                   <td className="py-[13px] pr-[13px]">HDT 80–110 °C</td>
                   <td className="py-[13px] pr-[13px]">
-                    Transverse strength and impact toughness — allows thinner walls,
-                    better screw retention
+                    Transverse strength and impact toughness: allows thinner walls, better screw
+                    retention
                   </td>
                   <td className="py-[13px] pr-[13px]">General duty</td>
-                  <td className="py-[13px] pr-[13px]">FR grades emerging — verify per project</td>
+                  <td className="py-[13px] pr-[13px]">FR grades emerging: verify per project</td>
                   <td className="py-[13px]">$$ (closed injection)</td>
                 </tr>
                 <tr className="border-b border-border-default align-top">
@@ -254,7 +253,7 @@ export default function PultrusionResinSystemsPage() {
                   </td>
                   <td className="py-[13px] pr-[13px]">Good general duty</td>
                   <td className="py-[13px] pr-[13px]">
-                    Inherent — specified for EN 45545-2 rail, tunnels, offshore
+                    Inherent: specified for EN 45545-2 rail, tunnels, offshore
                   </td>
                   <td className="py-[13px]">$$ (wetter, slower process)</td>
                 </tr>
@@ -277,41 +276,39 @@ export default function PultrusionResinSystemsPage() {
             How to choose: let the environment pick the resin
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Resin selection is environment-first, not price-first. Work through the
-            service conditions in this order — the first condition that applies
-            usually decides the matrix.
+            Resin selection is environment-first, not price-first. Work through the service
+            conditions in this order: the first condition that applies usually decides the
+            matrix.
           </p>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             <ol className="space-y-[13px] text-f15 leading-golden text-t2">
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">1. Fire code governs?</strong> Rail
-                interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84
-                Class A: FR-grade polyester or vinyl ester — and require the test
-                report for the exact formulation.
+                <strong className="text-t1">1. Fire code governs?</strong> Rail interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84 Class A:
+                FR-grade polyester or vinyl ester, and require the test report for the exact
+                formulation.
               </li>
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">2. Chemical or marine exposure?</strong>{" "}
-                Vinyl ester, checked against the resin supplier corrosion guide for
-                your specific chemical, concentration, and temperature. Pair it with
-                a surface veil — the barrier is the veil-plus-resin skin.
+                Vinyl ester, checked against the resin supplier corrosion guide for your
+                specific chemical, concentration, and temperature. Pair it with a surface veil:
+                the barrier is the veil-plus-resin skin.
               </li>
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">3. Sustained heat or high-cycle fatigue?</strong>{" "}
-                Epoxy (Tg 120–180 °C) or high-HDT vinyl ester. Check the load-bearing
-                temperature, not just the exposure temperature — modulus drops as the
-                matrix approaches its Tg.
+                Epoxy (Tg 120–180 °C) or high-HDT vinyl ester. Check the temperature under load
+                as well as the exposure temperature: modulus drops as the matrix approaches its
+                Tg.
               </li>
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">4. Thin walls, fasteners, or impact?</strong>{" "}
-                Polyurethane. Its transverse strength allows wall reductions that
-                polyester cannot match — the reason modern fiberglass window lineals
-                are moving to PU pultrusion.
+                Polyurethane. Its transverse strength allows wall reductions that polyester
+                cannot match: the reason modern fiberglass window lineals are moving to PU
+                pultrusion.
               </li>
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">5. None of the above?</strong>{" "}
-                Isophthalic polyester — the cost-efficient default for general
-                structural service, and the baseline every alternative should be
-                justified against.
+                Isophthalic polyester: the cost-efficient default for general structural
+                service, and the baseline every alternative should be justified against.
               </li>
             </ol>
             <div>
@@ -327,15 +324,14 @@ export default function PultrusionResinSystemsPage() {
                 </li>
                 <li>
                   <strong className="text-t1">Assuming fire performance is inherent.</strong>{" "}
-                  A standard polyester profile is combustible. Class A flame spread
-                  comes from a specific FR formulation — specify the test standard
-                  and require the report.
+                  A standard polyester profile is combustible. Class A flame spread comes from a
+                  specific FR formulation: specify the test standard and require the report.
                 </li>
                 <li>
                   <strong className="text-t1">Confusing UV weathering with corrosion.</strong>{" "}
-                  Surface fiber bloom under UV is managed by veil, pigmentation, and
-                  coating — not primarily by resin family. Chemical attack is the
-                  resin question.
+                  Surface fiber bloom under UV is controlled mainly by the veil, pigmentation
+                  and coating rather than the resin family. Chemical attack is the resin
+                  question.
                 </li>
                 <li>
                   <strong className="text-t1">Over-specifying epoxy.</strong> If the
@@ -389,16 +385,16 @@ export default function PultrusionResinSystemsPage() {
 
       <AskAICard
         title="Not sure which resin system your project needs?"
-        description="Open the FRP Engineering Advisor with your service environment — chemicals, temperature, fire code, UV — and it will recommend a resin system, profile family, and the data to put in your RFQ."
+        description="Open the FRP Engineering Advisor with your service environment (chemicals, temperature, fire code, UV) and it will recommend a resin system, profile family, and the data to put in your RFQ."
         prefill={prefillForProduct({
           name: "Pultrusion Resin Systems guide",
           path: "/technology/pultrusion-resin-systems",
           question:
-            "help me choose a resin system — ask me about my service environment (chemicals, temperature, fire code, UV) and recommend polyester, vinyl ester, PU, epoxy, or phenolic with the reasoning",
+            "help me choose a resin system: ask me about my service environment (chemicals, temperature, fire code, UV) and recommend polyester, vinyl ester, PU, epoxy, or phenolic with the reasoning",
         })}
       />
 
-      <InnerCTA title="Send us the service environment — we will quote the right resin system, documented on the mill certificate." />
+      <InnerCTA title="Send us the service environment. We will quote the right resin system, documented on the mill certificate." />
     </>
   );
 }

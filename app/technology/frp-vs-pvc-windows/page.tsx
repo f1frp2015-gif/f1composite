@@ -9,7 +9,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "FRP vs PVC Windows — Thermal, Durability, Structural";
+const pageTitle = "FRP vs PVC Windows: Thermal, Durability, Structural";
 const pageDescription =
   "FRP vs uPVC window frames: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and matching applications. When to choose each.";
 const pagePath = "/technology/frp-vs-pvc-windows";
@@ -34,16 +34,16 @@ interface CompRow {
 
 const comparisonData: CompRow[] = [
   { property: "Frame Uf (70mm, no reinforcement)", unit: "W/m²·K", frp: "0.95 – 1.2", pvc: "1.3 – 1.7", frpBetter: true },
-  { property: "Frame Uf (with steel reinforcement)", unit: "W/m²·K", frp: "N/A — none needed", pvc: "1.5 – 2.1 (steel bridge)", frpBetter: true },
+  { property: "Frame Uf (with steel reinforcement)", unit: "W/m²·K", frp: "N/A: none needed", pvc: "1.5 – 2.1 (steel bridge)", frpBetter: true },
   { property: "Thermal Conductivity", unit: "W/m·K", frp: "0.3 – 0.5", pvc: "0.17" },
   { property: "Tensile Strength", unit: "MPa", frp: "240 – 400", pvc: "40 – 55", frpBetter: true },
   { property: "Elastic Modulus", unit: "GPa", frp: "20 – 28", pvc: "2.4 – 3.5", frpBetter: true },
-  { property: "Requires Steel Reinforcement", frp: "No — structural alone", pvc: "Yes — above 1.2m span", frpBetter: true },
+  { property: "Requires Steel Reinforcement", frp: "No: structural alone", pvc: "Yes, above 1.2m span", frpBetter: true },
   { property: "Coefficient of Thermal Expansion", unit: "10⁻⁶/K", frp: "8 – 10 (matches glass)", pvc: "60 – 80 (8× glass)", frpBetter: true },
   { property: "Max Frame Color Surface Temp", unit: "°C before warping", frp: "180+ (unchanged)", pvc: "60 – 70 (dark colors warp)", frpBetter: true },
   { property: "UV Stability (30-year)", frp: "Negligible change with UV-stable resin", pvc: "Yellowing, chalking, embrittlement", frpBetter: true },
   { property: "Fire Reaction (EN 13501-1)", frp: "Class B-s1,d0 (with FR resin)", pvc: "Class B / C with toxic HCl emission" },
-  { property: "Fire Smoke Toxicity", frp: "Low-toxicity", pvc: "Releases HCl — toxic at low concentration" },
+  { property: "Fire Smoke Toxicity", frp: "Low-toxicity", pvc: "Releases HCl: toxic at low concentration" },
   { property: "Dimensional Stability", frp: "Excellent (low CTE, high stiffness)", pvc: "Sag above 2m, thermal creep" },
   { property: "Typical Service Life", unit: "years", frp: "50 – 75", pvc: "25 – 40", frpBetter: true },
   { property: "Recyclability", frp: "Limited (thermoset)", pvc: "Recyclable 5–7 times" },
@@ -59,12 +59,12 @@ const faqs = [
   {
     question: "Why does PVC need steel reinforcement but FRP does not?",
     answer:
-      "PVC elastic modulus is 2.4–3.5 GPa — about 1/10 that of pultruded FRP. Under glass dead load and wind load, unreinforced PVC sash or mullion profiles deflect well beyond code limits above roughly 1.2 m span. PVC system manufacturers insert U-shaped or rectangular galvanized steel reinforcement inside the hollow chamber to restore stiffness. That steel works structurally but creates a continuous cold bridge through the frame. FRP at 20–28 GPa modulus carries the same loads at the same section depth without reinforcement.",
+      "PVC elastic modulus is 2.4–3.5 GPa, about 1/10 that of pultruded FRP. Under glass dead load and wind load, unreinforced PVC sash or mullion profiles deflect well beyond code limits above roughly 1.2 m span. PVC system manufacturers insert U-shaped or rectangular galvanized steel reinforcement inside the hollow chamber to restore stiffness. That steel works structurally but creates a continuous cold bridge through the frame. FRP at 20–28 GPa modulus carries the same loads at the same section depth without reinforcement.",
   },
   {
     question: "How does dark-color or south-facing performance compare?",
     answer:
-      "PVC softens around 60–70°C. Dark-color PVC frames on south-facing elevations in hot climates can reach 70–85°C in direct sun, causing visible warping, sash binding, and sealant failure. Most PVC window warranties explicitly exclude dark colors or south-facing installations. Pultruded FRP carries a heat distortion temperature above 180°C with standard polyester resin and retains full properties to 120°C continuous — dark colors on any elevation are fine. This matters for commercial curtain walls, villa architecture with dark-bronze aesthetics, and hot-climate markets.",
+      "PVC softens around 60–70°C. Dark-color PVC frames on south-facing elevations in hot climates can reach 70–85°C in direct sun, causing visible warping, sash binding, and sealant failure. Most PVC window warranties explicitly exclude dark colors or south-facing installations. Pultruded FRP carries a heat distortion temperature above 180°C with standard polyester resin and retains full properties to 120°C continuous: dark colors on any elevation are fine. This matters for commercial curtain walls, villa architecture with dark-bronze aesthetics, and hot-climate markets.",
   },
   {
     question: "What is the lifecycle difference between FRP and PVC windows?",
@@ -74,12 +74,12 @@ const faqs = [
   {
     question: "Is PVC still the right choice for any project?",
     answer:
-      "Yes — PVC remains the lowest first-cost option and the right choice for budget-driven residential retrofit, low-rise housing in mild climates, and projects where 30-year design life is acceptable. Modern triple-chamber uPVC can reach Uw below 1.0 W/m²·K with proper glazing. For those projects PVC's price advantage is real. FRP becomes the better choice when the project requires passive-house Uw ≤ 0.80, dark colors or south-facing elevations, spans above 2 m, fire performance without toxic HCl emission, or 50+ year design life.",
+      "Yes: PVC remains the lowest first-cost option and the right choice for budget-driven residential retrofit, low-rise housing in mild climates, and projects where 30-year design life is acceptable. Modern triple-chamber uPVC can reach Uw below 1.0 W/m²·K with proper glazing. For those projects PVC's price advantage is real. FRP becomes the better choice when the project requires passive-house Uw ≤ 0.80, dark colors or south-facing elevations, spans above 2 m, fire performance without toxic HCl emission, or 50+ year design life.",
   },
   {
     question: "How do FRP and PVC compare on fire safety?",
     answer:
-      "Pultruded FRP with fire-retardant resin achieves EN 13501-1 Class B-s1, d0 — low smoke, no flaming droplets. PVC reaches Class B or C depending on formulation, but its combustion products include hydrogen chloride (HCl), which is acutely toxic at 100 ppm and fatal at 2000 ppm. For commercial buildings, high-rise residential, schools, and hospitals, fire codes increasingly scrutinize HCl emission; several jurisdictions have restricted PVC window use in fire-critical applications. FRP avoids the HCl issue entirely.",
+      "Pultruded FRP with fire-retardant resin achieves EN 13501-1 Class B-s1, d0: low smoke, no flaming droplets. PVC reaches Class B or C depending on formulation, but its combustion products include hydrogen chloride (HCl), which is acutely toxic at 100 ppm and fatal at 2000 ppm. For commercial buildings, high-rise residential, schools, and hospitals, fire codes increasingly scrutinize HCl emission; several jurisdictions have restricted PVC window use in fire-critical applications. FRP avoids the HCl issue entirely.",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function FrpVsPvcWindowsPage() {
             PVC wins on cost; FRP wins on everything related to long-term performance
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            uPVC remains the lowest first-cost window frame material and is the right specification for budget-sensitive residential retrofit and small windows in mild climates. Three technical limits cap its performance: the frame needs internal steel reinforcement above about 1.2 m span, dark colors warp on sun-exposed elevations, and UV embrittlement shortens service life to roughly 30 years. Pultruded FRP removes all three constraints — no reinforcement, full color freedom, 50+ year service life — while adding passive-house-class thermal performance and cleaner fire behavior.
+            uPVC remains the lowest first-cost window frame material and is the right specification for budget-sensitive residential retrofit and small windows in mild climates. Three technical limits cap its performance: the frame needs internal steel reinforcement above about 1.2 m span, dark colors warp on sun-exposed elevations, and UV embrittlement shortens service life to roughly 30 years. Pultruded FRP removes all three constraints (it needs no reinforcement, takes any color and does not embrittle in UV) while adding passive-house-class thermal performance and cleaner fire behavior.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page compares FRP and PVC across 15 properties that drive specification. The verdict is context-dependent: for small casements in mild climates PVC is genuinely competitive; for any window that is large, dark-colored, south-facing, or required to last 50+ years, FRP is the only material that delivers.
@@ -212,7 +212,7 @@ export default function FrpVsPvcWindowsPage() {
             Compare Uw across FRP, PVC, and aluminum frames on your specific window size
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K — a 35% reduction in heat loss for the same glazing package.
+            Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K: a 35% reduction in heat loss for the same glazing package.
           </p>
         </div>
       </section>
@@ -226,7 +226,7 @@ export default function FrpVsPvcWindowsPage() {
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px] text-center">
           <p className="text-f15 leading-golden text-t2">
-            Explore the full F1 Composite FRP fenestration range — 65/70/80/90/140-series profiles, PHI certified 90-series, custom sections available.
+            Explore the full F1 Composite FRP fenestration range: 65/70/80/90/140-series profiles, PHI certified 90-series, custom sections available.
           </p>
           <Link
             href="/products/frp-window-frames"
@@ -281,7 +281,7 @@ export default function FrpVsPvcWindowsPage() {
             href="/technology/frp-u-value-calculator#frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · PVC vs FRP"
             title="Compare your PVC window against FRP"
-            sub="Opens the U-value calculator on a multi-chamber PVC frame — switch to an F1 FRP frame on the same glazing to see the whole-window Uw delta, with no steel reinforcement needed at large sizes."
+            sub="Opens the U-value calculator on a multi-chamber PVC frame: switch to an F1 FRP frame on the same glazing to see the whole-window Uw delta, with no steel reinforcement needed at large sizes."
           />
         </div>
       </section>

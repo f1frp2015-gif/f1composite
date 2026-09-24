@@ -57,7 +57,7 @@ const areas = [
     tag: "Materials",
     title: "Polyurethane Pultrusion Windows",
     description:
-      "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness — the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
+      "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness, the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
     href: "/technology/polyurethane-pultrusion-windows",
   },
   {
@@ -140,9 +140,8 @@ export default function TechnologyPage() {
             Pultrusion Engineering Resources
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Each discipline reinforces the others — precise process control enables
-            superior material performance, validated by comprehensive testing, and
-            made accessible through our know-how transfer programs.
+            Process control sets the material properties, testing confirms them, and the know-how
+            transfer programs pass the method on to other producers.
           </p>
 
           <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2">
@@ -216,7 +215,7 @@ export default function TechnologyPage() {
 
       <AnswerBlocks
         tag="Engineering quick answers"
-        title="FRP engineering — short technical answers"
+        title="FRP engineering: short technical answers"
         description="Concise, citation-ready responses to the questions our engineering team is asked most often. For deeper context, see the pultrusion process, FRP vs traditional materials, and quality testing pages."
         items={[
           {
@@ -242,12 +241,12 @@ export default function TechnologyPage() {
           {
             question: "How are FRP profiles connected on site?",
             answer:
-              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding — thermoset FRP cannot be welded or heated.",
+              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding: thermoset FRP cannot be welded or heated.",
           },
           {
             question: "What fire performance can FRP achieve?",
             answer:
-              "Standard polyester FRP is self-extinguishing (UL 94 V-0). With fire-retardant additives, FRP achieves ASTM E84 Class I surface burning. Phenolic-resin pultruded profiles achieve Class 1 surface spread of flame (BS 476 Part 7), low smoke, and low toxicity — qualified for rail interiors per EN 45545-2 and offshore applications.",
+              "Standard polyester FRP is self-extinguishing (UL 94 V-0). With fire-retardant additives, FRP achieves ASTM E84 Class I surface burning. Phenolic-resin pultruded profiles achieve Class 1 surface spread of flame (BS 476 Part 7), low smoke, and low toxicity, which suits them to rail interiors under EN 45545-2 and to offshore applications.",
           },
         ]}
       />

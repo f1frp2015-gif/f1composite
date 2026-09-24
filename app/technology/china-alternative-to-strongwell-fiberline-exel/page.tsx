@@ -26,12 +26,12 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Structural range",
-    f1: "Full range — I-beam, channel, angle, square/round tube, flat bar, rod, plus gratings, fenestration & custom",
+    f1: "Full range: I-beam, channel, angle, square/round tube, flat bar, rod, plus gratings, fenestration & custom",
     incumbents: "Full range (Strongwell, Creative, Fiberline); Exel focuses on fewer segments",
   },
   {
     dimension: "Sourcing model",
-    f1: "Direct from the manufacturing factory — no regional distributor layer",
+    f1: "Direct from the manufacturing factory: no regional distributor layer",
     incumbents: "Established Western brands sold largely through regional distributors / stocking partners",
   },
   {
@@ -55,7 +55,7 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Strongwell EXTREN® pultruded profiles?",
     answer:
-      "Yes. F1 Composite's F1-STRUX pultruded structural profiles are a direct, standards-equivalent China alternative to Strongwell EXTREN®. Both are produced to EN 13706 (E17/E23 grades) and ASTM D3917; F1-STRUX adds factory-direct export pricing without a regional distributor layer, and the full structural range — I-beams, channels, angles, square and round tubes, flat bars, and rods.",
+      "Yes. F1 Composite's F1-STRUX pultruded structural profiles are a direct, standards-equivalent China alternative to Strongwell EXTREN®. Both are produced to EN 13706 (E17/E23 grades) and ASTM D3917; F1-STRUX adds factory-direct export pricing without a regional distributor layer, and the full structural range: I-beams, channels, angles, square and round tubes, flat bars, and rods.",
   },
   {
     question: "How does F1 Composite compare with Creative Pultrusions, Fiberline, and Exel?",
@@ -70,12 +70,12 @@ const faqItems = [
   {
     question: "Is there a Pultex or EXTREN crossover chart to F1-STRUX profiles?",
     answer:
-      "Yes — the crossover chart on this page maps Strongwell EXTREN® Series 500/525/625 and Creative Pultrusions Pultex® 1500/1525/1625-series to the corresponding F1-STRUX resin system and fire class: general-purpose polyester, fire-retardant polyester (ASTM E84 rated), and fire-retardant vinyl ester respectively, with Fiberline and Exel specs crossing over directly by EN 13706 grade (E17/E23). It is a resin-system crossover rather than a claim of identical mechanicals — for substitution into an existing stamped spec, send the spec sheet and F1 returns a side-by-side datasheet comparison against the exact series named.",
+      "Yes. The crossover chart on this page maps Strongwell EXTREN® Series 500/525/625 and Creative Pultrusions Pultex® 1500/1525/1625-series to the corresponding F1-STRUX resin system and fire class: general-purpose polyester, fire-retardant polyester (ASTM E84 rated), and fire-retardant vinyl ester respectively, with Fiberline and Exel specs crossing over directly by EN 13706 grade (E17/E23). It is a resin-system crossover rather than a claim of identical mechanicals. For substitution into an existing stamped spec, send the spec sheet and F1 returns a side-by-side datasheet comparison against the exact series named.",
   },
   {
     question: "Why source pultruded FRP profiles from China instead of a Western manufacturer?",
     answer:
-      "The case for a China alternative is standards-parity at a factory-direct price: identical EN 13706 / ASTM D3917 compliance, the full structural and custom range from one supplier, custom-die tooling in 3–6 weeks, and export to 30+ countries on FOB or DDP terms — without regional distributor markups. For corrosion-critical or weight-critical projects, this lowers landed cost while keeping the same engineering specification.",
+      "The case for a China alternative is standards-parity at a factory-direct price: identical EN 13706 / ASTM D3917 compliance, the full structural and custom range from one supplier, custom-die tooling in 3–6 weeks, and export to 30+ countries on FOB or DDP terms, without regional distributor markups. For corrosion-critical or weight-critical projects, this lowers landed cost while keeping the same engineering specification.",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function ChinaAlternativePage() {
       <PageHeader
         tag="Comparison · F1-STRUX"
         title="China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel"
-        description="F1 Composite's F1-STRUX line is a standards-equivalent, factory-direct China alternative to the established Western pultruded FRP brands — the same EN 13706 and ASTM D3917 specification, supplied direct for export without regional distributor markups."
+        description="F1 Composite's F1-STRUX line is a standards-equivalent, factory-direct China alternative to the established Western pultruded FRP brands: the same EN 13706 and ASTM D3917 specification, supplied direct for export without regional distributor markups."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -117,11 +117,10 @@ export default function ChinaAlternativePage() {
             Same specification, factory-direct from China
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline
-            Composites (Denmark), and Exel Composites (Finland) are the
-            established Western names in pultruded FRP. They are excellent
-            manufacturers — and they all build to the same international
-            standards that{" "}
+            Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites
+            (Denmark), and Exel Composites (Finland) are the established Western names in
+            pultruded FRP. They are excellent manufacturers, and they all build to the same
+            international standards that{" "}
             <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
               F1 Composite&apos;s pultruded FRP profiles
             </Link>{" "}
@@ -129,8 +128,8 @@ export default function ChinaAlternativePage() {
             structural grades) and <strong className="text-t1">ASTM D3917</strong>.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            The reason buyers look for a China alternative is rarely the
-            specification — it is the route to market. F1 Composite supplies its{" "}
+            Buyers usually look for a China alternative because of the route to market rather
+            than the specification. F1 Composite supplies its{" "}
             <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
               F1-STRUX structural profiles
             </Link>{" "}
@@ -200,10 +199,9 @@ export default function ChinaAlternativePage() {
             EXTREN® or Creative Pultrusions Pultex® series names. The chart
             below maps those series to the F1-STRUX resin system and fire class
             they correspond to. It is a <strong className="text-t1">resin-system
-            crossover, not a 1:1 mechanical equivalence</strong> — always compare
-            the actual datasheets side by side for the governing property in
-            your design, and note that some incumbent series carry enhanced
-            mechanical grades above the base standard.
+            crossover, not a 1:1 mechanical equivalence</strong> : always compare the actual datasheets side by side for the governing property in
+            your design, and note that some incumbent series carry enhanced mechanical grades
+            above the base standard.
           </p>
 
           <div className="mt-[34px] overflow-x-auto">
@@ -232,14 +230,14 @@ export default function ChinaAlternativePage() {
                   },
                   {
                     series: "EXTREN® Series 625 · Pultex® 1625-series",
-                    resin: "Vinyl ester, fire retardant — chemical service",
+                    resin: "Vinyl ester, fire retardant: chemical service",
                     f1: "F1-STRUX vinyl ester FR (E23)",
                     verify: "Chemical-resistance chart for the specific service medium",
                   },
                   {
                     series: "Fiberline / Exel EN 13706 grades",
                     resin: "Specified directly by EN 13706 grade (E17 / E23)",
-                    f1: "F1-STRUX same grade designation — direct spec match",
+                    f1: "F1-STRUX same grade designation: direct spec match",
                     verify: "Full-section modulus test method per EN 13706-2 Annex D",
                   },
                 ].map((row) => (
@@ -281,7 +279,7 @@ export default function ChinaAlternativePage() {
 
       <AnswerBlocks
         tag="China alternative FAQ"
-        title="China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel — FAQ"
+        title="China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel: FAQ"
         description="Specification-level answers for engineers and procurement teams evaluating a China-based pultruded FRP supplier against the Western incumbents."
         items={faqItems}
       />

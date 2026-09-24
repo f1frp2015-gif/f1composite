@@ -124,7 +124,7 @@ const comparisonRows = [
   {
     topic: "Specific gravity",
     gfrp: "1.92 in one controlled bridge-research test program.",
-    steel: "7.85 in the same report — equal-volume GFRP mass is 24.5% of steel (derived).",
+    steel: "7.85 in the same report: equal-volume GFRP mass is 24.5% of steel (derived).",
     source: "Kentucky / FHWA, Table 3.1",
     href: sources.kentucky,
   },
@@ -138,7 +138,7 @@ const comparisonRows = [
   {
     topic: "Elastic modulus",
     gfrp: "40 GPa mean / adopted value in the same comparative test program.",
-    steel: "196 GPa adopted value — 4.9× the tested GFRP stiffness.",
+    steel: "196 GPa adopted value: 4.9× the tested GFRP stiffness.",
     source: "Kentucky / FHWA, Table 2.5",
     href: sources.kentucky,
   },
@@ -158,7 +158,7 @@ const comparisonRows = [
   },
   {
     topic: "Electrical / magnetic response",
-    gfrp: "Electrically insulating and nonmagnetic — useful near MRI, rail, power and sensing equipment.",
+    gfrp: "Electrically insulating and nonmagnetic: useful near MRI, rail, power and sensing equipment.",
     steel: "Electrically conductive and ferromagnetic.",
     source: "FDOT owner guidance",
     href: sources.fdot,
@@ -186,7 +186,7 @@ const fieldEvidence = [
     title: "MnDOT / Iowa State",
     metric: "~4 years monitored",
     body:
-      "Adjacent 2018 bridge decks — one GFRP, one epoxy-coated steel — both behaved as designed. GFRP strains were slightly higher but not notably so, and crack patterns were generally similar. The authors call four years a snapshot, not a 75-year validation.",
+      "Adjacent 2018 bridge decks (one GFRP, one epoxy-coated steel) both behaved as designed. GFRP strains were slightly higher but not notably so, and crack patterns were generally similar. The authors call four years a snapshot, not a 75-year validation.",
     href: sources.mndot,
   },
   {
@@ -194,7 +194,7 @@ const fieldEvidence = [
     title: "USDOT UTC / Missouri S&T",
     metric: "11 bridges · 15–20 years",
     body:
-      "Concrete cores and extracted bars were examined by microscopy, chemistry and mechanical testing. Results were encouraging, but the report's 100-year strength projection is modeled from limited field evidence and has been debated — it is not a completed 100-year exposure test.",
+      "Concrete cores and extracted bars were examined by microscopy, chemistry and mechanical testing. Results were encouraging, but the report's 100-year strength projection is modeled from limited field evidence and has been debated. It is not a completed 100-year exposure test.",
     href: sources.durability,
     challengeHref: sources.durabilityDiscussion,
   },
@@ -235,7 +235,7 @@ const faqItems = [
   {
     question: "Is fiberglass rebar stronger than steel rebar?",
     answer:
-      "It can have higher ultimate tensile strength per unit area, but that does not make it a universally stronger replacement. GFRP has roughly one quarter of steel's elastic modulus and no yield plateau. Compare ultimate-to-ultimate values, then design for serviceability, bond, environmental reduction factors and the governing code — never compare GFRP ultimate strength only with steel yield strength.",
+      "It can have higher ultimate tensile strength per unit area, but that does not make it a universally stronger replacement. GFRP has roughly one quarter of steel's elastic modulus and no yield plateau. Compare ultimate-to-ultimate values, then design for serviceability, bond, environmental reduction factors and the governing code: never compare GFRP ultimate strength only with steel yield strength.",
   },
   {
     question: "Can GFRP rebar replace steel one-for-one?",
@@ -293,7 +293,7 @@ export default function FiberglassRebarVsSteelPage() {
       <PageHeader
         tag="Evidence-Based Comparison"
         title="Fiberglass Rebar vs Steel"
-        description="Laboratory results, bridge monitoring, extracted-bar durability evidence and lifecycle-cost scenarios — with the design tradeoffs that a simple strength claim leaves out."
+        description="Laboratory results, bridge monitoring, extracted-bar durability evidence and lifecycle-cost scenarios, with the design tradeoffs that a simple strength claim leaves out."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -306,7 +306,7 @@ export default function FiberglassRebarVsSteelPage() {
           <div>
             <SectionTag>The engineering answer</SectionTag>
             <h2 className="mt-[21px] max-w-[760px] text-[clamp(27px,3.4vw,43px)] font-extrabold leading-[1.1] tracking-[-0.025em] text-t1">
-              High tensile capacity and no rust — but only about one-fifth of steel&apos;s stiffness
+              High tensile capacity and no rust, but only about one-fifth of steel&apos;s stiffness
             </h2>
             <p className="mt-[21px] max-w-[800px] text-f16 leading-golden text-t2">
               GFRP rebar is compelling when chloride corrosion, magnetic interference or handling weight drives lifecycle cost. Steel remains the benchmark where ductility, high stiffness, fire resistance, field fabrication or a familiar design-and-repair ecosystem controls. The materials are <strong className="text-t1">not one-for-one substitutes</strong>.
@@ -397,7 +397,7 @@ export default function FiberglassRebarVsSteelPage() {
             <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] text-f13 leading-golden text-t2">
               <p className="font-bold text-t1">Scope before headline</p>
               <p className="mt-[8px]">
-                These are measured means for different bar sizes and one legacy product set — valuable for explaining mechanics, not for sizing a current project. See <SourceLink href={sources.kentucky}>Kentucky / FHWA report, Tables 2.3–2.5</SourceLink>.
+                These are measured means for different bar sizes and one legacy product set: valuable for explaining mechanics, not for sizing a current project. See <SourceLink href={sources.kentucky}>Kentucky / FHWA report, Tables 2.3–2.5</SourceLink>.
               </p>
             </div>
           </div>
@@ -606,7 +606,7 @@ export default function FiberglassRebarVsSteelPage() {
             ))}
           </div>
           <div className="mt-[21px] rounded-[8px] border border-amber-300/30 bg-amber-300/10 p-[21px] text-f13 leading-golden text-white/75">
-            <strong className="text-amber-200">Evidence ceiling:</strong> the longest field exposure in the cited multi-bridge U.S. program is about 20 years. Claims of 75–100 years remain model-based, using accelerated tests, design reduction factors and assumed exposure — not a completed century of service.
+            <strong className="text-amber-200">Evidence ceiling:</strong> the longest field exposure in the cited multi-bridge U.S. program is about 20 years. Claims of 75–100 years remain model-based: they rest on accelerated tests, design reduction factors and assumed exposure rather than a century of actual service.
           </div>
         </div>
       </section>

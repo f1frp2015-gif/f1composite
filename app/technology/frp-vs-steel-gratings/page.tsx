@@ -52,27 +52,27 @@ const faqs = [
   {
     question: "Can FRP gratings carry the same loads as steel bar gratings?",
     answer:
-      "For uniform distributed loads up to 500 kN/m², FRP molded and pultruded gratings match standard steel bar gratings at comparable depths. For concentrated wheel loads above 90 kN, steel still leads — heavy forklifts and vehicle traffic may require either deeper FRP sections or hybrid FRP-over-steel panels. For pedestrian walkways, platforms, maintenance access, and light vehicle traffic (<45 kN wheel load), FRP is fully equivalent and often lighter-installed.",
+      "For uniform distributed loads up to 500 kN/m², FRP molded and pultruded gratings match standard steel bar gratings at comparable depths. For concentrated wheel loads above 90 kN, steel still leads: heavy forklifts and vehicle traffic may require either deeper FRP sections or hybrid FRP-over-steel panels. For pedestrian walkways, platforms, maintenance access, and light vehicle traffic (<45 kN wheel load), FRP is fully equivalent and often lighter-installed.",
   },
   {
     question: "Why do industrial facilities specify FRP over hot-dip galvanized steel?",
     answer:
-      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs $15–$30 per m² and disrupts operations. FRP is immune to the electrochemical corrosion mechanisms that attack steel — no coating to fail, no maintenance cycle. In water treatment, pulp and paper, chemical process, and coastal offshore applications, FRP lifecycle cost is typically 40–60% lower than galvanized steel over 30 years.",
+      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs $15–$30 per m² and disrupts operations. FRP is immune to the electrochemical corrosion that attacks steel, so there is no coating to fail and no recoating cycle. In water treatment, pulp and paper, chemical process, and coastal offshore applications, FRP lifecycle cost is typically 40–60% lower than galvanized steel over 30 years.",
   },
   {
     question: "Are FRP gratings safe around electrical equipment?",
     answer:
-      "FRP gratings are electrical insulators — this is a safety advantage that steel gratings cannot offer. In substations, near transformers, or on electrified rail platforms, a metallic grating creates touch potential and step potential hazards during fault events. FRP eliminates both. Fault current cannot propagate through FRP, which also simplifies grounding requirements per NEC Article 392 and reduces arc-flash risk during cable insulation failures.",
+      "FRP gratings are electrical insulators. This is a safety advantage that steel gratings cannot offer. In substations, near transformers, or on electrified rail platforms, a metallic grating creates touch potential and step potential hazards during fault events. FRP eliminates both. Fault current cannot propagate through FRP, which also simplifies grounding requirements per NEC Article 392 and reduces arc-flash risk during cable insulation failures.",
   },
   {
     question: "How does slip resistance compare in wet conditions?",
     answer:
-      "FRP gratings with factory-applied grit top surface achieve Pendulum Test Values (PTV) above 55 per HSE UK guidance — well above the 36 threshold for low-slip risk on wet surfaces. Serrated steel bar gratings typically PTV 25–40 when wet; smooth-top steel plates fall below PTV 20. For offshore platforms, wastewater plants, and any walkway exposed to rain or process water, FRP offers materially safer footing.",
+      "FRP gratings with factory-applied grit top surface achieve Pendulum Test Values (PTV) above 55 per HSE UK guidance, well above the 36 threshold for low-slip risk on wet surfaces. Serrated steel bar gratings typically PTV 25–40 when wet; smooth-top steel plates fall below PTV 20. For offshore platforms, wastewater plants, and any walkway exposed to rain or process water, FRP offers materially safer footing.",
   },
   {
     question: "Is FRP cost-competitive with steel on initial installed cost?",
     answer:
-      "Per square meter of grating material, hot-dip galvanized steel is typically 30–50% less expensive than pultruded FRP. However, installed cost — including supporting structure, lifting equipment, hot-work permits, and labor — is often comparable because FRP weighs 60% less. A two-person crew can install FRP gratings with hand tools where steel requires a crane, welding rig, and permit. Total installed cost for chemical plant walkways typically runs within 5–15% of each other; over 30 years FRP wins on total cost of ownership by 40–60%.",
+      "Per square meter of grating material, hot-dip galvanized steel is typically 30–50% less expensive than pultruded FRP. However, installed cost (including supporting structure, lifting equipment, hot-work permits, and labor) is often comparable because FRP weighs 60% less. A two-person crew can install FRP gratings with hand tools where steel requires a crane, welding rig, and permit. Total installed cost for chemical plant walkways typically runs within 5–15% of each other; over 30 years FRP wins on total cost of ownership by 40–60%.",
   },
   {
     question: "What grating types does F1 Composite manufacture?",
@@ -122,7 +122,7 @@ export default function FrpVsSteelGratingsPage() {
             For corrosive, electrical, or wet environments, FRP gratings outlast steel by 3–5× at comparable installed cost
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
-            Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else — chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down — galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
+            Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
           </p>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             This page compares the two across 13 properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion mechanisms, slip resistance on wet surfaces, fire rating, electrical conductivity, and 30-year lifecycle cost.
@@ -186,7 +186,7 @@ export default function FrpVsSteelGratingsPage() {
               <strong className="text-t1">Electrical substations and power plants.</strong> Non-conductive FRP eliminates fault current paths, reduces grounding infrastructure cost by $200,000–$500,000 on a typical 220 kV substation, and removes arc-flash risk in cable management areas.
             </li>
             <li>
-              <strong className="text-t1">Chemical and pulp & paper plants.</strong> Sulfuric acid, sodium hydroxide, hypochlorite, and solvent exposure attack any steel coating. FRP vinyl ester gratings resist the full range of process chemicals per the chemical resistance chart — which is why process plants routinely replace steel mezzanines and walkways with FRP during turnarounds.
+              <strong className="text-t1">Chemical and pulp & paper plants.</strong> Sulfuric acid, sodium hydroxide, hypochlorite, and solvent exposure attack any steel coating. FRP vinyl ester gratings resist the full range of process chemicals per the chemical resistance chart, which is why process plants routinely replace steel mezzanines and walkways with FRP during turnarounds.
             </li>
             <li>
               <strong className="text-t1">Food and pharmaceutical facilities.</strong> FDA-compliant polyester resins, non-porous sealed surfaces, and cleanability with caustic CIP solutions make FRP the right choice for environments where steel corrosion particulates could contaminate product.
@@ -216,7 +216,7 @@ export default function FrpVsSteelGratingsPage() {
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1280px] px-[34px] text-center">
           <p className="text-f15 leading-golden text-t2">
-            Explore F1 Composite FRP gratings — molded and pultruded, solid-top and ventilated, grit and smooth, polyester and vinyl ester resin systems.
+            Explore F1 Composite FRP gratings: molded and pultruded, solid-top and ventilated, grit and smooth, polyester and vinyl ester resin systems.
           </p>
           <div className="mt-[21px] flex flex-wrap justify-center gap-[13px]">
             <Link

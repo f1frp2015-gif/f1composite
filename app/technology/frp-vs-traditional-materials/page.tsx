@@ -67,10 +67,10 @@ const comparisonData: CompRow[] = [
   { property: "Tensile Strength", unit: "MPa", values: { FRP: "350 – 700", Steel: "400 – 550", Aluminum: "260 – 310", Timber: "50 – 100", Concrete: "2 – 5" } },
   { property: "Elastic Modulus", unit: "GPa", values: { FRP: "20 – 40", Steel: "200", Aluminum: "69", Timber: "8 – 14", Concrete: "30" } },
   { property: "Strength-to-Weight", values: { FRP: "Excellent", Steel: "Moderate", Aluminum: "Good", Timber: "Good", Concrete: "Poor" }, frpHighlight: true },
-  { property: "Corrosion Resistance", values: { FRP: "Immune", Steel: "Poor — requires coating", Aluminum: "Moderate — pitting", Timber: "Poor — rots", Concrete: "Moderate — rebar corrodes" }, frpHighlight: true },
+  { property: "Corrosion Resistance", values: { FRP: "Immune", Steel: "Poor: requires coating", Aluminum: "Moderate: pitting", Timber: "Poor: rots", Concrete: "Moderate: rebar corrodes" }, frpHighlight: true },
   { property: "Thermal Conductivity", unit: "W/m·K", values: { FRP: "0.3 – 0.5", Steel: "50", Aluminum: "167", Timber: "0.1 – 0.2", Concrete: "1.7" }, frpHighlight: true },
   { property: "Electrical Insulation", values: { FRP: "Excellent", Steel: "None", Aluminum: "None", Timber: "Moderate (dry)", Concrete: "Poor (wet)" }, frpHighlight: true },
-  { property: "Maintenance (30 yr)", values: { FRP: "Minimal — no painting", Steel: "High — repaint 8–15 yr", Aluminum: "Low–moderate", Timber: "High — reseal 3–5 yr", Concrete: "Moderate — crack repair" }, frpHighlight: true },
+  { property: "Maintenance (30 yr)", values: { FRP: "Minimal: no painting", Steel: "High: repaint 8–15 yr", Aluminum: "Low–moderate", Timber: "High: reseal 3–5 yr", Concrete: "Moderate: crack repair" }, frpHighlight: true },
   { property: "Lifecycle Cost (30 yr)", values: { FRP: "Lowest", Steel: "High", Aluminum: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
   { property: "CO₂ Footprint", unit: "kg CO₂/kg", values: { FRP: "3.1 – 5.0", Steel: "1.8 – 2.5", Aluminum: "8.0 – 12.0", Timber: "0.3 – 0.5", Concrete: "0.1 – 0.2" } },
 ];
@@ -99,7 +99,7 @@ const barCharts: BarChart[] = [
   {
     title: "Density",
     unit: "g/cm³",
-    note: "Lower is better — lighter profiles, easier handling",
+    note: "Lower is better: lighter profiles, easier handling",
     bars: [
       { material: "FRP", value: "1.9", pct: 24 },
       { material: "Steel", value: "7.85", pct: 100 },
@@ -111,7 +111,7 @@ const barCharts: BarChart[] = [
   {
     title: "Tensile Strength",
     unit: "MPa",
-    note: "Higher is better — FRP matches or exceeds steel",
+    note: "Higher is better: FRP matches or exceeds steel",
     bars: [
       { material: "FRP", value: "525", pct: 75 },
       { material: "Steel", value: "475", pct: 68 },
@@ -123,7 +123,7 @@ const barCharts: BarChart[] = [
   {
     title: "Thermal Conductivity",
     unit: "W/m·K",
-    note: "Lower is better — FRP is a natural thermal break",
+    note: "Lower is better: FRP is a natural thermal break",
     bars: [
       { material: "FRP", value: "0.4", pct: 0.24 },
       { material: "Steel", value: "50", pct: 30 },
@@ -135,7 +135,7 @@ const barCharts: BarChart[] = [
   {
     title: "Elastic Modulus",
     unit: "GPa",
-    note: "Higher means stiffer — FRP compensates with deeper sections",
+    note: "Higher means stiffer: FRP compensates with deeper sections",
     bars: [
       { material: "FRP", value: "30", pct: 15 },
       { material: "Steel", value: "200", pct: 100 },
@@ -164,7 +164,7 @@ const propertyCards: PropertyCard[] = [
     headline: "FRP is 75 % lighter than steel at equivalent structural capacity",
     detail: [
       "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70 % of aluminum (2.70 g/cm³). An FRP profile replacing a steel section of equivalent structural capacity weighs 70–80 % less.",
-      "This weight reduction cascades: lighter members require smaller foundations, lower-capacity cranes (or no crane at all — many FRP profiles can be carried by two workers), fewer transport loads, and less energy during installation. For bridge decks, building facades, and offshore platforms, weight savings translate directly into cost savings and expanded design possibilities.",
+      "This weight reduction cascades: lighter members require smaller foundations, lower-capacity cranes (or no crane at all; many FRP profiles can be carried by two workers), fewer transport loads, and less energy during installation. For bridge decks, building facades, and offshore platforms, weight savings translate directly into cost savings and expanded design possibilities.",
     ],
   },
   {
@@ -182,7 +182,7 @@ const propertyCards: PropertyCard[] = [
     headline: "Lower modulus (20–40 GPa) — compensated by deeper, lighter sections",
     detail: [
       "The elastic modulus of E-glass FRP is 20–40 GPa, roughly one fifth to one tenth that of steel (200 GPa). For a given cross-section, an FRP member deflects more than steel under the same load.",
-      "In deflection-governed designs, this is addressed by increasing the moment of inertia — deeper profiles, wider flanges, or hollow box shapes — or by using carbon fiber (100–150 GPa modulus). Because FRP is so much lighter, dead-load deflection is significantly lower, partially offsetting the modulus difference in real-world designs.",
+      "In deflection-governed designs, this is addressed by increasing the moment of inertia (deeper profiles, wider flanges, or hollow box shapes) or by using carbon fiber (100–150 GPa modulus). Because FRP is so much lighter, dead-load deflection is significantly lower, partially offsetting the modulus difference in real-world designs.",
     ],
   },
   {
@@ -190,8 +190,8 @@ const propertyCards: PropertyCard[] = [
     icon: "0",
     headline: "Zero corrosion — no rust, no coating, no maintenance for 50+ years",
     detail: [
-      "Corrosion resistance is the most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments — requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
-      "FRP is inherently immune to electrochemical corrosion because it contains no metal. Vinyl ester and epoxy resin systems resist a wide range of acids, alkalis, solvents, and salt solutions at elevated temperatures. In chemical plants, wastewater facilities, marine structures, and coastal buildings, FRP profiles can serve for 50+ years with zero corrosion-related maintenance — an economic advantage that often justifies the higher initial cost within 5–10 years.",
+      "Corrosion resistance is the most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments, requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
+      "FRP is inherently immune to electrochemical corrosion because it contains no metal. Vinyl ester and epoxy resin systems resist a wide range of acids, alkalis, solvents, and salt solutions at elevated temperatures. In chemical plants, wastewater facilities, marine structures, and coastal buildings, FRP profiles need no corrosion protection or recoating, which often pays back the higher initial cost within 5–10 years.",
     ],
   },
   {
@@ -199,7 +199,7 @@ const propertyCards: PropertyCard[] = [
     icon: "500×",
     headline: "500× lower thermal conductivity than aluminum — no thermal bridging",
     detail: [
-      "FRP has a thermal conductivity of 0.3–0.5 W/m·K — roughly 100× lower than steel and 400× lower than aluminum. This makes FRP an inherent thermal break.",
+      "FRP has a thermal conductivity of 0.3–0.5 W/m·K, roughly 100× lower than steel and 400× lower than aluminum. This makes FRP an inherent thermal break.",
       "In fenestration applications, FRP frames eliminate the thermal bridging that is the primary source of energy loss through metal-framed openings. A building envelope using FRP framing instead of aluminum can reduce heating and cooling energy consumption by 15–30 % at opening locations. In cold stores, LNG facilities, and cryogenic environments, FRP prevents the condensation and ice formation that plagues steel structures.",
     ],
   },
@@ -209,7 +209,7 @@ const propertyCards: PropertyCard[] = [
     headline: "Dielectric strength 12–20 kV/mm — intrinsically non-conductive",
     detail: [
       "Glass-fiber FRP is an electrical insulator with a dielectric strength of 12–20 kV/mm, making it intrinsically non-conductive. This is critical for electrical utility applications (crossarms, switchgear enclosures), railway electrification, and worker safety.",
-      "FRP also has zero magnetic permeability — required for MRI room construction, EMC enclosures, and radar-transparent military applications. No metal can provide these properties.",
+      "FRP also has zero magnetic permeability: required for MRI room construction, EMC enclosures, and radar-transparent military applications. No metal can provide these properties.",
     ],
   },
   {
@@ -217,8 +217,8 @@ const propertyCards: PropertyCard[] = [
     icon: "$",
     headline: "Lowest total cost of ownership over 30+ years in corrosive environments",
     detail: [
-      "Steel structures in corrosive environments require full repainting every 8–15 years at USD 30–60 per m² per cycle. Over 50 years, a steel structure may be repainted 3–5 times — adding 60–100 % to the initial material cost. Timber requires resealing every 3–5 years and is subject to insect damage, rot, and fire.",
-      "FRP profiles require essentially no structural maintenance. UV-stabilized resin systems provide decades of color retention and surface integrity. No painting, no cathodic protection, no preservative treatment. When full lifecycle cost is calculated — including installation, maintenance, downtime, and disposal — FRP consistently delivers the lowest total cost in corrosive, marine, and high-maintenance environments.",
+      "Steel structures in corrosive environments require full repainting every 8–15 years at USD 30–60 per m² per cycle. Over 50 years, a steel structure may be repainted 3–5 times, adding 60–100 % to the initial material cost. Timber requires resealing every 3–5 years and is subject to insect damage, rot, and fire.",
+      "FRP profiles require essentially no structural maintenance. UV-stabilized resin systems provide decades of color retention and surface integrity. No painting, no cathodic protection, no preservative treatment. When the full lifecycle cost is calculated, including installation, maintenance, downtime and disposal, FRP often has the lowest total cost in corrosive, marine and high-maintenance environments.",
     ],
   },
   {
@@ -243,7 +243,7 @@ const faqItems = [
   },
   {
     question: "What are the advantages of fiberglass over aluminum?",
-    answer: "FRP does not corrode in salt spray, acidic, or alkaline environments — unlike aluminum, which suffers pitting and galvanic corrosion. FRP is electrically non-conductive and thermally insulating, ideal for window frames (eliminating thermal bridging) and electrical enclosures. FRP also has lower embodied energy per kilogram when lifecycle impacts are considered.",
+    answer: "FRP does not corrode in salt spray or in acidic or alkaline environments, while aluminum suffers pitting and galvanic corrosion. FRP is electrically non-conductive and thermally insulating, ideal for window frames (eliminating thermal bridging) and electrical enclosures. FRP also has lower embodied energy per kilogram when lifecycle impacts are considered.",
   },
   {
     question: "What are the main advantages of pultrusion over traditional materials?",
@@ -356,7 +356,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Visual Comparison</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            FRP vs steel and aluminum — key properties at a glance
+            FRP vs steel and aluminum: key properties at a glance
           </h2>
 
           {/* Legend */}
@@ -406,7 +406,7 @@ export default function FrpVsTraditionalPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Properties Table</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            FRP vs traditional materials — full property comparison
+            FRP vs traditional materials: full property comparison
           </h2>
 
           <div className="mt-[34px] overflow-x-auto">

@@ -67,7 +67,7 @@ const processStages: ProcessStage[] = [
     ],
     detail: [
       "Fiber rovings and fabric reinforcements pass through precision-machined guide plates that arrange the fibers into the spatial configuration required by the die cross-section and pre-tension the fiber bundle to prevent tangling.",
-      "For profiles with multiple wall thicknesses — such as an I-beam with thick flanges and a thinner web — the guide plate routes more rovings to flange zones and fewer to the web, ensuring uniform fiber volume fraction throughout the cross-section.",
+      "For profiles with multiple wall thicknesses (such as an I-beam with thick flanges and a thinner web) the guide plate routes more rovings to flange zones and fewer to the web, ensuring uniform fiber volume fraction throughout the cross-section.",
     ],
   },
   {
@@ -80,8 +80,8 @@ const processStages: ProcessStage[] = [
       { label: "Ratio control", value: "±1 % of target (injection)" },
     ],
     detail: [
-      "Every fiber filament must be completely wetted by the resin system — any dry fibers create internal voids that reduce mechanical strength and durability. In injection systems, resin is injected under controlled pressure (3–8 bar) into a sealed chamber at the die entrance. This achieves near-zero emissions, minimal waste, and ±1 % resin-to-fiber ratio control.",
-      "Open-bath systems submerge fibers in a resin trough — simpler and lower cost, but with higher styrene emissions and ±3–5 % ratio control. Injection pultrusion is our standard process.",
+      "Every fiber filament must be completely wetted by the resin system: any dry fibers create internal voids that reduce mechanical strength and durability. In injection systems, resin is injected under controlled pressure (3–8 bar) into a sealed chamber at the die entrance. This achieves near-zero emissions, minimal waste, and ±1 % resin-to-fiber ratio control.",
+      "Open-bath systems submerge fibers in a resin trough: simpler and lower cost, but with higher styrene emissions and ±3–5 % ratio control. Injection pultrusion is our standard process.",
     ],
   },
   {
@@ -95,7 +95,7 @@ const processStages: ProcessStage[] = [
     ],
     detail: [
       "The resin-impregnated fiber bundle enters a precision-machined, chrome-plated steel die whose internal cavity defines the profile cross-section. The die has three independently controlled temperature zones: entry (100–130 °C to initiate cure), center (140–170 °C to complete cure), and exit (150–180 °C for controlled shrinkage release).",
-      "The exothermic peak temperature inside the profile must be carefully managed — if too high, the resin develops internal stresses causing surface crazing. Our dies incorporate thermocouple ports at multiple depths for real-time core temperature monitoring.",
+      "The exothermic peak temperature inside the profile must be carefully managed. If it runs too high, the resin develops internal stresses that cause surface crazing. Our dies incorporate thermocouple ports at multiple depths for real-time core temperature monitoring.",
     ],
   },
   {
@@ -172,11 +172,11 @@ const equipmentSpecs = [
 const faqItems = [
   {
     question: "What is pultrusion?",
-    answer: "Pultrusion is a continuous manufacturing process for producing fiber-reinforced polymer (FRP) composite profiles with a constant cross-section. The term combines 'pull' and 'extrusion' — reinforcing fibers are pulled through a resin bath and then through a heated steel die where the resin cures, forming a rigid structural profile.",
+    answer: "Pultrusion is a continuous manufacturing process for producing fiber-reinforced polymer (FRP) composite profiles with a constant cross-section. The term combines 'pull' and 'extrusion': reinforcing fibers are pulled through a resin bath and then through a heated steel die where the resin cures, forming a rigid structural profile.",
   },
   {
     question: "How does the pultrusion process work step by step?",
-    answer: "The pultrusion process follows six sequential stages: (1) Fiber Creel — fibers dispensed from roving rack; (2) Guide Plate — fibers organized into correct spatial arrangement; (3) Resin Impregnation — fibers wetted via injection or open-bath; (4) Heated Die — resin cures at 120–180 °C; (5) Pull Mechanism — cured profile drawn at 0.3–1.5 m/min; (6) Cut-Off — flying saw cuts to required length.",
+    answer: "The pultrusion process follows six sequential stages: (1) fiber creel, where fibers are dispensed from the roving rack; (2) guide plate, which arranges the fibers in position; (3) resin impregnation, by injection or an open bath; (4) heated die, where the resin cures at 120–180 °C; (5) pull mechanism, which draws the cured profile at 0.3–1.5 m/min; (6) cut-off, where a flying saw cuts it to length.",
   },
   {
     question: "What is the difference between injection and open-bath pultrusion?",
@@ -319,7 +319,7 @@ export default function PultrusionProcessPage() {
       <PageHeader
         tag="Pultrusion Process"
         title="The Fiberglass Pultrusion Process, Step by Step"
-        description="Continuous, automated, precision-controlled — fiberglass pultrusion converts raw rovings and resin into structural FRP profiles with consistent, repeatable mechanical properties."
+        description="Continuous, automated, precision-controlled: fiberglass pultrusion converts raw rovings and resin into structural FRP profiles with consistent, repeatable mechanical properties."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -371,9 +371,9 @@ export default function PultrusionProcessPage() {
             The Six Stages of Pultrusion
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
-            Watch the full line in motion — from fiber pay-off to the flying cut-off saw.
-            Every speed in the animation is derived from one line speed, just like a real
-            production line.
+            Watch the full line in motion, from fiber pay-off to the flying cut-off saw. Every
+            speed in the animation is derived from one line speed, just like a real production
+            line.
           </p>
 
           {/* ── Animated line schematic ── */}

@@ -7,7 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Pultrusion Tech Transfer & Consulting — Turnkey Lines";
+const pageTitle = "Pultrusion Tech Transfer & Consulting: Turnkey Lines";
 const pageDescription =
   "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.";
 const pagePath = "/technology/knowhow-services";
@@ -31,7 +31,7 @@ const faqItems = [
   {
     question: "How long does a typical pultrusion consulting engagement take?",
     answer:
-      "The duration depends on the scope. A focused consulting engagement — such as optimizing an existing production line, troubleshooting a specific quality issue, or evaluating the feasibility of a new profile design — typically requires 2–4 weeks of on-site and remote work. A full technology transfer program, covering die design, recipe development, operator training, and production validation for a new pultrusion line, typically spans 3–6 months from kickoff to handover. A complete turnkey project, including equipment specification, procurement support, factory layout, installation supervision, and production commissioning, runs 8–14 months depending on equipment lead times and facility readiness.",
+      "The duration depends on the scope. A focused consulting engagement (such as optimizing an existing production line, troubleshooting a specific quality issue, or evaluating the feasibility of a new profile design) typically requires 2–4 weeks of on-site and remote work. A full technology transfer program, covering die design, recipe development, operator training, and production validation for a new pultrusion line, typically spans 3–6 months from kickoff to handover. A complete turnkey project, including equipment specification, procurement support, factory layout, installation supervision, and production commissioning, runs 8–14 months depending on equipment lead times and facility readiness.",
   },
   {
     question: "Can F1 Composite help us start a new pultrusion operation from scratch?",
@@ -41,7 +41,7 @@ const faqItems = [
   {
     question: "What ongoing support is available after project handover?",
     answer:
-      "Every engagement includes a defined post-handover support period — typically 3 months for Consulting, 6 months for Technology Transfer, and 12 months for Turnkey projects. During this period, our engineers are available for remote troubleshooting, recipe adjustments, and quality review via video conference and email. After the support period ends, we offer annual retainer agreements for ongoing technical assistance, as well as on-demand consulting for new product development, process optimization, or capacity expansion projects. Many of our technology transfer clients maintain a long-term advisory relationship as they expand their product range and production capacity.",
+      "Every engagement includes a defined post-handover support period, typically 3 months for Consulting, 6 months for Technology Transfer, and 12 months for Turnkey projects. During this period, our engineers are available for remote troubleshooting, recipe adjustments, and quality review via video conference and email. After the support period ends, we offer annual retainer agreements for ongoing technical assistance, as well as on-demand consulting for new product development, process optimization, or capacity expansion projects. Many of our technology transfer clients maintain a long-term advisory relationship as they expand their product range and production capacity.",
   },
 ];
 
@@ -134,7 +134,7 @@ export default function KnowhowServicesPage() {
       <PageHeader
         tag="Know-How & Services"
         title="Pultrusion Expertise, Transferred to Your Operation"
-        description="We do more than manufacture FRP profiles — we transfer the engineering knowledge, process recipes, and quality systems that enable our partners to build their own pultrusion capability."
+        description="We do more than manufacture FRP profiles. We transfer the engineering knowledge, process recipes, and quality systems that enable our partners to build their own pultrusion capability."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -220,8 +220,8 @@ export default function KnowhowServicesPage() {
               </div>
 
               <p className="mt-[21px] text-f15 leading-golden text-t2">
-                Complete knowledge transfer — die design, process recipes, quality systems,
-                and operator training — for independent production capability.
+                Complete knowledge transfer (die design, process recipes, quality systems, and
+                operator training) for independent production capability.
               </p>
 
               <Collapsible label="View deliverables">
@@ -229,7 +229,7 @@ export default function KnowhowServicesPage() {
                   <Deliverable text="Complete die design package (CAD, tolerances, chrome plating specs)" />
                   <Deliverable text="Resin formulation and mixing procedures with qualified supplier list" />
                   <Deliverable text="Validated process recipes (pull speed, die temps, injection pressure, fiber lay-up)" />
-                  <Deliverable text="Operator training program — classroom theory + 2–3 weeks hands-on" />
+                  <Deliverable text="Operator training program: classroom theory + 2–3 weeks hands-on" />
                   <Deliverable text="Quality control procedures, test methods, and acceptance criteria" />
                   <Deliverable text="Production validation run with mechanical testing" />
                   <Deliverable text="6-month post-handover remote technical support" />
@@ -260,8 +260,8 @@ export default function KnowhowServicesPage() {
               </div>
 
               <p className="mt-[21px] text-f15 leading-golden text-t2">
-                End-to-end project delivery — from business case through equipment
-                installation to production ramp-up at target volumes.
+                End-to-end project delivery, from business case through equipment installation
+                to production ramp-up at target volumes.
               </p>
 
               <Collapsible label="View deliverables">
@@ -392,7 +392,7 @@ export default function KnowhowServicesPage() {
               <span className="text-[32px] leading-none">15+</span>
               <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Years Experience</p>
               <p className="mt-[13px] text-f13 leading-golden text-t2">
-                Every engagement led by senior engineers with real production floor experience — not theory.
+                Every engagement is led by senior engineers with production-floor experience.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
@@ -406,7 +406,7 @@ export default function KnowhowServicesPage() {
               <span className="text-[32px] leading-none">&quot;Why&quot;</span>
               <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Not Just &quot;What&quot;</p>
               <p className="mt-[13px] text-f13 leading-golden text-t2">
-                We transfer the reasoning behind every parameter — so your team can troubleshoot, optimize, and innovate.
+                We transfer the reasoning behind every parameter, so your team can troubleshoot, optimize, and innovate.
               </p>
             </div>
           </div>
