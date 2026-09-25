@@ -11,6 +11,7 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getCategorySizes } from "@/lib/catalog/public";
+import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
 
 // Size table is DB-driven (catalog admin) with the historical hardcoded list
 // as build-safe fallback; refreshed hourly.
@@ -153,7 +154,7 @@ export default async function AnglePage() {
               <tbody>
                 {sizes.map((s) => (
                   <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{s.model}</td>
+                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
                     <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.a}</td>
                     <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.b}</td>
                     <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.t}</td>

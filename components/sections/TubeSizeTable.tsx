@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
 import { approximateInches, tubeInquiryHref } from "@/lib/productInquiry";
 
@@ -35,7 +36,7 @@ export default function TubeSizeTable({ sizes, columns, product, productPath }: 
               const specification = `${size.model}; ${columns.map((column, index) => `${column}: ${size.dimensions[index]}`).join(", ")}`;
               return (
                 <tr key={size.model} className="border-b border-border-default last:border-b-0 hover:bg-bg2/60">
-                  <th scope="row" className="whitespace-nowrap px-[16px] py-[13px] text-f13 font-semibold text-t1">{size.model}</th>
+                  <th scope="row" className="whitespace-nowrap px-[16px] py-[13px] text-f13 font-semibold text-t1"><DatasheetModelLink model={size.model} /></th>
                   {size.dimensions.map((dimension, index) => (
                     <td key={columns[index]} className="px-[16px] py-[13px] text-f15 text-t1">
                       {dimension > 0 ? dimension : "—"}

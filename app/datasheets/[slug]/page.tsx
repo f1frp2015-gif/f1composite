@@ -1,8 +1,9 @@
 import { buildRfqHref } from "@/lib/rfq";
-// Customer-facing HTML twin of the PDF. The route segment is intentionally
-// noindex (see layout.tsx) because all database records share this template.
+// Customer-facing HTML twin of the PDF. The route segment is noindex (see
+// layout.tsx) because all database records share this template; the pilot
+// sizes in lib/datasheetContent.ts override that with size-specific content.
 // One page per catalog product: cross-section drawing, exact section
-// properties, formulation mechanical data, standards, PDF download link.
+// properties, span loads, formulation mechanical data, standards, PDF link.
 // Database rows are preferred. The authoritative catalog seed fills missing
 // rows so published internal links do not become 404s during a DB outage or a
 // partial catalog import; truly unknown slugs still 404.
@@ -15,6 +16,21 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import SectionSvg from "@/components/datasheets/SectionSvg";
+import FAQ from "@/components/ui/FAQ";
+import {
+  approximateInchSize,
+  datasheetFamily,
+  datasheetFaq,
+  datasheetSeoDescription,
+  datasheetSeoTitle,
+  dimensionLabel,
+  formatLoad,
+  isIndexedDatasheet,
+  relatedSizes,
+  spanLoads,
+  spanRowForModel,
+} from "@/lib/datasheetContent";
+import { DESIGN_BASIS } from "@/lib/spanTables";
 import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
 import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
@@ -56,6 +72,19 @@ export async function generateMetadata({
   const data = await getDatasheetPage(slug);
   if (!data) return { title: "Datasheet not found" };
   const grade = data.formulation?.en13706_grade ?? null;
+  if (isIndexedDatasheet(slug)) {
+    const shape = data.product.geometry?.kind === "parametric" ? data.product.geometry.shape : undefined;
+    const weight = num(data.product.weight_per_m);
+    // Page robots replace the layout's noindex for the pilot sizes only.
+    return {
+      ...buildPageMetadata({
+        title: datasheetSeoTitle(data.product.model, shape),
+        description: datasheetSeoDescription(data.product.model, shape, weight, CAD_SLUGS.has(slug)),
+        path: `/datasheets/${slug}`,
+      }),
+      robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    };
+  }
   return buildPageMetadata({
     title: `${data.product.model} FRP Profile Datasheet & Section Properties`,
     description: buildDesc(data.product.model, grade),
@@ -87,6 +116,15 @@ export default async function DatasheetPage({
   const data = await getDatasheetPage(slug);
   if (!data) notFound();
   const { product, formulation, category, source } = data;
+  const shape = product.geometry?.kind === "parametric" ? product.geometry.shape : undefined;
+  const family = datasheetFamily(shape);
+  const sizeLabel = `${dimensionLabel(product.model)} mm`;
+  const inchSize = approximateInchSize(product.model);
+  const hasCad = CAD_SLUGS.has(slug);
+  const spanRow = spanRowForModel(product.model);
+  const loads = spanRow ? spanLoads(spanRow) : [];
+  const siblings = relatedSizes(shape);
+  const hubHref = "/products/fiberglass-structural-shapes";
 
   const density = formulation ? num(formulation.density_g_cm3) : null;
   const props = product.geometry
@@ -102,6 +140,7 @@ export default async function DatasheetPage({
   // "offers/review/aggregateRating required" rule instead of erroring.
   const computedW = props?.massPerMetre != null ? Math.round(props.massPerMetre * 100) / 100 : null;
   const weightForOffer = publishedW ?? computedW;
+  const faq = datasheetFaq({ model: product.model, shape, weightKgPerM: publishedW, hasCad, row: spanRow });
 
   const schema = buildProductFamilyPageSchema({
     name: `${product.model} pultruded FRP profile`,
@@ -143,13 +182,16 @@ export default async function DatasheetPage({
   return (
     <>
       <JsonLd data={schema} />
+      {/* A "Products" breadcrumb gives the header the product quote, advisor and WhatsApp actions. */}
       <PageHeader
         tag="Technical Datasheet"
-        title={`${product.model} — Pultruded FRP Profile`}
-        description={`${category?.name ?? "Pultruded FRP profile"} · ${formulation?.en13706_grade ? `EN 13706 ${formulation.en13706_grade}` : "engineering datasheet"}${publishedW != null ? ` · ${publishedW} kg/m` : ""}`}
+        title={`${family.label.replace(/^FRP/, "Fiberglass")} ${sizeLabel}`}
+        description={`${product.model} · ${category?.name ?? "Pultruded FRP profile"} · ${formulation?.en13706_grade ? `EN 13706 ${formulation.en13706_grade}` : "engineering datasheet"}${publishedW != null ? ` · ${publishedW} kg/m` : ""}`}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Datasheets", href: "/datasheets" },
+          { label: "Products", href: "/products/product-lines" },
+          { label: "Structural Shapes", href: hubHref },
+          ...(family.href === hubHref ? [] : [{ label: family.plural, href: family.href }]),
           { label: product.model },
         ]}
       />
@@ -166,6 +208,11 @@ export default async function DatasheetPage({
                   <p className="text-f13 text-t3">Geometry pending — contact engineering.</p>
                 )}
                 {desig && <p className="mt-[8px] text-f15 font-bold text-t1">{desig}</p>}
+                {inchSize && (
+                  <p className="mt-[4px] text-f13 text-t3">
+                    ≈ {inchSize} in (reference only; the metric dimensions govern)
+                  </p>
+                )}
               </div>
               {dims.length > 0 && (
                 <table className="mt-[21px] w-full text-left text-f15">
@@ -250,6 +297,62 @@ export default async function DatasheetPage({
         </div>
       </section>
 
+      {spanRow && loads.length > 0 && (
+        <section id="span-loads" className="bg-white pb-[55px]">
+          <div className="mx-auto max-w-[1100px] px-[34px]">
+            <SectionTag>Allowable Load by Span</SectionTag>
+            <h2 className="mt-[13px] text-f24 font-bold text-t1">
+              What a {sizeLabel} {family.noun} carries
+            </h2>
+            <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+              Allowable service uniform load for {product.model} as a simply supported beam, from
+              the published FRP span tables. Design basis: {DESIGN_BASIS.material};{" "}
+              {DESIGN_BASIS.method}; {DESIGN_BASIS.environment}; deflection limit{" "}
+              {DESIGN_BASIS.deflectionLimit}.
+              {family.uses ? ` Typical uses for this family: ${family.uses}.` : ""}
+            </p>
+            <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
+              <table className="w-full text-left text-f15">
+                <caption className="sr-only">
+                  Allowable uniform load for {product.model} by simply supported span
+                </caption>
+                <thead>
+                  <tr className="border-b border-border-default bg-bg2">
+                    {["Span (m)", "Allowable UDL (kN/m)", "≈ lb/ft", "Governing check"].map((heading) => (
+                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                        {heading}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {loads.map((load) => (
+                    <tr key={load.spanM} className="border-b border-border-default last:border-0">
+                      <td className="px-[21px] py-[10px] text-t1">{load.spanM}</td>
+                      <td className="px-[21px] py-[10px] font-medium text-teal-text">{formatLoad(load.kNPerM)}</td>
+                      <td className="px-[21px] py-[10px] text-t2">{formatLoad(load.lbPerFt)}</td>
+                      <td className="px-[21px] py-[10px] capitalize text-t2">{load.governs}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-[13px] text-f13 leading-golden text-t3">
+              Spans where the allowable load falls below 0.05 kN/m are omitted. Point loads,
+              connections, lateral restraint and other exposures need their own check:{" "}
+              <Link href={spanRow.calculatorHref} className="text-teal-text hover:underline">
+                open this section in the calculator
+              </Link>{" "}
+              or{" "}
+              <Link href={`/frp-span-tables#${family.spanTableId ?? ""}`} className="text-teal-text hover:underline">
+                compare every size in the span tables
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="bg-bg2 py-[55px]">
         <div className="mx-auto max-w-[1100px] px-[34px]">
           <SectionTag>
@@ -316,6 +419,47 @@ export default async function DatasheetPage({
           </p>
         </div>
       </section>
+
+      {siblings.length > 1 && (
+        <section className="bg-white py-[55px]">
+          <div className="mx-auto max-w-[1100px] px-[34px]">
+            <SectionTag>Other Sizes</SectionTag>
+            <h2 className="mt-[13px] text-f24 font-bold text-t1">
+              Other {family.plural.toLowerCase()} in the catalog
+            </h2>
+            <ul className="mt-[21px] flex flex-wrap gap-[8px]">
+              {siblings.map((size) => (
+                <li key={size.slug}>
+                  {size.slug === slug ? (
+                    <span aria-current="page" className="inline-block rounded-[6px] border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f13 font-semibold text-teal-text">
+                      {size.model} · {size.weight} kg/m
+                    </span>
+                  ) : (
+                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-[6px] border border-border-default px-[13px] py-[8px] text-f13 text-t1 hover:border-teal-border hover:text-teal-text">
+                      {size.model} · {size.weight} kg/m
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-[13px] text-f15 text-t2">
+              Applications, resin options and quotation details are on the{" "}
+              <Link href={family.href} className="font-semibold text-teal-text hover:underline">
+                {family.noun} product page
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      )}
+
+      {faq.length > 0 && (
+        <section className="bg-bg2 pb-[55px] pt-[1px]">
+          <div className="mx-auto max-w-[1100px] px-[34px]">
+            <FAQ items={faq} title={`${product.model}: common questions`} />
+          </div>
+        </section>
+      )}
 
       <InnerCTA title={`Need a quote for ${product.model}?`} quoteHref={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model })} />
     </>

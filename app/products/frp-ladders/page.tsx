@@ -339,6 +339,13 @@ export default function FrpLaddersPage() {
               { href: "/technology/quality-testing", label: "Quality and testing" },
             ],
           },
+          {
+            title: "Code guides",
+            links: [
+              { href: "/resources/blog/fixed-ladder-requirements-osha-iso-14122-4", label: "Fixed ladder requirements: OSHA and ISO 14122-4" },
+              { href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122", label: "Guardrail requirements: OSHA, IBC and ISO 14122-3" },
+            ],
+          },
         ]}
       />
 

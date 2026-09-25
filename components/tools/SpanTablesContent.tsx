@@ -31,7 +31,14 @@ function buildValueCitation(model: string, spanMm: number, load: number, governs
   return `Source: F1 Composite FRP Span Table — ${model}, span ${formatSpan(spanMm)} m, allowable UDL ${formatLoad(load)} kN/m (${governs} governs). Design basis: EN 13706 E23; LRFD per ASCE/SEI 74-23. Available at: ${SITE_URL}/frp-span-tables#${anchor}`;
 }
 
-export default function SpanTablesContent({ families }: { families: SpanFamily[] }) {
+export default function SpanTablesContent({
+  families,
+  datasheetHrefs = {},
+}: {
+  families: SpanFamily[];
+  /** Model → datasheet URL, built on the server so the catalog stays out of the client bundle. */
+  datasheetHrefs?: Record<string, string>;
+}) {
   const [copiedValue, setCopiedValue] = useState<{ key: string; citation: string } | null>(null);
   const [copyError, setCopyError] = useState(false);
 
@@ -73,7 +80,15 @@ export default function SpanTablesContent({ families }: { families: SpanFamily[]
                 <tbody>
                   {family.rows.map((row) => (
                     <tr key={row.model} className="border-t border-border-default/70 text-t2">
-                      <td className="whitespace-nowrap px-[13px] py-[8px] font-medium text-t1">{row.model}</td>
+                      <td className="whitespace-nowrap px-[13px] py-[8px] font-medium text-t1">
+                        {datasheetHrefs[row.model] ? (
+                          <Link href={datasheetHrefs[row.model]} prefetch={false} className="text-teal-text underline decoration-teal-border underline-offset-4 hover:text-teal">
+                            {row.model}
+                          </Link>
+                        ) : (
+                          row.model
+                        )}
+                      </td>
                       <td className="whitespace-nowrap px-[13px] py-[8px]">{row.weightKgPerM}</td>
                       <td className="whitespace-nowrap px-[13px] py-[8px]">{(row.IxMm4 / 1e6).toFixed(2)}</td>
                       {row.cells.map((cell, i) => {
