@@ -14,6 +14,9 @@ const clusters = [
   { slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx", "app/technology/fiberglass-rebar-vs-steel/page.tsx"] },
   { slug: "how-to-install-frp-grating", owner: "/products/grating", backlinks: ["app/products/frp-gratings/page.tsx", "app/products/molded-frp-grating/page.tsx"] },
   { slug: "how-to-read-frp-grating-load-table", owner: "/products/grating", backlinks: ["app/products/frp-gratings/page.tsx", "app/products/molded-frp-grating/page.tsx"] },
+  { slug: "how-to-install-frp-cable-tray", owner: "/applications/frp-cable-tray-supports", backlinks: ["components/sections/CableTrayApplication.tsx"] },
+  { slug: "how-to-install-frp-handrail", owner: "/products/frp-handrail-systems", backlinks: ["app/products/frp-handrail-systems/page.tsx"] },
+  { slug: "how-to-install-gfrp-rebar", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx"] },
 ];
 
 test("topic-cluster guides meet the article metadata rules", () => {

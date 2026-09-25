@@ -234,6 +234,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["At handover", "Record the installed configuration and approved load allowance. Inspect for loose fasteners, damaged fibers, missing clamps, cover movement and unauthorized additions; set inspection intervals for the site."],
       ].map(([title, body]) => <article key={title} className="border-t-2 border-teal-border pt-[20px]"><h3 className="text-f19 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
       <p className="rounded-[8px] bg-bg2 px-[22px] py-[18px] font-semibold text-t1">Cable trays and cable ladders support cables. Do not use them as walkways, climbing ladders or personnel supports.</p>
+      <Link href="/resources/blog/how-to-install-frp-cable-tray" className="inline-block font-bold text-teal-text">Read the step-by-step FRP cable tray installation guide →</Link>
       <Source source={sources.mita} />
     </Section>
 

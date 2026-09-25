@@ -152,6 +152,10 @@ export const blogPosts: BlogPost[] = [
       {
         label: "FRP technical data",
         href: "/resources/technical-data"
+      },
+      {
+        label: "How to Install FRP Cable Tray and Cable Ladder",
+        href: "/resources/blog/how-to-install-frp-cable-tray"
       }
     ],
     sourceLinks: [
@@ -380,7 +384,7 @@ Standards listed in a catalogue are not interchangeable certifications. Identify
 
 Enduro's installation guide calls for controlled cutting and drilling, appropriate protection from machining dust, and sealing exposed cut surfaces. It also distinguishes ordinary splice arrangements from heavy-duty splice options and warns that its cable trays are not personnel walkways. These are product instructions, not details to improvise from a steel installation habit. [Enduro installation guide](https://www.creativecompositesgroup.com/hubfs/2024%20CCG%20Website/CCG%20Resource%20Library/Enduro%20Resources/Enduro-FRP-Cable-Management-Systems-Catalog_web_04-08-19.pdf).
 
-An installation review should include the actual support drawing, fastener torque instructions, joint locations, expansion allowance and cut-edge treatment. Check that the supplied brackets, covers and fittings match the reviewed bill of materials. Document approved changes so that replacement parts can be selected later without guessing the original resin or load class.
+An installation review should include the actual support drawing, fastener torque instructions, joint locations, expansion allowance and cut-edge treatment. Check that the supplied brackets, covers and fittings match the reviewed bill of materials. Document approved changes so that replacement parts can be selected later without guessing the original resin or load class. Support positions, splice locations, expansion splices and grounding are set out step by step in our [FRP cable tray installation guide](/resources/blog/how-to-install-frp-cable-tray).
 
 ## A practical selection and RFQ workflow
 
@@ -1954,6 +1958,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
       { label: "Energy", href: "/industries/energy" },
       { label: "Quality Testing", href: "/technology/quality-testing" },
       { label: "Industrial", href: "/industries/industrial" },
+      { label: "How to Install FRP Cable Tray and Cable Ladder", href: "/resources/blog/how-to-install-frp-cable-tray" },
     ],
     sourceLinks: [
       { label: "chemical-resistance table", href: "https://fiberline.com/download-area/profiles/" },
@@ -4933,6 +4938,7 @@ If your project needs a different point on the density map (an E-CR glass lamina
       { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
       { label: "FRP Square Tube Sizes", href: "/products/fiberglass-structural-shapes/frp-square-tube" },
       { label: "FRP Round Tube Sizes", href: "/products/fiberglass-structural-shapes/frp-tube" },
+      { label: "How to Install FRP Handrail", href: "/resources/blog/how-to-install-frp-handrail" },
     ],
     sourceLinks: [
       { label: "OSHA 29 CFR 1910.29: fall protection systems criteria and practices", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" },
@@ -5080,6 +5086,7 @@ Send a plan and elevations with every run, corner, gate and stair flight; the go
       { label: "Fiberglass Handrail & Guardrail Systems", href: "/products/frp-handrail-systems" },
       { label: "FRP Fasteners and Fittings", href: "/products/frp-fasteners-fittings" },
       { label: "FRP for Water & Wastewater", href: "/industries/water-wastewater" },
+      { label: "How to Install FRP Handrail", href: "/resources/blog/how-to-install-frp-handrail" },
     ],
     sourceLinks: [
       { label: "OSHA 29 CFR 1910.23: ladders", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" },
@@ -5205,6 +5212,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
       { label: "GFRP Stirrups and Bent Bars: Detailing and Ordering", href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide" },
       { label: "FRP for Infrastructure", href: "/industries/infrastructure" },
       { label: "FRP for Water & Wastewater", href: "/industries/water-wastewater" },
+      { label: "How to Install GFRP Rebar", href: "/resources/blog/how-to-install-gfrp-rebar" },
     ],
     sourceLinks: [
       { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
@@ -5284,7 +5292,7 @@ The consequence is simple to state: GFRP does not replace steel bar for bar. The
 
 ## Site rules that do not change
 
-Cured GFRP bars are never field-bent, heated or welded: every bend is ordered from the factory. Bars are cut with the method in the product instructions, typically a diamond or abrasive blade, rather than sheared, with dust protection for the crew. Cover, spacing and laps are inspected against the approved drawings before the pour, with the bars tied so they stay in place while concrete is placed.
+Cured GFRP bars are never field-bent, heated or welded: every bend is ordered from the factory. Bars are cut with the method in the product instructions, typically a diamond or abrasive blade, rather than sheared, with dust protection for the crew. Cover, spacing and laps are inspected against the approved drawings before the pour, with the bars tied so they stay in place while concrete is placed. The [GFRP rebar installation guide](/resources/blog/how-to-install-gfrp-rebar) covers handling, storage, supports, ties and flotation on site.
 
 ## How F1 handles GFRP rebar enquiries
 
@@ -5334,6 +5342,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
       { label: "GFRP Rebar Specification Guide", href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" },
       { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
       { label: "GFRP Bar Schedule Template (CSV)", href: "/downloads/f1-rebar-schedule-template.csv" },
+      { label: "How to Install GFRP Rebar", href: "/resources/blog/how-to-install-gfrp-rebar" },
     ],
     sourceLinks: [
       { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
@@ -5641,6 +5650,401 @@ Stiffness falls as the service temperature approaches the resin's heat-distortio
 ## What to ask a supplier for
 
 Ask for the table for the exact series, depth, mesh and resin; its load definitions, including plate size for point loads; the safety factor; whether the values come from tests or calculation; the temperature basis; and the support width assumed. With F1 grating, send the series or mesh, clear span, support width, load type and deflection limit, resin and service conditions through the [grating page](/products/grating), and the applicable load and deflection table comes back with the product documents. Installation details, including bearing and clip layout, are in [how to install FRP grating](/resources/blog/how-to-install-frp-grating).`,
+  },
+  {
+    slug: "how-to-install-frp-cable-tray",
+    title: "How to Install FRP Cable Tray and Cable Ladder: Supports, Splices, Expansion and Grounding",
+    seoTitle: "How to Install FRP Cable Tray: Supports, Splices, Grounding",
+    answerBox: "Space FRP cable tray and ladder supports from the offered system's load table, and put splices about a quarter of the span from a support, never over a support or at midspan. Support each fitting within 600 mm (2 ft) of its ends. On long or outdoor runs, add expansion splices, anchor the support nearest the midpoint between them and let the rest guide. FRP does not conduct, so the grounding path comes from the cables or a separate conductor. Seal cut edges, and never use the tray as a walkway.",
+    category: "Electrical Infrastructure",
+    date: "2026-09-25",
+    updatedAt: "2026-09-25",
+    readTime: "9 min",
+    excerpt: "A step-by-step FRP cable tray installation guide: support spacing, splice and fitting locations, expansion splices, grounding, cutting and sealing, cable pulling and inspection.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "NEMA VE 2",
+      "NFPA 70 (NEC) Article 392",
+      "IEC 61537:2023",
+    ],
+    coverImage: "/images/applications/frp-cable-ladder-gray-product.webp",
+    coverAlt: "Illustration of a gray fiberglass cable ladder with pultruded channel side rails and evenly spaced rungs",
+    coverImageFit: "contain",
+    supportingImage: "/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp",
+    supportingAlt: "Concept illustration of an FRP cable tray on a wall-mounted pultruded support bracket",
+    supportingCaption: "AI-generated concept illustration of a wall-supported FRP cable tray; the cable ladder above is also a generated product illustration. They show the arrangement only: bracket, splice and fixing details come from the supplied system's drawings and instructions.",
+    highlights: [
+      "Take support spacing from the offered system's load table for the real cable load, not from the length of a straight section.",
+      "Put splices about a quarter of the span from a support, never over a support or at midspan, and support fittings within 600 mm (2 ft) of each end.",
+      "On long or outdoor runs, add expansion splices, anchor the support nearest the midpoint between them and use expansion guides on the rest.",
+      "FRP is not a grounding path: the equipment grounding conductor comes from the cables or from a separate conductor run with the tray.",
+    ],
+    ogDescription: "How to install FRP cable tray and ladder: support spacing, splice and fitting locations, expansion splices, grounding, cutting, cable pulling and checks.",
+    ogChips: [
+      "Splice at 1/4 span",
+      "Expansion guides",
+      "Separate EGC",
+    ],
+    relatedLinks: [
+      { label: "FRP Cable Trays and Cable Ladders", href: "/applications/frp-cable-tray-supports" },
+      { label: "FRP Cable Tray, Trunking and Ladder vs Metal", href: "/resources/blog/frp-cable-tray-trunking-ladder-vs-metal" },
+      { label: "How to Specify FRP Cable Tray: Loads, Standards and an RFQ Checklist", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
+      { label: "FRP Fasteners and Fittings", href: "/products/frp-fasteners-fittings" },
+      { label: "FRP Cable Tray Supplier for UAE Oil and Gas Projects", href: "/regions/frp-cable-tray-uae-oil-gas" },
+      { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
+    ],
+    sourceLinks: [
+      { label: "NEMA VE 2: Cable Tray Installation Guidelines (2013 edition, NEMA)", href: "https://www.nema.org/docs/default-source/standards-document-library/nema-ve-2-2013-errata.pdf?sfvrsn=40550aed_2" },
+      { label: "Cable Tray Institute: thermal contraction and expansion of cable tray", href: "https://www.cabletrays.org/thermal-contraction-expansion-cable-tray/" },
+      { label: "Cable Tray Institute Technical Bulletin 11: equipment grounding conductors for cable tray systems", href: "https://www.cabletrays.org/wp-content/uploads/2019/10/Technical-Bulletin-11.pdf" },
+      { label: "Eaton: Cable Tray Manual based on the 2014 NEC", href: "https://www.eaton.com/content/dam/eaton/products/support-systems/cable-management/ct-manual.pdf" },
+      { label: "IEC 61537:2023: cable tray and cable ladder systems", href: "https://webstore.iec.ch/en/publication/31963" },
+      { label: "Øglænd FOE cable ladder: load data and test conditions", href: "https://www.oglaend-system.com/products/cableladders/foe/" },
+      { label: "Enduro FRP cable management systems catalog and installation guide", href: "https://www.creativecompositesgroup.com/hubfs/2024%20CCG%20Website/CCG%20Resource%20Library/Enduro%20Resources/Enduro-FRP-Cable-Management-Systems-Catalog_web_04-08-19.pdf" },
+      { label: "Mita Flex installation guidelines", href: "https://wibe-group.com/storage/F64D7FB7D1BD9F1508EDB6BF414E0695504492403D9B917B803B2D5A34E42BF6/5d542bd1a3634fa085951e197d189cc2/pdf/media/3a3a9d7f7bae48a596a25149080d862a/MitaFlex_Installation_Guidelines.pdf" },
+      { label: "IEC 61914:2021: cable cleats for electrical installations", href: "https://webstore.iec.ch/en/publication/64504" },
+    ],
+    faq: {
+      title: "FRP cable tray installation questions",
+      items: [
+        {
+          question: "How far apart should FRP cable tray supports be?",
+          answer: "As far as the offered system's load table allows for the actual cable load, including future cables and any concentrated loads, and no farther than one straight section, so that only one splice falls between supports. Read the table's conditions too. Øglænd, for example, states that its IEC 61537 load data assume an end span of three-quarters of the support spacing with no splice in it.",
+        },
+        {
+          question: "Where should splices go on an FRP cable tray?",
+          answer: "About a quarter of the span from a support, which is where NEMA VE 2 places them to keep bending and deflection at the joint low. Avoid splices over supports and at midspan, and use the splice plates and fasteners supplied with the system, tightened to its instructions.",
+        },
+        {
+          question: "Can an FRP cable tray be used as an equipment grounding conductor?",
+          answer: "No. In the US, NEC 392.60 lets only qualifying metal cable tray serve as an equipment grounding conductor. With FRP, the grounding path comes from cables that contain their own grounding conductor or from a separate equipment grounding conductor run in or on the tray. Outside the US, follow the local wiring rules.",
+        },
+        {
+          question: "Does FRP cable tray need expansion joints?",
+          answer: "Long straight runs with large temperature swings do. NEC 392.44 requires expansion splice plates where they are needed to compensate for thermal expansion and contraction. Their spacing comes from the manufacturer's data and the expected temperature range, and each gap is set for the temperature on the day of installation.",
+        },
+      ],
+    },
+    content: `An FRP cable tray or cable ladder is light enough for two people to lift into place, which makes it tempting to install it like any other tray. The material does change a few things. It does not conduct, it expands at its own rate, its cut edges need sealing, and its load table assumes a particular support layout. This guide goes through an installation in the order a crew meets those decisions. Where the supplied system's instructions differ, they govern.
+
+## Before the first support goes up
+
+Work from the approved route drawing: support positions, fitting schedule, elevations, cable entry points and the fixings into the supporting structure. Check the drawn support spacing against the load table of the system actually supplied, using the full cable load: the cable schedule's mass per metre, a future allowance, and concentrated loads such as junction boxes hung from the tray.
+
+A load table is only valid under its own conditions. Øglænd, for example, notes that the IEC 61537 load data for its FOE ladder assume an end span of three-quarters of the support spacing, with no splice in the end span. FRP also loses stiffness and strength as its temperature rises, so runs near hot process equipment or in strong sun need the manufacturer's elevated-temperature derating.
+
+Keep the tray, ladder, fittings and hardware of one system together. Splice plates, clamps or fittings borrowed from another supplier change the tested assembly.
+
+## Supports, splices and fittings
+
+NEMA VE 2, the industry installation guideline written around metal cable tray, sets out layout rules that FRP manufacturers use as well:
+
+| Item | Layout rule | Source |
+| --- | --- | --- |
+| Support span | From the load table, and no longer than one straight section, so no more than one splice falls between supports | NEMA VE 2 |
+| Splice location | About a quarter of the span from a support; never over a support or at midspan | NEMA VE 2 |
+| Horizontal fittings | A support within 600 mm (2 ft) of each end of the fitting | NEMA VE 2 |
+| 90° horizontal elbows | An extra support at the 45° point of the arc | NEMA VE 2 |
+| Expansion splices | A support within 600 mm (2 ft) of each side | Cable Tray Institute |
+| Vertical runs | Cables fastened to the rungs or other transverse members | NEC 392.30(B)(1) |
+
+**Why a quarter of the span.** A splice is more flexible than the straight section it joins. In a continuous run, the bending moment is largest over the supports and at midspan and close to zero near the quarter points, so a splice there carries little bending and adds the least deflection. With 3 m (10 ft) sections on a 3 m span, the splice sits about 750 mm (2.5 ft) from the nearest support.
+
+**Fittings.** Elbows, tees and reducers do not carry load the way straight sections do, so VE 2 supports them close to their ends, as in the table. For vertical bends, tees and crosses, follow the supplier's support diagram.
+
+**Fasteners and clamps.** Use the splice plates, bolts and clamps supplied with the system, in FRP, stainless steel or another material chosen for the environment, and tighten them to the supplier's values. Steelwork torque values can crush the laminate or split a rail around the bolt hole.
+
+## Thermal expansion
+
+Every tray material changes length with temperature. NEC 392.44 calls for expansion splice plates where they are needed to compensate for thermal expansion and contraction, and how often depends on the material and the temperature range. For metal tray, the NEMA VE 1 table referenced by the Cable Tray Institute puts an expansion joint every 128 ft (39 m) for steel and every 65 ft (19.8 m) for aluminum at a 100 °F (56 °C) temperature differential. FRP systems have their own spacing, based on the coefficient of thermal expansion in the manufacturer's data.
+
+The length change is easy to estimate: coefficient × run length × temperature range. With an assumed coefficient of 9 × 10⁻⁶ per °C, a 40 m straight run that sees a 50 °C swing between a winter night and summer sun changes length by 40,000 mm × 0.000009 × 50 = 18 mm. Use the value for the supplied laminate, because it depends on the fiber content and direction.
+
+**Setting the gap.** Each expansion gap is set for the temperature on the day of installation: nearly closed if the tray goes in at the hottest expected temperature, nearly fully open at the coldest, and in proportion between. NEMA VE 1 gives a nomograph for metal tray; the FRP supplier gives its own setting.
+
+**Anchors and guides.** Between two expansion splices, anchor the tray with hold-down clamps at the support nearest the midpoint, and hold it at every other support with expansion guides that let it slide. Put a support within 600 mm (2 ft) of each side of every expansion splice. A tray clamped tight at every support cannot move, so the expansion goes into bowing or into the splices instead.
+
+## Cutting, drilling and sealing cut edges
+
+Field cuts and holes are normal, but they expose glass fibers. Use carbide- or diamond-edged saw blades and carbide-tipped drill bits, with dust extraction, a suitable respirator, eye protection and covered skin. Enduro's installation guide calls for sealing exposed cut surfaces: use the sealing resin or coating supplied or specified by the tray manufacturer, so the cut edge keeps the chemical and UV protection of the rest of the section. Deburr cuts before any cable goes in.
+
+## Grounding and bonding
+
+FRP does not conduct, so an FRP tray cannot be part of the grounding path. In the US, NEC 392.60 lets qualifying metal cable tray serve as an equipment grounding conductor; a nonmetallic tray cannot. The grounding path comes from cables that contain their own equipment grounding conductor, or from a separate equipment grounding conductor run in or on the tray. Where NEC 392.10(B)(1) applies, in industrial establishments whose cable tray is serviced only by qualified persons, a single conductor used as an equipment grounding conductor in the tray must be 4 AWG or larger.
+
+Metal parts such as brackets, clamps and support steel still need bonding where the electrical design requires it. Outside the US, apply the local wiring rules, such as the national adoption of IEC 60364. An insulating tray also does not screen electromagnetic interference; the [cable tray, trunking and ladder comparison](/resources/blog/frp-cable-tray-trunking-ladder-vs-metal) covers EMC and earthing in more detail.
+
+## Pulling and securing cables
+
+Set out rollers along straight runs, and radius rollers or sheaves at bends, before the pull starts, so that cables do not drag over rungs, side rails or splice plates. The cable manufacturer sets the pulling tension, bending radius and sidewall pressure limits; place rollers and sheaves to stay within them.
+
+In vertical runs, fasten the cables to the rungs (NEC 392.30(B)(1)), and support cables where they leave the tray for conduit or equipment. For power circuits that must stay restrained under short-circuit forces, use cable cleats tested to IEC 61914 for the declared fault current. The tray's load rating covers the weight of the cables, not fault forces on the cleats.
+
+## Covers, outdoor runs and fire stops
+
+Covers protect cables from falling objects, sunlight and weather. Outdoors, fasten them with the cover clamps specified for wind, because a loose cover acts like a sail. A continuous solid cover also traps heat: NEC 392.80(A)(1)(b) limits multiconductor cables to 95 percent of their table ampacity where a tray is covered for more than 1.8 m (6 ft) with solid unventilated covers. Check with the electrical designer before adding covers that were not in the design. For sun-exposed runs, ask the supplier which UV protection the tray carries, such as a surface veil, UV-stabilized resin or a coating.
+
+NEC 392.100 requires nonmetallic cable tray to be made of flame-retardant material. Where a tray passes through a fire-rated wall or floor, NEC 300.21 requires the penetration to be firestopped by an approved method that keeps the fire rating, and the firestop system has to be approved for the tray material and the cables it carries.
+
+**Not a walkway.** Cable trays and cable ladders carry cables. Mita's installation guidelines and Enduro's instructions both warn against using them as walkways or climbing ladders, so plan access platforms and fall protection separately.
+
+## Inspection at handover
+
+Before the cables are energized, walk the route. Check that supports sit at the drawn positions, splices are at the right points and fully bolted, expansion gaps are set and guides are free to slide, and hold-down clamps are on the anchor supports. Fittings should be supported at both ends, cut edges sealed, cables fastened in vertical runs, the grounding conductor continuous and bonded, covers clamped and firestops complete.
+
+Record the installed configuration and the load allowance, so later cable additions can be checked against it. Then add the route to the site's inspection routine: loose fasteners, cracked or crushed rails, chalking from UV exposure, missing clamps and cables added beyond the recorded allowance.
+
+## Planning an FRP cable route
+
+To choose between tray and ladder, and between FRP and metal, read the [cable tray, trunking and ladder comparison](/resources/blog/frp-cable-tray-trunking-ladder-vs-metal) and the [specification guide](/resources/blog/frp-cable-tray-specifications-advantages). F1 supplies [FRP cable trays and cable ladders](/applications/frp-cable-tray-supports) with supports and fittings against a route drawing. Send the cable schedule, support spacing, exposure and standards through that page; the offered system's load data and installation requirements are confirmed in the quotation.`,
+  },
+  {
+    slug: "how-to-install-frp-handrail",
+    title: "How to Install FRP Handrail: Layout, Post Bases, Anchors, Fittings and Cut-Edge Sealing",
+    seoTitle: "How to Install FRP Handrail: Posts, Anchors and Fittings",
+    answerBox: "Install FRP handrail from an approved layout drawing. Keep posts within the system's spacing limit (1,500 mm in F1's catalog layouts, 72 in in the US DoD guide specification UFGS 06 82 14), set them plumb within 1/16 in per 3 ft and keep rails within 1/4 in per 12 ft. Fix post bases with corrosion-resistant anchors sized for the design load, join rails with the system's bonded and riveted or screwed fittings, and coat every cut with resin before the rail goes into service.",
+    category: "Access & Safety",
+    date: "2026-09-25",
+    updatedAt: "2026-09-25",
+    readTime: "8 min",
+    excerpt: "A step-by-step FRP handrail installation guide: layout drawing, post spacing and tolerances, post bases and anchors, rail fittings and splices, cut sealing and handover checks.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "UFGS 06 82 14 (August 2023)",
+      "OSHA 29 CFR 1910.29",
+      "ASTM E488/E488M",
+      "EN ISO 14122-3:2016",
+    ],
+    coverImage: "/images/products/frp-handrail-systems/frp-round-handrail-system-components.webp",
+    coverAlt: "Round-tube FRP handrail system with posts, top and middle rails, molded elbow, tee and cross fittings, foot bases and kick plate",
+    coverImageFit: "contain",
+    supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
+    supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
+    supportingImageFit: "contain",
+    supportingCaption: "Square-tube FRP handrail layout from the catalog. Post spacing, height, splices and fixings are product references until the approved project drawing sets them against the governing standard.",
+    highlights: [
+      "Work from an approved layout drawing that shows posts, splices, corners, gates, base types and the anchor schedule.",
+      "Keep posts within the system's spacing limit, plumb within 1/16 in per 3 ft (1.6 mm per 0.9 m), with rails within 1/4 in per 12 ft (6.4 mm per 3.7 m).",
+      "Post bases and anchors usually govern: UFGS 06 82 14 asks for anchors that hold four times the design load in concrete when tested to ASTM E488.",
+      "Coat every shop and field cut with resin, remove sharp edges and let the bonding adhesive cure before the rail is loaded.",
+    ],
+    ogDescription: "How to install FRP handrail: layout drawing, post spacing and plumb tolerances, post bases and anchors, fittings and splices, cut sealing and final checks.",
+    ogChips: [
+      "Posts ≤ 1,500 mm",
+      "Anchors 4× load",
+      "Seal every cut",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Handrail & Guardrail Systems", href: "/products/frp-handrail-systems" },
+      { label: "FRP Guardrail Requirements: OSHA, IBC and ISO 14122-3", href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" },
+      { label: "FRP Fixed Ladders: OSHA and ISO 14122-4 Requirements", href: "/resources/blog/fixed-ladder-requirements-osha-iso-14122-4" },
+      { label: "FRP Fasteners and Fittings", href: "/products/frp-fasteners-fittings" },
+      { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
+      { label: "FRP Stair Treads", href: "/products/frp-stair-treads" },
+    ],
+    sourceLinks: [
+      { label: "UFGS 06 82 14 (August 2023): FRP pipe and tube railings (WBDG)", href: "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2006%2082%2014.pdf" },
+      { label: "OSHA 29 CFR 1910.29: fall protection systems criteria and practices", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" },
+      { label: "ASTM E488/E488M: strength of anchors in concrete elements", href: "https://store.astm.org/e0488_e0488m-22.html" },
+      { label: "ISO 14122-3:2016: stairs, stepladders and guard-rails", href: "https://www.iso.org/standard/61282.html" },
+      { label: "IBC 1607.9.1: handrails and guards (UpCodes)", href: "https://up.codes/s/handrails-and-guards" },
+    ],
+    faq: {
+      title: "FRP handrail installation questions",
+      items: [
+        {
+          question: "How far apart should FRP handrail posts be?",
+          answer: "No farther apart than the limit for the system and the governing loads. F1's catalog layouts use 1,500 mm maximum, the US DoD guide specification UFGS 06 82 14 limits posts to 72 in (1.83 m), and EN ISO 14122-3 limits stanchions to 1,500 mm for machinery access. The approved project drawing sets the spacing.",
+        },
+        {
+          question: "Do cut ends of fiberglass handrail need sealing?",
+          answer: "Yes. UFGS 06 82 14 requires every shop and field cut to be coated with vinyl ester resin for corrosion resistance. Sealing keeps moisture and chemicals out of the exposed fibers. Use the resin supplied or specified by the handrail manufacturer.",
+        },
+        {
+          question: "How are FRP rails joined to the posts?",
+          answer: "With the system's own fittings, bonded with the supplied adhesive and fastened with rivets, screws or bolts. UFGS 06 82 14 describes rails that run continuously through the posts and are joined by bonding and riveting. Round-tube systems use molded elbow, tee, cross and foot-base fittings for the same job.",
+        },
+        {
+          question: "What anchors should FRP handrail post bases use?",
+          answer: "Corrosion-resistant anchors chosen for the substrate, edge distance and design load. UFGS 06 82 14 calls for anchors that sustain four times the design load in concrete and six times in masonry when tested to ASTM E488, with Type 316 stainless steel fasteners. Catalog anchor sizes are references; the anchor schedule belongs on the approved drawing.",
+        },
+      ],
+    },
+    content: `An FRP handrail arrives as tubes, fittings, kick plates and bases, and it becomes a guardrail on site. The material is easy to cut and light to carry, so most installation problems come from somewhere else: posts set out of plumb, bases fixed with the wrong anchors, fittings loaded before the adhesive has cured, and cut ends left open. This guide follows an installation in the order a crew meets those decisions. It draws on the US Department of Defense guide specification for FRP railings, UFGS 06 82 14 (August 2023), and on the catalog data for F1's square- and round-tube systems. The system's own instructions and the approved drawing govern.
+
+## Start from an approved layout drawing
+
+The drawing should show every post position, the rail heights, splices, corners and returns, gates, stair sections, kick plates, base types and the anchor schedule. UFGS 06 82 14 asks for installation drawings that show anchorage and the relation to the building construction, with structural analysis signed and sealed by the responsible engineer. The drawing is also where the governing standard enters: OSHA 1910.29 in US general industry, the IBC for buildings, or EN ISO 14122-3 for permanent access to machinery. Our [guardrail requirements guide](/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122) compares their heights, loads and openings.
+
+For design loads, UFGS 06 82 14 follows the IBC and ASCE 7: top rails and handrails carry 50 lbf/ft or a 200 lbf concentrated load in any direction, not at the same time, and guard infill carries 50 lbf on one square foot or 25 lbf/ft² applied horizontally.
+
+## Post spacing, heights and tolerances
+
+Post spacing comes from the system and the loads, and the references differ:
+
+| Item | Reference value | Source |
+| --- | --- | --- |
+| Post spacing | 1,500 mm maximum | F1 square- and round-tube catalog layouts |
+| Post spacing | 72 in (1.83 m) maximum | UFGS 06 82 14 |
+| Stanchion spacing, machinery access | 1,500 mm maximum | EN ISO 14122-3 |
+| Handrail height | 1,220 mm maximum | F1 catalog layouts |
+| Top rail height, US general industry | 42 in (107 cm), plus or minus 3 in | OSHA 1910.29 |
+| Posts plumb | Within 1/16 in in 3 ft (1.6 mm in 0.91 m) | UFGS 06 82 14 |
+| Rails level, or parallel to the stair rake | Within 1/4 in in 12 ft (6.4 mm in 3.66 m) | UFGS 06 82 14 |
+
+Set the end posts and corner posts first, run a string line between them, and fill in the intermediate posts. Check plumb in both directions on every post before the anchors are tightened, because a leaning post puts the whole rail out of line.
+
+## Post bases and anchors
+
+The base and its fixing usually decide whether a finished guardrail carries its load. Top-mounted foot bases bolt to concrete, steel or FRP framing; side-mounted bases fix to the face of a slab or beam, where edge distance limits the anchors. UFGS 06 82 14 asks for post bases reinforced to a height of 8.5 in (22 cm), for Type 316 stainless steel fasteners, and for corrosion-resistant anchors that sustain four times the design load in concrete and six times in masonry when tested to ASTM E488. For grouted fixings, it specifies factory-packaged, non-shrink, nonmetallic grout to ASTM C1107 or a water-resistant, non-shrink anchoring cement.
+
+Catalog anchor sizes are references for a typical base. F1's round-tube catalog, for example, shows two M6 × 90 anchors per foot base; whether that holds on a given slab depends on the concrete, edge distance, embedment and the governing load. Put the project anchor type, size, embedment and tightening torque on the drawing, and install them to the anchor manufacturer's instructions.
+
+## Rails, fittings and splices
+
+Square- and round-tube systems join differently. In F1's square-tube system, 50 × 50 × 6.4 mm top and middle rails connect through internal 38 × 38 × 6.4 mm insert splices and corner fittings, with rivets listed in the catalog. The round-tube system uses 50 mm tubes with molded elbow, tee, cross and foot-base fittings, fixed with screws. UFGS 06 82 14 describes a third arrangement: rails running unbroken through the posts, the top rail seated in a machined pocket at the top of each post, joined by a combination of bonding and riveting, with exposed corners radiused.
+
+Whichever system is supplied, the fittings and the adhesive are part of the tested assembly. Mix the bonding kit to its ratio, use it within its working time, and respect its temperature limits. Do not load the rail, or lean on it, until the adhesive has reached the cure time in the kit's instructions. Put splices where the approved drawing shows them, and do not add splices on site to use up short lengths.
+
+## Cutting, drilling and sealing
+
+Every cut and hole exposes glass fibers. Cut with carbide or diamond tools, drill with carbide-tipped bits, and work with dust extraction, a suitable respirator, eye protection and covered skin. UFGS 06 82 14 requires all shop and field cuts to be coated with vinyl ester resin for corrosion resistance, and drilling that leaves clean, true surfaces with no sharp or protruding edges. Use the sealing resin supplied or specified with the handrail, and deburr rivet and screw holes before the fittings go on.
+
+## Kick plates, stairs and gates
+
+Kick plates close the gap at the walking surface. F1's catalog lists 100 × 14 × 3 mm kick plates for the square-tube system, joined with splice plates and 90° splice angles at corners, and 101 × 14 × 3 mm kick plates for the round-tube system. Where OSHA 1910.29 requires toeboards, they must be at least 3.5 in (9 cm) tall, so check the kick plate against the rule that governs the project. On stairs, rails follow the rake of the steps, within the same 1/4 in in 12 ft alignment tolerance. Openings for ladders and access points need their own protection, such as a self-closing gate or offset opening, as the drawing shows.
+
+## Storage and handling before installation
+
+UFGS 06 82 14 asks for materials to arrive in the manufacturer's marked bundles and packages, with adhesives, resins and hardeners in clearly marked boxes, and to be stored in dry indoor facilities between 70 and 85 °F (21 and 29 °C) until needed. The temperature range matters most for the adhesives. Handle tubes and fittings so that they are not abraded, cracked, chipped or twisted, and keep them off wet ground. For outdoor service, UFGS asks for UV protection built into the profiles: UV inhibitors in the resin, a synthetic surfacing veil and a UV-resistant coating.
+
+## Final checks at handover
+
+Walk the whole run. Check every post for plumb and every rail for line and level, look for missing rivets or screws and uncured or squeezed-out adhesive, and confirm that anchors are tightened to the drawing. Every cut end should be sealed, with no sharp edges at fittings or end caps. Kick plates and gates should be complete. UFGS 06 82 14 also asks for a signed manufacturer's certification of installation and the manufacturer's instructions for care and maintenance, which make a good handover record on any project.
+
+To choose a system, compare the square- and round-tube options on our [fiberglass handrail and guardrail systems](/products/frp-handrail-systems) page, and send the layout, governing standard, base substrate and exposure through it for a project review.`,
+  },
+  {
+    slug: "how-to-install-gfrp-rebar",
+    title: "How to Install GFRP Rebar: Handling, Storage, Cutting, Supports, Ties and Concrete Placement",
+    seoTitle: "How to Install GFRP Rebar: Handling, Supports and Ties",
+    answerBox: "Handle GFRP bars so their surface is never damaged: lift bundles with a spreader bar at several pick-up points, never drag them, and store them off the ground, shaded and below 120 °F (49 °C). Cut them with a saw, never bend or shear them on site, and replace any bar with visible surface damage. Support mats on dielectric chairs, tie them with coated wire or nylon ties, and tie them down firmly, because a GFRP bar is lighter than fresh concrete and can float during placement.",
+    category: "Concrete Reinforcement",
+    date: "2026-09-25",
+    updatedAt: "2026-09-25",
+    readTime: "6 min",
+    excerpt: "A site guide to GFRP rebar: receiving and storage, lifting, cutting, bar supports and ties, preventing flotation during concrete placement, and inspection before the pour.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ACI SPEC-440.5-22",
+      "UFC 3-301-01 Appendix G (Change 5, 2026)",
+      "ASTM D7957/D7957M-26",
+    ],
+    coverImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
+    coverAlt: "Close-up of the helically wrapped, sand-coated bond surface of a glass-fiber reinforced polymer bar",
+    coverImageFit: "contain",
+    supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
+    supportingAlt: "Straight GFRP reinforcing bars of several diameters",
+    supportingImageFit: "contain",
+    supportingCaption: "Straight GFRP bars from the manufacturing source's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
+    highlights: [
+      "Lift bundles with a spreader bar at several pick-up points, and never drag or drop bars: surface damage means replacement.",
+      "Store bars off the ground and shaded, below 120 °F (49 °C), and cover them with opaque sheeting on long outdoor storage.",
+      "Cut with a saw and dust protection; never bend, heat, weld or shear cured GFRP bars on site.",
+      "Support mats on dielectric chairs and tie them down: at a specific gravity of about 1.9, GFRP bars are lighter than fresh concrete and can float.",
+    ],
+    ogDescription: "How to install GFRP rebar on site: storage and lifting, cutting without shearing, dielectric supports and ties, stopping bars floating, and the pre-pour check.",
+    ogChips: [
+      "No field bending",
+      "Dielectric chairs",
+      "Tie down mats",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "GFRP Rebar Specification Guide", href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" },
+      { label: "GFRP Stirrups and Bent Bars: Detailing and Ordering", href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "GFRP Bar Schedule Template (CSV)", href: "/downloads/f1-rebar-schedule-template.csv" },
+    ],
+    sourceLinks: [
+      { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026), Appendix G", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=4405U22&Format=PROTECTED_PDF&Language=English&Units=US_Units" },
+      { label: "ACI SPEC-440.5-22 preview", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
+      { label: "UFGS 03 31 29 (May 2024): marine concrete, GFRP bars as a permitted alternative", href: "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2003%2031%2029.pdf" },
+      { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "University of Kentucky / FHWA: GFRP Reinforced Concrete Bridges (2000)", href: "https://rosap.ntl.bts.gov/view/dot/20392/dot_20392_DS1.pdf" },
+    ],
+    faq: {
+      title: "GFRP rebar installation questions",
+      items: [
+        {
+          question: "Can GFRP rebar be bent on site?",
+          answer: "No. Cured GFRP bars cannot be field bent, heated or welded. Every bend, hook and stirrup is formed in the factory before the resin cures, so order bent shapes from the approved schedule. Straight bars can be cut to length on site with a saw.",
+        },
+        {
+          question: "What tie wire is used with GFRP rebar?",
+          answer: "Plastic- or polymer-coated tie wire, or nylon or plastic ties where the reinforcement must stay fully nonmetallic, for example near MRI equipment. Follow the project specification, which may rule out bare steel wire and set the support material.",
+        },
+        {
+          question: "Why does GFRP rebar float in concrete?",
+          answer: "Because it is lighter than the concrete around it. A GFRP bar with a specific gravity of about 1.9 is less dense than fresh normal-weight concrete, so a mat that is not tied down can rise during placement and vibration. Tie it to its supports, and anchor the supports to the formwork where needed.",
+        },
+        {
+          question: "How long can GFRP bars be stored outdoors?",
+          answer: "Keep outdoor storage short and shaded. The UFC 3-301-01 commentary notes that ACI 440.5 recommends opaque covers for bars stored outside for more than four months, while the DoD construction specification sets the limit at two months, and that bars should not be exposed to more than 120 °F (49 °C).",
+        },
+      ],
+    },
+    content: `GFRP rebar goes into concrete the same way steel does: on supports, tied into mats and cages, then cast. What changes is how the bar is treated before and during the pour. The glass fibers and resin do not forgive the handling that steel tolerates, a cured bar cannot be bent, and the bar is lighter than the concrete it sits in. This guide follows the bars from delivery to the pour. It draws on ACI SPEC-440.5-22, the construction specification for GFRP reinforcing bars, and on the construction notes in Appendix G of UFC 3-301-01, the US Department of Defense structural criteria. The project specification and the supplier's instructions govern.
+
+## Receiving the bars
+
+Check each delivery against the bar schedule and the certificates: bar marks, diameters, lengths, bent shapes and the lot identification that ties the bars to their test reports. Look over the surface. UFC 3-301-01 notes that a bar with a damaged surface has to be replaced, and that the project specification defines which visible damage counts, so agree the acceptance criteria with the inspector before the first delivery rather than during the pour.
+
+## Lifting and storage
+
+GFRP bars are far more flexible than steel bars of the same size, and long bundles sag between pick-up points. Lift them with a spreader bar and several slings rather than a single choker, set them down without dropping, and never drag bars over the ground or across other bars.
+
+Store them on level dunnage, off the ground, with supports close enough to stop the bundles sagging. Keep them away from chemicals and out of the sun. UFC 3-301-01 records that ACI 440.5 recommends covering bars stored outdoors for more than four months with opaque plastic, and that the DoD construction specification sets that limit at two months. It also says bars should not be exposed to temperatures above 120 °F (49 °C), so shade matters in hot climates, where bars left in direct sun can get much hotter than the air.
+
+## Cutting, and why bending stays in the factory
+
+Straight bars can be cut on site. Use a fine-toothed saw or a diamond or abrasive blade, support the bar on both sides of the cut, and give the crew dust extraction or respiratory protection, eye protection and gloves. Do not shear or flame-cut GFRP bars: shearing crushes and splits the fibers at the cut.
+
+Cured bars are never bent, heated or welded on site. UFC 3-301-01 permits field cutting but not field bending, because a bend can only be formed in the factory before the resin cures. Order every hook, stirrup and bent bar from the approved schedule, with a small agreed allowance of spare shapes for site damage. Our [GFRP bent bars and stirrups guide](/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide) covers the schedule.
+
+## Supports and ties
+
+UFC 3-301-01 calls for reinforcement supports of dielectric material or of steel coated with a dielectric material. Check whether the project specification accepts coated steel or asks for fully nonmetallic supports; plastic or composite chairs and bolsters meet both. Because GFRP bars are more flexible than steel, place supports close enough that the bars stay at their drawn cover under the weight of the mat and the crew, as the project specification sets out.
+
+Tie the bars with plastic- or polymer-coated tie wire, or with nylon or plastic ties where the reinforcement must stay fully nonmetallic, for example in concrete near MRI equipment. Keep the tails of coated wire away from the formwork face.
+
+## Stopping the mat from floating
+
+A GFRP bar is lighter than the concrete around it. The GFRP bars tested in a University of Kentucky study for FHWA had a specific gravity of 1.92, below that of fresh normal-weight concrete, so an untied mat can rise during placement and vibration and lose its cover. Tie every intersection the specification asks for, tie the mat to its supports, and where there is a risk of uplift, hold the supports down to the formwork or to anchors below. Check cover again during the pour where concrete is placed in deep lifts or vibrated heavily.
+
+## Cover, laps and tolerances
+
+Concrete cover, bar spacing and lap lengths come from the GFRP design, and they differ from the values for a steel design: UFC 3-301-01 notes that cover requirements for GFRP differ from those for steel reinforcement. Do not transfer steel laps or cover to a GFRP drawing. ACI SPEC-440.5 refers to the placing tolerances of ACI 117.
+
+## Temperature in service
+
+ASTM D7957/D7957M requires a mean glass transition temperature of at least 100 °C (212 °F) for the bars, and UFC 3-301-01 cites the ACI CODE-440.11-22 suggestion that GFRP bars should not be used where the service temperature exceeds 85 °C (185 °F). If a slab will carry hot process equipment or sit near a heat source, raise it with the designer before the bars are ordered.
+
+## The pre-pour check
+
+Before the pour, walk the mats and cages. Check bar marks and diameters against the schedule, bar spacing, cover, lap positions and lengths, bent shapes and their orientation, ties at the required intersections, supports and their hold-downs, and any damaged bars that need replacing. Record the lot numbers placed in each element, so the certificates follow the concrete.
+
+For the specification side, see our [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957). F1 supplies [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) against a project schedule; handling and storage instructions are confirmed with the bars offered.`,
   },
 ];
 
