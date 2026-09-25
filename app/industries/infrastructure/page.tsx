@@ -309,6 +309,7 @@ export default function InfrastructurePage() {
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process" },
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel / concrete" },
+              { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel for bridge decks" },
               { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings — detailed" },
               { href: "/resources/design-guides", label: "Bridge & handrail design guides" },
               { href: "/resources/technical-data", label: "Load tables & data sheets" },

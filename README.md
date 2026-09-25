@@ -26,6 +26,7 @@ npm test               # node:test suites listed in package.json
 npm run check:copy     # retracted claims (errors), em-dash density and reveals (warnings)
 npm run check:sitemap
 npm run build          # also enforces title ≤ 60 and description 120–160 characters
+npm run check:owner-links  # after build: supporting pages link to their query owner
 ```
 
 `npm run test:images` checks public image weight and duplicates.

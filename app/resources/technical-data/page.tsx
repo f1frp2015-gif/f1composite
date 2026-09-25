@@ -89,6 +89,9 @@ export default function TechnicalDataPage() {
             For dimensions, thermal, electrical, fire and chemical requirements, use the{" "}
             <Link href="/technology/pultruded-profile-performance" className="font-semibold text-teal-text underline">
               pultruded profile performance and standards guide
+            </Link>. For what the glass fibers and resin contribute, see the{" "}
+            <Link href="/resources/blog/frp-material" className="font-semibold text-teal-text underline">
+              FRP material guide
             </Link>.
           </p>
           <p className="max-w-[900px] text-f15 leading-golden text-t2">

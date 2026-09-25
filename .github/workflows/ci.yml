@@ -22,3 +22,4 @@ jobs:
       - run: npm run check:copy
       - run: npm run check:sitemap
       - run: npm run build
+      - run: npm run check:owner-links

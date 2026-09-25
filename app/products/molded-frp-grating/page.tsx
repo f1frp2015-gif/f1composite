@@ -348,6 +348,7 @@ export default function MoldedFrpGratingPage() {
               { href: "/products/frp-stair-treads", label: "Molded grating stair treads" },
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },
+              { href: "/products/frp-fasteners-fittings", label: "FRP fasteners and fittings" },
             ],
           },
           {

@@ -390,6 +390,7 @@ export default function PultrudedGratingsPage() {
           { href: "/products/frp-stair-treads", label: "Pultruded T-bar stair treads" },
           { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
           { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam supports" },
+          { href: "/products/frp-fasteners-fittings", label: "FRP fasteners and fittings" },
         ]},
         { title: "Applications", links: [
           { href: "/applications/frp-pedestrian-bridge-superstructures", label: "Pedestrian bridge superstructures" },

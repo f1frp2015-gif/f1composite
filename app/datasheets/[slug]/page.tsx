@@ -118,6 +118,8 @@ export default async function DatasheetPage({
   const { product, formulation, category, source } = data;
   const shape = product.geometry?.kind === "parametric" ? product.geometry.shape : undefined;
   const family = datasheetFamily(shape);
+  // Shapes the price estimator accepts (lib/pricing profile types).
+  const priceEstimate = shape != null && ["i_beam", "channel", "angle", "shs", "rhs", "tube"].includes(shape);
   const sizeLabel = `${dimensionLabel(product.model)} mm`;
   const inchSize = approximateInchSize(product.model);
   const hasCad = CAD_SLUGS.has(slug);
@@ -233,6 +235,15 @@ export default async function DatasheetPage({
                     )}
                   </tbody>
                 </table>
+              )}
+              {priceEstimate && (
+                <p className="mt-[13px] text-f13 leading-golden text-t3">
+                  For a planning budget per meter, enter these dimensions in the{" "}
+                  <Link href="/fiberglass-pultruded-profile-price" className="text-teal-text hover:underline">
+                    fiberglass pultruded profile price estimator
+                  </Link>
+                  .
+                </p>
               )}
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
                 {source === "database" ? (

@@ -385,6 +385,12 @@ export default function CustomPultrusionsPage() {
               { href: "/products/fiberglass-sheets", label: "Fiberglass sheets (solid flat stock)" },
               { href: "/products/fiberglass-plates", label: "Fiberglass plate profile catalog" },
               { href: "/products/product-lines", label: "F1 Composite product lines" },
+              { href: "/products/window-door-profiles", label: "Fiberglass window & door profiles" },
+              { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Standard fiberglass round tube" },
+              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "Standard fiberglass square tube" },
+              { href: "/products/wind-turbine-blade-panels", label: "Pultruded wind turbine blade panels" },
+              { href: "/products/frp-sound-barrier-wall", label: "FRP sound barrier walls" },
+              { href: "/products/fiberglass-stakes", label: "Fiberglass plant and tree stakes" },
             ],
           },
           {

@@ -499,10 +499,12 @@ export default function FrpVsTraditionalPage() {
             <LinkArrow href="/technology/frp-vs-aluminum-windows">FRP vs aluminum window frames</LinkArrow>
             <LinkArrow href="/technology/frp-vs-pvc-windows">FRP vs PVC window frames</LinkArrow>
             <LinkArrow href="/technology/frp-vs-steel-gratings">FRP vs steel gratings</LinkArrow>
+            <LinkArrow href="/technology/fiberglass-rebar-vs-steel">Fiberglass rebar vs steel</LinkArrow>
           </div>
 
           <h2 className="mt-[55px] text-f24 font-bold text-t1">FRP products and engineering resources</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">
+            <LinkArrow href="/what-is-frp">What is FRP?</LinkArrow>
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles</LinkArrow>
             <LinkArrow href="/fiberglass-pultruded-profile-price">Fiberglass profile price estimator</LinkArrow>
             <LinkArrow href="/technology/china-alternative-to-strongwell-fiberline-exel">China alternative to Strongwell / Exel</LinkArrow>

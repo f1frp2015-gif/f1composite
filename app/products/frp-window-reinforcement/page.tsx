@@ -230,6 +230,7 @@ export default function WindowReinforcementProfilesPage() {
           {
             title: "Related products",
             links: [
+              { href: "/products/window-door-profiles", label: "Fiberglass window & door profiles for fabricators" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
               { href: "/products/frp-window-frames", label: "Fiberglass windows & doors (complete frames)" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },

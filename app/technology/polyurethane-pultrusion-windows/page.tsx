@@ -295,6 +295,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             title: "FRP fenestration products",
             links: [
               { href: "/products/frp-window-frames", label: "Fiberglass windows & doors (65–140 series)" },
+              { href: "/products/window-door-profiles", label: "Window & door profiles for fabricators" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
               { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/pultrusion-process", label: "The pultrusion process explained" },

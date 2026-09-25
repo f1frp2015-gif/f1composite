@@ -202,6 +202,7 @@ export default function ChinaAlternativeWindowsPage() {
           <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify the equivalence</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
+            <LinkArrow href="/products/window-door-profiles">Fiberglass window lineals for fabricators</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>

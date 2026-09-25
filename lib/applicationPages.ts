@@ -337,6 +337,7 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/products/frp-stair-treads", label: "Stair tread covers" },
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
       { href: "/industries/industrial", label: "Industrial applications" },
+      { href: "/industries/water-wastewater", label: "FRP profiles for water and wastewater plants" },
       { href: "/case-studies/factory-access-staircase", label: "FRP access staircase case study" },
     ],
     deepDive: {

@@ -228,7 +228,8 @@ export default function GermanyRegionPage() {
           </div>
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/frp-window-frames">Pultruded window profiles (65–140)</LinkArrow>
+            <LinkArrow href="/products/window-door-profiles">Pultruded window profiles (65–140)</LinkArrow>
+            <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
             <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>

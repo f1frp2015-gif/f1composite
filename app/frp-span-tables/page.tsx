@@ -175,6 +175,8 @@ export default function SpanTablesPage() {
             title: "Use the selected section",
             links: [
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
+              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "Fiberglass square tube sizes" },
+              { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Fiberglass round tube sizes" },
               { href: "/datasheets", label: "Profile datasheets and drawings" },
               { href: "/fiberglass-pultruded-profile-price", label: "Estimate profile price" },
             ],
