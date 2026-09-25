@@ -12,6 +12,9 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
+// Last content review; shown in the page header and used as dateModified.
+const updatedAt = "2026-09-24";
+
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
@@ -120,7 +123,7 @@ export default function WhatIsFrpPage() {
     url: absoluteUrl(pagePath),
     mainEntityOfPage: absoluteUrl(pagePath),
     datePublished: "2026-04-14",
-    dateModified: "2026-09-14",
+    dateModified: updatedAt,
     inLanguage: "en",
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
@@ -159,6 +162,7 @@ export default function WhatIsFrpPage() {
     <>
       <JsonLd data={articleSchema} />
       <PageHeader
+        updated={updatedAt}
         tag="FRP Guide"
         title="What is FRP? Definition, materials, properties, and uses"
         description="FRP means fiber reinforced polymer or plastic. Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material."

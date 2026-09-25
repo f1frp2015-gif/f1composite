@@ -25,7 +25,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-ladders";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-09-08";
+const updatedAt = "2026-09-24";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -139,6 +139,7 @@ export default function FrpLaddersPage() {
       />
 
       <PageHeader
+        updated={updatedAt}
         tag="Fixed Access Systems · F1-STRUX"
         title="Fiberglass Fixed Ladders and FRP Access Systems"
         description="Industrial fixed FRP / GRP ladder assemblies with pultruded side rails, fluted rungs, mounting brackets, optional cage components and separate C/U rung-cover retrofits. Nominal catalog dimensions are shown below; the approved project drawing controls fabrication and fall-protection interfaces."

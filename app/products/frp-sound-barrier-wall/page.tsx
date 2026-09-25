@@ -181,6 +181,7 @@ export default function FrpSoundBarrierWallPage() {
       />
 
       <PageHeader
+        updated={updatedAt}
         tag="Outdoor Noise Control · Infrastructure & Industry"
         title="FRP Sound Barrier Wall Panels"
         description="Project-engineered FRP sound barrier wall panels for highways, railways, industrial equipment and utility sites. Configure reflective or absorptive fiberglass noise barriers with coordinated posts, joints, closures, finishes and foundation interfaces."

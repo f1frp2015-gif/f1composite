@@ -25,7 +25,7 @@ const CATALOG_TOTAL_SKUS = "114";
 const pagePath = "/products/fiberglass-structural-shapes";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-07-30";
+const updatedAt = "2026-09-25";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -148,7 +148,7 @@ export default function StandardProfilesPage() {
         data={buildProductFamilyPageSchema({
           name: "Pultruded FRP Standard Structural Profiles",
           description:
-            "Stock pultruded FRP structural shapes: I-beams, channels, angles, square tubes, round tubes, flat bars and rods, made to EN 13706 and ASTM D3917 in 6 m standard lengths.",
+            "Standard pultruded FRP structural shapes: I-beams, channels, angles, square tubes, round tubes, flat bars and rods, made to EN 13706 and ASTM D3917 in 6 m standard lengths.",
           path: "/products/fiberglass-structural-shapes",
           image: "/images/products/i-beam/frp-i-beam-cover.jpg",
           category: "Pultruded FRP Structural Profiles",
@@ -180,9 +180,10 @@ export default function StandardProfilesPage() {
         })}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Standard Profiles · F1-STRUX"
         title="Fiberglass structural shapes & sizes"
-        description="Choose a section family to review dimensions, weight, drawings and datasheets. Confirm the material, available production run and project requirements before ordering."
+        description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 305×89 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },

@@ -18,7 +18,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-07-30";
+const updatedAt = "2026-09-23";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 
@@ -223,6 +223,7 @@ export default function CustomPultrusionsPage() {
         })}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Custom Pultrusions · F1-FORM"
         title="Custom pultruded profiles — engineered to your specification"
         description="Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance."

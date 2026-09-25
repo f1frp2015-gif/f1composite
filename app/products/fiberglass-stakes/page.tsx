@@ -22,7 +22,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/fiberglass-stakes";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-08-30";
+const updatedAt = "2026-09-21";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -178,6 +178,7 @@ export default function FiberglassStakesPage() {
       />
 
       <PageHeader
+        updated={updatedAt}
         tag="Plant Support & Site Marking · F1-STRUX"
         title="Fiberglass stakes for plants, trees, vineyards and marking"
         description="Factory-direct pultruded FRP stakes for plant support, nursery trees, vineyard training, garden crops and site identification. Start with the 5–19 mm public-market planning band below, then release the actual diameter, length, surface, color and end treatment by quotation."

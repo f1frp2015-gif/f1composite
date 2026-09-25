@@ -10,6 +10,8 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
+import { formatLongDate } from "@/lib/dates";
+import { pvFrameReports } from "@/content/data/pvFrameEvidence";
 
 const pageTitle = "FRP Solar Profiles: Module Frames, Rails & Supports";
 const pageDescription =
@@ -148,7 +150,7 @@ export default function SolarMountingSystemsPage() {
           </p>
           <div className="mt-[26px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
             <table className="w-full min-w-[780px] border-collapse text-left text-f13">
-              <thead className="bg-navy text-white">
+              <thead className="bg-deep text-white">
                 <tr>
                   {["Model", "Overall size", "Wall", "Section area", "Typical role"].map((heading) => (
                     <th key={heading} className="px-[16px] py-[13px] font-bold">{heading}</th>
@@ -218,45 +220,10 @@ export default function SolarMountingSystemsPage() {
             Chinese reports include English notes beside each original page. Untouched originals are also available for signature verification.
           </p>
           <div className="mt-[26px] grid gap-[21px] lg:grid-cols-2">
-            {[
-              {
-                title: "PV frame mechanical, electrical and ageing properties",
-                report: "Wuxi / CPVT · 2025DACS20319 · issued 15 June 2026",
-                detail: "Chongqing Xianju composite PV frame, identified as all-weather modified resin. Initial mean tensile strength: 1,310 MPa; flexural strength: 1,060 MPa; flexural modulus: 48.0 GPa; volume resistivity: 1.0 × 10¹³ Ω·m. Reported HDT: >290°C; flammability: V-1.",
-                scope: "Includes UV, combined UV/damp-heat, UV/humidity-freeze, UV/thermal-cycle, salt-mist and ammonia exposure results. The report gives measurements without an overall pass/fail conclusion. Its salt-mist cycle count and total duration are inconsistent; consult the issuer for clarification.",
-                file: "frp-pv-module-frame-material-performance-test-report-2025dacs20319-en.pdf",
-                original: "frp-pv-module-frame-material-performance-test-report-2025dacs20319-original-zh.pdf",
-                label: "PV frame performance report with English notes",
-              },
-              {
-                title: "Jotun Jota Solar CL coating variant",
-                report: "TÜV Rheinland · CN24KZ3A 002 · issued 14 March 2025",
-                detail: "Chongqing Fengdu GFF-series polymer composite PV frames with Jota Solar CL water-based polyurethane coating. Initial mean tensile strength: 1,410.22 MPa; flexural strength: 1,570.95 MPa. Tested against 2 PfG 2923/11.22 with a reported Pass result.",
-                scope: "Coating-change report covering clauses 5.2, 5.4, 5.5, 5.6, 5.9, 5.13, 5.16, 5.20, 5.21 and 5.22. Other tests refer to CN24KZ3A 001. Includes 2,000 h weathering, TC200, 1,000 h damp heat and TC50 plus humidity-freeze results.",
-                file: "frp-pv-module-frame-jotun-coating-tuv-test-report-cn24kz3a-002.pdf",
-                label: "Jotun coating test report in English",
-              },
-              {
-                title: "B9986S polyester coating variant",
-                report: "TÜV Rheinland · CN24KZ3A 003 · issued 10 October 2025",
-                detail: "Chongqing Fengdu GFF-series polymer composite PV frames with B9986S polyester coating. Initial mean tensile strength: 1,353.25 MPa; flexural strength: 1,755.71 MPa. Tested against 2 PfG 2923/11.22 with a reported Pass result.",
-                scope: "Covers the same coating-change clauses as report 002 and refers to CN24KZ3A 001 for other tests. Tensile strength retention is reported as 92.08% after TC200, 87.54% after damp heat and 97.17% after weathering.",
-                file: "frp-pv-module-frame-b9986s-coating-tuv-test-report-cn24kz3a-003.pdf",
-                label: "B9986S coating test report in English",
-              },
-              {
-                title: "E-TS-AB composite material flammability",
-                report: "SGS · GZMR260702529004 · issued 30 July 2026",
-                detail: "Chongqing Xianju glass-fibre-reinforced composite profile E-TS-AB, tested as longitudinal A1 sheet specimens at 10.1 mm thickness. UL 94-2023 Rev.2-2024, Section 8: V-0, Pass.",
-                scope: "This result applies to the specified material and tested thickness. It does not establish V-0 for thin-wall PV frames or replace the V-1 result in the separate Wuxi frame report. SGS states that this report is for internal reference.",
-                file: "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-en.pdf",
-                original: "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-original-zh.pdf",
-                label: "SGS material flammability report with English notes",
-              },
-            ].map((item) => (
+            {pvFrameReports.map((item) => (
               <article key={item.file} className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <h3 className="text-f19 font-extrabold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f13 font-semibold text-teal-text">{item.report}</p>
+                <p className="mt-[8px] text-f13 font-semibold text-teal-text">{item.issuer} · {item.reference} · issued {formatLongDate(item.issued)}</p>
                 <p className="mt-[13px] text-f13 leading-golden text-t2">{item.detail}</p>
                 <p className="mt-[13px] text-f13 leading-golden text-t3">{item.scope}</p>
                 <a href={`/downloads/${item.file}`} className="mt-[16px] inline-block text-f13 font-bold text-teal-text underline underline-offset-4">
@@ -278,7 +245,7 @@ export default function SolarMountingSystemsPage() {
         </div>
       </section>
 
-      <section className="bg-navy py-[55px] text-white">
+      <section className="bg-deep py-[55px] text-white">
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>Project fit</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">

@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/layout/Breadcrumbs";
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import WhatsAppButton from "@/components/contact/WhatsAppButton";
+import { formatShortDate } from "@/lib/dates";
 
 interface PageHeaderAction {
   label: string;
@@ -24,6 +25,8 @@ interface PageHeaderProps {
   description: string;
   breadcrumbs: BreadcrumbItem[];
   actions?: PageHeaderActions;
+  /** Date of the page's last content review, YYYY-MM-DD. Keep it equal to the page's JSON-LD dateModified. */
+  updated?: string;
 }
 
 function productQuoteHref(title: string) {
@@ -35,7 +38,7 @@ function productAdvisorHref(title: string) {
   return `/ask?prefill=${encodeURIComponent(prompt)}`;
 }
 
-export default function PageHeader({ tag, title, description, breadcrumbs, actions }: PageHeaderProps) {
+export default function PageHeader({ tag, title, description, breadcrumbs, actions, updated }: PageHeaderProps) {
   const isProductPage = breadcrumbs.some(
     (item) => item.label === "Products" || item.href === "/pultruded-frp-profiles",
   );
@@ -64,6 +67,11 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
           <p className="mt-[16px] max-w-[820px] text-f19 leading-relaxed text-t2">
             {description}
           </p>
+          {updated ? (
+            <p className="mt-[10px] text-f13 text-t3">
+              Last updated <time dateTime={updated}>{formatShortDate(updated)}</time>
+            </p>
+          ) : null}
 
           {resolvedActions ? (
             <div id="page-header-actions" className="mt-[24px] flex flex-col items-start gap-[10px] sm:flex-row sm:flex-wrap sm:items-center">
