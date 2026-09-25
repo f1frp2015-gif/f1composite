@@ -7,6 +7,9 @@
 // size-specific answers. Every other datasheet stays noindex through
 // app/datasheets/layout.tsx. Review the pilot in Search Console after 4–8
 // weeks before widening the list.
+//
+// scripts/submit-indexnow.mjs reads INDEXED_DATASHEET_SLUGS from this file's
+// source, so keep it a plain array of string literals.
 
 import { supplyTerms, weeks } from "@/content/data/company";
 import { commercialFacts } from "@/content/data/engineeringEvidence";

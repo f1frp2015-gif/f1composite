@@ -198,11 +198,6 @@ const caseStudyData: Record<
     ],
     downloads: [
       {
-        label: "FRP Profile Design Manual — 2026 Edition (PDF)",
-        href: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
-        description: "24-page engineering reference for F1 Composite pultruded structural profiles — Equal Angle, Square Box, Channel, Tube/Top Rail, Wide Flange Beam — with full deflection tables, E23-grade material data, chemical resistance, and fire performance.",
-      },
-      {
         label: "EPD & Carbon Footprint Analysis (PDF)",
         href: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
         description: "Environmental Product Declaration and carbon-footprint analysis for the pultruded GFRP composite profile range — cradle-to-grave 36.1 kg CO₂e/m².",

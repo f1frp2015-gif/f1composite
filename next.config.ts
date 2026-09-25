@@ -335,6 +335,13 @@ const nextConfig: NextConfig = {
         source: "/_next/static/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
+      {
+        // Withdrawn from the site until its revised edition is published
+        // (withdrawnDownloads in content/data/engineeringEvidence.ts). The file
+        // still opens from links already sent, but leaves search results.
+        source: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
     ];
   },
 };

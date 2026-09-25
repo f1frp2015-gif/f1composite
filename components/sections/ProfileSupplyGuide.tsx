@@ -47,7 +47,7 @@ export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }
         </div>
         <div className="mt-[24px] flex flex-wrap gap-x-[24px] gap-y-[12px] text-f13 font-semibold text-teal-text">
           <Link className="underline underline-offset-4" href="/technology/pultrusion-resin-systems">Compare resin systems</Link>
-          <Link className="underline underline-offset-4" href={sheet ? "/resources/evidence" : "/resources/evidence#structural-design"}>Review supporting documents and scope</Link>
+          <Link className="underline underline-offset-4" href="/resources/evidence">Review supporting documents and scope</Link>
           <Link className="underline underline-offset-4" href="/resources/frp-pultrusion-fob-ddp-export-guide">Plan export and delivery terms</Link>
         </div>
       </div>

@@ -109,9 +109,40 @@ function addPath(paths, route) {
   if (!route || !route.startsWith("/")) return;
   // Private and intentionally noindex application surfaces are not search
   // landing pages. Deleted/redirected exceptions can still be sent through
-  // the workflow's explicit manual URL input.
+  // the workflow's explicit manual URL input. The indexed datasheet pilot
+  // pages are added separately in collectChangedPaths.
   if (/^\/(?:admin|api|datasheets)(?:\/|$)/.test(route) || route.endsWith("/embed")) return;
   paths.add(route);
+}
+
+// Datasheets are noindex except the pilot sizes in INDEXED_DATASHEET_SLUGS.
+const DATASHEET_LIST_FILE = "lib/datasheetContent.ts";
+
+// The route, the pilot content builder, the catalog data and the span tables
+// together render every datasheet page.
+export function affectsDatasheetPages(file) {
+  return (
+    file === "app/datasheets/[slug]/page.tsx" ||
+    file === "app/datasheets/layout.tsx" ||
+    file === DATASHEET_LIST_FILE ||
+    file === "lib/spanTables.ts" ||
+    file.startsWith("lib/catalog/")
+  );
+}
+
+export function parseIndexedDatasheetSlugs(source) {
+  const list = source.match(/export const INDEXED_DATASHEET_SLUGS[^=]*=\s*\[([^\]]*)\]/);
+  return new Set(list ? [...list[1].matchAll(/"([^"]+)"/g)].map((match) => match[1]) : []);
+}
+
+// Every pilot page before and after the change: sizes that left the pilot
+// changed their robots tag, so they are submitted once more as well.
+export function indexedDatasheetRoutes(beforeSource, afterSource) {
+  const slugs = new Set([
+    ...parseIndexedDatasheetSlugs(beforeSource),
+    ...parseIndexedDatasheetSlugs(afterSource),
+  ]);
+  return [...slugs].sort().map((slug) => `/datasheets/${slug}`);
 }
 
 function addAllRecordRoutes(paths, source, prefix) {
@@ -161,6 +192,14 @@ export function collectChangedPaths(beforeRef, afterRef) {
   }
   if (changedFiles.has("app/applications/[slug]/page.tsx")) {
     addAllRecordRoutes(paths, afterApplications || beforeApplications, "/applications");
+  }
+
+  if ([...changedFiles].some(affectsDatasheetPages)) {
+    const routes = indexedDatasheetRoutes(
+      sourceAt(beforeRef, DATASHEET_LIST_FILE),
+      sourceAt(afterRef, DATASHEET_LIST_FILE),
+    );
+    for (const route of routes) paths.add(route);
   }
 
   const sitemapFile = "app/sitemap.ts";
