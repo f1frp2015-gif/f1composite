@@ -290,7 +290,7 @@ f1composite.com
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
 | 中 | 隐私政策由法务审阅 | 待审阅 |
 | 高 | 在 GA4 把 `whatsapp_click`、`email_click`、`phone_click` 标为关键事件，再导入 Google Ads 作为次要转化 | 待操作 |
-| 高 | 设计手册 PDF（`f1composite-frp-profile-design-manual-2026.pdf`）需修订后再做网页版：标准树脂前后矛盾（环氧 vs 间苯聚酯，目录数据为间苯聚酯）、"免维护 / 60 年设计寿命 / 25 年质保"、防火分级表（含铝制品）、化学耐腐蚀表的来源和树脂 | 待修订 |
+| 高 | 设计手册 PDF（`f1composite-frp-profile-design-manual-2026.pdf`）需修订后再做网页版：标准树脂前后矛盾（环氧 vs 间苯聚酯，目录数据为间苯聚酯）、"免维护 / 60 年设计寿命 / 25 年质保"、防火分级表（含铝制品）、化学耐腐蚀表的来源和树脂。2026-09 起全站已撤下它的链接（下载页、设计指南、拉挤型材页、What is FRP、案例页、证据库和 AI 知识数据）；文件保留在原地址，已发出的链接仍能打开，但带 noindex。修订版请换新文件名上传，再恢复链接，并删除 `content/data/engineeringEvidence.ts` 的 `withdrawnDownloads` 条目和 `next.config.ts` 里对应的 noindex 规则；技术数据页和尺寸页仍以文字注明数据出自 DOC-PF-2026-EN Rev. A（`app/resources/technical-data/page.tsx`、`lib/catalog/seed.ts`），届时一并更新版本号 | 待修订 |
 | 高 | EPD 与绿色建材三星证书英文版把持证方写成 "F1 Composite Co., Ltd."，与 Intertek 报告上的 Fengdu New Material (Yancheng) Co., Ltd. 及法定主体不一致，需按原证书核对 | 待核实 |
 | 中 | 化学耐腐蚀选型页：需要树脂供应商授权的耐腐蚀数据或自测浸泡数据 | 待提供数据 |
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |

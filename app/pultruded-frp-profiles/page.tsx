@@ -375,7 +375,6 @@ const keyFacts = [
 ];
 
 const hubDownloads = [
-  { title: "FRP Profile Design Manual — 2026 (E23 grade, 24 pp)", file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf" },
   { title: "PU-GF Pultruded Profile — Mechanical Data Sheet", file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf" },
   { title: "Wind-Energy Pultruded Laminate — GFRP/CFRP Data Sheet", file: "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf" },
   { title: "EPD & Carbon-Footprint Analysis — Pultruded GFRP Profiles", file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf" },

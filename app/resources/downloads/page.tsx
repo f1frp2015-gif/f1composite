@@ -1,5 +1,5 @@
 import { e40EvidenceHref, e40Reports, e40ReportScope } from "@/content/data/e40Evidence";
-import { engineeringEvidence, commercialFacts } from "@/content/data/engineeringEvidence";
+import { engineeringEvidence, commercialFacts, withdrawnDownloads } from "@/content/data/engineeringEvidence";
 import { buildRfqHref } from "@/lib/rfq";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -45,7 +45,7 @@ const faqs = [
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Datasheets, CAD Files & Certificates",
   description:
-    "Download F1 Composite catalogs, design manuals, published test reports and DXF drawings for pultruded FRP profiles. Certificates are sent on request.",
+    "Download F1 Composite catalogs, material data sheets, published test reports and DXF drawings for pultruded FRP profiles. Certificates are sent on request.",
   path: "/resources/downloads",
   image: "/resources/downloads/opengraph-image",
 });
@@ -65,13 +65,6 @@ const fallbackDownloads: DownloadItem[] = [
     size: "991 KB",
     description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two qualified families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service), ≥25-year life, qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0, ≥50-year design life, qualified to MT 558.2, GB 16413, MT 113, ISO 4589-2, ASTM E84 Class I. Edition 2026.06, Rev v1.3.",
     file: "/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf",
-  },
-  {
-    title: "FRP Profile Design Manual — 2026 Edition",
-    format: "PDF",
-    size: "734 KB",
-    description: "24-page engineering reference for F1 Composite pultruded structural profiles. Covers equal angle (50–152 mm), square box (50–101 mm), channel (100–254 mm), tube and top rail, and wide flange beam (152–305 mm), with full dimensions, section properties, E23-grade material data per EN 13706-2, point-load and UDL mid-span deflection tables across 500 mm to 6 m spans, chemical resistance, BS 476 fire performance, MSDS, handling, and maintenance. Doc no. DOC-PF-2026-EN Rev. A.",
-    file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
   },
   {
     title: "Nine-Series FRP Window & Door Purchasing Catalog",
@@ -208,8 +201,9 @@ export default async function DownloadsPage() {
     })),
     ...windowDownloads,
   ];
-  const pinnedFiles = new Set(pinnedDownloads.map((item) => item.file));
-  const downloads = [...pinnedDownloads, ...loadedDownloads.filter((item) => !pinnedFiles.has(item.file))].map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
+  // Pinned files are already listed; withdrawn files may still come from the database.
+  const skippedFiles = new Set([...pinnedDownloads.map((item) => item.file), ...withdrawnDownloads]);
+  const downloads = [...pinnedDownloads, ...loadedDownloads.filter((item) => !skippedFiles.has(item.file))].map((item) => ({ ...item, description: engineeringEvidence.find((record) => record.file === item.file)?.scope ?? item.description }));
   const downloadsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -245,7 +239,7 @@ export default async function DownloadsPage() {
               These are the documents specifiers, fabricators and QA teams use to check and buy pultruded FRP profiles from F1 Composite. Files with a download link are public. The rest are sent on request, with the certificate holder, report number and scope, so you can match each document to the product you are buying.
             </p>
             <p>
-              <strong>Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, the FRP profile design manual, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:text-teal">datasheet</Link>. <strong>On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
+              <strong>Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:text-teal">datasheet</Link>. <strong>On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
             </p>
           </div>
         </div>

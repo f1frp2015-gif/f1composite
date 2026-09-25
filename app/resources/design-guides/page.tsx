@@ -40,13 +40,6 @@ const guides: Array<{
   file?: string;
 }> = [
   {
-    title: "FRP Profile Design Manual — 2026 Edition (E23 Grade)",
-    description:
-      "24-page engineering reference for F1 Composite pultruded structural profiles. Covers equal angle (50–152 mm), square box (50–101 mm), channel (100–254 mm), tube and top rail, and wide flange beam (152–305 mm), with full dimensions, section properties, E23-grade material data per EN 13706-2, point-load and UDL mid-span deflection tables across 500 mm to 6 m spans, chemical resistance data, fire performance per BS 476, MSDS, on-site handling, and maintenance. Doc no. DOC-PF-2026-EN Rev. A.",
-    status: "Available",
-    file: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
-  },
-  {
     title: "FRP Profile Selection Guide",
     description:
       "Step-by-step methodology for selecting the right pultruded FRP profile for structural applications, including load analysis, deflection criteria, and safety factors.",
