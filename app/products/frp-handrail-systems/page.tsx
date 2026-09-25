@@ -305,6 +305,7 @@ export default function HandrailSystemsPage() {
             title: "Code and installation guides",
             links: [
               { href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122", label: "Guardrail requirements: OSHA, IBC and ISO 14122-3" },
+              { href: "/resources/blog/how-to-install-frp-handrail", label: "How to install FRP handrail" },
               { href: "/resources/blog/fixed-ladder-requirements-osha-iso-14122-4", label: "Fixed ladder requirements: OSHA and ISO 14122-4" },
               { href: "/resources/blog/how-to-install-frp-grating", label: "How to install FRP grating" },
             ],
