@@ -14,7 +14,7 @@ import { authorsBySlug } from "@/lib/authors";
 const pagePath = "/products/frp-pultrusion-manufacturer-factory-direct";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-07-30";
-const updatedAt = "2026-07-30";
+const updatedAt = "2026-09-23";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 
@@ -97,6 +97,7 @@ export default function FactoryDirectPultrusionPage() {
         })}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Factory-Direct FRP Supply"
         title="FRP Pultrusion Manufacturer for Factory-Direct Global Projects"
         description="Judge a pultruded FRP supplier on engineering evidence, process controls, tooling, inspection records and landed cost as well as unit price. F1 Composite handles standard and custom profile supply from drawing review to FOB or DDP delivery."

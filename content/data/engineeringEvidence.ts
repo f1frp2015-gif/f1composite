@@ -1,4 +1,5 @@
-import { e40EvidenceHref, e40Reports, e40ReportScope } from "./e40Evidence";
+import { e40EvidenceHref, e40ReportDate, e40Reports, e40ReportScope, e40TestMethod } from "./e40Evidence";
+import { pvFrameReports } from "./pvFrameEvidence";
 
 /** Public document index. A listed file is not a blanket certification claim. */
 export const evidenceRevision = "2026-09-25";
@@ -43,6 +44,63 @@ export const engineeringEvidence: EvidenceRecord[] = [
   { id: "pu-gf-data", title: "PU-GF pultruded profile mechanical data", kind: "Technical reference", reference: "PU-GF data sheet", file: "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf", product: "/products/custom-pultruded-profiles", productLabel: "Custom pultrusions", scope: "The material system and methods identified in the sheet. Confirm whether each value is typical, measured or a design value before applying it to another laminate or section." },
   { id: "wind-laminate", title: "Wind-energy pultruded laminate data", kind: "Technical reference", reference: "GFRP and CFRP laminate data sheet", file: "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf", product: "/products/wind-turbine-blade-panels", productLabel: "Wind turbine blade panels", scope: "The tested laminate and reinforcement described in the document. Fatigue and fiber-content results apply to the stated specimens, not all blade or spar-cap designs." },
   { id: "window-catalog", title: "Pultruded FRP window and door catalog", kind: "Technical reference", reference: "Window and door catalog", file: "/downloads/f1composite-frp-window-door-catalog.pdf", product: "/products/frp-window-frames", productLabel: "FRP windows and doors", scope: "Nine-series purchasing reference: 50, 55, 60, 65, 70, 80, 90 casement, 90 sliding and 140 compression-seal sliding. Covers separate profile and finished-unit procurement paths, updated profile codes and configuration-specific evidence boundaries. Confirm drawings, glazing, hardware and supply scope at quotation." },
+  ...pvFrameReports.map((report): EvidenceRecord => ({
+    id: report.id,
+    title: report.indexTitle,
+    kind: "Test report",
+    reference: `${report.issuer} ${report.reference}`,
+    file: `/downloads/${report.file}`,
+    product: "/products/frp-solar-mounting-systems",
+    productLabel: "Solar mounting and PV frames",
+    scope: report.indexScope,
+    contextHref: "/products/frp-solar-mounting-systems#material-test-reports",
+  })),
+];
+
+/** A result as printed in the original document, for the tested item only. */
+export interface ReportedResult {
+  /** Evidence record id; the table links to its card on the evidence page. */
+  id: string;
+  issuer: string;
+  reference: string;
+  tested: string;
+  method: string;
+  result: string;
+  /** YYYY-MM-DD */
+  date: string;
+  dateLabel: "Issued" | "Valid until";
+  file: string;
+}
+
+// Intertek and TÜV Rheinland restrict partial reproduction of their reports,
+// so their rows give only the conclusion printed in the report. Open the
+// complete report for measured values.
+export const reportedResults: ReportedResult[] = [
+  ...e40Reports.map((report): ReportedResult => ({
+    id: report.id,
+    issuer: "SGS",
+    reference: report.reference,
+    tested: `Square tube sample; the report lists specification ${report.specification} and specimen ${report.specimen}`,
+    method: `${e40TestMethod}, ${report.span.toLocaleString("en-US")} mm span`,
+    result: `Full-section modulus ${report.average} GPa, mean of three specimens (${report.values.join(", ")})`,
+    date: e40ReportDate,
+    dateLabel: "Issued",
+    file: report.file,
+  })),
+  { id: "phi-2491wi03", issuer: "Passive House Institute", reference: "2491wi03", tested: "Fengdu Passive GFRP 90 Series window frame", method: "PHI component certificate, cool-temperate climate", result: "Uw 0.78 W/(m²·K) with Ug 0.70 W/(m²·K); efficiency class phB", date: "2026-12-31", dateLabel: "Valid until", file: "/downloads/phi-certificate-gfrp-90-series-2491wi03.pdf" },
+  { id: "intertek-turn-tilt", issuer: "Intertek", reference: "240821010SHF-001", tested: "80 Series turn-and-tilt window, 1200 × 1800 mm", method: "AS/NZS 4420.1-2016 test sequence against AS 2047-2014 (Amdt 2-2017)", result: "Results met the applicable AS 2047-2014 requirements, as concluded in the report", date: "2024-12-11", dateLabel: "Issued", file: "/downloads/intertek-report-240821010SHF-001-turn-tilt-window.pdf" },
+  { id: "intertek-sliding", issuer: "Intertek", reference: "240821010SHF-002", tested: "Historical 140 Series lift-sliding door, 3000 × 2400 mm", method: "AS/NZS 4420.1-2016 test sequence against AS 2047-2014 (Amdt 2-2017)", result: "Results met the applicable AS 2047-2014 requirements, as concluded in the report", date: "2024-12-11", dateLabel: "Issued", file: "/downloads/intertek-report-240821010SHF-002-lift-sliding-door.pdf" },
+  ...pvFrameReports.map((report): ReportedResult => ({
+    id: report.id,
+    issuer: report.issuer,
+    reference: report.reference,
+    tested: report.tested,
+    method: report.method,
+    result: report.result,
+    date: report.issued,
+    dateLabel: "Issued",
+    file: `/downloads/${report.file}`,
+  })),
 ];
 
 /**

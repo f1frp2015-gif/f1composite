@@ -22,7 +22,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-handrail-systems";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-09-08";
+const updatedAt = "2026-09-24";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -146,6 +146,7 @@ export default function HandrailSystemsPage() {
       />
 
       <PageHeader
+        updated={updatedAt}
         tag="Edge Protection Systems · F1-STRUX"
         title="Fiberglass Handrail and Guardrail Systems"
         description="Industrial FRP handrail systems in square- and round-tube configurations, with posts, top and middle rails, kick plates, splices, molded fittings and base options. Manual-verified nominal specifications are separated from the project load, connection and anchor design."

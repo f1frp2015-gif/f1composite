@@ -18,7 +18,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-22";
-const updatedAt = "2026-07-30";
+const updatedAt = "2026-09-25";
 const referencedStandards = ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -67,11 +67,11 @@ const comparisonData: CompRow[] = [
   { property: "Tensile Strength", unit: "MPa", values: { FRP: "350 – 700", Steel: "400 – 550", Aluminum: "260 – 310", Timber: "50 – 100", Concrete: "2 – 5" } },
   { property: "Elastic Modulus", unit: "GPa", values: { FRP: "20 – 40", Steel: "200", Aluminum: "69", Timber: "8 – 14", Concrete: "30" } },
   { property: "Strength-to-Weight", values: { FRP: "Excellent", Steel: "Moderate", Aluminum: "Good", Timber: "Good", Concrete: "Poor" }, frpHighlight: true },
-  { property: "Corrosion Resistance", values: { FRP: "Immune", Steel: "Poor: requires coating", Aluminum: "Moderate: pitting", Timber: "Poor: rots", Concrete: "Moderate: rebar corrodes" }, frpHighlight: true },
+  { property: "Corrosion Resistance", values: { FRP: "No rust; resin-dependent chemical resistance", Steel: "Poor: requires coating", Aluminum: "Moderate: pitting", Timber: "Poor: rots", Concrete: "Moderate: rebar corrodes" }, frpHighlight: true },
   { property: "Thermal Conductivity", unit: "W/m·K", values: { FRP: "0.3 – 0.5", Steel: "50", Aluminum: "167", Timber: "0.1 – 0.2", Concrete: "1.7" }, frpHighlight: true },
   { property: "Electrical Insulation", values: { FRP: "Excellent", Steel: "None", Aluminum: "None", Timber: "Moderate (dry)", Concrete: "Poor (wet)" }, frpHighlight: true },
   { property: "Maintenance (30 yr)", values: { FRP: "Minimal: no painting", Steel: "High: repaint 8–15 yr", Aluminum: "Low–moderate", Timber: "High: reseal 3–5 yr", Concrete: "Moderate: crack repair" }, frpHighlight: true },
-  { property: "Lifecycle Cost (30 yr)", values: { FRP: "Lowest", Steel: "High", Aluminum: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
+  { property: "Lifecycle Cost (30 yr)", values: { FRP: "Often lowest in corrosive sites", Steel: "High", Aluminum: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
   { property: "CO₂ Footprint", unit: "kg CO₂/kg", values: { FRP: "3.1 – 5.0", Steel: "1.8 – 2.5", Aluminum: "8.0 – 12.0", Timber: "0.3 – 0.5", Concrete: "0.1 – 0.2" } },
 ];
 
@@ -161,9 +161,9 @@ const propertyCards: PropertyCard[] = [
   {
     title: "Density & Weight",
     icon: "75%",
-    headline: "FRP is 75 % lighter than steel at equivalent structural capacity",
+    headline: "About a quarter of the weight of steel, volume for volume",
     detail: [
-      "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70 % of aluminum (2.70 g/cm³). An FRP profile replacing a steel section of equivalent structural capacity weighs 70–80 % less.",
+      "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70 % of aluminum (2.70 g/cm³). Because FRP is less stiff, a replacement section is often deeper than the steel one, so the weight saving on a member is smaller than the density ratio suggests, but it usually remains large.",
       "This weight reduction cascades: lighter members require smaller foundations, lower-capacity cranes (or no crane at all; many FRP profiles can be carried by two workers), fewer transport loads, and less energy during installation. For bridge decks, building facades, and offshore platforms, weight savings translate directly into cost savings and expanded design possibilities.",
     ],
   },
@@ -209,7 +209,7 @@ const propertyCards: PropertyCard[] = [
     headline: "Dielectric strength 12–20 kV/mm — intrinsically non-conductive",
     detail: [
       "Glass-fiber FRP is an electrical insulator with a dielectric strength of 12–20 kV/mm, making it intrinsically non-conductive. This is critical for electrical utility applications (crossarms, switchgear enclosures), railway electrification, and worker safety.",
-      "FRP also has zero magnetic permeability: required for MRI room construction, EMC enclosures, and radar-transparent military applications. No metal can provide these properties.",
+      "Glass-fiber FRP is also non-magnetic, which matters for MRI room construction, EMC enclosures and radar-transparent applications. No metal combines this with electrical insulation.",
     ],
   },
   {
@@ -224,9 +224,9 @@ const propertyCards: PropertyCard[] = [
   {
     title: "CO₂ & Sustainability",
     icon: "CO₂",
-    headline: "Higher per-kg carbon, but lower per functional unit due to 75 % weight savings",
+    headline: "Higher carbon per kilogram, often comparable per functional unit",
     detail: [
-      "Embodied carbon of pultruded FRP (3.1–5.0 kg CO₂/kg) is higher than steel (1.8–2.5 kg CO₂/kg) per kilogram. However, because FRP is 75 % lighter for equivalent structural capacity, the CO₂ per functional unit (per meter of railing, per m² of grating) is often comparable to or lower than steel.",
+      "Embodied carbon of pultruded FRP (3.1–5.0 kg CO₂/kg) is higher than steel (1.8–2.5 kg CO₂/kg) per kilogram. However, because an FRP member is usually much lighter than the steel member it replaces, the CO₂ per functional unit (per meter of railing, per m² of grating) is often comparable to or lower than steel.",
       "When avoided emissions from eliminated maintenance cycles and reduced transport energy are included in a full LCA, FRP frequently achieves a net carbon advantage over 30–50 year service periods. Aluminum carries the highest embodied carbon at 8–12 kg CO₂/kg, reflecting enormous smelting energy.",
     ],
   },
@@ -247,15 +247,15 @@ const faqItems = [
   },
   {
     question: "What are the main advantages of pultrusion over traditional materials?",
-    answer: "Pultruded FRP combines five key advantages no single traditional material can match: (1) Corrosion immunity; (2) 75 % lighter than steel at comparable capacity; (3) Electrical and thermal insulation; (4) Dimensional stability; (5) Design freedom through fiber architecture selection. These translate into lower installation, maintenance, and lifecycle costs.",
+    answer: "Pultruded FRP combines five key advantages no single traditional material can match: (1) No rusting, with chemical resistance set by the resin; (2) About a quarter of the weight of steel, volume for volume; (3) Electrical and thermal insulation; (4) Dimensional stability; (5) Design freedom through fiber architecture selection. These can lower installation and maintenance costs, particularly where steel would need recoating.",
   },
   {
     question: "How does FRP compare to concrete for structural applications?",
-    answer: "FRP is 75–80 % lighter than concrete, which reduces foundation loads, transport costs, and installation complexity. Unlike concrete, FRP does not crack under tensile loading and is immune to chloride-induced rebar corrosion. FRP provides electrical insulation and zero magnetic permeability. Concrete retains advantages in compressive-load-dominated applications and where fire resistance beyond 2 hours is required.",
+    answer: "FRP is lighter than concrete by volume (1.8–2.1 g/cm³ against about 2.4), and a thin-walled FRP member weighs far less than a concrete member doing the same job, which reduces foundation loads, transport and installation effort. Unlike concrete, FRP does not crack under tensile loading and has no steel reinforcement to corrode. FRP is electrically insulating and non-magnetic. Concrete retains advantages in compressive-load-dominated applications and where fire resistance beyond 2 hours is required.",
   },
   {
     question: "What is the lifespan of pultruded FRP profiles?",
-    answer: "Pultruded FRP profiles have a proven service life exceeding 50 years in outdoor, corrosive, and marine environments. Accelerated UV aging tests (ASTM G154) demonstrate that UV-stabilized polyester FRP retains more than 90 % of original flexural strength after the equivalent of 30 years of Florida-level UV exposure. Vinyl ester and epoxy systems perform even better in aggressive chemical environments.",
+    answer: "Service life depends on the resin system, UV protection, loads, exposure, connections and inspection plan, so no single figure applies to every profile. UV-stabilized resin with a surfacing veil or coating protects outdoor profiles, and vinyl ester or epoxy systems are used for aggressive chemicals. Ask for durability evidence for the resin and exposure in your project.",
   },
 ];
 
@@ -294,9 +294,10 @@ export default function FrpVsTraditionalPage() {
     <>
       <JsonLd data={articleSchema} />
       <PageHeader
+        updated={updatedAt}
         tag="Material Comparison"
         title="FRP vs Steel, Aluminum, Timber & Concrete"
-        description="Property-by-property comparison with visual charts to help engineers select the right material for their application."
+        description="Pultruded glass-fiber FRP weighs about a quarter as much as steel (1.8–2.1 g/cm³ against 7.85) and reaches 350–700 MPa tensile strength, in the range of structural steel. Its elastic modulus is only 20–40 GPa, against 200 GPa for steel and 69 GPa for aluminum, so deflection usually governs an FRP design. FRP does not rust or conduct electricity and conducts little heat, but its resin softens at high temperature, so fire exposure needs separate review."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -329,8 +330,8 @@ export default function FrpVsTraditionalPage() {
           </h2>
           <p className="mt-[13px] text-f15 leading-golden text-t2">
             Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
-            Concrete cracks under tension. Pultruded FRP composites were engineered to
-            overcome all of these limitations simultaneously.
+            Concrete cracks under tension. Pultruded FRP avoids each of these problems, with limits of its own:
+            lower stiffness than steel, and a resin that softens in fire.
           </p>
 
           {/* Key advantages — visual grid */}

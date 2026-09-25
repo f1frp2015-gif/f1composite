@@ -111,6 +111,7 @@ export default function FrpDeckPanelsPage() {
       />
 
       <PageHeader
+        updated={updatedAt}
         tag="Structural Deck Panels · F1-GRID-P"
         title="Structural FRP Deck Panels — 12 Cross-Section Families"
         description="Closed-profile fiberglass deck panels separated from open pultruded grating — compare 12 neutral section drawings, nominal A/B/t1/t2 values, joint geometry and project-release requirements."

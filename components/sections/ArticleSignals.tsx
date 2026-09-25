@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatShortDate as formatDate } from "@/lib/dates";
 
 type ArticleSignalsProps = {
   publishedAt: string;
@@ -9,14 +10,6 @@ type ArticleSignalsProps = {
   reviewedBy?: string;
   standards?: string[];
 };
-
-const formatDate = (value: string) =>
-  new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(`${value}T00:00:00Z`));
 
 export default function ArticleSignals({
   publishedAt,

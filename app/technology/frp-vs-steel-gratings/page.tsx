@@ -14,7 +14,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-07-16";
+const updatedAt = "2026-09-25";
 const referencedStandards = ["ASTM E2979", "ASTM F3125", "HSE UK Slip Resistance", "OSHA 1910.29", "IBC 1607.8"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -36,14 +36,14 @@ const comparisonData: CompRow[] = [
   { property: "Density (installed)", unit: "kg/m²", frp: "14 – 22 (38mm molded)", steel: "34 – 48 (25mm bar)", frpBetter: true },
   { property: "Load Capacity (30mm deep)", unit: "kN/m² UDL", frp: "≥ 500", steel: "≥ 500" },
   { property: "Concentrated Load (wheel)", unit: "kN", frp: "45 – 90 (pultruded)", steel: "90 – 180" },
-  { property: "Corrosion Resistance", frp: "Immune to acids, alkalis, chlorides, saltwater", steel: "Coating-dependent; HDG fails 10–15 yr in aggressive environments", frpBetter: true },
+  { property: "Corrosion Resistance", frp: "Resists acids, alkalis, chlorides and saltwater (resin-dependent)", steel: "Coating-dependent; HDG fails 10–15 yr in aggressive environments", frpBetter: true },
   { property: "Electrical Conductivity", frp: "Non-conductive (insulator)", steel: "Fully conductive (fault current path)", frpBetter: true },
   { property: "Slip Resistance (wet)", unit: "PTV", frp: "≥ 55 (grit top)", steel: "25 – 40 (serrated)", frpBetter: true },
   { property: "Fire Rating", frp: "Class 1 flame spread (FR resin)", steel: "Non-combustible" },
   { property: "Installation Tools", frp: "Standard hand tools, no hot work permit", steel: "Cutting torch, welding, grinding", frpBetter: true },
-  { property: "Lifecycle (coastal / industrial)", unit: "years", frp: "40 – 50", steel: "10 – 15 (before recoating)", frpBetter: true },
+  { property: "Recoating (coastal / industrial)", frp: "None; life depends on resin and UV exposure", steel: "Typically every 10 – 15 years", frpBetter: true },
   { property: "Repaint / Re-galvanize Cost", frp: "None", steel: "$15 – $30 per m² every 10 yr", frpBetter: true },
-  { property: "Spark Risk", frp: "Non-sparking (safe in ATEX zones)", steel: "Sparks on impact", frpBetter: true },
+  { property: "Spark Risk", frp: "No impact sparks; assess static risk in ATEX zones", steel: "Sparks on impact", frpBetter: true },
   { property: "Magnetic Interference", frp: "Non-magnetic", steel: "Ferromagnetic", frpBetter: true },
   { property: "Thermal Conductivity", unit: "W/m·K", frp: "0.3 – 0.5", steel: "50", frpBetter: true },
 ];
@@ -57,12 +57,12 @@ const faqs = [
   {
     question: "Why do industrial facilities specify FRP over hot-dip galvanized steel?",
     answer:
-      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs $15–$30 per m² and disrupts operations. FRP is immune to the electrochemical corrosion that attacks steel, so there is no coating to fail and no recoating cycle. In water treatment, pulp and paper, chemical process, and coastal offshore applications, FRP lifecycle cost is typically 40–60% lower than galvanized steel over 30 years.",
+      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs $15–$30 per m² and disrupts operations. FRP is immune to the electrochemical corrosion that attacks steel, so there is no coating to fail and no recoating cycle. In water treatment, pulp and paper, chemical process and coastal offshore applications, FRP often costs less than galvanized steel over the life of the walkway once recoating and downtime are counted.",
   },
   {
     question: "Are FRP gratings safe around electrical equipment?",
     answer:
-      "FRP gratings are electrical insulators. This is a safety advantage that steel gratings cannot offer. In substations, near transformers, or on electrified rail platforms, a metallic grating creates touch potential and step potential hazards during fault events. FRP eliminates both. Fault current cannot propagate through FRP, which also simplifies grounding requirements per NEC Article 392 and reduces arc-flash risk during cable insulation failures.",
+      "FRP gratings are electrical insulators. This is a safety advantage that steel gratings cannot offer. In substations, near transformers, or on electrified rail platforms, a metallic grating creates touch potential and step potential hazards during fault events. An FRP grating does not carry fault current, so it does not create these hazards itself. Metal supports, clips and fixings still need bonding as the grounding design requires.",
   },
   {
     question: "How does slip resistance compare in wet conditions?",
@@ -72,7 +72,7 @@ const faqs = [
   {
     question: "Is FRP cost-competitive with steel on initial installed cost?",
     answer:
-      "Per square meter of grating material, hot-dip galvanized steel is typically 30–50% less expensive than pultruded FRP. However, installed cost (including supporting structure, lifting equipment, hot-work permits, and labor) is often comparable because FRP weighs 60% less. A two-person crew can install FRP gratings with hand tools where steel requires a crane, welding rig, and permit. Total installed cost for chemical plant walkways typically runs within 5–15% of each other; over 30 years FRP wins on total cost of ownership by 40–60%.",
+      "Per square meter of grating material, hot-dip galvanized steel is typically 30–50% less expensive than pultruded FRP. However, installed cost (including supporting structure, lifting equipment, hot-work permits, and labor) is often comparable because FRP weighs 60% less. A two-person crew can install FRP gratings with hand tools where steel requires a crane, welding rig, and permit. Installed costs for chemical plant walkways are often close. Over the service life, FRP often costs less in corrosive areas once recoating and downtime are counted.",
   },
   {
     question: "What grating types does F1 Composite manufacture?",
@@ -105,9 +105,10 @@ export default function FrpVsSteelGratingsPage() {
     <>
       <JsonLd data={webPageSchema} />
       <PageHeader
+        updated={updatedAt}
         tag="Material Comparison"
         title="FRP Grating vs Steel Grating"
-        description="Load capacity, corrosion resistance, weight, slip resistance, electrical safety, and lifecycle cost compared. Why fiberglass gratings have replaced galvanized steel across water treatment, chemical processing, offshore, and electrical infrastructure."
+        description="FRP grating weighs about half as much as galvanized steel bar grating (14–22 kg/m² for 38 mm molded FRP against 34–48 kg/m² for 25 mm steel bar), does not rust and does not conduct electricity. Galvanized steel costs less per square meter and carries higher concentrated wheel loads (90–180 kN against 45–90 kN for pultruded FRP). FRP pays off where corrosion, wet footing or electrical safety drive the choice; steel remains the usual choice for dry areas with heavy vehicles."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -119,7 +120,7 @@ export default function FrpVsSteelGratingsPage() {
         <div className="mx-auto max-w-[1280px] px-[34px]">
           <SectionTag>The Short Answer</SectionTag>
           <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
-            For corrosive, electrical, or wet environments, FRP gratings outlast steel by 3–5× at comparable installed cost
+            In corrosive, electrical or wet areas, FRP gratings avoid the recoating cycle that limits galvanized steel
           </h2>
           <p className="mt-[21px] text-f15 leading-golden text-t2">
             Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.

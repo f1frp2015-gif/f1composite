@@ -15,7 +15,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-07-07";
-const updatedAt = "2026-07-16";
+const updatedAt = "2026-09-23";
 const referencedStandards = ["EN 14351-1", "EN ISO 10077-1", "EN ISO 10077-2", "PHI Component Criteria (2491wi03)"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -148,6 +148,7 @@ export default function PolyurethanePultrusionWindowsPage() {
     <>
       <JsonLd data={articleSchema} />
       <PageHeader
+        updated={updatedAt}
         tag="Material Technology"
         title="Polyurethane Pultrusion Windows (GFRP-PU)"
         description="Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers."

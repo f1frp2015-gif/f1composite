@@ -19,7 +19,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-15";
-const updatedAt = "2026-07-08";
+const updatedAt = "2026-09-25";
 const referencedStandards = ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -317,9 +317,10 @@ export default function PultrusionProcessPage() {
       <JsonLd data={articleSchema} />
       <JsonLd data={howToSchema} />
       <PageHeader
+        updated={updatedAt}
         tag="Pultrusion Process"
         title="The Fiberglass Pultrusion Process, Step by Step"
-        description="Continuous, automated, precision-controlled: fiberglass pultrusion converts raw rovings and resin into structural FRP profiles with consistent, repeatable mechanical properties."
+        description="Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Fiber makes up 60–70% of the profile by volume, which gives pultruded sections high strength along their length."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },

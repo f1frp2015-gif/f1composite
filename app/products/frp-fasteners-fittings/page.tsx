@@ -13,6 +13,9 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { fastenerInquiryHref } from "@/lib/fastenerInquiry";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
+// Last content review; shown in the page header and used as dateModified.
+const updatedAt = "2026-09-21";
+
 const target = getSeoQueryTarget(fastenersPath);
 const imageBase = "/images/products/frp-fasteners-fittings/";
 const container = "mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]";
@@ -41,10 +44,11 @@ export default function FastenersFittingsPage() {
         category: "Fiberglass threaded rods, nuts, washers and molded fittings",
         schemaType: "CollectionPage",
         datePublished: "2026-09-21",
-        dateModified: "2026-09-21",
+        dateModified: updatedAt,
         material: ["Glass-reinforced polymer", "Vinyl ester", "Epoxy", "Polyester"],
       })} />
       <PageHeader
+        updated={updatedAt}
         tag="Fasteners & Fittings · F1 Composite"
         title="FRP Fasteners and Fittings"
         description="Specify the connection as a complete set: fiberglass threaded rods, matching nuts, washers and molded fittings for industrial FRP assemblies. Compare the catalog range and send your joint requirements for a project quotation."
