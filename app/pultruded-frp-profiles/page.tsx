@@ -883,6 +883,8 @@ export default function PultrudedFRPProfilesHubPage() {
             <LinkArrow href="/products/fiberglass-sheets">Fiberglass sheets — solid flat stock</LinkArrow>
             <LinkArrow href="/products/fiberglass-plates">Fiberglass plate profiles — 19 catalog references</LinkArrow>
             <LinkArrow href="/resources/how-to-choose-frp-pultrusion-supplier">How to choose an FRP supplier</LinkArrow>
+            <LinkArrow href="/technology/china-alternative-to-strongwell-fiberline-exel">China alternative to Strongwell / Exel</LinkArrow>
+            <LinkArrow href="/resources/blog/fiberglass-reinforced-plastic">What fiberglass reinforced plastic is</LinkArrow>
             <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
             <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel / aluminum / timber</LinkArrow>
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>

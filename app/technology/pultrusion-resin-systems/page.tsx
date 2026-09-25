@@ -376,6 +376,7 @@ export default function PultrusionResinSystemsPage() {
               { href: "/products/molded-frp-grating", label: "Molded grating (vinyl ester duty)" },
               { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
               { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
+              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets and flat stock" },
               { href: "/products/frp-window-frames", label: "Fenestration systems (PU / polyester)" },
             ],
           },

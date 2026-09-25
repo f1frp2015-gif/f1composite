@@ -227,6 +227,7 @@ export default function UkRegionPage() {
 
           <div className="mt-[34px] flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors (65–140)</LinkArrow>
+            <LinkArrow href="/products/window-door-profiles">GRP window profiles for fabricators</LinkArrow>
             <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
             <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
             <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>

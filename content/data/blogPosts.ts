@@ -643,6 +643,7 @@ If the project needs a catalog shape, compare the dimensions and section propert
       "Compare FRP material fibers, resins and properties. Learn how engineers select a laminate by load, corrosion, fire, temperature and manufacturing method.",
     ogChips: ["FRP material", "Properties", "Selection"],
     relatedLinks: [
+      { label: "What is FRP? Complete guide", href: "/what-is-frp" },
       { label: "Pultruded FRP profiles — choose a product family", href: "/pultruded-frp-profiles" },
       { label: "FRP technical data and test methods", href: "/resources/technical-data" },
       { label: "FRP profile calculator", href: "/frp-profile-calculator" },
@@ -905,6 +906,7 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
       "A 9-point checklist for qualifying Chinese fiberglass window profile suppliers: audits, ASTM D3917 tolerances, mill certificates, first articles, staged orders.",
     ogChips: ["Procurement", "Qualification", "Window profiles"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "FRP Window Profile Market Analysis", href: "/resources/blog/frp-window-profile-market-suppliers-demand" },
       { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
@@ -958,7 +960,7 @@ Finally, the commerce has to work as smoothly as the product: correct HS classif
 
 ## The meta-signal
 
-There is a tenth check hiding inside the nine: **how the supplier reacts to the checklist itself**. A manufacturer with a controlled process treats these requests as routine paperwork. Evasion on any point (the audit, the D3917 class, the paid first article, the run-separated reports) is data. In our experience the checklist does not just qualify suppliers; it sorts them faster than any factory tour.`,
+There is a tenth check hiding inside the nine: **how the supplier reacts to the checklist itself**. A manufacturer with a controlled process treats these requests as routine paperwork. Evasion on any point (the audit, the D3917 class, the paid first article, the run-separated reports) is data. In our experience the checklist does not just qualify suppliers; it sorts them faster than any factory tour. Apply it to us as well: our [fiberglass window and door profiles](/products/window-door-profiles) page sets out the sections, cut lengths, machining and documents to specify.`,
   },
 
   {
@@ -996,6 +998,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
       "The eight cost drivers behind fiberglass window profile pricing: resin system, glass content, section complexity, tooling, finish, certification, logistics.",
     ogChips: ["Pricing", "Procurement", "Window profiles"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
       { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
@@ -1040,7 +1043,7 @@ An EXW-factory price and a DDP-jobsite price are different products. Between the
 
 Published catalog pricing for F1's fenestration profile range spans roughly **€8–110 per linear meter**: a deliberately wide band, because the eight drivers above interact. A 65-series polyester frame profile in mill finish and a 90-series GFRP-PU sash profile in dark AAMA 2605 powder coat are both "fiberglass window profiles," and they sit at opposite ends of that band on merit.
 
-The practical takeaway for buyers: **make quotes decomposable.** Ask every supplier to state resin system, glass content, D3917 tolerance class, finish specification, tooling treatment, and incoterm on the quote itself. The 40% spread will collapse into an explainable comparison, and the suppliers who resist decomposing their number have answered a different question for you.`,
+The practical takeaway for buyers: **make quotes decomposable.** Ask every supplier to state resin system, glass content, D3917 tolerance class, finish specification, tooling treatment, and incoterm on the quote itself. The 40% spread will collapse into an explainable comparison, and the suppliers who resist decomposing their number have answered a different question for you. Our [fiberglass window and door profiles](/products/window-door-profiles) page lists what to specify for a quote of that kind: sections, cut lengths, machining and documents.`,
   },
 
   {
@@ -1078,6 +1081,7 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
       "What actually changes on a window fabrication line when you switch from uPVC or aluminum to fiberglass lineals: cutting, corner joining, hardware, glazing.",
     ogChips: ["Fabrication", "Window lineals", "Process"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "Supplier Qualification Checklist", href: "/resources/blog/qualify-chinese-fiberglass-window-profile-supplier" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
@@ -1122,7 +1126,7 @@ Fiberglass lineals arrive either mill-finish for post-fabrication painting or **
 
 No fabricator switches a line overnight, and none should. The pattern we see succeed: run a **paid first article** through your own stations (cutting, corners, hardware, glazing) as the qualification step; keep uPVC and fiberglass in mixed production on the same saws and glazing line while crews build corner-joint experience; and reserve the fiberglass line for the orders that justify it (passive-house tenders, large sashes, dark colors, coastal exposure) where the lineal's performance premium is priced in.
 
-The honest summary: one station genuinely changes (corners), one improves (hardware), one needs investment (dust extraction), and the rest is blade specs and settling time. The line you own is closer to fiberglass-ready than the brochures, ours included, tend to admit.`,
+The honest summary: one station genuinely changes (corners), one improves (hardware), one needs investment (dust extraction), and the rest is blade specs and settling time. The line you own is closer to fiberglass-ready than the brochures, ours included, tend to admit. To plan a paid first article, start from the sections on our [fiberglass window and door profiles](/products/window-door-profiles) page.`,
   },
 
   {
@@ -1243,6 +1247,7 @@ To check where a specific frame and glazing build lands before specifying, run i
       "Who supplies pultruded FRP window profiles, what is pulling demand, and how to qualify a supplier: an industry analysis without invented market-size numbers.",
     ogChips: ["Window profiles", "Market analysis", "Suppliers"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "Fenestration Systems — Nine-Series Range", href: "/products/frp-window-frames" },
       { label: "China Alternative to Tencom & Creative Pultrusions", href: "/technology/china-alternative-to-tencom-creative-pultrusions-windows" },
       { label: "Polyurethane Pultrusion Windows (GFRP-PU)", href: "/technology/polyurethane-pultrusion-windows" },
@@ -1316,7 +1321,7 @@ If you are entering this market as a buyer, the verification list follows direct
 3. **Resin system by name.** Polyester, vinyl ester, or polyurethane: specified per profile, not per brochure.
 4. **A staged qualification path.** First-article run, third-party inspection (SGS/BV) if importing, then production volumes. Any supplier confident in run-to-run repeatability will agree to this structure readily.
 
-The FRP window profile market rewards exactly one kind of participant on each side: suppliers who carry verifiable evidence, and buyers who ask for it.`,
+The FRP window profile market rewards exactly one kind of participant on each side: suppliers who carry verifiable evidence, and buyers who ask for it. Fabricators can compare series, sections and documents on our [fiberglass window and door profiles](/products/window-door-profiles) page.`,
     },
 
   {
@@ -1748,6 +1753,7 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
       "Compare density, corrosion resistance, thermal conductivity, lifecycle cost, and where FRP outperforms steel in real structural applications.",
     ogChips: ["Material comparison", "Lifecycle cost", "Engineering data"],
     relatedLinks: [
+      { label: "Fiberglass Pultruded Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
       { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
       { label: "Infrastructure", href: "/industries/infrastructure" },
@@ -3239,6 +3245,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
       "How powder-coated FRP window profiles achieve aluminum-grade metallic finishes with U_w as low as 0.78 W/m²K. AAMA 2604/2605 process and spec guide.",
     ogChips: ["Fenestration", "Surface finishing", "FRP vs aluminum"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "Fenestration Systems", href: "/products/frp-window-frames" },
       { label: "FRP vs Aluminum Windows (full comparison)", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
@@ -3350,7 +3357,7 @@ When specifying powder-coated FRP window profiles for a project, consider the fo
 
 The aesthetic argument for aluminum window frames is no longer valid. Powder-coated pultruded FRP window profiles deliver identical visual results, verified by the same international coating standards, on a substrate that is thermally, structurally, and dimensionally superior. For passive house projects, near-zero-energy buildings, and any application where frame U-value matters, specifying FRP fenestration with architectural-grade powder coating gives architects and building owners everything aluminum offers visually, with everything aluminum cannot offer thermally.
 
-At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are available with factory-applied low-temperature powder coating (for high-Tg resin systems) or high-performance liquid coating (for polyurethane-matrix profiles) in any RAL color. Both coating routes are certified to Qualicoat Class 2 and AAMA 2604 standards. Contact our fenestration team to request color samples and specification documents for your project.`,
+At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are available with factory-applied low-temperature powder coating (for high-Tg resin systems) or high-performance liquid coating (for polyurethane-matrix profiles) in any RAL color. Both coating routes are certified to Qualicoat Class 2 and AAMA 2604 standards. Contact our fenestration team through the [fiberglass window and door profiles](/products/window-door-profiles) page to request color samples and specification documents for your project.`,
   },
   {
     slug: "frp-lift-sliding-door-as2047-engineering",
@@ -3581,6 +3588,7 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
       "Transverse-reinforced FRP window profiles eliminate fiber telegraph and deliver powder-coat finishes indistinguishable from architectural aluminum.",
     ogChips: ["Material innovation", "Surface finish", "Architectural fenestration"],
     relatedLinks: [
+      { label: "Fiberglass Window & Door Profiles for Fabricators", href: "/products/window-door-profiles" },
       { label: "Powder Coating for FRP Window Profiles", href: "/resources/blog/frp-window-profiles-powder-coating-aluminum-finish" },
       { label: "FRP vs Aluminum Windows", href: "/technology/frp-vs-aluminum-windows" },
       { label: "Fenestration Systems", href: "/products/frp-window-frames" },
@@ -3695,7 +3703,7 @@ For thirty years, pultruded fenestration treated cross-direction strength and su
 
 That repositioning is what F1 Composite calls transverse-reinforced architecture. It is not a coating innovation. It is a substrate architecture innovation that lets the coating do its job. The result is a pultruded GFRP fenestration profile that hits the structural targets (EN 13706, AS 2047, AAMA/WDMA classifications), hits the thermal targets (whole-window U_w 1.4–1.6 W/m²·K with the right glazing), and now hits the architectural finish targets (AAMA 2604/2605, Qualicoat Class 1/2, full RAL palette, dual-tone capable).
 
-For specifiers seeking a fiberglass option that does not require an aesthetic compromise, that option is now available. F1 Composite supplies its 65, 70, 80, and 90 Series fenestration profiles with transversely reinforced architecture and factory-applied powder coatings that meet AAMA 2604, AAMA 2605, or Qualicoat Class 1 or Class 2 standards. Finish samples are available in any RAL or NCS color; project-specific matching to existing curtain-wall finishes is available on request.`,
+For specifiers seeking a fiberglass option that does not require an aesthetic compromise, that option is now available. F1 Composite supplies its [65, 70, 80, and 90 Series fenestration profiles](/products/window-door-profiles) with transversely reinforced architecture and factory-applied powder coatings that meet AAMA 2604, AAMA 2605, or Qualicoat Class 1 or Class 2 standards. Finish samples are available in any RAL or NCS color; project-specific matching to existing curtain-wall finishes is available on request.`,
   },
   {
     slug: "how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide",
@@ -3728,6 +3736,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
       "US buyer's guide: sourcing pultruded FRP from China in 2026. RFQ checklist, Section 301 transparency, EN 13706/ASTM verification, DDP USA, lead times.",
     ogChips: ["Section 301 transparent", "DDP USA", "US Buyer's Guide"],
     relatedLinks: [
+      { label: "Fiberglass Pultruded Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
       { label: "Custom Pultrusion Services", href: "/products/custom-pultruded-profiles" },
       { label: "AI Sourcing Assistant", href: "/ai/sourcing" },
@@ -3847,7 +3856,7 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 Sourcing pultruded FRP profiles directly from a qualified Chinese manufacturer is, in 2026, a standard procurement pattern across construction, infrastructure, energy, and marine projects worldwide. The savings versus regional distributors are real and the quality gap is largely closed at the top tier of Chinese factories. The buyer-side process is not standardized, and that is where most of the avoidable risk sits.
 
-If you need a starting point for your RFQ, send it through [our contact form](/contact); F1 Composite replies within one business day. For application-driven sourcing, the [AI Sourcing Assistant](/ai/sourcing) turns a free-form project description into a specification recommendation, certification guidance, and a clear path to a quote.`,
+Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-pultruded-profile-price) gives a planning price per meter for a standard section. If you need a starting point for your RFQ, send it through [our contact form](/contact); F1 Composite replies within one business day. For application-driven sourcing, the [AI Sourcing Assistant](/ai/sourcing) turns a free-form project description into a specification recommendation, certification guidance, and a clear path to a quote.`,
   },
   {
     slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
@@ -3880,6 +3889,7 @@ If you need a starting point for your RFQ, send it through [our contact form](/c
       "2026 FRP price benchmarks: F1 China vs Strongwell, CPI, Bedford. DDP USA landed cost with Section 301, MOQ, tooling, freight: direct comparison.",
     ogChips: ["DDP USA landed cost", "vs Strongwell/CPI", "2026 benchmark"],
     relatedLinks: [
+      { label: "Fiberglass Pultruded Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "Buyer's Guide: Sourcing FRP from China", href: "/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide" },
       { label: "Custom Pultrusion Services", href: "/products/custom-pultruded-profiles" },
       { label: "All Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
@@ -4007,7 +4017,7 @@ The same project sourced from a UK distributor at $42–48/m delivered would cos
 
 These benchmarks shift quarter-to-quarter on three drivers: glass fiber raw material cost (currently stable), resin cost (polyester/vinyl ester moved -3% in Q1 2026 versus Q4 2025), and container freight (volatile; check the [Drewry World Container Index](https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry) for current spot rates).
 
-For a project-specific quote based on current pricing, contact F1 Composite through [the contact form](/contact); we reply within one business day. You can also describe the application in the [AI Sourcing Assistant](/ai/sourcing) to receive a specification recommendation and a clear path to pricing in one response.`,
+For a planning figure on a specific section, use the [fiberglass pultruded profile price estimator](/fiberglass-pultruded-profile-price), which works in USD per meter and per kilogram. For a project-specific quote based on current pricing, contact F1 Composite through [the contact form](/contact); we reply within one business day. You can also describe the application in the [AI Sourcing Assistant](/ai/sourcing) to receive a specification recommendation and a clear path to pricing in one response.`,
   },
   {
     slug: "gfrp-pultruded-spar-cap-fatigue-wind-blade",

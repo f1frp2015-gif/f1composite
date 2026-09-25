@@ -16,13 +16,15 @@ export default function ProductNextSteps({ path }: { path: string }) {
   if (path === "/products/frp-gratings") return <GratingBuyingGuide family="pultruded" />;
   const journey = /window-frames/.test(path) ? journeys.windows : /wind-turbine/.test(path) ? journeys.wind : /custom-pultruded/.test(path) ? journeys.custom : /structural-shapes|grating|stair-treads|handrail|ladder|deck-panels/.test(path) ? journeys.structural : journeys.specialty;
   const document = engineeringEvidence.find((entry) => entry.id === journey.evidence);
+  // Sections the price estimator covers (it has no rod or flat-bar type).
+  const priceEstimator = /\/fiberglass-structural-shapes(?:\/frp-(?:i-beam|channel|angle|square-tube|tube))?$/.test(path);
   return (
     <section className="border-y border-border-default bg-bg2 py-[36px]" aria-label="Specification and quotation next steps">
       <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
         <h2 className="text-f24 font-bold text-t1">From selection to a project quotation</h2>
         <p className="mt-[8px] max-w-[850px] text-f13 text-t2">{commercialFacts.availability}</p>
         <div className="mt-[22px] grid gap-[24px] md:grid-cols-3">
-          <div><h3 className="font-bold text-t1">1. Check the application</h3><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={journey.application}>{journey.applicationLabel}</Link><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={journey.tool}>{journey.toolLabel}</Link></div>
+          <div><h3 className="font-bold text-t1">1. Check the application</h3><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={journey.application}>{journey.applicationLabel}</Link><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={journey.tool}>{journey.toolLabel}</Link>{priceEstimator && <Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href="/fiberglass-pultruded-profile-price">Estimate a fiberglass pultruded profile price</Link>}</div>
           <div><h3 className="font-bold text-t1">2. Review supporting evidence</h3><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={document ? `/resources/evidence#${document.id}` : "/resources/evidence"}>{document ? `${document.title} and scope` : "Find applicable product evidence"}</Link><Link className="mt-[8px] block text-f13 text-teal-text underline underline-offset-4" href={journey.project}>{journey.projectLabel}</Link><p className="mt-[8px] text-f11 text-t3">Confirm that the document and project match your proposed product.</p></div>
           <div><h3 className="font-bold text-t1">3. Send the specification</h3><p className="mt-[8px] text-f13 text-t2">Include the drawing, resin or environment, loads, quantity and destination.</p><Link className="mt-[12px] inline-flex min-h-[44px] items-center rounded-[6px] bg-teal-text px-[16px] text-f13 font-bold text-white" href={buildRfqHref({ source: "product-next-steps", product: journey.title, productPath: path })}>Request a specification review</Link></div>
         </div>

@@ -369,8 +369,6 @@ export const seoQueryTargets = [
       "/products/fiberglass-structural-shapes/frp-rod",
       "/products/custom-pultruded-profiles",
       "/products/frp-rebar",
-      "/technology/pultrusion-process",
-      "/technology/quality-testing",
     ],
   },
   {

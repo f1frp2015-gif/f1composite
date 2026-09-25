@@ -274,6 +274,7 @@ f1composite.com
 - **证书**：ISO 9001、CE、ASTM E84、BS 476、运营商认可等一律写"按需提供"（附持证方、编号、范围）；PHI 2491wi03 是 PHI 证书，不是 PHIUS。
 - **寿命与维护**：不写"50+/75+/100 年设计寿命""免维护"之类的通用承诺；有产品目录依据的具体数值（如管材系列）可以写。
 - **文案检查**：`npm run check:copy`（CI 中运行）会拦截已撤回的说法，并提示破折号密度和"不是 X——而是 Y"句式。
+- **内链归属**：`content/data/seoQueryTargets.ts` 为每个核心搜索词指定一个主页面，列在 `supportingUrls` 里的辅助页必须在正文里链回主页面。`npm run check:owner-links`（CI 在构建后运行）检查这一点；新增辅助页或改动相关链接时同步更新这个文件。
 - **Cookie**：Consent Mode v2，欧洲经济区/英国/瑞士默认拒绝；横幅按欧洲时区显示，页脚"Cookie settings"可随时修改。隐私政策在 `/privacy`。
 - **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
 - **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。

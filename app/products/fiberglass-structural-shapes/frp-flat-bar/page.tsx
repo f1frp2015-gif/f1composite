@@ -180,6 +180,7 @@ export default async function FlatBarPage() {
               { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angle profiles" },
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP round rod" },
+              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets for wider flat stock" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
             ],

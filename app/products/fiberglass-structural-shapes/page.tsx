@@ -286,6 +286,7 @@ export default function StandardProfilesPage() {
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
               { href: "/frp-span-tables", label: "FRP span tables — allowable loads by profile" },
               { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
+              { href: "/fiberglass-pultruded-profile-price", label: "Fiberglass pultruded profile price estimator" },
               { href: "/resources/technical-data", label: "Material properties & data sheets" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },

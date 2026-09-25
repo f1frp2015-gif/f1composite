@@ -249,6 +249,7 @@ export default function FrpDeckPanelsPage() {
               { href: "/products/molded-frp-grating", label: "Molded FRP grating — square & mini mesh" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam deck supports" },
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
+              { href: "/products/fiberglass-plates", label: "Pultruded FRP plate profiles" },
             ],
           },
           {

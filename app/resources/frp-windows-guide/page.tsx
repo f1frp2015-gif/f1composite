@@ -92,7 +92,7 @@ const stages: Stage[] = [
       "frp-window-finish-transverse-reinforcement",
     ],
     links: [
-      { href: "/products/window-door-profiles", label: "System profiles — series selection and BOM" },
+      { href: "/products/window-door-profiles", label: "Fiberglass window and door profiles: series selection and BOM" },
       { href: "/products/fiberglass-windows-doors", label: "Finished units — configuration and window schedule" },
       { href: "/products/frp-window-frames", label: "F1 fenestration systems (65–90 series)" },
       { href: "/products/frp-window-reinforcement", label: "Window reinforcement profiles" },

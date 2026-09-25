@@ -455,6 +455,7 @@ export default function FiberglassSnowMarkersPage() {
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "Pultruded fiberglass round rod" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Pultruded fiberglass round tube" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+              { href: "/products/fiberglass-stakes", label: "Fiberglass plant and tree stakes" },
               { href: "/products/frp-rebar", label: "FRP rebar" },
               { href: "/pultruded-frp-profiles", label: "All FRP products" },
             ],

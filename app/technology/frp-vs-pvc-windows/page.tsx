@@ -243,6 +243,7 @@ export default function FrpVsPvcWindowsPage() {
             title: "FRP fenestration products",
             links: [
               { href: "/products/frp-window-frames", label: "Fiberglass window frames (65/70/80/90/140)" },
+              { href: "/products/window-door-profiles", label: "Window & door profiles for fabricators" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
               { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
               { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
