@@ -18,10 +18,10 @@ function MagnifierIcon({ className }: { className: string }) {
 
 /**
  * Opens the site search palette. "header" is the desktop field in the
- * navigation bar, "icon" the phone header button and "field" the search box
- * at the top of the phone menu.
+ * navigation bar, "icon" the phone header button, "field" the search box
+ * at the top of the phone menu and "hero" the large box on the home page.
  */
-export default function SearchButton({ variant, onOpen }: { variant: "header" | "icon" | "field"; onOpen?: () => void }) {
+export default function SearchButton({ variant, onOpen }: { variant: "header" | "icon" | "field" | "hero"; onOpen?: () => void }) {
   const apple = useSyncExternalStore(subscribe, appleKeyboard, () => false);
   const open = () => {
     onOpen?.();
@@ -32,6 +32,21 @@ export default function SearchButton({ variant, onOpen }: { variant: "header" | 
     return (
       <button type="button" onClick={open} aria-label="Search the site" className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-control text-t1 hover:bg-bg2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal">
         <MagnifierIcon className="h-[22px] w-[22px]" />
+      </button>
+    );
+  }
+
+  if (variant === "hero") {
+    return (
+      <button
+        type="button"
+        onClick={open}
+        aria-keyshortcuts={apple ? "Meta+K" : "Control+K"}
+        className="flex min-h-[52px] w-full items-center gap-[12px] rounded-control bg-white px-[16px] text-left text-f16 text-t3 shadow-pop transition-shadow hover:ring-2 hover:ring-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+      >
+        <MagnifierIcon className="h-[20px] w-[20px] shrink-0 text-t1" />
+        <span className="min-w-0 flex-1 truncate">Search sizes, products and documents</span>
+        <kbd className="hidden rounded-tag border border-border-default bg-bg2 px-[6px] font-mono text-f12 text-t3 sm:inline">{apple ? "⌘K" : "Ctrl K"}</kbd>
       </button>
     );
   }

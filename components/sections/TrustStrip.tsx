@@ -21,7 +21,7 @@ export default function TrustStrip() {
             <p className="text-[clamp(22px,2vw,28px)] font-extrabold leading-none tracking-[-0.02em] text-t1">
               {signal.value}
             </p>
-            <p className="mt-[6px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">
+            <p className="mt-[6px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
               {signal.label}
             </p>
           </div>

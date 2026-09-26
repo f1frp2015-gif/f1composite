@@ -1,42 +1,45 @@
 import Link from "next/link";
-import SectionTag from "@/components/ui/SectionTag";
+import ProductSection from "@/components/products/ProductSection";
+import { industries } from "@/content/data/industries";
 import { applicationGroups } from "@/content/data/productTaxonomy";
 
+/** The industry pages, then the application guides as a row of links. */
 export default function ApplicationsSnapshot() {
   return (
-    <section className="bg-bg2 py-[54px] md:py-[68px]">
-      <div className="site-container">
-        <SectionTag>Applications</SectionTag>
-        <h2 className="mt-[12px] text-[clamp(28px,3vw,40px)] font-bold text-t1">
-          FRP profiles in use
-        </h2>
-        <p className="mt-[12px] max-w-[760px] text-f16 leading-relaxed text-t2">
-          Find the profiles and grating used in your project. Each application
-          explains the components, service conditions and information needed for
-          selection.
-        </p>
-        <div className="mt-[26px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-3">
-          {applicationGroups.slice(0, 6).map((group) => (
-            <Link
-              key={group.href}
-              href={group.href}
-              className="rounded-card border border-border-default bg-white p-[22px] hover:border-teal"
-            >
-              <h3 className="text-f18 font-bold text-t1">{group.label}</h3>
-              <p className="mt-[8px] text-f14 leading-relaxed text-t2">
-                {group.description}
-              </p>
-              <span className="mt-[16px] block text-f14 font-bold text-teal-text">
-                Explore application →
-              </span>
+    <ProductSection
+      id="industries"
+      title="FRP by industry"
+      intro="Each industry page sets out where FRP is used, what to check in each area, the products and projects, and what to send for a quotation."
+      aside={
+        <Link href="/industries" className="font-bold text-teal-text">
+          All industries →
+        </Link>
+      }
+      tone="muted"
+    >
+      <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+        {industries.map((industry) => (
+          <li key={industry.href}>
+            <Link href={industry.href} className="group flex h-full flex-col rounded-card border border-border-default bg-white p-[18px] transition-colors hover:border-teal-border">
+              <span className="text-f16 font-bold text-t1 group-hover:text-teal-text">{industry.title}</span>
+              <span className="mt-[6px] text-f14 leading-relaxed text-t2">{industry.description}</span>
             </Link>
-          ))}
-        </div>
-        <div className="mt-[22px] flex flex-wrap gap-[24px] text-f14 font-bold text-teal-text">
-          <Link href="/applications">View all applications →</Link>
-          <Link href="/industries">Browse by industry →</Link>
-        </div>
-      </div>
-    </section>
+          </li>
+        ))}
+        <li>
+          <Link href="/applications" className="flex h-full flex-col justify-center rounded-card border border-teal-border bg-teal-bg p-[18px] text-f16 font-bold text-teal-text transition-colors hover:bg-teal-bg2">
+            All applications →
+          </Link>
+        </li>
+      </ul>
+      <p className="mt-[20px] flex flex-wrap items-baseline gap-x-[20px] gap-y-[8px] text-f14">
+        <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Applications</span>
+        {applicationGroups.map((group) => (
+          <Link key={group.href} href={group.href} className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            {group.label}
+          </Link>
+        ))}
+      </p>
+    </ProductSection>
   );
 }

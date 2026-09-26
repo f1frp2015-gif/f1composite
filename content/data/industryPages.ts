@@ -10,7 +10,7 @@
 
 import type { GlyphShape } from "@/components/ui/SectionGlyph";
 import type { ApplicationCard } from "@/components/products/ApplicationCards";
-import { factoryStaircase } from "@/lib/familyApplications";
+import { beamBridgeGuide, chongqingRooftopPv, factoryStaircase } from "@/lib/familyApplications";
 import { getApplicationPage } from "@/lib/applicationPages";
 
 export interface IndustryArea {
@@ -85,14 +85,7 @@ export const industryPages = {
       { label: "Fasteners and fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", reason: "Fiberglass threaded rods, nuts and fittings for non-metallic joints." },
     ],
     projects: [
-      {
-        href: "/case-studies/chongqing-rooftop-pv-frp-rail",
-        kind: "Case study",
-        title: "Chongqing rooftop PV retrofit",
-        text: "Pultruded GFRP H-rail on colour steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
-        image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
-        imageAlt: "Solar modules on FRP rails over a colour steel-tile factory roof in Chongqing",
-      },
+      chongqingRooftopPv,
       applicationCard("frp-solar-mounting-profiles"),
       applicationCard("frp-cable-tray-supports"),
     ],
@@ -199,15 +192,7 @@ export const industryPages = {
       { label: "GFRP rebar", href: "/products/frp-rebar", glyph: "rebar", reason: "Bars, bends and mesh for concrete in chloride exposure." },
     ],
     projects: [
-      {
-        href: "/case-studies/beam-bridge",
-        kind: "Design guide",
-        title: "Beam bridge design",
-        text: "Load paths, width, vibration and FRP detailing for pedestrian and cycle bridges, with three source-backed case studies.",
-        image: "/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg",
-        imageAlt: "Cross-section of a pedestrian bridge with longitudinal I-girders under the deck",
-        fit: "contain",
-      },
+      beamBridgeGuide,
       applicationCard("frp-pedestrian-bridge-superstructures"),
       applicationCard("frp-bridge-deck-panels"),
     ],

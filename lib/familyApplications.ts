@@ -34,6 +34,26 @@ export const factoryStaircase: Omit<ApplicationCard, "used"> = {
   imageAlt: "FRP I-beam stringers and pultruded profiles forming a staircase frame in F1 Composite's factory",
 };
 
+// Two more project cards, used on the home page and the industry pages.
+export const chongqingRooftopPv: ApplicationCard = {
+  href: "/case-studies/chongqing-rooftop-pv-frp-rail",
+  kind: "Case study",
+  title: "Chongqing rooftop PV retrofit",
+  text: "Pultruded GFRP H-rail on colour steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
+  image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+  imageAlt: "Solar modules on FRP rails over a colour steel-tile factory roof in Chongqing",
+};
+
+export const beamBridgeGuide: ApplicationCard = {
+  href: "/case-studies/beam-bridge",
+  kind: "Design guide",
+  title: "Beam bridge design",
+  text: "Load paths, width, vibration and FRP detailing for pedestrian and cycle bridges, with three source-backed case studies.",
+  image: "/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg",
+  imageAlt: "Cross-section of a pedestrian bridge with longitudinal I-girders under the deck",
+  fit: "contain",
+};
+
 export function familyApplications(category: ProfileCategory, limit = 3): ApplicationCard[] {
   const cards: ApplicationCard[] = [];
   const staircase = STAIRCASE_USE[category];
