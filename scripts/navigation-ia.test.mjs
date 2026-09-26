@@ -22,20 +22,26 @@ async function fileExists(filePath) {
   }
 }
 
-test("primary navigation distinguishes six product families from industry and use", async () => {
-  const { mainNav, pultrudedOverviewLink } = await loadTestData("content/data/navigation.ts");
+test("five menus: products by family, industries, tools, resources and company", async () => {
+  const { mainNav, pultrudedOverviewLink, productShortcuts } = await loadTestData("content/data/navigation.ts");
   assert.equal(pultrudedOverviewLink.href, "/pultruded-frp-profiles");
-  assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries & Applications", "Engineering", "Resources", "Company"]);
+  assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries", "Tools", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard Pultruded Profiles", "Custom Pultruded Profiles", "Windows & Doors", "FRP Grating", "FRP Rebar", "Fasteners & Fittings"]);
-  const productLinks = mainNav[0].sections.flatMap(section => section.links.map(link => link.href));
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Grating & stair treads", "Windows & doors", "GFRP rebar & mesh", "Fasteners & fittings", "Custom profiles"]);
+  const destinations = (sections) => sections.flatMap(section => [...(section.href ? [section.href] : []), ...section.links.map(link => link.href)]);
+  const productLinks = destinations(mainNav[0].sections);
   for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
   for (const route of ["/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
-  const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...item.sections.flatMap(section => section.links.map(link => link.href))])];
+  assert.ok(mainNav[0].sections[0].links.every(link => link.glyph), "every standard profile shows its section glyph");
+  const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...destinations(item.sections)])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  // Includes the dedicated door-frame profile entry in Windows & Doors.
   assert.ok(allLinks.length <= 76, "keep a bounded desktop and mobile menu");
-  assert.ok(mainNav[2].sections.find(section => section.label === "Engineering tools").links.some(link => link.href === "/frp-density-calculator"));
+  // The Products side panel repeats a few libraries as shortcuts; they must also have their own place.
+  for (const shortcut of [productShortcuts.finder, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
+  const tools = mainNav.find(item => item.id === "tools").sections.flatMap(section => section.links.map(link => link.href));
+  for (const route of ["/tools/profile-finder", "/frp-profile-calculator", "/frp-span-tables", "/frp-density-calculator"]) assert.ok(tools.includes(route));
+  const resources = destinations(mainNav.find(item => item.id === "resources").sections);
+  for (const route of ["/technology/pultrusion-process", "/resources/blog", "/resources/evidence"]) assert.ok(resources.includes(route), `${route} belongs in Resources`);
 });
 
 test("footer is a concise set of hubs instead of a second mega menu", async () => {
@@ -46,19 +52,20 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
   const footerNavigation = navigation.slice(navigation.indexOf("export const footerNav"));
   const hrefs = extractHrefs(footerNavigation);
 
-  for (const key of ["products", "applications", "resources", "company"]) {
+  for (const key of ["products", "industries", "tools", "resources", "company"]) {
     assert.match(footerNavigation, new RegExp(`  ${key}: \\[`));
   }
-  for (const title of ["Products", "Applications", "Resources", "Company"]) {
+  for (const title of ["Products", "Industries", "Tools", "Resources", "Company"]) {
     assert.match(footer, new RegExp(`title: "${title}"`));
   }
 
   assert.equal(new Set(hrefs).size, hrefs.length, "footer routes should be unique");
-  assert.ok(hrefs.length <= 21, `footer should stay at 21 navigation links or fewer, found ${hrefs.length}`);
+  assert.ok(hrefs.length <= 22, `footer should stay at 22 navigation links or fewer, found ${hrefs.length}`);
   for (const route of [
     "/products/product-lines",
     "/applications",
     "/industries",
+    "/tools",
     "/case-studies",
     "/resources",
     "/resources/technical-data",
@@ -78,7 +85,7 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
   assert.match(footer, /Customer login/);
   assert.match(footer, /prefetch=\{false\}/);
   assert.match(footer, /grid grid-cols-2/);
-  assert.match(footer, /lg:grid-cols-\[1\.4fr_repeat\(4,minmax\(0,1fr\)\)\]/);
+  assert.match(footer, /lg:grid-cols-\[1\.4fr_repeat\(5,minmax\(0,1fr\)\)\]/);
 });
 
 test("desktop and mobile navigation use controlled, route-aware disclosures", async () => {
@@ -104,6 +111,8 @@ test("desktop and mobile navigation use controlled, route-aware disclosures", as
   assert.doesNotMatch(navbar, /onFocus=\{\(\) => setDesktopOpen/);
   assert.doesNotMatch(navbar, /onMouseEnter|onMouseLeave/);
   assert.doesNotMatch(navbar, /invisible absolute|group-hover:visible|group-focus-within:visible/);
+  // Search opens from the desktop bar, the phone header and the top of the phone menu.
+  for (const variant of ["header", "icon", "field"]) assert.match(navbar, new RegExp(`<SearchButton variant="${variant}"`));
 });
 
 test("every navigation data route resolves to a real page or registered application", async () => {

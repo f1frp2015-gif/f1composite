@@ -50,6 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/industries/water-wastewater`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     // /products permanently redirects to /products/product-lines (see next.config.ts)
     { url: `${BASE}/products/fiberglass-structural-shapes`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/tools`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/tools/profile-finder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-i-beam`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-angle`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-channel`, changeFrequency: "monthly", priority: 0.7 },
