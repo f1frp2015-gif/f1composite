@@ -112,14 +112,14 @@ export const industryPages = {
     path: "/industries/industrial",
     name: "Industrial & chemical",
     updated: "2026-09-26",
-    h1: "FRP Composite Profiles for Industrial Applications",
+    h1: "FRP for Chemical & Industrial Facilities",
     intro:
       "Fiber-reinforced polymer (FRP) profiles for processing plants, water treatment facilities and manufacturing sites where steel corrodes: chemical-resistant resins, fire-retardant grades and low maintenance.",
     image: {
-      src: "/images/industries/frp-industrial-chemical-plant-facility.jpg",
-      alt: "Chemical processing plant with columns, tanks and pipe racks",
-      note: ILLUSTRATIVE,
-      caption: "Access routes, supports and cable routes in corrosive process areas are the usual starting points for FRP.",
+      src: "/images/industries/industrial-chemical-platform-concept.webp",
+      alt: "Concept chemical tank access platform with FRP grating, rails and structural supports",
+      note: "AI-generated concept; not an F1 installation",
+      caption: "Illustrative tank access platform. Final members and connections require project design.",
     },
     areasIntro: "Corrosion, wash-down and access needs differ across a plant. Resin compatibility is confirmed per chemical, and safety requirements apply to the complete assembly.",
     areas: [
@@ -150,7 +150,7 @@ export const industryPages = {
     documentPaths: ["/products/fiberglass-structural-shapes", "/pultruded-frp-profiles"],
     faqs: [
       { question: "Which chemicals can FRP profiles resist?", answer: "It depends on the resin. Vinyl ester is the usual choice for acids, alkalis, chlorine chemicals and wastewater; isophthalic polyester suits milder exposure. Send each chemical with its concentration and temperature, and whether it splashes or immerses, and resin compatibility is confirmed per chemical." },
-      { question: "What fire performance do FRP profiles achieve in industrial settings?", answer: "Fire-retardant resin systems, including halogen-free options, are available for industrial profiles. A pultruded composite profile has an SGS report for UL 94 V-0 self-extinguishing behaviour, published on the evidence page. ASTM E84 flame-spread, ASTM E662 smoke density, BS 6853 toxicity and ASTM E119 fire-resistance reports are provided on request for the formulation you specify." },
+      { question: "What fire performance do FRP profiles achieve in industrial settings?", answer: "Fire requirements depend on the installed component and plant area. State the governing tests and acceptance criteria, then request reports for the offered laminate and configuration. A resin label or small-sample rating alone does not establish assembly compliance." },
       { question: "Do FRP ladders and handrails meet OSHA requirements?", answer: "Compliance belongs to the complete assembly: rails, posts, fittings, anchors and the supporting structure. OSHA 1910.29 sets the requirements for guardrails and fixed ladders in general industry, and the design and installation are checked against it for the project." },
       { question: "Can FRP profiles carry the same loads as steel?", answer: "They can be sized for the same loads, usually as deeper sections, because the modulus is about a tenth of steel's. Compare sections with the span tables and the profile calculator, then confirm with the project calculations." },
     ],
@@ -219,14 +219,14 @@ export const industryPages = {
     path: "/industries/marine",
     name: "Marine & offshore",
     updated: "2026-09-26",
-    h1: "FRP Composite Profiles for Marine Applications",
+    h1: "FRP for Marine Docks, Walkways & Access Platforms",
     intro:
       "Pultruded FRP profiles and grating for docks, marinas, offshore platforms and coastal walkways. Glass FRP does not rust in seawater, so it avoids the recoating cycle of steel; vinyl ester is the usual resin for splash and immersion.",
     image: {
-      src: "/images/industries/frp-marine-harbor-dock-structure.jpg",
-      alt: "Timber pier with white handrails on a harbor",
-      note: ILLUSTRATIVE,
-      caption: "Docks, piers and walkways are where FRP grating, handrails and profiles replace steel and timber.",
+      src: "/images/industries/marine-marina-access-concept.webp",
+      alt: "Concept marina dock with fiberglass grating, mooring cleats and boats",
+      note: "AI-generated concept; not an F1 installation",
+      caption: "Illustrative marina access route. Deck support and fixings require project design.",
     },
     areasIntro: "Salt, splash and UV act on every marine structure; the loads and approval routes differ. These are the usual areas and what to confirm for each.",
     areas: [
@@ -272,14 +272,14 @@ export const industryPages = {
     path: "/industries/vehicle",
     name: "Transportation & rail",
     updated: "2026-09-26",
-    h1: "FRP Composite Profiles for Vehicle & Transport",
+    h1: "FRP Profiles for Vehicle & Transport Components",
     intro:
       "Pultruded FRP profiles for bus and coach bodies, rail interiors, trailers and specialty vehicles. They are lighter than steel and do not rust; fire, smoke and toxicity requirements are confirmed for each application.",
     image: {
-      src: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
-      alt: "Row of pultrusion lines in the F1 Composite plant",
-      note: "Pultrusion lines",
-      caption: "Vehicle programs usually need custom sections run on dedicated tooling, with the vehicle maker's design and approval.",
+      src: "/images/industries/vehicle-bus-body-concept.webp",
+      alt: "Concept bus body with light-colored fiberglass roof and ceiling support profiles",
+      note: "AI-generated concept; not an F1 installation",
+      caption: "Illustrative bus body application. The vehicle maker designs and approves each component.",
     },
     areasIntro: "The vehicle maker designs and certifies the vehicle; the profiles are specified against its requirements. These are the usual uses and what to agree for each.",
     areas: [
