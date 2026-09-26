@@ -116,7 +116,12 @@ export function calcArea(
   return 0;
 }
 
-/** Effective area used for the calculator's transverse-shear check, in mm^2. */
+/**
+ * Effective area used for the transverse-shear check and the Timoshenko
+ * deflection term, in mm^2: the clear web between flanges for I-beams and
+ * channels, the two side walls between the flanges for box sections, half the
+ * annulus for round tubes, and the loaded leg for angles.
+ */
 export function calcShearArea(
   shape: string,
   h: number,
@@ -126,7 +131,7 @@ export function calcShearArea(
 ): number {
   if (shape === "i-beam" || shape === "channel") return (h - 2 * tf) * tw;
   if (shape === "angle") return h * tw;
-  if (shape === "square-tube") return 2 * h * tw;
+  if (shape === "square-tube") return 2 * (h - 2 * tw) * tw;
   if (shape === "round-tube") {
     const Ro = h / 2;
     const Ri = Ro - tw;

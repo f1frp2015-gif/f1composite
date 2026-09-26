@@ -32,7 +32,7 @@ const calculatorFaqs = [
   {
     question: "Which standards does the FRP calculator follow?",
     answer:
-      "It is a preliminary global-beam screening tool, not a complete standards compliance calculation. The method selector applies simplified resistance and live-load factors oriented to ASCE/SEI 74-23, CEN/TS 19101:2022, or GB 50608-2020, plus a legacy ASD screen. Each method now exposes only its compatible material dataset. The tool does not perform local or lateral-torsional buckling, creep/time-effect, web crippling, connections, load combinations, system stability, or project-specific qualification checks, so a licensed engineer must complete the applicable code design.",
+      "It is a preliminary global-beam screening tool, not a complete standards compliance calculation. The method selector applies simplified resistance and load factors oriented to ASCE/SEI 74-23 with ASCE 7-22 (including the time-effect factor λ for the selected load duration), CEN/TS 19101:2022 with EN 1990:2023, or GB 50608-2020, plus a legacy ASD screen. EN 13706 grade minimums can be used with the ASCE or CEN screens; GB datasets stay with GB factors. The tool does not perform local or lateral-torsional buckling, creep deflection or creep rupture, web crippling, connections, full load combinations, system stability, or project-specific qualification checks, so a licensed engineer must complete the applicable code design. Australia, New Zealand and Canada have no design standard of their own for pultruded shapes; the methodology page lists the load standards to pair with either screen.",
   },
   {
     question: "Does the calculator handle orthotropic FRP properties?",
@@ -42,7 +42,7 @@ const calculatorFaqs = [
   {
     question: "How are environmental knockdowns applied?",
     answer:
-      "FRP characteristic strengths are multiplied by an environmental factor selected from the dropdown: 1.00 indoor dry, 0.85 outdoor exposed (UV + humidity), 0.80 wet / immersion, 0.75 mild chemical exposure (per T/CECS 692-2020 Annex), and 0.70 elevated temperature 30–60°C (approaching glass transition per ASCE/SEI 74-23 §3.5.4). Metals are unaffected. For acid resistance class selection, see T/CECS 692-2020 Annex.",
+      "FRP characteristic strengths are multiplied by a screening factor for the service environment: 1.00 indoor dry; 0.85 outdoor exposed, in line with the moisture conversion factor CEN/TS 19101 uses outdoors; 0.75 on strength and 0.90 on stiffness for wet service, the ASCE/SEI 74-23 adjustment for a polyester matrix; 0.75 for mild chemical exposure and 0.70 for 32–60 °C, both F1 screening values that need resin-specific data. ASCE/SEI 74-23 also limits the service temperature to T_g − 22 °C. Metals are unaffected.",
   },
   {
     question: "Can I use this calculator for vinyl ester, polyurethane, or phenolic FRP profiles?",
@@ -88,7 +88,8 @@ export default function CalculatorPage() {
             "Preliminary strength-factor screens oriented to ASCE/SEI 74-23, CEN/TS 19101:2022 and GB 50608-2020",
             "ASD legacy allowable-stress method (FS 2.5 bending / 3.0 shear)",
             "Orthotropic FRP properties — E_L, E_T, G_LT, F_tL, F_cL, F_vLT",
-            "Environmental knockdown factor — indoor / outdoor / wet / chemical / hot",
+            "Environmental knockdown factor (indoor, outdoor, wet, chemical, hot), with a stiffness reduction for wet service",
+            "ASCE time-effect factor λ by load duration (occupancy, storage, permanent, wind or earthquake)",
             "Bending stress check with resistance factor vs min(F_tL, F_cL)",
             "Shear stress check (V / A_web)",
             "Load-case-matched Timoshenko deflection (bending + shear)",
@@ -190,7 +191,7 @@ export default function CalculatorPage() {
             catalog before specifying the final size.
           </p>
           <p className="mt-[21px] text-f16 leading-golden text-t2">
-            This calculator screens three recurring questions in FRP profile selection: global bending, average shear, service-load deflection, and first-pass steel/aluminum equivalence. The ASCE-, CEN- and GB-oriented options apply a limited subset of factors to compatible input datasets; they are not full implementations of those standards. Local and lateral-torsional buckling, creep and time effects, web crippling, connections, complete load combinations, bracing, and system stability remain outside the model.
+            This calculator screens three recurring questions in FRP profile selection: global bending, average shear, service-load deflection, and first-pass steel/aluminum equivalence. The ASCE-, CEN- and GB-oriented options apply a limited subset of factors to compatible input datasets; they are not full implementations of those standards. The ASCE option includes the time-effect factor λ for the chosen load duration. Local and lateral-torsional buckling, creep deflection and creep rupture, web crippling, connections, complete load combinations, bracing, and system stability remain outside the model.
           </p>
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">

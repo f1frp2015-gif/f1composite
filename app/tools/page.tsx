@@ -7,7 +7,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/tools";
 const pageDescription =
-  "Free engineering tools for pultruded FRP: profile finder, beam and deflection calculator, span tables, density and weight, prices and window U-values.";
+  "Free tools for pultruded FRP: profile finder, beam calculator, span tables, weight, thermal movement, handrail loads, ladder and stair checks, GFRP rebar.";
 
 export const metadata: Metadata = buildPageMetadata({ title: "FRP Engineering Tools & Calculators", description: pageDescription, path: pagePath });
 
@@ -17,7 +17,11 @@ const tools: { href: string; title: string; text: string; glyph: GlyphShape }[] 
   { href: "/frp-span-tables", title: "Span tables", text: "Allowable uniform loads for the published I-beams, channels and tubes over 1 to 6 m spans.", glyph: "shs" },
   { href: "/frp-density-calculator", title: "Density and weight", text: "FRP density from mat, fabric and roving, and profile weight from the section.", glyph: "flat" },
   { href: "/fiberglass-pultruded-profile-price", title: "Price estimator", text: "Planning prices per meter and per kilogram by section, resin, finish and volume.", glyph: "rhs" },
-  { href: "/technology/frp-u-value-calculator", title: "Window U-value calculator", text: "Whole-window U-value to EN ISO 10077-1, comparing FRP with aluminum, PVC and timber.", glyph: "window" },
+  { href: "/tools/thermal-expansion-calculator", title: "Thermal expansion", text: "Movement of FRP members between fixings, the difference against steel, concrete or glass, and sealed joint widths.", glyph: "flat" },
+  { href: "/tools/handrail-load-calculator", title: "Handrail load check", text: "Posts and rails against OSHA 1910.29, IBC 2024 and EN ISO 14122-3 loads, with base reactions for the anchors.", glyph: "shs" },
+  { href: "/tools/access-geometry-checker", title: "Ladder, stair and walkway checker", text: "Rung spacing, clear width, fall protection, risers and grating openings against OSHA, EN ISO 14122 and the IBC.", glyph: "grating" },
+  { href: "/tools/gfrp-rebar-calculator", title: "GFRP rebar calculator", text: "Steel bar sizes matched to GFRP bars, ACI CODE-440.11-22 design values and the standards for each market.", glyph: "rebar" },
+  { href: "/technology/frp-u-value-calculator", title: "Window U-value calculator", text: "Whole-window U-value to EN ISO 10077-1, compared with targets in Europe, the UK, the US, Canada and New Zealand.", glyph: "window" },
   { href: "/ask", title: "Engineering assistant", text: "Questions on profile selection, resins, standards and documents, answered from catalog data and test reports.", glyph: "custom" },
   { href: "/ai/sourcing", title: "Sourcing assistant", text: "Match profiles, resins and standards to a project and send the result as a quote request.", glyph: "multicell" },
   { href: "/ai/passive-house", title: "Passive House window selector", text: "Match climate, target U-value and opening type to PHI-certified FRP window series.", glyph: "window" },

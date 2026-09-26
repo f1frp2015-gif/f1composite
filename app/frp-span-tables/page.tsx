@@ -37,7 +37,7 @@ const spanTableFaqs = [
   {
     question: "What design basis do these FRP span tables use?",
     answer:
-      "Material EN 13706 Grade E23 (E_L 23 GPa, G_LT 3.5 GPa); strength checks per LRFD ASCE/SEI 74-23 with φ = 0.65 and γ_Q = 1.6 on a live-load-dominated case; outdoor environmental knockdown Ω_E = 0.85; simply supported uniform load; deflection limited to L/250 at service load including the Timoshenko shear correction. The governing check for each value is marked — d deflection, b bending, v shear.",
+      "Material EN 13706 Grade E23 minimums (E_L 23 GPa, shear strength 25 MPa) with an assumed G_LT of 3.5 GPa; strength checks per LRFD ASCE/SEI 74-23 with φ = 0.65, the time-effect factor λ = 0.8 for occupancy live load and γ_Q = 1.6 (ASCE 7-22); an outdoor knockdown of 0.85 on strengths; simply supported uniform load; deflection limited to L/250 at service load including the Timoshenko shear correction. The governing check for each value is marked: d deflection, b bending, v shear.",
   },
   {
     question: "Do these span tables include shear deflection?",
@@ -74,7 +74,7 @@ export default function SpanTablesPage() {
           "@type": "Dataset",
           name: "FRP Profile Span Tables — Allowable Uniform Load (EN 13706 E23)",
           description:
-            `Precomputed allowable uniform load for ${totalRows} pultruded FRP profiles (I-beam, channel, square/rectangular tube, round tube) across spans of 1–6 m. Basis: EN 13706 E23, LRFD ASCE/SEI 74-23 (φ 0.65, γ_Q 1.6), outdoor knockdown 0.85, simply supported UDL, deflection L/250 with Timoshenko shear correction.`,
+            `Precomputed allowable uniform load for ${totalRows} pultruded FRP profiles (I-beam, channel, square/rectangular tube, round tube) across spans of 1–6 m. Basis: EN 13706 E23, LRFD ASCE/SEI 74-23 (φ 0.65, λ 0.8, γ_Q 1.6), outdoor knockdown 0.85, simply supported UDL, deflection L/250 with Timoshenko shear correction.`,
           url: absoluteUrl("/frp-span-tables"),
           creator: { "@id": "https://www.f1composite.com/#organization" },
           license: absoluteUrl("/terms"),
@@ -106,8 +106,8 @@ export default function SpanTablesPage() {
         <div className="site-container">
           <SectionTag>Design Basis</SectionTag>
           <div className="mt-[21px] grid gap-[13px] rounded-card border border-border-default bg-slate-50 p-[21px] text-f14 leading-golden text-t2 md:grid-cols-2">
-            <div><strong className="text-t1">Material:</strong> {DESIGN_BASIS.material} — E_L {DESIGN_BASIS.E_L_GPa} GPa, G_LT {DESIGN_BASIS.G_LT_GPa} GPa</div>
-            <div><strong className="text-t1">Strength:</strong> {DESIGN_BASIS.method} — allowable bending {DESIGN_BASIS.bendingAllowableMPa} MPa, shear {DESIGN_BASIS.shearAllowableMPa} MPa after knockdown</div>
+            <div><strong className="text-t1">Material:</strong> {DESIGN_BASIS.material}: E_L {DESIGN_BASIS.E_L_GPa} GPa and shear strength {DESIGN_BASIS.shearStrengthMPa} MPa (EN 13706 minimums), G_LT {DESIGN_BASIS.G_LT_GPa} GPa (assumed)</div>
+            <div><strong className="text-t1">Strength:</strong> {DESIGN_BASIS.method}; design bending strength {DESIGN_BASIS.bendingAllowableMPa} MPa, shear {DESIGN_BASIS.shearAllowableMPa} MPa after λ and the knockdown</div>
             <div><strong className="text-t1">Environment:</strong> {DESIGN_BASIS.environment}</div>
             <div><strong className="text-t1">Load case:</strong> {DESIGN_BASIS.loadCase}</div>
             <div className="md:col-span-2"><strong className="text-t1">Deflection:</strong> {DESIGN_BASIS.deflectionLimit}</div>

@@ -32,7 +32,7 @@ interface GeneratedPage {
 const clip = (text: string, length: number) => (text.length > length ? `${text.slice(0, length - 1).trimEnd()}…` : text);
 const displayTitle = (title: string) => title.replace(/\s*[|—–-]\s*F1 Composite$/, "").split(" | ")[0].trim();
 
-const TOOL_PATHS = new Set(["/tools", "/tools/profile-finder", "/frp-profile-calculator", "/frp-span-tables", "/frp-density-calculator", "/fiberglass-pultruded-profile-price", "/technology/frp-u-value-calculator", "/ask", "/ai/passive-house", "/ai/sourcing"]);
+const TOOL_PATHS = new Set(["/tools", "/tools/profile-finder", "/tools/thermal-expansion-calculator", "/tools/handrail-load-calculator", "/tools/access-geometry-checker", "/tools/gfrp-rebar-calculator", "/frp-profile-calculator", "/frp-span-tables", "/frp-density-calculator", "/fiberglass-pultruded-profile-price", "/technology/frp-u-value-calculator", "/ask", "/ai/passive-house", "/ai/sourcing"]);
 const DOCUMENT_PATHS = new Set(["/datasheets", "/resources/downloads", "/resources/evidence"]);
 
 function pageKind(path: string): SearchKind {

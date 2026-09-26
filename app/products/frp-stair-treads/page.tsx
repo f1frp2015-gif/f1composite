@@ -255,7 +255,7 @@ export default function StairTreadCoversPage() {
 
       <RelatedLinks groups={[
         { title: "Complete the access system", links: [{ href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" }, { href: "/products/frp-ladders", label: "FRP fixed access ladders" }, { href: "/products/grating", label: "Fiberglass grating: molded and pultruded" }, { href: "/products/molded-frp-grating", label: "Molded grating panels & clips" }, { href: "/products/frp-gratings", label: "Pultruded T-bar & I-bar grating" }, { href: "/case-studies/factory-access-staircase", label: "Factory access staircase case study" }] },
-        { title: "Specify & approve", links: [{ href: "#stair-tread-specifications", label: "Stair-tread selection matrix" }, { href: "/technology/quality-testing", label: "Quality & testing" }, { href: "/resources/technical-data", label: "Technical data & load tables" }, { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "FOB, DDP & export guide" }] },
+        { title: "Specify & approve", links: [{ href: "#stair-tread-specifications", label: "Stair-tread selection matrix" }, { href: "/technology/quality-testing", label: "Quality & testing" }, { href: "/resources/technical-data", label: "Technical data & load tables" }, { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "FOB, DDP & export guide" }, { href: "/tools/access-geometry-checker", label: "Stair geometry checker (OSHA, ISO 14122-3, IBC)" }] },
       ]} />
 
       <section className="bg-bg2 py-[55px] md:py-[89px]"><div className="site-container"><FAQ items={faqItems} /></div></section>

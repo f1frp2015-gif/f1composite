@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test scripts/navigation-ia.test.mjs scripts/taxonomy-upgrade.test.mjs scripts/site-audit-improvements.test.mjs scripts/contact-delivery.test.mjs scripts/grating-page-split.test.mjs scripts/grating-inquiry.test.mjs scripts/grating-project.test.mjs scripts/product-inquiry.test.mjs scripts/rebar-inquiry.test.mjs scripts/window-inquiry.test.mjs scripts/submit-indexnow.test.mjs scripts/beam-bridge.test.mjs scripts/calculator-p0.test.mjs scripts/grating-clips.test.mjs scripts/stair-treads-page.test.mjs scripts/fiberglass-stakes-page.test.mjs scripts/fiberglass-sheet-plate-split.test.mjs scripts/faq-layout.test.mjs scripts/frp-density.test.mjs scripts/agriculture-inquiry.test.mjs scripts/threshold-render/geometry.test.mjs scripts/cookie-consent.test.mjs scripts/google-ads-csp.test.mjs scripts/contact-channels.test.mjs scripts/datasheet-pilot.test.mjs scripts/topic-clusters.test.mjs scripts/withdrawn-downloads.test.mjs scripts/geo-citability.test.mjs scripts/theme-classes.test.mjs scripts/site-search.test.mjs",
+    "test": "node --test scripts/navigation-ia.test.mjs scripts/taxonomy-upgrade.test.mjs scripts/site-audit-improvements.test.mjs scripts/contact-delivery.test.mjs scripts/grating-page-split.test.mjs scripts/grating-inquiry.test.mjs scripts/grating-project.test.mjs scripts/product-inquiry.test.mjs scripts/rebar-inquiry.test.mjs scripts/window-inquiry.test.mjs scripts/submit-indexnow.test.mjs scripts/beam-bridge.test.mjs scripts/calculator-p0.test.mjs scripts/grating-clips.test.mjs scripts/stair-treads-page.test.mjs scripts/fiberglass-stakes-page.test.mjs scripts/fiberglass-sheet-plate-split.test.mjs scripts/faq-layout.test.mjs scripts/frp-density.test.mjs scripts/agriculture-inquiry.test.mjs scripts/threshold-render/geometry.test.mjs scripts/cookie-consent.test.mjs scripts/google-ads-csp.test.mjs scripts/contact-channels.test.mjs scripts/datasheet-pilot.test.mjs scripts/topic-clusters.test.mjs scripts/withdrawn-downloads.test.mjs scripts/geo-citability.test.mjs scripts/theme-classes.test.mjs scripts/site-search.test.mjs scripts/engineering-tools.test.mjs",
     "check:copy": "node scripts/check-copy.mjs",
     "check:sitemap": "node scripts/check-sitemap-routes.mjs",
     "check:owner-links": "node scripts/check-owner-links.mjs",
@@ -38,7 +38,8 @@
     "cad:grating-clips": "node scripts/generate-grating-clip-cad.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
     "test:site-audit": "node --test scripts/site-audit-improvements.test.mjs scripts/contact-delivery.test.mjs",
-    "test:density": "node --test scripts/frp-density.test.mjs"
+    "test:density": "node --test scripts/frp-density.test.mjs",
+    "test:engineering-tools": "node --test scripts/engineering-tools.test.mjs"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.148",
