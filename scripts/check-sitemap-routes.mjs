@@ -17,9 +17,11 @@ const excluded = new Set([
   // therefore must not be advertised as search-result candidates in sitemap.
   "/privacy",
   "/terms",
+  // Search results repeat the pages they list.
+  "/search",
 ]);
 
-const noindexRoutes = ["/privacy", "/terms"];
+const noindexRoutes = ["/privacy", "/terms", "/search"];
 
 function collectPages(dir) {
   const pages = [];

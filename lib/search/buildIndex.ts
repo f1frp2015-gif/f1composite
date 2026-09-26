@@ -79,7 +79,7 @@ function sizeEntries(): SearchEntry[] {
       kind: "size",
       title: product.model,
       url: datasheetHrefForModel(product.model) ?? family.url,
-      summary: `${family.label} · ${product.weight} kg/m · ${property}`,
+      summary: `${family.label} · ${product.weight.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 2 })} kg/m · ${property}`,
       keywords: `${family.label} datasheet`,
       badge: "F1-STRUX",
       size: {

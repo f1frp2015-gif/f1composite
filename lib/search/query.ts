@@ -348,6 +348,9 @@ export function search(index: PreparedIndex, query: string, limitPerGroup = Infi
   return { query, size, closest, groups, total: hits.length };
 }
 
+/** Downloadable files open in a new tab; everything else is a page. */
+export const isFileUrl = (url: string) => /^\/(downloads|cad)\//.test(url);
+
 /** The part of a size title the query named, for highlighting: [152] in "I 152×76×6.4" → "152". */
 export function sizeMatchText(title: string, size: SizeQuery | null): string | null {
   if (!size) return null;

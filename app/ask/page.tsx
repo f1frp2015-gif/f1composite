@@ -19,9 +19,10 @@ interface AskPageProps {
 
 // /ask is reached several ways:
 //   • Bare /ask — the canonical, indexable advisor landing page.
-//   • /ask?prefill=... — context-rich CTAs from product/blog/calculator pages.
-//   • /ask?q=... — the sitewide SearchAction target (potentialAction in the
-//     Organization/WebSite JSON-LD advertises /ask?q={search_term_string}).
+//   • /ask?prefill=... — context-rich CTAs from product/blog/calculator pages
+//     and the site search's no-results exit.
+//   • /ask?q=... — older links from when the WebSite SearchAction pointed
+//     here; it now points to /search.
 // Any query-parametered variant is a transient deep link, not a unique page
 // worth indexing. We return noindex (follow) on ALL param variants so Google
 // stops listing them (incl. the literal {search_term_string} template) under
