@@ -12,6 +12,10 @@ export function loadProjectModule(file) {
   if (cache.has(absolute)) return cache.get(absolute).exports;
   const moduleRecord = { exports: {} };
   cache.set(absolute, moduleRecord);
+  if (absolute.endsWith(".json")) {
+    moduleRecord.exports = JSON.parse(readFileSync(absolute, "utf8"));
+    return moduleRecord.exports;
+  }
   const nativeRequire = createRequire(absolute);
   const projectRequire = (specifier) => specifier.startsWith("@/")
     ? loadProjectModule(specifier.slice(2))

@@ -1,0 +1,818 @@
+[
+  {
+    "path": "/",
+    "title": "Pultruded FRP Profiles Manufacturer",
+    "description": "Standard and custom pultruded FRP profiles from F1 Composite. Explore fiberglass structural shapes, grating, window and door profiles, and finished units.",
+    "aliases": [
+      "Pultruded FRP Profiles Manufacturer | F1 Composite"
+    ]
+  },
+  {
+    "path": "/about",
+    "title": "About F1 Composite — FengDu's FRP Export Company, China",
+    "description": "F1 Composite (Chongqing F1 Composites Co., Ltd.) is the export company of FengDu New Material, supplying pultruded FRP profiles to 30+ countries.",
+    "aliases": [
+      "About F1 Composite"
+    ]
+  },
+  {
+    "path": "/about/authors",
+    "title": "F1 Composite Authors — Engineering, R&D, Research",
+    "description": "Who writes F1 Composite's technical articles and guides: our application engineer, R&D lead and industry researcher, with their fields and articles.",
+    "aliases": [
+      "Who writes our technical content"
+    ]
+  },
+  {
+    "path": "/ai/passive-house",
+    "title": "AI Passive House Window Selector — PHI Window Tool",
+    "description": "Free AI tool for Passive House windows: match climate, target U-value, and opening type to PHI-certified FRP frame series, calculators, and case studies."
+  },
+  {
+    "path": "/ai/sourcing",
+    "title": "AI FRP Sourcing Assistant — Free Project Specification",
+    "description": "Use the free AI FRP sourcing assistant to match profiles, resin systems, standards and case studies to your project, then send the result as a quote request."
+  },
+  {
+    "path": "/applications",
+    "title": "FRP Profile Applications",
+    "description": "Explore FRP applications in agriculture, plant support, platforms, bridges, cooling towers, cable supports and solar, with product and selection guidance.",
+    "aliases": [
+      "Find FRP profiles by application",
+      "FRP Profile Applications | Components & Selection"
+    ]
+  },
+  {
+    "path": "/ask",
+    "title": "FRP Engineering Advisor & Profile Selection Assistant",
+    "description": "Ask the F1 Composite AI advisor about FRP profile selection, resins, standards and documents. Answers link to catalog data and published test reports."
+  },
+  {
+    "path": "/case-studies",
+    "title": "FRP Case Studies & Engineering References",
+    "description": "Explore F1 project accounts and source-backed public engineering references for FRP profiles, bridge systems, windows, platforms, solar and infrastructure.",
+    "aliases": [
+      "Projects & Engineering References"
+    ]
+  },
+  {
+    "path": "/case-studies/baotou-industrial-gfrp-pu-windows",
+    "title": "Baotou Industrial Park: GFRP-PU Windows for Severe Cold and Chemical Exposure",
+    "description": "Baotou industrial GFRP-PU windows: 70/80/90-series profiles for cold climate and chemical exposure. Review assembly evidence and inspection requirements.",
+    "keywords": "Industrial Baotou, Inner Mongolia, China GFRP-PU industrial windows"
+  },
+  {
+    "path": "/case-studies/beam-bridge",
+    "title": "FRP Beam Bridge Design: Four Manufacturing Routes",
+    "description": "Explore four FRP pedestrian bridge concepts, F1 fabrication capabilities, transparent beam calculations and documented bridge case studies."
+  },
+  {
+    "path": "/case-studies/chongqing-rooftop-pv-frp-rail",
+    "title": "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Colour Steel-Tile Roofs",
+    "description": "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on colour steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
+    "keywords": "Energy Chongqing, China FRP rooftop solar mounting"
+  },
+  {
+    "path": "/case-studies/coastal-marina-walkway",
+    "title": "Coastal Marina Walkway System",
+    "description": "Marine FRP walkway case study — UK marina. 500 m pultruded structural + molded grating system, resin selection and connection details for coastal exposure.",
+    "keywords": "Marine United Kingdom FRP marina walkway"
+  },
+  {
+    "path": "/case-studies/european-bridge-deck",
+    "title": "European Bridge Deck Replacement",
+    "description": "FRP bridge deck — Netherlands. 1,200 m² custom pultruded panels, 40% lighter than steel, project finished 2 weeks ahead of schedule.",
+    "keywords": "Infrastructure Netherlands FRP bridge deck replacement"
+  },
+  {
+    "path": "/case-studies/factory-access-staircase",
+    "title": "F1 Factory Access Staircase, Built From Our Own FRP Profiles",
+    "description": "FRP access staircase at F1's Chongqing pultrusion plant: I-beams, tubes and molded grating replaced galvanized steel that needed recoating every 18 months.",
+    "keywords": "Industrial Chongqing, China FRP access staircase"
+  },
+  {
+    "path": "/case-studies/qinling-station-antarctic-passive-windows",
+    "title": "Qinling Station, Antarctic Ross Sea — GFRP Window Project",
+    "description": "Qinling Station GFRP window project account. Review the 90-series component reference separately from project-specific Antarctic design requirements.",
+    "keywords": "Construction Ross Sea, Antarctica Antarctic passive house FRP windows"
+  },
+  {
+    "path": "/case-studies/wanhua-yantai-zero-carbon-windows",
+    "title": "Wanhua Yantai Zero-Carbon Community: GFRP-PU Passive Windows",
+    "description": "Wanhua Yantai zero-carbon community: 13,657 m² of GFRP-PU 65- and 90-series windows at Uw 0.99 W/m²·K, built to China's near-zero energy standard.",
+    "keywords": "Construction Yantai, Shandong, China GFRP-PU passive house windows"
+  },
+  {
+    "path": "/case-studies/water-treatment-cable-tray",
+    "title": "Municipal Water Treatment Plant — Cable Tray & Handrail System",
+    "description": "Thai water treatment project: FRP cable trays and handrails for humid, chlorinated exposure. Review resin selection, connections and inspection requirements.",
+    "keywords": "Infrastructure Thailand FRP cable tray and handrail system"
+  },
+  {
+    "path": "/case-studies/yancheng-talent-apartment-fenestration",
+    "title": "Yancheng Talent Apartments: FRP Window Supply for a Coastal Housing Development",
+    "description": "Yancheng talent apartments, Jiangsu: GFRP window profiles for about 20 coastal mid-rise buildings, Uw below 1.6 W/m²·K, supplied in phases over 14 months.",
+    "keywords": "Construction Yancheng, Jiangsu, China FRP apartment window frames"
+  },
+  {
+    "path": "/contact",
+    "title": "Request a Quote",
+    "description": "Start your F1 Composite inquiry with just your name and email. Drawings and specifications are optional. Our team will help confirm the details.",
+    "aliases": [
+      "Request a quote",
+      "Request a Quote | F1 Composite"
+    ]
+  },
+  {
+    "path": "/datasheets",
+    "title": "FRP Profile Datasheets — Section Properties & EN 13706 Data",
+    "description": "Technical datasheets for every F1 Composite pultruded FRP profile: exact section properties, EN 13706 mechanical data, dimensions, weights, and PDF downloads.",
+    "aliases": [
+      "FRP Profile Technical Datasheets"
+    ]
+  },
+  {
+    "path": "/fiberglass-pultruded-profile-price",
+    "title": "Fiberglass Pultruded Profile Price — Estimator & Guide",
+    "description": "Estimate fiberglass pultruded profile prices in USD per meter and kilogram. See how section size, resin, glass content, finish and order volume affect cost.",
+    "aliases": [
+      "Fiberglass Pultruded Profile Price"
+    ]
+  },
+  {
+    "path": "/frp-density-calculator",
+    "title": "FRP Density Calculator",
+    "description": "Calculate FRP density from mat GSM, fabric layup, roving tex and section geometry. Estimate fiberglass profile weight and convert g/cm³, kg/m³ and lb/in³.",
+    "aliases": [
+      "FRP Density Calculator | Fiberglass Profile Weight & kg/m³"
+    ]
+  },
+  {
+    "path": "/frp-profile-calculator",
+    "title": "FRP Calculator — Beam, Load & Section Properties",
+    "description": "Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel/aluminum equivalence. Method-specific datasets prevent incompatible standards combinations. Free, no login.",
+    "aliases": [
+      "FRP Calculator for Beam, Load & Section Properties"
+    ]
+  },
+  {
+    "path": "/frp-profile-calculator/methodology",
+    "title": "FRP Profile Calculator Methodology",
+    "description": "See the equations, design assumptions, material inputs, load factors, shear correction, standards scope, and limits behind F1 Composite's FRP calculator.",
+    "aliases": [
+      "FRP Profile Calculator Methodology | F1 Composite"
+    ]
+  },
+  {
+    "path": "/frp-profile-calculator/validation",
+    "title": "FRP Calculator Validation Benchmarks",
+    "description": "Review 12 reproducible section-property benchmarks, build-time tolerances, validation scope, and known limits for the F1 Composite FRP calculator.",
+    "aliases": [
+      "FRP Calculator Validation Benchmarks | F1 Composite"
+    ]
+  },
+  {
+    "path": "/frp-span-tables",
+    "title": "FRP Span Tables — Pultruded Fiberglass Load Charts",
+    "description": "Allowable uniform load for every published F1 pultruded profile — I-beams, channels, square and round tubes — over 1 to 6 m simple spans. EN 13706 E23 material, LRFD strength checks per ASCE/SEI 74-23, and L/250 deflection with the Timoshenko shear correction FRP needs. Every row opens pre-loaded in the calculator.",
+    "aliases": [
+      "FRP Span Tables & Load Charts"
+    ]
+  },
+  {
+    "path": "/industries",
+    "title": "FRP Industrial Applications — Construction, Marine & Energy",
+    "description": "Explore FRP industrial applications in construction, infrastructure, energy, marine, process plants and vehicles, with sector-specific products and guidance.",
+    "aliases": [
+      "FRP industrial applications by sector"
+    ]
+  },
+  {
+    "path": "/industries/construction",
+    "title": "FRP Products for Buildings & Construction",
+    "description": "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application."
+  },
+  {
+    "path": "/industries/energy",
+    "title": "FRP Profiles for Energy, Power & Solar Projects",
+    "description": "FRP profiles for substations, cross-arms, cable trays, solar mounting and transformer spacers: non-conductive, non-magnetic and low maintenance.",
+    "aliases": [
+      "FRP Composite Profiles for Energy & Electric Power"
+    ]
+  },
+  {
+    "path": "/industries/industrial",
+    "title": "FRP for Industrial Plants — Chemical-Resistant Pultruded",
+    "description": "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
+    "aliases": [
+      "FRP Composite Profiles for Industrial Applications"
+    ]
+  },
+  {
+    "path": "/industries/infrastructure",
+    "title": "FRP Profiles for Bridges & Infrastructure",
+    "description": "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails and utility poles that do not rust and need no recoating.",
+    "aliases": [
+      "FRP Composite Profiles for Infrastructure"
+    ]
+  },
+  {
+    "path": "/industries/marine",
+    "title": "FRP for Marine — Saltwater Structures & Docks",
+    "description": "Pultruded FRP profiles and grating for docks, offshore platforms, walkways and tie-rods: no rust in saltwater, vinyl ester options, EN 13706 profiles.",
+    "aliases": [
+      "FRP Composite Profiles for Marine Applications"
+    ]
+  },
+  {
+    "path": "/industries/vehicle",
+    "title": "FRP Profiles for Transport & Vehicle Structures",
+    "description": "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars and specialty transport: about 75% lighter than steel, and they do not rust.",
+    "aliases": [
+      "FRP Composite Profiles for Vehicle & Transport"
+    ]
+  },
+  {
+    "path": "/industries/water-wastewater",
+    "title": "FRP for Water & Wastewater",
+    "description": "FRP profiles and grating for water and wastewater facilities. Review cable supports, access frames, walkways, chemical exposure and component supply scope.",
+    "aliases": [
+      "FRP profiles for water & wastewater facilities",
+      "FRP for Water & Wastewater | Profiles & Grating"
+    ]
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy",
+    "description": "How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
+  },
+  {
+    "path": "/products/custom-pultruded-profiles",
+    "title": "Custom Pultruded Profiles",
+    "description": "Over 800 custom pultrusions delivered — cross-sections up to 600×300 mm, walls as fine as 1.5 mm, in E-glass, carbon, basalt, or aramid fibers with polyester, vinyl ester, epoxy, or polyurethane resins. Dedicated tooling, validated mechanical performance.",
+    "aliases": [
+      "Custom pultruded profiles — engineered to your specification",
+      "Custom Pultruded Profiles | FRP Pultrusion Manufacturer"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-door-thresholds",
+    "title": "Fiberglass Door Thresholds & GRP Sills",
+    "description": "F1 pultruded fiberglass door thresholds and GRP sill profiles for door fabricators. Develop hinged and sliding door sill sections around your frame drawings.",
+    "aliases": [
+      "Pultruded fiberglass door thresholds",
+      "Fiberglass Door Thresholds & GRP Sills | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-plates",
+    "title": "Hollow & Multi-cell FRP Profiles",
+    "description": "Compare 19 pultruded fiberglass plate profiles with hollow and multi-cell section drawings, nominal A/B/t1/t2 source values and source IDs.",
+    "aliases": [
+      "Hollow & multi-cell fiberglass profiles",
+      "Hollow & Multi-cell FRP Profiles | Section Drawings"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-sheets",
+    "title": "Fiberglass Sheets Manufacturer — Cut-to-Size FRP Sheet",
+    "description": "Fiberglass sheets manufacturer supplying solid pultruded FRP sheet cut to size for liners, covers, baffles and fabricated parts, with global delivery.",
+    "aliases": [
+      "Fiberglass sheets manufacturer — solid FRP sheet cut to size"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-snow-markers",
+    "title": "Fiberglass Snow Markers & Driveway Stakes Manufacturer",
+    "description": "Wholesale fiberglass snow markers and reflective driveway stakes in solid or hollow 6.35–7.9 mm profiles, multiple lengths, colors and tape layouts.",
+    "aliases": [
+      "Fiberglass snow markers for wholesale and project programs"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-stakes",
+    "title": "Fiberglass Stakes Manufacturer",
+    "description": "Factory-direct pultruded FRP stakes for plant support, nursery trees, vineyard training, garden crops and site identification. Start with the 5–19 mm public-market planning band below, then release the actual diameter, length, surface, color and end treatment by quotation.",
+    "aliases": [
+      "Fiberglass stakes for plants, trees, vineyards and marking",
+      "Fiberglass Stakes Manufacturer | FRP Plant & Tree Stakes"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes",
+    "title": "Fiberglass Structural Shapes — FRP Sizes & Weights",
+    "description": "F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 360×108 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation.",
+    "aliases": [
+      "Fiberglass structural shapes & sizes"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-angle",
+    "title": "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer",
+    "description": "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.",
+    "aliases": [
+      "Fiberglass Angle (FRP) Profiles"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-channel",
+    "title": "Fiberglass Channel — Pultruded FRP C & U Channels",
+    "description": "Pultruded fiberglass C and U channels, 38×13–360×108 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.",
+    "aliases": [
+      "Fiberglass Channel (FRP) Profiles"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-flat-bar",
+    "title": "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer",
+    "description": "Pultruded fiberglass flat bars, 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass content, EN 13706, and ASTM D3917. DDP USA quotes.",
+    "aliases": [
+      "Fiberglass Flat Bars (FRP Bar Stock)"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-i-beam",
+    "title": "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes",
+    "description": "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, about 75% lighter than steel, EN 13706 E23. Size and steel-weight table, DDP USA.",
+    "aliases": [
+      "Fiberglass I-Beam (FRP) Profiles"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-rod",
+    "title": "Fiberglass Rod — Pultruded Solid FRP Round Rod Ø6–50 mm",
+    "description": "Pultruded fiberglass rod Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive solid FRP rods. Soil nails, rock bolts, tie-rods. DDP USA.",
+    "aliases": [
+      "Fiberglass Rods (Solid FRP)"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-square-tube",
+    "title": "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS",
+    "description": "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.",
+    "aliases": [
+      "Fiberglass Square & Rectangular Tubes (FRP)"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-tube",
+    "title": "Fiberglass Round Tube",
+    "description": "Pultruded fiberglass round tube, also called GRP tube, in 25–150 mm OD. Compare nominal walls and weights for structural tubing and request a drawing-led quote.",
+    "aliases": [
+      "Fiberglass Round Tubes & Tubing (FRP)",
+      "Fiberglass Round Tube | Pultruded FRP & GRP Tubing"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-windows-doors",
+    "title": "Finished Fiberglass Windows & Doors",
+    "description": "Specify finished fiberglass windows and doors by opening schedule, glazing, hardware and project requirements. Review assembly scope, reports and packing.",
+    "aliases": [
+      "Finished Fiberglass Windows & Doors | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/frp-deck-panels",
+    "title": "Structural FRP Deck Panels",
+    "description": "Closed-profile fiberglass deck panels separated from open pultruded grating — compare 12 neutral section drawings, nominal A/B/t1/t2 values, joint geometry and project-release requirements.",
+    "aliases": [
+      "Structural FRP Deck Panels — 12 Cross-Section Families",
+      "Structural FRP Deck Panels | 12 Cross-Sections"
+    ]
+  },
+  {
+    "path": "/products/frp-door-frames",
+    "title": "FRP Door Frame & Fiberglass Door Frame",
+    "description": "Custom FRP door frame profiles for fabricators. Develop a pultruded fiberglass door frame with matched jambs, heads, seals and hardware. Request a quote.",
+    "aliases": [
+      "FRP door frame profiles",
+      "FRP Door Frame & Fiberglass Door Frame | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/frp-facade-panels",
+    "title": "FRP Facade Sunshade Panels — E40 Pultruded Plates",
+    "description": "Multi-layer fabric pultruded FRP plates, full-section modulus to 40 GPa (E40), for curtain-wall sunshades: long spans, no thermal bridge, no corrosion.",
+    "aliases": [
+      "Pultruded FRP sunshade panels for curtain wall facades"
+    ]
+  },
+  {
+    "path": "/products/frp-fasteners-fittings",
+    "title": "FRP Fasteners & Fittings",
+    "description": "Specify the connection as a complete set: fiberglass threaded rods, matching nuts, washers and molded fittings for industrial FRP assemblies. Compare the catalog range and send your joint requirements for a project quotation.",
+    "aliases": [
+      "FRP Fasteners and Fittings",
+      "FRP Fasteners & Fittings | Threaded Rods, Nuts & Washers"
+    ]
+  },
+  {
+    "path": "/products/frp-gratings",
+    "title": "Pultruded FRP & GRP Grating",
+    "description": "Compare pultruded fiberglass grating, also called GRP grating, in T-bar and I-bar series with panel data, load-table support and matched 316SS clips.",
+    "aliases": [
+      "Pultruded FRP & GRP Grating | T-Bar & I-Bar"
+    ]
+  },
+  {
+    "path": "/products/frp-handrail-systems",
+    "title": "Fiberglass Handrail Systems",
+    "description": "Industrial FRP handrail systems in square- and round-tube configurations, with posts, top and middle rails, kick plates, splices, molded fittings and base options. Manual-verified nominal specifications are separated from the project load, connection and anchor design.",
+    "aliases": [
+      "Fiberglass Handrail and Guardrail Systems",
+      "Fiberglass Handrail Systems | Industrial FRP Railing"
+    ]
+  },
+  {
+    "path": "/products/frp-ladders",
+    "title": "Fiberglass Fixed Ladders",
+    "description": "Industrial fixed FRP / GRP ladder assemblies with pultruded side rails, fluted rungs, mounting brackets, optional cage components and separate C/U rung-cover retrofits. Nominal catalog dimensions are shown below; the approved project drawing controls fabrication and fall-protection interfaces.",
+    "aliases": [
+      "Fiberglass Fixed Ladders and FRP Access Systems",
+      "Fiberglass Fixed Ladders | FRP & GRP Access Systems"
+    ]
+  },
+  {
+    "path": "/products/frp-pultrusion-manufacturer-factory-direct",
+    "title": "FRP Pultrusion Manufacturer — Factory-Direct Supply",
+    "description": "Judge a pultruded FRP supplier on engineering evidence, process controls, tooling, inspection records and landed cost as well as unit price. F1 Composite handles standard and custom profile supply from drawing review to FOB or DDP delivery.",
+    "aliases": [
+      "FRP Pultrusion Manufacturer for Factory-Direct Global Projects"
+    ]
+  },
+  {
+    "path": "/products/frp-rebar",
+    "title": "FRP Rebar",
+    "description": "Explore GFRP straight bars, factory-formed stirrups and reinforcement mesh. Review inquiry sizes, prepare a bar schedule and request a project quote.",
+    "aliases": [
+      "FRP Rebar for Concrete Reinforcement",
+      "FRP Rebar | GFRP Bars, Stirrups & Reinforcement Mesh"
+    ]
+  },
+  {
+    "path": "/products/frp-solar-mounting-systems",
+    "title": "FRP Solar Profiles: Module Frames, Rails & Supports",
+    "description": "FRP solar mounting systems for PV module frames, rails and supports: corrosion-resistant pultruded profiles engineered for rooftops, farms and coastal sites.",
+    "aliases": [
+      "FRP solar profiles — module frames, rails and supports"
+    ]
+  },
+  {
+    "path": "/products/frp-sound-barrier-wall",
+    "title": "FRP Sound Barrier Wall Panels",
+    "description": "Project-engineered FRP sound barrier wall panels for highways, railways, industrial equipment and utility sites. Configure reflective or absorptive fiberglass noise barriers with coordinated posts, joints, closures, finishes and foundation interfaces.",
+    "aliases": [
+      "FRP Sound Barrier Wall Panels | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/frp-stair-treads",
+    "title": "FRP Stair Treads & Fiberglass Stair Tread Covers",
+    "description": "Compare FRP stair tread covers, molded grating treads and pultruded T-bar treads. See reference sizes, surfaces, measurement inputs and release checks."
+  },
+  {
+    "path": "/products/frp-window-frames",
+    "title": "FRP Window Frames & System Profiles",
+    "description": "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.",
+    "aliases": [
+      "FRP window & door systems",
+      "FRP Window Frames & System Profiles | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/frp-window-reinforcement",
+    "title": "FRP Window Reinforcement Profiles — Fiberglass uPVC Cores",
+    "description": "FRP window reinforcement profiles for vinyl and uPVC frames replace steel inserts, reduce thermal bridging, resist corrosion and ship to custom drawings.",
+    "aliases": [
+      "FRP window reinforcement profiles for vinyl and uPVC frames"
+    ]
+  },
+  {
+    "path": "/products/grating",
+    "title": "Fiberglass Grating & FRP Grating Panels",
+    "description": "Compare molded and pultruded fiberglass grating panels, mesh sizes, surfaces and fixing clips. Download specifications and request a project quote.",
+    "aliases": [
+      "Fiberglass Grating & FRP Grating Panels | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/molded-frp-grating",
+    "title": "Molded FRP Grating",
+    "description": "Molded FRP grating, also known as moulded GRP grating, with square and mini mesh, panel depths, gritted surfaces, nominal weights and matched 316SS clips.",
+    "aliases": [
+      "Molded FRP Grating | Moulded GRP Mesh & Sizes"
+    ]
+  },
+  {
+    "path": "/products/product-lines",
+    "title": "FRP Products: Profiles, Grating, Rebar & Fasteners",
+    "description": "F1 Composite specializes in standard and custom pultruded profiles. Explore windows and doors, molded and pultruded grating, GFRP concrete reinforcement, and fiberglass fasteners and fittings for complete project supply.",
+    "aliases": [
+      "FRP profiles, systems & connection components"
+    ]
+  },
+  {
+    "path": "/products/wind-turbine-blade-panels",
+    "title": "Wind Turbine Blade Panels — GFRP, CFRP & Hybrid",
+    "description": "Pultruded composite panels for wind turbine blade spar caps and reinforcement programs, supplied in glass fiber, carbon fiber and carbon-glass hybrid architectures with project-specific cut lengths.",
+    "aliases": [
+      "Wind Turbine Blade Panels — GFRP, CFRP & Carbon-Glass Hybrid"
+    ]
+  },
+  {
+    "path": "/products/window-door-profiles",
+    "title": "Fiberglass Window & Door Profiles for Fabricators",
+    "description": "Pultruded fiberglass window and door profiles for fabricators. Specify frame, sash, mullion and sill sections, cut lengths, machining and supporting documents."
+  },
+  {
+    "path": "/pultruded-frp-profiles",
+    "title": "Pultruded FRP & GRP Profiles",
+    "description": "Find glass-reinforced plastic (GRP) profiles, also specified as fiberglass or glass-fiber FRP: standard sections and custom cross-sections. Review geometry, materials and supply requirements, then open the detailed specification page.",
+    "aliases": [
+      "Pultruded FRP & GRP profiles",
+      "Pultruded FRP & GRP Profiles | Product Range"
+    ]
+  },
+  {
+    "path": "/regions",
+    "title": "FRP Supplier by Market — USA, Canada, EU, UK, GCC, AU",
+    "description": "Market-specific FRP pultrusion supply: standards, certifications, duties and logistics for the USA, Canada, Germany, UK, Saudi Arabia, UAE and Australia.",
+    "aliases": [
+      "FRP Supply by Market"
+    ]
+  },
+  {
+    "path": "/regions/frp-cable-tray-uae-oil-gas",
+    "title": "FRP Cable Tray Supplier UAE — Oil & Gas Projects",
+    "description": "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.",
+    "aliases": [
+      "FRP Cable Tray Supplier for UAE Oil & Gas"
+    ]
+  },
+  {
+    "path": "/regions/frp-grating-supplier-saudi-arabia",
+    "title": "FRP Grating Supplier Saudi Arabia — Petrochemical & Coastal",
+    "description": "FRP grating for Riyadh, Jeddah, Dammam and Jubail: vinyl ester molded and pultruded panels, CIF or DAP delivery, fire test reports on request.",
+    "aliases": [
+      "FRP Grating Supplier for Saudi Arabia"
+    ]
+  },
+  {
+    "path": "/regions/frp-passive-house-windows-canada",
+    "title": "FRP Passive House Windows — Canada Supplier",
+    "description": "Pultruded FRP passive house windows for Canada: PHI certificate 2491wi03 (Uw 0.78), NAFS and CSA A440 reports on request, DDP quotes with duties itemized.",
+    "aliases": [
+      "FRP passive house windows for Canadian projects"
+    ]
+  },
+  {
+    "path": "/regions/frp-passive-house-windows-germany",
+    "title": "FRP Passive House Windows — Germany Supplier",
+    "description": "Pultruded FRP (GFK) passive house windows for Germany. PHI Cert 2491wi03 (U_w 0.78, phB), GEG/BEG-ready, with no aluminum duty or CBAM.",
+    "aliases": [
+      "FRP passive house windows for German projects"
+    ]
+  },
+  {
+    "path": "/regions/frp-pultrusion-supplier-usa",
+    "title": "FRP Pultrusion Supplier USA — ASTM-Compliant Profiles",
+    "description": "Pultruded FRP profiles for USA projects: ASTM test methods, US duties itemized in every DDP quote, and engineering support from F1 Composite.",
+    "aliases": [
+      "FRP pultrusion supplier for USA projects"
+    ]
+  },
+  {
+    "path": "/regions/grp-windows-uk",
+    "title": "GRP Windows UK — Pultruded Fiberglass Frames Supplier",
+    "description": "Pultruded GRP (fiberglass) windows for UK projects. PHI Cert 2491wi03 (U_w 0.78), Part L and Passivhaus-ready, with itemized DDP quotes.",
+    "aliases": [
+      "GRP windows for UK projects"
+    ]
+  },
+  {
+    "path": "/regions/pultruded-frp-solar-mounting-australia",
+    "title": "FRP Solar Mounting Australia — Fiberglass Racking Supplier",
+    "description": "Pultruded FRP solar racking for Australian utility, commercial and rooftop projects: rust-free, designed to AS/NZS 1170.2 wind loads, lighter foundations.",
+    "aliases": [
+      "Pultruded FRP Solar Mounting for Australian Projects"
+    ]
+  },
+  {
+    "path": "/resources",
+    "title": "FRP Engineering Resources, Guides & Technical Data",
+    "description": "Design guides, span tables, technical articles, test reports and downloadable documents from F1 Composite for specifying pultruded FRP profiles and grating.",
+    "aliases": [
+      "Knowledge Hub"
+    ]
+  },
+  {
+    "path": "/resources/blog",
+    "title": "Pultruded FRP Engineering Blog & Technical Articles",
+    "description": "Technical articles on pultruded FRP profiles: passive house fenestration, bridge decks, marine walkways, EN 13706 / ASTM standards, and engineering know-how.",
+    "aliases": [
+      "Engineering Insights"
+    ]
+  },
+  {
+    "path": "/resources/design-guides",
+    "title": "FRP Design Guides, Load Tables & Connection Details",
+    "description": "Engineering design guidance for FRP structural applications. Connection details, load tables, and best practices from F1 Composite.",
+    "aliases": [
+      "Engineering Design Resources"
+    ]
+  },
+  {
+    "path": "/resources/downloads",
+    "title": "FRP Datasheets, CAD Files & Certificates",
+    "description": "Download F1 Composite catalogs, material data sheets, published test reports and DXF drawings for pultruded FRP profiles. Certificates are sent on request.",
+    "aliases": [
+      "Document Library"
+    ]
+  },
+  {
+    "path": "/resources/evidence",
+    "title": "FRP Test Reports & Product Evidence",
+    "description": "Original FRP test reports and certificates with scope notes: SGS modulus and UL 94 tests, a PHI window certificate, Intertek AS 2047 and TÜV PV frame reports.",
+    "aliases": [
+      "Find the document that matches your product"
+    ]
+  },
+  {
+    "path": "/resources/frp-pultrusion-fob-ddp-export-guide",
+    "title": "FRP Pultrusion FOB & DDP Export Guide — HS Codes",
+    "description": "Compare FOB, CIF, DAP and DDP for pultruded FRP exports, including freight ownership, HS/HTSUS classification, Section 301 exposure and landed-cost checks.",
+    "aliases": [
+      "FRP Pultrusion FOB & DDP Export Guide"
+    ]
+  },
+  {
+    "path": "/resources/frp-windows-guide",
+    "title": "FRP Windows Guide — Selection, U-Value & Certification",
+    "description": "Everything on this site about fiberglass windows and doors — 14 articles, 2 free tools, 5 comparison pages and 3 project case studies — organized in the order a fenestration project actually asks the questions.",
+    "aliases": [
+      "The FRP Windows Guide"
+    ]
+  },
+  {
+    "path": "/resources/glossary",
+    "title": "FRP & Pultrusion Glossary — Composite Terminology",
+    "description": "Plain-language definitions of key FRP and pultrusion terms: resins, reinforcements, mechanical properties, products, fenestration, and standards.",
+    "aliases": [
+      "FRP & pultrusion glossary"
+    ]
+  },
+  {
+    "path": "/resources/how-to-choose-frp-pultrusion-supplier",
+    "title": "How to Choose an FRP Pultrusion Supplier (Buyer Guide)",
+    "description": "How to choose and vet a pultruded FRP profile supplier or Chinese FRP manufacturer: standards, QA, test data, export record, and an RFQ checklist.",
+    "aliases": [
+      "How to choose an FRP pultrusion supplier"
+    ]
+  },
+  {
+    "path": "/resources/technical-data",
+    "title": "FRP Technical Data — Material Properties & Test Methods",
+    "description": "FRP material properties and original SGS full-section reports: 40.8 and 41.5 GPa E40-class results, EN 13706 test methods and sample-specific scope notes.",
+    "aliases": [
+      "FRP technical data — material properties & specifications"
+    ]
+  },
+  {
+    "path": "/technology",
+    "title": "Pultrusion Technology & FRP Engineering Know-How",
+    "description": "Technical resources for specifiers: the pultrusion process, FRP compared with steel and aluminum, resin selection, and quality testing to EN 13706 and ASTM.",
+    "aliases": [
+      "Engineering Excellence in Pultruded Composites"
+    ]
+  },
+  {
+    "path": "/technology/china-alternative-to-strongwell-fiberline-exel",
+    "title": "China Alternative to Strongwell, Fiberline & Exel FRP",
+    "description": "F1 Composite's F1-STRUX line is a standards-equivalent, factory-direct China alternative to the established Western pultruded FRP brands: the same EN 13706 and ASTM D3917 specification, supplied direct for export without regional distributor markups.",
+    "aliases": [
+      "China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel"
+    ]
+  },
+  {
+    "path": "/technology/china-alternative-to-tencom-creative-pultrusions-windows",
+    "title": "China Alternative to Tencom & Creative Pultrusions Windows",
+    "description": "F1-THERM pultruded fiberglass window profiles, a China alternative to Tencom, Creative Pultrusions and Inline: PHI-certified 90 series, test reports on request.",
+    "aliases": [
+      "China alternative to Tencom, Creative Pultrusions & Inline window profiles"
+    ]
+  },
+  {
+    "path": "/technology/fiberglass-rebar-vs-steel",
+    "title": "Fiberglass Rebar vs Steel — Test Data & Design Tradeoffs",
+    "description": "GFRP rebar does not rust and weighs about a quarter as much as steel (specific gravity 1.92 against 7.85). In a University of Kentucky program for FHWA, GFRP bars reached 612 MPa mean ultimate strength against 487 MPa yield and 653 MPa ultimate for steel, but their modulus was 40 GPa against 196 GPa, about one-fifth of the stiffness, with no yield plateau. It is not a one-for-one substitute: crack width and deflection usually govern, so bar size, spacing, cover and laps are recalculated to ACI CODE-440.11 or the governing code.",
+    "aliases": [
+      "Fiberglass Rebar vs Steel"
+    ]
+  },
+  {
+    "path": "/technology/frp-u-value-calculator",
+    "title": "Free Window U-Value Calculator — EN ISO 10077-1",
+    "description": "Free EN ISO 10077-1 U-value calculator. Compare FRP, aluminum, PVC and timber against numeric targets, or load a locked PHI certificate reference.",
+    "aliases": [
+      "Free Window U-Value Calculator"
+    ]
+  },
+  {
+    "path": "/technology/frp-vs-aluminum-windows",
+    "title": "FRP vs Aluminum Windows: Thermal, Cost & U-Value Data",
+    "description": "FRP vs aluminum windows compared on U-value, thermal bridging, condensation, lifecycle cost and Passive House suitability, with certified frame data.",
+    "aliases": [
+      "FRP vs Aluminum Window Frames"
+    ]
+  },
+  {
+    "path": "/technology/frp-vs-pvc-windows",
+    "title": "FRP vs PVC Windows: Thermal, Durability, Structural",
+    "description": "FRP vs uPVC window frames: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and matching applications. When to choose each.",
+    "aliases": [
+      "FRP vs PVC Window Frames"
+    ]
+  },
+  {
+    "path": "/technology/frp-vs-steel-gratings",
+    "title": "FRP Grating vs Steel — Corrosion, Slip & Lifecycle Cost",
+    "description": "FRP grating weighs about half as much as galvanized steel bar grating (14–22 kg/m² for 38 mm molded FRP against 34–48 kg/m² for 25 mm steel bar), does not rust and does not conduct electricity. Galvanized steel costs less per square meter and carries higher concentrated wheel loads (90–180 kN against 45–90 kN for pultruded FRP). FRP pays off where corrosion, wet footing or electrical safety drive the choice; steel remains the usual choice for dry areas with heavy vehicles.",
+    "aliases": [
+      "FRP Grating vs Steel Grating"
+    ]
+  },
+  {
+    "path": "/technology/frp-vs-traditional-materials",
+    "title": "FRP vs Steel vs Aluminum — Engineering Comparison",
+    "description": "Pultruded glass-fiber FRP weighs about a quarter as much as steel (1.8–2.1 g/cm³ against 7.85) and reaches 350–700 MPa tensile strength, in the range of structural steel. Its elastic modulus is only 20–40 GPa, against 200 GPa for steel and 69 GPa for aluminum, so deflection usually governs an FRP design. FRP does not rust or conduct electricity and conducts little heat, but its resin softens at high temperature, so fire exposure needs separate review.",
+    "aliases": [
+      "FRP vs Steel, Aluminum, Timber & Concrete"
+    ]
+  },
+  {
+    "path": "/technology/knowhow-services",
+    "title": "Pultrusion Tech Transfer & Consulting: Turnkey Lines",
+    "description": "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.",
+    "aliases": [
+      "Pultrusion Expertise, Transferred to Your Operation"
+    ]
+  },
+  {
+    "path": "/technology/polyurethane-pultrusion-windows",
+    "title": "Polyurethane Pultrusion Windows — GFRP-PU Technology",
+    "description": "Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers.",
+    "aliases": [
+      "Polyurethane Pultrusion Windows (GFRP-PU)"
+    ]
+  },
+  {
+    "path": "/technology/pultruded-profile-performance",
+    "title": "Pultruded FRP Profile Performance & Standards",
+    "description": "Specify pultruded FRP dimensions, mechanical, thermal, electrical, fire and chemical performance with GB, EN, ISO and ASTM references and test conditions.",
+    "aliases": [
+      "Pultruded profile performance"
+    ]
+  },
+  {
+    "path": "/technology/pultrusion-process",
+    "title": "Fiberglass Pultrusion Process — How FRP Profiles Are Made",
+    "description": "Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Fiber makes up 60–70% of the profile by volume, which gives pultruded sections high strength along their length.",
+    "aliases": [
+      "The Fiberglass Pultrusion Process, Step by Step"
+    ]
+  },
+  {
+    "path": "/technology/pultrusion-resin-systems",
+    "title": "Pultrusion Resin Systems: Polyester vs Vinyl Ester vs PU",
+    "description": "Compare polyester, vinyl ester, PU, epoxy and phenolic resins for pultruded FRP profiles by HDT, corrosion, fire and cost, with an interactive selection matrix.",
+    "aliases": [
+      "Pultrusion Resin Systems: Choosing the Right Matrix"
+    ]
+  },
+  {
+    "path": "/technology/pultrusion-vs-extrusion-filament-winding",
+    "title": "Pultrusion vs Extrusion vs Filament Winding",
+    "description": "Pultrusion vs extrusion vs filament winding: process, fiber orientation, achievable shapes, and mechanical properties compared for FRP and plastic profiles."
+  },
+  {
+    "path": "/technology/quality-testing",
+    "title": "FRP Quality, Testing & Product Evidence",
+    "description": "Match FRP test reports and component certificates to your material, section and assembly. Define inspection records and acceptance criteria before production.",
+    "aliases": [
+      "Evidence for the product you are specifying"
+    ]
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Service",
+    "description": "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services."
+  },
+  {
+    "path": "/what-is-frp",
+    "title": "What Is FRP? FRP vs Fiberglass, GRP & Materials",
+    "description": "FRP means fiber reinforced polymer or plastic. Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material.",
+    "aliases": [
+      "What is FRP? Definition, materials, properties, and uses"
+    ]
+  }
+]
