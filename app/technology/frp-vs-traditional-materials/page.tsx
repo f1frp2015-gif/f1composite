@@ -307,7 +307,7 @@ export default function FrpVsTraditionalPage() {
       {/* Hero image */}
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg"
               alt="FRP vs steel, aluminum, timber and concrete — material surface textures side by side for structural comparison"
@@ -343,7 +343,7 @@ export default function FrpVsTraditionalPage() {
               { value: "50+", label: "Years service life" },
               { value: "30%", label: "Lifecycle cost savings" },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-[8px] bg-bg2 p-[21px] text-center">
+              <div key={stat.label} className="rounded-card bg-bg2 p-[21px] text-center">
                 <span className="text-f32 font-extrabold leading-none text-teal">{stat.value}</span>
                 <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{stat.label}</p>
               </div>
@@ -364,7 +364,7 @@ export default function FrpVsTraditionalPage() {
           <div className="mt-[21px] flex flex-wrap gap-[13px]">
             {materials.map((m) => (
               <div key={m} className="flex items-center gap-[5px]">
-                <span className={`inline-block h-[10px] w-[10px] rounded-[2px] ${matColors[m]}`} />
+                <span className={`inline-block h-[10px] w-[10px] rounded-tag ${matColors[m]}`} />
                 <span className="text-f12 text-t3">{m}</span>
               </div>
             ))}
@@ -372,7 +372,7 @@ export default function FrpVsTraditionalPage() {
 
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             {barCharts.map((chart) => (
-              <div key={chart.title} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={chart.title} className="rounded-card border border-border-default bg-white p-[34px]">
                 <h3 className="text-f16 font-bold text-t1">
                   {chart.title} <span className="font-normal text-t3">({chart.unit})</span>
                 </h3>
@@ -384,9 +384,9 @@ export default function FrpVsTraditionalPage() {
                       <span className="w-[55px] shrink-0 text-right text-f12 font-bold text-t2">
                         {bar.material}
                       </span>
-                      <div className="relative h-[24px] flex-1 overflow-hidden rounded-[4px] bg-bg2">
+                      <div className="relative h-[24px] flex-1 overflow-hidden rounded-tag bg-bg2">
                         <div
-                          className={`absolute inset-y-0 left-0 rounded-[4px] ${matColors[bar.material]} ${bar.material === "FRP" ? "opacity-100" : "opacity-60"}`}
+                          className={`absolute inset-y-0 left-0 rounded-tag ${matColors[bar.material]} ${bar.material === "FRP" ? "opacity-100" : "opacity-60"}`}
                           style={{ width: `${Math.max(bar.pct, 2)}%` }}
                         />
                       </div>
@@ -457,11 +457,11 @@ export default function FrpVsTraditionalPage() {
             {propertyCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 {/* Visual header */}
                 <div className="flex items-start gap-[13px]">
-                  <div className="flex h-[55px] w-[55px] shrink-0 items-center justify-center rounded-[8px] bg-teal-bg">
+                  <div className="flex h-[55px] w-[55px] shrink-0 items-center justify-center rounded-card bg-teal-bg">
                     <span className="text-f18 font-extrabold text-teal">{card.icon}</span>
                   </div>
                   <div className="min-w-0">

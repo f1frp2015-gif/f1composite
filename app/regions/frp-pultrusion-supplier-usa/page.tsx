@@ -84,7 +84,7 @@ export default function UsaRegionPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/frp-pultrusion-supplier-usa.jpg"
               alt="Dimensioned isometric drawings of pultruded FRP structural profile shapes — channel, flat plate, and angle sections — to EN 13706 / ASTM D3917, supplied factory-direct for US projects"
@@ -193,7 +193,7 @@ export default function UsaRegionPage() {
                 body: "Ocean transit takes 16–22 days to Los Angeles or Long Beach and 28–32 days to New York, Savannah or Houston. Purchase order to jobsite is typically 8–12 weeks.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
@@ -224,21 +224,21 @@ export default function UsaRegionPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a US project.</p>
             </Link>
             <Link
               href="/resources/blog/frp-fire-resistance-ratings-guide"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">ASTM E84 and FRP fire ratings</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">How resin chemistry and additives affect flame spread, and what a Class A report covers.</p>
             </Link>
             <Link
               href="/technology/frp-vs-aluminum-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">FRP vs Aluminum — AAMA & thermal</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">U-values, structure and AAMA 2604 / 2605 finishes compared for US projects.</p>

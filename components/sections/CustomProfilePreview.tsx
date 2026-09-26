@@ -21,7 +21,7 @@ export default function CustomProfilePreview() {
   return (
     <section className="bg-bg2 py-[54px] md:py-[68px]">
       <div className="site-container grid items-center gap-[32px] lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] border border-border-default bg-white">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-border-default bg-white">
           <Image
             src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
             alt="Engineering illustration of a custom pultruded profile and its section drawing"
@@ -62,7 +62,7 @@ export default function CustomProfilePreview() {
                 message:
                   "Please review my drawing and custom profile requirements.\nSection / drawing:\nMaterial or service conditions:\nLength and quantity:\nDelivery destination:",
               })}
-              className="inline-flex min-h-[46px] items-center rounded-[7px] bg-teal-text px-[20px] text-f14 font-bold text-white"
+              className="inline-flex min-h-[46px] items-center rounded-control bg-teal-text px-[20px] text-f14 font-bold text-white"
             >
               Send your drawing
             </Link>

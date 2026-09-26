@@ -119,7 +119,7 @@ export default function TechnologyPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/technology/frp-profile-engineering-drawing-3d-render.jpg"
               alt="Pultruded FRP profile with engineering cross-section drawings showing dimensional tolerances and 3D render"
@@ -148,7 +148,7 @@ export default function TechnologyPage() {
             {areas.map((area) => (
               <div
                 key={area.href}
-                className="group relative overflow-hidden rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
+                className="group relative overflow-hidden rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
               >
                 <div className="card-topbar absolute left-0 right-0 top-0" />
                 <SectionTag>{area.tag}</SectionTag>

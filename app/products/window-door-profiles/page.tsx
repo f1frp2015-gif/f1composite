@@ -15,7 +15,7 @@ export default function Page() {
   return <>
     <WindowProcurementPage mode="profiles" />
     <section className="bg-bg2 py-10">
-      <div className="site-container"><div className="rounded-xl border border-border-default bg-white p-7">
+      <div className="site-container"><div className="rounded-card border border-border-default bg-white p-7">
         <h2 className="text-f24 font-bold text-t1">Developing a dedicated door frame?</h2>
         <p className="mt-3 text-f16 leading-relaxed text-t2">Review custom pultruded jamb and head profiles with matching rebates, seal interfaces and hardware preparation.</p>
         <Link href="/products/frp-door-frames" className="mt-4 inline-block text-f14 font-bold text-teal-text underline-offset-4 hover:underline">Explore FRP door frame profiles →</Link>

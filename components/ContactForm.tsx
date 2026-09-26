@@ -84,7 +84,7 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
 }
 
 const inputCls =
-  "w-full rounded-[7px] border border-border-default bg-white px-[13px] py-[12px] text-f16 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
+  "w-full rounded-control border border-border-default bg-white px-[13px] py-[12px] text-f16 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -156,7 +156,7 @@ function ContactFormContent() {
 
   if (state.success) {
     return (
-      <div role="status" aria-live="polite" className="rounded-[8px] border border-teal-border bg-teal-bg p-[34px]">
+      <div role="status" aria-live="polite" className="rounded-card border border-teal-border bg-teal-bg p-[34px]">
         <h3 className="text-f24 font-bold text-t1">Thank you for reaching out</h3>
         <p className="mt-[13px] text-f16 leading-golden text-t2">
           {state.message || "We have received your inquiry and will respond within one business day."}
@@ -176,7 +176,7 @@ function ContactFormContent() {
       if (mountedAt.current) data.set("form_elapsed_ms", String(Date.now() - mountedAt.current));
       setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
-    }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-[11px] border border-border-default bg-white p-[20px] shadow-[0_12px_32px_rgba(11,24,56,0.05)] sm:p-[28px]">
+    }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-card border border-border-default bg-white p-[20px] shadow-card sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       {/* Spam trap: off-screen and out of the tab order, so only bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
@@ -187,18 +187,18 @@ function ContactFormContent() {
       <input type="hidden" name="product_path" value={productPath} />
       <input type="hidden" name="inquiry_type" value={rebarInquiry ? (rebarInquiry.stage === "technical" ? "technical" : "rfq") : inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
       {rebarInquiry && <input type="hidden" name="rebar_inquiry" value={JSON.stringify(rebarInquiry)} />}
-      {rebarDraftNotice && <p role="status" className="rounded-md bg-amber-50 p-4 text-sm text-t1">{rebarDraftNotice}</p>}
-      {windowInquiry && <p className="rounded-md bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
+      {rebarDraftNotice && <p role="status" className="rounded-control bg-amber-50 p-4 text-sm text-t1">{rebarDraftNotice}</p>}
+      {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-sm font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
-      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
+      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (
-        <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f14 leading-golden text-t1">
+        <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 leading-golden text-t1">
           <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Your project details are included. Just add your name and email to get started.
         </div>
       )}
 
       {state.message && !state.success && (
-        <div role="alert" className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
+        <div role="alert" className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
           {state.message}
         </div>
       )}
@@ -209,7 +209,7 @@ function ContactFormContent() {
         <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-t1">Email <span className="text-red-500">*</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" className={inputCls} /></div>
       </div>
       <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-t1">What do you need? <span className="font-normal text-t3">(optional)</span></label><textarea ref={messageRef} id="message" name="message" rows={3} maxLength={16000} defaultValue={prefillMessage} placeholder="A short note is enough. We can work out the details together." className={inputCls} /></div>
-      <details open={Boolean(rebarInquiry)} className="rounded-lg border border-border-default px-4">
+      <details open={Boolean(rebarInquiry)} className="rounded-card border border-border-default px-4">
         <summary className="cursor-pointer py-3 text-sm font-semibold text-t1">Add company, delivery details or a file (optional)</summary>
         <div className="space-y-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -221,7 +221,7 @@ function ContactFormContent() {
         <label htmlFor="attachment" className="mb-[5px] block text-f14 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
         </label>
-        <div className="flex min-h-[47px] items-center gap-[12px] rounded-[7px] border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
+        <div className="flex min-h-[47px] items-center gap-[12px] rounded-control border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
           <input
             id="attachment"
             name="attachment"
@@ -239,7 +239,7 @@ function ContactFormContent() {
           />
           <label
             htmlFor="attachment"
-            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+            className="shrink-0 cursor-pointer rounded-control border border-border-default bg-bg2 px-[12px] py-[7px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
           >
             Choose File
           </label>

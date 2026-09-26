@@ -141,7 +141,7 @@ export default function FrpVsPvcWindowsPage() {
           <p className="mt-[13px] text-f16 leading-golden text-t2">
             FRP values reflect pultruded E-glass/polyester profiles in F1 Composite 65/70/80/90-series fenestration geometries. PVC values reflect premium triple-chamber uPVC systems typical of leading European manufacturers, steel-reinforced where required by span. Highlighted rows show properties where FRP materially outperforms PVC.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
@@ -178,7 +178,7 @@ export default function FrpVsPvcWindowsPage() {
             A decision framework by project type
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-2">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <h3 className="text-f18 font-bold text-t1">Choose PVC when</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>• First-cost is the dominant project driver</li>
@@ -189,7 +189,7 @@ export default function FrpVsPvcWindowsPage() {
                 <li>• Uw target is 1.0–1.4 W/m²·K (standard energy code)</li>
               </ul>
             </div>
-            <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
+            <div className="rounded-card border border-teal-border bg-teal/5 p-[21px]">
               <h3 className="text-f18 font-bold text-t1">Choose FRP when</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>• Passive house certification (Uw ≤ 0.80)</li>
@@ -230,7 +230,7 @@ export default function FrpVsPvcWindowsPage() {
           </p>
           <Link
             href="/products/frp-window-frames"
-            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            className="mt-[21px] inline-block rounded-card bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore FRP windows &amp; doors →
           </Link>

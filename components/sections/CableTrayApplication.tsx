@@ -79,7 +79,7 @@ function Source({ source }: { source: { label: string; href: string } }) {
 }
 
 function Table({ caption, headers, rows }: { caption: string; headers: string[]; rows: string[][] }) {
-  return <div role="region" aria-label={caption} tabIndex={0} className="overflow-x-auto rounded-[10px] border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
+  return <div role="region" aria-label={caption} tabIndex={0} className="overflow-x-auto rounded-card border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
     <table className="w-full min-w-[680px] border-collapse text-left text-f14">
       <caption className="bg-white px-[20px] py-[14px] text-left font-semibold text-t1">{caption}</caption>
       <thead className="bg-deep text-white"><tr>{headers.map(h => <th key={h} scope="col" className="px-[20px] py-[15px] font-semibold">{h}</th>)}</tr></thead>
@@ -109,7 +109,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
     <section className="bg-white pt-[34px] pb-[42px]">
       <div className="site-container">
         <div className="grid gap-[24px] md:grid-cols-2">
-          {productFamilies.map((family, index) => <article key={family.id} className="overflow-hidden rounded-[12px] border border-border-default bg-white">
+          {productFamilies.map((family, index) => <article key={family.id} className="overflow-hidden rounded-card border border-border-default bg-white">
             <a href={`#${family.id}`} aria-label={`Explore ${family.title}`}><Image src={family.image} alt={family.alt} width={1536} height={1024} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 594px" className="h-auto w-full" preload={index === 0} /></a>
             <div className="p-[24px] sm:p-[28px]"><SectionTag>{family.label}</SectionTag><h2 className="mt-[10px] text-f24 font-extrabold tracking-[-0.02em] text-t1">{family.title}</h2><p className="mt-[12px] text-f16 leading-golden text-t2">{family.description}</p><p className="mt-[10px] text-f14 leading-relaxed text-t3">{family.selection}</p><a href={`#${family.id}`} className="mt-[18px] inline-block font-bold text-teal-text hover:underline">Explore {index === 0 ? "cable trays" : "cable ladders"} →</a></div>
           </article>)}
@@ -117,7 +117,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         <p className="mt-[12px] text-f14 leading-relaxed text-t3">AI-generated product illustrations informed by supplier references. Profiles, slot patterns and connections are illustrative; confirm the offered configuration in the quotation.</p>
         <div className="mt-[30px] grid gap-[28px] lg:grid-cols-[1.35fr_1fr]">
           <div><SectionTag>From cable route to component schedule</SectionTag><p className="mt-[14px] text-f18 leading-golden text-t2">FRP cable trays and ladders carry power, control and instrumentation cables through wet, coastal and chemically aggressive environments. Their support channels, brackets and frames complete the load path into the structure.</p><p className="mt-[14px] text-f16 leading-golden text-t2">F1 Composite supplies pultruded fiberglass profiles and agreed fabricated components for these routes. Start with the cable arrangement and environment, then define the tray, supports, fittings and evidence needed for your project.</p></div>
-          <aside className="rounded-[10px] border border-teal-border bg-teal-bg p-[24px]"><h2 className="text-f18 font-bold text-t1">Define what goes in the quotation</h2><p className="mt-[12px] text-f16 leading-golden text-t2">Specify raw profiles, cut and drilled parts, assembled supports, or a complete cable-management package. Confirm tray-system availability, accessories, test documentation and engineering responsibilities for the offered scope.</p><Link href={rfqHref} className="mt-[16px] inline-block font-bold text-teal-text">Send your scope →</Link></aside>
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[24px]"><h2 className="text-f18 font-bold text-t1">Define what goes in the quotation</h2><p className="mt-[12px] text-f16 leading-golden text-t2">Specify raw profiles, cut and drilled parts, assembled supports, or a complete cable-management package. Confirm tray-system availability, accessories, test documentation and engineering responsibilities for the offered scope.</p><Link href={rfqHref} className="mt-[16px] inline-block font-bold text-teal-text">Send your scope →</Link></aside>
         </div>
       </div>
     </section>
@@ -143,7 +143,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Ventilated / perforated", "Define opening size, pattern and usable base width. Check cable bearing, drainage and the load rating of the perforated section."],
         ["Solid bottom", "Specify a continuous base where the cable arrangement requires it. Review heat dissipation and drainage for the route conditions."],
         ["With removable covers", "Schedule cover sections and retaining hardware separately. Covers add protection from debris or sunlight; they do not establish an IP rating."],
-      ].map(([title, body]) => <article key={title} className="rounded-[10px] border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
+      ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
       <p><strong className="text-t1">Specify:</strong> usable width, loading depth, wall / base thickness, straight-section length, base configuration, bend radius, resin and any cover requirements. Dimensions and available tooling are confirmed for the offered product.</p>
       <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[0])}>Enquire about cable trays</Button><Source source={sources.saiTray} /></div>
     </Section>
@@ -154,8 +154,8 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Side rails", "Specify usable width and rail depth, then check the complete section against cable mass, span and deflection limits."],
         ["Rungs & connections", "Agree rung pitch, cable contact surface and the manufacturer’s connection detail. Fastening and bonding must follow the offered system."],
         ["Cleats & route changes", "Coordinate cable cleats, separation, bend radius and fitting supports. Short-circuit restraint requires its own cable and cleat assessment."],
-      ].map(([title, body]) => <article key={title} className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
-      <p className="rounded-[8px] border border-teal-border bg-teal-bg px-[22px] py-[18px]"><strong className="text-t1">Rung spacing and support span are different dimensions.</strong> Rung spacing is the distance between cable-bearing cross members. Support span is the distance between brackets or frames carrying the complete ladder. Neither can be inferred from the supplied section length.</p>
+      ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
+      <p className="rounded-card border border-teal-border bg-teal-bg px-[22px] py-[18px]"><strong className="text-t1">Rung spacing and support span are different dimensions.</strong> Rung spacing is the distance between cable-bearing cross members. Support span is the distance between brackets or frames carrying the complete ladder. Neither can be inferred from the supplied section length.</p>
       <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[1])}>Enquire about cable ladders</Button><Source source={sources.saiLadder} /></div>
     </Section>
 
@@ -165,7 +165,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Chemical & process plants", "Process areas, utilities and corrosive service corridors", "Identify each chemical and concentration, continuous versus occasional exposure, and cleaning conditions. Specify compatible resin and connection hardware."],
         ["Coastal & offshore facilities", "Salt spray, exposed pipe racks and marine utilities", "Consider UV, wind on covers, vibration, temperature and the full fastener system. Offshore approval requirements must match the actual product and project."],
         ["Power, tunnels & infrastructure", "Substations, service tunnels and instrument routes", "Coordinate cable separation, cleat forces and electrical clearances. Tunnel and transit routes need project-specific fire, smoke and toxicity criteria."],
-      ].map(([title, subtitle, body]) => <article key={title} className="rounded-[10px] border border-border-default bg-white p-[26px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[8px] text-f14 font-semibold text-teal-text">{subtitle}</p><p className="mt-[12px]">{body}</p></article>)}</div>
+      ].map(([title, subtitle, body]) => <article key={title} className="rounded-card border border-border-default bg-white p-[26px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[8px] text-f14 font-semibold text-teal-text">{subtitle}</p><p className="mt-[12px]">{body}</p></article>)}</div>
       <p className="max-w-[920px]">The environment can change along one cable route. Treat a chemical dosing bay, a sheltered gallery and an exposed roof as separate selection conditions where necessary.</p>
     </Section>
 
@@ -174,7 +174,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
           ["Wall-mounted cantilevers", "Channel or angle crossarms connect to a wall rail or base plate. Check bracket projection, eccentric loading, bolt bearing and anchor forces in the actual substrate."],
           ["Suspended trapezes", "A cross-channel carries the tray between suspension points. Specify rod and hardware materials, overhead attachment, lateral restraint and any seismic requirements."],
           ["Floor-mounted frames", "Square-tube posts, channels and bracing support independent routes. Check frame stability, base fixings, impact exposure and access around equipment."],
-        ].map(([title, body]) => <article key={title} className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[8px]">{body}</p></article>)}</div>
+        ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[8px]">{body}</p></article>)}</div>
       <Table caption="Include fittings and accessories in the bill of materials" headers={["Group", "Items to schedule", "Coordination question"]} rows={[
         ["Route changes", "Horizontal bends, tees, crosses, reducers and vertical risers", "Does every fitting respect the cable’s minimum bending radius and have the required local support?"],
         ["Connections", "Splice plates, bolts, washers, expansion connections and hold-downs", "Do joints and fixed / sliding points follow the offered system’s tested arrangement?"],
@@ -190,7 +190,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Isophthalic polyester", "A candidate for many humid and outdoor industrial routes. Confirm compatibility with the actual chemicals, cleaning regime and temperature."],
         ["Vinyl ester", "A candidate for more demanding chemical service. Specify the resin grade and check the complete exposure profile before approval."],
         ["Fire & surface requirements", "Define flame, smoke and toxicity tests separately. Outdoor routes also need an agreed UV protection strategy and cut-edge treatment."],
-      ].map(([title, body]) => <article key={title} className="rounded-[10px] border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
+      ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
       <Table caption="FRP versus metal: compare the installed solution" headers={["Material", "Why it may fit", "Tradeoff to review"]} rows={[
         ["Glass FRP", "Corrosion resistance in compatible chemical service; insulating structural material; manageable component weight.", "Stiffness, sustained-load behaviour, temperature, fire criteria and connection detailing."],
         ["Galvanized steel", "High stiffness and familiar support details for many industrial routes.", "Coating suitability, damaged or cut surfaces, corrosion exposure and maintenance access."],
@@ -208,8 +208,8 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["02", "Match the tested arrangement", "Read load capacity together with support spacing, deflection, splice position and end-span conditions. A multi-span result cannot automatically be used for a single span or a cantilever."],
         ["03", "Check sustained service", "Review creep, temperature effects and environmental reduction factors using the offered laminate and system data. Ask which factors are already included in the published allowable load."],
         ["04", "Verify local and electrical actions", "Check bracket bending, bolt bearing, connection slip, pull-out and substrate anchorage. Cleat forces and cable short-circuit restraint need their own assessment."],
-      ].map(([number, title, body]) => <article key={number} className="rounded-[10px] border border-border-default p-[24px]"><span className="text-f14 font-bold text-teal-text">{number}</span><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
-      <div className="rounded-[10px] border-l-4 border-teal bg-bg2 p-[24px]"><h3 className="font-bold text-t1">Read the conditions beneath a load table</h3><p className="mt-[10px]">For example, Øglænd’s FOE page states that its IEC load-test arrangement uses an end span reduced to three-quarters of the support spacing, with no splices in that end span. This is a condition attached to that manufacturer’s data, not an F1 installation rule.</p><div className="mt-[12px]"><Source source={sources.oglaend} /></div></div>
+      ].map(([number, title, body]) => <article key={number} className="rounded-card border border-border-default p-[24px]"><span className="text-f14 font-bold text-teal-text">{number}</span><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
+      <div className="rounded-card border-l-4 border-teal bg-bg2 p-[24px]"><h3 className="font-bold text-t1">Read the conditions beneath a load table</h3><p className="mt-[10px]">For example, Øglænd’s FOE page states that its IEC load-test arrangement uses an end span reduced to three-quarters of the support spacing, with no splices in that end span. This is a condition attached to that manufacturer’s data, not an F1 installation rule.</p><div className="mt-[12px]"><Source source={sources.oglaend} /></div></div>
       <CalculatorCTA href="/frp-profile-calculator#shape=channel" eyebrow="Preliminary profile check" title="Screen a support channel with your own project inputs" sub="The calculator checks an individual profile. It does not qualify the cable tray system, cantilever connection, anchors, cable cleats or fire performance. Enter the actual support geometry, loads and material data." />
     </Section>
 
@@ -233,7 +233,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["During installation", "Follow the supplied system’s instructions for cutting, drilling, dust control, edge sealing, tightening and splice placement. Do not apply steelwork torque values or improvise field holes."],
         ["At handover", "Record the installed configuration and approved load allowance. Inspect for loose fasteners, damaged fibers, missing clamps, cover movement and unauthorized additions; set inspection intervals for the site."],
       ].map(([title, body]) => <article key={title} className="border-t-2 border-teal-border pt-[20px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[12px]">{body}</p></article>)}</div>
-      <p className="rounded-[8px] bg-bg2 px-[22px] py-[18px] font-semibold text-t1">Cable trays and cable ladders support cables. Do not use them as walkways, climbing ladders or personnel supports.</p>
+      <p className="rounded-card bg-bg2 px-[22px] py-[18px] font-semibold text-t1">Cable trays and cable ladders support cables. Do not use them as walkways, climbing ladders or personnel supports.</p>
       <Link href="/resources/blog/how-to-install-frp-cable-tray" className="inline-block font-bold text-teal-text">Read the step-by-step FRP cable tray installation guide →</Link>
       <Source source={sources.mita} />
     </Section>

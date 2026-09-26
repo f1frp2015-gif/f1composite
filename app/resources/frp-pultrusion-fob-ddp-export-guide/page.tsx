@@ -180,7 +180,7 @@ export default function DdpTariffHsCodeGuidePage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             FOB vs CIF vs DDP vs DAP — who does what
           </h2>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[900px] border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
@@ -221,7 +221,7 @@ export default function DdpTariffHsCodeGuidePage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {hsCandidates.map((row) => (
-              <div key={row.application} className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
+              <div key={row.application} className="rounded-card border border-border-default bg-bg2 p-[29px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{row.heading}</p>
                 <h3 className="mt-[8px] text-f16 font-bold text-t1">{row.application}</h3>
                 <p className="mt-[13px] text-f14 leading-golden text-t2">{row.logic}</p>

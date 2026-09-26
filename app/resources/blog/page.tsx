@@ -52,7 +52,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/resources/blog/${post.slug}`}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
               >
                 <div className="relative aspect-[1.618] overflow-hidden bg-bg2">
                   <Image
@@ -67,7 +67,7 @@ export default function BlogPage() {
                         : undefined
                     }
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-tag bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
                     {post.category}
                   </span>
                 </div>

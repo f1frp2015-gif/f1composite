@@ -6,7 +6,7 @@ interface ValueCardProps {
 
 export default function ValueCard({ number, title, description }: ValueCardProps) {
   return (
-    <div className="group relative rounded-[8px] border border-border-default bg-white p-[34px] pl-[21px] transition-all duration-[0.34s] hover:border-teal-border">
+    <div className="group relative rounded-card border border-border-default bg-white p-[34px] pl-[21px] transition-all duration-[0.34s] hover:border-teal-border">
       {/* Left accent bar */}
       <div className="absolute left-0 top-[34px] h-[21px] w-[2px] bg-teal transition-all duration-[0.55s] group-hover:h-[calc(100%-68px)]" />
       <span

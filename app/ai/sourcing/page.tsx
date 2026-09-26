@@ -95,7 +95,7 @@ export default function SourcingPage() {
             </p>
           </div>
 
-          <section className="mt-[34px] rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[29px]">
+          <section className="mt-[34px] rounded-card border border-border-default bg-bg2 p-[21px] md:p-[29px]">
             <h2 className="text-f24 font-bold text-t1">
               Use AI FRP sourcing to narrow the specification before the RFQ
             </h2>
@@ -122,7 +122,7 @@ export default function SourcingPage() {
               Three steps connect an early application question to a reviewable sourcing brief.
             </p>
             <div className="mt-[21px] grid gap-[21px] sm:grid-cols-3">
-              <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 1</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">Describe the application</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
@@ -130,7 +130,7 @@ export default function SourcingPage() {
                   volume, destination, and project stage. More detail produces a more useful answer.
                 </p>
               </div>
-              <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 2</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">AI organizes the options</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
@@ -138,7 +138,7 @@ export default function SourcingPage() {
                   documentation requests, and similar work from F1&rsquo;s product knowledge base.
                 </p>
               </div>
-              <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 3</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">Hand off for review</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
@@ -175,7 +175,7 @@ export default function SourcingPage() {
                   body: "It identifies drawings, quantities, lengths, tolerances, finish, inspection, Incoterms, destination, and schedule details that affect tooling, production, packing, and landed cost.",
                 },
               ].map((item) => (
-                <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <article key={item.title} className="rounded-card border border-border-default bg-white p-[21px]">
                   <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </article>
@@ -183,7 +183,7 @@ export default function SourcingPage() {
             </div>
           </section>
 
-          <section className="mt-[55px] rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[29px]">
+          <section className="mt-[55px] rounded-card border border-border-default bg-bg2 p-[21px] md:p-[29px]">
             <h2 className="text-f24 font-bold text-t1">
               What to include for a useful AI FRP sourcing answer
             </h2>
@@ -246,7 +246,7 @@ export default function SourcingPage() {
                   body: "Name the delivery country, port or site, order lengths, packing limits, Incoterm, tariff concerns, inspection needs, and required arrival date. The sourcing answer can prepare the commercial inputs while sales verifies classification, freight, duty, and final landed pricing.",
                 },
               ].map((item) => (
-                <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <article key={item.title} className="rounded-card border border-border-default bg-white p-[21px]">
                   <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </article>

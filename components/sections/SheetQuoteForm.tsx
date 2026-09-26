@@ -4,14 +4,14 @@ import { useState } from "react";
 import { sheetInquiry, sheetInquiryPath, type SheetSelection } from "@/lib/productInquiry";
 import Button from "@/components/ui/Button";
 
-const inputClass = "mt-[6px] min-h-[46px] w-full rounded-[6px] border border-border-default bg-white px-[12px] text-f16 text-t1 focus:outline-2 focus:outline-offset-2 focus:outline-teal";
+const inputClass = "mt-[6px] min-h-[46px] w-full rounded-control border border-border-default bg-white px-[12px] text-f16 text-t1 focus:outline-2 focus:outline-offset-2 focus:outline-teal";
 
 export default function SheetQuoteForm() {
   const [selection, setSelection] = useState<SheetSelection>({ thickness: "", width: "", length: "", quantity: "", unit: "mm", surface: "Please advise" });
   const inquiry = sheetInquiry(selection);
 
   return (
-    <form action="/contact" method="get" className="mt-[24px] rounded-[10px] border border-border-default bg-white p-[21px] sm:p-[28px]" aria-label="Prepare a fiberglass sheet inquiry">
+    <form action="/contact" method="get" className="mt-[24px] rounded-card border border-border-default bg-white p-[21px] sm:p-[28px]" aria-label="Prepare a fiberglass sheet inquiry">
       <input type="hidden" name="source" value="sheet-specification" />
       <input type="hidden" name="inquiry_type" value="rfq" />
       <input type="hidden" name="product" value="Solid pultruded fiberglass sheet" />

@@ -268,7 +268,7 @@ export default async function DownloadsPage() {
           </p>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {datasheetHighlights.map((fam) => (
-              <div key={fam.family} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={fam.family} className="rounded-card border border-border-default bg-white p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">
                   <Link href={fam.categoryHref} className="hover:text-teal-text">
                     {fam.family}
@@ -299,10 +299,10 @@ export default async function DownloadsPage() {
             {downloads.map((dl) => (
               <div
                 key={dl.title}
-                className="rounded-[8px] border border-border-default bg-white p-[21px]"
+                className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <div className="mb-[13px] flex items-center gap-[8px]">
-                  <span className="rounded-[4px] bg-teal-bg px-[8px] py-[3px] text-f12 font-bold text-teal-text">
+                  <span className="rounded-tag bg-teal-bg px-[8px] py-[3px] text-f12 font-bold text-teal-text">
                     {dl.format}
                   </span>
                   <span className="text-f12 text-t3">{dl.file ? dl.size : "Available on request, subject to scope"}</span>

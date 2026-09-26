@@ -119,7 +119,7 @@ export default function DesignGuidesPage() {
             {guides.map((guide) => (
               <div
                 key={guide.title}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 <div className="flex items-start justify-between gap-[21px]">
                   <div>
@@ -133,19 +133,19 @@ export default function DesignGuidesPage() {
                       href={guide.file}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="flex-shrink-0 rounded-tag bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
                     >
                       Download PDF
                     </a>
                   ) : guide.status === "Available" ? (
                     <Link
                       href="/contact"
-                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="flex-shrink-0 rounded-tag bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
                     >
                       Request Access
                     </Link>
                   ) : (
-                    <span className="flex-shrink-0 rounded-[4px] bg-bg2 px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-t3">
+                    <span className="flex-shrink-0 rounded-tag bg-bg2 px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-t3">
                       Coming Soon
                     </span>
                   )}

@@ -91,7 +91,7 @@ export default function LaminateMicrograph() {
   const weightPct = (glassMass / (glassMass + (1 - vfFrac) * RHO_RESIN)) * 100;
 
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="flex flex-wrap items-center gap-[16px]">
         <label htmlFor="vf-slider" className="text-f14 font-semibold text-t1">
           Fiber volume fraction
@@ -112,7 +112,7 @@ export default function LaminateMicrograph() {
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="mt-[13px] w-full rounded-[4px]"
+        className="mt-[13px] w-full rounded-tag"
         role="img"
         aria-label="Cross-section of a pultruded FRP laminate: surface veil, continuous filament mat layers, and unidirectional glass rovings embedded in the resin matrix"
       >
@@ -158,7 +158,7 @@ export default function LaminateMicrograph() {
       </svg>
 
       <div className="mt-[13px] grid gap-[13px] sm:grid-cols-2">
-        <div className="rounded-[8px] bg-bg2 p-[13px]">
+        <div className="rounded-card bg-bg2 p-[13px]">
           <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
             Idealized UD axial modulus (rule of mixtures)
           </p>
@@ -170,7 +170,7 @@ export default function LaminateMicrograph() {
             roving core only, not the full section.
           </p>
         </div>
-        <div className="rounded-[8px] bg-bg2 p-[13px]">
+        <div className="rounded-card bg-bg2 p-[13px]">
           <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
             Full-section reality check (EN 13706)
           </p>

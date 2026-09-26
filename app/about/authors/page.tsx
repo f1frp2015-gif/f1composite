@@ -86,7 +86,7 @@ export default function AuthorsIndexPage() {
               <Link
                 key={author.slug}
                 href={`/about/authors/${author.slug}`}
-                className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-all duration-300 hover:border-teal hover:shadow-lg"
+                className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-all duration-300 hover:border-teal hover:shadow-card"
               >
                 <span
                   className="inline-block self-start rounded-full px-[10px] py-[4px] text-f12 font-bold uppercase tracking-[0.16em] text-white"

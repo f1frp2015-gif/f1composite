@@ -21,7 +21,7 @@ const WARM = "#f59e0b";
 /** Heat streaming through an aluminum frame vs stopped by an FRP frame. */
 export function HeatFlowFrameComparison() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Aluminum */}
         <svg viewBox="0 0 220 120" className="w-full" aria-label="Heat flowing rapidly through an aluminum window frame, causing interior condensation">
@@ -86,7 +86,7 @@ export function HeatFlowFrameComparison() {
 /** Steel insert (thermal bridge) vs pultruded GRP core inside a uPVC chamber. */
 export function SteelVsFrpChamberCore() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Steel insert */}
         <svg viewBox="0 0 220 110" className="w-full" aria-label="Galvanized steel insert inside a uPVC window chamber conducting heat straight through">
@@ -140,7 +140,7 @@ export function SteelVsFrpChamberCore() {
 
 function OpeningFrame({ children, label, sub }: { children: ReactNode; label: string; sub: string }) {
   return (
-    <div className="rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[13px]">
       <svg viewBox="0 0 170 130" className="w-full" aria-label={`${label} window opening animation`}>
         {children}
       </svg>
@@ -154,7 +154,7 @@ function OpeningFrame({ children, label, sub }: { children: ReactNode; label: st
 export function WindowOpeningTypes() {
   const frame = <rect x="45" y="16" width="80" height="100" rx="3" fill="none" stroke={DARK} strokeWidth="3" />;
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
         {/* Casement — side-hung, swings like a door */}
         <OpeningFrame label="Casement" sub="Side-hung — swings like a door; full opening, maximum airflow.">
@@ -248,7 +248,7 @@ export function WindowOpeningTypes() {
 /** Simply-supported beam deflecting under a cycling midspan load. */
 export function BeamDeflection() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <svg viewBox="0 0 240 100" className="mx-auto w-full max-w-[560px]" aria-label="Simply supported beam deflecting under a midspan load, showing the deflection the calculator computes">
         {/* load arrow */}
         <g>
@@ -324,12 +324,12 @@ export function ProcessTrio() {
     { label: "Filament winding — fibers WOUND", note: "hollow rotational parts", icon: <FilamentWindingIcon /> },
   ];
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-3">
         {items.map((it) => (
           <div
             key={it.label}
-            className={`rounded-[8px] p-[13px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
+            className={`rounded-card p-[13px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
           >
             {it.icon}
             <p className={`mt-[8px] text-f14 font-bold ${it.highlight ? "text-teal-text" : "text-t1"}`}>{it.label}</p>
@@ -349,7 +349,7 @@ export function ProcessTrio() {
 /** Tensile and 3-point flexural coupon tests. */
 export function TensileFlexuralTest() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Tensile */}
         <svg viewBox="0 0 220 120" className="w-full" aria-label="Tensile test: dogbone coupon stretched between grips per ASTM D638">

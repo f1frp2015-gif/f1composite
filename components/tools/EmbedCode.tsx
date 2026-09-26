@@ -35,7 +35,7 @@ export default function EmbedCode({
   }
 
   return (
-    <section className="rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[34px]">
+    <section className="rounded-card border border-border-default bg-bg2 p-[21px] md:p-[34px]">
       <div className="flex flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
         <div className="max-w-[760px]">
           <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Free to embed</p>
@@ -49,7 +49,7 @@ export default function EmbedCode({
           type="button"
           onClick={() => setExpanded((value) => !value)}
           aria-expanded={expanded}
-          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-control bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
         >
           {expanded ? "Hide embed code" : "Embed This Tool"}
         </button>
@@ -66,13 +66,13 @@ export default function EmbedCode({
             value={code}
             rows={11}
             onFocus={(event) => event.currentTarget.select()}
-            className="mt-[8px] w-full rounded-[7px] border border-border-default bg-white p-[13px] font-mono text-f12 leading-relaxed text-t2 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+            className="mt-[8px] w-full rounded-control border border-border-default bg-white p-[13px] font-mono text-f12 leading-relaxed text-t2 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
           />
           <div className="mt-[10px] flex flex-wrap items-center gap-[13px]">
             <button
               type="button"
               onClick={copyCode}
-              className="inline-flex min-h-[42px] items-center rounded-[7px] border border-border-default bg-white px-[16px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              className="inline-flex min-h-[42px] items-center rounded-control border border-border-default bg-white px-[16px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
             >
               {copyState === "copied" ? "Copied" : "Copy HTML"}
             </button>

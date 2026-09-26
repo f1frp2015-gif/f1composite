@@ -39,7 +39,7 @@ export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }
         <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">{sheet ? "Specify your cut-to-size fiberglass sheet" : `Ordering pultruded fiberglass ${product}`}</h2>
         <div className="mt-[24px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
               <p className="mt-[10px] text-f14 leading-golden text-t2">{item.text}</p>
             </div>

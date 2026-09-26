@@ -183,7 +183,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           <p className="mt-[13px] text-f16 leading-golden text-t2">
             All three matrices produce an insulating fiberglass frame at ≈ 0.3 W/m·K conductivity. The differences show up in mechanical performance and manufacturability. Highlighted rows show where polyurethane leads.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
@@ -225,7 +225,7 @@ export default function PolyurethanePultrusionWindowsPage() {
           <div className="mt-[34px] max-w-[860px] space-y-[21px]">
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
-              className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f18 font-bold text-t1">Qinling Station, Antarctica: −60°C design low</h3>
               <p className="mt-[8px] text-f16 leading-golden text-t2">
@@ -235,7 +235,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             </Link>
             <Link
               href="/case-studies/baotou-industrial-gfrp-pu-windows"
-              className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f18 font-bold text-t1">Baotou Industrial Park: −25°C plus chemical exposure</h3>
               <p className="mt-[8px] text-f16 leading-golden text-t2">
@@ -245,7 +245,7 @@ export default function PolyurethanePultrusionWindowsPage() {
             </Link>
             <Link
               href="/case-studies/wanhua-yantai-zero-carbon-windows"
-              className="group block rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f18 font-bold text-t1">Wanhua Yantai Zero-Carbon Community: 13,657 m² of GFRP-PU fenestration</h3>
               <p className="mt-[8px] text-f16 leading-golden text-t2">

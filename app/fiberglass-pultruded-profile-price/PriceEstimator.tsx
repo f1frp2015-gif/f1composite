@@ -76,7 +76,7 @@ const DIM_FIELDS: Record<ProfileType, { key: string; label: string }[]> = {
 };
 
 const inputClass =
-  "w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+  "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
 const selectClass = inputClass;
 const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
 
@@ -151,7 +151,7 @@ export default function PriceEstimator() {
   return (
     <div className="grid gap-[21px] lg:grid-cols-[1fr_380px]">
       {/* Inputs */}
-      <div className="rounded-[13px] border border-border-default bg-white p-[21px]">
+      <div className="rounded-card border border-border-default bg-white p-[21px]">
         <div className="grid gap-[13px] sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label className={labelClass} htmlFor="pe-type">Profile type</label>
@@ -228,7 +228,7 @@ export default function PriceEstimator() {
       </div>
 
       {/* Result */}
-      <div className="rounded-[13px] border border-teal/30 bg-bg2 p-[21px]">
+      <div className="rounded-card border border-teal/30 bg-bg2 p-[21px]">
         <p className={labelClass}>Indicative export price (FOB China)</p>
         {error ? (
           <p className="mt-[13px] text-f16 text-t2">{error}</p>
@@ -270,7 +270,7 @@ export default function PriceEstimator() {
         </p>
         <Link
           href="/contact?source=price-estimator&inquiry_type=rfq"
-          className="mt-[13px] inline-block rounded-[6px] bg-teal px-[21px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
+          className="mt-[13px] inline-block rounded-control bg-teal px-[21px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
         >
           Get a firm quote &rarr;
         </Link>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -179,6 +180,8 @@ export default async function IBeamPage() {
     <>
       <PageHeader
         tag="I-Beam"
+        line={{ name: "F1-STRUX", label: "I-beam" }}
+        figure={<ProfileFigure model="I 152×76×6.4" />}
         title="Fiberglass I-Beam (FRP) Profiles"
         description="Wide-flange pultruded fiberglass I-beams from 76×38 mm to 305×305 mm. About 70–80% lighter than steel beams at the same depth, fully corrosion-free, EN 13706 E23."
         breadcrumbs={[
@@ -224,7 +227,7 @@ export default async function IBeamPage() {
             never corrodes, and does not conduct electricity — so deflection, not
             strength or rust, governs how you size it.
           </p>
-          <div className="mt-[24px] rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+          <div className="mt-[24px] rounded-card border border-border-default bg-bg2 p-[24px]">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
               <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
               <p className="text-f12 text-t3">
@@ -266,13 +269,13 @@ export default async function IBeamPage() {
                 and phenolic resin systems.
               </p>
               <div className="mt-[16px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E23</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No rust</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 tolerances</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E23</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No rust</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 tolerances</span>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
+            <div className="relative aspect-square overflow-hidden rounded-card bg-neutral-50">
               <Image
                 src="/images/products/i-beam/frp-i-beam-cover.jpg"
                 alt="Pultruded FRP I-beam wide flange structural profile by F1 Composite"
@@ -302,7 +305,7 @@ export default async function IBeamPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             {pitfalls.map((p) => (
-              <div key={p.title} className="rounded-[8px] border border-border-default bg-white p-[24px]">
+              <div key={p.title} className="rounded-card border border-border-default bg-white p-[24px]">
                 <h3 className="text-f18 font-bold text-t1">{p.title}</h3>
                 <p className="mt-[8px] text-f16 leading-golden text-t2">{p.body}</p>
               </div>
@@ -334,7 +337,7 @@ export default async function IBeamPage() {
           </p>
 
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <table className="spec-table w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model (H×B×t)</th>
@@ -370,7 +373,7 @@ export default async function IBeamPage() {
           </p>
 
           {/* Section properties — honest routing, not back-calculated */}
-          <div className="mt-[34px] rounded-[8px] border border-teal/30 bg-bg2 p-[24px]">
+          <div className="mt-[34px] rounded-card border border-teal/30 bg-bg2 p-[24px]">
             <h3 className="text-f16 font-bold uppercase tracking-[2px] text-teal-text">Section properties (A, I<sub>x</sub>, S<sub>x</sub>)</h3>
             <p className="mt-[8px] text-f16 leading-golden text-t2">
               Verified section properties — area, second moment of area, section
@@ -436,7 +439,7 @@ export default async function IBeamPage() {
             When an FRP I-beam wins — and when steel still makes sense
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <div className="rounded-[8px] border border-teal/30 bg-bg2 p-[24px]">
+            <div className="rounded-card border border-teal/30 bg-bg2 p-[24px]">
               <h3 className="text-f18 font-bold text-teal-text">Specify FRP when</h3>
               <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
                 <li>Coastal, chemical, wastewater, or de-icing-salt exposure where steel needs recoating cycles.</li>
@@ -445,7 +448,7 @@ export default async function IBeamPage() {
                 <li>The structure should last decades without recoating, which is where FRP wins on lifecycle cost.</li>
               </ul>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[24px]">
               <h3 className="text-f18 font-bold text-t1">Stay with steel when</h3>
               <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
                 <li>Dry, inland, non-corrosive service with a short asset horizon (&lt; 15 years).</li>

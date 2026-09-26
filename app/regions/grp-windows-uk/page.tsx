@@ -85,7 +85,7 @@ export default function UkRegionPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/grp-windows-uk.jpg"
               alt="Modern facade with dark anthracite window frames in a repeating grid — GRP frames hold the dark-color aesthetic without the warping risk of dark uPVC"
@@ -217,7 +217,7 @@ export default function UkRegionPage() {
                 body: "Ocean transit takes 30–38 days to Felixstowe, Southampton, or London Gateway. The total lead time from purchase order to site is 10–14 weeks. Inland delivery is available from the port of entry to London, the Midlands, the North, and Scotland.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
@@ -244,21 +244,21 @@ export default function UkRegionPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">PHI-certified GRP frames (U_w 0.78)</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the certification covers and how to specify it.</p>
             </Link>
             <Link
               href="/technology/frp-vs-pvc-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">GRP vs uPVC — stiffness &amp; U-value</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Why GRP frames need no steel reinforcement: larger sashes, dark colors without warping, and no hidden thermal bridge.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Antarctic passive windows case study</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">The same PHI-certified 90-series system, installed against a −60°C design low at Qinling Station.</p>

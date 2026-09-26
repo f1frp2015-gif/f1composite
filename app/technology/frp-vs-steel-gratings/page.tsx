@@ -140,7 +140,7 @@ export default function FrpVsSteelGratingsPage() {
           <p className="mt-[13px] text-f16 leading-golden text-t2">
             FRP values reflect pultruded and molded E-glass/polyester gratings typical of F1 Composite product range. Steel values reflect standard bar grating, 25mm × 5mm bearing bars, hot-dip galvanized per ASTM A123. Highlighted rows show properties where FRP materially outperforms steel.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
@@ -222,13 +222,13 @@ export default function FrpVsSteelGratingsPage() {
           <div className="mt-[21px] flex flex-wrap justify-center gap-[13px]">
             <Link
               href="/products/molded-frp-grating"
-              className="inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="inline-block rounded-card bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
             >
               View Molded Grating →
             </Link>
             <Link
               href="/products/frp-gratings"
-              className="inline-block rounded-[8px] border border-border-default bg-white px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text transition-colors hover:border-teal"
+              className="inline-block rounded-card border border-border-default bg-white px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text transition-colors hover:border-teal"
             >
               View Pultruded Grating →
             </Link>

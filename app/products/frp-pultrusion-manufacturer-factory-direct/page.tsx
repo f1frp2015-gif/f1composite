@@ -144,7 +144,7 @@ export default function FactoryDirectPultrusionPage() {
             width={2000}
             height={788}
             sizes="(max-width: 1024px) calc(100vw - 68px), 54vw"
-            className="h-auto w-full rounded-[12px] border border-border-default object-cover shadow-[0_18px_45px_rgba(11,24,56,0.12)]"
+            className="h-auto w-full rounded-card border border-border-default object-cover shadow-pop"
           />
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function FactoryDirectPultrusionPage() {
           </h2>
           <div className="mt-[34px] grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             {evidence.map((item) => (
-              <article key={item.label} className="rounded-[10px] border border-border-default bg-white p-[21px]">
+              <article key={item.label} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f24 font-extrabold text-teal-text">{item.value}</p>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">{item.label}</h3>
                 <p className="mt-[8px] text-f14 leading-relaxed text-t2">{item.detail}</p>
@@ -176,7 +176,7 @@ export default function FactoryDirectPultrusionPage() {
           <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             What you can order direct
           </h2>
-          <div className="mt-[34px] overflow-x-auto rounded-[10px] border border-border-default">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
             <table className="w-full min-w-[820px] border-collapse bg-white text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2 text-left text-t1">
@@ -210,7 +210,7 @@ export default function FactoryDirectPultrusionPage() {
           </h2>
           <ol className="mt-[34px] space-y-[18px]">
             {qualificationSteps.map((step, index) => (
-              <li key={step.title} className="grid gap-[13px] rounded-[10px] border border-border-default bg-white p-[21px] sm:grid-cols-[42px_1fr]">
+              <li key={step.title} className="grid gap-[13px] rounded-card border border-border-default bg-white p-[21px] sm:grid-cols-[42px_1fr]">
                 <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-teal-text text-f14 font-bold text-white">
                   {index + 1}
                 </span>
@@ -238,7 +238,7 @@ export default function FactoryDirectPultrusionPage() {
               The <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="text-teal-text hover:underline">FRP pultrusion FOB and DDP export guide</Link> covers these terms, HS/HTSUS classification and Section 301 duties in more detail. It is a purchasing guide, not customs or legal advice: the importer should confirm the classification with its broker or customs authority for the exact section and use.
             </p>
           </div>
-          <div className="rounded-[10px] border border-border-default bg-bg2 p-[26px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[26px]">
             <h2 className="text-f18 font-bold text-t1">What to send for a comparable quote</h2>
             <ul className="mt-[18px] space-y-[10px] text-f16 leading-relaxed text-t2">
               <li>• Drawing, catalog model, or application with critical dimensions</li>

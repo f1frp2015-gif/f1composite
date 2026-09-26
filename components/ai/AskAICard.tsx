@@ -23,7 +23,7 @@ export default function AskAICard({
   return (
     <section className="bg-bg2 py-[55px]">
       <div className="site-container">
-        <div className="rounded-[12px] border border-teal-border bg-teal-bg p-[34px]">
+        <div className="rounded-card border border-teal-border bg-teal-bg p-[34px]">
           <div className="flex flex-col items-start gap-[21px] md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-[16px]">
               <div className="mt-[2px] flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-teal text-white">
@@ -44,7 +44,7 @@ export default function AskAICard({
             </div>
             <Link
               href={href}
-              className="shrink-0 rounded-[8px] bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="shrink-0 rounded-card bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
             >
               {ctaLabel}
             </Link>

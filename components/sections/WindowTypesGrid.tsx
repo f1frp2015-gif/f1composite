@@ -201,15 +201,15 @@ export default function WindowTypesGrid() {
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center gap-3">
-        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-11 rounded-lg border border-border-default px-4 py-2 text-sm font-semibold text-teal-text disabled:cursor-default disabled:text-t3">
+        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-11 rounded-card border border-border-default px-4 py-2 text-sm font-semibold text-teal-text disabled:cursor-default disabled:text-t3">
           {animate ? "Stop motion" : "Play opening diagrams"}
         </button>
         <p className="text-xs text-t3">{reducedMotion ? "Static diagrams shown to respect your reduced-motion preference." : "Motion is optional. Stopping returns each diagram to its closed position."}</p>
       </div>
       <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
       {windowTypes.map(({ type, name, description }) => (
-        <div key={type} className="rounded-[8px] border border-border-default bg-white p-[16px]">
-          <div className="mb-[13px] flex h-[86px] items-center justify-center overflow-hidden rounded-[6px] bg-bg2">
+        <div key={type} className="rounded-card border border-border-default bg-white p-[16px]">
+          <div className="mb-[13px] flex h-[86px] items-center justify-center overflow-hidden rounded-control bg-bg2">
             <WindowTypeAnimation type={type} name={name} animate={animate} />
           </div>
           <h3 className="text-f16 font-bold text-t1">{name}</h3>

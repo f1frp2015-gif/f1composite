@@ -109,7 +109,7 @@ export default function SolarMountingSystemsPage() {
                   ["02", "Composite PV support profiles", "Square, C and H sections for fixed ground arrays, agrivoltaics, fishery-PV, floating arrays and coastal structures. Standard connectors remain mechanically fastened and field-serviceable."],
                   ["03", "Rooftop rails and hardware", "Low-line-mass roof rails for BAPV, BIPV and distributed generation, with matched mid clamps, end clamps, splice plates, sliding nuts and roof interfaces."],
                 ].map(([number, title, body]) => (
-                  <div key={number} className="rounded-[8px] border border-border-default bg-bg2 p-[18px]">
+                  <div key={number} className="rounded-card border border-border-default bg-bg2 p-[18px]">
                     <div className="flex gap-[13px]">
                       <span className="text-f14 font-extrabold text-teal-text">{number}</span>
                       <div>
@@ -121,7 +121,7 @@ export default function SolarMountingSystemsPage() {
                 ))}
               </div>
             </div>
-            <div className="overflow-hidden rounded-[10px] border border-border-default bg-bg2">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2">
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp"
@@ -148,7 +148,7 @@ export default function SolarMountingSystemsPage() {
           <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             These starting sections cover light rooftop rails through primary ground-mount support. Final section selection is governed by span, module layout, wind uplift, snow, seismic load, connection capacity and the project deflection limit.
           </p>
-          <div className="mt-[26px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[26px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[780px] border-collapse text-left text-f14">
               <thead className="bg-deep text-white">
                 <tr>
@@ -183,7 +183,7 @@ export default function SolarMountingSystemsPage() {
             PU for thin-wall performance; polyester or vinyl ester for exposure-led design
           </h2>
           <div className="mt-[26px] grid gap-[21px] lg:grid-cols-2">
-            <div className="rounded-[8px] border border-border-default p-[21px]">
+            <div className="rounded-card border border-border-default p-[21px]">
               <h3 className="text-f18 font-extrabold text-t1">Polyurethane (PU) pultrusion</h3>
               <dl className="mt-[16px] grid grid-cols-2 gap-x-[16px] gap-y-[10px] text-f14">
                 <dt className="text-t3">Density</dt><dd className="font-semibold text-t1">2.0–2.2 g/cm³</dd>
@@ -192,7 +192,7 @@ export default function SolarMountingSystemsPage() {
                 <dt className="text-t3">Thermal conductivity</dt><dd className="font-semibold text-t1">0.1–0.3 W/m·K</dd>
               </dl>
             </div>
-            <div className="rounded-[8px] border border-border-default p-[21px]">
+            <div className="rounded-card border border-border-default p-[21px]">
               <h3 className="text-f18 font-extrabold text-t1">Unsaturated polyester (UP)</h3>
               <dl className="mt-[16px] grid grid-cols-2 gap-x-[16px] gap-y-[10px] text-f14">
                 <dt className="text-t3">Density</dt><dd className="font-semibold text-t1">2.0–2.2 g/cm³</dd>
@@ -221,7 +221,7 @@ export default function SolarMountingSystemsPage() {
           </p>
           <div className="mt-[26px] grid gap-[21px] lg:grid-cols-2">
             {pvFrameReports.map((item) => (
-              <article key={item.file} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <article key={item.file} className="rounded-card border border-border-default bg-white p-[21px]">
                 <h3 className="text-f18 font-extrabold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f14 font-semibold text-teal-text">{item.issuer} · {item.reference} · issued {formatLongDate(item.issued)}</p>
                 <p className="mt-[13px] text-f14 leading-golden text-t2">{item.detail}</p>
@@ -258,20 +258,20 @@ export default function SolarMountingSystemsPage() {
               ["Floating & fishery-PV", "Low weight and resistance to humidity, salt spray and water-side corrosion."],
               ["Ground & agrivoltaic", "Mechanically fastened posts, purlins and braces for corrosive soil and fertilizer exposure."],
             ].map(([title, body]) => (
-              <div key={title} className="rounded-[8px] border border-white/20 bg-white/5 p-[18px]">
+              <div key={title} className="rounded-card border border-white/20 bg-white/5 p-[18px]">
                 <h3 className="text-f16 font-bold">{title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-white/75">{body}</p>
               </div>
             ))}
           </div>
           <div className="mt-[26px] flex flex-wrap gap-[12px]">
-            <Link href="/marketing/brochure/f1composite-solar-mounting-module-frames-2026-06.pdf" className="rounded-[6px] bg-teal px-[18px] py-[11px] text-f14 font-bold text-white hover:opacity-90">
+            <Link href="/marketing/brochure/f1composite-solar-mounting-module-frames-2026-06.pdf" className="rounded-control bg-teal px-[18px] py-[11px] text-f14 font-bold text-white hover:opacity-90">
               Module frames brochure (PDF)
             </Link>
-            <Link href="/marketing/brochure/f1composite-solar-mounting-manual-2026-06.pdf" className="rounded-[6px] border border-white/35 px-[18px] py-[11px] text-f14 font-bold text-white hover:bg-white/10">
+            <Link href="/marketing/brochure/f1composite-solar-mounting-manual-2026-06.pdf" className="rounded-control border border-white/35 px-[18px] py-[11px] text-f14 font-bold text-white hover:bg-white/10">
               Mounting manual (PDF)
             </Link>
-            <Link href="/marketing/brochure/f1composite-solar-mounting-rooftop-retrofit-2026-06.pdf" className="rounded-[6px] border border-white/35 px-[18px] py-[11px] text-f14 font-bold text-white hover:bg-white/10">
+            <Link href="/marketing/brochure/f1composite-solar-mounting-rooftop-retrofit-2026-06.pdf" className="rounded-control border border-white/35 px-[18px] py-[11px] text-f14 font-bold text-white hover:bg-white/10">
               Rooftop retrofit guide (PDF)
             </Link>
           </div>

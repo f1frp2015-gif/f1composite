@@ -97,7 +97,7 @@ export default function InfrastructurePage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <figure className="overflow-hidden rounded-[8px]">
+          <figure className="overflow-hidden rounded-card">
             <Image
               src={infrastructureApplication}
               alt="Concept rendering of a riverside pedestrian bridge with gray pultruded FRP beams, anti-slip decking, yellow handrails and cable tray supports"
@@ -247,7 +247,7 @@ export default function InfrastructurePage() {
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/custom-pultruded-profiles"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -259,7 +259,7 @@ export default function InfrastructurePage() {
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs. Traditional Materials</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -271,7 +271,7 @@ export default function InfrastructurePage() {
             </Link>
             <Link
               href="/case-studies/beam-bridge"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Beam Bridge Design & Case Studies</h3>
               <p className="text-f14 leading-golden text-t2">

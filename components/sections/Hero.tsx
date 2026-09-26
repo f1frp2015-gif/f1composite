@@ -64,7 +64,7 @@ export default function Hero() {
         </div>
 
         <div className="relative lg:pl-[10px]">
-          <div className="relative aspect-[1.38] overflow-hidden rounded-[14px] border border-white/15 bg-[#17284b] shadow-[0_28px_70px_rgba(0,0,0,0.28)] sm:aspect-[1.2] lg:aspect-[1.08] lg:rounded-[16px]">
+          <div className="relative aspect-[1.38] overflow-hidden rounded-card border border-white/15 bg-[#17284b] shadow-pop sm:aspect-[1.2] lg:aspect-[1.08] lg:rounded-card">
             <Image
               src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
               alt="Rows of pultrusion production lines at the FengDu manufacturing base in Chongqing"
@@ -76,7 +76,7 @@ export default function Hero() {
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
-            <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-[9px] border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-[10px] sm:px-[17px] sm:py-[14px]">
+            <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-card border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-card sm:px-[17px] sm:py-[14px]">
               <div>
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
                 <p className="mt-[2px] text-f16 font-bold text-white">370 pultrusion lines across 5 bases</p>

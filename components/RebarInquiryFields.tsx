@@ -2,7 +2,7 @@
 
 import { REBAR_FORMS, REBAR_STAGES, emptyRebarLine, type RebarInquiry, type RebarLine, type RebarStage, type RebarForm } from "@/lib/rebarInquiry";
 
-const input = "mt-2 block w-full min-w-0 rounded-md border border-border-default bg-white px-3 py-3 text-sm font-normal text-t1 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
+const input = "mt-2 block w-full min-w-0 rounded-control border border-border-default bg-white px-3 py-3 text-sm font-normal text-t1 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
 const label = "block min-w-0 text-sm font-semibold text-t1";
 export default function RebarInquiryFields({ value, onChange }: { value: RebarInquiry; onChange: (value: RebarInquiry) => void }) {
   const field = (key: "application" | "standard" | "documents" | "delivery", text: string, placeholder: string, maxLength: number) => (
@@ -19,7 +19,7 @@ export default function RebarInquiryFields({ value, onChange }: { value: RebarIn
       {field("standard", "Project standard & edition", "Specify your code or approval requirement, or leave blank", 500)}
     </div>
     <p className="text-sm leading-relaxed text-t2">Add up to 20 items, or attach your existing schedule on the contact form. Blank details remain to be confirmed.</p>
-    {value.lines.map((line, index) => <fieldset key={index} className="min-w-0 rounded-lg border border-border-default bg-bg2 p-4 sm:p-5">
+    {value.lines.map((line, index) => <fieldset key={index} className="min-w-0 rounded-card border border-border-default bg-bg2 p-4 sm:p-5">
       <legend className="px-2 font-bold text-t1">Item {index + 1}</legend>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className={label}>Supply form<select value={line.form} onChange={event => { const form = event.target.value as RebarForm; updateLine(index, { form, length: "", quantityUnit: form === "mesh" ? "sheets" : "pieces", details: "" }); }} className={input}>{Object.entries(REBAR_FORMS).map(([key, text]) => <option key={key} value={key}>{text}</option>)}</select></label>
@@ -37,7 +37,7 @@ export default function RebarInquiryFields({ value, onChange }: { value: RebarIn
       <label className={`${label} mt-4`}>{line.form === "bends" ? "Shape dimensions, inside radius & drawing revision" : line.form === "mesh" ? "Spacing, sheet dimensions, intersections & laps" : "Surface, resin or other line requirements"}<textarea rows={2} value={line.details} maxLength={500} onChange={event => updateLine(index, { details: event.target.value })} placeholder={line.form === "bends" ? "State dimension units and whether dimensions are inside, outside or centerline." : line.form === "mesh" ? "Give both directions and dimension units; attach the layout if available." : "Leave unknown details blank for technical review."} className={input} /></label>
       <button type="button" onClick={() => onChange({ ...value, lines: value.lines.filter((_, i) => i !== index) })} className="mt-3 min-h-11 text-sm font-semibold text-t2 underline underline-offset-4" aria-label={`Remove item ${index + 1}`}>Remove item</button>
     </fieldset>)}
-    <button type="button" disabled={value.lines.length >= 20} onClick={() => onChange({ ...value, lines: [...value.lines, emptyRebarLine()] })} className="min-h-11 rounded-md border border-teal-border bg-white px-4 py-2 text-sm font-bold text-teal-text disabled:opacity-50">Add line item</button>
+    <button type="button" disabled={value.lines.length >= 20} onClick={() => onChange({ ...value, lines: [...value.lines, emptyRebarLine()] })} className="min-h-11 rounded-control border border-teal-border bg-white px-4 py-2 text-sm font-bold text-teal-text disabled:opacity-50">Add line item</button>
     <div className="grid gap-4 sm:grid-cols-2">
       {field("documents", "Technical documents needed", "e.g. tensile / bond / alkali reports, bend details, batch records. Availability will be confirmed.", 1000)}
       {field("delivery", "Destination & delivery requirements", "Country / port, requested date, shipment phases or distributor quantities", 500)}

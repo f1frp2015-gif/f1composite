@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-[18px] gap-y-[10px]">
             <Link
               href="/contact?source=footer-cta&inquiry_type=rfq"
-              className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] bg-teal-text px-[20px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex min-h-[46px] items-center justify-center rounded-control bg-teal-text px-[20px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Get a Quote
             </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="F1 Composite home"
-              className="inline-block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              className="inline-block rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
             >
               <Image
                 src="/brand/f1-logo.png"

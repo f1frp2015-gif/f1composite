@@ -165,13 +165,13 @@ export default function FiberglassPlatesPage() {
             </p>
           </div>
 
-          <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Source boundary</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Values are published exactly as supplied.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">{fiberglassPlateSourceNote}</p>
             <a
               href="#plate-profile-catalog"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
+              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-control bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               Compare all 19 profiles
             </a>
@@ -189,13 +189,13 @@ export default function FiberglassPlatesPage() {
             Every catalog record is listed independently. Where the source merges one drawing
             across several rows, the shared schematic is shown once with each A/B/thickness/ID variant beneath it.
           </p>
-          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] rounded-control border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
             {fiberglassPlateSourceNote}
           </p>
 
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             {drawingGroups.map((group) => (
-              <article key={group.drawing} className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+              <article key={group.drawing} className="overflow-hidden rounded-card border border-border-default bg-white">
                 <div className="border-b border-border-default bg-white px-[13px] py-[21px]">
                   <Image
                     src={group.drawing}
@@ -256,7 +256,7 @@ export default function FiberglassPlatesPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-4">
             {selectionChecks.map((item, index) => (
-              <article key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">
                   {index + 1}
                 </span>

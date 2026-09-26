@@ -351,7 +351,7 @@ export default function CustomPultrusionsPage() {
                   { label: "03 — Surface Reinforcement", color: "bg-teal/60", items: capabilities.matrix.surface, icon: "◇" },
                   { label: "04 — Coating & Finish", color: "bg-teal/40", items: capabilities.matrix.coating, icon: "○" },
                 ].map((layer) => (
-                  <div key={layer.label} className="rounded-[8px] border border-border-default bg-white overflow-hidden">
+                  <div key={layer.label} className="rounded-card border border-border-default bg-white overflow-hidden">
                     <div className={`${layer.color} px-[13px] py-[6px] text-f12 font-bold uppercase tracking-widest text-white`}>
                       {layer.label}
                     </div>

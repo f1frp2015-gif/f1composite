@@ -159,7 +159,7 @@ export default function ResourcesPage() {
               <Link
                 key={r.href}
                 href={r.href}
-                className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border"
+                className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border"
               >
                 <span className="mb-[13px] block">{icons[r.iconKey]}</span>
                 <h3 className="mb-[8px] text-f18 font-bold text-t1 group-hover:text-teal-text">

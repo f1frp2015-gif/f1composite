@@ -164,7 +164,7 @@ export default function MoldedFrpGratingPage() {
           </div>
 
           <figure className="self-center">
-            <div className="relative aspect-[123/46] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[123/46] overflow-hidden rounded-card bg-bg2">
               <Image
                 src={moldedGratingManualImageAssets.closeup}
                 alt="Close-up of green molded fiberglass grating with square mesh and a bonded grit walking surface"
@@ -181,7 +181,7 @@ export default function MoldedFrpGratingPage() {
 
         <div className="site-container mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {moldedAdvantages.map((item) => (
-            <article key={item.label} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <article key={item.label} className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">{item.label}</p>
               <h3 className="mt-[8px] text-f18 font-bold text-t1">{item.value}</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">{item.detail}</p>
@@ -205,7 +205,7 @@ export default function MoldedFrpGratingPage() {
               <details
                 key={group.mesh}
                 open={index < 2}
-                className="group rounded-[8px] border border-border-default bg-white"
+                className="group rounded-card border border-border-default bg-white"
               >
                 <summary className="cursor-pointer list-none px-[21px] py-[16px] sm:px-[34px]">
                   <div className="flex items-center justify-between gap-[13px]">
@@ -249,14 +249,14 @@ export default function MoldedFrpGratingPage() {
             ))}
           </div>
 
-          <div className="mt-[34px] rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
+          <div className="mt-[34px] rounded-card border border-border-default bg-white p-[21px] sm:p-[34px]">
             <h3 className="text-f18 font-bold text-t1">Additional catalog mesh families</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               Further mesh and depth options are listed below. Request the exact configuration and project load table before specifying.
             </p>
             <div className="mt-[16px] grid gap-[10px] sm:grid-cols-2 lg:grid-cols-3">
               {moldedAdditionalMeshFamilies.map((item) => (
-                <div key={item.mesh} className="rounded-[6px] border border-border-default bg-bg2 px-[13px] py-[10px]">
+                <div key={item.mesh} className="rounded-control border border-border-default bg-bg2 px-[13px] py-[10px]">
                   <p className="text-f14 font-semibold text-t1">{item.mesh}</p>
                   <p className="mt-[3px] text-f12 text-t3">Catalog depths: {item.depths}</p>
                 </div>
@@ -279,7 +279,7 @@ export default function MoldedFrpGratingPage() {
               </p>
             </div>
             <figure>
-              <div className="relative aspect-[167/61] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="relative aspect-[167/61] overflow-hidden rounded-card border border-border-default bg-bg2">
                 <Image
                   src={moldedGratingManualImageAssets.hardware}
                   alt="Reference layout of stainless-steel grating clip and clamp geometries"
@@ -302,7 +302,7 @@ export default function MoldedFrpGratingPage() {
       <section className="bg-white pt-[55px]">
         <div className="site-container">
           <figure>
-            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-card bg-bg2">
               <Image
                 src={moldedGratingManualImageAssets.hero}
                 alt="Molded FRP grating installed as a corrosion-resistant coastal observation walkway"
@@ -331,7 +331,7 @@ export default function MoldedFrpGratingPage() {
           </div>
           <Link
             href="/products/frp-gratings"
-            className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] bg-teal-text px-[21px] py-[11px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="inline-flex min-h-[46px] items-center justify-center rounded-control bg-teal-text px-[21px] py-[11px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             View pultruded FRP grating
           </Link>

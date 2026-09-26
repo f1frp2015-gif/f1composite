@@ -57,7 +57,7 @@ export default function DownloadsSnapshot() {
           <LinkArrow href="/resources" className="shrink-0">Browse resources</LinkArrow>
         </div>
 
-        <div className="mt-[28px] grid overflow-hidden rounded-[11px] border border-border-default bg-white md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-[28px] grid overflow-hidden rounded-card border border-border-default bg-white md:grid-cols-2 xl:grid-cols-4">
           {resources.map((resource, index) => (
             <Link
               key={resource.href}

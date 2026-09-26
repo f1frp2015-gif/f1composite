@@ -67,7 +67,7 @@ function clearGoogleCookies(choice: ConsentChoice) {
 }
 
 const buttonClass =
-  "inline-flex min-h-[42px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
+  "inline-flex min-h-[42px] items-center justify-center rounded-control bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
 
 export default function CookieConsent() {
   const prompt = useSyncExternalStore(subscribe, promptSnapshot, () => "quiet");
@@ -120,7 +120,7 @@ export default function CookieConsent() {
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-text"
       tabIndex={-1}
-      className="fixed bottom-[13px] left-[13px] right-[13px] z-[70] max-h-[calc(100vh-26px)] overflow-y-auto rounded-[10px] border border-border-default bg-white p-[20px] shadow-2xl outline-none sm:right-auto sm:max-w-[520px]"
+      className="fixed bottom-[13px] left-[13px] right-[13px] z-[70] max-h-[calc(100vh-26px)] overflow-y-auto rounded-card border border-border-default bg-white p-[20px] shadow-pop outline-none sm:right-auto sm:max-w-[520px]"
     >
       <h2 id="cookie-consent-title" className="text-f16 font-bold text-t1">
         Cookies on this site

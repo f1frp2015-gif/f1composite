@@ -40,7 +40,7 @@ export default function ArticleSummarizer({ title, content }: ArticleSummarizerP
   };
 
   return (
-    <div className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[16px]">
+    <div className="mt-[21px] rounded-card border border-teal-border bg-teal-bg p-[16px]">
       <div className="flex flex-wrap items-center justify-between gap-[13px]">
         <div className="flex items-center gap-[10px]">
           <div className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-white">
@@ -57,7 +57,7 @@ export default function ArticleSummarizer({ title, content }: ArticleSummarizerP
           <button
             type="button"
             onClick={run}
-            className="rounded-[6px] bg-teal px-[13px] py-[6px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+            className="rounded-control bg-teal px-[13px] py-[6px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
           >
             Generate summary
           </button>

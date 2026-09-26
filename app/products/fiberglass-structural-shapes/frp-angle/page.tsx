@@ -3,6 +3,8 @@ import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -94,6 +96,9 @@ export default async function AnglePage() {
       />
       <PageHeader
         tag="Angle"
+        line={{ name: "F1-STRUX", label: "Angle" }}
+        figure={<ProfileFigure model="L 100×100×8" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((s) => s.a), weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Angle (FRP) Profiles"
         description="Equal and unequal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm."
         breadcrumbs={[
@@ -116,12 +121,12 @@ export default async function AnglePage() {
                 FRP angles serve as stiffeners, bracing members, ledger supports, and connection elements across structural and architectural applications. Balanced fiber architecture provides near-equal mechanical properties on both legs for consistent load transfer at bolted connections.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Equal & unequal-leg</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Thermal expansion ≈ concrete</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Equal & unequal-leg</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Thermal expansion ≈ concrete</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] bg-white">
+            <div className="relative aspect-square overflow-hidden rounded-card bg-white">
               <Image
                 src="/images/products/angle/frp-angle-cover.jpg"
                 alt="Pultruded FRP angle L-profile 100x100x10 mm by F1 Composite"
@@ -141,7 +146,7 @@ export default async function AnglePage() {
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <table className="spec-table w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>

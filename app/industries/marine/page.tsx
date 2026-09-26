@@ -95,7 +95,7 @@ export default function MarinePage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-marine-harbor-dock-structure.jpg"
               alt="Harbor dock and marina walkway structures for marine corrosion-resistant applications"
@@ -245,7 +245,7 @@ export default function MarinePage() {
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/molded-frp-grating"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Marine Gratings</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -257,7 +257,7 @@ export default function MarinePage() {
             </Link>
             <Link
               href="/products/fiberglass-structural-shapes"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Standard Profiles</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -269,7 +269,7 @@ export default function MarinePage() {
             </Link>
             <Link
               href="/case-studies/coastal-marina-walkway"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Case Study: Coastal Marina Walkway</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -281,7 +281,7 @@ export default function MarinePage() {
             </Link>
             <Link
               href="/technology/frp-vs-steel-gratings"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Steel Gratings</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -293,7 +293,7 @@ export default function MarinePage() {
             </Link>
             <Link
               href="/resources/blog/frp-replacing-steel-coastal-infrastructure"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Why FRP Is Replacing Steel in Coastal Infrastructure</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -305,7 +305,7 @@ export default function MarinePage() {
             </Link>
             <Link
               href="/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP for Offshore, Tidal & Fishery-PV Mounts</h3>
               <p className="text-f14 leading-golden text-t2">

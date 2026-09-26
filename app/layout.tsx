@@ -25,6 +25,19 @@ const dmSans = localFont({
   variable: "--font-dm-sans",
 });
 
+// DM Mono (v16, latin, 400 and 500) for small uppercase labels and code.
+// Not preloaded: it only sets short labels, where a late swap from the
+// fallback is barely visible, so pages do not pay for another early request.
+const dmMono = localFont({
+  src: [
+    { path: "./fonts/dm-mono-latin-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/dm-mono-latin-500.woff2", weight: "500", style: "normal" },
+  ],
+  display: "swap",
+  preload: false,
+  variable: "--font-dm-mono",
+});
+
 // Keep one canonical GA4 destination and exclude Vercel previews from
 // production analytics and tag diagnostics.
 const GA4_MEASUREMENT_ID = "G-BRBGMB3BTW";
@@ -79,7 +92,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
       <head>
         {shouldLoadTracking && (
           <>
@@ -103,7 +116,7 @@ export default function RootLayout({
         {/* Skip-to-content link (WCAG 2.4.1) — visually hidden until focused. */}
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-[16px] focus:top-[10px] focus:z-[100] focus:rounded-[6px] focus:bg-white focus:px-[16px] focus:py-[8px] focus:text-t1 focus:shadow-lg focus:outline focus:outline-2 focus:outline-teal"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-[16px] focus:top-[10px] focus:z-[100] focus:rounded-control focus:bg-white focus:px-[16px] focus:py-[8px] focus:text-t1 focus:shadow-card focus:outline focus:outline-2 focus:outline-teal"
         >
           Skip to content
         </a>

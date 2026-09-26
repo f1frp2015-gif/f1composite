@@ -58,12 +58,12 @@ export default function SectionPreview({
   }
 
   const tabClass = (active: boolean) =>
-    `rounded-[4px] px-[10px] py-[3px] text-f12 font-bold uppercase tracking-wide transition-colors ${
+    `rounded-tag px-[10px] py-[3px] text-f12 font-bold uppercase tracking-wide transition-colors ${
       active ? "bg-teal text-white" : "bg-bg2 text-t3 hover:text-teal-text"
     }`;
 
   return (
-    <div className="rounded-[6px] bg-white p-[13px]">
+    <div className="rounded-control bg-white p-[13px]">
       <div className="flex items-center justify-between">
         <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Section Preview</div>
         {webglOk && (

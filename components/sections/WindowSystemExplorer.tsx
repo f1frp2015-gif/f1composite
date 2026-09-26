@@ -20,10 +20,10 @@ export default function WindowSystemExplorer({ mode = "profiles", productPath }:
       </div>
       <p className="mb-5 text-sm text-t2" role="status">{visible.length} systems shown. Compare up to three; open a card for sections and supply details.</p>
       <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {visible.map((series) => <article key={series.id} id={`system-${series.id}`} className="scroll-mt-28 overflow-hidden rounded-xl border border-border-default bg-white">
+        {visible.map((series) => <article key={series.id} id={`system-${series.id}`} className="scroll-mt-28 overflow-hidden rounded-card border border-border-default bg-white">
           <div className="relative aspect-[4/3] bg-white">
             <Image src={series.image} alt={series.imageAlt} fill sizes="(max-width: 768px) 90vw, (max-width: 1280px) 44vw, 29vw" className="object-contain p-4" />
-            <span className="absolute left-4 top-4 rounded bg-white/95 px-2.5 py-1 text-xs font-bold text-teal-text">{series.depthMm} mm frame depth</span>
+            <span className="absolute left-4 top-4 rounded-tag bg-white/95 px-2.5 py-1 text-xs font-bold text-teal-text">{series.depthMm} mm frame depth</span>
           </div>
           <div className="p-5">
             <h3 className="text-xl font-bold leading-snug text-t1">{series.name}</h3>
@@ -37,8 +37,8 @@ export default function WindowSystemExplorer({ mode = "profiles", productPath }:
               <p className="text-xs leading-relaxed text-t2">Catalog opening references: {series.openingTypes.join(" · ")}. Review the proposed size and hardware before ordering.</p>
               <dl className="my-4 grid grid-cols-2 gap-3 text-sm"><div><dt className="text-t3">Reference load-bearing wall</dt><dd className="mt-1 font-semibold">{series.wallThicknessMm} mm</dd></div><div><dt className="text-t3">Catalog leaf-load reference</dt><dd className="mt-1 font-semibold">{series.referenceMaxLeafKg} kg*</dd></div></dl>
               <p className="mb-3 text-xs text-t3">*Configuration-dependent catalog information, not an approved operating limit. Confirm the drawing, hardware, glazing and verification scope.</p>
-              {series.sectionImage && <figure className="mb-4 rounded-lg border border-border-default bg-white p-3"><Image src={series.sectionImage} alt={series.sectionImageAlt || `${series.name} section outlines`} width={1200} height={380} sizes="(max-width: 768px) 85vw, 400px" className="h-auto w-full" /><figcaption className="mt-2 text-xs leading-relaxed text-t3">Section outlines follow the code list below, from left to right. Request dimensioned drawings before fabrication.</figcaption></figure>}
-              <ul className="divide-y divide-border-default rounded-lg border border-border-default">
+              {series.sectionImage && <figure className="mb-4 rounded-card border border-border-default bg-white p-3"><Image src={series.sectionImage} alt={series.sectionImageAlt || `${series.name} section outlines`} width={1200} height={380} sizes="(max-width: 768px) 85vw, 400px" className="h-auto w-full" /><figcaption className="mt-2 text-xs leading-relaxed text-t3">Section outlines follow the code list below, from left to right. Request dimensioned drawings before fabrication.</figcaption></figure>}
+              <ul className="divide-y divide-border-default rounded-card border border-border-default">
                 {series.profiles.map((profile) => <li key={profile.code} className="px-3 py-2 text-xs"><strong className="mr-2 font-mono text-teal-text">{profile.code}</strong>{profile.label}</li>)}
               </ul>
               {series.id === "90-sliding" && <p className="mt-3 text-xs text-t2">Ask for the current section drawings and component mapping for CP001–CP005. The codes alone do not confirm a mating profile set.</p>}
@@ -48,7 +48,7 @@ export default function WindowSystemExplorer({ mode = "profiles", productPath }:
           </div>
         </article>)}
       </div>
-      {compareSeries.length > 0 && <section aria-label="Selected system comparison" className="mt-8 rounded-xl border border-teal-border bg-teal-bg p-5">
+      {compareSeries.length > 0 && <section aria-label="Selected system comparison" className="mt-8 rounded-card border border-teal-border bg-teal-bg p-5">
         <div className="flex flex-wrap items-center justify-between gap-3"><h3 className="text-lg font-bold text-t1">Your comparison ({compareSeries.length}/3)</h3><button type="button" className="min-h-11 text-sm font-semibold text-teal-text underline" onClick={() => setCompared([])}>Clear comparison</button></div>
         <div className="mt-4 overflow-x-auto"><table className="w-full min-w-[560px] text-left text-sm"><thead><tr><th className="p-3">Decision</th>{compareSeries.map((series) => <th className="p-3" key={series.id}>{series.name}</th>)}</tr></thead><tbody>
           <tr className="border-t border-teal-border"><th className="p-3">Frame depth</th>{compareSeries.map((series) => <td className="p-3" key={series.id}>{series.depthMm} mm</td>)}</tr>

@@ -31,11 +31,11 @@ export default function GratingHero({ family, title, description, image, imageAl
             <p className="mt-[12px] text-f12 leading-relaxed text-t3">Whole panels or drawing-based requirements. Quantities, fabrication and delivery scope confirmed with your quote.</p>
           </div>
           <figure className="min-w-0">
-            <div className="relative aspect-[3/2] overflow-hidden rounded-[12px] border border-border-default bg-bg2">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
               {family ? <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 48vw" className="object-contain" preload /> : <div className="grid h-full grid-cols-2 gap-2 p-3">{[
                 ["/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", "Molded square mesh"],
                 ["/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp", "Pultruded bearing bars"],
-              ].map(([src, label]) => <div key={src} className="relative overflow-hidden rounded-lg"><Image src={src} alt={label} fill sizes="(max-width: 1023px) 44vw, 23vw" className="object-cover" preload /><span className="absolute inset-x-0 bottom-0 bg-deep/90 p-3 text-sm font-bold text-white">{label}</span></div>)}</div>}
+              ].map(([src, label]) => <div key={src} className="relative overflow-hidden rounded-card"><Image src={src} alt={label} fill sizes="(max-width: 1023px) 44vw, 23vw" className="object-cover" preload /><span className="absolute inset-x-0 bottom-0 bg-deep/90 p-3 text-sm font-bold text-white">{label}</span></div>)}</div>}
             </div>
             <figcaption className="mt-[7px] text-f12 leading-relaxed text-t3">{family ? caption : "Product construction photographs. Compare the integral molded mesh with directional pultruded bars; images are not to a common scale."}</figcaption>
           </figure>

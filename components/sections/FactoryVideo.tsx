@@ -39,7 +39,7 @@ export default function FactoryVideo() {
       <span className="absolute inset-0 bg-deep/20 transition-colors duration-[0.34s] group-hover:bg-deep/30" />
       {/* The cover has its title baked into the left half and the logo in the
           bottom-right corner; keep the button in the clear area between them. */}
-      <span className="absolute left-[72%] top-[62%] flex h-[56px] w-[56px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-teal text-white shadow-lg transition-transform duration-[0.34s] group-hover:scale-105 sm:h-[64px] sm:w-[64px]">
+      <span className="absolute left-[72%] top-[62%] flex h-[56px] w-[56px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-teal text-white shadow-card transition-transform duration-[0.34s] group-hover:scale-105 sm:h-[64px] sm:w-[64px]">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
           <path d="M8 5v14l11-7z" />
         </svg>

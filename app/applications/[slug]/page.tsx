@@ -100,7 +100,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
             <p className="mt-[21px] text-f18 leading-golden text-t2">{page.intro}</p>
             <p className="mt-[21px] text-f16 leading-golden text-t2">{page.environment}</p>
           </div>
-          <aside className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+          <aside className="rounded-card border border-border-default bg-bg2 p-[24px]">
             <h2 className="text-f18 font-bold text-t1">Quote-ready inputs</h2>
             <ul className="mt-[13px] space-y-[10px]">
               {page.rfqInputs.map((item) => (
@@ -113,11 +113,11 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="site-container pb-[28px]"><div className="rounded-[10px] border border-border-default bg-bg2 p-[22px]"><h2 className="text-f18 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f16 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation. This page describes how the products are used; design and installation are included only where the quotation says so.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
+      <div className="site-container pb-[28px]"><div className="rounded-card border border-border-default bg-bg2 p-[22px]"><h2 className="text-f18 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f16 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation. This page describes how the products are used; design and installation are included only where the quotation says so.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
 
       <section className="bg-white pb-[55px]">
         <div className="site-container">
-          <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+          <figure className="overflow-hidden rounded-card border border-border-default bg-bg2">
             <Image
               src={page.image}
               alt={page.imageAlt}
@@ -141,7 +141,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               <SectionTag>Recommended profiles</SectionTag>
               <div className="mt-[21px] space-y-[13px]">
                 {page.recommendedProfiles.map((item) => (
-                  <div key={item} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                  <div key={item} className="rounded-card border border-border-default bg-white p-[21px]">
                     <p className="text-f16 leading-golden text-t2">{item}</p>
                   </div>
                 ))}
@@ -149,13 +149,13 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
             </div>
             <div>
               <SectionTag>Resin and standards</SectionTag>
-              <div className="mt-[21px] rounded-[8px] border border-border-default bg-white p-[24px]">
+              <div className="mt-[21px] rounded-card border border-border-default bg-white p-[24px]">
                 <h2 className="text-f18 font-bold text-t1">Resin recommendation</h2>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
                 <h3 className="mt-[24px] text-f16 font-bold text-t1">Common standards</h3>
                 <div className="mt-[13px] flex flex-wrap gap-[8px]">
                   {page.standards.map((standard) => (
-                    <span key={standard} className="rounded-[4px] bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
+                    <span key={standard} className="rounded-tag bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
                       {standard}
                     </span>
                   ))}
@@ -174,7 +174,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
           </h2>
           <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
             {page.designChecks.map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
               </div>

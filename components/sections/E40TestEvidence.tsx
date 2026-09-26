@@ -3,7 +3,7 @@ import { e40EvidenceHref, e40ReportDate, e40Reports, e40TestMethod } from "@/con
 
 export function E40EvidenceLink({ facade = false }: { facade?: boolean }) {
   return (
-    <aside className="my-[21px] rounded-[8px] border border-border-default bg-teal-bg p-[21px]">
+    <aside className="my-[21px] rounded-card border border-border-default bg-teal-bg p-[21px]">
       <h3 className="text-f18 font-bold text-t1">E40 / 40 GPa-class test evidence</h3>
       <p className="mt-[8px] text-f16 leading-golden text-t2">
         SGS reports record full-section averages of 40.8 and 41.5 GPa using {e40TestMethod}.
@@ -35,7 +35,7 @@ export default function E40TestEvidence() {
         </p>
         <div className="mt-[21px] grid gap-[21px] lg:grid-cols-2">
           {e40Reports.map((report) => (
-            <article key={report.id} className="min-w-0 rounded-[8px] border border-border-default bg-white p-[21px]">
+            <article key={report.id} className="min-w-0 rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f24 font-bold text-t1">{report.average} GPa <span className="text-f16 font-medium text-t2">reported average</span></h3>
               <p className="mt-[8px] break-words text-f14 font-semibold text-teal-text">{report.reference}</p>
               <dl className="mt-[21px] space-y-[13px] text-f14 text-t2">

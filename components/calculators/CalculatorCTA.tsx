@@ -17,7 +17,7 @@ export default function CalculatorCTA({
   return (
     <Link
       href={href}
-      className="group block rounded-[8px] border border-teal-border bg-teal-bg p-[21px] transition-colors hover:border-teal"
+      className="group block rounded-card border border-teal-border bg-teal-bg p-[21px] transition-colors hover:border-teal"
     >
       <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">{eyebrow}</div>
       <div className="mt-[6px] text-f18 font-bold text-t1">

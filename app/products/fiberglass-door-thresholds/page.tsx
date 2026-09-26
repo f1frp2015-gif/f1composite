@@ -63,7 +63,7 @@ export default function DoorThresholdsPage() {
               height={1098}
               sizes="(max-width: 1024px) 100vw, 55vw"
               preload
-              className="h-auto w-full rounded-[14px]"
+              className="h-auto w-full rounded-card"
             />
             <figcaption className="mt-[12px] text-f12 leading-relaxed text-t3">
               F1 profile illustration. Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.
@@ -107,7 +107,7 @@ export default function DoorThresholdsPage() {
           </p>
           <div className="mt-[28px] grid gap-[24px] md:grid-cols-2">
             {page.profileVariants.map((item) => (
-              <figure key={item.id} className="overflow-hidden rounded-[14px] border border-border-default bg-white">
+              <figure key={item.id} className="overflow-hidden rounded-card border border-border-default bg-white">
                 <a href={item.image} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
                   <Image
                     src={item.image}
@@ -135,7 +135,7 @@ export default function DoorThresholdsPage() {
           <h2 className="mt-[16px] text-f32 font-bold text-t1">Choose the opening before the section</h2>
           <div className="mt-[28px] grid gap-[20px] lg:grid-cols-3">
             {page.applications.map((item, index) => (
-              <article key={item.title} className="flex flex-col rounded-[12px] border border-border-default bg-white p-[26px]">
+              <article key={item.title} className="flex flex-col rounded-card border border-border-default bg-white p-[26px]">
                 <span className="text-f14 font-bold uppercase tracking-[0.08em] text-teal-text">0{index + 1} / {item.tag}</span>
                 <h3 className="mt-[20px] text-f24 font-bold leading-tight text-t1">{item.title}</h3>
                 <p className="mt-[14px] flex-1 text-f16 leading-relaxed text-t2">{item.body}</p>
@@ -171,7 +171,7 @@ export default function DoorThresholdsPage() {
             </ol>
           </div>
           <figure className="min-w-0">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-bg2">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-bg2">
               <Image
                 src="/images/products/door-thresholds/garden-door-opening-application.webp"
                 alt="Glazed doors opening from an interior to a planted courtyard"
@@ -194,7 +194,7 @@ export default function DoorThresholdsPage() {
             <SectionTag>Profile supply & customization</SectionTag>
             <h2 className="mt-[16px] text-f32 font-bold text-t1">Specify your F1 threshold</h2>
             <p className="mt-[16px] text-f16 leading-relaxed text-t2">{page.scope}</p>
-            <div className="mt-[24px] rounded-[12px] border border-border-default bg-white p-[24px]">
+            <div className="mt-[24px] rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f18 font-bold text-t1">From drawing to repeat supply</h3>
               <p className="mt-[12px] text-f16 leading-relaxed text-t2">
                 Start with the mating section and purchase requirements. F1 reviews
@@ -208,7 +208,7 @@ export default function DoorThresholdsPage() {
               </p>
             </div>
           </div>
-          <div className="rounded-[12px] border border-border-default bg-white p-[24px] sm:p-[30px]">
+          <div className="rounded-card border border-border-default bg-white p-[24px] sm:p-[30px]">
             <h3 className="text-f24 font-bold text-t1">Send these details with your drawing</h3>
             <ul className="mt-[20px] list-disc space-y-[12px] pl-[20px] text-f14 leading-relaxed text-t2">
               {page.checklist.map((item) => <li key={item}>{item}</li>)}

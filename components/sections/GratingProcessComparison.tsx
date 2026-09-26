@@ -287,9 +287,9 @@ export default function GratingProcessComparison() {
 
         {/* Animated process figures */}
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
             <h3 className="text-f18 font-bold text-t1">How molded grating is made</h3>
-            <div className="mt-[13px] rounded-[8px] bg-white p-[13px]">
+            <div className="mt-[13px] rounded-card bg-white p-[13px]">
               <MoldedProcessFigure />
             </div>
             <ol className="mt-[13px] space-y-[5px]">
@@ -302,9 +302,9 @@ export default function GratingProcessComparison() {
             </ol>
           </div>
 
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
             <h3 className="text-f18 font-bold text-t1">How pultruded grating is made</h3>
-            <div className="mt-[13px] rounded-[8px] bg-white p-[13px]">
+            <div className="mt-[13px] rounded-card bg-white p-[13px]">
               <PultrudedProcessFigure />
             </div>
             <ol className="mt-[13px] space-y-[5px]">
@@ -350,7 +350,7 @@ export default function GratingProcessComparison() {
 
         {/* Application fit */}
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
             <h3 className="text-f18 font-bold text-t1">Choose molded grating when</h3>
             <ul className="mt-[13px] list-disc space-y-[8px] pl-[21px]">
               {moldedFit.map((item) => (
@@ -360,7 +360,7 @@ export default function GratingProcessComparison() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
             <h3 className="text-f18 font-bold text-t1">Choose pultruded grating when</h3>
             <ul className="mt-[13px] list-disc space-y-[8px] pl-[21px]">
               {pultrudedFit.map((item) => (

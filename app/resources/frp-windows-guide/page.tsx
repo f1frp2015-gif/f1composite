@@ -179,7 +179,7 @@ export default function FrpWindowsGuidePage() {
                       <Link
                         key={slug}
                         href={`/resources/blog/${slug}`}
-                        className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-shadow hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+                        className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-shadow hover:shadow-card"
                       >
                         <h3 className="text-f16 font-bold leading-snug text-t1 group-hover:text-teal-text">
                           {post.title}
@@ -235,8 +235,8 @@ export default function FrpWindowsGuidePage() {
           <h2 className="text-f24 font-bold text-t1">Prepare your window and door inquiry</h2>
           <p className="mt-[8px] text-f16 text-t2">Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have.</p>
           <div className="mt-[21px] flex flex-wrap gap-[13px]">
-            <Link className="rounded-[6px] bg-teal px-[21px] py-[13px] font-semibold text-white" href={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}>Request system profiles →</Link>
-            <Link className="rounded-[6px] border border-teal px-[21px] py-[13px] font-semibold text-teal-text" href={buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath })}>Request finished units →</Link>
+            <Link className="rounded-control bg-teal px-[21px] py-[13px] font-semibold text-white" href={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}>Request system profiles →</Link>
+            <Link className="rounded-control border border-teal px-[21px] py-[13px] font-semibold text-teal-text" href={buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath })}>Request finished units →</Link>
           </div>
         </div>
       </section>

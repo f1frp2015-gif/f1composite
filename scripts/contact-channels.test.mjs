@@ -37,8 +37,17 @@ test("WhatsApp and click tracking are wired into the shared layout and CTAs", ()
   assert.match(read("app/globals.css"), /body:has\(\[data-page-bottom-bar\]\) \[data-site-contact-bar\]/);
   const productBar = read("components/layout/MobileActionBar.tsx");
   assert.match(productBar, /data-page-bottom-bar/);
-  // Some pages put the quote link in the secondary action, so WhatsApp is added beside it, never in its place.
-  assert.match(productBar, /\{secondary \? \(/);
+  // Some pages put the quote link in the secondary action. The phone bar keeps the quote link
+  // wherever it sits, and WhatsApp is added beside it, never in its place.
+  assert.match(productBar, /pickBarAction\(primary, secondary\)/);
+  const { pickBarAction } = loadProjectModule("lib/mobileBar.ts");
+  const quote = { label: "Request a quote", href: "/contact?source=x&inquiry_type=rfq" };
+  const tool = { label: "Start Calculator", href: "#calculator" };
+  const ai = { label: "Ask the AI Assistant", href: "/ask?prefill=x" };
+  assert.equal(pickBarAction(quote, ai), quote);
+  assert.equal(pickBarAction(tool, quote), quote);
+  assert.equal(pickBarAction(tool, ai), tool);
+  assert.equal(pickBarAction(tool), tool);
   assert.match(productBar, /<WhatsAppButton [^>]*location="mobile-product-bar"/);
   assert.match(read("components/layout/PageHeader.tsx"), /secondary=\{resolvedActions\.secondary\}/);
   const header = read("components/layout/PageHeader.tsx");

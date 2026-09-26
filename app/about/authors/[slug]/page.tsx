@@ -153,7 +153,7 @@ export default async function AuthorPage({ params }: PageProps) {
               {posts.map((post) => (
                 <li
                   key={post.slug}
-                  className="rounded-[8px] border border-border-default bg-white p-[16px]"
+                  className="rounded-card border border-border-default bg-white p-[16px]"
                 >
                   <Link
                     href={`/resources/blog/${post.slug}`}

@@ -51,7 +51,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
   const selectedType = typeOptions.find((t) => t.value === windowType);
 
   return (
-    <div className="mt-[34px] rounded-[12px] border border-border-default bg-white p-[21px] shadow-sm">
+    <div className="mt-[34px] rounded-card border border-border-default bg-white p-[21px] shadow-card">
       <div className="grid gap-[21px]">
         {/* Climate */}
         <div>
@@ -64,7 +64,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
                 key={opt.value}
                 type="button"
                 onClick={() => setClimate(opt.value)}
-                className={`rounded-[6px] border px-[13px] py-[10px] text-left transition-colors ${
+                className={`rounded-control border px-[13px] py-[10px] text-left transition-colors ${
                   climate === opt.value
                     ? "border-teal bg-teal-bg"
                     : "border-border-default bg-white hover:border-teal"
@@ -88,7 +88,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
                 key={opt.value}
                 type="button"
                 onClick={() => setWindowType(opt.value)}
-                className={`rounded-[6px] border px-[13px] py-[10px] text-left transition-colors ${
+                className={`rounded-control border px-[13px] py-[10px] text-left transition-colors ${
                   windowType === opt.value
                     ? "border-teal bg-teal-bg"
                     : "border-border-default bg-white hover:border-teal"
@@ -117,7 +117,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
               step="0.1"
               value={targetU}
               onChange={(e) => setTargetU(e.target.value)}
-              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
             />
             <p className="mt-[4px] text-f12 text-t3">
               Enter the project target. Whole-window performance depends on dimensions, glazing, spacer and frame configuration.
@@ -132,7 +132,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
               value={units}
               onChange={(e) => setUnits(e.target.value)}
               placeholder="e.g. 200, or 'not yet'"
-              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
             />
           </div>
         </div>
@@ -141,7 +141,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
           type="button"
           onClick={launch}
           disabled={!canLaunch}
-          className="rounded-[8px] bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-card bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
         >
           Get AI-matched FRP series →
         </button>

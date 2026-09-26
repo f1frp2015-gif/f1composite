@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import WhatsAppButton from "@/components/contact/WhatsAppButton";
+import { pickBarAction } from "@/lib/mobileBar";
 
 interface MobileAction {
   label: string;
@@ -23,6 +24,7 @@ export default function MobileActionBar({
   whatsappTopic?: string;
 }) {
   const [visible, setVisible] = useState(false);
+  const barAction = pickBarAction(primary, secondary);
 
   useEffect(() => {
     const target = document.getElementById(targetId);
@@ -35,7 +37,11 @@ export default function MobileActionBar({
         // viewport on a particularly short device.
         setVisible(!entry.isIntersecting && entry.boundingClientRect.top < 72);
       },
-      { rootMargin: "-72px 0px 0px 0px", threshold: 0 },
+      // The bottom margin stretches the root far below the screen, so the
+      // actions count as intersecting until they pass the top edge. A header
+      // figure can start them below the fold on phones, and a jump from there
+      // straight past them (an anchor link) must still fire the callback.
+      { rootMargin: "-72px 0px 100000px 0px", threshold: 0 },
     );
 
     observer.observe(target);
@@ -45,25 +51,18 @@ export default function MobileActionBar({
   return (
     <div
       data-page-bottom-bar
-      className={`fixed inset-x-0 bottom-0 z-[60] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-[0_-10px_28px_rgba(11,24,56,0.12)] backdrop-blur-md transition-transform duration-200 md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-[60] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-bar backdrop-blur-md transition-transform duration-200 md:hidden ${
         visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
       aria-hidden={!visible}
     >
-      <div className="mx-auto grid max-w-[520px] grid-cols-[1fr_1fr_46px] gap-[8px]">
-        <Button href={primary.href} variant={primary.variant ?? "primary"} className="w-full px-[10px]">
-          {primary.label}
+      {/* Two actions fit a phone without wrapping: the quote link and WhatsApp.
+          The header above keeps every other action. */}
+      <div className="mx-auto grid max-w-[520px] grid-cols-[1fr_46px] gap-[8px]">
+        <Button href={barAction.href} className="w-full px-[10px]">
+          {barAction.label}
         </Button>
-        {secondary ? (
-          <Button href={secondary.href} variant={secondary.variant ?? "secondary"} className="w-full px-[10px]">
-            {secondary.label}
-          </Button>
-        ) : (
-          <Button href="/contact?source=mobile-product-bar&inquiry_type=rfq" variant="secondary" className="w-full px-[10px]">
-            Send Requirements
-          </Button>
-        )}
-        <WhatsAppButton topic={whatsappTopic} location="mobile-product-bar" label="Chat on WhatsApp" iconOnly />
+        <WhatsAppButton topic={whatsappTopic} location="mobile-product-bar" label="Chat on WhatsApp" variant="outline" iconOnly />
       </div>
     </div>
   );

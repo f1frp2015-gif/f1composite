@@ -3,6 +3,8 @@ import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -102,6 +104,9 @@ export default async function RodPage() {
       />
       <PageHeader
         tag="Round Rod"
+        line={{ name: "F1-STRUX", label: "Round rod" }}
+        figure={<ProfileFigure model="Rod Ø25" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Diameter", values: sizes.map((s) => s.d), prefix: "Ø", weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Rods (Solid FRP)"
         description="Solid circular pultruded fiberglass rods from 6 mm to 50 mm diameter. Non-magnetic, non-conductive."
         breadcrumbs={[
@@ -124,12 +129,12 @@ export default async function RodPage() {
                 Pultruded with 65-70% unidirectional glass roving for exceptional tensile strength along the longitudinal axis. Primary applications include soil nails, rock bolts, guy-wire replacements, and marine tie-rods where non-magnetic, non-conductive, and corrosion-proof properties are decisive advantages over steel.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">65-70% glass content</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-magnetic</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Smooth / sand-coated / wound</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">65-70% glass content</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-magnetic</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Smooth / sand-coated / wound</span>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
+            <div className="relative aspect-square overflow-hidden rounded-card bg-neutral-50">
               <Image src="/images/products/round-rod/frp-round-rod-solid.jpg" alt="Pultruded FRP solid round rod by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-[21px]" preload />
             </div>
           </div>
@@ -142,7 +147,7 @@ export default async function RodPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
           <p className="mt-[13px] text-f16 text-t2">Surface options: smooth, sand-coated, or helically wound — selected to suit bond requirements.</p>
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <table className="spec-table w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
                   <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>

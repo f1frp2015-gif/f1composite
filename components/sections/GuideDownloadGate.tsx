@@ -59,14 +59,14 @@ export function GuideDownloadGate({
 
   if (status === "ok") {
     return (
-      <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
+      <div className="rounded-card border border-teal-border bg-teal-bg p-[21px]">
         <div className="text-f16 font-semibold text-t1">✓ You&rsquo;re in.</div>
         <p className="mt-[5px] text-f14 text-t2">Here&rsquo;s your copy of {fileLabel}.</p>
         <a
           href={fileHref}
           download
           onClick={() => track("guide_download_click", { source })}
-          className="mt-[13px] inline-block rounded-[6px] bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+          className="mt-[13px] inline-block rounded-control bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
         >
           Download PDF
         </a>
@@ -75,7 +75,7 @@ export function GuideDownloadGate({
   }
 
   return (
-    <form onSubmit={submit} className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
+    <form onSubmit={submit} className="rounded-card border border-teal-border bg-teal-bg p-[21px]">
       <div className="text-f16 font-semibold text-t1">Get the full {fileLabel} (PDF)</div>
       <p className="mt-[5px] max-w-[640px] text-f14 text-t2">{fileDescription}</p>
       <div className="mt-[13px] flex flex-col gap-[8px] sm:flex-row">
@@ -86,12 +86,12 @@ export function GuideDownloadGate({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
           aria-label="Your email"
-          className="w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f14 text-t1 outline-none focus:border-teal sm:flex-1"
+          className="w-full rounded-control border border-border-default bg-white px-[13px] py-[10px] text-f14 text-t1 outline-none focus:border-teal sm:flex-1"
         />
         <button
           type="submit"
           disabled={status === "sending"}
-          className="whitespace-nowrap rounded-[6px] bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
+          className="whitespace-nowrap rounded-control bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Get the PDF"}
         </button>

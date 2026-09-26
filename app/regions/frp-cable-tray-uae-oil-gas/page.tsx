@@ -85,7 +85,7 @@ export default function UAECableTrayPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-electric-power-substation-infrastructure.jpg"
               alt="Pultruded FRP cable tray and cable ladder in an oil and gas electrical installation"
@@ -176,7 +176,7 @@ export default function UAECableTrayPage() {
               { name: "Fittings", note: "Elbows, tees, crosses, reducers, dropouts" },
               { name: "Support Hardware", note: "Pultruded FRP support brackets, clamps" },
             ].map((p) => (
-              <div key={p.name} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={p.name} className="rounded-card border border-border-default bg-white p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{p.name}</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">{p.note}</p>
               </div>
@@ -202,21 +202,21 @@ export default function UAECableTrayPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/custom-pultruded-profiles"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Custom Pultrusion Services</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Custom FRP cable tray cross-sections, supports, and project-specific cable management profiles.</p>
             </Link>
             <Link
               href="/case-studies/water-treatment-cable-tray"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Case Study: Cable Tray in Process Service</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Project-scale FRP cable tray and supports — installation, inspection, and 10-year service report.</p>
             </Link>
             <Link
               href="/industries/industrial"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Industrial / Petrochemical</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Full FRP product family for chemical plant, refinery, and petrochemical service.</p>

@@ -155,7 +155,7 @@ export default function KnowhowServicesPage() {
 
           <div className="mt-[55px] grid gap-[21px] lg:grid-cols-3">
             {/* ── Tier 1: Consulting ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconConsulting />
@@ -195,14 +195,14 @@ export default function KnowhowServicesPage() {
             </div>
 
             {/* ── Tier 2: Technology Transfer ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border-2 border-teal bg-bg2 p-[34px] shadow-[0_0_0_1px_theme(colors.teal/0.1)] transition-all duration-[0.34s]">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border-2 border-teal bg-bg2 p-[34px] ring-1 ring-teal/10 transition-all duration-[0.34s]">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconTransfer />
                 <div>
                   <div className="flex items-center gap-[8px]">
                     <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 2</span>
-                    <span className="rounded-[4px] bg-teal px-[8px] py-[2px] text-f12 font-bold uppercase text-white">Most Popular</span>
+                    <span className="rounded-tag bg-teal px-[8px] py-[2px] text-f12 font-bold uppercase tracking-[0.06em] text-white">Most Popular</span>
                   </div>
                   <h3 className="text-f24 font-bold text-t1">Technology Transfer</h3>
                 </div>
@@ -238,7 +238,7 @@ export default function KnowhowServicesPage() {
             </div>
 
             {/* ── Tier 3: Turnkey ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconTurnkey />
@@ -381,28 +381,28 @@ export default function KnowhowServicesPage() {
           </h2>
 
           <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">4</span>
               <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Continents Delivered</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Commissioned pultrusion operations across Asia, Europe, the Middle East, and Africa.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">15+</span>
               <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Years Experience</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Every engagement is led by senior engineers with production-floor experience.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">100%</span>
               <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Clean IP Transfer</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Recipes, die designs, and procedures become your property upon handover. No royalties, no licensing.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">&quot;Why&quot;</span>
               <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Not Just &quot;What&quot;</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">

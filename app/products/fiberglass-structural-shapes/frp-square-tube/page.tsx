@@ -6,6 +6,8 @@ import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -110,6 +112,9 @@ export default async function SquareTubePage() {
       />
       <PageHeader
         tag="Square Tube"
+        line={{ name: "F1-STRUX", label: "Square & rectangular tube" }}
+        figure={<ProfileFigure model="SHS 100×100×8" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Outer size", values: sizes.map((s) => s.h), weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Square & Rectangular Tubes (FRP)"
         description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm."
         actions={{
@@ -138,12 +143,12 @@ export default async function SquareTubePage() {
                 FRP square and rectangular tubes provide closed-section torsional rigidity for columns, trusses, and frame structures. Multi-axial reinforcement can support transverse demands, while the smooth interior bore allows conduit or cable-enclosure use. Electrical-insulation performance depends on the specified laminate, moisture and contamination exposure, joints and any metal hardware.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[8px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Superior torsional rigidity</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">SHS + RHS available</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Electrical insulation options</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Superior torsional rigidity</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">SHS + RHS available</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Electrical insulation options</span>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-white">
               <Image src="/images/products/square-tube/frp-square-tube-cover.jpg" alt="Pultruded FRP square tube SHS profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 30%" }} preload />
             </div>
           </div>

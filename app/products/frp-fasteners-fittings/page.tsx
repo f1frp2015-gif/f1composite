@@ -71,7 +71,7 @@ export default function FastenersFittingsPage() {
               {["UNC & metric series", "VE · EP · UP options", "Drawing-based fittings"].map((label) => <span key={label} className="rounded-full border border-teal-border bg-teal-bg px-[13px] py-[7px] text-f12 font-semibold text-teal-text">{label}</span>)}
             </div>
           </div>
-          <figure className="overflow-hidden rounded-[12px] border border-border-default bg-bg2">
+          <figure className="overflow-hidden rounded-card border border-border-default bg-bg2">
             <Image src={`${imageBase}frp-hex-nuts.webp`} alt="Composite hexagonal and square nuts showing different heights and bearing faces" width={600} height={400} sizes="(max-width: 1024px) 100vw, 600px" className="h-auto w-full" preload />
             <figcaption className="px-[18px] py-[12px] text-f12 leading-relaxed text-t3">Catalog product reference. Component shape, color and dimensions are confirmed on the order drawing.</figcaption>
           </figure>
@@ -91,7 +91,7 @@ export default function FastenersFittingsPage() {
           <p className="mt-[12px] max-w-[850px] text-f16 leading-relaxed text-t2">Catalog sizes provide a starting point for your inquiry. Availability, resin grade and finished geometry are confirmed for each order.</p>
           <div className="mt-[28px] grid gap-[22px] md:grid-cols-2 lg:grid-cols-3">
             {fastenerRanges.map((range) => (
-              <article id={range.id} key={range.id} className="flex scroll-mt-[110px] flex-col overflow-hidden rounded-[10px] border border-border-default bg-white">
+              <article id={range.id} key={range.id} className="flex scroll-mt-[110px] flex-col overflow-hidden rounded-card border border-border-default bg-white">
                 <div className="relative aspect-[3/2] bg-white">
                   <Image src={`${imageBase}${range.image}`} alt={range.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" className="object-contain" />
                 </div>
@@ -99,13 +99,13 @@ export default function FastenersFittingsPage() {
                   <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{range.label}</p>
                   <h3 className="mt-[8px] text-f20 font-bold leading-tight text-t1">{range.name}</h3>
                   <p className="mt-[12px] text-f14 leading-relaxed text-t2">{range.description}</p>
-                  <p className="mt-[14px] rounded-[6px] bg-bg2 p-[12px] text-f14 leading-relaxed text-t1">{range.specification}</p>
+                  <p className="mt-[14px] rounded-control bg-bg2 p-[12px] text-f14 leading-relaxed text-t1">{range.specification}</p>
                   <p className="mb-[18px] mt-[12px] text-f12 leading-relaxed text-t3">{range.confirm}</p>
                   <Link href={fastenerInquiryHref(range.name, range.specification)} className="mt-auto inline-flex min-h-[44px] items-center text-f14 font-bold text-teal-text hover:underline">Quote {range.name.toLowerCase()} →</Link>
                 </div>
               </article>
             ))}
-            <article className="flex flex-col justify-center rounded-[10px] border border-teal-border bg-teal-bg p-[26px]">
+            <article className="flex flex-col justify-center rounded-card border border-teal-border bg-teal-bg p-[26px]">
               <SectionTag>One connection, one parts list</SectionTag>
               <h3 className="mt-[16px] text-f24 font-bold leading-tight text-t1">Need a matched set?</h3>
               <p className="mt-[16px] text-f16 leading-relaxed text-t2">Send the rod or bolt, nut and washer requirements together. Add the mating profile and a marked connection sketch so the interfaces can be checked in one review.</p>
@@ -121,7 +121,7 @@ export default function FastenersFittingsPage() {
           <SectionTag>Nominal catalog sizes</SectionTag>
           <h2 className="mt-[12px] text-f32 font-bold text-t1">Threaded rod sizes & matching nut series</h2>
           <p className="mt-[12px] max-w-[900px] text-f16 leading-relaxed text-t2">Select a series to carry it into your inquiry. Inch-to-millimeter values identify nominal diameter only; UNC and metric threads are not interchangeable. Metric pitch and tolerance must be confirmed.</p>
-          <div role="region" aria-label="Threaded rod catalog sizes, scroll horizontally on small screens" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-[8px] border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
+          <div role="region" aria-label="Threaded rod catalog sizes, scroll horizontally on small screens" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-card border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
             <table className="w-full min-w-[650px] text-left text-f14">
               <caption className="sr-only">Vinyl ester UNC and epoxy metric threaded rod catalog sizes; lengths subject to order confirmation</caption>
               <thead className="bg-bg2 text-f12 uppercase tracking-wide text-t1"><tr>{["Resin", "Thread designation", "Nominal diameter", "Catalog lengths", "Inquiry"].map((label) => <th key={label} scope="col" className="px-[18px] py-[15px]">{label}</th>)}</tr></thead>
@@ -140,7 +140,7 @@ export default function FastenersFittingsPage() {
 
       <section id="grating-fixings" className="scroll-mt-[110px] border-y border-border-default bg-bg2 py-[48px]">
         <div className={`${container} grid items-center gap-[28px] md:grid-cols-[0.85fr_1.15fr]`}>
-          <div className="relative aspect-[3/2] overflow-hidden rounded-[10px] bg-white"><Image src="/images/products/molded-frp-grating/grating-clips-hardware-reference.webp" alt="Metal hold-down clips and connection hardware for fiberglass grating" fill sizes="(max-width: 768px) 100vw, 500px" className="object-contain p-[18px]" /></div>
+          <div className="relative aspect-[3/2] overflow-hidden rounded-card bg-white"><Image src="/images/products/molded-frp-grating/grating-clips-hardware-reference.webp" alt="Metal hold-down clips and connection hardware for fiberglass grating" fill sizes="(max-width: 768px) 100vw, 500px" className="object-contain p-[18px]" /></div>
           <div>
             <SectionTag>Related fixing hardware · 316 stainless steel</SectionTag>
             <h2 className="mt-[12px] text-f32 font-bold leading-tight text-t1">Fasteners for fiberglass grating</h2>
@@ -160,7 +160,7 @@ export default function FastenersFittingsPage() {
           <div className="mt-[26px] grid gap-[20px] md:grid-cols-3">{selectionSteps.map((step, index) => <div key={step.title} className="border-t-2 border-teal-border pt-[18px]">
             <span className="text-f12 font-bold text-teal-text">0{index + 1}</span><h3 className="mt-[8px] text-f20 font-bold text-t1">{step.title}</h3><p className="mt-[12px] text-f14 leading-relaxed text-t2">{step.body}</p>
           </div>)}</div>
-          <div className="mt-[30px] flex flex-col gap-[18px] rounded-[10px] bg-bg2 p-[24px] sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-[30px] flex flex-col gap-[18px] rounded-card bg-bg2 p-[24px] sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-[730px] text-f16 leading-relaxed text-t2"><strong className="text-t1">Ready with a BOM?</strong> Include quantity per size, delivery destination and target date. Attach the drawing on the inquiry form so F1 can review the complete supply scope.</p>
             <Button className="shrink-0" href={fastenerInquiryHref()}>Send Your Parts List</Button>
           </div>

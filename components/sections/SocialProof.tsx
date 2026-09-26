@@ -50,7 +50,7 @@ export default function SocialProof() {
             <Link
               key={item.slug}
               href={`/case-studies/${item.slug}`}
-              className="group overflow-hidden rounded-[10px] border border-border-default bg-white transition-all duration-[0.24s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_12px_32px_rgba(11,24,56,0.08)]"
+              className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-[0.24s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-[#dfe5e7]">
                 <Image

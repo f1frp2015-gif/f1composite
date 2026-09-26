@@ -187,7 +187,7 @@ export default function WhatIsFrpPage() {
       {/* Table of Contents */}
       <section className="bg-white py-[34px]">
         <div className="site-container">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[29px]">
             <h2 className="text-f14 font-bold uppercase tracking-wide text-t2">On this page</h2>
             <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
               {toc.map((item) => (
@@ -213,7 +213,7 @@ export default function WhatIsFrpPage() {
             What is glass fiber reinforced plastic?
           </h2>
           {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
-          <div className="mt-[21px] max-w-[820px] rounded-[8px] border-l-[3px] border-teal bg-bg2 p-[21px]">
+          <div className="mt-[21px] max-w-[820px] rounded-card border-l-[3px] border-teal bg-bg2 p-[21px]">
             <p className="text-f16 leading-golden text-t1">
               <strong>FRP definition:</strong> FRP (fiber-reinforced polymer or
               fiber-reinforced plastic) is a composite material made from
@@ -271,7 +271,7 @@ export default function WhatIsFrpPage() {
       {/* Decision-path CTA — route informational readers to the right commercial next step. */}
       <section className="bg-white pb-[55px]">
         <div className="site-container">
-          <div className="rounded-[10px] border border-border-default bg-bg2 p-[24px] md:p-[34px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[24px] md:p-[34px]">
             <SectionTag>From material to project</SectionTag>
             <h2 className="mt-[13px] max-w-[780px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               Turn FRP research into a specification
@@ -285,7 +285,7 @@ export default function WhatIsFrpPage() {
               {decisionPaths.map((path) => (
                 <article
                   key={path.href}
-                  className="flex h-full flex-col rounded-[8px] border border-border-default bg-white p-[21px]"
+                  className="flex h-full flex-col rounded-card border border-border-default bg-white p-[21px]"
                 >
                   <h3 className="text-f18 font-bold text-t1">{path.title}</h3>
                   <p className="mt-[10px] flex-1 text-f16 leading-golden text-t2">
@@ -311,7 +311,7 @@ export default function WhatIsFrpPage() {
               { title: "FRP", text: "Fiber-reinforced polymer (or plastic). The reinforcement and resin must still be specified." },
               { title: "GFRP / GRP", text: "The glass-reinforced part of the FRP family. These names do not set a strength, resin or fire rating." },
               { title: "Fiberglass", text: "May refer to glass fiber itself or a finished composite. Read the product description to identify which." },
-            ].map((item) => <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><h3 className="text-f18 font-bold text-t1">{item.title}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{item.text}</p></div>)}
+            ].map((item) => <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]"><h3 className="text-f18 font-bold text-t1">{item.title}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{item.text}</p></div>)}
           </div>
           <h3 className="mt-[28px] text-f18 font-bold text-t1">Buying a fiberglass product?</h3>
           <p className="mt-[10px] max-w-[860px] text-f16 leading-golden text-t2">Match the shape, resin, reinforcement, dimensions and service conditions. A structural tube, solid sheet and pressure pipe need different specifications even when all are described as FRP.</p>
@@ -330,7 +330,7 @@ export default function WhatIsFrpPage() {
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             GRP vs FRP: terminology and regional buying language
           </h2>
-          <div className="mt-[21px] max-w-[860px] rounded-[8px] border-l-[4px] border-teal bg-white p-[21px]">
+          <div className="mt-[21px] max-w-[860px] rounded-card border-l-[4px] border-teal bg-white p-[21px]">
             <p className="text-f16 leading-golden text-t2">
               <strong className="text-t1">Same material family, different labels:</strong>{" "}
               glass fiber reinforced plastic is the glass-reinforced subset of
@@ -346,7 +346,7 @@ export default function WhatIsFrpPage() {
               { title: "United Kingdom & European suppliers", text: "GRP profiles, GRP grating and glass fibre are common English-language terms. GRP sections and fiberglass structural shapes can describe the same glass-reinforced product family." },
               { title: "Australia & India", text: "FRP and GRP appear together in supplier catalogs. Moulded and molded are spelling variants; neither changes the panel construction or its load rating." },
             ].map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={item.title} className="rounded-card border border-border-default bg-white p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{item.text}</p>
               </div>
@@ -533,7 +533,7 @@ export default function WhatIsFrpPage() {
             ].map((item) => (
               <li
                 key={item.step}
-                className="rounded-[8px] border border-border-default bg-white p-[21px]"
+                className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <h3 className="text-f16 font-bold text-teal-text">{item.step}</h3>
                 <p className="mt-[8px] text-f16 leading-golden text-t2">{item.body}</p>
@@ -541,7 +541,7 @@ export default function WhatIsFrpPage() {
             ))}
           </ol>
 
-          <div className="mt-[34px] rounded-[8px] bg-white p-[29px]">
+          <div className="mt-[34px] rounded-card bg-white p-[29px]">
             <h3 className="text-f18 font-bold text-t1">Custom die lead time</h3>
             <p className="mt-[13px] text-f16 leading-golden text-t2">
               Creating a new custom profile typically takes 6–10 weeks total:
@@ -646,7 +646,7 @@ export default function WhatIsFrpPage() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-white p-[29px]"
+                className="rounded-card border border-border-default bg-white p-[29px]"
               >
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
@@ -755,7 +755,7 @@ export default function WhatIsFrpPage() {
             Where advanced FRP composites are specified
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="rounded-[8px] bg-bg2 p-[29px]">
+            <div className="rounded-card bg-bg2 p-[29px]">
               <h3 className="text-f18 font-bold text-t1">Infrastructure &amp; transport</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>→ Pedestrian bridges and bridge deck panels</li>
@@ -773,7 +773,7 @@ export default function WhatIsFrpPage() {
                 Explore infrastructure applications
               </LinkArrow>
             </div>
-            <div className="rounded-[8px] bg-bg2 p-[29px]">
+            <div className="rounded-card bg-bg2 p-[29px]">
               <h3 className="text-f18 font-bold text-t1">Energy &amp; utilities</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>→ Transmission cross-arms and substation equipment</li>
@@ -785,7 +785,7 @@ export default function WhatIsFrpPage() {
                 Explore energy applications
               </LinkArrow>
             </div>
-            <div className="rounded-[8px] bg-bg2 p-[29px]">
+            <div className="rounded-card bg-bg2 p-[29px]">
               <h3 className="text-f18 font-bold text-t1">Chemical &amp; marine</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>→ Chemical plant walkways and handrails</li>
@@ -797,7 +797,7 @@ export default function WhatIsFrpPage() {
                 Explore industrial applications
               </LinkArrow>
             </div>
-            <div className="rounded-[8px] bg-bg2 p-[29px]">
+            <div className="rounded-card bg-bg2 p-[29px]">
               <h3 className="text-f18 font-bold text-t1">Building &amp; construction</h3>
               <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>

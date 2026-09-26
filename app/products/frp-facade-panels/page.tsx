@@ -384,40 +384,40 @@ export default function FacadeSunshadePanelsPage() {
       <section className="bg-white pt-[55px]">
         <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-3">
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp"
                 alt="Multi-layer fabric-reinforced pultruded FRP sunshade plate on the pultrusion line at F1 Composite"
                 width={1200}
                 height={1601}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
               <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 The E40 plate — as pultruded, before finishing
               </p>
             </div>
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp"
                 alt="Vertical fin sunshade array on a curtain wall facade — the blade format the E40 plate is engineered for"
                 width={1232}
                 height={928}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
               <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 Vertical fin arrays — floor-to-floor spans
               </p>
             </div>
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/frp-facade-sunshade-angled-louver-blades.webp"
                 alt="Angled louver blade sunshade facade — biaxial wind and gravity loads carried by the blade section"
                 width={2048}
                 height={1536}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
               <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 Angled louver blades — combined load case
@@ -478,7 +478,7 @@ export default function FacadeSunshadePanelsPage() {
             {bladeEngineering.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
@@ -505,7 +505,7 @@ export default function FacadeSunshadePanelsPage() {
             {laminateStack.map((item) => (
               <div
                 key={item.layer}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
                 <div className="flex flex-col gap-[8px] md:flex-row md:items-start md:gap-[34px]">
                   <h3 className="shrink-0 text-f18 font-bold text-t1 md:w-[340px]">
@@ -545,7 +545,7 @@ export default function FacadeSunshadePanelsPage() {
             {bladeFormats.map((format) => (
               <div
                 key={format.name}
-                className="flex flex-col rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="flex flex-col rounded-card border border-border-default bg-white p-[34px]"
               >
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
                   {format.tag}
@@ -574,7 +574,7 @@ export default function FacadeSunshadePanelsPage() {
             {orientations.map((o) => (
               <div
                 key={o.name}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
                 <h3 className="text-f20 font-extrabold text-t1">{o.name}</h3>
                 <p className="mt-[5px] text-f14 font-semibold text-teal-text">{o.loads}</p>
@@ -626,7 +626,7 @@ export default function FacadeSunshadePanelsPage() {
             {deflectionStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 <div className="text-f32 font-extrabold leading-none text-teal-text">
                   {stat.value}
@@ -656,7 +656,7 @@ export default function FacadeSunshadePanelsPage() {
             {fatigueMechanisms.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
@@ -683,7 +683,7 @@ export default function FacadeSunshadePanelsPage() {
             {windLoadSteps.map((item) => (
               <div
                 key={item.step}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 <div className="flex flex-col gap-[8px] md:flex-row md:items-start md:gap-[34px]">
                   <h3 className="shrink-0 text-f16 font-bold text-teal-text md:w-[280px]">
@@ -754,7 +754,7 @@ export default function FacadeSunshadePanelsPage() {
             {connectionDetails.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>

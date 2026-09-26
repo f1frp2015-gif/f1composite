@@ -169,7 +169,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
           <p className="mt-[13px] text-f16 leading-golden text-t2">
             Property ranges are representative figures for typical material combinations in each process (E-glass/polyester pultrusion, rigid PVC or aluminum extrusion, E-glass/epoxy filament winding). They are not a single-product datasheet.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[900px] border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">

@@ -318,19 +318,19 @@ export default function FiberglassRebarVsSteelPage() {
             <div className="mt-[29px] flex flex-wrap gap-[13px]">
               <Link
                 href="/products/frp-rebar"
-                className="rounded-[8px] bg-teal px-[24px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                className="rounded-card bg-teal px-[24px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
               >
                 Explore FRP rebar →
               </Link>
               <a
                 href="#lab-data"
-                className="rounded-[8px] border border-border-default bg-white px-[24px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1 transition-colors hover:border-teal hover:text-teal-text"
+                className="rounded-card border border-border-default bg-white px-[24px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1 transition-colors hover:border-teal hover:text-teal-text"
               >
                 See the test data ↓
               </a>
             </div>
           </div>
-          <figure className="overflow-hidden rounded-[13px] border border-border-default bg-bg2 shadow-[0_24px_70px_rgba(15,35,45,0.10)]">
+          <figure className="overflow-hidden rounded-card border border-border-default bg-bg2 shadow-pop">
             <div className="relative aspect-[4/3]">
               <Image
                 src={heroImage}
@@ -351,28 +351,28 @@ export default function FiberglassRebarVsSteelPage() {
       <section className="border-y border-border-default bg-bg2 py-[55px]">
         <div className="site-container">
           <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-            <article className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <article className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f32 font-extrabold tracking-[-0.02em] text-teal-text">24.5%</p>
               <p className="mt-[5px] text-f14 font-bold text-t1">of steel&apos;s equal-volume mass</p>
               <p className="mt-[8px] text-f12 leading-relaxed text-t3">
                 Derived from 1.92 vs 7.85 specific gravity in the Kentucky/FHWA program.
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <article className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f32 font-extrabold tracking-[-0.02em] text-teal-text">40 vs 196</p>
               <p className="mt-[5px] text-f14 font-bold text-t1">GPa elastic modulus</p>
               <p className="mt-[8px] text-f12 leading-relaxed text-t3">
                 Mean/adopted GFRP vs steel values in the same controlled test program.
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <article className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f32 font-extrabold tracking-[-0.02em] text-teal-text">11 bridges</p>
               <p className="mt-[5px] text-f14 font-bold text-t1">15–20 years in service</p>
               <p className="mt-[8px] text-f12 leading-relaxed text-t3">
                 USDOT-funded core and extracted-bar durability investigation.
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <article className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f32 font-extrabold tracking-[-0.02em] text-teal-text">2 decks</p>
               <p className="mt-[5px] text-f14 font-bold text-t1">GFRP vs epoxy-coated steel</p>
               <p className="mt-[8px] text-f12 leading-relaxed text-t3">
@@ -395,7 +395,7 @@ export default function FiberglassRebarVsSteelPage() {
                 University of Kentucky researchers tested four 15 mm-diameter GFRP bars and three 16 mm-diameter epoxy-coated steel bars. GFRP reached a 612 MPa mean ultimate strength; steel yielded at 487 MPa and ultimately reached 653 MPa. The comparison shows why <strong className="text-t1">GFRP ultimate versus steel yield</strong> is a misleading marketing shortcut.
               </p>
             </div>
-            <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] text-f14 leading-golden text-t2">
+            <div className="rounded-card border border-teal-border bg-teal-bg p-[21px] text-f14 leading-golden text-t2">
               <p className="font-bold text-t1">Scope before headline</p>
               <p className="mt-[8px]">
                 These are measured means for different bar sizes and one legacy product set: valuable for explaining mechanics, not for sizing a current project. See <SourceLink href={sources.kentucky}>Kentucky / FHWA report, Tables 2.3–2.5</SourceLink>.
@@ -404,7 +404,7 @@ export default function FiberglassRebarVsSteelPage() {
           </div>
 
           <div className="mt-[42px] grid gap-[21px] lg:grid-cols-2">
-            <figure className="rounded-[13px] border border-border-default bg-bg2 p-[24px] md:p-[29px]">
+            <figure className="rounded-card border border-border-default bg-bg2 p-[24px] md:p-[29px]">
               <div className="flex items-start justify-between gap-[21px]">
                 <div>
                   <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-text">Tensile stress</p>
@@ -422,7 +422,7 @@ export default function FiberglassRebarVsSteelPage() {
               </figcaption>
             </figure>
 
-            <figure className="rounded-[13px] border border-border-default bg-bg2 p-[24px] md:p-[29px]">
+            <figure className="rounded-card border border-border-default bg-bg2 p-[24px] md:p-[29px]">
               <div className="flex items-start justify-between gap-[21px]">
                 <div>
                   <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-text">Elastic modulus</p>
@@ -434,7 +434,7 @@ export default function FiberglassRebarVsSteelPage() {
                 <MetricBar label="GFRP" value={40} display="40" max={210} tone="gfrp" />
                 <MetricBar label="Steel" value={196} display="196" max={210} tone="steel" />
               </div>
-              <div className="mt-[29px] rounded-[8px] bg-white p-[16px]">
+              <div className="mt-[29px] rounded-card bg-white p-[16px]">
                 <p className="text-f14 font-bold text-t1">Steel was 4.9× stiffer in this test.</p>
                 <p className="mt-[5px] text-f12 leading-relaxed text-t3">
                   Lower GFRP stiffness affects deflection, crack width, bar spacing and post-crack member response even when tensile capacity is adequate.
@@ -447,11 +447,11 @@ export default function FiberglassRebarVsSteelPage() {
           </div>
 
           <div className="mt-[21px] grid gap-[21px] lg:grid-cols-[1.1fr_0.9fr]">
-            <figure className="rounded-[13px] border border-border-default bg-deep p-[24px] text-white md:p-[29px]">
+            <figure className="rounded-card border border-border-default bg-deep p-[24px] text-white md:p-[29px]">
               <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-300">Failure behavior · schematic</p>
               <h3 className="mt-[8px] text-f18 font-extrabold">The curve shape changes the design philosophy</h3>
               <div className="mt-[29px] grid gap-[21px] sm:grid-cols-2">
-                <div className="rounded-[8px] border border-white/15 bg-white/5 p-[18px]">
+                <div className="rounded-card border border-white/15 bg-white/5 p-[18px]">
                   <div role="img" className="relative h-[155px] border-b border-l border-white/30" aria-label="Schematic linear stress strain response for GFRP">
                     <div className="absolute bottom-[8px] left-[11px] h-[3px] w-[78%] origin-left -rotate-[42deg] rounded-full bg-teal-300" />
                     <span className="absolute right-[5px] top-[18px] h-[10px] w-[10px] rounded-full bg-teal-300" />
@@ -460,7 +460,7 @@ export default function FiberglassRebarVsSteelPage() {
                   <p className="mt-[13px] text-f14 font-bold">GFRP: elastic → rupture</p>
                   <p className="mt-[5px] text-f12 leading-relaxed text-white/60">No steel-like yield plateau or plastic hinge behavior.</p>
                 </div>
-                <div className="rounded-[8px] border border-white/15 bg-white/5 p-[18px]">
+                <div className="rounded-card border border-white/15 bg-white/5 p-[18px]">
                   <div role="img" className="relative h-[155px] border-b border-l border-white/30" aria-label="Schematic yielding stress strain response for steel">
                     <div className="absolute bottom-[8px] left-[11px] h-[3px] w-[47%] origin-left -rotate-[54deg] rounded-full bg-white/80" />
                     <div className="absolute left-[33%] top-[42px] h-[3px] w-[50%] rounded-full bg-white/80" />
@@ -475,19 +475,19 @@ export default function FiberglassRebarVsSteelPage() {
               </figcaption>
             </figure>
 
-            <article className="rounded-[13px] border border-border-default bg-white p-[24px] md:p-[29px]">
+            <article className="rounded-card border border-border-default bg-white p-[24px] md:p-[29px]">
               <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-text">Independent test-unit check</p>
               <h3 className="mt-[8px] text-f18 font-extrabold text-t1">University of Miami laboratory</h3>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Its ISO/IEC 17025 quality-system, IAS-accredited, FDOT-qualified lab tested three 2019 production lots of No. 8 GFRP bar for a seawall project.
               </p>
               <dl className="mt-[21px] grid grid-cols-2 gap-[13px]">
-                <div className="rounded-[8px] bg-bg2 p-[16px]">
+                <div className="rounded-card bg-bg2 p-[16px]">
                   <dt className="text-f12 font-bold uppercase tracking-wide text-t3">Mean guaranteed load</dt>
                   <dd className="mt-[5px] text-f24 font-extrabold text-t1">103.1 kip</dd>
                   <p className="mt-[2px] text-f12 text-t3">458.6 kN</p>
                 </div>
-                <div className="rounded-[8px] bg-bg2 p-[16px]">
+                <div className="rounded-card bg-bg2 p-[16px]">
                   <dt className="text-f12 font-bold uppercase tracking-wide text-t3">Mean modulus</dt>
                   <dd className="mt-[5px] text-f24 font-extrabold text-t1">54.8 GPa</dd>
                   <p className="mt-[2px] text-f12 text-t3">3 production lots</p>
@@ -510,7 +510,7 @@ export default function FiberglassRebarVsSteelPage() {
           <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             Values are intentionally attached to their test scope. A design value must come from the governing code and the qualified bar, not from a generic comparison table.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[980px] border-collapse text-left">
               <thead className="bg-deep text-white">
                 <tr>
@@ -544,14 +544,14 @@ export default function FiberglassRebarVsSteelPage() {
             “Corrosion-resistant” is precise; “indestructible” is not
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <article className="rounded-[13px] border border-rose-200 bg-rose-50 p-[24px] md:p-[29px]">
+            <article className="rounded-card border border-rose-200 bg-rose-50 p-[24px] md:p-[29px]">
               <div className="flex items-center justify-between gap-[13px]">
                 <h3 className="text-f18 font-extrabold text-t1">Steel rust-expansion pathway</h3>
                 <span className="rounded-full bg-rose-100 px-[11px] py-[6px] text-f12 font-bold uppercase tracking-wide text-rose-700">electrochemical</span>
               </div>
               <ol className="mt-[24px] grid gap-[10px] sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
                 {["Chloride ingress", "Passive film breaks", "Rust expands", "Crack · delaminate · spall"].map((step, index) => (
-                  <li key={step} className="relative rounded-[8px] border border-rose-200 bg-white p-[14px]">
+                  <li key={step} className="relative rounded-card border border-rose-200 bg-white p-[14px]">
                     <span className="text-f12 font-extrabold text-rose-600">0{index + 1}</span>
                     <p className="mt-[5px] text-f12 font-bold leading-relaxed text-t1">{step}</p>
                   </li>
@@ -562,14 +562,14 @@ export default function FiberglassRebarVsSteelPage() {
               </p>
             </article>
 
-            <article className="rounded-[13px] border border-teal-border bg-teal-bg p-[24px] md:p-[29px]">
+            <article className="rounded-card border border-teal-border bg-teal-bg p-[24px] md:p-[29px]">
               <div className="flex items-center justify-between gap-[13px]">
                 <h3 className="text-f18 font-extrabold text-t1">GFRP durability controls</h3>
                 <span className="rounded-full bg-white px-[11px] py-[6px] text-f12 font-bold uppercase tracking-wide text-teal-text">no rust cycle</span>
               </div>
               <div className="mt-[24px] grid grid-cols-2 gap-[10px] sm:grid-cols-3">
                 {["Glass + sizing", "Resin chemistry", "Cure / Tg", "Alkali + moisture", "Sustained stress", "Temperature + fire"].map((control) => (
-                  <div key={control} className="rounded-[8px] border border-teal-border bg-white p-[14px] text-f12 font-bold text-t1">
+                  <div key={control} className="rounded-card border border-teal-border bg-white p-[14px] text-f12 font-bold text-t1">
                     {control}
                   </div>
                 ))}
@@ -590,7 +590,7 @@ export default function FiberglassRebarVsSteelPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {fieldEvidence.map((item) => (
-              <article key={item.title} className="rounded-[13px] border border-white/15 bg-white/5 p-[24px]">
+              <article key={item.title} className="rounded-card border border-white/15 bg-white/5 p-[24px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-300">{item.label}</p>
                 <h3 className="mt-[8px] text-f18 font-extrabold">{item.title}</h3>
                 <p className="mt-[16px] text-f24 font-extrabold text-white">{item.metric}</p>
@@ -606,7 +606,7 @@ export default function FiberglassRebarVsSteelPage() {
               </article>
             ))}
           </div>
-          <div className="mt-[21px] rounded-[8px] border border-amber-300/30 bg-amber-300/10 p-[21px] text-f14 leading-golden text-white/75">
+          <div className="mt-[21px] rounded-card border border-amber-300/30 bg-amber-300/10 p-[21px] text-f14 leading-golden text-white/75">
             <strong className="text-amber-200">Evidence ceiling:</strong> the longest field exposure in the cited multi-bridge U.S. program is about 20 years. Claims of 75–100 years remain model-based: they rest on accelerated tests, design reduction factors and assumed exposure rather than a century of actual service.
           </div>
         </div>
@@ -627,7 +627,7 @@ export default function FiberglassRebarVsSteelPage() {
                 This is a 2023 project scenario using agency cost inputs, a 1.22% discount rate and specific repair assumptions. It is neither current market pricing nor a guaranteed savings model. <SourceLink href={sources.mndot}>MnDOT Report 2023-13, Chapter 7</SourceLink>.
               </p>
             </div>
-            <figure className="rounded-[13px] border border-border-default bg-bg2 p-[24px] md:p-[29px]">
+            <figure className="rounded-card border border-border-default bg-bg2 p-[24px] md:p-[29px]">
               <div className="flex items-start justify-between gap-[21px]">
                 <div>
                   <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-text">100-year present value</p>
@@ -655,7 +655,7 @@ export default function FiberglassRebarVsSteelPage() {
             Choose the controlling requirement, not the longest advantages list
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <article className="rounded-[13px] border border-teal-border bg-white p-[24px] md:p-[29px]">
+            <article className="rounded-card border border-teal-border bg-white p-[24px] md:p-[29px]">
               <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-text">GFRP often earns preference</p>
               <h3 className="mt-[8px] text-f18 font-extrabold text-t1">When corrosion or nonmetallic behavior controls</h3>
               <ul className="mt-[21px] space-y-[12px] text-f14 leading-golden text-t2">
@@ -666,7 +666,7 @@ export default function FiberglassRebarVsSteelPage() {
                 <li><strong className="text-t1">Lifecycle planning:</strong> owners who can justify higher first cost with credible exposure and repair assumptions.</li>
               </ul>
             </article>
-            <article className="rounded-[13px] border border-slate-300 bg-white p-[24px] md:p-[29px]">
+            <article className="rounded-card border border-slate-300 bg-white p-[24px] md:p-[29px]">
               <p className="text-f12 font-bold uppercase tracking-[0.14em] text-slate-500">Steel often earns preference</p>
               <h3 className="mt-[8px] text-f18 font-extrabold text-t1">When stiffness, ductility or heat controls</h3>
               <ul className="mt-[21px] space-y-[12px] text-f14 leading-golden text-t2">
@@ -695,14 +695,14 @@ export default function FiberglassRebarVsSteelPage() {
           </p>
           <div className="mt-[34px] grid gap-[13px] md:grid-cols-2">
             {standards.map((standard) => (
-              <a key={standard.code} href={standard.href} target="_blank" rel="noreferrer" className="group rounded-[8px] border border-border-default bg-bg2 p-[21px] transition-colors hover:border-teal">
+              <a key={standard.code} href={standard.href} target="_blank" rel="noreferrer" className="group rounded-card border border-border-default bg-bg2 p-[21px] transition-colors hover:border-teal">
                 <p className="text-f12 font-bold uppercase tracking-wide text-teal-text">{standard.code}</p>
                 <h3 className="mt-[8px] text-f16 font-bold text-t1 group-hover:text-teal-text">{standard.title} ↗</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{standard.note}</p>
               </a>
             ))}
           </div>
-          <div className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
+          <div className="mt-[21px] rounded-card border border-teal-border bg-teal-bg p-[21px]">
             <p className="text-f14 font-bold text-t1">Minimum decision-grade submittal</p>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               Bar identification and measured area · guaranteed tensile force by size · elastic modulus and rupture strain · bond and transverse shear · resin / glass declaration · cure and glass-transition temperature · environmental durability data · bend qualification · lot traceability · handling and inspection plan.

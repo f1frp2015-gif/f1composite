@@ -46,9 +46,9 @@ export default function SectionSvg({
       role="img"
       aria-label="Profile cross-section drawing"
     >
-      <path d={ringToPath(mapRing(section.outer))} fill="#e0e7ff" stroke="#031697" strokeWidth={1.5} />
+      <path d={ringToPath(mapRing(section.outer))} fill="#e1f1ef" stroke="#0b1838" strokeWidth={1.5} />
       {(section.holes ?? []).map((hole, i) => (
-        <path key={i} d={ringToPath(mapRing(hole))} fill="#ffffff" stroke="#031697" strokeWidth={1.2} />
+        <path key={i} d={ringToPath(mapRing(hole))} fill="#ffffff" stroke="#0b1838" strokeWidth={1.2} />
       ))}
     </svg>
   );

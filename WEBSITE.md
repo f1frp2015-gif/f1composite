@@ -281,15 +281,28 @@ f1composite.com
 - **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
 - **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。
 
-## 设计规则（2026-09 阶段 0 技术修复后）
+## 设计规则（2026-09 阶段 0 技术修复、阶段 1 视觉系统）
 
 Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式。以下规则由 `scripts/theme-classes.test.mjs` 检查（`npm test`，CI 运行）。
 
 - **字体**：`app/globals.css` 的 `--font-sans` 必须写成 `var(--font-dm-sans)`。这是 `app/layout.tsx` 里 next/font 注册的变量；直接写 `"DM Sans"` 匹配不到自托管字体，2026-09 之前全站因此一直显示系统字体。
-- **字号**：只用 9 档，类名就是像素值：`text-f12`、`f14`、`f16`、`f18`、`f20`、`f24`、`f32`、`f44`、`f56`。链接和按钮文字不小于 14px。大标题可以继续用 `text-[clamp(…)]`。
+- **字号**：只用 9 档，类名就是像素值：`text-f12`、`f14`、`f16`、`f18`、`f20`、`f24`、`f32`、`f44`、`f56`。链接和按钮文字不小于 14px。`text-f12` 不带字距，大写小标签自己加 `tracking-[0.06em]` 一类的字距。大标题可以继续用 `text-[clamp(…)]`。
 - **版心**：页面级容器一律用 `site-container`（最宽 1280px，两侧 20 / 24 / 32px），导航、页头、正文和页脚因此左边缘对齐。不要再写 `mx-auto max-w-[…px] px-[…]`。嵌入式工具（`/embed` 页和 `EmbedShell`）除外。
 - **颜色**：只用 `@theme` 里定义的颜色变量（`teal`、`teal-text`、`deep`、`t1`–`t3`、`bg2` 等）和 Tailwind 默认色。
 - **标题**：h1–h3 默认均衡断行（`text-wrap: balance`）；标题字距不要紧于 `-0.02em`，DM Sans 再紧就会粘连。
+- **信号色**：`lime`（#BBDF35，取自标志渐变的末端）只用于状态点、产品线标记和深色底上的强调，不用于白底文字（对比度 1.5:1）。浅色底上需要文字时用 `lime-ink`。`whatsapp`（#128C53）只给 WhatsApp 图标用。
+- **圆角**：只有三档：`rounded-tag`（2px，标签、表格角标）、`rounded-control`（6px，按钮、输入框）、`rounded-card`（12px，卡片、面板、图片、图版），另可用 `rounded-full` 和 `rounded-none`。
+- **阴影**：只有三种：`shadow-card`（卡片静止或悬停抬起）、`shadow-pop`（菜单、弹窗、浮动媒体）、`shadow-bar`（贴底的手机操作栏）。不写任意值阴影，按钮不加光晕。
+- **等宽字体**：`font-mono`（DM Mono）只用于小号大写标签：图号、产品线、数据标签。数值一律用 DM Sans：DM Mono 的 0 带斜杠，100 会读成 1ØØ，和直径符号 Ø 混淆。
+- **产品线标签**：`components/ui/LineTag.tsx`，沿用站内已有的线名 F1-STRUX（标准型材）、F1-GRID（格栅）、F1-THERM（门窗型材）、F1-FORM（定制拉挤）。GFRP 筋材和紧固件没有线名，首页卡片只显示等宽小标签。
+- **截面图标**：`components/ui/SectionGlyph.tsx`。型材截面由 `lib/catalog/shapes.ts` 的截面引擎绘制，其余（板材、格栅、筋材、门窗、紧固件、定制）为手绘路径；统一描边粗细，浅青色填充。
+- **图版**：`components/ui/Figure.tsx`，编号用 "FIG. 1"，不补零（同样因为斜杠 0）。标准型材页头的图版由 `components/datasheets/ProfileFigure.tsx` 生成：截面图、截面积 A、惯性矩 Ix（按名义截面计算）和目录单重，数值全部取自 `lib/catalog`，不要手填。
+- **产品页头**：`PageHeader` 可传 `line`（产品线标签，替代 tag）、`facts`（最多 4 个关键数据）和 `figure`（图版）。标准型材页的 facts 由 `lib/profileFacts.ts` 从本页尺寸表算出，页头因此不会和下面的表格矛盾；改尺寸表后页头自动更新，但描述文字和 JSON-LD 里的尺寸范围仍需手工同步。
+- **尺寸表**：规格表加 `spec-table` 类：第一列左对齐且不换行（型号不会断成两行，手机上表格横向滚动），其余列右对齐并用等宽数字（`tabular-nums`）。只在第一列之后全是数值或型号的表格上用。
+- **手机底栏**：产品页滚过页头按钮后，底部固定栏只放两个操作：报价按钮和 WhatsApp 图标（`lib/mobileBar.ts` 的 `pickBarAction` 优先选指向 `/contact` 的报价链接）。其他操作留在页头。
+- **WhatsApp 按钮**：品牌绿只用在图标上。按钮本身用站内样式：`solid` 为深蓝底白字，`outline` 为白底描边，悬停变青色。
+
+`scripts/theme-classes.test.mjs` 同时检查圆角和阴影：`rounded-*` 只能是 tag / control / card / full / none，阴影只能是 card / pop / bar / none。
 
 ---
 
@@ -309,3 +322,4 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 化学耐腐蚀选型页：需要树脂供应商授权的耐腐蚀数据或自测浸泡数据 | 待提供数据 |
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |
 | 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |
+| 中 | 视觉系统阶段 1 的两个默认选择待业主确认：信号色用标志渐变末端的 lime #BBDF35（备选：安全黄）；产品线沿用站内已有的 F1-STRUX / F1-GRID / F1-THERM / F1-FORM，未新起线名。改色只需改 `app/globals.css` 的 `--color-lime` | 待确认 |

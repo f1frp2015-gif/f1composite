@@ -185,7 +185,7 @@ export default function DensityCalculator() {
                   : []),
               ];
   const control =
-    "mt-2 w-full rounded-lg border border-border-default bg-white px-3 py-3 text-t1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal";
+    "mt-2 w-full rounded-card border border-border-default bg-white px-3 py-3 text-t1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal";
   const field = ([key, label]: [Field, string]) => (
     <label
       key={key}
@@ -236,13 +236,13 @@ export default function DensityCalculator() {
               setUnit("g/cm³");
               setMassUnit("kg/m");
             }}
-            className="rounded-lg border border-border-default px-4 py-2 text-sm font-semibold text-t1"
+            className="rounded-card border border-border-default px-4 py-2 text-sm font-semibold text-t1"
           >
             Reset example
           </button>
         </div>
         <div className="grid gap-6 lg:grid-cols-[1.25fr_1fr]">
-          <div className="rounded-2xl border border-border-default bg-white p-5 md:p-8">
+          <div className="rounded-card border border-border-default bg-white p-5 md:p-8">
             <fieldset>
               <legend className="mb-3 font-semibold text-t1">
                 1. What do you want to calculate?
@@ -258,7 +258,7 @@ export default function DensityCalculator() {
                 ).map(([value, label]) => (
                   <label
                     key={value}
-                    className={`flex cursor-pointer items-center gap-2 rounded-lg border p-3 text-sm font-semibold ${mode === value ? "border-teal bg-teal-bg text-teal-text" : "border-border-default text-t2"}`}
+                    className={`flex cursor-pointer items-center gap-2 rounded-card border p-3 text-sm font-semibold ${mode === value ? "border-teal bg-teal-bg text-teal-text" : "border-border-default text-t2"}`}
                   >
                     <input
                       type="radio"
@@ -388,7 +388,7 @@ export default function DensityCalculator() {
           </div>
           <div
             id="material-results"
-            className="scroll-mt-24 rounded-2xl border border-border-default bg-white p-5 md:p-8"
+            className="scroll-mt-24 rounded-card border border-border-default bg-white p-5 md:p-8"
           >
             <SectionSketch shape={shape} />
             <p className="text-center text-xs text-t3">
@@ -411,13 +411,13 @@ export default function DensityCalculator() {
                 {result.error ? (
                   <p
                     role="alert"
-                    className="rounded-lg bg-red-50 p-4 text-red-800"
+                    className="rounded-card bg-red-50 p-4 text-red-800"
                   >
                     {result.error}
                   </p>
                 ) : (
                   <>
-                    <div className="rounded-xl bg-[#031697] p-6 text-white">
+                    <div className="rounded-card bg-[#031697] p-6 text-white">
                       <p className="text-sm">
                         {mode === "layup"
                           ? "Layup-derived density · volume balance"
@@ -444,7 +444,7 @@ export default function DensityCalculator() {
                       </p>
                     </div>
                     {mode === "recipe" && !mixture.error && (
-                      <div className="mt-4 rounded-lg border border-border-default p-4 text-sm text-t2">
+                      <div className="mt-4 rounded-card border border-border-default p-4 text-sm text-t2">
                         <p>
                           Void-free theoretical density:{" "}
                           <strong>{fmt(mixture.theoretical!)} g/cm³</strong>
@@ -473,7 +473,7 @@ export default function DensityCalculator() {
                       </div>
                     )}
                     {mode === "layup" && !layup.error && (
-                      <div className="mt-4 rounded-lg border border-border-default p-4 text-sm text-t2">
+                      <div className="mt-4 rounded-card border border-border-default p-4 text-sm text-t2">
                         <p>
                           Retained reinforcement:{" "}
                           <strong>{fmt(layup.reinforcementGrams!)} g/m</strong>{" "}
@@ -512,7 +512,7 @@ export default function DensityCalculator() {
                         </p>
                       </div>
                     )}
-                    <div className="mt-5 rounded-xl border border-teal bg-teal-bg p-4">
+                    <div className="mt-5 rounded-card border border-teal bg-teal-bg p-4">
                       <label
                         htmlFor="weight-per-meter-unit"
                         className="flex flex-wrap items-center justify-between gap-2 text-sm font-semibold text-teal-text"
@@ -527,7 +527,7 @@ export default function DensityCalculator() {
                                 .value as keyof typeof weightPerMeterFactors,
                             )
                           }
-                          className="rounded-lg border border-border-default bg-white p-2 text-t1"
+                          className="rounded-card border border-border-default bg-white p-2 text-t1"
                         >
                           {Object.keys(weightPerMeterFactors).map((u) => (
                             <option key={u}>{u}</option>
@@ -550,7 +550,7 @@ export default function DensityCalculator() {
                         ["Mass per piece", `${fmt(result.pieceKg!)} kg`],
                         ["Total profile mass", `${fmt(result.totalKg!)} kg`],
                       ].map(([label, value]) => (
-                        <div key={label} className="rounded-lg bg-bg2 p-3">
+                        <div key={label} className="rounded-card bg-bg2 p-3">
                           <dt className="text-xs text-t2">{label}</dt>
                           <dd className="mt-1 break-words text-lg font-bold text-t1">
                             {value}
@@ -565,7 +565,7 @@ export default function DensityCalculator() {
                       laboratory test result.
                     </p>
                     {(result.densityKg! < 1700 || result.densityKg! > 2100) && (
-                      <p className="mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
+                      <p className="mt-3 rounded-card bg-amber-50 p-3 text-sm text-amber-900">
                         This density is outside the 1.7–2.1 g/cm³ estimating
                         range used here for pultruded glass-fiber profiles.
                         Check units, hollow area and laminate data; other FRP
@@ -578,7 +578,7 @@ export default function DensityCalculator() {
               {!result.error && (
                 <Link
                   href={`/contact?${new URLSearchParams({ source: "frp-density-calculator", inquiry_type: "rfq", message: summary })}`}
-                  className="mt-6 block rounded-lg bg-teal px-5 py-4 text-center font-bold text-white hover:brightness-95"
+                  className="mt-6 block rounded-card bg-teal px-5 py-4 text-center font-bold text-white hover:brightness-95"
                 >
                   Request a quote with these results →
                 </Link>
@@ -591,7 +591,7 @@ export default function DensityCalculator() {
           </div>
         </div>
       </div>
-      <div data-page-bottom-bar className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border-default bg-white px-4 py-3 shadow-lg lg:hidden">
+      <div data-page-bottom-bar className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border-default bg-white px-4 py-3 shadow-card lg:hidden">
         <div className="text-sm text-t1" aria-live="polite">
           {result.error ? (
             "Check calculation inputs"
@@ -606,7 +606,7 @@ export default function DensityCalculator() {
         </div>
         <a
           href="#material-results"
-          className="shrink-0 rounded-lg bg-teal px-3 py-2 text-xs font-semibold text-white"
+          className="shrink-0 rounded-card bg-teal px-3 py-2 text-xs font-semibold text-white"
         >
           Results & sliders
         </a>

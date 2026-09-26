@@ -85,7 +85,7 @@ export default function AustraliaSolarPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-energy-solar-power-installation.jpg"
               alt="Pultruded FRP solar mounting racking on an Australian ground-mount solar array — corrosion-proof, AS/NZS 1170.2 wind-rated"
@@ -175,7 +175,7 @@ export default function AustraliaSolarPage() {
               { name: "Tilt Strut", size: "60×60 angle / 80×80 angle", note: "Tilt angle bracing" },
               { name: "Rooftop Adapter", size: "50×50 / 65×65 hollow", note: "Commercial rooftop attachment to seam clamps" },
             ].map((p) => (
-              <div key={p.name} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={p.name} className="rounded-card border border-border-default bg-white p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{p.name}</h3>
                 <p className="mt-[5px] text-f14 font-medium text-teal-text">{p.size}</p>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">{p.note}</p>
@@ -201,21 +201,21 @@ export default function AustraliaSolarPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/industries/energy"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Energy Industry — FRP for Solar & Wind</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">FRP profiles in solar mounting, wind turbine secondary structures, and substation hardware.</p>
             </Link>
             <Link
               href="/case-studies/chongqing-rooftop-pv-frp-rail"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Pultruded GFRP H-rail on colour steel-tile roofs, installed within the roofs&rsquo; original load reserve.</p>
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">FRP vs Steel & Aluminum</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Mechanical, corrosion, and lifecycle comparison across the three structural material families.</p>

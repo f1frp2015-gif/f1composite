@@ -34,7 +34,7 @@ export default function MobileContactBar() {
     <div
       data-site-contact-bar
       inert={!visible}
-      className={`fixed inset-x-0 bottom-0 z-[55] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-[0_-10px_28px_rgba(11,24,56,0.12)] backdrop-blur-md transition-transform duration-200 md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-[55] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-bar backdrop-blur-md transition-transform duration-200 md:hidden ${
         visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
     >
@@ -42,7 +42,7 @@ export default function MobileContactBar() {
         <Button href="/contact?source=mobile-contact-bar&inquiry_type=rfq" className="w-full px-[10px]">
           Get a Quote
         </Button>
-        <WhatsAppButton location="mobile-contact-bar" className="w-full" />
+        <WhatsAppButton location="mobile-contact-bar" variant="outline" className="w-full" />
       </div>
     </div>
   );

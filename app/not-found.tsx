@@ -64,7 +64,7 @@ export default function NotFound() {
               <Link
                 key={exit.href}
                 href={exit.href}
-                className="rounded-[8px] border border-border-default bg-white p-[24px] transition-colors hover:border-teal"
+                className="rounded-card border border-border-default bg-white p-[24px] transition-colors hover:border-teal"
               >
                 <h2 className="text-f18 font-bold text-t1">{exit.title}</h2>
                 <p className="mt-[8px] text-f16 leading-golden text-t2">{exit.description}</p>

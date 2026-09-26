@@ -111,7 +111,7 @@ export default function PultrusionResinSystemsPage() {
             life.
           </p>
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-3">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 Fiber decides
               </p>
@@ -120,7 +120,7 @@ export default function PultrusionResinSystemsPage() {
                 change when you switch resin.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 Matrix decides
               </p>
@@ -129,7 +129,7 @@ export default function PultrusionResinSystemsPage() {
                 fatigue, which together decide service life.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 You decide
               </p>
@@ -282,30 +282,30 @@ export default function PultrusionResinSystemsPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             <ol className="space-y-[13px] text-f16 leading-golden text-t2">
-              <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <li className="rounded-card border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">1. Fire code governs?</strong> Rail interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84 Class A:
                 FR-grade polyester or vinyl ester, and require the test report for the exact
                 formulation.
               </li>
-              <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <li className="rounded-card border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">2. Chemical or marine exposure?</strong>{" "}
                 Vinyl ester, checked against the resin supplier corrosion guide for your
                 specific chemical, concentration, and temperature. Pair it with a surface veil:
                 the barrier is the veil-plus-resin skin.
               </li>
-              <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <li className="rounded-card border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">3. Sustained heat or high-cycle fatigue?</strong>{" "}
                 Epoxy (Tg 120–180 °C) or high-HDT vinyl ester. Check the temperature under load
                 as well as the exposure temperature: modulus drops as the matrix approaches its
                 Tg.
               </li>
-              <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <li className="rounded-card border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">4. Thin walls, fasteners, or impact?</strong>{" "}
                 Polyurethane. Its transverse strength allows wall reductions that polyester
                 cannot match: the reason modern fiberglass window lineals are moving to PU
                 pultrusion.
               </li>
-              <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <li className="rounded-card border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">5. None of the above?</strong>{" "}
                 Isophthalic polyester: the cost-efficient default for general structural
                 service, and the baseline every alternative should be justified against.

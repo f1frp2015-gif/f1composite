@@ -38,7 +38,7 @@ export default function ProductsPage() {
             Choose your product family
           </h2>
           <ProductFamilyCards />
-          <div className="mt-[28px] rounded-[10px] border border-border-default bg-bg2 p-[24px]">
+          <div className="mt-[28px] rounded-card border border-border-default bg-bg2 p-[24px]">
             <h2 className="text-f24 font-bold text-t1">
               Standard section or custom development?
             </h2>
@@ -83,7 +83,7 @@ export default function ProductsPage() {
             {applicationGroups.map((group) => (
               <div
                 key={group.label}
-                className="rounded-[10px] border border-border-default bg-white p-[22px]"
+                className="rounded-card border border-border-default bg-white p-[22px]"
               >
                 <h3 className="text-f18 font-bold text-t1">{group.label}</h3>
                 <ul className="mt-[12px] space-y-[10px]">

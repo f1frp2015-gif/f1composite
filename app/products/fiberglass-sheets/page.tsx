@@ -116,7 +116,7 @@ export default function FiberglassSheetsPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-bg2">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-bg2">
                 <Image
                   src="/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp"
                   alt="Black pultruded fiberglass sheet with a finished surface on the production line"
@@ -131,7 +131,7 @@ export default function FiberglassSheetsPage() {
               </figcaption>
             </figure>
             <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-bg2">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-bg2">
                 <Image
                   src="/images/products/fiberglass-sheets/pultruded-frp-sheet-formed-edge-sample.webp"
                   alt="Black pultruded FRP sheet-program sample with thin walls and formed return edges"
@@ -161,21 +161,21 @@ export default function FiberglassSheetsPage() {
             the finished-part drawing and service environment before quotation.
           </p>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f16 font-bold text-t1">Structural connection</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Cut blanks for gussets, splice parts, bearing pads and other fabricated
                 connections — machined to the approved part drawing and load case.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f16 font-bold text-t1">Corrosion barriers</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Tank and clarifier baffles, launder and trench covers, liners for bunds
                 and splash zones — vinyl ester laminates in continuous chemical contact.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f16 font-bold text-t1">Walking surfaces</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Gritted sheet for tread-cover overlays and other anti-slip surfaces,
@@ -186,7 +186,7 @@ export default function FiberglassSheetsPage() {
                 program. Load-bearing covers require separate support and capacity checks.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f16 font-bold text-t1">Fabrication blanks</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Cut blanks that shops machine into brackets, spacers, wear pads, and

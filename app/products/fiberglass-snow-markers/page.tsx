@@ -255,13 +255,13 @@ export default function FiberglassSnowMarkersPage() {
             <div className="mt-[29px] flex flex-wrap gap-[13px]">
               <Link
                 href="/contact"
-                className="rounded-[4px] bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
               >
                 Request a snow-marker quote
               </Link>
               <a
                 href="#reference-sizes"
-                className="rounded-[4px] border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
+                className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
               >
                 Review reference sizes
               </a>
@@ -269,7 +269,7 @@ export default function FiberglassSnowMarkersPage() {
           </div>
 
           <figure>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+            <div className="relative aspect-square overflow-hidden rounded-card border border-border-default bg-bg2">
               <Image
                 src={heroImage}
                 alt="Orange, yellow, green, blue and red fiberglass snow markers with wraparound reflective bands and pointed tips"
@@ -290,7 +290,7 @@ export default function FiberglassSnowMarkersPage() {
       <section className="border-y border-border-default bg-bg2 py-[34px]">
         <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {portfolioFacts.map((fact) => (
-            <div key={fact.label} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f24 font-extrabold text-teal-text">{fact.value}</p>
               <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
             </div>
@@ -314,7 +314,7 @@ export default function FiberglassSnowMarkersPage() {
             thicknesses, fiberglass content, tape grades or packaging. Use the matrix
             below as the minimum RFQ structure.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
             <table className="w-full min-w-[780px] border-collapse text-left">
               <thead className="bg-bg2">
                 <tr>
@@ -345,7 +345,7 @@ export default function FiberglassSnowMarkersPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             {constructionOptions.map((option) => (
-              <article key={option.name} className="rounded-[8px] border border-border-default bg-white p-[29px]">
+              <article key={option.name} className="rounded-card border border-border-default bg-white p-[29px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{option.badge}</p>
                 <h3 className="mt-[8px] text-f18 font-extrabold text-t1">{option.name}</h3>
                 <p className="mt-[13px] text-f14 font-semibold leading-golden text-t1">{option.bestFor}</p>
@@ -353,7 +353,7 @@ export default function FiberglassSnowMarkersPage() {
               </article>
             ))}
           </div>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[760px] border-collapse text-left">
               <thead className="bg-white">
                 <tr>
@@ -390,7 +390,7 @@ export default function FiberglassSnowMarkersPage() {
                 the same reference under vehicle lighting and low-contrast weather.
               </p>
               <figure className="mt-[29px]">
-                <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
                   <Image
                     src={applicationImage}
                     alt="Orange fiberglass snow markers lining a plowed mountain road after heavy snowfall"
@@ -409,7 +409,7 @@ export default function FiberglassSnowMarkersPage() {
             </div>
             <div className="grid gap-[13px] sm:grid-cols-2">
               {applications.map((application) => (
-                <article key={application.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <article key={application.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                   <h3 className="text-f16 font-bold text-t1">{application.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
                 </article>
@@ -427,14 +427,14 @@ export default function FiberglassSnowMarkersPage() {
           </h2>
           <div className="mt-[34px] grid gap-[13px] md:grid-cols-2 xl:grid-cols-4">
             {selectionSteps.map((item) => (
-              <article key={item.step} className="rounded-[8px] border border-white/15 bg-white/5 p-[21px]">
+              <article key={item.step} className="rounded-card border border-white/15 bg-white/5 p-[21px]">
                 <p className="text-f14 font-extrabold text-teal-300">{item.step}</p>
                 <h3 className="mt-[8px] text-f18 font-bold">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-white/70">{item.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[21px] rounded-[8px] border border-amber-300/35 bg-amber-300/10 p-[21px]">
+          <div className="mt-[21px] rounded-card border border-amber-300/35 bg-amber-300/10 p-[21px]">
             <p className="text-f14 font-bold text-white">Public-road use needs a separate compliance decision</p>
             <p className="mt-[8px] text-f14 leading-golden text-white/75">
               A colored fiberglass stake with reflective tape is not automatically a

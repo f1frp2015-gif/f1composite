@@ -461,7 +461,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <div>
             {/* Project hero image */}
             <figure className="mb-[34px]">
-              <div className="relative aspect-[1.618] overflow-hidden rounded-[8px] bg-bg2">
+              <div className="relative aspect-[1.618] overflow-hidden rounded-card bg-bg2">
                 <Image
                   src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}
                   alt={caseStudyImageMeta[slug]?.alt ?? cs.title}
@@ -498,7 +498,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {caseStudyContentImages[slug] && (
               <div className="mb-[34px] grid gap-[21px] sm:grid-cols-2">
                 {caseStudyContentImages[slug].map((img) => (
-                  <div key={img.src} className="overflow-hidden rounded-[8px]">
+                  <div key={img.src} className="overflow-hidden rounded-card">
                     <Image
                       src={img.src}
                       alt={img.alt}
@@ -532,7 +532,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <aside className="space-y-[21px]">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <h4 className="mb-[13px] text-f14 font-bold text-t1">Project Details</h4>
               <dl className="space-y-[8px] text-f14">
                 <div>
@@ -554,7 +554,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </dl>
             </div>
 
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h4 className="mb-[13px] text-f14 font-bold text-t1">Products Used</h4>
               <div className="space-y-[8px]">
                 {cs.products.map((product) => {
@@ -580,7 +580,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
 
             {cs.downloads && cs.downloads.length > 0 && (
-              <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
+              <div className="rounded-card border border-teal-border bg-teal-bg p-[21px]">
                 <h4 className="mb-[13px] text-f14 font-bold text-t1">Certificates & Downloads</h4>
                 <div className="space-y-[13px]">
                   {cs.downloads.map((dl) => (
@@ -608,7 +608,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </div>
             )}
 
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h4 className="mb-[13px] text-f14 font-bold text-t1">Industry & resources</h4>
               <div className="space-y-[8px]">
                 <Link
@@ -634,7 +634,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             <Link
               href="/contact"
-              className="block rounded-[8px] bg-teal p-[21px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="block rounded-card bg-teal p-[21px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
             >
               Start a Similar Project
             </Link>

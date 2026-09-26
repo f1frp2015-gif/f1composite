@@ -212,7 +212,7 @@ export default function PultrudedGratingsPage() {
               </p>
             </div>
 
-            <aside className="space-y-[13px] rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+            <aside className="space-y-[13px] rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
               <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Other surface families</p>
               <div>
                 <h3 className="text-f18 font-bold text-t1">Need bidirectional molded mesh?</h3>
@@ -234,7 +234,7 @@ export default function PultrudedGratingsPage() {
       <section className="bg-white pb-[55px]">
         <div className="site-container">
           <figure>
-            <div className="relative aspect-[125/41] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[125/41] overflow-hidden rounded-card bg-bg2">
               <Image
                 src={pultrudedGratingManualImages.closeup}
                 alt="Close-up of yellow pultruded FRP grating bearing bars with a rough walking surface and transverse cross-rods"
@@ -256,7 +256,7 @@ export default function PultrudedGratingsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">T-bar, I-bar, high-load and high-open systems</h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             {pultrudedConfigurations.map((configuration) => (
-              <article key={configuration.name} className="rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
+              <article key={configuration.name} className="rounded-card border border-border-default bg-white p-[21px] sm:p-[34px]">
                 <h3 className="text-f18 font-bold text-t1">{configuration.name}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{configuration.description}</p>
                 <dl className="mt-[21px]">
@@ -282,7 +282,7 @@ export default function PultrudedGratingsPage() {
           </p>
           <div className="mt-[34px] space-y-[13px]">
             {pultrudedGratingSpecGroups.map((group, index) => (
-              <details key={group.name} open={index < 2} className="group rounded-[8px] border border-border-default bg-white">
+              <details key={group.name} open={index < 2} className="group rounded-card border border-border-default bg-white">
                 <summary className="cursor-pointer list-none px-[21px] py-[16px] sm:px-[34px]">
                   <div className="flex items-center justify-between gap-[13px]">
                     <div>
@@ -338,7 +338,7 @@ export default function PultrudedGratingsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Four checks before releasing a pultruded grating layout</h2>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-4">
             {selectionChecks.map((item, index) => (
-              <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <article key={item.title} className="rounded-card border border-border-default bg-white p-[21px]">
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span>
                 <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
@@ -353,7 +353,7 @@ export default function PultrudedGratingsPage() {
 
       <section className="bg-white pt-[55px]">
         <div className="site-container">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[8px] bg-bg2">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-card bg-bg2">
             <Image
               src={pultrudedGratingManualImages.hero}
               alt="Open pultruded FRP grating installed as a rooftop walking surface"
@@ -373,7 +373,7 @@ export default function PultrudedGratingsPage() {
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Profiled, fine-grit and coarse-grit pultruded surfaces</h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {antiSlipGrades.map((grade) => (
-              <article key={grade.grade} className="rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
+              <article key={grade.grade} className="rounded-card border border-border-default bg-white p-[21px] sm:p-[34px]">
                 <h3 className="text-f18 font-bold text-t1">{grade.grade}</h3>
                 <p className="mt-[13px] text-f14 leading-golden text-t2">{grade.description}</p>
               </article>

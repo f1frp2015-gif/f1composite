@@ -95,7 +95,7 @@ const faqItems = [
 
 function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
   return (
-    <article className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+    <article className="overflow-hidden rounded-card border border-border-default bg-white">
       <div className="border-b border-border-default bg-bg2 p-[21px] sm:p-[24px]">
         <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{system.shortName} system</p>
         <h3 className="mt-[5px] text-f20 font-bold text-t1">{system.name}</h3>
@@ -164,7 +164,7 @@ export default function HandrailSystemsPage() {
       <section className="bg-white pt-[55px]">
         <div className="site-container">
           <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
               <Image
                 src={frpHandrailManualImageAssets.hero}
                 alt="Yellow fiberglass handrail and guardrail systems installed around industrial platforms and stairs"
@@ -199,7 +199,7 @@ export default function HandrailSystemsPage() {
               {" "}page; for raw profile stock, use the round- and square-tube pages.
             </p>
           </div>
-          <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">What the catalog establishes</p>
             <dl className="mt-[13px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-1">
               <div><dt className="text-f12 font-bold text-t1">Two systems</dt><dd className="mt-[3px] text-f14 text-t2">Square-tube and round-tube configurations</dd></div>
@@ -232,7 +232,7 @@ export default function HandrailSystemsPage() {
               <SectionTag>Square-System Connections</SectionTag>
               <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">Internal splices, corners and kick-plate details</h2>
               <figure className="mt-[21px]">
-                <div className="relative aspect-[71/53] overflow-hidden rounded-[8px] border border-border-default bg-white">
+                <div className="relative aspect-[71/53] overflow-hidden rounded-card border border-border-default bg-white">
                   <Image src={frpHandrailManualImageAssets.squareSystem} alt="Square fiberglass handrail system connection concept with splices, corner details, kick plate and optional base" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
                 </div>
                 <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
@@ -244,7 +244,7 @@ export default function HandrailSystemsPage() {
               <SectionTag>Round-System Components</SectionTag>
               <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">Tube, tee, elbow, cross, foot base and kick plate</h2>
               <figure className="mt-[21px]">
-                <div className="relative aspect-[292/207] overflow-hidden rounded-[8px] border border-border-default bg-white">
+                <div className="relative aspect-[292/207] overflow-hidden rounded-card border border-border-default bg-white">
                   <Image src={frpHandrailManualImageAssets.roundSystem} alt="Round fiberglass handrail assembly with numbered tube, tee, elbow, cross, foot-base and kick-plate components" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
                 </div>
                 <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
@@ -264,14 +264,14 @@ export default function HandrailSystemsPage() {
           </h2>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {specificationInputs.map((input, index) => (
-              <article key={input.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[34px] rounded-[8px] border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
             <strong className="text-t1">Load-basis checkpoint.</strong>{" "}
             <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.29</a>{" "}
             applies criteria to completed guardrail systems, while{" "}

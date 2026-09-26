@@ -12,7 +12,7 @@ const HOT = "#dc2626";
 /** Where the matrix forms: dry fiber → resin impregnation → cured composite. */
 export function MatrixFormationFigure() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <svg
         viewBox="0 0 480 150"
         className="w-full"
@@ -131,7 +131,7 @@ export function MatrixFormationFigure() {
 /** What the matrix does mechanically: re-routing load around a fiber break. */
 export function LoadTransferFigure() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <svg
         viewBox="0 0 480 130"
         className="w-full"

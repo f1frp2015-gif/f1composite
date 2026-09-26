@@ -206,7 +206,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
         <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
           {content.intro} The diagrams explain compatibility and load path only — they are not fabrication dimensions.
         </p>
-        <p className="mt-[8px] max-w-[920px] rounded-[6px] border border-teal-border bg-teal-bg px-[13px] py-[10px] text-f14 leading-golden text-t2">
+        <p className="mt-[8px] max-w-[920px] rounded-control border border-teal-border bg-teal-bg px-[13px] py-[10px] text-f14 leading-golden text-t2">
           {content.naming}
         </p>
 
@@ -214,7 +214,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
           {visibleClips.map((clip) => (
             <article
               key={clip.code}
-              className="overflow-hidden rounded-[8px] border border-border-default bg-white"
+              className="overflow-hidden rounded-card border border-border-default bg-white"
             >
               <div className="flex flex-wrap items-start justify-between gap-[10px] border-b border-border-default bg-bg2 px-[21px] py-[16px] sm:px-[34px]">
                 <div>
@@ -229,7 +229,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
               </div>
 
               <figure className="px-[13px] pt-[16px] sm:px-[21px]">
-                <div className="rounded-[8px] bg-bg2 p-[8px] sm:p-[13px]">
+                <div className="rounded-card bg-bg2 p-[8px] sm:p-[13px]">
                   <ClipFigure code={clip.code} alt={clip.figureAlt} />
                 </div>
                 <figcaption className="mt-[8px] text-center text-f12 text-t3">
@@ -245,7 +245,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
                   <SpecRow label="Compatible" value={clip.compatibleWith.join(" · ")} />
                   <SpecRow label="Installation" value={clip.installation} />
                 </dl>
-                <p className="mt-[13px] rounded-[6px] border-l-[3px] border-teal bg-bg2 px-[13px] py-[10px] text-f14 leading-golden text-t2">
+                <p className="mt-[13px] rounded-control border-l-[3px] border-teal bg-bg2 px-[13px] py-[10px] text-f14 leading-golden text-t2">
                   <strong className="text-t1">Boundary:</strong> {clip.caution}
                 </p>
               </div>
@@ -254,7 +254,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
         </div>
 
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px] sm:p-[34px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[34px]">
             <h3 className="text-f18 font-bold text-t1">Installation and spacing principles</h3>
             <ol className="mt-[13px] space-y-[10px]">
               {installationPrinciples.map((principle, index) => (
@@ -266,7 +266,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
                 </li>
               ))}
             </ol>
-            <div className="mt-[21px] rounded-[8px] border border-border-default bg-white p-[16px] sm:p-[21px]">
+            <div className="mt-[21px] rounded-card border border-border-default bg-white p-[16px] sm:p-[21px]">
               <h4 className="text-f16 font-bold text-t1">Typical starting layout</h4>
               <p className="mt-[5px] text-f12 leading-golden text-t3">
                 General coordination values before project-specific fastening design.
@@ -276,13 +276,13 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
                   <SpecRow key={item.label} label={item.label} value={item.value} />
                 ))}
               </dl>
-              <p className="mt-[13px] rounded-[6px] border-l-[3px] border-teal bg-teal-bg px-[13px] py-[10px] text-f12 leading-golden text-t2">
+              <p className="mt-[13px] rounded-control border-l-[3px] border-teal bg-teal-bg px-[13px] py-[10px] text-f12 leading-golden text-t2">
                 {gratingClipLayoutDisclaimer}
               </p>
             </div>
           </div>
 
-          <div className="rounded-[8px] border border-border-default bg-deep p-[21px] text-white sm:p-[34px]">
+          <div className="rounded-card border border-border-default bg-deep p-[21px] text-white sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal">
               Combined CAD detail
             </p>
@@ -294,7 +294,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
             <a
               href={familyDxf.href}
               download
-              className="mt-[21px] inline-flex min-h-[46px] w-full items-center justify-center rounded-[7px] bg-teal-text px-[21px] py-[11px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto"
+              className="mt-[21px] inline-flex min-h-[46px] w-full items-center justify-center rounded-control bg-teal-text px-[21px] py-[11px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto"
             >
               Download {familyDxf.codes} DXF
             </a>

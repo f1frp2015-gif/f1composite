@@ -204,7 +204,7 @@ export default function DatasheetBuilder() {
             return (
               <div
                 key={category?.id ?? "other"}
-                className="rounded-[8px] border border-border-default bg-white p-[21px]"
+                className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <div className="mb-[13px] flex items-center justify-between">
                   <h3 className="text-f16 font-bold text-t1">{category?.name ?? "Other profiles"}</h3>
@@ -244,7 +244,7 @@ export default function DatasheetBuilder() {
               Leave everything unticked to get each profile&apos;s standard formulation. Tick
               several to compare mechanical data for the same cross-section across resin systems.
             </p>
-            <div className="grid gap-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px] md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-[13px] rounded-card border border-border-default bg-bg2 p-[21px] md:grid-cols-2 lg:grid-cols-3">
               {formulationGroups.map(({ label, items }) => (
                 <div key={label}>
                   <div className="mb-[8px] text-f12 font-bold uppercase tracking-wide text-t3">
@@ -260,7 +260,7 @@ export default function DatasheetBuilder() {
                         />
                         <span className="flex-1">{f.name}</span>
                         {f.grade && (
-                          <span className="rounded-[4px] bg-white px-[6px] py-[1px] text-f12 font-semibold text-teal-text">
+                          <span className="rounded-tag bg-white px-[6px] py-[1px] text-f12 font-semibold text-teal-text">
                             {f.grade}
                           </span>
                         )}
@@ -275,11 +275,11 @@ export default function DatasheetBuilder() {
 
         <div className="mt-[21px] flex flex-wrap items-center gap-[13px]">
           {selected.size === 0 ? (
-            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
+            <span className="rounded-control bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
               Select products to generate a PDF
             </span>
           ) : overLimit ? (
-            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
+            <span className="rounded-control bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
               {pageCount} pages exceeds the {MAX_PAGES}-page limit — narrow the selection
             </span>
           ) : needsEmail ? (
@@ -287,14 +287,14 @@ export default function DatasheetBuilder() {
               <input
                 type="email"
                 placeholder="Work email to receive catalog updates"
-                className="w-[280px] rounded-[6px] border border-border-default px-[13px] py-[13px] text-f16"
+                className="w-[280px] rounded-control border border-border-default px-[13px] py-[13px] text-f16"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 onClick={submitLeadAndDownload}
                 disabled={submitting}
-                className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90 disabled:opacity-50"
+                className="rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90 disabled:opacity-50"
               >
                 {submitting ? "Preparing…" : `Get catalog PDF (${pageCount} pages) →`}
               </button>
@@ -309,7 +309,7 @@ export default function DatasheetBuilder() {
               href={href}
               target="_blank"
               rel="noopener"
-              className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
+              className="rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
             >
               Generate PDF ({pageCount} {pageCount === 1 ? "datasheet page" : "pages"}) →
             </a>

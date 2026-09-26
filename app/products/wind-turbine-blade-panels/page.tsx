@@ -110,7 +110,7 @@ export default function WindTurbineBladePanelsPage() {
               F1 coordinates the fiber system, resin, laminate architecture, section, surface,
               dimensional controls and mechanical evidence against the blade program.
             </p>
-            <div className="mt-[29px] rounded-[8px] border border-teal/30 bg-teal-bg p-[21px]">
+            <div className="mt-[29px] rounded-card border border-teal/30 bg-teal-bg p-[21px]">
               <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
                 Cut to the required length
               </p>
@@ -125,20 +125,20 @@ export default function WindTurbineBladePanelsPage() {
             <div className="mt-[29px] flex flex-wrap gap-[13px]">
               <Link
                 href="/contact?source=wind-turbine-blade-panels&inquiry_type=rfq"
-                className="rounded-[4px] bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
               >
                 Request a panel review
               </Link>
               <a
                 href="#gfp-we20-test-data"
-                className="rounded-[4px] border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
+                className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
               >
                 Review GFP-WE20 data
               </a>
             </div>
           </div>
           <figure>
-            <div className="relative aspect-[16/7] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+            <div className="relative aspect-[16/7] overflow-hidden rounded-card border border-border-default bg-bg2">
               <Image
                 src={windBladePanelImages.submittedPanel}
                 alt="GFP-WE20 pultruded fiberglass panel submitted for fatigue characterization"
@@ -168,7 +168,7 @@ export default function WindTurbineBladePanelsPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {windBladePanelPrograms.map((program) => (
-              <article key={program.name} className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+              <article key={program.name} className="overflow-hidden rounded-card border border-border-default bg-white">
                 <div className="relative aspect-[16/9] bg-white">
                   <Image
                     src={program.image}
@@ -211,7 +211,7 @@ export default function WindTurbineBladePanelsPage() {
               ["Wf", gfpWe20Report.physical.fiberMassContent, "Average fiber mass content"],
               ["Vf", gfpWe20Report.physical.fiberVolumeContent, "Calculated average fiber volume"],
             ].map(([symbol, value, label]) => (
-              <div key={symbol} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div key={symbol} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-t3">{symbol}</p>
                 <p className="mt-[5px] text-[clamp(24px,3vw,34px)] font-extrabold leading-none text-teal-text">{value}</p>
                 <p className="mt-[8px] text-f12 leading-golden text-t2">{label}</p>
@@ -220,7 +220,7 @@ export default function WindTurbineBladePanelsPage() {
           </div>
 
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <figure className="rounded-[8px] border border-border-default bg-white p-[13px]">
+            <figure className="rounded-card border border-border-default bg-white p-[13px]">
               <div className="relative mx-auto aspect-[669/981] max-h-[620px] overflow-hidden bg-bg2">
                 <Image
                   src={windBladePanelImages.beforeTest}
@@ -234,7 +234,7 @@ export default function WindTurbineBladePanelsPage() {
                 Fifteen labeled, waisted specimens before testing. The report states that machining used CNC and a diamond saw in accordance with the test specifications.
               </figcaption>
             </figure>
-            <figure className="rounded-[8px] border border-border-default bg-white p-[13px]">
+            <figure className="rounded-card border border-border-default bg-white p-[13px]">
               <div className="relative mx-auto aspect-[1037/979] max-h-[620px] overflow-hidden bg-bg2">
                 <Image
                   src={windBladePanelImages.afterTest}
@@ -251,7 +251,7 @@ export default function WindTurbineBladePanelsPage() {
           </div>
 
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <h3 className="text-f18 font-bold text-t1">Fatigue test basis</h3>
               <dl className="mt-[13px] divide-y divide-border-default text-f14">
                 {[
@@ -271,7 +271,7 @@ export default function WindTurbineBladePanelsPage() {
                 ))}
               </dl>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <h3 className="text-f18 font-bold text-t1">Reported statistical and physical summary</h3>
               <dl className="mt-[13px] divide-y divide-border-default text-f14">
                 {[
@@ -288,13 +288,13 @@ export default function WindTurbineBladePanelsPage() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-[21px] rounded-[6px] border border-amber-300 bg-amber-50 p-[13px] text-f12 leading-golden text-amber-950">
+              <p className="mt-[21px] rounded-control border border-amber-300 bg-amber-50 p-[13px] text-f12 leading-golden text-amber-950">
                 {gfpWe20SourceBoundary}
               </p>
             </div>
           </div>
 
-          <div className="mt-[34px] overflow-hidden rounded-[8px] border border-border-default">
+          <div className="mt-[34px] overflow-hidden rounded-card border border-border-default">
             <div className="bg-t1 px-[21px] py-[16px] text-white">
               <h3 className="text-f18 font-bold">Reported P50 and P95 S–N regression values</h3>
               <p className="mt-[5px] text-f12 leading-golden text-white/75">
@@ -342,7 +342,7 @@ export default function WindTurbineBladePanelsPage() {
               ["03", "Qualification", "Design allowables, test methods, conditioning, sampling, witness points and acceptance criteria."],
               ["04", "Delivery", "Traceability documents, packing/handling limits, destination, Incoterm and required delivery date."],
             ].map(([index, title, body]) => (
-              <div key={index} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={index} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f12 font-bold tracking-[0.12em] text-teal-text">{index}</p>
                 <h3 className="mt-[8px] text-f16 font-bold text-t1">{title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{body}</p>

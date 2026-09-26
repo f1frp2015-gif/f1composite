@@ -33,7 +33,7 @@ export default function LegalEntityNote({
 
   return (
     <aside
-      className={`rounded-[8px] border border-border-default bg-bg2 p-[24px] ${className}`}
+      className={`rounded-card border border-border-default bg-bg2 p-[24px] ${className}`}
     >
       <h2 className="text-f18 font-bold text-t1">FengDu&apos;s export company</h2>
       <p className="mt-[13px] text-f14 leading-golden text-t2">

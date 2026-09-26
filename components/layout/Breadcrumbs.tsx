@@ -33,7 +33,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             <li key={i} className="flex items-center gap-[5px]">
               {i > 0 && <span aria-hidden>/</span>}
               {item.href ? (
-                <Link href={item.href} className="rounded-[3px] transition-colors hover:text-teal-text">
+                <Link href={item.href} className="rounded-tag transition-colors hover:text-teal-text">
                   {item.label}
                 </Link>
               ) : (

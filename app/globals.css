@@ -8,6 +8,14 @@
   --color-teal-bg2: rgba(10,155,145,0.09);
   --color-teal-border: rgba(10,155,145,0.24);
   --color-deep: #0b1838;
+  /* Signal: the lime at the end of the logo gradient. For status dots,
+     product-line markers and highlights on dark ground, never for text on
+     white (contrast 1.5:1; 11.4:1 on deep). lime-ink is the text colour on a
+     lime fill (8:1). */
+  --color-lime: #bbdf35;
+  --color-lime-ink: #2e3a00;
+  /* WhatsApp's own green, for its mark only (4.1:1 on white). */
+  --color-whatsapp: #128c53;
 
   /* Backgrounds */
   --color-bg: #ffffff;
@@ -22,17 +30,33 @@
   --color-border-default: rgba(11,24,56,0.1);
   --color-border-hover: rgba(10,155,145,0.24);
 
+  /* Corners: three steps. rounded-tag for chips and table labels,
+     rounded-control for buttons and inputs, rounded-card for cards, panels,
+     images and figures. */
+  --radius-tag: 2px;
+  --radius-control: 6px;
+  --radius-card: 12px;
+
+  /* Shadows: card (resting or hover lift), pop (menus, dialogs, floating
+     media) and bar (sticky bars pinned to the bottom edge). */
+  --shadow-card: 0 1px 2px rgba(11, 24, 56, 0.04), 0 8px 24px rgba(11, 24, 56, 0.06);
+  --shadow-pop: 0 18px 48px rgba(11, 24, 56, 0.14);
+  --shadow-bar: 0 -8px 24px rgba(11, 24, 56, 0.1);
+
   /* Font family. next/font registers the self-hosted file under its own
      family name and exposes it as --font-dm-sans (see app/layout.tsx), so the
      stack must go through that variable; a literal "DM Sans" never matches. */
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  /* Small uppercase labels only (figure numbers, product lines, data labels).
+     Values stay in DM Sans: DM Mono has only a slashed zero, which reads as
+     the diameter sign Ø in a size like 100 or Ø10. */
+  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Type scale: nine steps, and each name is its pixel size (text-f14 is
      14px). A size outside this list emits no CSS, and
      scripts/theme-classes.test.mjs fails the build on it. */
   --text-f12: 12px;
   --text-f12--line-height: 1.4;
-  --text-f12--letter-spacing: 0.05em;
 
   --text-f14: 14px;
   --text-f14--line-height: 1.55;
@@ -86,6 +110,23 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Size tables: the first column names the row and every other cell is a
+   figure, right-aligned so values read down the column. Figures stay in
+   DM Sans: DM Mono's slashed zero reads as the diameter sign (100 as 1ØØ).
+   A model name such as "U 152×43×6.4" never breaks; the table scrolls
+   sideways on phones instead. Add the class only where all later columns
+   are figures or designations. */
+@layer components {
+  .spec-table :is(th, td):first-child {
+    white-space: nowrap;
+  }
+
+  .spec-table :is(th, td):not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 /* Balanced wrapping keeps a heading from leaving one word on its last line.

@@ -81,7 +81,7 @@ export default async function DatasheetsIndexPage() {
                       <li key={d.slug}>
                         <Link
                           href={`/datasheets/${d.slug}`}
-                          className="flex items-baseline justify-between gap-[8px] rounded-[4px] px-[8px] py-[6px] text-f16 text-t1 hover:bg-teal-bg"
+                          className="flex items-baseline justify-between gap-[8px] rounded-tag px-[8px] py-[6px] text-f16 text-t1 hover:bg-teal-bg"
                         >
                           <span>{d.product.model}</span>
                           {d.product.weight_per_m != null && (

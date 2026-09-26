@@ -34,7 +34,7 @@ export default function PultrusionAnimation() {
   return (
     <div
       ref={rootRef}
-      className="overflow-hidden rounded-[8px] border border-border-default bg-white"
+      className="overflow-hidden rounded-card border border-border-default bg-white"
     >
       {/* Card header */}
       <div className="flex items-center justify-between gap-[13px] border-b border-border-default px-[21px] py-[13px]">

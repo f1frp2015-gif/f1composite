@@ -177,7 +177,7 @@ export default function AboutPage() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[8px] border border-border-default bg-white p-[34px] text-center"
+                className="rounded-card border border-border-default bg-white p-[34px] text-center"
               >
                 <span className="text-[clamp(32px,4vw,48px)] font-extrabold text-teal">{stat.value}</span>
                 <p className="mt-[5px] text-f16 font-bold text-t1">{stat.label}</p>
@@ -199,7 +199,7 @@ export default function AboutPage() {
             {milestones.map((m) => (
               <div
                 key={m.year}
-                className="rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
+                className="rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
               >
                 <span className="text-f24 font-extrabold text-teal-text">{m.year}</span>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{m.event}</p>

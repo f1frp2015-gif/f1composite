@@ -118,7 +118,7 @@ export default function RegionsHubPage() {
               <Link
                 key={m.href}
                 href={m.href}
-                className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-shadow hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+                className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-shadow hover:shadow-card"
               >
                 <p className="text-f14 font-semibold uppercase tracking-[0.08em] text-t3">
                   <span aria-hidden="true" className="mr-[8px]">{m.flag}</span>

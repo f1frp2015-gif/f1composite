@@ -20,7 +20,7 @@ export default function ApplicationsSnapshot() {
             <Link
               key={group.href}
               href={group.href}
-              className="rounded-[10px] border border-border-default bg-white p-[22px] hover:border-teal"
+              className="rounded-card border border-border-default bg-white p-[22px] hover:border-teal"
             >
               <h3 className="text-f18 font-bold text-t1">{group.label}</h3>
               <p className="mt-[8px] text-f14 leading-relaxed text-t2">

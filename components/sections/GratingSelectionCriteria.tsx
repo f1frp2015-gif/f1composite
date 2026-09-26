@@ -6,7 +6,7 @@ export default function GratingSelectionCriteria() {
       <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Before choosing a thickness</p>
       <h2 className="mt-[10px] text-f32 font-bold text-t1">Specify the opening, surface and service conditions</h2>
       <div className="mt-[24px] grid gap-[24px] lg:grid-cols-[0.9fr_1.1fr]">
-        <figure className="rounded-[10px] border border-border-default bg-white p-[22px]">
+        <figure className="rounded-card border border-border-default bg-white p-[22px]">
           <svg viewBox="0 0 440 230" role="img" aria-label="Schematic distinguishing center-to-center bar pitch from the clear opening between bar faces" className="mx-auto w-full max-w-[440px]">
             <rect x="1" y="1" width="438" height="228" rx="10" fill="#f3f8f7" />
             <g fill="#167c75"><rect x="70" y="88" width="44" height="100" rx="2" /><rect x="230" y="88" width="44" height="100" rx="2" /><rect x="390" y="88" width="30" height="100" rx="2" /></g>

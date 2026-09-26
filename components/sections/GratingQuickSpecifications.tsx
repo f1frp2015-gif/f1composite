@@ -28,7 +28,7 @@ export default function GratingQuickSpecifications({ family }: { family?: Gratin
       <h2 className="mt-[10px] text-f32 font-bold text-t1">Start with a panel configuration</h2>
       <p className="mt-[12px] max-w-[880px] text-f16 leading-relaxed text-t2">Compare these examples from our current range, then review the complete specifications. Dimensions and weights are nominal; confirm the clear opening, load table, resin and delivery schedule for your project.</p>
       <div className="mt-[24px] grid gap-[16px] md:grid-cols-3">
-        {options.map(option => <article key={`${option.family}-${option.title}-${option.detail}`} className="flex flex-col rounded-[10px] border border-border-default bg-bg2 p-[22px]">
+        {options.map(option => <article key={`${option.family}-${option.title}-${option.detail}`} className="flex flex-col rounded-card border border-border-default bg-bg2 p-[22px]">
           <p className="text-f12 font-bold uppercase tracking-wide text-teal-text">{option.use}</p>
           <h3 className="mt-[12px] text-f24 font-bold text-t1">{option.title}</h3>
           <p className="mt-[8px] text-f14 text-t2">{option.detail}</p>

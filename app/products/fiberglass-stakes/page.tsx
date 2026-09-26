@@ -207,10 +207,10 @@ export default function FiberglassStakesPage() {
               {" "}page. Each application needs its own stiffness, embedment, color and accessory set.
             </p>
             <div className="mt-[29px] flex flex-wrap gap-[13px]">
-              <Link href="/contact" className="rounded-[4px] bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text">
+              <Link href="/contact" className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text">
                 Request a fiberglass stake quote
               </Link>
-              <a href="#sizes" className="rounded-[4px] border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text">
+              <a href="#sizes" className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text">
                 Compare reference sizes
               </a>
             </div>
@@ -223,7 +223,7 @@ export default function FiberglassStakesPage() {
             </p>
           </div>
           <figure>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
               <Image
                 src={frpStakeImageAssets.hero}
                 alt="Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options"
@@ -243,7 +243,7 @@ export default function FiberglassStakesPage() {
       <section className="border-y border-border-default bg-bg2 py-[34px]">
         <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {quickFacts.map((fact) => (
-            <div key={fact.label} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f24 font-extrabold text-teal-text">{fact.value}</p>
               <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
             </div>
@@ -260,7 +260,7 @@ export default function FiberglassStakesPage() {
           <p className="mt-[13px] max-w-[940px] text-f16 leading-golden text-t2">
             The matrix reconciles current public wholesale listings into one buyer-friendly range. It helps translate an existing SKU or field sample into metric language; it is not an F1 stock promise, load table or certified design schedule.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[920px] border-collapse text-left">
               <thead className="bg-bg2">
                 <tr>
@@ -290,7 +290,7 @@ export default function FiberglassStakesPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-[21px] rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
+          <div className="mt-[21px] rounded-card border border-teal-border bg-teal-bg p-[21px]">
             <p className="text-f14 font-bold uppercase tracking-[0.12em] text-teal-text">Source and release boundary</p>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               Sources were accessed on August 30, 2026 and establish only a public market reference. They do not publish diameter tolerance, bending stiffness, breaking load, resin grade, fiber content or verified outdoor life. F1 confirms those requirements for the proposed production grade before order release.
@@ -316,7 +316,7 @@ export default function FiberglassStakesPage() {
           </h2>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {selectionInputs.map((input, index) => (
-              <article key={input.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
@@ -337,7 +337,7 @@ export default function FiberglassStakesPage() {
           </p>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             {frpStakeApplications.map((application) => (
-              <figure key={application.title} className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <figure key={application.title} className="overflow-hidden rounded-card border border-border-default bg-bg2">
                 <div className="relative aspect-[3/2] overflow-hidden bg-white">
                   <Image src={application.image} alt={application.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 </div>
@@ -361,7 +361,7 @@ export default function FiberglassStakesPage() {
           <p className="mt-[13px] max-w-[940px] text-f16 leading-golden text-white/75">
             FRP is strongest where consistency, corrosion resistance, repeat handling and controlled visibility justify the change. Natural stakes may remain sensible for short seasonal programs; steel may remain appropriate when maximum local stiffness governs.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-white/15">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-white/15">
             <table className="w-full min-w-[920px] border-collapse text-left">
               <thead className="bg-white/10">
                 <tr>
@@ -399,7 +399,7 @@ export default function FiberglassStakesPage() {
           </div>
           <div className="grid gap-[13px] sm:grid-cols-2">
             {rfqInputs.map((input, index) => (
-              <div key={input} className="flex items-start gap-[13px] rounded-[8px] border border-border-default bg-white p-[16px]">
+              <div key={input} className="flex items-start gap-[13px] rounded-card border border-border-default bg-white p-[16px]">
                 <span className="flex h-[29px] w-[29px] shrink-0 items-center justify-center rounded-full bg-teal-bg2 text-f12 font-bold text-teal-text">{index + 1}</span>
                 <p className="pt-[3px] text-f14 font-semibold leading-golden text-t1">{input}</p>
               </div>

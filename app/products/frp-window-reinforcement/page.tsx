@@ -159,7 +159,7 @@ export default function WindowReinforcementProfilesPage() {
               standard uPVC system compete thermally in energy-code-driven markets, without
               retooling the uPVC extrusion itself.
             </p>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-[8px] border border-border-default">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-card border border-border-default">
               <Image
                 src="/images/products/upvc-window-fiberglass-reinforcement-context.jpg"
                 alt="White uPVC tilt-and-turn window — the hollow reinforcement chamber inside frames like this is where pultruded fiberglass cores replace galvanized steel inserts"
@@ -174,7 +174,7 @@ export default function WindowReinforcementProfilesPage() {
           </div>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {whyReplace.map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
+              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[34px]">
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </div>

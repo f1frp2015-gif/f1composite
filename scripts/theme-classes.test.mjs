@@ -25,6 +25,8 @@ const files = ["app", "components", "lib", "content"].flatMap(sourceFiles);
 const themeTokens = (namespace) => new Set([...globals.matchAll(new RegExp(`--${namespace}-([a-z0-9-]+):`, "g"))].map((m) => m[1]).filter((name) => !name.includes("--")));
 const colors = themeTokens("color");
 const sizes = themeTokens("text");
+const radii = themeTokens("radius");
+const shadows = themeTokens("shadow");
 
 const PALETTE = /^(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(50|[1-9]00|950)$/;
 const isColor = (value) => colors.has(value) || PALETTE.test(value) || ["white", "black", "transparent", "current", "inherit"].includes(value);
@@ -36,7 +38,7 @@ const KEYWORDS = {
   ring: /^(inset)$/,
   decoration: /^(solid|double|dotted|dashed|wavy|auto|from-font|clone|slice)$/,
   divide: /^(x|y|x-reverse|y-reverse|solid|dashed|dotted|double|none)$/,
-  shadow: /^(none|inner|sm|md|lg|xl)$/,
+  shadow: /^none$/,
   fill: /^none$/,
   // SVG attribute names such as attributeName="stroke-dashoffset" are not classes.
   stroke: /^(none|dash(array|offset)|line(cap|join)|miterlimit|opacity|width)$/,
@@ -67,6 +69,11 @@ function utilityOf(token) {
 function problem(utility) {
   const size = utility.match(/^text-f(\d+)$/);
   if (size) return sizes.has(`f${size[1]}`) ? null : "no such --text size";
+  // Corners and shadows come only from the theme tokens (rounded-card, shadow-pop …).
+  const corner = utility.match(/^rounded(?:-(?:t|r|b|l|s|e|tl|tr|br|bl|ss|se|es|ee))?(?:-(.+))?$/);
+  if (corner) return corner[1] === "full" || corner[1] === "none" || radii.has(corner[1]) ? null : "use rounded-tag, rounded-control or rounded-card";
+  if (utility === "shadow" || /^shadow-(\[|\d)/.test(utility)) return "use shadow-card, shadow-pop or shadow-bar";
+  if (utility.startsWith("shadow-") && shadows.has(utility.slice(7))) return null;
   const match = utility.match(COLOR_UTILITY);
   if (!match) return null;
   let [, prefix, value] = match;
@@ -77,7 +84,8 @@ function problem(utility) {
   }
   if (prefix === "text" && sizes.has(value)) return null;
   if (KEYWORDS[prefix]?.test(value)) return null;
-  return isColor(value) ? null : "no such --color token";
+  if (isColor(value)) return null;
+  return prefix === "shadow" ? "use shadow-card, shadow-pop or shadow-bar" : "no such --color token";
 }
 
 /** Every string literal and template chunk in a file, with its line number. */
@@ -109,11 +117,13 @@ test("class names only use theme tokens that exist", () => {
   assert.deepEqual(failures, [], `Undefined theme classes:\n${failures.join("\n")}`);
 });
 
-test("the sans font stack goes through the next/font variable", () => {
-  const variable = read("app/layout.tsx").match(/localFont\(\{[\s\S]*?variable:\s*"(--[\w-]+)"/)?.[1];
-  assert.ok(variable, "app/layout.tsx no longer declares a next/font variable");
-  const stack = globals.match(/--font-sans:\s*([^;]+);/)?.[1] ?? "";
-  assert.ok(stack.startsWith(`var(${variable})`), `--font-sans is "${stack}"; it must start with var(${variable}) or the self-hosted font never loads`);
+test("the font stacks go through the next/font variables", () => {
+  const declared = [...read("app/layout.tsx").matchAll(/localFont\(\{[\s\S]*?variable:\s*"(--[\w-]+)"/g)].map((m) => m[1]);
+  for (const [stack, variable] of [["--font-sans", "--font-dm-sans"], ["--font-mono", "--font-dm-mono"]]) {
+    assert.ok(declared.includes(variable), `app/layout.tsx no longer declares ${variable} with next/font`);
+    const value = globals.match(new RegExp(`${stack}:\\s*([^;]+);`))?.[1] ?? "";
+    assert.ok(value.startsWith(`var(${variable})`), `${stack} is "${value}"; it must start with var(${variable}) or the self-hosted font never loads`);
+  }
 });
 
 test("pages use the shared site container instead of their own width and gutters", () => {

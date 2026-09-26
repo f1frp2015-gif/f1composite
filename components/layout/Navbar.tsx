@@ -165,7 +165,7 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="fixed inset-x-0 top-0 z-50 h-[72px] border-b border-border-default bg-white/95 shadow-[0_1px_0_rgba(11,24,56,0.02)] backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-50 h-[72px] border-b border-border-default bg-white/95 backdrop-blur-xl"
     >
       <nav
         aria-label="Primary navigation"
@@ -173,7 +173,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4"
+          className="rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4"
           aria-label="F1 Composite home"
           aria-current={pathname === "/" ? "page" : undefined}
           onClick={closeNavigation}
@@ -205,7 +205,7 @@ export default function Navbar() {
                 onBlur={closeWhenFocusLeaves}
               >
                 <div
-                  className={`inline-flex min-h-[44px] items-center rounded-[7px] transition-colors ${
+                  className={`inline-flex min-h-[44px] items-center rounded-control transition-colors ${
                     active
                       ? "bg-teal-bg2 text-teal-text"
                       : "text-t1 hover:bg-bg2 hover:text-teal-text"
@@ -226,7 +226,7 @@ export default function Navbar() {
                         else desktopToggleRefs.current.delete(item.id);
                       }}
                       type="button"
-                      className="inline-flex h-[44px] w-[32px] items-center justify-center rounded-r-[7px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
+                      className="inline-flex h-[44px] w-[32px] items-center justify-center rounded-r-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
                       aria-label={`${expanded ? "Close" : "Open"} ${item.label} navigation`}
                       aria-expanded={expanded}
                       aria-controls={menuId}
@@ -248,12 +248,12 @@ export default function Navbar() {
                     }
                   >
                     <div
-                      className={`grid max-h-[calc(100dvh-96px)] gap-x-[28px] gap-y-[22px] overflow-y-auto overscroll-contain rounded-[12px] border border-border-default bg-white p-[22px] shadow-[0_18px_48px_rgba(11,24,56,0.14)] ${menuLayout(sectionCount)}`}
+                      className={`grid max-h-[calc(100dvh-96px)] gap-x-[28px] gap-y-[22px] overflow-y-auto overscroll-contain rounded-card border border-border-default bg-white p-[22px] shadow-pop ${menuLayout(sectionCount)}`}
                     >
                       {item.id === "products" && (
                         <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
                           aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
-                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[14px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          className="col-span-full rounded-control bg-teal-bg2 px-[14px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
                           {pultrudedOverviewLink.label} <span aria-hidden>→</span>
                         </Link>
                       )}
@@ -278,7 +278,7 @@ export default function Navbar() {
                                 prefetch={false}
                                 aria-current={pathname === link.href ? "page" : undefined}
                                 onClick={closeNavigation}
-                                className={`block rounded-[6px] px-[9px] py-[8px] text-f14 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal ${
+                                className={`block rounded-control px-[9px] py-[8px] text-f14 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal ${
                                   pathMatches(pathname, link.href)
                                     ? "bg-teal-bg2 text-teal-text"
                                     : "text-t2 hover:bg-teal-bg2 hover:text-teal-text"
@@ -299,7 +299,7 @@ export default function Navbar() {
 
           <Link
             href="/contact?source=header&inquiry_type=rfq"
-            className="ml-[7px] inline-flex min-h-[44px] items-center rounded-[7px] bg-teal-text px-[17px] text-f14 font-bold text-white shadow-[0_6px_16px_rgba(0,122,116,0.18)] transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+            className="ml-[7px] inline-flex min-h-[44px] items-center rounded-control bg-teal-text px-[17px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
             onClick={closeNavigation}
           >
             Get a Quote
@@ -309,7 +309,7 @@ export default function Navbar() {
         <div className="flex items-center gap-[8px] lg:hidden">
           <Link
             href="/contact?source=mobile-header&inquiry_type=rfq"
-            className="inline-flex min-h-[42px] items-center rounded-[7px] bg-teal-text px-[13px] text-f14 font-bold text-white sm:px-[16px]"
+            className="inline-flex min-h-[42px] items-center rounded-control bg-teal-text px-[13px] text-f14 font-bold text-white sm:px-[16px]"
             onClick={closeNavigation}
           >
             Quote
@@ -317,7 +317,7 @@ export default function Navbar() {
           <button
             ref={mobileToggleRef}
             type="button"
-            className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[7px] text-t1 hover:bg-bg2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-control text-t1 hover:bg-bg2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
             onClick={() => {
               setMobileOpen((open) => !open);
               setOpenMobileSection(null);
@@ -340,7 +340,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-0 top-full max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-b border-border-default bg-white px-[20px] py-[14px] shadow-[0_18px_36px_rgba(11,24,56,0.12)] sm:px-[28px] lg:hidden"
+          className="absolute inset-x-0 top-full max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-b border-border-default bg-white px-[20px] py-[14px] shadow-pop sm:px-[28px] lg:hidden"
         >
           <div className="mx-auto max-w-[760px]">
             {mainNav.map((item) => {
@@ -364,7 +364,7 @@ export default function Navbar() {
                     {item.sections && (
                       <button
                         type="button"
-                        className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[6px] text-t2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+                        className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-control text-t2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
                         aria-label={`${expanded ? "Collapse" : "Expand"} ${item.label}`}
                         aria-expanded={expanded}
                         aria-controls={sectionId}
@@ -384,12 +384,12 @@ export default function Navbar() {
                       {item.id === "products" && (
                         <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
                           aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
-                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[12px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          className="col-span-full rounded-control bg-teal-bg2 px-[12px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
                           {pultrudedOverviewLink.label} <span aria-hidden>→</span>
                         </Link>
                       )}
                       {item.sections.map((section) => (
-                        <details key={section.id} className="group rounded-[7px] border border-border-default px-[12px]">
+                        <details key={section.id} className="group rounded-control border border-border-default px-[12px]">
                           <summary
                             className="min-h-[44px] cursor-pointer py-[12px] text-f14 font-bold text-t1"
                           >

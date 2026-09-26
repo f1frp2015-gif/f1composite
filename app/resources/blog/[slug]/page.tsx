@@ -185,7 +185,7 @@ function renderArticleContent(content: string) {
             href={linkBlockMatch[2]}
             target={linkBlockMatch[2].startsWith("/") ? undefined : "_blank"}
             rel={linkBlockMatch[2].startsWith("/") ? undefined : "noopener noreferrer"}
-            className="inline-flex items-center gap-[8px] rounded-[6px] border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
+            className="inline-flex items-center gap-[8px] rounded-control border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path d="M4 14V2h8l2 3v9H4z" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -201,7 +201,7 @@ function renderArticleContent(content: string) {
     const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
     if (videoMatch) {
       result.push(
-        <figure key={index} className="my-[21px] overflow-hidden rounded-[8px] border border-border-default bg-black">
+        <figure key={index} className="my-[21px] overflow-hidden rounded-card border border-border-default bg-black">
           <video
             src={videoMatch[1]}
             controls
@@ -322,7 +322,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <section className="bg-white py-[55px]">
         <div className="site-container grid gap-[34px] lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="min-w-0">
-            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+            <figure className="overflow-hidden rounded-card border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
                   src={post.coverImage}
@@ -368,7 +368,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.answerBox ? (
               <aside
                 aria-label="Article summary"
-                className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
+                className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
               >
                 <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-teal-text">
                   TL;DR
@@ -382,7 +382,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.masterComparison ? (
               <aside
                 aria-label="Master comparison page"
-                className="mt-[13px] max-w-[800px] rounded-[8px] border border-teal-border bg-white p-[21px]"
+                className="mt-[13px] max-w-[800px] rounded-card border border-teal-border bg-white p-[21px]"
               >
                 <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                   Part of a larger comparison
@@ -399,7 +399,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </aside>
             ) : null}
 
-            <div className="mt-[21px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Why This Article Matters
               </p>
@@ -407,7 +407,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {post.highlights.map((highlight) => (
                   <div
                     key={highlight}
-                    className="rounded-[6px] border border-border-default bg-white px-[13px] py-[13px] text-f14 leading-golden text-t2"
+                    className="rounded-control border border-border-default bg-white px-[13px] py-[13px] text-f14 leading-golden text-t2"
                   >
                     {highlight}
                   </div>
@@ -432,7 +432,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               ) : null}
             </article>
 
-            <figure className="mt-[34px] overflow-hidden rounded-[8px] border border-border-default bg-white max-w-[800px]">
+            <figure className="mt-[34px] overflow-hidden rounded-card border border-border-default bg-white max-w-[800px]">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
                   src={post.supportingImage}
@@ -512,7 +512,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           <aside className="space-y-[21px] lg:sticky lg:top-[34px] lg:self-start">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Quick Signals
               </p>
@@ -526,7 +526,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Need Project Support
               </p>
@@ -536,7 +536,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </p>
               <Link
                 href="/contact"
-                className="mt-[13px] inline-flex rounded-[6px] bg-teal px-[13px] py-[8px] text-f14 font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-teal-text"
+                className="mt-[13px] inline-flex rounded-control bg-teal px-[13px] py-[8px] text-f14 font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-teal-text"
               >
                 Talk to Engineering
               </Link>

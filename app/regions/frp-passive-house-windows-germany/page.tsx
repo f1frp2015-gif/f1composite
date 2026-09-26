@@ -89,7 +89,7 @@ export default function GermanyRegionPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/frp-passive-house-windows-germany.jpg"
               alt="Passive house facade with large triple-glazed openings — pultruded FRP (GFK) window frames hold certified Passivhaus U-values without a metallic thermal break"
@@ -219,7 +219,7 @@ export default function GermanyRegionPage() {
                 body: "Ocean transit takes 30–35 days to Hamburg, Bremerhaven, or Rotterdam. The total lead time from purchase order to jobsite is 9–13 weeks. DAP delivery is available from the port of entry to Munich, Frankfurt, Berlin, and the Ruhr region.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
@@ -246,21 +246,21 @@ export default function GermanyRegionPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (U_w 0.78)</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the Darmstadt certification covers and how to specify it.</p>
             </Link>
             <Link
               href="/technology/frp-vs-pvc-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">FRP vs uPVC — stiffness & U-value</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Why GFK frames need no steel reinforcement — larger sashes, no hidden thermal bridge.</p>
             </Link>
             <Link
               href="/case-studies/wanhua-yantai-zero-carbon-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Zero-carbon community case study</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">65/90-series GFRP-PU frames across a 13,657 m² zero-carbon dormitory envelope — Wanhua Yantai.</p>

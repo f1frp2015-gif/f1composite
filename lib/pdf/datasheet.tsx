@@ -31,13 +31,14 @@ import {
   dimensionRows,
 } from "@/lib/catalog/shapes";
 
-const BLUE = "#031697";
-const TEAL = "#00a199";
+// Site palette (app/globals.css): deep navy, brand teal, ink and neutrals.
+const NAVY = "#0b1838";
+const TEAL = "#007a74";
 const AMBER = "#b45309";
-const INK = "#111827";
-const MUTED = "#6b7280";
-const LINE = "#d1d5db";
-const BG = "#f3f4f6";
+const INK = "#0b1730";
+const MUTED = "#5b6878";
+const LINE = "#d9e1e3";
+const BG = "#f4f7f8";
 
 const styles = StyleSheet.create({
   page: {
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     color: INK,
   },
   headerBar: {
-    backgroundColor: BLUE,
+    backgroundColor: NAVY,
     color: "#ffffff",
     padding: 12,
     borderRadius: 3,
@@ -64,13 +65,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 9,
     fontFamily: "Helvetica-Bold",
-    color: BLUE,
+    color: NAVY,
     marginBottom: 4,
     marginTop: 12,
     textTransform: "uppercase",
   },
   row: { flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: LINE },
-  headRow: { flexDirection: "row", backgroundColor: BG, borderBottomWidth: 0.75, borderBottomColor: BLUE },
+  headRow: { flexDirection: "row", backgroundColor: BG, borderBottomWidth: 0.75, borderBottomColor: NAVY },
   cellLabel: { flex: 3, padding: 3.5 },
   cellValue: { flex: 2, padding: 3.5, fontFamily: "Helvetica-Bold" },
   cellMethod: { flex: 2, padding: 3.5, color: MUTED },
@@ -144,8 +145,8 @@ function SectionSvg({ product, size }: { product: ProductRow; size: number }) {
     <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
       <Path
         d={ringToPath(mapRing(section.outer))}
-        fill="#e0e7ff"
-        stroke={BLUE}
+        fill="#e1f1ef"
+        stroke={NAVY}
         strokeWidth={1}
       />
       {(section.holes ?? []).map((hole, i) => (
@@ -153,7 +154,7 @@ function SectionSvg({ product, size }: { product: ProductRow; size: number }) {
           key={i}
           d={ringToPath(mapRing(hole))}
           fill="#ffffff"
-          stroke={BLUE}
+          stroke={NAVY}
           strokeWidth={0.8}
         />
       ))}
@@ -426,7 +427,7 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
       {multi && (
         <Page size="A4" style={styles.page}>
           <View style={styles.cover}>
-            <Text style={{ fontSize: 24, fontFamily: "Helvetica-Bold", color: BLUE }}>
+            <Text style={{ fontSize: 24, fontFamily: "Helvetica-Bold", color: NAVY }}>
               F1 COMPOSITE
             </Text>
             <Text style={{ fontSize: 12, color: MUTED, marginTop: 6 }}>

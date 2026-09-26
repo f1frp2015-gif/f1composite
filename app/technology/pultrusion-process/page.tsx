@@ -337,7 +337,7 @@ export default function PultrusionProcessPage() {
               { value: "±2°C", label: "Die temp accuracy" },
               { value: "±0.5mm", label: "Cut-off tolerance" },
             ].map((s) => (
-              <div key={s.label} className="rounded-[8px] bg-bg2 px-[21px] py-[13px] text-center">
+              <div key={s.label} className="rounded-card bg-bg2 px-[21px] py-[13px] text-center">
                 <span className="text-f24 font-extrabold text-teal-text">{s.value}</span>
                 <p className="mt-[3px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
               </div>
@@ -349,7 +349,7 @@ export default function PultrusionProcessPage() {
       {/* Hero image */}
       <section className="bg-white pb-[34px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
               alt="Inside an F1 Composite pultrusion plant — multiple parallel continuous pultrusion lines in production"
@@ -516,7 +516,7 @@ export default function PultrusionProcessPage() {
             Production Line Specifications
           </h2>
 
-          <div className="mt-[34px] overflow-hidden rounded-[8px]">
+          <div className="mt-[34px] overflow-hidden rounded-card">
             <Image
               src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
               alt="F1 Composite pultrusion plant floor — finished pultruded profiles on inspection tables alongside fiber-handling and pulling equipment"
@@ -529,7 +529,7 @@ export default function PultrusionProcessPage() {
 
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
             {equipmentSpecs.map((spec) => (
-              <div key={spec.parameter} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <div key={spec.parameter} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">{spec.parameter}</p>
                 <p className="mt-[5px] text-f18 font-extrabold text-t1">{spec.range}</p>
                 <p className="mt-[3px] text-f12 text-t3">{spec.note}</p>

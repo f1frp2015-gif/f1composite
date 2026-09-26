@@ -83,7 +83,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-[12px] border border-border-default bg-white shadow-sm">
+        <div className="overflow-hidden rounded-card border border-border-default bg-white shadow-card">
           <ChatPanel fullPage initialPrompt={prefill} />
         </div>
 

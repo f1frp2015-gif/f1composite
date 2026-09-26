@@ -54,7 +54,7 @@ export default function ApplicationsPage() {
             {applicationGroups.map((group) => (
               <article
                 key={group.label}
-                className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"
+                className="rounded-card border border-border-default bg-bg2 p-[24px]"
               >
                 <h2 className="text-f24 font-bold text-t1">{group.label}</h2>
                 <p className="mt-[10px] text-f16 leading-relaxed text-t2">

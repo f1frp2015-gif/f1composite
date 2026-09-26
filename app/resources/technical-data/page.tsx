@@ -182,7 +182,7 @@ export default function TechnicalDataPage() {
                   body: "Convert characteristic or published values into project design values using the safety, environment, duration, temperature, and code factors required by the governing standard.",
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+                <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                   <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </div>
@@ -202,7 +202,7 @@ export default function TechnicalDataPage() {
               buckling, holes, joints, fatigue, fire, or sustained-load conditions.
             </p>
           </div>
-          <div className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px] text-f14 leading-golden text-t2">
+          <div className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg p-[21px] text-f14 leading-golden text-t2">
             <strong>Looking for a specific size?</strong> Per-size datasheets — section drawing,
             published weight per meter, these properties, and a free DXF — live in the{" "}
             <Link href="/resources/downloads#datasheets" className="font-semibold text-teal-text hover:underline">
@@ -289,7 +289,7 @@ export default function TechnicalDataPage() {
             ].map((report) => (
               <div
                 key={report.title}
-                className="rounded-[8px] border border-border-default bg-white p-[21px]"
+                className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <div className="flex items-center gap-[8px]">
                   <span className="rounded-full bg-amber-100 px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-amber-800 dark:bg-amber-950 dark:text-amber-200">
@@ -312,7 +312,7 @@ export default function TechnicalDataPage() {
             ))}
           </div>
 
-          <div className="mt-[34px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px]">
+          <div className="mt-[34px] rounded-card border-l-[4px] border-teal bg-teal-bg p-[21px]">
             <p className="text-f14 leading-golden text-t2">
               <strong>For specifiers:</strong> If you need a specific test protocol (different
               chemical, higher temperature, longer duration) to unblock a project decision,{" "}

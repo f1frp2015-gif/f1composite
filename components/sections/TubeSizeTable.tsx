@@ -21,8 +21,8 @@ export default function TubeSizeTable({ sizes, columns, product, productPath }: 
         Dimensions are nominal millimetres; approximate decimal inches appear below each value.
         Converted values are references, not separate inch-size tooling or tolerances. {commercialFacts.availability}
       </p>
-      <div className="mt-[24px] overflow-x-auto rounded-[8px] border border-border-default bg-white" role="region" aria-label={`${product} sizes`} tabIndex={0}>
-        <table className="w-full border-collapse text-left" aria-describedby="tube-size-notes">
+      <div className="mt-[24px] overflow-x-auto rounded-card border border-border-default bg-white" role="region" aria-label={`${product} sizes`} tabIndex={0}>
+        <table className="spec-table w-full border-collapse text-left" aria-describedby="tube-size-notes">
           <caption className="sr-only">{product}: dimensions, published nominal weight and quotation selection</caption>
           <thead>
             <tr className="border-b-2 border-border-default bg-bg2">
@@ -49,7 +49,7 @@ export default function TubeSizeTable({ sizes, columns, product, productPath }: 
                       href={tubeInquiryHref(productPath, product, specification)}
                       prefetch={false}
                       aria-label={`Quote ${size.model}`}
-                      className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-[6px] border border-teal-border px-[14px] text-f14 font-semibold text-teal-text hover:bg-teal-bg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+                      className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-control border border-teal-border px-[14px] text-f14 font-semibold text-teal-text hover:bg-teal-bg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
                     >Quote this size →</Link>
                   </td>
                 </tr>

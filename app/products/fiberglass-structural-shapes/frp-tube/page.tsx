@@ -6,6 +6,8 @@ import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNo
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -115,6 +117,9 @@ export default async function TubePage() {
       />
       <PageHeader
         tag="Round Tube"
+        line={{ name: "F1-STRUX", label: "Round tube" }}
+        figure={<ProfileFigure model="CHS 76×6.4" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Outside diameter", values: sizes.map((s) => s.od), weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Round Tubes & Tubing (FRP)"
         description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD."
         actions={{
@@ -147,12 +152,12 @@ export default async function TubePage() {
                 Pultruded FRP round tubes are used as members in handrail systems, guardrails, and structural applications requiring a circular cross-section. Their smooth interior bore also supports conduit applications. Electrical and corrosion performance depend on the specified laminate, exposure and complete assembly; catalog tube data do not qualify a finished safety system.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Handrail systems</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Guardrails</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Conduit applications</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Handrail systems</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Guardrails</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Conduit applications</span>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-white">
               <Image src="/images/products/round-tube/frp-round-tube-photo.webp" alt="Pultruded FRP round tube profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" preload />
             </div>
           </div>

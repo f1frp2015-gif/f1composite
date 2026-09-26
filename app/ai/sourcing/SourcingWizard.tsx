@@ -81,7 +81,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
         onChange={(e) => setValue(e.target.value)}
         rows={5}
         placeholder="For example: I need FRP structural beams and grating for a 300 m coastal walkway in Saudi Arabia. It will carry pedestrian loads and face salt and chlorine splash. We need a lightweight system with a 25-year design life and minimal maintenance. What do you recommend?"
-        className="mt-[8px] w-full rounded-[8px] border border-border-default bg-white px-[16px] py-[13px] text-f16 leading-golden text-t1 outline-none focus:border-teal"
+        className="mt-[8px] w-full rounded-card border border-border-default bg-white px-[16px] py-[13px] text-f16 leading-golden text-t1 outline-none focus:border-teal"
       />
 
       <div className="mt-[13px] flex flex-col gap-[8px] sm:flex-row sm:items-center sm:justify-between">
@@ -93,7 +93,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             <button
               type="button"
               onClick={stop}
-              className="rounded-[8px] bg-neutral-200 px-[21px] py-[10px] text-f14 font-bold uppercase tracking-wide text-t2 transition-colors hover:bg-neutral-300"
+              className="rounded-card bg-neutral-200 px-[21px] py-[10px] text-f14 font-bold uppercase tracking-wide text-t2 transition-colors hover:bg-neutral-300"
             >
               Stop
             </button>
@@ -102,7 +102,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               type="button"
               onClick={() => handleSubmit(value)}
               disabled={value.trim().length < 10}
-              className="rounded-[8px] bg-teal px-[21px] py-[10px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-card bg-teal px-[21px] py-[10px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
             >
               Get AI recommendation →
             </button>
@@ -111,7 +111,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
       </div>
 
       {error && (
-        <div className="mt-[21px] rounded-[8px] border border-red-300 bg-red-50 p-[16px] text-f14 text-red-700">
+        <div className="mt-[21px] rounded-card border border-red-300 bg-red-50 p-[16px] text-f14 text-red-700">
           The recommendation failed to load. Try again, or open the{" "}
           <Link href="/ask" className="underline">
             full FRP advisor
@@ -123,7 +123,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
       {(isLoading || hasResult) && (
         <div className="mt-[34px] space-y-[21px]">
           {object?.summary && (
-            <section className="rounded-[12px] border border-teal-border bg-teal-bg p-[24px]">
+            <section className="rounded-card border border-teal-border bg-teal-bg p-[24px]">
               <h3 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">
                 AI recommendation
               </h3>
@@ -132,7 +132,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
           )}
 
           {object?.profileFamily?.name && (
-            <section className="rounded-[12px] border border-border-default bg-white p-[24px]">
+            <section className="rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f14 font-bold uppercase tracking-[2px] text-t3">
                 Profile family
               </h3>
@@ -153,7 +153,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                       <li key={`${p.name}-${p.path}`}>
                         <Link
                           href={p.path}
-                          className="block rounded-[8px] border border-border-default bg-bg2 p-[13px] text-f14 text-t1 transition-colors hover:border-teal"
+                          className="block rounded-card border border-border-default bg-bg2 p-[13px] text-f14 text-t1 transition-colors hover:border-teal"
                         >
                           <span className="font-semibold">{p.name}</span>
                           <span className="ml-[8px] text-f12 text-t3">{p.path}</span>
@@ -167,7 +167,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
 
           <div className="grid gap-[21px] md:grid-cols-2">
             {object?.resinSystem?.recommended && (
-              <section className="rounded-[12px] border border-border-default bg-white p-[24px]">
+              <section className="rounded-card border border-border-default bg-white p-[24px]">
                 <h3 className="text-f14 font-bold uppercase tracking-[2px] text-t3">
                   Resin system
                 </h3>
@@ -189,7 +189,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             )}
 
             {object?.standards && object.standards.length > 0 && (
-              <section className="rounded-[12px] border border-border-default bg-white p-[24px]">
+              <section className="rounded-card border border-border-default bg-white p-[24px]">
                 <h3 className="text-f14 font-bold uppercase tracking-[2px] text-t3">
                   Applicable standards
                 </h3>
@@ -197,7 +197,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                   {object.standards.filter(Boolean).map((s) => (
                     <span
                       key={s}
-                      className="rounded-[4px] bg-bg2 px-[8px] py-[4px] text-f14 font-medium text-t2"
+                      className="rounded-tag bg-bg2 px-[8px] py-[4px] text-f14 font-medium text-t2"
                     >
                       {s}
                     </span>
@@ -208,7 +208,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
           </div>
 
           {object?.caseStudyMatches && object.caseStudyMatches.length > 0 && (
-            <section className="rounded-[12px] border border-border-default bg-white p-[24px]">
+            <section className="rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f14 font-bold uppercase tracking-[2px] text-t3">
                 Similar case studies
               </h3>
@@ -236,7 +236,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
           )}
 
           {object?.rfqInputs && object.rfqInputs.length > 0 && (
-            <section className="rounded-[12px] border border-border-default bg-white p-[24px]">
+            <section className="rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f14 font-bold uppercase tracking-[2px] text-t3">
                 Quote-ready inputs
               </h3>
@@ -261,7 +261,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                   <Link
                     key={`${step.label}-${step.href}`}
                     href={step.href}
-                    className="rounded-[8px] bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                    className="rounded-card bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
                   >
                     {step.label} →
                   </Link>
@@ -270,14 +270,14 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
           )}
 
           {hasResult && !isLoading && (
-            <section className="rounded-[12px] border-2 border-teal-border bg-teal-bg p-[24px]">
+            <section className="rounded-card border-2 border-teal-border bg-teal-bg p-[24px]">
               <h3 className="text-f18 font-bold text-t1">Ready for a formal quote?</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Your project description and this AI recommendation will be added to the contact form automatically. Doris on the F1 sales team replies within one business day and quotes once the drawings and quantities are reviewed; US quotes are DDP with duties itemized.
               </p>
               <Link
                 href={buildContactPrefillHref(value, object)}
-                className="mt-[16px] inline-flex items-center gap-[8px] rounded-[8px] bg-teal px-[24px] py-[12px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                className="mt-[16px] inline-flex items-center gap-[8px] rounded-card bg-teal px-[24px] py-[12px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
               >
                 Send formal RFQ to F1 team →
               </Link>
@@ -301,7 +301,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                 handleSubmit(ex.prompt);
               }}
               disabled={isLoading}
-              className="group rounded-[8px] border border-border-default bg-white p-[16px] text-left transition-all hover:border-teal hover:bg-teal-bg disabled:opacity-50"
+              className="group rounded-card border border-border-default bg-white p-[16px] text-left transition-all hover:border-teal hover:bg-teal-bg disabled:opacity-50"
             >
               <div className="flex items-center justify-between gap-[13px]">
                 <span className="text-f14 font-semibold text-t1">{ex.label}</span>

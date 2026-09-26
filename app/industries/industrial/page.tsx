@@ -95,7 +95,7 @@ export default function IndustrialPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-industrial-chemical-plant-facility.jpg"
               alt="Industrial chemical plant facility with corrosion-resistant composite profiles"
@@ -250,7 +250,7 @@ export default function IndustrialPage() {
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/frp-sound-barrier-wall"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Sound Barrier Walls</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -260,7 +260,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/products/frp-ladders"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial FRP Fixed Ladders</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -270,7 +270,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/products/frp-handrail-systems"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Fiberglass Handrail Systems</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -280,7 +280,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/products/molded-frp-grating"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial Gratings</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -292,7 +292,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/products/custom-pultruded-profiles"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -304,7 +304,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/resources/blog/frp-pipe-for-coal-mine-gas-drainage"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -316,7 +316,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/technology/frp-vs-steel-gratings"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Steel Gratings</h3>
               <p className="text-f14 leading-golden text-t2">
@@ -328,7 +328,7 @@ export default function IndustrialPage() {
             </Link>
             <Link
               href="/case-studies/factory-access-staircase"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <h3 className="mb-[8px] text-f18 font-bold text-t1">Case Study: Factory Access Staircase</h3>
               <p className="text-f14 leading-golden text-t2">

@@ -203,7 +203,7 @@ export default async function DatasheetPage({
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
               <SectionTag>Cross-Section</SectionTag>
-              <div className="mt-[21px] rounded-[8px] border border-border-default p-[21px] text-center">
+              <div className="mt-[21px] rounded-card border border-border-default p-[21px] text-center">
                 {product.geometry ? (
                   <SectionSvg geometry={product.geometry} size={280} className="mx-auto" />
                 ) : (
@@ -251,14 +251,14 @@ export default async function DatasheetPage({
                     href={`/api/datasheet?ids=${product.id}`}
                     target="_blank"
                     rel="noopener"
-                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
+                    className="inline-block rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
                   >
                     Download PDF datasheet →
                   </a>
                 ) : (
                   <Link
                     href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
-                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
+                    className="inline-block rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
                   >
                     Request applicable product data →
                   </Link>
@@ -267,7 +267,7 @@ export default async function DatasheetPage({
                   <a
                     href={`/cad/${slug}.dxf`}
                     download
-                    className="inline-block rounded-[6px] border border-teal-text px-[21px] py-[13px] text-f16 font-semibold text-teal-text hover:bg-teal-bg"
+                    className="inline-block rounded-control border border-teal-text px-[21px] py-[13px] text-f16 font-semibold text-teal-text hover:bg-teal-bg"
                   >
                     Download CAD (DXF, free) →
                   </a>
@@ -322,7 +322,7 @@ export default async function DatasheetPage({
               {DESIGN_BASIS.deflectionLimit}.
               {family.uses ? ` Typical uses for this family: ${family.uses}.` : ""}
             </p>
-            <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
+            <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default">
               <table className="w-full text-left text-f16">
                 <caption className="sr-only">
                   Allowable uniform load for {product.model} by simply supported span
@@ -369,7 +369,7 @@ export default async function DatasheetPage({
           <SectionTag>
             {`Mechanical & Physical Properties${formulation ? ` — ${formulation.name}` : ""}`}
           </SectionTag>
-          <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full text-left text-f16">
               <thead>
                 <tr className="border-b border-border-default bg-bg2">
@@ -442,11 +442,11 @@ export default async function DatasheetPage({
               {siblings.map((size) => (
                 <li key={size.slug}>
                   {size.slug === slug ? (
-                    <span aria-current="page" className="inline-block rounded-[6px] border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f14 font-semibold text-teal-text">
+                    <span aria-current="page" className="inline-block rounded-control border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f14 font-semibold text-teal-text">
                       {size.model} · {size.weight} kg/m
                     </span>
                   ) : (
-                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-[6px] border border-border-default px-[13px] py-[8px] text-f14 text-t1 hover:border-teal-border hover:text-teal-text">
+                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-control border border-border-default px-[13px] py-[8px] text-f14 text-t1 hover:border-teal-border hover:text-teal-text">
                       {size.model} · {size.weight} kg/m
                     </Link>
                   )}

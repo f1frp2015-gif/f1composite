@@ -98,7 +98,7 @@ const faqItems = [
 
 function SpecTable({ rows }: { rows: readonly CatalogSpecRow[] }) {
   return (
-    <div className="overflow-x-auto rounded-[8px] border border-border-default bg-white">
+    <div className="overflow-x-auto rounded-card border border-border-default bg-white">
       <table className="w-full border-collapse text-left">
         <thead className="bg-bg2">
           <tr>
@@ -157,7 +157,7 @@ export default function FrpLaddersPage() {
       <section className="bg-white pt-[55px]">
         <div className="site-container">
           <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
               <Image
                 src={frpLadderManualImageAssets.hero}
                 alt="Yellow fiberglass fixed ladder with circular cage hoops and vertical cage strips"
@@ -192,7 +192,7 @@ export default function FrpLaddersPage() {
               {" "}page; for walking surfaces, use FRP stair treads or grating.
             </p>
           </div>
-          <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Catalog boundary</p>
             <h2 className="mt-[8px] text-f20 font-bold text-t1">Nominal dimensions, then an approved drawing</h2>
             <p className="mt-[13px] text-f14 leading-golden text-t2">
@@ -221,7 +221,7 @@ export default function FrpLaddersPage() {
         <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <figure>
-              <div className="relative aspect-[37/26] overflow-hidden rounded-[8px] border border-border-default bg-white">
+              <div className="relative aspect-[37/26] overflow-hidden rounded-card border border-border-default bg-white">
                 <Image
                   src={frpLadderManualImageAssets.cageLayout}
                   alt="Typical FRP fixed ladder cage arrangement with hoops, strips, brackets, walk-through and catalog dimensions"
@@ -261,7 +261,7 @@ export default function FrpLaddersPage() {
           </p>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-[1fr_0.9fr] lg:items-start">
             <figure>
-              <div className="relative aspect-[137/65] overflow-hidden rounded-[8px] border border-border-default bg-white">
+              <div className="relative aspect-[137/65] overflow-hidden rounded-card border border-border-default bg-white">
                 <Image
                   src={frpLadderManualImageAssets.rungCovers}
                   alt="C-shape and U-shape gritted fiberglass covers for existing ladder rungs"
@@ -276,12 +276,12 @@ export default function FrpLaddersPage() {
             </figure>
             <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-1">
               {frpLadderRungCoverGroups.map((group) => (
-                <article key={group.shape} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <article key={group.shape} className="rounded-card border border-border-default bg-white p-[21px]">
                   <h3 className="text-f18 font-bold text-t1">{group.shape} cover</h3>
                   <p className="mt-[5px] text-f12 font-semibold uppercase tracking-wide text-t3">Reference: {group.fitReference}</p>
                   <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2">
                     {group.sizes.map((size) => (
-                      <li key={size} className="rounded-[4px] bg-bg2 px-[12px] py-[8px] text-f14 font-medium text-t2">{size}</li>
+                      <li key={size} className="rounded-tag bg-bg2 px-[12px] py-[8px] text-f14 font-medium text-t2">{size}</li>
                     ))}
                   </ul>
                 </article>
@@ -299,14 +299,14 @@ export default function FrpLaddersPage() {
           </h2>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {selectionInputs.map((input, index) => (
-              <article key={input.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={input.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[34px] rounded-[8px] border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
             <strong className="text-t1">Safety-standard checkpoint.</strong>{" "}
             For U.S. general industry, review{" "}
             <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.23</a>{" "}

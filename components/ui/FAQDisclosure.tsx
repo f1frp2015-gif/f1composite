@@ -27,7 +27,7 @@ export default function FAQDisclosure({
 
   return (
     <details
-      className={`group self-start rounded-[8px] border border-border-default transition-colors duration-200 open:border-teal-border ${
+      className={`group self-start rounded-card border border-border-default transition-colors duration-200 open:border-teal-border ${
         surface === "muted" ? "bg-bg2" : "bg-white"
       } ${size === "large" ? "p-[29px]" : "px-[21px] py-[16px]"}`}
     >

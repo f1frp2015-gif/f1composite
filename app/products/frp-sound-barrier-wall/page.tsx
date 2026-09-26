@@ -214,20 +214,20 @@ export default function FrpSoundBarrierWallPage() {
             <div className="mt-[29px] flex flex-wrap gap-[13px]">
               <Link
                 href="/contact?source=frp-sound-barrier-wall&inquiry_type=rfq"
-                className="rounded-[4px] bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
               >
                 Request a sound-wall review
               </Link>
               <a
                 href="#acoustic-options"
-                className="rounded-[4px] border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
+                className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
               >
                 Compare panel options
               </a>
             </div>
           </div>
           <figure>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
               <Image
                 src={frpSoundBarrierImageAssets.hero}
                 alt="Blue and teal modular FRP sound barrier wall panels installed along a highway"
@@ -248,7 +248,7 @@ export default function FrpSoundBarrierWallPage() {
       <section className="border-y border-border-default bg-bg2 py-[34px]">
         <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {quickFacts.map((fact) => (
-            <div key={fact.label} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f20 font-extrabold text-teal-text">{fact.value}</p>
               <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
             </div>
@@ -284,7 +284,7 @@ export default function FrpSoundBarrierWallPage() {
               Read the FHWA acoustic-design basis ↗
             </a>
           </div>
-          <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
               Specifier answer
             </p>
@@ -320,7 +320,7 @@ export default function FrpSoundBarrierWallPage() {
             {soundBarrierConfigurations.map((configuration) => (
               <article
                 key={configuration.name}
-                className="overflow-hidden rounded-[8px] border border-border-default bg-white"
+                className="overflow-hidden rounded-card border border-border-default bg-white"
               >
                 <div className="border-b border-border-default bg-white p-[21px] sm:p-[29px]">
                   <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
@@ -336,7 +336,7 @@ export default function FrpSoundBarrierWallPage() {
                     <p className="text-f12 font-bold uppercase tracking-wide text-t1">Best fit</p>
                     <p className="mt-[5px] text-f14 leading-golden text-t2">{configuration.bestFit}</p>
                   </div>
-                  <div className="rounded-[6px] border border-amber-200 bg-amber-50 p-[13px]">
+                  <div className="rounded-control border border-amber-200 bg-amber-50 p-[13px]">
                     <p className="text-f12 font-bold uppercase tracking-wide text-t1">Release boundary</p>
                     <p className="mt-[5px] text-f14 leading-golden text-t2">
                       {configuration.releaseBoundary}
@@ -362,7 +362,7 @@ export default function FrpSoundBarrierWallPage() {
           </p>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-3">
             {supplyCapabilities.map((capability) => (
-              <article key={capability.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={capability.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <h3 className="text-f18 font-extrabold text-t1">{capability.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{capability.body}</p>
               </article>
@@ -381,7 +381,7 @@ export default function FrpSoundBarrierWallPage() {
         <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <figure>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[8px] border border-border-default bg-[#252d3a]">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-[#252d3a]">
                 <Image
                   src={frpSoundBarrierImageAssets.panelSection}
                   alt="Interlocking pultruded FRP sound barrier plank sections stacked between posts"
@@ -421,7 +421,7 @@ export default function FrpSoundBarrierWallPage() {
           </div>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {soundBarrierSystemComponents.map((component, index) => (
-              <article key={component.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={component.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
                   {String(index + 1).padStart(2, "0")}
                 </p>
@@ -433,7 +433,7 @@ export default function FrpSoundBarrierWallPage() {
 
           <div className="mt-[55px] grid gap-[34px] border-t border-border-default pt-[34px] lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <figure>
-              <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="overflow-hidden rounded-card border border-border-default bg-bg2">
                 <Image
                   src={frpSoundBarrierImageAssets.installationReference}
                   alt="Outdoor post-and-panel wall with horizontal infill panels at a commercial site"
@@ -488,7 +488,7 @@ export default function FrpSoundBarrierWallPage() {
             Do not convert one number into another or use a laboratory panel rating as a guaranteed
             property-line result. The test report, specimen construction and site model must agree.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[820px] border-collapse text-left">
               <thead className="bg-white">
                 <tr>
@@ -522,7 +522,7 @@ export default function FrpSoundBarrierWallPage() {
             installation access with corrosive exposure, modular repair or a need to avoid metallic
             panels. Concrete remains compelling for mass and noncombustibility.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
             <table className="w-full min-w-[1040px] border-collapse text-left">
               <thead className="bg-bg2">
                 <tr>
@@ -555,7 +555,7 @@ export default function FrpSoundBarrierWallPage() {
           </h2>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {soundBarrierEngineeringInputs.map((input, index) => (
-              <article key={input.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
                 <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
                   Step {String(index + 1).padStart(2, "0")}
                 </p>
@@ -575,7 +575,7 @@ export default function FrpSoundBarrierWallPage() {
           </h2>
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {soundBarrierApplications.map((application) => (
-              <article key={application.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={application.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <h3 className="text-f18 font-extrabold text-t1">{application.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
               </article>

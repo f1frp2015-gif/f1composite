@@ -12,12 +12,12 @@ export default function EvidenceExplorer() {
   const records = engineeringEvidence.filter((item) => (kind === "All" || item.kind === kind) && (product === "All" || item.productLabel === product));
   return <>
     <div className="mb-[24px] flex flex-wrap items-end gap-[18px]">
-      <label className="text-f14 font-bold">Document type<select className="mt-[6px] block min-h-[44px] rounded border border-border-default bg-white px-[12px]" value={kind} onChange={(e) => setKind(e.target.value)}>{["All", ...new Set(engineeringEvidence.map((item) => item.kind))].map((value) => <option key={value}>{value}</option>)}</select></label>
-      <label className="text-f14 font-bold">Product family<select className="mt-[6px] block min-h-[44px] rounded border border-border-default bg-white px-[12px]" value={product} onChange={(e) => setProduct(e.target.value)}>{["All", ...new Set(engineeringEvidence.map((item) => item.productLabel))].map((value) => <option key={value}>{value}</option>)}</select></label>
+      <label className="text-f14 font-bold">Document type<select className="mt-[6px] block min-h-[44px] rounded-tag border border-border-default bg-white px-[12px]" value={kind} onChange={(e) => setKind(e.target.value)}>{["All", ...new Set(engineeringEvidence.map((item) => item.kind))].map((value) => <option key={value}>{value}</option>)}</select></label>
+      <label className="text-f14 font-bold">Product family<select className="mt-[6px] block min-h-[44px] rounded-tag border border-border-default bg-white px-[12px]" value={product} onChange={(e) => setProduct(e.target.value)}>{["All", ...new Set(engineeringEvidence.map((item) => item.productLabel))].map((value) => <option key={value}>{value}</option>)}</select></label>
       <p role="status" className="py-[10px] text-f14 text-t2">{records.length} documents</p>
     </div>
     {records.length === 0 && <p className="py-[24px] text-t2">No documents match both filters. Choose another document type or product family.</p>}
-    <div className="space-y-[18px]">{records.map((item) => <article id={item.id} key={item.id} className="scroll-mt-[100px] rounded-[8px] border border-border-default bg-white p-[22px]">
+    <div className="space-y-[18px]">{records.map((item) => <article id={item.id} key={item.id} className="scroll-mt-[100px] rounded-card border border-border-default bg-white p-[22px]">
       <p className="text-f12 font-bold text-teal-text">{item.kind} · {item.reference}</p><h2 className="mt-[8px] text-f24 font-bold">{item.title}</h2><p className="mt-[10px] max-w-[880px] text-f16 text-t2">{item.scope}</p>
       <div className="mt-[16px] flex flex-wrap gap-x-[22px] gap-y-[12px] text-f14 font-bold text-teal-text">
         <a href={item.file} className="inline-flex min-h-[44px] items-center underline underline-offset-4" onClick={() => trackEvent("download_evidence", { evidence_id: item.id, product_path: item.product })}>Open document (PDF)</a>

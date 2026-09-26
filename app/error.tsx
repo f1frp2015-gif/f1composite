@@ -17,7 +17,7 @@ export default function Error({
   return (
     <section className="bg-white py-[89px]">
       <div className="mx-auto max-w-[760px] px-[34px] text-center">
-        <span className="inline-block rounded-[4px] bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
+        <span className="inline-block rounded-tag bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
           Something went wrong
         </span>
         <h1 className="mt-[21px] text-f32 font-extrabold tracking-[-0.02em] text-t1">
@@ -34,19 +34,19 @@ export default function Error({
           <button
             type="button"
             onClick={() => unstable_retry()}
-            className="rounded-[6px] bg-teal-text px-[21px] py-[10px] text-f14 font-medium text-white transition-colors hover:bg-teal"
+            className="rounded-control bg-teal-text px-[21px] py-[10px] text-f14 font-medium text-white transition-colors hover:bg-teal"
           >
             Try again
           </button>
           <Link
             href="/pultruded-frp-profiles"
-            className="rounded-[6px] border border-border-default px-[21px] py-[10px] text-f14 font-medium text-t1 hover:border-teal transition-colors"
+            className="rounded-control border border-border-default px-[21px] py-[10px] text-f14 font-medium text-t1 hover:border-teal transition-colors"
           >
             Product hub
           </Link>
           <Link
             href="/ask"
-            className="rounded-[6px] border border-border-default px-[21px] py-[10px] text-f14 font-medium text-t1 hover:border-teal transition-colors"
+            className="rounded-control border border-border-default px-[21px] py-[10px] text-f14 font-medium text-t1 hover:border-teal transition-colors"
           >
             Ask FRP advisor
           </Link>

@@ -164,7 +164,7 @@ export default function ResinSelector() {
               type="button"
               aria-pressed={s.key === active.key}
               onClick={() => setActiveKey(s.key)}
-              className={`rounded-[8px] border px-[16px] py-[8px] text-f14 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal ${
+              className={`rounded-card border px-[16px] py-[8px] text-f14 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal ${
                 s.key === active.key
                   ? "border-t1 bg-t1 text-white"
                   : "border-border-default bg-white text-t2 hover:border-t2"
@@ -175,7 +175,7 @@ export default function ResinSelector() {
           ))}
         </div>
 
-        <div className="mt-[21px] grid gap-[34px] rounded-[8px] border border-border-default bg-white p-[21px] lg:grid-cols-[1fr_1.1fr]">
+        <div className="mt-[21px] grid gap-[34px] rounded-card border border-border-default bg-white p-[21px] lg:grid-cols-[1fr_1.1fr]">
           <svg
             viewBox="0 0 360 312"
             className="mx-auto w-full max-w-[420px]"

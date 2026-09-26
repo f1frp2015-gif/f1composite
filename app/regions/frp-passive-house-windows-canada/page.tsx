@@ -86,7 +86,7 @@ export default function CanadaRegionPage() {
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-[8px]">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/frp-passive-house-windows-canada.jpg"
               alt="Interior view through a Canadian window in winter — passive-house-grade fiberglass window frames hold up against snow, ice, and sub-zero cold"
@@ -207,7 +207,7 @@ export default function CanadaRegionPage() {
                 body: "Ocean transit takes 14–20 days to Vancouver or Prince Rupert and 26–32 days to Montreal or Halifax. The total lead time from purchase order to jobsite is 8–12 weeks. DAP delivery is available from the port of entry to Calgary, Toronto, and Ottawa.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
@@ -235,21 +235,21 @@ export default function CanadaRegionPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a Canadian project.</p>
             </Link>
             <Link
               href="/technology/frp-vs-aluminum-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">FRP vs Aluminum — thermal & U-factor</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Frame conductivity, U-factor and tariff treatment compared.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Antarctic window project account</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">Qinling Station project account. The PHI component reference covers a cool-temperate configuration; confirm separate cold-climate project requirements.</p>

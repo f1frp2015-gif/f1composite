@@ -49,12 +49,12 @@ export default function FactoryQuality() {
             </div>
           </div>
 
-          <div className="relative aspect-video self-center overflow-hidden rounded-[12px] border border-border-default bg-bg2 shadow-[0_14px_38px_rgba(11,24,56,0.08)]">
+          <div className="relative aspect-video self-center overflow-hidden rounded-card border border-border-default bg-bg2 shadow-card">
             <FactoryVideo />
           </div>
         </div>
 
-        <div className="mt-[28px] flex flex-col gap-[10px] rounded-[9px] border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
           <p className="text-f14 font-bold text-t1">Technical documents for your specification</p>
           <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
             {standards.map((standard) => (

@@ -96,7 +96,7 @@ export default function SaudiGratingPage() {
       <section className="bg-white py-[55px]">
         <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-5">
-            <div className="overflow-hidden rounded-[8px] lg:col-span-2">
+            <div className="overflow-hidden rounded-card lg:col-span-2">
               <Image
                 src="/images/regions/frp-grating-saudi-arabia-petrochemical.jpg"
                 alt="Close-up of molded FRP grating panels and load-bearing beams on an outdoor platform — slip-resistant mesh surface and corrosion-resistant vinyl ester construction"
@@ -116,17 +116,17 @@ export default function SaudiGratingPage() {
                 Vinyl ester FRP grating does not rust in salty coastal air, handles most chemical splash and keeps its strength at 65°C surface temperatures. That removes the recoating and replacement cycle of galvanized steel grating in the same service.
               </p>
               <ul className="mt-[13px] grid grid-cols-2 gap-[8px] text-f14 font-medium text-t2">
-                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">No recoating</li>
-                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Fire test reports on request</li>
-                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Anti-slip vinyl ester surface</li>
-                <li className="rounded-[8px] border border-border-default px-[13px] py-[8px]">Documents for operator specs</li>
+                <li className="rounded-card border border-border-default px-[13px] py-[8px]">No recoating</li>
+                <li className="rounded-card border border-border-default px-[13px] py-[8px]">Fire test reports on request</li>
+                <li className="rounded-card border border-border-default px-[13px] py-[8px]">Anti-slip vinyl ester surface</li>
+                <li className="rounded-card border border-border-default px-[13px] py-[8px]">Documents for operator specs</li>
               </ul>
-              <div className="mt-[21px] rounded-[8px] border-2 border-teal bg-bg2 p-[24px] text-center">
+              <div className="mt-[21px] rounded-card border-2 border-teal bg-bg2 p-[24px] text-center">
                 <p className="text-f16 font-bold text-teal-text">Request a quote for your Saudi project</p>
                 <p className="mt-[8px] text-t2">Send your grating layout, quantity and delivery requirements. We&apos;ll quote CIF Jebel Ali or DAP and list the documents included.</p>
                 <Link
                   href="/contact"
-                  className="mt-[13px] inline-block rounded-[8px] bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="mt-[13px] inline-block rounded-card bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >
                   Request Quote Now →
                 </Link>
@@ -219,7 +219,7 @@ export default function SaudiGratingPage() {
                 body: "Jeddah Islamic Port takes container traffic from China on a broadly similar transit-time basis to Jebel Ali, so F1 Composite quotes CIF Jeddah alongside CIF Jebel Ali. The Red Sea coastal strip carries the same salt-air corrosion driver as the Gulf coast, so the grating spec doesn't change — only the routing does.",
               },
             ].map((c) => (
-              <div key={c.city} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div key={c.city} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{c.city}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{c.body}</p>
               </div>
@@ -252,7 +252,7 @@ export default function SaudiGratingPage() {
                 body: "CIF Jebel Ali is the most common Incoterm; DAP Riyadh / Jubail / Ras Tanura via GCC road network adds 1–3 days inland.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
                 <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
@@ -260,7 +260,7 @@ export default function SaudiGratingPage() {
             ))}
           </div>
 
-          <div className="mt-[34px] rounded-[8px] border border-teal-border bg-white p-[24px]">
+          <div className="mt-[34px] rounded-card border border-teal-border bg-white p-[24px]">
             <div className="flex flex-wrap items-center justify-between gap-[13px]">
               <div>
                 <p className="text-f16 font-bold text-t1">Ready to specify FRP gratings for your Saudi project?</p>
@@ -268,7 +268,7 @@ export default function SaudiGratingPage() {
               </div>
               <Link
                 href="/contact"
-                className="rounded-[8px] bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                className="rounded-card bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
               >
                 Get Quote →
               </Link>
@@ -294,21 +294,21 @@ export default function SaudiGratingPage() {
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/industries/industrial"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Industrial & Petrochemical</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">FRP for chemical plant platforms, pipe racks, and process facilities.</p>
             </Link>
             <Link
               href="/applications/frp-chemical-plant-platforms"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">Chemical plant platforms</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">FRP beams, grating and handrails for acid-splash process areas.</p>
             </Link>
             <Link
               href="/technology/frp-vs-steel-gratings"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
               <h3 className="text-f16 font-bold text-t1">FRP vs Steel Gratings</h3>
               <p className="mt-[5px] text-f14 leading-golden text-t2">30-year lifecycle cost comparison: FRP vs galvanized steel grating.</p>

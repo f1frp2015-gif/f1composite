@@ -2,7 +2,7 @@
 
 import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, type WindowInquiry } from "@/lib/windowInquiry";
 
-const input = "mt-2 w-full rounded-md border border-border-default bg-white px-3 py-3 text-sm text-t1 focus:border-teal";
+const input = "mt-2 w-full rounded-control border border-border-default bg-white px-3 py-3 text-sm text-t1 focus:border-teal";
 const labels = WINDOW_OPTION_LABELS;
 export default function WindowInquiryFields({ value, onChange }: { value: WindowInquiry; onChange: (data: WindowInquiry) => void }) {
   const field = (key: string, placeholder?: string) => {
@@ -13,10 +13,10 @@ export default function WindowInquiryFields({ value, onChange }: { value: Window
   };
   return <section aria-label="Window project inquiry" className="space-y-5">
     <input type="hidden" name="window_inquiry" value={JSON.stringify(value)} />
-    <details className="rounded-lg border border-border-default px-4">
+    <details className="rounded-card border border-border-default px-4">
       <summary className="cursor-pointer py-3 text-sm font-semibold">Edit product selection or add technical details (optional)</summary>
       <div className="space-y-4 pb-4">
-      <fieldset><legend className="mb-2 font-semibold">I am buying</legend><div className="grid gap-3 sm:grid-cols-2">{(["profiles", "finished"] as const).map(mode => <label key={mode} className={`cursor-pointer rounded-md border p-4 ${value.mode === mode ? "border-teal bg-teal-bg" : "border-border-default"}`}><input type="radio" name="window_mode_ui" checked={value.mode === mode} onChange={() => onChange({ ...value, mode })} className="mr-2" />{labels[mode]}</label>)}</div></fieldset>
+      <fieldset><legend className="mb-2 font-semibold">I am buying</legend><div className="grid gap-3 sm:grid-cols-2">{(["profiles", "finished"] as const).map(mode => <label key={mode} className={`cursor-pointer rounded-control border p-4 ${value.mode === mode ? "border-teal bg-teal-bg" : "border-border-default"}`}><input type="radio" name="window_mode_ui" checked={value.mode === mode} onChange={() => onChange({ ...value, mode })} className="mr-2" />{labels[mode]}</label>)}</div></fieldset>
       <div className="grid gap-4 sm:grid-cols-2">{field("role")}{field("stage")}{field("series")}</div>
       <p className="text-sm text-t2">Select any known details. A sample request or early discussion does not require completed drawings. Series 140 is a compression-seal sliding door system.</p>
     </div>

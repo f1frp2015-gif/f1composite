@@ -146,7 +146,7 @@ export default function ProfilePricePage() {
       {/* Answer box */}
       <section className="bg-white pb-[34px]">
         <div className="site-container">
-          <div className="max-w-[860px] rounded-[13px] border-l-4 border-teal bg-bg2 p-[21px]">
+          <div className="max-w-[860px] rounded-card border-l-4 border-teal bg-bg2 p-[21px]">
             <p className="text-f16 leading-golden text-t2">
               <strong className="text-t1">
                 Fiberglass pultruded profile price, in one sentence:

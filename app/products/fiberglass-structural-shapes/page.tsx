@@ -99,7 +99,7 @@ const profileTypes: Array<{
     name: "Channel",
     subtitle: "U-Profiles",
     image: "/images/products/channel/frp-channel-photo.webp",
-    sizes: "38×13 mm to 305×89 mm",
+    sizes: "38×13 mm to 360×108 mm",
     brief: "Versatile open-section framing for cable management and modular assemblies.",
   },
   {
@@ -182,8 +182,9 @@ export default function StandardProfilesPage() {
       <PageHeader
         updated={updatedAt}
         tag="Standard Profiles · F1-STRUX"
+        line={{ name: "F1-STRUX", label: "Standard profiles" }}
         title="Fiberglass structural shapes & sizes"
-        description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 305×89 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
+        description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 360×108 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },
@@ -203,7 +204,7 @@ export default function StandardProfilesPage() {
               <Link
                 key={profile.slug}
                 href={`/products/fiberglass-structural-shapes/${profile.slug}`}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-lg"
+                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-card"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                   <Image

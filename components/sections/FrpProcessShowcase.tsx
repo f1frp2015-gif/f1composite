@@ -226,9 +226,9 @@ export default function FrpProcessShowcase() {
           {/* Pultrusion — the funnel card */}
           <Link
             href="/technology/pultrusion-process"
-            className="group relative rounded-[8px] border-2 border-teal bg-teal-bg p-[21px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(0,161,153,0.12)] sm:col-span-2 lg:col-span-1"
+            className="group relative rounded-card border-2 border-teal bg-teal-bg p-[21px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:shadow-card sm:col-span-2 lg:col-span-1"
           >
-            <span className="absolute right-[13px] top-[13px] rounded-[4px] bg-teal px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
+            <span className="absolute right-[13px] top-[13px] rounded-tag bg-teal px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
               Our process · 370 lines
             </span>
             <PultrusionIcon />
@@ -245,7 +245,7 @@ export default function FrpProcessShowcase() {
           </Link>
 
           {otherProcesses.map((p) => (
-            <div key={p.name} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div key={p.name} className="rounded-card border border-border-default bg-bg2 p-[21px]">
               {p.icon}
               <h3 className="mt-[13px] text-f18 font-bold text-t1">{p.name}</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">{p.body}</p>

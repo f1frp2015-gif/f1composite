@@ -89,7 +89,7 @@ export default function WaterIndustryPage() {
       />
       <section className="bg-white py-[48px]">
         <div className="site-container">
-          <figure className="mb-[40px] overflow-hidden rounded-[10px] border border-border-default bg-bg2">
+          <figure className="mb-[40px] overflow-hidden rounded-card border border-border-default bg-bg2">
             <Image
               src={waterTreatmentApplication}
               alt="Concept rendering of gray pultruded FRP beams, columns and bracing supporting a grating access platform with yellow handrails beside wastewater treatment basins"
@@ -115,7 +115,7 @@ export default function WaterIndustryPage() {
             {uses.map((use) => (
               <article
                 key={use.href}
-                className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"
+                className="rounded-card border border-border-default bg-bg2 p-[24px]"
               >
                 <h3 className="text-f24 font-bold text-t1">{use.label}</h3>
                 <p className="mt-[12px] text-f16 leading-relaxed text-t2">

@@ -64,9 +64,9 @@ export default function CalculatorValidationPage() {
       <article className="bg-white py-[55px]">
         <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-3">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
           </div>
 
           <div className="mt-[34px] max-w-[920px] text-f16 leading-golden text-t2">
@@ -79,7 +79,7 @@ export default function CalculatorValidationPage() {
             </p>
           </div>
 
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
             <table className="w-full min-w-[940px] border-collapse text-f14">
               <thead className="bg-bg2 text-left text-t1">
                 <tr>
@@ -123,7 +123,7 @@ export default function CalculatorValidationPage() {
             </div>
           </section>
 
-          <section className="mt-[55px] rounded-[8px] border border-border-default bg-bg2 p-[21px] text-f16 leading-golden text-t2">
+          <section className="mt-[55px] rounded-card border border-border-default bg-bg2 p-[21px] text-f16 leading-golden text-t2">
             <h2 className="text-f18 font-bold text-t1">Reproduce the result</h2>
             <p className="mt-[8px]">
               Choose any row, enter its H, B, tw, and tf in the <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">FRP profile calculator</Link>,

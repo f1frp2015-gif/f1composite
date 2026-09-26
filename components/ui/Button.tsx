@@ -12,11 +12,11 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const base = "inline-flex min-h-[46px] items-center justify-center rounded-[7px] font-bold transition-all duration-[0.24s] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
+const base = "inline-flex min-h-[46px] items-center justify-center rounded-control font-bold transition-all duration-[0.24s] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-teal-text text-white text-f14 px-[22px] py-[11px] shadow-[0_6px_16px_rgba(0,122,116,0.16)] hover:bg-teal",
+    "bg-teal-text text-white text-f14 px-[22px] py-[11px] hover:bg-teal",
   secondary:
     "border border-border-default bg-white text-t1 text-f14 px-[21px] py-[10px] hover:border-teal-border hover:text-teal-text",
   text: "min-h-[36px] text-teal-text text-f14 font-semibold gap-[5px] hover:gap-[8px]",

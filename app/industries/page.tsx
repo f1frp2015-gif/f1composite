@@ -107,10 +107,10 @@ export default function IndustriesPage() {
               <Link
                 key={industry.slug}
                 href={industry.href}
-                className="group relative block rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+                className="group relative block rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
               >
-                <div className="card-topbar absolute inset-x-0 top-0 rounded-t-[8px]" />
-                <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-[6px] bg-teal-bg">
+                <div className="card-topbar absolute inset-x-0 top-0 rounded-t-card" />
+                <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-control bg-teal-bg">
                   {icons[industry.icon]}
                 </div>
                 <h3 className="mb-[8px] text-f18 font-bold text-t1">

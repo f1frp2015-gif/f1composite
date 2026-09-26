@@ -19,7 +19,7 @@ export default function EvidencePage() {
     <section className="bg-white py-[40px]"><div className="site-container">
       <h2 id="reported-results" className="text-f24 font-bold text-t1">Reported results at a glance</h2>
       <p className="mt-[10px] max-w-[950px] text-f16 text-t2">One row per test report or certificate, as printed in the original. A result covers the tested specimen or stated configuration only. It is not a design allowable or a certification of other products.</p>
-      <div className="mt-[20px] overflow-x-auto rounded-[8px] border border-border-default">
+      <div className="mt-[20px] overflow-x-auto rounded-card border border-border-default">
         <table className="w-full min-w-[860px] border-collapse text-left text-f14">
           <caption className="sr-only">Results reported in F1 Composite&apos;s published test reports and certificates</caption>
           <thead className="bg-deep text-white"><tr>{["Document", "Tested item", "Method", "Reported result", "Date"].map((heading) => <th key={heading} scope="col" className="px-[14px] py-[12px] font-bold">{heading}</th>)}</tr></thead>

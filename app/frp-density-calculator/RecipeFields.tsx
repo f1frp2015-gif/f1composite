@@ -23,7 +23,7 @@ export default function RecipeFields({
 }) {
   const result = calculateMixture(rows, basis, voids);
   const control =
-    "mt-1 w-full min-w-0 rounded-lg border border-border-default bg-white p-2 text-sm text-t1 focus-visible:outline-2 focus-visible:outline-teal";
+    "mt-1 w-full min-w-0 rounded-card border border-border-default bg-white p-2 text-sm text-t1 focus-visible:outline-2 focus-visible:outline-teal";
   const update = (index: number, key: keyof Constituent, value: string) =>
     onRows(
       rows.map((row, i) => (i === index ? { ...row, [key]: value } : row)),
@@ -44,7 +44,7 @@ export default function RecipeFields({
     onBasis(next);
   }
   return (
-    <div className="mt-6 rounded-xl border border-border-default bg-bg2 p-4">
+    <div className="mt-6 rounded-card border border-border-default bg-bg2 p-4">
       <h3 className="font-bold text-t1">Laminate formulation</h3>
       <p className="mt-2 text-sm leading-relaxed text-t2">
         Enter each constituent separately. Percentages describe the finished,
@@ -76,7 +76,7 @@ export default function RecipeFields({
         {rows.map((row, index) => (
           <fieldset
             key={index}
-            className="rounded-lg border border-border-default bg-white p-3"
+            className="rounded-card border border-border-default bg-white p-3"
           >
             <legend className="px-1 text-xs font-semibold text-t2">
               Constituent {index + 1}

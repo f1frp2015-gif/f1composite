@@ -67,7 +67,7 @@ export default function PassiveHousePage() {
             </p>
           </div>
 
-          <section className="mt-[34px] rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[29px]">
+          <section className="mt-[34px] rounded-card border border-border-default bg-bg2 p-[21px] md:p-[29px]">
             <h2 className="text-f24 font-bold text-t1">
               Match Passive House climate, opening type, and target U-value
             </h2>
@@ -110,7 +110,7 @@ export default function PassiveHousePage() {
                   body: "Receive a series recommendation, certification context, comparable project, and a path to U-value calculation, drawings, fabrication review, and quotation.",
                 },
               ].map((item) => (
-                <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
+                <article key={item.title} className="rounded-card border border-border-default bg-white p-[21px]">
                   <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </article>
@@ -118,7 +118,7 @@ export default function PassiveHousePage() {
             </div>
           </section>
 
-          <div className="mt-[55px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+          <div className="mt-[55px] rounded-card border border-border-default bg-bg2 p-[21px]">
             <h2 className="text-f24 font-bold text-t1">
               Why FRP instead of thermally broken aluminum for passive house?
             </h2>
@@ -186,22 +186,22 @@ export default function PassiveHousePage() {
               required certification process.
             </p>
             <div className="mt-[21px] grid gap-[10px] sm:grid-cols-2">
-              <Link href="/technology/frp-u-value-calculator" className="rounded-[7px] border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
+              <Link href="/technology/frp-u-value-calculator" className="rounded-control border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
                 Calculate whole-window U-value to EN ISO 10077-1 →
               </Link>
-              <Link href="/resources/blog/en-iso-10077-window-u-value-calculation" className="rounded-[7px] border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
+              <Link href="/resources/blog/en-iso-10077-window-u-value-calculation" className="rounded-control border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
                 Read the U-value calculation methodology →
               </Link>
-              <Link href="/technology/polyurethane-pultrusion-windows" className="rounded-[7px] border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
+              <Link href="/technology/polyurethane-pultrusion-windows" className="rounded-control border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
                 Review GFRP-PU window technology →
               </Link>
-              <Link href="/resources/blog/passive-house-window-u-value-requirements" className="rounded-[7px] border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
+              <Link href="/resources/blog/passive-house-window-u-value-requirements" className="rounded-control border border-border-default p-[13px] font-semibold text-teal-text hover:border-teal">
                 Compare Passive House U-value requirements →
               </Link>
             </div>
           </section>
 
-          <section className="mt-[55px] rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[29px]">
+          <section className="mt-[55px] rounded-card border border-border-default bg-bg2 p-[21px] md:p-[29px]">
             <h2 className="text-f24 font-bold text-t1">
               Inputs to verify before accepting a frame-series recommendation
             </h2>
@@ -212,32 +212,32 @@ export default function PassiveHousePage() {
               working from the same basis.
             </p>
             <ul className="mt-[21px] grid gap-[13px] sm:grid-cols-2">
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Climate and certification route:</strong> identify PHI,
                 PHIUS, local energy code, project-specific modeling, and the required climate or
                 performance class instead of treating the programs as interchangeable.
               </li>
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Reference size and opening type:</strong> document the
                 tested or calculated window dimensions, sash configuration, frame fraction,
                 mullions, transoms, reinforcement, hardware, and allowable operating size.
               </li>
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Glazing and spacer:</strong> record Ug, pane build,
                 coatings, gas fill, spacer linear transmittance, edge conditions, and the supplier
                 data used in the whole-window calculation.
               </li>
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Installation interface:</strong> review rough opening,
                 anchors, support blocks, membranes, insulation continuity, sill drainage, and the
                 linear thermal bridge between frame and wall construction.
               </li>
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Non-thermal performance:</strong> confirm structural
                 wind pressure, water penetration, air leakage, acoustic target, security, fire,
                 durability, condensation, hardware cycling, and local fenestration standards.
               </li>
-              <li className="rounded-[7px] border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
+              <li className="rounded-control border border-border-default bg-white p-[16px] text-f14 leading-golden text-t2">
                 <strong className="text-t1">Supply and fabrication model:</strong> state whether
                 the project needs finished windows or pultruded lineals, who fabricates and glazes,
                 quantity, colors, quality plan, certification labels, packing, and destination.

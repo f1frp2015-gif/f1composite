@@ -57,7 +57,7 @@ const profileFamily: Array<{
     slug: "channel",
     name: "FRP Channel (C and U)",
     keyword: "GRP channel",
-    sizes: "38×13 mm to 305×89 mm",
+    sizes: "38×13 mm to 360×108 mm",
     summary:
       "Open-section framing for cable trays, stringers, modular skids, and stair stringers. Easy on-site fabrication with carbide tooling.",
     href: "/products/fiberglass-structural-shapes/frp-channel",
@@ -446,7 +446,7 @@ export default function PultrudedFRPProfilesHubPage() {
       {/* Key facts (TL;DR) + review byline */}
       <section className="bg-white pt-[55px]">
         <div className="site-container">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[24px]">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
               <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
               <p className="text-f12 text-t3">
@@ -532,14 +532,14 @@ export default function PultrudedFRPProfilesHubPage() {
                 define the applicable process, material, tooling and standard.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E17 / E23</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Certificates on request</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASCE/SEI 74-23 LRFD</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E17 / E23</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Certificates on request</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASCE/SEI 74-23 LRFD</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-neutral-50">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-neutral-50">
               <Image
                 src="/images/hero/frp-composite-material-hero.webp"
                 alt="Pultruded FRP profiles manufactured by F1 Composite — fiberglass structural shapes"
@@ -593,7 +593,7 @@ export default function PultrudedFRPProfilesHubPage() {
               <Link
                 key={item.slug}
                 href={item.href}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-lg"
+                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-card"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                   <Image
@@ -645,7 +645,7 @@ export default function PultrudedFRPProfilesHubPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
+                className="rounded-card border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
               >
                 <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f16 leading-golden text-t2">{item.description}</p>
@@ -859,7 +859,7 @@ export default function PultrudedFRPProfilesHubPage() {
               <Link
                 key={app.title}
                 href={app.href}
-                className="group rounded-[8px] border border-border-default bg-bg2 p-[29px] transition-colors hover:border-teal"
+                className="group rounded-card border border-border-default bg-bg2 p-[29px] transition-colors hover:border-teal"
               >
                 <h3 className="text-f18 font-bold text-t1 group-hover:text-teal-text">
                   {app.title}
@@ -907,7 +907,7 @@ export default function PultrudedFRPProfilesHubPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             {hubGlossary.map((g) => (
-              <div key={g.term} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <div key={g.term} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <h3 className="text-f16 font-bold text-t1">{g.term}</h3>
                 <p className="mt-[6px] text-f14 leading-golden text-t2">{g.def}</p>
               </div>
@@ -936,7 +936,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 href={d.file}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-[10px] rounded-[8px] border border-border-default bg-white p-[16px] text-f14 font-medium text-t1 transition-colors hover:border-teal"
+                className="flex items-center gap-[10px] rounded-card border border-border-default bg-white p-[16px] text-f14 font-medium text-t1 transition-colors hover:border-teal"
               >
                 <span aria-hidden>⬇</span>
                 <span>{d.title} <span className="text-t3">(PDF)</span></span>

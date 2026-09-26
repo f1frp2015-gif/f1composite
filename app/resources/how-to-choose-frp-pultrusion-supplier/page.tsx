@@ -129,7 +129,7 @@ export default function ChooseSupplierGuidePage() {
             {checklist.map((item, i) => (
               <article
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-white p-[29px]"
+                className="rounded-card border border-border-default bg-white p-[29px]"
               >
                 <span className="text-f14 font-bold text-teal-text">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{item.title}</h3>
@@ -157,7 +157,7 @@ export default function ChooseSupplierGuidePage() {
           </p>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
               <h3 className="text-f16 font-bold text-t1">Build a compliance matrix</h3>
               <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Put each mandatory requirement in one column and require the bidder to mark
@@ -165,7 +165,7 @@ export default function ChooseSupplierGuidePage() {
                 instead of accepting a general statement such as &ldquo;meets ASTM.&rdquo;
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
               <h3 className="text-f16 font-bold text-t1">Verify one production lot</h3>
               <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Agree on first-article dimensions, appearance, Barcol hardness, glass content, and
@@ -173,7 +173,7 @@ export default function ChooseSupplierGuidePage() {
                 what constitutes rejection, and how replacement material will be handled.
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
               <h3 className="text-f16 font-bold text-t1">Compare landed project cost</h3>
               <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Compare usable delivered lengths, fabrication waste, installation labor, expected

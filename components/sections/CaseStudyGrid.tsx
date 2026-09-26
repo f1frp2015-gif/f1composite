@@ -17,7 +17,7 @@ export default function CaseStudyGrid({ items }: { items: CaseItem[] }) {
                 aria-pressed={selected === ind}
                 onClick={() => setSelected(ind)}
                 key={ind}
-                className="cursor-pointer rounded-[4px] border border-border-default px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text aria-pressed:border-teal-text aria-pressed:bg-teal-text aria-pressed:text-white"
+                className="cursor-pointer rounded-tag border border-border-default px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text aria-pressed:border-teal-text aria-pressed:bg-teal-text aria-pressed:text-white"
               >
                 {ind}
               </button>
@@ -31,7 +31,7 @@ export default function CaseStudyGrid({ items }: { items: CaseItem[] }) {
               <Link
                 key={cs.slug}
                 href={`/case-studies/${cs.slug}`}
-                className="group rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+                className="group rounded-card border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
               >
                 {/* Case study image */}
                 <div className="relative aspect-[1.618] overflow-hidden bg-bg2">
@@ -42,7 +42,7 @@ export default function CaseStudyGrid({ items }: { items: CaseItem[] }) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-tag bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
                     {cs.industry}
                   </span>
                 </div>

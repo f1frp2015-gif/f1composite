@@ -125,7 +125,7 @@ export default function FrpDeckPanelsPage() {
       <section className="bg-white pt-[55px]">
         <div className="site-container">
           <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
               <Image
                 src="/images/products/frp-structural-deck-panel-hero.webp"
                 alt="Concept rendering of a closed structural FRP deck panel with internal webs and an interlocking edge"
@@ -157,7 +157,7 @@ export default function FrpDeckPanelsPage() {
             </p>
           </div>
 
-          <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
             <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Need open drainage?</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Use the separate pultruded FRP grating page.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
@@ -165,7 +165,7 @@ export default function FrpDeckPanelsPage() {
             </p>
             <Link
               href="/products/frp-gratings"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
+              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-control bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               View pultruded FRP grating
             </Link>
@@ -182,13 +182,13 @@ export default function FrpDeckPanelsPage() {
           <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
             Profiles are kept separate even when their numeric values match because the joint and edge geometry differs. The source did not state a unit, so the values below are intentionally unitless until confirmed on an approved drawing.
           </p>
-          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] rounded-control border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
             {frpDeckPanelSourceNote}
           </p>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 xl:grid-cols-3">
             {frpDeckPanelSpecs.map((spec) => (
-              <article key={spec.profile} className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+              <article key={spec.profile} className="overflow-hidden rounded-card border border-border-default bg-white">
                 <div className="border-b border-border-default bg-white p-[13px]">
                   <Image
                     src={spec.drawing}
@@ -202,15 +202,15 @@ export default function FrpDeckPanelsPage() {
                 <div className="p-[21px]">
                   <h3 className="text-f18 font-bold text-t1">{spec.profile}</h3>
                   <dl className="mt-[13px] grid grid-cols-3 gap-[8px]">
-                    <div className="rounded-[6px] bg-bg2 p-[10px]">
+                    <div className="rounded-control bg-bg2 p-[10px]">
                       <dt className="text-f12 font-bold uppercase tracking-wide text-t3">A</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.a}</dd>
                     </div>
-                    <div className="rounded-[6px] bg-bg2 p-[10px]">
+                    <div className="rounded-control bg-bg2 p-[10px]">
                       <dt className="text-f12 font-bold uppercase tracking-wide text-t3">B</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.b}</dd>
                     </div>
-                    <div className="rounded-[6px] bg-bg2 p-[10px]">
+                    <div className="rounded-control bg-bg2 p-[10px]">
                       <dt className="text-f12 font-bold uppercase tracking-wide text-t3">t1 / t2</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.t1t2}</dd>
                     </div>
@@ -231,7 +231,7 @@ export default function FrpDeckPanelsPage() {
           </h2>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-4">
             {selectionChecks.map((item, index) => (
-              <article key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+              <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span>
                 <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
