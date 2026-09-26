@@ -5,57 +5,34 @@ import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import SectionPreview from "@/components/calculators/section/SectionPreview";
 import { calcArea, calcIx, calcShearArea, calcWx, getSectionDimensionError } from "@/lib/frpSectionProperties";
-import { findStandardProfile } from "@/lib/catalog/standardProfiles";
+import { findStandardProfile, nearestStandardProfile } from "@/lib/catalog/standardProfiles";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
+import {
+  DESIGN_MATERIALS,
+  DESIGN_METHODS,
+  ENV_FACTORS,
+  LOAD_DURATIONS,
+  designResistance,
+  shearModulus,
+  type DesignMaterial,
+  type DesignMethod,
+} from "@/lib/frpDesignBasis";
 
-/* ──────────────────────────────────────────────────────────────────────────
-   Material database — orthotropic FRP + isotropic metals
-   FRP rows aligned to source standards (EN 13706, GB 50608, ASCE/SEI 74-23).
-   Metals included for steel/aluminum → FRP equivalence calculations.
+/* Materials, design methods, environment and load-duration factors come from
+   the shared design basis (lib/frpDesignBasis.ts), which the span tables and
+   the handrail load check also use.
 
    Orthotropic terminology:
      E_L  = longitudinal modulus (fiber direction; governs pultruded beam stiffness)
      E_T  = transverse modulus (~0.25–0.35 × E_L for E-glass pultruded)
-     G_LT = in-plane shear modulus (~3–4 GPa for pultruded GFRP — drives shear deflection)
+     G_LT = in-plane shear modulus (~3–4 GPa for pultruded GFRP; drives shear deflection)
      F_tL = longitudinal tensile strength (characteristic)
      F_cL = longitudinal compressive strength (characteristic)
-     F_vLT= in-plane shear strength (characteristic)
-   For isotropic metals these reduce to E_L = E_T = E and a single yield σ.
-   ────────────────────────────────────────────────────────────────────────── */
+     F_vLT= shear strength (characteristic)
+   For isotropic metals these reduce to E_L = E_T = E and a single yield σ. */
 
-type Material = {
-  label: string;
-  group: "FRP" | "Metal";
-  standard: string;
-  E: number;            // GPa — E_L for FRP, E for metals
-  E_T?: number;         // GPa — FRP transverse modulus
-  G_LT?: number;        // GPa — FRP in-plane shear modulus
-  sigma: number;        // MPa — characteristic tensile strength (F_tL for FRP, σy for metals)
-  sigma_c?: number;     // MPa — characteristic compressive strength (FRP)
-  tau?: number;         // MPa — characteristic shear strength (FRP)
-  density: number;      // g/cm³
-};
-
-const materials: Record<string, Material> = {
-  // EN 13706-3 minimum-modulus grades
-  "frp-e17": { label: "FRP EN 13706 E17", group: "FRP", standard: "EN 13706-3:2002", E: 17, E_T: 5, G_LT: 3, sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
-  "frp-e23": { label: "FRP EN 13706 E23", group: "FRP", standard: "EN 13706-3:2002", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
-  // GB 50608-2020 (China FRP application code) / T/CECS 692-2020 (pultruded profile regulation)
-  "frp-gb50608-i":  { label: "FRP GB 50608 Class I",  group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 23, E_T: 7, G_LT: 3.5, sigma: 240, sigma_c: 200, tau: 30, density: 1.9 },
-  "frp-gb50608-ii": { label: "FRP GB 50608 Class II", group: "FRP", standard: "GB 50608-2020 / T/CECS 692-2020", E: 17, E_T: 5, G_LT: 3,   sigma: 170, sigma_c: 140, tau: 25, density: 1.9 },
-  // Illustrative balanced-GFRP screening inputs. ASCE/SEI 74-23 is a design
-  // standard, not a material grade; project qualification data must replace
-  // these values before a design is released.
-  "frp-asce-std":  { label: "Balanced GFRP — illustrative standard-property set", group: "FRP", standard: "Illustrative inputs for ASCE/SEI 74-23 screening — qualification data required", E: 17.2, E_T: 5.5, G_LT: 3, sigma: 207, sigma_c: 207, tau: 31, density: 1.8 },
-  "frp-asce-high": { label: "Balanced GFRP — illustrative high-property set", group: "FRP", standard: "Illustrative inputs for ASCE/SEI 74-23 screening — qualification data required", E: 27.6, E_T: 8.3, G_LT: 4, sigma: 345, sigma_c: 290, tau: 45, density: 1.9 },
-  // Metals — single E and yield σ
-  "steel-s235": { label: "Steel S235 (EN 10025)",  group: "Metal", standard: "EN 10025-2",         E: 210, sigma: 235, density: 7.85 },
-  "steel-s355": { label: "Steel S355 (EN 10025)",  group: "Metal", standard: "EN 10025-2",         E: 210, sigma: 355, density: 7.85 },
-  "steel-q235": { label: "Steel Q235 (GB/T 700)",  group: "Metal", standard: "GB/T 700-2006",      E: 206, sigma: 235, density: 7.85 },
-  "steel-q355": { label: "Steel Q355B (GB/T 1591)",group: "Metal", standard: "GB/T 1591-2018",     E: 206, sigma: 345, density: 7.85 },
-  "alu-6061":   { label: "Aluminum 6061-T6",       group: "Metal", standard: "EN 573-3 / GB/T 3190", E: 69,  sigma: 276, density: 2.7 },
-  "alu-6063":   { label: "Aluminum 6063-T5",       group: "Metal", standard: "EN 573-3 / GB/T 3190", E: 69,  sigma: 186, density: 2.7 },
-};
+type Material = DesignMaterial;
+const materials = DESIGN_MATERIALS;
 
 /* User-defined ("custom") FRP grade. Lets the user enter a grade that isn't in
    the preset table — e.g. E40 (Austroads ATS5880's bridge-loadbearing tier;
@@ -119,23 +96,13 @@ function CustomGradeInputs({
   );
 }
 
-/* Design framework — resistance / partial factors
-   Sources: ASCE/SEI 74-23 §1.4 ; CEN/TS 19101:2022 §4 ; GB 50608-2020 §3.3 */
-type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
+const designMethods = DESIGN_METHODS;
 
-/* Load factors use the variable-action (live-load-dominated) value of each code
-   family — the calculator's scenarios (walkways, platforms, purlins) are live-
-   load governed, so γ_Q applies: 1.6 (ASCE 7), 1.5 (EN 1990), 1.5 (GB 55001).
-   ASCE 74-23's time-effect factor λ for sustained loads is NOT modeled. */
-const designMethods: Record<DesignMethod, { label: string; phiFlex: number; phiShear: number; loadFactor: number; basis: string }> = {
-  "lrfd-asce":       { label: "Preliminary LRFD screen — ASCE/SEI 74-23", phiFlex: 0.65, phiShear: 0.65, loadFactor: 1.6, basis: "Preliminary global beam screen using ASCE/SEI 74-23-style φ and live-load γ_Q; not a complete code check and λ is not modeled" },
-  "lrfd-cents19101": { label: "Preliminary partial-factor screen — CEN/TS 19101:2022", phiFlex: 1/1.5, phiShear: 1/1.5, loadFactor: 1.5, basis: "Preliminary global beam screen using CEN/TS 19101-style γ_M and EN 1990 variable-action γ_Q; not a complete code check" },
-  "lrfd-gb50608":    { label: "Preliminary LRFD screen — GB 50608-2020", phiFlex: 1/1.6, phiShear: 1/1.6, loadFactor: 1.5, basis: "Preliminary global beam screen using GB 50608-style γ_R and GB 55001 variable-action γ_Q; not a complete code check" },
-  "asd":             { label: "Preliminary ASD screen — user-selected properties", phiFlex: 1/2.5, phiShear: 1/3.0, loadFactor: 1.0, basis: "Preliminary allowable-stress screen: F/2.5 bending and F/3.0 shear; not a code compliance check" },
-};
-
+/* EN 13706 is a product standard, so its grade minimums can serve as the
+   characteristic inputs of either design method. GB datasets stay with GB
+   factors; the custom grade stays on the ASD screen. */
 const METHOD_MATERIALS: Record<DesignMethod, string[]> = {
-  "lrfd-asce": ["frp-asce-std", "frp-asce-high"],
+  "lrfd-asce": ["frp-asce-std", "frp-asce-high", "frp-e17", "frp-e23"],
   "lrfd-cents19101": ["frp-e17", "frp-e23"],
   "lrfd-gb50608": ["frp-gb50608-i", "frp-gb50608-ii"],
   "asd": ["frp-e17", "frp-e23", "frp-gb50608-i", "frp-gb50608-ii", "frp-asce-std", "frp-asce-high", "custom"],
@@ -148,15 +115,7 @@ const DEFAULT_MATERIAL_BY_METHOD: Record<DesignMethod, string> = {
   "asd": "frp-e23",
 };
 
-/* Environmental knockdown — multiplied onto FRP characteristic strengths.
-   Values per ASCE/SEI 74-23 §3.5 Ω_E and CEN/TS 19101 §5 η_c × η_t × η_M. */
-const envFactors = [
-  { id: "indoor-dry", label: "Indoor, dry, ≤30°C",                factor: 1.00, note: "Reference — no knockdown" },
-  { id: "outdoor",    label: "Outdoor, exposed (UV + humidity)",  factor: 0.85, note: "Long-term UV + moisture exposure" },
-  { id: "wet",        label: "Wet / immersion",                   factor: 0.80, note: "Continuous moisture absorption" },
-  { id: "chemical",   label: "Mild chemical (acid/alkali)",       factor: 0.75, note: "Chemical class — see T/CECS 692-2020 Annex" },
-  { id: "hot",        label: "Elevated temp (30–60°C)",           factor: 0.70, note: "Approaching T_g — see ASCE/SEI 74-23 §3.5.4" },
-];
+const envFactors = ENV_FACTORS;
 
 /* factor_s = load-case constant c in the exact shear-deflection ratio
    δ_shear/δ_bending = c·E·I / (G·A_v·L²), derived from each case's closed-form
@@ -188,28 +147,6 @@ const PRODUCT_BY_SHAPE: Record<string, { slug: string; family: string }> = {
   "round-tube": { slug: "frp-tube", family: "FRP round tubes" },
 };
 
-/* Discrete F1 catalog depths (mm) for shapes whose standard series is published,
-   used to name the closest stock size. Shapes not listed fall back to the family
-   name without inventing a size. */
-const STANDARD_SIZES: Record<string, { label: string; H: number }[]> = {
-  "i-beam": [
-    { label: "I 76×38×6.4", H: 76 }, { label: "I 100×50×6", H: 100 }, { label: "I 120×60×6", H: 120 },
-    { label: "I 152×76×6.4", H: 152 }, { label: "I 160×80×8", H: 160 }, { label: "I 200×100×10", H: 200 },
-    { label: "I 240×120×12", H: 240 }, { label: "I 300×150×15", H: 300 },
-  ],
-  "square-tube": [
-    { label: "SHS 25×25", H: 25 }, { label: "SHS 38×38", H: 38 }, { label: "SHS 50×50", H: 50 },
-    { label: "SHS 60×60", H: 60 }, { label: "SHS 75×75", H: 75 }, { label: "SHS 100×100", H: 100 },
-    { label: "SHS 120×120", H: 120 }, { label: "SHS 150×150", H: 150 }, { label: "SHS 200×200", H: 200 },
-  ],
-};
-
-function nearestStandardSize(shape: string, H: number): { label: string; H: number } | null {
-  const list = STANDARD_SIZES[shape];
-  if (!list || !Number.isFinite(H)) return null;
-  return list.reduce((best, s) => (Math.abs(s.H - H) < Math.abs(best.H - H) ? s : best));
-}
-
 /* One-click scenarios that pre-load the most common FRP selection problems —
    lowers activation energy and each maps to a real F1 application. */
 type Preset = {
@@ -219,7 +156,7 @@ type Preset = {
 };
 const PRESETS: Preset[] = [
   { id: "walkway", label: "Walkway beam", shape: "i-beam", span: 3000, load: 5, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 360, dimH: 240, dimB: 120, dimTw: 12, dimTf: 12, designMethod: "lrfd-asce" },
-  { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 5, dimTf: 5, designMethod: "lrfd-asce" },
+  { id: "solar", label: "Solar purlin", shape: "square-tube", span: 2200, load: 2.5, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 180, dimH: 100, dimB: 100, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
   { id: "cabletray", label: "Cable-tray support", shape: "channel", span: 1500, load: 2, loadType: "udl", matKey: "frp-asce-std", envKey: "chemical", deflLimit: 200, dimH: 100, dimB: 50, dimTw: 6, dimTf: 6, designMethod: "lrfd-asce" },
   { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
 ];
@@ -289,6 +226,8 @@ export default function ProfileCalculator() {
   const [deflLimit, setDeflLimit] = useState(250);
   const [designMethod, setDesignMethod] = useState<DesignMethod>("lrfd-asce");
   const [envKey, setEnvKey] = useState("outdoor");
+  // Load duration for the ASCE path (time-effect factor λ and ASCE 7 load factor).
+  const [durationKey, setDurationKey] = useState<string>("occupancy");
   // User-defined FRP grade params, editable when matKey === "custom".
   const [customMat, setCustomMat] = useState<CustomMat>(CUSTOM_DEFAULT);
 
@@ -329,6 +268,7 @@ export default function ProfileCalculator() {
     str("env", setEnvKey, envFactors.map((e) => e.id));
     str("load_type", setLoadType, loadTypes.map((l) => l.id));
     str("method", (v) => setDesignMethod(v as DesignMethod), Object.keys(designMethods));
+    str("duration", setDurationKey, LOAD_DURATIONS.map((d) => d.id));
     num("span", setSpan); num("load", setLoad); num("defl", setDeflLimit);
     num("h", setDimH); num("b", setDimB); num("tw", setDimTw); num("tf", setDimTf);
     str("eq_source", setEqSourceMat, Object.keys(materials).filter((key) => materials[key].group === "Metal"));
@@ -372,7 +312,7 @@ export default function ProfileCalculator() {
     const sp = mode === "beam"
       ? new URLSearchParams({
           mode: "beam",
-          shape, material: matKey, env: envKey, load_type: loadType, method: designMethod,
+          shape, material: matKey, env: envKey, load_type: loadType, method: designMethod, duration: durationKey,
           span: String(span), load: String(load), defl: String(deflLimit),
           h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
         })
@@ -424,6 +364,9 @@ export default function ProfileCalculator() {
   const dm = designMethods[designMethod];
   const env = envFactors.find((e) => e.id === envKey)!;
   const isFRP = mat.group === "FRP";
+  const isAsce = designMethod === "lrfd-asce";
+  const duration = LOAD_DURATIONS.find((d) => d.id === durationKey) ?? LOAD_DURATIONS[0];
+  const resistance = designResistance({ material: mat, method: designMethod, envId: envKey, durationId: durationKey });
   const sectionLook = isFRP ? "frp" : matKey.startsWith("alu") ? "alu" : "steel";
 
   const dimensionError = getSectionDimensionError(shape, dimH, dimB, dimTw, dimTf);
@@ -451,30 +394,29 @@ export default function ProfileCalculator() {
   const M_service_Nmm = isDistributed ? lt.factor_M * load * spanM * spanM * 1e6 : lt.factor_M * load * span * 1000;
   const V_service_N = lt.factor_V * (isDistributed ? load * spanM * 1000 : load * 1000);
 
-  // Factored (LRFD) moment / shear for strength checks
-  const M_factored_Nmm = M_service_Nmm * dm.loadFactor;
-  const V_factored_N = V_service_N * dm.loadFactor;
+  // Factored (LRFD) moment / shear for strength checks. The ASCE path takes
+  // the ASCE 7-22 factor of the selected load duration.
+  const loadFactor = resistance.loadFactor;
+  const M_factored_Nmm = M_service_Nmm * loadFactor;
+  const V_factored_N = V_service_N * loadFactor;
 
   // Stresses (factored for strength check)
   const sigma_max = Wx > 0 ? M_factored_Nmm / Wx : 0;        // MPa
   const tau_max = Aw > 0 ? V_factored_N / Aw : 0;            // MPa (V/A_web average)
 
-  // Allowables — apply resistance factor + (for FRP) environmental knockdown.
-  // Bending uses min(F_tL, F_cL): pultruded FRP typically fails on the
-  // compression face first (F_cL < F_tL), so tensile strength alone is
-  // unconservative by ~20% on EN 13706 grades.
-  const envFac = isFRP ? env.factor : 1.0;
-  const F_b_char = isFRP ? Math.min(mat.sigma, mat.sigma_c ?? mat.sigma) : mat.sigma;
-  const F_b_allow = dm.phiFlex * F_b_char * envFac;
-  const F_v_char = isFRP ? (mat.tau ?? 30) : mat.sigma * 0.6;  // metals ≈ 0.6σy for shear
-  const F_v_allow = dm.phiShear * F_v_char * envFac;
+  // Allowables: resistance factor, λ (ASCE path) and, for FRP, the
+  // environmental knockdown. Bending uses min(F_tL, F_cL) because pultruded
+  // FRP typically fails on the compression face first.
+  const F_b_allow = resistance.bendingAllowable;
+  const F_v_allow = resistance.shearAllowable;
 
   // Deflection — bending + shear (Timoshenko). Exact per load case:
   // δ_shear/δ_bending = c·E·I / (G·A_v·L²) with c = lt.factor_s (9.6 UDL,
   // 12 midspan point, 3 cantilever tip, 4 cantilever UDL) and A_v = the
   // shear area already computed (web for I/C, walls for tubes, k = 1).
-  const E_mpa = mat.E * 1000;
-  const G_mpa = (mat.G_LT ?? mat.E / (2 * 1.3)) * 1000;        // metals: ν≈0.3 → G = E/2.6
+  // Wet service also lowers FRP stiffness (resistance.envStiffness).
+  const E_mpa = mat.E * 1000 * resistance.envStiffness;
+  const G_mpa = shearModulus(mat) * 1000 * resistance.envStiffness; // metals: ν≈0.3 → G = E/2.6
   const defl_bending = isDistributed
     ? (lt.factor_d * load * span ** 4) / (E_mpa * Ix)
     : (lt.factor_d * load * 1000 * span ** 3) / (E_mpa * Ix);
@@ -482,9 +424,10 @@ export default function ProfileCalculator() {
   const defl = defl_bending * shearCorrection;
   const deflShearPct = ((shearCorrection - 1) * 100);
   const deflRatio = span / (defl || 1);
-  const catalogProfile = matKey === "frp-e23"
-    ? findStandardProfile({ shape: shape as "i-beam" | "channel" | "angle" | "square-tube" | "round-tube", h: dimH, b: dimB, tw: dimTw, tf: dimTf })
-    : null;
+  // Exact catalog size (any material), used for the product suggestion; its
+  // published kg/m applies only to the standard E23 E-glass/polyester grade.
+  const exactCatalogProfile = findStandardProfile({ shape: shape as "i-beam" | "channel" | "angle" | "square-tube" | "round-tube", h: dimH, b: dimB, tw: dimTw, tf: dimTf });
+  const catalogProfile = matKey === "frp-e23" ? exactCatalogProfile : null;
   const weightPerM = catalogProfile?.weight ?? (area * mat.density) / 1000; // mm² × g/cm³ → kg/m
 
   // Checks
@@ -564,6 +507,7 @@ export default function ProfileCalculator() {
   // Shared spec payload for beam-mode RFQ surfaces (quote button + email capture).
   const specContext = {
     standard: mat.standard, designMethod: dm.label, environment: env.label, material: mat.label,
+    loadDuration: isAsce ? `${duration.label} (λ ${duration.lambda})` : null,
     shape, H_mm: dimH, B_mm: dimB, tw_mm: dimTw, tf_mm: dimTf, span_mm: span, load,
     Ix_cm4: +(Ix / 1e4).toFixed(1), Wx_cm3: +(Wx / 1e3).toFixed(1),
     bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1),
@@ -575,7 +519,8 @@ export default function ProfileCalculator() {
     `Please review this preliminary FRP profile calculation:\n\n` +
     `Standard: ${mat.standard}\n` +
     `Design method: ${dm.label}\n` +
-    `Environment: ${env.label} (×${env.factor})\n` +
+    `Environment: ${env.label} (strength ×${env.factor}, stiffness ×${env.stiffness})\n` +
+    (isAsce ? `Load duration: ${duration.label}, λ = ${duration.lambda}, γ = ${duration.loadFactor}\n` : "") +
     `Material: ${mat.label}\n` +
     `Profile: ${shape}, H=${dimH}mm, B=${dimB}mm, tw=${dimTw}mm, tf=${dimTf}mm\n` +
     `Span: ${span}mm, Load type: ${lt.label}, Service load: ${load} ${isDistributed ? "kN/m" : "kN"}\n` +
@@ -682,11 +627,26 @@ export default function ProfileCalculator() {
                   <label className={labelClass}>Environment {!isFRP && <span className="font-normal normal-case text-t3">(FRP only)</span>}</label>
                   <select value={envKey} onChange={(e) => setEnvKey(e.target.value)} disabled={!isFRP} className={selectClass + (isFRP ? "" : " opacity-50")}>
                     {envFactors.map((e) => (
-                      <option key={e.id} value={e.id}>{e.label} (×{e.factor.toFixed(2)})</option>
+                      <option key={e.id} value={e.id}>{e.label} (×{e.factor.toFixed(2)}{e.stiffness < 1 ? `, E ×${e.stiffness.toFixed(2)}` : ""})</option>
                     ))}
                   </select>
                 </div>
               </div>
+
+              {isAsce && (
+                <div>
+                  <label className={labelClass}>Load duration <span className="normal-case tracking-normal">(ASCE time-effect factor λ)</span></label>
+                  <select value={durationKey} onChange={(e) => setDurationKey(e.target.value)} className={selectClass}>
+                    {LOAD_DURATIONS.map((d) => (
+                      <option key={d.id} value={d.id}>{d.label}: λ = {d.lambda}, γ = {d.loadFactor}</option>
+                    ))}
+                  </select>
+                  <p className="mt-[4px] text-f12 text-t3">
+                    FRP resistance falls under sustained load. λ values follow the ASCE LRFD Pre-Standard (2010), the basis of ASCE/SEI 74-23.
+                    {duration.id === "wind" ? " Enter the strength-level wind or seismic load." : ""}
+                  </p>
+                </div>
+              )}
 
               <div className="grid gap-[13px] sm:grid-cols-2">
                 <div>
@@ -768,7 +728,8 @@ export default function ProfileCalculator() {
               {/* Basis line */}
               <p className="text-f12 text-t3">
                 <strong>Material dataset:</strong> {mat.standard} · <strong>Screening basis:</strong> {dm.basis}
-                {isFRP && <> · <strong>Env knockdown:</strong> ×{env.factor.toFixed(2)} ({env.note})</>}
+                {isFRP && <> · <strong>Environment:</strong> strength ×{env.factor.toFixed(2)}, stiffness ×{env.stiffness.toFixed(2)} ({env.note})</>}
+                {isAsce && isFRP && <> · <strong>λ:</strong> {resistance.lambda}</>}
               </p>
             </div>
 
@@ -845,7 +806,7 @@ export default function ProfileCalculator() {
                   <div>Max moment (factored): <span className="font-bold text-t1">{(M_factored_Nmm / 1e6).toFixed(2)} kN·m</span></div>
                   <div>Max shear (factored): <span className="font-bold text-t1">{(V_factored_N / 1e3).toFixed(2)} kN</span></div>
                   <div>Service total force: <span className="font-bold text-t1">{totalForce.toFixed(1)} kN</span></div>
-                  <div>Load factor γ: <span className="font-bold text-t1">×{dm.loadFactor}</span></div>
+                  <div>Load factor γ: <span className="font-bold text-t1">×{loadFactor}</span>{isAsce && isFRP ? <span className="text-t3"> · λ {resistance.lambda}</span> : null}</div>
                 </div>
                 {isFRP && (
                   <div className="border-t border-border-default pt-[5px]">
@@ -866,7 +827,7 @@ export default function ProfileCalculator() {
               {/* F1 product match — routes a finished calc to the matching product page */}
               {isFRP && PRODUCT_BY_SHAPE[shape] && (() => {
                 const prod = PRODUCT_BY_SHAPE[shape];
-                const near = nearestStandardSize(shape, dimH);
+                const near = exactCatalogProfile ?? nearestStandardProfile(shape as "i-beam" | "channel" | "angle" | "square-tube" | "round-tube", dimH, shape === "round-tube" ? dimH : dimB, dimTw);
                 return (
                   <a
                     href={`/products/fiberglass-structural-shapes/${prod.slug}?source=calculator`}
@@ -876,7 +837,7 @@ export default function ProfileCalculator() {
                     <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">F1 makes this profile</div>
                     <div className="mt-[3px] text-f14 text-t2">
                       {near ? (
-                        <>Closest stock size to your {dimH} mm section: <strong className="text-t1">{near.label}</strong>. </>
+                        <>{exactCatalogProfile ? "Your section is the catalog size" : "Closest catalog size to your section"}: <strong className="text-t1">{near.model}</strong> ({near.weight} kg/m). </>
                       ) : null}
                       View the {prod.family} <span aria-hidden>→</span>
                     </div>
@@ -928,10 +889,10 @@ export default function ProfileCalculator() {
               </>)}
 
               <p className="text-f12 text-t3">
-                Reference: EN 13706-3 · GB 50608-2020 / T/CECS 692-2020 · ASCE/SEI 74-23 · CEN/TS 19101:2022 · ASTM D3917.
-                Calculator performs global bending (vs min tensile/compressive strength), average shear, and load-case-matched Timoshenko deflection only.
-                Not modeled: local buckling, lateral-torsional buckling, web crippling, long-term creep deflection, the ASCE 74-23 time-effect factor λ,
-                principal-axis bending of single angles, and connection design — these require dedicated analysis; contact F1 Composite engineering.
+                Reference: EN 13706-3:2002 · ASCE/SEI 74-23 · ASCE 7-22 · CEN/TS 19101:2022 · EN 1990:2023 · GB 50608-2020 / T/CECS 692-2020.
+                The calculator performs global bending (vs min tensile/compressive strength), average shear, and load-case-matched Timoshenko deflection only.
+                Not modeled: local buckling, lateral-torsional buckling, web crippling, long-term creep deflection and creep rupture, dead-load combinations,
+                principal-axis bending of single angles, and connection design. These need dedicated analysis; contact F1 Composite engineering.
               </p>
             </div>
           </div>
@@ -947,9 +908,15 @@ export default function ProfileCalculator() {
                 <div>
                   <label className={labelClass}>Current Material</label>
                   <select value={eqSourceMat} onChange={(e) => setEqSourceMat(e.target.value)} className={selectClass}>
-                    <optgroup label="Steel — EN">
+                    <optgroup label="Steel, Europe / UK">
                       <option value="steel-s235">S235 (EN 10025)</option>
                       <option value="steel-s355">S355 (EN 10025)</option>
+                    </optgroup>
+                    <optgroup label="Steel, US / Canada / AU-NZ">
+                      <option value="steel-a36">ASTM A36</option>
+                      <option value="steel-a992">ASTM A992</option>
+                      <option value="steel-350w">CSA G40.21 350W</option>
+                      <option value="steel-as300">AS/NZS 3679.1 Grade 300</option>
                     </optgroup>
                     <optgroup label="Steel — GB">
                       <option value="steel-q235">Q235 (GB/T 700)</option>
@@ -972,9 +939,9 @@ export default function ProfileCalculator() {
                       <option value="frp-gb50608-i">GB 50608 Class I</option>
                       <option value="frp-gb50608-ii">GB 50608 Class II</option>
                     </optgroup>
-                    <optgroup label="ASCE/SEI 74-23">
-                      <option value="frp-asce-std">ASCE 74-23 Standard</option>
-                      <option value="frp-asce-high">ASCE 74-23 High-Performance</option>
+                    <optgroup label="Balanced GFRP (illustrative)">
+                      <option value="frp-asce-std">Standard-property set</option>
+                      <option value="frp-asce-high">High-property set</option>
                     </optgroup>
                     <optgroup label="Custom / advanced">
                       <option value="custom">Custom grade (e.g. E40 — define below)</option>

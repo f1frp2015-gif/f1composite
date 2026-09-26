@@ -810,9 +810,35 @@
   {
     "path": "/tools",
     "title": "FRP Engineering Tools & Calculators",
-    "description": "Free engineering tools for pultruded FRP: profile finder, beam and deflection calculator, span tables, density and weight, prices and window U-values.",
+    "description": "Free tools for pultruded FRP: profile finder, beam calculator, span tables, weight, thermal movement, handrail loads, ladder and stair checks, GFRP rebar.",
     "aliases": [
       "Engineering tools"
+    ]
+  },
+  {
+    "path": "/tools/access-geometry-checker",
+    "title": "Ladder, Stair & Walkway Checker",
+    "description": "Check ladder, stair and walkway dimensions against OSHA 1910, EN ISO 14122 and IBC 2024: rung spacing, clear width, fall protection, risers, grating openings.",
+    "aliases": [
+      "Ladder, stair and walkway checker",
+      "Ladder, Stair & Walkway Checker | OSHA, ISO 14122"
+    ]
+  },
+  {
+    "path": "/tools/gfrp-rebar-calculator",
+    "title": "GFRP Rebar Calculator",
+    "description": "Match steel bar sizes to GFRP rebar, work out ACI CODE-440.11-22 design strength and the sustained-stress limit, and see the GFRP standards for each market.",
+    "aliases": [
+      "GFRP rebar calculator",
+      "GFRP Rebar Calculator | Sizes & ACI 440.11 Values"
+    ]
+  },
+  {
+    "path": "/tools/handrail-load-calculator",
+    "title": "FRP Handrail & Guardrail Load Calculator",
+    "description": "Check FRP handrail posts and rails against OSHA 1910.29, IBC 2024 and EN ISO 14122-3 loads, or enter AS/NZS 1170.1, NBC or UK values. Free, no login.",
+    "aliases": [
+      "FRP handrail and guardrail load check"
     ]
   },
   {
@@ -821,6 +847,15 @@
     "description": "Filter F1 Composite's standard pultruded FRP profiles by shape, depth, mass and stiffness, compare up to four sizes and send them for one quotation.",
     "aliases": [
       "FRP profile finder"
+    ]
+  },
+  {
+    "path": "/tools/thermal-expansion-calculator",
+    "title": "FRP Thermal Expansion Calculator",
+    "description": "Work out thermal expansion of pultruded FRP profiles, the movement against steel, concrete or glass, restrained stress and the sealant joint width you need.",
+    "aliases": [
+      "FRP thermal expansion calculator",
+      "FRP Thermal Expansion Calculator | Joints & Movement"
     ]
   },
   {

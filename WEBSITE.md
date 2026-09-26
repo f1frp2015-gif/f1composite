@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-09-26
+> 最后更新: 2026-09-26（工具审查）
 
 ---
 
@@ -210,6 +210,10 @@ f1composite.com
 | `/ai/passive-house` | "passive house FRP window selector" | 按 climate zone + U-value 选型 |
 | `/technology/calculator` | "FRP profile calculator" / "FRP beam deflection" | 工程师自助 |
 | `/technology/u-value-calculator` | "window U-value calculator" | EN ISO 10077-1 |
+| `/tools/thermal-expansion-calculator` | "FRP thermal expansion calculator" | 伸缩缝、与钢/混凝土/玻璃的差异变形 |
+| `/tools/handrail-load-calculator` | "FRP handrail load calculator" / "guardrail load OSHA IBC" | 护栏立柱与扶手校核，锚栓反力 |
+| `/tools/access-geometry-checker` | "ladder stair walkway requirements checker" | OSHA 1910 / EN ISO 14122 / IBC 尺寸校核 |
+| `/tools/gfrp-rebar-calculator` | "GFRP rebar size conversion" / "ACI 440.11 design strength" | 钢筋规格对照、ACI 440.11 设计值 |
 
 ### Resources (内容营销 / 证据)
 | URL | 主意图 |
@@ -305,6 +309,12 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 `scripts/theme-classes.test.mjs` 同时检查圆角和阴影：`rounded-*` 只能是 tag / control / card / full / none，阴影只能是 card / pop / bar / none。
 
 
+## 工具的设计基础（2026-09-26 审查）
+
+- **共享设计基础**：`lib/frpDesignBasis.ts` 集中了材料数据（EN 13706 E17/E23 最小值、各国钢材和铝材）、设计方法系数、环境折减（强度和刚度）和 ASCE 时间效应系数 λ。型材计算器、跨度表和护栏校核都从这里取值，改系数只改这一个文件；`scripts/engineering-tools.test.mjs` 会检查关键数值。
+- **法规数值**：各工具只写入核对过的规范数值，并在界面上标明条款。未能核对原文的（英国 NA.8 表、加拿大 NBC 4.1.5.14、AS/NZS 1170.1 表 3.3、AS 1657）让用户按条款输入，不预填数字。审查记录和待复核清单见 `docs/audits/2026-09-26-tools-standards-audit.md`。
+- **菜单**：主菜单链接总数上限 76（测试检查），热膨胀和 GFRP 筋材两个工具只放在 `/tools` 和相关产品页，没有进主菜单。
+
 ## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
 
 - **搜索索引**：`lib/search/buildIndex.ts` 在构建时生成 `/search-index.json`，包含 114 个目录规格（公布单重、按名义截面计算的 Ix 或 A、规格书和 DXF 链接）、全部静态页、博客、应用页、案例、术语、作者和文件库。页面标题和描述写在各页面文件里，由 `scripts/search-pages.mjs` 读出，存进 `lib/search/pages.generated.json`。改了页面标题或描述、或新增页面后，运行 `npm run search:pages` 并提交这个文件，否则 `npm test` 会失败。
@@ -378,4 +388,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |
 | 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |
 | 中 | 视觉系统阶段 1 的两个默认选择待业主确认：信号色用标志渐变末端的 lime #BBDF35（备选：安全黄）；产品线沿用站内已有的 F1-STRUX / F1-GRID / F1-THERM / F1-FORM，未新起线名。改色只需改 `app/globals.css` 的 `--color-lime` | 待确认 |
+| 高 | 工具中标为 B/C 级的规范数值（ASCE/SEI 74-23 的 φ 和 λ、CEN/TS 19101 的 γ_M、EN ISO 14122 尺寸、英国/加拿大/澳新护栏荷载、AS 1657、新西兰窗户 R 值、ACI 440.11 的 C_E）需用正版标准复核，清单见 `docs/audits/2026-09-26-tools-standards-audit.md` 第四节 | 待复核 |
+| 高 | 目录护栏立柱按 OSHA 200 lb 筛查超限（50×50×6.4 方管 119%，50×5 圆管 237%），建议准备整体试验报告，并复核圆管立柱规格；目录爬梯外宽 500 mm 时净宽约 398 mm，低于 OSHA 406 mm 和 EN ISO 14122-4 400 mm，需按图纸确认 | 待决定 |
+| 中 | 德国和英国地区页的法规表述（GEG 2024、Future Homes Standard）需按 2026 年新情况核实更新 | 待核实 |
 | 中 | 阶段 2 菜单结构按改版方案图 19 调整（产品、行业、工具、资源、公司；技术文章并入资源的知识库，质量体系和技术服务放在公司下），请确认或提出修改 | 待确认 |

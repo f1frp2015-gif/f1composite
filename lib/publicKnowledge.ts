@@ -246,6 +246,10 @@ export function buildPublicKnowledge() {
       { name: "FRP profile finder", path: "/tools/profile-finder", purpose: "Filter the standard sizes by shape, size, mass and Ix, and compare up to four." },
       { name: "Site search", path: "/search", endpoint: "/search-index.json", method: "GET", purpose: "Sizes such as 100x100 or I152, products, documents and articles; the JSON index is built at deploy time." },
       { name: "Window U-value calculator (EN ISO 10077-1)", path: "/technology/frp-u-value-calculator" },
+      { name: "FRP thermal expansion calculator", path: "/tools/thermal-expansion-calculator", purpose: "Thermal movement of FRP members, differential movement against steel, concrete or glass, and sealed joint widths." },
+      { name: "FRP handrail and guardrail load check", path: "/tools/handrail-load-calculator", purpose: "Post and rail check against OSHA 1910.29, IBC 2024 or EN ISO 14122-3 loads, or user-entered AS/NZS 1170.1, NBC and UK values." },
+      { name: "Ladder, stair and walkway checker", path: "/tools/access-geometry-checker", purpose: "Fixed ladder, stair and walkway geometry against OSHA 1910, EN ISO 14122 and IBC 2024." },
+      { name: "GFRP rebar calculator", path: "/tools/gfrp-rebar-calculator", purpose: "Steel-to-GFRP bar size cross-reference and ACI CODE-440.11-22 design values from certificate data." },
       { name: "AI summarize endpoint", endpoint: "/api/summarize", method: "POST" },
     ],
     keyPages: {
