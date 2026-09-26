@@ -7,9 +7,11 @@ import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
 import { whatsappHref, whatsappMessage } from "@/lib/contact";
 import { footerNav, type NavLink } from "@/content/data/navigation";
 
+// One column per main menu, in the same order.
 const columns = [
   { title: "Products", links: footerNav.products },
-  { title: "Applications", links: footerNav.applications },
+  { title: "Industries", links: footerNav.industries },
+  { title: "Tools", links: footerNav.tools },
   { title: "Resources", links: footerNav.resources },
   { title: "Company", links: footerNav.company },
 ] as const;
@@ -67,8 +69,8 @@ export default function Footer() {
       </div>
 
       <div className="site-container py-[28px] md:py-[32px]">
-        <div className="grid grid-cols-2 gap-x-[24px] gap-y-[26px] lg:grid-cols-[1.4fr_repeat(4,minmax(0,1fr))]">
-          <div className="col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-2 gap-x-[24px] gap-y-[26px] sm:grid-cols-3 lg:grid-cols-[1.4fr_repeat(5,minmax(0,1fr))]">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link
               href="/"
               aria-label="F1 Composite home"
