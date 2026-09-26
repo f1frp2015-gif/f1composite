@@ -13,6 +13,7 @@ import { productFamilies } from "@/content/data/productTaxonomy";
 import { applicationPages } from "@/lib/applicationPages";
 import { authors } from "@/lib/authors";
 import { CAD_SLUGS } from "@/lib/cadManifest";
+import { PROFILE_FAMILIES } from "@/lib/catalog/profileFamilies";
 import { modelToSlug } from "@/lib/catalog/public";
 import { computeProperties, type ShapeId } from "@/lib/catalog/shapes";
 import { buildProducts } from "@/lib/catalog/standardProfiles";
@@ -53,23 +54,12 @@ for (const family of productFamilies) {
   }
 }
 
-const SIZE_FAMILIES: Record<string, { label: string; url: string }> = {
-  i_beam: { label: "I-beam", url: "/products/fiberglass-structural-shapes/frp-i-beam" },
-  channel: { label: "Channel", url: "/products/fiberglass-structural-shapes/frp-channel" },
-  angle: { label: "Angle", url: "/products/fiberglass-structural-shapes/frp-angle" },
-  shs: { label: "Square tube", url: "/products/fiberglass-structural-shapes/frp-square-tube" },
-  rhs: { label: "Rectangular tube", url: "/products/fiberglass-structural-shapes/frp-square-tube" },
-  tube: { label: "Round tube", url: "/products/fiberglass-structural-shapes/frp-tube" },
-  rod: { label: "Rod", url: "/products/fiberglass-structural-shapes/frp-rod" },
-  flat: { label: "Flat bar", url: "/products/fiberglass-structural-shapes/frp-flat-bar" },
-};
-
 const decimals = (value: number, digits: number) => value.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
 
 function sizeEntries(): SearchEntry[] {
   return buildProducts().map((product) => {
     const shape = product.geometry.shape as ShapeId;
-    const family = SIZE_FAMILIES[shape];
+    const family = PROFILE_FAMILIES[shape];
     const properties = computeProperties({ kind: "parametric", shape, dims: product.geometry.dims });
     const slug = modelToSlug(product.model);
     // Rods and flat bars are chosen by area and width, the rest by stiffness.

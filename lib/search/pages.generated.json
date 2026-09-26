@@ -808,6 +808,22 @@
     "description": "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services."
   },
   {
+    "path": "/tools",
+    "title": "FRP Engineering Tools & Calculators",
+    "description": "Free engineering tools for pultruded FRP: profile finder, beam and deflection calculator, span tables, density and weight, prices and window U-values.",
+    "aliases": [
+      "Engineering tools"
+    ]
+  },
+  {
+    "path": "/tools/profile-finder",
+    "title": "FRP Profile Finder — Filter 114 Standard Sizes",
+    "description": "Filter F1 Composite's standard pultruded FRP profiles by shape, depth, mass and stiffness, compare up to four sizes and send them for one quotation.",
+    "aliases": [
+      "FRP profile finder"
+    ]
+  },
+  {
     "path": "/what-is-frp",
     "title": "What Is FRP? FRP vs Fiberglass, GRP & Materials",
     "description": "FRP means fiber reinforced polymer or plastic. Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material.",

@@ -78,3 +78,22 @@ test("the search code runs in older Safari", () => {
     if (existsSync(join(root, file))) assert.doesNotMatch(read(file), /\(\?<[=!]/, `${file} uses a regular expression lookbehind`);
   }
 });
+
+test("the profile finder lists every catalog size with its section values", () => {
+  const { finderRows } = loadProjectModule("lib/profileFinder.ts");
+  const rows = finderRows();
+  assert.equal(rows.length, 114);
+  assert.equal(new Set(rows.map((row) => row.slug)).size, 114);
+  const beam = rows.find((row) => row.model === "I 152×76×6.4");
+  assert.deepEqual([beam.d, beam.b, beam.t, beam.mass, Math.round(beam.A), beam.Ix, beam.Wx], [152, 76, 6.4, 2.9, 1864, 659.8, 86.81]);
+  const flat = rows.find((row) => row.model === "FB 100×10");
+  assert.deepEqual([flat.d, flat.b, flat.t], [100, null, 10], "flat bars: width, no second leg, thickness");
+  const rod = rows.find((row) => row.model === "Rod Ø25");
+  assert.deepEqual([rod.d, rod.b, rod.t], [25, null, null]);
+  const tube = rows.find((row) => row.model === "CHS 76×6.4");
+  assert.deepEqual([tube.d, tube.b, tube.t], [76, null, 6.4]);
+  for (const row of rows) {
+    assert.ok(row.A > 0 && row.Ix > 0 && row.Wx > 0, `${row.model}: section values`);
+    if (row.dxf) assert.ok(existsSync(join(root, "public/cad", `${row.slug}.dxf`)), `${row.model}: DXF missing`);
+  }
+});
