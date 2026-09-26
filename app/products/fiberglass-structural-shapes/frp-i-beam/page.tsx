@@ -1,21 +1,28 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ProfileFigure from "@/components/datasheets/ProfileFigure";
-import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
-import { getCategorySizes } from "@/lib/catalog/public";
-import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+import ApplicationCards from "@/components/products/ApplicationCards";
+import FamilySizeTable from "@/components/products/FamilySizeTable";
+import HeroPhotos from "@/components/products/HeroPhotos";
+import LaminateProperties from "@/components/products/LaminateProperties";
+import ProductDocuments from "@/components/products/ProductDocuments";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
+import RelatedProfiles from "@/components/products/RelatedProfiles";
+import { supplyTerms, weeks } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { loadFamilySizes } from "@/lib/catalog/familySizes";
+import { profileFamilyFacts } from "@/lib/profileFacts";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-// Size table is DB-driven (catalog admin) with the historical hardcoded list
-// as build-safe fallback; refreshed hourly.
+// Size table is DB-driven (catalog admin) with the published seed catalog as
+// build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
 const pageTitle = "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes";
@@ -23,8 +30,8 @@ const pageDescription =
   "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, about 75% lighter than steel, EN 13706 E23. Size and steel-weight table, DDP USA.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-i-beam";
 
-const LAST_UPDATED = "2026-06-30";
-const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
+const LAST_UPDATED = "2026-09-26";
+const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", href: "/about/authors/yifan-liu" };
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -33,56 +40,52 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/fiberglass-structural-shapes/frp-i-beam/opengraph-image",
 });
 
-// Size + mass are F1 published values. Steel comparison uses standard European
-// section masses (IPE / UC) at the SAME nominal depth — accurate, citable, and
-// the per-size weight delta no competitor publishes inline.
-// Historical hardcoded list — now the build-safe fallback when the catalog DB
-// is empty/unreachable, and the source of the editorial steel-comparison
-// columns (steel masses are reference content, not catalog data).
-const fallbackSizes = [
-  { model: "I 76×38×6.4", h: 76, b: 38, t: 6.4, weight: "1.2", steel: "IPE 80", steelW: "6.0", saving: "80%" },
-  { model: "I 100×50×6", h: 100, b: 50, t: 6, weight: "1.6", steel: "IPE 100", steelW: "8.1", saving: "80%" },
-  { model: "I 120×60×6", h: 120, b: 60, t: 6, weight: "2.0", steel: "IPE 120", steelW: "10.4", saving: "81%" },
-  { model: "I 152×76×6.4", h: 152, b: 76, t: 6.4, weight: "2.9", steel: "UB 152×89", steelW: "16.0", saving: "82%" },
-  { model: "I 160×80×8", h: 160, b: 80, t: 8, weight: "3.6", steel: "IPE 160", steelW: "15.8", saving: "77%" },
-  { model: "I 200×100×10", h: 200, b: 100, t: 10, weight: "5.8", steel: "IPE 200", steelW: "22.4", saving: "74%" },
-  { model: "I 240×120×12", h: 240, b: 120, t: 12, weight: "8.4", steel: "IPE 240", steelW: "30.7", saving: "73%" },
-  { model: "I 300×150×15", h: 300, b: 150, t: 15, weight: "13.5", steel: "IPE 300", steelW: "42.2", saving: "68%" },
-  { model: "I 305×305×12.7", h: 305, b: 305, t: 12.7, weight: "16.0", steel: "UC 305×305", steelW: "96.9", saving: "83%" },
+// Standard European steel sections (IPE, UB, UC) at the same nominal depth:
+// reference masses for the weight comparison, not supplied by F1 Composite.
+const steelAtSameDepth: Record<string, { section: string; mass: number }> = {
+  "I 76×38×6.4": { section: "IPE 80", mass: 6.0 },
+  "I 100×50×6": { section: "IPE 100", mass: 8.1 },
+  "I 120×60×6": { section: "IPE 120", mass: 10.4 },
+  "I 152×76×6.4": { section: "UB 152×89", mass: 16.0 },
+  "I 160×80×8": { section: "IPE 160", mass: 15.8 },
+  "I 200×100×10": { section: "IPE 200", mass: 22.4 },
+  "I 240×120×12": { section: "IPE 240", mass: 30.7 },
+  "I 300×150×15": { section: "IPE 300", mass: 42.2 },
+  "I 305×305×12.7": { section: "UC 305×305", mass: 96.9 },
+};
+
+const specifyFrp = [
+  "Corrosive service: coastal, chemical, wastewater, de-icing salt",
+  "Electrical insulation or a non-magnetic structure is required",
+  "Crews lift members by hand, with no crane or hot work",
+  "Decades of service without recoating",
 ];
 
-const steelByModel = new Map(fallbackSizes.map((s) => [s.model, s]));
+const stayWithSteel = [
+  "Dry, inland service with a horizon under 15 years",
+  "Long spans that would need a very deep FRP section",
+  "Continuous service above about 60 °C",
+  "The certifying authority does not accept FRP for the element",
+];
 
-async function loadSizes(): Promise<typeof fallbackSizes> {
-  const rows = await getCategorySizes("i-beam");
-  if (rows.length === 0) return fallbackSizes;
-  return rows.map((r) => {
-    const steel = steelByModel.get(r.model);
-    return {
-      model: r.model,
-      h: r.dims.H ?? 0,
-      b: r.dims.B ?? 0,
-      t: r.dims.tw ?? 0,
-      weight: r.weight == null ? "—" : String(r.weight),
-      steel: steel?.steel ?? "—",
-      steelW: steel?.steelW ?? "—",
-      saving: steel?.saving ?? "—",
-    };
-  });
-}
-
-// EN 13706 E23 characteristic values (longitudinal). Modulus rows are the grade
-// definition; the rest are F1 characteristic values per the cited test method.
-const e23Props = [
-  { property: "Tensile modulus E_L (longitudinal)", value: "≥ 23 GPa", method: "EN ISO 527-4" },
-  { property: "Full-section flexural modulus", value: "≥ 23 GPa", method: "EN ISO 14125" },
-  { property: "Tensile strength (longitudinal)", value: "240 MPa", method: "EN ISO 527-4" },
-  { property: "Flexural strength", value: "240 MPa", method: "EN ISO 14125" },
-  { property: "In-plane shear strength", value: "30 MPa", method: "EN ISO 14130" },
-  { property: "Transverse tensile modulus E_T", value: "~ 7 GPa", method: "EN ISO 527-4" },
-  { property: "Density", value: "1.9 g/cm³", method: "EN ISO 1183" },
-  { property: "Glass content (by weight)", value: "65–70%", method: "ISO 1172" },
-  { property: "Surface flame spread", value: "Class A · FSI ≤ 25", method: "ASTM E84" },
+// Four checks, in the order that usually decides an FRP beam.
+const sizingSteps = [
+  {
+    title: "Deflection first",
+    body: "FRP modulus is 17–28 GPa, about a tenth of steel. A section that meets L/240 or L/360 usually has a large margin in bending and shear.",
+  },
+  {
+    title: "Add shear deflection",
+    body: "With a shear modulus of about 3 GPa, shear adds 15–25% to bending deflection on short spans. 5wL⁴/384EI alone under-predicts; the calculator includes shear.",
+  },
+  {
+    title: "Check flange buckling",
+    body: "Thin flanges can buckle before the bending capacity is reached. Keep the outstanding flange b/t at or below about 18; check to ASCE/SEI 74-23 Ch. 3 or CEN/TS 19101 §6.",
+  },
+  {
+    title: "Detail the connections",
+    body: "Transverse strength is about a quarter of longitudinal: edge distance and spacing of at least 4 bolt diameters, oversized washers, snug-tight A4-316 bolts.",
+  },
 ];
 
 const crosswalk = [
@@ -93,105 +96,77 @@ const crosswalk = [
   { topic: "Fire — surface flame spread", eu: "EN 13501-1", na: "ASTM E84", cn: "GB 8624" },
 ];
 
-const pitfalls = [
-  {
-    title: "Deflection governs, not strength",
-    body: "FRP modulus is 17–28 GPa — roughly 1/10 of steel. A section sized for steel-equivalent strength deflects about 10× more, so check the L/240 or L/360 serviceability limit first. If deflection passes, bending and shear usually pass with large margin.",
-  },
-  {
-    title: "Shear deflection is real",
-    body: "In-plane shear modulus G_LT is only ~3 GPa, so shear deformation adds 15–25% on top of bending deflection on short spans. Use the Timoshenko-corrected deflection (the calculator applies it automatically); pure Δ = 5wL⁴/384EI under-predicts.",
-  },
-  {
-    title: "Check local buckling of the flange",
-    body: "Thin-walled FRP flanges can buckle before reaching calculated bending capacity. Keep the outstanding-flange slenderness b/t ≤ ~18 for E-glass pultruded, and run the full check per ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6 for compression-governed members.",
-  },
-  {
-    title: "Detail connections for the transverse direction",
-    body: "Pultruded FRP is strongly orthotropic — transverse strength is ~1/4 of longitudinal. Bolted joints need edge distance ≥ 4× bolt diameter, spacing ≥ 4d, oversized washers, and snug-tight (never crushed) A4-316 stainless fasteners.",
-  },
-];
-
-const keyFacts = [
-  { label: "Depth range", value: "76 – 305 mm" },
-  { label: "Mass", value: "1.2 – 16 kg/m" },
-  { label: "vs steel (same depth)", value: "~68–83% lighter" },
-  { label: "Grade", value: "EN 13706 E23" },
-  { label: "Resins", value: "Polyester · vinyl ester · PU · phenolic" },
-  { label: "Fire", value: "FR grades; ASTM E84 report on request" },
-  { label: "Tolerance", value: "ASTM D3917 · ±0.25 mm" },
-  { label: "Lead time", value: "Stock 2–4 wk · new die 6–10 wk" },
-];
-
 const faqItems = [
   {
     question: "How much lighter are FRP I-beams compared to steel?",
     answer:
-      "At the same nominal depth, a pultruded FRP I-beam weighs about 68–83% less than the steel section. An FRP I 200×100×10 is 5.8 kg/m versus 22.4 kg/m for a steel IPE 200 — a 74% reduction in lifting weight and dead load. Note that, because FRP modulus is ~1/10 of steel, a deflection-equal FRP member is usually one or two depths larger than the steel it replaces; installed weight still drops roughly 70%.",
+      "At the same nominal depth, a pultruded FRP I-beam weighs about 68–83% less than the steel section. An FRP I 200×100×10 is 5.8 kg/m against 22.4 kg/m for a steel IPE 200, a 74% cut in lifting weight and dead load. Because FRP modulus is about a tenth of steel, a deflection-equal FRP member is usually one or two depths larger than the steel it replaces; the installed weight still drops by roughly 70%.",
   },
   {
     question: "Where do I get the section properties (Ix, Sx) for design?",
     answer:
-      "Verified section properties for the exact section you order are on the stamped production datasheet, and you can compute them live — with your wall thicknesses — in the FRP profile calculator. We deliberately do not publish back-calculated Ix/Sx on this page: pultruded I-beam wall geometry varies by size, so design-critical section properties must come from the datasheet for the ordered profile.",
+      "The size table lists A, Ix and Wx (the elastic section modulus, also written Sx) for every size, calculated from the nominal, sharp-cornered section. Each size's datasheet adds Iy, the radii of gyration and the torsion constant. Use them for preliminary sizing, and confirm the section properties on the production datasheet of the profile you order: corner radii and wall tolerances change them slightly.",
   },
   {
     question: "Can FRP I-beams be used as primary structural members?",
     answer:
-      "Yes — for walkways, pedestrian bridges, platforms, cooling towers, and building frames. Because the elastic modulus is ~1/10 of steel, deflection usually governs the design rather than strength. F1 Composite supplies full E23 mechanical data, span/load calculation support, and connection detailing.",
+      "Yes: for walkways, pedestrian bridges, platforms, cooling towers and building frames. Because the elastic modulus is about a tenth of steel, deflection usually governs the design rather than strength. F1 Composite supplies the E23 laminate data, span and load calculation support, and connection detailing.",
   },
   {
     question: "What resin systems are available for I-beams?",
     answer:
-      "Isophthalic polyester for general structural use, vinyl ester for aggressive chemical, chlorine, or marine service, polyurethane for high toughness and fast cure, and phenolic for fire-critical or rail (EN 45545-2) applications. Resin choice drives chemical resistance and fire performance, not stiffness.",
+      "Isophthalic polyester for general structural use, vinyl ester for aggressive chemical, chlorine or marine service, polyurethane for toughness, and phenolic for fire-critical or rail (EN 45545-2) applications. Resin choice drives chemical resistance and fire performance, not stiffness.",
   },
   {
     question: "Which standards do F1 Composite I-beams meet?",
     answer:
-      "Profiles are produced to EN 13706 grade E23 (≥23 GPa full-section flexural modulus) and ASTM D3917 (±0.25 mm tolerance). Fire-retardant grades are available, with ASTM E84 flame-spread reports on request, as is the ISO 9001 certificate. Design references: ASCE/SEI 74-23 (US LRFD), CEN/TS 19101 (EU), GB 50608 / CECS 692 (China).",
+      "Profiles are produced to EN 13706 grade E23 (a longitudinal modulus of at least 23 GPa) with dimensional tolerances to ASTM D3917. Fire-retardant grades are available, with ASTM E84 flame-spread reports on request, as is the ISO 9001 certificate. Design references: ASCE/SEI 74-23 (US LRFD), CEN/TS 19101 (EU), GB 50608 / CECS 692 (China).",
   },
   {
     question: "What is the lead time and minimum order for FRP I-beams?",
-    answer:
-      "Standard sizes ship in 2–4 weeks; a custom section with new tooling is 4–8 weeks. Stock profiles have no minimum; custom runs are typically from 500 linear meters. Standard packaging is 6 m or 12 m lengths, cut to size on request.",
+    answer: `Catalog sections ship in ${weeks(supplyTerms.catalogLeadTimeWeeks)}; a variant on an existing die takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)} and a new die ${weeks(supplyTerms.newDieLeadTimeWeeks)}. A first custom run starts at ${supplyTerms.customMoqMeters.firstRun} m and repeats at ${supplyTerms.customMoqMeters.repeat} m; catalog quantities are confirmed per order. Beams come in ${supplyTerms.standardLengthM} m lengths or cut to your length.`,
+  },
+];
+
+const applications = [
+  {
+    href: "/case-studies/factory-access-staircase",
+    kind: "Case study",
+    title: "Factory access staircase",
+    text: "A bolted FRP stair in our Chongqing plant, assembled by four people with hand tools: no welding, hot work or crane.",
+    image: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+    imageAlt: "FRP I-beam stringers and pultruded profiles forming a staircase frame in F1 Composite's factory",
+    used: "I-beam stringers and landing beams with square tubes, in vinyl ester",
+  },
+  {
+    href: "/case-studies/beam-bridge",
+    kind: "Design guide",
+    title: "Beam bridge design",
+    text: "Longitudinal I-beams, cross-members and a deck: the usual starting point for a pedestrian or cycle bridge cost study.",
+    image: "/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg",
+    imageAlt: "Cross-section of a pedestrian bridge: longitudinal I-girders under the deck, with barriers, drainage and bearings",
+    fit: "contain" as const,
+  },
+  {
+    href: "/applications/frp-chemical-plant-platforms",
+    kind: "Application",
+    title: "Chemical plant platforms",
+    text: "I-beams and channels carry the floor; grating, stair treads and handrails complete an access system for acid splash and washdown.",
+    image: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
+    imageAlt: "Chemical plant with access platforms, grating and handrails",
   },
 ];
 
 export default async function IBeamPage() {
-  const sizes = await loadSizes();
-  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
-  const pageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: pageTitle,
-    url: absoluteUrl(pagePath),
-    dateModified: LAST_UPDATED,
-    lastReviewed: LAST_UPDATED,
-    reviewedBy: {
-      "@type": "Person",
-      name: REVIEWER.name,
-      jobTitle: REVIEWER.title,
-      url: absoluteUrl(`/about/authors/${REVIEWER.slug}`),
-    },
-    isPartOf: { "@type": "WebSite", name: "F1 Composite", url: "https://www.f1composite.com" },
-    about: { "@type": "Thing", name: "Pultruded FRP I-beam", sameAs: "https://en.wikipedia.org/wiki/Pultrusion" },
-  };
+  const sizes = await loadFamilySizes("i-beam");
+  const rows = sizes.map((size) => {
+    const steel = steelAtSameDepth[size.model];
+    const saving = steel && size.mass ? Math.round((1 - size.mass / steel.mass) * 100) : null;
+    return { ...size, extra: steel ? { steel: steel.section, steelMass: steel.mass.toFixed(1), saving: saving == null ? "—" : `${saving}%` } : undefined };
+  });
 
   return (
     <>
-      <PageHeader
-        tag="I-Beam"
-        line={{ name: "F1-STRUX", label: "I-beam" }}
-        figure={<ProfileFigure model="I 152×76×6.4" />}
-        title="Fiberglass I-Beam (FRP) Profiles"
-        description="Wide-flange pultruded fiberglass I-beams from 76×38 mm to 305×305 mm. About 70–80% lighter than steel beams at the same depth, fully corrosion-free, EN 13706 E23."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
-          { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
-          { label: "I-Beam" },
-        ]}
-      />
-
       <JsonLd
         data={buildProductFamilyPageSchema({
           name: "FRP I-Beam Profiles",
@@ -200,365 +175,244 @@ export default async function IBeamPage() {
           image: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Phenolic resin"],
-          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
-          additionalProperty: [
-            { name: "Size Range", value: "76×38 mm to 305×305 mm" },
-            { name: "Mass", value: "1.2–16 kg/m" },
-            { name: "Grade", value: "EN 13706 E23" },
-            { name: "Benefit", value: "~70–80% lighter than steel at the same depth" },
-          ],
-          measurements: [
-            { propertyID: "tensileStrength", value: "240-400", unitText: "MPa" },
-            { propertyID: "flexuralStrength", value: "200-350", unitText: "MPa" },
-            { propertyID: "flexuralModulus", value: "23", unitText: "GPa" },
-            { propertyID: "density", value: "1.9", unitText: "g/cm³" },
-          ],
+          productLine: "F1-STRUX",
+          dateModified: LAST_UPDATED,
+          reviewedBy: { name: REVIEWER.name, jobTitle: REVIEWER.title, path: REVIEWER.href },
         })}
       />
-      <JsonLd data={pageSchema} />
+      <PageHeader
+        tag="I-Beam"
+        line={{ name: "F1-STRUX", label: "I-beam" }}
+        updated={LAST_UPDATED}
+        reviewer={REVIEWER}
+        title="Fiberglass I-Beam (FRP) Profiles"
+        description="Wide-flange pultruded fiberglass I-beams from 76×38 to 305×305 mm, 68–83% lighter than a steel section of the same depth. They do not rust, and deflection rather than strength usually decides the size."
+        facts={[
+          ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
+          { label: "Grade", value: "EN 13706 E23" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP I-beams", productPath: pagePath }) },
+          secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <>
+            <ProfileFigure model="I 152×76×6.4" />
+            <HeroPhotos
+              photos={[
+                { src: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp", alt: "Rendering of a pultruded FRP I-beam", caption: "I 200×100×10 · render" },
+                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+              ]}
+            />
+          </>
+        }
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
+          { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
+          { label: "I-Beam" },
+        ]}
+      />
 
-      {/* Key facts (TL;DR) + review byline */}
-      <section className="bg-white pt-[55px]">
-        <div className="site-container">
-          <p className="text-f18 leading-golden text-t1">
-            A pultruded FRP I-beam is a constant-section fiberglass wide-flange beam
-            made by pulling E-glass roving and mat through a resin bath and heated
-            die. It carries bending load like a steel I-beam but weighs ~70–80% less,
-            never corrodes, and does not conduct electricity — so deflection, not
-            strength or rust, governs how you size it.
-          </p>
-          <div className="mt-[24px] rounded-card border border-border-default bg-bg2 p-[24px]">
-            <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
-              <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
-              <p className="text-f12 text-t3">
-                Reviewed by{" "}
-                <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
-                  {REVIEWER.name}
-                </Link>
-                , {REVIEWER.title} · Last updated {LAST_UPDATED}
-              </p>
-            </div>
-            <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
-              {keyFacts.map((f) => (
-                <div key={f.label}>
-                  <dt className="text-f12 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
-                  <dd className="mt-[3px] text-f16 font-semibold text-t1">{f.value}</dd>
-                </div>
+      <ProductPageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes", count: sizes.length },
+          { id: "properties", label: "Properties & design" },
+          { id: "applications", label: "Applications" },
+          { id: "documents", label: "Documents" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <ProductSection id="overview" title="Overview">
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
+            <p>
+              A pultruded FRP I-beam is a constant-section fiberglass wide-flange beam, pulled through resin and a heated die. Roving in the flanges gives bending stiffness, mat in the web carries shear, and a surface veil forms a resin-rich outer layer.
+            </p>
+            <p>
+              It carries bending like a steel I-beam at a fraction of the weight, without rust. With about a tenth of the modulus of steel, it is sized by deflection.
+            </p>
+            <ul className="flex flex-wrap gap-[8px] pt-[4px]">
+              {["EN 13706 E23", "ASTM D3917 tolerances", `${supplyTerms.standardLengthM} m lengths or cut to size`, "Polyester, vinyl ester, PU, phenolic"].map((chip) => (
+                <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
+                  {chip}
+                </li>
               ))}
-            </dl>
+            </ul>
+          </div>
+          <div className="grid gap-[12px] sm:grid-cols-2">
+            <div className="rounded-card border border-teal-border bg-teal-bg p-[18px]">
+              <h3 className="text-f16 font-bold text-teal-text">Specify FRP when</h3>
+              <ul className="mt-[8px] space-y-[8px] text-f14 leading-golden text-t2">
+                {specifyFrp.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[18px]">
+              <h3 className="text-f16 font-bold text-t1">Stay with steel when</h3>
+              <ul className="mt-[8px] space-y-[8px] text-f14 leading-golden text-t2">
+                {stayWithSteel.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-f14 text-t3 sm:col-span-2">
+              Cost and lifecycle comparison:{" "}
+              <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+                FRP vs steel, aluminum and timber
+              </Link>
+            </p>
           </div>
         </div>
-      </section>
+      </ProductSection>
 
-      {/* Hero Image + Intro */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
-            <div>
-              <SectionTag>Wide-flange profiles</SectionTag>
-              <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Structural I-beams engineered for performance
-              </h2>
-              <p className="mt-[13px] text-f16 leading-golden text-t2">
-                F1 Composite pultruded FRP I-beams replicate standard steel
-                wide-flange geometry while delivering ~70–80% weight reduction.
-                Unidirectional E-glass roving in the flanges provides flexural
-                stiffness; continuous strand mat in the web carries shear; a
-                surfacing veil gives a resin-rich, UV- and corrosion-resistant
-                outer layer. Available in polyester, vinyl ester, polyurethane,
-                and phenolic resin systems.
-              </p>
-              <div className="mt-[16px] flex flex-wrap gap-[13px]">
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E23</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No rust</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 tolerances</span>
-              </div>
-            </div>
-            <div className="relative aspect-square overflow-hidden rounded-card bg-neutral-50">
-              <Image
-                src="/images/products/i-beam/frp-i-beam-cover.jpg"
-                alt="Pultruded FRP I-beam wide flange structural profile by F1 Composite"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                preload
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductSection
+        id="sizes"
+        title="Sizes"
+        count={`${sizes.length} catalog sizes`}
+        tone="muted"
+        intro="Dimensions in mm, mass in kg/m. Ix and Wx are calculated from the nominal section, for preliminary sizing; the steel columns compare IPE, UB and UC sections of the same depth, for reference."
+        aside={
+          <Link href="/tools/profile-finder?shape=i_beam" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            Filter and compare in the profile finder
+          </Link>
+        }
+      >
+        <FamilySizeTable
+          rows={rows}
+          caption="FRP I-beam catalog sizes with nominal section properties and the steel section of the same depth"
+          product="FRP I-beam"
+          productPath={pagePath}
+          columns={[
+            { key: "d", label: "H", unit: "mm" },
+            { key: "b", label: "B", unit: "mm" },
+            { key: "t", label: "t", unit: "mm" },
+            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "Ix", label: "Ix", unit: "cm⁴" },
+            { key: "Wx", label: "Wx", unit: "cm³" },
+          ]}
+          extras={[
+            { key: "steel", label: "Steel, same depth" },
+            { key: "steelMass", label: "Steel", unit: "kg/m" },
+            { key: "saving", label: "Lighter" },
+          ]}
+        />
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">
+          A deflection-equal FRP section is usually one or two depths larger than the steel it replaces, and still about 70% lighter installed. {commercialFacts.availability}
+        </p>
+        <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/frp-span-tables#i-beam" className="underline underline-offset-4 hover:text-teal">
+            Allowable loads by span
+          </Link>
+          <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
+            A size not listed: custom pultrusion
+          </Link>
+        </p>
+      </ProductSection>
 
-      {/* How to size */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>How to size an FRP I-beam</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Deflection first, then strength
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Sizing an FRP I-beam follows a different order than steel. Because the
-            modulus is roughly a tenth of steel, the section that satisfies the
-            deflection limit almost always satisfies bending and shear with margin.
-            Work the four checks below in order — or run them instantly in the
-            calculator, pre-loaded for an I-beam.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
-            {pitfalls.map((p) => (
-              <div key={p.title} className="rounded-card border border-border-default bg-white p-[24px]">
-                <h3 className="text-f18 font-bold text-t1">{p.title}</h3>
-                <p className="mt-[8px] text-f16 leading-golden text-t2">{p.body}</p>
-              </div>
+      <ProductSection id="properties" title="Properties and design">
+        <LaminateProperties />
+        <div className="mt-[40px]">
+          <h3 className="text-f18 font-bold text-t1">Sizing an FRP I-beam</h3>
+          <ol className="mt-[12px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+            {sizingSteps.map((step, index) => (
+              <li key={step.title} className="rounded-card border border-border-default bg-white p-[16px]">
+                <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check {index + 1}</span>
+                <h4 className="mt-[4px] text-f16 font-bold text-t1">{step.title}</h4>
+                <p className="mt-[6px] text-f14 leading-golden text-t2">{step.body}</p>
+              </li>
             ))}
-          </div>
-          <div className="mt-[34px]">
+          </ol>
+          <div className="mt-[16px] grid grid-cols-1 items-start gap-[16px] lg:grid-cols-2">
             <CalculatorCTA
               href="/frp-profile-calculator#shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360"
               eyebrow="Worked example · 3 m walkway beam"
               title="Size a 3 m walkway I-beam at 5 kN/m, L/360, outdoor"
-              sub="Opens the calculator pre-loaded with this load case on an EN 13706 E23 I-beam — see which check governs, the steel-equivalent section, and the deflection with the Timoshenko shear correction included."
+              sub="Opens the calculator with this load case on an E23 I-beam: which check governs, the steel-equivalent section and the deflection with shear included."
             />
+            <details className="group rounded-card border border-border-default bg-white">
+              <summary className="flex min-h-[48px] cursor-pointer list-none items-center justify-between gap-[12px] px-[16px] text-f16 font-bold text-t1 [&::-webkit-details-marker]:hidden">
+                Standards by region: EU, US, China
+                <span aria-hidden className="text-teal-text transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <div className="relative overflow-x-auto border-t border-border-default">
+                <table className="w-full border-collapse text-left text-f14">
+                  <thead>
+                    <tr className="border-b border-border-default bg-bg2">
+                      {["Topic", "Europe", "North America", "China"].map((heading) => (
+                        <th key={heading} scope="col" className="whitespace-nowrap px-[12px] py-[8px] font-semibold text-t1">
+                          {heading}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {crosswalk.map((row) => (
+                      <tr key={row.topic} className="border-b border-border-default last:border-b-0">
+                        <th scope="row" className="px-[12px] py-[8px] font-normal text-t1">{row.topic}</th>
+                        <td className="px-[12px] py-[8px] text-t2">{row.eu}</td>
+                        <td className="px-[12px] py-[8px] text-t2">{row.na}</td>
+                        <td className="px-[12px] py-[8px] text-t2">{row.cn}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
           </div>
         </div>
-      </section>
+      </ProductSection>
 
-      {/* Size + steel weight table */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Sizes &amp; weight vs steel</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Standard I-beam sizes — and what they replace in steel
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            All dimensions in millimeters; mass in kg/m. The steel column is the
-            standard section at the same nominal depth, for a direct weight
-            comparison. Custom sizes available via{" "}
-            <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">custom pultrusion</Link>.
-          </p>
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={applications} />
+        <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/industries/infrastructure" className="underline underline-offset-4 hover:text-teal">
+            Infrastructure and bridges
+          </Link>
+          <Link href="/applications/frp-bridge-deck-panels" className="underline underline-offset-4 hover:text-teal">
+            Bridge deck panels
+          </Link>
+          <Link href="/industries/industrial" className="underline underline-offset-4 hover:text-teal">
+            Industrial and chemical plants
+          </Link>
+        </p>
+      </ProductSection>
 
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="spec-table w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model (H×B×t)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">H (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">FRP (kg/m)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Steel (same depth)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Steel (kg/m)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">Weight saving</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.h}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{s.weight}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.steel}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.steelW}</td>
-                    <td className="py-[13px] text-f16 font-medium text-teal-text">{s.saving}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[16px] text-f14 text-t3">
-            Compared at the same nominal depth. Because FRP modulus is ~1/10 of
-            steel, a deflection-equal FRP section is typically one or two depths
-            larger than the steel it replaces — installed weight still drops ~70%.
-            Steel masses are standard IPE / UC / UB sections (reference only, not
-            supplied by F1 Composite).
-          </p>
+      <ProductSection id="documents" title="Documents">
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "I-beam", datasheetsHref: "/datasheets#i-beam" }} sizes={sizes} />
+      </ProductSection>
 
-          {/* Section properties — honest routing, not back-calculated */}
-          <div className="mt-[34px] rounded-card border border-teal/30 bg-bg2 p-[24px]">
-            <h3 className="text-f16 font-bold uppercase tracking-[2px] text-teal-text">Section properties (A, I<sub>x</sub>, S<sub>x</sub>)</h3>
-            <p className="mt-[8px] text-f16 leading-golden text-t2">
-              Verified section properties — area, second moment of area, section
-              modulus, radius of gyration — for the exact section you order are on
-              the stamped production datasheet, and you can compute them live, with
-              your wall thicknesses, in the{" "}
-              <Link href="/frp-profile-calculator#shape=i-beam" className="font-semibold text-teal-text hover:text-teal">FRP profile calculator</Link>.
-              We deliberately do not publish back-calculated section properties on
-              this page: pultruded I-beam wall geometry varies by size, so
-              design-critical I<sub>x</sub>/S<sub>x</sub> must come from the datasheet for the
-              profile you specify.
-            </p>
-          </div>
+      <ProductSection id="faq" title="Questions buyers ask" tone="muted">
+        <div className="grid items-start gap-[12px] md:grid-cols-2">
+          {faqItems.map((item) => (
+            <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+          ))}
         </div>
-      </section>
+        <p className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/what-is-frp" className="underline underline-offset-4 hover:text-teal">
+            What is FRP?
+          </Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
+            Design guides (ASCE, EN 13706)
+          </Link>
+          <Link href="/resources/glossary" className="underline underline-offset-4 hover:text-teal">
+            FRP and pultrusion glossary
+          </Link>
+        </p>
+      </ProductSection>
 
-      {/* EN 13706 E23 properties */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Mechanical data — EN 13706 E23</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            E23 characteristic properties (longitudinal)
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            F1 Composite standard I-beams are produced to EN 13706 grade E23 — a
-            minimum full-section flexural modulus of 23 GPa. Each property is paired
-            with the test method that produces it.
-          </p>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">E23 value</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
-                </tr>
-              </thead>
-              <tbody>
-                {e23Props.map((p) => (
-                  <tr key={p.property} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{p.property}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{p.value}</td>
-                    <td className="py-[13px] text-f14 text-t3">{p.method}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[16px] text-f14 text-t3">
-            Modulus rows are the EN 13706 grade definition; strength, density, glass
-            content, and flame spread are F1 characteristic values per the cited
-            method. Transverse strength is ~1/4 of longitudinal — design
-            connections accordingly.
-          </p>
-        </div>
-      </section>
+      <ProductSection id="related" title="Other standard profiles">
+        <RelatedProfiles current={pagePath} />
+      </ProductSection>
 
-      {/* FRP vs steel — when to use */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>FRP vs steel I-beam</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            When an FRP I-beam wins — and when steel still makes sense
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <div className="rounded-card border border-teal/30 bg-bg2 p-[24px]">
-              <h3 className="text-f18 font-bold text-teal-text">Specify FRP when</h3>
-              <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
-                <li>Coastal, chemical, wastewater, or de-icing-salt exposure where steel needs recoating cycles.</li>
-                <li>Electrical insulation or nonmagnetic performance is required (substations, rail systems, and MRI rooms).</li>
-                <li>Manual handling matters — crews lift FRP sections without cranes or hot-work permits.</li>
-                <li>The structure should last decades without recoating, which is where FRP wins on lifecycle cost.</li>
-              </ul>
-            </div>
-            <div className="rounded-card border border-border-default bg-bg2 p-[24px]">
-              <h3 className="text-f18 font-bold text-t1">Stay with steel when</h3>
-              <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
-                <li>Dry, inland, non-corrosive service with a short asset horizon (&lt; 15 years).</li>
-                <li>Long spans where deflection forces an impractically deep FRP section.</li>
-                <li>Continuous service temperature above ~60 °C (approaching the resin&rsquo;s glass transition).</li>
-                <li>The certifying authority does not yet accept FRP for the element.</li>
-              </ul>
-            </div>
-          </div>
-          <p className="mt-[21px] text-f14 text-t3">
-            Full cost and lifecycle comparison:{" "}
-            <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">FRP vs steel, aluminum &amp; timber</Link>.
-          </p>
-        </div>
-      </section>
-
-      {/* Standards crosswalk */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Standards crosswalk</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            The same I-beam, across EU / US / China specs
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Specifiers in different regions cite different standard numbers for the
-            same property. This maps the equivalents F1 Composite I-beams are tested
-            and documented against.
-          </p>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Topic</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Europe</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">North America</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">China</th>
-                </tr>
-              </thead>
-              <tbody>
-                {crosswalk.map((r) => (
-                  <tr key={r.topic} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{r.topic}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{r.eu}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{r.na}</td>
-                    <td className="py-[13px] text-f16 text-t2">{r.cn}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <RelatedLinks
-        groups={[
-          {
-            title: "Related FRP profiles",
-            links: [
-              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angle profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tube" },
-              { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bar" },
-              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
-            ],
-          },
-          {
-            title: "Applications & case studies",
-            links: [
-              { href: "/applications/frp-bridge-deck-panels", label: "FRP bridge deck panels" },
-              { href: "/applications/frp-chemical-plant-platforms", label: "Chemical plant platforms" },
-              { href: "/case-studies/beam-bridge", label: "Beam bridge design & verified case studies" },
-              { href: "/case-studies/factory-access-staircase", label: "Factory access staircase case study" },
-              { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
-            ],
-          },
-          {
-            title: "Technical resources",
-            links: [
-              { href: "/frp-span-tables#i-beam", label: "FRP I-beam span table — allowable loads" },
-              { href: "/frp-profile-calculator#shape=i-beam", label: "FRP I-beam calculator" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/resources/technical-data", label: "Data sheets & test certificates" },
-              { href: "/resources/design-guides", label: "Design guides (ASCE / EN 13706)" },
-              { href: "/resources/glossary", label: "FRP & pultrusion glossary" },
-            ],
-          },
-        ]}
-      />
-
-      {/* FAQ */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
-          <CalculatorCTA
-            href="/frp-profile-calculator#shape=i-beam"
-            eyebrow="Free tool · I-beam preset"
-            title="Size an FRP I-beam — bending, shear &amp; deflection"
-            sub="Opens the FRP profile calculator on an I-beam: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
-          />
-        </div>
-      </section>
-
-      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-i-beam" />
-      <InnerCTA title="Need engineering data or a quotation for I-beam profiles?" />
+      <ProductSection id="quote" title="Quote FRP I-beams" tone="deep">
+        <ProductRfq product="FRP I-beams" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+      </ProductSection>
     </>
   );
 }

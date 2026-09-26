@@ -1,22 +1,30 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
-import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ProfileFigure from "@/components/datasheets/ProfileFigure";
-import { profileFamilyFacts } from "@/lib/profileFacts";
-import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
-import { getCategorySizes } from "@/lib/catalog/public";
-import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+import ApplicationCards from "@/components/products/ApplicationCards";
+import FamilySizeTable from "@/components/products/FamilySizeTable";
+import HeroPhotos from "@/components/products/HeroPhotos";
+import LaminateProperties from "@/components/products/LaminateProperties";
+import ProductDocuments from "@/components/products/ProductDocuments";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
+import RelatedProfiles from "@/components/products/RelatedProfiles";
+import UseList from "@/components/products/UseList";
+import { supplyTerms } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { loadFamilySizes } from "@/lib/catalog/familySizes";
+import { familyApplications } from "@/lib/familyApplications";
+import { profileFamilyFacts } from "@/lib/profileFacts";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-// Size table is DB-driven (catalog admin) with the historical hardcoded list
-// as build-safe fallback; refreshed hourly.
+// Size table is DB-driven (catalog admin) with the published seed catalog as
+// build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer";
@@ -24,30 +32,14 @@ const pageDescription =
   "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-angle";
 
+const LAST_UPDATED = "2026-09-26";
+
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: "/products/fiberglass-structural-shapes/frp-angle/opengraph-image",
 });
-
-const fallbackSizes = [
-  { model: "L 25×25×3.2", a: 25, b: 25, t: 3.2, weight: "0.3" },
-  { model: "L 30×30×4", a: 30, b: 30, t: 4, weight: "0.4" },
-  { model: "L 38×38×4.8", a: 38, b: 38, t: 4.8, weight: "0.5" },
-  { model: "L 50×50×5", a: 50, b: 50, t: 5, weight: "0.8" },
-  { model: "L 50×50×6", a: 50, b: 50, t: 6, weight: "0.9" },
-  { model: "L 50×50×8", a: 50, b: 50, t: 8, weight: "1.2" },
-  { model: "L 65×65×6", a: 65, b: 65, t: 6, weight: "1.2" },
-  { model: "L 75×75×6", a: 75, b: 75, t: 6, weight: "1.4" },
-  { model: "L 75×75×8", a: 75, b: 75, t: 8, weight: "1.8" },
-  { model: "L 76×76×6.4", a: 76, b: 76, t: 6.4, weight: "1.5" },
-  { model: "L 100×100×8", a: 100, b: 100, t: 8, weight: "2.5" },
-  { model: "L 100×100×10", a: 100, b: 100, t: 10, weight: "3.0" },
-  { model: "L 102×102×9.5", a: 102, b: 102, t: 9.5, weight: "3.0" },
-  { model: "L 150×150×12", a: 150, b: 150, t: 12, weight: "5.6" },
-  { model: "L 152×152×12.7", a: 152, b: 152, t: 12.7, weight: "6.0" },
-];
 
 const faqItems = [
   {
@@ -62,21 +54,8 @@ const faqItems = [
   },
 ];
 
-async function loadSizes(): Promise<typeof fallbackSizes> {
-  const rows = await getCategorySizes("angle");
-  if (rows.length === 0) return fallbackSizes;
-  return rows.map((r) => ({
-    model: r.model,
-    a: r.dims.a ?? 0,
-    b: r.dims.b ?? 0,
-    t: r.dims.t ?? 0,
-    weight: r.weight == null ? "—" : String(r.weight),
-  }));
-}
-
 export default async function AnglePage() {
-  const sizes = await loadSizes();
-  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
+  const sizes = await loadFamilySizes("angle");
   return (
     <>
       <JsonLd
@@ -87,20 +66,36 @@ export default async function AnglePage() {
           image: "/images/products/angle/frp-angle-profile-100x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
-          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
-          additionalProperty: [
-            { name: "Size Range", value: "25×25 mm to 152×152 mm" },
-            { name: "Format", value: "Equal-leg and unequal-leg L-profiles" },
-          ],
+          productLine: "F1-STRUX",
+          dateModified: LAST_UPDATED,
         })}
       />
       <PageHeader
         tag="Angle"
         line={{ name: "F1-STRUX", label: "Angle" }}
-        figure={<ProfileFigure model="L 100×100×8" />}
-        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((s) => s.a), weights: sizes.map((s) => s.weight) })}
+        updated={LAST_UPDATED}
         title="Fiberglass Angle (FRP) Profiles"
-        description="Equal and unequal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm."
+        description="Equal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm, with unequal legs made to order. Used as stiffeners, bracing, ledgers and connection angles where steel would corrode."
+        facts={[
+          ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
+          { label: "Grade", value: "EN 13706 E23" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP angles", productPath: pagePath }) },
+          secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <>
+            <ProfileFigure model="L 100×100×8" />
+            <HeroPhotos
+              photos={[
+                { src: "/images/products/angle/frp-angle-profile-100x100x10mm.webp", alt: "Rendering of a pultruded FRP angle", caption: "L 100×100×10 · render" },
+                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+              ]}
+            />
+          </>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -109,125 +104,123 @@ export default async function AnglePage() {
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
-            <div>
-              <SectionTag>L-Profiles</SectionTag>
-              <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Versatile structural angles
-              </h2>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                FRP angles serve as stiffeners, bracing members, ledger supports, and connection elements across structural and architectural applications. Balanced fiber architecture provides near-equal mechanical properties on both legs for consistent load transfer at bolted connections.
-              </p>
-              <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Equal & unequal-leg</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Thermal expansion ≈ concrete</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
-              </div>
-            </div>
-            <div className="relative aspect-square overflow-hidden rounded-card bg-white">
-              <Image
-                src="/images/products/angle/frp-angle-cover.jpg"
-                alt="Pultruded FRP angle L-profile 100x100x10 mm by F1 Composite"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                style={{ objectPosition: "center 25%" }}
-                preload
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="spec-table w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">A (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.a}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <ProfileSupplyGuide product="angles" />
-
-      <RelatedLinks
-        groups={[
-          {
-            title: "Related FRP profiles",
-            links: [
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bar" },
-              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tube" },
-              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
-            ],
-          },
-          {
-            title: "Applications",
-            links: [
-              { href: "/industries/construction", label: "Construction bracing & stiffeners" },
-              { href: "/industries/industrial", label: "Industrial frames" },
-              { href: "/industries/energy", label: "Energy & solar mounting" },
-              { href: "/industries/infrastructure", label: "Infrastructure" },
-            ],
-          },
-          {
-            title: "Technical resources",
-            links: [
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
-              { href: "/resources/technical-data", label: "Data sheets" },
-              { href: "/resources/design-guides", label: "Design guides" },
-              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
-            ],
-          },
+      <ProductPageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes", count: sizes.length },
+          { id: "properties", label: "Properties" },
+          { id: "applications", label: "Applications" },
+          { id: "documents", label: "Documents" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
+      <ProductSection id="overview" title="Overview">
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
+            <p>
+              FRP angles serve as stiffeners, bracing members, ledger supports and connection elements in structural and architectural work. A balanced fiber architecture gives both legs near-equal properties, so bolted connections transfer load consistently.
+            </p>
+            <ul className="flex flex-wrap gap-[8px] pt-[4px]">
+              {["EN 13706 E23", "Equal legs; unequal to order", "Non-conductive", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+                <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <UseList
+            items={[
+              { label: "Construction bracing and stiffeners", href: "/industries/construction" },
+              { label: "Industrial frames", href: "/industries/industrial" },
+              { label: "Energy and solar mounting", href: "/industries/energy" },
+              { label: "Infrastructure", href: "/industries/infrastructure" },
+            ]}
+          />
         </div>
-      </section>
+      </ProductSection>
 
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
+      <ProductSection
+        id="sizes"
+        title="Sizes"
+        count={`${sizes.length} catalog sizes`}
+        tone="muted"
+        intro="Dimensions in mm, mass in kg/m. Ix and Wx are calculated from the nominal section, about the centroidal axis parallel to a leg, for preliminary sizing."
+        aside={
+          <Link href="/tools/profile-finder?shape=angle" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            Filter and compare in the profile finder
+          </Link>
+        }
+      >
+        <FamilySizeTable
+          rows={sizes}
+          caption="FRP angle catalog sizes with nominal section properties"
+          product="FRP angle"
+          productPath={pagePath}
+          columns={[
+            { key: "d", label: "a", unit: "mm" },
+            { key: "b", label: "b", unit: "mm" },
+            { key: "t", label: "t", unit: "mm" },
+            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "Ix", label: "Ix", unit: "cm⁴" },
+            { key: "Wx", label: "Wx", unit: "cm³" },
+          ]}
+        />
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
+        <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
+            Unequal legs or a size not listed: custom pultrusion
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="properties" title="Properties">
+        <LaminateProperties />
+        <div className="mt-[24px] max-w-[640px]">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=angle"
             eyebrow="Free tool · angle preset"
-            title="Size an FRP angle — bending, shear &amp; deflection"
-            sub="Opens the FRP profile calculator on an angle (L-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+            title="Size an FRP angle: bending, shear and deflection"
+            sub="Opens the profile calculator on an angle. Check bending, shear and deflection with shear included against your span and load, and find the steel-equivalent section."
           />
         </div>
-      </section>
+      </ProductSection>
 
-      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-angle" />
-      <InnerCTA title="Need engineering data or a quotation for angle profiles?" />
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("angle")} />
+      </ProductSection>
+
+      <ProductSection id="documents" title="Documents">
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Angle", datasheetsHref: "/datasheets#angle" }} sizes={sizes} />
+      </ProductSection>
+
+      <ProductSection id="faq" title="Questions buyers ask" tone="muted">
+        <div className="grid items-start gap-[12px] md:grid-cols-2">
+          {faqItems.map((item) => (
+            <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+          ))}
+        </div>
+        <p className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-vs-traditional-materials" className="underline underline-offset-4 hover:text-teal">
+            FRP vs steel comparison
+          </Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
+            Design guides
+          </Link>
+          <Link href="/what-is-frp" className="underline underline-offset-4 hover:text-teal">
+            What is FRP?
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="related" title="Other standard profiles">
+        <RelatedProfiles current={pagePath} />
+      </ProductSection>
+
+      <ProductSection id="quote" title="Quote FRP angles" tone="deep">
+        <ProductRfq product="FRP angles" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+      </ProductSection>
     </>
   );
 }

@@ -105,14 +105,17 @@ function parseNameStatus(output) {
     });
 }
 
+// Private and intentionally noindex application surfaces are not search
+// landing pages. Deleted/redirected exceptions can still be sent through
+// the workflow's explicit manual URL input. The indexed datasheet pilot
+// pages are added separately in collectChangedPaths.
+export function isSubmittableRoute(route) {
+  if (!route || !route.startsWith("/")) return false;
+  return !/^\/(?:admin|api|datasheets|search)(?:\/|$)/.test(route) && !route.endsWith("/embed");
+}
+
 function addPath(paths, route) {
-  if (!route || !route.startsWith("/")) return;
-  // Private and intentionally noindex application surfaces are not search
-  // landing pages. Deleted/redirected exceptions can still be sent through
-  // the workflow's explicit manual URL input. The indexed datasheet pilot
-  // pages are added separately in collectChangedPaths.
-  if (/^\/(?:admin|api|datasheets)(?:\/|$)/.test(route) || route.endsWith("/embed")) return;
-  paths.add(route);
+  if (isSubmittableRoute(route)) paths.add(route);
 }
 
 // Datasheets are noindex except the pilot sizes in INDEXED_DATASHEET_SLUGS.

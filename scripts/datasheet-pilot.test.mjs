@@ -66,9 +66,12 @@ test("only the pilot overrides the datasheet noindex, and the sitemap lists the 
 });
 
 test("family size tables and the span tables link sizes to their datasheets", () => {
-  for (const family of ["frp-angle", "frp-channel", "frp-flat-bar", "frp-i-beam", "frp-rod"]) {
-    assert.match(read(`app/products/fiberglass-structural-shapes/${family}/page.tsx`), /<DatasheetModelLink model=\{s\.model\} \/>/);
+  for (const family of ["frp-angle", "frp-channel", "frp-flat-bar", "frp-i-beam", "frp-rod", "frp-square-tube", "frp-tube"]) {
+    const page = read(`app/products/fiberglass-structural-shapes/${family}/page.tsx`);
+    assert.match(page, /await loadFamilySizes\("[a-z-]+"\)/, `${family} loads its sizes with loadFamilySizes`);
+    assert.match(page, /<FamilySizeTable\b/, `${family} shows its sizes in FamilySizeTable`);
   }
-  assert.match(read("components/sections/TubeSizeTable.tsx"), /<DatasheetModelLink model=\{size\.model\} \/>/);
+  assert.match(read("lib/catalog/familySizes.ts"), /datasheet: datasheetHrefForModel\(model\)/);
+  assert.match(read("components/products/FamilySizeTable.tsx"), /<Link href=\{row\.datasheet\}/);
   assert.match(read("app/frp-span-tables/page.tsx"), /datasheetHrefs=\{datasheetHrefs\}/);
 });

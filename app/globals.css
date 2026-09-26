@@ -129,6 +129,12 @@ body {
   }
 }
 
+/* A product page ends with its own quote block (ProductRfq); the footer's
+   generic quote band would repeat it straight after. */
+body:has([data-page-rfq]) [data-footer-cta] {
+  display: none;
+}
+
 /* Balanced wrapping keeps a heading from leaving one word on its last line.
    In the base layer so a text-pretty or text-wrap utility can still override. */
 @layer base {

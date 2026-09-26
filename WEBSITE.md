@@ -314,6 +314,26 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 - **导航**：`content/data/navigation.ts` 分产品、行业、工具、资源、公司五个栏目，网址都没有变。产品菜单右侧的快捷入口（筛选器、规格书、下载、检测报告）放在 `productShortcuts`，它们必须同时出现在其他菜单里，`scripts/navigation-ia.test.mjs` 会检查。页脚五列与五个栏目对应。
 - **文件库**：`lib/documents.ts` 组装下载页的文件，并按类型、出具机构、产品分类，下载页可按这三项筛选。新增检测报告或证书时，先登记到 `content/data/engineeringEvidence.ts`（结果和日期登记到 `reportedResults`），出具方、日期和适用产品会自动显示。
 
+## 产品页模板（2026-09 阶段 3）
+
+7 个标准型材页（工字梁、槽钢、角钢、方矩管、圆管、圆棒、扁条）用同一套骨架，顺序固定：
+
+1. **页头**：产品线标签、一句话结论、4 项关键数据、询价和"Find a size"按钮、更新日期；右侧是截面图版和两张小图（渲染图或工厂照片）。手机上图版排在按钮之后，首屏就能看到询价按钮。
+2. **吸顶页内导航**（`components/products/ProductPageNav.tsx`）：概览、规格、性能、应用、文件、常见问题、询价，滚动时高亮当前段落。
+3. **规格表**（`components/products/FamilySizeTable.tsx`）：可点表头排序；型号链接规格书，每行有 DXF 下载和单个规格的询价链接；管材在毫米值下显示近似英寸。数据来自 `lib/catalog/familySizes.ts`：数据库有目录数据时用数据库，否则用 `lib/catalog/standardProfiles.ts` 的公布目录，截面性能（A、Ix、Wx 等，按名义截面计算）和型材筛选器共用 `lib/catalog/sectionRows.ts`。
+4. **性能**（`LaminateProperties`）：E23 标准层合板的关键值和测试方法、树脂选项，数值取自 `lib/catalog/en13706.ts`，和规格书、技术数据页同源。
+5. **应用**（`lib/familyApplications.ts`）：自动列出推荐该型材的应用页（卡片文字就是应用页里的那句推荐），以及用到该型材的案例。卡片只写来源里写过的内容。
+6. **文件**（`ProductDocuments`）：该型材的规格书和 DXF、文件库里归到该产品或标准型材的文件、按需提供的证书，卡片样式与下载页一致（`components/downloads/DocumentCard.tsx`）。
+7. **常见问题**（默认折叠）、**其他型材**（`RelatedProfiles`）、**询价**（`ProductRfq`，深色底）。
+
+规则：
+
+- **页脚询价条**：页面里有 `ProductRfq`（带 `data-page-rfq`）时，页脚的通用询价条自动隐藏（`app/globals.css`），避免两个询价区块连在一起。注意 `main:has(...) ~ footer` 这种写法会被构建丢掉，要写成 `body:has(...)`。
+- **横向滚动容器**要加 `relative`：容器里的绝对定位元素（如 `sr-only` 文字）如果定位参照在容器外，会撑宽手机页面。单列网格要写 `grid-cols-1`，否则表格会把列撑出屏幕。
+- **锚点偏移**：全站有 88px 的 `scroll-padding-top`，段落再加 40px（`ProductSection` 已处理），标题正好落在吸顶导航下面。
+- **内链归属**：改写这些页面时，`seoQueryTargets.ts` 要求的链接必须保留（如扁条页链到玻璃钢板、圆棒页链到植物支撑杆、方管页链到爬梯和护栏系统），`npm run check:owner-links` 会检查。
+- **图片**：圆棒和扁条目前没有对应的产品图（原圆棒图其实是金属角码，原扁条图是带筋板材），页头用工厂照片；拍到实物后替换 `HeroPhotos`。
+
 ---
 
 ## 待办事项

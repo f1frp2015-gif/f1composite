@@ -6,6 +6,7 @@ import {
   affectsDatasheetPages,
   changedSlugs,
   indexedDatasheetRoutes,
+  isSubmittableRoute,
   normalizeUrls,
   parseIndexedDatasheetSlugs,
   parseSlugBlocks,
@@ -17,6 +18,15 @@ test("maps static App Router page files to canonical paths", () => {
   assert.equal(routeFromPageFile("app/products/frp-gratings/page.tsx"), "/products/frp-gratings");
   assert.equal(routeFromPageFile("app/(marketing)/about/page.tsx"), "/about");
   assert.equal(routeFromPageFile("app/resources/blog/[slug]/page.tsx"), null);
+});
+
+test("leaves private and noindex routes out of automatic submissions", () => {
+  for (const route of ["/admin", "/api/chat", "/datasheets/i-100x50x6", "/search", "/tools/profile-finder/embed"]) {
+    assert.equal(isSubmittableRoute(route), false, route);
+  }
+  for (const route of ["/", "/tools/profile-finder", "/searchlight", "/resources/downloads"]) {
+    assert.equal(isSubmittableRoute(route), true, route);
+  }
 });
 
 test("extracts stable slug records from content data", () => {

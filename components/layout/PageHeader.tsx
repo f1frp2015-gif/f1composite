@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildRfqHref } from "@/lib/rfq";
 import SectionTag from "@/components/ui/SectionTag";
 import LineTag from "@/components/ui/LineTag";
@@ -28,6 +29,8 @@ interface PageHeaderProps {
   actions?: PageHeaderActions;
   /** Date of the page's last content review, YYYY-MM-DD. Keep it equal to the page's JSON-LD dateModified. */
   updated?: string;
+  /** The engineer who reviewed the page, shown with the date. */
+  reviewer?: { name: string; title: string; href: string };
   /** Product line shown in place of the tag, e.g. { name: "F1-STRUX", label: "Standard profile" }. */
   line?: { name: string; label?: string };
   /** Up to four key figures under the description: mono labels, values in DM Sans. */
@@ -47,7 +50,7 @@ function productAdvisorHref(title: string) {
   return `/ask?prefill=${encodeURIComponent(prompt)}`;
 }
 
-export default function PageHeader({ tag, title, description, breadcrumbs, actions, updated, line, facts, figure }: PageHeaderProps) {
+export default function PageHeader({ tag, title, description, breadcrumbs, actions, updated, reviewer, line, facts, figure }: PageHeaderProps) {
   const isProductPage = breadcrumbs.some(
     (item) => item.label === "Products" || item.href === "/pultruded-frp-profiles",
   );
@@ -81,7 +84,8 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
                 {description}
               </p>
             </div>
-            {figure ? <div className="lg:[grid-area:figure]">{figure}</div> : null}
+            {/* Phones: the figure follows the facts and actions, so the quote button is on the first screen. */}
+            {figure ? <div className="max-lg:order-1 lg:[grid-area:figure]">{figure}</div> : null}
             <div className={figure ? "lg:[grid-area:meta]" : undefined}>
               {facts?.length ? (
                 <dl className={`mt-[20px] grid max-w-[820px] grid-cols-2 gap-px overflow-hidden rounded-card border border-border-default bg-border-default ${FACT_COLUMNS[Math.min(facts.length, 4)]}`}>
@@ -98,11 +102,20 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
               {updated ? (
                 <p className="mt-[10px] text-f14 text-t3">
                   Last updated <time dateTime={updated}>{formatShortDate(updated)}</time>
+                  {reviewer ? (
+                    <>
+                      {" · Reviewed by "}
+                      <Link href={reviewer.href} className="font-semibold text-teal-text hover:underline">
+                        {reviewer.name}
+                      </Link>
+                      , {reviewer.title}
+                    </>
+                  ) : null}
                 </p>
               ) : null}
 
               {resolvedActions ? (
-                <div id="page-header-actions" className="mt-[24px] flex flex-col items-start gap-[10px] sm:flex-row sm:flex-wrap sm:items-center">
+                <div id="page-header-actions" className="mt-[24px] flex flex-wrap items-center gap-[10px]">
                   <Button href={resolvedActions.primary.href} variant={resolvedActions.primary.variant ?? "primary"}>
                     {resolvedActions.primary.label}
                   </Button>

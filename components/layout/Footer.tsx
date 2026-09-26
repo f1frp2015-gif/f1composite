@@ -37,7 +37,7 @@ function FooterLinks({ links }: { links: readonly NavLink[] }) {
 export default function Footer() {
   return (
     <footer className="bg-bg2 pb-[72px] md:pb-0">
-      <div className="bg-deep">
+      <div data-footer-cta className="bg-deep">
         <div className="site-container flex flex-col gap-[18px] py-[28px] md:flex-row md:items-center md:justify-between md:py-[32px]">
           <div>
             <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal">Engineering &amp; RFQ support</p>

@@ -24,7 +24,7 @@ export default function ProfileFigure({ model, number = 1 }: { model: string; nu
   return (
     <Figure number={number} title={model} caption={<>Cross-section of <DatasheetModelLink model={model} />, one catalog size. Mass is the published catalog value; A and Ix are calculated from the nominal section.</>}>
       <div className="grid items-center gap-[12px] sm:grid-cols-[minmax(0,1fr)_auto]">
-        <SectionSvg geometry={geometry} size={220} className="mx-auto h-auto w-full max-w-[220px]" />
+        <SectionSvg geometry={geometry} size={220} className="mx-auto h-auto w-full max-w-[150px] sm:max-w-[220px]" />
         <dl className="grid grid-cols-3 gap-x-[16px] gap-y-[2px] text-f14 sm:grid-cols-1 sm:gap-y-[10px]">
           {rows.map(([label, value]) => (
             <div key={label}>

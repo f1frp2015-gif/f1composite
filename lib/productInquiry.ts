@@ -5,8 +5,13 @@ export function approximateInches(mm: number): string {
 }
 
 export function tubeInquiryHref(productPath: string, product: string, specification: string): string {
+  return sizeInquiryHref(productPath, product, specification, "tube-size-selection");
+}
+
+/** A quote request for one catalog size, with the details a quotation needs as prompts. */
+export function sizeInquiryHref(productPath: string, product: string, specification: string, source = "size-table"): string {
   return buildRfqHref({
-    source: "tube-size-selection",
+    source,
     product,
     productPath,
     specification,

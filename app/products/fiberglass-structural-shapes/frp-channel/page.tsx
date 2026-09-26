@@ -1,22 +1,30 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
-import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ProfileFigure from "@/components/datasheets/ProfileFigure";
-import { profileFamilyFacts } from "@/lib/profileFacts";
-import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
-import { getCategorySizes } from "@/lib/catalog/public";
-import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+import ApplicationCards from "@/components/products/ApplicationCards";
+import FamilySizeTable from "@/components/products/FamilySizeTable";
+import HeroPhotos from "@/components/products/HeroPhotos";
+import LaminateProperties from "@/components/products/LaminateProperties";
+import ProductDocuments from "@/components/products/ProductDocuments";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
+import RelatedProfiles from "@/components/products/RelatedProfiles";
+import UseList from "@/components/products/UseList";
+import { supplyTerms } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { loadFamilySizes } from "@/lib/catalog/familySizes";
+import { familyApplications } from "@/lib/familyApplications";
+import { profileFamilyFacts } from "@/lib/profileFacts";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-// Size table is DB-driven (catalog admin) with the historical hardcoded list
-// as build-safe fallback; refreshed hourly.
+// Size table is DB-driven (catalog admin) with the published seed catalog as
+// build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
@@ -24,34 +32,14 @@ const pageDescription =
   "Pultruded fiberglass C and U channels, 38×13–360×108 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-channel";
 
+const LAST_UPDATED = "2026-09-26";
+
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: "/products/fiberglass-structural-shapes/frp-channel/opengraph-image",
 });
-
-const fallbackSizes = [
-  { model: "U 38×13×4.8", h: 38, b: 13, t: 4.8, weight: "0.4" },
-  { model: "U 50×25×5", h: 50, b: 25, t: 5, weight: "0.7" },
-  { model: "U 76×25×6.4", h: 76, b: 25, t: 6.4, weight: "1.0" },
-  { model: "U 76×38×6.4", h: 76, b: 38, t: 6.4, weight: "1.4" },
-  { model: "U 100×30×6", h: 100, b: 30, t: 6, weight: "1.5" },
-  { model: "U 100×50×6", h: 100, b: 50, t: 6, weight: "1.8" },
-  { model: "U 120×50×6", h: 120, b: 50, t: 6, weight: "2.0" },
-  { model: "U 150×40×6", h: 150, b: 40, t: 6, weight: "2.1" },
-  { model: "U 152×43×6.4", h: 152, b: 43, t: 6.4, weight: "2.2" },
-  { model: "U 152×43×9.5", h: 152, b: 43, t: 9.5, weight: "3.2" },
-  { model: "U 160×48×8", h: 160, b: 48, t: 8, weight: "3.0" },
-  { model: "U 200×60×8", h: 200, b: 60, t: 8, weight: "3.8" },
-  { model: "U 200×60×10", h: 200, b: 60, t: 10, weight: "4.6" },
-  { model: "U 240×72×8", h: 240, b: 72, t: 8, weight: "4.6" },
-  { model: "U 240×72×12", h: 240, b: 72, t: 12, weight: "6.8" },
-  { model: "U 254×76×9.5", h: 254, b: 76, t: 9.5, weight: "5.6" },
-  { model: "U 300×90×15", h: 300, b: 90, t: 15, weight: "10.4" },
-  { model: "U 305×89×12.7", h: 305, b: 89, t: 12.7, weight: "8.8" },
-  { model: "U 360×108×18", h: 360, b: 108, t: 18, weight: "15.0" },
-];
 
 const faqItems = [
   {
@@ -66,21 +54,8 @@ const faqItems = [
   },
 ];
 
-async function loadSizes(): Promise<typeof fallbackSizes> {
-  const rows = await getCategorySizes("channel");
-  if (rows.length === 0) return fallbackSizes;
-  return rows.map((r) => ({
-    model: r.model,
-    h: r.dims.H ?? 0,
-    b: r.dims.B ?? 0,
-    t: r.dims.tw ?? 0,
-    weight: r.weight == null ? "—" : String(r.weight),
-  }));
-}
-
 export default async function ChannelPage() {
-  const sizes = await loadSizes();
-  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
+  const sizes = await loadFamilySizes("channel");
   return (
     <>
       <JsonLd
@@ -91,20 +66,36 @@ export default async function ChannelPage() {
           image: "/images/products/channel/frp-channel-profile-200x60x12mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
-          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
-          additionalProperty: [
-            { name: "Size Range", value: "38×13 mm to 360×108 mm" },
-            { name: "Feature", value: "UV-protected surface veil and non-conductive performance" },
-          ],
+          productLine: "F1-STRUX",
+          dateModified: LAST_UPDATED,
         })}
       />
       <PageHeader
         tag="Channel"
         line={{ name: "F1-STRUX", label: "Channel" }}
-        figure={<ProfileFigure model="U 152×43×6.4" />}
-        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((s) => s.h), weights: sizes.map((s) => s.weight) })}
+        updated={LAST_UPDATED}
         title="Fiberglass Channel (FRP) Profiles"
-        description="Pultruded fiberglass U-profiles from 38×13 mm to 360×108 mm. UV-protected, non-conductive."
+        description="Pultruded fiberglass U-profiles from 38×13 mm to 360×108 mm for secondary framing, cable supports and modular frames. Every channel has a UV-protective surface veil and can be bolted to other metals without galvanic corrosion."
+        facts={[
+          ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
+          { label: "Grade", value: "EN 13706 E23" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP channels", productPath: pagePath }) },
+          secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <>
+            <ProfileFigure model="U 152×43×6.4" />
+            <HeroPhotos
+              photos={[
+                { src: "/images/products/channel/frp-channel-profile-200x60x12mm.webp", alt: "Rendering of a pultruded FRP channel", caption: "U 200×60×12 · render" },
+                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+              ]}
+            />
+          </>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -113,118 +104,126 @@ export default async function ChannelPage() {
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
-            <div>
-              <SectionTag>U-Profiles</SectionTag>
-              <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Open-section framing profiles
-              </h2>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                Pultruded channels provide versatile framing for secondary structural members, cable management systems, and modular assemblies. The open U-shape simplifies field connections with mechanical fasteners. They are available in standard gray, safety yellow, and custom RAL colors.
-              </p>
-              <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">UV-protected surface veil</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No galvanic corrosion</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Custom colors available</span>
-              </div>
-            </div>
-            <div className="relative aspect-square overflow-hidden rounded-card bg-white">
-              <Image src="/images/products/channel/frp-channel-cover.jpg" alt="Pultruded FRP channel U-profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 20%" }} preload />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="spec-table w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">H (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.h}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <ProfileSupplyGuide product="channels" />
-
-      <RelatedLinks
-        groups={[
-          {
-            title: "Related FRP profiles",
-            links: [
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angle profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tube" },
-              { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tube" },
-              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
-            ],
-          },
-          {
-            title: "Applications",
-            links: [
-              { href: "/industries/energy", label: "Cable trays & substations" },
-              { href: "/industries/industrial", label: "Industrial skids & platforms" },
-              { href: "/industries/construction", label: "Construction framing" },
-              { href: "/industries/infrastructure", label: "Infrastructure stringers" },
-            ],
-          },
-          {
-            title: "Technical resources",
-            links: [
-              { href: "/frp-span-tables#channel", label: "FRP channel span table — allowable loads" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
-              { href: "/resources/technical-data", label: "Data sheets" },
-              { href: "/resources/design-guides", label: "Design guides" },
-              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
-            ],
-          },
+      <ProductPageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes", count: sizes.length },
+          { id: "properties", label: "Properties" },
+          { id: "applications", label: "Applications" },
+          { id: "documents", label: "Documents" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
+      <ProductSection id="overview" title="Overview">
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
+            <p>
+              Pultruded channels frame secondary structural members, cable management systems and modular assemblies. The open U-shape simplifies field connections with mechanical fasteners, and the non-conductive section can be bolted to aluminum or stainless steel without galvanic corrosion.
+            </p>
+            <ul className="flex flex-wrap gap-[8px] pt-[4px]">
+              {["EN 13706 E23", "UV-protective surface veil", "Gray, safety yellow or RAL", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+                <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <UseList
+            items={[
+              { label: "Cable trays and substations", href: "/industries/energy" },
+              { label: "Industrial skids and platforms", href: "/industries/industrial" },
+              { label: "Construction framing", href: "/industries/construction" },
+              { label: "Infrastructure stringers", href: "/industries/infrastructure" },
+            ]}
+          />
         </div>
-      </section>
+      </ProductSection>
 
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
+      <ProductSection
+        id="sizes"
+        title="Sizes"
+        count={`${sizes.length} catalog sizes`}
+        tone="muted"
+        intro="Dimensions in mm, mass in kg/m. Ix and Wx are calculated from the nominal section, for preliminary sizing."
+        aside={
+          <Link href="/tools/profile-finder?shape=channel" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            Filter and compare in the profile finder
+          </Link>
+        }
+      >
+        <FamilySizeTable
+          rows={sizes}
+          caption="FRP channel catalog sizes with nominal section properties"
+          product="FRP channel"
+          productPath={pagePath}
+          columns={[
+            { key: "d", label: "H", unit: "mm" },
+            { key: "b", label: "B", unit: "mm" },
+            { key: "t", label: "t", unit: "mm" },
+            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "Ix", label: "Ix", unit: "cm⁴" },
+            { key: "Wx", label: "Wx", unit: "cm³" },
+          ]}
+        />
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
+        <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/frp-span-tables#channel" className="underline underline-offset-4 hover:text-teal">
+            Allowable loads by span
+          </Link>
+          <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
+            A size not listed: custom pultrusion
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="properties" title="Properties">
+        <LaminateProperties />
+        <div className="mt-[24px] max-w-[640px]">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=channel"
             eyebrow="Free tool · channel preset"
-            title="Size an FRP channel — bending, shear &amp; deflection"
-            sub="Opens the FRP profile calculator on a channel (U-profile): check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+            title="Size an FRP channel: bending, shear and deflection"
+            sub="Opens the profile calculator on a channel. Check bending, shear and deflection with shear included against your span and load, and find the steel-equivalent section."
           />
         </div>
-      </section>
+      </ProductSection>
 
-      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-channel" />
-      <InnerCTA title="Need engineering data or a quotation for channel profiles?" />
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("channel")} />
+      </ProductSection>
+
+      <ProductSection id="documents" title="Documents">
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Channel", datasheetsHref: "/datasheets#channel" }} sizes={sizes} />
+      </ProductSection>
+
+      <ProductSection id="faq" title="Questions buyers ask" tone="muted">
+        <div className="grid items-start gap-[12px] md:grid-cols-2">
+          {faqItems.map((item) => (
+            <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+          ))}
+        </div>
+        <p className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-vs-traditional-materials" className="underline underline-offset-4 hover:text-teal">
+            FRP vs steel comparison
+          </Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
+            Design guides
+          </Link>
+          <Link href="/what-is-frp" className="underline underline-offset-4 hover:text-teal">
+            What is FRP?
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="related" title="Other standard profiles">
+        <RelatedProfiles current={pagePath} />
+      </ProductSection>
+
+      <ProductSection id="quote" title="Quote FRP channels" tone="deep">
+        <ProductRfq product="FRP channels" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+      </ProductSection>
     </>
   );
 }
