@@ -182,6 +182,7 @@ const resources = [
   { label: "Technical data", href: "/resources/technical-data", description: "Review available profile properties and identify the tests needed for your part." },
   { label: "Product evidence", href: "/resources/evidence", description: "Check the scope of published reports and request evidence for the offered formulation." },
   { label: "Design guides", href: "/resources/design-guides", description: "Continue into member sizing, fabrication and connection details." },
+  { label: "Trackside sound barriers", href: "/products/frp-sound-barrier-wall", description: "Explore a separate rail-corridor noise screen, outside the vehicle body." },
 ];
 
 export default function VehiclePage() {

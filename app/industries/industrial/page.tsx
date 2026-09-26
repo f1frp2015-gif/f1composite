@@ -339,6 +339,8 @@ export default function IndustrialPage() {
               { label: "Technical data", href: "/resources/technical-data", body: "Review material properties and identify the required submittals." },
               { label: "Design guides", href: "/resources/design-guides", body: "Continue into structural and connection planning." },
               { label: "Downloads & CAD", href: "/resources/downloads", body: "Request drawings and reference documents for a defined package." },
+              { label: "FRP vs steel grating", href: "/technology/frp-vs-steel-gratings", body: "Compare walking-surface choices against the same spans, exposure and installed details." },
+              { label: "Plant perimeter sound barriers", href: "/products/frp-sound-barrier-wall", body: "Explore a separate noise-screen system for industrial site boundaries." },
             ].map((resource) => (
               <Link key={resource.href} href={resource.href} className="rounded-card border border-border-default bg-white p-[20px] hover:border-teal-border">
                 <h3 className="font-bold text-t1">{resource.label} <span aria-hidden="true" className="text-teal-text">→</span></h3>
