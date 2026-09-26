@@ -97,3 +97,20 @@ test("the profile finder lists every catalog size with its section values", () =
     if (row.dxf) assert.ok(existsSync(join(root, "public/cad", `${row.slug}.dxf`)), `${row.model}: DXF missing`);
   }
 });
+
+test("the document library classifies every document by type, issuer and product", () => {
+  const { assembleDocuments } = loadProjectModule("lib/documents.ts");
+  const { withdrawnDownloads } = loadProjectModule("content/data/engineeringEvidence.ts");
+  const documents = assembleDocuments();
+  const byTitle = (text) => documents.find((document) => document.title.includes(text));
+  assert.ok(documents[0].title.startsWith("E40 evidence"), "pinned E40 reports come first");
+  assert.ok(!documents.some((document) => withdrawnDownloads.includes(document.file)), "withdrawn files stay out");
+
+  const turnTilt = byTitle("Turn-and-Tilt");
+  assert.deepEqual([turnTilt.type, turnTilt.issuer, turnTilt.product, turnTilt.date], ["Test report", "Intertek", "FRP windows and doors", { label: "Issued", value: "2024-12-11" }]);
+  const phi = byTitle("PHI Component Certificate");
+  assert.deepEqual([phi.type, phi.issuer, phi.date.label], ["Certificate", "Passive House Institute", "Valid until"]);
+  assert.deepEqual([byTitle("BOM Template").type, byTitle("BOM Template").issuer], ["Template", "F1 Composite"]);
+  assert.equal(byTitle("ISO 9001").issuer, null, "no issuer is invented for on-request certificates");
+  for (const document of documents) assert.ok(document.type && document.product, `${document.title} is classified`);
+});

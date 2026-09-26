@@ -304,6 +304,16 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 `scripts/theme-classes.test.mjs` 同时检查圆角和阴影：`rounded-*` 只能是 tag / control / card / full / none，阴影只能是 card / pop / bar / none。
 
+
+## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
+
+- **搜索索引**：`lib/search/buildIndex.ts` 在构建时生成 `/search-index.json`，包含 114 个目录规格（公布单重、按名义截面计算的 Ix 或 A、规格书和 DXF 链接）、全部静态页、博客、应用页、案例、术语、作者和文件库。页面标题和描述写在各页面文件里，由 `scripts/search-pages.mjs` 读出，存进 `lib/search/pages.generated.json`。改了页面标题或描述、或新增页面后，运行 `npm run search:pages` 并提交这个文件，否则 `npm test` 会失败。
+- **查询规则**（`lib/search/query.ts`）：认得 100x100、100 × 100 × 8 mm、I152、rod Ø25 这类写法，矩形管两边顺序可以颠倒；没有精确尺寸时列出最接近的规格（壁厚权重低于外形尺寸）；E23、D7957 这类代号整体匹配。这个文件在浏览器里运行，不能用正则后行断言（旧版 Safari 会让整段脚本报错），测试会检查。
+- **入口**：导航栏搜索框、Ctrl/⌘ K 或 "/"、手机页头的放大镜和手机菜单顶部；完整结果页 `/search` 设为 noindex。GA4 事件：选中结果记 `search`（带 search_term），零结果记 `search_no_results`。零结果词可作为补充规格和内容的依据。
+- **型材筛选器** `/tools/profile-finder`：数据来自 `lib/profileFinder.ts`，与规格书同源。可按形状、尺寸、单重上限和 Ix 下限筛选，最多勾选 4 个并排对比，询价链接带上所选型号。筛选状态写在网址参数里，可以直接分享；所有参数组合共用一个 canonical。目录里没有逐个规格的树脂和等级数据，所以没有这两个筛选项。
+- **导航**：`content/data/navigation.ts` 分产品、行业、工具、资源、公司五个栏目，网址都没有变。产品菜单右侧的快捷入口（筛选器、规格书、下载、检测报告）放在 `productShortcuts`，它们必须同时出现在其他菜单里，`scripts/navigation-ia.test.mjs` 会检查。页脚五列与五个栏目对应。
+- **文件库**：`lib/documents.ts` 组装下载页的文件，并按类型、出具机构、产品分类，下载页可按这三项筛选。新增检测报告或证书时，先登记到 `content/data/engineeringEvidence.ts`（结果和日期登记到 `reportedResults`），出具方、日期和适用产品会自动显示。
+
 ---
 
 ## 待办事项
@@ -323,3 +333,4 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |
 | 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |
 | 中 | 视觉系统阶段 1 的两个默认选择待业主确认：信号色用标志渐变末端的 lime #BBDF35（备选：安全黄）；产品线沿用站内已有的 F1-STRUX / F1-GRID / F1-THERM / F1-FORM，未新起线名。改色只需改 `app/globals.css` 的 `--color-lime` | 待确认 |
+| 中 | 阶段 2 菜单结构按改版方案图 19 调整（产品、行业、工具、资源、公司；技术文章并入资源的知识库，质量体系和技术服务放在公司下），请确认或提出修改 | 待确认 |

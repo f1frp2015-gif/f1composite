@@ -1,6 +1,5 @@
 import { e40EvidenceHref } from "@/content/data/e40Evidence";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
-import { buildRfqHref } from "@/lib/rfq";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -9,6 +8,7 @@ import FAQ from "@/components/ui/FAQ";
 import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
 import DatasheetBuilder from "@/components/downloads/DatasheetBuilder";
+import DocumentLibrary from "@/components/downloads/DocumentLibrary";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { listDownloads } from "@/lib/catalog/db";
 import { getAllDatasheetPages } from "@/lib/catalog/public";
@@ -170,40 +170,7 @@ export default async function DownloadsPage() {
       <section className="bg-bg2 py-[89px]">
         <div className="site-container">
           <p className="mb-[24px] text-f16 text-t2">Check document applicability in the <Link href="/resources/evidence" className="font-semibold text-teal-text underline">product evidence index</Link> before using a report in your project.</p>
-          <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
-            {downloads.map((dl) => (
-              <div
-                key={dl.title}
-                className="rounded-card border border-border-default bg-white p-[21px]"
-              >
-                <div className="mb-[13px] flex items-center gap-[8px]">
-                  <span className="rounded-tag bg-teal-bg px-[8px] py-[3px] text-f12 font-bold text-teal-text">
-                    {dl.format}
-                  </span>
-                  <span className="text-f12 text-t3">{dl.file ? dl.size : "Available on request, subject to scope"}</span>
-                </div>
-                <h3 className="mb-[8px] text-f16 font-bold text-t1">{dl.title}</h3>
-                <p className="mb-[13px] text-f14 leading-golden text-t2">{dl.description}</p>
-                {dl.file ? (
-                  <a
-                    href={dl.file}
-                    target="_blank"
-                    rel="noopener"
-                    className="text-f14 font-semibold text-teal-text hover:underline"
-                  >
-                    Download {dl.format} →
-                  </a>
-                ) : (
-                  <Link
-                    href={buildRfqHref({ source: "download-request", product: dl.title, message: `Please confirm availability and applicability of: ${dl.title}` })}
-                    className="text-f14 font-semibold text-teal-text hover:underline"
-                  >
-                    Request download →
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
+          <DocumentLibrary documents={downloads} />
         </div>
       </section>
 

@@ -7,30 +7,9 @@
 import { e40Reports, e40ReportScope } from "@/content/data/e40Evidence";
 import { engineeringEvidence, reportedResults, withdrawnDownloads } from "@/content/data/engineeringEvidence";
 import { fallbackDownloads, windowTemplates, type DownloadItem } from "@/content/data/downloads";
+import type { DocumentType, LibraryDocument } from "@/lib/documentTypes";
 
-export const DOCUMENT_TYPES = ["Catalog", "Data sheet", "Test report", "Certificate", "CAD", "Template"] as const;
-export type DocumentType = (typeof DOCUMENT_TYPES)[number];
-
-export const DOCUMENT_TYPE_LABELS: Record<DocumentType, string> = {
-  Catalog: "Catalogs",
-  "Data sheet": "Data sheets",
-  "Test report": "Test reports",
-  Certificate: "Certificates & declarations",
-  CAD: "CAD files",
-  Template: "Templates",
-};
-
-export interface LibraryDocument extends DownloadItem {
-  type: DocumentType;
-  /** Laboratory or body that issued the document; F1 Composite for its own catalogs and data. Null when not stated. */
-  issuer: string | null;
-  /** Product family the document belongs to. */
-  product: string;
-  productHref?: string;
-  reference?: string;
-  /** YYYY-MM-DD, when the evidence index records it. */
-  date?: string;
-}
+export { DOCUMENT_TYPES, DOCUMENT_TYPE_LABELS, type DocumentType, type LibraryDocument } from "@/lib/documentTypes";
 
 const evidenceByFile = new Map(engineeringEvidence.map((record) => [record.file, record]));
 const resultsByFile = new Map(reportedResults.map((result) => [result.file, result]));
@@ -75,7 +54,7 @@ export function classifyDocument(item: DownloadItem): Omit<LibraryDocument, keyo
   const result = item.file ? resultsByFile.get(item.file) : undefined;
   const type = typeOf(item, evidence?.kind);
   const text = `${item.title} ${evidence?.reference ?? ""} ${result?.issuer ?? ""} ${item.description}`;
-  const issuer = issuerOf(text) ?? (type === "Catalog" || type === "Data sheet" || type === "Template" ? "F1 Composite" : null);
+  const issuer = issuerOf(text) ?? (type === "Certificate" || type === "Test report" ? null : "F1 Composite");
   const product = evidence
     ? { label: evidence.productLabel, href: evidence.product }
     : (() => {
@@ -88,7 +67,7 @@ export function classifyDocument(item: DownloadItem): Omit<LibraryDocument, keyo
     product: product.label,
     ...(product.href ? { productHref: product.href } : {}),
     ...(evidence?.reference ? { reference: evidence.reference } : {}),
-    ...(result?.dateLabel === "Issued" ? { date: result.date } : {}),
+    ...(result ? { date: { label: result.dateLabel, value: result.date } } : {}),
   };
 }
 
