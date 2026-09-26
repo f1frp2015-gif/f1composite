@@ -30,8 +30,7 @@ const files = {
   productLines: fromRoot("app/products/product-lines/page.tsx"),
   applicationPages: fromRoot("lib/applicationPages.ts"),
   stairTreads: fromRoot("app/products/frp-stair-treads/page.tsx"),
-  industrial: fromRoot("app/industries/industrial/page.tsx"),
-  infrastructure: fromRoot("app/industries/infrastructure/page.tsx"),
+  industryPages: fromRoot("content/data/industryPages.ts"),
   roundTube: fromRoot("app/products/fiberglass-structural-shapes/frp-tube/page.tsx"),
   squareTube: fromRoot("app/products/fiberglass-structural-shapes/frp-square-tube/page.tsx"),
 };
@@ -133,15 +132,18 @@ test("canonical access routes are not redirected and legacy handrail path remain
 });
 
 test("related industry and raw-profile pages preserve the complete-system compliance boundary", async () => {
-  const [industrial, infrastructure, roundTube, squareTube] = await Promise.all([
-    readFile(files.industrial, "utf8"),
-    readFile(files.infrastructure, "utf8"),
+  const [industryPages, roundTube, squareTube] = await Promise.all([
+    readFile(files.industryPages, "utf8"),
     readFile(files.roundTube, "utf8"),
     readFile(files.squareTube, "utf8"),
   ]);
+  // Industry pages render from content/data/industryPages.ts.
+  const block = (slug, next) => industryPages.slice(industryPages.indexOf(`  ${slug}: {`), next ? industryPages.indexOf(`  ${next}: {`) : undefined);
+  const industrial = block("industrial", "infrastructure");
+  const infrastructure = block("infrastructure", "marine");
 
-  assert.match(industrial, /href="\/products\/frp-ladders"/);
-  assert.match(industrial, /href="\/products\/frp-handrail-systems"/);
+  assert.match(industrial, /href: "\/products\/frp-ladders"/);
+  assert.match(industrial, /href: "\/products\/frp-handrail-systems"/);
   assert.match(industrial, /OSHA 1910\.29/);
   assert.doesNotMatch(industrial, /handrail systems meet OSHA 1910\.23/i);
   assert.doesNotMatch(infrastructure, /All handrail systems undergo third-party structural testing/i);

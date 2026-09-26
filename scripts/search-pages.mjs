@@ -11,6 +11,7 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import ts from "typescript";
+import { loadProjectModule } from "./load-project-module.mjs";
 import { loadTestData } from "./load-test-data.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -145,7 +146,13 @@ function readSource(file) {
   return ts.createSourceFile(file, readFileSync(file, "utf8"), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 }
 
-function pageEntry(file, route) {
+/** Industry pages render their H1 from one data record (components/industries/IndustryPage). */
+function industryHeadings() {
+  const { industryPages } = loadProjectModule("content/data/industryPages.ts");
+  return new Map(Object.values(industryPages).map((page) => [page.path, page.h1]));
+}
+
+function pageEntry(file, route, headings) {
   const source = readSource(file);
   const constants = topLevelConstants(source);
 
@@ -167,7 +174,7 @@ function pageEntry(file, route) {
 
   return {
     path: route,
-    title: headerProp("title") ?? seoTitle,
+    title: headerProp("title") ?? headings.get(route) ?? seoTitle,
     seoTitle,
     description: (metadata ? resolveString(metadata.get("description"), constants) : null) ?? headerProp("description"),
   };
@@ -208,9 +215,10 @@ export async function extractSearchPages() {
     .map((file) => ({ file, route: routeOf(file) }))
     .filter(({ route }) => !skipRoute(route));
   await loadDataModules(files.map(({ file }) => file));
+  const headings = industryHeadings();
   const pages = files
     .map(({ file, route }) => {
-      const page = pageEntry(file, route);
+      const page = pageEntry(file, route, headings);
       const target = targets.get(route);
       const seoTitle = page.seoTitle ?? target?.title ?? null;
       const title = seoTitle ?? page.title;
