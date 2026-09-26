@@ -90,6 +90,18 @@ export default function FiberglassSheetsPage() {
         tag="Solid Flat Sheet · F1-FORM"
         title="Fiberglass sheets manufacturer — solid FRP sheet cut to size"
         description="Solid flat fiberglass sheet from 2 to 25 mm typical thickness — smooth, gritted anti-slip, or embossed — cut to part size in polyester, vinyl ester, or fire-retardant resin systems."
+        figure={
+          <div className="relative aspect-[5/4] overflow-hidden rounded-card border border-border-default bg-bg2">
+            <Image
+              src="/images/products/fiberglass-plates/frp-plate-221x10mm-white-render.png"
+              alt="White pultruded fiberglass flat sheet, 221 mm wide and 10 mm thick, viewed at an angle"
+              fill
+              sizes="(max-width: 1023px) 100vw, 45vw"
+              preload
+              className="scale-[1.75] object-contain"
+            />
+          </div>
+        }
         actions={{
           primary: { label: "Enter your sheet dimensions", href: "#sheet-quote" },
           secondary: { label: "Send a drawing", href: buildRfqHref({ source: "sheet-product-header", product: "Solid pultruded fiberglass sheet", productPath: pagePath }), variant: "secondary" },
