@@ -104,12 +104,12 @@ export default function FiberglassSheetsPage() {
       />
 
       <section className="bg-white pt-[55px] md:pt-[72px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Production & Edge Detail</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             See the solid sheet surface and an order-specific edge form
           </h2>
-          <p className="mt-[13px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[860px] text-f16 leading-golden text-t2">
             These production photos show the finished black surface and a thin-wall sample
             with formed returns. Color, surface, thickness and any shaped detail are confirmed
             against the order drawing; use the Plate catalog when the cross-section is not flat.
@@ -149,12 +149,12 @@ export default function FiberglassSheetsPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Where Flat Stock Fits</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Fiberglass sheet for four fabrication jobs
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             As a fiberglass sheets manufacturer, F1 supplies pultruded flat stock as
             cut-to-size production parts rather than a one-size retail panel. Thickness,
             reinforcement, resin, surface finish, machining, and nesting are confirmed from
@@ -162,22 +162,22 @@ export default function FiberglassSheetsPage() {
           </p>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h3 className="text-f15 font-bold text-t1">Structural connection</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <h3 className="text-f16 font-bold text-t1">Structural connection</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Cut blanks for gussets, splice parts, bearing pads and other fabricated
                 connections — machined to the approved part drawing and load case.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h3 className="text-f15 font-bold text-t1">Corrosion barriers</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <h3 className="text-f16 font-bold text-t1">Corrosion barriers</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Tank and clarifier baffles, launder and trench covers, liners for bunds
                 and splash zones — vinyl ester laminates in continuous chemical contact.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h3 className="text-f15 font-bold text-t1">Walking surfaces</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <h3 className="text-f16 font-bold text-t1">Walking surfaces</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Gritted sheet for tread-cover overlays and other anti-slip surfaces,
                 including the{" "}
                 <Link href="/products/frp-stair-treads" className="font-semibold text-teal-text hover:underline">
@@ -187,15 +187,15 @@ export default function FiberglassSheetsPage() {
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h3 className="text-f15 font-bold text-t1">Fabrication blanks</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <h3 className="text-f16 font-bold text-t1">Fabrication blanks</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Cut blanks that shops machine into brackets, spacers, wear pads, and
                 non-conductive panels — carbide or diamond tooling, the same shop rules
                 as any pultruded stock.
               </p>
             </div>
           </div>
-          <p className="mt-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[900px] text-f16 leading-golden text-t2">
             This page covers solid flat stock. Shaped hollow and multi-cell sections now
             have a separate{" "}
             <Link href="/products/fiberglass-plates" className="font-semibold text-teal-text hover:underline">
@@ -211,10 +211,10 @@ export default function FiberglassSheetsPage() {
       </section>
 
       <section id="sheet-quote" className="scroll-mt-[100px] bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Prepare your inquiry</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Request solid fiberglass sheet cut to size</h2>
-          <p className="mt-[13px] max-w-[850px] text-f15 leading-golden text-t2">Start with one part size below. For several sizes, include a cutting list or drawing with your inquiry. The typical program is 2–25 mm thick; the available width, laminate and surface are confirmed for your order.</p>
+          <p className="mt-[13px] max-w-[850px] text-f16 leading-golden text-t2">Start with one part size below. For several sizes, include a cutting list or drawing with your inquiry. The typical program is 2–25 mm thick; the available width, laminate and surface are confirmed for your order.</p>
           <SheetQuoteForm />
         </div>
       </section>
@@ -246,7 +246,7 @@ export default function FiberglassSheetsPage() {
       />
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

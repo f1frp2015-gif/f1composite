@@ -199,7 +199,7 @@ export default async function DatasheetPage({
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1100px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
               <SectionTag>Cross-Section</SectionTag>
@@ -207,17 +207,17 @@ export default async function DatasheetPage({
                 {product.geometry ? (
                   <SectionSvg geometry={product.geometry} size={280} className="mx-auto" />
                 ) : (
-                  <p className="text-f13 text-t3">Geometry pending — contact engineering.</p>
+                  <p className="text-f14 text-t3">Geometry pending — contact engineering.</p>
                 )}
-                {desig && <p className="mt-[8px] text-f15 font-bold text-t1">{desig}</p>}
+                {desig && <p className="mt-[8px] text-f16 font-bold text-t1">{desig}</p>}
                 {inchSize && (
-                  <p className="mt-[4px] text-f13 text-t3">
+                  <p className="mt-[4px] text-f14 text-t3">
                     ≈ {inchSize} in (reference only; the metric dimensions govern)
                   </p>
                 )}
               </div>
               {dims.length > 0 && (
-                <table className="mt-[21px] w-full text-left text-f15">
+                <table className="mt-[21px] w-full text-left text-f16">
                   <tbody>
                     {dims.map((d) => (
                       <tr key={d.symbol} className="border-b border-border-default">
@@ -237,7 +237,7 @@ export default async function DatasheetPage({
                 </table>
               )}
               {priceEstimate && (
-                <p className="mt-[13px] text-f13 leading-golden text-t3">
+                <p className="mt-[13px] text-f14 leading-golden text-t3">
                   For a planning budget per meter, enter these dimensions in the{" "}
                   <Link href="/fiberglass-pultruded-profile-price" className="text-teal-text hover:underline">
                     fiberglass pultruded profile price estimator
@@ -251,14 +251,14 @@ export default async function DatasheetPage({
                     href={`/api/datasheet?ids=${product.id}`}
                     target="_blank"
                     rel="noopener"
-                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
                   >
                     Download PDF datasheet →
                   </a>
                 ) : (
                   <Link
                     href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
-                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+                    className="inline-block rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
                   >
                     Request applicable product data →
                   </Link>
@@ -267,14 +267,14 @@ export default async function DatasheetPage({
                   <a
                     href={`/cad/${slug}.dxf`}
                     download
-                    className="inline-block rounded-[6px] border border-teal-text px-[21px] py-[13px] text-f15 font-semibold text-teal-text hover:bg-teal-bg"
+                    className="inline-block rounded-[6px] border border-teal-text px-[21px] py-[13px] text-f16 font-semibold text-teal-text hover:bg-teal-bg"
                   >
                     Download CAD (DXF, free) →
                   </a>
                 )}
               </div>
               {CAD_SLUGS.has(slug) && (
-                <p className="mt-[8px] text-f13 text-t3">
+                <p className="mt-[8px] text-f14 text-t3">
                   Dimensioned cross-section drawing in DXF — no login, no email. Opens in AutoCAD,
                   DraftSight, LibreCAD, and every major CAD package.
                 </p>
@@ -283,7 +283,7 @@ export default async function DatasheetPage({
 
             <div>
               <SectionTag>Section Properties (calculated)</SectionTag>
-              <table className="mt-[21px] w-full text-left text-f15">
+              <table className="mt-[21px] w-full text-left text-f16">
                 <tbody>
                   {sectionRows.map(([label, value]) => (
                     <tr key={label} className="border-b border-border-default">
@@ -293,7 +293,7 @@ export default async function DatasheetPage({
                   ))}
                 </tbody>
               </table>
-              <p className="mt-[13px] text-f13 leading-golden text-t3">
+              <p className="mt-[13px] text-f14 leading-golden text-t3">
                 Derived exactly from the cross-section geometry by polygon integration. The
                 published mass per meter is the authoritative catalog value; the calculated figure
                 is a geometric cross-check. Because FRP modulus is ~1/10 of steel, deflection
@@ -310,12 +310,12 @@ export default async function DatasheetPage({
 
       {spanRow && loads.length > 0 && (
         <section id="span-loads" className="bg-white pb-[55px]">
-          <div className="mx-auto max-w-[1100px] px-[34px]">
+          <div className="site-container">
             <SectionTag>Allowable Load by Span</SectionTag>
             <h2 className="mt-[13px] text-f24 font-bold text-t1">
               What a {sizeLabel} {family.noun} carries
             </h2>
-            <p className="mt-[13px] max-w-[820px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] max-w-[820px] text-f16 leading-golden text-t2">
               Allowable service uniform load for {product.model} as a simply supported beam, from
               the published FRP span tables. Design basis: {DESIGN_BASIS.material};{" "}
               {DESIGN_BASIS.method}; {DESIGN_BASIS.environment}; deflection limit{" "}
@@ -323,14 +323,14 @@ export default async function DatasheetPage({
               {family.uses ? ` Typical uses for this family: ${family.uses}.` : ""}
             </p>
             <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
-              <table className="w-full text-left text-f15">
+              <table className="w-full text-left text-f16">
                 <caption className="sr-only">
                   Allowable uniform load for {product.model} by simply supported span
                 </caption>
                 <thead>
                   <tr className="border-b border-border-default bg-bg2">
                     {["Span (m)", "Allowable UDL (kN/m)", "≈ lb/ft", "Governing check"].map((heading) => (
-                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                         {heading}
                       </th>
                     ))}
@@ -348,7 +348,7 @@ export default async function DatasheetPage({
                 </tbody>
               </table>
             </div>
-            <p className="mt-[13px] text-f13 leading-golden text-t3">
+            <p className="mt-[13px] text-f14 leading-golden text-t3">
               Spans where the allowable load falls below 0.05 kN/m are omitted. Point loads,
               connections, lateral restraint and other exposures need their own check:{" "}
               <Link href={spanRow.calculatorHref} className="text-teal-text hover:underline">
@@ -365,17 +365,17 @@ export default async function DatasheetPage({
       )}
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1100px] px-[34px]">
+        <div className="site-container">
           <SectionTag>
             {`Mechanical & Physical Properties${formulation ? ` — ${formulation.name}` : ""}`}
           </SectionTag>
           <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
-            <table className="w-full text-left text-f15">
+            <table className="w-full text-left text-f16">
               <thead>
                 <tr className="border-b border-border-default bg-bg2">
-                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text">Value</th>
-                  <th className="px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">Value</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
                 </tr>
               </thead>
               <tbody>
@@ -402,7 +402,7 @@ export default async function DatasheetPage({
             </table>
           </div>
           {formulation && (
-            <div className="mt-[13px] flex flex-wrap gap-x-[34px] gap-y-[4px] text-f13 text-t3">
+            <div className="mt-[13px] flex flex-wrap gap-x-[34px] gap-y-[4px] text-f14 text-t3">
               <span>Resin: {formulation.resin ?? "—"}</span>
               <span>Glass content: {formulation.glass_content ?? "—"}</span>
               <span>
@@ -413,17 +413,17 @@ export default async function DatasheetPage({
             </div>
           )}
           {formulation?.notes && (
-            <p className="mt-[8px] text-f13 leading-golden text-t3">
+            <p className="mt-[8px] text-f14 leading-golden text-t3">
               Data basis: {formulation.notes}
             </p>
           )}
           {(product.standards || product.applications) && (
-            <p className="mt-[13px] text-f15 text-t2">
+            <p className="mt-[13px] text-f16 text-t2">
               {product.standards ? `Standards: ${product.standards}. ` : ""}
               {product.applications ? `Typical applications: ${product.applications}.` : ""}
             </p>
           )}
-          <p className="mt-[13px] text-f13 leading-golden text-t3">
+          <p className="mt-[13px] text-f14 leading-golden text-t3">
             Values marked &quot;verify before release&quot; are pending certified test data and are
             never estimated. Request batch-traceable certified data via the quote form before final
             design.
@@ -433,7 +433,7 @@ export default async function DatasheetPage({
 
       {siblings.length > 1 && (
         <section className="bg-white py-[55px]">
-          <div className="mx-auto max-w-[1100px] px-[34px]">
+          <div className="site-container">
             <SectionTag>Other Sizes</SectionTag>
             <h2 className="mt-[13px] text-f24 font-bold text-t1">
               Other {family.plural.toLowerCase()} in the catalog
@@ -442,18 +442,18 @@ export default async function DatasheetPage({
               {siblings.map((size) => (
                 <li key={size.slug}>
                   {size.slug === slug ? (
-                    <span aria-current="page" className="inline-block rounded-[6px] border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f13 font-semibold text-teal-text">
+                    <span aria-current="page" className="inline-block rounded-[6px] border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f14 font-semibold text-teal-text">
                       {size.model} · {size.weight} kg/m
                     </span>
                   ) : (
-                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-[6px] border border-border-default px-[13px] py-[8px] text-f13 text-t1 hover:border-teal-border hover:text-teal-text">
+                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-[6px] border border-border-default px-[13px] py-[8px] text-f14 text-t1 hover:border-teal-border hover:text-teal-text">
                       {size.model} · {size.weight} kg/m
                     </Link>
                   )}
                 </li>
               ))}
             </ul>
-            <p className="mt-[13px] text-f15 text-t2">
+            <p className="mt-[13px] text-f16 text-t2">
               Applications, resin options and quotation details are on the{" "}
               <Link href={family.href} className="font-semibold text-teal-text hover:underline">
                 {family.noun} product page
@@ -466,7 +466,7 @@ export default async function DatasheetPage({
 
       {faq.length > 0 && (
         <section className="bg-bg2 pb-[55px] pt-[1px]">
-          <div className="mx-auto max-w-[1100px] px-[34px]">
+          <div className="site-container">
             <FAQ items={faq} title={`${product.model}: common questions`} />
           </div>
         </section>

@@ -116,7 +116,7 @@ export default function DensityPage() {
         }}
       />
       <section className="bg-white py-8">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
             <div>
               <h2 className="text-xl font-bold text-t1">
@@ -149,7 +149,7 @@ export default function DensityPage() {
       </section>
       <DensityCalculator />
       <section className="bg-white py-14">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="text-2xl font-bold text-t1">

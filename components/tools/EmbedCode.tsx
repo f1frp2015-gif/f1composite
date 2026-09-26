@@ -38,9 +38,9 @@ export default function EmbedCode({
     <section className="rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[34px]">
       <div className="flex flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
         <div className="max-w-[760px]">
-          <p className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Free to embed</p>
+          <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Free to embed</p>
           <h2 className="mt-[8px] text-f24 font-bold text-t1">Embed this tool on your website</h2>
-          <p className="mt-[10px] text-f15 leading-golden text-t2">
+          <p className="mt-[10px] text-f16 leading-golden text-t2">
             Add the live engineering tool to a course page, design guide, distributor resource center, or internal
             wiki. The iframe stays updated when the calculation engine changes; no API key or account is required.
           </p>
@@ -49,7 +49,7 @@ export default function EmbedCode({
           type="button"
           onClick={() => setExpanded((value) => !value)}
           aria-expanded={expanded}
-          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f13 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
         >
           {expanded ? "Hide embed code" : "Embed This Tool"}
         </button>
@@ -57,7 +57,7 @@ export default function EmbedCode({
 
       {expanded && (
         <div className="mt-[21px] border-t border-border-default pt-[21px]">
-          <label htmlFor={`embed-${embedPath.replaceAll("/", "-")}`} className="text-f13 font-semibold text-t1">
+          <label htmlFor={`embed-${embedPath.replaceAll("/", "-")}`} className="text-f14 font-semibold text-t1">
             Copy and paste this HTML where you want the tool to appear
           </label>
           <textarea
@@ -72,7 +72,7 @@ export default function EmbedCode({
             <button
               type="button"
               onClick={copyCode}
-              className="inline-flex min-h-[42px] items-center rounded-[7px] border border-border-default bg-white px-[16px] text-f13 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              className="inline-flex min-h-[42px] items-center rounded-[7px] border border-border-default bg-white px-[16px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
             >
               {copyState === "copied" ? "Copied" : "Copy HTML"}
             </button>

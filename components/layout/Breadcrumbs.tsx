@@ -28,7 +28,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="mb-[18px]">
-        <ol className="flex flex-wrap items-center gap-[5px] text-f11 text-t3">
+        <ol className="flex flex-wrap items-center gap-[5px] text-f12 text-t3">
           {items.map((item, i) => (
             <li key={i} className="flex items-center gap-[5px]">
               {i > 0 && <span aria-hidden>/</span>}

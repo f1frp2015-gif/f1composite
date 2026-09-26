@@ -127,20 +127,20 @@ export default async function SquareTubePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
               <SectionTag>SHS & RHS Profiles</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Closed-section structural tubes
               </h2>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 FRP square and rectangular tubes provide closed-section torsional rigidity for columns, trusses, and frame structures. Multi-axial reinforcement can support transverse demands, while the smooth interior bore allows conduit or cable-enclosure use. Electrical-insulation performance depends on the specified laminate, moisture and contamination exposure, joints and any metal hardware.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[8px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Superior torsional rigidity</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">SHS + RHS available</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Electrical insulation options</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Superior torsional rigidity</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">SHS + RHS available</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Electrical insulation options</span>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
@@ -151,7 +151,7 @@ export default async function SquareTubePage() {
       </section>
 
       <section id="sizes" className="scroll-mt-[100px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass square and rectangular tube sizes</h2>
           <E40EvidenceLink />
@@ -205,13 +205,13 @@ export default async function SquareTubePage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=square-tube"
             eyebrow="Free tool · square tube preset"

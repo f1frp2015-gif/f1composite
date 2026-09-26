@@ -194,7 +194,7 @@ export default function StandardProfilesPage() {
 
       {/* Profile Grid */}
       <section className="bg-bg2 py-[36px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">
             Browse fiberglass structural shapes by section family
           </h2>
@@ -220,13 +220,13 @@ export default function StandardProfilesPage() {
                   />
                 </div>
                 <div className="p-[21px]">
-                  <h3 className="text-f19 font-bold text-t1">{profile.name}</h3>
-                  <p className="text-f13 font-medium text-teal-text">{profile.subtitle}</p>
-                  <p className="mt-[8px] text-f13 text-t3">
+                  <h3 className="text-f18 font-bold text-t1">{profile.name}</h3>
+                  <p className="text-f14 font-medium text-teal-text">{profile.subtitle}</p>
+                  <p className="mt-[8px] text-f14 text-t3">
                     <span className="font-semibold">Sizes:</span> {profile.sizes}
                   </p>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{profile.brief}</p>
-                  <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
+                  <p className="mt-[8px] text-f16 leading-golden text-t2">{profile.brief}</p>
+                  <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
                     View all sizes →
                   </span>
                 </div>
@@ -240,7 +240,7 @@ export default function StandardProfilesPage() {
         prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
       />
 
-      <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]"><E40EvidenceLink /></div>
+      <div className="site-container"><E40EvidenceLink /></div>
 
       <RelatedLinks
         groups={[
@@ -305,7 +305,7 @@ export default function StandardProfilesPage() {
       />
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator"
             eyebrow="Free tool · no login"

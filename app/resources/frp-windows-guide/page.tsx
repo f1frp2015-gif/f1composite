@@ -156,7 +156,7 @@ export default function FrpWindowsGuidePage() {
       />
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="space-y-[55px]">
             {stages.map((stage) => (
               <div key={stage.title}>
@@ -166,7 +166,7 @@ export default function FrpWindowsGuidePage() {
                   </span>
                   <div>
                     <h2 className="text-f24 font-bold text-t1">{stage.title}</h2>
-                    <p className="mt-[3px] text-f15 leading-golden text-t2">
+                    <p className="mt-[3px] text-f16 leading-golden text-t2">
                       {stage.description}
                     </p>
                   </div>
@@ -181,10 +181,10 @@ export default function FrpWindowsGuidePage() {
                         href={`/resources/blog/${slug}`}
                         className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-shadow hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
                       >
-                        <h3 className="text-f15 font-bold leading-snug text-t1 group-hover:text-teal-text">
+                        <h3 className="text-f16 font-bold leading-snug text-t1 group-hover:text-teal-text">
                           {post.title}
                         </h3>
-                        <p className="mt-[8px] flex-1 text-f13 leading-golden text-t2 line-clamp-3">
+                        <p className="mt-[8px] flex-1 text-f14 leading-golden text-t2 line-clamp-3">
                           {post.excerpt}
                         </p>
                         <p className="mt-[13px] text-f12 font-semibold uppercase tracking-[0.06em] text-t3">
@@ -200,7 +200,7 @@ export default function FrpWindowsGuidePage() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-f13 font-semibold text-teal-text hover:underline"
+                        className="text-f14 font-semibold text-teal-text hover:underline"
                       >
                         → {link.label}
                       </Link>
@@ -214,14 +214,14 @@ export default function FrpWindowsGuidePage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">Proof: window projects delivered</h2>
           <div className="mt-[21px] flex flex-wrap gap-x-[21px] gap-y-[8px]">
             {caseStudies.map((cs) => (
               <Link
                 key={cs.href}
                 href={cs.href}
-                className="text-f13 font-semibold text-teal-text hover:underline"
+                className="text-f14 font-semibold text-teal-text hover:underline"
               >
                 → {cs.label}
               </Link>
@@ -231,9 +231,9 @@ export default function FrpWindowsGuidePage() {
       </section>
 
       <section className="border-y border-border-default bg-white py-[38px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">Prepare your window and door inquiry</h2>
-          <p className="mt-[8px] text-f15 text-t2">Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have.</p>
+          <p className="mt-[8px] text-f16 text-t2">Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have.</p>
           <div className="mt-[21px] flex flex-wrap gap-[13px]">
             <Link className="rounded-[6px] bg-teal px-[21px] py-[13px] font-semibold text-white" href={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}>Request system profiles →</Link>
             <Link className="rounded-[6px] border border-teal px-[21px] py-[13px] font-semibold text-teal-text" href={buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath })}>Request finished units →</Link>

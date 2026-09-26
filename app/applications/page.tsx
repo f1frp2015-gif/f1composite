@@ -31,12 +31,12 @@ export default function ApplicationsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications" }]}
       />
       <section className="bg-white py-[48px]">
-        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+        <div className="site-container">
           <div className="max-w-[920px]">
             <h2 className="text-f24 font-bold text-t1">
               One profile can serve several industries
             </h2>
-            <p className="mt-[12px] text-f15 leading-relaxed text-t2">
+            <p className="mt-[12px] text-f16 leading-relaxed text-t2">
               An industry describes the customer or project sector; an
               application describes what the component does. A channel may
               support cables in a wastewater plant, a factory or a power
@@ -57,7 +57,7 @@ export default function ApplicationsPage() {
                 className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"
               >
                 <h2 className="text-f24 font-bold text-t1">{group.label}</h2>
-                <p className="mt-[10px] text-f15 leading-relaxed text-t2">
+                <p className="mt-[10px] text-f16 leading-relaxed text-t2">
                   {group.description}
                 </p>
                 <ul className="mt-[18px] space-y-[10px]">
@@ -87,7 +87,7 @@ export default function ApplicationsPage() {
                         <Link
                           key={family.id}
                           href={family.href}
-                          className="text-f13 text-teal-text underline underline-offset-4"
+                          className="text-f14 text-teal-text underline underline-offset-4"
                         >
                           {family.label}
                         </Link>
@@ -100,7 +100,7 @@ export default function ApplicationsPage() {
         </div>
       </section>
       <section className="bg-bg2 py-[48px]">
-        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">
             Define the supply and design scope
           </h2>
@@ -120,8 +120,8 @@ export default function ApplicationsPage() {
               ],
             ].map(([title, body]) => (
               <div key={title}>
-                <h3 className="text-f19 font-bold text-t1">{title}</h3>
-                <p className="mt-[10px] text-f15 leading-relaxed text-t2">
+                <h3 className="text-f18 font-bold text-t1">{title}</h3>
+                <p className="mt-[10px] text-f16 leading-relaxed text-t2">
                   {body}
                 </p>
               </div>
@@ -129,7 +129,7 @@ export default function ApplicationsPage() {
           </div>
           <Link
             href="/contact?source=applications&inquiry_type=rfq"
-            className="mt-[24px] inline-block text-f15 font-bold text-teal-text"
+            className="mt-[24px] inline-block text-f16 font-bold text-teal-text"
           >
             Discuss your application →
           </Link>

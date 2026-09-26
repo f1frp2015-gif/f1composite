@@ -34,18 +34,18 @@ export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }
   ];
   return (
     <section id="supply-options" className="scroll-mt-[100px] bg-white py-[55px]">
-      <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+      <div className="site-container">
         <SectionTag>Specify & buy</SectionTag>
         <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">{sheet ? "Specify your cut-to-size fiberglass sheet" : `Ordering pultruded fiberglass ${product}`}</h2>
         <div className="mt-[24px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-              <p className="mt-[10px] text-f13 leading-golden text-t2">{item.text}</p>
+              <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[10px] text-f14 leading-golden text-t2">{item.text}</p>
             </div>
           ))}
         </div>
-        <div className="mt-[24px] flex flex-wrap gap-x-[24px] gap-y-[12px] text-f13 font-semibold text-teal-text">
+        <div className="mt-[24px] flex flex-wrap gap-x-[24px] gap-y-[12px] text-f14 font-semibold text-teal-text">
           <Link className="underline underline-offset-4" href="/technology/pultrusion-resin-systems">Compare resin systems</Link>
           <Link className="underline underline-offset-4" href="/resources/evidence">Review supporting documents and scope</Link>
           <Link className="underline underline-offset-4" href="/resources/frp-pultrusion-fob-ddp-export-guide">Plan export and delivery terms</Link>

@@ -72,12 +72,12 @@ export default function AuthorsIndexPage() {
       />
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Author roster</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Authors
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Each article names the person responsible for it. News commentary and sourcing guides without a single author are published under the company name.
           </p>
 
@@ -89,15 +89,15 @@ export default function AuthorsIndexPage() {
                 className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-all duration-300 hover:border-teal hover:shadow-lg"
               >
                 <span
-                  className="inline-block self-start rounded-full px-[10px] py-[4px] text-f11 font-bold uppercase tracking-[0.16em] text-white"
+                  className="inline-block self-start rounded-full px-[10px] py-[4px] text-f12 font-bold uppercase tracking-[0.16em] text-white"
                   style={{ backgroundColor: author.accent }}
                 >
                   {author.bucketLabel}
                 </span>
-                <h3 className="mt-[13px] text-f19 font-bold text-t1">{author.fullName}</h3>
-                <p className="mt-[5px] text-f13 font-medium text-teal-text">{author.jobTitle}</p>
-                <p className="mt-[13px] text-f13 leading-golden text-t2">{author.bio}</p>
-                <span className="mt-[21px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
+                <h3 className="mt-[13px] text-f18 font-bold text-t1">{author.fullName}</h3>
+                <p className="mt-[5px] text-f14 font-medium text-teal-text">{author.jobTitle}</p>
+                <p className="mt-[13px] text-f14 leading-golden text-t2">{author.bio}</p>
+                <span className="mt-[21px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
                   View profile and articles →
                 </span>
               </Link>

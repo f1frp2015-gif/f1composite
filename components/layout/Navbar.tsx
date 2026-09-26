@@ -169,7 +169,7 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-[20px] sm:px-[28px] lg:px-[36px]"
+        className="site-container flex h-full items-center justify-between"
       >
         <Link
           href="/"
@@ -213,7 +213,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-[44px] items-center pl-[11px] pr-[5px] text-f13 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+                    className="inline-flex min-h-[44px] items-center pl-[11px] pr-[5px] text-f14 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
                     aria-current={pathname === item.href ? "page" : undefined}
                     onClick={closeNavigation}
                   >
@@ -253,7 +253,7 @@ export default function Navbar() {
                       {item.id === "products" && (
                         <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
                           aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
-                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[14px] py-[12px] text-f15 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[14px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
                           {pultrudedOverviewLink.label} <span aria-hidden>→</span>
                         </Link>
                       )}
@@ -265,7 +265,7 @@ export default function Navbar() {
                           {isMegaMenu && (
                             <h2
                               id={`desktop-section-${section.id}`}
-                              className="mb-[7px] px-[9px] text-f11 font-bold uppercase tracking-[0.12em] text-t3"
+                              className="mb-[7px] px-[9px] text-f12 font-bold uppercase tracking-[0.12em] text-t3"
                             >
                               {section.label}
                             </h2>
@@ -278,7 +278,7 @@ export default function Navbar() {
                                 prefetch={false}
                                 aria-current={pathname === link.href ? "page" : undefined}
                                 onClick={closeNavigation}
-                                className={`block rounded-[6px] px-[9px] py-[8px] text-f13 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal ${
+                                className={`block rounded-[6px] px-[9px] py-[8px] text-f14 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal ${
                                   pathMatches(pathname, link.href)
                                     ? "bg-teal-bg2 text-teal-text"
                                     : "text-t2 hover:bg-teal-bg2 hover:text-teal-text"
@@ -299,7 +299,7 @@ export default function Navbar() {
 
           <Link
             href="/contact?source=header&inquiry_type=rfq"
-            className="ml-[7px] inline-flex min-h-[44px] items-center rounded-[7px] bg-teal-text px-[17px] text-f13 font-bold text-white shadow-[0_6px_16px_rgba(0,122,116,0.18)] transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+            className="ml-[7px] inline-flex min-h-[44px] items-center rounded-[7px] bg-teal-text px-[17px] text-f14 font-bold text-white shadow-[0_6px_16px_rgba(0,122,116,0.18)] transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
             onClick={closeNavigation}
           >
             Get a Quote
@@ -309,7 +309,7 @@ export default function Navbar() {
         <div className="flex items-center gap-[8px] lg:hidden">
           <Link
             href="/contact?source=mobile-header&inquiry_type=rfq"
-            className="inline-flex min-h-[42px] items-center rounded-[7px] bg-teal-text px-[13px] text-f13 font-bold text-white sm:px-[16px]"
+            className="inline-flex min-h-[42px] items-center rounded-[7px] bg-teal-text px-[13px] text-f14 font-bold text-white sm:px-[16px]"
             onClick={closeNavigation}
           >
             Quote
@@ -354,7 +354,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       aria-current={pathname === item.href ? "page" : undefined}
-                      className={`flex min-h-[44px] flex-1 items-center text-f15 font-bold ${
+                      className={`flex min-h-[44px] flex-1 items-center text-f16 font-bold ${
                         active ? "text-teal-text" : "text-t1"
                       }`}
                       onClick={closeNavigation}
@@ -384,14 +384,14 @@ export default function Navbar() {
                       {item.id === "products" && (
                         <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={closeNavigation}
                           aria-current={pathname === pultrudedOverviewLink.href ? "page" : undefined}
-                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[12px] py-[12px] text-f15 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
+                          className="col-span-full rounded-[7px] bg-teal-bg2 px-[12px] py-[12px] text-f16 font-bold text-teal-text focus-visible:ring-2 focus-visible:ring-teal">
                           {pultrudedOverviewLink.label} <span aria-hidden>→</span>
                         </Link>
                       )}
                       {item.sections.map((section) => (
                         <details key={section.id} className="group rounded-[7px] border border-border-default px-[12px]">
                           <summary
-                            className="min-h-[44px] cursor-pointer py-[12px] text-f13 font-bold text-t1"
+                            className="min-h-[44px] cursor-pointer py-[12px] text-f14 font-bold text-t1"
                           >
                             {section.label}
                           </summary>
@@ -401,7 +401,7 @@ export default function Navbar() {
                               href={link.href}
                               prefetch={false}
                               aria-current={pathname === link.href ? "page" : undefined}
-                              className={`block min-h-[40px] py-[8px] text-f13 font-medium ${
+                              className={`block min-h-[40px] py-[8px] text-f14 font-medium ${
                                 pathMatches(pathname, link.href) ? "text-teal-text" : "text-t2"
                               }`}
                               onClick={closeNavigation}

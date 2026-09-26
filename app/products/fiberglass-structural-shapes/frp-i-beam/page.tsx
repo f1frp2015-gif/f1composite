@@ -216,8 +216,8 @@ export default async function IBeamPage() {
 
       {/* Key facts (TL;DR) + review byline */}
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <p className="text-f17 leading-golden text-t1">
+        <div className="site-container">
+          <p className="text-f18 leading-golden text-t1">
             A pultruded FRP I-beam is a constant-section fiberglass wide-flange beam
             made by pulling E-glass roving and mat through a resin bath and heated
             die. It carries bending load like a steel I-beam but weighs ~70–80% less,
@@ -226,7 +226,7 @@ export default async function IBeamPage() {
           </p>
           <div className="mt-[24px] rounded-[8px] border border-border-default bg-bg2 p-[24px]">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
-              <h2 className="text-f13 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
+              <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
               <p className="text-f12 text-t3">
                 Reviewed by{" "}
                 <Link href={`/about/authors/${REVIEWER.slug}`} className="font-semibold text-teal-text hover:text-teal">
@@ -238,8 +238,8 @@ export default async function IBeamPage() {
             <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
               {keyFacts.map((f) => (
                 <div key={f.label}>
-                  <dt className="text-f11 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
-                  <dd className="mt-[3px] text-f15 font-semibold text-t1">{f.value}</dd>
+                  <dt className="text-f12 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
+                  <dd className="mt-[3px] text-f16 font-semibold text-t1">{f.value}</dd>
                 </div>
               ))}
             </dl>
@@ -249,14 +249,14 @@ export default async function IBeamPage() {
 
       {/* Hero Image + Intro */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>Wide-flange profiles</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Structural I-beams engineered for performance
               </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 F1 Composite pultruded FRP I-beams replicate standard steel
                 wide-flange geometry while delivering ~70–80% weight reduction.
                 Unidirectional E-glass roving in the flanges provides flexural
@@ -266,10 +266,10 @@ export default async function IBeamPage() {
                 and phenolic resin systems.
               </p>
               <div className="mt-[16px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E23</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">No rust</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Non-conductive</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASTM D3917 tolerances</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E23</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No rust</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 tolerances</span>
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
@@ -288,12 +288,12 @@ export default async function IBeamPage() {
 
       {/* How to size */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>How to size an FRP I-beam</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Deflection first, then strength
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Sizing an FRP I-beam follows a different order than steel. Because the
             modulus is roughly a tenth of steel, the section that satisfies the
             deflection limit almost always satisfies bending and shear with margin.
@@ -303,8 +303,8 @@ export default async function IBeamPage() {
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             {pitfalls.map((p) => (
               <div key={p.title} className="rounded-[8px] border border-border-default bg-white p-[24px]">
-                <h3 className="text-f17 font-bold text-t1">{p.title}</h3>
-                <p className="mt-[8px] text-f15 leading-golden text-t2">{p.body}</p>
+                <h3 className="text-f18 font-bold text-t1">{p.title}</h3>
+                <p className="mt-[8px] text-f16 leading-golden text-t2">{p.body}</p>
               </div>
             ))}
           </div>
@@ -321,12 +321,12 @@ export default async function IBeamPage() {
 
       {/* Size + steel weight table */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Sizes &amp; weight vs steel</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Standard I-beam sizes — and what they replace in steel
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             All dimensions in millimeters; mass in kg/m. The steel column is the
             standard section at the same nominal depth, for a direct weight
             comparison. Custom sizes available via{" "}
@@ -337,31 +337,31 @@ export default async function IBeamPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model (H×B×t)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">H (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">FRP (kg/m)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Steel (same depth)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Steel (kg/m)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text">Weight saving</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model (H×B×t)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">H (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">FRP (kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Steel (same depth)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Steel (kg/m)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">Weight saving</th>
                 </tr>
               </thead>
               <tbody>
                 {sizes.map((s) => (
                   <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.h}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{s.weight}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.steel}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.steelW}</td>
-                    <td className="py-[13px] text-f15 font-medium text-teal-text">{s.saving}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.h}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{s.weight}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.steel}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.steelW}</td>
+                    <td className="py-[13px] text-f16 font-medium text-teal-text">{s.saving}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-[16px] text-f13 text-t3">
+          <p className="mt-[16px] text-f14 text-t3">
             Compared at the same nominal depth. Because FRP modulus is ~1/10 of
             steel, a deflection-equal FRP section is typically one or two depths
             larger than the steel it replaces — installed weight still drops ~70%.
@@ -371,8 +371,8 @@ export default async function IBeamPage() {
 
           {/* Section properties — honest routing, not back-calculated */}
           <div className="mt-[34px] rounded-[8px] border border-teal/30 bg-bg2 p-[24px]">
-            <h3 className="text-f15 font-bold uppercase tracking-[2px] text-teal-text">Section properties (A, I<sub>x</sub>, S<sub>x</sub>)</h3>
-            <p className="mt-[8px] text-f15 leading-golden text-t2">
+            <h3 className="text-f16 font-bold uppercase tracking-[2px] text-teal-text">Section properties (A, I<sub>x</sub>, S<sub>x</sub>)</h3>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
               Verified section properties — area, second moment of area, section
               modulus, radius of gyration — for the exact section you order are on
               the stamped production datasheet, and you can compute them live, with
@@ -389,12 +389,12 @@ export default async function IBeamPage() {
 
       {/* EN 13706 E23 properties */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Mechanical data — EN 13706 E23</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             E23 characteristic properties (longitudinal)
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             F1 Composite standard I-beams are produced to EN 13706 grade E23 — a
             minimum full-section flexural modulus of 23 GPa. Each property is paired
             with the test method that produces it.
@@ -403,23 +403,23 @@ export default async function IBeamPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">E23 value</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">E23 value</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
                 </tr>
               </thead>
               <tbody>
                 {e23Props.map((p) => (
                   <tr key={p.property} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{p.property}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{p.value}</td>
-                    <td className="py-[13px] text-f13 text-t3">{p.method}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{p.property}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{p.value}</td>
+                    <td className="py-[13px] text-f14 text-t3">{p.method}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-[16px] text-f13 text-t3">
+          <p className="mt-[16px] text-f14 text-t3">
             Modulus rows are the EN 13706 grade definition; strength, density, glass
             content, and flame spread are F1 characteristic values per the cited
             method. Transverse strength is ~1/4 of longitudinal — design
@@ -430,15 +430,15 @@ export default async function IBeamPage() {
 
       {/* FRP vs steel — when to use */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP vs steel I-beam</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             When an FRP I-beam wins — and when steel still makes sense
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             <div className="rounded-[8px] border border-teal/30 bg-bg2 p-[24px]">
-              <h3 className="text-f17 font-bold text-teal-text">Specify FRP when</h3>
-              <ul className="mt-[13px] space-y-[10px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-teal-text">Specify FRP when</h3>
+              <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
                 <li>Coastal, chemical, wastewater, or de-icing-salt exposure where steel needs recoating cycles.</li>
                 <li>Electrical insulation or nonmagnetic performance is required (substations, rail systems, and MRI rooms).</li>
                 <li>Manual handling matters — crews lift FRP sections without cranes or hot-work permits.</li>
@@ -446,8 +446,8 @@ export default async function IBeamPage() {
               </ul>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
-              <h3 className="text-f17 font-bold text-t1">Stay with steel when</h3>
-              <ul className="mt-[13px] space-y-[10px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Stay with steel when</h3>
+              <ul className="mt-[13px] space-y-[10px] text-f16 leading-golden text-t2">
                 <li>Dry, inland, non-corrosive service with a short asset horizon (&lt; 15 years).</li>
                 <li>Long spans where deflection forces an impractically deep FRP section.</li>
                 <li>Continuous service temperature above ~60 °C (approaching the resin&rsquo;s glass transition).</li>
@@ -455,7 +455,7 @@ export default async function IBeamPage() {
               </ul>
             </div>
           </div>
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             Full cost and lifecycle comparison:{" "}
             <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">FRP vs steel, aluminum &amp; timber</Link>.
           </p>
@@ -464,12 +464,12 @@ export default async function IBeamPage() {
 
       {/* Standards crosswalk */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Standards crosswalk</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The same I-beam, across EU / US / China specs
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Specifiers in different regions cite different standard numbers for the
             same property. This maps the equivalents F1 Composite I-beams are tested
             and documented against.
@@ -478,19 +478,19 @@ export default async function IBeamPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Topic</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Europe</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">North America</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">China</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Topic</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Europe</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">North America</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">China</th>
                 </tr>
               </thead>
               <tbody>
                 {crosswalk.map((r) => (
                   <tr key={r.topic} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{r.topic}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{r.eu}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{r.na}</td>
-                    <td className="py-[13px] text-f15 text-t2">{r.cn}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{r.topic}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{r.eu}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{r.na}</td>
+                    <td className="py-[13px] text-f16 text-t2">{r.cn}</td>
                   </tr>
                 ))}
               </tbody>
@@ -538,13 +538,13 @@ export default async function IBeamPage() {
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=i-beam"
             eyebrow="Free tool · I-beam preset"

@@ -115,12 +115,12 @@ export default function ChinaAlternativeWindowsPage() {
 
       {/* Positioning intro */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The positioning</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Same pultrusion fundamentals, a deeper window system, factory-direct
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites Group, USA),
             and Inline Fiberglass (Toronto, Canada) are the names North American window
             fabricators know for pultruded fiberglass lineals. They are capable manufacturers,
@@ -132,7 +132,7 @@ export default function ChinaAlternativeWindowsPage() {
             conductivity ≈ 0.3 W/m·K, and the dimensional stability that lets a
             frame move with its glass instead of against it.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Fabricators usually look at a China-made alternative for system depth
             and route to market rather than for the material itself. F1 supplies a
             five-series window profile family (65–140 mm frame depths)
@@ -150,12 +150,12 @@ export default function ChinaAlternativeWindowsPage() {
 
       {/* Comparison table */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Side by side</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             F1-THERM vs the North American lineal suppliers
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             A fair, specification-level comparison. Where a competitor detail varies by program
             or die, it is described rather than asserted: verify per supplier during
             qualification.
@@ -165,24 +165,24 @@ export default function ChinaAlternativeWindowsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-THERM)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Tencom · Creative Pultrusions · Inline</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Dimension</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-THERM)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Tencom · Creative Pultrusions · Inline</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.dimension} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.dimension}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.incumbents}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.dimension}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.incumbents}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             For the frame-material comparison behind these systems, see{" "}
             <Link href="/technology/frp-vs-aluminum-windows" className="font-semibold text-teal-text hover:text-teal">
               FRP vs aluminum
@@ -198,8 +198,8 @@ export default function ChinaAlternativeWindowsPage() {
 
       {/* Related */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify the equivalence</h2>
+        <div className="site-container">
+          <h2 className="mb-[21px] text-f18 font-bold text-t1">Verify the equivalence</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
             <LinkArrow href="/products/window-door-profiles">Fiberglass window lineals for fabricators</LinkArrow>

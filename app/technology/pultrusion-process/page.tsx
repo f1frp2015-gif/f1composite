@@ -329,7 +329,7 @@ export default function PultrusionProcessPage() {
       />
       {/* ── Key stats bar ── */}
       <section className="bg-white py-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid grid-cols-2 gap-[13px] sm:grid-cols-4">
             {[
               { value: "60–70%", label: "Fiber volume fraction" },
@@ -339,7 +339,7 @@ export default function PultrusionProcessPage() {
             ].map((s) => (
               <div key={s.label} className="rounded-[8px] bg-bg2 px-[21px] py-[13px] text-center">
                 <span className="text-f24 font-extrabold text-teal-text">{s.value}</span>
-                <p className="mt-[3px] text-f11 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
+                <p className="mt-[3px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
               </div>
             ))}
           </div>
@@ -348,7 +348,7 @@ export default function PultrusionProcessPage() {
 
       {/* Hero image */}
       <section className="bg-white pb-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
@@ -366,12 +366,12 @@ export default function PultrusionProcessPage() {
          §1  Process Flow — visual diagram
          ══════════════════════════════════════════════════ */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Process Flow</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             The Six Stages of Pultrusion
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Watch the full line in motion, from fiber pay-off to the flying cut-off saw. Every
             speed in the animation is derived from one line speed, just like a real production
             line.
@@ -397,13 +397,13 @@ export default function PultrusionProcessPage() {
                   className="relative scroll-mt-[89px] pl-[55px] lg:pl-0"
                 >
                   {/* Step circle — mobile */}
-                  <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f11 font-extrabold text-teal-text lg:hidden">
+                  <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f12 font-extrabold text-teal-text lg:hidden">
                     {stage.step}
                   </div>
 
                   {/* Step icon — desktop */}
                   <div className="hidden lg:flex lg:justify-center">
-                    <div className="relative z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text">
+                    <div className="relative z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text">
                       {stage.step}
                     </div>
                   </div>
@@ -413,14 +413,14 @@ export default function PultrusionProcessPage() {
                     <div className="hidden lg:flex lg:justify-center">
                       <StageIcon step={stage.step} />
                     </div>
-                    <h3 className="text-f15 font-bold text-t1 lg:mt-[8px]">{stage.title}</h3>
-                    <p className="mt-[3px] text-f11 leading-golden text-t3">{stage.subtitle}</p>
+                    <h3 className="text-f16 font-bold text-t1 lg:mt-[8px]">{stage.title}</h3>
+                    <p className="mt-[3px] text-f12 leading-golden text-t3">{stage.subtitle}</p>
                   </div>
 
                   {/* Key parameters */}
                   <div className="mt-[8px] space-y-[3px]">
                     {stage.params.map((p) => (
-                      <div key={p.label} className="text-f11 leading-golden">
+                      <div key={p.label} className="text-f12 leading-golden">
                         <span className="font-bold text-t2">{p.label}: </span>
                         <span className="text-t3">{p.value}</span>
                       </div>
@@ -429,11 +429,11 @@ export default function PultrusionProcessPage() {
 
                   {/* Collapsible detail */}
                   <details className="group mt-[8px]">
-                    <summary className="flex cursor-pointer select-none items-center gap-[5px] text-f11 font-bold text-teal-text transition-colors hover:text-teal">
+                    <summary className="flex cursor-pointer select-none items-center gap-[5px] text-f12 font-bold text-teal-text transition-colors hover:text-teal">
                       <ChevronDown className="h-[14px] w-[14px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
                       Details
                     </summary>
-                    <div className="mt-[8px] space-y-[8px] pl-[19px] text-f13 leading-golden text-t2">
+                    <div className="mt-[8px] space-y-[8px] pl-[19px] text-f14 leading-golden text-t2">
                       {stage.detail.map((para, j) => (
                         <p key={j}>{para}</p>
                       ))}
@@ -446,7 +446,7 @@ export default function PultrusionProcessPage() {
 
           {/* Simplified flow arrow diagram */}
           <div className="mt-[55px] hidden overflow-x-auto lg:block">
-            <div className="flex items-center justify-center gap-[5px] text-f13">
+            <div className="flex items-center justify-center gap-[5px] text-f14">
               {processStages.map((stage, i) => (
                 <div key={stage.step} className="flex items-center gap-[5px]">
                   <div className="flex items-center gap-[5px] rounded-full bg-teal px-[13px] py-[5px] text-white">
@@ -469,18 +469,18 @@ export default function PultrusionProcessPage() {
          §2  Injection vs Open-Bath — visual comparison
          ══════════════════════════════════════════════════ */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Impregnation Methods</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Injection vs Open-Bath
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             We operate injection pultrusion as our standard process. The comparison below
             shows why.
           </p>
 
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-f13 leading-golden">
+            <table className="w-full min-w-[600px] border-collapse text-f14 leading-golden">
               <thead>
                 <tr className="border-b-2 border-teal-border bg-teal-bg text-left">
                   <th className="px-[13px] py-[13px] font-bold text-t1">Parameter</th>
@@ -510,7 +510,7 @@ export default function PultrusionProcessPage() {
          §3  Equipment Specs — data-driven
          ══════════════════════════════════════════════════ */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Equipment</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Production Line Specifications
@@ -530,19 +530,19 @@ export default function PultrusionProcessPage() {
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
             {equipmentSpecs.map((spec) => (
               <div key={spec.parameter} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.08em] text-t3">{spec.parameter}</p>
-                <p className="mt-[5px] text-f19 font-extrabold text-t1">{spec.range}</p>
-                <p className="mt-[3px] text-f11 text-t3">{spec.note}</p>
+                <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">{spec.parameter}</p>
+                <p className="mt-[5px] text-f18 font-extrabold text-t1">{spec.range}</p>
+                <p className="mt-[3px] text-f12 text-t3">{spec.note}</p>
               </div>
             ))}
           </div>
 
           <details className="group mt-[34px]">
-            <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f13 font-bold text-teal-text transition-colors hover:text-teal">
+            <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f14 font-bold text-teal-text transition-colors hover:text-teal">
               <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
               Process parameter control details
             </summary>
-            <div className="mt-[13px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
+            <div className="mt-[13px] space-y-[13px] pl-[24px] text-f16 leading-golden text-t2">
               <p>
                 Every production run is governed by a validated recipe specifying exact values
                 for pull speed, die zone temperatures, injection pressure, and resin mix ratios.
@@ -562,7 +562,7 @@ export default function PultrusionProcessPage() {
 
       {/* ── Cross-links and FAQ ── */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">

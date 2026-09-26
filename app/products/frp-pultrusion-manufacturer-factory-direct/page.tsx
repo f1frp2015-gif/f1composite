@@ -122,19 +122,19 @@ export default function FactoryDirectPultrusionPage() {
       />
 
       <section className="bg-white py-[72px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[40px] px-[34px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+        <div className="site-container grid gap-[40px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div>
             <SectionTag>What factory-direct should prove</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
               Why buy from the production network
             </h2>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               Buying direct puts your project requirements in front of the people who control the die, reinforcement schedule, resin mix, pull speed, cure temperature and inspection plan. The saving on sales margin is the smaller part of it. The bigger benefit is that tolerance, surface, load, fire, corrosion, machining and packaging questions get settled before production instead of turning up as defects.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               F1 Composite handles international projects and export for FengDu&rsquo;s production network: five production bases with 370 pultrusion lines. Each order runs against an approved drawing, a defined material system, first-article checks, traceable inspection records and a shipping specification agreed with the buyer.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               If you are still choosing a profile, start with the <Link href="/pultruded-frp-profiles" className="text-teal-text hover:underline">pultruded FRP profile range</Link>. This page covers how to check the supplier and plan the purchase.
             </p>
           </div>
@@ -150,34 +150,34 @@ export default function FactoryDirectPultrusionPage() {
       </section>
 
       <section className="bg-bg2 py-[72px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Verifiable scope</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             Capacity figures, and what they cover
           </h2>
           <div className="mt-[34px] grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             {evidence.map((item) => (
               <article key={item.label} className="rounded-[10px] border border-border-default bg-white p-[21px]">
                 <p className="text-f24 font-extrabold text-teal-text">{item.value}</p>
-                <h3 className="mt-[5px] text-f15 font-bold text-t1">{item.label}</h3>
-                <p className="mt-[8px] text-f13 leading-relaxed text-t2">{item.detail}</p>
+                <h3 className="mt-[5px] text-f16 font-bold text-t1">{item.label}</h3>
+                <p className="mt-[8px] text-f14 leading-relaxed text-t2">{item.detail}</p>
               </article>
             ))}
           </div>
-          <p className="mt-[21px] max-w-[960px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] max-w-[960px] text-f16 leading-golden text-t2">
             These figures describe the production network. They do not qualify a specific profile: mechanical values, resin, glass architecture, fire performance, tolerances and certificates are tied to the quoted section and its production plan. The <Link href="/technology/quality-testing" className="text-teal-text hover:underline">FRP quality-testing</Link> page explains how incoming material checks, in-process checks, coupon tests and project acceptance evidence differ.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-[72px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Supply range</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             What you can order direct
           </h2>
           <div className="mt-[34px] overflow-x-auto rounded-[10px] border border-border-default">
-            <table className="w-full min-w-[820px] border-collapse bg-white text-f13">
+            <table className="w-full min-w-[820px] border-collapse bg-white text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2 text-left text-t1">
                   <th className="px-[16px] py-[13px] font-bold">Product family</th>
@@ -196,27 +196,27 @@ export default function FactoryDirectPultrusionPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Standard structural profiles use existing dies and published section data, so they are usually the quickest to qualify. A <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">custom pultruded profile</Link> adds tooling and a first-article stage, but it can remove secondary assembly, cut the part count, build in channels or fastening features, and put reinforcement where the load is. The quotation should list recurring profile cost separately from one-time tooling, testing, machining and certification costs.
           </p>
         </div>
       </section>
 
       <section className="bg-bg2 py-[72px]">
-        <div className="mx-auto max-w-[1060px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Qualification workflow</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             Five steps from specification to repeat orders
           </h2>
           <ol className="mt-[34px] space-y-[18px]">
             {qualificationSteps.map((step, index) => (
               <li key={step.title} className="grid gap-[13px] rounded-[10px] border border-border-default bg-white p-[21px] sm:grid-cols-[42px_1fr]">
-                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-teal-text text-f13 font-bold text-white">
+                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-teal-text text-f14 font-bold text-white">
                   {index + 1}
                 </span>
                 <div>
-                  <h3 className="text-f19 font-bold text-t1">{step.title}</h3>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{step.body}</p>
+                  <h3 className="text-f18 font-bold text-t1">{step.title}</h3>
+                  <p className="mt-[8px] text-f16 leading-golden text-t2">{step.body}</p>
                 </div>
               </li>
             ))}
@@ -225,22 +225,22 @@ export default function FactoryDirectPultrusionPage() {
       </section>
 
       <section className="bg-white py-[72px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[34px] lg:grid-cols-2">
+        <div className="site-container grid gap-[34px] lg:grid-cols-2">
           <div>
             <SectionTag>FOB or DDP</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
               Compare quotes on the same delivery terms
             </h2>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               FOB suits buyers who already handle freight forwarding, customs brokerage, insurance and import compliance. DDP suits buyers who want one delivered price, provided the seller states the classification and duty assumptions behind it. CIF and DAP split the responsibilities in other ways. No Incoterm is always cheaper, so compare quotes on the same port or site, shipment size, packing, insurance, customs clearance, tariffs, local charges, unloading and tax treatment.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               The <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="text-teal-text hover:underline">FRP pultrusion FOB and DDP export guide</Link> covers these terms, HS/HTSUS classification and Section 301 duties in more detail. It is a purchasing guide, not customs or legal advice: the importer should confirm the classification with its broker or customs authority for the exact section and use.
             </p>
           </div>
           <div className="rounded-[10px] border border-border-default bg-bg2 p-[26px]">
-            <h2 className="text-f19 font-bold text-t1">What to send for a comparable quote</h2>
-            <ul className="mt-[18px] space-y-[10px] text-f15 leading-relaxed text-t2">
+            <h2 className="text-f18 font-bold text-t1">What to send for a comparable quote</h2>
+            <ul className="mt-[18px] space-y-[10px] text-f16 leading-relaxed text-t2">
               <li>• Drawing, catalog model, or application with critical dimensions</li>
               <li>• Quantity by length, cut schedule, annual demand, and order cadence</li>
               <li>• Resin, exposure, fire, UV, color, surface, and mechanical requirements</li>
@@ -248,7 +248,7 @@ export default function FactoryDirectPultrusionPage() {
               <li>• Machining, labeling, bundling, pallet, container, and unloading constraints</li>
               <li>• Named destination and Incoterm: EXW, FOB, CIF, DAP, or DDP</li>
             </ul>
-            <p className="mt-[18px] text-f13 leading-relaxed text-t3">
+            <p className="mt-[18px] text-f14 leading-relaxed text-t3">
               Without these details we can only give an indicative price. The final offer references the approved specification and lists what is excluded.
             </p>
           </div>

@@ -136,20 +136,20 @@ export default async function TubePage() {
       </MaterialTerminologyNote>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>Circular Hollow Sections</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Round tubes for handrails and structures
               </h2>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 Pultruded FRP round tubes are used as members in handrail systems, guardrails, and structural applications requiring a circular cross-section. Their smooth interior bore also supports conduit applications. Electrical and corrosion performance depend on the specified laminate, exposure and complete assembly; catalog tube data do not qualify a finished safety system.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Handrail systems</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Guardrails</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Conduit applications</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Handrail systems</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Guardrails</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Conduit applications</span>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-white">
@@ -160,7 +160,7 @@ export default async function TubePage() {
       </section>
 
       <section id="sizes" className="scroll-mt-[100px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass round tube sizes</h2>
           <TubeSizeTable
@@ -213,13 +213,13 @@ export default async function TubePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=round-tube"
             eyebrow="Free tool · round tube preset"

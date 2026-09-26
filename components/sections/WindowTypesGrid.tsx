@@ -212,8 +212,8 @@ export default function WindowTypesGrid() {
           <div className="mb-[13px] flex h-[86px] items-center justify-center overflow-hidden rounded-[6px] bg-bg2">
             <WindowTypeAnimation type={type} name={name} animate={animate} />
           </div>
-          <h3 className="text-f15 font-bold text-t1">{name}</h3>
-          <p className="mt-[5px] text-f13 leading-golden text-t2">{description}</p>
+          <h3 className="text-f16 font-bold text-t1">{name}</h3>
+          <p className="mt-[5px] text-f14 leading-golden text-t2">{description}</p>
         </div>
       ))}
       </div>

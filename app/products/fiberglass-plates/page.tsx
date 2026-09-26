@@ -129,18 +129,18 @@ export default function FiberglassPlatesPage() {
       />
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.05fr_0.95fr] lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <SectionTag>Plate, Sheet, or Deck?</SectionTag>
             <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               A profile catalog—not a flat-sheet or deck-system claim
             </h2>
-            <p className="mt-[13px] text-f19 leading-golden text-t2">
+            <p className="mt-[13px] text-f18 leading-golden text-t2">
               These plates are constant-section pultrusions with cavities, internal webs
               and profile-specific edges. Select them from the section drawing first,
               then confirm the dimensions and laminate against the intended duty.
             </p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               Need solid flat stock for liners, covers or fabricated blanks? Use the
               separate{" "}
               <Link href="/products/fiberglass-sheets" className="font-semibold text-teal-text hover:underline">
@@ -152,7 +152,7 @@ export default function FiberglassPlatesPage() {
               </Link>
               , where support, joint and load requirements control selection.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               Some hollow or multi-cell plate geometries may also be reviewed for use as{" "}
               <Link
                 href="/products/frp-sound-barrier-wall"
@@ -166,12 +166,12 @@ export default function FiberglassPlatesPage() {
           </div>
 
           <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Source boundary</p>
-            <h3 className="mt-[8px] text-f19 font-bold text-t1">Values are published exactly as supplied.</h3>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">{fiberglassPlateSourceNote}</p>
+            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Source boundary</p>
+            <h3 className="mt-[8px] text-f18 font-bold text-t1">Values are published exactly as supplied.</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">{fiberglassPlateSourceNote}</p>
             <a
               href="#plate-profile-catalog"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f13 font-bold text-white transition-colors hover:bg-teal"
+              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               Compare all 19 profiles
             </a>
@@ -180,16 +180,16 @@ export default function FiberglassPlatesPage() {
       </section>
 
       <section id="plate-profile-catalog" className="scroll-mt-[89px] bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Catalog Drawings</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             19 plate records across 15 schematic families
           </h2>
-          <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
             Every catalog record is listed independently. Where the source merges one drawing
             across several rows, the shared schematic is shown once with each A/B/thickness/ID variant beneath it.
           </p>
-          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f13 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
             {fiberglassPlateSourceNote}
           </p>
 
@@ -207,7 +207,7 @@ export default function FiberglassPlatesPage() {
                   />
                 </div>
                 <div className="p-[21px]">
-                  <h3 className="text-f17 font-bold text-t1">{drawingLabel(group.profiles)}</h3>
+                  <h3 className="text-f18 font-bold text-t1">{drawingLabel(group.profiles)}</h3>
                   {group.profiles[0].drawingGroup ? (
                     <p className="mt-[4px] text-f12 leading-golden text-t3">{group.profiles[0].drawingGroup}</p>
                   ) : null}
@@ -222,7 +222,7 @@ export default function FiberglassPlatesPage() {
                             "t1 / t2",
                             "Source ID",
                           ].map((heading) => (
-                            <th key={heading} className="pb-[8px] pr-[13px] text-f11 font-bold uppercase tracking-wide text-t3 last:pr-0">
+                            <th key={heading} className="pb-[8px] pr-[13px] text-f12 font-bold uppercase tracking-wide text-t3 last:pr-0">
                               {heading}
                             </th>
                           ))}
@@ -231,11 +231,11 @@ export default function FiberglassPlatesPage() {
                       <tbody>
                         {group.profiles.map((spec) => (
                           <tr key={spec.profile} className="border-b border-border-default last:border-0">
-                            <td className="py-[10px] pr-[13px] text-f13 font-bold text-t1">{spec.profile.replace("Plate ", "")}</td>
-                            <td className="py-[10px] pr-[13px] text-f13 text-t2">{spec.a}</td>
-                            <td className="py-[10px] pr-[13px] text-f13 text-t2">{spec.b}</td>
-                            <td className="py-[10px] pr-[13px] text-f13 text-t2">{spec.t1t2}</td>
-                            <td className="py-[10px] text-f13 font-semibold text-teal-text">{spec.catalogId}</td>
+                            <td className="py-[10px] pr-[13px] text-f14 font-bold text-t1">{spec.profile.replace("Plate ", "")}</td>
+                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.a}</td>
+                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.b}</td>
+                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.t1t2}</td>
+                            <td className="py-[10px] text-f14 font-semibold text-teal-text">{spec.catalogId}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -249,7 +249,7 @@ export default function FiberglassPlatesPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Selection Workflow</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Four checks before a plate profile enters an RFQ
@@ -260,8 +260,8 @@ export default function FiberglassPlatesPage() {
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">
                   {index + 1}
                 </span>
-                <h3 className="mt-[13px] text-f17 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
               </article>
             ))}
           </div>
@@ -297,7 +297,7 @@ export default function FiberglassPlatesPage() {
       />
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

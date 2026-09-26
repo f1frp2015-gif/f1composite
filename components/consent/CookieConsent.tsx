@@ -67,7 +67,7 @@ function clearGoogleCookies(choice: ConsentChoice) {
 }
 
 const buttonClass =
-  "inline-flex min-h-[42px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f13 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
+  "inline-flex min-h-[42px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
 
 export default function CookieConsent() {
   const prompt = useSyncExternalStore(subscribe, promptSnapshot, () => "quiet");
@@ -122,10 +122,10 @@ export default function CookieConsent() {
       tabIndex={-1}
       className="fixed bottom-[13px] left-[13px] right-[13px] z-[70] max-h-[calc(100vh-26px)] overflow-y-auto rounded-[10px] border border-border-default bg-white p-[20px] shadow-2xl outline-none sm:right-auto sm:max-w-[520px]"
     >
-      <h2 id="cookie-consent-title" className="text-f15 font-bold text-t1">
+      <h2 id="cookie-consent-title" className="text-f16 font-bold text-t1">
         Cookies on this site
       </h2>
-      <p id="cookie-consent-text" className="mt-[8px] text-f13 leading-golden text-t2">
+      <p id="cookie-consent-text" className="mt-[8px] text-f14 leading-golden text-t2">
         With your permission we use Google Analytics to count visits and Google Ads to see which ads lead to
         enquiries. Both set cookies. Vercel and Ahrefs statistics run without cookies. You can change your choice
         at any time under &ldquo;Cookie settings&rdquo; at the foot of each page.{" "}
@@ -137,7 +137,7 @@ export default function CookieConsent() {
       {customizing && (
         <fieldset className="mt-[14px] space-y-[10px]">
           <legend className="sr-only">Choose which cookies to allow</legend>
-          <label className="flex gap-[10px] text-f13 leading-golden text-t2">
+          <label className="flex gap-[10px] text-f14 leading-golden text-t2">
             <input
               type="checkbox"
               className="mt-[4px] h-[16px] w-[16px] shrink-0 accent-teal-text"
@@ -149,7 +149,7 @@ export default function CookieConsent() {
               counts, so we can see which pages people use.
             </span>
           </label>
-          <label className="flex gap-[10px] text-f13 leading-golden text-t2">
+          <label className="flex gap-[10px] text-f14 leading-golden text-t2">
             <input
               type="checkbox"
               className="mt-[4px] h-[16px] w-[16px] shrink-0 accent-teal-text"
@@ -174,7 +174,7 @@ export default function CookieConsent() {
         {customizing ? (
           <button
             type="button"
-            className="min-h-[42px] px-[6px] text-f13 font-semibold text-teal-text underline underline-offset-4"
+            className="min-h-[42px] px-[6px] text-f14 font-semibold text-teal-text underline underline-offset-4"
             onClick={() => save(draft)}
           >
             Save my choices
@@ -182,7 +182,7 @@ export default function CookieConsent() {
         ) : (
           <button
             type="button"
-            className="min-h-[42px] px-[6px] text-f13 font-semibold text-teal-text underline underline-offset-4"
+            className="min-h-[42px] px-[6px] text-f14 font-semibold text-teal-text underline underline-offset-4"
             onClick={() => {
               setDraft(parseConsent(readStored()) ?? NONE);
               setCustomizing(true);

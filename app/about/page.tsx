@@ -70,19 +70,19 @@ export default function AboutPage() {
 
       {/* What F1 Composite is — entity disambiguation (industrial FRP, not motorsport) */}
       <section className="border-b border-border-default bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>What F1 Composite Is</SectionTag>
           <p className="mt-[21px] text-f18 leading-golden text-t1">
             <strong>F1 Composite is the export company of FengDu New Material.</strong> We
             supply pultruded fiberglass (FRP/GRP) structural shapes, custom sections, window
             and door profiles and grating to projects outside China.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             FengDu New Material is the parent company and runs the factories. Its subsidiary{" "}
             {company.manufacturer.name} is named on several of our test documents,
             including PHI certificate 2491wi03.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             The &ldquo;F1&rdquo; stands for <strong>&ldquo;Fiber One&rdquo;</strong> (fiberglass). We are{" "}
             <strong>not affiliated with Formula 1, Formula One motorsport or the FIA</strong>.
           </p>
@@ -91,14 +91,14 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
               <SectionTag>What we do</SectionTag>
-              <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
+              <h2 className="mt-[21px] text-f32 font-extrabold leading-[1.2] text-t1">
                 Export sales, engineering support and documents
               </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 We check your drawing or specification against the existing dies, quote a new
                 die when the section does not exist yet, and prepare the test reports, packing
                 lists and export paperwork for your order. Enquiries get a reply within{" "}
@@ -107,10 +107,10 @@ export default function AboutPage() {
             </div>
             <div>
               <SectionTag>Who we work with</SectionTag>
-              <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
+              <h2 className="mt-[21px] text-f32 font-extrabold leading-[1.2] text-t1">
                 Distributors, fabricators, contractors and OEMs
               </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 We sell to distributors and fabricators who stock or process FRP profiles, to
                 contractors buying for a single project, and to manufacturers developing their
                 own section. Window and door fabricators can buy profiles only or finished units.
@@ -122,13 +122,13 @@ export default function AboutPage() {
 
       {/* Company Story */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Background</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-f32 font-extrabold leading-[1.2] text-t1">
             One export team in front of FengDu&apos;s factories
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-[1fr_1fr]">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Chongqing F1 Composites Co., Ltd. was founded in {company.foundingYear} and is
                 FengDu New Material&apos;s export company. FengDu runs {company.production.bases}{" "}
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 order.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 We now ship to more than 30 countries. The range runs from catalog I-beams and
                 tubes to the Fengdu Passive GFRP 90 Series window, which holds Passive House
@@ -159,12 +159,12 @@ export default function AboutPage() {
 
       {/* Production Capacity */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Production</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-f31 font-extrabold leading-[1.2] text-t1">
+          <h2 className="mt-[21px] max-w-[900px] text-f32 font-extrabold leading-[1.2] text-t1">
             FengDu&apos;s production network
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             {companyStatements.production} Plants include Chongqing and Yancheng in Jiangsu
             province.
           </p>
@@ -180,8 +180,8 @@ export default function AboutPage() {
                 className="rounded-[8px] border border-border-default bg-white p-[34px] text-center"
               >
                 <span className="text-[clamp(32px,4vw,48px)] font-extrabold text-teal">{stat.value}</span>
-                <p className="mt-[5px] text-f15 font-bold text-t1">{stat.label}</p>
-                <p className="mt-[4px] text-f13 text-t3">{stat.detail}</p>
+                <p className="mt-[5px] text-f16 font-bold text-t1">{stat.label}</p>
+                <p className="mt-[4px] text-f14 text-t3">{stat.detail}</p>
               </div>
             ))}
           </div>
@@ -190,9 +190,9 @@ export default function AboutPage() {
 
       {/* Timeline / Milestones */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Milestones</SectionTag>
-          <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
+          <h2 className="mt-[21px] text-f32 font-extrabold leading-[1.2] text-t1">
             Company timeline
           </h2>
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 className="rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
               >
                 <span className="text-f24 font-extrabold text-teal-text">{m.year}</span>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{m.event}</p>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{m.event}</p>
               </div>
             ))}
           </div>
@@ -211,32 +211,32 @@ export default function AboutPage() {
 
       {/* Certifications & Global Reach */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] md:grid-cols-2">
             <div>
               <SectionTag>Certificates and reports</SectionTag>
-              <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
+              <h2 className="mt-[21px] text-f32 font-extrabold leading-[1.2] text-t1">
                 Published reports and documents on request
               </h2>
               <ul className="mt-[21px] space-y-[13px]">
                 {publishedReports.map((report) => (
-                  <li key={report} className="flex items-start gap-[13px] text-f15 leading-golden text-t2">
+                  <li key={report} className="flex items-start gap-[13px] text-f16 leading-golden text-t2">
                     <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-teal" />
                     {report}
                   </li>
                 ))}
               </ul>
-              <p className="mt-[21px] text-f15 leading-golden text-t2">{companyStatements.certificates}</p>
+              <p className="mt-[21px] text-f16 leading-golden text-t2">{companyStatements.certificates}</p>
               <div className="mt-[13px]">
                 <LinkArrow href="/resources/evidence">See the published reports</LinkArrow>
               </div>
             </div>
             <div>
               <SectionTag>Where we ship</SectionTag>
-              <h2 className="mt-[21px] text-f31 font-extrabold leading-[1.2] text-t1">
+              <h2 className="mt-[21px] text-f32 font-extrabold leading-[1.2] text-t1">
                 More than 30 countries
               </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 We ship from China to customers in Asia-Pacific, Europe, the Middle East, Africa
                 and the Americas. Documents are prepared in English, and we quote FOB or DDP
                 depending on how you want to handle import.
@@ -248,7 +248,7 @@ export default function AboutPage() {
                   href="https://www.youtube.com/@F1Composites"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-[5px] text-f15 font-semibold text-teal-text transition-colors hover:text-teal"
+                  className="inline-flex items-center gap-[5px] text-f16 font-semibold text-teal-text transition-colors hover:text-teal"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                     <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>

@@ -111,12 +111,12 @@ export default function ChinaAlternativePage() {
 
       {/* Positioning intro */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The positioning</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Same specification, factory-direct from China
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites
             (Denmark), and Exel Composites (Finland) are the established Western names in
             pultruded FRP. They are excellent manufacturers, and they all build to the same
@@ -127,7 +127,7 @@ export default function ChinaAlternativePage() {
             are built to: <strong className="text-t1">EN 13706</strong> (E17/E23
             structural grades) and <strong className="text-t1">ASTM D3917</strong>.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Buyers usually look for a China alternative because of the route to market rather
             than the specification. F1 Composite supplies its{" "}
             <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
@@ -144,12 +144,12 @@ export default function ChinaAlternativePage() {
 
       {/* Comparison table */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Side by side</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             F1-STRUX vs the Western incumbents
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             A fair, specification-level comparison. Where a competitor figure
             varies by region or distributor, it is described rather than
             asserted.
@@ -159,24 +159,24 @@ export default function ChinaAlternativePage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-STRUX)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Strongwell · Creative · Fiberline · Exel</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Dimension</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-STRUX)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Strongwell · Creative · Fiberline · Exel</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.dimension} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.dimension}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.incumbents}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.dimension}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.incumbents}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             For the full material-level comparison (FRP vs steel and aluminum),
             see{" "}
             <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">
@@ -189,12 +189,12 @@ export default function ChinaAlternativePage() {
 
       {/* Crossover chart */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Crossover Chart</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             EXTREN® / Pultex® to F1-STRUX crossover chart
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Specifiers often hold an existing spec written around Strongwell
             EXTREN® or Creative Pultrusions Pultex® series names. The chart
             below maps those series to the F1-STRUX resin system and fire class
@@ -208,10 +208,10 @@ export default function ChinaAlternativePage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Incumbent series</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Resin system / fire class</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">F1-STRUX crossover</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Verify before substituting</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Incumbent series</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Resin system / fire class</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1-STRUX crossover</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Verify before substituting</th>
                 </tr>
               </thead>
               <tbody>
@@ -242,17 +242,17 @@ export default function ChinaAlternativePage() {
                   },
                 ].map((row) => (
                   <tr key={row.series} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.series}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.resin}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f13 text-t2">{row.verify}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.series}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.resin}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
+                    <td className="py-[13px] text-f14 text-t2">{row.verify}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             EXTREN® is a registered trademark of Strongwell Corporation; Pultex®
             of Creative Pultrusions, Inc. Names are used for specification
             crossover reference only. Send your existing spec sheet and we
@@ -264,8 +264,8 @@ export default function ChinaAlternativePage() {
 
       {/* Related */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify the equivalence</h2>
+        <div className="site-container">
+          <h2 className="mb-[21px] text-f18 font-bold text-t1">Verify the equivalence</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/fiberglass-structural-shapes">F1-STRUX structural profiles</LinkArrow>
             <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>

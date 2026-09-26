@@ -97,23 +97,23 @@ function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
   return (
     <article className="overflow-hidden rounded-[8px] border border-border-default bg-white">
       <div className="border-b border-border-default bg-bg2 p-[21px] sm:p-[24px]">
-        <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">{system.shortName} system</p>
-        <h3 className="mt-[5px] text-f21 font-bold text-t1">{system.name}</h3>
+        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{system.shortName} system</p>
+        <h3 className="mt-[5px] text-f20 font-bold text-t1">{system.name}</h3>
         <p className="mt-[8px] text-f14 leading-golden text-t2">{system.description}</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr>
-              <th className="px-[16px] py-[12px] text-f11 font-bold uppercase tracking-wide text-t1">Component</th>
-              <th className="px-[16px] py-[12px] text-f11 font-bold uppercase tracking-wide text-t1">Nominal catalog value</th>
+              <th className="px-[16px] py-[12px] text-f12 font-bold uppercase tracking-wide text-t1">Component</th>
+              <th className="px-[16px] py-[12px] text-f12 font-bold uppercase tracking-wide text-t1">Nominal catalog value</th>
             </tr>
           </thead>
           <tbody>
             {system.rows.map((row) => (
               <tr key={row.item} className="border-t border-border-default">
-                <th className="px-[16px] py-[12px] text-f13 font-semibold text-t1">{row.item}</th>
-                <td className="px-[16px] py-[12px] text-f13 text-t2">{row.nominalValue}</td>
+                <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">{row.item}</th>
+                <td className="px-[16px] py-[12px] text-f14 text-t2">{row.nominalValue}</td>
               </tr>
             ))}
           </tbody>
@@ -162,7 +162,7 @@ export default function HandrailSystemsPage() {
       </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <figure>
             <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
               <Image
@@ -182,16 +182,16 @@ export default function HandrailSystemsPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.08fr_0.92fr] lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.08fr_0.92fr]">
           <div>
             <SectionTag>Complete Edge-Protection Assemblies</SectionTag>
             <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               Specify the rail, post, fitting, kick plate and base as one system
             </h2>
-            <p className="mt-[21px] text-f17 leading-golden text-t2">
+            <p className="mt-[21px] text-f18 leading-golden text-t2">
               A fiberglass railing is not qualified by a tube size alone. The finished assembly transfers top-rail and intermediate-member loads through posts, splices, corner fittings, bases, anchors and the supporting substrate. F1 therefore keeps the catalog geometry visible while making the project load basis and release drawing explicit.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               This page owns the industrial handrail and guardrail intent. For vertical access, use the separate{" "}
               <Link href="/products/frp-ladders" className="font-semibold text-teal-text hover:underline">
                 fiberglass fixed ladder systems
@@ -200,7 +200,7 @@ export default function HandrailSystemsPage() {
             </p>
           </div>
           <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">What the catalog establishes</p>
+            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">What the catalog establishes</p>
             <dl className="mt-[13px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-1">
               <div><dt className="text-f12 font-bold text-t1">Two systems</dt><dd className="mt-[3px] text-f14 text-t2">Square-tube and round-tube configurations</dd></div>
               <div><dt className="text-f12 font-bold text-t1">Layout references</dt><dd className="mt-[3px] text-f14 text-t2">1,500 mm maximum post spacing; 1,220 mm maximum height</dd></div>
@@ -211,12 +211,12 @@ export default function HandrailSystemsPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Manual-Verified Specifications</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Square and round FRP handrail system specifications
           </h2>
-          <p className="mt-[13px] max-w-[920px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
             The source tables are rebuilt below as accessible, supplier-neutral HTML. Suspect or internally conflicting fields are not silently corrected; they are withheld or carried into a release note until an approved BOM resolves them.
           </p>
           <div className="mt-[34px] grid gap-[21px] xl:grid-cols-2 xl:items-start">
@@ -226,7 +226,7 @@ export default function HandrailSystemsPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2">
             <article>
               <SectionTag>Square-System Connections</SectionTag>
@@ -257,7 +257,7 @@ export default function HandrailSystemsPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>From Layout to Release</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six inputs for a coordinated industrial handrail system
@@ -265,8 +265,8 @@ export default function HandrailSystemsPage() {
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {specificationInputs.map((input, index) => (
               <article key={input.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{input.title}</h3>
+                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
@@ -315,7 +315,7 @@ export default function HandrailSystemsPage() {
       />
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

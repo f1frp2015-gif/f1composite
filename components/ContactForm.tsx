@@ -84,7 +84,7 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
 }
 
 const inputCls =
-  "w-full rounded-[7px] border border-border-default bg-white px-[13px] py-[12px] text-f15 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
+  "w-full rounded-[7px] border border-border-default bg-white px-[13px] py-[12px] text-f16 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -158,7 +158,7 @@ function ContactFormContent() {
     return (
       <div role="status" aria-live="polite" className="rounded-[8px] border border-teal-border bg-teal-bg p-[34px]">
         <h3 className="text-f24 font-bold text-t1">Thank you for reaching out</h3>
-        <p className="mt-[13px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f16 leading-golden text-t2">
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
         {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
@@ -190,15 +190,15 @@ function ContactFormContent() {
       {rebarDraftNotice && <p role="status" className="rounded-md bg-amber-50 p-4 text-sm text-t1">{rebarDraftNotice}</p>}
       {windowInquiry && <p className="rounded-md bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-sm font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
-      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
+      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (
-        <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f13 leading-golden text-t1">
+        <div className="rounded-[5px] border border-teal-border bg-teal-bg p-[13px] text-f14 leading-golden text-t1">
           <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Your project details are included. Just add your name and email to get started.
         </div>
       )}
 
       {state.message && !state.success && (
-        <div role="alert" className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+        <div role="alert" className="rounded-[5px] border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
           {state.message}
         </div>
       )}
@@ -218,7 +218,7 @@ function ContactFormContent() {
           </div>
           <div><label htmlFor="country" className="mb-2 block text-sm font-semibold">Country</label><select id="country" name="country" autoComplete="country-name" defaultValue={prefillCountry} className={inputCls}><option value="">To be confirmed</option>{countries.map(country => <option key={country} value={country}>{country}</option>)}</select></div>
       <div>
-        <label htmlFor="attachment" className="mb-[5px] block text-f13 font-semibold text-t1">
+        <label htmlFor="attachment" className="mb-[5px] block text-f14 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
         </label>
         <div className="flex min-h-[47px] items-center gap-[12px] rounded-[7px] border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
@@ -239,7 +239,7 @@ function ContactFormContent() {
           />
           <label
             htmlFor="attachment"
-            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f13 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+            className="shrink-0 cursor-pointer rounded-[5px] border border-border-default bg-bg2 px-[12px] py-[7px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
           >
             Choose File
           </label>
@@ -247,7 +247,7 @@ function ContactFormContent() {
             {attachmentName || "No file selected"}
           </span>
         </div>
-        <p id="attachment-help" className="mt-[5px] text-f11 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
+        <p id="attachment-help" className="mt-[5px] text-f12 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
       </div>
         </div>
       </details>
@@ -257,7 +257,7 @@ function ContactFormContent() {
         {isPending ? "Sending..." : "Send Inquiry"}
       </Button>
       <p className="text-sm leading-relaxed text-t2">We will respond within one business day and help confirm the details for your quote.</p>
-      <p className="text-f11 leading-relaxed text-t3">Your information is used only to respond to this inquiry.</p>
+      <p className="text-f12 leading-relaxed text-t3">Your information is used only to respond to this inquiry.</p>
     </form>
   );
 }

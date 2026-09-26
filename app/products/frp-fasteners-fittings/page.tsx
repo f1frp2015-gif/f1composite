@@ -18,7 +18,7 @@ const updatedAt = "2026-09-21";
 
 const target = getSeoQueryTarget(fastenersPath);
 const imageBase = "/images/products/frp-fasteners-fittings/";
-const container = "mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]";
+const container = "site-container";
 
 export const metadata: Metadata = buildPageMetadata({
   title: target.title,
@@ -80,15 +80,15 @@ export default function FastenersFittingsPage() {
 
       <nav aria-label="Fasteners page sections" className="border-y border-border-default bg-bg2">
         <div className={`${container} flex flex-wrap gap-x-[24px] gap-y-[2px] py-[10px]`}>
-          {[{ href: "#product-range", label: "Product range" }, { href: "#thread-sizes", label: "Thread sizes" }, { href: "#grating-fixings", label: "Grating fixings" }, { href: "#selection", label: "Selection & RFQ" }].map((link) => <Link key={link.href} href={link.href} className="inline-flex min-h-[44px] items-center text-f13 font-semibold text-teal-text hover:underline">{link.label} ↓</Link>)}
+          {[{ href: "#product-range", label: "Product range" }, { href: "#thread-sizes", label: "Thread sizes" }, { href: "#grating-fixings", label: "Grating fixings" }, { href: "#selection", label: "Selection & RFQ" }].map((link) => <Link key={link.href} href={link.href} className="inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:underline">{link.label} ↓</Link>)}
         </div>
       </nav>
 
       <section id="product-range" className="scroll-mt-[110px] bg-bg2 py-[48px] md:py-[64px]">
         <div className={container}>
           <SectionTag>Component range</SectionTag>
-          <h2 className="mt-[12px] text-f31 font-bold text-t1">Find the right fastening components</h2>
-          <p className="mt-[12px] max-w-[850px] text-f15 leading-relaxed text-t2">Catalog sizes provide a starting point for your inquiry. Availability, resin grade and finished geometry are confirmed for each order.</p>
+          <h2 className="mt-[12px] text-f32 font-bold text-t1">Find the right fastening components</h2>
+          <p className="mt-[12px] max-w-[850px] text-f16 leading-relaxed text-t2">Catalog sizes provide a starting point for your inquiry. Availability, resin grade and finished geometry are confirmed for each order.</p>
           <div className="mt-[28px] grid gap-[22px] md:grid-cols-2 lg:grid-cols-3">
             {fastenerRanges.map((range) => (
               <article id={range.id} key={range.id} className="flex scroll-mt-[110px] flex-col overflow-hidden rounded-[10px] border border-border-default bg-white">
@@ -96,19 +96,19 @@ export default function FastenersFittingsPage() {
                   <Image src={`${imageBase}${range.image}`} alt={range.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" className="object-contain" />
                 </div>
                 <div className="flex flex-1 flex-col p-[22px]">
-                  <p className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">{range.label}</p>
-                  <h3 className="mt-[8px] text-f21 font-bold leading-tight text-t1">{range.name}</h3>
+                  <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{range.label}</p>
+                  <h3 className="mt-[8px] text-f20 font-bold leading-tight text-t1">{range.name}</h3>
                   <p className="mt-[12px] text-f14 leading-relaxed text-t2">{range.description}</p>
-                  <p className="mt-[14px] rounded-[6px] bg-bg2 p-[12px] text-f13 leading-relaxed text-t1">{range.specification}</p>
+                  <p className="mt-[14px] rounded-[6px] bg-bg2 p-[12px] text-f14 leading-relaxed text-t1">{range.specification}</p>
                   <p className="mb-[18px] mt-[12px] text-f12 leading-relaxed text-t3">{range.confirm}</p>
-                  <Link href={fastenerInquiryHref(range.name, range.specification)} className="mt-auto inline-flex min-h-[44px] items-center text-f13 font-bold text-teal-text hover:underline">Quote {range.name.toLowerCase()} →</Link>
+                  <Link href={fastenerInquiryHref(range.name, range.specification)} className="mt-auto inline-flex min-h-[44px] items-center text-f14 font-bold text-teal-text hover:underline">Quote {range.name.toLowerCase()} →</Link>
                 </div>
               </article>
             ))}
             <article className="flex flex-col justify-center rounded-[10px] border border-teal-border bg-teal-bg p-[26px]">
               <SectionTag>One connection, one parts list</SectionTag>
               <h3 className="mt-[16px] text-f24 font-bold leading-tight text-t1">Need a matched set?</h3>
-              <p className="mt-[16px] text-f15 leading-relaxed text-t2">Send the rod or bolt, nut and washer requirements together. Add the mating profile and a marked connection sketch so the interfaces can be checked in one review.</p>
+              <p className="mt-[16px] text-f16 leading-relaxed text-t2">Send the rod or bolt, nut and washer requirements together. Add the mating profile and a marked connection sketch so the interfaces can be checked in one review.</p>
               <div className="mt-[24px]"><Button href={fastenerInquiryHref("Matched FRP fastener set")}>Quote a Complete Set</Button></div>
               <p className="mt-[18px] text-f12 leading-relaxed text-t3">Include quantities per size and any packing or assembly requirements.</p>
             </article>
@@ -119,8 +119,8 @@ export default function FastenersFittingsPage() {
       <section id="thread-sizes" className="scroll-mt-[110px] bg-white py-[48px] md:py-[64px]">
         <div className={container}>
           <SectionTag>Nominal catalog sizes</SectionTag>
-          <h2 className="mt-[12px] text-f31 font-bold text-t1">Threaded rod sizes & matching nut series</h2>
-          <p className="mt-[12px] max-w-[900px] text-f15 leading-relaxed text-t2">Select a series to carry it into your inquiry. Inch-to-millimeter values identify nominal diameter only; UNC and metric threads are not interchangeable. Metric pitch and tolerance must be confirmed.</p>
+          <h2 className="mt-[12px] text-f32 font-bold text-t1">Threaded rod sizes & matching nut series</h2>
+          <p className="mt-[12px] max-w-[900px] text-f16 leading-relaxed text-t2">Select a series to carry it into your inquiry. Inch-to-millimeter values identify nominal diameter only; UNC and metric threads are not interchangeable. Metric pitch and tolerance must be confirmed.</p>
           <div role="region" aria-label="Threaded rod catalog sizes, scroll horizontally on small screens" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-[8px] border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
             <table className="w-full min-w-[650px] text-left text-f14">
               <caption className="sr-only">Vinyl ester UNC and epoxy metric threaded rod catalog sizes; lengths subject to order confirmation</caption>
@@ -134,7 +134,7 @@ export default function FastenersFittingsPage() {
               </tr>)}</tbody>
             </table>
           </div>
-          <p className="mt-[14px] text-f13 leading-relaxed text-t3">Custom lengths can be reviewed. This table is a size reference; connection capacity, electrical performance and installation torque require documents for the supplied configuration.</p>
+          <p className="mt-[14px] text-f14 leading-relaxed text-t3">Custom lengths can be reviewed. This table is a size reference; connection capacity, electrical performance and installation torque require documents for the supplied configuration.</p>
         </div>
       </section>
 
@@ -143,8 +143,8 @@ export default function FastenersFittingsPage() {
           <div className="relative aspect-[3/2] overflow-hidden rounded-[10px] bg-white"><Image src="/images/products/molded-frp-grating/grating-clips-hardware-reference.webp" alt="Metal hold-down clips and connection hardware for fiberglass grating" fill sizes="(max-width: 768px) 100vw, 500px" className="object-contain p-[18px]" /></div>
           <div>
             <SectionTag>Related fixing hardware · 316 stainless steel</SectionTag>
-            <h2 className="mt-[12px] text-f31 font-bold leading-tight text-t1">Fasteners for fiberglass grating</h2>
-            <p className="mt-[16px] text-f15 leading-relaxed text-t2">Specify the grating type, bar or mesh geometry, support flange and underside access before selecting the clip. These are metal fixing kits for FRP panels; use the guide that matches your grating family.</p>
+            <h2 className="mt-[12px] text-f32 font-bold leading-tight text-t1">Fasteners for fiberglass grating</h2>
+            <p className="mt-[16px] text-f16 leading-relaxed text-t2">Specify the grating type, bar or mesh geometry, support flange and underside access before selecting the clip. These are metal fixing kits for FRP panels; use the guide that matches your grating family.</p>
             <div className="mt-[22px] flex flex-wrap gap-[12px]">
               <Button href="/products/molded-frp-grating#grating-clips" variant="secondary">Molded Grating · M / C / J</Button>
               <Button href="/products/frp-gratings#grating-clips" variant="secondary">Pultruded Grating · M / J / T</Button>
@@ -156,12 +156,12 @@ export default function FastenersFittingsPage() {
       <section id="selection" className="scroll-mt-[110px] bg-white py-[48px] md:py-[64px]">
         <div className={container}>
           <SectionTag>Selection & quotation</SectionTag>
-          <h2 className="mt-[12px] text-f31 font-bold text-t1">Prepare a connection that can be quoted</h2>
+          <h2 className="mt-[12px] text-f32 font-bold text-t1">Prepare a connection that can be quoted</h2>
           <div className="mt-[26px] grid gap-[20px] md:grid-cols-3">{selectionSteps.map((step, index) => <div key={step.title} className="border-t-2 border-teal-border pt-[18px]">
-            <span className="text-f12 font-bold text-teal-text">0{index + 1}</span><h3 className="mt-[8px] text-f21 font-bold text-t1">{step.title}</h3><p className="mt-[12px] text-f14 leading-relaxed text-t2">{step.body}</p>
+            <span className="text-f12 font-bold text-teal-text">0{index + 1}</span><h3 className="mt-[8px] text-f20 font-bold text-t1">{step.title}</h3><p className="mt-[12px] text-f14 leading-relaxed text-t2">{step.body}</p>
           </div>)}</div>
           <div className="mt-[30px] flex flex-col gap-[18px] rounded-[10px] bg-bg2 p-[24px] sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-[730px] text-f15 leading-relaxed text-t2"><strong className="text-t1">Ready with a BOM?</strong> Include quantity per size, delivery destination and target date. Attach the drawing on the inquiry form so F1 can review the complete supply scope.</p>
+            <p className="max-w-[730px] text-f16 leading-relaxed text-t2"><strong className="text-t1">Ready with a BOM?</strong> Include quantity per size, delivery destination and target date. Attach the drawing on the inquiry form so F1 can review the complete supply scope.</p>
             <Button className="shrink-0" href={fastenerInquiryHref()}>Send Your Parts List</Button>
           </div>
           <FAQ items={fastenerFaqs} title="Fastener selection questions" />

@@ -210,12 +210,12 @@ const otherProcesses = [
 export default function FrpProcessShowcase() {
   return (
     <section id="processes" className="bg-white py-[55px]">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
+      <div className="site-container">
         <SectionTag>Manufacturing Processes</SectionTag>
         <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
           How is FRP made? Six processes at a glance
         </h2>
-        <p className="mt-[21px] text-f15 leading-golden text-t2">
+        <p className="mt-[21px] text-f16 leading-golden text-t2">
           The same glass-fiber-plus-resin material becomes very different
           products depending on how it is formed. Six processes cover most of
           the FRP world — and one of them, pultrusion, is the route to every
@@ -228,18 +228,18 @@ export default function FrpProcessShowcase() {
             href="/technology/pultrusion-process"
             className="group relative rounded-[8px] border-2 border-teal bg-teal-bg p-[21px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(0,161,153,0.12)] sm:col-span-2 lg:col-span-1"
           >
-            <span className="absolute right-[13px] top-[13px] rounded-[4px] bg-teal px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
+            <span className="absolute right-[13px] top-[13px] rounded-[4px] bg-teal px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
               Our process · 370 lines
             </span>
             <PultrusionIcon />
-            <h3 className="mt-[13px] text-[17px] font-bold text-t1">Pultrusion</h3>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">
+            <h3 className="mt-[13px] text-f18 font-bold text-t1">Pultrusion</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
               Continuous fibers pulled through a resin bath and a heated die —
               constant cross-sections at industrial throughput. This is the
               process behind every F1 profile, from I-beams to PHI-certified
               window frames.
             </p>
-            <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-80 transition-opacity duration-[0.34s] group-hover:opacity-100">
+            <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-80 transition-opacity duration-[0.34s] group-hover:opacity-100">
               See the process step by step →
             </span>
           </Link>
@@ -247,12 +247,12 @@ export default function FrpProcessShowcase() {
           {otherProcesses.map((p) => (
             <div key={p.name} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
               {p.icon}
-              <h3 className="mt-[13px] text-[17px] font-bold text-t1">{p.name}</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">{p.body}</p>
+              <h3 className="mt-[13px] text-f18 font-bold text-t1">{p.name}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{p.body}</p>
               {p.href ? (
                 <Link
                   href={p.href}
-                  className="mt-[8px] inline-block text-f13 font-semibold text-teal-text hover:underline"
+                  className="mt-[8px] inline-block text-f14 font-semibold text-teal-text hover:underline"
                 >
                   How it compares {p.linkLabel} →
                 </Link>

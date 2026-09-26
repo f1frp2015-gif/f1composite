@@ -59,11 +59,11 @@ export default function SpanTablesContent({
     <>
       {families.map((family) => (
         <section key={family.id} id={family.id} className="bg-white py-[34px]">
-          <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[34px]">
+          <div className="site-container">
             <h2 className="text-f24 font-bold text-t1">{family.title}</h2>
-            <p className="mt-[8px] max-w-[800px] text-f15 leading-golden text-t2">{family.intro}</p>
+            <p className="mt-[8px] max-w-[800px] text-f16 leading-golden text-t2">{family.intro}</p>
             <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
-              <table className="w-full min-w-[1200px] border-collapse text-f13">
+              <table className="w-full min-w-[1200px] border-collapse text-f14">
                 <thead>
                   <tr className="bg-slate-50 text-left text-t1">
                     <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">Section (mm)</th>
@@ -109,7 +109,7 @@ export default function SpanTablesContent({
                                   onClick={() => copyValueCitation(row.model, span, cell.w, cell.governs)}
                                   aria-label={`Copy citation for ${row.model} at ${formatSpan(span)} metre span, ASCE/SEI 74-23 design basis`}
                                   title="Cite this value (ASCE/SEI 74-23 design basis)"
-                                  className="rounded-[5px] border border-border-default bg-white px-[6px] py-[3px] text-[10px] font-bold text-teal-text transition-colors hover:border-teal hover:bg-teal-bg"
+                                  className="rounded-[5px] border border-border-default bg-white px-[6px] py-[3px] text-f12 font-bold text-teal-text transition-colors hover:border-teal hover:bg-teal-bg"
                                 >
                                   {copiedValue?.key === anchor ? "✓ Copied" : "📋 Cite"}
                                 </button>
@@ -145,14 +145,14 @@ export default function SpanTablesContent({
         >
           <div className="flex items-start justify-between gap-[13px]">
             <div>
-              <p className="text-f13 font-bold text-t1">{copyError ? "Copy this citation manually" : "✓ Citation copied"}</p>
+              <p className="text-f14 font-bold text-t1">{copyError ? "Copy this citation manually" : "✓ Citation copied"}</p>
               <p className="mt-[6px] break-words text-f12 leading-relaxed text-t2">{copiedValue.citation}</p>
             </div>
             <button
               type="button"
               onClick={() => setCopiedValue(null)}
               aria-label="Close citation message"
-              className="shrink-0 text-f19 leading-none text-t3 hover:text-t1"
+              className="shrink-0 text-f18 leading-none text-t3 hover:text-t1"
             >
               ×
             </button>

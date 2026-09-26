@@ -113,20 +113,20 @@ export default async function RodPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>Solid Circular Sections</SectionTag>
               <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 High-strength solid rods
               </h2>
-              <p className="mt-[21px] text-f15 leading-golden text-t2">
+              <p className="mt-[21px] text-f16 leading-golden text-t2">
                 Pultruded with 65-70% unidirectional glass roving for exceptional tensile strength along the longitudinal axis. Primary applications include soil nails, rock bolts, guy-wire replacements, and marine tie-rods where non-magnetic, non-conductive, and corrosion-proof properties are decisive advantages over steel.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">65-70% glass content</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Non-magnetic</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Smooth / sand-coated / wound</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">65-70% glass content</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-magnetic</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Smooth / sand-coated / wound</span>
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden rounded-[8px] bg-neutral-50">
@@ -137,25 +137,25 @@ export default async function RodPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <p className="mt-[13px] text-f15 text-t2">Surface options: smooth, sand-coated, or helically wound — selected to suit bond requirements.</p>
+          <p className="mt-[13px] text-f16 text-t2">Surface options: smooth, sand-coated, or helically wound — selected to suit bond requirements.</p>
           <div className="mt-[34px] overflow-x-auto">
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Diameter (mm)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Diameter (mm)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
                 </tr>
               </thead>
               <tbody>
                 {sizes.map((s) => (
                   <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.d}</td>
-                    <td className="py-[13px] text-f15 text-teal-text font-medium">{s.weight}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.d}</td>
+                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
                   </tr>
                 ))}
               </tbody>
@@ -205,7 +205,7 @@ export default async function RodPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

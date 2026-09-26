@@ -97,11 +97,11 @@ export default function PultrusionResinSystemsPage() {
 
       {/* GEO answer box — direct definition before anything interactive */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="text-f24 font-bold text-t1 md:text-f31">
+        <div className="site-container">
+          <h2 className="text-f24 font-bold text-t1 md:text-f32">
             What is the resin matrix in pultruded FRP?
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             The resin matrix is the cured thermoset polymer that surrounds every glass fiber in
             a pultruded profile, typically 30–45 % of the composite by volume. The fibers carry
             the axial load; the matrix binds them, transfers load between them in shear, stops
@@ -112,28 +112,28 @@ export default function PultrusionResinSystemsPage() {
           </p>
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-3">
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f13 font-bold uppercase tracking-wide text-teal-text">
+              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 Fiber decides
               </p>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 Axial stiffness and tensile strength: the numbers on the datasheet that barely
                 change when you switch resin.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f13 font-bold uppercase tracking-wide text-teal-text">
+              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 Matrix decides
               </p>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 Corrosion, fire, temperature limit, transverse strength, impact toughness and
                 fatigue, which together decide service life.
               </p>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f13 font-bold uppercase tracking-wide text-teal-text">
+              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
                 You decide
               </p>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 The resin system is selected per production run, so it belongs in your RFQ, not
                 in the fine print of the quote you accept.
               </p>
@@ -149,11 +149,11 @@ export default function PultrusionResinSystemsPage() {
 
       {/* Inside the laminate — interactive micrograph */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="text-f24 font-bold text-t1 md:text-f31">
+        <div className="site-container">
+          <h2 className="text-f24 font-bold text-t1 md:text-f32">
             Inside the laminate: fiber, mat, and matrix
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             A pultruded section is an engineered stack of layers rather than a uniform material.
             Unidirectional rovings in the core carry axial load, continuous filament mat (CFM)
             layers add transverse strength, and a matrix-rich surface veil forms the corrosion
@@ -170,17 +170,17 @@ export default function PultrusionResinSystemsPage() {
 
       {/* Published-range comparison table — the crawlable data layer */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="text-f24 font-bold text-t1 md:text-f31">
+        <div className="site-container">
+          <h2 className="text-f24 font-bold text-t1 md:text-f32">
             The five resin systems, side by side
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Typical published ranges for pultrusion-grade formulations. Individual formulations
             vary: the values on a project datasheet and resin TDS govern; use this table to
             shortlist, not to certify.
           </p>
           <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full min-w-[880px] border-collapse text-f13">
+            <table className="w-full min-w-[880px] border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-t1 text-left">
                   <th className="py-[13px] pr-[13px] font-bold text-t1">Resin system</th>
@@ -271,17 +271,17 @@ export default function PultrusionResinSystemsPage() {
 
       {/* Decision guide */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="text-f24 font-bold text-t1 md:text-f31">
+        <div className="site-container">
+          <h2 className="text-f24 font-bold text-t1 md:text-f32">
             How to choose: let the environment pick the resin
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Resin selection is environment-first, not price-first. Work through the service
             conditions in this order: the first condition that applies usually decides the
             matrix.
           </p>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <ol className="space-y-[13px] text-f15 leading-golden text-t2">
+            <ol className="space-y-[13px] text-f16 leading-golden text-t2">
               <li className="rounded-[8px] border border-border-default bg-white p-[21px]">
                 <strong className="text-t1">1. Fire code governs?</strong> Rail interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84 Class A:
                 FR-grade polyester or vinyl ester, and require the test report for the exact
@@ -312,10 +312,10 @@ export default function PultrusionResinSystemsPage() {
               </li>
             </ol>
             <div>
-              <h3 className="text-f19 font-bold text-t1">
+              <h3 className="text-f18 font-bold text-t1">
                 Specification mistakes we see in RFQs
               </h3>
-              <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
+              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
                 <li>
                   <strong className="text-t1">Specifying &quot;fiberglass&quot; with no resin system.</strong>{" "}
                   Two quotes for the same drawing can differ 30 % because one prices

@@ -83,7 +83,7 @@ export default function UsaRegionPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/regions/frp-pultrusion-supplier-usa.jpg"
@@ -99,13 +99,13 @@ export default function UsaRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why US Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Why US buyers use a direct FRP pultrusion supplier
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Buying FRP from China raises three questions for US specifiers and EPC buyers: what the duties add to the price, whether the project falls under Buy America / BABA rules, and what supply-chain documents customs will ask for under UFLPA. We answer them up front. Duties, including Section 301, are itemized in every DDP quote. BABA-covered work needs a US manufacturing step, so we do not supply it directly. Supply-chain traceability documents are prepared with each shipment.
               </p>
@@ -113,7 +113,7 @@ export default function UsaRegionPage() {
                 The rest is the usual engineering work: fire-retardant formulations with ASTM E84 reports on request, AAMA 2604 / 2605 coatings for architectural sections, low-conductivity window frames, and custom sections that can often use one of FengDu&rsquo;s more than 1,000 existing dies. Send a section list and we will quote DDP so you can compare landed cost with your current supplier.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 F1 Composite is the export company of FengDu New Material. FengDu
                 runs 5 production bases with 370 pultrusion lines, about 150,000
@@ -130,7 +130,7 @@ export default function UsaRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>US Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             ASTM, AAMA and Passive House documents for US specifications
@@ -139,10 +139,10 @@ export default function UsaRegionPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Application</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">US Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Application</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">US Standard</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
@@ -157,10 +157,10 @@ export default function UsaRegionPage() {
                   { app: "Bridge / vehicular deck", std: "AASHTO load classes", perf: "Pultruded deck plank options", doc: "Project calculation on request" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.std}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.perf}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.doc}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.app}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.std}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.perf}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.doc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -170,7 +170,7 @@ export default function UsaRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             From our factory in China to your US jobsite, with the Section 301 tariff itemized
@@ -194,9 +194,9 @@ export default function UsaRegionPage() {
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{s.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{s.body}</p>
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>
             ))}
           </div>
@@ -219,29 +219,29 @@ export default function UsaRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a US project.</p>
+              <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a US project.</p>
             </Link>
             <Link
               href="/resources/blog/frp-fire-resistance-ratings-guide"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">ASTM E84 and FRP fire ratings</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">How resin chemistry and additives affect flame spread, and what a Class A report covers.</p>
+              <h3 className="text-f16 font-bold text-t1">ASTM E84 and FRP fire ratings</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">How resin chemistry and additives affect flame spread, and what a Class A report covers.</p>
             </Link>
             <Link
               href="/technology/frp-vs-aluminum-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">FRP vs Aluminum — AAMA & thermal</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">U-values, structure and AAMA 2604 / 2605 finishes compared for US projects.</p>
+              <h3 className="text-f16 font-bold text-t1">FRP vs Aluminum — AAMA & thermal</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">U-values, structure and AAMA 2604 / 2605 finishes compared for US projects.</p>
             </Link>
           </div>
         </div>

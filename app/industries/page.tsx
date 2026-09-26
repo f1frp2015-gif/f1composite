@@ -84,12 +84,12 @@ export default function IndustriesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Industries Served by Pultruded FRP</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             FRP industrial applications across six sectors
           </h2>
-          <div className="mt-[13px] space-y-[21px] text-f17 leading-golden text-t2">
+          <div className="mt-[13px] space-y-[21px] text-f18 leading-golden text-t2">
             <p>
               F1 Composite supplies pultruded fiberglass profiles to six industries where corrosion, weight, electrical neutrality, or radio transparency drive the material decision. Each industry has its own qualification standards, procurement language, and typical failure modes — we publish the engineering and specification context for each so that procurement teams and engineers can move from concept to qualified supplier without re-discovering the wheel.
             </p>
@@ -101,7 +101,7 @@ export default function IndustriesPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => (
               <Link
@@ -113,13 +113,13 @@ export default function IndustriesPage() {
                 <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-[6px] bg-teal-bg">
                   {icons[industry.icon]}
                 </div>
-                <h3 className="mb-[8px] text-[17px] font-bold text-t1">
+                <h3 className="mb-[8px] text-f18 font-bold text-t1">
                   {industry.title}
                 </h3>
-                <p className="text-f13 leading-golden text-t2">
+                <p className="text-f14 leading-golden text-t2">
                   {industry.description}
                 </p>
-                <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+                <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                   Learn more →
                 </span>
               </Link>
@@ -128,7 +128,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1280px] px-[24px] py-[24px] text-f15"><Link href="/applications" className="font-bold text-teal-text">Browse by application: platforms, cooling towers, solar and more →</Link></div>
+      <div className="site-container py-[24px] text-f16"><Link href="/applications" className="font-bold text-teal-text">Browse by application: platforms, cooling towers, solar and more →</Link></div>
 
       <RelatedLinks
         groups={[
@@ -167,9 +167,9 @@ export default function IndustriesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Regional Supplier Pages</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
             <p>For procurement teams in regions with local supplier compliance requirements:</p>
             <ul className="list-disc space-y-[8px] pl-[21px]">
               <li>

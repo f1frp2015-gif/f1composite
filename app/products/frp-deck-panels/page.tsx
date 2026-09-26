@@ -123,7 +123,7 @@ export default function FrpDeckPanelsPage() {
       />
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <figure>
             <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
               <Image
@@ -143,29 +143,29 @@ export default function FrpDeckPanelsPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.05fr_0.95fr] lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <SectionTag>Closed-Profile Decking</SectionTag>
             <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               Deck sections are not open-mesh grating
             </h2>
-            <p className="mt-[13px] text-f19 leading-golden text-t2">
+            <p className="mt-[13px] text-f18 leading-golden text-t2">
               Structural FRP deck panels use a continuous top surface, repeated underside webs and profile-specific edge geometry. They are evaluated as a deck system with support, joint and connection requirements — not as an I-bar or T-bar grating panel.
             </p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               The attached source sheet shows 12 variants. F1 has removed the source logo and internal identifiers and publishes only neutral Profile 01–12 references, the section images and the stated A/B/t1/t2 values. No tolerance, unit, material, load, span, fire or waterproofing claim is inferred.
             </p>
           </div>
 
           <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Need open drainage?</p>
-            <h3 className="mt-[8px] text-f19 font-bold text-t1">Use the separate pultruded FRP grating page.</h3>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">
+            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Need open drainage?</p>
+            <h3 className="mt-[8px] text-f18 font-bold text-t1">Use the separate pultruded FRP grating page.</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
               It now contains the manual-derived T-bar, I-bar, high-load and high-open specification tables plus M/J/T hold-downs.
             </p>
             <Link
               href="/products/frp-gratings"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f13 font-bold text-white transition-colors hover:bg-teal"
+              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-[7px] bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               View pultruded FRP grating
             </Link>
@@ -174,15 +174,15 @@ export default function FrpDeckPanelsPage() {
       </section>
 
       <section id="deck-panel-specifications" className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Nominal Section References</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Twelve deck profile drawings and A/B/t1/t2 values
           </h2>
-          <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
             Profiles are kept separate even when their numeric values match because the joint and edge geometry differs. The source did not state a unit, so the values below are intentionally unitless until confirmed on an approved drawing.
           </p>
-          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f13 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] rounded-[6px] border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
             {frpDeckPanelSourceNote}
           </p>
 
@@ -200,19 +200,19 @@ export default function FrpDeckPanelsPage() {
                   />
                 </div>
                 <div className="p-[21px]">
-                  <h3 className="text-f17 font-bold text-t1">{spec.profile}</h3>
+                  <h3 className="text-f18 font-bold text-t1">{spec.profile}</h3>
                   <dl className="mt-[13px] grid grid-cols-3 gap-[8px]">
                     <div className="rounded-[6px] bg-bg2 p-[10px]">
-                      <dt className="text-f11 font-bold uppercase tracking-wide text-t3">A</dt>
+                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">A</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.a}</dd>
                     </div>
                     <div className="rounded-[6px] bg-bg2 p-[10px]">
-                      <dt className="text-f11 font-bold uppercase tracking-wide text-t3">B</dt>
+                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">B</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.b}</dd>
                     </div>
                     <div className="rounded-[6px] bg-bg2 p-[10px]">
-                      <dt className="text-f11 font-bold uppercase tracking-wide text-t3">t1 / t2</dt>
-                      <dd className="mt-[3px] text-f13 font-semibold text-t1">{spec.t1t2}</dd>
+                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">t1 / t2</dt>
+                      <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.t1t2}</dd>
                     </div>
                   </dl>
                   <p className="mt-[13px] text-f12 leading-golden text-t3">{spec.geometryNote}</p>
@@ -224,7 +224,7 @@ export default function FrpDeckPanelsPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Project Release Checks</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Four checks before selecting a deck section
@@ -233,8 +233,8 @@ export default function FrpDeckPanelsPage() {
             {selectionChecks.map((item, index) => (
               <article key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
                 <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span>
-                <h3 className="mt-[13px] text-f17 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
               </article>
             ))}
           </div>
@@ -275,7 +275,7 @@ export default function FrpDeckPanelsPage() {
       />
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

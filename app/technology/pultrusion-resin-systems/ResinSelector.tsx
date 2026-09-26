@@ -143,11 +143,11 @@ export default function ResinSelector() {
 
   return (
     <section className="bg-bg2 py-[55px]" id="resin-selector">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
-        <h2 className="text-f24 font-bold text-t1 md:text-f31">
+      <div className="site-container">
+        <h2 className="text-f24 font-bold text-t1 md:text-f32">
           Interactive resin selection matrix
         </h2>
-        <p className="mt-[13px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f16 leading-golden text-t2">
           Pick a resin system to compare its trade-off profile. Ratings are relative
           bands (1–5) across the five thermoset families used in pultrusion — use them
           to shortlist, then confirm against the datasheet values below.
@@ -164,7 +164,7 @@ export default function ResinSelector() {
               type="button"
               aria-pressed={s.key === active.key}
               onClick={() => setActiveKey(s.key)}
-              className={`rounded-[8px] border px-[16px] py-[8px] text-f13 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal ${
+              className={`rounded-[8px] border px-[16px] py-[8px] text-f14 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal ${
                 s.key === active.key
                   ? "border-t1 bg-t1 text-white"
                   : "border-border-default bg-white text-t2 hover:border-t2"
@@ -223,11 +223,11 @@ export default function ResinSelector() {
           </svg>
 
           <div>
-            <h3 className="text-f19 font-bold" style={{ color: active.color }}>
+            <h3 className="text-f18 font-bold" style={{ color: active.color }}>
               {active.name}
             </h3>
-            <p className="mt-[8px] text-f15 leading-golden text-t2">{active.verdict}</p>
-            <table className="mt-[13px] w-full border-collapse text-f13">
+            <p className="mt-[8px] text-f16 leading-golden text-t2">{active.verdict}</p>
+            <table className="mt-[13px] w-full border-collapse text-f14">
               <tbody>
                 {active.specs.map((row) => (
                   <tr key={row.label} className="border-b border-border-default">
@@ -239,19 +239,19 @@ export default function ResinSelector() {
                 ))}
               </tbody>
             </table>
-            <p className="mt-[13px] text-f13 leading-golden text-t2">
+            <p className="mt-[13px] text-f14 leading-golden text-t2">
               <strong className="text-t1">Typical use:</strong> {active.typicalUse}
             </p>
             <div className="mt-[13px] flex flex-wrap gap-[13px]">
               {active.link && (
                 <Link
                   href={active.link.href}
-                  className="text-f13 font-semibold text-teal-text hover:underline"
+                  className="text-f14 font-semibold text-teal-text hover:underline"
                 >
                   → {active.link.label}
                 </Link>
               )}
-              <Link href="/contact" className="text-f13 font-semibold text-teal-text hover:underline">
+              <Link href="/contact" className="text-f14 font-semibold text-teal-text hover:underline">
                 → Request a quote with this resin system
               </Link>
             </div>

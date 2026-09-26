@@ -18,8 +18,10 @@
 .bridge-page :is(section, article)[id] {
   scroll-margin-top: 142px;
 }
+/* Same edges as the site-wide .site-container: 1280px minus 32px gutters on
+   desktop, 24px from 640px, 20px on phones. */
 .bridge-page .bb-shell {
-  width: min(1280px, calc(100% - 72px));
+  width: min(1216px, calc(100% - 64px));
   margin-inline: auto;
 }
 .bridge-page .bb-eyebrow {
@@ -1173,7 +1175,7 @@
 }
 @media (max-width: 767px) {
   .bridge-page .bb-shell {
-    width: calc(100% - 40px);
+    width: calc(100% - 48px);
   }
   .bridge-page .bb-hero {
     padding-top: 20px;
@@ -1412,6 +1414,11 @@
   }
   .bridge-page .bb-source-grid .bb-text-link {
     font-size: 12px;
+  }
+}
+@media (max-width: 639px) {
+  .bridge-page .bb-shell {
+    width: calc(100% - 40px);
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -60,7 +60,7 @@ export function ResultLeadCapture({
 
   if (status === "ok") {
     return (
-      <div className="rounded-[6px] border border-teal/30 bg-teal/10 p-[13px] text-f13 text-teal-text">
+      <div className="rounded-[6px] border border-teal/30 bg-teal/10 p-[13px] text-f14 text-teal-text">
         ✓ Sent. Our engineering team has your calculation and will acknowledge your requirements within one business day. A quotation follows specification review.
       </div>
     );
@@ -68,8 +68,8 @@ export function ResultLeadCapture({
 
   return (
     <form onSubmit={submit} className="rounded-[6px] border border-teal-border bg-teal-bg p-[13px]">
-      <div className="text-f13 font-semibold text-t1">Email me this result and a matching quote</div>
-      <p className="mt-[3px] text-f11 text-t3">Your inputs and results attach automatically — just add your email.</p>
+      <div className="text-f14 font-semibold text-t1">Email me this result and a matching quote</div>
+      <p className="mt-[3px] text-f12 text-t3">Your inputs and results attach automatically — just add your email.</p>
       <div className="mt-[8px] flex gap-[8px]">
         <input
           type="email"
@@ -78,17 +78,17 @@ export function ResultLeadCapture({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
           aria-label="Your email"
-          className="w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal"
+          className="w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal"
         />
         <button
           type="submit"
           disabled={status === "sending"}
-          className="whitespace-nowrap rounded-[6px] bg-teal px-[16px] py-[8px] text-f13 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
+          className="whitespace-nowrap rounded-[6px] bg-teal px-[16px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Send"}
         </button>
       </div>
-      {status === "error" && <p className="mt-[5px] text-f11 text-red-600">{err}</p>}
+      {status === "error" && <p className="mt-[5px] text-f12 text-red-600">{err}</p>}
     </form>
   );
 }

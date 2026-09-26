@@ -28,7 +28,7 @@ export default function ProductFamilyCards() {
               />
             </Link>
             <div className="p-[20px] sm:p-[24px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">
+              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">
                 {index < 2 ? "Pultruded profiles" : "Product range"}
               </p>
               <h3 className="mt-[8px] text-f24 font-bold leading-tight text-t1">
@@ -41,7 +41,7 @@ export default function ProductFamilyCards() {
               </p>
               <Link
                 href={family.href}
-                className="mt-[14px] inline-flex min-h-[36px] items-center text-f13 font-bold text-teal-text"
+                className="mt-[14px] inline-flex min-h-[36px] items-center text-f14 font-bold text-teal-text"
               >
                 Explore range →
               </Link>
@@ -52,7 +52,7 @@ export default function ProductFamilyCards() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="inline-flex min-h-[36px] items-center text-f13 font-semibold text-t2 underline decoration-border-default underline-offset-4 hover:text-teal-text"
+                  className="inline-flex min-h-[36px] items-center text-f14 font-semibold text-t2 underline decoration-border-default underline-offset-4 hover:text-teal-text"
                 >
                   {link.label}
                 </Link>

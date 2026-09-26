@@ -145,26 +145,26 @@ export default function UValueCalculatorPage() {
       </div>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="text-f24 font-bold text-t1 md:text-f31">
+        <div className="site-container">
+          <h2 className="text-f24 font-bold text-t1 md:text-f32">
             How to use the U-value calculator
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Whole-window U-value (U<sub>w</sub>) quantifies heat loss through a window assembly in W/m²·K. It combines frame U<sub>f</sub>, glazing U<sub>g</sub>, and the frame-glass edge term ψ. This tool implements the EN ISO 10077-1 simplified formula. Its result must not be relabeled as an NFRC, NRCan, GB/T 8484, or project-certification result; those procedures have their own model sizes, boundary conditions, additional properties, or physical tests.
           </p>
 
           <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">
             <div>
-              <h3 className="text-f19 font-bold text-t1">Input example: passive house window</h3>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Input example: passive house window</h3>
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 A passive house project specifies a 1230 × 1480 mm fixed window. The designer compares three frame options: a 70 mm aluminum frame with thermal break (U<sub>f</sub> ≈ 1.8 W/m²·K), a 70 mm PVC frame (U<sub>f</sub> ≈ 1.3 W/m²·K), and an F1 Composite 90-series FRP frame (U<sub>f</sub> = 0.85 W/m²·K). All three are paired with Ug = 0.6 triple glazing, warm-edge spacer (ψ = 0.035 W/m·K), and a frame-area ratio typical of fenestration profiles.
               </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 The calculator returns U<sub>w</sub> ≈ 1.05 W/m²·K (aluminum), 0.85 W/m²·K (PVC), and 0.72 W/m²·K (FRP 90-series). The FRP example is numerically below 0.80; that alone does not make the selected assembly PHI-certified. The result also shows why realistic dimensions and frame area matter.
               </p>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">How to interpret the results</h3>
-              <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">How to interpret the results</h3>
+              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
                 <li>
                   <strong className="text-t1">Frame dominates on small windows.</strong> A 600 × 900 mm sash has 35–40% of its area covered by the frame, so frame U<sub>f</sub> drives U<sub>w</sub> more than glazing. On a 2400 × 2400 mm picture window, frame area is under 15% and Ug dominates. Always compute with realistic dimensions.
                 </li>
@@ -178,8 +178,8 @@ export default function UValueCalculatorPage() {
             </div>
 
             <div>
-              <h3 className="text-f19 font-bold text-t1">Common specification mistakes</h3>
-              <ul className="mt-[13px] space-y-[13px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Common specification mistakes</h3>
+              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
                 <li>
                   <strong className="text-t1">Quoting U<sub>f</sub> instead of U<sub>w</sub>.</strong> Manufacturer datasheets often advertise frame-only U<sub>f</sub> or center-of-glass Ug. Energy codes and PHI certification are based on whole-window U<sub>w</sub>. Always ask for the U<sub>w</sub> at the specific size being installed.
                 </li>
@@ -191,8 +191,8 @@ export default function UValueCalculatorPage() {
                 </li>
               </ul>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Referenced standards</h3>
-              <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Referenced standards</h3>
+              <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>EN ISO 10077-1: Thermal performance of windows, doors and shutters — Calculation of thermal transmittance — Part 1: General</li>
                 <li>EN ISO 10077-2: Numerical method for frames</li>
                 <li>ISO 15099: Thermal performance of windows, doors and shading devices — Detailed calculations</li>
@@ -207,28 +207,28 @@ export default function UValueCalculatorPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px] text-center">
-          <p className="text-f15 leading-golden text-t2">
+        <div className="site-container text-center">
+          <p className="text-f16 leading-golden text-t2">
             Explore our complete range of pultruded FRP window and door frame systems:
             65/70/80/90-series with U<sub>f</sub> values from 0.85 to 1.5 W/m²K.
           </p>
           <Link
             href="/products/frp-window-frames"
-            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore FRP windows &amp; doors →
           </Link>
           <div className="mt-[21px] flex flex-wrap justify-center gap-[21px]">
-            <Link href="/regions/frp-passive-house-windows-canada" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/regions/frp-passive-house-windows-canada" className="text-f14 font-semibold text-teal-text hover:underline">
               → FRP passive house windows for Canada
             </Link>
-            <Link href="/regions/frp-passive-house-windows-germany" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/regions/frp-passive-house-windows-germany" className="text-f14 font-semibold text-teal-text hover:underline">
               → FRP passive house windows for Germany
             </Link>
-            <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/regions/frp-pultrusion-supplier-usa" className="text-f14 font-semibold text-teal-text hover:underline">
               → FRP for US projects (PHIUS, ASTM)
             </Link>
-            <Link href="/what-is-frp" className="text-f13 font-semibold text-teal-text hover:underline">
+            <Link href="/what-is-frp" className="text-f14 font-semibold text-teal-text hover:underline">
               → FRP material &amp; properties guide
             </Link>
           </div>

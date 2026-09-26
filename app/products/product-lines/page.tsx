@@ -33,8 +33,8 @@ export default function ProductsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
       <section className="bg-white py-[48px]">
-        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
-          <h2 className="mb-[22px] text-f31 font-bold text-t1">
+        <div className="site-container">
+          <h2 className="mb-[22px] text-f32 font-bold text-t1">
             Choose your product family
           </h2>
           <ProductFamilyCards />
@@ -42,7 +42,7 @@ export default function ProductsPage() {
             <h2 className="text-f24 font-bold text-t1">
               Standard section or custom development?
             </h2>
-            <p className="mt-[10px] text-f15 leading-relaxed text-t2">
+            <p className="mt-[10px] text-f16 leading-relaxed text-t2">
               Choose standard profiles when an established cross-section fits
               your design. Standard does not mean in stock: material, quantity,
               availability and delivery are confirmed at quotation. Choose
@@ -60,11 +60,11 @@ export default function ProductsPage() {
         </div>
       </section>
       <section className="bg-bg2 py-[48px]">
-        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
-          <h2 className="text-f31 font-bold text-t1">
+        <div className="site-container">
+          <h2 className="text-f32 font-bold text-t1">
             Panel profiles & application-specific components
           </h2>
-          <p className="mt-[10px] max-w-[860px] text-f15 leading-relaxed text-t2">
+          <p className="mt-[10px] max-w-[860px] text-f16 leading-relaxed text-t2">
             Browse existing commercial pages by use. Deck panels are profiles;
             molded grating uses a different manufacturing process. Concrete
             reinforcing bars have their own specification and are not
@@ -85,7 +85,7 @@ export default function ProductsPage() {
                 key={group.label}
                 className="rounded-[10px] border border-border-default bg-white p-[22px]"
               >
-                <h3 className="text-f19 font-bold text-t1">{group.label}</h3>
+                <h3 className="text-f18 font-bold text-t1">{group.label}</h3>
                 <ul className="mt-[12px] space-y-[10px]">
                   {group.links.map((link) => (
                     <li key={link.href}>

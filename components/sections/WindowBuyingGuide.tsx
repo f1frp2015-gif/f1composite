@@ -4,7 +4,7 @@ import { windowBuyerPaths, windowPurchaseSteps, windowScopeRows, type WindowSupp
 import { windowProcurement, windowSurfaceFinish } from "@/content/data/windowProcurement";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
-export const windowWrap = "mx-auto max-w-[1320px] px-5 sm:px-7 lg:px-9";
+export const windowWrap = "site-container lg:px-9";
 
 export function WindowSupplyRoutes() {
   return <div className="grid gap-5 lg:grid-cols-[1.6fr_1fr]">

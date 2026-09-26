@@ -155,7 +155,7 @@ export default function FrpLaddersPage() {
       </MaterialTerminologyNote>
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <figure>
             <div className="relative aspect-[21/9] overflow-hidden rounded-[8px] bg-bg2">
               <Image
@@ -175,16 +175,16 @@ export default function FrpLaddersPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.1fr_0.9fr] lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <SectionTag>Industrial Vertical Access</SectionTag>
             <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               A complete FRP fixed ladder is a project assembly, not a loose profile
             </h2>
-            <p className="mt-[21px] text-f17 leading-golden text-t2">
+            <p className="mt-[21px] text-f18 leading-golden text-t2">
               The assembly combines square pultruded side rails, fluted round rungs, rung gaskets, splice bars and project-specific wall or floor brackets. Optional hoops and cage strips form one access-safety arrangement; a vertical ladder-safety or personal-fall-arrest interface may still govern under the adopted standard.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               This product page owns the fixed industrial ladder intent. For platform-edge protection, use the separate{" "}
               <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:underline">
                 fiberglass handrail and guardrail systems
@@ -193,8 +193,8 @@ export default function FrpLaddersPage() {
             </p>
           </div>
           <aside className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">Catalog boundary</p>
-            <h2 className="mt-[8px] text-f21 font-bold text-t1">Nominal dimensions, then an approved drawing</h2>
+            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Catalog boundary</p>
+            <h2 className="mt-[8px] text-f20 font-bold text-t1">Nominal dimensions, then an approved drawing</h2>
             <p className="mt-[13px] text-f14 leading-golden text-t2">
               The manual gives geometry but no whole-ladder rated load, rung proof load, anchor capacity, resin grade, fire rating or slip-test value. F1 therefore releases each ladder only after the elevation, support, fall-protection concept, BOM and connection schedule are reviewed.
             </p>
@@ -203,12 +203,12 @@ export default function FrpLaddersPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Fixed Ladder Specifications</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Manual-verified nominal ladder dimensions
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             Values are transcribed from the product manual and rebuilt as accessible HTML. They are useful for early layout and RFQ comparison, but they are not a substitute for the approved ladder elevation, load verification or anchor design.
           </p>
           <div className="mt-[34px]">
@@ -218,7 +218,7 @@ export default function FrpLaddersPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <figure>
               <div className="relative aspect-[37/26] overflow-hidden rounded-[8px] border border-border-default bg-white">
@@ -251,12 +251,12 @@ export default function FrpLaddersPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Rung Retrofit Accessories</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             C-shape and U-shape fiberglass ladder rung covers
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             These gritted covers fit over existing steel or timber rungs. They are a retrofit accessory—not the complete ladder&apos;s 32 mm fluted FRP tube rung—and require a substrate, adhesive, preparation and slip-performance specification.
           </p>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-[1fr_0.9fr] lg:items-start">
@@ -277,11 +277,11 @@ export default function FrpLaddersPage() {
             <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-1">
               {frpLadderRungCoverGroups.map((group) => (
                 <article key={group.shape} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                  <h3 className="text-f17 font-bold text-t1">{group.shape} cover</h3>
+                  <h3 className="text-f18 font-bold text-t1">{group.shape} cover</h3>
                   <p className="mt-[5px] text-f12 font-semibold uppercase tracking-wide text-t3">Reference: {group.fitReference}</p>
                   <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2">
                     {group.sizes.map((size) => (
-                      <li key={size} className="rounded-[4px] bg-bg2 px-[12px] py-[8px] text-f13 font-medium text-t2">{size}</li>
+                      <li key={size} className="rounded-[4px] bg-bg2 px-[12px] py-[8px] text-f14 font-medium text-t2">{size}</li>
                     ))}
                   </ul>
                 </article>
@@ -292,7 +292,7 @@ export default function FrpLaddersPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Specification Workflow</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six inputs that turn a catalog ladder into a releasable system
@@ -300,8 +300,8 @@ export default function FrpLaddersPage() {
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {selectionInputs.map((input, index) => (
               <article key={input.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{input.title}</h3>
+                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
@@ -351,7 +351,7 @@ export default function FrpLaddersPage() {
       />
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

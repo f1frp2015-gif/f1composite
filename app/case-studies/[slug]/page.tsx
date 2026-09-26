@@ -456,7 +456,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[34px] lg:grid-cols-[1fr_300px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1fr_300px]">
           {/* Main content */}
           <div>
             {/* Project hero image */}
@@ -479,7 +479,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h2 className="mb-[13px] text-f24 font-bold text-t1">
               {cs.focusKeyphrase}: project overview
             </h2>
-            <p className="mb-[34px] text-f15 leading-golden text-t2">
+            <p className="mb-[34px] text-f16 leading-golden text-t2">
               {cs.industry} project in {cs.location}, {cs.year}. Products supplied:{" "}
               {cs.products.join(", ")}.
             </p>
@@ -487,12 +487,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h2 className="mb-[13px] text-f24 font-bold text-t1">
               The challenge
             </h2>
-            <p className="mb-[34px] text-f15 leading-golden text-t2">{cs.challenge}</p>
+            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.challenge}</p>
 
             <h2 className="mb-[13px] text-f24 font-bold text-t1">
               What F1 supplied
             </h2>
-            <p className="mb-[34px] text-f15 leading-golden text-t2">{cs.solution}</p>
+            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.solution}</p>
 
             {/* Content images — inserted between solution and results */}
             {caseStudyContentImages[slug] && (
@@ -515,14 +515,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h2 className="mb-[13px] text-f24 font-bold text-t1">
               Results
             </h2>
-            <p className="mb-[34px] text-f15 leading-golden text-t2">{cs.results}</p>
+            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.results}</p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-x-[34px] gap-y-[21px] border-t border-border-default pt-[21px]">
               {cs.stats.map((stat) => (
                 <div key={stat.label}>
                   <span className="block text-f24 font-extrabold text-teal">{stat.value}</span>
-                  <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">
+                  <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">
                     {stat.label}
                   </span>
                 </div>
@@ -533,8 +533,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
           {/* Sidebar */}
           <aside className="space-y-[21px]">
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <h4 className="mb-[13px] text-f13 font-bold text-t1">Project Details</h4>
-              <dl className="space-y-[8px] text-f13">
+              <h4 className="mb-[13px] text-f14 font-bold text-t1">Project Details</h4>
+              <dl className="space-y-[8px] text-f14">
                 <div>
                   <dt className="text-t3">Location</dt>
                   <dd className="font-medium text-t1">{cs.location}</dd>
@@ -555,7 +555,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h4 className="mb-[13px] text-f13 font-bold text-t1">Products Used</h4>
+              <h4 className="mb-[13px] text-f14 font-bold text-t1">Products Used</h4>
               <div className="space-y-[8px]">
                 {cs.products.map((product) => {
                   const fallbackSlug = product.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -564,7 +564,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <Link
                       key={product}
                       href={path}
-                      className="block text-f13 text-teal-text hover:underline"
+                      className="block text-f14 text-teal-text hover:underline"
                     >
                       {productLinkLabels[product] ?? product} →
                     </Link>
@@ -572,7 +572,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 })}
                 <Link
                   href="/pultruded-frp-profiles"
-                  className="mt-[13px] block border-t border-border-default pt-[8px] text-f13 text-teal-text hover:underline"
+                  className="mt-[13px] block border-t border-border-default pt-[8px] text-f14 text-teal-text hover:underline"
                 >
                   All pultruded FRP profiles →
                 </Link>
@@ -581,7 +581,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {cs.downloads && cs.downloads.length > 0 && (
               <div className="rounded-[8px] border border-teal-border bg-teal-bg p-[21px]">
-                <h4 className="mb-[13px] text-f13 font-bold text-t1">Certificates & Downloads</h4>
+                <h4 className="mb-[13px] text-f14 font-bold text-t1">Certificates & Downloads</h4>
                 <div className="space-y-[13px]">
                   {cs.downloads.map((dl) => (
                     <a
@@ -591,7 +591,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                       rel="noopener noreferrer"
                       className="group block"
                     >
-                      <span className="flex items-start gap-[8px] text-f13 font-semibold text-teal-text group-hover:text-teal">
+                      <span className="flex items-start gap-[8px] text-f14 font-semibold text-teal-text group-hover:text-teal">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-[2px] shrink-0">
                           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                           <polyline points="7 10 12 15 17 10" />
@@ -600,7 +600,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         <span>{dl.label}</span>
                       </span>
                       {dl.description && (
-                        <p className="mt-[4px] pl-[24px] text-f11 leading-golden text-t2">{dl.description}</p>
+                        <p className="mt-[4px] pl-[24px] text-f12 leading-golden text-t2">{dl.description}</p>
                       )}
                     </a>
                   ))}
@@ -609,23 +609,23 @@ export default async function CaseStudyPage({ params }: PageProps) {
             )}
 
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h4 className="mb-[13px] text-f13 font-bold text-t1">Industry & resources</h4>
+              <h4 className="mb-[13px] text-f14 font-bold text-t1">Industry & resources</h4>
               <div className="space-y-[8px]">
                 <Link
                   href={`/industries/${cs.industry.toLowerCase()}`}
-                  className="block text-f13 text-teal-text hover:underline"
+                  className="block text-f14 text-teal-text hover:underline"
                 >
                   {cs.industry} industry →
                 </Link>
-                <Link href="/case-studies" className="block text-f13 text-teal-text hover:underline">
+                <Link href="/case-studies" className="block text-f14 text-teal-text hover:underline">
                   All case studies →
                 </Link>
-                <Link href="/what-is-frp" className="block text-f13 text-teal-text hover:underline">
+                <Link href="/what-is-frp" className="block text-f14 text-teal-text hover:underline">
                   What is FRP? Material &amp; properties →
                 </Link>
                 <Link
                   href="/technology/frp-vs-traditional-materials"
-                  className="block text-f13 text-teal-text hover:underline"
+                  className="block text-f14 text-teal-text hover:underline"
                 >
                   FRP vs steel / aluminum →
                 </Link>
@@ -634,7 +634,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             <Link
               href="/contact"
-              className="block rounded-[8px] bg-teal p-[21px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="block rounded-[8px] bg-teal p-[21px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
             >
               Start a Similar Project
             </Link>

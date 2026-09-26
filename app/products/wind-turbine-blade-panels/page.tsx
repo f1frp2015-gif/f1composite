@@ -99,25 +99,25 @@ export default function WindTurbineBladePanelsPage() {
       />
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <SectionTag>Engineered-to-Order Panel Supply</SectionTag>
             <h2 className="mt-[13px] max-w-[760px] text-[clamp(28px,4vw,48px)] font-extrabold leading-[1.08] text-t1">
               Release the laminate, cut length and qualification together
             </h2>
-            <p className="mt-[21px] max-w-[760px] text-f17 leading-golden text-t2">
+            <p className="mt-[21px] max-w-[760px] text-f18 leading-golden text-t2">
               Wind-blade panels are axial reinforcement products, not generic construction sheet.
               F1 coordinates the fiber system, resin, laminate architecture, section, surface,
               dimensional controls and mechanical evidence against the blade program.
             </p>
-            <div className="mt-[29px] rounded-[8px] border border-teal/30 bg-teal-pale p-[21px]">
+            <div className="mt-[29px] rounded-[8px] border border-teal/30 bg-teal-bg p-[21px]">
               <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
                 Cut to the required length
               </p>
               <p className="mt-[8px] text-f16 font-bold leading-golden text-t1">
                 Wind-turbine-blade-grade panels can be cut to the finished length specified in your approved order drawing.
               </p>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Include cut-length tolerance, end trim, handling, packing and transport constraints.
                 F1 confirms manufacturing and shipment limits before order release.
               </p>
@@ -156,12 +156,12 @@ export default function WindTurbineBladePanelsPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Three Material Programs</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.12] text-t1">
             Select the reinforcement architecture before comparing numbers
           </h2>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             The images below are representative supplier program images. Final color, surface,
             geometry, laminate and acceptance data follow the approved sample and order documents.
             The GFP-WE20 results later on this page apply only to the reported glass-fiber material.
@@ -179,10 +179,10 @@ export default function WindTurbineBladePanelsPage() {
                   />
                 </div>
                 <div className="border-t border-border-default p-[21px]">
-                  <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal-text">
+                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
                     {program.shortName}
                   </p>
-                  <h3 className="mt-[8px] text-f19 font-bold text-t1">{program.name}</h3>
+                  <h3 className="mt-[8px] text-f18 font-bold text-t1">{program.name}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{program.summary}</p>
                   <p className="mt-[13px] border-l-2 border-teal pl-[13px] text-f12 leading-golden text-t3">
                     {program.release}
@@ -195,12 +195,12 @@ export default function WindTurbineBladePanelsPage() {
       </section>
 
       <section id="gfp-we20-test-data" className="scroll-mt-[90px] bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Report-Scoped Test Evidence</SectionTag>
           <h2 className="mt-[13px] max-w-[950px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.12] text-t1">
             GFP-WE20 tension–tension fatigue and fiber-content results
           </h2>
-          <p className="mt-[13px] max-w-[950px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[950px] text-f16 leading-golden text-t2">
             {gfpWe20Report.laboratory} issued report <strong className="text-t1">{gfpWe20Report.reportNumber}</strong> on {gfpWe20Report.issueDate} for the received {gfpWe20Report.material}. The reported material used {gfpWe20Report.resin}/{gfpWe20Report.hardener} with {gfpWe20Report.reinforcement} reinforcement.
           </p>
 
@@ -212,7 +212,7 @@ export default function WindTurbineBladePanelsPage() {
               ["Vf", gfpWe20Report.physical.fiberVolumeContent, "Calculated average fiber volume"],
             ].map(([symbol, value, label]) => (
               <div key={symbol} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-t3">{symbol}</p>
+                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-t3">{symbol}</p>
                 <p className="mt-[5px] text-[clamp(24px,3vw,34px)] font-extrabold leading-none text-teal-text">{value}</p>
                 <p className="mt-[8px] text-f12 leading-golden text-t2">{label}</p>
               </div>
@@ -252,8 +252,8 @@ export default function WindTurbineBladePanelsPage() {
 
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
-              <h3 className="text-f19 font-bold text-t1">Fatigue test basis</h3>
-              <dl className="mt-[13px] divide-y divide-border-default text-f13">
+              <h3 className="text-f18 font-bold text-t1">Fatigue test basis</h3>
+              <dl className="mt-[13px] divide-y divide-border-default text-f14">
                 {[
                   ["Specimen ID", gfpWe20Report.fatigue.specimenId],
                   ["Standard", gfpWe20Report.fatigue.standard],
@@ -272,8 +272,8 @@ export default function WindTurbineBladePanelsPage() {
               </dl>
             </div>
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <h3 className="text-f19 font-bold text-t1">Reported statistical and physical summary</h3>
-              <dl className="mt-[13px] divide-y divide-border-default text-f13">
+              <h3 className="text-f18 font-bold text-t1">Reported statistical and physical summary</h3>
+              <dl className="mt-[13px] divide-y divide-border-default text-f14">
                 {[
                   ["50% S–N regression", gfpWe20Report.fatigue.regression],
                   ["Correlation coefficient", gfpWe20Report.fatigue.correlation],
@@ -296,13 +296,13 @@ export default function WindTurbineBladePanelsPage() {
 
           <div className="mt-[34px] overflow-hidden rounded-[8px] border border-border-default">
             <div className="bg-t1 px-[21px] py-[16px] text-white">
-              <h3 className="text-f19 font-bold">Reported P50 and P95 S–N regression values</h3>
+              <h3 className="text-f18 font-bold">Reported P50 and P95 S–N regression values</h3>
               <p className="mt-[5px] text-f12 leading-golden text-white/75">
                 Stress values in MPa. In the report, P95 denotes 95% survival probability at 95% confidence; these are fitted values, not a universal design allowable.
               </p>
             </div>
             <div className="overflow-x-auto">
-              <table className="min-w-[760px] w-full border-collapse text-left text-f13">
+              <table className="min-w-[760px] w-full border-collapse text-left text-f14">
                 <thead className="bg-bg2 text-t1">
                   <tr>
                     <th scope="col" className="px-[16px] py-[13px] font-bold">Cycles N</th>
@@ -330,7 +330,7 @@ export default function WindTurbineBladePanelsPage() {
       </section>
 
       <section className="bg-bg2 py-[55px] md:py-[72px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>RFQ Release Package</SectionTag>
           <h2 className="mt-[13px] max-w-[860px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Put the finished length beside the laminate and evidence requirements
@@ -343,9 +343,9 @@ export default function WindTurbineBladePanelsPage() {
               ["04", "Delivery", "Traceability documents, packing/handling limits, destination, Incoterm and required delivery date."],
             ].map(([index, title, body]) => (
               <div key={index} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <p className="text-f11 font-bold tracking-[0.12em] text-teal-text">{index}</p>
+                <p className="text-f12 font-bold tracking-[0.12em] text-teal-text">{index}</p>
                 <h3 className="mt-[8px] text-f16 font-bold text-t1">{title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{body}</p>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{body}</p>
               </div>
             ))}
           </div>
@@ -376,7 +376,7 @@ export default function WindTurbineBladePanelsPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

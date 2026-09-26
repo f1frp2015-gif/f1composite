@@ -78,7 +78,7 @@ export default function SourcingPage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
               Free · AI-Native Sourcing · No Login
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
@@ -86,7 +86,7 @@ export default function SourcingPage() {
               <br />
               <span className="text-teal-text">Turn project requirements into a quote-ready specification.</span>
             </h1>
-            <p className="mt-[16px] mx-auto text-f15 leading-golden text-t2">
+            <p className="mt-[16px] mx-auto text-f16 leading-golden text-t2">
               Skip the brochure search. Describe the structure, exposure, loads, standards, and
               destination to our AI FRP sourcing assistant. It organizes those inputs into a
               recommended profile family, resin system, applicable EN, ASTM, or GB standards,
@@ -99,14 +99,14 @@ export default function SourcingPage() {
             <h2 className="text-f24 font-bold text-t1">
               Use AI FRP sourcing to narrow the specification before the RFQ
             </h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               FRP sourcing is rarely a catalog lookup. The correct section depends on load path,
               span, connection design, chemical exposure, fire requirements, temperature, UV,
               fabrication, and the standards named by the project. The assistant helps buyers turn
               that scattered context into a structured first-pass specification instead of sending
               a supplier only a profile name and quantity.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               The result is a starting point for engineering and commercial review, not an
               automatically approved structural design. F1 Composite checks the proposed family,
               material system, documentation, manufacturability, packing, and delivery terms before
@@ -118,30 +118,30 @@ export default function SourcingPage() {
 
           <section className="mt-[55px]">
             <h2 className="text-f24 font-bold text-t1">How the AI FRP sourcing workflow works</h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               Three steps connect an early application question to a reviewable sourcing brief.
             </p>
             <div className="mt-[21px] grid gap-[21px] sm:grid-cols-3">
               <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step 1</div>
-                <h3 className="mt-[5px] text-f15 font-bold text-t1">Describe the application</h3>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 1</div>
+                <h3 className="mt-[5px] text-f16 font-bold text-t1">Describe the application</h3>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Describe the service environment, loads, geometry, required standards, order
                   volume, destination, and project stage. More detail produces a more useful answer.
                 </p>
               </div>
               <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step 2</div>
-                <h3 className="mt-[5px] text-f15 font-bold text-t1">AI organizes the options</h3>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 2</div>
+                <h3 className="mt-[5px] text-f16 font-bold text-t1">AI organizes the options</h3>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Receive a profile-family and resin recommendation, relevant standards,
                   documentation requests, and similar work from F1&rsquo;s product knowledge base.
                 </p>
               </div>
               <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step 3</div>
-                <h3 className="mt-[5px] text-f15 font-bold text-t1">Hand off for review</h3>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 3</div>
+                <h3 className="mt-[5px] text-f16 font-bold text-t1">Hand off for review</h3>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Send the structured result to sales for pricing or to engineering for a drawing,
                   span, connection, tolerance, or compliance review before ordering.
                 </p>
@@ -151,7 +151,7 @@ export default function SourcingPage() {
 
           <section className="mt-[55px]">
             <h2 className="text-f24 font-bold text-t1">What the AI recommendation evaluates</h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               The assistant is grounded in F1 Composite&rsquo;s published product families, technical
               data, standards, tools, and delivered projects. It does not invent products outside
               the current manufacturing scope.
@@ -176,8 +176,8 @@ export default function SourcingPage() {
                 },
               ].map((item) => (
                 <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                  <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                  <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -187,13 +187,13 @@ export default function SourcingPage() {
             <h2 className="text-f24 font-bold text-t1">
               What to include for a useful AI FRP sourcing answer
             </h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               Include the application and location, dimensions or drawing, support spacing and
               loads, chemicals and temperatures, fire or slip requirements, standards, quantity,
               preferred delivery terms, and required date. If information is unknown, state that
               clearly—the assistant can turn the gaps into a checklist rather than assuming values.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               For structural work, confirm the recommendation with the{" "}
               <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">
                 FRP profile calculator
@@ -214,7 +214,7 @@ export default function SourcingPage() {
             <h2 className="text-f24 font-bold text-t1">
               Common projects for the AI FRP sourcing assistant
             </h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               The same sourcing workflow applies across product families, but each project type
               needs different evidence. These examples show the information the AI looks for and
               the decisions that still require engineering or commercial confirmation.
@@ -247,12 +247,12 @@ export default function SourcingPage() {
                 },
               ].map((item) => (
                 <article key={item.title} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                  <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                  <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </article>
               ))}
             </div>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               In every case, a useful answer starts with constraints rather than a preferred
               product name. That lets the AI FRP sourcing assistant explain why a family may fit,
               show what is still unknown, and create a cleaner handoff to the people responsible
@@ -262,14 +262,14 @@ export default function SourcingPage() {
 
           <section className="mt-[55px] border-t border-border-default pt-[34px]">
             <h2 className="text-f24 font-bold text-t1">AI-assisted screening, followed by human review</h2>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               Powered by AI and constrained to F1 Composite&rsquo;s known capabilities, the tool is
               designed for early sourcing decisions. Final profile sizing, connection design,
               safety factors, regulatory acceptance, and installation remain the responsibility of
               the project&rsquo;s qualified professionals. F1 engineering reviews drawings and stated
               design criteria; sales confirms tooling, MOQ, lead time, packing, freight, and price.
             </p>
-            <p className="mt-[13px] text-f15 leading-golden text-t2">
+            <p className="mt-[13px] text-f16 leading-golden text-t2">
               That division keeps the fast part fast without presenting an automated answer as an
               approved design. Start with the free AI FRP sourcing tool, then use the generated
               checklist to request the evidence and quotation your project actually needs.

@@ -254,7 +254,7 @@ export default function CustomPultrusionsPage() {
 
       {/* 5-Step Process */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Development Process</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Custom pultruded profiles from inquiry to production
@@ -269,13 +269,13 @@ export default function CustomPultrusionsPage() {
                   <div className="absolute right-0 top-[22px] hidden h-[2px] w-[13px] translate-x-[13px] bg-teal/40 sm:block" />
                 )}
                 {/* Number circle */}
-                <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-teal text-f15 font-extrabold text-white">
+                <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-teal text-f16 font-extrabold text-white">
                   {step.number}
                 </span>
                 {/* Content */}
-                <h3 className="mt-[8px] text-f15 font-bold text-t1">{step.title}</h3>
-                <span className="mt-[3px] text-f11 font-semibold uppercase tracking-wide text-teal-text">{step.duration}</span>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">{step.brief}</p>
+                <h3 className="mt-[8px] text-f16 font-bold text-t1">{step.title}</h3>
+                <span className="mt-[3px] text-f12 font-semibold uppercase tracking-wide text-teal-text">{step.duration}</span>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">{step.brief}</p>
               </div>
             ))}
           </div>
@@ -284,7 +284,7 @@ export default function CustomPultrusionsPage() {
 
       {/* Capability Specs */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Capabilities</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Manufacturing specifications
@@ -292,16 +292,16 @@ export default function CustomPultrusionsPage() {
 
           {/* Dimensional Capabilities */}
           <div className="mt-[34px]">
-            <h3 className="mb-[13px] text-[17px] font-bold text-t1">Dimensional range</h3>
+            <h3 className="mb-[13px] text-f18 font-bold text-t1">Dimensional range</h3>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left">
                 <tbody>
                   {capabilities.dimensions.map((item) => (
                     <tr key={item.label} className="border-b border-border-default">
-                      <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1 whitespace-nowrap">
+                      <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1 whitespace-nowrap">
                         {item.label}
                       </td>
-                      <td className="py-[13px] text-f15 text-t2">{item.value}</td>
+                      <td className="py-[13px] text-f16 text-t2">{item.value}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -311,8 +311,8 @@ export default function CustomPultrusionsPage() {
 
           {/* Technology Matrix — Layered Cross-Section Visual */}
           <div className="mt-[34px]">
-            <h3 className="mb-[8px] text-[17px] font-bold text-t1">Technology matrix</h3>
-            <p className="mb-[21px] text-f13 text-t2">Each profile is built from four configurable layers — from core fiber outward to surface finish.</p>
+            <h3 className="mb-[8px] text-f18 font-bold text-t1">Technology matrix</h3>
+            <p className="mb-[21px] text-f14 text-t2">Each profile is built from four configurable layers — from core fiber outward to surface finish.</p>
 
             {/* Cross-section diagram + matrix */}
             <div className="grid gap-[34px] lg:grid-cols-[280px_1fr] lg:items-start">
@@ -352,16 +352,16 @@ export default function CustomPultrusionsPage() {
                   { label: "04 — Coating & Finish", color: "bg-teal/40", items: capabilities.matrix.coating, icon: "○" },
                 ].map((layer) => (
                   <div key={layer.label} className="rounded-[8px] border border-border-default bg-white overflow-hidden">
-                    <div className={`${layer.color} px-[13px] py-[6px] text-f11 font-bold uppercase tracking-widest text-white`}>
+                    <div className={`${layer.color} px-[13px] py-[6px] text-f12 font-bold uppercase tracking-widest text-white`}>
                       {layer.label}
                     </div>
                     <div className="divide-y divide-border-default">
                       {layer.items.map((item) => (
                         <div key={item.name} className="flex items-start gap-[8px] px-[13px] py-[8px]">
-                          <span className="mt-[2px] text-teal text-f13">{layer.icon}</span>
+                          <span className="mt-[2px] text-teal text-f14">{layer.icon}</span>
                           <div>
-                            <div className="text-f13 font-semibold text-t1">{item.name}</div>
-                            <div className="text-f11 text-t3">{item.note}</div>
+                            <div className="text-f14 font-semibold text-t1">{item.name}</div>
+                            <div className="text-f12 text-t3">{item.note}</div>
                           </div>
                         </div>
                       ))}
@@ -420,12 +420,12 @@ export default function CustomPultrusionsPage() {
 
       {/* Tooling & cost */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Tooling &amp; Cost</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             What custom pultrusions cost — tooling, MOQ, and per-meter price
           </h2>
-          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
+          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f16 leading-golden text-t2">
             <p>
               Every custom pultrusion program has two cost components: a one-time tooling
               investment and a recurring per-meter price. Simple single-cavity dies for small
@@ -451,7 +451,7 @@ export default function CustomPultrusionsPage() {
 
       {/* FAQ */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

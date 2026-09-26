@@ -445,10 +445,10 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Key facts (TL;DR) + review byline */}
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
-              <h2 className="text-f13 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
+              <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
               <p className="text-f12 text-t3">
                 Authored by{" "}
                 <Link href={`/about/authors/${AUTHOR.slug}`} className="font-semibold text-teal-text hover:text-teal">
@@ -464,8 +464,8 @@ export default function PultrudedFRPProfilesHubPage() {
             <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
               {keyFacts.map((f) => (
                 <div key={f.label}>
-                  <dt className="text-f11 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
-                  <dd className="mt-[3px] text-f15 font-semibold text-t1">{f.value}</dd>
+                  <dt className="text-f12 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
+                  <dd className="mt-[3px] text-f16 font-semibold text-t1">{f.value}</dd>
                 </div>
               ))}
             </dl>
@@ -475,14 +475,14 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Intro / Hero */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[55px] lg:grid-cols-[1.2fr_1fr] lg:items-start">
             <div>
               <SectionTag>What is pultrusion?</SectionTag>
               <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Pultruded FRP profiles: fiberglass structural shapes, continuously manufactured
               </h2>
-              <p className="mt-[21px] text-f15 leading-golden text-t2">
+              <p className="mt-[21px] text-f16 leading-golden text-t2">
                 Pultrusion is a continuous manufacturing process in which E-glass
                 roving, continuous strand mat, and surfacing veil are pulled through
                 a resin bath and then through a heated steel die. The resin cures
@@ -497,7 +497,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 </Link>
                 .
               </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 Looking for <strong className="text-t1">GRP profiles</strong>?
                 Our glass-reinforced sections are the products also described as
                 fiberglass structural shapes or GFRP profiles. Match the shape,
@@ -507,7 +507,7 @@ export default function PultrudedFRPProfilesHubPage() {
                   Compare FRP, GRP and GFRP terminology
                 </Link>.
               </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 Pultruded fiberglass reinforced polymer (also called GRP, glass
                 reinforced plastic, or fiber reinforced plastic){" "}
                 <strong className="text-t1">weighs about 75% less than steel</strong>,{" "}
@@ -518,7 +518,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 platforms, chemical plants, rail, solar farms, and passive-house
                 window systems worldwide.
               </p>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 F1 Composite organizes its pultruded FRP range into four branded
                 product lines:{" "}
                 <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">F1‑STRUX</Link>{" "}
@@ -532,11 +532,11 @@ export default function PultrudedFRPProfilesHubPage() {
                 define the applicable process, material, tooling and standard.
               </p>
               <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">EN 13706 E17 / E23</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Certificates on request</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">ASCE/SEI 74-23 LRFD</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">EN 13706 E17 / E23</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASTM D3917 ±0.25 mm</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Certificates on request</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">ASCE/SEI 74-23 LRFD</span>
+                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[8px] bg-neutral-50">
@@ -555,9 +555,9 @@ export default function PultrudedFRPProfilesHubPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1280px] px-[24px] py-[32px]" aria-labelledby="profile-applications-heading">
+      <section className="site-container py-[32px]" aria-labelledby="profile-applications-heading">
         <h2 id="profile-applications-heading" className="text-f24 font-bold text-t1">Application-specific pultrusions</h2>
-        <p className="mt-[12px] text-f15 leading-golden text-t2">Standard and custom sections also become window lineals, solar supports, wind-blade reinforcement, concrete reinforcing bars and fabricated access components. Select the application for its specification and supply scope.</p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">Standard and custom sections also become window lineals, solar supports, wind-blade reinforcement, concrete reinforcing bars and fabricated access components. Select the application for its specification and supply scope.</p>
         <ul className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           {[
             ["Window & door profiles", "/products/window-door-profiles"],
@@ -572,16 +572,16 @@ export default function PultrudedFRPProfilesHubPage() {
             ["Handrails", "/products/frp-handrail-systems"],
           ].map(([label, href]) => <li key={href}><Link href={href} className="inline-flex min-h-[40px] items-center underline underline-offset-4">{label}</Link></li>)}
         </ul>
-        <p className="mt-[16px] text-f15 text-t2">For molded grating and finished window assemblies, <Link href="/products/product-lines" className="font-bold text-teal-text underline underline-offset-4">browse all four product families</Link>.</p>
+        <p className="mt-[16px] text-f16 text-t2">For molded grating and finished window assemblies, <Link href="/products/product-lines" className="font-bold text-teal-text underline underline-offset-4">browse all four product families</Link>.</p>
       </section>
       {/* Profile Family Grid */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Profile family</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Standard sections and custom pultruded profiles
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Each family below is an F1 manufacturing or drawing-led quotation program.
             Click through for the published geometry, selection inputs and RFQ data;
             tooling status, material and production availability are confirmed where the
@@ -613,13 +613,13 @@ export default function PultrudedFRPProfilesHubPage() {
                   />
                 </div>
                 <div className="p-[21px]">
-                  <p className="text-f13 font-medium text-teal-text">{item.keyword}</p>
-                  <h3 className="mt-[5px] text-f19 font-bold text-t1">{item.name}</h3>
-                  <p className="mt-[8px] text-f13 text-t3">
+                  <p className="text-f14 font-medium text-teal-text">{item.keyword}</p>
+                  <h3 className="mt-[5px] text-f18 font-bold text-t1">{item.name}</h3>
+                  <p className="mt-[8px] text-f14 text-t3">
                     <span className="font-semibold">{item.rangeLabel ?? "Size range"}:</span> {item.sizes}
                   </p>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{item.summary}</p>
-                  <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
+                  <p className="mt-[8px] text-f16 leading-golden text-t2">{item.summary}</p>
+                  <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
                     Explore →
                   </span>
                 </div>
@@ -630,12 +630,12 @@ export default function PultrudedFRPProfilesHubPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Application entry points</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f32">
             Start from the structure you need to replace
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Engineers often search by application before they know the profile geometry.
             These pages translate common use cases into resin systems, profile families,
             standards, and RFQ inputs.
@@ -647,9 +647,9 @@ export default function PultrudedFRPProfilesHubPage() {
                 href={item.href}
                 className="rounded-[8px] border border-border-default bg-bg2 p-[24px] transition-colors hover:border-teal"
               >
-                <h3 className="text-f19 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f15 leading-golden text-t2">{item.description}</p>
-                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text">
+                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f16 leading-golden text-t2">{item.description}</p>
+                <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text">
                   View application →
                 </span>
               </Link>
@@ -660,12 +660,12 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Resin systems */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Resin systems</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Five resin systems, chosen by environment and code
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             All pultruded FRP profiles in the F1 Composite range can be produced
             with the resin system required for your environment. Resin selection
             drives chemical resistance, fire performance, and long-term stiffness.
@@ -675,17 +675,17 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Resin system</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Typical use</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Notes</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Resin system</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Typical use</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Notes</th>
                 </tr>
               </thead>
               <tbody>
                 {resinOptions.map((row) => (
                   <tr key={row.system} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.system}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.use}</td>
-                    <td className="py-[13px] align-top text-f15 text-t2">{row.notes}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 font-medium text-t1">{row.system}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 text-t2">{row.use}</td>
+                    <td className="py-[13px] align-top text-f16 text-t2">{row.notes}</td>
                   </tr>
                 ))}
               </tbody>
@@ -696,12 +696,12 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Material comparison */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Material comparison</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded FRP vs steel vs aluminum
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Typical property bands for E-glass/polyester pultruded profiles
             compared with A36 carbon steel and 6061-T6 aluminum. Actual values
             vary by resin system, fiber architecture, and cross-section. Use this
@@ -712,26 +712,26 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-teal-text">Pultruded FRP</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Carbon steel</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Aluminum</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">Pultruded FRP</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Carbon steel</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Aluminum</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.property} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.property}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-teal-text">{row.frp}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.steel}</td>
-                    <td className="py-[13px] align-top text-f15 text-t2">{row.aluminum}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 font-medium text-t1">{row.property}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 font-medium text-teal-text">{row.frp}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 text-t2">{row.steel}</td>
+                    <td className="py-[13px] align-top text-f16 text-t2">{row.aluminum}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             For a detailed comparison including cost analysis and lifecycle
             economics, see{" "}
             <Link
@@ -746,24 +746,24 @@ export default function PultrudedFRPProfilesHubPage() {
       </section>
 
       <section className="bg-bg2 py-[48px]">
-        <div className="mx-auto max-w-[1280px] px-[24px]">
+        <div className="site-container">
           <SectionTag>Compare project quotations</SectionTag>
-          <h2 className="mt-[12px] text-f31 font-bold">Compare the same specification and delivery scope</h2>
-          <p className="mt-[16px] text-f15 text-t2">{commercialFacts.pricing}</p>
-          <dl className="mt-[24px] grid gap-[20px] md:grid-cols-2">{quotationChecklist.map((item) => <div key={item.topic}><dt className="font-bold text-t1">{item.topic}</dt><dd className="mt-[6px] text-f13 text-t2">{item.requirement}</dd></div>)}</dl>
-          <p className="mt-[24px] text-f13 text-t2">{commercialFacts.response}</p>
+          <h2 className="mt-[12px] text-f32 font-bold">Compare the same specification and delivery scope</h2>
+          <p className="mt-[16px] text-f16 text-t2">{commercialFacts.pricing}</p>
+          <dl className="mt-[24px] grid gap-[20px] md:grid-cols-2">{quotationChecklist.map((item) => <div key={item.topic}><dt className="font-bold text-t1">{item.topic}</dt><dd className="mt-[6px] text-f14 text-t2">{item.requirement}</dd></div>)}</dl>
+          <p className="mt-[24px] text-f14 text-t2">{commercialFacts.response}</p>
           <Link href="/resources/evidence" className="mt-[14px] inline-block font-bold text-teal-text underline">Review product evidence and document scope</Link>
         </div>
       </section>
 
       {/* EN 13706 grades */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Standards &amp; grades</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             What the EN 13706 grades E17 and E23 mean
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             EN 13706-3 classifies pultruded structural profiles by their minimum
             full-section flexural modulus:{" "}
             <strong className="text-t1">grade E17 = 17 GPa</strong> and{" "}
@@ -779,26 +779,26 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Test method</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">E17</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-teal-text">E23</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">E17</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">E23</th>
                 </tr>
               </thead>
               <tbody>
                 {en13706Rows.map((row) => (
                   <tr key={row.property} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] align-top text-f15 font-medium text-t1">{row.property}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f13 text-t3">{row.method}</td>
-                    <td className="py-[13px] pr-[21px] align-top text-f15 text-t2">{row.e17}</td>
-                    <td className="py-[13px] align-top text-f15 font-medium text-teal-text">{row.e23}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 font-medium text-t1">{row.property}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f14 text-t3">{row.method}</td>
+                    <td className="py-[13px] pr-[21px] align-top text-f16 text-t2">{row.e17}</td>
+                    <td className="py-[13px] align-top text-f16 font-medium text-teal-text">{row.e23}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             Modulus rows are the EN 13706 grade definition; strength, density, glass
             content, and hardness are F1 characteristic values per the cited method.
             Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are
@@ -817,7 +817,7 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Applications */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Applications</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Where pultruded fiberglass profiles replace steel and aluminum
@@ -861,11 +861,11 @@ export default function PultrudedFRPProfilesHubPage() {
                 href={app.href}
                 className="group rounded-[8px] border border-border-default bg-bg2 p-[29px] transition-colors hover:border-teal"
               >
-                <h3 className="text-f19 font-bold text-t1 group-hover:text-teal-text">
+                <h3 className="text-f18 font-bold text-t1 group-hover:text-teal-text">
                   {app.title}
                 </h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{app.body}</p>
-                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text">
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{app.body}</p>
+                <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text">
                   View case studies →
                 </span>
               </Link>
@@ -876,8 +876,8 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Technical Resources */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Technical resources</h2>
+        <div className="site-container">
+          <h2 className="mb-[21px] text-f18 font-bold text-t1">Technical resources</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/products/product-lines">F1-STRUX / GRID / THERM / FORM lines</LinkArrow>
             <LinkArrow href="/products/fiberglass-sheets">Fiberglass sheets — solid flat stock</LinkArrow>
@@ -900,7 +900,7 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Glossary */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Glossary</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded FRP terms, defined
@@ -908,12 +908,12 @@ export default function PultrudedFRPProfilesHubPage() {
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
             {hubGlossary.map((g) => (
               <div key={g.term} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <h3 className="text-f15 font-bold text-t1">{g.term}</h3>
-                <p className="mt-[6px] text-f13 leading-golden text-t2">{g.def}</p>
+                <h3 className="text-f16 font-bold text-t1">{g.term}</h3>
+                <p className="mt-[6px] text-f14 leading-golden text-t2">{g.def}</p>
               </div>
             ))}
           </div>
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             Full glossary:{" "}
             <Link href="/resources/glossary" className="font-semibold text-teal-text hover:text-teal">
               FRP &amp; pultrusion terminology →
@@ -924,9 +924,9 @@ export default function PultrudedFRPProfilesHubPage() {
 
       {/* Datasheets & downloads */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[8px] text-f19 font-bold text-t1">Datasheets &amp; design data</h2>
-          <p className="mb-[21px] text-f13 text-t2">
+        <div className="site-container">
+          <h2 className="mb-[8px] text-f18 font-bold text-t1">Datasheets &amp; design data</h2>
+          <p className="mb-[21px] text-f14 text-t2">
             Published mechanical data and design references for pultruded FRP profiles.
           </p>
           <div className="grid gap-[13px] sm:grid-cols-2">
@@ -936,7 +936,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 href={d.file}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-[10px] rounded-[8px] border border-border-default bg-white p-[16px] text-f13 font-medium text-t1 transition-colors hover:border-teal"
+                className="flex items-center gap-[10px] rounded-[8px] border border-border-default bg-white p-[16px] text-f14 font-medium text-t1 transition-colors hover:border-teal"
               >
                 <span aria-hidden>⬇</span>
                 <span>{d.title} <span className="text-t3">(PDF)</span></span>
@@ -960,14 +960,14 @@ export default function PultrudedFRPProfilesHubPage() {
       />
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator"
             eyebrow="Free tool · no login"
             title="Size a pultruded FRP profile in your browser"
             sub="Check bending, shear and Timoshenko-corrected deflection for any standard shape to ASCE/SEI 74-23, CEN/TS 19101, GB 50608 or ASD, and find the section that matches a steel or aluminum member's stiffness. You can request a quote from the result."
           />
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Prefer a table? The{" "}
             <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
               FRP span tables

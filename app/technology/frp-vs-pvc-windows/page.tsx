@@ -118,31 +118,31 @@ export default function FrpVsPvcWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             PVC wins on cost; FRP wins on everything related to long-term performance
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             uPVC remains the lowest first-cost window frame material and is the right specification for budget-sensitive residential retrofit and small windows in mild climates. Three technical limits cap its performance: the frame needs internal steel reinforcement above about 1.2 m span, dark colors warp on sun-exposed elevations, and UV embrittlement shortens service life to roughly 30 years. Pultruded FRP removes all three constraints (it needs no reinforcement, takes any color and does not embrittle in UV) while adding passive-house-class thermal performance and cleaner fire behavior.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             This page compares FRP and PVC across 15 properties that drive specification. The verdict is context-dependent: for small casements in mild climates PVC is genuinely competitive; for windows that are large, dark-colored, south-facing or expected to outlast a typical PVC design life, FRP is the stronger choice.
           </p>
         </div>
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Property Comparison</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             Side-by-side: FRP vs uPVC window frames
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             FRP values reflect pultruded E-glass/polyester profiles in F1 Composite 65/70/80/90-series fenestration geometries. PVC values reflect premium triple-chamber uPVC systems typical of leading European manufacturers, steel-reinforced where required by span. Highlighted rows show properties where FRP materially outperforms PVC.
           </p>
           <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
-            <table className="w-full border-collapse text-f13">
+            <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
                   <th className="px-[13px] py-[13px] text-left font-bold text-t1">Property</th>
@@ -172,15 +172,15 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>When to Choose Each</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             A decision framework by project type
           </h2>
           <div className="mt-[34px] grid gap-[34px] md:grid-cols-2">
             <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <h3 className="text-f19 font-bold text-t1">Choose PVC when</h3>
-              <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Choose PVC when</h3>
+              <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>• First-cost is the dominant project driver</li>
                 <li>• Windows are under 1.2 m span and white/light-beige</li>
                 <li>• Climate is moderate (no extreme heat or cold)</li>
@@ -190,8 +190,8 @@ export default function FrpVsPvcWindowsPage() {
               </ul>
             </div>
             <div className="rounded-[8px] border border-teal-border bg-teal/5 p-[21px]">
-              <h3 className="text-f19 font-bold text-t1">Choose FRP when</h3>
-              <ul className="mt-[13px] space-y-[8px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Choose FRP when</h3>
+              <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
                 <li>• Passive house certification (Uw ≤ 0.80)</li>
                 <li>• Windows over 1.5 m span without visible reinforcement</li>
                 <li>• Dark colors or south/west solar exposure</li>
@@ -206,31 +206,31 @@ export default function FrpVsPvcWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Try the Calculation</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             Compare Uw across FRP, PVC, and aluminum frames on your specific window size
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Whole-window U-value depends on frame material, glazing configuration, spacer, and dimensions. Our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements EN ISO 10077-1 and lets you swap frame materials on the same window to see the Uw delta. For a typical 1230 × 1480 mm triple-glazed window, FRP 90-series typically delivers Uw ≈ 0.72 W/m²·K vs PVC steel-reinforced ≈ 1.10 W/m²·K: a 35% reduction in heat loss for the same glazing package.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqs} />
         </div>
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px] text-center">
-          <p className="text-f15 leading-golden text-t2">
+        <div className="site-container text-center">
+          <p className="text-f16 leading-golden text-t2">
             Explore the full F1 Composite FRP fenestration range: 65/70/80/90/140-series profiles, PHI certified 90-series, custom sections available.
           </p>
           <Link
             href="/products/frp-window-frames"
-            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore FRP windows &amp; doors →
           </Link>
@@ -277,7 +277,7 @@ export default function FrpVsPvcWindowsPage() {
       />
 
       <section className="bg-white pb-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=pvc-multi&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · PVC vs FRP"

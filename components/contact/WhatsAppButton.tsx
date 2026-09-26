@@ -44,7 +44,7 @@ export default function WhatsAppButton({
       rel="noopener noreferrer"
       data-contact-location={location}
       data-whatsapp-topic={topic ?? ""}
-      className={`inline-flex min-h-[46px] items-center justify-center gap-[7px] text-f13 font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#128c53] focus-visible:ring-offset-2 ${padding} ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-[46px] items-center justify-center gap-[7px] text-f14 font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#128c53] focus-visible:ring-offset-2 ${padding} ${variants[variant]} ${className}`}
     >
       <WhatsAppIcon size={iconOnly ? 22 : 18} />
       {iconOnly ? <span className="sr-only">{label}</span> : label}

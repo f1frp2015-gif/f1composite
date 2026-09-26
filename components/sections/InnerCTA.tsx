@@ -10,10 +10,10 @@ interface InnerCTAProps {
 export default function InnerCTA({ title = "Ready to discuss your project?", quoteHref = "/contact?source=page-cta&inquiry_type=rfq" }: InnerCTAProps) {
   return (
     <section className="border-y border-border-default bg-white py-[38px] md:py-[46px]">
-      <div className="mx-auto flex max-w-[1120px] flex-col gap-[18px] px-[20px] sm:px-[28px] md:flex-row md:items-center md:justify-between lg:px-[36px]">
+      <div className="site-container flex flex-col gap-[18px] md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="text-f24 font-bold tracking-[-0.02em] text-t1">{title}</h2>
-          <p className="mt-[6px] max-w-[650px] text-f15 leading-relaxed text-t2">
+          <p className="mt-[6px] max-w-[650px] text-f16 leading-relaxed text-t2">
             Send the dimensions, quantity, service conditions and destination. We reply within {supplyTerms.responseTime}.
           </p>
         </div>

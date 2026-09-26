@@ -39,9 +39,9 @@ export default function ToolCitationBlock({
 
   return (
     <section className="rounded-[10px] border border-border-default bg-bg2 p-[21px] md:p-[34px]">
-      <p className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Citable engineering resource</p>
+      <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Citable engineering resource</p>
       <h2 className="mt-[8px] text-f24 font-bold text-t1">📚 How to cite this tool in your design report</h2>
-      <p className="mt-[10px] max-w-[800px] text-f15 leading-golden text-t2">
+      <p className="mt-[10px] max-w-[800px] text-f16 leading-golden text-t2">
         Use the format required by your client, university, or document-control system. The permanent URL below
         always points to the current maintained version of the tool.
       </p>
@@ -50,16 +50,16 @@ export default function ToolCitationBlock({
         {(Object.keys(citations) as (keyof typeof citations)[]).map((style) => (
           <div key={style} className="flex min-w-0 flex-col rounded-[8px] border border-border-default bg-white p-[16px]">
             <div className="flex items-center justify-between gap-[13px]">
-              <h3 className="text-f15 font-bold text-t1">{style}</h3>
+              <h3 className="text-f16 font-bold text-t1">{style}</h3>
               <button
                 type="button"
                 onClick={() => copyCitation(style)}
-                className="shrink-0 rounded-[6px] border border-border-default px-[10px] py-[6px] text-f11 font-bold text-teal-text transition-colors hover:border-teal hover:bg-teal-bg"
+                className="shrink-0 rounded-[6px] border border-border-default px-[10px] py-[6px] text-f12 font-bold text-teal-text transition-colors hover:border-teal hover:bg-teal-bg"
               >
                 {copyState === style ? "✓ Copied" : `📋 Copy ${style}`}
               </button>
             </div>
-            <pre className="mt-[13px] min-w-0 max-w-full flex-1 whitespace-pre-wrap break-all font-mono text-f11 leading-relaxed text-t2">
+            <pre className="mt-[13px] min-w-0 max-w-full flex-1 whitespace-pre-wrap break-all font-mono text-f12 leading-relaxed text-t2">
               {citations[style]}
             </pre>
           </div>

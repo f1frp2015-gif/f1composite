@@ -103,7 +103,7 @@ export default function SpanTablesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Design Basis</SectionTag>
           <div className="mt-[21px] grid gap-[13px] rounded-[8px] border border-border-default bg-slate-50 p-[21px] text-f14 leading-golden text-t2 md:grid-cols-2">
             <div><strong className="text-t1">Material:</strong> {DESIGN_BASIS.material} — E_L {DESIGN_BASIS.E_L_GPa} GPa, G_LT {DESIGN_BASIS.G_LT_GPa} GPa</div>
@@ -112,7 +112,7 @@ export default function SpanTablesPage() {
             <div><strong className="text-t1">Load case:</strong> {DESIGN_BASIS.loadCase}</div>
             <div className="md:col-span-2"><strong className="text-t1">Deflection:</strong> {DESIGN_BASIS.deflectionLimit}</div>
           </div>
-          <p className="mt-[13px] text-f13 text-t3">
+          <p className="mt-[13px] text-f14 text-t3">
             Values are the maximum service UDL in kN/m (1 kN/m ≈ 68.5 lb/ft). Superscript marks the governing check:{" "}
             <sup>d</sup> deflection, <sup>b</sup> bending, <sup>v</sup> shear. “—” = below practical loading.
             Local buckling, lateral-torsional buckling, connections, and long-term creep are not covered — review per
@@ -125,10 +125,10 @@ export default function SpanTablesPage() {
       <SpanTablesContent families={families} datasheetHrefs={datasheetHrefs} />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">How to read an FRP span chart</h2>
           <div className="mt-[21px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[13px] text-f15 leading-golden text-t2">
+            <div className="space-y-[13px] text-f16 leading-golden text-t2">
               <p>
                 Find the profile row and read across to your span: the value is the maximum uniformly distributed
                 service load the section carries with every check passing. Nearly every value in these tables is
@@ -144,7 +144,7 @@ export default function SpanTablesPage() {
                 your exact limit.
               </p>
             </div>
-            <div className="space-y-[13px] text-f15 leading-golden text-t2">
+            <div className="space-y-[13px] text-f16 leading-golden text-t2">
               <p>
                 Exact section properties (A, Ix, Iy, Sx, torsion, and EN 13706 mechanical data) for every row live in
                 the <Link href="/datasheets" className="text-teal-text hover:underline">profile datasheets</Link>, and
@@ -185,7 +185,7 @@ export default function SpanTablesPage() {
       />
 
       <section className="bg-white pb-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <EmbedCode
             toolName="FRP Span Tables"
             embedPath="/frp-span-tables/embed"

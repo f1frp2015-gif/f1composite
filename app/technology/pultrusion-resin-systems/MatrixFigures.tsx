@@ -118,7 +118,7 @@ export function MatrixFormationFigure() {
           pull
         </text>
       </svg>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         The resin matrix forms around every fiber filament during pultrusion rather than
         being applied to the finished profile. Dry rovings are wetted out in the impregnation stage,
         then the heated die crosslinks the liquid resin into the solid, irreversible matrix.
@@ -183,7 +183,7 @@ export function LoadTransferFigure() {
           F
         </text>
       </svg>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         Fibers carry the load — until one breaks. The matrix then transfers that load in
         shear to the neighboring fibers within a fraction of a millimeter, which is why a
         composite fails gradually instead of snapping like a chain. Matrix shear strength,

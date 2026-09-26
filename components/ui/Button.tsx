@@ -16,10 +16,10 @@ const base = "inline-flex min-h-[46px] items-center justify-center rounded-[7px]
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-teal-text text-white text-f13 px-[22px] py-[11px] shadow-[0_6px_16px_rgba(0,122,116,0.16)] hover:bg-teal",
+    "bg-teal-text text-white text-f14 px-[22px] py-[11px] shadow-[0_6px_16px_rgba(0,122,116,0.16)] hover:bg-teal",
   secondary:
-    "border border-border-default bg-white text-t1 text-f13 px-[21px] py-[10px] hover:border-teal-border hover:text-teal-text",
-  text: "min-h-[36px] text-teal-text text-f13 font-semibold gap-[5px] hover:gap-[8px]",
+    "border border-border-default bg-white text-t1 text-f14 px-[21px] py-[10px] hover:border-teal-border hover:text-teal-text",
+  text: "min-h-[36px] text-teal-text text-f14 font-semibold gap-[5px] hover:gap-[8px]",
 };
 
 export default function Button({

@@ -62,9 +62,9 @@ export default async function DatasheetsIndexPage() {
         ]}
       />
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           {all.length === 0 ? (
-            <p className="text-f15 text-t2">
+            <p className="text-f16 text-t2">
               The datasheet catalog is being populated — meanwhile, see{" "}
               <Link href="/resources/downloads" className="text-teal-text hover:underline">
                 the downloads center
@@ -81,7 +81,7 @@ export default async function DatasheetsIndexPage() {
                       <li key={d.slug}>
                         <Link
                           href={`/datasheets/${d.slug}`}
-                          className="flex items-baseline justify-between gap-[8px] rounded-[4px] px-[8px] py-[6px] text-f15 text-t1 hover:bg-teal-bg"
+                          className="flex items-baseline justify-between gap-[8px] rounded-[4px] px-[8px] py-[6px] text-f16 text-t1 hover:bg-teal-bg"
                         >
                           <span>{d.product.model}</span>
                           {d.product.weight_per_m != null && (

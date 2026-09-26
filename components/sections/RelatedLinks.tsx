@@ -18,11 +18,11 @@ export default function RelatedLinks({
 
   return (
     <section className={`${bgClass} py-[55px]`}>
-      <div className="mx-auto max-w-[1280px] px-[34px]">
+      <div className="site-container">
         <div className="grid gap-[34px] md:grid-cols-2 lg:grid-cols-3">
           {groups.map((group) => (
             <div key={group.title}>
-              <h2 className="mb-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+              <h2 className="mb-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                 {group.title}
               </h2>
               <div className="flex flex-col items-start gap-[8px]">

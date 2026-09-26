@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-09-25
+> 最后更新: 2026-09-26
 
 ---
 
@@ -281,21 +281,31 @@ f1composite.com
 - **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
 - **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。
 
+## 设计规则（2026-09 阶段 0 技术修复后）
+
+Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式。以下规则由 `scripts/theme-classes.test.mjs` 检查（`npm test`，CI 运行）。
+
+- **字体**：`app/globals.css` 的 `--font-sans` 必须写成 `var(--font-dm-sans)`。这是 `app/layout.tsx` 里 next/font 注册的变量；直接写 `"DM Sans"` 匹配不到自托管字体，2026-09 之前全站因此一直显示系统字体。
+- **字号**：只用 9 档，类名就是像素值：`text-f12`、`f14`、`f16`、`f18`、`f20`、`f24`、`f32`、`f44`、`f56`。链接和按钮文字不小于 14px。大标题可以继续用 `text-[clamp(…)]`。
+- **版心**：页面级容器一律用 `site-container`（最宽 1280px，两侧 20 / 24 / 32px），导航、页头、正文和页脚因此左边缘对齐。不要再写 `mx-auto max-w-[…px] px-[…]`。嵌入式工具（`/embed` 页和 `EmbedShell`）除外。
+- **颜色**：只用 `@theme` 里定义的颜色变量（`teal`、`teal-text`、`deep`、`t1`–`t3`、`bg2` 等）和 Tailwind 默认色。
+- **标题**：h1–h3 默认均衡断行（`text-wrap: balance`）；标题字距不要紧于 `-0.02em`，DM Sans 再紧就会粘连。
+
 ---
 
 ## 待办事项
 
 | 优先级 | 事项 | 状态 |
 |--------|------|------|
-| 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI | 待确认 |
+| 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI。2026-09-26 已先删除 `/images/hero/` 下 5 张与公司无关的图片（头灯、音频线广告等） | 待确认 |
 | 高 | 风渡的英文法定名称（目前 schema 只用品牌名 FengDu New Material） | 待确认 |
-| 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实 | 待核实 |
+| 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实。其中码头案例（英国）配图是沙漠峡谷里的湖泊码头，水厂案例（泰国）配图是烟囱排污的图库照片，需换成项目实拍，或先撤下图片 | 待核实 |
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
 | 中 | 隐私政策由法务审阅 | 待审阅 |
 | 高 | 在 GA4 把 `whatsapp_click`、`email_click`、`phone_click` 标为关键事件，再导入 Google Ads 作为次要转化 | 待操作 |
 | 高 | 设计手册 PDF（`f1composite-frp-profile-design-manual-2026.pdf`）需修订后再做网页版：标准树脂前后矛盾（环氧 vs 间苯聚酯，目录数据为间苯聚酯）、"免维护 / 60 年设计寿命 / 25 年质保"、防火分级表（含铝制品）、化学耐腐蚀表的来源和树脂。2026-09 起全站已撤下它的链接（下载页、设计指南、拉挤型材页、What is FRP、案例页、证据库和 AI 知识数据）；文件保留在原地址，已发出的链接仍能打开，但带 noindex。修订版请换新文件名上传，再恢复链接，并删除 `content/data/engineeringEvidence.ts` 的 `withdrawnDownloads` 条目和 `next.config.ts` 里对应的 noindex 规则；技术数据页和尺寸页仍以文字注明数据出自 DOC-PF-2026-EN Rev. A（`app/resources/technical-data/page.tsx`、`lib/catalog/seed.ts`），届时一并更新版本号 | 待修订 |
 | 高 | EPD 与绿色建材三星证书英文版把持证方写成 "F1 Composite Co., Ltd."，与 Intertek 报告上的 Fengdu New Material (Yancheng) Co., Ltd. 及法定主体不一致，需按原证书核对 | 待核实 |
-| 高 | 光伏页（`/products/frp-solar-mounting-systems`）摘录了 TÜV 报告 CN24KZ3A 002/003 的强度和保持率数值，下载页也写了 Intertek 窗报告的部分结果；TÜV 报告封面写明未经检测机构许可不得摘录复制，Intertek 报告也只允许整份复制。请向两家机构确认许可，或删去这些摘录 | 待确认 |
+| 高 | 光伏页（`/products/frp-solar-mounting-systems`）摘录了 TÜV 报告 CN24KZ3A 002/003 的强度和保持率数值，下载页也写了 Intertek 窗报告的部分结果；TÜV 报告封面写明未经检测机构许可不得摘录复制，Intertek 报告也只允许整份复制。请向两家机构确认许可，或删去这些摘录。2026-09-25 业主决定暂时保留 | 暂时保留 |
 | 中 | 化学耐腐蚀选型页：需要树脂供应商授权的耐腐蚀数据或自测浸泡数据 | 待提供数据 |
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |
 | 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |

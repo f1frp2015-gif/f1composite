@@ -55,7 +55,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
       <div className="grid gap-[21px]">
         {/* Climate */}
         <div>
-          <label className="block text-f13 font-bold uppercase tracking-[2px] text-t3">
+          <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
             1. Climate class (PHI)
           </label>
           <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2 lg:grid-cols-5">
@@ -70,8 +70,8 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
                     : "border-border-default bg-white hover:border-teal"
                 }`}
               >
-                <div className="text-f13 font-bold text-t1">{opt.label}</div>
-                <div className="text-f11 leading-golden text-t3">{opt.help}</div>
+                <div className="text-f14 font-bold text-t1">{opt.label}</div>
+                <div className="text-f12 leading-golden text-t3">{opt.help}</div>
               </button>
             ))}
           </div>
@@ -79,7 +79,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
 
         {/* Window type */}
         <div>
-          <label className="block text-f13 font-bold uppercase tracking-[2px] text-t3">
+          <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
             2. Window type
           </label>
           <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2">
@@ -94,13 +94,13 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
                     : "border-border-default bg-white hover:border-teal"
                 }`}
               >
-                <div className="text-f13 font-bold text-t1">{opt.label}</div>
-                <div className="text-f11 text-t3">Series: {opt.seriesFit}</div>
+                <div className="text-f14 font-bold text-t1">{opt.label}</div>
+                <div className="text-f12 text-t3">Series: {opt.seriesFit}</div>
               </button>
             ))}
           </div>
           {selectedType && (
-            <p className="mt-[8px] text-f11 text-t3">
+            <p className="mt-[8px] text-f12 text-t3">
               Initial series shortlist: {selectedType.seriesFit}. Confirm opening, glazing and hardware against the project requirements.
             </p>
           )}
@@ -109,7 +109,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
         {/* Target U-value + units */}
         <div className="grid gap-[13px] sm:grid-cols-2">
           <div>
-            <label className="block text-f13 font-bold uppercase tracking-[2px] text-t3">
+            <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
               3. Target U_w (W/m²K)
             </label>
             <input
@@ -117,14 +117,14 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
               step="0.1"
               value={targetU}
               onChange={(e) => setTargetU(e.target.value)}
-              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f13 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
             />
-            <p className="mt-[4px] text-f11 text-t3">
+            <p className="mt-[4px] text-f12 text-t3">
               Enter the project target. Whole-window performance depends on dimensions, glazing, spacer and frame configuration.
             </p>
           </div>
           <div>
-            <label className="block text-f13 font-bold uppercase tracking-[2px] text-t3">
+            <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
               4. Project size (units)
             </label>
             <input
@@ -132,7 +132,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
               value={units}
               onChange={(e) => setUnits(e.target.value)}
               placeholder="e.g. 200, or 'not yet'"
-              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f13 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
             />
           </div>
         </div>
@@ -141,7 +141,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
           type="button"
           onClick={launch}
           disabled={!canLaunch}
-          className="rounded-[8px] bg-teal px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-[8px] bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
         >
           Get AI-matched FRP series →
         </button>

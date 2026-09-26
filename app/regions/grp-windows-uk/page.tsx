@@ -84,7 +84,7 @@ export default function UkRegionPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/regions/grp-windows-uk.jpg"
@@ -100,13 +100,13 @@ export default function UkRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why UK Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             The frame material Part L is quietly pointing at
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 UK window specification is being squeezed from two directions. Part L
                 caps replacement windows at U-value 1.4 W/m²·K and points new
@@ -129,7 +129,7 @@ export default function UkRegionPage() {
                 system installed at Qinling Station, Antarctica.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 The import arithmetic also reads differently for GRP. It is a
                 glass-fiber composite (HS 3925.20 / 7019), outside the metal-focused
@@ -155,7 +155,7 @@ export default function UkRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>UK Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Part L, Passivhaus, EN 14351-1 — the paperwork your spec calls for
@@ -164,10 +164,10 @@ export default function UkRegionPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Requirement</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">UK Standard / Threshold</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Requirement</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">UK Standard / Threshold</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
@@ -181,10 +181,10 @@ export default function UkRegionPage() {
                   { app: "Architectural finish", std: "Any RAL, incl. anthracite", perf: "AAMA 2604/2605, 10-yr exposure", doc: "AAMA-listed coater report" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.std}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.perf}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.doc}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.app}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.std}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.perf}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.doc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -194,7 +194,7 @@ export default function UkRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             From our factory in China to your UK site, with duties and VAT itemized
@@ -218,9 +218,9 @@ export default function UkRegionPage() {
               },
             ].map((s) => (
               <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{s.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{s.body}</p>
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>
             ))}
           </div>
@@ -239,36 +239,36 @@ export default function UkRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHI-certified GRP frames (U_w 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the certification covers and how to specify it.</p>
+              <h3 className="text-f16 font-bold text-t1">PHI-certified GRP frames (U_w 0.78)</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the certification covers and how to specify it.</p>
             </Link>
             <Link
               href="/technology/frp-vs-pvc-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">GRP vs uPVC — stiffness &amp; U-value</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Why GRP frames need no steel reinforcement: larger sashes, dark colors without warping, and no hidden thermal bridge.</p>
+              <h3 className="text-f16 font-bold text-t1">GRP vs uPVC — stiffness &amp; U-value</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Why GRP frames need no steel reinforcement: larger sashes, dark colors without warping, and no hidden thermal bridge.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
               className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Antarctic passive windows case study</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">The same PHI-certified 90-series system, installed against a −60°C design low at Qinling Station.</p>
+              <h3 className="text-f16 font-bold text-t1">Antarctic passive windows case study</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">The same PHI-certified 90-series system, installed against a −60°C design low at Qinling Station.</p>
             </Link>
           </div>
         </div>
       </section>
 
       <section className="bg-bg2 pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"

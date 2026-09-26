@@ -118,7 +118,7 @@ export default function TechnologyPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/technology/frp-profile-engineering-drawing-3d-render.jpg"
@@ -134,12 +134,12 @@ export default function TechnologyPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Technology Areas</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Pultrusion Engineering Resources
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Process control sets the material properties, testing confirms them, and the know-how
             transfer programs pass the method on to other producers.
           </p>
@@ -155,7 +155,7 @@ export default function TechnologyPage() {
                 <h3 className="mt-[13px] text-f24 font-bold text-t1">
                   {area.title}
                 </h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">
+                <p className="mt-[13px] text-f16 leading-golden text-t2">
                   {area.description}
                 </p>
                 <div className="mt-[21px]">

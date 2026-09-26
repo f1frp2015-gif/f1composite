@@ -104,7 +104,7 @@ export default function EnergyPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/industries/frp-energy-solar-power-installation.jpg"
@@ -128,13 +128,13 @@ export default function EnergyPage() {
 
       {/* Challenge Section */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Challenge</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Material Limitations in Modern Energy Infrastructure
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 The energy sector operates under a unique combination of material stresses that disqualify most traditional materials from critical applications. Electrical conductivity, magnetic permeability, corrosion from chemical exposure, UV degradation from outdoor installation, and extreme temperature cycling create an environment where steel, aluminum, and timber each fail in specific and predictable ways.
               </p>
@@ -145,7 +145,7 @@ export default function EnergyPage() {
                 In transformer and switchgear environments, steel structural supports create magnetic interference that affects sensitive monitoring and protection equipment. Eddy currents induced in steel members near high-current conductors generate localized heating, reducing both the efficiency and lifespan of surrounding equipment. Non-magnetic materials like aluminum address this concern but introduce their own problems: galvanic corrosion where aluminum contacts copper conductors, and significantly lower strength-to-weight ratio than steel.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Renewable energy installations face distinct challenges. Solar farm mounting structures must withstand 25+ years of uninterrupted UV exposure, thermal cycling from -40 to +85 degrees Celsius, and corrosive ground conditions — often in coastal, desert, or agricultural environments where soil chemistry accelerates metal corrosion. Galvanized steel mounting rails lose their zinc coating within 10 to 15 years in aggressive environments, after which base metal corrosion begins.
               </p>
@@ -162,14 +162,14 @@ export default function EnergyPage() {
 
       {/* FRP Solutions Section */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP Solutions</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Power, Renewables, and Energy Infrastructure
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Cable Ladders and Cable Tray Systems</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Cable Ladders and Cable Tray Systems</h3>
               <p>
                 Pultruded FRP cable ladders and trays provide the backbone of cable management in power generation and distribution facilities. Our cable tray systems are manufactured from continuous glass fiber reinforcement in fire-retardant polyester or vinyl ester resin, achieving load capacities matching steel trays at approximately 40% of the weight. A standard 600mm FRP cable tray weighs roughly 6 kg/m versus 14 kg/m for equivalent galvanized steel, reducing structural load on overhead support systems and simplifying installation in confined spaces.
               </p>
@@ -183,7 +183,7 @@ export default function EnergyPage() {
                 Browse pultruded grating systems
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Transformer Spacers and Insulating Standoffs</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Transformer Spacers and Insulating Standoffs</h3>
               <p>
                 FRP profiles serve as structural spacers, coil supports, and insulating standoffs within power transformers and switchgear enclosures. These components must simultaneously provide mechanical support, electrical insulation, and thermal stability under the combined stress of electromagnetic forces, heat generation, and dielectric loading.
               </p>
@@ -194,8 +194,8 @@ export default function EnergyPage() {
                 The non-magnetic nature of FRP eliminates eddy current heating that steel spacers would generate in the intense magnetic fields within transformer cores. This reduces parasitic losses and prevents localized hot spots that degrade insulating oil and adjacent paper insulation. Transformer manufacturers who have switched from steel to FRP spacers report measurable improvements in transformer efficiency and reduced dissolved gas levels in oil analysis.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Wind Turbine Components</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Wind Turbine Components</h3>
               <p>
                 Pultruded FRP profiles are used in wind turbine nacelle structural frames, blade root inserts, and tower internal platforms. In nacelle applications, FRP profiles provide structural support for equipment mounting without creating conductive paths that could channel lightning strike energy. The material&apos;s high specific strength — tensile strength divided by density — exceeds that of structural steel by a factor of three, enabling lighter nacelle structures that reduce loads on the tower and foundation.
               </p>
@@ -209,7 +209,7 @@ export default function EnergyPage() {
                 Review wind turbine blade panels and GFP-WE20 test data
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Solar Panel Frames and Mounting Systems</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Solar Panel Frames and Mounting Systems</h3>
               <p>
                 FRP profiles for solar installations address the durability gap in conventional aluminum and galvanized steel mounting systems. In utility-scale solar farms, ground-mounted racking systems face 25 to 30 years of continuous UV exposure, thermal cycling, and soil chemistry corrosion. Pultruded FRP mounting rails and support posts are immune to these degradation mechanisms.
               </p>
@@ -220,7 +220,7 @@ export default function EnergyPage() {
                 For floating solar installations on reservoirs and retention ponds, FRP&apos;s corrosion immunity and lightweight density make it the preferred framing material. A floating solar array framed in FRP weighs approximately 30% less than an equivalent aluminum-framed system, reducing pontoon buoyancy requirements and enabling higher panel density per float unit.
               </p>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Substation Structures and Transmission Cross-Arms</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Substation Structures and Transmission Cross-Arms</h3>
               <p>
                 Pultruded FRP I-beams, channels, and angles serve as bus support structures, equipment stands, and cable trench covers in substations from 33 kV to 500 kV. The inherent non-conductivity eliminates touch and step potential hazards during fault events. For a typical 220 kV substation, this removes $200,000-$500,000 in grounding infrastructure.
               </p>
@@ -228,7 +228,7 @@ export default function EnergyPage() {
                 FRP transmission line cross-arms replace wood and steel from 11 kV to 220 kV. Unlike wood, FRP does not absorb moisture — maintaining full insulation value in rain, fog, and ice conditions. FRP cross-arms weigh 60-70% less than wood, do not rot, and avoid the 15-25 year replacement cycle of wooden arms and the planned outages that come with it.
               </p>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
@@ -258,7 +258,7 @@ export default function EnergyPage() {
 
       {/* Related Resources */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Energy Applications
@@ -268,11 +268,11 @@ export default function EnergyPage() {
               href="/products/fiberglass-structural-shapes"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Standard Profiles</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Structural FRP profiles for nacelle framing, equipment support, and solar mounting systems.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View product →
               </span>
             </Link>
@@ -280,11 +280,11 @@ export default function EnergyPage() {
               href="/products/frp-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Pultruded Gratings and Cable Trays</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Pultruded Gratings and Cable Trays</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Non-conductive FRP cable trays and platform gratings for substations, power plants, and renewable energy facilities.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View product →
               </span>
             </Link>
@@ -292,11 +292,11 @@ export default function EnergyPage() {
               href="/case-studies/chongqing-rooftop-pv-frp-rail"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Pultruded GFRP H-rail on colour steel-tile factory roofs, about 75% less rail dead load than galvanized steel.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
               </span>
             </Link>

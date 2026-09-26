@@ -16,11 +16,11 @@ export default function EvidencePage() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: "FRP product evidence", url: absoluteUrl("/resources/evidence"), dateModified: evidenceRevision, hasPart: engineeringEvidence.map((item) => ({ "@type": "DigitalDocument", name: item.title, url: absoluteUrl(item.file), description: item.scope })) }} />
     <PageHeader tag="Engineering evidence" title="Find the document that matches your product" description={summary} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources" }, { label: "Product evidence" }]} updated={evidenceRevision} />
-    <section className="bg-white py-[40px]"><div className="mx-auto max-w-[1200px] px-[20px] sm:px-[28px]">
+    <section className="bg-white py-[40px]"><div className="site-container">
       <h2 id="reported-results" className="text-f24 font-bold text-t1">Reported results at a glance</h2>
-      <p className="mt-[10px] max-w-[950px] text-f15 text-t2">One row per test report or certificate, as printed in the original. A result covers the tested specimen or stated configuration only. It is not a design allowable or a certification of other products.</p>
+      <p className="mt-[10px] max-w-[950px] text-f16 text-t2">One row per test report or certificate, as printed in the original. A result covers the tested specimen or stated configuration only. It is not a design allowable or a certification of other products.</p>
       <div className="mt-[20px] overflow-x-auto rounded-[8px] border border-border-default">
-        <table className="w-full min-w-[860px] border-collapse text-left text-f13">
+        <table className="w-full min-w-[860px] border-collapse text-left text-f14">
           <caption className="sr-only">Results reported in F1 Composite&apos;s published test reports and certificates</caption>
           <thead className="bg-deep text-white"><tr>{["Document", "Tested item", "Method", "Reported result", "Date"].map((heading) => <th key={heading} scope="col" className="px-[14px] py-[12px] font-bold">{heading}</th>)}</tr></thead>
           <tbody>{reportedResults.map((row) => <tr key={row.id} className="border-t border-border-default align-top">
@@ -32,13 +32,13 @@ export default function EvidencePage() {
           </tr>)}</tbody>
         </table>
       </div>
-      <p className="mt-[12px] max-w-[950px] text-f13 text-t3">Intertek and TÜV Rheinland rows give the conclusion printed in each report, because both laboratories restrict partial reproduction. Open the complete report for the measured values. Data sheets and the window catalog are listed below but not tabulated.</p>
+      <p className="mt-[12px] max-w-[950px] text-f14 text-t3">Intertek and TÜV Rheinland rows give the conclusion printed in each report, because both laboratories restrict partial reproduction. Open the complete report for the measured values. Data sheets and the window catalog are listed below but not tabulated.</p>
     </div></section>
-    <section className="bg-bg2 py-[40px]"><div className="mx-auto max-w-[1200px] px-[20px] sm:px-[28px]">
-      <p className="mb-[12px] max-w-[950px] text-f15 text-t2">{commercialFacts.compliance}</p>
-      <p className="mb-[26px] text-f13 text-t2">The original document controls its holder, issue date, validity and scope. For material or batch-specific records, <Link href="/contact?source=evidence-request&inquiry_type=technical" className="text-teal-text underline">request the applicable evidence</Link>.</p>
+    <section className="bg-bg2 py-[40px]"><div className="site-container">
+      <p className="mb-[12px] max-w-[950px] text-f16 text-t2">{commercialFacts.compliance}</p>
+      <p className="mb-[26px] text-f14 text-t2">The original document controls its holder, issue date, validity and scope. For material or batch-specific records, <Link href="/contact?source=evidence-request&inquiry_type=technical" className="text-teal-text underline">request the applicable evidence</Link>.</p>
       <EvidenceExplorer />
-      <p className="mt-[28px] text-f13">Need drawings or catalogs? <Link className="text-teal-text underline" href="/resources/downloads">Browse Downloads & CAD</Link>. Read our <Link className="text-teal-text underline" href="/technology/quality-testing">quality and testing process</Link> or meet the <Link className="text-teal-text underline" href="/about/authors">technical authors</Link>.</p>
+      <p className="mt-[28px] text-f14">Need drawings or catalogs? <Link className="text-teal-text underline" href="/resources/downloads">Browse Downloads & CAD</Link>. Read our <Link className="text-teal-text underline" href="/technology/quality-testing">quality and testing process</Link> or meet the <Link className="text-teal-text underline" href="/about/authors">technical authors</Link>.</p>
     </div></section>
   </>;
 }

@@ -16,14 +16,14 @@ export default function Hero() {
         }}
       />
 
-      <div className="mx-auto grid max-w-[1320px] items-center gap-[28px] px-[20px] py-[44px] sm:px-[28px] md:py-[64px] lg:min-h-[520px] lg:grid-cols-[1.04fr_0.96fr] lg:gap-[42px] lg:px-[36px] lg:py-[48px]">
+      <div className="site-container grid items-center gap-[28px] py-[44px] md:py-[64px] lg:min-h-[520px] lg:grid-cols-[1.04fr_0.96fr] lg:gap-[42px] lg:py-[48px]">
         <div className="relative z-10 max-w-[690px]">
-          <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f11 font-bold uppercase tracking-[0.12em] text-white/75">
+          <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f12 font-bold uppercase tracking-[0.12em] text-white/75">
             <span className="h-[7px] w-[7px] rounded-full bg-teal" aria-hidden />
             Industrial-scale pultrusion · Factory-direct
           </div>
 
-          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:mt-[22px]">
+          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:mt-[22px]">
             Standard & Custom Pultruded FRP Profiles
           </h1>
 
@@ -31,7 +31,7 @@ export default function Hero() {
             F1 Composite brings FengDu’s manufacturing network to international projects: 370 pultrusion lines across five production bases, with 150,000 tonnes of annual capacity. Choose standard or custom profiles, with grating and window and door products available.
           </p>
 
-          <p className="mt-[13px] text-f13 leading-golden text-white/75">
+          <p className="mt-[13px] text-f14 leading-golden text-white/75">
             Specifying glass-reinforced plastic? Explore our{" "}
             <Link href="/pultruded-frp-profiles" className="font-semibold text-white underline underline-offset-4 hover:text-teal">GRP profiles</Link>
             {" "}by shape, application and resin system.
@@ -54,9 +54,9 @@ export default function Hero() {
           </div>
 
           <div className="mt-[26px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] border-t border-white/12 pt-[17px] sm:mt-[32px] sm:pt-[19px]">
-            <span className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Choose your supply route</span>
+            <span className="text-f12 font-bold uppercase tracking-[0.12em] text-white/55">Choose your supply route</span>
             {standards.map((standard) => (
-              <span key={standard} className="text-f13 font-semibold text-white/78">
+              <span key={standard} className="text-f14 font-semibold text-white/78">
                 {standard}
               </span>
             ))}
@@ -78,10 +78,10 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
             <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-[9px] border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-[10px] sm:px-[17px] sm:py-[14px]">
               <div>
-                <p className="text-f11 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
-                <p className="mt-[2px] text-f15 font-bold text-white">370 pultrusion lines across 5 bases</p>
+                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
+                <p className="mt-[2px] text-f16 font-bold text-white">370 pultrusion lines across 5 bases</p>
               </div>
-              <span className="hidden rounded-full bg-teal px-[10px] py-[5px] text-f11 font-bold text-white sm:inline-flex">
+              <span className="hidden rounded-full bg-teal px-[10px] py-[5px] text-f12 font-bold text-white sm:inline-flex">
                 Chongqing
               </span>
             </div>

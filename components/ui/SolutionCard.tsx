@@ -54,9 +54,9 @@ export default function SolutionCard({
           />
         </div>
         <div className="p-[21px]">
-          <h3 className="mb-[8px] text-[17px] font-bold text-t1">{title}</h3>
-          <p className="text-f13 leading-golden text-t2">{description}</p>
-          <span className="mt-[13px] block text-f13 font-semibold text-teal-text">
+          <h3 className="mb-[8px] text-f18 font-bold text-t1">{title}</h3>
+          <p className="text-f14 leading-golden text-t2">{description}</p>
+          <span className="mt-[13px] block text-f14 font-semibold text-teal-text">
             View profiles →
           </span>
         </div>
@@ -73,9 +73,9 @@ export default function SolutionCard({
       <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-[6px] bg-teal-bg">
         {icon}
       </div>
-      <h3 className="mb-[8px] text-[17px] font-bold text-t1">{title}</h3>
-      <p className="text-f13 leading-golden text-t2">{description}</p>
-      <span className="mt-[13px] block text-f13 font-semibold text-teal-text">
+      <h3 className="mb-[8px] text-f18 font-bold text-t1">{title}</h3>
+      <p className="text-f14 leading-golden text-t2">{description}</p>
+      <span className="mt-[13px] block text-f14 font-semibold text-teal-text">
         View profiles →
       </span>
     </Link>

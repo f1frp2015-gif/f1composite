@@ -14,7 +14,7 @@ export default function LegalEntityNote({
 }: LegalEntityNoteProps) {
   if (variant === "compact") {
     return (
-      <p className={`text-f13 leading-golden text-t3 ${className}`}>
+      <p className={`text-f14 leading-golden text-t3 ${className}`}>
         <span className="font-medium text-t2">F1 Composite</span> is the export
         company of FengDu New Material.
       </p>
@@ -23,7 +23,7 @@ export default function LegalEntityNote({
 
   if (variant === "inline") {
     return (
-      <p className={`text-f15 leading-golden text-t2 ${className}`}>
+      <p className={`text-f16 leading-golden text-t2 ${className}`}>
         <span className="font-bold text-t1">F1 Composite</span> is the export
         company of FengDu New Material. Contracts, engineering support, documents
         and delivery are handled by {COMPANY}.
@@ -35,7 +35,7 @@ export default function LegalEntityNote({
     <aside
       className={`rounded-[8px] border border-border-default bg-bg2 p-[24px] ${className}`}
     >
-      <h2 className="text-f19 font-bold text-t1">FengDu&apos;s export company</h2>
+      <h2 className="text-f18 font-bold text-t1">FengDu&apos;s export company</h2>
       <p className="mt-[13px] text-f14 leading-golden text-t2">
         {COMPANY} handles international contracts, engineering support,
         documents and delivery for FengDu New Material, the parent company of{" "}
@@ -44,13 +44,13 @@ export default function LegalEntityNote({
       <div className="mt-[16px] flex flex-wrap gap-[10px]">
         <Link
           href="/about"
-          className="text-f13 font-bold text-teal-text hover:text-teal"
+          className="text-f14 font-bold text-teal-text hover:text-teal"
         >
           Company background →
         </Link>
         <Link
           href="/ask"
-          className="text-f13 font-bold text-teal-text hover:text-teal"
+          className="text-f14 font-bold text-teal-text hover:text-teal"
         >
           Ask the FRP advisor →
         </Link>

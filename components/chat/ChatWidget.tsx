@@ -47,7 +47,7 @@ export default function ChatWidget() {
             </div>
             <a
               href="/ask"
-              className="text-[11px] text-white/80 hover:text-white transition-colors"
+              className="text-f12 text-white/80 hover:text-white transition-colors"
             >
               Full page →
             </a>

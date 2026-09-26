@@ -180,14 +180,14 @@ export default function DatasheetBuilder() {
 
   return (
     <section className="bg-white py-[55px]" id="datasheet-builder">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
-        <div className="mb-[8px] text-f13 font-bold uppercase tracking-wide text-teal-text">
+      <div className="site-container">
+        <div className="mb-[8px] text-f14 font-bold uppercase tracking-wide text-teal-text">
           Datasheet Builder
         </div>
         <h2 className="mb-[13px] text-f24 font-bold text-t1">
           Build your own datasheet or catalog PDF
         </h2>
-        <p className="mb-[21px] text-f15 leading-golden text-t2">
+        <p className="mb-[21px] text-f16 leading-golden text-t2">
           Pick one profile for a single-page technical data sheet, a whole family, or any mix for a
           multi-page catalog extract. Then optionally tick one or more resin systems to get the same
           cross-section rendered with each formulation&apos;s mechanical data — polyester vs vinyl
@@ -195,7 +195,7 @@ export default function DatasheetBuilder() {
           every page, generated live from our engineering database.
         </p>
 
-        <h3 className="mb-[13px] text-f15 font-bold text-t1">
+        <h3 className="mb-[13px] text-f16 font-bold text-t1">
           1 · Select profiles
         </h3>
         <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
@@ -207,7 +207,7 @@ export default function DatasheetBuilder() {
                 className="rounded-[8px] border border-border-default bg-white p-[21px]"
               >
                 <div className="mb-[13px] flex items-center justify-between">
-                  <h3 className="text-f15 font-bold text-t1">{category?.name ?? "Other profiles"}</h3>
+                  <h3 className="text-f16 font-bold text-t1">{category?.name ?? "Other profiles"}</h3>
                   <button
                     onClick={() => toggleGroup(items)}
                     className="text-f12 font-semibold text-teal-text hover:underline"
@@ -217,7 +217,7 @@ export default function DatasheetBuilder() {
                 </div>
                 <div className="max-h-[220px] space-y-[4px] overflow-y-auto pr-[8px]">
                   {items.map((p) => (
-                    <label key={p.id} className="flex items-center gap-[8px] text-f13 text-t2">
+                    <label key={p.id} className="flex items-center gap-[8px] text-f14 text-t2">
                       <input
                         type="checkbox"
                         checked={selected.has(p.id)}
@@ -225,7 +225,7 @@ export default function DatasheetBuilder() {
                       />
                       <span className="flex-1">{p.model}</span>
                       {p.weightPerM != null && (
-                        <span className="text-f11 text-t3">{p.weightPerM} kg/m</span>
+                        <span className="text-f12 text-t3">{p.weightPerM} kg/m</span>
                       )}
                     </label>
                   ))}
@@ -237,10 +237,10 @@ export default function DatasheetBuilder() {
 
         {formulationGroups.length > 0 && (
           <>
-            <h3 className="mb-[8px] mt-[34px] text-f15 font-bold text-t1">
+            <h3 className="mb-[8px] mt-[34px] text-f16 font-bold text-t1">
               2 · Resin system <span className="font-normal text-t3">(optional — one page per profile per system)</span>
             </h3>
-            <p className="mb-[13px] text-f13 text-t3">
+            <p className="mb-[13px] text-f14 text-t3">
               Leave everything unticked to get each profile&apos;s standard formulation. Tick
               several to compare mechanical data for the same cross-section across resin systems.
             </p>
@@ -252,7 +252,7 @@ export default function DatasheetBuilder() {
                   </div>
                   <div className="space-y-[4px]">
                     {items.map((f) => (
-                      <label key={f.id} className="flex items-center gap-[8px] text-f13 text-t2">
+                      <label key={f.id} className="flex items-center gap-[8px] text-f14 text-t2">
                         <input
                           type="checkbox"
                           checked={selectedF.has(f.id)}
@@ -260,7 +260,7 @@ export default function DatasheetBuilder() {
                         />
                         <span className="flex-1">{f.name}</span>
                         {f.grade && (
-                          <span className="rounded-[4px] bg-white px-[6px] py-[1px] text-f11 font-semibold text-teal-text">
+                          <span className="rounded-[4px] bg-white px-[6px] py-[1px] text-f12 font-semibold text-teal-text">
                             {f.grade}
                           </span>
                         )}
@@ -275,11 +275,11 @@ export default function DatasheetBuilder() {
 
         <div className="mt-[21px] flex flex-wrap items-center gap-[13px]">
           {selected.size === 0 ? (
-            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
+            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
               Select products to generate a PDF
             </span>
           ) : overLimit ? (
-            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f15 font-semibold text-t3">
+            <span className="rounded-[6px] bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
               {pageCount} pages exceeds the {MAX_PAGES}-page limit — narrow the selection
             </span>
           ) : needsEmail ? (
@@ -287,18 +287,18 @@ export default function DatasheetBuilder() {
               <input
                 type="email"
                 placeholder="Work email to receive catalog updates"
-                className="w-[280px] rounded-[6px] border border-border-default px-[13px] py-[13px] text-f15"
+                className="w-[280px] rounded-[6px] border border-border-default px-[13px] py-[13px] text-f16"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 onClick={submitLeadAndDownload}
                 disabled={submitting}
-                className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90 disabled:opacity-50"
+                className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90 disabled:opacity-50"
               >
                 {submitting ? "Preparing…" : `Get catalog PDF (${pageCount} pages) →`}
               </button>
-              {gateError && <p className="w-full text-f13 text-red-600">{gateError}</p>}
+              {gateError && <p className="w-full text-f14 text-red-600">{gateError}</p>}
               <p className="w-full text-f12 text-t3">
                 Multi-page catalog extracts ask for an email so we can send revised data when a
                 spec updates. Single datasheets download freely.
@@ -309,7 +309,7 @@ export default function DatasheetBuilder() {
               href={href}
               target="_blank"
               rel="noopener"
-              className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f15 font-semibold text-white hover:opacity-90"
+              className="rounded-[6px] bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
             >
               Generate PDF ({pageCount} {pageCount === 1 ? "datasheet page" : "pages"}) →
             </a>
@@ -320,7 +320,7 @@ export default function DatasheetBuilder() {
                 setSelected(new Set());
                 setSelectedF(new Set());
               }}
-              className="text-f13 text-t3 hover:underline"
+              className="text-f14 text-t3 hover:underline"
             >
               Clear selection
             </button>

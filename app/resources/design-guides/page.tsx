@@ -94,9 +94,9 @@ export default function DesignGuidesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engineering Guidance for Pultruded FRP Specification</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
             <p>
               Specifying pultruded FRP is not the same as specifying steel or aluminum. The material is highly anisotropic — longitudinal modulus can be 4-6× higher than transverse — meaning the connection detail, not the cross-section, often determines whether your structure performs. The guides below are written by F1 Composite&apos;s engineering team and reviewed against real failures from our 20-year service history. Each guide assumes the reader is a structural engineer or fabricator who has worked with steel or aluminum and is approaching FRP for the first or second time.
             </p>
@@ -114,7 +114,7 @@ export default function DesignGuidesPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="space-y-[21px]">
             {guides.map((guide) => (
               <div
@@ -123,8 +123,8 @@ export default function DesignGuidesPage() {
               >
                 <div className="flex items-start justify-between gap-[21px]">
                   <div>
-                    <h3 className="text-f19 font-bold text-t1">{guide.title}</h3>
-                    <p className="mt-[8px] text-f15 leading-golden text-t2">
+                    <h3 className="text-f18 font-bold text-t1">{guide.title}</h3>
+                    <p className="mt-[8px] text-f16 leading-golden text-t2">
                       {guide.description}
                     </p>
                   </div>
@@ -133,19 +133,19 @@ export default function DesignGuidesPage() {
                       href={guide.file}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f11 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
                     >
                       Download PDF
                     </a>
                   ) : guide.status === "Available" ? (
                     <Link
                       href="/contact"
-                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f11 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="flex-shrink-0 rounded-[4px] bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
                     >
                       Request Access
                     </Link>
                   ) : (
-                    <span className="flex-shrink-0 rounded-[4px] bg-bg2 px-[21px] py-[8px] text-f11 font-bold uppercase tracking-[1px] text-t3">
+                    <span className="flex-shrink-0 rounded-[4px] bg-bg2 px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-t3">
                       Coming Soon
                     </span>
                   )}
@@ -157,9 +157,9 @@ export default function DesignGuidesPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Standards and Code References</SectionTag>
-          <div className="mt-[21px] space-y-[13px] text-f17 leading-golden text-t2">
+          <div className="mt-[21px] space-y-[13px] text-f18 leading-golden text-t2">
             <p>Design Guides reference the following codes (we cite specific clauses where applicable):</p>
             <ul className="list-disc space-y-[8px] pl-[21px]">
               <li><strong>ASCE Pre-Standard</strong> for Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (2010)</li>

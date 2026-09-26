@@ -210,7 +210,7 @@ export default function DensityCalculator() {
     : "";
   return (
     <section id="calculator" className="scroll-mt-24 bg-bg2 py-12">
-      <div className="mx-auto max-w-[1280px] px-5 md:px-[34px]">
+      <div className="site-container">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-teal-text">

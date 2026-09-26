@@ -96,7 +96,7 @@ export default function InfrastructurePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <figure className="overflow-hidden rounded-[8px]">
             <Image
               src={infrastructureApplication}
@@ -123,13 +123,13 @@ export default function InfrastructurePage() {
 
       {/* Challenge Section */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Challenge</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Infrastructure Is Aging Faster Than It Can Be Replaced
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Civil infrastructure worldwide faces a compounding durability crisis. The American Society of Civil Engineers rates 42% of all bridges in the United States as structurally deficient or functionally obsolete. In Europe, the European Commission estimates that over 60,000 bridges require significant rehabilitation or replacement within the next two decades. The primary cause in both regions is identical: corrosion of steel reinforcement within concrete, and corrosion of exposed steel structural members.
               </p>
@@ -140,7 +140,7 @@ export default function InfrastructurePage() {
                 Weight is another critical constraint. Many existing bridges were designed for lighter vehicle loads than those they now carry. Strengthening these bridges with additional steel or concrete adds dead load to structures already operating near capacity. Infrastructure engineers need materials that can increase live load capacity without increasing dead load — a requirement that only composite materials can fulfill efficiently.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Pedestrian infrastructure faces parallel challenges. Steel handrails and guardrails on bridges, boardwalks, and elevated walkways corrode visibly within 5 to 10 years in coastal and urban environments, creating both aesthetic degradation and safety concerns. Routine painting and galvanizing extend life somewhat, but these maintenance cycles are expensive when performed at height or over water, and they introduce environmental concerns from coating removal and application.
               </p>
@@ -157,14 +157,14 @@ export default function InfrastructurePage() {
 
       {/* FRP Solutions Section */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP Solutions</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Bridges, Walkways, and Utility Structures
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Bridge Decks and Superstructures</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Bridge Decks and Superstructures</h3>
               <p>
                 Pultruded FRP bridge deck panels provide a direct replacement for deteriorated concrete decks on steel or concrete girder bridges. Weighing between 80 and 100 kg/m2 — compared to 500 to 600 kg/m2 for conventional reinforced concrete — FRP decks reduce dead load by approximately 80%. This weight reduction directly translates to increased live load capacity, often allowing bridges to be upgraded from restricted load ratings to full highway loading without girder replacement.
               </p>
@@ -178,7 +178,7 @@ export default function InfrastructurePage() {
                 Explore custom bridge profiles
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Handrails and Guardrail Systems</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Handrails and Guardrail Systems</h3>
               <p>
                 FRP handrail systems combine structural performance with complete corrosion immunity. Our standard handrail profiles are designed as modular kits — posts, top rails, mid rails, and kick plates — that assemble with stainless steel fasteners using conventional hand tools. No welding, no hot work permits, no grinding or painting after installation.
               </p>
@@ -186,8 +186,8 @@ export default function InfrastructurePage() {
                 The non-conductive property of FRP handrails provides a critical safety advantage in electrified environments. On railway bridges, near substations, and along electrified transit corridors, metallic handrails can become energized during fault conditions, creating lethal contact hazards. FRP eliminates this risk entirely, which is why Network Rail (UK), Deutsche Bahn (Germany), and numerous North American transit agencies now specify FRP handrails as standard.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Utility Poles and Lighting Standards</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Utility Poles and Lighting Standards</h3>
               <p>
                 Pultruded and filament-wound FRP utility poles are replacing wood and steel poles across distribution and transmission networks. An FRP distribution pole weighing approximately 150 kg replaces a treated wood pole weighing 400 to 500 kg, reducing transportation costs and enabling installation with lighter equipment. In remote locations accessible only by helicopter, the weight savings can reduce installation cost by over $10,000 per pole.
               </p>
@@ -198,7 +198,7 @@ export default function InfrastructurePage() {
                 Our FRP lighting standards and signal poles serve municipal and highway applications. These poles resist salt spray corrosion in coastal environments and de-icing chemical exposure along roadways, and need no repainting or retreatment to keep their structural integrity and appearance.
               </p>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Cable Trays and Conduit Systems</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Cable Trays and Conduit Systems</h3>
               <p>
                 Pultruded FRP cable trays and conduit support systems serve infrastructure tunnels, bridges, and utility corridors where corrosion from moisture, chemicals, or de-icing salt runoff would degrade metal alternatives. FRP cable trays weigh roughly 40% less than steel equivalents, reducing structural load on suspended mounting systems and simplifying overhead installation. Their electrical non-conductivity provides inherent cable fault isolation and eliminates the need for separate grounding systems required by metallic trays.
               </p>
@@ -209,7 +209,7 @@ export default function InfrastructurePage() {
                 Compare FRP to traditional materials
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
@@ -239,7 +239,7 @@ export default function InfrastructurePage() {
 
       {/* Related Resources */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Infrastructure Projects
@@ -249,11 +249,11 @@ export default function InfrastructurePage() {
               href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Bespoke FRP profile cross-sections engineered for specific bridge, handrail, and infrastructure applications.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View product →
               </span>
             </Link>
@@ -261,11 +261,11 @@ export default function InfrastructurePage() {
               href="/technology/frp-vs-traditional-materials"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs. Traditional Materials</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs. Traditional Materials</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Detailed comparison of FRP composites against steel, aluminum, concrete, and timber in infrastructure applications.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read comparison →
               </span>
             </Link>
@@ -273,11 +273,11 @@ export default function InfrastructurePage() {
               href="/case-studies/beam-bridge"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Beam Bridge Design & Case Studies</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Beam Bridge Design & Case Studies</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Load-path diagrams and three source-backed concrete and FRP girder projects, with public references clearly separated from F1 delivery history.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
               </span>
             </Link>

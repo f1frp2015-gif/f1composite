@@ -94,7 +94,7 @@ export default function IndustrialPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="overflow-hidden rounded-[8px]">
             <Image
               src="/images/industries/frp-industrial-chemical-plant-facility.jpg"
@@ -118,13 +118,13 @@ export default function IndustrialPage() {
 
       {/* Challenge Section */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Challenge</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Chemical Exposure Destroys Steel Infrastructure From the Inside Out
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Industrial processing environments expose structural materials to chemical agents that accelerate corrosion far beyond atmospheric rates. In chemical processing plants, acid mists, alkaline splashes, solvent vapors, and chlorine-bearing atmospheres attack carbon steel at rates of 1 to 5 mm per year — meaning that a standard 6mm steel grating can corrode through completely within 2 to 3 years without protective coatings. Even with protective coatings, mechanical damage from foot traffic, dropped tools, and equipment movement exposes base metal that then corrodes preferentially, undermining the coating from beneath.
               </p>
@@ -135,7 +135,7 @@ export default function IndustrialPage() {
                 The economic consequence of industrial corrosion extends well beyond material replacement cost. When a corroded grating panel fails under foot traffic, or a corroded handrail gives way, the resulting injury costs — medical expenses, lost work time, regulatory penalties, and litigation — can exceed the replacement cost of the corroded structure by orders of magnitude. OSHA records show that falls through corroded gratings and handrail failures rank among the most common causes of serious injury in chemical processing facilities.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Food and pharmaceutical processing facilities face a different but equally demanding set of challenges. These environments require materials that withstand aggressive cleaning regimens — daily wash-downs with caustic solutions (sodium hydroxide at 2% to 5%), peracetic acid sanitizers, and high-pressure hot water. Steel surfaces, even when coated with food-safe epoxy, degrade under these repeated cleaning cycles. Coating chips and flakes create contamination risk, while corroding steel surfaces harbor bacteria in pits and crevices that cleaning solutions cannot reach.
               </p>
@@ -152,14 +152,14 @@ export default function IndustrialPage() {
 
       {/* FRP Solutions Section */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP Solutions</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Chemical, Water, Food, and Pharmaceutical Processing
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Chemical Processing Plants</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Chemical Processing Plants</h3>
               <p>
                 Pultruded FRP profiles form the structural backbone of corrosion-resistant infrastructure in chemical processing facilities. Our vinyl ester FRP gratings, structural shapes, and stair systems replace carbon steel and galvanized steel in areas exposed to acid mist, caustic splashes, chlorine gas, and solvent vapors. Unlike steel, which requires ongoing protective coating systems that degrade under chemical attack, FRP achieves corrosion resistance throughout its entire cross-section — there is no coating to chip, peel, or undercut.
               </p>
@@ -175,7 +175,7 @@ export default function IndustrialPage() {
                 <LinkArrow href="/products/frp-handrail-systems">Fiberglass handrail systems</LinkArrow>
               </div>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Water and Wastewater Treatment</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Water and Wastewater Treatment</h3>
               <p>
                 Water treatment plants and wastewater facilities deploy FRP profiles in some of the most corrosive conditions in any industrial sector. Clarifier weirs, scum baffles, launders, and channel covers fabricated from FRP provide permanent resistance to the hydrogen sulfide, chlorine, and biogenic sulfuric acid that destroy steel and concrete in these environments.
               </p>
@@ -186,8 +186,8 @@ export default function IndustrialPage() {
                 FRP handrail and guardrail systems protect workers along basin edges, elevated walkways, and chemical dosing platforms. Each layout is configured and evaluated against the stated guardrail basis—such as OSHA 1910.29 or the project&apos;s adopted building code—with post spacing, rails, fittings, bases, anchors and substrate checked together. Integral pigmentation can reduce coating dependence, but resin, UV package, color retention and maintenance requirements remain project-specific.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Food Processing Facilities</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Food Processing Facilities</h3>
               <p>
                 FRP profiles in food processing applications must satisfy three simultaneous requirements: corrosion resistance against aggressive cleaning chemicals, compliance with food safety regulations, and structural performance under the dynamic loads of production environments. Our food-grade FRP profiles meet all three.
               </p>
@@ -201,7 +201,7 @@ export default function IndustrialPage() {
                 Explore custom industrial profiles
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Pharmaceutical and Cleanroom Environments</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Pharmaceutical and Cleanroom Environments</h3>
               <p>
                 Pharmaceutical manufacturing facilities require structural materials that do not shed particles, do not support microbial growth, and can be decontaminated with aggressive cleaning agents. FRP profiles meet these requirements inherently. The closed, resin-rich surface of pultruded FRP does not generate particulate shedding under normal mechanical loads, making it suitable for ISO Class 7 and Class 8 cleanroom-adjacent areas.
               </p>
@@ -212,7 +212,7 @@ export default function IndustrialPage() {
                 Semiconductor and pharmaceutical cleanrooms also set fire-propagation and smoke limits for installed materials, for example FM 4910. These depend on the resin formulation, so state the requirement at the RFQ stage and we will agree the material and test route.
               </p>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
@@ -242,7 +242,7 @@ export default function IndustrialPage() {
 
       {/* Related Resources */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products and Resources for Industrial Projects
@@ -252,41 +252,41 @@ export default function IndustrialPage() {
               href="/products/frp-sound-barrier-wall"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP Sound Barrier Walls</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Sound Barrier Walls</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Reflective or absorptive fiberglass noise barriers for compressors, equipment yards, utilities and property lines.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
             </Link>
             <Link
               href="/products/frp-ladders"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Industrial FRP Fixed Ladders</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial FRP Fixed Ladders</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Drawing-led fixed personnel-access ladders with pultruded side rails, fluted rungs, brackets and project-specific fall-protection interfaces.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
             </Link>
             <Link
               href="/products/frp-handrail-systems"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Fiberglass Handrail Systems</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Fiberglass Handrail Systems</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Square- and round-tube posts, rails, kick plates, fittings and bases coordinated against the project load and anchorage basis.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
             </Link>
             <Link
               href="/products/molded-frp-grating"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Industrial Gratings</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial Gratings</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Chemical-resistant molded and pultruded FRP gratings for process areas, walkways, and platforms.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View product →
               </span>
             </Link>
@@ -294,11 +294,11 @@ export default function IndustrialPage() {
               href="/products/custom-pultruded-profiles"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Bespoke FRP profile cross-sections designed for specific chemical, thermal, and structural requirements.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View product →
               </span>
             </Link>
@@ -306,11 +306,11 @@ export default function IndustrialPage() {
               href="/resources/blog/frp-pipe-for-coal-mine-gas-drainage"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
+              <p className="text-f14 leading-golden text-t2">
                 How anti-static, flame-retardant pultruded pipe is specified for underground gas drainage lines.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read article →
               </span>
             </Link>
@@ -318,11 +318,11 @@ export default function IndustrialPage() {
               href="/technology/frp-vs-steel-gratings"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Steel Gratings</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Steel Gratings</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Corrosion, load capacity, slip resistance, electrical safety, and 30-year lifecycle cost compared between FRP and hot-dip galvanized steel gratings.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read comparison →
               </span>
             </Link>
@@ -330,11 +330,11 @@ export default function IndustrialPage() {
               href="/case-studies/factory-access-staircase"
               className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Case Study: Factory Access Staircase</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Case Study: Factory Access Staircase</h3>
+              <p className="text-f14 leading-golden text-t2">
                 The access staircase in our own Chongqing plant, built from our profiles and in service since 2024 beside live electrical cabinets and resin vapor.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 Read case study →
               </span>
             </Link>

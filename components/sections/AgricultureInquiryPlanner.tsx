@@ -28,7 +28,7 @@ export default function AgricultureInquiryPlanner() {
   return (
     <form onSubmit={continueInquiry} className="rounded-[12px] border border-border-default bg-white p-6 sm:p-8" aria-label="Planting project brief">
       <fieldset>
-        <legend className="text-f19 font-bold text-t1">What would help you move forward?</legend>
+        <legend className="text-f18 font-bold text-t1">What would help you move forward?</legend>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           {(Object.entries(agricultureStages) as [AgricultureStage, string][]).map(([value, label]) => (
             <label key={value} className={`flex cursor-pointer items-center gap-3 rounded-[7px] border p-4 text-sm font-semibold ${stage === value ? "border-teal bg-teal/5 text-teal-text" : "border-border-default text-t2"}`}>

@@ -20,7 +20,7 @@ const steps = [
 export default function CustomProfilePreview() {
   return (
     <section className="bg-bg2 py-[54px] md:py-[68px]">
-      <div className="mx-auto grid max-w-[1320px] items-center gap-[32px] px-[20px] sm:px-[28px] lg:grid-cols-2 lg:px-[36px]">
+      <div className="site-container grid items-center gap-[32px] lg:grid-cols-2">
         <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] border border-border-default bg-white">
           <Image
             src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
@@ -41,7 +41,7 @@ export default function CustomProfilePreview() {
           <ol className="mt-[22px] space-y-[18px]">
             {steps.map(([title, body], index) => (
               <li key={title} className="flex gap-[14px]">
-                <span className="text-f13 font-bold text-teal-text">
+                <span className="text-f14 font-bold text-teal-text">
                   0{index + 1}
                 </span>
                 <div>
