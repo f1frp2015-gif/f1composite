@@ -1,31 +1,26 @@
 import Link from "next/link";
-import LinkArrow from "@/components/ui/LinkArrow";
-import SectionTag from "@/components/ui/SectionTag";
+import ProductSection from "@/components/products/ProductSection";
 
 const resources = [
   {
-    index: "01",
     title: "Technical Data",
     description: "Mechanical properties, resin options, standards, and engineering reference values.",
     href: "/resources/technical-data",
     action: "Review data",
   },
   {
-    index: "02",
     title: "Profile & Span Tools",
     description: "Shortlist a profile, check section properties, and review preliminary span guidance.",
     href: "/frp-profile-calculator",
     action: "Open tools",
   },
   {
-    index: "03",
     title: "Downloads & CAD",
     description: "Catalogs, product datasheets, published test reports, design guides and available CAD files.",
     href: "/resources/downloads",
     action: "Browse downloads",
   },
   {
-    index: "04",
     title: "Density & Weight Calculator",
     description: "Estimate FRP density and weight per metre from composition, layup and section geometry.",
     href: "/frp-density-calculator",
@@ -42,48 +37,37 @@ const secondaryLinks = [
 
 export default function DownloadsSnapshot() {
   return (
-    <section className="bg-bg2 py-[58px] md:py-[78px]">
-      <div className="site-container">
-        <div className="flex flex-col gap-[16px] sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <SectionTag>Engineering resources</SectionTag>
-            <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.02em] text-t1">
-              Engineering resources for profile selection
-            </h2>
-            <p className="mt-[10px] max-w-[720px] text-f16 leading-relaxed text-t2">
-              Find section data, drawings, test evidence and preliminary tools for your FRP project.
-            </p>
-          </div>
-          <LinkArrow href="/resources" className="shrink-0">Browse resources</LinkArrow>
-        </div>
-
-        <div className="mt-[28px] grid overflow-hidden rounded-card border border-border-default bg-white md:grid-cols-2 xl:grid-cols-4">
-          {resources.map((resource, index) => (
-            <Link
-              key={resource.href}
-              href={resource.href}
-              className={`group flex min-h-[235px] flex-col p-[22px] transition-colors hover:bg-teal-bg focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal ${
-                index > 0 ? "xl:border-l xl:border-border-default" : ""
-              } ${index > 1 ? "md:border-t xl:border-t-0" : ""} ${index % 2 === 1 ? "md:border-l md:border-border-default" : ""}`}
-            >
-              <span className="text-f12 font-extrabold text-teal-text">{resource.index}</span>
-              <h3 className="mt-auto text-f18 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">
-                {resource.title}
-              </h3>
-              <p className="mt-[7px] text-f14 leading-relaxed text-t2">{resource.description}</p>
-              <span className="mt-[14px] text-f14 font-bold text-teal-text">{resource.action} →</span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-[17px] flex flex-wrap gap-x-[22px] gap-y-[6px]">
-          {secondaryLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-f14 font-semibold text-t2 hover:text-teal-text">
-              {link.label}
-            </Link>
-          ))}
-        </div>
+    <ProductSection
+      id="resources"
+      title="Engineering resources for profile selection"
+      intro="Find section data, drawings, test evidence and preliminary tools for your FRP project."
+      aside={
+        <Link href="/resources" className="font-bold text-teal-text">
+          Browse resources →
+        </Link>
+      }
+    >
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-border-default bg-border-default md:grid-cols-2 xl:grid-cols-4">
+        {resources.map((resource) => (
+          <Link
+            key={resource.href}
+            href={resource.href}
+            className="group flex flex-col bg-white p-[22px] transition-colors hover:bg-bg2 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+          >
+            <h3 className="text-f18 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">{resource.title}</h3>
+            <p className="mt-[7px] text-f14 leading-relaxed text-t2">{resource.description}</p>
+            <span className="mt-auto pt-[14px] text-f14 font-bold text-teal-text">{resource.action} →</span>
+          </Link>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-[17px] flex flex-wrap gap-x-[22px] gap-y-[6px]">
+        {secondaryLinks.map((link) => (
+          <Link key={link.href} href={link.href} className="text-f14 font-semibold text-t2 hover:text-teal-text">
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </ProductSection>
   );
 }

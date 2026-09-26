@@ -20,6 +20,8 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/opengraph-image",
 });
 
+// What we make, where it is used, the projects that show it, how it is made,
+// and the tools for choosing it; grounds alternate white and pale.
 export default function HomePage() {
   return (
     <>
@@ -28,9 +30,9 @@ export default function HomePage() {
       <TrustStrip />
       <SolutionsSnapshot />
       <CustomProfilePreview />
-      <FactoryQuality />
       <ApplicationsSnapshot />
       <SocialProof />
+      <FactoryQuality />
       <DownloadsSnapshot />
     </>
   );

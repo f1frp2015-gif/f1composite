@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import SectionTag from "@/components/ui/SectionTag";
 import FactoryVideo from "@/components/sections/FactoryVideo";
 
 const checkpoints = [
@@ -17,12 +16,11 @@ const standards = [
 
 export default function FactoryQuality() {
   return (
-    <section className="bg-white py-[58px] md:py-[78px]">
+    <section className="bg-bg2 py-[48px] md:py-[64px]" aria-labelledby="home-quality">
       <div className="site-container">
         <div className="grid items-stretch gap-[32px] lg:grid-cols-[0.94fr_1.06fr] lg:gap-[52px]">
           <div className="flex flex-col">
-            <SectionTag>Manufacturing &amp; quality</SectionTag>
-            <h2 className="mt-[12px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.02em] text-t1">
+            <h2 id="home-quality" className="text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
               Manufacturing & quality control
             </h2>
             <p className="mt-[10px] max-w-[660px] text-f16 leading-relaxed text-t2">
@@ -54,7 +52,7 @@ export default function FactoryQuality() {
           </div>
         </div>
 
-        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-white px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
           <p className="text-f14 font-bold text-t1">Technical documents for your specification</p>
           <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
             {standards.map((standard) => (

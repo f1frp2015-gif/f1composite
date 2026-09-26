@@ -10,7 +10,7 @@ export default function OpenGraphImage() {
     title: "FRP Beam Bridges. Four Routes.",
     description:
       "Compare modular boxes, deep boxes, I-beam assemblies and curved moulded forms.",
-    accent: "#245cce",
+    accent: "#007a74",
     chips: ["F1 capabilities", "Worked calculations", "Public case evidence"],
   });
 }

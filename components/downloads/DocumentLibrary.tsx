@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { formatLongDate } from "@/lib/dates";
+import DocumentCard, { libraryCard } from "@/components/downloads/DocumentCard";
 import { DOCUMENT_TYPES, DOCUMENT_TYPE_LABELS, type DocumentType, type LibraryDocument } from "@/lib/documentTypes";
 import { buildRfqHref } from "@/lib/rfq";
 
@@ -92,53 +92,8 @@ export default function DocumentLibrary({ documents }: { documents: LibraryDocum
       ) : (
         <ul className="mt-[16px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
           {shown.map((document) => (
-            <li key={document.file ?? document.title} className="flex flex-col rounded-card border border-border-default bg-white p-[20px]">
-              <div className="flex items-center justify-between gap-[8px]">
-                <span className="rounded-tag bg-deep px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-white">{document.type}</span>
-                <span className="text-f12 text-t3">{document.file ? `${document.format} · ${document.size}` : "On request"}</span>
-              </div>
-              <h3 className="mt-[12px] text-f16 font-bold text-t1">{document.title}</h3>
-              <dl className="mt-[10px] grid grid-cols-[auto_minmax(0,1fr)] gap-x-[12px] gap-y-[3px] text-f14">
-                {document.issuer ? (
-                  <>
-                    <dt className="font-mono text-f12 leading-[1.6] text-t3">Issued by</dt>
-                    <dd className="text-t1">{document.issuer}</dd>
-                  </>
-                ) : null}
-                {document.date ? (
-                  <>
-                    <dt className="font-mono text-f12 leading-[1.6] text-t3">{document.date.label}</dt>
-                    <dd className="text-t1">
-                      <time dateTime={document.date.value}>{formatLongDate(document.date.value)}</time>
-                    </dd>
-                  </>
-                ) : null}
-                <dt className="font-mono text-f12 leading-[1.6] text-t3">For</dt>
-                <dd className="text-t1">
-                  {document.productHref ? (
-                    <Link href={document.productHref} className="hover:text-teal-text hover:underline">
-                      {document.product}
-                    </Link>
-                  ) : (
-                    document.product
-                  )}
-                </dd>
-              </dl>
-              <p className="mt-[10px] line-clamp-4 text-f14 leading-golden text-t2">{document.description}</p>
-              <div className="mt-auto pt-[14px]">
-                {document.file ? (
-                  <a href={document.file} target="_blank" rel="noopener" className="text-f14 font-semibold text-teal-text hover:underline">
-                    Download {document.format} <span aria-hidden>→</span>
-                  </a>
-                ) : (
-                  <Link
-                    href={buildRfqHref({ source: "download-request", product: document.title, message: `Please confirm availability and applicability of: ${document.title}` })}
-                    className="text-f14 font-semibold text-teal-text hover:underline"
-                  >
-                    Request this document <span aria-hidden>→</span>
-                  </Link>
-                )}
-              </div>
+            <li key={document.file ?? document.title}>
+              <DocumentCard card={libraryCard(document)} />
             </li>
           ))}
         </ul>

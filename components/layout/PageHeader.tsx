@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildRfqHref } from "@/lib/rfq";
 import SectionTag from "@/components/ui/SectionTag";
 import LineTag from "@/components/ui/LineTag";
@@ -28,8 +29,10 @@ interface PageHeaderProps {
   actions?: PageHeaderActions;
   /** Date of the page's last content review, YYYY-MM-DD. Keep it equal to the page's JSON-LD dateModified. */
   updated?: string;
-  /** Product line shown in place of the tag, e.g. { name: "F1-STRUX", label: "Standard profile" }. */
-  line?: { name: string; label?: string };
+  /** The engineer who reviewed the page, shown with the date. */
+  reviewer?: { name: string; title: string; href: string };
+  /** Product line shown in place of the tag, e.g. { name: "F1-STRUX", label: "Standard profile" }; mark: false for a family without a line name. */
+  line?: { name: string; label?: string; mark?: boolean };
   /** Up to four key figures under the description: mono labels, values in DM Sans. */
   facts?: { label: string; value: string }[];
   /** A drawing or photo beside the title on wide screens, under the description on phones. */
@@ -47,7 +50,7 @@ function productAdvisorHref(title: string) {
   return `/ask?prefill=${encodeURIComponent(prompt)}`;
 }
 
-export default function PageHeader({ tag, title, description, breadcrumbs, actions, updated, line, facts, figure }: PageHeaderProps) {
+export default function PageHeader({ tag, title, description, breadcrumbs, actions, updated, reviewer, line, facts, figure }: PageHeaderProps) {
   const isProductPage = breadcrumbs.some(
     (item) => item.label === "Products" || item.href === "/pultruded-frp-profiles",
   );
@@ -73,7 +76,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
               facts and actions under the text. Phones stack text, figure, rest. */}
           <div className={figure ? "grid gap-[24px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:grid-rows-[auto_1fr] lg:gap-x-[56px] lg:[grid-template-areas:'text_figure'_'meta_figure']" : undefined}>
             <div className={figure ? "lg:[grid-area:text]" : undefined}>
-              {line ? <LineTag line={line.name} label={line.label} /> : <SectionTag>{tag}</SectionTag>}
+              {line ? <LineTag line={line.name} label={line.label} mark={line.mark} /> : <SectionTag>{tag}</SectionTag>}
               <h1 className="mt-[16px] max-w-[920px] text-[clamp(34px,4.5vw,56px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-t1">
                 {title}
               </h1>
@@ -81,7 +84,8 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
                 {description}
               </p>
             </div>
-            {figure ? <div className="lg:[grid-area:figure]">{figure}</div> : null}
+            {/* Phones: the figure follows the facts and actions, so the quote button is on the first screen. */}
+            {figure ? <div className="max-lg:order-1 lg:[grid-area:figure]">{figure}</div> : null}
             <div className={figure ? "lg:[grid-area:meta]" : undefined}>
               {facts?.length ? (
                 <dl className={`mt-[20px] grid max-w-[820px] grid-cols-2 gap-px overflow-hidden rounded-card border border-border-default bg-border-default ${FACT_COLUMNS[Math.min(facts.length, 4)]}`}>
@@ -98,11 +102,20 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
               {updated ? (
                 <p className="mt-[10px] text-f14 text-t3">
                   Last updated <time dateTime={updated}>{formatShortDate(updated)}</time>
+                  {reviewer ? (
+                    <>
+                      {" · Reviewed by "}
+                      <Link href={reviewer.href} className="font-semibold text-teal-text hover:underline">
+                        {reviewer.name}
+                      </Link>
+                      , {reviewer.title}
+                    </>
+                  ) : null}
                 </p>
               ) : null}
 
               {resolvedActions ? (
-                <div id="page-header-actions" className="mt-[24px] flex flex-col items-start gap-[10px] sm:flex-row sm:flex-wrap sm:items-center">
+                <div id="page-header-actions" className="mt-[24px] flex flex-wrap items-center gap-[10px]">
                   <Button href={resolvedActions.primary.href} variant={resolvedActions.primary.variant ?? "primary"}>
                     {resolvedActions.primary.label}
                   </Button>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import SectionTag from "@/components/ui/SectionTag";
+import Figure from "@/components/ui/Figure";
+import LineTag from "@/components/ui/LineTag";
 import { buildRfqHref } from "@/lib/rfq";
 
 const steps = [
@@ -19,23 +20,22 @@ const steps = [
 ];
 export default function CustomProfilePreview() {
   return (
-    <section className="bg-bg2 py-[54px] md:py-[68px]">
+    <section className="bg-white py-[48px] md:py-[64px]" aria-labelledby="home-custom">
       <div className="site-container grid items-center gap-[32px] lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-border-default bg-white">
-          <Image
-            src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
-            alt="Engineering illustration of a custom pultruded profile and its section drawing"
-            fill
-            sizes="(max-width: 1024px) 90vw, 45vw"
-            className="object-contain"
-          />
-          <p className="absolute bottom-0 inset-x-0 bg-white/90 px-[18px] py-[10px] text-f12 text-t3">
-            Section development illustration
-          </p>
-        </div>
+        <Figure number={1} title="Section development" note="Illustration">
+          <div className="relative -m-[16px] aspect-[4/3] bg-white">
+            <Image
+              src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
+              alt="Engineering illustration of a custom pultruded profile and its section drawing"
+              fill
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-contain"
+            />
+          </div>
+        </Figure>
         <div>
-          <SectionTag>Custom pultrusion</SectionTag>
-          <h2 className="mt-[12px] text-[clamp(28px,3vw,40px)] font-bold leading-tight text-t1">
+          <LineTag line="F1-FORM" label="Custom pultrusion" />
+          <h2 id="home-custom" className="mt-[12px] text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Custom profiles, made to your drawing
           </h2>
           <ol className="mt-[22px] space-y-[18px]">

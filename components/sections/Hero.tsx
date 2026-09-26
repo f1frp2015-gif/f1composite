@@ -1,47 +1,65 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildRfqHref } from "@/lib/rfq";
+import { buildProducts } from "@/lib/catalog/standardProfiles";
+import { mainNav } from "@/content/data/navigation";
 import Button from "@/components/ui/Button";
+import SectionGlyph from "@/components/ui/SectionGlyph";
+import SearchButton from "@/components/search/SearchButton";
 
-const standards = ["Standard sections", "Custom cross-sections", "Drawing-led supply"];
+// The standard profile families, drawn and linked as in the Products menu,
+// with short labels that fit a tile.
+const SHORT_LABELS: Record<string, string> = {
+  i_beam: "I-beam",
+  channel: "Channel",
+  angle: "Angle",
+  shs: "Square tube",
+  tube: "Round tube",
+  rod: "Rod",
+  flat: "Flat bar",
+};
+const shapes = mainNav[0].sections[0].links.filter((link) => link.href.startsWith("/products/fiberglass-structural-shapes/") && link.glyph);
 
 export default function Hero() {
+  const sizes = buildProducts().length;
   return (
     <section className="relative isolate overflow-hidden bg-deep">
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-80"
         style={{
           background:
-            "radial-gradient(circle at 78% 20%, rgba(10,155,145,0.22), transparent 34%), radial-gradient(circle at 12% 100%, rgba(31,73,151,0.35), transparent 35%)",
+            "radial-gradient(circle at 78% 20%, rgba(10,155,145,0.22), transparent 34%), radial-gradient(circle at 12% 100%, rgba(10,155,145,0.12), transparent 35%)",
         }}
       />
 
-      <div className="site-container grid items-center gap-[28px] py-[44px] md:py-[64px] lg:min-h-[520px] lg:grid-cols-[1.04fr_0.96fr] lg:gap-[42px] lg:py-[48px]">
-        <div className="relative z-10 max-w-[690px]">
-          <div className="inline-flex items-center gap-[9px] rounded-full border border-white/15 bg-white/5 px-[12px] py-[6px] text-f12 font-bold uppercase tracking-[0.12em] text-white/75">
-            <span className="h-[7px] w-[7px] rounded-full bg-teal" aria-hidden />
+      {/* Phones: text, then the shapes, then the photograph; wide screens put the photograph beside the text and the shapes underneath. */}
+      <div className="site-container grid gap-x-[48px] gap-y-[28px] pt-[40px] md:pt-[56px] lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+        <div className="relative z-10 min-w-0 max-w-[690px] lg:col-start-1 lg:row-start-1">
+          <p className="inline-flex items-center gap-[8px] rounded-tag bg-white/10 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-white/80">
+            <span className="size-[7px] rounded-tag bg-lime" aria-hidden />
             Industrial-scale pultrusion · Factory-direct
-          </div>
+          </p>
 
-          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:mt-[22px]">
+          <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white">
             Standard & Custom Pultruded FRP Profiles
           </h1>
 
-          <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,20px)] leading-[1.55] text-white/76 sm:mt-[22px]">
+          <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,18px)] leading-[1.6] text-white/76">
             F1 Composite brings FengDu’s manufacturing network to international projects: 370 pultrusion lines across five production bases, with 150,000 tonnes of annual capacity. Choose standard or custom profiles, with grating and window and door products available.
           </p>
 
-          <p className="mt-[13px] text-f14 leading-golden text-white/75">
+          <p className="mt-[12px] text-f14 leading-golden text-white/75">
             Specifying glass-reinforced plastic? Explore our{" "}
             <Link href="/pultruded-frp-profiles" className="font-semibold text-white underline underline-offset-4 hover:text-teal">GRP profiles</Link>
             {" "}by shape, application and resin system.
           </p>
 
-          <div className="mt-[24px] flex flex-wrap gap-[11px] sm:mt-[30px]">
-            <Button
-              href="/pultruded-frp-profiles"
-              className="!bg-teal-text !text-white hover:!bg-teal"
-            >
+          <div className="mt-[22px] max-w-[560px]">
+            <SearchButton variant="hero" />
+          </div>
+
+          <div className="mt-[16px] flex flex-wrap gap-[11px]">
+            <Button href="/pultruded-frp-profiles" className="!bg-teal-text !text-white hover:!bg-teal">
               Explore Pultruded Profiles
             </Button>
             <Button
@@ -52,19 +70,31 @@ export default function Hero() {
               Send Your Drawing
             </Button>
           </div>
-
-          <div className="mt-[26px] flex flex-wrap items-center gap-x-[18px] gap-y-[8px] border-t border-white/12 pt-[17px] sm:mt-[32px] sm:pt-[19px]">
-            <span className="text-f12 font-bold uppercase tracking-[0.12em] text-white/55">Choose your supply route</span>
-            {standards.map((standard) => (
-              <span key={standard} className="text-f14 font-semibold text-white/78">
-                {standard}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <div className="relative lg:pl-[10px]">
-          <div className="relative aspect-[1.38] overflow-hidden rounded-card border border-white/15 bg-[#17284b] shadow-pop sm:aspect-[1.2] lg:aspect-[1.08] lg:rounded-card">
+        {/* Products on the first screen: the standard families by their section, and every size. */}
+        <nav aria-label="Standard profiles by shape" className="border-t border-white/10 py-[18px] lg:col-span-2 lg:row-start-2 lg:mt-[8px] lg:py-[22px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-white/60">Standard profiles by shape</p>
+          <ul className="mt-[10px] grid grid-cols-4 gap-[8px] sm:grid-cols-8">
+            {shapes.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="flex h-full flex-col items-center gap-[6px] rounded-control border border-white/12 px-[4px] py-[10px] text-center text-f12 font-semibold text-white/85 transition-colors hover:border-white/40 hover:bg-white/5 hover:text-white">
+                  <SectionGlyph shape={link.glyph!} size={36} className="!text-white" />
+                  {SHORT_LABELS[link.glyph!] ?? link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/tools/profile-finder" className="flex h-full flex-col items-center justify-center gap-[2px] rounded-control border border-teal/40 bg-teal/15 px-[4px] py-[10px] text-center text-f12 font-semibold text-white transition-colors hover:bg-teal/25">
+                <span className="font-mono text-f18 font-medium leading-none text-lime">{sizes}</span>
+                sizes · finder
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <figure className="relative pb-[28px] lg:col-start-2 lg:row-start-1 lg:pb-0 lg:pl-[10px]">
+          <div className="relative aspect-[1.38] overflow-hidden rounded-card border border-white/15 bg-deep shadow-pop sm:aspect-[1.5] lg:aspect-[1.2]">
             <Image
               src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
               alt="Rows of pultrusion production lines at the FengDu manufacturing base in Chongqing"
@@ -75,18 +105,11 @@ export default function Hero() {
               sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(100vw - 56px), 48vw"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent" />
-            <div className="absolute inset-x-[12px] bottom-[12px] flex items-end justify-between gap-[12px] rounded-card border border-white/15 bg-deep/82 px-[14px] py-[11px] backdrop-blur-md sm:inset-x-[18px] sm:bottom-[18px] sm:gap-[16px] sm:rounded-card sm:px-[17px] sm:py-[14px]">
-              <div>
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-white/55">Manufacturing capacity</p>
-                <p className="mt-[2px] text-f16 font-bold text-white">370 pultrusion lines across 5 bases</p>
-              </div>
-              <span className="hidden rounded-full bg-teal px-[10px] py-[5px] text-f12 font-bold text-white sm:inline-flex">
-                Chongqing
-              </span>
-            </div>
           </div>
-        </div>
+          <figcaption className="mt-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-white/60">
+            Pultrusion lines · FengDu base, Chongqing
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

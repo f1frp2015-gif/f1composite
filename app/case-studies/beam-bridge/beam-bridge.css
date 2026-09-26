@@ -1,9 +1,9 @@
 .bridge-page {
-  --bb-ink: #12284b;
-  --bb-blue: #245cce;
+  --bb-ink: #0b1838;
+  --bb-accent: #007a74;
   --bb-muted: #5a687c;
-  --bb-line: #dce4ef;
-  --bb-pale: #f3f6fb;
+  --bb-line: #e1e5ea;
+  --bb-pale: #f4f7f8;
   color: var(--bb-ink);
   background: #fff;
   font-size: 16px;
@@ -30,7 +30,7 @@
   letter-spacing: 0.13em;
   font-weight: 750;
   text-transform: uppercase;
-  color: var(--bb-blue);
+  color: var(--bb-accent);
 }
 .bridge-page .bb-eyebrow > span {
   margin-right: 12px;
@@ -42,7 +42,7 @@
   color: var(--bb-muted);
 }
 .bridge-page .bb-text-link {
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   font-size: 13px;
   line-height: 1.55;
   font-weight: 650;
@@ -55,7 +55,7 @@
 .bridge-page .bb-hero {
   padding: 28px 0 0;
   overflow: hidden;
-  background: linear-gradient(115deg, #fff 30%, #eef3fc);
+  background: linear-gradient(115deg, #fff 30%, #f3f4f7);
 }
 .bridge-page .bb-breadcrumb {
   display: flex;
@@ -64,7 +64,7 @@
   color: #62718a;
 }
 .bridge-page .bb-breadcrumb a:hover {
-  color: var(--bb-blue);
+  color: var(--bb-accent);
 }
 .bridge-page .bb-hero-layout {
   display: grid;
@@ -81,7 +81,7 @@
   margin: 22px 0;
 }
 .bridge-page .bb-hero h1 > span {
-  color: var(--bb-blue);
+  color: var(--bb-accent);
 }
 .bridge-page .bb-hero-description {
   font-size: 16px;
@@ -108,18 +108,18 @@
   transition: background 0.15s;
 }
 .bridge-page .bb-button-primary {
-  background: var(--bb-blue);
+  background: var(--bb-accent);
   color: #fff;
 }
 .bridge-page .bb-button-primary:hover {
-  background: #164aa9;
+  background: #0a9b91;
 }
 .bridge-page .bb-button-quiet {
   color: var(--bb-ink);
   padding-inline: 10px;
 }
 .bridge-page .bb-button-quiet:hover {
-  background: #e6edf9;
+  background: #edeff2;
 }
 .bridge-page .bb-hero-caption {
   margin-top: 22px;
@@ -128,10 +128,10 @@
 }
 .bridge-page .bb-hero-figure {
   position: relative;
-  background: radial-gradient(ellipse at 60% 45%, #fff 5%, #f1f5fc 80%);
-  border: 1px solid #d6e1f2;
+  background: radial-gradient(ellipse at 60% 45%, #fff 5%, #f5f6f8 80%);
+  border: 1px solid #dfe3e9;
   border-radius: 5px;
-  box-shadow: 0 26px 64px -48px #142a56;
+  box-shadow: 0 26px 64px -48px #142756;
   padding: 18px 18px 14px;
 }
 .bridge-page .bb-drawing-label {
@@ -153,7 +153,7 @@
   gap: 20px;
   justify-content: center;
   font-size: 10px;
-  color: #455d7b;
+  color: #4f5e71;
 }
 .bridge-page .bb-hero-figure figcaption span {
   display: flex;
@@ -167,10 +167,10 @@
   display: block;
 }
 .bridge-page .bb-hero-figure figcaption span:nth-child(2) i {
-  background: #8ba9c5;
+  background: #8bbfc5;
 }
 .bridge-page .bb-hero-figure figcaption span:nth-child(3) i {
-  background: #24528c;
+  background: #24828c;
 }
 .bridge-page .bb-hero-figure > p {
   text-align: center;
@@ -184,7 +184,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
-  border-top: 1px solid #d9e2f0;
+  border-top: 1px solid #e0e3e9;
   font-size: 10px;
   letter-spacing: 0.06em;
 }
@@ -199,7 +199,7 @@
   letter-spacing: 0;
 }
 .bridge-page .bb-hero-bottom b {
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   margin-right: 8px;
 }
 .bridge-page .bb-page-nav {
@@ -225,7 +225,7 @@
   color: #5a687e;
 }
 .bridge-page .bb-page-nav a:hover {
-  color: var(--bb-blue);
+  color: var(--bb-accent);
 }
 .bridge-page .bb-section {
   padding: 86px 0;
@@ -318,7 +318,7 @@
 }
 .bridge-page .bb-capability-lines > div > span {
   font-size: 11px;
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   font-weight: 700;
   padding-top: 2px;
 }
@@ -340,13 +340,13 @@
   grid-template-columns: 1fr 0.75fr 2fr;
   gap: 30px;
   align-items: center;
-  border-block: 1px solid #cdd9e9;
+  border-block: 1px solid #d5dae1;
   padding: 22px 0;
   margin-bottom: 32px;
 }
 .bridge-page .bb-brief-strip > div > span {
   font-size: 9px;
-  color: #526887;
+  color: #596980;
   letter-spacing: 0.1em;
   display: block;
 }
@@ -364,7 +364,7 @@
 .bridge-page .bb-brief-strip p {
   color: var(--bb-muted);
   font-size: 12px;
-  border-left: 1px solid #cdd9e9;
+  border-left: 1px solid #d5dae1;
   padding-left: 28px;
 }
 .bridge-page .bb-routes {
@@ -391,8 +391,8 @@
   height: 47px;
   width: 43px;
   flex-shrink: 0;
-  border: 1px solid #cbdaf5;
-  color: var(--bb-blue);
+  border: 1px solid #dadee6;
+  color: var(--bb-accent);
   font-size: 27px;
   font-weight: 500;
 }
@@ -409,7 +409,7 @@
 }
 .bridge-page .bb-route-drawing {
   padding: 0 16px;
-  background: linear-gradient(#fff, #f4f7fc);
+  background: linear-gradient(#fff, #f7f8f9);
 }
 .bridge-page .bb-route-drawing > svg {
   width: 100%;
@@ -419,14 +419,14 @@
   text-align: center;
   padding: 0 0 13px;
   font-size: 11px;
-  color: #556b88;
+  color: #5b6c82;
 }
 .bridge-page .bb-route-body {
   padding: 22px 26px 24px;
 }
 .bridge-page .bb-route-geometry {
   font-size: 11px;
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   font-weight: 650;
 }
 .bridge-page .bb-route-body h4 {
@@ -444,13 +444,13 @@
 .bridge-page .bb-route-scope {
   margin-top: 18px;
   padding-left: 13px;
-  border-left: 2px solid #aec5ed;
+  border-left: 2px solid #c5cbd6;
 }
 .bridge-page .bb-route-scope > span {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #3e608f;
+  color: #546479;
 }
 .bridge-page .bb-route-scope p {
   margin-top: 5px;
@@ -489,8 +489,8 @@
   gap: 32px;
   padding: 25px 28px;
   margin-top: 28px;
-  border-left: 3px solid var(--bb-blue);
-  background: #e8eef9;
+  border-left: 3px solid var(--bb-accent);
+  background: #eef0f3;
 }
 .bridge-page .bb-decision-note strong {
   font-size: 17px;
@@ -499,10 +499,10 @@
 }
 .bridge-page .bb-decision-note p {
   font-size: 12px;
-  color: #536581;
+  color: #57667d;
 }
 .bridge-page .bb-explorer {
-  border: 1px solid #cddaea;
+  border: 1px solid #d5dbe2;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -512,8 +512,8 @@
   justify-content: space-between;
   gap: 15px;
   padding: 15px 24px;
-  border-bottom: 1px solid #cddaea;
-  background: #edf3fc;
+  border-bottom: 1px solid #d5dbe2;
+  background: #f3f4f6;
 }
 .bridge-page .bb-explorer-top > div {
   display: flex;
@@ -532,7 +532,7 @@
 .bridge-page .bb-reset {
   border: none;
   cursor: pointer;
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   background: transparent;
   font-size: 11px;
 }
@@ -560,16 +560,16 @@
   flex: 1;
   padding: 9px;
   cursor: pointer;
-  border: 1px solid #d4deed;
+  border: 1px solid #dbdfe6;
   border-radius: 3px;
   background: #fff;
   font-size: 12px;
-  color: #536580;
+  color: #57667c;
 }
 .bridge-page .bb-presets button[aria-pressed="true"] {
-  color: var(--bb-blue);
-  background: #edf3fe;
-  border-color: #5682d3;
+  color: var(--bb-accent);
+  background: #f4f5f7;
+  border-color: #0a9b91;
   font-weight: 650;
 }
 .bridge-page .bb-field-grid {
@@ -582,12 +582,12 @@
   display: block;
   font-size: 11px;
   margin-bottom: 6px;
-  color: #485a74;
+  color: #4d5b6f;
 }
 .bridge-page .bb-field > div {
   display: flex;
   align-items: center;
-  border: 1px solid #d4dfed;
+  border: 1px solid #dbe0e6;
   border-radius: 3px;
   background: #fff;
 }
@@ -603,12 +603,12 @@
 .bridge-page .bb-field > div > span {
   white-space: nowrap;
   font-size: 9px;
-  color: #637590;
+  color: #64758f;
   padding-right: 8px;
 }
 .bridge-page .bb-calc-output {
   padding: 24px 28px;
-  background: #f5f8fd;
+  background: #f8f9fa;
   border-left: 1px solid var(--bb-line);
 }
 .bridge-page .bb-calc-model {
@@ -625,10 +625,10 @@
   align-items: start;
   gap: 16px;
   padding: 17px 0;
-  border-top: 1px solid #d7e1f0;
+  border-top: 1px solid #dfe3e8;
 }
 .bridge-page .bb-equations > li > span {
-  color: #4c78b9;
+  color: #6c7e99;
   font-size: 10px;
   padding-top: 3px;
 }
@@ -638,7 +638,7 @@
 }
 .bridge-page .bb-equations h4 {
   font-size: 11px;
-  color: #5a6f8c;
+  color: #5e7088;
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -654,26 +654,26 @@
 .bridge-page .bb-equations p b {
   margin-left: auto;
   font-size: 19px;
-  color: var(--bb-blue);
+  color: var(--bb-accent);
   font-weight: 650;
 }
 .bridge-page .bb-equations small {
   display: block;
   font-size: 11px;
   line-height: 1.7;
-  color: #556b86;
+  color: #5a6b81;
   margin-top: 6px;
 }
 .bridge-page .bb-reference-result {
   padding: 19px 21px;
-  background: #183660;
+  background: #182c60;
   color: #fff;
   margin-top: 12px;
   border-radius: 3px;
 }
 .bridge-page .bb-reference-result > span {
   font-size: 11px;
-  color: #d5e3f6;
+  color: #e1e5ea;
 }
 .bridge-page .bb-reference-result > strong {
   display: block;
@@ -689,7 +689,7 @@
 }
 .bridge-page .bb-reference-result > p {
   font-size: 11px;
-  color: #ccd9ee;
+  color: #d7dce3;
 }
 .bridge-page .bb-calc-caution,
 .bridge-page .bb-input-error {
@@ -734,17 +734,17 @@
 }
 .bridge-page .bb-comparison-row > div > span {
   font-size: 10px;
-  color: #5b6e88;
+  color: #5d6e86;
 }
 .bridge-page .bb-comparison-track {
   height: 8px;
-  background: #e9eff9;
+  background: #eef0f4;
   margin-bottom: 3px;
 }
 .bridge-page .bb-comparison-track > span {
   display: block;
   height: 100%;
-  background: #5986d5;
+  background: #0a9b91;
 }
 .bridge-page .bb-comparison-rows > p {
   margin-top: 20px;
@@ -753,7 +753,7 @@
 .bridge-page .bb-method-details {
   border-top: 1px solid var(--bb-line);
   padding: 0 28px;
-  background: #fafbfd;
+  background: #fbfbfc;
 }
 .bridge-page .bb-method-details summary {
   font-size: 12px;
@@ -777,14 +777,14 @@
   font-size: 11px;
 }
 .bridge-page .bb-navy {
-  background: #112c4b;
+  background: #11214b;
   color: #fff;
 }
 .bridge-page .bb-navy .bb-eyebrow {
-  color: #99c3ec;
+  color: var(--color-lime);
 }
 .bridge-page .bb-navy .bb-section-intro {
-  color: #b9c8da;
+  color: #c0c9d3;
 }
 .bridge-page .bb-load-path {
   display: grid;
@@ -804,7 +804,7 @@
 .bridge-page .bb-load-path li > span {
   display: flex;
   justify-content: space-between;
-  color: #89b5e5;
+  color: #8fd6ce;
   font-size: 11px;
   margin-bottom: 20px;
 }
@@ -818,7 +818,7 @@
   font-weight: 600;
 }
 .bridge-page .bb-load-path p {
-  color: #aebed3;
+  color: #b5bfcc;
   font-size: 12px;
   margin-top: 8px;
 }
@@ -829,8 +829,8 @@
 }
 .bridge-page .bb-check-grid article {
   padding: 24px;
-  border: 1px solid #49617e;
-  background: #193553;
+  border: 1px solid #526275;
+  background: #192953;
   border-radius: 4px;
 }
 .bridge-page .bb-check-grid .bb-eyebrow {
@@ -845,7 +845,7 @@
 }
 .bridge-page .bb-check-grid p:not(.bb-eyebrow) {
   font-size: 13px;
-  color: #c1cedd;
+  color: #c6ced8;
 }
 .bridge-page .bb-check-emphasis {
   margin: 20px 0;
@@ -856,7 +856,7 @@
 }
 .bridge-page .bb-navy .bb-text-link {
   font-size: 11px;
-  color: #aacff7;
+  color: #8fd6ce;
 }
 .bridge-page .bb-technical-links {
   display: flex;
@@ -864,7 +864,7 @@
   gap: 24px;
   margin-top: 26px;
   font-size: 11px;
-  color: #b7cce7;
+  color: #8fd6ce;
 }
 .bridge-page .bb-technical-links a:hover {
   text-decoration: underline;
@@ -873,7 +873,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  background: #f2f6fa;
+  background: #f4f6f8;
   padding: 32px;
   border-radius: 4px;
 }
@@ -928,7 +928,7 @@
   align-items: start;
 }
 .bridge-page .bb-case {
-  border-top: 2px solid #a1b8d6;
+  border-top: 2px solid #afbac8;
   padding-top: 18px;
 }
 .bridge-page .bb-case-heading {
@@ -936,7 +936,7 @@
   justify-content: space-between;
   font-size: 9px;
   font-weight: 650;
-  color: #647b9b;
+  color: #697c96;
   letter-spacing: 0.06em;
 }
 .bridge-page .bb-case h3 {
@@ -1013,11 +1013,11 @@
   gap: 30px;
 }
 .bridge-page .bb-delivery-grid article {
-  border-top: 1px solid #cbd8e8;
+  border-top: 1px solid #d3d9e0;
   padding-top: 16px;
 }
 .bridge-page .bb-delivery-grid article > span {
-  color: #637d9e;
+  color: #6a7e97;
   font-size: 11px;
 }
 .bridge-page .bb-delivery-grid h3 {
@@ -1041,7 +1041,7 @@
   gap: 35px;
   align-items: center;
   background: #fff;
-  border: 1px solid #d2deee;
+  border: 1px solid #dadfe6;
   border-radius: 4px;
   padding: 40px;
   margin-top: 40px;
@@ -1250,7 +1250,7 @@
   .bridge-page .bb-brief-strip p {
     grid-column: 1/-1;
     border-left: 0;
-    border-top: 1px solid #cdd9e9;
+    border-top: 1px solid #d5dae1;
     padding: 15px 0 0;
   }
   .bridge-page .bb-routes {
@@ -1440,7 +1440,7 @@
     padding-block: 24px;
   }
   .bridge-page .bb-navy {
-    color: #12284b;
+    color: #0b1838;
     background: #fff;
   }
   .bridge-page article {

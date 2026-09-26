@@ -1,30 +1,40 @@
-import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
-import TubeSizeTable from "@/components/sections/TubeSizeTable";
-import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
-import { buildRfqHref } from "@/lib/rfq";
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ProfileFigure from "@/components/datasheets/ProfileFigure";
-import { profileFamilyFacts } from "@/lib/profileFacts";
-import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
-import { getCategorySizes } from "@/lib/catalog/public";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
+import ApplicationCards from "@/components/products/ApplicationCards";
+import FamilySizeTable from "@/components/products/FamilySizeTable";
+import HeroPhotos from "@/components/products/HeroPhotos";
+import LaminateProperties from "@/components/products/LaminateProperties";
+import ProductDocuments from "@/components/products/ProductDocuments";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
+import RelatedProfiles from "@/components/products/RelatedProfiles";
+import UseList from "@/components/products/UseList";
+import { supplyTerms } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { loadFamilySizes } from "@/lib/catalog/familySizes";
+import { familyApplications } from "@/lib/familyApplications";
+import { profileFamilyFacts } from "@/lib/profileFacts";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-// Size table is DB-driven (catalog admin) with the historical hardcoded list
-// as build-safe fallback; refreshed hourly.
+// Size table is DB-driven (catalog admin) with the published seed catalog as
+// build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS";
 const pageDescription =
   "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-square-tube";
+const product = "Pultruded fiberglass square and rectangular tubing";
+
+const LAST_UPDATED = "2026-09-26";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -32,29 +42,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: pagePath,
   image: "/products/fiberglass-structural-shapes/frp-square-tube/opengraph-image",
 });
-
-const fallbackSizes = [
-  { model: "SHS 25×25×3.2", h: 25, b: 25, t: 3.2, weight: "0.4" },
-  { model: "SHS 38×38×4.8", h: 38, b: 38, t: 4.8, weight: "0.9" },
-  { model: "RHS 40×20×7", h: 40, b: 20, t: 7, weight: "1.0" },
-  { model: "RHS 40×25×8", h: 40, b: 25, t: 8, weight: "1.2" },
-  { model: "SHS 50×50×5", h: 50, b: 50, t: 5, weight: "1.4" },
-  { model: "SHS 60×60×5", h: 60, b: 60, t: 5, weight: "1.7" },
-  { model: "SHS 75×75×6", h: 75, b: 75, t: 6, weight: "2.5" },
-  { model: "RHS 80×60×5", h: 80, b: 60, t: 5, weight: "2.0" },
-  { model: "SHS 100×100×6", h: 100, b: 100, t: 6, weight: "3.5" },
-  { model: "SHS 100×100×8", h: 100, b: 100, t: 8, weight: "4.5" },
-  { model: "RHS 100×60×8", h: 100, b: 60, t: 8, weight: "3.6" },
-  { model: "SHS 114×114×6", h: 114, b: 114, t: 6, weight: "4.0" },
-  { model: "SHS 114×114×8", h: 114, b: 114, t: 8, weight: "5.2" },
-  { model: "SHS 120×120×8", h: 120, b: 120, t: 8, weight: "5.6" },
-  { model: "RHS 120×60×5", h: 120, b: 60, t: 5, weight: "2.6" },
-  { model: "SHS 132×132×9.5", h: 132, b: 132, t: 9.5, weight: "7.0" },
-  { model: "SHS 152×152×9.5", h: 152, b: 152, t: 9.5, weight: "8.2" },
-  { model: "SHS 160×160×8", h: 160, b: 160, t: 8, weight: "7.4" },
-  { model: "SHS 200×200×10", h: 200, b: 200, t: 10, weight: "11.6" },
-  { model: "SHS 240×240×12", h: 240, b: 240, t: 12, weight: "16.8" },
-];
 
 const faqItems = [
   {
@@ -77,22 +64,8 @@ const faqItems = [
   },
 ];
 
-async function loadSizes(): Promise<typeof fallbackSizes> {
-  const rows = await getCategorySizes("square-tube");
-  if (rows.length === 0) return fallbackSizes;
-  return rows.map((r) => ({
-    model: r.model,
-    // SHS stores side as D; RHS stores H×B
-    h: r.dims.D ?? r.dims.H ?? 0,
-    b: r.dims.D ?? r.dims.B ?? 0,
-    t: r.dims.t ?? 0,
-    weight: r.weight == null ? "—" : String(r.weight),
-  }));
-}
-
 export default async function SquareTubePage() {
-  const sizes = await loadSizes();
-  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
+  const sizes = await loadFamilySizes("square-tube");
   return (
     <>
       <JsonLd
@@ -103,26 +76,36 @@ export default async function SquareTubePage() {
           image: "/images/products/square-tube/frp-square-tube-100x100x6mm.webp",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
-          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
-          additionalProperty: [
-            { name: "Size Range", value: "25×25 mm to 240×240 mm" },
-            { name: "Formats", value: "Square hollow sections and rectangular hollow sections" },
-          ],
+          productLine: "F1-STRUX",
+          dateModified: LAST_UPDATED,
         })}
       />
       <PageHeader
         tag="Square Tube"
         line={{ name: "F1-STRUX", label: "Square & rectangular tube" }}
-        figure={<ProfileFigure model="SHS 100×100×8" />}
-        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Outer size", values: sizes.map((s) => s.h), weights: sizes.map((s) => s.weight) })}
+        updated={LAST_UPDATED}
         title="Fiberglass Square & Rectangular Tubes (FRP)"
-        description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm."
+        description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm. The closed section resists torsion, which suits columns, trusses, posts and frames."
+        facts={[
+          ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Outer size", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
+          { label: "Grade", value: "EN 13706 E23" },
+        ]}
         actions={{
-          primary: { label: "Choose a size", href: "#sizes" },
-          secondary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product: "Pultruded fiberglass square and rectangular tubing", productPath: pagePath }), variant: "secondary" },
-          note: "Select a catalog section, then add cut lengths, quantity and service requirements.",
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product, productPath: pagePath }) },
+          secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
           stickyMobile: true,
         }}
+        figure={
+          <>
+            <ProfileFigure model="SHS 100×100×8" />
+            <HeroPhotos
+              photos={[
+                { src: "/images/products/square-tube/frp-square-tube-100x100x6mm.webp", alt: "Rendering of a pultruded FRP square tube", caption: "SHS 100×100×6 · render" },
+                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+              ]}
+            />
+          </>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -131,103 +114,131 @@ export default async function SquareTubePage() {
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div>
-              <SectionTag>SHS & RHS Profiles</SectionTag>
-              <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Closed-section structural tubes
-              </h2>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                FRP square and rectangular tubes provide closed-section torsional rigidity for columns, trusses, and frame structures. Multi-axial reinforcement can support transverse demands, while the smooth interior bore allows conduit or cable-enclosure use. Electrical-insulation performance depends on the specified laminate, moisture and contamination exposure, joints and any metal hardware.
-              </p>
-              <div className="mt-[8px] flex flex-wrap gap-[8px]">
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Superior torsional rigidity</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">SHS + RHS available</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Electrical insulation options</span>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-white">
-              <Image src="/images/products/square-tube/frp-square-tube-cover.jpg" alt="Pultruded FRP square tube SHS profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 30%" }} preload />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sizes" className="scroll-mt-[100px] bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Fiberglass square and rectangular tube sizes</h2>
-          <E40EvidenceLink />
-          <TubeSizeTable
-            sizes={sizes.map((s) => ({ model: s.model, dimensions: [s.h, s.b, s.t], weight: s.weight }))}
-            columns={["H (mm)", "B (mm)", "Wall (mm)"]}
-            product="Pultruded fiberglass square and rectangular tubing"
-            productPath={pagePath}
-          />
-        </div>
-      </section>
-
-      <ProfileSupplyGuide product="square and rectangular tubes" />
-
-      <RelatedLinks
-        groups={[
-          {
-            title: "Related FRP profiles",
-            links: [
-              { href: "/products/frp-handrail-systems", label: "Complete fiberglass handrail systems" },
-              { href: "/products/frp-ladders", label: "Complete fiberglass fixed ladder systems" },
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tube" },
-              { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bar" },
-              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
-            ],
-          },
-          {
-            title: "Applications",
-            links: [
-              { href: "/industries/infrastructure", label: "Infrastructure trusses" },
-              { href: "/industries/construction", label: "Construction columns" },
-              { href: "/industries/energy", label: "Solar racking posts" },
-              { href: "/industries/industrial", label: "Industrial frames" },
-            ],
-          },
-          {
-            title: "Technical resources",
-            links: [
-              { href: "/frp-span-tables#square-tube", label: "FRP square tube span table — allowable loads" },
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
-              { href: "/resources/technical-data", label: "Data sheets" },
-              { href: "/resources/design-guides", label: "Design guides" },
-              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
-            ],
-          },
+      <ProductPageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes", count: sizes.length },
+          { id: "properties", label: "Properties" },
+          { id: "applications", label: "Applications" },
+          { id: "documents", label: "Documents" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
-          <CalculatorCTA
-            href="/frp-profile-calculator#shape=square-tube"
-            eyebrow="Free tool · square tube preset"
-            title="Size an FRP square tube — bending, shear &amp; deflection"
-            sub="Opens the FRP profile calculator on a square / rectangular tube: check bending, shear, and Timoshenko-corrected deflection against your span and load, find the steel-equivalent section, then quote against your spec."
+      <ProductSection id="overview" title="Overview">
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
+            <p>
+              FRP square and rectangular tubes give closed-section torsional rigidity to columns, trusses and frames. Multi-axial reinforcement can carry transverse demands, and the smooth bore allows use as a conduit or cable enclosure. Electrical insulation depends on the specified laminate, moisture and contamination, joints and any metal hardware.
+            </p>
+            <ul className="flex flex-wrap gap-[8px] pt-[4px]">
+              {["EN 13706 E23", "Square and rectangular", "Smooth bore", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+                <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <UseList
+            items={[
+              { label: "Complete fiberglass handrail systems", href: "/products/frp-handrail-systems" },
+              { label: "Complete fiberglass fixed ladder systems", href: "/products/frp-ladders" },
+              { label: "Infrastructure trusses", href: "/industries/infrastructure" },
+              { label: "Construction columns", href: "/industries/construction" },
+              { label: "Solar racking posts", href: "/industries/energy" },
+            ]}
           />
         </div>
-      </section>
+      </ProductSection>
 
-      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-square-tube" />
-      <InnerCTA title="Need engineering data or a quotation for square tube profiles?" />
+      <ProductSection
+        id="sizes"
+        title="Sizes"
+        count={`${sizes.length} catalog sizes`}
+        tone="muted"
+        intro="Nominal millimetres with approximate decimal inches below each value; the inch figures are references, not separate inch tooling or tolerances. Ix and Wx are calculated from the nominal section, for bending about the axis parallel to B."
+        aside={
+          <Link href="/tools/profile-finder?shape=shs,rhs" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            Filter and compare in the profile finder
+          </Link>
+        }
+      >
+        <FamilySizeTable
+          rows={sizes}
+          caption="FRP square and rectangular tube catalog sizes with nominal section properties"
+          product={product}
+          productPath={pagePath}
+          quoteSource="tube-size-selection"
+          columns={[
+            { key: "d", label: "H", unit: "mm", inches: true },
+            { key: "b", label: "B", unit: "mm", inches: true },
+            { key: "t", label: "Wall", unit: "mm", inches: true },
+            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "Ix", label: "Ix", unit: "cm⁴" },
+            { key: "Wx", label: "Wx", unit: "cm³" },
+          ]}
+        />
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
+        <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/frp-span-tables#square-tube" className="underline underline-offset-4 hover:text-teal">
+            Allowable loads by span
+          </Link>
+          <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
+            A different size or an exact inch dimension: send a drawing
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="properties" title="Properties">
+        <LaminateProperties />
+        <div className="mt-[24px] grid grid-cols-1 items-start gap-[16px] lg:grid-cols-2">
+          <E40EvidenceLink />
+          <div className="lg:py-[21px]">
+            <CalculatorCTA
+              href="/frp-profile-calculator#shape=square-tube"
+              eyebrow="Free tool · square tube preset"
+              title="Size an FRP square tube: bending, shear and deflection"
+              sub="Opens the profile calculator on a square or rectangular tube. Check bending, shear and deflection with shear included against your span and load, and find the steel-equivalent section."
+            />
+          </div>
+        </div>
+      </ProductSection>
+
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("square-tube")} />
+      </ProductSection>
+
+      <ProductSection id="documents" title="Documents">
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Square and rectangular tube", datasheetsHref: "/datasheets#square-tube" }} sizes={sizes} />
+      </ProductSection>
+
+      <ProductSection id="faq" title="Questions buyers ask" tone="muted">
+        <div className="grid items-start gap-[12px] md:grid-cols-2">
+          {faqItems.map((item) => (
+            <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+          ))}
+        </div>
+        <p className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-vs-traditional-materials" className="underline underline-offset-4 hover:text-teal">
+            FRP vs steel comparison
+          </Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
+            Design guides
+          </Link>
+          <Link href="/what-is-frp" className="underline underline-offset-4 hover:text-teal">
+            What is FRP?
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="related" title="Other standard profiles">
+        <RelatedProfiles current={pagePath} />
+      </ProductSection>
+
+      <ProductSection id="quote" title="Quote FRP square and rectangular tubes" tone="deep">
+        <ProductRfq product="FRP square and rectangular tubes" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+      </ProductSection>
     </>
   );
 }

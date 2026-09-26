@@ -1,27 +1,37 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
-import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import ProfileFigure from "@/components/datasheets/ProfileFigure";
-import { profileFamilyFacts } from "@/lib/profileFacts";
-import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
-import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
-import { getCategorySizes } from "@/lib/catalog/public";
-import DatasheetModelLink from "@/components/datasheets/DatasheetModelLink";
+import FAQDisclosure from "@/components/ui/FAQDisclosure";
+import ApplicationCards from "@/components/products/ApplicationCards";
+import FamilySizeTable from "@/components/products/FamilySizeTable";
+import HeroPhotos from "@/components/products/HeroPhotos";
+import LaminateProperties from "@/components/products/LaminateProperties";
+import ProductDocuments from "@/components/products/ProductDocuments";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
+import RelatedProfiles from "@/components/products/RelatedProfiles";
+import UseList from "@/components/products/UseList";
+import { supplyTerms } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { loadFamilySizes } from "@/lib/catalog/familySizes";
+import { familyApplications } from "@/lib/familyApplications";
+import { profileFamilyFacts } from "@/lib/profileFacts";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-// Size table is DB-driven (catalog admin) with the historical hardcoded list
-// as build-safe fallback; refreshed hourly.
+// Size table is DB-driven (catalog admin) with the published seed catalog as
+// build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
   "Pultruded fiberglass flat bars, 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass content, EN 13706, and ASTM D3917. DDP USA quotes.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-flat-bar";
+
+const LAST_UPDATED = "2026-09-26";
 
 const faqItems = [
   {
@@ -53,41 +63,8 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/fiberglass-structural-shapes/frp-flat-bar/opengraph-image",
 });
 
-const fallbackSizes = [
-  { model: "FB 12×3", w: 12, t: 3, weight: "0.07" },
-  { model: "FB 20×3", w: 20, t: 3, weight: "0.11" },
-  { model: "FB 25×3", w: 25, t: 3, weight: "0.14" },
-  { model: "FB 25×5", w: 25, t: 5, weight: "0.23" },
-  { model: "FB 30×4", w: 30, t: 4, weight: "0.22" },
-  { model: "FB 38×4.8", w: 38, t: 4.8, weight: "0.33" },
-  { model: "FB 50×5", w: 50, t: 5, weight: "0.45" },
-  { model: "FB 50×6", w: 50, t: 6, weight: "0.55" },
-  { model: "FB 50×10", w: 50, t: 10, weight: "0.91" },
-  { model: "FB 75×6", w: 75, t: 6, weight: "0.82" },
-  { model: "FB 75×10", w: 75, t: 10, weight: "1.36" },
-  { model: "FB 100×6", w: 100, t: 6, weight: "1.09" },
-  { model: "FB 100×10", w: 100, t: 10, weight: "1.82" },
-  { model: "FB 100×15", w: 100, t: 15, weight: "2.73" },
-  { model: "FB 150×10", w: 150, t: 10, weight: "2.73" },
-  { model: "FB 150×15", w: 150, t: 15, weight: "4.09" },
-  { model: "FB 200×15", w: 200, t: 15, weight: "5.45" },
-  { model: "FB 305×25", w: 305, t: 25, weight: "13.86" },
-];
-
-async function loadSizes(): Promise<typeof fallbackSizes> {
-  const rows = await getCategorySizes("flat-bar");
-  if (rows.length === 0) return fallbackSizes;
-  return rows.map((r) => ({
-    model: r.model,
-    w: r.dims.H ?? 0,
-    t: r.dims.B ?? 0,
-    weight: r.weight == null ? "—" : String(r.weight),
-  }));
-}
-
 export default async function FlatBarPage() {
-  const sizes = await loadSizes();
-  const weights = sizes.map((s) => Number(s.weight)).filter((w) => Number.isFinite(w));
+  const sizes = await loadFamilySizes("flat-bar");
   return (
     <>
       <JsonLd
@@ -95,23 +72,39 @@ export default async function FlatBarPage() {
           name: "FRP Flat Bars",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/flat-bar/frp-flat-bar-150x15x4mm.jpg",
+          image: "/products/fiberglass-structural-shapes/frp-flat-bar/opengraph-image",
           category: "Pultruded FRP Structural Profiles",
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
-          priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
-          additionalProperty: [
-            { name: "Size Range", value: "12×3 mm to 305×25 mm" },
-            { name: "Tolerance", value: "±0.25 mm thickness" },
-          ],
+          productLine: "F1-STRUX",
+          dateModified: LAST_UPDATED,
         })}
       />
       <PageHeader
         tag="Flat Bar"
         line={{ name: "F1-STRUX", label: "Flat bar" }}
-        figure={<ProfileFigure model="FB 100×10" />}
-        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Width", values: sizes.map((s) => s.w), weights: sizes.map((s) => s.weight) })}
+        updated={LAST_UPDATED}
         title="Fiberglass Flat Bars (FRP Bar Stock)"
-        description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm. Tolerances ±0.25 mm."
+        description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm, held to ±0.25 mm on thickness. Used as stiffeners, splice plates, wear strips and spacers."
+        facts={[
+          ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Width", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
+          { label: "Tolerance", value: "±0.25 mm thickness" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP flat bars", productPath: pagePath }) },
+          secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <>
+            <ProfileFigure model="FB 100×10" />
+            <HeroPhotos
+              photos={[
+                { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "F1 Composite pultrusion hall with rows of pultrusion lines", caption: "Pultrusion hall" },
+                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+              ]}
+            />
+          </>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -120,106 +113,119 @@ export default async function FlatBarPage() {
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
-            <div>
-              <SectionTag>Solid Rectangular Sections</SectionTag>
-              <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                The most versatile pultruded profile
-              </h2>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                FRP flat bars serve as stiffeners, splice plates, wear strips, and spacer elements. High-modulus options with up to 70% glass content are used for concrete reinforcement and pre-stressed applications. Dimensional tolerances of ±0.25 mm on thickness and ±0.5 mm on width ensure reliable fit-up.
-              </p>
-              <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">±0.25 mm tolerance</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Up to 70% glass</span>
-                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Rebar replacement</span>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-white">
-              <Image src="/images/products/flat-bar/frp-flat-bar-photo.webp" alt="Pultruded FRP flat bar profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" preload />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Specifications</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="spec-table w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Width (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Thickness (mm)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sizes.map((s) => (
-                  <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.w}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <ProfileSupplyGuide product="flat bars" />
-
-      <RelatedLinks
-        background="white"
-        groups={[
-          {
-            title: "Related FRP profiles",
-            links: [
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channel profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angle profiles" },
-              { href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP round rod" },
-              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets for wider flat stock" },
-              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
-            ],
-          },
-          {
-            title: "Applications",
-            links: [
-              { href: "/industries/industrial", label: "Wear strips & stiffeners" },
-              { href: "/industries/energy", label: "Solar module clamps" },
-              { href: "/industries/infrastructure", label: "Splice plates" },
-              { href: "/industries/construction", label: "Rooftop supports" },
-            ],
-          },
-          {
-            title: "Technical resources",
-            links: [
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel comparison" },
-              { href: "/frp-profile-calculator", label: "Deflection & load calculator" },
-              { href: "/resources/technical-data", label: "Data sheets" },
-              { href: "/resources/design-guides", label: "Design guides" },
-              { href: "/what-is-frp", label: "What is FRP? Complete guide" },
-            ],
-          },
+      <ProductPageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes", count: sizes.length },
+          { id: "properties", label: "Properties" },
+          { id: "applications", label: "Applications" },
+          { id: "documents", label: "Documents" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
+      <ProductSection id="overview" title="Overview">
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
+            <p>
+              FRP flat bars serve as stiffeners, splice plates, wear strips and spacers. High-modulus bars with up to 70% glass are used for concrete reinforcement and pre-stressed work. Tolerances of ±0.25 mm on thickness and ±0.5 mm on width give a reliable fit-up.
+            </p>
+            <ul className="flex flex-wrap gap-[8px] pt-[4px]">
+              {["±0.25 mm on thickness", "Up to 70% glass", "EN 13706 and ASTM D3917", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+                <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <UseList
+            items={[
+              { label: "Wear strips and stiffeners", href: "/industries/industrial" },
+              { label: "Solar module clamps", href: "/industries/energy" },
+              { label: "Splice plates", href: "/industries/infrastructure" },
+              { label: "Rooftop supports", href: "/industries/construction" },
+              { label: "Fiberglass sheets for wider flat stock", href: "/products/fiberglass-sheets" },
+            ]}
+          />
         </div>
-      </section>
+      </ProductSection>
 
-      <ProductNextSteps path="/products/fiberglass-structural-shapes/frp-flat-bar" />
-      <InnerCTA title="Need engineering data or a quotation for flat bar profiles?" />
+      <ProductSection
+        id="sizes"
+        title="Sizes"
+        count={`${sizes.length} catalog sizes`}
+        tone="muted"
+        intro="Dimensions in mm, mass in kg/m. A, Ix and Iy are calculated from the nominal section: Ix for the bar standing on edge, Iy for the bar lying flat."
+        aside={
+          <Link href="/tools/profile-finder?shape=flat" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            Filter and compare in the profile finder
+          </Link>
+        }
+      >
+        <FamilySizeTable
+          rows={sizes}
+          caption="FRP flat bar catalog sizes with nominal section properties"
+          product="FRP flat bar"
+          productPath={pagePath}
+          columns={[
+            { key: "d", label: "Width", unit: "mm" },
+            { key: "t", label: "Thickness", unit: "mm" },
+            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "A", label: "A", unit: "mm²" },
+            { key: "Ix", label: "Ix", unit: "cm⁴" },
+            { key: "Iy", label: "Iy", unit: "cm⁴" },
+          ]}
+        />
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
+        <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/products/fiberglass-sheets" className="underline underline-offset-4 hover:text-teal">
+            Wider than 305 mm: fiberglass sheets
+          </Link>
+          <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
+            A size not listed: custom pultrusion
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="properties" title="Properties">
+        <LaminateProperties />
+      </ProductSection>
+
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("flat-bar")} />
+      </ProductSection>
+
+      <ProductSection id="documents" title="Documents">
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Flat bar", datasheetsHref: "/datasheets#flat-bar" }} sizes={sizes} />
+      </ProductSection>
+
+      <ProductSection id="faq" title="Questions buyers ask" tone="muted">
+        <div className="grid items-start gap-[12px] md:grid-cols-2">
+          {faqItems.map((item) => (
+            <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+          ))}
+        </div>
+        <p className="mt-[18px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-vs-traditional-materials" className="underline underline-offset-4 hover:text-teal">
+            FRP vs steel comparison
+          </Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
+            Design guides
+          </Link>
+          <Link href="/what-is-frp" className="underline underline-offset-4 hover:text-teal">
+            What is FRP?
+          </Link>
+        </p>
+      </ProductSection>
+
+      <ProductSection id="related" title="Other standard profiles">
+        <RelatedProfiles current={pagePath} />
+      </ProductSection>
+
+      <ProductSection id="quote" title="Quote FRP flat bars" tone="deep">
+        <ProductRfq product="FRP flat bars" productPath={pagePath} />
+      </ProductSection>
     </>
   );
 }

@@ -6,31 +6,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { E23_MIN, E23_ISO_PUBLISHED, TYP_NOTE } from "@/lib/catalog/en13706";
-
-// Same property rows, labels, and test methods as /datasheets/[slug]
-// (MECH_ROWS) — one vocabulary for the customer everywhere. Values come from
-// lib/catalog/en13706.ts, the same module the datasheet seed reads, so this
-// page and every product datasheet can never disagree.
-const PROPERTY_ROWS: {
-  key: keyof typeof E23_ISO_PUBLISHED & keyof typeof E23_MIN | "compressive_l_mpa" | "barcol" | "water_abs_pct";
-  label: string;
-  unit: string;
-  method: string;
-}[] = [
-  { key: "e_l_gpa", label: "Tensile modulus E_L (longitudinal)", unit: "GPa", method: "EN ISO 527-4" },
-  { key: "e_t_gpa", label: "Transverse tensile modulus E_T", unit: "GPa", method: "EN ISO 527-4" },
-  { key: "tensile_l_mpa", label: "Tensile strength (longitudinal)", unit: "MPa", method: "EN ISO 527-4" },
-  { key: "tensile_t_mpa", label: "Tensile strength (transverse)", unit: "MPa", method: "EN ISO 527-4" },
-  { key: "flexural_l_mpa", label: "Flexural strength (longitudinal)", unit: "MPa", method: "EN ISO 14125" },
-  { key: "flexural_t_mpa", label: "Flexural strength (transverse)", unit: "MPa", method: "EN ISO 14125" },
-  { key: "shear_mpa", label: "Interlaminar shear strength (ILSS)", unit: "MPa", method: "EN ISO 14130" },
-  { key: "pin_bearing_l_mpa", label: "Pin-bearing strength (longitudinal)", unit: "MPa", method: "EN 13706-2 Annex D" },
-  { key: "pin_bearing_t_mpa", label: "Pin-bearing strength (transverse)", unit: "MPa", method: "EN 13706-2 Annex D" },
-  { key: "compressive_l_mpa", label: "Compressive strength (longitudinal)", unit: "MPa", method: "EN ISO 604" },
-  { key: "barcol", label: "Barcol hardness", unit: "", method: "ASTM D2583" },
-  { key: "water_abs_pct", label: "Water absorption (24 h)", unit: "%", method: "EN ISO 62" },
-];
+import { E23_MIN, E23_ISO_PUBLISHED, PROPERTY_ROWS, TYP_NOTE } from "@/lib/catalog/en13706";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Technical Data — Material Properties & Test Methods",

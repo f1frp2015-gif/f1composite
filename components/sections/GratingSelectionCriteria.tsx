@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function GratingSelectionCriteria() {
-  return <section id="grating-selection" className="scroll-mt-[100px] border-y border-border-default bg-bg2 py-[44px] md:py-[60px]">
+  return <section id="grating-selection" className="scroll-mt-[40px] border-y border-border-default bg-bg2 py-[44px] md:py-[60px]">
     <div className="site-container">
       <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Before choosing a thickness</p>
       <h2 className="mt-[10px] text-f32 font-bold text-t1">Specify the opening, surface and service conditions</h2>

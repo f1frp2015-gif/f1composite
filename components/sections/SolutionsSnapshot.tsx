@@ -1,37 +1,21 @@
 import Link from "next/link";
-import SectionTag from "@/components/ui/SectionTag";
+import ProductSection from "@/components/products/ProductSection";
 import ProductFamilyCards from "@/components/sections/ProductFamilyCards";
 
 export default function SolutionsSnapshot() {
   return (
-    <section
-      className="bg-white py-[54px] md:py-[72px]"
-      aria-labelledby="home-products"
+    <ProductSection
+      id="products"
+      title="Find the right FRP product"
+      intro="Start with a standard section or a custom profile. Explore window and door products, fiberglass grating and concrete reinforcement below."
+      aside={
+        <Link href="/products/product-lines" className="font-bold text-teal-text">
+          View all products →
+        </Link>
+      }
+      tone="muted"
     >
-      <div className="site-container">
-        <div className="mb-[28px] flex flex-wrap items-end justify-between gap-[16px]">
-          <div>
-            <SectionTag>Products</SectionTag>
-            <h2
-              id="home-products"
-              className="mt-[12px] text-[clamp(28px,3.2vw,42px)] font-bold leading-tight text-t1"
-            >
-              Find the right FRP product
-            </h2>
-            <p className="mt-[12px] max-w-[740px] text-f16 leading-relaxed text-t2">
-              Start with a standard section or a custom profile. Explore window
-              and door products, fiberglass grating and concrete reinforcement below.
-            </p>
-          </div>
-          <Link
-            href="/products/product-lines"
-            className="text-f14 font-bold text-teal-text"
-          >
-            View all products →
-          </Link>
-        </div>
-        <ProductFamilyCards />
-      </div>
-    </section>
+      <ProductFamilyCards />
+    </ProductSection>
   );
 }

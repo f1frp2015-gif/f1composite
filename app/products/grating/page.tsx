@@ -74,7 +74,7 @@ export default function GratingPage() {
         <div className="mt-[22px] flex flex-wrap gap-x-[24px] gap-y-[12px] text-f14 font-semibold text-teal-text"><Link href="/case-studies/coastal-marina-walkway">Coastal walkway reference →</Link><Link href="/products/frp-handrail-systems">Handrail systems →</Link><Link href="/products/frp-deck-panels">Structural deck profiles →</Link><Link href="/technology/frp-vs-steel-gratings">FRP vs steel grating →</Link></div>
       </div>
     </section>
-    <section id="grating-faq" className="scroll-mt-[100px] bg-white pb-[50px]"><div className="site-container"><FAQ title="Fiberglass grating: selection & purchasing questions" items={faq} /></div></section>
+    <section id="grating-faq" className="scroll-mt-[40px] bg-white pb-[50px]"><div className="site-container"><FAQ title="Fiberglass grating: selection & purchasing questions" items={faq} /></div></section>
     <section className="border-t border-border-default bg-white px-[20px] py-[30px] text-center"><Link className="inline-flex min-h-[48px] items-center rounded-control bg-teal-text px-[24px] font-bold text-white" href={gratingInquiryHref(undefined, undefined, "grating-footer")}>Send your grating requirements →</Link></section>
   </>;
 }

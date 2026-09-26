@@ -74,7 +74,8 @@ export default async function DatasheetsIndexPage() {
           ) : (
             <div className="grid gap-[34px] md:grid-cols-2 lg:grid-cols-3">
               {[...groups.entries()].map(([name, items]) => (
-                <div key={name}>
+                // Product pages link to their family's group, e.g. #i-beam.
+                <div key={name} id={items[0].category?.slug} className="scroll-mt-[96px]">
                   <SectionTag>{name}</SectionTag>
                   <ul className="mt-[13px] space-y-[4px]">
                     {items.map((d) => (

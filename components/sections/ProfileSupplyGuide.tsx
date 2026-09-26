@@ -8,8 +8,9 @@ interface ProfileSupplyGuideProps {
   product?: string;
 }
 
-export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }: ProfileSupplyGuideProps) {
-  const items = [
+/** What a profile or sheet quotation needs, with the supply terms from company.ts. */
+export function profileSupplyItems({ sheet = false }: { sheet?: boolean } = {}) {
+  return [
     sheet
       ? {
           title: "Part sizes & cutting",
@@ -32,6 +33,10 @@ export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }
       text: "Each production batch ships with a mill test certificate. Include the destination and target date, and we will quote FOB or DDP with the packing method and shipping schedule.",
     },
   ];
+}
+
+export default function ProfileSupplyGuide({ sheet = false, product = "tubing" }: ProfileSupplyGuideProps) {
+  const items = profileSupplyItems({ sheet });
   return (
     <section id="supply-options" className="scroll-mt-[100px] bg-white py-[55px]">
       <div className="site-container">

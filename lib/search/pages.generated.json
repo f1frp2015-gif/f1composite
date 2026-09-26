@@ -195,7 +195,7 @@
   {
     "path": "/industries/energy",
     "title": "FRP Profiles for Energy, Power & Solar Projects",
-    "description": "FRP profiles for substations, cross-arms, cable trays, solar mounting and transformer spacers: non-conductive, non-magnetic and low maintenance.",
+    "description": "FRP profiles for substations, cable supports, solar mounting and wind energy: non-conductive frames and supports that do not rust, specified per project.",
     "aliases": [
       "FRP Composite Profiles for Energy & Electric Power"
     ]
@@ -203,7 +203,7 @@
   {
     "path": "/industries/industrial",
     "title": "FRP for Industrial Plants — Chemical-Resistant Pultruded",
-    "description": "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
+    "description": "Pultruded FRP profiles, grating, ladders and handrails for chemical, process and manufacturing plants, with chemical-resistant and fire-retardant resins.",
     "aliases": [
       "FRP Composite Profiles for Industrial Applications"
     ]
@@ -211,7 +211,7 @@
   {
     "path": "/industries/infrastructure",
     "title": "FRP Profiles for Bridges & Infrastructure",
-    "description": "FRP profiles for infrastructure: bridge decks, pedestrian bridges, handrails and utility poles that do not rust and need no recoating.",
+    "description": "FRP profiles for infrastructure: pedestrian bridges, deck panels, handrails, noise barriers and GFRP rebar that do not rust and need no recoating.",
     "aliases": [
       "FRP Composite Profiles for Infrastructure"
     ]
