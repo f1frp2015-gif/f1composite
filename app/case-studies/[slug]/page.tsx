@@ -3,33 +3,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
-import AskAICard from "@/components/ai/AskAICard";
+import DocumentCard, { libraryCard, type DocumentCardData } from "@/components/downloads/DocumentCard";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import ProductRfq from "@/components/products/ProductRfq";
+import ProductSection from "@/components/products/ProductSection";
 import JsonLd from "@/components/seo/JsonLd";
+import Figure from "@/components/ui/Figure";
+import SectionGlyph, { type GlyphShape } from "@/components/ui/SectionGlyph";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { prefillForCaseStudy } from "@/lib/aiPrefill";
+import { assembleDocuments } from "@/lib/documents";
+import { buildRfqHref } from "@/lib/rfq";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Map case-study product labels directly to their canonical product routes.
-const productLabelToPath: Record<string, string> = {
-  "Standard Profiles": "/products/fiberglass-structural-shapes",
-  "Custom Pultrusions": "/products/custom-pultruded-profiles",
-  "Fenestration Systems": "/products/frp-window-frames",
-  "Structural Deck Panels": "/products/frp-deck-panels",
-  "Molded Grating": "/products/molded-frp-grating",
-};
-
-const productLinkLabels: Record<string, string> = {
-  "Fenestration Systems": "FRP windows and doors",
+// Case-study product labels, with the product page, section glyph and a line
+// on what the family is.
+const productInfo: Record<string, { href: string; label: string; glyph: GlyphShape; text: string }> = {
+  "Standard Profiles": { href: "/products/fiberglass-structural-shapes", label: "Standard structural profiles", glyph: "i_beam", text: "I-beams, channels, angles, tubes, rods and flat bar from the catalog." },
+  "Custom Pultrusions": { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles", glyph: "custom", text: "Sections developed for the project on their own tooling." },
+  "Fenestration Systems": { href: "/products/frp-window-frames", label: "FRP windows and doors", glyph: "window", text: "Pultruded window and door profiles, and finished units." },
+  "Structural Deck Panels": { href: "/products/frp-deck-panels", label: "Structural deck panels", glyph: "multicell", text: "Closed-top multicell planks for decks and walkways." },
+  "Molded Grating": { href: "/products/molded-frp-grating", label: "Molded FRP grating", glyph: "grating", text: "Two-way mesh panels for walkways, platforms and stairs." },
 };
 
 const caseStudyData: Record<
   string,
   {
     title: string;
+    /** One or two sentences under the title: what was supplied, where, and the outcome the account reports. */
+    summary: string;
     seoTitle?: string;
     seoDescription?: string;
     focusKeyphrase: string;
@@ -46,6 +51,8 @@ const caseStudyData: Record<
 > = {
   "european-bridge-deck": {
     title: "European Bridge Deck Replacement",
+    summary:
+      "Custom-pultruded FRP deck panels replaced a corroded steel bridge deck in the Netherlands, installed without closing the bridge to traffic.",
     seoTitle: "FRP Bridge Deck Replacement — Netherlands Case Study",
     seoDescription:
       "FRP bridge deck — Netherlands. 1,200 m² custom pultruded panels, 40% lighter than steel, project finished 2 weeks ahead of schedule.",
@@ -68,6 +75,8 @@ const caseStudyData: Record<
   },
   "coastal-marina-walkway": {
     title: "Coastal Marina Walkway System",
+    summary:
+      "A 500 m walkway of pultruded FRP subframes and anti-slip molded grating replaced timber and steel at a UK marina, installed in sections during low-tide windows.",
     seoTitle: "FRP Marina Walkway — UK Coastal Case Study",
     seoDescription:
       "Marine FRP walkway case study — UK marina. 500 m pultruded structural + molded grating system, resin selection and connection details for coastal exposure.",
@@ -90,6 +99,8 @@ const caseStudyData: Record<
   },
   "baotou-industrial-gfrp-pu-windows": {
     title: "Baotou Industrial Park: GFRP-PU Windows for Severe Cold and Chemical Exposure",
+    summary:
+      "Pultruded GFRP-PU window profiles for the workshops and office block of an industrial campus in Baotou, where the frames had to meet a severe-cold U-value limit and tolerate chemical exposure.",
     seoTitle: "Baotou Industrial Fenestration — GFRP-PU Windows",
     seoDescription:
       "Baotou industrial GFRP-PU windows: 70/80/90-series profiles for cold climate and chemical exposure. Review assembly evidence and inspection requirements.",
@@ -132,6 +143,8 @@ const caseStudyData: Record<
   },
   "wanhua-yantai-zero-carbon-windows": {
     title: "Wanhua Yantai Zero-Carbon Community: GFRP-PU Passive Windows",
+    summary:
+      "13,657 m² of GFRP-PU windows for Wanhua Chemical's zero-carbon employee community in Yantai, at a whole-window U-value of 0.99 W/m²·K against a 1.0 requirement.",
     seoTitle: "Wanhua Yantai Zero-Carbon — GFRP-PU Passive Windows",
     seoDescription:
       "Wanhua Yantai zero-carbon community: 13,657 m² of GFRP-PU 65- and 90-series windows at Uw 0.99 W/m²·K, built to China's near-zero energy standard.",
@@ -174,6 +187,8 @@ const caseStudyData: Record<
   },
   "chongqing-rooftop-pv-frp-rail": {
     title: "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Colour Steel-Tile Roofs",
+    summary:
+      "Pultruded GFRP H-rail let an industrial park in Chongqing add rooftop PV to colour steel-tile roofs within their original live-load reserve, with about 75% less rail dead load than galvanized steel.",
     seoTitle: "Chongqing PV Rooftop Retrofit — FRP H-Rail Mounting",
     seoDescription:
       "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on colour steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
@@ -211,6 +226,8 @@ const caseStudyData: Record<
   },
   "qinling-station-antarctic-passive-windows": {
     title: "Qinling Station, Antarctic Ross Sea — GFRP Window Project",
+    summary:
+      "90-series GFRP windows with insulated glazing for Qinling Station, China's research station on the Ross Sea, opened in February 2024.",
     seoTitle: "Qinling Antarctic Station — GFRP Window Project",
     seoDescription:
       "Qinling Station GFRP window project account. Review the 90-series component reference separately from project-specific Antarctic design requirements.",
@@ -241,6 +258,8 @@ const caseStudyData: Record<
   },
   "yancheng-talent-apartment-fenestration": {
     title: "Yancheng Talent Apartments: FRP Window Supply for a Coastal Housing Development",
+    summary:
+      "One pultruded FRP window system for about 20 coastal mid-rise buildings in Yancheng: casements, balcony sliders and facade frames, delivered in phases over 14 months.",
     seoTitle: "Yancheng Talent Apartment — FRP Fenestration Supply",
     seoDescription:
       "Yancheng talent apartments, Jiangsu: GFRP window profiles for about 20 coastal mid-rise buildings, Uw below 1.6 W/m²·K, supplied in phases over 14 months.",
@@ -264,6 +283,8 @@ const caseStudyData: Record<
   },
   "factory-access-staircase": {
     title: "F1 Factory Access Staircase, Built From Our Own FRP Profiles",
+    summary:
+      "A multi-level access stair in our Chongqing plant, built from our own FRP profiles and molded grating and bolted together by four people during a 3-day shutdown.",
     seoTitle: "F1 Factory FRP Access Staircase — Self-Built",
     seoDescription:
       "FRP access staircase at F1's Chongqing pultrusion plant: I-beams, tubes and molded grating replaced galvanized steel that needed recoating every 18 months.",
@@ -287,6 +308,8 @@ const caseStudyData: Record<
   },
   "water-treatment-cable-tray": {
     title: "Municipal Water Treatment Plant — Cable Tray & Handrail System",
+    summary:
+      "FRP cable trays, tray supports and handrails replaced corroded galvanized steel at a municipal water treatment plant in Thailand.",
     seoTitle: "Water Treatment FRP Cable Tray & Handrail — Thailand",
     seoDescription:
       "Thai water treatment project: FRP cable trays and handrails for humid, chlorinated exposure. Review resin selection, connections and inspection requirements.",
@@ -322,73 +345,128 @@ const caseStudyImages: Record<string, string> = {
   "qinling-station-antarctic-passive-windows": "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
 };
 
-// Hero image alt text and disclosure. Architectural renderings are labelled so
-// they are not read as site photographs. Other slugs fall back to the title.
-const caseStudyImageMeta: Record<string, { alt: string; caption?: string }> = {
+// Figure 1 of each case: a short title, what the image is, and its alt text.
+// Renderings and illustrative photos say so, so neither is read as a
+// photograph of the project (WEBSITE.md: case images must show the project).
+const caseStudyImageMeta: Record<string, { title: string; note: string; alt: string; caption?: string }> = {
+  "european-bridge-deck": {
+    title: "Pedestrian bridge",
+    note: "Illustrative photo",
+    alt: "Covered pedestrian bridge with curved timber slats and a white steel arch",
+  },
+  "coastal-marina-walkway": {
+    title: "Marina walkway",
+    note: "Illustrative photo",
+    alt: "Paved walkway with steel railings leading down to a marina on a lake",
+  },
   "baotou-industrial-gfrp-pu-windows": {
+    title: "Industrial park",
+    note: "Rendering",
     alt: "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block",
     caption: "Architectural rendering of the project, not a site photograph.",
   },
   "wanhua-yantai-zero-carbon-windows": {
+    title: "Zero-carbon community",
+    note: "Rendering",
     alt: "Architectural rendering of the Wanhua Yantai zero-carbon community from above",
     caption: "Architectural rendering of the project, not a site photograph.",
   },
   "chongqing-rooftop-pv-frp-rail": {
+    title: "Rooftop array",
+    note: "Project photo",
     alt: "PV modules on pultruded FRP rails over a blue colour steel-tile factory roof in Chongqing",
   },
   "qinling-station-antarctic-passive-windows": {
+    title: "Qinling Station",
+    note: "Rendering",
     alt: "Architectural rendering of Qinling Station on the Ross Sea coast, Antarctica",
     caption: "Architectural rendering of the station, not a site photograph.",
   },
   "yancheng-talent-apartment-fenestration": {
+    title: "Apartment development",
+    note: "Rendering",
     alt: "Architectural rendering of the Yancheng talent apartment development from above",
     caption: "Architectural rendering of the project, not a site photograph.",
   },
   "factory-access-staircase": {
+    title: "Stair and platform",
+    note: "Project photo",
     alt: "FRP access staircase and platform with orange handrails inside F1 Composite's Chongqing plant",
+  },
+  "water-treatment-cable-tray": {
+    title: "Treatment plant",
+    note: "Illustrative photo",
+    alt: "Aerial view of circular clarifiers and rectangular basins at a water treatment plant",
   },
 };
 
-const caseStudyContentImages: Record<string, { src: string; alt: string }[]> = {
+// Further figures, shown with what F1 supplied.
+const caseStudyContentImages: Record<string, { src: string; title: string; note: string; alt: string }[]> = {
   "factory-access-staircase": [
     {
       src: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+      title: "Stringers and frame",
+      note: "Project photo",
       alt: "Side view of FRP I-beam stringers and pultruded structural profiles forming the staircase frame inside F1 Composite's Chongqing factory",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-platform-handrail.webp",
+      title: "Platform and handrails",
+      note: "Project photo",
       alt: "Elevated platform with safety-orange pultruded FRP handrails and guardrails installed above the pultrusion line",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-grating-treads.webp",
+      title: "Grating treads",
+      note: "Project photo",
       alt: "Anti-slip molded FRP grating stair treads and platform panels in corrosive factory environment",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-assembly-detail.webp",
+      title: "Bolted connection",
+      note: "Project photo",
       alt: "Bolted connection detail between pultruded FRP profiles and 316L stainless steel fasteners — no welding required",
     },
   ],
   "water-treatment-cable-tray": [
     {
       src: "/images/case-studies/frp-water-treatment-plant-aeration-basin-piping-system.webp",
-      alt: "Aerial view of water treatment aeration basins with FRP cable tray and piping system installed across walkways",
+      title: "Aeration basins",
+      note: "Illustrative photo",
+      alt: "Aerial view of aeration basins with walkways and piping between them",
     },
     {
       src: "/images/case-studies/frp-water-treatment-plant-walkway-handrail-installation.jpg",
-      alt: "FRP handrail and walkway system installed at municipal water treatment facility with corrosion-resistant railing",
+      title: "Basin walkway",
+      note: "Illustrative photo",
+      alt: "Walkway with railings between treatment basins",
     },
   ],
   "wanhua-yantai-zero-carbon-windows": [
     {
       src: "/images/case-studies/frp-wanhua-yantai-passive-house-building.webp",
-      alt: "Wanhua Yantai Zero-Carbon Community — close view of a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
+      title: "Dormitory building",
+      note: "Rendering",
+      alt: "Wanhua Yantai Zero-Carbon Community — rendering of a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
     },
     {
       src: "/images/case-studies/frp-wanhua-yantai-residential-tower-courtyard.webp",
+      title: "Courtyard",
+      note: "Photo",
       alt: "Ground-level courtyard at the Wanhua Yantai Zero-Carbon Community — residents and staff in the landscaped quad between dormitory buildings, with floor-to-ceiling pultruded GFRP-PU windows above",
     },
   ],
 };
+
+// What a request for a similar project needs, in the quote block.
+const similarProjectItems = [
+  { title: "Your project", text: "What the parts do and where they are installed, with drawings or photos." },
+  { title: "Site conditions", text: "Loads, spans, chemicals, climate and UV exposure at your site." },
+  { title: "Requirements", text: "Codes, fire, thermal or electrical requirements and the documents you need." },
+  { title: "Quantities and delivery", text: "Quantities, destination and program." },
+];
+
+const UPDATED = "2026-09-26";
 
 export async function generateStaticParams() {
   return Object.keys(caseStudyData).map((slug) => ({ slug }));
@@ -411,6 +489,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+/** The case's downloads as library cards, with the case's own description of each file. */
+function downloadCards(downloads: NonNullable<(typeof caseStudyData)[string]["downloads"]>): DocumentCardData[] {
+  const library = new Map(assembleDocuments().flatMap((document) => (document.file ? [[document.file, document] as const] : [])));
+  return downloads.map((download) => {
+    const document = library.get(download.href);
+    const title = download.label.replace(/^Download /, "").replace(/ \(PDF\)$/, "");
+    if (document) return { ...libraryCard(document, "case-study-download"), title, description: download.description ?? document.description };
+    return { type: "PDF", title, meta: "PDF", description: download.description, action: { label: "Download PDF", href: download.href, file: true } };
+  });
+}
+
 export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
   const cs = caseStudyData[slug];
@@ -419,18 +508,30 @@ export default async function CaseStudyPage({ params }: PageProps) {
     notFound();
   }
 
+  const path = `/case-studies/${slug}`;
+  const image = caseStudyImageMeta[slug];
+  const figures = caseStudyContentImages[slug] ?? [];
+  const products = cs.products.map((label) => productInfo[label] ?? { href: "/pultruded-frp-profiles", label, glyph: "custom" as const, text: "" });
+  const documents = cs.downloads?.length ? downloadCards(cs.downloads) : [];
+  const quote = buildRfqHref({
+    source: "case-study",
+    product: cs.focusKeyphrase,
+    productPath: path,
+    message: `I have a project similar to the case study "${cs.title}". Please contact me to discuss the details and quotation.`,
+  });
+
   const caseStudySchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: cs.title,
     name: cs.focusKeyphrase,
-    url: absoluteUrl(`/case-studies/${slug}`),
-    mainEntityOfPage: absoluteUrl(`/case-studies/${slug}`),
+    url: absoluteUrl(path),
+    mainEntityOfPage: absoluteUrl(path),
     description: cs.seoDescription ?? cs.results,
     about: cs.industry,
     articleSection: "Case Studies",
     datePublished: `${cs.year}-01-01`,
-    dateModified: "2026-09-23",
+    dateModified: UPDATED,
     contentLocation: { "@type": "Place", name: cs.location },
     author: { "@id": "https://www.f1composite.com/#organization" },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
@@ -445,215 +546,134 @@ export default async function CaseStudyPage({ params }: PageProps) {
     <>
       <JsonLd data={caseStudySchema} />
       <PageHeader
-        tag={cs.industry}
+        tag="Case study"
+        line={{ name: "Case study", label: cs.industry, mark: false }}
+        updated={UPDATED}
         title={cs.title}
-        description={`${cs.location} · ${cs.year}`}
+        description={cs.summary}
+        facts={[
+          { label: "Location", value: cs.location },
+          { label: "Year", value: cs.year },
+          { label: "Industry", value: cs.industry },
+        ]}
+        figure={
+          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption}>
+            <div className="relative -m-[16px] aspect-[3/2]">
+              <Image
+                src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}
+                alt={image?.alt ?? cs.title}
+                fill
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                preload
+              />
+            </div>
+          </Figure>
+        }
+        actions={{
+          primary: { label: "Discuss a similar project", href: quote },
+          secondary: { label: "Products used", href: "#products", variant: "secondary" },
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Case Studies", href: "/case-studies" },
           { label: cs.title },
         ]}
       />
-
-      <section className="bg-white py-[55px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1fr_300px]">
-          {/* Main content */}
-          <div>
-            {/* Project hero image */}
-            <figure className="mb-[34px]">
-              <div className="relative aspect-[1.618] overflow-hidden rounded-card bg-bg2">
-                <Image
-                  src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}
-                  alt={caseStudyImageMeta[slug]?.alt ?? cs.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 800px"
-                  className="object-cover"
-                  preload
-                />
-              </div>
-              {caseStudyImageMeta[slug]?.caption && (
-                <figcaption className="mt-[8px] text-f12 text-t3">{caseStudyImageMeta[slug].caption}</figcaption>
-              )}
-            </figure>
-
-            <h2 className="mb-[13px] text-f24 font-bold text-t1">
-              {cs.focusKeyphrase}: project overview
-            </h2>
-            <p className="mb-[34px] text-f16 leading-golden text-t2">
-              {cs.industry} project in {cs.location}, {cs.year}. Products supplied:{" "}
-              {cs.products.join(", ")}.
-            </p>
-
-            <h2 className="mb-[13px] text-f24 font-bold text-t1">
-              The challenge
-            </h2>
-            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.challenge}</p>
-
-            <h2 className="mb-[13px] text-f24 font-bold text-t1">
-              What F1 supplied
-            </h2>
-            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.solution}</p>
-
-            {/* Content images — inserted between solution and results */}
-            {caseStudyContentImages[slug] && (
-              <div className="mb-[34px] grid gap-[21px] sm:grid-cols-2">
-                {caseStudyContentImages[slug].map((img) => (
-                  <div key={img.src} className="overflow-hidden rounded-card">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={620}
-                      height={465}
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="h-auto w-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <h2 className="mb-[13px] text-f24 font-bold text-t1">
-              Results
-            </h2>
-            <p className="mb-[34px] text-f16 leading-golden text-t2">{cs.results}</p>
-
-            {/* Stats */}
-            <div className="flex flex-wrap gap-x-[34px] gap-y-[21px] border-t border-border-default pt-[21px]">
-              {cs.stats.map((stat) => (
-                <div key={stat.label}>
-                  <span className="block text-f24 font-extrabold text-teal">{stat.value}</span>
-                  <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <aside className="space-y-[21px]">
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <h4 className="mb-[13px] text-f14 font-bold text-t1">Project Details</h4>
-              <dl className="space-y-[8px] text-f14">
-                <div>
-                  <dt className="text-t3">Location</dt>
-                  <dd className="font-medium text-t1">{cs.location}</dd>
-                </div>
-                <div>
-                  <dt className="text-t3">Industry</dt>
-                  <dd className="font-medium text-t1">{cs.industry}</dd>
-                </div>
-                <div>
-                  <dt className="text-t3">Year</dt>
-                  <dd className="font-medium text-t1">{cs.year}</dd>
-                </div>
-                <div>
-                  <dt className="text-t3">Products Used</dt>
-                  <dd className="font-medium text-t1">{cs.products.join(", ")}</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="rounded-card border border-border-default bg-white p-[21px]">
-              <h4 className="mb-[13px] text-f14 font-bold text-t1">Products Used</h4>
-              <div className="space-y-[8px]">
-                {cs.products.map((product) => {
-                  const fallbackSlug = product.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-                  const path = productLabelToPath[product] ?? `/products/${fallbackSlug}`;
-                  return (
-                    <Link
-                      key={product}
-                      href={path}
-                      className="block text-f14 text-teal-text hover:underline"
-                    >
-                      {productLinkLabels[product] ?? product} →
-                    </Link>
-                  );
-                })}
-                <Link
-                  href="/pultruded-frp-profiles"
-                  className="mt-[13px] block border-t border-border-default pt-[8px] text-f14 text-teal-text hover:underline"
-                >
-                  All pultruded FRP profiles →
-                </Link>
-              </div>
-            </div>
-
-            {cs.downloads && cs.downloads.length > 0 && (
-              <div className="rounded-card border border-teal-border bg-teal-bg p-[21px]">
-                <h4 className="mb-[13px] text-f14 font-bold text-t1">Certificates & Downloads</h4>
-                <div className="space-y-[13px]">
-                  {cs.downloads.map((dl) => (
-                    <a
-                      key={dl.href}
-                      href={dl.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block"
-                    >
-                      <span className="flex items-start gap-[8px] text-f14 font-semibold text-teal-text group-hover:text-teal">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-[2px] shrink-0">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="7 10 12 15 17 10" />
-                          <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                        <span>{dl.label}</span>
-                      </span>
-                      {dl.description && (
-                        <p className="mt-[4px] pl-[24px] text-f12 leading-golden text-t2">{dl.description}</p>
-                      )}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="rounded-card border border-border-default bg-white p-[21px]">
-              <h4 className="mb-[13px] text-f14 font-bold text-t1">Industry & resources</h4>
-              <div className="space-y-[8px]">
-                <Link
-                  href={`/industries/${cs.industry.toLowerCase()}`}
-                  className="block text-f14 text-teal-text hover:underline"
-                >
-                  {cs.industry} industry →
-                </Link>
-                <Link href="/case-studies" className="block text-f14 text-teal-text hover:underline">
-                  All case studies →
-                </Link>
-                <Link href="/what-is-frp" className="block text-f14 text-teal-text hover:underline">
-                  What is FRP? Material &amp; properties →
-                </Link>
-                <Link
-                  href="/technology/frp-vs-traditional-materials"
-                  className="block text-f14 text-teal-text hover:underline"
-                >
-                  FRP vs steel / aluminum →
-                </Link>
-              </div>
-            </div>
-
-            <Link
-              href="/contact"
-              className="block rounded-card bg-teal p-[21px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
-            >
-              Start a Similar Project
-            </Link>
-          </aside>
-        </div>
-      </section>
-
-      <AskAICard
-        title={`Have a similar project to ${cs.title.split("—")[0].trim()}?`}
-        description="The advisor opens with a question about this project. Add your own site conditions to see which profiles and resin would carry over, and what a quotation needs."
-        prefill={prefillForCaseStudy({
-          title: cs.title,
-          slug,
-          industry: cs.industry,
-          location: cs.location,
-        })}
+      <ProductPageNav
+        items={[
+          { id: "challenge", label: "Challenge" },
+          { id: "solution", label: "What F1 supplied" },
+          { id: "results", label: "Results" },
+          { id: "products", label: "Products", count: products.length },
+          ...(documents.length ? [{ id: "documents", label: "Documents", count: documents.length }] : []),
+          { id: "quote", label: "Similar project" },
+        ]}
       />
 
-      <InnerCTA title="Interested in a similar solution?" />
+      <ProductSection id="challenge" title="The challenge">
+        <p className="max-w-[760px] text-f16 leading-[1.8] text-t2">{cs.challenge}</p>
+      </ProductSection>
+
+      <ProductSection id="solution" title="What F1 supplied" tone="muted">
+        <p className="max-w-[760px] text-f16 leading-[1.8] text-t2">{cs.solution}</p>
+        {figures.length ? (
+          <div className="mt-[28px] grid grid-cols-1 gap-[16px] sm:grid-cols-2">
+            {figures.map((figure, index) => (
+              <Figure key={figure.src} number={index + 2} title={figure.title} note={figure.note}>
+                <div className="relative -m-[16px] aspect-[4/3]">
+                  <Image src={figure.src} alt={figure.alt} fill sizes="(max-width: 639px) 94vw, 45vw" className="object-cover" />
+                </div>
+              </Figure>
+            ))}
+          </div>
+        ) : null}
+      </ProductSection>
+
+      <ProductSection id="results" title="Results">
+        <p className="max-w-[760px] text-f16 leading-[1.8] text-t2">{cs.results}</p>
+        <dl className="mt-[28px] grid grid-cols-2 gap-px overflow-hidden rounded-card border border-border-default bg-border-default sm:grid-cols-3">
+          {cs.stats.map((stat) => (
+            <div key={stat.label} className="bg-white px-[14px] py-[12px]">
+              <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{stat.label}</dt>
+              <dd className="mt-[4px] text-f18 font-bold text-t1">{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </ProductSection>
+
+      <ProductSection id="products" title="Products used" count={`${products.length} product ${products.length === 1 ? "family" : "families"}`} tone="muted">
+        <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((product) => (
+            <li key={product.href}>
+              <Link href={product.href} className="flex h-full items-start gap-[14px] rounded-card border border-border-default bg-white p-[16px] transition-colors hover:border-teal-border">
+                <SectionGlyph shape={product.glyph} size={40} />
+                <span>
+                  <span className="block text-f16 font-bold text-t1">{product.label}</span>
+                  {product.text ? <span className="mt-[4px] block text-f14 leading-golden text-t2">{product.text}</span> : null}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          {[
+            { label: `${cs.industry} industry`, href: `/industries/${cs.industry.toLowerCase()}` },
+            { label: "All pultruded FRP profiles", href: "/pultruded-frp-profiles" },
+            { label: "FRP vs steel and aluminum", href: "/technology/frp-vs-traditional-materials" },
+            { label: "What is FRP?", href: "/what-is-frp" },
+            { label: "All case studies", href: "/case-studies" },
+          ].map((link) => (
+            <Link key={link.href} href={link.href} className="underline underline-offset-4 hover:text-teal">
+              {link.label}
+            </Link>
+          ))}
+        </p>
+      </ProductSection>
+
+      {documents.length ? (
+        <ProductSection id="documents" title="Certificates and downloads">
+          <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
+            {documents.map((card) => (
+              <li key={card.action.href}>
+                <DocumentCard card={card} compact />
+              </li>
+            ))}
+          </ul>
+        </ProductSection>
+      ) : null}
+
+      <ProductSection id="quote" title="Discuss a similar project" tone="deep">
+        <ProductRfq
+          product={cs.focusKeyphrase}
+          productPath={path}
+          quoteHref={quote}
+          items={similarProjectItems}
+          intro="Tell us how your project differs from this one: the site, the loads and the requirements."
+          advisorPrompt={prefillForCaseStudy({ title: cs.title, slug, industry: cs.industry, location: cs.location })}
+        />
+      </ProductSection>
     </>
   );
 }

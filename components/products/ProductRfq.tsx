@@ -19,6 +19,7 @@ export default function ProductRfq({
   quoteHref,
   items = profileSupplyItems(),
   intro = "Send the size, length and quantity, the service environment and the destination.",
+  advisorPrompt,
 }: {
   /** e.g. "FRP I-beams" */
   product: string;
@@ -29,8 +30,10 @@ export default function ProductRfq({
   /** What a useful request includes. */
   items?: { title: string; text: string }[];
   intro?: string;
+  /** The question the engineering assistant opens with; a product question by default. */
+  advisorPrompt?: string;
 }) {
-  const advisor = `/ask?prefill=${encodeURIComponent(`I am evaluating ${product}. Help me choose the product, materials and standards, and list what F1 Composite needs for a qualified RFQ.`)}`;
+  const advisor = `/ask?prefill=${encodeURIComponent(advisorPrompt ?? `I am evaluating ${product}. Help me choose the product, materials and standards, and list what F1 Composite needs for a qualified RFQ.`)}`;
   return (
     <div data-page-rfq className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[56px]">
       <div>
