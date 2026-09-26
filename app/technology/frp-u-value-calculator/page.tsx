@@ -35,12 +35,12 @@ const uValueFaqs = [
   {
     question: "Can the calculator help me select a window for my climate zone?",
     answer:
-      "Yes, for numerical screening. The target panel compares U_w with the PHI cool-temperate criterion, typical EU nZEB levels, US ENERGY STAR v7.0 and IECC 2024 U-factor limits, the Canadian NRCan target, and selected Chinese GB limits. It does not determine compliance: NFRC/NRCan use different rating procedures, ENERGY STAR also requires SHGC, and Chinese acceptance depends on the project zone, window-to-wall ratio, and test evidence.",
+      "Yes, for numerical screening. The target panel compares U_w with the PHI criteria, the England Approved Document L 2021 limits, the German limit for replaced windows, US ENERGY STAR v7.0 and IECC 2024 U-factor limits, ENERGY STAR Canada and the NBC 2020 prescriptive values, the New Zealand H1/AS1 values and selected Chinese GB limits. The EU itself sets no window U-value; member states do. The panel does not determine compliance: NFRC, CSA A440.2 and AFRC use different rating procedures, ENERGY STAR also requires SHGC, and Chinese acceptance depends on the project zone, window-to-wall ratio, and test evidence.",
   },
   {
     question: "How does this compare with NFRC simulation in the US/Canada?",
     answer:
-      "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM at fixed model sizes and different boundary conditions, rather than the simplified EN ISO 10077-1 approach. For symmetric frame profiles results typically agree within ±0.1–0.2 W/m²·K, but the ratings are not interchangeable: an EN ISO 10077-1 value cannot be quoted as an NFRC U-factor. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
+      "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM at fixed model sizes and their own boundary conditions, rather than the simplified EN ISO 10077-1 approach. The two results can differ by more than rounding and the ratings are not interchangeable: an EN ISO 10077-1 value cannot be quoted as an NFRC U-factor. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function UValueCalculatorPage() {
           "@type": "HowTo",
           name: "How to calculate a whole-window U-value (Uw) per EN ISO 10077-1",
           description:
-            "Work out whole-window thermal transmittance and compare the number with Passive House, nZEB, ENERGY STAR, IECC and GB reference targets without treating unlike rating methods as certifications.",
+            "Work out whole-window thermal transmittance and compare the number with Passive House, England, Germany, ENERGY STAR, IECC, NBC and GB reference targets without treating unlike rating methods as certifications.",
           totalTime: "PT2M",
           step: [
             {

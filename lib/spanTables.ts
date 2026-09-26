@@ -9,44 +9,52 @@
 // app/frp-profile-calculator/ProfileCalculator.tsx. This prevents the static
 // tables and interactive results from drifting when a geometry formula changes.
 //
-// Fixed design basis (one published assumption set, stated on the page —
-// other codes/environments/limits are what the calculator itself is for):
-//   Material    EN 13706 Grade E23 (E_L 23 GPa, G_LT 3.5 GPa, F_tL 240 MPa,
-//               F_cL 200 MPa, F_vLT 30 MPa)
-//   Method      LRFD per ASCE/SEI 74-23 — φ 0.65, γ_Q 1.6 (live-dominated)
-//   Environment outdoor exposed — Ω_E 0.85 on characteristic strengths
+// Fixed design basis (one published assumption set, stated on the page;
+// other codes/environments/limits are what the calculator itself is for),
+// taken from the shared design basis in lib/frpDesignBasis.ts:
+//   Material    EN 13706-3 Grade E23 minimums (E_L 23 GPa, F_tL 240 MPa,
+//               shear 25 MPa = the EN 13706 interlaminar shear minimum);
+//               G_LT 3.5 GPa and F_cL 200 MPa are stated assumptions
+//   Method      LRFD per ASCE/SEI 74-23: φ 0.65, λ 0.8 (occupancy live load),
+//               γ_Q 1.6 (ASCE 7-22, live-dominated)
+//   Environment outdoor exposed: 0.85 on characteristic strengths
 //   Case        simply supported, uniform load, strong-axis bending
 //   Deflection  L/250 at service load, Timoshenko shear correction included
 //
 // Section sizes and kg/m weights come from the published catalog seed
-// (lib/catalog/seed.ts) — weights are F1-published values, never computed.
+// (lib/catalog/seed.ts); weights are F1-published values, never computed.
 
 import { buildProducts } from "@/lib/catalog/standardProfiles";
+import { DESIGN_MATERIALS, designResistance, envFactor, loadDuration } from "@/lib/frpDesignBasis";
 import { calcIx, calcShearArea, calcWx } from "@/lib/frpSectionProperties";
 import { buildToolStateHref } from "@/lib/toolStateUrl";
 
 /* Design basis constants */
-const E_MPA = 23_000;
-const G_MPA = 3_500;
-const F_B_CHAR = 200; // min(F_tL 240, F_cL 200) — compression face governs
-const F_V_CHAR = 30;
-const PHI = 0.65;
-const GAMMA_Q = 1.6;
-const ENV_FACTOR = 0.85;
+const MATERIAL = DESIGN_MATERIALS["frp-e23"];
+const METHOD = "lrfd-asce" as const;
+const ENVIRONMENT = "outdoor";
+const DURATION = "occupancy";
+const RESISTANCE = designResistance({ material: MATERIAL, method: METHOD, envId: ENVIRONMENT, durationId: DURATION });
+const E_MPA = MATERIAL.E * 1000 * RESISTANCE.envStiffness;
+const G_MPA = (MATERIAL.G_LT ?? 3.5) * 1000 * RESISTANCE.envStiffness;
+const GAMMA_Q = RESISTANCE.loadFactor;
 const DEFL_LIMIT = 250; // L/250 serviceability
 const UDL_FACTOR_S = 9.6; // Timoshenko c for UDL midspan (see calculator)
 
-const F_B_ALLOW = PHI * F_B_CHAR * ENV_FACTOR; // 110.5 MPa
-const F_V_ALLOW = PHI * F_V_CHAR * ENV_FACTOR; // 16.575 MPa
+const F_B_ALLOW = RESISTANCE.bendingAllowable; // 0.65 × 0.8 × 200 × 0.85 = 88.4 MPa
+const F_V_ALLOW = RESISTANCE.shearAllowable; // 0.65 × 0.8 × 25 × 0.85 = 11.05 MPa
+
+const DESIGN_BASIS_PHI = RESISTANCE.basis.phiFlex;
 
 export const SPANS_MM = [1000, 1500, 2000, 2500, 3000, 4000, 5000, 6000] as const;
 
 export const DESIGN_BASIS = {
   material: "EN 13706 Grade E23 (E-glass pultruded)",
-  E_L_GPa: 23,
-  G_LT_GPa: 3.5,
-  method: "LRFD — ASCE/SEI 74-23 (φ = 0.65, γ_Q = 1.6)",
-  environment: "Outdoor exposed (Ω_E = 0.85)",
+  E_L_GPa: MATERIAL.E,
+  G_LT_GPa: MATERIAL.G_LT ?? 3.5,
+  shearStrengthMPa: MATERIAL.tau ?? 25,
+  method: `LRFD, ASCE/SEI 74-23 (φ = ${DESIGN_BASIS_PHI}, λ = ${loadDuration(DURATION).lambda} for occupancy live load, γ_Q = ${GAMMA_Q})`,
+  environment: `Outdoor exposed (${envFactor(ENVIRONMENT).factor} on strengths)`,
   loadCase: "Simply supported, uniform distributed load, strong-axis bending",
   deflectionLimit: `L/${DEFL_LIMIT} at service load (Timoshenko shear deflection included)`,
   bendingAllowableMPa: Number(F_B_ALLOW.toFixed(1)),
@@ -105,8 +113,9 @@ function calculatorHref(shape: SpanRow["shape"], d: SpanRow["dims"]): string {
     tw: d.tw,
     tf: d.tf,
     material: "frp-e23",
-    env: "outdoor",
-    method: "lrfd-asce",
+    env: ENVIRONMENT,
+    method: METHOD,
+    duration: DURATION,
     load_type: "udl",
     defl: DEFL_LIMIT,
   });

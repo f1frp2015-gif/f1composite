@@ -155,14 +155,22 @@ export const mainNav = [
     sections: [
       {
         id: "engineering-tools",
-        label: "Engineering tools",
+        label: "Profiles & materials",
         links: [
           { label: "Profile Finder", href: "/tools/profile-finder" },
           { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
           { label: "FRP Span Tables", href: "/frp-span-tables" },
           { label: "Density & Weight Calculator", href: "/frp-density-calculator" },
-          { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
+        ],
+      },
+      {
+        id: "application-tools",
+        label: "Access, windows & quotes",
+        links: [
+          { label: "Handrail Load Check", href: "/tools/handrail-load-calculator" },
+          { label: "Ladder, Stair & Walkway Checker", href: "/tools/access-geometry-checker" },
           { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
+          { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
           { label: "Engineering Assistant", href: "/ask" },
         ],
       },

@@ -139,3 +139,35 @@ export function findStandardProfile(section: StandardSection): StandardProfilePr
     return false;
   }) ?? null;
 }
+
+/** Nominal H × B of a catalog product in calculator terms (angle legs, tube OD). */
+function nominalSection(product: StandardProfileProduct): { shape: StandardSection["shape"]; h: number; b: number; t: number } | null {
+  const d = product.geometry.dims;
+  switch (product.geometry.shape) {
+    case "i_beam": return { shape: "i-beam", h: d.H, b: d.B, t: d.tw };
+    case "channel": return { shape: "channel", h: d.H, b: d.B, t: d.tw };
+    case "angle": return { shape: "angle", h: d.a, b: d.b, t: d.t };
+    case "shs": return { shape: "square-tube", h: d.D, b: d.D, t: d.t };
+    case "rhs": return { shape: "square-tube", h: d.H, b: d.B, t: d.t };
+    case "tube": return { shape: "round-tube", h: d.OD, b: d.OD, t: d.t };
+    default: return null;
+  }
+}
+
+/**
+ * The published catalog size of the same shape closest to a calculator
+ * section: depth first, then width, then wall. Only real catalog sizes are
+ * returned, so a suggestion can always be quoted.
+ */
+export function nearestStandardProfile(shape: StandardSection["shape"], h: number, b: number, t: number): StandardProfileProduct | null {
+  if (![h, b, t].every((value) => Number.isFinite(value) && value > 0)) return null;
+  let best: { product: StandardProfileProduct; score: number } | null = null;
+  for (const product of PRODUCTS) {
+    const section = nominalSection(product);
+    if (!section || section.shape !== shape) continue;
+    const width = shape === "round-tube" ? 0 : Math.abs(section.b - b) / b;
+    const score = Math.abs(section.h - h) / h + 0.5 * width + 0.1 * (Math.abs(section.t - t) / t);
+    if (!best || score < best.score) best = { product, score };
+  }
+  return best?.product ?? null;
+}
