@@ -214,9 +214,9 @@ export default function MarinePage() {
           <nav aria-label="Marine application areas" className="mt-[24px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
             {applications.map((application) => (
               <a key={application.id} href={`#${application.id}`} className="rounded-card border border-border-default bg-bg2 p-[18px] transition-colors hover:border-teal-border hover:bg-teal-bg">
-                <span className="text-f13 font-bold tracking-widest text-teal-text">{application.number}</span>
+                <span className="text-f14 font-bold tracking-widest text-teal-text">{application.number}</span>
                 <span className="mt-[7px] block text-f16 font-bold text-t1">{application.title} <span aria-hidden="true" className="text-teal-text">↗</span></span>
-                <span className="mt-[7px] block text-f13 leading-relaxed text-t2">{application.intro}</span>
+                <span className="mt-[7px] block text-f14 leading-relaxed text-t2">{application.intro}</span>
               </a>
             ))}
           </nav>
@@ -237,7 +237,7 @@ export default function MarinePage() {
                   <div>
                     <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{application.number} / {application.title}</p>
                     <h3 className="mt-[10px] text-f24 font-bold leading-snug text-t1">{application.heading}</h3>
-                    <p className="mt-[16px] text-f17 font-medium leading-relaxed text-t1">{application.intro}</p>
+                    <p className="mt-[16px] text-f18 font-medium leading-relaxed text-t1">{application.intro}</p>
                     <div className="mt-[18px] space-y-[16px] text-f16 leading-[1.8] text-t2">
                       {application.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     </div>
@@ -261,7 +261,7 @@ export default function MarinePage() {
                     <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-border-default bg-white">
                       <Image src={application.image} alt={application.imageAlt} fill sizes="(max-width: 1280px) 100vw, 850px" className="object-cover" />
                     </div>
-                    <figcaption className="mt-[9px] text-f13 leading-relaxed text-t3">
+                    <figcaption className="mt-[9px] text-f14 leading-relaxed text-t3">
                       Conceptual AI visualization of {application.title.toLowerCase()}. It is not an installed F1 Composite project or an approved structural detail.
                     </figcaption>
                   </figure>
@@ -305,7 +305,7 @@ export default function MarinePage() {
           <div className="mt-[24px] grid gap-[20px] md:grid-cols-2">
             <div className="rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f18 font-bold text-t1">Location, loads and geometry</h3>
-              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f15 leading-relaxed text-t2">
+              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f16 leading-relaxed text-t2">
                 <li>Mark each deck, support, stair, ladder and rail on the layout.</li>
                 <li>Show spans, support width, openings, steps and access clearances.</li>
                 <li>State pedestrian, cart, equipment, wheel and maintenance loads separately.</li>
@@ -314,7 +314,7 @@ export default function MarinePage() {
             </div>
             <div className="rounded-card border border-border-default bg-white p-[24px]">
               <h3 className="text-f18 font-bold text-t1">Exposure, approval and supply</h3>
-              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f15 leading-relaxed text-t2">
+              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f16 leading-relaxed text-t2">
                 <li>Describe immersion, splash, salt air, UV, temperature and cleaning media.</li>
                 <li>Provide slip, opening, accessibility and overwater permit requirements.</li>
                 <li>Name fire, offshore, flag-state or class requirements where applicable.</li>
@@ -322,10 +322,10 @@ export default function MarinePage() {
               </ul>
             </div>
           </div>
-          <p className="mt-[22px] max-w-[900px] text-f15 leading-relaxed text-t2">
+          <p className="mt-[22px] max-w-[900px] text-f16 leading-relaxed text-t2">
             Ask for load and deflection data tied to the selected panel and span, compatible resin and fastener details, and any required fire or slip reports for the offered assembly. A catalog section or generic material claim alone does not define project capacity or approval.
           </p>
-          <Link href={quoteHref} className="mt-[18px] inline-flex rounded-[7px] bg-teal-text px-[20px] py-[12px] text-f14 font-bold text-white transition-colors hover:bg-teal">
+          <Link href={quoteHref} className="mt-[18px] inline-flex rounded-control bg-teal-text px-[20px] py-[12px] text-f14 font-bold text-white transition-colors hover:bg-teal">
             Send a marine project brief <span aria-hidden="true" className="ml-[8px]">→</span>
           </Link>
         </div>

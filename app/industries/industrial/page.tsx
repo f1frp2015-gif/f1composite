@@ -207,7 +207,7 @@ export default function IndustrialPage() {
           <nav aria-label="Industrial application guide" className="mt-[22px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
             {applications.map((application) => (
               <a key={application.id} href={"#" + application.id} className="rounded-card border border-border-default bg-white p-[18px] transition-colors hover:border-teal-border hover:bg-teal-bg">
-                <span className="text-f13 font-bold tracking-widest text-teal-text">{application.number}</span>
+                <span className="text-f14 font-bold tracking-widest text-teal-text">{application.number}</span>
                 <span className="mt-[8px] block text-f16 font-bold text-t1">{application.title}</span>
                 <span className="mt-[7px] block text-f14 leading-relaxed text-t2">{application.summary}</span>
               </a>
@@ -230,7 +230,7 @@ export default function IndustrialPage() {
                         <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-white">
                           <Image src={application.image} alt={application.alt} fill sizes="(max-width: 1024px) 100vw, 820px" className="object-cover" />
                         </div>
-                        <figcaption className="mt-[9px] text-f13 leading-relaxed text-t3">AI-generated application concept, not a documented F1 installation. Final geometry and material depend on the project specification.</figcaption>
+                        <figcaption className="mt-[9px] text-f14 leading-relaxed text-t3">AI-generated application concept, not a documented F1 installation. Final geometry and material depend on the project specification.</figcaption>
                       </figure>
                     ) : null}
                     <div className="mt-[20px] space-y-[16px] text-f16 leading-[1.8] text-t2">
@@ -275,7 +275,7 @@ export default function IndustrialPage() {
               <Link href="/products/frp-stair-treads" className="mt-[16px] inline-block text-f14 font-semibold text-teal-text hover:underline">Review stair treads and covers →</Link>
             </article>
           </div>
-          <p className="mt-[22px] text-f15 leading-relaxed text-t2">For basin edges, treatment tanks and dosing rooms, continue to the dedicated <Link href="/industries/water-wastewater" className="font-semibold text-teal-text hover:underline">water and wastewater industry guide</Link>.</p>
+          <p className="mt-[22px] text-f16 leading-relaxed text-t2">For basin edges, treatment tanks and dosing rooms, continue to the dedicated <Link href="/industries/water-wastewater" className="font-semibold text-teal-text hover:underline">water and wastewater industry guide</Link>.</p>
         </div>
       </section>
 
