@@ -202,11 +202,8 @@
   },
   {
     "path": "/industries/industrial",
-    "title": "FRP for Industrial Plants — Chemical-Resistant Pultruded",
-    "description": "Pultruded FRP profiles, grating, ladders and handrails for chemical, process and manufacturing plants, with chemical-resistant and fire-retardant resins.",
-    "aliases": [
-      "FRP Composite Profiles for Industrial Applications"
-    ]
+    "title": "FRP for Chemical & Industrial Facilities",
+    "description": "FRP grating, platforms, handrails, cooling-tower profiles and cable supports for chemical plants. Match each assembly to process loads and exposure."
   },
   {
     "path": "/industries/infrastructure",
@@ -218,19 +215,13 @@
   },
   {
     "path": "/industries/marine",
-    "title": "FRP for Marine — Saltwater Structures & Docks",
-    "description": "Pultruded FRP profiles and grating for docks, offshore platforms, walkways and tie-rods: no rust in saltwater, vinyl ester options, EN 13706 profiles.",
-    "aliases": [
-      "FRP Composite Profiles for Marine Applications"
-    ]
+    "title": "FRP for Marine Docks, Walkways & Access Platforms",
+    "description": "Explore FRP grating, decking, structural profiles and access systems for marinas, coastal boardwalks, offshore platforms and seawater facilities."
   },
   {
     "path": "/industries/vehicle",
-    "title": "FRP Profiles for Transport & Vehicle Structures",
-    "description": "Lightweight pultruded FRP profiles for commercial vehicles, buses, rail cars and specialty transport: about 75% lighter than steel, and they do not rust.",
-    "aliases": [
-      "FRP Composite Profiles for Vehicle & Transport"
-    ]
+    "title": "FRP Profiles for Vehicle & Transport Components",
+    "description": "FRP profiles for bus bodies, refrigerated trailer walls, railcar interiors and specialty vehicles. See component locations, design checks and product options."
   },
   {
     "path": "/industries/water-wastewater",
