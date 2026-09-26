@@ -3,348 +3,365 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import JumpNav from "@/components/sections/JumpNav";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
-import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import CollectionSchema from "@/components/seo/CollectionSchema";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildRfqHref } from "@/lib/rfq";
+
+const pagePath = "/industries/industrial";
+const pageTitle = "FRP for Chemical & Industrial Facilities";
+const pageDescription =
+  "FRP grating, platforms, handrails, cooling-tower profiles and cable supports for chemical plants. Match each assembly to process loads and exposure.";
+const heroImage = "/images/industries/industrial-chemical-platform-concept.webp";
+const quoteHref = buildRfqHref({
+  source: "industrial-industry",
+  product: "FRP components for an industrial facility",
+  productPath: pagePath,
+});
+const heading =
+  "mt-[13px] text-[clamp(26px,3vw,36px)] font-bold leading-tight tracking-[-0.02em] text-t1";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Industrial Plants — Chemical-Resistant Pultruded",
-  description:
-    "Pultruded FRP profiles and gratings for industrial plants: chemical-resistant, fire-retardant (UL 94 V-0), low-maintenance. EN 13706 certified.",
-  path: "/industries/industrial",
-  image: "/industries/industrial/opengraph-image",
+  title: pageTitle,
+  description: pageDescription,
+  path: pagePath,
+  image: heroImage,
 });
 
-const answerItems = [
+const productLinks = [
+  { label: "Molded FRP grating", href: "/products/molded-frp-grating" },
+  { label: "Pultruded FRP grating", href: "/products/frp-gratings" },
+  { label: "FRP structural profiles", href: "/products/fiberglass-structural-shapes" },
+  { label: "FRP handrail systems", href: "/products/frp-handrail-systems" },
+  { label: "FRP fixed ladders", href: "/products/frp-ladders" },
+  { label: "FRP stair treads", href: "/products/frp-stair-treads" },
+  { label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" },
+];
+
+const applications = [
   {
-    question: "Why use FRP in industrial plants?",
-    answer:
-      "FRP is used in industrial plants because it resists corrosion from chemicals, moisture, and wash-down cycles while reducing maintenance and improving worker safety on access structures.",
+    id: "tank-platforms",
+    number: "01",
+    title: "Chemical dosing and tank-access platforms",
+    summary: "Valve operation, sampling and inspection above bunds and process equipment.",
+    image: heroImage,
+    alt: "Illustrated chemical tank access platform with FRP grating, structural beams, handrails and nearby process piping",
+    paragraphs: [
+      "A tank-side platform may be used for valve operation every shift, sampling at a fixed point and occasional replacement of an agitator or instrument. Its walking route, clearances and escape path need to work around the actual vessels and pipework. Splash, vapour, rain and washdown can reach different parts of the assembly at different frequencies.",
+      "Pultruded I-beams or channels can form the support frame; molded or pultruded grating provides the walking surface; stair treads, guardrails and toe boards complete the access route. The guardrail posts transfer their loads into the platform frame, while base plates and anchors transfer all reactions into the existing structure. A replacement for steel therefore needs a new member and connection check, even when the footprint is unchanged.",
+      "Start resin selection with a list of chemicals, concentrations, temperatures and exposure modes, including cleaning agents. Define where cuts, drilled holes and metal fasteners will be exposed. Supply can be limited to profiles and panels or expanded to a cut, drilled and labelled component package against approved drawings.",
+    ],
+    components: ["I-beams and channels", "Grating and stair treads", "Handrails, toe boards and fittings"],
+    checks: ["Operating and maintenance loads, clear spans and deflection", "Guardrail layout, anchor substrate and local connection loads", "Chemical splash, washdown and fire requirements"],
+    links: [
+      { label: "Chemical platform application guide", href: "/applications/frp-chemical-plant-platforms" },
+      { label: "Structural profiles", href: "/products/fiberglass-structural-shapes" },
+      { label: "Handrail systems", href: "/products/frp-handrail-systems" },
+    ],
   },
   {
-    question: "Where is FRP commonly used in industrial facilities?",
-    answer:
-      "Common uses include gratings, handrails, cable trays, equipment supports, access platforms, ladders, and custom profiles in chemical, wastewater, food, and pharmaceutical facilities.",
+    id: "plating-pickling",
+    number: "02",
+    title: "Plating and pickling-line walkways",
+    summary: "Operator paths beside treatment baths, trenches and maintenance openings.",
+    image: "/images/industries/industrial-plating-line-concept.webp",
+    alt: "Illustrated plating line walkway with FRP grating panels alongside process baths and a guarded access route",
+    paragraphs: [
+      "An operator beside a plating or pickling line needs access to bath controls, hoists and inspection points without stepping around open channels or loose covers. Mist above the baths, drips from transferred parts and periodic cleaning create a different exposure from a dry production aisle. Set out the walkway width, removable sections, drainage path and barriers around every opening before selecting a panel.",
+      "Molded grating is often a useful starting point for irregular layouts with several cutouts or support in two directions. Pultruded grating suits layouts organized around a defined bearing-bar direction and a checked span. In either case, the chosen mesh or bar opening, surface texture, edge supports, hold-down clips and the load from tools or carts belong on the panel schedule.",
+      "Chemical compatibility is specific to the actual bath and cleaning chemistry. A resin family name alone cannot establish suitability for concentrated acids, oxidizers or elevated temperatures. Review the proposed laminate and any exposed cut edges with the material supplier before releasing the layout.",
+    ],
+    components: ["Molded or pultruded grating", "Stair treads and edge framing", "Guardrails and removable-panel hardware"],
+    checks: ["Bath chemistry, mist, spills and washdown temperature", "Cutout positions, support bearing and grating orientation", "Slip surface, drainage, clips and safe removal sequence"],
+    links: [
+      { label: "Molded grating", href: "/products/molded-frp-grating" },
+      { label: "Pultruded grating", href: "/products/frp-gratings" },
+      { label: "Stair treads", href: "/products/frp-stair-treads" },
+    ],
   },
   {
-    question: "Which resin systems are common for industrial FRP?",
-    answer:
-      "Industrial FRP commonly uses isophthalic polyester for general duty, vinyl ester for aggressive chemical service, and polyurethane systems for high toughness and fast-cure applications.",
+    id: "cooling-towers",
+    number: "03",
+    title: "Cooling-tower framing and wet-zone access",
+    summary: "Service decks, support members and access around continually wet equipment.",
+    image: "/images/industries/industrial-cooling-tower-concept.webp",
+    alt: "Illustrated cooling tower wet zone with FRP grating walkway, beams, bracing and guardrails",
+    paragraphs: [
+      "Inside a cooling tower, the frame and access route see saturated air, water-treatment chemicals and repeated wet-dry cycles. Fan-deck maintenance, louver access and inspection around the fill require members that work as a connected structure. Pultruded beams, channels, square tubes and angles can form framing, bracing and edge supports; grating and rails complete the service route.",
+      "The design must account for the tower's maximum expected water temperature, sustained loads, member buckling, service deflection and the stiffness of bolted joints. Water chemistry and the biocide program affect resin selection. CTI STD-137 addresses pultruded structural products for cooling towers, including material and quality requirements; its use still requires the offered product and project design to be checked.",
+      "For refurbishment, provide the existing tower drawings, support positions and the replacement sequence. A lighter component may simplify handling, but the existing anchors, remaining structure and temporary support during change-out still need engineering review.",
+    ],
+    components: ["I-beams, channels and square tubes", "Angles, grating and louvers", "Guardrails and connection plates"],
+    checks: ["Water chemistry, biocides and maximum temperature", "Long-duration loads, buckling and service deflection", "Connections, cut-edge treatment and replacement staging"],
+    links: [
+      { label: "Cooling tower application guide", href: "/applications/frp-cooling-tower-profiles" },
+      { label: "FRP I-beams", href: "/products/fiberglass-structural-shapes/frp-i-beam" },
+      { label: "FRP square tubes", href: "/products/fiberglass-structural-shapes/frp-square-tube" },
+    ],
   },
   {
-    question: "What is the main lifecycle benefit of FRP in corrosive plants?",
-    answer:
-      "The main lifecycle benefit is avoiding repeated coating, repair, and replacement cycles that make steel access systems expensive over time in corrosive industrial environments.",
+    id: "cable-routes",
+    number: "04",
+    title: "Cable routes through corrosive process areas",
+    summary: "Ladders, brackets and supports beside pipe racks and dosing equipment.",
+    image: "/images/industries/industrial-cable-support-concept.webp",
+    alt: "Illustrated FRP cable ladder on wall brackets in a chemical processing corridor",
+    paragraphs: [
+      "Electrical and control cables often pass above chemical dosing skids, washdown aisles or outdoor pipe corridors. The support schedule needs more than a route length: cable mass, future fill, support spacing, fittings, turns and the location of each splice all affect deflection and connection demand.",
+      "Pultruded channels and angles can form wall brackets and secondary supports; square tubes can serve as posts in a free-standing frame. A cable ladder or tray is a complete system with side rails, rungs or base, splices and fittings. Confirm whether the enquiry is for component profiles, fabricated supports or a qualified complete tray system before citing IEC 61537 or another system standard.",
+      "FRP members are nonmetallic, but they do not settle the electrical design. Cable bonding, metallic fasteners, static control, fire and smoke requirements, and any hazardous-area rules remain with the project engineer. State these requirements separately from the chemical exposure specification.",
+    ],
+    components: ["Channels and angles for brackets", "Square tubes for support posts", "Agreed tray, ladder and fitting package"],
+    checks: ["Cable load, future fill, route geometry and support spacing", "Bracket anchors, splices and concentrated maintenance loads", "Electrical, fire and hazardous-area requirements"],
+    links: [
+      { label: "Cable tray support guide", href: "/applications/frp-cable-tray-supports" },
+      { label: "FRP channels", href: "/products/fiberglass-structural-shapes/frp-channel" },
+      { label: "Custom profiles", href: "/products/custom-pultruded-profiles" },
+    ],
   },
+];
+
+const selectionRows = [
+  ["Walkway with cutouts", "Molded grating", "/products/molded-frp-grating", "Mesh opening, local supports, clips and removable panels"],
+  ["Span-led walking surface", "Pultruded grating", "/products/frp-gratings", "Bearing direction, clear span, loads and deflection"],
+  ["Platform or tower frame", "I-beams, channels, tubes and angles", "/products/fiberglass-structural-shapes", "Member stability, connections, temperature and anchors"],
+  ["Platform edge protection", "Handrail systems", "/products/frp-handrail-systems", "Guardrail loads, toe boards, post spacing and substrate"],
+  ["Vertical and stepped access", "Fixed ladders", "/products/frp-ladders", "Ladder layout, landing transition and anchorage"],
+  ["Stair access", "Stair treads", "/products/frp-stair-treads", "Tread span, nosing, slip surface and fixings"],
+  ["Cable route supports", "Channels, angles and custom sections", "/applications/frp-cable-tray-supports", "Cable load, support spacing, fittings and system scope"],
 ];
 
 const faqs = [
   {
-    question: "Which chemicals can FRP profiles resist?",
-    answer:
-      "The chemical resistance of FRP profiles depends on the resin system selected. Our vinyl ester FRP profiles provide broad-spectrum resistance to inorganic acids (sulfuric acid up to 50%, hydrochloric acid up to 37%, phosphoric acid up to 85%), alkalis (sodium hydroxide up to 30%), chlorinated solvents, petroleum hydrocarbons, and most aqueous salt solutions. For highly oxidizing environments (nitric acid, chromic acid, strong bleach), we offer profiles in premium corrosion-resistant vinyl ester resins. Isophthalic polyester profiles are suitable for mild chemical exposure at lower cost. We provide detailed chemical resistance charts and corrosion data for all resin systems upon request.",
+    question: "Which industrial chemicals can an FRP profile withstand?",
+    answer: "Compatibility depends on the complete laminate and the chemical, concentration, temperature, exposure duration and cleaning cycle. Send the process-chemical list with the enquiry so the offered resin and surface construction can be reviewed for the actual service. Do not apply a generic vinyl-ester rating to every formulation or chemical mixture.",
   },
   {
-    question: "Do FRP profiles meet food safety requirements for food processing facilities?",
-    answer:
-      "Yes. Our food-grade FRP profiles are manufactured with FDA-compliant resin systems conforming to 21 CFR 177.2420 (polyester resins) and use pigments and additives that are FDA-listed. The non-porous, sealed surface of pultruded FRP does not harbor bacteria and can be cleaned with standard CIP (clean-in-place) solutions including sodium hydroxide, peracetic acid, and quaternary ammonium sanitizers without surface degradation. Our food-grade profiles carry NSF/ANSI 61 certification for water contact applications and can be supplied with smooth, gel-coated surfaces that meet USDA dairy equipment guidelines for cleanability.",
+    question: "When should a plant use molded rather than pultruded grating?",
+    answer: "Molded panels are a useful starting point for layouts with frequent openings or multidirectional support. Pultruded panels have a defined bearing-bar direction and suit span-led layouts. Both need a panel-specific load and deflection check, suitable edge support, hold-downs, surface and openings.",
   },
   {
-    question: "What fire performance do FRP profiles achieve in industrial settings?",
-    answer:
-      "Fire-retardant resin systems, including halogen-free options, are available for industrial profiles. A pultruded composite profile has an SGS report for UL 94 V-0 self-extinguishing behaviour, published on the evidence page. ASTM E84 flame-spread (Class 1 target, flame spread index 25 or less), ASTM E662 smoke density, BS 6853 toxicity and ASTM E119 fire-resistance reports are provided on request for the formulation you specify. If a cleanroom project requires FM 4910, raise it at the RFQ stage so the material and test route can be agreed.",
+    question: "Can an FRP beam replace a steel beam of the same size?",
+    answer: "A direct same-size substitution should not be assumed. Compare the complete assembly against its load cases, deflection limit, buckling, connection bearing and environmental exposure. Retrofitted anchors and the remaining supporting structure also need review.",
   },
   {
-    question: "Can FRP profiles support the same loads as steel in structural applications?",
-    answer:
-      "FRP profiles can be sized to carry the same loads as steel profiles, though the sections will typically be deeper due to FRP's lower elastic modulus (25-40 GPa versus 200 GPa for steel). The key advantage is that FRP achieves this load capacity at roughly 25% of the weight of steel. For gratings, our heavy-duty FRP molded gratings achieve load ratings exceeding 500 kN/m2, matching standard steel gratings. For structural members like beams and columns, our engineering team provides load tables and spanning charts that enable direct comparison with steel sections for any given loading condition.",
+    question: "Is every FRP profile fire rated or suitable for a hazardous area?",
+    answer: "No. Specify the applicable flame, smoke, structural fire, static-control and hazardous-area requirements for the installed component or assembly. Request reports for the offered laminate and relevant test configuration; a resin label or small-sample rating alone does not establish project acceptance.",
+  },
+  {
+    question: "Can these products be used in food or pharmaceutical production areas?",
+    answer: "FRP may be evaluated for non-product-contact access and service areas exposed to frequent washdown. Direct food contact, cleanroom use and validated hygiene performance require separate review of the finished product, surface, joints, cleaning chemicals and the site's acceptance criteria. Do not infer those approvals from a resin ingredient.",
+  },
+  {
+    question: "What should an industrial FRP RFQ include?",
+    answer: "Send the layout or marked-up drawings, component schedule, loads and support spacing, chemical and temperature exposure, fire and electrical criteria, fabrication scope, required evidence, quantity, destination and installation timetable. F1 can then confirm the proposed material and supply boundary in its quotation.",
   },
 ];
 
 export default function IndustrialPage() {
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "FRP Composite Profiles for Industrial Applications",
-    description:
-      "FRP profiles for industrial use: chemical-resistant gratings, fire-retardant structural profiles for water treatment, food processing, pharma.",
-    url: absoluteUrl("/industries/industrial"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for industrial processing",
-    },
-    provider: { "@id": "https://www.f1composite.com/#organization" },
-  };
-
   return (
     <>
-      <JsonLd data={webPageSchema} />
+      <CollectionSchema name={pageTitle} description={pageDescription} path={pagePath} links={productLinks} />
       <PageHeader
-        tag="Industries / Industrial"
-        title="FRP Composite Profiles for Industrial Applications"
-        description="Fiber-reinforced polymer (FRP) profiles for processing plants, water treatment facilities and manufacturing sites where steel corrodes: chemical-resistant resins, fire-retardant grades and low maintenance."
+        tag="Industries / Industrial & Chemical"
+        title={pageTitle}
+        description="Specify the access system around the process: from a tank-side valve platform to a cooling-tower deck or cable corridor, match each FRP component to its loads, exposure and connection details."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
           { label: "Industrial & Chemical" },
         ]}
+        actions={{
+          primary: { label: "Explore applications", href: "#applications" },
+          secondary: { label: "Discuss a plant project", href: quoteHref },
+        }}
       />
+      <JumpNav items={[
+        { label: "Applications", href: "#applications" },
+        { label: "Select products", href: "#product-selection" },
+        { label: "Plan the RFQ", href: "#rfq" },
+        { label: "Resources & FAQ", href: "#resources" },
+      ]} />
+
+      <section id="applications" className="scroll-mt-28 bg-white py-[40px] md:py-[55px]">
+        <div className="site-container">
+          <div className="grid gap-[20px] lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <SectionTag>Four process-area applications</SectionTag>
+              <h2 className={heading}>Where FRP components do a specific job</h2>
+            </div>
+            <p className="max-w-[610px] text-f16 leading-relaxed text-t2">
+              F1 supplies pultruded profiles and coordinated access components. The value of a lighter, corrosion-resistant material depends on the real operating route, the chemicals present and the full assembly, including its grating supports, connections and inspection plan.
+            </p>
+          </div>
+          <figure className="mt-[28px]">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
+              <Image src={heroImage} alt={applications[0].alt} fill sizes="(max-width: 1280px) 100vw, 1212px" className="object-cover" preload />
+            </div>
+            <figcaption className="mt-[10px] text-f14 leading-relaxed text-t3">
+              AI-generated application concept of a chemical tank-access platform, not a documented F1 installation. Member sizes, connections and resin specification require project drawings and engineering review.
+            </figcaption>
+          </figure>
+          <nav aria-label="Industrial application guide" className="mt-[22px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+            {applications.map((application) => (
+              <a key={application.id} href={"#" + application.id} className="rounded-card border border-border-default bg-white p-[18px] transition-colors hover:border-teal-border hover:bg-teal-bg">
+                <span className="text-f13 font-bold tracking-widest text-teal-text">{application.number}</span>
+                <span className="mt-[8px] block text-f16 font-bold text-t1">{application.title}</span>
+                <span className="mt-[7px] block text-f14 leading-relaxed text-t2">{application.summary}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      <section className="border-y border-border-default bg-bg2 py-[55px]">
+        <div className="site-container">
+          <div className="divide-y divide-border-default">
+            {applications.map((application, index) => (
+              <article key={application.id} id={application.id} className="scroll-mt-28 py-[42px] first:pt-0 last:pb-0">
+                <div className="grid gap-[30px] lg:grid-cols-[minmax(0,1fr)_310px] lg:gap-[50px]">
+                  <div>
+                    <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{application.number} / {application.summary}</p>
+                    <h2 className="mt-[12px] text-[clamp(24px,2.6vw,32px)] font-bold leading-tight text-t1">{application.title}</h2>
+                    {index > 0 ? (
+                      <figure className="mt-[22px]">
+                        <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-white">
+                          <Image src={application.image} alt={application.alt} fill sizes="(max-width: 1024px) 100vw, 820px" className="object-cover" />
+                        </div>
+                        <figcaption className="mt-[9px] text-f13 leading-relaxed text-t3">AI-generated application concept, not a documented F1 installation. Final geometry and material depend on the project specification.</figcaption>
+                      </figure>
+                    ) : null}
+                    <div className="mt-[20px] space-y-[16px] text-f16 leading-[1.8] text-t2">
+                      {application.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
+                    <div className="mt-[20px] flex flex-wrap gap-x-[22px] gap-y-[10px]">
+                      {application.links.map((link) => (
+                        <Link key={link.href} href={link.href} className="text-f14 font-semibold text-teal-text hover:underline">{link.label} →</Link>
+                      ))}
+                    </div>
+                  </div>
+                  <aside className="self-start rounded-card border border-border-default bg-white p-[22px]" aria-label={application.title + " specification summary"}>
+                    <h3 className="text-f16 font-bold text-t1">Likely components</h3>
+                    <ul className="mt-[12px] list-disc space-y-[8px] pl-[18px] text-f14 leading-relaxed text-t2">
+                      {application.components.map((component) => <li key={component}>{component}</li>)}
+                    </ul>
+                    <h3 className="mt-[22px] border-t border-border-default pt-[18px] text-f16 font-bold text-t1">Confirm before selection</h3>
+                    <ul className="mt-[12px] list-disc space-y-[8px] pl-[18px] text-f14 leading-relaxed text-t2">
+                      {application.checks.map((check) => <li key={check}>{check}</li>)}
+                    </ul>
+                  </aside>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-card">
-            <Image
-              src="/images/industries/frp-industrial-chemical-plant-facility.jpg"
-              alt="Industrial chemical plant facility with corrosion-resistant composite profiles"
-              width={1280}
-              height={600}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-              preload
-            />
+          <SectionTag>More demanding plant routes</SectionTag>
+          <h2 className={heading}>Extend the same selection method to adjacent equipment</h2>
+          <div className="mt-[24px] grid gap-[20px] md:grid-cols-2">
+            <article className="rounded-card border border-border-default p-[24px]">
+              <h3 className="text-f20 font-bold text-t1">Pump rooms and scrubber access</h3>
+              <p className="mt-[13px] text-f16 leading-relaxed text-t2">A maintenance route to pump seals, filter covers, scrubber nozzles or dampers may need removable grating, room for lifting a component and a guarded edge beside equipment. Check localized tool and equipment loads, clear headroom, panel removal sequence, support reactions and the cleaning or condensate chemistry. A grating panel should not obstruct drainage or access to a shut-off point.</p>
+              <Link href="/applications/frp-chemical-plant-platforms" className="mt-[16px] inline-block text-f14 font-semibold text-teal-text hover:underline">Plan an access platform →</Link>
+            </article>
+            <article className="rounded-card border border-border-default p-[24px]">
+              <h3 className="text-f20 font-bold text-t1">Wet production and washdown zones</h3>
+              <p className="mt-[13px] text-f16 leading-relaxed text-t2">In beverage, food or other wet production buildings, FRP can be evaluated for non-product-contact mezzanines, service stairs and utility corridors exposed to repeated cleaning. Record the washdown temperature, detergents and sanitizers, drainage, slip-surface needs and cleanable joint details. Direct food contact or cleanroom use requires separate finished-product evidence and site approval.</p>
+              <Link href="/products/frp-stair-treads" className="mt-[16px] inline-block text-f14 font-semibold text-teal-text hover:underline">Review stair treads and covers →</Link>
+            </article>
+          </div>
+          <p className="mt-[22px] text-f15 leading-relaxed text-t2">For basin edges, treatment tanks and dosing rooms, continue to the dedicated <Link href="/industries/water-wastewater" className="font-semibold text-teal-text hover:underline">water and wastewater industry guide</Link>.</p>
+        </div>
+      </section>
+
+      <section id="product-selection" className="scroll-mt-28 border-y border-border-default bg-bg2 py-[55px]">
+        <div className="site-container">
+          <SectionTag>Choose by function</SectionTag>
+          <h2 className={heading}>Match the component to the load path</h2>
+          <p className="mt-[14px] max-w-[790px] text-f16 leading-relaxed text-t2">Profiles, grating and access assemblies have different reinforcement layouts and design checks. Select a product family only after locating its supports, loads, openings and connections.</p>
+          <div role="region" aria-label="Industrial FRP product selection" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-card border border-border-default bg-white">
+            <table className="w-full min-w-[760px] text-left text-f14">
+              <caption className="sr-only">Industrial application, product family and key design decision</caption>
+              <thead className="bg-deep text-white"><tr>{["Component function", "Start with", "What decides the specification"].map((label) => <th key={label} scope="col" className="px-[22px] py-[16px] font-semibold">{label}</th>)}</tr></thead>
+              <tbody>
+                {selectionRows.map(([functionName, product, href, decision]) => (
+                  <tr key={functionName} className="border-t border-border-default">
+                    <th scope="row" className="px-[22px] py-[18px] font-semibold text-t1">{functionName}</th>
+                    <td className="px-[22px] py-[18px]"><Link href={href} className="font-semibold text-teal-text hover:underline">{product} →</Link></td>
+                    <td className="px-[22px] py-[18px] text-t2">{decision}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-[26px] grid gap-[16px] md:grid-cols-3">
+            <div className="rounded-card border border-border-default bg-white p-[22px]"><h3 className="font-bold text-t1">Chemical exposure</h3><p className="mt-[9px] text-f14 leading-relaxed text-t2">Review the complete resin, reinforcement and surface package against concentration, temperature and contact mode. Cut edges and connection hardware are part of the exposure.</p></div>
+            <div className="rounded-card border border-border-default bg-white p-[22px]"><h3 className="font-bold text-t1">Structural performance</h3><p className="mt-[9px] text-f14 leading-relaxed text-t2">Check member and panel deflection, local loads, buckling, bearing and anchor reactions. An identical steel and FRP section size does not imply identical performance.</p></div>
+            <div className="rounded-card border border-border-default bg-white p-[22px]"><h3 className="font-bold text-t1">Plant safety</h3><p className="mt-[9px] text-f14 leading-relaxed text-t2">Set fire, smoke, electrical, static, slip and fall-protection criteria for the location. Confirm the offered assembly and its evidence against those requirements.</p></div>
           </div>
         </div>
       </section>
 
-      <AnswerBlocks
-        tag="Industrial Answers"
-        title="Fast answers for chemical, water, food, and process environments"
-        description="These compact answers are designed for quick evaluation by plant teams, EPC firms, and AI systems summarizing industrial material choices."
-        items={answerItems}
-      />
-
-      {/* Challenge Section */}
-      <section className="bg-white py-[89px]">
+      <section id="rfq" className="scroll-mt-28 bg-white py-[55px]">
         <div className="site-container">
-          <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Chemical Exposure Destroys Steel Infrastructure From the Inside Out
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Industrial processing environments expose structural materials to chemical agents that accelerate corrosion far beyond atmospheric rates. In chemical processing plants, acid mists, alkaline splashes, solvent vapors, and chlorine-bearing atmospheres attack carbon steel at rates of 1 to 5 mm per year — meaning that a standard 6mm steel grating can corrode through completely within 2 to 3 years without protective coatings. Even with protective coatings, mechanical damage from foot traffic, dropped tools, and equipment movement exposes base metal that then corrodes preferentially, undermining the coating from beneath.
-              </p>
-              <p>
-                Water and wastewater treatment facilities face particularly aggressive conditions. Hydrogen sulfide gas generated in anaerobic treatment processes attacks steel structures, concrete, and even stainless steel in enclosed spaces. The concentration of H2S in headspaces above wastewater holding tanks and digesters can reach 50 to 200 ppm — levels at which carbon steel corrodes at over 2 mm per year and even 316L stainless steel shows measurable pitting within 5 years. The Water Environment Federation estimates that corrosion-related repair and replacement accounts for 15% to 20% of total water utility infrastructure spending in developed countries.
-              </p>
-              <p>
-                The economic consequence of industrial corrosion extends well beyond material replacement cost. When a corroded grating panel fails under foot traffic, or a corroded handrail gives way, the resulting injury costs — medical expenses, lost work time, regulatory penalties, and litigation — can exceed the replacement cost of the corroded structure by orders of magnitude. OSHA records show that falls through corroded gratings and handrail failures rank among the most common causes of serious injury in chemical processing facilities.
-              </p>
-            </div>
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Food and pharmaceutical processing facilities face a different but equally demanding set of challenges. These environments require materials that withstand aggressive cleaning regimens — daily wash-downs with caustic solutions (sodium hydroxide at 2% to 5%), peracetic acid sanitizers, and high-pressure hot water. Steel surfaces, even when coated with food-safe epoxy, degrade under these repeated cleaning cycles. Coating chips and flakes create contamination risk, while corroding steel surfaces harbor bacteria in pits and crevices that cleaning solutions cannot reach.
-              </p>
-              <p>
-                Regulatory compliance adds another dimension. Food processing facilities must meet FDA 21 CFR requirements and USDA guidelines for materials in contact with food products. Pharmaceutical facilities operate under cGMP regulations that require non-shedding, non-porous surfaces in cleanroom-adjacent areas. Traditional materials require ongoing inspection and documentation to demonstrate continued compliance, while materials that are inherently corrosion-resistant and non-porous reduce the compliance burden significantly.
-              </p>
-              <p>
-                Fire safety in industrial environments compounds the material selection challenge. Chemical processing plants and pharmaceutical facilities store and process flammable materials. Structural materials used in these environments must be self-extinguishing to prevent fire propagation. Steel is non-combustible but loses structural capacity rapidly at elevated temperatures. Fiber-reinforced polymer (FRP) composites formulated with flame-retardant resin systems offer a unique combination: chemical corrosion resistance, self-extinguishing fire behavior, low smoke toxicity, and permanent structural performance that does not degrade over decades of chemical exposure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FRP Solutions Section */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Pultruded FRP Profiles for Chemical, Water, Food, and Pharmaceutical Processing
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <h3 className="text-f18 font-bold text-t1">Chemical Processing Plants</h3>
-              <p>
-                Pultruded FRP profiles form the structural backbone of corrosion-resistant infrastructure in chemical processing facilities. Our vinyl ester FRP gratings, structural shapes, and stair systems replace carbon steel and galvanized steel in areas exposed to acid mist, caustic splashes, chlorine gas, and solvent vapors. Unlike steel, which requires ongoing protective coating systems that degrade under chemical attack, FRP achieves corrosion resistance throughout its entire cross-section — there is no coating to chip, peel, or undercut.
-              </p>
-              <p>
-                We specify resin systems based on the specific chemical environment of each application. For sulfuric acid environments up to 98% concentration, we use premium bisphenol A vinyl ester resin with enhanced chemical barrier veils. For hydrochloric acid service, standard vinyl ester provides excellent resistance at concentrations up to 37% and temperatures up to 80 degrees Celsius. For mixed acid environments common in metal finishing operations, we provide detailed immersion test data specific to the customer&apos;s actual process chemistry.
-              </p>
-              <p>
-                Our chemical plant product range includes molded and pultruded gratings for process area flooring, structural profiles (I-beams, channels, angles, tubes) for equipment support frames, handrail systems for elevated walkways and tank access, and fixed ladder systems for vertical access. Connection methods, hardware material and anchor details are issued on the approved project drawings; prefabricated bolted assemblies can reduce field hot work when that installation concept is selected.
-              </p>
-              <div className="flex flex-wrap gap-x-[21px] gap-y-[8px]">
-                <LinkArrow href="/products/molded-frp-grating">Browse molded chemical-resistant grating</LinkArrow>
-                <LinkArrow href="/products/frp-ladders">Industrial FRP fixed ladders</LinkArrow>
-                <LinkArrow href="/products/frp-handrail-systems">Fiberglass handrail systems</LinkArrow>
+          <SectionTag>From site survey to RFQ</SectionTag>
+          <h2 className={heading}>Send the conditions that change the design</h2>
+          <p className="mt-[14px] max-w-[810px] text-f16 leading-relaxed text-t2">A marked-up layout and a short exposure schedule let F1 define a useful component proposal and the boundary of its supply. For a replacement job, include the existing member and anchor drawings where available.</p>
+          <div className="mt-[25px] grid gap-[18px] md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: "01 / Process environment", items: ["Chemicals, concentration and cleaning agents", "Operating and cleaning temperatures", "Splash, mist, immersion, UV and washdown frequency"] },
+              { title: "02 / Geometry and loads", items: ["Plan, elevations, openings and access route", "Spans, support spacing and load cases", "Deflection, grating direction and surface needs"] },
+              { title: "03 / Interfaces and rules", items: ["Anchors, base material and connection details", "Guardrails, stairs, ladders and egress basis", "Fire, smoke, electrical and hygiene requirements"] },
+              { title: "04 / Supply and evidence", items: ["Profiles, panels or fabricated component package", "Drawings, tests, samples and inspection records", "Quantity, destination and installation window"] },
+            ].map((group) => (
+              <div key={group.title} className="rounded-card border border-border-default bg-bg2 p-[22px]">
+                <h3 className="text-f16 font-bold text-t1">{group.title}</h3>
+                <ul className="mt-[13px] list-disc space-y-[9px] pl-[18px] text-f14 leading-relaxed text-t2">{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
               </div>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Water and Wastewater Treatment</h3>
-              <p>
-                Water treatment plants and wastewater facilities deploy FRP profiles in some of the most corrosive conditions in any industrial sector. Clarifier weirs, scum baffles, launders, and channel covers fabricated from FRP provide permanent resistance to the hydrogen sulfide, chlorine, and biogenic sulfuric acid that destroy steel and concrete in these environments.
-              </p>
-              <p>
-                FRP gratings serve as walkway surfaces over treatment basins, filter galleries, and chemical storage areas. Their non-slip surfaces maintain traction even when wet with process water, and their corrosion resistance eliminates the grating replacement cycles that plague steel installations. A typical municipal wastewater plant replacing steel gratings on a 10-year cycle can expect FRP gratings to last 30+ years without replacement, delivering a lifecycle cost reduction of 40% to 55% even though the initial material cost of FRP exceeds steel by approximately 2 to 3 times.
-              </p>
-              <p>
-                FRP handrail and guardrail systems protect workers along basin edges, elevated walkways, and chemical dosing platforms. Each layout is configured and evaluated against the stated guardrail basis—such as OSHA 1910.29 or the project&apos;s adopted building code—with post spacing, rails, fittings, bases, anchors and substrate checked together. Integral pigmentation can reduce coating dependence, but resin, UV package, color retention and maintenance requirements remain project-specific.
-              </p>
-            </div>
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <h3 className="text-f18 font-bold text-t1">Food Processing Facilities</h3>
-              <p>
-                FRP profiles in food processing applications must satisfy three simultaneous requirements: corrosion resistance against aggressive cleaning chemicals, compliance with food safety regulations, and structural performance under the dynamic loads of production environments. Our food-grade FRP profiles meet all three.
-              </p>
-              <p>
-                The non-porous surface of pultruded FRP prevents bacterial harbor that occurs in the pits and crevices of corroding steel. Independent laboratory testing per ASTM E2180 (antimicrobial surface test) confirms that our smooth-surface FRP profiles support less than 0.1% bacterial retention after standard CIP cleaning cycles — compared to 2% to 5% retention on corroded steel surfaces cleaned by the same protocol. This difference is significant for HACCP compliance and for meeting microbial count targets in production zone environmental monitoring programs.
-              </p>
-              <p>
-                We supply food-grade FRP structural profiles for equipment support frames, conveyor support structures, and mezzanine framing in production areas. Our food-grade gratings with sealed top surfaces serve as floor systems in wet processing areas, providing both drainage and anti-slip safety. All food-grade profiles are available in light colors (white, cream, light gray) that make visual cleanliness inspection easier.
-              </p>
-              <LinkArrow href="/products/custom-pultruded-profiles">
-                Explore custom industrial profiles
-              </LinkArrow>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Pharmaceutical and Cleanroom Environments</h3>
-              <p>
-                Pharmaceutical manufacturing facilities require structural materials that do not shed particles, do not support microbial growth, and can be decontaminated with aggressive cleaning agents. FRP profiles meet these requirements inherently. The closed, resin-rich surface of pultruded FRP does not generate particulate shedding under normal mechanical loads, making it suitable for ISO Class 7 and Class 8 cleanroom-adjacent areas.
-              </p>
-              <p>
-                For cleanroom construction, our FRP profiles provide framing for modular wall systems, ceiling grids, and equipment platforms. FRP&apos;s dimensional stability — it does not expand, contract, or warp with humidity changes — maintains the tight tolerances required for cleanroom envelope integrity. This stability is particularly valuable in facilities with adjacent areas at different pressure differentials, where even slight dimensional changes in framing can compromise room pressurization.
-              </p>
-              <p>
-                Semiconductor and pharmaceutical cleanrooms also set fire-propagation and smoke limits for installed materials, for example FM 4910. These depend on the resin formulation, so state the requirement at the RFQ stage and we will agree the material and test route.
-              </p>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
-              <ul className="list-none space-y-[13px]">
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Broad chemical resistance</strong> — vinyl ester FRP resists acids, alkalis, and solvents at concentrations that destroy steel within months</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">40-55% lifecycle cost reduction</strong> versus steel gratings on a 30-year basis in corrosive environments</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">UL 94 V-0 self-extinguishing</strong> fire rating with low smoke and low toxicity emissions</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">FDA 21 CFR compliant</strong> resin systems available for food and pharmaceutical contact applications</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Less than 0.1% bacterial retention</strong> after CIP cleaning — 20-50x better than corroded steel surfaces</span>
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
+          <p className="mt-[20px] text-f14 leading-relaxed text-t3">The engineer of record confirms the governing code, complete load path and acceptance of the installed system. F1&apos;s proposed resin, fabrication and evidence are confirmed for the quoted product.</p>
         </div>
       </section>
 
-      {/* Related Resources */}
-      <section className="bg-white py-[89px]">
+      <section id="resources" className="scroll-mt-28 border-t border-border-default bg-bg2 py-[55px]">
         <div className="site-container">
-          <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Products and Resources for Industrial Projects
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/products/frp-sound-barrier-wall"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Sound Barrier Walls</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Reflective or absorptive fiberglass noise barriers for compressors, equipment yards, utilities and property lines.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
-            </Link>
-            <Link
-              href="/products/frp-ladders"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial FRP Fixed Ladders</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Drawing-led fixed personnel-access ladders with pultruded side rails, fluted rungs, brackets and project-specific fall-protection interfaces.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
-            </Link>
-            <Link
-              href="/products/frp-handrail-systems"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Fiberglass Handrail Systems</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Square- and round-tube posts, rails, kick plates, fittings and bases coordinated against the project load and anchorage basis.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">View system →</span>
-            </Link>
-            <Link
-              href="/products/molded-frp-grating"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Industrial Gratings</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Chemical-resistant molded and pultruded FRP gratings for process areas, walkways, and platforms.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/products/custom-pultruded-profiles"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Bespoke FRP profile cross-sections designed for specific chemical, thermal, and structural requirements.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/resources/blog/frp-pipe-for-coal-mine-gas-drainage"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP Pipe for Coal Mine Gas Drainage</h3>
-              <p className="text-f14 leading-golden text-t2">
-                How anti-static, flame-retardant pultruded pipe is specified for underground gas drainage lines.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read article →
-              </span>
-            </Link>
-            <Link
-              href="/technology/frp-vs-steel-gratings"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Steel Gratings</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Corrosion, load capacity, slip resistance, electrical safety, and 30-year lifecycle cost compared between FRP and hot-dip galvanized steel gratings.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read comparison →
-              </span>
-            </Link>
-            <Link
-              href="/case-studies/factory-access-staircase"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Case Study: Factory Access Staircase</h3>
-              <p className="text-f14 leading-golden text-t2">
-                The access staircase in our own Chongqing plant, built from our profiles and in service since 2024 beside live electrical cabinets and resin vapor.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read case study →
-              </span>
-            </Link>
+          <SectionTag>Continue the design</SectionTag>
+          <h2 className={heading}>Product data and primary design references</h2>
+          <div className="mt-[24px] grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: "Product evidence", href: "/resources/evidence", body: "Find the available records for the proposed material or assembly." },
+              { label: "Technical data", href: "/resources/technical-data", body: "Review material properties and identify the required submittals." },
+              { label: "Design guides", href: "/resources/design-guides", body: "Continue into structural and connection planning." },
+              { label: "Downloads & CAD", href: "/resources/downloads", body: "Request drawings and reference documents for a defined package." },
+            ].map((resource) => (
+              <Link key={resource.href} href={resource.href} className="rounded-card border border-border-default bg-white p-[20px] hover:border-teal-border">
+                <h3 className="font-bold text-t1">{resource.label} <span aria-hidden="true" className="text-teal-text">→</span></h3>
+                <p className="mt-[8px] text-f14 leading-relaxed text-t2">{resource.body}</p>
+              </Link>
+            ))}
           </div>
-
-          <FAQ items={faqs} />
+          <div className="mt-[30px] rounded-card border border-border-default bg-white p-[24px]">
+            <h3 className="text-f18 font-bold text-t1">Reference the relevant system standard</h3>
+            <p className="mt-[9px] text-f14 leading-relaxed text-t2">These sources define design questions; they are not a certification claim for a particular F1 product. Use the edition and jurisdiction specified by the project.</p>
+            <ul className="mt-[14px] grid gap-x-[25px] gap-y-[10px] text-f14 md:grid-cols-2">
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.22">OSHA 1910.22 · walking-working surfaces ↗</a></li>
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29">OSHA 1910.29 · guardrail systems ↗</a></li>
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://webstore.ansi.org/standards/ansi/ansiacmafgmcfg01172025">ANSI/ACMA/FGMC · FRP grating manual ↗</a></li>
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://www.cti.org/blogs/posts/fiberglass-pultruded-structural-products-for-use-in-cooling-towers">CTI · cooling-tower pultrusions ↗</a></li>
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://webstore.iec.ch/en/publication/31963">IEC 61537 · cable tray and ladder systems ↗</a></li>
+              <li><a className="font-semibold text-teal-text hover:underline" href="https://sp360.asce.org/personifyebusiness/Merchandise/Product-Details/productId/309903818">ASCE/SEI 74-23 · pultruded FRP structures ↗</a></li>
+            </ul>
+          </div>
+          <FAQ items={faqs} title="Industrial FRP specification questions" />
         </div>
       </section>
-
-      <InnerCTA title="Need chemical-resistant FRP for your facility?" />
+      <InnerCTA title="Plan the FRP package around your plant drawings" quoteHref={quoteHref} />
     </>
   );
 }

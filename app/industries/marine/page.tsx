@@ -3,325 +3,363 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
+import JumpNav from "@/components/sections/JumpNav";
 import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
 import FAQ from "@/components/ui/FAQ";
-import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import CollectionSchema from "@/components/seo/CollectionSchema";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildRfqHref } from "@/lib/rfq";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "FRP for Marine — Saltwater Structures & Docks",
-  description:
-    "Pultruded FRP profiles and grating for docks, offshore platforms, walkways and tie-rods: no rust in saltwater, vinyl ester options, EN 13706 profiles.",
-  path: "/industries/marine",
-  image: "/industries/marine/opengraph-image",
+const pageTitle = "FRP for Marine Docks, Walkways & Access Platforms";
+const pageDescription =
+  "Explore FRP grating, decking, structural profiles and access systems for marinas, coastal boardwalks, offshore platforms and seawater facilities.";
+const pagePath = "/industries/marine";
+const heroImage = "/images/industries/marine-marina-access-concept.webp";
+const quoteHref = buildRfqHref({
+  source: "marine-industry",
+  product: "FRP components for a marine project",
+  productPath: pagePath,
 });
+const heading = "mt-[13px] text-[clamp(26px,3vw,36px)] font-bold leading-tight tracking-[-0.02em] text-t1";
 
-const answerItems = [
+const applications = [
   {
-    question: "Why use FRP in marine environments?",
-    answer:
-      "FRP is used in marine environments because it is immune to saltwater corrosion, much lighter than steel, and requires far less maintenance on docks, offshore platforms, and vessel structures.",
+    id: "marinas",
+    number: "01",
+    title: "Marinas & finger piers",
+    heading: "Plan the route from shore ramp to berth",
+    intro: "A marina route changes from a moving gangway to the main dock and then to narrow finger piers. Each part needs its own walking surface, support and edge detail.",
+    paragraphs: [
+      "Open FRP grating gives rain and spray a path through the deck. Molded square or mini mesh can suit short panels with frequent utility cutouts; pultruded bearing-bar grating is a candidate when a defined one-way span governs. A closed FRP deck panel may suit a continuous walking surface, but its joints, slope and drainage need separate design.",
+      "For a floating dock, show how panels bear on the frame, how hold-downs fit the supports, and how the deck meets hinged gangways, cleats, service pedestals and removable access covers. Gangway slope, heel and wheel openings, wet slip resistance, edge protection and maintenance access all affect the finished route.",
+      "Where habitat rules apply, ask the permitting authority for the required light-transmitting deck area. Panel open area is only one input: joists, floats and service equipment also shade the water below. The open mesh still needs a load and accessibility check for the actual pier layout.",
+    ],
+    checks: [
+      "Gangway movement, transitions and berth-side clear width",
+      "Pedestrian, trolley and concentrated service loads",
+      "Mesh opening, wet slip surface and accessibility rules",
+      "Panel bearing, hold-downs, cutouts and permit conditions",
+    ],
+    products: [
+      { label: "Molded FRP grating", href: "/products/molded-frp-grating" },
+      { label: "Pultruded FRP grating", href: "/products/frp-gratings" },
+      { label: "Structural FRP deck panels", href: "/products/frp-deck-panels" },
+    ],
   },
   {
-    question: "Where is FRP commonly used in marine projects?",
-    answer:
-      "Common marine uses include dock framing, walkways, gratings, handrails, offshore secondary structures, coastal boardwalks, and interior vessel components.",
+    id: "boardwalks",
+    number: "02",
+    title: "Coastal boardwalks",
+    heading: "Coordinate the deck with the shoreline below it",
+    intro: "Tidal trails, viewing platforms and waterfront promenades put public access above salt spray, windblown sand and sensitive ground or water.",
+    image: "/images/industries/marine-coastal-boardwalk-concept.webp",
+    imageAlt: "Conceptual raised coastal boardwalk with open fiberglass grating and edge rails beside a tidal shoreline",
+    paragraphs: [
+      "Open grating can shed water and allow some light through the walkway. The effect beneath a real boardwalk depends on its height, width, direction, support framing and surroundings, so habitat and permit requirements belong in the early layout.",
+      "Match the panel to the route: a public promenade may need smaller openings or a continuous surface where mobility aids, narrow wheels or dropped-object concerns govern. A maintenance-only branch may use a different mesh and access arrangement. On either route, check the grit surface, panel edges, transitions and replaceable sections.",
+      "Pultruded beams, channels or tubes can form an engineered support frame; FRP handrail components can complete the edge. The project engineer must check wind, pedestrian loads, deflection, connections, foundations and any flood or wave action at the site.",
+    ],
+    checks: [
+      "Public-access loads, wheel paths and permitted openings",
+      "Flood level, tidal splash, UV and cleaning exposure",
+      "Under-deck shading, supports and local habitat conditions",
+      "Guardrail loads, anchorage and replaceable deck details",
+    ],
+    products: [
+      { label: "Molded FRP grating", href: "/products/molded-frp-grating" },
+      { label: "Fiberglass structural shapes", href: "/products/fiberglass-structural-shapes" },
+      { label: "FRP handrail systems", href: "/products/frp-handrail-systems" },
+    ],
   },
   {
-    question: "How does FRP compare with marine-grade steel or stainless steel?",
-    answer:
-      "FRP avoids the pitting, crevice corrosion, and coating maintenance issues that still affect marine-grade steels and stainless steels in splash-zone or salt-laden service.",
+    id: "offshore",
+    number: "03",
+    title: "Offshore secondary access",
+    heading: "Specify walkways around the actual hazard area",
+    intro: "Offshore wind and energy facilities need routes to equipment, inspection points and service landings that remain usable in exposed, wet conditions.",
+    image: "/images/industries/marine-offshore-access-concept.webp",
+    imageAlt: "Conceptual offshore service platform with open fiberglass walkway grating, handrails and a ladder near equipment",
+    paragraphs: [
+      "FRP grating, stair treads, ladders, handrails and pultruded members can be considered as a coordinated secondary access package. Identify the bearing direction and support spacing for each panel, then check personnel and equipment loads, deflection, fastening, dropped-object risk and the route to a safe exit.",
+      "Fire and blast exposure, emergency escape function and platform rules can govern material choice. A resin description or a generic flame-spread result does not approve an installed offshore assembly. Request evidence for the proposed product and have the platform designer or relevant authority review it against the project's acceptance basis.",
+      "On a vessel, a removable service grating or maintenance access member is a separate design case. Shipboard location, fire zone, flag-state and class requirements must be established before offering a part for that duty. Passenger spaces, primary escape routes and ship structures require their own approval path.",
+    ],
+    checks: [
+      "Access function, personnel and equipment loading, escape route",
+      "Fire scenario and project or class acceptance basis",
+      "Wind uplift, vibration, support spacing and fixing inspection",
+      "Product-specific reports for the proposed resin and assembly",
+    ],
+    products: [
+      { label: "Pultruded FRP grating", href: "/products/frp-gratings" },
+      { label: "FRP stair treads", href: "/products/frp-stair-treads" },
+      { label: "Fiberglass fixed ladders", href: "/products/frp-ladders" },
+    ],
   },
   {
-    question: "What is a major economic reason to specify FRP offshore?",
-    answer:
-      "A major economic reason is that lower weight and lower corrosion maintenance can reduce topside structural cost, installation complexity, and long-term offshore service campaigns.",
+    id: "seawater",
+    number: "04",
+    title: "Seawater & aquaculture facilities",
+    heading: "Keep pumps, tanks and feeding equipment accessible",
+    intro: "Intake structures, pump stations and aquaculture service areas need removable access around pipes and equipment, often with frequent washdown.",
+    image: "/images/industries/marine-seawater-pump-platform-concept.webp",
+    imageAlt: "Conceptual seawater pump service platform with fiberglass grating, structural supports and edge protection",
+    paragraphs: [
+      "Molded grating is useful to evaluate where the plan contains multiple pipe penetrations or irregular panels; pultruded grating can be evaluated where one-way span or stiffness is the primary driver. Mark cutouts and lifting points on the panel drawing so each removable piece retains bearing and a defined hold-down pattern.",
+      "A complete access package may combine structural channels or beams, grating, stairs, ladders and handrails. Lay out valve reach, pump withdrawal, hose routes and safe cleaning access before choosing panel widths or post positions. Equipment handling loads need their own check; a pedestrian grating selection does not establish machine support capacity.",
+      "Specify the actual liquid and cleaning chemicals, concentration, temperature, immersion or splash frequency, outdoor exposure and fastener environment. Resin, surfacing veil, cut-edge sealing and metal hardware are then reviewed for the service conditions and documented in the approved order data.",
+    ],
+    checks: [
+      "Pipe penetrations, removable panels and maintenance clearances",
+      "Foot traffic versus equipment and lifting loads",
+      "Seawater, cleaning chemicals, temperature and UV exposure",
+      "Resin selection, cut-edge treatment and fastener material",
+    ],
+    products: [
+      { label: "Molded FRP grating", href: "/products/molded-frp-grating" },
+      { label: "Fiberglass structural shapes", href: "/products/fiberglass-structural-shapes" },
+      { label: "FRP handrail systems", href: "/products/frp-handrail-systems" },
+    ],
   },
+] as const;
+
+const productDirectory = [
+  { label: "Molded FRP grating", href: "/products/molded-frp-grating", detail: "Two-way mesh for cutouts and varied panel layouts." },
+  { label: "Pultruded FRP grating", href: "/products/frp-gratings", detail: "One-way bearing bars for defined spans and load direction." },
+  { label: "Structural FRP deck panels", href: "/products/frp-deck-panels", detail: "Closed deck profiles with project-specific joints and drainage." },
+  { label: "Fiberglass structural shapes", href: "/products/fiberglass-structural-shapes", detail: "Beams, channels, angles and tubes for engineered supports." },
+  { label: "FRP handrail systems", href: "/products/frp-handrail-systems", detail: "Posts, rails and fittings for project-checked edge protection." },
+  { label: "FRP stair treads", href: "/products/frp-stair-treads", detail: "Treads for access routes, coordinated with landings and rails." },
+  { label: "Fiberglass fixed ladders", href: "/products/frp-ladders", detail: "Ladder systems with project-specific attachment and safety details." },
+] as const;
+
+const selectionRows = [
+  ["Frequent cutouts or changing panel direction", "Molded grating", "Mesh opening, local bearing at cuts, surface and hold-downs"],
+  ["Defined one-way grating span", "Pultruded grating", "Bearing-bar direction, load table, deflection and support width"],
+  ["Continuous walking surface", "Closed deck panels", "Joint load transfer, drainage, slip surface and edge closure"],
+  ["Framing and edge protection", "Structural shapes + handrails", "Member and connection loads, anchors, hardware and inspection access"],
 ];
 
 const faqs = [
   {
-    question: "How does FRP resist saltwater corrosion compared to stainless steel?",
-    answer:
-      "FRP is fundamentally immune to the chloride-induced corrosion mechanisms that attack even marine-grade stainless steels. While 316L stainless steel resists general corrosion in seawater, it remains susceptible to pitting, crevice corrosion, and stress corrosion cracking — failure modes that account for the majority of stainless steel failures in marine service. FRP has no metallic content and therefore cannot corrode by any electrochemical mechanism. Immersion tests per ASTM C581 confirm that our vinyl ester FRP profiles retain over 95% of their mechanical properties after 10 years of continuous saltwater immersion at temperatures up to 60 degrees Celsius.",
+    question: "Which FRP deck is best for a marina finger pier?",
+    answer: "Start with the pier's clear span, support layout, pedestrian or trolley loads, allowable deck openings, wet slip requirement and local overwater permit. Molded grating, pultruded grating and closed deck panels solve different layout problems; select the panel and its fixings as one assembly.",
   },
   {
-    question: "Can FRP gratings support heavy vehicle loads on dock surfaces?",
-    answer:
-      "Yes. Our heavy-duty molded FRP gratings with 50mm depth and 38mm x 38mm mesh achieve load ratings exceeding 500 kN/m2 under uniform distributed loading, suitable for forklift and light vehicle traffic on dock surfaces. For concentrated wheel loads, pultruded FRP grating panels with solid top surfaces provide point-load capacities exceeding 45 kN (approximately 10,000 lbf) per ASTM E2979. All marine grating products are supplied with anti-slip surfaces achieving a pendulum test value (PTV) above 55, exceeding the HSE threshold for low-slip risk in wet conditions.",
+    question: "Does open FRP grating satisfy a dock light-transmission permit?",
+    answer: "An open panel may help transmit light, but compliance depends on the local permit and the complete dock. Framing, floats and equipment can block light below a panel. Submit the proposed panel open area and full overwater layout for permitting review.",
   },
   {
-    question: "What fire ratings are available for FRP in ship interior applications?",
-    answer:
-      "Our marine-interior FRP profiles and panels are formulated to meet IMO Resolution MSC.307(88) — the FTP Code for fire testing of marine materials. Specific products achieve surface spread of flame ratings per IMO Part 5 (limited flame spread), smoke and toxicity ratings per IMO Part 2, and non-combustibility where required per IMO Part 1 using fire-retardant resin systems. These certifications enable FRP to be used in passenger vessel cabins, corridors, stairways, and public spaces per SOLAS Chapter II-2 fire safety requirements. Classification society type approvals from Lloyd's Register, DNV, and Bureau Veritas are available.",
+    question: "Can a marine FRP grating carry carts or equipment?",
+    answer: "Only after the selected panel, support spacing and load footprint are checked. Wheel and leg loads can govern differently from pedestrian loading. Request load and deflection data for the exact grating configuration and show any equipment route on the drawing.",
   },
   {
-    question: "What is the weight savings of FRP versus steel in offshore platform structures?",
-    answer:
-      "FRP structural profiles weigh approximately 75% less than equivalent steel sections and 35% less than aluminum. On an offshore platform, replacing steel gratings, handrails, cable trays, and secondary structures with FRP typically reduces topside structural weight by 15-25%. This weight reduction has cascading benefits: lighter topside structures require smaller jacket structures, lighter foundations, and less installation crane capacity. For a typical medium-sized offshore platform, FRP substitution of secondary steelwork has been estimated to save $2-5 million in total installed cost through these cascading weight reductions.",
+    question: "Are these FRP products approved for offshore or shipboard use?",
+    answer: "Application and approval depend on the proposed product, fire scenario, location and governing project, flag-state or class rules. Ask for the relevant test reports and have the responsible designer or approval authority review the finished assembly. No general offshore or shipboard approval is claimed here.",
+  },
+  {
+    question: "What should a marine FRP RFQ include?",
+    answer: "Send a marked plan, component schedule, support spans, pedestrian and concentrated loads, location and exposure, required surface and openings, connection details, governing standards, documentation needs, quantities and delivery destination. Include any overwater permit or ship/class requirement at the start.",
   },
 ];
 
-export default function MarinePage() {
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "FRP Composite Profiles for Marine Applications",
-    description:
-      "FRP profiles for marine: corrosion-proof docks, offshore gratings, ship interiors, walkways. Withstands continuous saltwater exposure.",
-    url: absoluteUrl("/industries/marine"),
-    about: {
-      "@type": "Thing",
-      name: "Fiber-Reinforced Polymer profiles for marine environments",
-    },
-    provider: { "@id": "https://www.f1composite.com/#organization" },
-  };
+export const metadata: Metadata = buildPageMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: pagePath,
+  image: heroImage,
+});
 
+export default function MarinePage() {
   return (
     <>
-      <JsonLd data={webPageSchema} />
+      <CollectionSchema name={pageTitle} description={pageDescription} path={pagePath} links={productDirectory} />
       <PageHeader
-        tag="Industries / Marine"
-        title="FRP Composite Profiles for Marine Applications"
-        description="Fiber-reinforced polymer (FRP) profiles provide permanent saltwater corrosion resistance for dock structures, offshore platforms, vessel interiors, and coastal walkways — eliminating the maintenance cycle that plagues steel in marine environments."
+        tag="Industries / Marine & Offshore"
+        title={pageTitle}
+        description="From marina finger piers to offshore service routes, choose the walking surface, supports and access components around the real loads, exposure and approval path."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
           { label: "Marine & Offshore" },
         ]}
+        actions={{
+          primary: { label: "Explore applications", href: "#applications" },
+          secondary: { label: "Discuss your project", href: quoteHref },
+        }}
       />
+      <JumpNav items={[
+        { label: "Where FRP fits", href: "#application-map" },
+        { label: "Marine applications", href: "#applications" },
+        { label: "Product selection", href: "#product-selection" },
+        { label: "Project brief", href: "#project-brief" },
+        { label: "Resources & FAQ", href: "#resources" },
+      ]} />
 
-      <section className="bg-white py-[55px]">
+      <section id="application-map" className="scroll-mt-28 bg-white py-[40px] md:py-[55px]">
         <div className="site-container">
-          <div className="overflow-hidden rounded-card">
-            <Image
-              src="/images/industries/frp-marine-harbor-dock-structure.jpg"
-              alt="Harbor dock and marina walkway structures for marine corrosion-resistant applications"
-              width={1280}
-              height={600}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-              preload
-            />
+          <SectionTag>Marine application map</SectionTag>
+          <h2 className={heading}>Design the route, not just the panel</h2>
+          <p className="mt-[16px] max-w-[900px] text-f16 leading-relaxed text-t2">
+            Salt-laden air, splash and washdown make marine access a system decision. Open grating drains; closed decking changes the walking surface and water path; pultruded shapes support a designed span. Resin, hardware, fire exposure and inspection requirements follow the site and component duty.
+          </p>
+          <figure className="mt-[28px]">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-border-default bg-bg2">
+              <Image src={heroImage} alt="Conceptual marina finger piers with fiberglass grating walkways, mooring cleats, piles and boats alongside" fill sizes="(max-width: 1280px) 100vw, 1212px" className="object-cover" preload />
+            </div>
+            <figcaption className="mt-[10px] text-f14 leading-relaxed text-t3">
+              Conceptual AI visualization of a marina access route. It is not an installed F1 Composite project or an approved structural detail.
+            </figcaption>
+          </figure>
+          <nav aria-label="Marine application areas" className="mt-[24px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+            {applications.map((application) => (
+              <a key={application.id} href={`#${application.id}`} className="rounded-card border border-border-default bg-bg2 p-[18px] transition-colors hover:border-teal-border hover:bg-teal-bg">
+                <span className="text-f13 font-bold tracking-widest text-teal-text">{application.number}</span>
+                <span className="mt-[7px] block text-f16 font-bold text-t1">{application.title} <span aria-hidden="true" className="text-teal-text">↗</span></span>
+                <span className="mt-[7px] block text-f13 leading-relaxed text-t2">{application.intro}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      <section id="applications" className="scroll-mt-28 border-y border-border-default bg-bg2 py-[55px]">
+        <div className="site-container">
+          <SectionTag>Application & design guide</SectionTag>
+          <h2 className={heading}>Four places to put the specification to work</h2>
+          <p className="mt-[16px] max-w-[900px] text-f16 leading-relaxed text-t2">
+            Each setting has a different load path and maintenance routine. Use these application notes to prepare an engineering discussion, then confirm the final assembly against project drawings and test evidence.
+          </p>
+          <div className="mt-[30px] divide-y divide-border-default">
+            {applications.map((application) => (
+              <article key={application.id} id={application.id} className="scroll-mt-28 py-[40px] first:pt-0">
+                <div className="grid gap-[28px] lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-[50px]">
+                  <div>
+                    <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{application.number} / {application.title}</p>
+                    <h3 className="mt-[10px] text-f24 font-bold leading-snug text-t1">{application.heading}</h3>
+                    <p className="mt-[16px] text-f17 font-medium leading-relaxed text-t1">{application.intro}</p>
+                    <div className="mt-[18px] space-y-[16px] text-f16 leading-[1.8] text-t2">
+                      {application.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
+                    <div className="mt-[23px] flex flex-wrap gap-x-[22px] gap-y-[10px]">
+                      {application.products.map((product) => (
+                        <Link key={product.href} href={product.href} className="text-f14 font-semibold text-teal-text underline decoration-teal-border underline-offset-4 hover:text-teal">
+                          {product.label} <span aria-hidden="true">→</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <aside className="self-start rounded-card border border-border-default bg-white p-[22px]" aria-label={`${application.title} design inputs`}>
+                    <h4 className="text-f16 font-bold text-t1">Bring to the specification</h4>
+                    <ul className="mt-[15px] list-disc space-y-[11px] pl-[18px] text-f14 leading-relaxed text-t2">
+                      {application.checks.map((check) => <li key={check}>{check}</li>)}
+                    </ul>
+                  </aside>
+                </div>
+                {"image" in application ? (
+                  <figure className="mt-[28px] max-w-[850px]">
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-border-default bg-white">
+                      <Image src={application.image} alt={application.imageAlt} fill sizes="(max-width: 1280px) 100vw, 850px" className="object-cover" />
+                    </div>
+                    <figcaption className="mt-[9px] text-f13 leading-relaxed text-t3">
+                      Conceptual AI visualization of {application.title.toLowerCase()}. It is not an installed F1 Composite project or an approved structural detail.
+                    </figcaption>
+                  </figure>
+                ) : null}
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <AnswerBlocks
-        tag="Marine Answers"
-        title="Quick answers for docks, offshore structures, and vessels"
-        description="These direct answer blocks help buyers and search engines understand why FRP is frequently selected for saltwater and coastal applications."
-        items={answerItems}
-      />
-
-      {/* Challenge Section */}
-      <section className="bg-white py-[89px]">
+      <section id="product-selection" className="scroll-mt-28 bg-white py-[55px]">
         <div className="site-container">
-          <SectionTag>The Challenge</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Saltwater Is the Most Aggressive Corrosion Environment for Structural Materials
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Marine environments represent the most severe corrosion challenge that structural materials face in service. Seawater containing approximately 3.5% dissolved salts creates an electrolyte that aggressively attacks carbon steel, galvanized steel, and even many grades of stainless steel through pitting, crevice corrosion, and microbiologically influenced corrosion (MIC). The corrosion rate of unprotected carbon steel in seawater splash zones reaches 0.3 to 1.0 mm per year — meaning a 10mm steel plate can lose half its cross-section within a decade.
-              </p>
-              <p>
-                Protective coatings extend the service life of steel in marine environments, but they carry their own limitations. Marine paint systems typically require reapplication every 5 to 8 years for structures in splash zones and tidal areas. Each recoating cycle involves abrasive blasting to remove degraded coatings, containment of blast debris (which may contain lead and other regulated substances from legacy paint systems), application of multiple coating layers, and curing time before the structure can return to service. The cost of recoating a single dock structure can exceed $200 per square meter when access scaffolding, surface preparation, coating materials, and environmental containment are included.
-              </p>
-              <p>
-                Hot-dip galvanizing provides somewhat longer protection — typically 15 to 25 years in marine atmospheres — but the zinc coating is sacrificial by design. Once consumed, the underlying steel corrodes rapidly. More critically, galvanizing cannot be effectively applied to field-welded connections, leaving joints as corrosion initiation points. In the splash zone, where structures experience the most severe corrosion, galvanized coatings degrade approximately three times faster than in atmospheric exposure.
-              </p>
-            </div>
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Weight compounds the corrosion problem on vessels and offshore structures. Steel gratings, handrails, and secondary structures add significant topside weight to offshore platforms and vessels. Every ton of topside weight requires additional structural steel in the platform jacket or hull, additional foundation capacity, and additional crane capacity during installation. The offshore industry uses a weight multiplier of approximately 5:1 to 8:1 — meaning every kilogram of topside weight reduction saves 5 to 8 kilograms of support structure, with proportional cost savings.
-              </p>
-              <p>
-                On vessels, topside weight directly affects stability, freeboard, and fuel consumption. The International Maritime Organization (IMO) energy efficiency requirements (EEDI/EEXI) are driving naval architects to minimize structural weight wherever possible. Lightweight materials that maintain structural performance are not optional improvements — they are increasingly necessary for regulatory compliance.
-              </p>
-              <p>
-                Timber has historically served marine applications well — dock decking, fender systems, and vessel interiors — but sustainability concerns and declining availability of naturally durable tropical hardwoods have reduced its viability. Treated softwoods leach preservative chemicals into marine environments, creating regulatory conflicts with water quality standards. Tropical hardwood alternatives face FSC certification requirements and supply chain uncertainties that complicate long-term specification.
-              </p>
-              <p>
-                These combined pressures — relentless corrosion, weight constraints, maintenance costs, and material sustainability — create a compelling case for fiber-reinforced polymer (FRP) composites. Pultruded FRP profiles do not rust in saltwater, weigh about 75% less than steel, and need no recoating; with a suitable resin, UV protection and periodic inspection they suit even aggressive marine exposure.
-              </p>
-            </div>
+          <SectionTag>Marine product selection</SectionTag>
+          <h2 className={heading}>Choose the component by its job</h2>
+          <p className="mt-[16px] max-w-[900px] text-f16 leading-relaxed text-t2">
+            Molded grating, pultruded grating and closed deck panels are different constructions. Compare the proposed part with its supports, connections and surface treatment before selecting a fiberglass deck.
+          </p>
+          <div role="region" aria-label="Marine FRP product selection comparison" tabIndex={0} className="mt-[25px] overflow-x-auto rounded-card border border-border-default">
+            <table className="w-full min-w-[760px] text-left text-f14">
+              <caption className="sr-only">Marine application condition, likely product and design checks</caption>
+              <thead className="bg-deep text-white"><tr>{["Design condition", "Product to evaluate", "Check before release"].map((label) => <th key={label} scope="col" className="px-[20px] py-[15px] font-semibold">{label}</th>)}</tr></thead>
+              <tbody>{selectionRows.map(([condition, choice, check]) => <tr key={condition} className="border-t border-border-default"><th scope="row" className="px-[20px] py-[17px] font-semibold text-t1">{condition}</th><td className="px-[20px] py-[17px] text-t2">{choice}</td><td className="px-[20px] py-[17px] text-t2">{check}</td></tr>)}</tbody>
+            </table>
+          </div>
+          <h3 className="mt-[38px] text-f24 font-bold text-t1">Explore the available product families</h3>
+          <div className="mt-[18px] grid gap-[15px] sm:grid-cols-2 lg:grid-cols-3">
+            {productDirectory.map((product) => (
+              <Link key={product.href} href={product.href} className="rounded-card border border-border-default bg-bg2 p-[20px] transition-colors hover:border-teal-border hover:bg-teal-bg">
+                <h4 className="text-f16 font-bold text-t1">{product.label} <span aria-hidden="true" className="text-teal-text">→</span></h4>
+                <p className="mt-[8px] text-f14 leading-relaxed text-t2">{product.detail}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FRP Solutions Section */}
-      <section className="bg-bg2 py-[89px]">
+      <section id="project-brief" className="scroll-mt-28 border-y border-border-default bg-bg2 py-[55px]">
         <div className="site-container">
-          <SectionTag>FRP Solutions</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Pultruded FRP Profiles for Docks, Offshore Platforms, Vessels, and Coastal Infrastructure
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <h3 className="text-f18 font-bold text-t1">Dock Structures and Marina Infrastructure</h3>
-              <p>
-                FRP structural profiles — I-beams, wide-flange sections, channels, and tubes — provide the primary and secondary framing for dock structures, marina finger piers, and waterfront boardwalks. Our vinyl ester resin FRP profiles are specifically formulated for continuous saltwater immersion and splash zone exposure, retaining over 95% of their structural properties after decades of marine service.
-              </p>
-              <p>
-                FRP dock framing eliminates the greatest maintenance burden in marina operations: structural corrosion repair. A survey by the American Society of Marina Engineers found that corrosion-related maintenance accounts for 35% to 45% of total annual dock maintenance budgets. Replacing steel substructure with FRP shifts the maintenance profile from structural repair to cosmetic cleaning only, reducing annual maintenance costs by an estimated 60% to 70% over a 30-year period.
-              </p>
-              <p>
-                FRP dock structures are also inherently resistant to marine borers (Teredo, Limnoria) that destroy timber pilings and substructure. Unlike timber, FRP does not provide a food source or habitat for these organisms. This eliminates the need for toxic anti-fouling treatments and provides permanent protection in warm-water environments where marine borer activity is intense.
-              </p>
-              <LinkArrow href="/products/fiberglass-structural-shapes">
-                Browse structural profiles for marine use
-              </LinkArrow>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Offshore Platform Structures</h3>
-              <p>
-                On offshore oil, gas, and wind platforms, FRP replaces carbon steel in gratings, handrails, stairways, cable trays, and secondary structural members. These are the components that corrode most rapidly in the offshore environment because they are fully exposed to salt spray, wave splash, and atmospheric moisture with minimal protection. Replacing them with FRP eliminates a major category of offshore maintenance — one that typically requires crane-supported scaffolding access, hot work permits, and crew boat mobilization at costs of $50,000 to $200,000 per maintenance campaign.
-              </p>
-              <p>
-                The weight savings of FRP on offshore platforms deliver compounding economic benefits. Replacing steel gratings and handrails with FRP typically reduces topside secondary structural weight by 15% to 25%. Applied across a medium-sized platform with 2,000 square meters of grating and 500 linear meters of handrail, this translates to approximately 40 to 60 tonnes of weight reduction. At an offshore weight cost multiplier of $15,000 to $25,000 per tonne (including cascading structural and foundation savings), the economic benefit ranges from $600,000 to $1.5 million — often exceeding the incremental material cost of FRP over steel.
-              </p>
+          <SectionTag>From concept to marine RFQ</SectionTag>
+          <h2 className={heading}>Send the conditions that determine the assembly</h2>
+          <div className="mt-[24px] grid gap-[20px] md:grid-cols-2">
+            <div className="rounded-card border border-border-default bg-white p-[24px]">
+              <h3 className="text-f18 font-bold text-t1">Location, loads and geometry</h3>
+              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f15 leading-relaxed text-t2">
+                <li>Mark each deck, support, stair, ladder and rail on the layout.</li>
+                <li>Show spans, support width, openings, steps and access clearances.</li>
+                <li>State pedestrian, cart, equipment, wheel and maintenance loads separately.</li>
+                <li>Identify moving dock joints, flood or wave action, and any shipboard duty.</li>
+              </ul>
             </div>
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <h3 className="text-f18 font-bold text-t1">Ship Interiors and Vessel Components</h3>
-              <p>
-                FRP profiles and panels serve the interior outfitting of commercial vessels, naval ships, ferries, and luxury yachts. In vessel interiors, FRP provides structural framing for partition walls, ceiling systems, furniture support, and equipment foundations. The material&apos;s combination of fire performance (meeting IMO FTP Code requirements), corrosion resistance, and lightweight density makes it particularly valuable in areas where weight savings directly improve vessel performance.
-              </p>
-              <p>
-                For naval vessels, FRP profiles offer the additional advantage of non-magnetic signatures. Minesweepers and mine countermeasure vessels require minimal magnetic signature to avoid triggering magnetic influence mines. FRP structural profiles and gratings contribute zero magnetic signature, unlike steel and even many stainless steel grades. The Royal Navy, US Navy, and other NATO navies have specified FRP extensively in mine countermeasure vessel construction.
-              </p>
-              <p>
-                In ferry and cruise ship applications, FRP interior framing reduces deadweight by up to 40% compared to steel alternatives. This weight reduction can be converted to either increased passenger capacity or reduced fuel consumption — both of which directly impact vessel economics. A typical 100-meter ferry that replaces interior steel framing with FRP can achieve fuel savings of 3% to 5% through reduced displacement.
-              </p>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Walkways, Gratings, and Access Platforms</h3>
-              <p>
-                FRP gratings are the most widely adopted FRP product in marine applications worldwide. Our molded and pultruded gratings serve dock surfaces, platform walkways, vessel deck areas, and coastal access structures. Marine-grade FRP gratings with vinyl ester resin provide permanent corrosion resistance in splash zones, tidal areas, and submerged installations.
-              </p>
-              <p>
-                Anti-slip surfaces are critical in marine environments where wet, oily, and salt-crusted conditions create fall hazards. Our marine gratings incorporate bonded silica grit surfaces that achieve pendulum test values (PTV) exceeding 55 in wet conditions — significantly exceeding the HSE threshold of 36 for low-slip risk. This slip resistance is permanent, embedded in the grating surface rather than applied as a coating that can wear off.
-              </p>
-              <LinkArrow href="/products/molded-frp-grating">
-                Explore molded marine grating
-              </LinkArrow>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
-              <ul className="list-none space-y-[13px]">
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">No corrosion</strong> in continuous saltwater immersion and splash-zone exposure, with no coating to renew</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">75% lighter than steel</strong> — reduces topside weight, improves vessel stability, and lowers fuel consumption</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Lower maintenance cost</strong> than steel dock structures over a 30-year lifecycle, because there is no recoating</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">IMO FTP Code compliant</strong> fire ratings for passenger vessel interior applications</span>
-                </li>
-                <li className="flex items-start gap-[8px]">
-                  <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
-                  <span><strong className="text-t1">Non-magnetic signature</strong> — essential for naval mine countermeasure vessels</span>
-                </li>
+            <div className="rounded-card border border-border-default bg-white p-[24px]">
+              <h3 className="text-f18 font-bold text-t1">Exposure, approval and supply</h3>
+              <ul className="mt-[14px] list-disc space-y-[10px] pl-[18px] text-f15 leading-relaxed text-t2">
+                <li>Describe immersion, splash, salt air, UV, temperature and cleaning media.</li>
+                <li>Provide slip, opening, accessibility and overwater permit requirements.</li>
+                <li>Name fire, offshore, flag-state or class requirements where applicable.</li>
+                <li>List resin, color, fixings, reports, drawings, quantities and destination needed for quotation.</li>
               </ul>
             </div>
           </div>
+          <p className="mt-[22px] max-w-[900px] text-f15 leading-relaxed text-t2">
+            Ask for load and deflection data tied to the selected panel and span, compatible resin and fastener details, and any required fire or slip reports for the offered assembly. A catalog section or generic material claim alone does not define project capacity or approval.
+          </p>
+          <Link href={quoteHref} className="mt-[18px] inline-flex rounded-[7px] bg-teal-text px-[20px] py-[12px] text-f14 font-bold text-white transition-colors hover:bg-teal">
+            Send a marine project brief <span aria-hidden="true" className="ml-[8px]">→</span>
+          </Link>
         </div>
       </section>
 
-      {/* Related Resources */}
-      <section className="bg-white py-[89px]">
+      <section id="resources" className="scroll-mt-28 bg-white py-[55px]">
         <div className="site-container">
-          <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Products and Resources for Marine Projects
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/products/molded-frp-grating"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Marine Gratings</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Anti-slip FRP gratings for dock surfaces, platform walkways, and vessel deck areas with permanent corrosion resistance.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/products/fiberglass-structural-shapes"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Standard Profiles</h3>
-              <p className="text-f14 leading-golden text-t2">
-                I-beams, channels, angles, and tubes in vinyl ester formulations for marine structural framing.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                View product →
-              </span>
-            </Link>
-            <Link
-              href="/case-studies/coastal-marina-walkway"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Case Study: Coastal Marina Walkway</h3>
-              <p className="text-f14 leading-golden text-t2">
-                FRP gratings and profiles in saltwater marina environment — zero corrosion after 10+ years.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read case study →
-              </span>
-            </Link>
-            <Link
-              href="/technology/frp-vs-steel-gratings"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Steel Gratings</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Saltwater corrosion resistance, slip resistance on wet decks, weight, and 30-year lifecycle cost compared between FRP and galvanized steel gratings.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read comparison →
-              </span>
-            </Link>
-            <Link
-              href="/resources/blog/frp-replacing-steel-coastal-infrastructure"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">Why FRP Is Replacing Steel in Coastal Infrastructure</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Why pultruded FRP profiles are displacing steel in coastal and marine infrastructure projects.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read article →
-              </span>
-            </Link>
-            <Link
-              href="/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames"
-              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-            >
-              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP for Offshore, Tidal & Fishery-PV Mounts</h3>
-              <p className="text-f14 leading-golden text-t2">
-                Pultruded FRP module frames and mounting structures for offshore, tidal, and fishery-PV solar installations.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                Read article →
-              </span>
-            </Link>
+          <SectionTag>Evidence & further reading</SectionTag>
+          <h2 className={heading}>Review the applicable design and approval basis</h2>
+          <p className="mt-[16px] max-w-[900px] text-f16 leading-relaxed text-t2">
+            These references explain why deck layout, composite component design and shipboard fire context need separate checks. They do not certify any F1 product or replace local project requirements.
+          </p>
+          <div className="mt-[24px] grid gap-[14px] md:grid-cols-2">
+            <a href="https://www.fisheries.noaa.gov/west-coast/habitat-conservation/seagrass-west-coast" target="_blank" rel="noopener noreferrer" className="rounded-card border border-border-default p-[20px] hover:border-teal-border">
+              <h3 className="font-bold text-t1">NOAA: seagrass and overwater structures <span aria-hidden="true" className="text-teal-text">↗</span></h3>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">Shading and habitat considerations for docks and marinas.</p>
+            </a>
+            <a href="https://www.dnv.com/energy/standards-guidelines/dnv-st-c501-composite-components/" target="_blank" rel="noopener noreferrer" className="rounded-card border border-border-default p-[20px] hover:border-teal-border">
+              <h3 className="font-bold text-t1">DNV-ST-C501: composite components <span aria-hidden="true" className="text-teal-text">↗</span></h3>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">A framework covering composite design, fabrication and installation.</p>
+            </a>
+            <a href="https://store.astm.org/f3059-24.html" target="_blank" rel="noopener noreferrer" className="rounded-card border border-border-default p-[20px] hover:border-teal-border">
+              <h3 className="font-bold text-t1">ASTM F3059-24: marine FRP grating <span aria-hidden="true" className="text-teal-text">↗</span></h3>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">Marine construction and shipbuilding grating specification; confirm whether it applies to your installation.</p>
+            </a>
+            <a href="https://www.imo.org/en/mediacentre/meetingsummaries/pages/sdc-12.aspx" target="_blank" rel="noopener noreferrer" className="rounded-card border border-border-default p-[20px] hover:border-teal-border">
+              <h3 className="font-bold text-t1">IMO: FRP in ship structures <span aria-hidden="true" className="text-teal-text">↗</span></h3>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">Fire-safety context for evaluating FRP elements onboard ships.</p>
+            </a>
           </div>
-
-          <FAQ items={faqs} />
+          <FAQ items={faqs} title="Questions about marine FRP applications" />
         </div>
       </section>
-
-      <InnerCTA title="Need FRP solutions for a marine project?" />
+      <InnerCTA title="Bring your marine drawings to the discussion" quoteHref={quoteHref} />
     </>
   );
 }
