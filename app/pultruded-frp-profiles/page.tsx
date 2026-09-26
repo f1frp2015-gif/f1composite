@@ -134,11 +134,10 @@ const profileFamily: Array<{
     summary:
       "Drawing-led hollow, multi-cell and edge-formed plate profiles with A/B/t1/t2 values and source IDs, separate from solid sheet and engineered deck systems.",
     href: "/products/fiberglass-plates",
-    image: "/images/products/fiberglass-plates/plate-01.webp",
-    imageWidth: 700,
-    imageHeight: 240,
-    imageAlt: "Pultruded fiberglass plate profile with internal webs and formed edges",
-    imageFit: "contain",
+    image: "/images/products/fiberglass-plates/frp-plate-13-two-cell-profile-cover.webp",
+    imageWidth: 1448,
+    imageHeight: 1086,
+    imageAlt: "Plate 13 pultruded fiberglass profile with two enclosed cells, a central web and stepped bottom edges",
     rangeLabel: "Catalog scope",
   },
   {
@@ -168,7 +167,8 @@ const profileFamily: Array<{
   {
     slug: "rod", name: "FRP Solid Rod", keyword: "fiberglass rod",
     sizes: "Select diameter and cut length", summary: "Solid circular pultrusions for specified support, spacer and fabricated rod applications. Reinforcing rebar has a separate specification.",
-    href: "/products/fiberglass-structural-shapes/frp-rod", image: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", imageWidth: 1536, imageHeight: 1024,
+    href: "/products/fiberglass-structural-shapes/frp-rod", image: "/images/products/round-rod/frp-solid-round-rod-25mm-cover.webp", imageWidth: 1448, imageHeight: 1086,
+    imageAlt: "Solid pultruded fiberglass round rod with a circular cut end",
   },
 
 ];
