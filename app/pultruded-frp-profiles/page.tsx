@@ -121,11 +121,10 @@ const profileFamily: Array<{
     summary:
       "Solid flat stock for liners, covers, baffles and fabricated blanks, with smooth, gritted or embossed surfaces and order-specific resin selection.",
     href: "/products/fiberglass-sheets",
-    image: "/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp",
-    imageWidth: 1200,
-    imageHeight: 1600,
-    imageAlt: "Black pultruded fiberglass sheet with a finished surface on the production line",
-    imagePosition: "center 58%",
+    image: "/images/products/fiberglass-plates/frp-plate-221x10mm-white-render.png",
+    imageWidth: 1254,
+    imageHeight: 1254,
+    imageAlt: "White pultruded fiberglass flat sheet, 221 mm wide and 10 mm thick, viewed at an angle",
   },
   {
     slug: "fiberglass-plates",
