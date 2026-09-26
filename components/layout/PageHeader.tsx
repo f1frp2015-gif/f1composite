@@ -31,8 +31,8 @@ interface PageHeaderProps {
   updated?: string;
   /** The engineer who reviewed the page, shown with the date. */
   reviewer?: { name: string; title: string; href: string };
-  /** Product line shown in place of the tag, e.g. { name: "F1-STRUX", label: "Standard profile" }. */
-  line?: { name: string; label?: string };
+  /** Product line shown in place of the tag, e.g. { name: "F1-STRUX", label: "Standard profile" }; mark: false for a family without a line name. */
+  line?: { name: string; label?: string; mark?: boolean };
   /** Up to four key figures under the description: mono labels, values in DM Sans. */
   facts?: { label: string; value: string }[];
   /** A drawing or photo beside the title on wide screens, under the description on phones. */
@@ -76,7 +76,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
               facts and actions under the text. Phones stack text, figure, rest. */}
           <div className={figure ? "grid gap-[24px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:grid-rows-[auto_1fr] lg:gap-x-[56px] lg:[grid-template-areas:'text_figure'_'meta_figure']" : undefined}>
             <div className={figure ? "lg:[grid-area:text]" : undefined}>
-              {line ? <LineTag line={line.name} label={line.label} /> : <SectionTag>{tag}</SectionTag>}
+              {line ? <LineTag line={line.name} label={line.label} mark={line.mark} /> : <SectionTag>{tag}</SectionTag>}
               <h1 className="mt-[16px] max-w-[920px] text-[clamp(34px,4.5vw,56px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-t1">
                 {title}
               </h1>

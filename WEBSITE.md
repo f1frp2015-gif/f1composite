@@ -326,6 +326,8 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 6. **文件**（`ProductDocuments`）：该型材的规格书和 DXF、文件库里归到该产品或标准型材的文件、按需提供的证书，卡片样式与下载页一致（`components/downloads/DocumentCard.tsx`）。
 7. **常见问题**（默认折叠）、**其他型材**（`RelatedProfiles`）、**询价**（`ProductRfq`，深色底）。
 
+格栅（总览、模压、拉挤）、GFRP 筋材和门窗（总览、型材、成窗）页面保留各自的专用内容（选型器、规格表、采购流程），只统一页头（产品线标签、关键数据、带图号的图版）、吸顶页内导航和收尾询价区。格栅三页共用 `GratingHero`，门窗两页共用 `WindowProcurementPage`，改一处即可。筋材和紧固件没有产品线名称，页头标签用 `line={{ name, mark: false }}`，不显示亮绿方块。
+
 规则：
 
 - **页脚询价条**：页面里有 `ProductRfq`（带 `data-page-rfq`）时，页脚的通用询价条自动隐藏（`app/globals.css`），避免两个询价区块连在一起。注意 `main:has(...) ~ footer` 这种写法会被构建丢掉，要写成 `body:has(...)`。

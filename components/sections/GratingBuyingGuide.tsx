@@ -14,7 +14,7 @@ const supply = [
 export default function GratingBuyingGuide({ family }: { family?: GratingFamily }) {
   const families: GratingFamily[] = family ? [family] : ["molded", "pultruded"];
   return <>
-    <section id="grating-engineering" className="scroll-mt-[100px] bg-bg2 py-[44px] md:py-[60px]">
+    <section id="grating-engineering" className="scroll-mt-[40px] bg-bg2 py-[44px] md:py-[60px]">
       <div className="site-container">
         <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Engineering & downloads</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Match the documents to your panel</h2>
@@ -38,7 +38,7 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
         </div>
       </div>
     </section>
-    <section id="grating-supply" className="scroll-mt-[100px] bg-white py-[44px] md:py-[60px]">
+    <section id="grating-supply" className="scroll-mt-[40px] bg-white py-[44px] md:py-[60px]">
       <div className="site-container">
         <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Project & bulk procurement</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Plan the supply as well as the panel</h2>

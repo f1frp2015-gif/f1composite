@@ -190,7 +190,7 @@ export default function MoldedFrpGratingPage() {
         </div>
       </section>
 
-      <section id="molded-grating-specifications" className="bg-bg2 py-[55px] md:py-[89px]">
+      <section id="molded-grating-specifications" className="scroll-mt-[40px] bg-bg2 py-[55px] md:py-[89px]">
         <div className="site-container">
           <SectionTag>Molded Panel Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
@@ -376,7 +376,7 @@ export default function MoldedFrpGratingPage() {
 
       <ProductNextSteps path="/products/molded-frp-grating" />
 
-      <section id="grating-faq" className="bg-white py-[55px] md:py-[89px]">
+      <section id="grating-faq" className="scroll-mt-[40px] bg-white py-[55px] md:py-[89px]">
         <div className="site-container">
           <FAQ items={faqItems} />
         </div>

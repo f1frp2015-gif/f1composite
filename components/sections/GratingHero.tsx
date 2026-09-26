@@ -1,9 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
-import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import Button from "@/components/ui/Button";
+import PageHeader from "@/components/layout/PageHeader";
+import ProductPageNav from "@/components/products/ProductPageNav";
+import Figure from "@/components/ui/Figure";
 import { type GratingFamily } from "@/lib/gratingInquiry";
 
+// The grating pages' header in the product page template: F1-GRID line tag,
+// key facts, the panel photograph in a figure plate, and the sticky section
+// bar. The quote button opens the drawing route of the project planner.
 export default function GratingHero({ family, title, description, image, imageAlt, caption, facts }: {
   family?: GratingFamily;
   title: string;
@@ -13,47 +16,57 @@ export default function GratingHero({ family, title, description, image, imageAl
   caption: string;
   facts: readonly { label: string; value: string }[];
 }) {
-  const primary = { label: "Get a Project Quote", href: "#grating-quote" };
-  const secondary = { label: "View Specifications", href: family ? `#${family}-grating-specifications` : "#grating-configurations", variant: "secondary" as const };
-  return <>
-    <section className="border-b border-border-default bg-[linear-gradient(140deg,#f0f7f6_0%,#ffffff_65%)] py-[24px] md:py-[40px]">
-      <div className="site-container">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, ...(family ? [{ label: "FRP Grating", href: "/products/grating" }, { label: family === "molded" ? "Molded Grating" : "Pultruded Grating" }] : [{ label: "FRP Grating" }])]} />
-        <div className="grid items-center gap-[24px] lg:grid-cols-[1fr_0.95fr] lg:gap-[44px]">
-          <div>
-            <p className="text-f12 font-bold uppercase tracking-[0.16em] text-teal-text">F1-GRID · {family ? `${family} grating` : "Industrial walking surfaces"}</p>
-            <h1 className="mt-[14px] text-[clamp(30px,3.7vw,49px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-t1">{title}</h1>
-            <p className="mt-[16px] max-w-[620px] text-f18 leading-relaxed text-t2">{description}</p>
-            <div id="page-header-actions" className="mt-[22px] flex flex-wrap gap-[10px]">
-              <Button href={primary.href}>{primary.label}</Button>
-              <Button href="#grating-help" variant="secondary">Help Me Select</Button>
-            </div>
-            <p className="mt-[12px] text-f12 leading-relaxed text-t3">Whole panels or drawing-based requirements. Quantities, fabrication and delivery scope confirmed with your quote.</p>
+  const specifications = family ? `${family}-grating-specifications` : "grating-configurations";
+  const figure = family ? (
+    <Figure number={1} title={family === "molded" ? "Molded mesh" : "Pultruded bearing bars"} note="Photo" caption={caption}>
+      <div className="relative -m-[16px] aspect-[3/2]">
+        <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
+      </div>
+    </Figure>
+  ) : (
+    <Figure number={1} title="Two constructions" note="Photos · not to a common scale" caption="Compare the integral molded mesh with directional pultruded bars.">
+      <div className="-m-[16px] grid grid-cols-2 gap-[2px] bg-border-default">
+        {[
+          ["/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", "Molded square mesh"],
+          ["/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp", "Pultruded bearing bars"],
+        ].map(([src, label]) => (
+          <div key={src} className="relative aspect-[4/3] bg-white">
+            <Image src={src} alt={label} fill sizes="(max-width: 1023px) 46vw, 22vw" className="object-cover" preload />
+            <span className="absolute inset-x-0 bottom-0 bg-deep/90 px-[10px] py-[6px] text-f14 font-bold text-white">{label}</span>
           </div>
-          <figure className="min-w-0">
-            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
-              {family ? <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 48vw" className="object-contain" preload /> : <div className="grid h-full grid-cols-2 gap-2 p-3">{[
-                ["/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", "Molded square mesh"],
-                ["/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp", "Pultruded bearing bars"],
-              ].map(([src, label]) => <div key={src} className="relative overflow-hidden rounded-card"><Image src={src} alt={label} fill sizes="(max-width: 1023px) 44vw, 23vw" className="object-cover" preload /><span className="absolute inset-x-0 bottom-0 bg-deep/90 p-3 text-sm font-bold text-white">{label}</span></div>)}</div>}
-            </div>
-            <figcaption className="mt-[7px] text-f12 leading-relaxed text-t3">{family ? caption : "Product construction photographs. Compare the integral molded mesh with directional pultruded bars; images are not to a common scale."}</figcaption>
-          </figure>
-        </div>
-        <dl className="mt-[24px] grid grid-cols-2 gap-[16px] border-t border-border-default pt-[20px] md:grid-cols-4">
-          {facts.map(fact => <div key={fact.label}><dt className="text-f12 uppercase tracking-wide text-t3">{fact.label}</dt><dd className="mt-[4px] text-f14 font-bold text-t1">{fact.value}</dd></div>)}
-        </dl>
+        ))}
       </div>
-    </section>
-    <nav aria-label="Grating page sections" className="border-b border-border-default bg-white">
-      <div className="site-container flex flex-wrap gap-x-[24px] gap-y-[4px] py-[10px] text-f14 font-semibold">
-        <Link className="py-[9px] text-teal-text" href={secondary.href}>Specifications</Link>
-        <Link className="py-[9px] text-teal-text" href="#grating-selection">Selection guide</Link>
-        <Link className="py-[9px] text-teal-text" href="#grating-engineering">Engineering & downloads</Link>
-        <Link className="py-[9px] text-teal-text" href="#grating-supply">Supply & delivery</Link>
-        <Link className="py-[9px] text-teal-text" href="#grating-faq">FAQs</Link>
-      </div>
-    </nav>
-
-  </>;
+    </Figure>
+  );
+  return (
+    <>
+      <PageHeader
+        tag="FRP Grating"
+        line={{ name: "F1-GRID", label: family ? `${family} grating` : "Grating" }}
+        title={title}
+        description={description}
+        facts={[...facts]}
+        figure={figure}
+        actions={{
+          primary: { label: "Get a Project Quote", href: "#grating-quote" },
+          secondary: { label: "Help Me Select", href: "#grating-help", variant: "secondary" },
+          note: "Whole panels or drawing-based requirements. Quantities, fabrication and delivery scope confirmed with your quote.",
+        }}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Products", href: "/products/product-lines" },
+          ...(family ? [{ label: "FRP Grating", href: "/products/grating" }, { label: family === "molded" ? "Molded Grating" : "Pultruded Grating" }] : [{ label: "FRP Grating" }]),
+        ]}
+      />
+      <ProductPageNav
+        items={[
+          { id: specifications, label: "Specifications" },
+          { id: "grating-selection", label: "Selection guide" },
+          { id: "grating-engineering", label: "Engineering & downloads" },
+          { id: "grating-supply", label: "Supply & delivery" },
+          { id: "grating-faq", label: "FAQ" },
+        ]}
+      />
+    </>
+  );
 }

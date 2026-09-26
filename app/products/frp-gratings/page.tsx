@@ -273,7 +273,7 @@ export default function PultrudedGratingsPage() {
         </div>
       </section>
 
-      <section id="pultruded-grating-specifications" className="bg-white py-[55px] md:py-[89px]">
+      <section id="pultruded-grating-specifications" className="scroll-mt-[40px] bg-white py-[55px] md:py-[89px]">
         <div className="site-container">
           <SectionTag>Pultruded Series Data</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Common I-bar and T-bar production configurations</h2>
@@ -410,7 +410,7 @@ export default function PultrudedGratingsPage() {
 
       <ProductNextSteps path="/products/frp-gratings" />
 
-      <section id="grating-faq" className="bg-white py-[55px] md:py-[89px]">
+      <section id="grating-faq" className="scroll-mt-[40px] bg-white py-[55px] md:py-[89px]">
         <div className="site-container"><FAQ items={faqItems} /></div>
       </section>
 
