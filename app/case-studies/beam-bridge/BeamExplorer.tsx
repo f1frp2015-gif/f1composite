@@ -151,33 +151,33 @@ export default function BeamExplorer() {
                   role="img"
                   aria-label={`Simply supported girder under uniform load, span ${input.spanM} metres. Pin at left, roller at right.`}
                 >
-                  <path d="M45 30H475" stroke="#477ed6" fill="none" />
+                  <path d="M45 30H475" stroke="#0a9b91" fill="none" />
                   {Array.from({ length: 12 }, (_, i) => (
-                    <g key={i} stroke="#477ed6" fill="none">
+                    <g key={i} stroke="#0a9b91" fill="none">
                       <path d={`M${45 + i * 39} 30v31m-4-5 4 5 4-5`} />
                     </g>
                   ))}
-                  <path d="M45 70H475" stroke="#132e59" strokeWidth="8" />
+                  <path d="M45 70H475" stroke="#0b1838" strokeWidth="8" />
                   <path
                     d="m45 76-11 19h22Zm430 0-11 19h22Z"
                     fill="#fff"
-                    stroke="#132e59"
+                    stroke="#0b1838"
                     strokeWidth="2"
                   />
-                  <path d="M30 101h30m400 4h30" stroke="#132e59" />
+                  <path d="M30 101h30m400 4h30" stroke="#0b1838" />
                   <circle
                     cx="470"
                     cy="100"
                     r="3"
                     fill="none"
-                    stroke="#132e59"
+                    stroke="#0b1838"
                   />
                   <circle
                     cx="481"
                     cy="100"
                     r="3"
                     fill="none"
-                    stroke="#132e59"
+                    stroke="#0b1838"
                   />
                   <path
                     d="M60 120H460m-6-4 6 4-6 4M66 116l-6 4 6 4"
@@ -188,17 +188,17 @@ export default function BeamExplorer() {
                     x="260"
                     y="17"
                     textAnchor="middle"
-                    fill="#285ab5"
+                    fill="#007a74"
                     fontSize="16"
                   >
                     w = {f(result.perGirderLineLoadKNm)} kN/m per girder
                   </text>
-                  <rect x="212" y="109" width="96" height="24" fill="#f5f8fd" />
+                  <rect x="212" y="109" width="96" height="24" fill="#f4f7f8" />
                   <text
                     x="260"
                     y="128"
                     textAnchor="middle"
-                    fill="#132e59"
+                    fill="#0b1838"
                     fontSize="16"
                   >
                     L = {f(input.spanM, 1)} m

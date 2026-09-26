@@ -1,9 +1,10 @@
 type Point = readonly [number, number];
 type Variant = "A" | "B" | "C" | "D";
 
-const ink = "#102657";
-const blue = "#255cdb";
-const teal = "#087e8b";
+const ink = "#0b1838";
+// Dimensions in teal-text, callouts in teal, members in teal-slate (FRP), deck in timber.
+const dimension = "#007a74";
+const callout = "#0a9b91";
 const timber = "#d5b58d";
 const add = (a: Point, b: Point): Point => [a[0] + b[0], a[1] + b[1]];
 const scale = (p: Point, value: number): Point => [p[0] * value, p[1] * value];
@@ -33,7 +34,7 @@ function Dimension({
       add(add(at, scale(unit, 8 * direction)), scale(normal, -3)),
     );
   return (
-    <g stroke={blue} strokeWidth="1.1" fill="none">
+    <g stroke={dimension} strokeWidth="1.1" fill="none">
       {offset !== 0 && (
         <>
           <path
@@ -47,12 +48,12 @@ function Dimension({
         </>
       )}
       <path d={`M ${start} L ${end}`} />
-      <polygon points={arrow(start, 1)} fill={blue} stroke="none" />
-      <polygon points={arrow(end, -1)} fill={blue} stroke="none" />
+      <polygon points={arrow(start, 1)} fill={dimension} stroke="none" />
+      <polygon points={arrow(end, -1)} fill={dimension} stroke="none" />
       <text
         x={middle[0]}
         y={middle[1] - 10}
-        fill={blue}
+        fill={dimension}
         stroke="none"
         fontSize="17"
         fontWeight="600"
@@ -191,7 +192,7 @@ function Support({
       />
       <polygon
         points={points(origin, add(origin, top), add(end, top), end)}
-        fill="#f5f7fa"
+        fill="#f5fafa"
       />
     </g>
   );
@@ -225,11 +226,11 @@ function BoxGirder({
           add(nearBottom, length),
           nearBottom,
         )}
-        fill="#42678a"
+        fill="#42838a"
       />
       <path
         d={`M ${add(near, [0, depth * 0.16])} L ${add(add(end, width), [0, depth * 0.16])}`}
-        stroke="#7296b5"
+        stroke="#72aeb5"
         strokeWidth=".9"
       />
       <polygon
@@ -239,7 +240,7 @@ function BoxGirder({
           section(1, 1),
           section(0, 1),
         )}
-        fill="#d9e6ee"
+        fill="#d9ecee"
       />
       {Array.from({ length: 5 }, (_, i) => (
         <polygon
@@ -250,7 +251,7 @@ function BoxGirder({
             section((i + 1) / 5 - 0.018, 0.88),
             section(i / 5 + 0.018, 0.88),
           )}
-          fill="#f9fcff"
+          fill="#f9feff"
           stroke="#58748e"
           strokeWidth="1"
         />
@@ -277,7 +278,7 @@ function SectionInset({ deep = false }: { deep?: boolean }) {
       </text>
       <path
         d={`M ${x} ${y} H ${x + 156} L ${x + 146} ${y + height} H ${x + 10} Z`}
-        fill="#e1eaf0"
+        fill="#e1eff0"
         stroke={ink}
         strokeWidth="1.5"
       />
@@ -297,7 +298,7 @@ function SectionInset({ deep = false }: { deep?: boolean }) {
       />
       <path
         d={`M ${x + 169} ${y} H ${x + 181} M ${x + 175} ${y} V ${y + height} M ${x + 169} ${y + height} H ${x + 181}`}
-        stroke={blue}
+        stroke={dimension}
         strokeWidth="1"
       />
       <text
@@ -326,7 +327,7 @@ function ModularBridge() {
       <path
         d="M 53 320 C 236 254 430 324 699 204"
         fill="none"
-        stroke="#dceaf0"
+        stroke="#dceef0"
         strokeWidth="50"
         opacity=".65"
       />
@@ -362,7 +363,7 @@ function ModularBridge() {
           </g>
         );
       })}
-      <g fill={teal} fontSize="13" fontFamily="monospace">
+      <g fill={callout} fontSize="13" fontFamily="monospace">
         {nodes.map((point, i) => (
           <text key={i} x={point[0] + 4} y={point[1] + 100}>
             P{i + 1}
@@ -402,7 +403,7 @@ function DeepBridge() {
         strokeWidth="1.1"
         fill="none"
       />
-      <circle cx="223" cy="302" r="3" fill={teal} />
+      <circle cx="223" cy="302" r="3" fill={callout} />
       <text x="345" y="373" fill={ink} fontSize="13" textAnchor="middle">
         Multicell box
       </text>
@@ -448,7 +449,7 @@ function IBeam({
           add(at(1, depth - 5), length),
           at(1, depth - 5),
         )}
-        fill="#6994b1"
+        fill="#69aab1"
       />
       <polygon
         points={points(
@@ -457,7 +458,7 @@ function IBeam({
           add(at(1, depth), length),
           at(1, depth),
         )}
-        fill="#1c466c"
+        fill="#1c646c"
       />
       <polygon
         points={points(
@@ -466,7 +467,7 @@ function IBeam({
           add(at(0.62, depth - 5), length),
           at(0.62, depth - 5),
         )}
-        fill="#346582"
+        fill="#347a82"
       />
       <polygon
         points={points(
@@ -475,7 +476,7 @@ function IBeam({
           add(at(1, 0), length),
           at(1, 0),
         )}
-        fill="#91b7ce"
+        fill="#91c8ce"
       />
       <polygon
         points={points(
@@ -484,12 +485,12 @@ function IBeam({
           add(at(1, 5), length),
           at(1, 5),
         )}
-        fill="#315f84"
+        fill="#317c84"
       />
-      <polygon points={points(...outline)} fill="#d5e6ef" />
+      <polygon points={points(...outline)} fill="#d5ecef" />
       <path
         d={`M ${at(0.1, 1)} L ${add(at(0.1, 1), length)}`}
-        stroke="#c4dfe9"
+        stroke="#c4e5e9"
         strokeWidth="1.1"
       />
     </g>
@@ -503,7 +504,7 @@ function BeamAssembly({ hero }: { hero: boolean }) {
   const beamOrigin = add(origin, [10, 128]);
   return (
     <>
-      <g fill="none" stroke="#a6bfce" strokeDasharray="4 6" strokeWidth="1">
+      <g fill="none" stroke="#a6cace" strokeDasharray="4 6" strokeWidth="1">
         {[
           origin,
           add(origin, width),
@@ -525,14 +526,14 @@ function BeamAssembly({ hero }: { hero: boolean }) {
         const end = add(p, width);
         const thickness: Point = [9, -2];
         return (
-          <g key={n} stroke="#335371" strokeWidth="1.1" strokeLinejoin="round">
+          <g key={n} stroke="#336b71" strokeWidth="1.1" strokeLinejoin="round">
             <polygon
               points={points(p, end, add(end, [0, 14]), add(p, [0, 14]))}
-              fill="#99b2c3"
+              fill="#99bfc3"
             />
             <polygon
               points={points(p, add(p, thickness), add(end, thickness), end)}
-              fill="#eef4f7"
+              fill="#eef6f7"
             />
             <polygon
               points={points(
@@ -551,9 +552,9 @@ function BeamAssembly({ hero }: { hero: boolean }) {
         <Railing origin={origin} length={length} width={width} count={10} />
       )}
       <Dimension from={[246, 432]} to={[659, 336]} label="12 m bridge body" />
-      <g fill="none" stroke={teal} strokeWidth="1.1">
+      <g fill="none" stroke={callout} strokeWidth="1.1">
         <path d="M 217 343 L 117 380 H 69" />
-        <circle cx="217" cy="343" r="3" fill={teal} />
+        <circle cx="217" cy="343" r="3" fill={callout} />
       </g>
       <text x="69" y="403" fill={ink} fontSize="14">
         Pultruded GRP
@@ -561,9 +562,9 @@ function BeamAssembly({ hero }: { hero: boolean }) {
       <text x="69" y="422" fill="#6b7f94" fontSize="12">
         Longitudinal I-beams
       </text>
-      <g fill="none" stroke={teal} strokeWidth="1.1">
+      <g fill="none" stroke={callout} strokeWidth="1.1">
         <path d="M 622 143 L 700 155 V 167" />
-        <circle cx="622" cy="143" r="3" fill={teal} />
+        <circle cx="622" cy="143" r="3" fill={callout} />
       </g>
       <text x="724" y="185" fill={ink} fontSize="13" textAnchor="end">
         Deck finish
@@ -605,19 +606,19 @@ function CurvedBridge() {
       <Support origin={[615, 171]} width={[83, 47]} height={37} />
       <path
         d="M 156 267 C 324 107 430 336 696 169 L 696 216 C 430 383 324 154 156 314 Z"
-        fill="#426c8c"
+        fill="#42858c"
         stroke={ink}
         strokeWidth="1.2"
       />
       <path
         d="M 156 275 C 324 115 430 344 696 177"
         fill="none"
-        stroke="#8eb0c7"
+        stroke="#8ec1c7"
         strokeWidth="1.3"
       />
       <path
         d="M 78 229 L 156 273 V 314 L 78 270 Z"
-        fill="#d8e7ef"
+        fill="#d8edef"
         stroke={ink}
         strokeWidth="1.2"
       />
@@ -625,8 +626,8 @@ function CurvedBridge() {
         <path
           key={i}
           d={`M ${84 + i * 18} ${238 + i * 10.15} l 13 7.35 v 27 l -13 -7.35 Z`}
-          fill="#f8fcff"
-          stroke="#4f7291"
+          fill="#f8feff"
+          stroke="#4f8a91"
           strokeWidth=".85"
         />
       ))}
@@ -661,14 +662,14 @@ function CurvedBridge() {
       <path
         d="M 75 162 C 227 11 365 223 613 62"
         fill="none"
-        stroke={blue}
+        stroke={dimension}
         strokeWidth="1.1"
         strokeDasharray="4 4"
       />
       <text
         x="364"
         y="92"
-        fill={blue}
+        fill={dimension}
         fontSize="17"
         fontWeight="600"
         textAnchor="middle"
@@ -677,11 +678,11 @@ function CurvedBridge() {
       </text>
       <path
         d="M 451 295 L 498 357 H 647"
-        stroke={teal}
+        stroke={callout}
         strokeWidth="1.1"
         fill="none"
       />
-      <circle cx="451" cy="295" r="3" fill={teal} />
+      <circle cx="451" cy="295" r="3" fill={callout} />
       <text x="496" y="383" fill={ink} fontSize="14">
         Custom mould + laminate
       </text>
@@ -722,7 +723,7 @@ export default function BridgeConceptDiagram({
         Geometry and timber-look deck finish are illustrative; not a
         construction drawing.
       </desc>
-      <g fill="none" stroke="#dfe8f0" strokeWidth=".65" opacity=".62">
+      <g fill="none" stroke="#dfeef0" strokeWidth=".65" opacity=".62">
         {[0, 1, 2, 3, 4].map((i) => (
           <path key={i} d={`M ${47 + i * 94} ${360 + i * 9} l 245 -59`} />
         ))}
@@ -734,7 +735,7 @@ export default function BridgeConceptDiagram({
         rx="232"
         ry="21"
         transform="rotate(-12 386 340)"
-        fill="#2c668c"
+        fill="#2c828c"
         opacity=".035"
       />
       <g fontFamily="Arial, Helvetica, sans-serif">
