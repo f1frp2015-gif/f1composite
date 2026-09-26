@@ -18,7 +18,7 @@ export default function PassiveHouseEmbedPage() {
     >
       <section className="bg-white px-[20px] py-[21px] sm:px-[34px]">
         <div className="mx-auto max-w-[1280px]">
-          <p className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+          <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
             Free AI selection tool
           </p>
           <h1 className="mt-[8px] text-f24 font-bold text-t1">

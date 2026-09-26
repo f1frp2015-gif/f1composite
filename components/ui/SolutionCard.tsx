@@ -31,9 +31,9 @@ export default function SolutionCard({
     return (
       <Link
         href={href}
-        className="group relative block overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+        className="group relative block overflow-hidden rounded-card border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
       >
-        <div className="card-topbar absolute inset-x-0 top-0 z-[1] rounded-t-[8px]" />
+        <div className="card-topbar absolute inset-x-0 top-0 z-[1] rounded-t-card" />
         <div
           className={`relative aspect-[4/3] overflow-hidden ${
             imageFit === "contain" ? "bg-white" : "bg-bg2"
@@ -54,9 +54,9 @@ export default function SolutionCard({
           />
         </div>
         <div className="p-[21px]">
-          <h3 className="mb-[8px] text-[17px] font-bold text-t1">{title}</h3>
-          <p className="text-f13 leading-golden text-t2">{description}</p>
-          <span className="mt-[13px] block text-f13 font-semibold text-teal-text">
+          <h3 className="mb-[8px] text-f18 font-bold text-t1">{title}</h3>
+          <p className="text-f14 leading-golden text-t2">{description}</p>
+          <span className="mt-[13px] block text-f14 font-semibold text-teal-text">
             View profiles →
           </span>
         </div>
@@ -67,15 +67,15 @@ export default function SolutionCard({
   return (
     <Link
       href={href}
-      className="group relative block rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+      className="group relative block rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
     >
-      <div className="card-topbar absolute inset-x-0 top-0 rounded-t-[8px]" />
-      <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-[6px] bg-teal-bg">
+      <div className="card-topbar absolute inset-x-0 top-0 rounded-t-card" />
+      <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-control bg-teal-bg">
         {icon}
       </div>
-      <h3 className="mb-[8px] text-[17px] font-bold text-t1">{title}</h3>
-      <p className="text-f13 leading-golden text-t2">{description}</p>
-      <span className="mt-[13px] block text-f13 font-semibold text-teal-text">
+      <h3 className="mb-[8px] text-f18 font-bold text-t1">{title}</h3>
+      <p className="text-f14 leading-golden text-t2">{description}</p>
+      <span className="mt-[13px] block text-f14 font-semibold text-teal-text">
         View profiles →
       </span>
     </Link>

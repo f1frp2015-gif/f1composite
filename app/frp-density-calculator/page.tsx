@@ -116,7 +116,7 @@ export default function DensityPage() {
         }}
       />
       <section className="bg-white py-8">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
             <div>
               <h2 className="text-xl font-bold text-t1">
@@ -130,7 +130,7 @@ export default function DensityPage() {
                 available; resin, reinforcement and fillers affect the result.
               </p>
             </div>
-            <div className="rounded-xl border border-border-default bg-bg2 p-5">
+            <div className="rounded-card border border-border-default bg-bg2 p-5">
               <p className="text-sm font-semibold text-teal-text">
                 Two quantities, two units
               </p>
@@ -149,7 +149,7 @@ export default function DensityPage() {
       </section>
       <DensityCalculator />
       <section className="bg-white py-14">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="text-2xl font-bold text-t1">
@@ -173,7 +173,7 @@ export default function DensityPage() {
                   the supply specification.
                 </li>
               </ol>
-              <div className="mt-6 rounded-xl bg-bg2 p-5 font-mono text-sm leading-loose text-t1">
+              <div className="mt-6 rounded-card bg-bg2 p-5 font-mono text-sm leading-loose text-t1">
                 <p>Volume (m³) = area (mm²) × length (m) / 10⁶</p>
                 <p>Density (kg/m³) = sample mass (kg) / volume (m³)</p>
                 <p>Linear mass (kg/m) = area (mm²) × density (kg/m³) / 10⁶</p>
@@ -282,7 +282,7 @@ export default function DensityPage() {
               resin (phr) must first be converted to whole-composite fractions.
             </p>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl bg-bg2 p-5">
+              <div className="rounded-card bg-bg2 p-5">
                 <h3 className="font-bold text-t1">Weight fractions</h3>
                 <p className="mt-3 font-mono text-t1">ρ₀ = 1 / Σ(wᵢ / ρᵢ)</p>
                 <p className="mt-3 text-sm text-t2">
@@ -290,7 +290,7 @@ export default function DensityPage() {
                   not take an arithmetic average of densities weighted by mass.
                 </p>
               </div>
-              <div className="rounded-xl bg-bg2 p-5">
+              <div className="rounded-card bg-bg2 p-5">
                 <h3 className="font-bold text-t1">Solid volume fractions</h3>
                 <p className="mt-3 font-mono text-t1">ρ₀ = Σ(vᵢ × ρᵢ)</p>
                 <p className="mt-3 text-sm text-t2">
@@ -338,7 +338,7 @@ export default function DensityPage() {
             thickness. Angles, channels and beams use ideal square corners;
             channel and I-beam flanges have equal width and thickness.
           </p>
-          <div className="mt-5 overflow-x-auto rounded-xl border border-border-default">
+          <div className="mt-5 overflow-x-auto rounded-card border border-border-default">
             <table className="w-full text-left text-sm">
               <caption className="sr-only">
                 Ideal FRP profile material area formulas
@@ -365,7 +365,7 @@ export default function DensityPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-12 rounded-xl bg-bg2 p-6">
+          <div className="mt-12 rounded-card bg-bg2 p-6">
             <h2 className="text-xl font-bold text-t1">
               Density reference and limits
             </h2>
@@ -409,7 +409,7 @@ export default function DensityPage() {
               <Link
                 key={href}
                 href={href}
-                className="rounded-xl border border-border-default p-5 font-semibold text-teal-text hover:bg-bg2"
+                className="rounded-card border border-border-default p-5 font-semibold text-teal-text hover:bg-bg2"
               >
                 {label} →
               </Link>

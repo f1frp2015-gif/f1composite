@@ -74,18 +74,18 @@ export default function TechnicalDataPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-[1280px] px-[20px] pt-[21px] sm:px-[28px] lg:px-[34px]">
+      <div className="site-container pt-[21px]">
         <Link href={e40EvidenceHref} className="inline-flex min-h-[44px] items-center font-semibold text-teal-text underline">
           E40 test evidence: view original SGS reports — 40.8 / 41.5 GPa →
         </Link>
       </div>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="mb-[8px] text-f24 font-bold text-t1">
             FRP technical data — E23 mechanical &amp; physical properties
           </h2>
-          <p className="mb-[21px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mb-[21px] max-w-[900px] text-f16 leading-golden text-t2">
             For dimensions, thermal, electrical, fire and chemical requirements, use the{" "}
             <Link href="/technology/pultruded-profile-performance" className="font-semibold text-teal-text underline">
               pultruded profile performance and standards guide
@@ -94,13 +94,13 @@ export default function TechnicalDataPage() {
               FRP material guide
             </Link>.
           </p>
-          <p className="max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="max-w-[900px] text-f16 leading-golden text-t2">
             The same laminate values printed on every product datasheet (E-glass /
             isophthalic polyester, EN 13706 Grade E23), shown against the EN 13706-3
             Table 1 grade minimums. One data source feeds both this page and the
             per-size datasheets, so the numbers always match.
           </p>
-          <p className="mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             Read this FRP technical data as material characterization, not as a complete
             member capacity table. Pultruded profiles are anisotropic: longitudinal values
             are dominated by continuous rovings, while transverse and connection behavior
@@ -108,14 +108,14 @@ export default function TechnicalDataPage() {
             design therefore combines these properties with section data, exposure and
             duration factors, connection checks, and the governing project code.
           </p>
-          <p className="mb-[21px] mt-[13px] max-w-[900px] text-f15 leading-golden text-t2">
+          <p className="mb-[21px] mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
             EN 13706 defines the pultruded-profile grade requirements; the referenced EN ISO
             methods define how each coupon property is measured. The published column shows
             the standard laminate data used across F1 datasheets, while the minimum column
             makes the applicable E23 threshold visible instead of mixing the two values.
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-f13">
+            <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
                   <th className="px-[13px] py-[8px] text-left font-bold text-t1">Property</th>
@@ -156,7 +156,7 @@ export default function TechnicalDataPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-[21px] max-w-[860px] text-f13 leading-golden text-t3">
+          <p className="mt-[21px] max-w-[860px] text-f14 leading-golden text-t3">
             ILSS is published at 30 MPa, above the EN 13706 minimum of 25 MPa (FRP Profile
             Design Manual DOC-PF-2026-EN Rev. A). {TYP_NOTE} Values apply to the standard
             general-purpose laminate; fire-retardant, vinyl ester, epoxy, polyurethane, and
@@ -182,13 +182,13 @@ export default function TechnicalDataPage() {
                   body: "Convert characteristic or published values into project design values using the safety, environment, duration, temperature, and code factors required by the governing standard.",
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                  <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+                <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
+                  <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               Calculate material mass with the <Link href="/frp-density-calculator" className="font-semibold text-teal-text hover:underline">FRP density calculator</Link>.{" "}
               For preliminary beam screening, pair this FRP technical data with the{" "}
               <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">
@@ -202,7 +202,7 @@ export default function TechnicalDataPage() {
               buckling, holes, joints, fatigue, fire, or sustained-load conditions.
             </p>
           </div>
-          <div className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px] text-f13 leading-golden text-t2">
+          <div className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg p-[21px] text-f14 leading-golden text-t2">
             <strong>Looking for a specific size?</strong> Per-size datasheets — section drawing,
             published weight per meter, these properties, and a free DXF — live in the{" "}
             <Link href="/resources/downloads#datasheets" className="font-semibold text-teal-text hover:underline">
@@ -220,15 +220,15 @@ export default function TechnicalDataPage() {
       <E40TestEvidence />
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="mb-[21px]">
-            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
               Publishing Q3–Q4 2026
             </span>
             <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">
               Original Test Reports & Long-Term Durability Data
             </h2>
-            <p className="mt-[8px] text-f15 leading-golden text-t2">
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
               We are commissioning third-party testing to publish <strong>original durability
               data</strong> for our pultruded FRP profiles — not manufacturer-reported specs, but
               signed reports from Intertek / SGS labs. Each report will be cite-able by specifiers
@@ -289,22 +289,22 @@ export default function TechnicalDataPage() {
             ].map((report) => (
               <div
                 key={report.title}
-                className="rounded-[8px] border border-border-default bg-white p-[21px]"
+                className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <div className="flex items-center gap-[8px]">
-                  <span className="rounded-full bg-amber-100 px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-amber-800 dark:bg-amber-950 dark:text-amber-200">
+                  <span className="rounded-full bg-amber-100 px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-amber-800 dark:bg-amber-950 dark:text-amber-200">
                     {report.eta}
                   </span>
                 </div>
-                <h3 className="mt-[8px] text-f15 font-bold text-t1">{report.title}</h3>
-                <p className="mt-[5px] text-f11 font-semibold text-t3">Standard: {report.standard}</p>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{report.scope}</p>
-                <p className="mt-[13px] text-f11 text-t3">Testing lab: {report.lab}</p>
+                <h3 className="mt-[8px] text-f16 font-bold text-t1">{report.title}</h3>
+                <p className="mt-[5px] text-f12 font-semibold text-t3">Standard: {report.standard}</p>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{report.scope}</p>
+                <p className="mt-[13px] text-f12 text-t3">Testing lab: {report.lab}</p>
                 <a
                   href={`/contact?source=technical-data&inquiry_type=technical&message=${encodeURIComponent(
                     `Early access request — ${report.title}\nStandard: ${report.standard}\nExpected: ${report.eta}\n\nMy project context (briefly): \nWhy this data matters for us: `
                   )}`}
-                  className="mt-[13px] inline-block text-f13 font-semibold text-teal-text hover:underline"
+                  className="mt-[13px] inline-block text-f14 font-semibold text-teal-text hover:underline"
                 >
                   Request early access →
                 </a>
@@ -312,8 +312,8 @@ export default function TechnicalDataPage() {
             ))}
           </div>
 
-          <div className="mt-[34px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg p-[21px]">
-            <p className="text-f13 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border-l-[4px] border-teal bg-teal-bg p-[21px]">
+            <p className="text-f14 leading-golden text-t2">
               <strong>For specifiers:</strong> If you need a specific test protocol (different
               chemical, higher temperature, longer duration) to unblock a project decision,{" "}
               <a href="/contact?source=technical-data&inquiry_type=technical" className="font-semibold text-teal-text hover:underline">

@@ -90,8 +90,8 @@ function CustomGradeInputs({
   labelClass: string;
 }) {
   return (
-    <div className="rounded-[6px] border border-teal/30 bg-white p-[13px] space-y-[8px]">
-      <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+    <div className="rounded-control border border-teal/30 bg-white p-[13px] space-y-[8px]">
+      <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
         Custom FRP grade — your parameters (e.g. E40)
       </div>
       <div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4">
@@ -109,7 +109,7 @@ function CustomGradeInputs({
           </div>
         ))}
       </div>
-      <p className="text-f11 text-t3">
+      <p className="text-f12 text-t3">
         These are your own characteristic values — not a published standard row.
         E40 example: E_L ≈ 40 GPa (Austroads ATS5880 bridge-loadbearing tier; above
         EN 13706 E17/E23, needs high glass content or a carbon hybrid). Confirm with
@@ -607,9 +607,9 @@ export default function ProfileCalculator() {
     `Weight saving: ${weightSaving.toFixed(0)}%\n\n` +
     `Application / corrosion environment (please add): ____\n\nThanks.`;
 
-  const inputClass = "w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal";
+  const inputClass = "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
   const selectClass = inputClass;
-  const labelClass = "block text-f11 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
+  const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
 
   const beamMaterialOptions = METHOD_MATERIALS[designMethod];
 
@@ -629,18 +629,18 @@ export default function ProfileCalculator() {
           .calculator-results-panel { border: 0 !important; background: white !important; padding: 0 !important; }
         }
       `}</style>
-      <div className="mx-auto max-w-[1280px] px-[34px]">
+      <div className="site-container">
         {/* Mode tabs */}
         <div className="calculator-mode-tabs mb-[21px] flex gap-[8px]">
           <button
             onClick={() => setMode("beam")}
-            className={`rounded-[6px] px-[21px] py-[8px] text-f13 font-semibold transition-colors ${mode === "beam" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[21px] py-[8px] text-f14 font-semibold transition-colors ${mode === "beam" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             Beam Analysis
           </button>
           <button
             onClick={() => setMode("equivalence")}
-            className={`rounded-[6px] px-[21px] py-[8px] text-f13 font-semibold transition-colors ${mode === "equivalence" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[21px] py-[8px] text-f14 font-semibold transition-colors ${mode === "equivalence" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             Steel / Aluminum → FRP Equivalence
           </button>
@@ -649,18 +649,18 @@ export default function ProfileCalculator() {
         {mode === "beam" && (
           <div className="calculator-grid grid gap-[21px] lg:grid-cols-[1fr_1fr]">
             {/* Input panel */}
-            <div className="calculator-input-panel space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="calculator-input-panel space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Input Parameters</SectionTag>
 
               {/* One-click scenario presets — lower activation energy */}
               <div className="flex flex-wrap items-center gap-[6px]">
-                <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
+                <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
                 {PRESETS.map((p) => (
                   <button
                     key={p.id}
                     type="button"
                     onClick={() => applyPreset(p)}
-                    className="rounded-full border border-border-default bg-white px-[12px] py-[5px] text-f11 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                    className="rounded-full border border-border-default bg-white px-[12px] py-[5px] text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                   >
                     {p.label}
                   </button>
@@ -766,81 +766,81 @@ export default function ProfileCalculator() {
               <SectionPreview shape={shape} H={dimH} B={dimB} tw={dimTw} tf={dimTf} look={sectionLook} />
 
               {/* Basis line */}
-              <p className="text-f11 text-t3">
+              <p className="text-f12 text-t3">
                 <strong>Material dataset:</strong> {mat.standard} · <strong>Screening basis:</strong> {dm.basis}
                 {isFRP && <> · <strong>Env knockdown:</strong> ×{env.factor.toFixed(2)} ({env.note})</>}
               </p>
             </div>
 
             {/* Results panel */}
-            <div className="calculator-results-panel space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="calculator-results-panel space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Preliminary Results</SectionTag>
 
               {!beamInputsOk ? (
-                <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+                <div className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
                   {beamInputError} Results are hidden until all inputs and the method/material pairing are valid.
                 </div>
               ) : (<>
 
               {/* Material properties — orthotropic for FRP, isotropic for metals */}
-              <div className="rounded-[6px] bg-white p-[13px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">
+              <div className="rounded-control bg-white p-[13px]">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">
                   Material Properties {isFRP ? "(orthotropic)" : "(isotropic)"}
                 </div>
                 {isFRP ? (
                   <div className="mt-[8px] grid grid-cols-7 gap-[8px] text-center">
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.E}</div><div className="text-f11 text-t3">E_L (GPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.E_T}</div><div className="text-f11 text-t3">E_T (GPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.G_LT}</div><div className="text-f11 text-t3">G_LT (GPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.sigma}</div><div className="text-f11 text-t3">F_tL (MPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.sigma_c}</div><div className="text-f11 text-t3">F_cL (MPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.tau}</div><div className="text-f11 text-t3">F_vLT (MPa)</div></div>
-                    <div><div className="text-f15 font-extrabold text-t1">{mat.density}</div><div className="text-f11 text-t3">ρ (g/cm³)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.E}</div><div className="text-f12 text-t3">E_L (GPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.E_T}</div><div className="text-f12 text-t3">E_T (GPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.G_LT}</div><div className="text-f12 text-t3">G_LT (GPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.sigma}</div><div className="text-f12 text-t3">F_tL (MPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.sigma_c}</div><div className="text-f12 text-t3">F_cL (MPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.tau}</div><div className="text-f12 text-t3">F_vLT (MPa)</div></div>
+                    <div><div className="text-f16 font-extrabold text-t1">{mat.density}</div><div className="text-f12 text-t3">ρ (g/cm³)</div></div>
                   </div>
                 ) : (
                   <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-center">
-                    <div><div className="text-f19 font-extrabold text-t1">{mat.E}</div><div className="text-f11 text-t3">E (GPa)</div></div>
-                    <div><div className="text-f19 font-extrabold text-t1">{mat.sigma}</div><div className="text-f11 text-t3">σ_y (MPa)</div></div>
-                    <div><div className="text-f19 font-extrabold text-t1">{mat.density}</div><div className="text-f11 text-t3">ρ (g/cm³)</div></div>
+                    <div><div className="text-f18 font-extrabold text-t1">{mat.E}</div><div className="text-f12 text-t3">E (GPa)</div></div>
+                    <div><div className="text-f18 font-extrabold text-t1">{mat.sigma}</div><div className="text-f12 text-t3">σ_y (MPa)</div></div>
+                    <div><div className="text-f18 font-extrabold text-t1">{mat.density}</div><div className="text-f12 text-t3">ρ (g/cm³)</div></div>
                   </div>
                 )}
               </div>
 
               {/* Section properties */}
-              <div className="rounded-[6px] bg-white p-[13px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Section Properties</div>
+              <div className="rounded-control bg-white p-[13px]">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Section Properties</div>
                 <div className="mt-[8px] grid grid-cols-4 gap-[8px] text-center">
-                  <div><div className="text-f15 font-bold text-t1">{(Ix / 1e4).toFixed(1)}</div><div className="text-f11 text-t3">Ix (cm⁴)</div></div>
-                  <div><div className="text-f15 font-bold text-t1">{(Wx / 1e3).toFixed(1)}</div><div className="text-f11 text-t3">Wx (cm³)</div></div>
-                  <div><div className="text-f15 font-bold text-t1">{(Aw / 100).toFixed(1)}</div><div className="text-f11 text-t3">A_w (cm²)</div></div>
+                  <div><div className="text-f16 font-bold text-t1">{(Ix / 1e4).toFixed(1)}</div><div className="text-f12 text-t3">Ix (cm⁴)</div></div>
+                  <div><div className="text-f16 font-bold text-t1">{(Wx / 1e3).toFixed(1)}</div><div className="text-f12 text-t3">Wx (cm³)</div></div>
+                  <div><div className="text-f16 font-bold text-t1">{(Aw / 100).toFixed(1)}</div><div className="text-f12 text-t3">A_w (cm²)</div></div>
                   <div>
-                    <div className="text-f15 font-bold text-t1">{weightPerM.toFixed(2)}</div>
-                    <div className="text-f11 text-t3">kg/m · {catalogProfile ? `published ${catalogProfile.model}` : "nominal calc."}</div>
+                    <div className="text-f16 font-bold text-t1">{weightPerM.toFixed(2)}</div>
+                    <div className="text-f12 text-t3">kg/m · {catalogProfile ? `published ${catalogProfile.model}` : "nominal calc."}</div>
                   </div>
                 </div>
               </div>
 
               {/* Three checks: bending / shear / deflection */}
               <div className="grid gap-[8px] sm:grid-cols-3">
-                <div className={`rounded-[6px] p-[13px] ${stressOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Bending</div>
-                  <div className={`mt-[5px] text-f19 font-extrabold ${stressOk ? "text-teal" : "text-red-600"}`}>{sigma_max.toFixed(1)} MPa</div>
-                  <div className="text-f11 text-t3">{stressOk ? "within screen" : "exceeds screen"} · limit {F_b_allow.toFixed(1)} ({((sigma_max / F_b_allow) * 100).toFixed(0)}%)</div>
+                <div className={`rounded-control p-[13px] ${stressOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
+                  <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Bending</div>
+                  <div className={`mt-[5px] text-f18 font-extrabold ${stressOk ? "text-teal" : "text-red-600"}`}>{sigma_max.toFixed(1)} MPa</div>
+                  <div className="text-f12 text-t3">{stressOk ? "within screen" : "exceeds screen"} · limit {F_b_allow.toFixed(1)} ({((sigma_max / F_b_allow) * 100).toFixed(0)}%)</div>
                 </div>
-                <div className={`rounded-[6px] p-[13px] ${shearOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Shear</div>
-                  <div className={`mt-[5px] text-f19 font-extrabold ${shearOk ? "text-teal" : "text-red-600"}`}>{tau_max.toFixed(1)} MPa</div>
-                  <div className="text-f11 text-t3">{shearOk ? "within screen" : "exceeds screen"} · limit {F_v_allow.toFixed(1)} ({((tau_max / F_v_allow) * 100).toFixed(0)}%)</div>
+                <div className={`rounded-control p-[13px] ${shearOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
+                  <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Shear</div>
+                  <div className={`mt-[5px] text-f18 font-extrabold ${shearOk ? "text-teal" : "text-red-600"}`}>{tau_max.toFixed(1)} MPa</div>
+                  <div className="text-f12 text-t3">{shearOk ? "within screen" : "exceeds screen"} · limit {F_v_allow.toFixed(1)} ({((tau_max / F_v_allow) * 100).toFixed(0)}%)</div>
                 </div>
-                <div className={`rounded-[6px] p-[13px] ${deflOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Deflection</div>
-                  <div className={`mt-[5px] text-f19 font-extrabold ${deflOk ? "text-teal" : "text-red-600"}`}>{defl.toFixed(1)} mm</div>
-                  <div className="text-f11 text-t3">{deflOk ? "within screen" : "exceeds screen"} · L/{deflRatio.toFixed(0)} (limit L/{deflLimit})</div>
+                <div className={`rounded-control p-[13px] ${deflOk ? "bg-teal/10 border border-teal/20" : "bg-red-50 border border-red-200"}`}>
+                  <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Deflection</div>
+                  <div className={`mt-[5px] text-f18 font-extrabold ${deflOk ? "text-teal" : "text-red-600"}`}>{defl.toFixed(1)} mm</div>
+                  <div className="text-f12 text-t3">{deflOk ? "within screen" : "exceeds screen"} · L/{deflRatio.toFixed(0)} (limit L/{deflLimit})</div>
                 </div>
               </div>
 
               {/* Load summary + shear-deflection contribution + slenderness advisory */}
-              <div className="rounded-[6px] bg-white p-[13px] text-f13 text-t2 space-y-[5px]">
+              <div className="rounded-control bg-white p-[13px] text-f14 text-t2 space-y-[5px]">
                 <div className="grid grid-cols-2 gap-[8px]">
                   <div>Max moment (factored): <span className="font-bold text-t1">{(M_factored_Nmm / 1e6).toFixed(2)} kN·m</span></div>
                   <div>Max shear (factored): <span className="font-bold text-t1">{(V_factored_N / 1e3).toFixed(2)} kN</span></div>
@@ -871,10 +871,10 @@ export default function ProfileCalculator() {
                   <a
                     href={`/products/fiberglass-structural-shapes/${prod.slug}?source=calculator`}
                     onClick={() => track("calculator_product_click", { shape, slug: prod.slug })}
-                    className="block rounded-[6px] border border-teal/30 bg-white p-[13px] transition-colors hover:border-teal"
+                    className="block rounded-control border border-teal/30 bg-white p-[13px] transition-colors hover:border-teal"
                   >
-                    <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">F1 makes this profile</div>
-                    <div className="mt-[3px] text-f13 text-t2">
+                    <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">F1 makes this profile</div>
+                    <div className="mt-[3px] text-f14 text-t2">
                       {near ? (
                         <>Closest stock size to your {dimH} mm section: <strong className="text-t1">{near.label}</strong>. </>
                       ) : null}
@@ -889,7 +889,7 @@ export default function ProfileCalculator() {
                 <a
                   href={`/contact?source=calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
                   onClick={() => track("calculator_quote_click", { shape })}
-                  className="rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >
                   📧 Send to engineering for a quote
                 </a>
@@ -898,7 +898,7 @@ export default function ProfileCalculator() {
                     `I just used the FRP profile calculator. Standard: ${mat.standard}. Design method: ${dm.label}. Environment: ${env.label}. Material: ${mat.label}. ${shape} ${dimH}×${dimB}mm spanning ${span}mm under ${load} ${isDistributed ? "kN/m" : "kN"}. Bending ${sigma_max.toFixed(1)}/${F_b_allow.toFixed(1)} MPa, shear ${tau_max.toFixed(1)}/${F_v_allow.toFixed(1)} MPa, deflection ${defl.toFixed(1)} mm (${deflShearPct.toFixed(0)}% shear share). Is this sized correctly? What grade/resin should I specify for [my application]?`
                   )}`}
                   onClick={() => track("calculator_ai_click", { shape })}
-                  className="rounded-[6px] border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-teal-text transition-colors hover:bg-teal/20"
+                  className="rounded-control border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f14 font-bold uppercase tracking-wide text-teal-text transition-colors hover:bg-teal/20"
                 >
                   💬 Discuss results with AI
                 </a>
@@ -912,14 +912,14 @@ export default function ProfileCalculator() {
                 <button
                   type="button"
                   onClick={copyShareLink}
-                  className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                  className="w-full rounded-control border border-border-default bg-white px-[16px] py-[8px] text-center text-f14 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                 >
                   {shareState === "copied" ? "✓ Share link copied" : shareState === "error" ? "Link ready in address bar" : "📋 Copy Share Link"}
                 </button>
                 <button
                   type="button"
                   onClick={printResultReport}
-                  className="w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                  className="w-full rounded-control border border-border-default bg-white px-[16px] py-[8px] text-center text-f14 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                 >
                   Print / Save result as PDF
                 </button>
@@ -927,7 +927,7 @@ export default function ProfileCalculator() {
 
               </>)}
 
-              <p className="text-f11 text-t3">
+              <p className="text-f12 text-t3">
                 Reference: EN 13706-3 · GB 50608-2020 / T/CECS 692-2020 · ASCE/SEI 74-23 · CEN/TS 19101:2022 · ASTM D3917.
                 Calculator performs global bending (vs min tensile/compressive strength), average shear, and load-case-matched Timoshenko deflection only.
                 Not modeled: local buckling, lateral-torsional buckling, web crippling, long-term creep deflection, the ASCE 74-23 time-effect factor λ,
@@ -940,7 +940,7 @@ export default function ProfileCalculator() {
         {mode === "equivalence" && (
           <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr]">
             {/* Input */}
-            <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <SectionTag>Source Profile (Replace This)</SectionTag>
 
               <div className="grid gap-[13px] sm:grid-cols-2">
@@ -1041,7 +1041,7 @@ export default function ProfileCalculator() {
               {/* Standard wall-thickness quick-select for the source metal profile
                   — fills web + flange (still editable above). */}
               <div className="flex flex-wrap items-center gap-[6px]">
-                <span className="text-f11 font-bold uppercase tracking-[2px] text-t3">
+                <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">
                   {eqSourceMat.startsWith("alu") ? "Alu" : "Steel"} std wall:
                 </span>
                 {(eqSourceMat.startsWith("alu") ? STD_WALLS.alu : STD_WALLS.steel).map((w) => (
@@ -1049,7 +1049,7 @@ export default function ProfileCalculator() {
                     key={w}
                     type="button"
                     onClick={() => { setEqTw(w); setEqTf(w); }}
-                    className={`rounded-full border px-[10px] py-[4px] text-f11 font-medium transition-colors ${
+                    className={`rounded-full border px-[10px] py-[4px] text-f12 font-medium transition-colors ${
                       eqTw === w
                         ? "border-teal bg-teal-bg text-teal-text"
                         : "border-border-default bg-white text-t2 hover:border-teal"
@@ -1062,22 +1062,22 @@ export default function ProfileCalculator() {
             </div>
 
             {/* Results */}
-            <div className="space-y-[13px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <SectionTag>FRP Equivalent</SectionTag>
 
               {!eqInputsOk ? (
-                <div className="rounded-[6px] border border-red-200 bg-red-50 p-[13px] text-f13 text-red-700">
+                <div className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
                   {eqInputError} Results are hidden until the source geometry and target properties are valid.
                 </div>
               ) : (<>
 
-              <div className="overflow-x-auto rounded-[6px] bg-white">
-                <table className="w-full text-left text-f13">
+              <div className="overflow-x-auto rounded-control bg-white">
+                <table className="w-full text-left text-f14">
                   <thead>
                     <tr className="border-b-2 border-border-default">
-                      <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-t3">Property</th>
-                      <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-t3">{srcMat.label}</th>
-                      <th className="px-[13px] py-[10px] text-f11 font-bold uppercase tracking-wide text-teal-text">{tgtMat.label}</th>
+                      <th className="px-[13px] py-[10px] text-f12 font-bold uppercase tracking-wide text-t3">Property</th>
+                      <th className="px-[13px] py-[10px] text-f12 font-bold uppercase tracking-wide text-t3">{srcMat.label}</th>
+                      <th className="px-[13px] py-[10px] text-f12 font-bold uppercase tracking-wide text-teal-text">{tgtMat.label}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1091,36 +1091,36 @@ export default function ProfileCalculator() {
               </div>
 
               <div className="grid gap-[8px] sm:grid-cols-2">
-                <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Stiffness (EI)</div>
-                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f13">
+                <div className="rounded-control bg-white border border-border-default p-[13px]">
+                  <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Equal Stiffness (EI)</div>
+                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f14">
                     <div>H: <span className="font-bold text-t1">{stiffH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{stiffB} mm</span></div>
                     <div>t: <span className="font-bold text-t1">{stiffTw} mm</span></div>
                   </div>
-                  <p className="mt-[5px] text-f11 text-t3">
+                  <p className="mt-[5px] text-f12 text-t3">
                     {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Ix` : <>k = (E_src/E_tgt)<sup>1/4</sup> = ×{stiffnessScale.toFixed(2)}</>}
                   </p>
                 </div>
-                <div className="rounded-[6px] bg-white border border-border-default p-[13px]">
-                  <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Equal Strength (σW)</div>
-                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f13">
+                <div className="rounded-control bg-white border border-border-default p-[13px]">
+                  <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Equal Strength (σW)</div>
+                  <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f14">
                     <div>H: <span className="font-bold text-t1">{strengthH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{strengthB} mm</span></div>
                     <div>t: <span className="font-bold text-t1">{strengthTw} mm</span></div>
                   </div>
-                  <p className="mt-[5px] text-f11 text-t3">
+                  <p className="mt-[5px] text-f12 text-t3">
                     {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Wx` : <>k = (σ_src/σ_tgt)<sup>1/3</sup> = ×{strengthScale.toFixed(2)}</>}
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-[6px] bg-teal/10 border border-teal/20 p-[13px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Governing Criterion</div>
-                <div className="mt-[5px] text-f15 font-bold text-t1">
+              <div className="rounded-control bg-teal/10 border border-teal/20 p-[13px]">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Governing Criterion</div>
+                <div className="mt-[5px] text-f16 font-bold text-t1">
                   {governingCriterion}{fixedWall ? ` — FRP ${eqFrpH}×${eqFrpB} mm @ ${tWall} mm wall` : ` — use ×${governingScale.toFixed(2)}`}
                 </div>
-                <p className="mt-[5px] text-f11 text-t3">
+                <p className="mt-[5px] text-f12 text-t3">
                   The FRP profile must satisfy <em>both</em> limits; the {fixedWall ? "larger reverse-solved section" : "larger scale factor"} governs.
                   {srcMat.group === "Metal" && srcMat.label.toLowerCase().includes("alum")
                     ? " For aluminum, stiffness and strength criteria are often comparable — check both before committing to a size."
@@ -1129,17 +1129,17 @@ export default function ProfileCalculator() {
               </div>
 
               <div className="grid gap-[8px] sm:grid-cols-3">
-                <div className="rounded-[6px] bg-white p-[13px] text-center">
-                  <div className="text-f19 font-extrabold text-t1">{srcWeight.toFixed(2)}</div>
-                  <div className="text-f11 text-t3">Source (kg/m)</div>
+                <div className="rounded-control bg-white p-[13px] text-center">
+                  <div className="text-f18 font-extrabold text-t1">{srcWeight.toFixed(2)}</div>
+                  <div className="text-f12 text-t3">Source (kg/m)</div>
                 </div>
-                <div className="rounded-[6px] bg-white p-[13px] text-center">
-                  <div className="text-f19 font-extrabold text-teal">{tgtWeight.toFixed(2)}</div>
-                  <div className="text-f11 text-t3">FRP — governing (kg/m)</div>
+                <div className="rounded-control bg-white p-[13px] text-center">
+                  <div className="text-f18 font-extrabold text-teal">{tgtWeight.toFixed(2)}</div>
+                  <div className="text-f12 text-t3">FRP — governing (kg/m)</div>
                 </div>
-                <div className="rounded-[6px] bg-teal/10 border border-teal/20 p-[13px] text-center">
-                  <div className="text-f19 font-extrabold text-teal">{weightSaving.toFixed(0)}%</div>
-                  <div className="text-f11 text-t3">Weight Saving</div>
+                <div className="rounded-control bg-teal/10 border border-teal/20 p-[13px] text-center">
+                  <div className="text-f18 font-extrabold text-teal">{weightSaving.toFixed(0)}%</div>
+                  <div className="text-f12 text-t3">Weight Saving</div>
                 </div>
               </div>
 
@@ -1148,7 +1148,7 @@ export default function ProfileCalculator() {
                 <a
                   href={`/products/fiberglass-structural-shapes/${PRODUCT_BY_SHAPE[eqShape].slug}?source=calculator`}
                   onClick={() => track("calculator_product_click", { shape: eqShape, slug: PRODUCT_BY_SHAPE[eqShape].slug, mode: "equivalence" })}
-                  className="block rounded-[6px] bg-teal px-[16px] py-[10px] text-center text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="block rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
                 >
                   View matching {PRODUCT_BY_SHAPE[eqShape].family} <span aria-hidden>→</span>
                 </a>
@@ -1158,14 +1158,14 @@ export default function ProfileCalculator() {
               <button
                 type="button"
                 onClick={copyShareLink}
-                className="calculator-print-hide w-full rounded-[6px] border border-border-default bg-white px-[16px] py-[8px] text-center text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                className="calculator-print-hide w-full rounded-control border border-border-default bg-white px-[16px] py-[8px] text-center text-f14 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
               >
                 {shareState === "copied" ? "✓ Share link copied" : shareState === "error" ? "Link ready in address bar" : "📋 Copy Share Link"}
               </button>
 
               </>)}
 
-              <p className="text-f11 text-t3">
+              <p className="text-f12 text-t3">
                 Geometrically similar scaling with both equal-stiffness (EI) and equal-strength (σW) checks per
                 EN 13706-3, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022 methodology.
                 The strength comparison is at characteristic level (metal yield vs FRP min(F_tL, F_cL)) with no

@@ -149,22 +149,22 @@ export default function MoldedFrpGratingPage() {
 
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.05fr_0.95fr] lg:px-[34px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <SectionTag>Two-Way Molded Construction</SectionTag>
             <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               Molded mesh for cutouts, corrosive duty and multidirectional layouts
             </h2>
-            <p className="mt-[13px] text-f19 leading-golden text-t2">
+            <p className="mt-[13px] text-f18 leading-golden text-t2">
               Molded fiberglass grating is cured as one panel with glass reinforcement running in both directions. It is the F1-GRID choice when the layout contains frequent penetrations, loads can approach from more than one direction, or the project needs resin-rich corrosion performance with a wide choice of square and mini meshes.
             </p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               Interlaced glass roving is thermally cured in a resin-filled mold. The listed construction has 30–35% glass content by total weight. For fire-retardant options, request the report for the proposed resin and panel configuration; confirm the required fire classification and test scope before ordering.
             </p>
           </div>
 
           <figure className="self-center">
-            <div className="relative aspect-[123/46] overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[123/46] overflow-hidden rounded-card bg-bg2">
               <Image
                 src={moldedGratingManualImageAssets.closeup}
                 alt="Close-up of green molded fiberglass grating with square mesh and a bonded grit walking surface"
@@ -179,24 +179,24 @@ export default function MoldedFrpGratingPage() {
           </figure>
         </div>
 
-        <div className="mx-auto mt-[34px] grid max-w-[1280px] gap-[13px] px-[20px] sm:grid-cols-2 sm:px-[28px] lg:grid-cols-4 lg:px-[34px]">
+        <div className="site-container mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {moldedAdvantages.map((item) => (
-            <article key={item.label} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">{item.label}</p>
-              <h3 className="mt-[8px] text-f17 font-bold text-t1">{item.value}</h3>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">{item.detail}</p>
+            <article key={item.label} className="rounded-card border border-border-default bg-bg2 p-[21px]">
+              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">{item.label}</p>
+              <h3 className="mt-[8px] text-f18 font-bold text-t1">{item.value}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.detail}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section id="molded-grating-specifications" className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <SectionTag>Molded Panel Specifications</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Molded grating mesh, depth, panel size, weight and open area
           </h2>
-          <p className="mt-[13px] max-w-[980px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
             Compare all 26 square-mesh and mini-mesh configurations below. Dimensions are millimeters; weight is nominal kg/m². Approximate inch depths are for reference. Choose a row to prefill your quotation request, then confirm final dimensions, tolerances and load data for the project.
           </p>
 
@@ -205,15 +205,15 @@ export default function MoldedFrpGratingPage() {
               <details
                 key={group.mesh}
                 open={index < 2}
-                className="group rounded-[8px] border border-border-default bg-white"
+                className="group rounded-card border border-border-default bg-white"
               >
                 <summary className="cursor-pointer list-none px-[21px] py-[16px] sm:px-[34px]">
                   <div className="flex items-center justify-between gap-[13px]">
                     <div>
-                      <h3 className="text-f17 font-bold text-t1">{group.mesh}</h3>
+                      <h3 className="text-f18 font-bold text-t1">{group.mesh}</h3>
                       {group.note && <p className="mt-[4px] text-f12 leading-golden text-t3">{group.note}</p>}
                     </div>
-                    <span aria-hidden="true" className="text-f19 font-bold text-teal-text transition-transform group-open:rotate-45">+</span>
+                    <span aria-hidden="true" className="text-f18 font-bold text-teal-text transition-transform group-open:rotate-45">+</span>
                   </div>
                 </summary>
                 <div className="border-t border-border-default px-[13px] pb-[21px] sm:px-[34px] sm:pb-[34px]">
@@ -233,12 +233,12 @@ export default function MoldedFrpGratingPage() {
                       <tbody>
                         {group.rows.map((row) => (
                           <tr key={`${group.mesh}-${row.depth}-${row.barThickness}`} className="border-b border-border-default last:border-b-0">
-                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}<span className="block whitespace-nowrap text-f11 font-normal text-t3">≈ {approximateInches(parseFloat(row.depth))} in</span></td>
+                            <td className="py-[11px] pr-[21px] text-f14 font-semibold text-teal-text">{row.depth}<span className="block whitespace-nowrap text-f12 font-normal text-t3">≈ {approximateInches(parseFloat(row.depth))} in</span></td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.barThickness}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.panelSizes}</td>
                             <td className="py-[11px] pr-[21px] text-f14 text-t2">{row.weight}</td>
                             <td className="py-[11px] text-f14 text-t2">{row.openArea}</td>
-                            <td className="py-[11px] pl-[16px]"><Link href={gratingInquiryHref("molded", moldedGratingSelection(group.mesh, row), "grating-spec-row")} className="relative inline-flex min-h-[44px] items-center whitespace-nowrap text-f13 font-bold text-teal-text underline underline-offset-4">Quote this spec<span className="sr-only">: { group.mesh + ", " + row.depth + " mm, bar " + row.barThickness }</span></Link></td>
+                            <td className="py-[11px] pl-[16px]"><Link href={gratingInquiryHref("molded", moldedGratingSelection(group.mesh, row), "grating-spec-row")} className="relative inline-flex min-h-[44px] items-center whitespace-nowrap text-f14 font-bold text-teal-text underline underline-offset-4">Quote this spec<span className="sr-only">: { group.mesh + ", " + row.depth + " mm, bar " + row.barThickness }</span></Link></td>
                           </tr>
                         ))}
                       </tbody>
@@ -249,15 +249,15 @@ export default function MoldedFrpGratingPage() {
             ))}
           </div>
 
-          <div className="mt-[34px] rounded-[8px] border border-border-default bg-white p-[21px] sm:p-[34px]">
-            <h3 className="text-f17 font-bold text-t1">Additional catalog mesh families</h3>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border border-border-default bg-white p-[21px] sm:p-[34px]">
+            <h3 className="text-f18 font-bold text-t1">Additional catalog mesh families</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
               Further mesh and depth options are listed below. Request the exact configuration and project load table before specifying.
             </p>
             <div className="mt-[16px] grid gap-[10px] sm:grid-cols-2 lg:grid-cols-3">
               {moldedAdditionalMeshFamilies.map((item) => (
-                <div key={item.mesh} className="rounded-[6px] border border-border-default bg-bg2 px-[13px] py-[10px]">
-                  <p className="text-f13 font-semibold text-t1">{item.mesh}</p>
+                <div key={item.mesh} className="rounded-control border border-border-default bg-bg2 px-[13px] py-[10px]">
+                  <p className="text-f14 font-semibold text-t1">{item.mesh}</p>
                   <p className="mt-[3px] text-f12 text-t3">Catalog depths: {item.depths}</p>
                 </div>
               ))}
@@ -267,19 +267,19 @@ export default function MoldedFrpGratingPage() {
       </section>
 
       <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <SectionTag>Catalog Hardware Reference</SectionTag>
               <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Molded grating connectors and hold-down hardware
               </h2>
-              <p className="mt-[13px] text-f15 leading-golden text-t2">
+              <p className="mt-[13px] text-f16 leading-golden text-t2">
                 The catalog hardware photograph shows the wider grating-fastener family. For this molded-grating page, F1 publishes only the applicable M hold-down, C panel connector and J support-hook functions below. The photograph is a visual reference, not a promise that every pictured geometry is a stocked F1 SKU.
               </p>
             </div>
             <figure>
-              <div className="relative aspect-[167/61] overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+              <div className="relative aspect-[167/61] overflow-hidden rounded-card border border-border-default bg-bg2">
                 <Image
                   src={moldedGratingManualImageAssets.hardware}
                   alt="Reference layout of stainless-steel grating clip and clamp geometries"
@@ -300,9 +300,9 @@ export default function MoldedFrpGratingPage() {
       <GratingSelectionCriteria />
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <figure>
-            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-[8px] bg-bg2">
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-card bg-bg2">
               <Image
                 src={moldedGratingManualImageAssets.hero}
                 alt="Molded FRP grating installed as a corrosion-resistant coastal observation walkway"
@@ -321,9 +321,9 @@ export default function MoldedFrpGratingPage() {
       <GratingClipGuide family="molded" />
 
       <section className="bg-deep py-[55px] text-white">
-        <div className="mx-auto flex max-w-[1280px] flex-col gap-[21px] px-[20px] sm:px-[28px] lg:flex-row lg:items-center lg:justify-between lg:px-[34px]">
+        <div className="site-container flex flex-col gap-[21px] lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-f11 font-bold uppercase tracking-[0.12em] text-teal">Separate product family</p>
+            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal">Separate product family</p>
             <h2 className="mt-[8px] text-[clamp(22px,3vw,30px)] font-extrabold">Need longer one-way spans or I-bar / T-bar panels?</h2>
             <p className="mt-[8px] max-w-[760px] text-f14 leading-golden text-white/75">
               Compare pultruded bearing-bar configurations, one-way span requirements and M/J/T fixing options.
@@ -331,7 +331,7 @@ export default function MoldedFrpGratingPage() {
           </div>
           <Link
             href="/products/frp-gratings"
-            className="inline-flex min-h-[46px] items-center justify-center rounded-[7px] bg-teal-text px-[21px] py-[11px] text-f13 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="inline-flex min-h-[46px] items-center justify-center rounded-control bg-teal-text px-[21px] py-[11px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             View pultruded FRP grating
           </Link>
@@ -377,7 +377,7 @@ export default function MoldedFrpGratingPage() {
       <ProductNextSteps path="/products/molded-frp-grating" />
 
       <section id="grating-faq" className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

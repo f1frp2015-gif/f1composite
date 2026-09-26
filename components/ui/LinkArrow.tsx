@@ -10,7 +10,7 @@ export default function LinkArrow({ href, children, className = "" }: LinkArrowP
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-[5px] text-f13 font-semibold text-teal-text transition-all duration-[0.34s] hover:gap-[8px] ${className}`}
+      className={`inline-flex items-center gap-[5px] text-f14 font-semibold text-teal-text transition-all duration-[0.34s] hover:gap-[8px] ${className}`}
     >
       {children}
       <span aria-hidden>→</span>

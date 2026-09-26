@@ -71,7 +71,7 @@ export default function DensityPlayground({
   return (
     <div
       aria-live="off"
-      className="mt-5 rounded-xl border border-border-default bg-bg2 p-4"
+      className="mt-5 rounded-card border border-border-default bg-bg2 p-4"
     >
       <div className="flex items-center justify-between gap-3">
         <h3 className="font-bold text-t1">Explore the material balance</h3>
@@ -89,7 +89,7 @@ export default function DensityPlayground({
             setStage(0);
             setPlaying(true);
           }}
-          className="shrink-0 rounded-lg border border-border-default bg-white px-3 py-2 text-xs font-semibold text-teal-text"
+          className="shrink-0 rounded-card border border-border-default bg-white px-3 py-2 text-xs font-semibold text-teal-text"
         >
           {playing ? "Pause animation" : "Play fill animation"}
         </button>
@@ -104,7 +104,7 @@ export default function DensityPlayground({
               setPlaying(false);
               setStage(index);
             }}
-            className={`rounded-lg border p-2 text-left text-xs ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2"}`}
+            className={`rounded-card border p-2 text-left text-xs ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2"}`}
           >
             {index + 1}. {name}
           </button>
@@ -204,7 +204,7 @@ export default function DensityPlayground({
                   id="interactive-layer"
                   value={layerIndex}
                   onChange={(e) => setSelectedLayer(Number(e.target.value))}
-                  className="mt-1 w-full rounded-lg border border-border-default bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-card border border-border-default bg-white p-2 text-sm"
                 >
                   {layers.map((row, index) => (
                     <option key={index} value={index}>

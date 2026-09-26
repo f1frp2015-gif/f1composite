@@ -39,19 +39,19 @@ export default function ContactPage() {
       />
 
       <section className="bg-bg2 py-6 md:py-8">
-        <div className="mx-auto grid max-w-[1320px] gap-[34px] px-[20px] sm:px-[28px] lg:grid-cols-[1.15fr_0.85fr] lg:px-[36px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <h2 className="sr-only">Start your inquiry</h2>
-            <Suspense fallback={<div className="text-f13 text-t3">Loading inquiry form…</div>}>
+            <Suspense fallback={<div className="text-f14 text-t3">Loading inquiry form…</div>}>
               <ContactForm />
             </Suspense>
           </div>
 
           <aside className="space-y-[18px] lg:pt-[37px]" aria-label="Contact and quotation guidance">
-            <div className="rounded-[11px] border border-border-default bg-white p-[22px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">Direct contact</p>
-              <h2 className="mt-[7px] text-f19 font-bold text-t1">Doris Li · Sales Director</h2>
-              <div className="mt-[14px] space-y-[8px] text-f13">
+            <div className="rounded-card border border-border-default bg-white p-[22px]">
+              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">Direct contact</p>
+              <h2 className="mt-[7px] text-f18 font-bold text-t1">Doris Li · Sales Director</h2>
+              <div className="mt-[14px] space-y-[8px] text-f14">
                 <a href="mailto:inquiry@f1composite.com" className="block font-semibold text-teal-text hover:text-teal">
                   inquiry@f1composite.com
                 </a>
@@ -60,21 +60,21 @@ export default function ContactPage() {
                 </a>
                 <WhatsAppButton location="contact-page" label="Chat on WhatsApp" />
               </div>
-              <p className="mt-[15px] border-t border-border-default pt-[13px] text-f13 leading-relaxed text-t2">
+              <p className="mt-[15px] border-t border-border-default pt-[13px] text-f14 leading-relaxed text-t2">
                 Monday–Friday · 08:30–17:30 GMT+8<br />
                 Chongqing, China
               </p>
             </div>
 
-            <div className="rounded-[11px] bg-deep p-[22px] text-white">
-              <h2 className="text-f19 font-bold">Still working out the details?</h2>
+            <div className="rounded-card bg-deep p-[22px] text-white">
+              <h2 className="text-f18 font-bold">Still working out the details?</h2>
               <p className="mt-3 text-sm text-white/80">Send your inquiry now. We can help confirm the right product, quantity and delivery requirements together.</p>
               <p className="mt-3 text-sm text-white/80">Already have a drawing or specification? You can attach it as an optional extra or send it after we reply.</p>
             </div>
 
-            <div className="rounded-[11px] border border-border-default bg-white p-[22px]">
-              <p className="text-f11 font-bold uppercase tracking-[0.1em] text-teal-text">Contracting entity</p>
-              <p className="mt-[8px] text-f13 leading-relaxed text-t2">
+            <div className="rounded-card border border-border-default bg-white p-[22px]">
+              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">Contracting entity</p>
+              <p className="mt-[8px] text-f14 leading-relaxed text-t2">
                 Chongqing F1 Composites Co., Ltd. is the export company of FengDu New Material. FengDu runs the factories; F1 signs the contract and handles engineering support, documents and delivery.
               </p>
             </div>

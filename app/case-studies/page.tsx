@@ -147,7 +147,7 @@ export default function CaseStudiesPage() {
       />
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CaseStudyGrid items={caseStudies} />
         </div>
       </section>

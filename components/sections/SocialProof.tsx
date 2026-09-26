@@ -30,14 +30,14 @@ const featuredCases = [
 export default function SocialProof() {
   return (
     <section className="bg-bg2 py-[58px] md:py-[78px]">
-      <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+      <div className="site-container">
         <div className="flex flex-col gap-[16px] sm:flex-row sm:items-end sm:justify-between">
           <div>
             <SectionTag>Supply projects</SectionTag>
-            <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
+            <h2 className="mt-[12px] max-w-[760px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.02em] text-t1">
               Selected supply projects
             </h2>
-            <p className="mt-[10px] max-w-[740px] text-f15 leading-relaxed text-t2">
+            <p className="mt-[10px] max-w-[740px] text-f16 leading-relaxed text-t2">
               See the components supplied, how they were used and the project-specific supporting information.
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function SocialProof() {
             <Link
               key={item.slug}
               href={`/case-studies/${item.slug}`}
-              className="group overflow-hidden rounded-[10px] border border-border-default bg-white transition-all duration-[0.24s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_12px_32px_rgba(11,24,56,0.08)]"
+              className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-[0.24s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-[#dfe5e7]">
                 <Image
@@ -63,14 +63,14 @@ export default function SocialProof() {
                 />
               </div>
               <div className="p-[20px]">
-                <p className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">{item.meta}</p>
-                <h3 className="mt-[7px] text-f19 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">
+                <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{item.meta}</p>
+                <h3 className="mt-[7px] text-f18 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">
                   {item.title}
                 </h3>
-                <p className="mt-[7px] text-f13 leading-relaxed text-t2">{item.outcome}</p>
+                <p className="mt-[7px] text-f14 leading-relaxed text-t2">{item.outcome}</p>
                 <div className="mt-[14px] flex flex-wrap gap-x-[12px] gap-y-[5px] border-t border-border-default pt-[12px]">
                   {item.metrics.map((metric) => (
-                    <span key={metric} className="text-f11 font-bold text-t1">{metric}</span>
+                    <span key={metric} className="text-f12 font-bold text-t1">{metric}</span>
                   ))}
                 </div>
               </div>

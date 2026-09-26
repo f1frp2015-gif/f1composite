@@ -18,7 +18,7 @@ export default function EmbedShell({ children, toolName, canonicalPath }: EmbedS
         body > main#main { padding-top: 0 !important; }
       `}</style>
       {children}
-      <aside className="sticky bottom-0 z-40 border-t border-border-default bg-white/95 px-[16px] py-[10px] shadow-[0_-4px_18px_rgba(11,24,56,0.08)] backdrop-blur">
+      <aside className="sticky bottom-0 z-40 border-t border-border-default bg-white/95 px-[16px] py-[10px] shadow-bar backdrop-blur">
         <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-[8px] text-f12 text-t3">
           <span>Engineering reference only — confirm final design with a qualified engineer.</span>
           <a

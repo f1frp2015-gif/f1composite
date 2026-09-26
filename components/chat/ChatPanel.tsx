@@ -45,7 +45,7 @@ function renderMarkdown(text: string) {
         )
         .join("");
       out.push(
-        `<div class="my-[8px] overflow-x-auto rounded-[6px] border border-neutral-200"><table class="w-full border-collapse bg-white text-f13"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`,
+        `<div class="my-[8px] overflow-x-auto rounded-control border border-neutral-200"><table class="w-full border-collapse bg-white text-f14"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`,
       );
       continue;
     }
@@ -56,7 +56,7 @@ function renderMarkdown(text: string) {
       continue;
     }
     if (trimmed.startsWith("## ")) {
-      out.push(`<h3 class="font-bold text-f15 mt-[12px] mb-[4px]">${inlineFormat(trimmed.slice(3))}</h3>`);
+      out.push(`<h3 class="font-bold text-f16 mt-[12px] mb-[4px]">${inlineFormat(trimmed.slice(3))}</h3>`);
       continue;
     }
 
@@ -102,7 +102,7 @@ function inlineFormat(text: string) {
     .replace(/'/g, "&#39;")
     .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/`(.*?)`/g, '<code class="bg-neutral-100 px-[4px] py-[1px] rounded text-f13">$1</code>')
+    .replace(/`(.*?)`/g, '<code class="bg-neutral-100 px-[4px] py-[1px] rounded-tag text-f14">$1</code>')
     // Validate the href scheme so model output can't smuggle a javascript:/data:
     // URI; quote-escaping above already blocks attribute breakout.
     .replace(/\[(.*?)\]\((.*?)\)/g, (_m, label: string, url: string) =>
@@ -206,8 +206,8 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
                 <circle cx="10" cy="10" r="3" fill="white" />
               </svg>
             </div>
-            <h3 className="text-f15 font-bold text-t1 mb-[5px]">FRP Engineering Advisor</h3>
-            <p className="text-f13 text-t3 mb-[21px] max-w-[300px]">
+            <h3 className="text-f16 font-bold text-t1 mb-[5px]">FRP Engineering Advisor</h3>
+            <p className="text-f14 text-t3 mb-[21px] max-w-[300px]">
               Ask anything about FRP profiles, material selection, specifications, and applications.
             </p>
             <div className="grid grid-cols-1 gap-[8px] w-full max-w-[360px]">
@@ -216,7 +216,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
                   key={s}
                   type="button"
                   onClick={() => handleSuggestion(s)}
-                  className="text-left text-f13 text-t2 px-[13px] py-[8px] rounded-[6px] border border-border-default hover:border-teal-border hover:text-teal-text transition-colors"
+                  className="text-left text-f14 text-t2 px-[13px] py-[8px] rounded-control border border-border-default hover:border-teal-border hover:text-teal-text transition-colors"
                 >
                   {s}
                 </button>
@@ -231,7 +231,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] rounded-[8px] px-[13px] py-[8px] text-f14 leading-golden ${
+              className={`max-w-[85%] rounded-card px-[13px] py-[8px] text-f14 leading-golden ${
                 msg.role === "user"
                   ? "bg-teal text-white"
                   : "bg-bg2 text-t1"
@@ -259,7 +259,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
         ))}
 
         {error && (
-          <div className="text-center text-f13 text-red-500 py-[8px]">
+          <div className="text-center text-f14 text-red-500 py-[8px]">
             Something went wrong. Please try again.
           </div>
         )}
@@ -283,14 +283,14 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             }}
             placeholder="Ask about FRP profiles..."
             rows={1}
-            className="flex-1 resize-none rounded-[6px] border border-border-default px-[13px] py-[8px] text-f14 text-t1 placeholder:text-t3 focus:border-teal-border focus:outline-none"
+            className="flex-1 resize-none rounded-control border border-border-default px-[13px] py-[8px] text-f14 text-t1 placeholder:text-t3 focus:border-teal-border focus:outline-none"
             disabled={isLoading}
           />
           {isLoading ? (
             <button
               type="button"
               onClick={stop}
-              className="shrink-0 rounded-[6px] bg-neutral-200 px-[16px] py-[8px] text-f13 font-medium text-t2 hover:bg-neutral-300 transition-colors"
+              className="shrink-0 rounded-control bg-neutral-200 px-[16px] py-[8px] text-f14 font-medium text-t2 hover:bg-neutral-300 transition-colors"
             >
               Stop
             </button>
@@ -298,13 +298,13 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             <button
               type="submit"
               disabled={!input.trim()}
-              className="shrink-0 rounded-[6px] bg-teal-text px-[16px] py-[8px] text-f13 font-medium text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
+              className="shrink-0 rounded-control bg-teal-text px-[16px] py-[8px] text-f14 font-medium text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
             >
               Send
             </button>
           )}
         </form>
-        <p className="mt-[6px] text-center text-[11px] text-t3">
+        <p className="mt-[6px] text-center text-f12 text-t3">
           AI-generated answers. Verify critical engineering data with F1 Composite team.
         </p>
       </div>

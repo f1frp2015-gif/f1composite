@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const h2 = "mb-[13px] text-f19 font-bold text-t1";
-const h3 = "mb-[6px] mt-[18px] text-f15 font-bold text-t1";
+const h2 = "mb-[13px] text-f18 font-bold text-t1";
+const h3 = "mb-[6px] mt-[18px] text-f16 font-bold text-t1";
 const list = "list-disc space-y-[6px] pl-[20px]";
 
 const cookies = [
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
 
       <section className="bg-white py-[89px]">
         <div className="mx-auto max-w-[780px] px-[34px]">
-          <div className="prose-custom space-y-[34px] text-f15 leading-golden text-t2">
+          <div className="prose-custom space-y-[34px] text-f16 leading-golden text-t2">
             <div>
               <h2 className={h2}>1. Who we are</h2>
               <p>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
                 deletes the Google cookies it can reach.
               </p>
               <div className="mt-[14px] overflow-x-auto">
-                <table className="w-full min-w-[560px] border-collapse text-left text-f13">
+                <table className="w-full min-w-[560px] border-collapse text-left text-f14">
                   <thead>
                     <tr className="border-b border-border-default text-t1">
                       <th scope="col" className="py-[8px] pr-[12px] font-bold">Name</th>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
                   <tbody>
                     {cookies.map((cookie) => (
                       <tr key={cookie.name} className="border-b border-border-default align-top">
-                        <td className="py-[8px] pr-[12px] font-mono text-[12px] text-t1">{cookie.name}</td>
+                        <td className="py-[8px] pr-[12px] font-mono text-f12 text-t1">{cookie.name}</td>
                         <td className="py-[8px] pr-[12px]">{cookie.provider}</td>
                         <td className="py-[8px] pr-[12px]">{cookie.purpose}</td>
                         <td className="py-[8px]">{cookie.lasts}</td>

@@ -144,13 +144,13 @@ export default function WindowReinforcementProfilesPage() {
 
       {/* Why replace steel */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why Replace Steel</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Why FRP window reinforcement profiles replace steel cores
           </h2>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_320px] lg:items-start">
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               Every white frame like the one pictured hides a structural question inside its
               largest hollow chamber: what carries the glass load once the sash grows past a
               kitchen-casement size? For decades the answer has been a galvanized steel
@@ -159,7 +159,7 @@ export default function WindowReinforcementProfilesPage() {
               standard uPVC system compete thermally in energy-code-driven markets, without
               retooling the uPVC extrusion itself.
             </p>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-[8px] border border-border-default">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-card border border-border-default">
               <Image
                 src="/images/products/upvc-window-fiberglass-reinforcement-context.jpg"
                 alt="White uPVC tilt-and-turn window — the hollow reinforcement chamber inside frames like this is where pultruded fiberglass cores replace galvanized steel inserts"
@@ -174,13 +174,13 @@ export default function WindowReinforcementProfilesPage() {
           </div>
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
             {whyReplace.map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[34px]">
+                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
-          <p className="mt-[21px] text-f13 text-t3">
+          <p className="mt-[21px] text-f14 text-t3">
             Background on the steel-bridge numbers: see the reinforcement discussion in{" "}
             <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text hover:text-teal">
               FRP vs PVC window frames
@@ -192,12 +192,12 @@ export default function WindowReinforcementProfilesPage() {
 
       {/* Engineering & supply */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engineering &amp; Supply</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From your chamber drawing to qualified reinforcement profiles
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Window reinforcements run through F1&apos;s custom pultrusion program —
             the same lines, dies, and QC that produce our structural and
             fenestration profiles.
@@ -207,15 +207,15 @@ export default function WindowReinforcementProfilesPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Aspect</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">What you get</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Aspect</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">What you get</th>
                 </tr>
               </thead>
               <tbody>
                 {engineeringPoints.map((row) => (
                   <tr key={row.aspect} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-semibold text-t1 md:w-[260px]">{row.aspect}</td>
-                    <td className="py-[13px] text-f15 leading-golden text-t2">{row.detail}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-semibold text-t1 md:w-[260px]">{row.aspect}</td>
+                    <td className="py-[13px] text-f16 leading-golden text-t2">{row.detail}</td>
                   </tr>
                 ))}
               </tbody>
@@ -250,7 +250,7 @@ export default function WindowReinforcementProfilesPage() {
 
       {/* FAQ */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

@@ -22,7 +22,7 @@ export default function LayupFields({
   onVoids: (v: string) => void;
 }) {
   const control =
-    "mt-1 w-full min-w-0 rounded-lg border border-border-default bg-white p-2 text-sm text-t1";
+    "mt-1 w-full min-w-0 rounded-card border border-border-default bg-white p-2 text-sm text-t1";
   const input = (label: string, value: string, change: (v: string) => void) => (
     <label className="block text-xs text-t2">
       {label}
@@ -38,14 +38,14 @@ export default function LayupFields({
     </label>
   );
   return (
-    <div className="mt-6 rounded-xl border border-border-default bg-bg2 p-4">
+    <div className="mt-6 rounded-card border border-border-default bg-bg2 p-4">
       <h3 className="font-bold text-t1">Reinforcement layup per meter</h3>
       <p className="mt-2 text-sm leading-relaxed text-t2">
         Start with the net section above. Add each mat, fabric or veil path and
         the longitudinal roving groups. The remaining volume is filled by the
         cured resin / filler matrix.
       </p>
-      <p className="mt-3 rounded-lg bg-white p-3 text-sm text-t1">
+      <p className="mt-3 rounded-card bg-white p-3 text-sm text-t1">
         Surface reference: outer boundary {perimeters.outer.toFixed(2)} mm ·
         inner boundary {perimeters.inner.toFixed(2)} mm.
       </p>
@@ -65,7 +65,7 @@ export default function LayupFields({
             <details
               key={i}
               open={i === 0}
-              className="rounded-lg border border-border-default bg-white p-3"
+              className="rounded-card border border-border-default bg-white p-3"
             >
               <summary className="cursor-pointer text-sm font-semibold text-t1">
                 Layer {i + 1}: {row.name}
@@ -168,7 +168,7 @@ export default function LayupFields({
       {rovings.map((row, i) => (
         <div
           key={i}
-          className="mt-3 rounded-lg border border-border-default bg-white p-3"
+          className="mt-3 rounded-card border border-border-default bg-white p-3"
         >
           <div className="grid grid-cols-2 gap-3">
             {(

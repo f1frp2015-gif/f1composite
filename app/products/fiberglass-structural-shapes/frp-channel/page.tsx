@@ -3,6 +3,8 @@ import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -19,7 +21,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
 const pageDescription =
-  "Pultruded fiberglass C and U channels, 38×13–305×89 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.";
+  "Pultruded fiberglass C and U channels, 38×13–360×108 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-channel";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -91,15 +93,18 @@ export default async function ChannelPage() {
           material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
           priceRange: priceRangeFromWeights(weights, 2.2, 4.5) ?? undefined,
           additionalProperty: [
-            { name: "Size Range", value: "38×13 mm to 305×89 mm" },
+            { name: "Size Range", value: "38×13 mm to 360×108 mm" },
             { name: "Feature", value: "UV-protected surface veil and non-conductive performance" },
           ],
         })}
       />
       <PageHeader
         tag="Channel"
+        line={{ name: "F1-STRUX", label: "Channel" }}
+        figure={<ProfileFigure model="U 152×43×6.4" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((s) => s.h), weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Channel (FRP) Profiles"
-        description="Pultruded fiberglass U-profiles from 38×13 mm to 305×89 mm. UV-protected, non-conductive."
+        description="Pultruded fiberglass U-profiles from 38×13 mm to 360×108 mm. UV-protected, non-conductive."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -109,23 +114,23 @@ export default async function ChannelPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>U-Profiles</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Open-section framing profiles
               </h2>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 Pultruded channels provide versatile framing for secondary structural members, cable management systems, and modular assemblies. The open U-shape simplifies field connections with mechanical fasteners. They are available in standard gray, safety yellow, and custom RAL colors.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">UV-protected surface veil</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">No galvanic corrosion</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Custom colors available</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">UV-protected surface veil</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">No galvanic corrosion</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Custom colors available</span>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] bg-white">
+            <div className="relative aspect-square overflow-hidden rounded-card bg-white">
               <Image src="/images/products/channel/frp-channel-cover.jpg" alt="Pultruded FRP channel U-profile by F1 Composite" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: "center 20%" }} preload />
             </div>
           </div>
@@ -133,28 +138,28 @@ export default async function ChannelPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <table className="spec-table w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">H (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">H (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">t (mm)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
                 </tr>
               </thead>
               <tbody>
                 {sizes.map((s) => (
                   <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.h}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f15 text-teal-text font-medium">{s.weight}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.h}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.t}</td>
+                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
                   </tr>
                 ))}
               </tbody>
@@ -202,13 +207,13 @@ export default async function ChannelPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=channel"
             eyebrow="Free tool · channel preset"

@@ -272,12 +272,12 @@ const pultrudedFit = [
 export default function GratingProcessComparison() {
   return (
     <section className="bg-white py-[89px]">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
+      <div className="site-container">
         <SectionTag>Molded vs Pultruded</SectionTag>
         <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
           Molded vs pultruded FRP grating: process, properties, and best fit
         </h2>
-        <p className="mt-[13px] text-f15 leading-golden text-t2">
+        <p className="mt-[13px] text-f16 leading-golden text-t2">
           The two grating families start from the same glass-and-resin system
           but are made in opposite ways — one woven and cured as a single
           piece, one assembled from pultruded bars. That single difference
@@ -287,14 +287,14 @@ export default function GratingProcessComparison() {
 
         {/* Animated process figures */}
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-            <h3 className="text-[17px] font-bold text-t1">How molded grating is made</h3>
-            <div className="mt-[13px] rounded-[8px] bg-white p-[13px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
+            <h3 className="text-f18 font-bold text-t1">How molded grating is made</h3>
+            <div className="mt-[13px] rounded-card bg-white p-[13px]">
               <MoldedProcessFigure />
             </div>
             <ol className="mt-[13px] space-y-[5px]">
               {moldedSteps.map((step, i) => (
-                <li key={step} className="flex gap-[8px] text-f13 leading-golden text-t2">
+                <li key={step} className="flex gap-[8px] text-f14 leading-golden text-t2">
                   <span className="font-bold text-teal-text">{i + 1}.</span>
                   {step}
                 </li>
@@ -302,14 +302,14 @@ export default function GratingProcessComparison() {
             </ol>
           </div>
 
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-            <h3 className="text-[17px] font-bold text-t1">How pultruded grating is made</h3>
-            <div className="mt-[13px] rounded-[8px] bg-white p-[13px]">
+          <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
+            <h3 className="text-f18 font-bold text-t1">How pultruded grating is made</h3>
+            <div className="mt-[13px] rounded-card bg-white p-[13px]">
               <PultrudedProcessFigure />
             </div>
             <ol className="mt-[13px] space-y-[5px]">
               {pultrudedSteps.map((step, i) => (
-                <li key={step} className="flex gap-[8px] text-f13 leading-golden text-t2">
+                <li key={step} className="flex gap-[8px] text-f14 leading-golden text-t2">
                   <span className="font-bold text-teal-text">{i + 1}.</span>
                   {step}
                 </li>
@@ -323,13 +323,13 @@ export default function GratingProcessComparison() {
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="border-b-2 border-border-default">
-                <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                   Property
                 </th>
-                <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                   Molded Grating
                 </th>
-                <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                   Pultruded Grating
                 </th>
               </tr>
@@ -337,11 +337,11 @@ export default function GratingProcessComparison() {
             <tbody>
               {comparisonRows.map((row) => (
                 <tr key={row.attr} className="border-b border-border-default">
-                  <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">
+                  <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">
                     {row.attr}
                   </td>
-                  <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.molded}</td>
-                  <td className="py-[13px] text-f15 text-t2">{row.pultruded}</td>
+                  <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.molded}</td>
+                  <td className="py-[13px] text-f16 text-t2">{row.pultruded}</td>
                 </tr>
               ))}
             </tbody>
@@ -350,21 +350,21 @@ export default function GratingProcessComparison() {
 
         {/* Application fit */}
         <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-            <h3 className="text-[17px] font-bold text-t1">Choose molded grating when</h3>
+          <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+            <h3 className="text-f18 font-bold text-t1">Choose molded grating when</h3>
             <ul className="mt-[13px] list-disc space-y-[8px] pl-[21px]">
               {moldedFit.map((item) => (
-                <li key={item} className="text-f15 leading-golden text-t2">
+                <li key={item} className="text-f16 leading-golden text-t2">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-            <h3 className="text-[17px] font-bold text-t1">Choose pultruded grating when</h3>
+          <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+            <h3 className="text-f18 font-bold text-t1">Choose pultruded grating when</h3>
             <ul className="mt-[13px] list-disc space-y-[8px] pl-[21px]">
               {pultrudedFit.map((item) => (
-                <li key={item} className="text-f15 leading-golden text-t2">
+                <li key={item} className="text-f16 leading-golden text-t2">
                   {item}
                 </li>
               ))}

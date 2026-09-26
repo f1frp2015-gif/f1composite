@@ -84,8 +84,8 @@ export default function AustraliaSolarPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-energy-solar-power-installation.jpg"
               alt="Pultruded FRP solar mounting racking on an Australian ground-mount solar array — corrosion-proof, AS/NZS 1170.2 wind-rated"
@@ -100,13 +100,13 @@ export default function AustraliaSolarPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why FRP for Australian Solar</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             The aluminum-vs-galvanized-steel debate misses the corrosion failure mode that wins on 30-year asset life
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Australian utility-scale solar projects generally use one of two default mounting materials: galvanized steel for inland projects because of its lower initial cost and an accepted 25-year hot-dip-galvanized service life, or aluminum 6063 for coastal projects because it is lighter and avoids galvanic-pair failure with steel piles, although it remains susceptible to chloride pitting. Both materials work, but neither captures all the structural cost savings available over the 30-year asset life that financed solar projects increasingly require.
               </p>
@@ -114,7 +114,7 @@ export default function AustraliaSolarPage() {
                 Pultruded FRP solar mounting is a third path. It is 30% lighter than aluminum 6063 — directly reducing helical-pile depth and concrete foundation volume — and immune to both chloride corrosion and galvanic-pair failure with steel piles. F1 Composite supplies the profile family directly from factory, ex-China, to all major Australian ports, with project-specific designs reviewed against AS/NZS 1170.2 wind loads (Regions A through D, including cyclonic).
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 The cost story is project-dependent. On per-kilogram material cost, FRP is more expensive than aluminum 6063 and considerably more expensive than galvanized steel. On per-installed-MW cost — including foundation, transport, installation labor, and 25-year O&M — FRP is roughly cost-neutral with aluminum and 8–15% above galvanized steel. Where FRP wins clearly: coastal sites, 30+ year design lives, and projects that financially model O&M cost over the asset lifecycle.
               </p>
@@ -127,7 +127,7 @@ export default function AustraliaSolarPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP vs Aluminum 6063</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Material comparison at a typical solar mounting cross-section
@@ -136,10 +136,10 @@ export default function AustraliaSolarPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Pultruded FRP (E-glass / polyester)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Aluminum 6063-T5</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Galvanized Steel</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Pultruded FRP (E-glass / polyester)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Aluminum 6063-T5</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Galvanized Steel</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,10 +153,10 @@ export default function AustraliaSolarPage() {
                   { p: "UV stability (25-yr)", frp: ">90% retained", al: "100% (no UV failure)", st: "Coating-dependent" },
                 ].map((row) => (
                   <tr key={row.p} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.p}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.frp}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.al}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.st}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.p}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.frp}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.al}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.st}</td>
                   </tr>
                 ))}
               </tbody>
@@ -166,7 +166,7 @@ export default function AustraliaSolarPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Common Solar Mounting Profiles</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -175,10 +175,10 @@ export default function AustraliaSolarPage() {
               { name: "Tilt Strut", size: "60×60 angle / 80×80 angle", note: "Tilt angle bracing" },
               { name: "Rooftop Adapter", size: "50×50 / 65×65 hollow", note: "Commercial rooftop attachment to seam clamps" },
             ].map((p) => (
-              <div key={p.name} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <h3 className="text-f15 font-bold text-t1">{p.name}</h3>
-                <p className="mt-[5px] text-f13 font-medium text-teal-text">{p.size}</p>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">{p.note}</p>
+              <div key={p.name} className="rounded-card border border-border-default bg-white p-[21px]">
+                <h3 className="text-f16 font-bold text-t1">{p.name}</h3>
+                <p className="mt-[5px] text-f14 font-medium text-teal-text">{p.size}</p>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">{p.note}</p>
               </div>
             ))}
           </div>
@@ -196,29 +196,29 @@ export default function AustraliaSolarPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/industries/energy"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Energy Industry — FRP for Solar & Wind</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">FRP profiles in solar mounting, wind turbine secondary structures, and substation hardware.</p>
+              <h3 className="text-f16 font-bold text-t1">Energy Industry — FRP for Solar & Wind</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">FRP profiles in solar mounting, wind turbine secondary structures, and substation hardware.</p>
             </Link>
             <Link
               href="/case-studies/chongqing-rooftop-pv-frp-rail"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Pultruded GFRP H-rail on colour steel-tile roofs, installed within the roofs&rsquo; original load reserve.</p>
+              <h3 className="text-f16 font-bold text-t1">Case study: Chongqing rooftop PV retrofit</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Pultruded GFRP H-rail on colour steel-tile roofs, installed within the roofs&rsquo; original load reserve.</p>
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">FRP vs Steel & Aluminum</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Mechanical, corrosion, and lifecycle comparison across the three structural material families.</p>
+              <h3 className="text-f16 font-bold text-t1">FRP vs Steel & Aluminum</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Mechanical, corrosion, and lifecycle comparison across the three structural material families.</p>
             </Link>
           </div>
         </div>

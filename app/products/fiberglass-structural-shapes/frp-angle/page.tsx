@@ -3,6 +3,8 @@ import ProfileSupplyGuide from "@/components/sections/ProfileSupplyGuide";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import ProfileFigure from "@/components/datasheets/ProfileFigure";
+import { profileFamilyFacts } from "@/lib/profileFacts";
 import InnerCTA from "@/components/sections/InnerCTA";
 import SectionTag from "@/components/ui/SectionTag";
 import FAQ from "@/components/ui/FAQ";
@@ -94,6 +96,9 @@ export default async function AnglePage() {
       />
       <PageHeader
         tag="Angle"
+        line={{ name: "F1-STRUX", label: "Angle" }}
+        figure={<ProfileFigure model="L 100×100×8" />}
+        facts={profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((s) => s.a), weights: sizes.map((s) => s.weight) })}
         title="Fiberglass Angle (FRP) Profiles"
         description="Equal and unequal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm."
         breadcrumbs={[
@@ -105,23 +110,23 @@ export default async function AnglePage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2 lg:items-center">
             <div>
               <SectionTag>L-Profiles</SectionTag>
               <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 Versatile structural angles
               </h2>
-              <p className="mt-[8px] text-f15 leading-golden text-t2">
+              <p className="mt-[8px] text-f16 leading-golden text-t2">
                 FRP angles serve as stiffeners, bracing members, ledger supports, and connection elements across structural and architectural applications. Balanced fiber architecture provides near-equal mechanical properties on both legs for consistent load transfer at bolted connections.
               </p>
               <div className="mt-[8px] flex flex-wrap gap-[13px]">
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Equal & unequal-leg</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Thermal expansion ≈ concrete</span>
-                <span className="rounded-[4px] bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2">Non-conductive</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Equal & unequal-leg</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Thermal expansion ≈ concrete</span>
+                <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">Non-conductive</span>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[8px] bg-white">
+            <div className="relative aspect-square overflow-hidden rounded-card bg-white">
               <Image
                 src="/images/products/angle/frp-angle-cover.jpg"
                 alt="Pultruded FRP angle L-profile 100x100x10 mm by F1 Composite"
@@ -137,28 +142,28 @@ export default async function AnglePage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Specifications</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Available sizes</h2>
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <table className="spec-table w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Model</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">A (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">B (mm)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">t (mm)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Model</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">A (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">B (mm)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">t (mm)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Weight (kg/m)</th>
                 </tr>
               </thead>
               <tbody>
                 {sizes.map((s) => (
                   <tr key={s.model} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.a}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.b}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{s.t}</td>
-                    <td className="py-[13px] text-f15 text-teal-text font-medium">{s.weight}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1"><DatasheetModelLink model={s.model} /></td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.a}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.b}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{s.t}</td>
+                    <td className="py-[13px] text-f16 text-teal-text font-medium">{s.weight}</td>
                   </tr>
                 ))}
               </tbody>
@@ -205,13 +210,13 @@ export default async function AnglePage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=angle"
             eyebrow="Free tool · angle preset"

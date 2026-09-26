@@ -91,11 +91,11 @@ function ChevronDown({ className }: { className?: string }) {
 function Collapsible({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <details className="group mt-[13px]">
-      <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f13 font-bold text-teal-text transition-colors hover:text-teal">
+      <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f14 font-bold text-teal-text transition-colors hover:text-teal">
         <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
         {label}
       </summary>
-      <div className="mt-[13px] pl-[24px] text-f15 leading-golden text-t2">
+      <div className="mt-[13px] pl-[24px] text-f16 leading-golden text-t2">
         {children}
       </div>
     </details>
@@ -143,24 +143,24 @@ export default function KnowhowServicesPage() {
       />
       {/* ═══ Service Tiers ═══ */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Service Tiers</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Three Levels of Engagement
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Choose the depth that matches your needs. Every engagement is led by a senior
             pultrusion engineer with 15+ years of production experience.
           </p>
 
           <div className="mt-[55px] grid gap-[21px] lg:grid-cols-3">
             {/* ── Tier 1: Consulting ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconConsulting />
                 <div>
-                  <span className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 1</span>
+                  <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 1</span>
                   <h3 className="text-f24 font-bold text-t1">Consulting</h3>
                 </div>
               </div>
@@ -169,15 +169,15 @@ export default function KnowhowServicesPage() {
               <div className="mt-[21px] flex gap-[21px] border-b border-border-default pb-[21px]">
                 <div>
                   <span className="text-f24 font-extrabold text-teal">2–4</span>
-                  <span className="ml-[5px] text-f11 text-t3">weeks</span>
+                  <span className="ml-[5px] text-f12 text-t3">weeks</span>
                 </div>
                 <div>
                   <span className="text-f24 font-extrabold text-teal">3</span>
-                  <span className="ml-[5px] text-f11 text-t3">mo support</span>
+                  <span className="ml-[5px] text-f12 text-t3">mo support</span>
                 </div>
               </div>
 
-              <p className="mt-[21px] text-f15 leading-golden text-t2">
+              <p className="mt-[21px] text-f16 leading-golden text-t2">
                 Targeted advisory for existing operations or new-market evaluation.
                 Actionable recommendations without ongoing implementation obligations.
               </p>
@@ -195,14 +195,14 @@ export default function KnowhowServicesPage() {
             </div>
 
             {/* ── Tier 2: Technology Transfer ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border-2 border-teal bg-bg2 p-[34px] shadow-[0_0_0_1px_theme(colors.teal/0.1)] transition-all duration-[0.34s]">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border-2 border-teal bg-bg2 p-[34px] ring-1 ring-teal/10 transition-all duration-[0.34s]">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconTransfer />
                 <div>
                   <div className="flex items-center gap-[8px]">
-                    <span className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 2</span>
-                    <span className="rounded-[4px] bg-teal px-[8px] py-[2px] text-[10px] font-bold uppercase text-white">Most Popular</span>
+                    <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 2</span>
+                    <span className="rounded-tag bg-teal px-[8px] py-[2px] text-f12 font-bold uppercase tracking-[0.06em] text-white">Most Popular</span>
                   </div>
                   <h3 className="text-f24 font-bold text-t1">Technology Transfer</h3>
                 </div>
@@ -211,15 +211,15 @@ export default function KnowhowServicesPage() {
               <div className="mt-[21px] flex gap-[21px] border-b border-border-default pb-[21px]">
                 <div>
                   <span className="text-f24 font-extrabold text-teal">3–6</span>
-                  <span className="ml-[5px] text-f11 text-t3">months</span>
+                  <span className="ml-[5px] text-f12 text-t3">months</span>
                 </div>
                 <div>
                   <span className="text-f24 font-extrabold text-teal">6</span>
-                  <span className="ml-[5px] text-f11 text-t3">mo support</span>
+                  <span className="ml-[5px] text-f12 text-t3">mo support</span>
                 </div>
               </div>
 
-              <p className="mt-[21px] text-f15 leading-golden text-t2">
+              <p className="mt-[21px] text-f16 leading-golden text-t2">
                 Complete knowledge transfer (die design, process recipes, quality systems, and
                 operator training) for independent production capability.
               </p>
@@ -238,12 +238,12 @@ export default function KnowhowServicesPage() {
             </div>
 
             {/* ── Tier 3: Turnkey ── */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
+            <div className="group relative flex flex-col overflow-hidden rounded-card border border-border-default bg-bg2 p-[34px] transition-all duration-[0.34s] hover:border-teal-border">
               <div className="card-topbar absolute left-0 right-0 top-0" />
               <div className="flex items-center gap-[13px]">
                 <IconTurnkey />
                 <div>
-                  <span className="text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 3</span>
+                  <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 3</span>
                   <h3 className="text-f24 font-bold text-t1">Turnkey</h3>
                 </div>
               </div>
@@ -251,15 +251,15 @@ export default function KnowhowServicesPage() {
               <div className="mt-[21px] flex gap-[21px] border-b border-border-default pb-[21px]">
                 <div>
                   <span className="text-f24 font-extrabold text-teal">8–14</span>
-                  <span className="ml-[5px] text-f11 text-t3">months</span>
+                  <span className="ml-[5px] text-f12 text-t3">months</span>
                 </div>
                 <div>
                   <span className="text-f24 font-extrabold text-teal">12</span>
-                  <span className="ml-[5px] text-f11 text-t3">mo support</span>
+                  <span className="ml-[5px] text-f12 text-t3">mo support</span>
                 </div>
               </div>
 
-              <p className="mt-[21px] text-f15 leading-golden text-t2">
+              <p className="mt-[21px] text-f16 leading-golden text-t2">
                 End-to-end project delivery, from business case through equipment installation
                 to production ramp-up at target volumes.
               </p>
@@ -282,12 +282,12 @@ export default function KnowhowServicesPage() {
 
       {/* ═══ Engagement Process — Visual Flow ═══ */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engagement Process</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             How We Work Together
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Every engagement follows a structured four-phase process. The depth of each
             phase scales with the service tier.
           </p>
@@ -302,11 +302,11 @@ export default function KnowhowServicesPage() {
             <div className="grid gap-[34px] lg:grid-cols-4 lg:gap-[21px]">
               {/* Phase 1 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   1
                 </div>
-                <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Assessment</h3>
-                <p className="mt-[5px] text-f13 font-bold text-teal-text">1–2 weeks</p>
+                <h3 className="mt-0 text-f18 font-bold text-t1 lg:mt-[21px]">Assessment</h3>
+                <p className="mt-[5px] text-f14 font-bold text-teal-text">1–2 weeks</p>
                 <Collapsible label="Details">
                   <p className="lg:text-left">
                     Thorough evaluation of your situation, objectives, and constraints. For new
@@ -319,11 +319,11 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 2 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   2
                 </div>
-                <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Proposal</h3>
-                <p className="mt-[5px] text-f13 font-bold text-teal-text">Project-based pricing</p>
+                <h3 className="mt-0 text-f18 font-bold text-t1 lg:mt-[21px]">Proposal</h3>
+                <p className="mt-[5px] text-f14 font-bold text-teal-text">Project-based pricing</p>
                 <Collapsible label="Details">
                   <p className="lg:text-left">
                     Detailed technical and commercial proposal with scope, deliverables,
@@ -336,11 +336,11 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 3 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   3
                 </div>
-                <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Implementation</h3>
-                <p className="mt-[5px] text-f13 font-bold text-teal-text">Core delivery phase</p>
+                <h3 className="mt-0 text-f18 font-bold text-t1 lg:mt-[21px]">Implementation</h3>
+                <p className="mt-[5px] text-f14 font-bold text-teal-text">Core delivery phase</p>
                 <Collapsible label="Details">
                   <p className="lg:text-left">
                     On-site engineering, die design and procurement, process recipe development
@@ -353,11 +353,11 @@ export default function KnowhowServicesPage() {
 
               {/* Phase 4 */}
               <div className="relative pl-[55px] lg:pl-0 lg:text-center">
-                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f13 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
+                <div className="absolute left-[6px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text lg:relative lg:left-auto lg:mx-auto">
                   4
                 </div>
-                <h3 className="mt-0 text-f19 font-bold text-t1 lg:mt-[21px]">Handover</h3>
-                <p className="mt-[5px] text-f13 font-bold text-teal-text">3–12 mo support included</p>
+                <h3 className="mt-0 text-f18 font-bold text-t1 lg:mt-[21px]">Handover</h3>
+                <p className="mt-[5px] text-f14 font-bold text-teal-text">3–12 mo support included</p>
                 <Collapsible label="Details">
                   <p className="lg:text-left">
                     Formal handover with complete documentation, production validation report,
@@ -374,38 +374,38 @@ export default function KnowhowServicesPage() {
 
       {/* ═══ Why Partner — Compact with visual highlights ═══ */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Our Advantage</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Why Partner With F1 Composite
           </h2>
 
           <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-              <span className="text-[32px] leading-none">4</span>
-              <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Continents Delivered</p>
-              <p className="mt-[13px] text-f13 leading-golden text-t2">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+              <span className="text-f32 leading-none">4</span>
+              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Continents Delivered</p>
+              <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Commissioned pultrusion operations across Asia, Europe, the Middle East, and Africa.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-              <span className="text-[32px] leading-none">15+</span>
-              <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Years Experience</p>
-              <p className="mt-[13px] text-f13 leading-golden text-t2">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+              <span className="text-f32 leading-none">15+</span>
+              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Years Experience</p>
+              <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Every engagement is led by senior engineers with production-floor experience.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-              <span className="text-[32px] leading-none">100%</span>
-              <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Clean IP Transfer</p>
-              <p className="mt-[13px] text-f13 leading-golden text-t2">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+              <span className="text-f32 leading-none">100%</span>
+              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Clean IP Transfer</p>
+              <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Recipes, die designs, and procedures become your property upon handover. No royalties, no licensing.
               </p>
             </div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[34px]">
-              <span className="text-[32px] leading-none">&quot;Why&quot;</span>
-              <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-teal-text">Not Just &quot;What&quot;</p>
-              <p className="mt-[13px] text-f13 leading-golden text-t2">
+            <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
+              <span className="text-f32 leading-none">&quot;Why&quot;</span>
+              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Not Just &quot;What&quot;</p>
+              <p className="mt-[13px] text-f14 leading-golden text-t2">
                 We transfer the reasoning behind every parameter, so your team can troubleshoot, optimize, and innovate.
               </p>
             </div>
@@ -415,7 +415,7 @@ export default function KnowhowServicesPage() {
 
       {/* ═══ Cross-links and FAQ ═══ */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">
             Explore Further

@@ -94,17 +94,17 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[55px] px-[34px] lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="site-container grid gap-[55px] lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <SectionTag>Short answer</SectionTag>
-            <p className="mt-[21px] text-f19 leading-golden text-t2">{page.intro}</p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">{page.environment}</p>
+            <p className="mt-[21px] text-f18 leading-golden text-t2">{page.intro}</p>
+            <p className="mt-[21px] text-f16 leading-golden text-t2">{page.environment}</p>
           </div>
-          <aside className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
-            <h2 className="text-f19 font-bold text-t1">Quote-ready inputs</h2>
+          <aside className="rounded-card border border-border-default bg-bg2 p-[24px]">
+            <h2 className="text-f18 font-bold text-t1">Quote-ready inputs</h2>
             <ul className="mt-[13px] space-y-[10px]">
               {page.rfqInputs.map((item) => (
-                <li key={item} className="text-f13 leading-golden text-t2">
+                <li key={item} className="text-f14 leading-golden text-t2">
                   <span className="font-bold text-teal-text">-</span> {item}
                 </li>
               ))}
@@ -113,11 +113,11 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1280px] px-[24px] pb-[28px]"><div className="rounded-[10px] border border-border-default bg-bg2 p-[22px]"><h2 className="text-f19 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f15 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation. This page describes how the products are used; design and installation are included only where the quotation says so.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
+      <div className="site-container pb-[28px]"><div className="rounded-card border border-border-default bg-bg2 p-[22px]"><h2 className="text-f18 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f16 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation. This page describes how the products are used; design and installation are included only where the quotation says so.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <figure className="overflow-hidden rounded-[8px] border border-border-default bg-bg2">
+        <div className="site-container">
+          <figure className="overflow-hidden rounded-card border border-border-default bg-bg2">
             <Image
               src={page.image}
               alt={page.imageAlt}
@@ -127,7 +127,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               className={page.imageSize ? "h-auto w-full" : "aspect-[16/9] h-auto w-full object-cover"}
               preload
             />
-            <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f13 leading-golden text-t3">
+            <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f14 leading-golden text-t3">
               {page.imageCaption ?? `Application context for ${page.shortTitle}. Final member sizes, laminate, connections, and code checks remain project-specific.`}
             </figcaption>
           </figure>
@@ -135,27 +135,27 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[34px] lg:grid-cols-2">
             <div>
               <SectionTag>Recommended profiles</SectionTag>
               <div className="mt-[21px] space-y-[13px]">
                 {page.recommendedProfiles.map((item) => (
-                  <div key={item} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                    <p className="text-f15 leading-golden text-t2">{item}</p>
+                  <div key={item} className="rounded-card border border-border-default bg-white p-[21px]">
+                    <p className="text-f16 leading-golden text-t2">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
             <div>
               <SectionTag>Resin and standards</SectionTag>
-              <div className="mt-[21px] rounded-[8px] border border-border-default bg-white p-[24px]">
-                <h2 className="text-f19 font-bold text-t1">Resin recommendation</h2>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{page.resinSystem}</p>
-                <h3 className="mt-[24px] text-f15 font-bold text-t1">Common standards</h3>
+              <div className="mt-[21px] rounded-card border border-border-default bg-white p-[24px]">
+                <h2 className="text-f18 font-bold text-t1">Resin recommendation</h2>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
+                <h3 className="mt-[24px] text-f16 font-bold text-t1">Common standards</h3>
                 <div className="mt-[13px] flex flex-wrap gap-[8px]">
                   {page.standards.map((standard) => (
-                    <span key={standard} className="rounded-[4px] bg-bg2 px-[10px] py-[5px] text-f13 font-medium text-t2">
+                    <span key={standard} className="rounded-tag bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
                       {standard}
                     </span>
                   ))}
@@ -167,16 +167,16 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engineering checks</SectionTag>
           <h2 className="mt-[8px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             {page.shortTitle}: design and specification checks
           </h2>
           <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
             {page.designChecks.map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
-                <h3 className="text-f15 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{item.body}</p>
+              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
+                <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
@@ -185,14 +185,14 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
 
       {page.deepDive && (
         <section className="bg-white py-[55px]">
-          <div className="mx-auto max-w-[1280px] px-[34px]">
+          <div className="site-container">
             <SectionTag>In Depth</SectionTag>
             <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
               {page.deepDive.heading}
             </h2>
             <div className="mt-[21px] max-w-[860px] space-y-[13px]">
               {page.deepDive.paragraphs.map((p) => (
-                <p key={p.slice(0, 40)} className="text-f15 leading-golden text-t2">
+                <p key={p.slice(0, 40)} className="text-f16 leading-golden text-t2">
                   {p}
                 </p>
               ))}
@@ -204,7 +204,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       {page.slug === "frp-pedestrian-bridge-superstructures" && <PedestrianBridgeGuide />}
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href={PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator"}
             eyebrow={page.slug === "frp-pedestrian-bridge-superstructures" ? "Free tool · preliminary member screening" : "Free tool · pre-filled for this application"}
@@ -237,8 +237,8 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <Link href="/applications" className="text-f13 font-bold text-teal-text hover:text-teal">
+        <div className="site-container">
+          <Link href="/applications" className="text-f14 font-bold text-teal-text hover:text-teal">
             Back to all FRP application guides
           </Link>
         </div>

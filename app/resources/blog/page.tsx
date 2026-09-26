@@ -46,13 +46,13 @@ export default function BlogPage() {
       />
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/resources/blog/${post.slug}`}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
               >
                 <div className="relative aspect-[1.618] overflow-hidden bg-bg2">
                   <Image
@@ -67,20 +67,20 @@ export default function BlogPage() {
                         : undefined
                     }
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-[4px] bg-teal-text px-[8px] py-[3px] text-f11 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-tag bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
                     {post.category}
                   </span>
                 </div>
                 <div className="p-[21px]">
-                  <div className="flex items-center gap-[13px] text-f11 text-t3">
+                  <div className="flex items-center gap-[13px] text-f12 text-t3">
                     <time>{post.date}</time>
                     <span>•</span>
                     <span>{post.readTime} read</span>
                   </div>
-                  <h2 className="mt-[8px] text-f19 font-bold text-t1 group-hover:text-teal-text">
+                  <h2 className="mt-[8px] text-f18 font-bold text-t1 group-hover:text-teal-text">
                     {post.title}
                   </h2>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{post.excerpt}</p>
+                  <p className="mt-[8px] text-f16 leading-golden text-t2">{post.excerpt}</p>
                 </div>
               </Link>
             ))}

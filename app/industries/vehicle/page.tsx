@@ -94,8 +94,8 @@ export default function VehiclePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-vehicle-transport-applications.jpg"
               alt="Modern high-speed train representing advanced composite applications in rail and transport"
@@ -118,13 +118,13 @@ export default function VehiclePage() {
 
       {/* Challenge Section */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Challenge</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Weight, Corrosion, and Lifecycle Cost in Commercial Transport
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Commercial vehicles, buses, and rail cars face a fundamental tension between structural performance and weight. Every kilogram of vehicle structure is a kilogram that cannot carry passengers or cargo. In an era of tightening emission standards and accelerating electrification, weight reduction has moved from a competitive advantage to an engineering imperative.
               </p>
@@ -135,7 +135,7 @@ export default function VehiclePage() {
                 Aluminum reduces weight by approximately 40% versus steel but introduces galvanic corrosion at joints with steel fasteners and is significantly more expensive. Aluminum bus bodies also require specialized welding capabilities that increase manufacturing cost and limit the supply base.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Corrosion is the primary life-limiting factor for commercial vehicle bodies. Buses and trucks operating in regions with road salt, coastal exposure, or industrial atmospheres develop structural corrosion that requires expensive remediation or forces premature retirement. The average city bus in northern climates requires body structural repair within 8 to 12 years of service — well before its mechanical drivetrain reaches end of life.
               </p>
@@ -152,14 +152,14 @@ export default function VehiclePage() {
 
       {/* FRP Solutions Section */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP Solutions</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Pultruded FRP Profiles for Vehicle and Transport Applications
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Bus and Coach Body Structures</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Bus and Coach Body Structures</h3>
               <p>
                 Pultruded FRP profiles replace steel in bus body framing — longitudinal rails, cross-members, roof bows, side pillars, and floor support beams. At 75% lighter than steel with comparable flexural strength, FRP framing reduces body-in-white weight by 300 to 600 kg. For electric buses, this weight saving translates directly to 3 to 12 km of additional range per charge cycle.
               </p>
@@ -170,7 +170,7 @@ export default function VehiclePage() {
                 Browse structural profiles
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Rail Vehicle Applications</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Rail Vehicle Applications</h3>
               <p>
                 FRP profiles serve as interior panel framing, cable conduits, window surrounds, luggage rack structures, and exterior body cladding supports in rail vehicles. Phenolic resin FRP profiles meet EN 45545-2 hazard levels HL2 and HL3 for fire, smoke, and toxicity — qualifying them for metro, commuter, and intercity rail applications.
               </p>
@@ -178,8 +178,8 @@ export default function VehiclePage() {
                 The vibration damping of FRP is 5 to 10 times higher than steel, measurably reducing noise transmission through structural connections into passenger compartments. For electric rail vehicles, the non-conductive property provides inherent isolation against stray current paths that cause corrosion of track infrastructure and adjacent metallic components.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
-              <h3 className="text-f19 font-bold text-t1">Commercial Truck and Specialty Vehicles</h3>
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">Commercial Truck and Specialty Vehicles</h3>
               <p>
                 Pultruded FRP profiles are used in refrigerated truck body framing, utility vehicle platforms, fire truck equipment mounts, and military vehicle structural components. The combination of lightweight strength, corrosion immunity, and thermal insulation makes FRP particularly effective for refrigerated transport — where reduced body weight increases payload capacity and the low thermal conductivity of FRP (0.3 W/m·K versus 50 W/m·K for steel) reduces refrigeration energy consumption.
               </p>
@@ -190,7 +190,7 @@ export default function VehiclePage() {
                 Custom profiles for vehicle applications
               </LinkArrow>
 
-              <h3 className="mt-[34px] text-f19 font-bold text-t1">Quantified Performance Advantages</h3>
+              <h3 className="mt-[34px] text-f18 font-bold text-t1">Quantified Performance Advantages</h3>
               <ul className="list-none space-y-[13px]">
                 <li className="flex items-start gap-[8px]">
                   <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-teal" />
@@ -220,7 +220,7 @@ export default function VehiclePage() {
 
       {/* Related Resources */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Products for Vehicle Applications
@@ -228,49 +228,49 @@ export default function VehiclePage() {
           <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/frp-sound-barrier-wall"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Railway Noise Barrier Panels</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Railway Noise Barrier Panels</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Project-engineered FRP sound walls for trackside and transit infrastructure, with assembly-specific acoustic evidence.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View system →
               </span>
             </Link>
             <Link
               href="/products/fiberglass-structural-shapes"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Standard Profiles</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Standard Profiles</h3>
+              <p className="text-f14 leading-golden text-t2">
                 I-beams, channels, angles, and tubes for vehicle body framing and structural applications.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View products →
               </span>
             </Link>
             <Link
               href="/products/custom-pultruded-profiles"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">Custom Pultrusions</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">Custom Pultrusions</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Application-specific cross-sections optimized for vehicle body geometry, load paths, and mounting interfaces.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View capabilities →
               </span>
             </Link>
             <Link
               href="/technology/frp-vs-traditional-materials"
-              className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-[0_8px_30px_rgba(0,161,153,0.05)]"
+              className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
             >
-              <h3 className="mb-[8px] text-[17px] font-bold text-t1">FRP vs Traditional Materials</h3>
-              <p className="text-f13 leading-golden text-t2">
+              <h3 className="mb-[8px] text-f18 font-bold text-t1">FRP vs Traditional Materials</h3>
+              <p className="text-f14 leading-golden text-t2">
                 Property-by-property comparison of FRP against steel, aluminum, timber, and concrete.
               </p>
-              <span className="mt-[13px] block text-f13 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
+              <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
                 View comparison →
               </span>
             </Link>

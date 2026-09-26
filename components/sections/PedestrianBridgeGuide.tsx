@@ -83,23 +83,23 @@ const faqs = [
 export default function PedestrianBridgeGuide() {
   return (
     <section className="bg-white py-[55px]">
-      <div className="mx-auto max-w-[1280px] px-[24px] sm:px-[34px]">
-        <nav aria-label="Bridge guide contents" className="rounded-lg border border-border-default bg-bg2 p-6">
-          <h2 className="text-f19 font-bold text-t1">FRP pedestrian bridge specification guide</h2>
+      <div className="site-container">
+        <nav aria-label="Bridge guide contents" className="rounded-card border border-border-default bg-bg2 p-6">
+          <h2 className="text-f18 font-bold text-t1">FRP pedestrian bridge specification guide</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {sections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="text-f15 text-teal-text underline underline-offset-4">{section.title}</a></li>)}
-            <li><a href="#bridge-faq" className="text-f15 text-teal-text underline underline-offset-4">Common procurement questions</a></li>
+            {sections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="text-f16 text-teal-text underline underline-offset-4">{section.title}</a></li>)}
+            <li><a href="#bridge-faq" className="text-f16 text-teal-text underline underline-offset-4">Common procurement questions</a></li>
           </ul>
         </nav>
         <div className="mt-10 max-w-[900px] space-y-12">
           {sections.map((section) => (
             <section key={section.id} id={section.id} className="scroll-mt-28">
               <h2 className="text-f24 font-bold text-t1">{section.title}</h2>
-              {section.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 45)} className="mt-4 text-f15 leading-relaxed text-t2">{paragraph}</p>)}
-              {section.source && <p className="mt-3 text-f13 text-t3">Reference: <a className="text-teal-text underline underline-offset-4" href={section.source.href}>{section.source.label}</a>.</p>}
+              {section.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 45)} className="mt-4 text-f16 leading-relaxed text-t2">{paragraph}</p>)}
+              {section.source && <p className="mt-3 text-f14 text-t3">Reference: <a className="text-teal-text underline underline-offset-4" href={section.source.href}>{section.source.label}</a>.</p>}
               {section.id === "system-selection" && (
-                <div className="mt-6 overflow-x-auto rounded-lg border border-border-default">
-                  <table className="w-full min-w-[580px] text-left text-f13 leading-relaxed">
+                <div className="mt-6 overflow-x-auto rounded-card border border-border-default">
+                  <table className="w-full min-w-[580px] text-left text-f14 leading-relaxed">
                     <caption className="p-4 text-left font-bold text-t1">Concept comparison — selection prompts, not span ratings</caption>
                     <thead className="bg-bg2"><tr>{["System", "Concept review", "Details to resolve"].map((label) => <th key={label} scope="col" className="p-4">{label}</th>)}</tr></thead>
                     <tbody>{systems.map(([name, use, checks]) => <tr key={name} className="border-t border-border-default"><th scope="row" className="p-4 text-t1">{name}</th><td className="p-4 text-t2">{use}</td><td className="p-4 text-t2">{checks}</td></tr>)}</tbody>
@@ -110,11 +110,11 @@ export default function PedestrianBridgeGuide() {
           ))}
           <section id="bridge-faq" className="scroll-mt-28">
             <h2 className="text-f24 font-bold text-t1">FRP pedestrian bridge questions</h2>
-            <dl className="mt-5 space-y-6">{faqs.map(([question, answer]) => <div key={question}><dt className="text-f19 font-bold text-t1">{question}</dt><dd className="mt-2 text-f15 leading-relaxed text-t2">{answer}</dd></div>)}</dl>
+            <dl className="mt-5 space-y-6">{faqs.map(([question, answer]) => <div key={question}><dt className="text-f18 font-bold text-t1">{question}</dt><dd className="mt-2 text-f16 leading-relaxed text-t2">{answer}</dd></div>)}</dl>
           </section>
-          <div className="rounded-lg border border-border-default bg-bg2 p-6">
+          <div className="rounded-card border border-border-default bg-bg2 p-6">
             <h2 className="text-f24 font-bold text-t1">Send a bridge component brief</h2>
-            <p className="mt-3 text-f15 leading-relaxed text-t2">Start with the span, width, site conditions and a sketch. Include the owner’s design criteria, proposed delivery scope and destination so the component schedule and quotation can be reviewed together.</p>
+            <p className="mt-3 text-f16 leading-relaxed text-t2">Start with the span, width, site conditions and a sketch. Include the owner’s design criteria, proposed delivery scope and destination so the component schedule and quotation can be reviewed together.</p>
             <Link href={bridgeRfqHref} className="mt-5 inline-block font-bold text-teal-text underline underline-offset-4">Prepare an FRP pedestrian bridge enquiry →</Link>
           </div>
         </div>

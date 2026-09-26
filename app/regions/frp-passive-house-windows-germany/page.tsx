@@ -88,8 +88,8 @@ export default function GermanyRegionPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/frp-passive-house-windows-germany.jpg"
               alt="Passive house facade with large triple-glazed openings — pultruded FRP (GFK) window frames hold certified Passivhaus U-values without a metallic thermal break"
@@ -104,13 +104,13 @@ export default function GermanyRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why German Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Certified where Passivhaus was born — without the aluminum duty stack
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Germany invented the Passivhaus standard, and German energy law keeps
                 raising the bar: the GEG 2024 reference building already assumes window
@@ -131,7 +131,7 @@ export default function GermanyRegionPage() {
                 Institute in Darmstadt.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Then there is the cost story German buyers should check before specifying
                 imported aluminum. Chinese aluminum extrusions carry EU anti-dumping
@@ -157,7 +157,7 @@ export default function GermanyRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>German Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             CE / EN 14351-1, GEG, BEG, PHI — the paperwork your spec calls for
@@ -166,10 +166,10 @@ export default function GermanyRegionPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Requirement</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">German / EU Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Requirement</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">German / EU Standard</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
@@ -183,10 +183,10 @@ export default function GermanyRegionPage() {
                   { app: "Architectural coating", std: "AAMA 2604 / 2605 · RAL colors", perf: "10-yr exposure, any RAL color", doc: "AAMA-listed coater report" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.std}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.perf}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.doc}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.app}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.std}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.perf}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.doc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -196,7 +196,7 @@ export default function GermanyRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             From our factory in China to your German jobsite, with duties and VAT itemized
@@ -219,10 +219,10 @@ export default function GermanyRegionPage() {
                 body: "Ocean transit takes 30–35 days to Hamburg, Bremerhaven, or Rotterdam. The total lead time from purchase order to jobsite is 9–13 weeks. DAP delivery is available from the port of entry to Munich, Frankfurt, Berlin, and the Ruhr region.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{s.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{s.body}</p>
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>
             ))}
           </div>
@@ -241,36 +241,36 @@ export default function GermanyRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHI-certified GFRP frames (U_w 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the Darmstadt certification covers and how to specify it.</p>
+              <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (U_w 0.78)</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the Darmstadt certification covers and how to specify it.</p>
             </Link>
             <Link
               href="/technology/frp-vs-pvc-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">FRP vs uPVC — stiffness & U-value</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Why GFK frames need no steel reinforcement — larger sashes, no hidden thermal bridge.</p>
+              <h3 className="text-f16 font-bold text-t1">FRP vs uPVC — stiffness & U-value</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Why GFK frames need no steel reinforcement — larger sashes, no hidden thermal bridge.</p>
             </Link>
             <Link
               href="/case-studies/wanhua-yantai-zero-carbon-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Zero-carbon community case study</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">65/90-series GFRP-PU frames across a 13,657 m² zero-carbon dormitory envelope — Wanhua Yantai.</p>
+              <h3 className="text-f16 font-bold text-t1">Zero-carbon community case study</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">65/90-series GFRP-PU frames across a 13,657 m² zero-carbon dormitory envelope — Wanhua Yantai.</p>
             </Link>
           </div>
         </div>
       </section>
 
       <section className="bg-bg2 pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"

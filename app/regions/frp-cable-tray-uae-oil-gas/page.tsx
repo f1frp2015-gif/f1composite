@@ -84,8 +84,8 @@ export default function UAECableTrayPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/industries/frp-electric-power-substation-infrastructure.jpg"
               alt="Pultruded FRP cable tray and cable ladder in an oil and gas electrical installation"
@@ -100,13 +100,13 @@ export default function UAECableTrayPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>UAE Oil & Gas Service Reality</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Coastal salt, sour service and chemical splash: why galvanized cable tray wears out
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 UAE upstream, refining and gas plants run cable management in one of the hardest corrosion environments in the industry: 45–50°C summer air, salty Gulf coastal air, H₂S and CO₂ in sour-service operations, and chemical splash and oil mist on process platforms.
               </p>
@@ -114,7 +114,7 @@ export default function UAECableTrayPage() {
                 Galvanized steel cable tray under these combined conditions typically reaches the end of its service life within 8–12 years. The dominant failure mode is loss of sacrificial zinc in the splash zone, followed by accelerated steel corrosion at galvanic discontinuities — most often at field-cut ends and field-welded supports where the galvanizing was not properly restored. Replacement programs are operationally expensive because they require shutdown windows, scaffold access, hot-work permits, and crew mobilization.
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Pultruded FRP cable tray in vinyl ester resin does not rust and handles most of this exposure without coatings. FRP cable management has been used on Gulf oil and gas projects for many years; maintenance is mainly cleaning and inspection during scheduled shutdowns.
               </p>
@@ -127,7 +127,7 @@ export default function UAECableTrayPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>NEMA Load Classification</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             FRP cable tray load class reference for UAE project specs
@@ -136,10 +136,10 @@ export default function UAECableTrayPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">NEMA Class</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Load (lb/ft / kg/m)</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Span (ft / m)</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Typical UAE application</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">NEMA Class</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Load (lb/ft / kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Span (ft / m)</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Typical UAE application</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,23 +151,23 @@ export default function UAECableTrayPage() {
                   { c: "24A / 24B / 24C", l: "50 / 75 / 100 lb/ft", s: "24 ft / 7.3 m", a: "High-load main / pipe-rack runs" },
                 ].map((row) => (
                   <tr key={row.c} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.c}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.l}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.s}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.a}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.c}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.l}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.s}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.a}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-[13px] text-f13 text-t3">
+          <p className="mt-[13px] text-f14 text-t3">
             Class numbers indicate maximum span between supports; A/B/C suffixes indicate uniformly distributed load capacity. Project specs typically reference 16C or 20C for main process trays.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Cable Tray System Components</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -176,9 +176,9 @@ export default function UAECableTrayPage() {
               { name: "Fittings", note: "Elbows, tees, crosses, reducers, dropouts" },
               { name: "Support Hardware", note: "Pultruded FRP support brackets, clamps" },
             ].map((p) => (
-              <div key={p.name} className="rounded-[8px] border border-border-default bg-white p-[21px]">
-                <h3 className="text-f15 font-bold text-t1">{p.name}</h3>
-                <p className="mt-[5px] text-f13 leading-golden text-t2">{p.note}</p>
+              <div key={p.name} className="rounded-card border border-border-default bg-white p-[21px]">
+                <h3 className="text-f16 font-bold text-t1">{p.name}</h3>
+                <p className="mt-[5px] text-f14 leading-golden text-t2">{p.note}</p>
               </div>
             ))}
           </div>
@@ -197,29 +197,29 @@ export default function UAECableTrayPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/products/custom-pultruded-profiles"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Custom Pultrusion Services</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Custom FRP cable tray cross-sections, supports, and project-specific cable management profiles.</p>
+              <h3 className="text-f16 font-bold text-t1">Custom Pultrusion Services</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Custom FRP cable tray cross-sections, supports, and project-specific cable management profiles.</p>
             </Link>
             <Link
               href="/case-studies/water-treatment-cable-tray"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Case Study: Cable Tray in Process Service</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Project-scale FRP cable tray and supports — installation, inspection, and 10-year service report.</p>
+              <h3 className="text-f16 font-bold text-t1">Case Study: Cable Tray in Process Service</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Project-scale FRP cable tray and supports — installation, inspection, and 10-year service report.</p>
             </Link>
             <Link
               href="/industries/industrial"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Industrial / Petrochemical</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Full FRP product family for chemical plant, refinery, and petrochemical service.</p>
+              <h3 className="text-f16 font-bold text-t1">Industrial / Petrochemical</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Full FRP product family for chemical plant, refinery, and petrochemical service.</p>
             </Link>
           </div>
         </div>

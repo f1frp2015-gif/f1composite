@@ -62,14 +62,14 @@ export default function CalculatorValidationPage() {
       />
 
       <article className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1120px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-3">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f11 font-bold uppercase tracking-[1px] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f11 font-bold uppercase tracking-[1px] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]"><p className="text-f11 font-bold uppercase tracking-[1px] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
           </div>
 
-          <div className="mt-[34px] max-w-[920px] text-f15 leading-golden text-t2">
+          <div className="mt-[34px] max-w-[920px] text-f16 leading-golden text-t2">
             <p>
               Each row stores fixed expected A and Ix values evaluated from closed-form geometry equations. During
               static generation, the same production module imported by the interactive calculator and span tables
@@ -79,8 +79,8 @@ export default function CalculatorValidationPage() {
             </p>
           </div>
 
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default">
-            <table className="w-full min-w-[940px] border-collapse text-f13">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
+            <table className="w-full min-w-[940px] border-collapse text-f14">
               <thead className="bg-bg2 text-left text-t1">
                 <tr>
                   <th className="p-[13px]">Benchmark section</th><th className="p-[13px]">Expected A mm²</th><th className="p-[13px]">Engine A mm²</th><th className="p-[13px]">A error</th><th className="p-[13px]">Expected Ix mm⁴</th><th className="p-[13px]">Engine Ix mm⁴</th><th className="p-[13px]">Ix error</th>
@@ -102,7 +102,7 @@ export default function CalculatorValidationPage() {
             </table>
           </div>
 
-          <section className="mt-[55px] grid gap-[34px] text-f15 leading-golden text-t2 lg:grid-cols-2">
+          <section className="mt-[55px] grid gap-[34px] text-f16 leading-golden text-t2 lg:grid-cols-2">
             <div>
               <h2 className="text-f24 font-bold text-t1">What this validates</h2>
               <ul className="mt-[13px] space-y-[10px]">
@@ -123,8 +123,8 @@ export default function CalculatorValidationPage() {
             </div>
           </section>
 
-          <section className="mt-[55px] rounded-[8px] border border-border-default bg-bg2 p-[21px] text-f15 leading-golden text-t2">
-            <h2 className="text-f19 font-bold text-t1">Reproduce the result</h2>
+          <section className="mt-[55px] rounded-card border border-border-default bg-bg2 p-[21px] text-f16 leading-golden text-t2">
+            <h2 className="text-f18 font-bold text-t1">Reproduce the result</h2>
             <p className="mt-[8px]">
               Choose any row, enter its H, B, tw, and tf in the <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">FRP profile calculator</Link>,
               and compare the reported section properties. The equations and unit path are documented in the{" "}

@@ -57,18 +57,18 @@ export default function NotFound() {
       />
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Continue from</SectionTag>
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
             {exits.map((exit) => (
               <Link
                 key={exit.href}
                 href={exit.href}
-                className="rounded-[8px] border border-border-default bg-white p-[24px] transition-colors hover:border-teal"
+                className="rounded-card border border-border-default bg-white p-[24px] transition-colors hover:border-teal"
               >
-                <h2 className="text-f19 font-bold text-t1">{exit.title}</h2>
-                <p className="mt-[8px] text-f15 leading-golden text-t2">{exit.description}</p>
-                <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text">
+                <h2 className="text-f18 font-bold text-t1">{exit.title}</h2>
+                <p className="mt-[8px] text-f16 leading-golden text-t2">{exit.description}</p>
+                <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text">
                   Open →
                 </span>
               </Link>

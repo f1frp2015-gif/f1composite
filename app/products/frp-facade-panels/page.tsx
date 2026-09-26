@@ -382,44 +382,44 @@ export default function FacadeSunshadePanelsPage() {
       />
 
       <section className="bg-white pt-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-3">
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp"
                 alt="Multi-layer fabric-reinforced pultruded FRP sunshade plate on the pultrusion line at F1 Composite"
                 width={1200}
                 height={1601}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
-              <p className="mt-[8px] text-center text-f13 font-medium text-t2">
+              <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 The E40 plate — as pultruded, before finishing
               </p>
             </div>
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp"
                 alt="Vertical fin sunshade array on a curtain wall facade — the blade format the E40 plate is engineered for"
                 width={1232}
                 height={928}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
-              <p className="mt-[8px] text-center text-f13 font-medium text-t2">
+              <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 Vertical fin arrays — floor-to-floor spans
               </p>
             </div>
-            <div className="overflow-hidden rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+            <div className="overflow-hidden rounded-card border border-border-default bg-bg2 p-[13px]">
               <Image
                 src="/images/products/facade-sunshade/frp-facade-sunshade-angled-louver-blades.webp"
                 alt="Angled louver blade sunshade facade — biaxial wind and gravity loads carried by the blade section"
                 width={2048}
                 height={1536}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="aspect-[4/3] w-full rounded-[8px] object-cover"
+                className="aspect-[4/3] w-full rounded-card object-cover"
               />
-              <p className="mt-[8px] text-center text-f13 font-medium text-t2">
+              <p className="mt-[8px] text-center text-f14 font-medium text-t2">
                 Angled louver blades — combined load case
               </p>
             </div>
@@ -429,16 +429,16 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Introduction */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div>
-            <p className="text-f19 leading-golden text-t2">
+            <p className="text-f18 leading-golden text-t2">
               <strong className="text-t1">A sunshade blade is a deceptively hard structural
               element.</strong> It is long, thin, fully exposed, loaded by wind in both
               directions, and judged by eye down a 40-blade array where a single sagging fin
               is visible from the street. Deflection governs everything — and deflection is
               set by the modulus of the blade material, not its strength.
             </p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               That is the problem F1 Composite&apos;s facade sunshade plate was developed to
               solve. Where standard pultruded flat sheet reaches the EN 13706 E17 or E23
               grades — 17 to 23 GPa full-section modulus — our multi-layer fabric-reinforced
@@ -448,7 +448,7 @@ export default function FacadeSunshadePanelsPage() {
               through the thickness over a high-count unidirectional roving core, so the
               blade is stiff along its span <em>and</em> across it.
             </p>
-            <p className="mt-[21px] text-f15 leading-golden text-t2">
+            <p className="mt-[21px] text-f16 leading-golden text-t2">
               The biaxial capability is what makes one blade family serve a whole elevation:
               vertical fins spanning floor to floor, horizontal louvers carrying gravity and
               wind together, angled blades in between. Add what pultruded FRP brings to any
@@ -463,12 +463,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Why FRP for blade duty */}
       <section id="engineering" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Blade Engineering</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six reasons the blade material decides the shading design
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Shading arrays fail on details: brackets that bridge the envelope, blades that
             sag or rattle, coatings that chalk on the sun side. The E40 plate is engineered
             against each failure mode.
@@ -478,10 +478,10 @@ export default function FacadeSunshadePanelsPage() {
             {bladeEngineering.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
-                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
@@ -490,12 +490,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Inside the E40 laminate */}
       <section id="plate" className="scroll-mt-[89px] bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Inside The E40 Plate</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             The multi-layer fabric architecture behind 40 GPa
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Conventional pultruded sheet is mostly longitudinal roving with a mat skin — stiff
             one way, weak the other. The E40 plate replaces the mat with engineered fabric,
             layer by layer through the thickness.
@@ -505,20 +505,20 @@ export default function FacadeSunshadePanelsPage() {
             {laminateStack.map((item) => (
               <div
                 key={item.layer}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
                 <div className="flex flex-col gap-[8px] md:flex-row md:items-start md:gap-[34px]">
-                  <h3 className="shrink-0 text-[17px] font-bold text-t1 md:w-[340px]">
+                  <h3 className="shrink-0 text-f18 font-bold text-t1 md:w-[340px]">
                     {item.layer}
                   </h3>
-                  <p className="flex-1 text-f15 leading-golden text-t2">{item.role}</p>
+                  <p className="flex-1 text-f16 leading-golden text-t2">{item.role}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="mt-[34px] max-w-[780px]">
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               Because the fabric stack is specified per project, the laminate is tunable: a
               floor-to-floor vertical fin gets more unidirectional content for span, a wide
               horizontal louver gets more ±45° and 90° fabric for the gravity axis and the
@@ -531,12 +531,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Blade formats */}
       <section id="formats" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Blade Formats</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Flat plate, aerofoil, and closed-box blades
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             The E40 flat plate covers most fin and louver arrays; custom hollow sections
             extend the range where geometry or torsion demands it.
           </p>
@@ -545,13 +545,13 @@ export default function FacadeSunshadePanelsPage() {
             {bladeFormats.map((format) => (
               <div
                 key={format.name}
-                className="flex flex-col rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="flex flex-col rounded-card border border-border-default bg-white p-[34px]"
               >
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
                   {format.tag}
                 </div>
-                <h3 className="mt-[8px] text-[17px] font-bold text-t1">{format.name}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{format.detail}</p>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{format.name}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{format.detail}</p>
               </div>
             ))}
           </div>
@@ -560,12 +560,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Orientations */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Vertical & Horizontal</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             One blade family, both orientations
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Vertical fins and horizontal louvers load a blade in fundamentally different
             ways. The multi-layer fabric laminate is what lets the same plate carry both.
           </p>
@@ -574,11 +574,11 @@ export default function FacadeSunshadePanelsPage() {
             {orientations.map((o) => (
               <div
                 key={o.name}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
-                <h3 className="text-[20px] font-extrabold text-t1">{o.name}</h3>
-                <p className="mt-[5px] text-f13 font-semibold text-teal-text">{o.loads}</p>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{o.detail}</p>
+                <h3 className="text-f20 font-extrabold text-t1">{o.name}</h3>
+                <p className="mt-[5px] text-f14 font-semibold text-teal-text">{o.loads}</p>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{o.detail}</p>
               </div>
             ))}
           </div>
@@ -587,13 +587,13 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Deflection-governed design */}
       <section id="design" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Deflection-Governed Design</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Stiffness sets the blade — everything else follows
           </h2>
           <div className="mt-[21px] max-w-[780px] space-y-[21px]">
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               A sunshade blade is a continuous beam on bracket supports carrying a wind
               line-load, and its design is decided by the serviceability check: deflection
               between brackets, held to L/180–L/240 in most facade specifications — both for
@@ -603,7 +603,7 @@ export default function FacadeSunshadePanelsPage() {
               lever left is E — the modulus of the blade material. That is the entire design
               case for the E40 plate in one sentence.
             </p>
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               The arithmetic is direct. Deflection-limited bracket spacing scales with the
               cube root of modulus, so moving from a standard E23 pultrusion to the E40
               plate buys 20% more span from the identical blade — or, holding the bracket
@@ -613,7 +613,7 @@ export default function FacadeSunshadePanelsPage() {
               ultimate, which is precisely the margin that makes the fatigue behavior below
               a non-issue.
             </p>
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               One honest caveat belongs here: for horizontal louvers, self-weight is a
               sustained load, and polymer composites creep under sustained stress. On a thin
               blade at 2.0 g/cm³ the gravity stress is small, and we verify the sustained
@@ -626,13 +626,13 @@ export default function FacadeSunshadePanelsPage() {
             {deflectionStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
-                <div className="text-[34px] font-extrabold leading-none text-teal-text">
+                <div className="text-f32 font-extrabold leading-none text-teal-text">
                   {stat.value}
                 </div>
-                <h3 className="mt-[13px] text-[15px] font-bold text-t1">{stat.label}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{stat.detail}</p>
+                <h3 className="mt-[13px] text-f16 font-bold text-t1">{stat.label}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{stat.detail}</p>
               </div>
             ))}
           </div>
@@ -641,12 +641,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Wind-pressure fatigue */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Wind-Pressure Fatigue</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Fifty years of gust cycles, without a fatigue-critical detail
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             A facade blade sees millions of fully-reversing gust cycles over the building&apos;s
             life — fatigue, not peak load, is what actually retires metal shading systems.
             Six mechanisms put the FRP blade on the other side of that problem.
@@ -656,10 +656,10 @@ export default function FacadeSunshadePanelsPage() {
             {fatigueMechanisms.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
-                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
@@ -668,12 +668,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Wind-load calculation */}
       <section id="windload" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Wind-Load Design</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From code wind speed to bracket spacing
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             The wind design of a shading array is a five-step path from the code to the
             blade. We run it for every quotation, to EN 1991-1-4, ASCE 7, or GB 50009, and
             hand the calculation package to your facade engineer.
@@ -683,23 +683,23 @@ export default function FacadeSunshadePanelsPage() {
             {windLoadSteps.map((item) => (
               <div
                 key={item.step}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 <div className="flex flex-col gap-[8px] md:flex-row md:items-start md:gap-[34px]">
-                  <h3 className="shrink-0 text-[15px] font-bold text-teal-text md:w-[280px]">
+                  <h3 className="shrink-0 text-f16 font-bold text-teal-text md:w-[280px]">
                     {item.step}
                   </h3>
-                  <p className="flex-1 text-f15 leading-golden text-t2">{item.detail}</p>
+                  <p className="flex-1 text-f16 leading-golden text-t2">{item.detail}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="mt-[55px]">
-            <h3 className="text-[20px] font-extrabold text-t1">
+            <h3 className="text-f20 font-extrabold text-t1">
               Indicative bracket spacing — E40 flat plate louvers
             </h3>
-            <p className="mt-[8px] text-f13 leading-golden text-t2">
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
               Deflection-governed spacing for a 250 mm louver at c_p,net = ±2.0
               (conservative edge-zone value), continuous over three or more brackets,
               deflection limit L/240. Strength and bracket reactions are verified
@@ -709,13 +709,13 @@ export default function FacadeSunshadePanelsPage() {
               <table className="w-full border-collapse text-left">
                 <thead>
                   <tr className="border-b-2 border-border-default">
-                    <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                       Blade thickness
                     </th>
-                    <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                       q_p = 1.0 kPa
                     </th>
-                    <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                       q_p = 1.5 kPa
                     </th>
                   </tr>
@@ -723,11 +723,11 @@ export default function FacadeSunshadePanelsPage() {
                 <tbody>
                   {spanTable.map((row) => (
                     <tr key={row.thickness} className="border-b border-border-default">
-                      <td className="py-[13px] pr-[21px] text-f15 font-semibold text-t1">
+                      <td className="py-[13px] pr-[21px] text-f16 font-semibold text-t1">
                         {row.thickness}
                       </td>
-                      <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.span10}</td>
-                      <td className="py-[13px] text-f15 text-t2">{row.span15}</td>
+                      <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.span10}</td>
+                      <td className="py-[13px] text-f16 text-t2">{row.span15}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -739,12 +739,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Connections & installation */}
       <section id="install" className="scroll-mt-[89px] bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Connections & Installation</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Bolted details that stay quiet for the life of the facade
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Shading systems are won and lost at the bracket. These are the connection and
             installation details behind a thin, light, weather-proof, low-maintenance
             blade array.
@@ -754,10 +754,10 @@ export default function FacadeSunshadePanelsPage() {
             {connectionDetails.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-bg2 p-[34px]"
+                className="rounded-card border border-border-default bg-bg2 p-[34px]"
               >
-                <h3 className="text-[17px] font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </div>
             ))}
           </div>
@@ -766,12 +766,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Material properties */}
       <section id="properties" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Material Properties</SectionTag>
           <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             E40 plate — key properties for shading design
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Representative values for the multi-layer fabric plate. Project laminates are
             tuned to the blade section and span, with test data supplied for submission.
           </p>
@@ -781,13 +781,13 @@ export default function FacadeSunshadePanelsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                     Property
                   </th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                     Value
                   </th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                     Design relevance
                   </th>
                 </tr>
@@ -795,13 +795,13 @@ export default function FacadeSunshadePanelsPage() {
               <tbody>
                 {materialProperties.map((row) => (
                   <tr key={row.property} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-semibold text-t1 md:w-[280px]">
+                    <td className="py-[13px] pr-[21px] text-f16 font-semibold text-t1 md:w-[280px]">
                       {row.property}
                     </td>
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-teal-text md:w-[220px]">
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text md:w-[220px]">
                       {row.value}
                     </td>
-                    <td className="py-[13px] text-f15 leading-golden text-t2">{row.note}</td>
+                    <td className="py-[13px] text-f16 leading-golden text-t2">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -812,12 +812,12 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* vs Aluminum */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>FRP vs Aluminum Shading</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Where the E40 blade beats the aluminum extrusion
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Aluminum is the incumbent shading material. These are the six criteria where the
             comparison decides itself at system level, not per kilogram of blade.
           </p>
@@ -826,13 +826,13 @@ export default function FacadeSunshadePanelsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                     Criterion
                   </th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                     Aluminum blade
                   </th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
                     F1 E40 FRP blade
                   </th>
                 </tr>
@@ -840,13 +840,13 @@ export default function FacadeSunshadePanelsPage() {
               <tbody>
                 {aluminumComparison.map((row) => (
                   <tr key={row.criterion} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f15 font-semibold text-t1 md:w-[240px]">
+                    <td className="py-[13px] pr-[21px] text-f16 font-semibold text-t1 md:w-[240px]">
                       {row.criterion}
                     </td>
-                    <td className="py-[13px] pr-[21px] text-f15 leading-golden text-t2">
+                    <td className="py-[13px] pr-[21px] text-f16 leading-golden text-t2">
                       {row.aluminum}
                     </td>
-                    <td className="py-[13px] text-f15 leading-golden text-t2">{row.frp}</td>
+                    <td className="py-[13px] text-f16 leading-golden text-t2">{row.frp}</td>
                   </tr>
                 ))}
               </tbody>
@@ -857,13 +857,13 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* Engineering support */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engineering Support</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             From wind report to install-ready blades
           </h2>
           <div className="mt-[21px] max-w-[780px]">
-            <p className="text-f15 leading-golden text-t2">
+            <p className="text-f16 leading-golden text-t2">
               Shading packages rarely arrive as a finished structural design — they arrive as
               an architect&apos;s blade geometry and a wind consultant&apos;s pressure map. Our
               KNOWHOW engineering service closes that gap: we run the span and deflection
@@ -916,7 +916,7 @@ export default function FacadeSunshadePanelsPage() {
 
       {/* FAQ */}
       <section id="faq" className="scroll-mt-[89px] bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqItems} />
         </div>
       </section>

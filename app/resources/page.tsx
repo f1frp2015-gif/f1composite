@@ -139,9 +139,9 @@ export default function ResourcesPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Engineering Knowledge for Specifying Pultruded FRP</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
             <p>
               Pultruded fiberglass composites behave differently from steel, aluminum, and timber — the material is anisotropic, stiffness-driven rather than strength-driven, and creep-sensitive under sustained load. Engineers who have specified FRP successfully have one thing in common: they treated the material as a discipline of its own, not as &quot;lighter steel.&quot; This Resources hub is built around that principle. Every document below is written for engineers, fabricators, and procurement teams who need to make defensible specification decisions, not marketing claims.
             </p>
@@ -153,19 +153,19 @@ export default function ResourcesPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-2">
             {resources.map((r) => (
               <Link
                 key={r.href}
                 href={r.href}
-                className="group rounded-[8px] border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border"
+                className="group rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border"
               >
                 <span className="mb-[13px] block">{icons[r.iconKey]}</span>
-                <h3 className="mb-[8px] text-f19 font-bold text-t1 group-hover:text-teal-text">
+                <h3 className="mb-[8px] text-f18 font-bold text-t1 group-hover:text-teal-text">
                   {r.title}
                 </h3>
-                <p className="text-f15 leading-golden text-t2">{r.description}</p>
+                <p className="text-f16 leading-golden text-t2">{r.description}</p>
               </Link>
             ))}
           </div>
@@ -173,9 +173,9 @@ export default function ResourcesPage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>How to Use This Hub</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f17 leading-golden text-t2">
+          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
             <p>
               If you are <strong>specifying</strong> FRP for the first time, start with the Blog post &quot;What is Pultrusion?&quot; and the Technical Data sheet for your closest standard profile. If you are <strong>comparing</strong> FRP against aluminum, steel, or PVC, the Technology section&apos;s vs-pages give like-for-like cost, weight, lifetime, and embodied-carbon comparisons. If you are <strong>buying</strong>, head straight to Downloads for the certification package your QA team will request, then the Design Guides for connection details your fabricator will need.
             </p>

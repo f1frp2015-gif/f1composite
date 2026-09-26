@@ -27,22 +27,22 @@ export default function FAQDisclosure({
 
   return (
     <details
-      className={`group self-start rounded-[8px] border border-border-default transition-colors duration-200 open:border-teal-border ${
+      className={`group self-start rounded-card border border-border-default transition-colors duration-200 open:border-teal-border ${
         surface === "muted" ? "bg-bg2" : "bg-white"
       } ${size === "large" ? "p-[29px]" : "px-[21px] py-[16px]"}`}
     >
       <summary className="cursor-pointer list-none text-t1 transition-colors hover:text-teal-text [&::-webkit-details-marker]:hidden">
         {size === "large" ? (
-          <h3 className="flex items-start justify-between gap-[13px] text-f19 font-bold">
+          <h3 className="flex items-start justify-between gap-[13px] text-f18 font-bold">
             {questionRow}
           </h3>
         ) : (
-          <span className="flex items-start justify-between gap-[13px] text-f15 font-bold">
+          <span className="flex items-start justify-between gap-[13px] text-f16 font-bold">
             {questionRow}
           </span>
         )}
       </summary>
-      <p className="mt-[13px] text-f15 leading-golden text-t2">{answer}</p>
+      <p className="mt-[13px] text-f16 leading-golden text-t2">{answer}</p>
     </details>
   );
 }

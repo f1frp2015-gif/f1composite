@@ -21,7 +21,7 @@ const WARM = "#f59e0b";
 /** Heat streaming through an aluminum frame vs stopped by an FRP frame. */
 export function HeatFlowFrameComparison() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Aluminum */}
         <svg viewBox="0 0 220 120" className="w-full" aria-label="Heat flowing rapidly through an aluminum window frame, causing interior condensation">
@@ -75,7 +75,7 @@ export function HeatFlowFrameComparison() {
           <text x="110" y="118" textAnchor="middle" fontSize="8.5" fill={TEAL}>warm interior face → stays dry</text>
         </svg>
       </div>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         Same winter night, same glazing — the only variable is the frame material. Aluminum conducts
         heat ~500× faster, so its interior face drops below the dew point; the FRP face stays warm and dry.
       </figcaption>
@@ -86,7 +86,7 @@ export function HeatFlowFrameComparison() {
 /** Steel insert (thermal bridge) vs pultruded GRP core inside a uPVC chamber. */
 export function SteelVsFrpChamberCore() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Steel insert */}
         <svg viewBox="0 0 220 110" className="w-full" aria-label="Galvanized steel insert inside a uPVC window chamber conducting heat straight through">
@@ -128,7 +128,7 @@ export function SteelVsFrpChamberCore() {
           <text x="110" y="106" textAnchor="middle" fontSize="8.5" fill={TEAL}>same stiffness job, no thermal bridge</text>
         </svg>
       </div>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         Both cores do the same structural job inside the same uPVC chamber. The steel one re-installs
         the thermal bridge the plastic frame was supposed to avoid; the pultruded core does not.
       </figcaption>
@@ -140,11 +140,11 @@ export function SteelVsFrpChamberCore() {
 
 function OpeningFrame({ children, label, sub }: { children: ReactNode; label: string; sub: string }) {
   return (
-    <div className="rounded-[8px] border border-border-default bg-bg2 p-[13px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[13px]">
       <svg viewBox="0 0 170 130" className="w-full" aria-label={`${label} window opening animation`}>
         {children}
       </svg>
-      <p className="mt-[8px] text-f13 font-bold text-t1">{label}</p>
+      <p className="mt-[8px] text-f14 font-bold text-t1">{label}</p>
       <p className="text-f12 leading-golden text-t2">{sub}</p>
     </div>
   );
@@ -154,7 +154,7 @@ function OpeningFrame({ children, label, sub }: { children: ReactNode; label: st
 export function WindowOpeningTypes() {
   const frame = <rect x="45" y="16" width="80" height="100" rx="3" fill="none" stroke={DARK} strokeWidth="3" />;
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
         {/* Casement — side-hung, swings like a door */}
         <OpeningFrame label="Casement" sub="Side-hung — swings like a door; full opening, maximum airflow.">
@@ -236,7 +236,7 @@ export function WindowOpeningTypes() {
           </g>
         </OpeningFrame>
       </div>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         How each opening type moves. Whatever the motion, the sealing principle in an FRP system is the
         same: multi-point locking pulls the sash into continuous EPDM gasket compression, and the
         insulating frame carries no metallic path for heat to escape through.
@@ -248,7 +248,7 @@ export function WindowOpeningTypes() {
 /** Simply-supported beam deflecting under a cycling midspan load. */
 export function BeamDeflection() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <svg viewBox="0 0 240 100" className="mx-auto w-full max-w-[560px]" aria-label="Simply supported beam deflecting under a midspan load, showing the deflection the calculator computes">
         {/* load arrow */}
         <g>
@@ -279,7 +279,7 @@ export function BeamDeflection() {
         <path d="M24 70 v8 M216 70 v8" stroke={GRAY} strokeWidth="1" />
         <text x="120" y="86" textAnchor="middle" fontSize="9" fill={GRAY}>span L</text>
       </svg>
-      <figcaption className="mt-[8px] text-center text-f13 leading-golden text-t2">
+      <figcaption className="mt-[8px] text-center text-f14 leading-golden text-t2">
         Deflection — not strength — usually governs FRP design. The calculator below solves δ, bending
         stress, and the pass/fail against your deflection limit for real F1 sections.
       </figcaption>
@@ -324,20 +324,20 @@ export function ProcessTrio() {
     { label: "Filament winding — fibers WOUND", note: "hollow rotational parts", icon: <FilamentWindingIcon /> },
   ];
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-3">
         {items.map((it) => (
           <div
             key={it.label}
-            className={`rounded-[8px] p-[13px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
+            className={`rounded-card p-[13px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
           >
             {it.icon}
-            <p className={`mt-[8px] text-f13 font-bold ${it.highlight ? "text-teal-text" : "text-t1"}`}>{it.label}</p>
+            <p className={`mt-[8px] text-f14 font-bold ${it.highlight ? "text-teal-text" : "text-t1"}`}>{it.label}</p>
             <p className="text-f12 text-t2">{it.note}</p>
           </div>
         ))}
       </div>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         The verb is the whole difference: pultrusion <strong>pulls</strong> continuous fibers through a
         die (structural, constant section), extrusion <strong>pushes</strong> molten plastic (no continuous
         reinforcement), filament winding <strong>wraps</strong> fibers around a mandrel (hollow shapes).
@@ -349,7 +349,7 @@ export function ProcessTrio() {
 /** Tensile and 3-point flexural coupon tests. */
 export function TensileFlexuralTest() {
   return (
-    <figure className="rounded-[8px] border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Tensile */}
         <svg viewBox="0 0 220 120" className="w-full" aria-label="Tensile test: dogbone coupon stretched between grips per ASTM D638">
@@ -402,7 +402,7 @@ export function TensileFlexuralTest() {
           <text x="110" y="118" textAnchor="middle" fontSize="8.5" fill={GRAY}>flexural modulus per batch, mill certificate</text>
         </svg>
       </div>
-      <figcaption className="mt-[13px] text-f13 leading-golden text-t2">
+      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         The two coupon tests behind every mill certificate: tensile (ASTM D638) and three-point flexural
         (ASTM D790), run per production batch so the datasheet numbers stay tied to the material you receive.
       </figcaption>

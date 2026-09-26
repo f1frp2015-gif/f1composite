@@ -53,15 +53,15 @@ export default function GlossaryPage() {
 
       {/* Table of Contents */}
       <section className="bg-white py-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="rounded-[8px] border border-border-default bg-bg2 p-[29px]">
-            <h2 className="text-f13 font-bold uppercase tracking-wide text-t2">On this page</h2>
+        <div className="site-container">
+          <div className="rounded-card border border-border-default bg-bg2 p-[29px]">
+            <h2 className="text-f14 font-bold uppercase tracking-wide text-t2">On this page</h2>
             <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
               {glossaryCategories.map((category) => (
                 <li key={category}>
                   <a
                     href={`#${slugifyCategory(category)}`}
-                    className="text-f13 text-teal-text hover:text-teal"
+                    className="text-f14 text-teal-text hover:text-teal"
                   >
                     → {category}
                   </a>
@@ -81,7 +81,7 @@ export default function GlossaryPage() {
             id={slugifyCategory(category)}
             className={categoryIndex % 2 === 0 ? "bg-white py-[55px]" : "bg-bg2 py-[55px]"}
           >
-            <div className="mx-auto max-w-[1280px] px-[34px]">
+            <div className="site-container">
               <SectionTag>{category}</SectionTag>
               <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
                 {category}
@@ -89,8 +89,8 @@ export default function GlossaryPage() {
               <dl className="mt-[34px] max-w-[900px] space-y-[29px]">
                 {terms.map((t) => (
                   <div key={t.id} id={t.id} className="scroll-mt-[100px]">
-                    <dt className="text-f19 font-bold text-t1">{t.term}</dt>
-                    <dd className="mt-[8px] text-f15 leading-golden text-t2">{t.definition}</dd>
+                    <dt className="text-f18 font-bold text-t1">{t.term}</dt>
+                    <dd className="mt-[8px] text-f16 leading-golden text-t2">{t.definition}</dd>
                   </div>
                 ))}
               </dl>
@@ -101,8 +101,8 @@ export default function GlossaryPage() {
 
       {/* Related */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Keep exploring</h2>
+        <div className="site-container">
+          <h2 className="mb-[21px] text-f18 font-bold text-t1">Keep exploring</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/resources/blog/frp-meaning">FRP full form and meaning</LinkArrow>
             <LinkArrow href="/what-is-frp">What is FRP? (complete guide)</LinkArrow>
@@ -112,7 +112,7 @@ export default function GlossaryPage() {
             <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
             <LinkArrow href="/ask">Ask the AI engineering assistant</LinkArrow>
           </div>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Looking for a term that is not listed?{" "}
             <Link href="/contact" className="font-semibold text-teal-text hover:text-teal">
               Ask our engineering team

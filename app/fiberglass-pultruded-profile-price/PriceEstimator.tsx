@@ -76,9 +76,9 @@ const DIM_FIELDS: Record<ProfileType, { key: string; label: string }[]> = {
 };
 
 const inputClass =
-  "w-full rounded-[6px] border border-border-default bg-white px-[13px] py-[8px] text-f13 text-t1 outline-none focus:border-teal";
+  "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
 const selectClass = inputClass;
-const labelClass = "block text-f11 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
+const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
 
 function fmtUsd(n: number): string {
   return n.toLocaleString("en-US", { maximumFractionDigits: n < 100 ? 2 : 0 });
@@ -151,7 +151,7 @@ export default function PriceEstimator() {
   return (
     <div className="grid gap-[21px] lg:grid-cols-[1fr_380px]">
       {/* Inputs */}
-      <div className="rounded-[13px] border border-border-default bg-white p-[21px]">
+      <div className="rounded-card border border-border-default bg-white p-[21px]">
         <div className="grid gap-[13px] sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label className={labelClass} htmlFor="pe-type">Profile type</label>
@@ -211,15 +211,15 @@ export default function PriceEstimator() {
             />
           </div>
           <div className="flex flex-col justify-end gap-[5px]">
-            <label className="flex items-center gap-[8px] text-f13 text-t2">
+            <label className="flex items-center gap-[8px] text-f14 text-t2">
               <input type="checkbox" checked={fireRetardant} onChange={(e) => setFireRetardant(e.target.checked)} />
               Fire-retardant resin
             </label>
-            <label className="flex items-center gap-[8px] text-f13 text-t2">
+            <label className="flex items-center gap-[8px] text-f14 text-t2">
               <input type="checkbox" checked={weatherproof} onChange={(e) => setWeatherproof(e.target.checked)} />
               UV / weathering package
             </label>
-            <label className="flex items-center gap-[8px] text-f13 text-t2">
+            <label className="flex items-center gap-[8px] text-f14 text-t2">
               <input type="checkbox" checked={surfaceVeil} onChange={(e) => setSurfaceVeil(e.target.checked)} />
               Surface veil
             </label>
@@ -228,20 +228,20 @@ export default function PriceEstimator() {
       </div>
 
       {/* Result */}
-      <div className="rounded-[13px] border border-teal/30 bg-bg2 p-[21px]">
+      <div className="rounded-card border border-teal/30 bg-bg2 p-[21px]">
         <p className={labelClass}>Indicative export price (FOB China)</p>
         {error ? (
-          <p className="mt-[13px] text-f15 text-t2">{error}</p>
+          <p className="mt-[13px] text-f16 text-t2">{error}</p>
         ) : result ? (
           <>
             <p className={`text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.1] text-t1 ${loading ? "opacity-50" : ""}`}>
               ${fmtUsd(result.usdPerMeterLow)}&ndash;${fmtUsd(result.usdPerMeterHigh)}
-              <span className="text-f15 font-bold text-t3"> / meter</span>
+              <span className="text-f16 font-bold text-t3"> / meter</span>
             </p>
-            <ul className="mt-[13px] space-y-[5px] text-f13 text-t2">
+            <ul className="mt-[13px] space-y-[5px] text-f14 text-t2">
               <li>&asymp; ${fmtUsd(result.usdPerKgLow)}&ndash;${fmtUsd(result.usdPerKgHigh)} per kg</li>
               <li>Section mass: {result.kgPerMeter} kg/m</li>
-              <li className="text-f11 text-t3">
+              <li className="text-f12 text-t3">
                 {result.weightBasis === "published_catalog"
                   ? `Published catalog mass${result.matchedProfileModel ? ` — ${result.matchedProfileModel}` : ""}`
                   : "Nominal mass calculated from section area and composite density"}
@@ -252,7 +252,7 @@ export default function PriceEstimator() {
               </li>
             </ul>
             {result.warnings.length > 0 && (
-              <ul className="mt-[13px] space-y-[3px] text-f11 text-amber-700">
+              <ul className="mt-[13px] space-y-[3px] text-f12 text-amber-700">
                 {result.warnings.map((w) => (
                   <li key={w}>{w}</li>
                 ))}
@@ -260,9 +260,9 @@ export default function PriceEstimator() {
             )}
           </>
         ) : (
-          <p className="mt-[13px] text-f15 text-t2">Calculating&hellip;</p>
+          <p className="mt-[13px] text-f16 text-t2">Calculating&hellip;</p>
         )}
-        <p className="mt-[13px] text-f11 leading-golden text-t3">
+        <p className="mt-[13px] text-f12 leading-golden text-t3">
           Budgetary estimate, &plusmn;15% band, excludes ocean freight and import duty. Exact standard
           E-glass/polyester sections use the same published kg/m values as the product catalog and
           span tables; custom dimensions and other material systems use a labeled nominal calculation.
@@ -270,7 +270,7 @@ export default function PriceEstimator() {
         </p>
         <Link
           href="/contact?source=price-estimator&inquiry_type=rfq"
-          className="mt-[13px] inline-block rounded-[6px] bg-teal px-[21px] py-[10px] text-f13 font-bold text-white hover:opacity-90"
+          className="mt-[13px] inline-block rounded-control bg-teal px-[21px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
         >
           Get a firm quote &rarr;
         </Link>

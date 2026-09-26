@@ -88,8 +88,8 @@ export default function WaterIndustryPage() {
         ]}
       />
       <section className="bg-white py-[48px]">
-        <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
-          <figure className="mb-[40px] overflow-hidden rounded-[10px] border border-border-default bg-bg2">
+        <div className="site-container">
+          <figure className="mb-[40px] overflow-hidden rounded-card border border-border-default bg-bg2">
             <Image
               src={waterTreatmentApplication}
               alt="Concept rendering of gray pultruded FRP beams, columns and bracing supporting a grating access platform with yellow handrails beside wastewater treatment basins"
@@ -97,7 +97,7 @@ export default function WaterIndustryPage() {
               className="h-auto w-full"
             />
             <figcaption className="px-[20px] py-[18px] sm:px-[24px]">
-              <p className="text-f19 font-bold text-t1">
+              <p className="text-f18 font-bold text-t1">
                 Pultruded FRP profiles in water treatment
               </p>
               <p className="mt-[8px] text-f14 leading-relaxed text-t2">
@@ -108,17 +108,17 @@ export default function WaterIndustryPage() {
               </p>
             </figcaption>
           </figure>
-          <h2 className="text-f31 font-bold text-t1">
+          <h2 className="text-f32 font-bold text-t1">
             Components used around treatment equipment
           </h2>
           <div className="mt-[24px] grid gap-[20px] md:grid-cols-2">
             {uses.map((use) => (
               <article
                 key={use.href}
-                className="rounded-[10px] border border-border-default bg-bg2 p-[24px]"
+                className="rounded-card border border-border-default bg-bg2 p-[24px]"
               >
                 <h3 className="text-f24 font-bold text-t1">{use.label}</h3>
-                <p className="mt-[12px] text-f15 leading-relaxed text-t2">
+                <p className="mt-[12px] text-f16 leading-relaxed text-t2">
                   {use.body}
                 </p>
                 <Link
@@ -130,10 +130,10 @@ export default function WaterIndustryPage() {
               </article>
             ))}
           </div>
-          <h2 className="mt-[48px] text-f31 font-bold text-t1">
+          <h2 className="mt-[48px] text-f32 font-bold text-t1">
             FRP around the plant, zone by zone
           </h2>
-          <p className="mt-[12px] max-w-[860px] text-f15 leading-relaxed text-t2">
+          <p className="mt-[12px] max-w-[860px] text-f16 leading-relaxed text-t2">
             Exposure changes from one part of a treatment plant to the next, so the parts and the
             resin change too. This is where pultruded FRP is most often used, and what to check in
             each area.
@@ -181,7 +181,7 @@ export default function WaterIndustryPage() {
               <h2 className="text-f24 font-bold text-t1">
                 Specify the actual exposure
               </h2>
-              <p className="mt-[12px] text-f15 leading-relaxed text-t2">
+              <p className="mt-[12px] text-f16 leading-relaxed text-t2">
                 Do not select a resin from the word wastewater alone. Provide
                 the chemicals and concentrations, temperature, immersion or
                 splash conditions, cleaning agents and outdoor exposure. Resin
@@ -189,7 +189,7 @@ export default function WaterIndustryPage() {
                 protection are reviewed together. A material suitable for one
                 treatment zone may not suit another.
               </p>
-              <p className="mt-[12px] text-f15 leading-relaxed text-t2">
+              <p className="mt-[12px] text-f16 leading-relaxed text-t2">
                 Document operating and maintenance loads, panel support and
                 attachment details. Fire and electrical requirements belong to
                 the offered material and assembly, rather than to fiberglass as
@@ -200,7 +200,7 @@ export default function WaterIndustryPage() {
               <h2 className="text-f24 font-bold text-t1">
                 Separate material and fabrication scope
               </h2>
-              <p className="mt-[12px] text-f15 leading-relaxed text-t2">
+              <p className="mt-[12px] text-f16 leading-relaxed text-t2">
                 Identify raw lengths, cut and drilled profiles, grating panels,
                 fixing hardware and any agreed assemblies on the bill of
                 materials. Include drawings, quantities, tolerances, inspection

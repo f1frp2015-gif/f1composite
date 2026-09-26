@@ -78,12 +78,12 @@ export default async function AskPage({ searchParams }: AskPageProps) {
             </svg>
           </div>
           <h1 className="text-f24 font-extrabold text-t1">FRP Engineering Advisor</h1>
-          <p className="mt-[5px] text-f15 text-t2">
+          <p className="mt-[5px] text-f16 text-t2">
             Ask anything about FRP profiles, material selection, specifications, and applications.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-[12px] border border-border-default bg-white shadow-sm">
+        <div className="overflow-hidden rounded-card border border-border-default bg-white shadow-card">
           <ChatPanel fullPage initialPrompt={prefill} />
         </div>
 
@@ -91,9 +91,9 @@ export default async function AskPage({ searchParams }: AskPageProps) {
           <LegalEntityNote variant="compact" />
         </div>
 
-        <section className="mt-[34px] space-y-[21px] text-f15 leading-golden text-t2">
+        <section className="mt-[34px] space-y-[21px] text-f16 leading-golden text-t2">
           <div>
-            <h2 className="text-f19 font-bold text-t1">What the advisor can help with</h2>
+            <h2 className="text-f18 font-bold text-t1">What the advisor can help with</h2>
             <p className="mt-[8px]">
               It answers questions about pultruded FRP profiles using the data published on this
               site: catalog sections and weights, resin systems, test reports, window certificates
@@ -102,7 +102,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
             </p>
           </div>
           <div>
-            <h2 className="text-f19 font-bold text-t1">Questions people ask</h2>
+            <h2 className="text-f18 font-bold text-t1">Questions people ask</h2>
             <ul className="mt-[8px] list-disc space-y-[6px] pl-[21px]">
               {exampleQuestions.map((question) => (
                 <li key={question}>{question}</li>
@@ -110,7 +110,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
             </ul>
           </div>
           <div>
-            <h2 className="text-f19 font-bold text-t1">What it does not do</h2>
+            <h2 className="text-f18 font-bold text-t1">What it does not do</h2>
             <p className="mt-[8px]">
               The advisor gives preliminary guidance. It is not an engineer&apos;s approval, a
               quotation or a certificate. Prices, lead times and documents are confirmed in writing

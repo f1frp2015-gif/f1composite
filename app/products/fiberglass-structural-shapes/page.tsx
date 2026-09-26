@@ -99,7 +99,7 @@ const profileTypes: Array<{
     name: "Channel",
     subtitle: "U-Profiles",
     image: "/images/products/channel/frp-channel-photo.webp",
-    sizes: "38×13 mm to 305×89 mm",
+    sizes: "38×13 mm to 360×108 mm",
     brief: "Versatile open-section framing for cable management and modular assemblies.",
   },
   {
@@ -182,8 +182,9 @@ export default function StandardProfilesPage() {
       <PageHeader
         updated={updatedAt}
         tag="Standard Profiles · F1-STRUX"
+        line={{ name: "F1-STRUX", label: "Standard profiles" }}
         title="Fiberglass structural shapes & sizes"
-        description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 305×89 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
+        description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 360×108 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },
@@ -194,7 +195,7 @@ export default function StandardProfilesPage() {
 
       {/* Profile Grid */}
       <section className="bg-bg2 py-[36px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <h2 className="text-f24 font-bold text-t1">
             Browse fiberglass structural shapes by section family
           </h2>
@@ -203,7 +204,7 @@ export default function StandardProfilesPage() {
               <Link
                 key={profile.slug}
                 href={`/products/fiberglass-structural-shapes/${profile.slug}`}
-                className="group overflow-hidden rounded-[8px] border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-lg"
+                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-card"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                   <Image
@@ -220,13 +221,13 @@ export default function StandardProfilesPage() {
                   />
                 </div>
                 <div className="p-[21px]">
-                  <h3 className="text-f19 font-bold text-t1">{profile.name}</h3>
-                  <p className="text-f13 font-medium text-teal-text">{profile.subtitle}</p>
-                  <p className="mt-[8px] text-f13 text-t3">
+                  <h3 className="text-f18 font-bold text-t1">{profile.name}</h3>
+                  <p className="text-f14 font-medium text-teal-text">{profile.subtitle}</p>
+                  <p className="mt-[8px] text-f14 text-t3">
                     <span className="font-semibold">Sizes:</span> {profile.sizes}
                   </p>
-                  <p className="mt-[8px] text-f15 leading-golden text-t2">{profile.brief}</p>
-                  <span className="mt-[13px] inline-block text-f13 font-bold text-teal-text transition-colors group-hover:text-teal">
+                  <p className="mt-[8px] text-f16 leading-golden text-t2">{profile.brief}</p>
+                  <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
                     View all sizes →
                   </span>
                 </div>
@@ -240,7 +241,7 @@ export default function StandardProfilesPage() {
         prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
       />
 
-      <div className="mx-auto max-w-[1280px] px-[20px] sm:px-[28px] lg:px-[34px]"><E40EvidenceLink /></div>
+      <div className="site-container"><E40EvidenceLink /></div>
 
       <RelatedLinks
         groups={[
@@ -305,7 +306,7 @@ export default function StandardProfilesPage() {
       />
 
       <section className="bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/frp-profile-calculator"
             eyebrow="Free tool · no login"

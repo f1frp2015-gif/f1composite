@@ -34,18 +34,18 @@ export default function PultrusionAnimation() {
   return (
     <div
       ref={rootRef}
-      className="overflow-hidden rounded-[8px] border border-border-default bg-white"
+      className="overflow-hidden rounded-card border border-border-default bg-white"
     >
       {/* Card header */}
       <div className="flex items-center justify-between gap-[13px] border-b border-border-default px-[21px] py-[13px]">
-        <p className="text-f11 font-bold uppercase tracking-[0.08em] text-t3">
+        <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">
           Animated Schematic — Injection Pultrusion Line
         </p>
         <button
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause animation" : "Play animation"}
-          className="flex shrink-0 items-center gap-[5px] rounded-full border border-teal-border bg-teal-bg px-[13px] py-[3px] text-f11 font-bold text-teal-text transition-colors hover:bg-teal-bg2"
+          className="flex shrink-0 items-center gap-[5px] rounded-full border border-teal-border bg-teal-bg px-[13px] py-[3px] text-f12 font-bold text-teal-text transition-colors hover:bg-teal-bg2"
         >
           {playing ? (
             <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
@@ -579,7 +579,7 @@ export default function PultrusionAnimation() {
         </svg>
       </div>
 
-      <p className="border-t border-border-default px-[21px] py-[8px] text-f11 leading-golden text-t3">
+      <p className="border-t border-border-default px-[21px] py-[8px] text-f12 leading-golden text-t3">
         Cutaway schematic of our standard injection pultrusion process — proportions
         simplified, parameters typical. Click a numbered station to jump to its
         detailed description below.

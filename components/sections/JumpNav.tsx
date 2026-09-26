@@ -8,13 +8,13 @@
 export default function JumpNav({ items }: { items: Array<{ href: string; label: string }> }) {
   return (
     <nav aria-label="On this page" className="border-b border-border-default bg-white">
-      <div className="mx-auto max-w-[1280px] overflow-x-auto px-[34px]">
+      <div className="site-container overflow-x-auto">
         <ul className="flex w-max gap-[8px] py-[13px]">
           {items.map((it) => (
             <li key={it.href}>
               <a
                 href={it.href}
-                className="block whitespace-nowrap rounded-full border border-border-default bg-bg2 px-[13px] py-[5px] text-f13 font-medium text-t2 transition-colors hover:border-teal-border hover:text-teal-text"
+                className="block whitespace-nowrap rounded-full border border-border-default bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2 transition-colors hover:border-teal-border hover:text-teal-text"
               >
                 {it.label}
               </a>

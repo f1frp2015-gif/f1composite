@@ -134,7 +134,7 @@ function renderArticleContent(content: string) {
             <thead>
               <tr className="border-b-2 border-border-default">
                 {headerCells.map((cell, ci) => (
-                  <th key={ci} className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">
+                  <th key={ci} className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
                     {renderInlineMarkdown(cell, `table-head-${index}-${ci}`)}
                   </th>
                 ))}
@@ -144,7 +144,7 @@ function renderArticleContent(content: string) {
               {dataRows.map((row, ri) => (
                 <tr key={ri} className="border-b border-border-default">
                   {row.map((cell, ci) => (
-                    <td key={ci} className={`py-[13px] pr-[21px] text-f15 ${ci === 0 ? "font-medium text-t1" : "text-t2"}`}>
+                    <td key={ci} className={`py-[13px] pr-[21px] text-f16 ${ci === 0 ? "font-medium text-t1" : "text-t2"}`}>
                       {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
                     </td>
                   ))}
@@ -170,7 +170,7 @@ function renderArticleContent(content: string) {
 
     if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
       result.push(
-        <h3 key={index} className="mb-[8px] mt-[21px] text-f15 font-bold text-t1">
+        <h3 key={index} className="mb-[8px] mt-[21px] text-f16 font-bold text-t1">
           {paragraph.replace(/\*\*/g, "")}
         </h3>
       );
@@ -185,7 +185,7 @@ function renderArticleContent(content: string) {
             href={linkBlockMatch[2]}
             target={linkBlockMatch[2].startsWith("/") ? undefined : "_blank"}
             rel={linkBlockMatch[2].startsWith("/") ? undefined : "noopener noreferrer"}
-            className="inline-flex items-center gap-[8px] rounded-[6px] border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
+            className="inline-flex items-center gap-[8px] rounded-control border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path d="M4 14V2h8l2 3v9H4z" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -201,7 +201,7 @@ function renderArticleContent(content: string) {
     const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
     if (videoMatch) {
       result.push(
-        <figure key={index} className="my-[21px] overflow-hidden rounded-[8px] border border-border-default bg-black">
+        <figure key={index} className="my-[21px] overflow-hidden rounded-card border border-border-default bg-black">
           <video
             src={videoMatch[1]}
             controls
@@ -210,7 +210,7 @@ function renderArticleContent(content: string) {
             className="w-full"
           />
           {videoMatch[2] && (
-            <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f13 leading-golden text-t2">
+            <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f14 leading-golden text-t2">
               {videoMatch[2]}
             </figcaption>
           )}
@@ -220,7 +220,7 @@ function renderArticleContent(content: string) {
     }
 
     result.push(
-      <p key={index} className="mb-[13px] text-f15 leading-golden text-t2">
+      <p key={index} className="mb-[13px] text-f16 leading-golden text-t2">
         {renderInlineMarkdown(paragraph, `paragraph-${index}`)}
       </p>
     );
@@ -320,9 +320,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto grid max-w-[1280px] gap-[34px] px-[34px] lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="site-container grid gap-[34px] lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="min-w-0">
-            <figure className="overflow-hidden rounded-[8px] border border-border-default bg-white">
+            <figure className="overflow-hidden rounded-card border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
                   src={post.coverImage}
@@ -338,7 +338,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   preload
                 />
               </div>
-              <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f13 leading-golden text-t2">
+              <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f14 leading-golden text-t2">
                 <p>{post.excerpt}</p>
                 {post.coverAttribution ? (
                   <p className="mt-[8px] text-f12 text-t3">
@@ -368,12 +368,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.answerBox ? (
               <aside
                 aria-label="Article summary"
-                className="mt-[21px] rounded-[8px] border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
+                className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
               >
                 <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-teal-text">
                   TL;DR
                 </p>
-                <blockquote className="mt-[8px] text-f15 leading-golden text-t1">
+                <blockquote className="mt-[8px] text-f16 leading-golden text-t1">
                   {post.answerBox}
                 </blockquote>
               </aside>
@@ -382,24 +382,24 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.masterComparison ? (
               <aside
                 aria-label="Master comparison page"
-                className="mt-[13px] max-w-[800px] rounded-[8px] border border-teal-border bg-white p-[21px]"
+                className="mt-[13px] max-w-[800px] rounded-card border border-teal-border bg-white p-[21px]"
               >
                 <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                   Part of a larger comparison
                 </p>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">
+                <p className="mt-[8px] text-f14 leading-golden text-t2">
                   {post.masterComparison.note}
                 </p>
                 <Link
                   href={post.masterComparison.href}
-                  className="mt-[8px] inline-block text-f15 font-bold text-teal-text hover:underline"
+                  className="mt-[8px] inline-block text-f16 font-bold text-teal-text hover:underline"
                 >
                   → {post.masterComparison.label}
                 </Link>
               </aside>
             ) : null}
 
-            <div className="mt-[21px] rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Why This Article Matters
               </p>
@@ -407,7 +407,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {post.highlights.map((highlight) => (
                   <div
                     key={highlight}
-                    className="rounded-[6px] border border-border-default bg-white px-[13px] py-[13px] text-f13 leading-golden text-t2"
+                    className="rounded-control border border-border-default bg-white px-[13px] py-[13px] text-f14 leading-golden text-t2"
                   >
                     {highlight}
                   </div>
@@ -432,7 +432,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               ) : null}
             </article>
 
-            <figure className="mt-[34px] overflow-hidden rounded-[8px] border border-border-default bg-white max-w-[800px]">
+            <figure className="mt-[34px] overflow-hidden rounded-card border border-border-default bg-white max-w-[800px]">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
                   src={post.supportingImage}
@@ -447,7 +447,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   }
                 />
               </div>
-              <figcaption className="border-t border-border-default px-[21px] py-[13px] text-f13 leading-golden text-t2">
+              <figcaption className="border-t border-border-default px-[21px] py-[13px] text-f14 leading-golden text-t2">
                 <p>{post.supportingCaption}</p>
                 {post.supportingAttribution ? (
                   <p className="mt-[8px] text-f12 text-t3">
@@ -476,7 +476,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             {post.sourceLinks?.length ? (
               <div className="mt-[34px] max-w-[800px] border-t border-border-default pt-[21px]">
-                <h3 className="mb-[13px] text-f15 font-bold text-t1">Referenced Signals</h3>
+                <h3 className="mb-[13px] text-f16 font-bold text-t1">Referenced Signals</h3>
                 <div className="space-y-[10px]">
                   {post.sourceLinks.map((link) => (
                     <a
@@ -484,7 +484,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-f13 leading-golden text-teal-text hover:underline"
+                      className="block text-f14 leading-golden text-teal-text hover:underline"
                     >
                       {link.label} ↗
                     </a>
@@ -494,7 +494,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             ) : null}
 
             <div className="mt-[55px] max-w-[800px] border-t border-border-default pt-[21px]">
-              <h2 className="mb-[13px] text-f19 font-bold text-t1">
+              <h2 className="mb-[13px] text-f18 font-bold text-t1">
                 Related FRP products, applications and tools
               </h2>
               <div className="flex flex-wrap gap-[13px]">
@@ -502,7 +502,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-f13 text-teal-text hover:underline"
+                    className="text-f14 text-teal-text hover:underline"
                   >
                     {link.label} →
                   </Link>
@@ -512,13 +512,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           <aside className="space-y-[21px] lg:sticky lg:top-[34px] lg:self-start">
-            <div className="rounded-[8px] border border-border-default bg-bg2 p-[21px]">
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Quick Signals
               </p>
               <div className="mt-[13px] space-y-[13px]">
                 {post.highlights.map((highlight) => (
-                  <div key={highlight} className="flex gap-[8px] text-f13 leading-golden text-t2">
+                  <div key={highlight} className="flex gap-[8px] text-f14 leading-golden text-t2">
                     <span className="mt-[5px] h-[6px] w-[6px] rounded-full bg-teal" />
                     <span>{highlight}</span>
                   </div>
@@ -526,17 +526,17 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="rounded-[8px] border border-border-default bg-white p-[21px]">
+            <div className="rounded-card border border-border-default bg-white p-[21px]">
               <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
                 Need Project Support
               </p>
-              <p className="mt-[8px] text-f13 leading-golden text-t2">
+              <p className="mt-[8px] text-f14 leading-golden text-t2">
                 Need a section sized, specification wording checked, or test documents for an
                 approval? Send the details to our engineering team.
               </p>
               <Link
                 href="/contact"
-                className="mt-[13px] inline-flex rounded-[6px] bg-teal px-[13px] py-[8px] text-f12 font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-teal-text"
+                className="mt-[13px] inline-flex rounded-control bg-teal px-[13px] py-[8px] text-f14 font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-teal-text"
               >
                 Talk to Engineering
               </Link>

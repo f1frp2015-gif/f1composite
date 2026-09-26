@@ -117,15 +117,15 @@ export default function FrpVsAluminumWindowsPage() {
       />
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             For passive house and net-zero buildings, FRP is the only mainstream frame that meets Uw ≤ 0.80 W/m²·K without extraordinary glazing
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Aluminum dominated commercial fenestration for 40 years because it combines high strength, long spans, low maintenance, and clean aesthetics. Those advantages still hold, but the energy-code floor moved. Most national codes now require whole-window Uw below 1.4 W/m²·K, and passive house targets 0.80. Aluminum cannot reach either limit without elaborate polyamide thermal breaks, oversized glazing cavities, or both. Pultruded FRP reaches them with a monolithic section and standard triple glazing.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             This page compares FRP and aluminum across the 13 properties that actually drive specification decisions: frame Uf, thermal bridging ψ, coefficient of thermal expansion, condensation resistance, corrosion resistance, lifecycle cost, and PHI certifiability. Every number is sourced from EN ISO 10077-1 calculations, manufacturer datasheets, or third-party certification test reports.
           </p>
           <div className="mt-[21px] max-w-[860px]">
@@ -135,16 +135,16 @@ export default function FrpVsAluminumWindowsPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Property Comparison</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
             Side-by-side: FRP vs aluminum window frames
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             FRP values reflect pultruded E-glass/polyester profiles in F1 Composite 65/70/80/90-series fenestration geometries. Aluminum values reflect 6063-T6 with polyamide thermal breaks typical of premium commercial systems. Highlighted rows show properties where FRP materially outperforms aluminum.
           </p>
-          <div className="mt-[34px] overflow-x-auto rounded-[8px] border border-border-default bg-white">
-            <table className="w-full border-collapse text-f13">
+          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
+            <table className="w-full border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-border-default bg-bg2">
                   <th className="px-[13px] py-[13px] text-left font-bold text-t1">Property</th>
@@ -174,52 +174,52 @@ export default function FrpVsAluminumWindowsPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why FRP Wins on Thermal Performance</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             The 500× conductivity gap is the whole story
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Aluminum conducts heat at 160–200 W/m·K. Pultruded FRP conducts at 0.3–0.5 W/m·K. Everything else (thermal breaks, chamber geometries, spacer upgrades) is engineering effort directed at narrowing a 500× gap that the base material imposes. FRP starts with the gap already closed.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             For a 1230 × 1480 mm triple-glazed window (Ug = 0.6), the whole-window Uw calculation per EN ISO 10077-1 produces Uw ≈ 1.05 W/m²·K with a 70 mm thermally-broken aluminum frame, versus Uw ≈ 0.72 W/m²·K with an F1 Composite 90-series FRP frame. The aluminum window fails the PHI 0.80 limit by 31%; the FRP window passes with 10% margin.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Try the calculation yourself with real dimensions and frame properties: our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements the EN ISO 10077-1 method.
           </p>
         </div>
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Where Aluminum Still Wins</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f31">
+          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
             Large spans and fully recyclable systems
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             This page argues FRP is better for energy-focused projects, but aluminum remains the right choice in three contexts. <strong className="text-t1">Large spans:</strong> aluminum&apos;s higher elastic modulus (69 GPa vs FRP&apos;s 23–28 GPa) allows longer clear-span mullions on curtain walls above 3 m without intermediate supports. <strong className="text-t1">End-of-life recyclability:</strong> aluminum recycles infinitely at ~5% of primary production energy; thermoset FRP does not. <strong className="text-t1">Tight budget, mild climate:</strong> if Uw = 1.4 W/m²·K is sufficient, a standard thermally-broken aluminum system is lower first-cost.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             For residential and commercial envelopes targeting Uw ≤ 1.0 W/m²·K in climates where condensation, corrosion, or thermal bridging are design drivers, FRP wins decisively.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqs} />
         </div>
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px] text-center">
-          <p className="text-f15 leading-golden text-t2">
+        <div className="site-container text-center">
+          <p className="text-f16 leading-golden text-t2">
             Explore the full F1 Composite FRP fenestration range: 65/70/80/90/140-series profiles, PHI certified 90-series, custom sections available.
           </p>
           <Link
             href="/products/frp-window-frames"
-            className="mt-[21px] inline-block rounded-[8px] bg-teal px-[34px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            className="mt-[21px] inline-block rounded-card bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
           >
             Explore fiberglass window frames →
           </Link>
@@ -266,7 +266,7 @@ export default function FrpVsAluminumWindowsPage() {
       />
 
       <section className="bg-white pb-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=alu-break&glass=tg-ar&spacer=warm-basic&type=casement&w=1200&h=1400"
             eyebrow="Free tool · aluminum vs FRP"

@@ -17,7 +17,7 @@ export default function ChatWidget() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="fixed bottom-[13px] right-[13px] z-50 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-teal text-white shadow-lg transition-all duration-200 hover:bg-teal/90 sm:bottom-[21px] sm:right-[21px] sm:h-[52px] sm:w-[52px]"
+        className="fixed bottom-[13px] right-[13px] z-50 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-teal text-white shadow-card transition-all duration-200 hover:bg-teal/90 sm:bottom-[21px] sm:right-[21px] sm:h-[52px] sm:w-[52px]"
         aria-label={open ? "Close FRP Advisor" : "Ask FRP Advisor"}
       >
         {open ? (
@@ -36,7 +36,7 @@ export default function ChatWidget() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-[67px] right-[13px] z-50 w-[380px] max-w-[calc(100vw-26px)] overflow-hidden rounded-[12px] border border-border-default bg-white shadow-2xl sm:bottom-[85px] sm:right-[21px] sm:max-w-[calc(100vw-42px)]">
+        <div className="fixed bottom-[67px] right-[13px] z-50 w-[380px] max-w-[calc(100vw-26px)] overflow-hidden rounded-card border border-border-default bg-white shadow-pop sm:bottom-[85px] sm:right-[21px] sm:max-w-[calc(100vw-42px)]">
           <div className="flex items-center justify-between border-b border-border-default bg-teal-text px-[16px] py-[10px]">
             <div className="flex items-center gap-[8px]">
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
@@ -47,7 +47,7 @@ export default function ChatWidget() {
             </div>
             <a
               href="/ask"
-              className="text-[11px] text-white/80 hover:text-white transition-colors"
+              className="text-f12 text-white/80 hover:text-white transition-colors"
             >
               Full page →
             </a>

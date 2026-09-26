@@ -13,7 +13,7 @@ const fields: { key: keyof AgricultureBrief; label: string; placeholder: string;
   { key: "destination", label: "Delivery country / port", placeholder: "e.g. France / Marseille" },
   { key: "timing", label: "Required arrival / planting date", placeholder: "e.g. arrive before March planting" },
 ];
-const inputClass = "mt-2 w-full rounded-[6px] border border-border-default bg-white px-3 py-3 text-sm text-t1 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
+const inputClass = "mt-2 w-full rounded-control border border-border-default bg-white px-3 py-3 text-sm text-t1 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
 
 export default function AgricultureInquiryPlanner() {
   const router = useRouter();
@@ -26,12 +26,12 @@ export default function AgricultureInquiryPlanner() {
   }
 
   return (
-    <form onSubmit={continueInquiry} className="rounded-[12px] border border-border-default bg-white p-6 sm:p-8" aria-label="Planting project brief">
+    <form onSubmit={continueInquiry} className="rounded-card border border-border-default bg-white p-6 sm:p-8" aria-label="Planting project brief">
       <fieldset>
-        <legend className="text-f19 font-bold text-t1">What would help you move forward?</legend>
+        <legend className="text-f18 font-bold text-t1">What would help you move forward?</legend>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           {(Object.entries(agricultureStages) as [AgricultureStage, string][]).map(([value, label]) => (
-            <label key={value} className={`flex cursor-pointer items-center gap-3 rounded-[7px] border p-4 text-sm font-semibold ${stage === value ? "border-teal bg-teal/5 text-teal-text" : "border-border-default text-t2"}`}>
+            <label key={value} className={`flex cursor-pointer items-center gap-3 rounded-control border p-4 text-sm font-semibold ${stage === value ? "border-teal bg-teal/5 text-teal-text" : "border-border-default text-t2"}`}>
               <input type="radio" name="request-stage" value={value} checked={stage === value} onChange={() => setStage(value)} className="accent-teal-text" />
               {label}
             </label>
@@ -59,7 +59,7 @@ export default function AgricultureInquiryPlanner() {
           </label>
         ))}
       </div>
-      <button type="submit" className="mt-6 min-h-[48px] w-full rounded-[7px] bg-teal-text px-6 py-3 font-bold text-white hover:bg-teal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal sm:w-auto">Continue to contact details →</button>
+      <button type="submit" className="mt-6 min-h-[48px] w-full rounded-control bg-teal-text px-6 py-3 font-bold text-white hover:bg-teal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal sm:w-auto">Continue to contact details →</button>
       <p className="mt-3 text-xs leading-relaxed text-t3">Your brief will be prefilled for review. Nothing is sent until you submit the contact form. You can attach drawings or photos there.</p>
     </form>
   );

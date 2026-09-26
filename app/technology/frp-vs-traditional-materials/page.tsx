@@ -306,8 +306,8 @@ export default function FrpVsTraditionalPage() {
       />
       {/* Hero image */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg"
               alt="FRP vs steel, aluminum, timber and concrete — material surface textures side by side for structural comparison"
@@ -323,12 +323,12 @@ export default function FrpVsTraditionalPage() {
 
       {/* ── Why FRP — brief intro ── */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why FRP</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             Why FRP differs from traditional structural materials
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
             Concrete cracks under tension. Pultruded FRP avoids each of these problems, with limits of its own:
             lower stiffness than steel, and a resin that softens in fire.
@@ -343,9 +343,9 @@ export default function FrpVsTraditionalPage() {
               { value: "50+", label: "Years service life" },
               { value: "30%", label: "Lifecycle cost savings" },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-[8px] bg-bg2 p-[21px] text-center">
-                <span className="text-[28px] font-extrabold leading-none text-teal">{stat.value}</span>
-                <p className="mt-[5px] text-f11 font-bold uppercase tracking-[0.08em] text-t3">{stat.label}</p>
+              <div key={stat.label} className="rounded-card bg-bg2 p-[21px] text-center">
+                <span className="text-f32 font-extrabold leading-none text-teal">{stat.value}</span>
+                <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -354,7 +354,7 @@ export default function FrpVsTraditionalPage() {
 
       {/* ── §1  Visual Bar Charts ── */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Visual Comparison</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             FRP vs steel and aluminum: key properties at a glance
@@ -364,33 +364,33 @@ export default function FrpVsTraditionalPage() {
           <div className="mt-[21px] flex flex-wrap gap-[13px]">
             {materials.map((m) => (
               <div key={m} className="flex items-center gap-[5px]">
-                <span className={`inline-block h-[10px] w-[10px] rounded-[2px] ${matColors[m]}`} />
-                <span className="text-f11 text-t3">{m}</span>
+                <span className={`inline-block h-[10px] w-[10px] rounded-tag ${matColors[m]}`} />
+                <span className="text-f12 text-t3">{m}</span>
               </div>
             ))}
           </div>
 
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             {barCharts.map((chart) => (
-              <div key={chart.title} className="rounded-[8px] border border-border-default bg-white p-[34px]">
-                <h3 className="text-f15 font-bold text-t1">
+              <div key={chart.title} className="rounded-card border border-border-default bg-white p-[34px]">
+                <h3 className="text-f16 font-bold text-t1">
                   {chart.title} <span className="font-normal text-t3">({chart.unit})</span>
                 </h3>
-                <p className="mt-[5px] text-f11 text-t3">{chart.note}</p>
+                <p className="mt-[5px] text-f12 text-t3">{chart.note}</p>
 
                 <div className="mt-[21px] space-y-[13px]">
                   {chart.bars.map((bar) => (
                     <div key={bar.material} className="flex items-center gap-[8px]">
-                      <span className="w-[55px] shrink-0 text-right text-f11 font-bold text-t2">
+                      <span className="w-[55px] shrink-0 text-right text-f12 font-bold text-t2">
                         {bar.material}
                       </span>
-                      <div className="relative h-[24px] flex-1 overflow-hidden rounded-[4px] bg-bg2">
+                      <div className="relative h-[24px] flex-1 overflow-hidden rounded-tag bg-bg2">
                         <div
-                          className={`absolute inset-y-0 left-0 rounded-[4px] ${matColors[bar.material]} ${bar.material === "FRP" ? "opacity-100" : "opacity-60"}`}
+                          className={`absolute inset-y-0 left-0 rounded-tag ${matColors[bar.material]} ${bar.material === "FRP" ? "opacity-100" : "opacity-60"}`}
                           style={{ width: `${Math.max(bar.pct, 2)}%` }}
                         />
                       </div>
-                      <span className={`w-[55px] shrink-0 text-f11 ${bar.material === "FRP" ? "font-bold text-teal" : "text-t3"}`}>
+                      <span className={`w-[55px] shrink-0 text-f12 ${bar.material === "FRP" ? "font-bold text-teal" : "text-t3"}`}>
                         {bar.value}
                       </span>
                     </div>
@@ -404,14 +404,14 @@ export default function FrpVsTraditionalPage() {
 
       {/* ── §2  Comparison Table (data-driven) ── */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Properties Table</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             FRP vs traditional materials: full property comparison
           </h2>
 
           <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full min-w-[800px] border-collapse text-f13">
+            <table className="w-full min-w-[800px] border-collapse text-f14">
               <thead>
                 <tr className="border-b-2 border-teal-border bg-teal-bg text-left">
                   <th className="px-[13px] py-[13px] font-bold text-t1">Property</th>
@@ -447,7 +447,7 @@ export default function FrpVsTraditionalPage() {
 
       {/* ── §3  Understanding Each Property — visual cards with collapsible detail ── */}
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Detailed Analysis</SectionTag>
           <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
             How to interpret each FRP material property
@@ -457,26 +457,26 @@ export default function FrpVsTraditionalPage() {
             {propertyCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-[8px] border border-border-default bg-white p-[34px]"
+                className="rounded-card border border-border-default bg-white p-[34px]"
               >
                 {/* Visual header */}
                 <div className="flex items-start gap-[13px]">
-                  <div className="flex h-[55px] w-[55px] shrink-0 items-center justify-center rounded-[8px] bg-teal-bg">
-                    <span className="text-f19 font-extrabold text-teal">{card.icon}</span>
+                  <div className="flex h-[55px] w-[55px] shrink-0 items-center justify-center rounded-card bg-teal-bg">
+                    <span className="text-f18 font-extrabold text-teal">{card.icon}</span>
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-f19 font-bold text-t1">{card.title}</h3>
-                    <p className="mt-[5px] text-f13 leading-golden text-t2">{card.headline}</p>
+                    <h3 className="text-f18 font-bold text-t1">{card.title}</h3>
+                    <p className="mt-[5px] text-f14 leading-golden text-t2">{card.headline}</p>
                   </div>
                 </div>
 
                 {/* Collapsible detail */}
                 <details className="group mt-[13px]">
-                  <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f13 font-bold text-teal-text transition-colors hover:text-teal">
+                  <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f14 font-bold text-teal-text transition-colors hover:text-teal">
                     <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
                     Read more
                   </summary>
-                  <div className="mt-[13px] space-y-[13px] pl-[24px] text-f15 leading-golden text-t2">
+                  <div className="mt-[13px] space-y-[13px] pl-[24px] text-f16 leading-golden text-t2">
                     {card.detail.map((para, j) => (
                       <p key={j}>{para}</p>
                     ))}
@@ -490,10 +490,10 @@ export default function FrpVsTraditionalPage() {
 
       {/* ── Cross-links and FAQ ── */}
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Deeper Comparisons</SectionTag>
           <h2 className="mt-[21px] text-f24 font-bold text-t1">Application-specific FRP comparison pages</h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             This page covers the big-picture comparison across five materials. For specific applications, dedicated pages go deeper into numbers, standards, and decision criteria.
           </p>
           <div className="mt-[21px] flex flex-wrap gap-[21px]">

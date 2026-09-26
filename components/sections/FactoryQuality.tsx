@@ -18,24 +18,24 @@ const standards = [
 export default function FactoryQuality() {
   return (
     <section className="bg-white py-[58px] md:py-[78px]">
-      <div className="mx-auto max-w-[1320px] px-[20px] sm:px-[28px] lg:px-[36px]">
+      <div className="site-container">
         <div className="grid items-stretch gap-[32px] lg:grid-cols-[0.94fr_1.06fr] lg:gap-[52px]">
           <div className="flex flex-col">
             <SectionTag>Manufacturing &amp; quality</SectionTag>
-            <h2 className="mt-[12px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.035em] text-t1">
+            <h2 className="mt-[12px] text-[clamp(28px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.02em] text-t1">
               Manufacturing & quality control
             </h2>
-            <p className="mt-[10px] max-w-[660px] text-f15 leading-relaxed text-t2">
+            <p className="mt-[10px] max-w-[660px] text-f16 leading-relaxed text-t2">
               Profiles are made in the FengDu New Material production network, F1 Composite&apos;s parent group. These are the checks each order goes through before it ships.
             </p>
 
             <ol className="mt-[24px] divide-y divide-border-default border-y border-border-default">
               {checkpoints.map((item) => (
                 <li key={item.number} className="grid grid-cols-[34px_1fr] gap-[12px] py-[13px]">
-                  <span className="pt-[2px] text-f11 font-extrabold text-teal-text">{item.number}</span>
+                  <span className="pt-[2px] text-f12 font-extrabold text-teal-text">{item.number}</span>
                   <div>
-                    <h3 className="text-f13 font-bold text-t1">{item.title}</h3>
-                    <p className="mt-[2px] text-f13 leading-relaxed text-t2">{item.description}</p>
+                    <h3 className="text-f14 font-bold text-t1">{item.title}</h3>
+                    <p className="mt-[2px] text-f14 leading-relaxed text-t2">{item.description}</p>
                   </div>
                 </li>
               ))}
@@ -49,16 +49,16 @@ export default function FactoryQuality() {
             </div>
           </div>
 
-          <div className="relative aspect-video self-center overflow-hidden rounded-[12px] border border-border-default bg-bg2 shadow-[0_14px_38px_rgba(11,24,56,0.08)]">
+          <div className="relative aspect-video self-center overflow-hidden rounded-card border border-border-default bg-bg2 shadow-card">
             <FactoryVideo />
           </div>
         </div>
 
-        <div className="mt-[28px] flex flex-col gap-[10px] rounded-[9px] border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-f13 font-bold text-t1">Technical documents for your specification</p>
+        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-bg2 px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-f14 font-bold text-t1">Technical documents for your specification</p>
           <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
             {standards.map((standard) => (
-              <Link href={standard.href} key={standard.href} className="text-f11 font-bold uppercase tracking-[0.07em] text-t3">
+              <Link href={standard.href} key={standard.href} className="text-f12 font-bold uppercase tracking-[0.07em] text-t3">
                 {standard.label}
               </Link>
             ))}

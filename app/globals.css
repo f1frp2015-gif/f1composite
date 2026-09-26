@@ -8,6 +8,14 @@
   --color-teal-bg2: rgba(10,155,145,0.09);
   --color-teal-border: rgba(10,155,145,0.24);
   --color-deep: #0b1838;
+  /* Signal: the lime at the end of the logo gradient. For status dots,
+     product-line markers and highlights on dark ground, never for text on
+     white (contrast 1.5:1; 11.4:1 on deep). lime-ink is the text colour on a
+     lime fill (8:1). */
+  --color-lime: #bbdf35;
+  --color-lime-ink: #2e3a00;
+  /* WhatsApp's own green, for its mark only (4.1:1 on white). */
+  --color-whatsapp: #128c53;
 
   /* Backgrounds */
   --color-bg: #ffffff;
@@ -22,28 +30,57 @@
   --color-border-default: rgba(11,24,56,0.1);
   --color-border-hover: rgba(10,155,145,0.24);
 
-  /* Font family */
-  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  /* Corners: three steps. rounded-tag for chips and table labels,
+     rounded-control for buttons and inputs, rounded-card for cards, panels,
+     images and figures. */
+  --radius-tag: 2px;
+  --radius-control: 6px;
+  --radius-card: 12px;
 
-  /* Golden ratio typography scale */
-  --text-f11: 12px;
-  --text-f11--line-height: 1.4;
-  --text-f11--letter-spacing: 0.05em;
+  /* Shadows: card (resting or hover lift), pop (menus, dialogs, floating
+     media) and bar (sticky bars pinned to the bottom edge). */
+  --shadow-card: 0 1px 2px rgba(11, 24, 56, 0.04), 0 8px 24px rgba(11, 24, 56, 0.06);
+  --shadow-pop: 0 18px 48px rgba(11, 24, 56, 0.14);
+  --shadow-bar: 0 -8px 24px rgba(11, 24, 56, 0.1);
 
-  --text-f13: 14px;
-  --text-f13--line-height: 1.55;
+  /* Font family. next/font registers the self-hosted file under its own
+     family name and exposes it as --font-dm-sans (see app/layout.tsx), so the
+     stack must go through that variable; a literal "DM Sans" never matches. */
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  /* Small uppercase labels only (figure numbers, product lines, data labels).
+     Values stay in DM Sans: DM Mono has only a slashed zero, which reads as
+     the diameter sign Ø in a size like 100 or Ø10. */
+  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --text-f15: 16px;
-  --text-f15--line-height: 1.6;
+  /* Type scale: nine steps, and each name is its pixel size (text-f14 is
+     14px). A size outside this list emits no CSS, and
+     scripts/theme-classes.test.mjs fails the build on it. */
+  --text-f12: 12px;
+  --text-f12--line-height: 1.4;
 
-  --text-f19: 19px;
-  --text-f19--line-height: 1.55;
+  --text-f14: 14px;
+  --text-f14--line-height: 1.55;
+
+  --text-f16: 16px;
+  --text-f16--line-height: 1.6;
+
+  --text-f18: 18px;
+  --text-f18--line-height: 1.55;
+
+  --text-f20: 20px;
+  --text-f20--line-height: 1.4;
 
   --text-f24: 24px;
   --text-f24--line-height: 1.25;
 
-  --text-f31: 31px;
-  --text-f31--line-height: 1.2;
+  --text-f32: 32px;
+  --text-f32--line-height: 1.2;
+
+  --text-f44: 44px;
+  --text-f44--line-height: 1.12;
+
+  --text-f56: 56px;
+  --text-f56--line-height: 1.08;
 
   /* Fibonacci spacing */
   --spacing-fib-5: 5px;
@@ -75,6 +112,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Size tables: the first column names the row and every other cell is a
+   figure, right-aligned so values read down the column. Figures stay in
+   DM Sans: DM Mono's slashed zero reads as the diameter sign (100 as 1ØØ).
+   A model name such as "U 152×43×6.4" never breaks; the table scrolls
+   sideways on phones instead. Add the class only where all later columns
+   are figures or designations. */
+@layer components {
+  .spec-table :is(th, td):first-child {
+    white-space: nowrap;
+  }
+
+  .spec-table :is(th, td):not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Balanced wrapping keeps a heading from leaving one word on its last line.
+   In the base layer so a text-pretty or text-wrap utility can still override. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
 ::selection {
   background: rgba(10, 155, 145, 0.2);
   color: var(--color-t1);
@@ -97,6 +161,23 @@ body {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* The one page container: 1280px wide with 20 / 24 / 32px side gutters, so
+   the navigation, page header, sections and footer share a left edge. */
+@utility site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @media (width >= 40rem) {
+    padding-inline: 24px;
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: 32px;
   }
 }
 

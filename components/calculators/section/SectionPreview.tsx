@@ -16,7 +16,7 @@ import {
 const SectionViewer3D = dynamic(() => import("./SectionViewer3D"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-full items-center justify-center text-f11 text-t3">Loading 3D viewer…</div>
+    <div className="flex h-full items-center justify-center text-f12 text-t3">Loading 3D viewer…</div>
   ),
 });
 
@@ -58,14 +58,14 @@ export default function SectionPreview({
   }
 
   const tabClass = (active: boolean) =>
-    `rounded-[4px] px-[10px] py-[3px] text-f11 font-bold uppercase tracking-wide transition-colors ${
+    `rounded-tag px-[10px] py-[3px] text-f12 font-bold uppercase tracking-wide transition-colors ${
       active ? "bg-teal text-white" : "bg-bg2 text-t3 hover:text-teal-text"
     }`;
 
   return (
-    <div className="rounded-[6px] bg-white p-[13px]">
+    <div className="rounded-control bg-white p-[13px]">
       <div className="flex items-center justify-between">
-        <div className="text-f11 font-bold uppercase tracking-[2px] text-t3">Section Preview</div>
+        <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Section Preview</div>
         {webglOk && (
           <div className="flex gap-[3px]">
             <button type="button" onClick={() => switchView("3d")} className={tabClass(view === "3d")}>
@@ -80,7 +80,7 @@ export default function SectionPreview({
 
       <div className="mt-[8px] h-[280px] overflow-hidden">
         {!section || !c ? (
-          <div className="flex h-full items-center justify-center px-[21px] text-center text-f13 text-t3">
+          <div className="flex h-full items-center justify-center px-[21px] text-center text-f14 text-t3">
             Enter valid dimensions above to preview the section (thicknesses must fit inside H and B).
           </div>
         ) : view === "3d" && webglOk ? (
@@ -96,7 +96,7 @@ export default function SectionPreview({
         )}
       </div>
 
-      <p className="mt-[5px] text-right text-f11 text-t3">
+      <p className="mt-[5px] text-right text-f12 text-t3">
         {view === "3d" && webglOk && section ? "Drag to rotate · " : ""}
         Section viewer by{" "}
         <a

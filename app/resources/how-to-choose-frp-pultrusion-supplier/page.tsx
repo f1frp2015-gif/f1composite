@@ -98,12 +98,12 @@ export default function ChooseSupplierGuidePage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why it matters</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Vet the manufacturer before you vet the price
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             Pultruded FRP is a specified structural material — its performance
             depends on fiber architecture, resin system, and cure, none of which
             are visible in a finished profile. The cheapest quote against an
@@ -120,7 +120,7 @@ export default function ChooseSupplierGuidePage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>The checklist</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six things to verify before you order
@@ -129,11 +129,11 @@ export default function ChooseSupplierGuidePage() {
             {checklist.map((item, i) => (
               <article
                 key={item.title}
-                className="rounded-[8px] border border-border-default bg-white p-[29px]"
+                className="rounded-card border border-border-default bg-white p-[29px]"
               >
-                <span className="text-f13 font-bold text-teal-text">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-[8px] text-f19 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f15 leading-golden text-t2">{item.body}</p>
+                <span className="text-f14 font-bold text-teal-text">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
               </article>
             ))}
           </div>
@@ -141,12 +141,12 @@ export default function ChooseSupplierGuidePage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Bid comparison</SectionTag>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             How to choose an FRP pultrusion supplier when bids look similar
           </h2>
-          <p className="mt-[21px] text-f15 leading-golden text-t2">
+          <p className="mt-[21px] text-f16 leading-golden text-t2">
             A team asking how to choose an FRP pultrusion supplier should first normalize every
             quotation to the same technical and commercial basis. Confirm the drawing revision,
             dimensions, tolerances, resin, reinforcement architecture, color, surface veil, fire
@@ -157,25 +157,25 @@ export default function ChooseSupplierGuidePage() {
           </p>
 
           <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
-              <h3 className="text-f15 font-bold text-t1">Build a compliance matrix</h3>
-              <p className="mt-[10px] text-f13 leading-golden text-t2">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f16 font-bold text-t1">Build a compliance matrix</h3>
+              <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Put each mandatory requirement in one column and require the bidder to mark
                 compliant, exception, or not offered. Reference the evidence file and report number
                 instead of accepting a general statement such as &ldquo;meets ASTM.&rdquo;
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
-              <h3 className="text-f15 font-bold text-t1">Verify one production lot</h3>
-              <p className="mt-[10px] text-f13 leading-golden text-t2">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f16 font-bold text-t1">Verify one production lot</h3>
+              <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Agree on first-article dimensions, appearance, Barcol hardness, glass content, and
                 mechanical tests before volume production. Define who witnesses the inspection,
                 what constitutes rejection, and how replacement material will be handled.
               </p>
             </article>
-            <article className="rounded-[8px] border border-border-default bg-bg2 p-[24px]">
-              <h3 className="text-f15 font-bold text-t1">Compare landed project cost</h3>
-              <p className="mt-[10px] text-f13 leading-golden text-t2">
+            <article className="rounded-card border border-border-default bg-bg2 p-[24px]">
+              <h3 className="text-f16 font-bold text-t1">Compare landed project cost</h3>
+              <p className="mt-[10px] text-f14 leading-golden text-t2">
                 Compare usable delivered lengths, fabrication waste, installation labor, expected
                 maintenance, replacement risk, freight, duty, and schedule—not only price per meter.
                 Ask suppliers to state validity, payment milestones, and assumptions in writing.
@@ -183,7 +183,7 @@ export default function ChooseSupplierGuidePage() {
             </article>
           </div>
 
-          <p className="mt-[29px] text-f15 leading-golden text-t2">
+          <p className="mt-[29px] text-f16 leading-golden text-t2">
             The practical answer to how to choose an FRP pultrusion supplier is therefore a
             documented comparison: same specification, verifiable evidence, controlled first
             article, and transparent landed cost. Keep the completed matrix with the purchase order
@@ -193,7 +193,7 @@ export default function ChooseSupplierGuidePage() {
           <h2 className="mt-[42px] text-f24 font-bold text-t1">
             Carry the supplier evaluation into the purchase order
           </h2>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Supplier qualification loses value if the purchase order contains only a part name,
             quantity, and price. Attach the approved drawing, specification, compliance matrix,
             color or finish standard, inspection and test plan, packing method, agreed Incoterm,
@@ -202,7 +202,7 @@ export default function ChooseSupplierGuidePage() {
             tooling ownership, maintenance, storage, modification authority, and the conditions for
             repeat production.
           </p>
-          <p className="mt-[13px] text-f15 leading-golden text-t2">
+          <p className="mt-[13px] text-f16 leading-golden text-t2">
             Define the handover package before manufacturing starts: first-article report,
             dimensional inspection, batch number, material and cure records, mill test certificate,
             third-party reports where required, packing list, photographs, and nonconformance
@@ -215,8 +215,8 @@ export default function ChooseSupplierGuidePage() {
       </section>
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <h2 className="mb-[21px] text-f19 font-bold text-t1">Verify F1 Composite against this list</h2>
+        <div className="site-container">
+          <h2 className="mb-[21px] text-f18 font-bold text-t1">Verify F1 Composite against this list</h2>
           <div className="flex flex-wrap gap-[13px]">
             <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
             <LinkArrow href="/resources/technical-data">Test reports &amp; data sheets</LinkArrow>

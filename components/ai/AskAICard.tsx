@@ -22,8 +22,8 @@ export default function AskAICard({
   const href = `/ask?prefill=${encodeURIComponent(prefill)}`;
   return (
     <section className="bg-bg2 py-[55px]">
-      <div className="mx-auto max-w-[1280px] px-[34px]">
-        <div className="rounded-[12px] border border-teal-border bg-teal-bg p-[34px]">
+      <div className="site-container">
+        <div className="rounded-card border border-teal-border bg-teal-bg p-[34px]">
           <div className="flex flex-col items-start gap-[21px] md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-[16px]">
               <div className="mt-[2px] flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-teal text-white">
@@ -33,18 +33,18 @@ export default function AskAICard({
                 </svg>
               </div>
               <div>
-                <h3 className="text-f19 font-bold text-t1">{title}</h3>
-                <p className="mt-[5px] max-w-[640px] text-f13 leading-golden text-t2">
+                <h3 className="text-f18 font-bold text-t1">{title}</h3>
+                <p className="mt-[5px] max-w-[640px] text-f14 leading-golden text-t2">
                   {description}
                 </p>
-                <p className="mt-[8px] text-f11 italic text-t3">
+                <p className="mt-[8px] text-f12 italic text-t3">
                   Pre-filled question: &ldquo;{prefill}&rdquo;
                 </p>
               </div>
             </div>
             <Link
               href={href}
-              className="shrink-0 rounded-[8px] bg-teal px-[21px] py-[13px] text-f13 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="shrink-0 rounded-card bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
             >
               {ctaLabel}
             </Link>

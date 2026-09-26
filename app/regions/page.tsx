@@ -112,29 +112,29 @@ export default function RegionsHubPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Markets" }]}
       />
       <section className="bg-white pb-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
             {markets.map((m) => (
               <Link
                 key={m.href}
                 href={m.href}
-                className="group flex flex-col rounded-[8px] border border-border-default bg-white p-[21px] transition-shadow hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+                className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-shadow hover:shadow-card"
               >
-                <p className="text-f13 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="text-f14 font-semibold uppercase tracking-[0.08em] text-t3">
                   <span aria-hidden="true" className="mr-[8px]">{m.flag}</span>
                   {m.region}
                 </p>
-                <h2 className="mt-[8px] text-f19 font-bold text-t1 group-hover:text-teal-text">
+                <h2 className="mt-[8px] text-f18 font-bold text-t1 group-hover:text-teal-text">
                   {m.title}
                 </h2>
-                <p className="mt-[8px] flex-1 text-f13 leading-golden text-t2">{m.focus}</p>
+                <p className="mt-[8px] flex-1 text-f14 leading-golden text-t2">{m.focus}</p>
                 <p className="mt-[13px] text-f12 font-semibold text-teal-text">
                   {m.standards.join(" · ")}
                 </p>
               </Link>
             ))}
           </div>
-          <p className="mt-[34px] text-f13 leading-golden text-t2">
+          <p className="mt-[34px] text-f14 leading-golden text-t2">
             Market not listed? We ship to {company.exportCountries} countries; these pages
             only cover the markets where we keep standards and shipping notes on file. Send
             your project location and specification through the RFQ form and we will tell

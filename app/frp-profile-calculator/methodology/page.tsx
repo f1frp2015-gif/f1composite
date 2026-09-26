@@ -45,8 +45,8 @@ export default function CalculatorMethodologyPage() {
       />
 
       <article className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[960px] px-[34px] text-f15 leading-golden text-t2">
-          <div className="rounded-[8px] border-l-4 border-teal bg-bg2 p-[21px]">
+        <div className="mx-auto max-w-[960px] px-[34px] text-f16 leading-golden text-t2">
+          <div className="rounded-card border-l-4 border-teal bg-bg2 p-[21px]">
             <p>
               <strong className="text-t1">Scope in one sentence:</strong> the tool checks a prismatic pultruded FRP
               member under one idealized load case for strong-axis bending stress, average web shear stress, and
@@ -87,8 +87,8 @@ export default function CalculatorMethodologyPage() {
           </p>
 
           <h2 className="mt-[55px] text-f24 font-bold text-t1">3. Load effects, stress, and deflection</h2>
-          <div className="mt-[21px] overflow-x-auto rounded-[8px] border border-border-default">
-            <table className="w-full min-w-[720px] border-collapse text-f13">
+          <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default">
+            <table className="w-full min-w-[720px] border-collapse text-f14">
               <thead className="bg-bg2 text-left text-t1">
                 <tr><th className="p-[13px]">Load case</th><th className="p-[13px]">Maximum moment</th><th className="p-[13px]">Bending deflection</th><th className="p-[13px]">Shear correction coefficient c</th></tr>
               </thead>

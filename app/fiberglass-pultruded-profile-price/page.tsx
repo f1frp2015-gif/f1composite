@@ -145,9 +145,9 @@ export default function ProfilePricePage() {
 
       {/* Answer box */}
       <section className="bg-white pb-[34px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="max-w-[860px] rounded-[13px] border-l-4 border-teal bg-bg2 p-[21px]">
-            <p className="text-f15 leading-golden text-t2">
+        <div className="site-container">
+          <div className="max-w-[860px] rounded-card border-l-4 border-teal bg-bg2 p-[21px]">
+            <p className="text-f16 leading-golden text-t2">
               <strong className="text-t1">
                 Fiberglass pultruded profile price, in one sentence:
               </strong>{" "}
@@ -165,12 +165,12 @@ export default function ProfilePricePage() {
 
       {/* Estimator */}
       <section id="price-estimator" className="scroll-mt-[88px] bg-white pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Live Estimator</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Estimate your pultruded profile price
           </h2>
-          <p className="mt-[8px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[8px] max-w-[860px] text-f16 leading-golden text-t2">
             Pick a shape, enter the section dimensions from your drawing or the closest{" "}
             <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
               standard fiberglass profile
@@ -185,20 +185,20 @@ export default function ProfilePricePage() {
 
       {/* Published price table */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Price Table</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Pultruded fiberglass profile price table — USD per meter, FOB China
           </h2>
-          <p className="mt-[8px] max-w-[860px] text-f15 leading-golden text-t2">
+          <p className="mt-[8px] max-w-[860px] text-f16 leading-golden text-t2">
             One representative size per family, E-glass / GP polyester at 70% glass,
             standard gray, no options. Engine basis {PRICE_BASIS_DATE}; each cell is the
             same &plusmn;15% band the estimator returns.
           </p>
           <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full border-collapse text-left text-f13">
+            <table className="w-full border-collapse text-left text-f14">
               <thead>
-                <tr className="border-b-2 border-t1/20 text-f11 font-bold uppercase tracking-[1px] text-t3">
+                <tr className="border-b-2 border-t1/20 text-f12 font-bold uppercase tracking-[1px] text-t3">
                   <th className="py-[8px] pr-[13px]">Profile (mm)</th>
                   <th className="py-[8px] pr-[13px]">kg/m</th>
                   {QTY_TIERS.map((q) => (
@@ -223,7 +223,7 @@ export default function ProfilePricePage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-[13px] max-w-[860px] text-f11 leading-golden text-t3">
+          <p className="mt-[13px] max-w-[860px] text-f12 leading-golden text-t3">
             Indicative export pricing for budgeting, not an offer. Dimensions follow the{" "}
             <Link href="/products/fiberglass-structural-shapes" className="underline hover:text-teal-text">
               published size catalog
@@ -241,15 +241,15 @@ export default function ProfilePricePage() {
 
       {/* What drives the price */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Cost Drivers</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Six factors that set a fiberglass profile price
           </h2>
           <div className="mt-[21px] grid max-w-[1100px] gap-[21px] md:grid-cols-2">
             <div>
-              <h3 className="text-[17px] font-bold text-t1">1. Section mass (kg per meter)</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">1. Section mass (kg per meter)</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 The single biggest driver. Glass and resin are bought by the kilogram, so a
                 305&times;305 I-beam at 16 kg/m simply contains ten times the material of a
                 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes
@@ -257,8 +257,8 @@ export default function ProfilePricePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-[17px] font-bold text-t1">2. Resin system</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">2. Resin system</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 GP polyester is the baseline. Vinyl ester roughly doubles the resin unit cost
                 for chemical service; polyurethane buys impact strength and fine walls; epoxy
                 pairs with carbon. Because resin is 30&ndash;40% of the laminate by weight, a
@@ -270,16 +270,16 @@ export default function ProfilePricePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-[17px] font-bold text-t1">3. Pull speed of the shape</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">3. Pull speed of the shape</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 Simple rounds pull at 3&ndash;4&times; the line speed of a deep wide-flange
                 beam, so the machine-hour cost lands very differently per meter. Open, thin,
                 symmetric shapes are cheap; thick flange-web junctions are slow.
               </p>
             </div>
             <div>
-              <h3 className="text-[17px] font-bold text-t1">4. Order quantity</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">4. Order quantity</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 Setup, die warm-up, and first-article scrap amortize over the run. Expect
                 roughly 5% off at 1,000+ m, 8% at 5,000 m, 12% at 20,000 m &mdash; and a
                 premium below the family MOQ. The quantity column in the table above shows
@@ -287,8 +287,8 @@ export default function ProfilePricePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-[17px] font-bold text-t1">5. Performance packages</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">5. Performance packages</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 Fire-retardant formulations (ASTM E84 targets), UV/weathering packages,
                 surface veil for corrosion and appearance, and non-standard colors each add
                 a defined premium. They stack, so specify what the application needs &mdash;
@@ -296,8 +296,8 @@ export default function ProfilePricePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-[17px] font-bold text-t1">6. Fiber architecture</h3>
-              <p className="mt-[5px] text-f15 leading-golden text-t2">
+              <h3 className="text-f18 font-bold text-t1">6. Fiber architecture</h3>
+              <p className="mt-[5px] text-f16 leading-golden text-t2">
                 ECR glass for acid service costs ~40% more than E-glass as a raw material;
                 carbon is in a different bracket entirely (see FAQ). Higher glass content
                 raises stiffness and raw cost per kg while lowering resin share &mdash; the
@@ -310,12 +310,12 @@ export default function ProfilePricePage() {
 
       {/* Context & compare */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Context</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             Reading FRP prices against steel and aluminum
           </h2>
-          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
+          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f16 leading-golden text-t2">
             <p>
               Per kilogram, pultruded fiberglass costs more than mild steel. Per meter of
               equivalent structural duty it is usually closer than the kg number suggests,
@@ -356,12 +356,12 @@ export default function ProfilePricePage() {
 
       {/* Firm quote path */}
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>From Estimate to Quote</SectionTag>
           <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
             How to turn this estimate into a firm offer
           </h2>
-          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f15 leading-golden text-t2">
+          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f16 leading-golden text-t2">
             <p>
               Send the section drawing (or catalog model number), total quantity with cut
               lengths, resin and performance requirements, and the destination port. We reply
@@ -380,7 +380,7 @@ export default function ProfilePricePage() {
 
       {/* FAQ */}
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <FAQ items={faqs} />
         </div>
       </section>

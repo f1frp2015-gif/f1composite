@@ -85,8 +85,8 @@ export default function CanadaRegionPage() {
       />
 
       <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
-          <div className="overflow-hidden rounded-[8px]">
+        <div className="site-container">
+          <div className="overflow-hidden rounded-card">
             <Image
               src="/images/regions/frp-passive-house-windows-canada.jpg"
               alt="Interior view through a Canadian window in winter — passive-house-grade fiberglass window frames hold up against snow, ice, and sub-zero cold"
@@ -101,13 +101,13 @@ export default function CanadaRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Why Canadian Specifiers Source from F1</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             Passive House fiberglass windows for Canadian projects
           </h2>
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Canadian codes are moving new buildings toward net-zero-energy-ready by
                 2032, through the BC Energy Step Code, the Toronto Green Standard and the
@@ -123,7 +123,7 @@ export default function CanadaRegionPage() {
                 (U-factor about 0.14 Btu/h·ft²·°F).
               </p>
             </div>
-            <div className="space-y-[21px] text-f15 leading-golden text-t2">
+            <div className="space-y-[21px] text-f16 leading-golden text-t2">
               <p>
                 Tariffs matter too. Canada&rsquo;s surtaxes on Chinese-origin goods in this
                 area are aimed at steel and aluminum products, including steel-framed doors
@@ -145,7 +145,7 @@ export default function CanadaRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Canadian Standards Stack</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             NAFS, CSA A440, NFRC and Passive House documents for Canadian specifications
@@ -154,10 +154,10 @@ export default function CanadaRegionPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Requirement</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">Canadian Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f13 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
-                  <th className="py-[13px] text-f13 font-bold uppercase tracking-wide text-t1">Documentation</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Requirement</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Canadian Standard</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">What F1 provides</th>
+                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
@@ -171,10 +171,10 @@ export default function CanadaRegionPage() {
                   { app: "Supply-chain trace", std: "Import traceability", perf: "FengDu production network", doc: "Traceability documents" },
                 ].map((row) => (
                   <tr key={row.app} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f15 font-medium text-t1">{row.app}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.std}</td>
-                    <td className="py-[13px] pr-[21px] text-f15 text-t2">{row.perf}</td>
-                    <td className="py-[13px] text-f15 text-t2">{row.doc}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.app}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.std}</td>
+                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.perf}</td>
+                    <td className="py-[13px] text-f16 text-t2">{row.doc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -184,7 +184,7 @@ export default function CanadaRegionPage() {
       </section>
 
       <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Logistics & Landed Cost</SectionTag>
           <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
             From FengDu&apos;s plants in China to your Canadian site, with duties itemized
@@ -207,10 +207,10 @@ export default function CanadaRegionPage() {
                 body: "Ocean transit takes 14–20 days to Vancouver or Prince Rupert and 26–32 days to Montreal or Halifax. The total lead time from purchase order to jobsite is 8–12 weeks. DAP delivery is available from the port of entry to Calgary, Toronto, and Ottawa.",
               },
             ].map((s) => (
-              <div key={s.step} className="rounded-[8px] border border-border-default bg-white p-[34px]">
-                <div className="text-f11 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
-                <h3 className="mt-[8px] text-f17 font-bold text-t1">{s.title}</h3>
-                <p className="mt-[8px] text-f13 leading-golden text-t2">{s.body}</p>
+              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
+                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>
             ))}
           </div>
@@ -230,36 +230,36 @@ export default function CanadaRegionPage() {
       </section>
 
       <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <SectionTag>Related Resources</SectionTag>
           <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a Canadian project.</p>
+              <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (Uw 0.78)</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">What PHI component certificate 2491wi03 covers, and how to use it on a Canadian project.</p>
             </Link>
             <Link
               href="/technology/frp-vs-aluminum-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">FRP vs Aluminum — thermal & U-factor</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Frame conductivity, U-factor and tariff treatment compared.</p>
+              <h3 className="text-f16 font-bold text-t1">FRP vs Aluminum — thermal & U-factor</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Frame conductivity, U-factor and tariff treatment compared.</p>
             </Link>
             <Link
               href="/case-studies/qinling-station-antarctic-passive-windows"
-              className="group rounded-[8px] border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
+              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
             >
-              <h3 className="text-f15 font-bold text-t1">Antarctic window project account</h3>
-              <p className="mt-[5px] text-f13 leading-golden text-t2">Qinling Station project account. The PHI component reference covers a cool-temperate configuration; confirm separate cold-climate project requirements.</p>
+              <h3 className="text-f16 font-bold text-t1">Antarctic window project account</h3>
+              <p className="mt-[5px] text-f14 leading-golden text-t2">Qinling Station project account. The PHI component reference covers a cool-temperate configuration; confirm separate cold-climate project requirements.</p>
             </Link>
           </div>
         </div>
       </section>
 
       <section className="bg-bg2 pb-[55px]">
-        <div className="mx-auto max-w-[1280px] px-[34px]">
+        <div className="site-container">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · cold-climate preset"
