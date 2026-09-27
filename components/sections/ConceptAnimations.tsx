@@ -84,9 +84,8 @@ export function HeatFlowFrameComparison() {
 }
 
 /** Steel insert (thermal bridge) vs pultruded GRP core inside a uPVC chamber. */
-export function SteelVsFrpChamberCore() {
-  return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
+export function SteelVsFrpChamberCore({ bare = false }: { bare?: boolean } = {}) {
+  const diagrams = (
       <div className="grid gap-[21px] sm:grid-cols-2">
         {/* Steel insert */}
         <svg viewBox="0 0 220 110" className="w-full" aria-label="Galvanized steel insert inside a uPVC window chamber conducting heat straight through">
@@ -128,6 +127,12 @@ export function SteelVsFrpChamberCore() {
           <text x="110" y="106" textAnchor="middle" fontSize="8.5" fill={TEAL}>same stiffness job, no thermal bridge</text>
         </svg>
       </div>
+  );
+  // Bare: the two drawings alone, for a numbered Figure that carries its own caption.
+  if (bare) return diagrams;
+  return (
+    <figure className="rounded-card border border-border-default bg-white p-[21px]">
+      {diagrams}
       <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
         Both cores do the same structural job inside the same uPVC chamber. The steel one re-installs
         the thermal bridge the plastic frame was supposed to avoid; the pultruded core does not.

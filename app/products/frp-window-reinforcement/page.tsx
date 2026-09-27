@@ -1,14 +1,16 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
-import JsonLd from "@/components/seo/JsonLd";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import { SteelVsFrpChamberCore } from "@/components/sections/ConceptAnimations";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Window Reinforcement Profiles — Fiberglass uPVC Cores";
@@ -106,7 +108,16 @@ const faqItems = [
   },
 ];
 
+// What a reinforcement proposal needs, from the qualification answer above.
+const requestItems = [
+  { title: "Chamber drawing", text: "The reinforcement chamber drawing, or a sample lineal of the uPVC profile." },
+  { title: "Stiffness target", text: "The steel section specified today, or the deflection criterion the core must meet." },
+  { title: "Resin and exposure", text: "Temperature and moisture cycling, screw-retention needs and any resin preference." },
+  { title: "Volumes and documents", text: "Trial and annual quantities, cut lengths, inspection and certificate requirements, destination." },
+];
+
 export default function WindowReinforcementProfilesPage() {
+  const quoteHref = buildRfqHref({ source: "window-reinforcement-header", product: "FRP window reinforcement profiles", productPath: pagePath });
   return (
     <>
       <JsonLd
@@ -117,7 +128,7 @@ export default function WindowReinforcementProfilesPage() {
           path: pagePath,
           image: "/images/products/upvc-window-fiberglass-reinforcement-context.jpg",
           category: "FRP Window Reinforcement Profiles",
-          productLine: "F1-FORM",
+          productLine: "F1-THERM",
           // Indicative per-meter band for the reinforcement-core program (small
           // chamber-fit sections, custom pultrusion). Routes to /contact for a quote.
           priceRange: { lowPrice: "2", highPrice: "40", offerCount: "1", unitText: "linear meter" },
@@ -132,9 +143,26 @@ export default function WindowReinforcementProfilesPage() {
         })}
       />
       <PageHeader
-        tag="Custom Pultrusion · F1-FORM"
+        tag="Window reinforcement"
+        line={{ name: "F1-THERM", label: "Window reinforcement" }}
         title="FRP window reinforcement profiles for vinyl and uPVC frames"
         description="Composite reinforcement cores for vinyl and uPVC window profiles — engineered to the stiffness your chamber needs, without the thermal bridge, corrosion risk, or weight of galvanized steel inserts. Supplied as a custom pultrusion program: your chamber drawing in, qualified profiles out."
+        facts={[
+          { label: "Section forms", value: "U, box, flat, chamber-fit" },
+          { label: "Conductivity", value: "≈ 0.3 W/m·K" },
+          { label: "Tolerances", value: "ASTM D3917" },
+          { label: "First production", value: "6–10 weeks" },
+        ]}
+        actions={{
+          primary: { label: "Send a chamber drawing", href: quoteHref },
+          secondary: { label: "How it replaces steel", href: "#why-replace", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Steel insert vs GRP core" caption="Both cores do the same structural job inside the same uPVC chamber. The steel one re-installs the thermal bridge the plastic frame was supposed to avoid; the pultruded core does not.">
+            <SteelVsFrpChamberCore bare />
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -142,24 +170,23 @@ export default function WindowReinforcementProfilesPage() {
         ]}
       />
 
-      {/* Why replace steel */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Why Replace Steel</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Why FRP window reinforcement profiles replace steel cores
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1fr_320px] lg:items-start">
-            <p className="text-f16 leading-golden text-t2">
-              Every white frame like the one pictured hides a structural question inside its
-              largest hollow chamber: what carries the glass load once the sash grows past a
-              kitchen-casement size? For decades the answer has been a galvanized steel
-              insert — invisible in the finished window, decisive for its U-value. Replacing
-              that insert with a pultruded fiberglass core is the single change that lets a
-              standard uPVC system compete thermally in energy-code-driven markets, without
-              retooling the uPVC extrusion itself.
-            </p>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-card border border-border-default">
+      <PageNav
+        items={[
+          { id: "why-replace", label: "Why replace steel" },
+          { id: "engineering", label: "Engineering & supply" },
+          { id: "faq", label: "FAQ" },
+          { id: "related", label: "Related" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <PageSection id="why-replace" title="Why FRP window reinforcement profiles replace steel cores">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-[48px]">
+          <p className="text-f18 leading-golden text-t1">
+            Every white frame like the one pictured hides a structural question inside its largest hollow chamber: what carries the glass load once the sash grows past a kitchen-casement size? For decades the answer has been a galvanized steel insert — invisible in the finished window, decisive for its U-value. Replacing that insert with a pultruded fiberglass core is the single change that lets a standard uPVC system compete thermally in energy-code-driven markets, without retooling the uPVC extrusion itself.
+          </p>
+          <Figure number={2} title="uPVC tilt-and-turn window" note="Illustrative photo" bleed>
+            <div className="relative aspect-[3/4]">
               <Image
                 src="/images/products/upvc-window-fiberglass-reinforcement-context.jpg"
                 alt="White uPVC tilt-and-turn window — the hollow reinforcement chamber inside frames like this is where pultruded fiberglass cores replace galvanized steel inserts"
@@ -168,64 +195,46 @@ export default function WindowReinforcementProfilesPage() {
                 className="object-cover"
               />
             </div>
-          </div>
-          <div className="mt-[34px]">
-            <SteelVsFrpChamberCore />
-          </div>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
-            {whyReplace.map((item) => (
-              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[34px]">
-                <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[13px] text-f16 leading-golden text-t2">{item.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-[21px] text-f14 text-t3">
-            Background on the steel-bridge numbers: see the reinforcement discussion in{" "}
-            <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text hover:text-teal">
-              FRP vs PVC window frames
-            </Link>
-            .
-          </p>
+          </Figure>
         </div>
-      </section>
-
-      {/* Engineering & supply */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Engineering &amp; Supply</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            From your chamber drawing to qualified reinforcement profiles
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Window reinforcements run through F1&apos;s custom pultrusion program —
-            the same lines, dies, and QC that produce our structural and
-            fenestration profiles.
-          </p>
-
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Aspect</th>
-                  <th className="py-[13px] text-f14 font-semibold text-t1">What you get</th>
-                </tr>
-              </thead>
-              <tbody>
-                {engineeringPoints.map((row) => (
-                  <tr key={row.aspect} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f16 font-semibold text-t1 md:w-[260px]">{row.aspect}</td>
-                    <td className="py-[13px] text-f16 leading-golden text-t2">{row.detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="mt-[24px] grid grid-cols-1 gap-[16px] lg:grid-cols-3">
+          {whyReplace.map((item) => (
+            <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+            </article>
+          ))}
         </div>
-      </section>
+        <p className="mt-[16px] text-f14 text-t3">
+          Background on the steel-bridge numbers: see the reinforcement discussion in{" "}
+          <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            FRP vs PVC window frames
+          </Link>
+          .
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="engineering"
+        title="From your chamber drawing to qualified reinforcement profiles"
+        tone="muted"
+        intro="Window reinforcements run through F1's custom pultrusion program: the same lines, dies and QC that produce our structural and fenestration profiles."
+      >
+        <dl className="divide-y divide-border-default rounded-card border border-border-default bg-white px-[20px] sm:px-[24px]">
+          {engineeringPoints.map((row) => (
+            <div key={row.aspect} className="grid gap-[4px] py-[14px] md:grid-cols-[220px_minmax(0,1fr)] md:gap-[16px]">
+              <dt className="text-f14 font-bold text-t1">{row.aspect}</dt>
+              <dd className="text-f14 leading-golden text-t2">{row.detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </PageSection>
+
+      <PageSection id="faq" title="Questions buyers ask">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
-        background="white"
         groups={[
           {
             title: "Related products",
@@ -248,15 +257,15 @@ export default function WindowReinforcementProfilesPage() {
         ]}
       />
 
-      {/* FAQ */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <ProductNextSteps path="/products/frp-window-reinforcement" />
-      <InnerCTA title="Send your chamber drawing for a reinforcement section proposal" />
+      <PageSection id="quote" title="Send your chamber drawing" tone="deep">
+        <ProductRfq
+          product="FRP window reinforcement profiles"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the chamber drawing and the stiffness target; F1 returns a proposed composite section with calculated EI, a resin recommendation and a tooling quote."
+        />
+      </PageSection>
     </>
   );
 }
