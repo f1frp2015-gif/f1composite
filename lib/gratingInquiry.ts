@@ -37,3 +37,11 @@ export function gratingSpecificationsCsv(family: GratingFamily) {
   ];
   return "\uFEFF" + [...notes, ...rows].map(row => row.map(cell => `"${cell.replaceAll('"', '""')}"`).join(",")).join("\r\n") + "\r\n";
 }
+
+/** What a grating request needs, as the closing quote block of each grating page lists it. */
+export const gratingRequestItems = [
+  { title: "Panel type and size", text: "Molded mesh or pultruded series, depth, and panel sizes or a cut plan with panel marks." },
+  { title: "Span and loads", text: "Clear span, support width, uniform and point loads, deflection limit and bearing-bar direction." },
+  { title: "Service and surface", text: "Chemicals and temperature, resin, walking surface, and any fire or slip-test requirement." },
+  { title: "Fixing and delivery", text: "Clip kits, quantity or total area, destination port or postcode and the required date." },
+];

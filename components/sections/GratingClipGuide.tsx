@@ -1,4 +1,4 @@
-import SectionTag from "@/components/ui/SectionTag";
+import PageSection from "@/components/layout/PageSection";
 import {
   GRATING_CLIP_DXF_BY_FAMILY,
   gratingClipInstallationPrinciples,
@@ -178,7 +178,7 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function GratingClipGuide({ family }: { family: GratingClipFamily }) {
+export default function GratingClipGuide({ family, tone = "white" }: { family: GratingClipFamily; tone?: "white" | "muted" }) {
   const content = familyContent[family];
   const familyDxf = GRATING_CLIP_DXF_BY_FAMILY[family];
   const visibleCodes = new Set<GratingClipCode>(content.codes);
@@ -197,119 +197,97 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
         ];
 
   return (
-    <section id="grating-clips" className="bg-white py-[55px] md:py-[89px]">
-      <div className="site-container">
-        <SectionTag>{content.tag}</SectionTag>
-        <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-          {content.title}
-        </h2>
-        <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-          {content.intro} The diagrams explain compatibility and load path only — they are not fabrication dimensions.
-        </p>
-        <p className="mt-[8px] max-w-[920px] rounded-control border border-teal-border bg-teal-bg px-[13px] py-[10px] text-f14 leading-golden text-t2">
-          {content.naming}
-        </p>
+    <PageSection
+      id="grating-clips"
+      title={content.title}
+      tone={tone}
+      intro={<>{content.intro} The diagrams explain compatibility and load path only; they are not fabrication dimensions.</>}
+    >
+      <p className="max-w-[820px] rounded-control border border-teal-border bg-teal-bg px-[14px] py-[10px] text-f14 leading-golden text-t2">
+        {content.naming}
+      </p>
 
-        <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
-          {visibleClips.map((clip) => (
-            <article
-              key={clip.code}
-              className="overflow-hidden rounded-card border border-border-default bg-white"
-            >
-              <div className="flex flex-wrap items-start justify-between gap-[10px] border-b border-border-default bg-bg2 px-[21px] py-[16px] sm:px-[34px]">
-                <div>
-                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                    F1-GRID clip {clip.code}
-                  </p>
-                  <h3 className="mt-[4px] text-f18 font-bold text-t1">{clip.name}</h3>
-                </div>
-                <span className="rounded-full border border-teal-border bg-white px-[10px] py-[5px] text-f12 font-bold text-teal-text">
-                  {clip.sku}
-                </span>
+      <div className="mt-[24px] grid grid-cols-1 gap-[16px] md:grid-cols-2 lg:grid-cols-3">
+        {visibleClips.map((clip) => (
+          <article key={clip.code} className="flex flex-col overflow-hidden rounded-card border border-border-default bg-white">
+            <div className="flex flex-wrap items-start justify-between gap-[10px] border-b border-border-default bg-bg2 px-[20px] py-[14px] sm:px-[24px]">
+              <div>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">F1-GRID clip {clip.code}</p>
+                <h3 className="mt-[4px] text-f18 font-bold text-t1">{clip.name}</h3>
               </div>
+              <span className="rounded-tag border border-teal-border bg-white px-[8px] py-[3px] font-mono text-f12 font-medium tracking-[0.06em] text-teal-text">{clip.sku}</span>
+            </div>
 
-              <figure className="px-[13px] pt-[16px] sm:px-[21px]">
-                <div className="rounded-card bg-bg2 p-[8px] sm:p-[13px]">
-                  <ClipFigure code={clip.code} alt={clip.figureAlt} />
-                </div>
-                <figcaption className="mt-[8px] text-center text-f12 text-t3">
-                  Typical installation — not to scale
-                </figcaption>
-              </figure>
+            <figure className="px-[16px] pt-[16px] sm:px-[20px]">
+              <div className="rounded-card bg-bg2 p-[8px] sm:p-[12px]">
+                <ClipFigure code={clip.code} alt={clip.figureAlt} />
+              </div>
+              <figcaption className="mt-[8px] text-center font-mono text-f12 uppercase tracking-[0.06em] text-t3">Typical installation · not to scale</figcaption>
+            </figure>
 
-              <div className="px-[21px] pb-[21px] pt-[13px] sm:px-[34px] sm:pb-[34px]">
-                <p className="text-f16 leading-golden text-t2">{clip.purpose}</p>
-                <dl className="mt-[13px]">
-                  <SpecRow label="Material" value={clip.material} />
-                  <SpecRow label="Connection" value={clip.attachment} />
-                  <SpecRow label="Compatible" value={clip.compatibleWith.join(" · ")} />
-                  <SpecRow label="Installation" value={clip.installation} />
-                </dl>
-                <p className="mt-[13px] rounded-control border-l-[3px] border-teal bg-bg2 px-[13px] py-[10px] text-f14 leading-golden text-t2">
-                  <strong className="text-t1">Boundary:</strong> {clip.caution}
+            <div className="flex flex-1 flex-col px-[20px] pb-[20px] pt-[12px] sm:px-[24px] sm:pb-[24px]">
+              <p className="text-f14 leading-golden text-t2">{clip.purpose}</p>
+              <dl className="mt-[12px]">
+                <SpecRow label="Material" value={clip.material} />
+                <SpecRow label="Connection" value={clip.attachment} />
+                <SpecRow label="Compatible" value={clip.compatibleWith.join(" · ")} />
+                <SpecRow label="Installation" value={clip.installation} />
+              </dl>
+              <div className="mt-auto pt-[12px]">
+                <p className="rounded-control border border-warn-border bg-warn-bg px-[14px] py-[10px] text-f14 leading-golden text-t2">
+                  <strong className="font-semibold text-t1">Boundary:</strong> {clip.caution}
                 </p>
               </div>
-            </article>
-          ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-[24px] grid grid-cols-1 gap-[16px] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+        <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
+          <h3 className="text-f18 font-bold text-t1">Installation and spacing principles</h3>
+          <ol className="mt-[12px] divide-y divide-border-default border-y border-border-default">
+            {installationPrinciples.map((principle, index) => (
+              <li key={principle} className="grid grid-cols-[28px_minmax(0,1fr)] gap-[8px] py-[10px] text-f14 leading-golden text-t2">
+                <span className="font-mono text-f12 leading-[1.9] text-t3">{String(index + 1).padStart(2, "0")}</span>
+                <span>{principle}</span>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-[20px] rounded-card border border-border-default bg-bg2 p-[16px] sm:p-[20px]">
+            <h4 className="text-f16 font-bold text-t1">Typical starting layout</h4>
+            <p className="mt-[4px] text-f14 leading-golden text-t3">General coordination values before project-specific fastening design.</p>
+            <dl className="mt-[12px]">
+              {visibleStartingLayout.map((item) => (
+                <SpecRow key={item.label} label={item.label} value={item.value} />
+              ))}
+            </dl>
+            <p className="mt-[12px] rounded-control border border-warn-border bg-warn-bg px-[14px] py-[10px] text-f14 leading-golden text-t2">{gratingClipLayoutDisclaimer}</p>
+          </div>
         </div>
 
-        <div className="mt-[34px] grid gap-[21px] lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[34px]">
-            <h3 className="text-f18 font-bold text-t1">Installation and spacing principles</h3>
-            <ol className="mt-[13px] space-y-[10px]">
-              {installationPrinciples.map((principle, index) => (
-                <li key={principle} className="flex gap-[10px] text-f14 leading-golden text-t2">
-                  <span className="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">
-                    {index + 1}
-                  </span>
-                  <span>{principle}</span>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-[21px] rounded-card border border-border-default bg-white p-[16px] sm:p-[21px]">
-              <h4 className="text-f16 font-bold text-t1">Typical starting layout</h4>
-              <p className="mt-[5px] text-f12 leading-golden text-t3">
-                General coordination values before project-specific fastening design.
-              </p>
-              <dl className="mt-[13px]">
-                {visibleStartingLayout.map((item) => (
-                  <SpecRow key={item.label} label={item.label} value={item.value} />
-                ))}
-              </dl>
-              <p className="mt-[13px] rounded-control border-l-[3px] border-teal bg-teal-bg px-[13px] py-[10px] text-f12 leading-golden text-t2">
-                {gratingClipLayoutDisclaimer}
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-card border border-border-default bg-deep p-[21px] text-white sm:p-[34px]">
-            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-              Combined CAD detail
-            </p>
-            <h3 className="mt-[8px] text-f18 font-bold">{familyDxf.name}</h3>
-            <p className="mt-[8px] text-f14 leading-golden text-white/75">
-              One family-specific DXF containing the {familyDxf.codes} typical installation details and F1 SKU references.
-              Project-specific geometry remains governed by the approved project drawing.
-            </p>
+        <div className="flex flex-col rounded-card border border-teal-border bg-teal-bg p-[20px] sm:p-[28px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Combined CAD detail</p>
+          <h3 className="mt-[6px] text-f18 font-bold text-t1">{familyDxf.name}</h3>
+          <p className="mt-[8px] text-f14 leading-golden text-t2">
+            One family-specific DXF containing the {familyDxf.codes} typical installation details and F1 SKU references. Project-specific geometry remains governed by the approved project drawing.
+          </p>
+          <div className="mt-auto pt-[20px]">
             <a
               href={familyDxf.href}
               download
-              className="mt-[21px] inline-flex min-h-[46px] w-full items-center justify-center rounded-control bg-teal-text px-[21px] py-[11px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto"
+              className="inline-flex min-h-[46px] w-full items-center justify-center rounded-control bg-teal-text px-[22px] py-[11px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
             >
               Download {familyDxf.codes} DXF
             </a>
-            <p className="mt-[8px] text-f12 leading-golden text-white/60">
-              Free DXF · no login · verify revision before issue for construction
-            </p>
+            <p className="mt-[8px] text-f14 leading-golden text-t3">Free DXF, no login. Verify the revision before issue for construction.</p>
           </div>
         </div>
-
-        <p className="mt-[21px] max-w-[980px] text-f14 leading-golden text-t3">
-          Final clip geometry, bolt and washer selection, quantity, spacing, edge clearances,
-          and tightening requirements must be shown on the approved project drawing. The clip
-          guide does not change the grating span, bearing, support, or connection design checks.
-        </p>
       </div>
-    </section>
+
+      <p className="mt-[20px] max-w-[960px] text-f14 leading-golden text-t3">
+        Final clip geometry, bolt and washer selection, quantity, spacing, edge clearances, and tightening requirements must be shown on the approved project drawing. The clip guide does not change the grating span, bearing, support, or connection design checks.
+      </p>
+    </PageSection>
   );
 }

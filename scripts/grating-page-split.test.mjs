@@ -151,7 +151,7 @@ test("pultruded grating synonyms are scoped, explained and not stacked", async (
   assert.doesNotMatch(metaDescription, /\bpultruded FRP grating\b/i);
 
   const intro = page.match(
-    /<SectionTag>Directional Stiffness · Longer Spans<\/SectionTag>([\s\S]*?)<aside/,
+    /<PageSection id="overview" title="Pultruded bearing bars for open, span-driven grating layouts">([\s\S]*?)<aside/,
   )?.[1];
   assert.ok(intro, "visible pultruded grating intro should exist");
   assert.match(intro, /\bpultruded fiberglass grating\b/i);
