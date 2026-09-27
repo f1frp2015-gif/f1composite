@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
@@ -108,179 +109,171 @@ export default function ChinaAlternativePage() {
           { label: "China Alternative to Western FRP Brands" },
         ]}
       />
+      <PageNav items={[{ id: "positioning", label: "Positioning" }, { id: "side-by-side", label: "Side by side" }, { id: "crossover-chart", label: "Crossover chart" }, { id: "faq", label: "FAQ" }]} />
 
       {/* Positioning intro */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>The positioning</SectionTag>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Same specification, factory-direct from China
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites
-            (Denmark), and Exel Composites (Finland) are the established Western names in
-            pultruded FRP. They are excellent manufacturers, and they all build to the same
-            international standards that{" "}
-            <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
-              F1 Composite&apos;s pultruded FRP profiles
-            </Link>{" "}
-            are built to: <strong className="text-t1">EN 13706</strong> (E17/E23
-            structural grades) and <strong className="text-t1">ASTM D3917</strong>.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Buyers usually look for a China alternative because of the route to market rather
-            than the specification. F1 Composite supplies its{" "}
-            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
-              F1-STRUX structural profiles
-            </Link>{" "}
-            direct from the factory for export, on FOB or DDP terms to 30+
-            countries, without the regional distributor layer that sits between
-            the Western brands and an international project. For corrosion- or
-            weight-critical work, that lowers landed cost while keeping the exact
-            engineering specification a designer has already approved.
-          </p>
-        </div>
-      </section>
+      <PageSection id="positioning" title="Same specification, factory-direct from China" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites
+          (Denmark), and Exel Composites (Finland) are the established Western names in
+          pultruded FRP. They are excellent manufacturers, and they all build to the same
+          international standards that{" "}
+          <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
+            F1 Composite&apos;s pultruded FRP profiles
+          </Link>{" "}
+          are built to: <strong className="text-t1">EN 13706</strong> (E17/E23
+          structural grades) and <strong className="text-t1">ASTM D3917</strong>.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          Buyers usually look for a China alternative because of the route to market rather
+          than the specification. F1 Composite supplies its{" "}
+          <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
+            F1-STRUX structural profiles
+          </Link>{" "}
+          direct from the factory for export, on FOB or DDP terms to 30+
+          countries, without the regional distributor layer that sits between
+          the Western brands and an international project. For corrosion- or
+          weight-critical work, that lowers landed cost while keeping the exact
+          engineering specification a designer has already approved.
+        </p>
+      </PageSection>
 
       {/* Comparison table */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>Side by side</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            F1-STRUX vs the Western incumbents
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            A fair, specification-level comparison. Where a competitor figure
-            varies by region or distributor, it is described rather than
-            asserted.
-          </p>
+      <PageSection id="side-by-side" title="F1-STRUX vs the Western incumbents" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          A fair, specification-level comparison. Where a competitor figure
+          varies by region or distributor, it is described rather than
+          asserted.
+        </p>
 
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1 Composite (F1-STRUX)</th>
-                  <th className="py-[13px] text-f14 font-semibold text-t1">Strongwell · Creative · Fiberline · Exel</th>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Dimension</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] font-semibold text-teal-text">F1 Composite (F1-STRUX)</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Strongwell · Creative · Fiberline · Exel</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.dimension} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.dimension}</th>
+                  <td className="bg-teal-bg px-[14px] py-[12px] font-medium text-t1">{row.f1}</td>
+                  <td className="px-[14px] py-[12px] text-t2">{row.incumbents}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.dimension} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.dimension}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f16 text-t2">{row.incumbents}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-[21px] text-f14 text-t3">
-            For the full material-level comparison (FRP vs steel and aluminum),
-            see{" "}
-            <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">
-              FRP vs traditional materials
-            </Link>
-            .
-          </p>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+
+        <p className="mt-[20px] text-f14 text-t3">
+          For the full material-level comparison (FRP vs steel and aluminum),
+          see{" "}
+          <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">
+            FRP vs traditional materials
+          </Link>
+          .
+        </p>
+      </PageSection>
 
       {/* Crossover chart */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Crossover Chart</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            EXTREN® / Pultex® to F1-STRUX crossover chart
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Specifiers often hold an existing spec written around Strongwell
-            EXTREN® or Creative Pultrusions Pultex® series names. The chart
-            below maps those series to the F1-STRUX resin system and fire class
-            they correspond to. It is a <strong className="text-t1">resin-system
-            crossover, not a 1:1 mechanical equivalence</strong> : always compare the actual datasheets side by side for the governing property in
-            your design, and note that some incumbent series carry enhanced mechanical grades
-            above the base standard.
-          </p>
+      <PageSection id="crossover-chart" title="EXTREN® / Pultex® to F1-STRUX crossover chart" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Specifiers often hold an existing spec written around Strongwell
+          EXTREN® or Creative Pultrusions Pultex® series names. The chart
+          below maps those series to the F1-STRUX resin system and fire class
+          they correspond to. It is a <strong className="text-t1">resin-system
+          crossover, not a 1:1 mechanical equivalence</strong>: always compare the actual datasheets side by side for the governing property in
+          your design, and note that some incumbent series carry enhanced mechanical grades
+          above the base standard.
+        </p>
 
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Incumbent series</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Resin system / fire class</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1-STRUX crossover</th>
-                  <th className="py-[13px] text-f14 font-semibold text-t1">Verify before substituting</th>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Incumbent series</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Resin system / fire class</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] font-semibold text-teal-text">F1-STRUX crossover</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Verify before substituting</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  series: "EXTREN® Series 500 · Pultex® 1500-series",
+                  resin: "Polyester with surfacing veil, general purpose",
+                  f1: "F1-STRUX polyester (EN 13706 E17/E23, ASTM D3917)",
+                  verify: "Flexural/tensile values and tolerance class per datasheet",
+                },
+                {
+                  series: "EXTREN® Series 525 · Pultex® 1525-series",
+                  resin: "Polyester, fire retardant",
+                  f1: "F1-STRUX polyester FR (ASTM E84 flame-spread rated)",
+                  verify: "Flame-spread class and smoke index per test report",
+                },
+                {
+                  series: "EXTREN® Series 625 · Pultex® 1625-series",
+                  resin: "Vinyl ester, fire retardant: chemical service",
+                  f1: "F1-STRUX vinyl ester FR (E23)",
+                  verify: "Chemical-resistance chart for the specific service medium",
+                },
+                {
+                  series: "Fiberline / Exel EN 13706 grades",
+                  resin: "Specified directly by EN 13706 grade (E17 / E23)",
+                  f1: "F1-STRUX same grade designation: direct spec match",
+                  verify: "Full-section modulus test method per EN 13706-2 Annex D",
+                },
+              ].map((row) => (
+                <tr key={row.series} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.series}</th>
+                  <td className="px-[14px] py-[12px] text-t2">{row.resin}</td>
+                  <td className="bg-teal-bg px-[14px] py-[12px] font-medium text-t1">{row.f1}</td>
+                  <td className="px-[14px] py-[12px] text-t2">{row.verify}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    series: "EXTREN® Series 500 · Pultex® 1500-series",
-                    resin: "Polyester with surfacing veil, general purpose",
-                    f1: "F1-STRUX polyester (EN 13706 E17/E23, ASTM D3917)",
-                    verify: "Flexural/tensile values and tolerance class per datasheet",
-                  },
-                  {
-                    series: "EXTREN® Series 525 · Pultex® 1525-series",
-                    resin: "Polyester, fire retardant",
-                    f1: "F1-STRUX polyester FR (ASTM E84 flame-spread rated)",
-                    verify: "Flame-spread class and smoke index per test report",
-                  },
-                  {
-                    series: "EXTREN® Series 625 · Pultex® 1625-series",
-                    resin: "Vinyl ester, fire retardant: chemical service",
-                    f1: "F1-STRUX vinyl ester FR (E23)",
-                    verify: "Chemical-resistance chart for the specific service medium",
-                  },
-                  {
-                    series: "Fiberline / Exel EN 13706 grades",
-                    resin: "Specified directly by EN 13706 grade (E17 / E23)",
-                    f1: "F1-STRUX same grade designation: direct spec match",
-                    verify: "Full-section modulus test method per EN 13706-2 Annex D",
-                  },
-                ].map((row) => (
-                  <tr key={row.series} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.series}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.resin}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f14 text-t2">{row.verify}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-[21px] text-f14 text-t3">
-            EXTREN® is a registered trademark of Strongwell Corporation; Pultex®
-            of Creative Pultrusions, Inc. Names are used for specification
-            crossover reference only. Send your existing spec sheet and we
-            return a like-for-like F1-STRUX datasheet comparison against the
-            series it names.
-          </p>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
 
-      {/* Related */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="mb-[21px] text-f18 font-bold text-t1">Verify the equivalence</h2>
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/fiberglass-structural-shapes">F1-STRUX structural profiles</LinkArrow>
-            <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
-            <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel &amp; aluminum</LinkArrow>
-            <LinkArrow href="/regions/frp-pultrusion-supplier-usa">FRP supplier for US projects</LinkArrow>
-            <LinkArrow href="/resources/technical-data">Technical data &amp; test reports</LinkArrow>
-          </div>
-        </div>
-      </section>
+        <p className="mt-[20px] text-f14 text-t3">
+          EXTREN® is a registered trademark of Strongwell Corporation; Pultex®
+          of Creative Pultrusions, Inc. Names are used for specification
+          crossover reference only. Send your existing spec sheet and we
+          return a like-for-like F1-STRUX datasheet comparison against the
+          series it names.
+        </p>
+      </PageSection>
 
-      <AnswerBlocks
-        title="China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel: FAQ"
-        description="Specification-level answers for engineers and procurement teams evaluating a China-based pultruded FRP supplier against the Western incumbents."
-        items={faqItems}
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Products",
+            links: [
+              { href: "/products/fiberglass-structural-shapes", label: "F1-STRUX structural profiles" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+            ],
+          },
+          {
+            title: "Evidence",
+            links: [
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
+              { href: "/resources/technical-data", label: "Technical data and test reports" },
+            ],
+          },
+          {
+            title: "Guides",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel and aluminum" },
+              { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP supplier for US projects" },
+            ],
+          },
+        ]}
       />
 
       <InnerCTA title="Comparing suppliers? Send your spec for a like-for-like quote." />

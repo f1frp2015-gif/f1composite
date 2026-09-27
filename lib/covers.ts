@@ -125,6 +125,18 @@ export const caseStudyCovers = {
   "/case-studies/water-treatment-cable-tray": project("frp-water-treatment-plant-aerial-cable-tray-handrail.webp", "Aerial view of circular clarifiers and rectangular basins at a water treatment plant", ILLUSTRATIVE),
 } satisfies Record<string, Cover>;
 
+// Technology pages open on their header figure; the tools keep their own covers.
+export const technologyCovers = {
+  "/technology/pultruded-profile-performance": { src: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg", alt: "Dimensioned drawing and rendering of a custom pultruded FRP profile", fit: "contain", note: "Drawing and rendering" },
+  "/technology/pultrusion-process": { src: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp", alt: "Parallel pultrusion lines in production at an F1 Composite plant", note: "Production photo" },
+  "/technology/frp-vs-traditional-materials": { src: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg", alt: "Surfaces of FRP, steel, timber and galvanized steel side by side", note: ILLUSTRATIVE },
+  "/technology/fiberglass-rebar-vs-steel": { src: "/images/products/frp-rebar/gfrp-straight-bars.webp", alt: "Helically surfaced GFRP reinforcing bars", note: "Supplier photo" },
+  "/technology/pultrusion-resin-systems": { src: "/images/technology/resin-formulation-laboratory-testing.jpg", alt: "Resin samples dispensed into test tubes in a laboratory", note: ILLUSTRATIVE },
+  "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain", note: RENDERING },
+  "/technology/quality-testing": { src: "/images/technology/f1-composite-quality-testing-laboratory.webp", alt: "Technician at work in a materials testing laboratory", note: ILLUSTRATIVE },
+  "/technology/knowhow-services": { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "Pultrusion lines in an F1 Composite production hall", note: "Production photo" },
+} satisfies Record<string, Cover>;
+
 /** The cover for a page, when one is registered. */
 export function coverFor(href: string): Cover | undefined {
   const path = href.split(/[?#]/)[0];
@@ -133,6 +145,7 @@ export function coverFor(href: string): Cover | undefined {
     industryCovers[path] ??
     applicationCovers[path] ??
     (toolCovers as Record<string, Cover>)[path] ??
-    (caseStudyCovers as Record<string, Cover>)[path]
+    (caseStudyCovers as Record<string, Cover>)[path] ??
+    (technologyCovers as Record<string, Cover>)[path]
   );
 }

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import CoverCard from "@/components/ui/CoverCard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { productCovers } from "@/lib/covers";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
@@ -115,128 +117,92 @@ export default function FrpVsSteelGratingsPage() {
           { label: "FRP vs Steel Gratings" },
         ]}
       />
+      <PageNav items={[{ id: "short-answer", label: "Short answer" }, { id: "property-comparison", label: "Comparison" }, { id: "where-frp-replaces-steel", label: "Where FRP wins" }, { id: "where-steel-still-wins", label: "Where steel wins" }, { id: "faq", label: "FAQ" }, { id: "products", label: "Products" }]} />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            In corrosive, electrical or wet areas, FRP gratings avoid the recoating cycle that limits galvanized steel
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            This page compares the two across 13 properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion mechanisms, slip resistance on wet surfaces, fire rating, electrical conductivity, and 30-year lifecycle cost.
-          </p>
-        </div>
-      </section>
+      <PageSection id="short-answer" title="In corrosive, electrical or wet areas, FRP gratings avoid the recoating cycle that limits galvanized steel" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          This page compares the two across 13 properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion mechanisms, slip resistance on wet surfaces, fire rating, electrical conductivity, and 30-year lifecycle cost.
+        </p>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Property Comparison</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            Side-by-side: FRP vs hot-dip galvanized steel gratings
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            FRP values reflect pultruded and molded E-glass/polyester gratings typical of F1 Composite product range. Steel values reflect standard bar grating, 25mm × 5mm bearing bars, hot-dip galvanized per ASTM A123. Highlighted rows show properties where FRP materially outperforms steel.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full border-collapse text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default bg-bg2">
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Property</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Unit</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Pultruded / Molded FRP</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Hot-Dip Galvanized Steel</th>
+      <PageSection id="property-comparison" title="Side-by-side: FRP vs hot-dip galvanized steel gratings" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          FRP values reflect pultruded and molded E-glass/polyester gratings typical of F1 Composite product range. Steel values reflect standard bar grating, 25mm × 5mm bearing bars, hot-dip galvanized per ASTM A123. Bold marks the properties where FRP materially outperforms steel.
+        </p>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full border-collapse text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Property</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Unit</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Pultruded / Molded FRP</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Hot-Dip Galvanized Steel</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((row) => (
+                <tr
+                  key={row.property}
+                  className="border-b border-border-default align-top last:border-b-0"
+                >
+                  <th scope="row" className="px-[14px] py-[10px] text-left font-semibold text-t1">{row.property}</th>
+                  <td className="px-[14px] py-[10px] text-t3">{row.unit ?? "—"}</td>
+                  <td className={`bg-teal-bg px-[14px] py-[10px] ${row.frpBetter ? "font-semibold text-t1" : "text-t2"}`}>
+                    {row.frp}
+                  </td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.steel}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row) => (
-                  <tr
-                    key={row.property}
-                    className={`border-b border-border-default ${row.frpBetter ? "bg-teal/5" : ""}`}
-                  >
-                    <td className="px-[13px] py-[13px] font-medium text-t1">{row.property}</td>
-                    <td className="px-[13px] py-[13px] text-t3">{row.unit ?? "—"}</td>
-                    <td className={`px-[13px] py-[13px] ${row.frpBetter ? "font-semibold text-teal-text" : "text-t2"}`}>
-                      {row.frp}
-                    </td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.steel}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Where FRP Replaces Steel</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Five environments where FRP is now the default specification
-          </h2>
-          <ul className="mt-[21px] space-y-[21px] text-f16 leading-golden text-t2">
+      <PageSection id="where-frp-replaces-steel" title="Five environments where FRP is now the default specification" tone="white">
+        <ul className="space-y-[20px] text-f16 leading-golden text-t2">
+          <li>
+            <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. Vinyl ester FRP grating does not rust and needs no recoating in the same service, which is why many water utilities now specify it for treatment works.
+          </li>
+          <li>
+            <strong className="text-t1">Offshore platforms and coastal marinas.</strong> Saltwater and salt spray pit galvanized coatings within 5–10 years. Stainless steel grating costs 3–4× FRP. Every major offshore operator now specifies FRP gratings for secondary walkways, helideck surrounds, and engine-room access platforms.
+          </li>
+          <li>
+            <strong className="text-t1">Electrical substations and power plants.</strong> Non-conductive FRP eliminates fault current paths, reduces grounding infrastructure cost by $200,000–$500,000 on a typical 220 kV substation, and removes arc-flash risk in cable management areas.
+          </li>
+          <li>
+            <strong className="text-t1">Chemical and pulp & paper plants.</strong> Sulfuric acid, sodium hydroxide, hypochlorite, and solvent exposure attack any steel coating. FRP vinyl ester gratings resist the full range of process chemicals per the chemical resistance chart, which is why process plants routinely replace steel mezzanines and walkways with FRP during turnarounds.
+          </li>
+          <li>
+            <strong className="text-t1">Food and pharmaceutical facilities.</strong> FDA-compliant polyester resins, non-porous sealed surfaces, and cleanability with caustic CIP solutions make FRP the right choice for environments where steel corrosion particulates could contaminate product.
+          </li>
+        </ul>
+      </PageSection>
+
+      <PageSection id="where-steel-still-wins" title="Heavy vehicle traffic in dry, non-corrosive environments" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
+
+      <PageSection id="products" title="FRP grating from F1 Composite" tone="muted" intro="Molded and pultruded, solid-top and ventilated, grit and smooth, in polyester and vinyl ester resin systems.">
+        <ul className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
             <li>
-              <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. Vinyl ester FRP grating does not rust and needs no recoating in the same service, which is why many water utilities now specify it for treatment works.
+              <CoverCard href="/products/molded-frp-grating" cover={productCovers["/products/molded-frp-grating"]} title="Molded FRP grating" text="Square and mini mesh panels that carry load both ways; the usual choice for platforms with cutouts." action="View molded grating" sizes="(max-width: 767px) 94vw, 46vw" />
             </li>
             <li>
-              <strong className="text-t1">Offshore platforms and coastal marinas.</strong> Saltwater and salt spray pit galvanized coatings within 5–10 years. Stainless steel grating costs 3–4× FRP. Every major offshore operator now specifies FRP gratings for secondary walkways, helideck surrounds, and engine-room access platforms.
+              <CoverCard href="/products/frp-gratings" cover={productCovers["/products/frp-gratings"]} title="Pultruded FRP grating" text="Bearing-bar panels for defined one-way spans, heavier loads and longer clear spans." action="View pultruded grating" sizes="(max-width: 767px) 94vw, 46vw" />
             </li>
-            <li>
-              <strong className="text-t1">Electrical substations and power plants.</strong> Non-conductive FRP eliminates fault current paths, reduces grounding infrastructure cost by $200,000–$500,000 on a typical 220 kV substation, and removes arc-flash risk in cable management areas.
-            </li>
-            <li>
-              <strong className="text-t1">Chemical and pulp & paper plants.</strong> Sulfuric acid, sodium hydroxide, hypochlorite, and solvent exposure attack any steel coating. FRP vinyl ester gratings resist the full range of process chemicals per the chemical resistance chart, which is why process plants routinely replace steel mezzanines and walkways with FRP during turnarounds.
-            </li>
-            <li>
-              <strong className="text-t1">Food and pharmaceutical facilities.</strong> FDA-compliant polyester resins, non-porous sealed surfaces, and cleanability with caustic CIP solutions make FRP the right choice for environments where steel corrosion particulates could contaminate product.
-            </li>
-          </ul>
-        </div>
-      </section>
+        </ul>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Where Steel Still Wins</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Heavy vehicle traffic in dry, non-corrosive environments
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqs} />
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container text-center">
-          <p className="text-f16 leading-golden text-t2">
-            Explore F1 Composite FRP gratings: molded and pultruded, solid-top and ventilated, grit and smooth, polyester and vinyl ester resin systems.
-          </p>
-          <div className="mt-[21px] flex flex-wrap justify-center gap-[13px]">
-            <Link
-              href="/products/molded-frp-grating"
-              className="inline-block rounded-control bg-teal-text px-[34px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-            >
-              View Molded Grating →
-            </Link>
-            <Link
-              href="/products/frp-gratings"
-              className="inline-block rounded-control border border-border-default bg-white px-[22px] py-[12px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
-            >
-              View Pultruded Grating →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <RelatedLinks
+      <RelatedLinks background="white"
         groups={[
           {
             title: "FRP grating products",

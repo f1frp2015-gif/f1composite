@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import Figure from "@/components/ui/Figure";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AskAICard from "@/components/ai/AskAICard";
 import { prefillForProduct } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ResinSelector from "./ResinSelector";
 import LaminateMicrograph from "./LaminateMicrograph";
@@ -85,6 +88,13 @@ export default function PultrusionResinSystemsPage() {
         }}
       />
       <PageHeader
+        figure={
+          <Figure number={1} title="Resin formulation" note="Illustrative photo" caption="Illustrative photo, not an F1 laboratory. The resin system is confirmed for each order on the mill certificate." bleed>
+            <div className="relative aspect-[16/10]">
+              <Image src="/images/technology/resin-formulation-laboratory-testing.jpg" alt="Resin samples dispensed into test tubes in a laboratory" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
+            </div>
+          </Figure>
+        }
         tag="Materials Science"
         title="Pultrusion Resin Systems: Choosing the Right Matrix"
         description="The glass fiber gives a pultruded FRP profile its stiffness: the resin matrix decides whether it survives the chemicals, the heat, the fire code, and the decades. This guide compares the five thermoset systems we pultrude and shows how to match a matrix to your project."
@@ -94,264 +104,246 @@ export default function PultrusionResinSystemsPage() {
           { label: "Resin Systems" },
         ]}
       />
+      <PageNav items={[{ id: "resin-matrix", label: "Resin matrix" }, { id: "laminate", label: "Inside the laminate" }, { id: "resin-selector", label: "Selector" }, { id: "five-resin-systems", label: "Five resin systems" }, { id: "how-to-choose", label: "How to choose" }, { id: "faq", label: "FAQ" }]} />
 
       {/* GEO answer box — direct definition before anything interactive */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1 md:text-f32">
-            What is the resin matrix in pultruded FRP?
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            The resin matrix is the cured thermoset polymer that surrounds every glass fiber in
-            a pultruded profile, typically 30–45 % of the composite by volume. The fibers carry
-            the axial load; the matrix binds them, transfers load between them in shear, stops
-            fiber buckling under compression, and forms the barrier between the reinforcement
-            and the environment. In practice the matrix, rather than the glass, determines a
-            profile&apos;s corrosion resistance, temperature limit, fire behavior and service
-            life.
-          </p>
-          <div className="mt-[34px] grid gap-[13px] sm:grid-cols-3">
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Fiber decides
-              </p>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                Axial stiffness and tensile strength: the numbers on the datasheet that barely
-                change when you switch resin.
-              </p>
-            </div>
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Matrix decides
-              </p>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                Corrosion, fire, temperature limit, transverse strength, impact toughness and
-                fatigue, which together decide service life.
-              </p>
-            </div>
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                You decide
-              </p>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                The resin system is selected per production run, so it belongs in your RFQ, not
-                in the fine print of the quote you accept.
-              </p>
-            </div>
+      <PageSection id="resin-matrix" title="What is the resin matrix in pultruded FRP?" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          The resin matrix is the cured thermoset polymer that surrounds every glass fiber in
+          a pultruded profile, typically 30–45% of the composite by volume. The fibers carry
+          the axial load; the matrix binds them, transfers load between them in shear, stops
+          fiber buckling under compression, and forms the barrier between the reinforcement
+          and the environment. In practice the matrix, rather than the glass, determines a
+          profile&apos;s corrosion resistance, temperature limit, fire behavior and service
+          life.
+        </p>
+        <div className="mt-[32px] grid gap-[12px] sm:grid-cols-3">
+          <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+              Fiber decides
+            </p>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
+              Axial stiffness and tensile strength: the numbers on the datasheet that barely
+              change when you switch resin.
+            </p>
           </div>
-
-          <div className="mt-[55px] grid gap-[21px] lg:grid-cols-2">
-            <MatrixFormationFigure />
-            <LoadTransferFigure />
+          <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+              Matrix decides
+            </p>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
+              Corrosion, fire, temperature limit, transverse strength, impact toughness and
+              fatigue, which together decide service life.
+            </p>
+          </div>
+          <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+              You decide
+            </p>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
+              The resin system is selected per production run, so it belongs in your RFQ, not
+              in the fine print of the quote you accept.
+            </p>
           </div>
         </div>
-      </section>
+
+        <div className="mt-[48px] grid gap-[20px] lg:grid-cols-2">
+          <MatrixFormationFigure />
+          <LoadTransferFigure />
+        </div>
+      </PageSection>
 
       {/* Inside the laminate — interactive micrograph */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1 md:text-f32">
-            Inside the laminate: fiber, mat, and matrix
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            A pultruded section is an engineered stack of layers rather than a uniform material.
-            Unidirectional rovings in the core carry axial load, continuous filament mat (CFM)
-            layers add transverse strength, and a matrix-rich surface veil forms the corrosion
-            and UV barrier. Drag the slider to see how fiber volume fraction trades stiffness
-            against the matrix content that binds and protects the laminate.
-          </p>
-          <div className="mt-[21px]">
-            <LaminateMicrograph />
-          </div>
+      <PageSection id="laminate" title="Inside the laminate: fiber, mat, and matrix" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          A pultruded section is an engineered stack of layers rather than a uniform material.
+          Unidirectional rovings in the core carry axial load, continuous filament mat (CFM)
+          layers add transverse strength, and a matrix-rich surface veil forms the corrosion
+          and UV barrier. Drag the slider to see how fiber volume fraction trades stiffness
+          against the matrix content that binds and protects the laminate.
+        </p>
+        <div className="mt-[20px]">
+          <LaminateMicrograph />
         </div>
-      </section>
+      </PageSection>
 
-      <ResinSelector />
+      <PageSection id="resin-selector" title="Interactive resin selection matrix" tone="white" intro="Pick a resin system to compare its trade-off profile. Ratings are relative bands (1–5) across the five thermoset families used in pultrusion: use them to shortlist, then confirm against the datasheet values below.">
+        <ResinSelector />
+      </PageSection>
 
       {/* Published-range comparison table — the crawlable data layer */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1 md:text-f32">
-            The five resin systems, side by side
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Typical published ranges for pultrusion-grade formulations. Individual formulations
-            vary: the values on a project datasheet and resin TDS govern; use this table to
-            shortlist, not to certify.
-          </p>
-          <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full min-w-[880px] border-collapse text-f14">
-              <thead>
-                <tr className="border-b-2 border-t1 text-left">
-                  <th className="py-[13px] pr-[13px] font-bold text-t1">Resin system</th>
-                  <th className="py-[13px] pr-[13px] font-bold text-t1">HDT / Tg (typical)</th>
-                  <th className="py-[13px] pr-[13px] font-bold text-t1">Signature property</th>
-                  <th className="py-[13px] pr-[13px] font-bold text-t1">Chemical duty</th>
-                  <th className="py-[13px] pr-[13px] font-bold text-t1">Fire route</th>
-                  <th className="py-[13px] font-bold text-t1">Relative cost</th>
-                </tr>
-              </thead>
-              <tbody className="text-t2">
-                <tr className="border-b border-border-default align-top">
-                  <td className="py-[13px] pr-[13px] font-semibold text-t1">
-                    Isophthalic polyester
-                  </td>
-                  <td className="py-[13px] pr-[13px]">HDT 80–110 °C</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Fastest line speeds, most economical
-                  </td>
-                  <td className="py-[13px] pr-[13px]">
-                    General atmospheric, mild chemical
-                  </td>
-                  <td className="py-[13px] pr-[13px]">
-                    ATH-filled grades → ASTM E84 Class A
-                  </td>
-                  <td className="py-[13px]">$ (baseline)</td>
-                </tr>
-                <tr className="border-b border-border-default align-top">
-                  <td className="py-[13px] pr-[13px] font-semibold text-t1">Vinyl ester</td>
-                  <td className="py-[13px] pr-[13px]">HDT 100–150 °C</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Chemical resistance, toughness, hydrolysis resistance
-                  </td>
-                  <td className="py-[13px] pr-[13px]">
-                    Acids, chlorides, caustics, immersion, marine
-                  </td>
-                  <td className="py-[13px] pr-[13px]">
-                    Brominated / ATH grades, Class A available
-                  </td>
-                  <td className="py-[13px]">$$ (~1.5–2×)</td>
-                </tr>
-                <tr className="border-b border-border-default align-top">
-                  <td className="py-[13px] pr-[13px] font-semibold text-t1">
-                    Polyurethane (PU)
-                  </td>
-                  <td className="py-[13px] pr-[13px]">HDT 80–110 °C</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Transverse strength and impact toughness: allows thinner walls, better screw
-                    retention
-                  </td>
-                  <td className="py-[13px] pr-[13px]">General duty</td>
-                  <td className="py-[13px] pr-[13px]">FR grades emerging: verify per project</td>
-                  <td className="py-[13px]">$$ (closed injection)</td>
-                </tr>
-                <tr className="border-b border-border-default align-top">
-                  <td className="py-[13px] pr-[13px] font-semibold text-t1">Epoxy</td>
-                  <td className="py-[13px] pr-[13px]">Tg 120–180 °C</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Highest mechanicals, fatigue life, low cure shrinkage
-                  </td>
-                  <td className="py-[13px] pr-[13px]">Very good, solvent-resistant</td>
-                  <td className="py-[13px] pr-[13px]">Add-on FR systems only</td>
-                  <td className="py-[13px]">$$$ (slow line speed)</td>
-                </tr>
-                <tr className="border-b border-border-default align-top">
-                  <td className="py-[13px] pr-[13px] font-semibold text-t1">Phenolic</td>
-                  <td className="py-[13px] pr-[13px]">Highest service temperature</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Inherent fire resistance, low smoke and toxicity
-                  </td>
-                  <td className="py-[13px] pr-[13px]">Good general duty</td>
-                  <td className="py-[13px] pr-[13px]">
-                    Inherent: specified for EN 45545-2 rail, tunnels, offshore
-                  </td>
-                  <td className="py-[13px]">$$ (wetter, slower process)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[13px] text-f12 leading-golden text-t2">
-            Ranges compiled from resin supplier technical datasheets and industry
-            references for pultrusion-grade systems. Formulation-specific values
-            (including all fire test results) must come from the test report of the
-            actual formulation quoted.
-          </p>
+      <PageSection id="five-resin-systems" title="The five resin systems, side by side" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          Typical published ranges for pultrusion-grade formulations. Individual formulations
+          vary: the values on a project datasheet and resin TDS govern; use this table to
+          shortlist, not to certify.
+        </p>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[880px] border-collapse text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Resin system</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">HDT / Tg (typical)</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Signature property</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Chemical duty</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Fire route</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Relative cost</th>
+              </tr>
+            </thead>
+            <tbody className="text-t2">
+              <tr className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] text-left font-semibold text-t1">
+                  Isophthalic polyester
+                </th>
+                <td className="px-[14px] py-[12px]">HDT 80–110 °C</td>
+                <td className="px-[14px] py-[12px]">
+                  Fastest line speeds, most economical
+                </td>
+                <td className="px-[14px] py-[12px]">
+                  General atmospheric, mild chemical
+                </td>
+                <td className="px-[14px] py-[12px]">
+                  ATH-filled grades → ASTM E84 Class A
+                </td>
+                <td className="px-[14px] py-[12px]">$ (baseline)</td>
+              </tr>
+              <tr className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] text-left font-semibold text-t1">Vinyl ester</th>
+                <td className="px-[14px] py-[12px]">HDT 100–150 °C</td>
+                <td className="px-[14px] py-[12px]">
+                  Chemical resistance, toughness, hydrolysis resistance
+                </td>
+                <td className="px-[14px] py-[12px]">
+                  Acids, chlorides, caustics, immersion, marine
+                </td>
+                <td className="px-[14px] py-[12px]">
+                  Brominated / ATH grades, Class A available
+                </td>
+                <td className="px-[14px] py-[12px]">$$ (~1.5–2×)</td>
+              </tr>
+              <tr className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] text-left font-semibold text-t1">
+                  Polyurethane (PU)
+                </th>
+                <td className="px-[14px] py-[12px]">HDT 80–110 °C</td>
+                <td className="px-[14px] py-[12px]">
+                  Transverse strength and impact toughness: allows thinner walls, better screw
+                  retention
+                </td>
+                <td className="px-[14px] py-[12px]">General duty</td>
+                <td className="px-[14px] py-[12px]">FR grades emerging: verify per project</td>
+                <td className="px-[14px] py-[12px]">$$ (closed injection)</td>
+              </tr>
+              <tr className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] text-left font-semibold text-t1">Epoxy</th>
+                <td className="px-[14px] py-[12px]">Tg 120–180 °C</td>
+                <td className="px-[14px] py-[12px]">
+                  Highest mechanicals, fatigue life, low cure shrinkage
+                </td>
+                <td className="px-[14px] py-[12px]">Very good, solvent-resistant</td>
+                <td className="px-[14px] py-[12px]">Add-on FR systems only</td>
+                <td className="px-[14px] py-[12px]">$$$ (slow line speed)</td>
+              </tr>
+              <tr className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] text-left font-semibold text-t1">Phenolic</th>
+                <td className="px-[14px] py-[12px]">Highest service temperature</td>
+                <td className="px-[14px] py-[12px]">
+                  Inherent fire resistance, low smoke and toxicity
+                </td>
+                <td className="px-[14px] py-[12px]">Good general duty</td>
+                <td className="px-[14px] py-[12px]">
+                  Inherent: specified for EN 45545-2 rail, tunnels, offshore
+                </td>
+                <td className="px-[14px] py-[12px]">$$ (wetter, slower process)</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </section>
+        <p className="mt-[12px] text-f12 leading-golden text-t3">
+          Ranges compiled from resin supplier technical datasheets and industry
+          references for pultrusion-grade systems. Formulation-specific values
+          (including all fire test results) must come from the test report of the
+          actual formulation quoted.
+        </p>
+      </PageSection>
 
       {/* Decision guide */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1 md:text-f32">
-            How to choose: let the environment pick the resin
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Resin selection is environment-first, not price-first. Work through the service
-            conditions in this order: the first condition that applies usually decides the
-            matrix.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            <ol className="space-y-[13px] text-f16 leading-golden text-t2">
-              <li className="rounded-card border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">1. Fire code governs?</strong> Rail interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84 Class A:
-                FR-grade polyester or vinyl ester, and require the test report for the exact
-                formulation.
+      <PageSection id="how-to-choose" title="How to choose: let the environment pick the resin" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Resin selection is environment-first, not price-first. Work through the service
+          conditions in this order: the first condition that applies usually decides the
+          matrix.
+        </p>
+        <div className="mt-[32px] grid gap-[20px] lg:grid-cols-2">
+          <ol className="space-y-[12px]">
+            <li className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check 1</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">Fire code governs?</h3>
+              <p className="mt-[8px] text-f16 leading-golden text-t2">Rail interiors, tunnels, offshore: phenolic. Buildings needing ASTM E84 Class A: FR-grade polyester or vinyl ester, and require the test report for the exact formulation.</p>
+            </li>
+            <li className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check 2</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">Chemical or marine exposure?</h3>
+              <p className="mt-[8px] text-f16 leading-golden text-t2">Vinyl ester, checked against the resin supplier corrosion guide for your specific chemical, concentration, and temperature. Pair it with a surface veil: the barrier is the veil-plus-resin skin.</p>
+            </li>
+            <li className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check 3</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">Sustained heat or high-cycle fatigue?</h3>
+              <p className="mt-[8px] text-f16 leading-golden text-t2">Epoxy (Tg 120–180 °C) or high-HDT vinyl ester. Check the temperature under load as well as the exposure temperature: modulus drops as the matrix approaches its Tg.</p>
+            </li>
+            <li className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check 4</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">Thin walls, fasteners, or impact?</h3>
+              <p className="mt-[8px] text-f16 leading-golden text-t2">Polyurethane. Its transverse strength allows wall reductions that polyester cannot match: the reason modern fiberglass window lineals are moving to PU pultrusion.</p>
+            </li>
+            <li className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check 5</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">None of the above?</h3>
+              <p className="mt-[8px] text-f16 leading-golden text-t2">Isophthalic polyester: the cost-efficient default for general structural service, and the baseline every alternative should be justified against.</p>
+            </li>
+          </ol>
+          <div>
+            <h3 className="text-f18 font-bold text-t1">
+              Specification mistakes we see in RFQs
+            </h3>
+            <ul className="mt-[12px] space-y-[12px] text-f16 leading-golden text-t2">
+              <li>
+                <strong className="text-t1">Specifying &quot;fiberglass&quot; with no resin system.</strong>{" "}
+                Two quotes for the same drawing can differ 30% because one prices
+                orthophthalic polyester and the other vinyl ester. Name the resin
+                family in the RFQ and quotes become comparable.
               </li>
-              <li className="rounded-card border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">2. Chemical or marine exposure?</strong>{" "}
-                Vinyl ester, checked against the resin supplier corrosion guide for your
-                specific chemical, concentration, and temperature. Pair it with a surface veil:
-                the barrier is the veil-plus-resin skin.
+              <li>
+                <strong className="text-t1">Assuming fire performance is inherent.</strong>{" "}
+                A standard polyester profile is combustible. Class A flame spread comes from a
+                specific FR formulation: specify the test standard and require the report.
               </li>
-              <li className="rounded-card border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">3. Sustained heat or high-cycle fatigue?</strong>{" "}
-                Epoxy (Tg 120–180 °C) or high-HDT vinyl ester. Check the temperature under load
-                as well as the exposure temperature: modulus drops as the matrix approaches its
-                Tg.
+              <li>
+                <strong className="text-t1">Confusing UV weathering with corrosion.</strong>{" "}
+                Surface fiber bloom under UV is controlled mainly by the veil, pigmentation
+                and coating rather than the resin family. Chemical attack is the resin
+                question.
               </li>
-              <li className="rounded-card border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">4. Thin walls, fasteners, or impact?</strong>{" "}
-                Polyurethane. Its transverse strength allows wall reductions that polyester
-                cannot match: the reason modern fiberglass window lineals are moving to PU
-                pultrusion.
+              <li>
+                <strong className="text-t1">Over-specifying epoxy.</strong> If the
+                duty is chemical resistance below 100 °C, vinyl ester typically
+                delivers the service life at lower cost and faster production.
               </li>
-              <li className="rounded-card border border-border-default bg-white p-[21px]">
-                <strong className="text-t1">5. None of the above?</strong>{" "}
-                Isophthalic polyester: the cost-efficient default for general structural
-                service, and the baseline every alternative should be justified against.
+              <li>
+                <strong className="text-t1">Ignoring the temperature-modulus link.</strong>{" "}
+                Datasheet properties are room-temperature values. For service above
+                60 °C, ask for retained-property data at temperature.
               </li>
-            </ol>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">
-                Specification mistakes we see in RFQs
-              </h3>
-              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
-                <li>
-                  <strong className="text-t1">Specifying &quot;fiberglass&quot; with no resin system.</strong>{" "}
-                  Two quotes for the same drawing can differ 30 % because one prices
-                  orthophthalic polyester and the other vinyl ester. Name the resin
-                  family in the RFQ and quotes become comparable.
-                </li>
-                <li>
-                  <strong className="text-t1">Assuming fire performance is inherent.</strong>{" "}
-                  A standard polyester profile is combustible. Class A flame spread comes from a
-                  specific FR formulation: specify the test standard and require the report.
-                </li>
-                <li>
-                  <strong className="text-t1">Confusing UV weathering with corrosion.</strong>{" "}
-                  Surface fiber bloom under UV is controlled mainly by the veil, pigmentation
-                  and coating rather than the resin family. Chemical attack is the resin
-                  question.
-                </li>
-                <li>
-                  <strong className="text-t1">Over-specifying epoxy.</strong> If the
-                  duty is chemical resistance below 100 °C, vinyl ester typically
-                  delivers the service life at lower cost and faster production.
-                </li>
-                <li>
-                  <strong className="text-t1">Ignoring the temperature-modulus link.</strong>{" "}
-                  Datasheet properties are room-temperature values. For service above
-                  60 °C, ask for retained-property data at temperature.
-                </li>
-              </ul>
-            </div>
+            </ul>
           </div>
-
-          <FAQ items={resinFaqs} />
         </div>
-      </section>
+      </PageSection>
 
-      <RelatedLinks
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={resinFaqs} />
+      </PageSection>
+
+      <RelatedLinks background="white"
         groups={[
           {
             title: "Process & quality",
@@ -381,21 +373,18 @@ export default function PultrusionResinSystemsPage() {
             ],
           },
         ]}
-        background="white"
       />
 
-      <AskAICard
-        title="Not sure which resin system your project needs?"
-        description="Open the FRP Engineering Advisor with your service environment (chemicals, temperature, fire code, UV) and it will recommend a resin system, profile family, and the data to put in your RFQ."
-        prefill={prefillForProduct({
+
+      <InnerCTA
+        title="Send us the service environment. We will quote the right resin system, documented on the mill certificate."
+        advisorPrompt={prefillForProduct({
           name: "Pultrusion Resin Systems guide",
           path: "/technology/pultrusion-resin-systems",
           question:
             "help me choose a resin system: ask me about my service environment (chemicals, temperature, fire code, UV) and recommend polyester, vinyl ester, PU, epoxy, or phenolic with the reasoning",
         })}
       />
-
-      <InnerCTA title="Send us the service environment. We will quote the right resin system, documented on the mill certificate." />
     </>
   );
 }

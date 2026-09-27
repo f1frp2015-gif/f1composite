@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import PageSection from "@/components/layout/PageSection";
+import CoverCard from "@/components/ui/CoverCard";
+import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import InnerCTA from "@/components/sections/InnerCTA";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
 import JsonLd from "@/components/seo/JsonLd";
+import { coverFor } from "@/lib/covers";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -20,70 +21,70 @@ export const metadata: Metadata = buildPageMetadata({
 const areas = [
   {
     tag: "Performance",
-    title: "Pultruded Profile Performance",
+    title: "Pultruded profile performance",
     description:
       "Dimensions, physical and mechanical properties, thermal behavior, electrical insulation, fire and chemical resistance: specify the test methods, conditions and supporting evidence for your profile.",
     href: "/technology/pultruded-profile-performance",
   },
   {
     tag: "Process",
-    title: "Pultrusion Process",
+    title: "The pultrusion process",
     description:
       "Continuous manufacturing of constant-cross-section FRP profiles through fiber reinforcement, resin impregnation, heated die forming, and precision pulling. Our lines deliver repeatable mechanical properties at industrial throughput.",
     href: "/technology/pultrusion-process",
   },
   {
     tag: "Materials",
-    title: "FRP vs Traditional Materials",
+    title: "FRP vs traditional materials",
     description:
-      "Fiber-reinforced polymers outperform steel, aluminum, timber, and concrete across weight, corrosion resistance, electrical insulation, and lifecycle cost. See the full property-by-property comparison.",
+      "How FRP compares with steel, aluminum, timber and concrete on weight, corrosion, insulation and stiffness, property by property, with the limits of each.",
     href: "/technology/frp-vs-traditional-materials",
   },
   {
     tag: "Evidence",
-    title: "Fiberglass Rebar vs Steel",
+    title: "Fiberglass rebar vs steel",
     description:
       "Compare GFRP and steel reinforcement using FHWA, MnDOT, university-lab and ASTM evidence on tensile behavior, stiffness, corrosion, cracking and lifecycle cost.",
     href: "/technology/fiberglass-rebar-vs-steel",
   },
   {
     tag: "Materials",
-    title: "Pultrusion Resin Systems",
+    title: "Pultrusion resin systems",
     description:
       "Polyester, vinyl ester, polyurethane, epoxy, or phenolic? The resin matrix decides corrosion, fire, and temperature behavior. Compare all five systems with an interactive selection matrix and typical property ranges.",
     href: "/technology/pultrusion-resin-systems",
   },
   {
     tag: "Materials",
-    title: "Polyurethane Pultrusion Windows",
+    title: "Polyurethane pultrusion windows",
     description:
       "GFRP-PU window frame technology: why polyurethane resin outperforms polyester on cross-fiber strength, thin walls, and deep-cold toughness, the chemistry behind our PHI-certified 90-series and the Qinling Antarctic windows.",
     href: "/technology/polyurethane-pultrusion-windows",
   },
   {
     tag: "Quality",
-    title: "Quality & Testing",
+    title: "Quality and testing",
     description:
-      "Inspection and testing to EN 13706 and ASTM methods: tensile, flexural and Barcol hardness checks by batch, with test reports for each order.",
+      "Match test reports and certificates to the product you are buying, and agree the inspection records for the order.",
     href: "/technology/quality-testing",
   },
   {
     tag: "Services",
-    title: "Know-How & Services",
+    title: "Know-how and services",
     description:
       "From consulting engagements to full turnkey pultrusion line installations, our engineering team transfers decades of composite manufacturing expertise to your operation.",
     href: "/technology/knowhow-services",
   },
   {
     tag: "Tool",
-    title: "FRP Profile Calculator",
+    title: "FRP profile calculator",
     description:
-      "Calculate beam deflection, bending stress, and find equivalent FRP replacements for steel and aluminum sections. EN 13706 and ASTM compliant.",
+      "Check beam deflection and bending stress, and find FRP sections to compare with a steel or aluminum member.",
     href: "/frp-profile-calculator",
   },
   {
     tag: "Tool",
-    title: "Window U-Value Calculator",
+    title: "Window U-value calculator",
     description:
       "Calculate whole-window thermal transmittance (Uw) per EN ISO 10077-1. Compare FRP, aluminum, PVC, and timber frames with double, triple, and quadruple glazing.",
     href: "/technology/frp-u-value-calculator",
@@ -109,65 +110,42 @@ export default function TechnologyPage() {
       <JsonLd data={technologySchema} />
       <PageHeader
         tag="Technology"
-        title="Engineering Excellence in Pultruded Composites"
-        description="We combine advanced pultrusion process control, rigorous material science, and decades of application engineering to deliver FRP profiles that outperform traditional materials in the most demanding environments."
+        title="Pultrusion technology and engineering data"
+        description="How pultruded FRP is made, how it compares with steel, aluminum and concrete, which resin to choose, and how to specify and test a profile, with the calculators that go with them."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology" },
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <div className="overflow-hidden rounded-card">
-            <Image
-              src="/images/technology/frp-profile-engineering-drawing-3d-render.jpg"
-              alt="Pultruded FRP profile with engineering cross-section drawings showing dimensional tolerances and 3D render"
-              width={1280}
-              height={640}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-contain bg-white"
-              preload
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Technology Areas</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Pultrusion Engineering Resources
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Process control sets the material properties, testing confirms them, and the know-how
-            transfer programs pass the method on to other producers.
-          </p>
-
-          <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2">
-            {areas.map((area) => (
-              <div
-                key={area.href}
-                className="group relative overflow-hidden rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:border-teal-border"
-              >
-                <div className="card-topbar absolute left-0 right-0 top-0" />
-                <SectionTag>{area.tag}</SectionTag>
-                <h3 className="mt-[13px] text-f24 font-bold text-t1">
-                  {area.title}
-                </h3>
-                <p className="mt-[13px] text-f16 leading-golden text-t2">
-                  {area.description}
-                </p>
-                <div className="mt-[21px]">
-                  <LinkArrow href={area.href}>Learn more</LinkArrow>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection
+        id="areas"
+        title="Pultrusion engineering resources"
+        count={`${areas.length - 2} guides`}
+        intro="Process control sets the material properties, testing confirms them, and the know-how transfer programs pass the method on to other producers."
+      >
+        <ul className="grid grid-cols-2 gap-[12px] lg:grid-cols-4 lg:gap-[16px]">
+          {areas.filter((area) => area.tag !== "Tool").map((area, index) => {
+            const cover = coverFor(area.href);
+            return cover ? (
+              <li key={area.href}>
+                <CoverCard href={area.href} cover={cover} label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{area.tag}</span>} title={area.title} text={area.description} action="Read the guide" priority={index < 3} compact sizes="(max-width: 1023px) 46vw, 290px" />
+              </li>
+            ) : null;
+          })}
+        </ul>
+        <h3 className="mt-[40px] text-f20 font-bold text-t1">Calculators</h3>
+        <ul className="mt-[16px] grid grid-cols-1 gap-[12px] md:grid-cols-2">
+          {areas.filter((area) => area.tag === "Tool").map((area) => (
+            <li key={area.href}>
+              <CalculatorCTA href={area.href} eyebrow="Free tool" title={area.title} sub={area.description} />
+            </li>
+          ))}
+        </ul>
+      </PageSection>
 
       <RelatedLinks
+        background="bg2"
         groups={[
           {
             title: "Product references",
@@ -225,7 +203,7 @@ export default function TechnologyPage() {
           {
             question: "What tolerance can pultrusion achieve?",
             answer:
-              "Dimensional tolerance is typically ±0.25 mm on cross-section (EN 13706 / ASTM D3917), straightness 1.5 mm/m, and twist 2°/m. F1 Composite verifies every production run with SPC monitoring and dimensional inspection per ASTM D3917.",
+              "Cross-section tolerances follow the profile standard, EN 13706-2 or ASTM D3917, by dimension and wall thickness; straightness and twist are specified per meter of length. The tolerances for an order are those on the approved drawing, checked by dimensional inspection of the production run.",
           },
           {
             question: "What fiber content is typical in pultruded FRP?",
@@ -245,7 +223,7 @@ export default function TechnologyPage() {
           {
             question: "What fire performance can FRP achieve?",
             answer:
-              "Standard polyester FRP is self-extinguishing (UL 94 V-0). With fire-retardant additives, FRP achieves ASTM E84 Class I surface burning. Phenolic-resin pultruded profiles achieve Class 1 surface spread of flame (BS 476 Part 7), low smoke, and low toxicity, which suits them to rail interiors under EN 45545-2 and to offshore applications.",
+              "Standard polyester FRP is not fire-retardant. Fire-retardant resin systems are used where a surface-burning class such as ASTM E84 Class 1 is required, and phenolic profiles where low smoke and toxicity matter, as in rail interiors under EN 45545-2. Fire reports are issued for a specified formulation and profile, so name the classification your project needs.",
           },
         ]}
       />

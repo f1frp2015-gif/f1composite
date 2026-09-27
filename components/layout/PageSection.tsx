@@ -5,6 +5,7 @@ import { holdDash } from "@/lib/typography";
 // alternate white and pale grounds so the page reads in blocks; the closing
 // quote block is dark, in place of the footer's generic one. The page keeps
 // 88 px of scroll padding for the header; the extra 40 px clears the section bar.
+// data-tone lets a card inside pick the opposite ground (see FAQDisclosure).
 export default function PageSection({
   id,
   title,
@@ -15,7 +16,8 @@ export default function PageSection({
   children,
 }: {
   id: string;
-  title: string;
+  /** Plain text in almost every section; markup (an abbreviation, a line break) where the heading needs it. */
+  title: React.ReactNode;
   /** A small figure after the heading, e.g. "9 sizes". */
   count?: string;
   intro?: React.ReactNode;
@@ -25,11 +27,11 @@ export default function PageSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className={`scroll-mt-[40px] py-[48px] md:py-[64px] ${tone === "deep" ? "bg-deep" : tone === "muted" ? "bg-bg2" : "bg-white"}`}>
+    <section id={id} data-tone={tone} aria-labelledby={`${id}-title`} className={`scroll-mt-[40px] py-[48px] md:py-[64px] ${tone === "deep" ? "bg-deep" : tone === "muted" ? "bg-bg2" : "bg-white"}`}>
       <div className="site-container">
         <div className="flex flex-wrap items-end justify-between gap-x-[24px] gap-y-[10px]">
           <h2 id={`${id}-title`} className={`text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.15] tracking-[-0.02em] ${tone === "deep" ? "text-white" : "text-t1"}`}>
-            {holdDash(title)}
+            {typeof title === "string" ? holdDash(title) : title}
             {count ? <span className="ml-[10px] align-middle font-mono text-f12 font-normal uppercase tracking-[0.06em] text-t3">{count}</span> : null}
           </h2>
           {aside ? <div className="text-f14">{aside}</div> : null}

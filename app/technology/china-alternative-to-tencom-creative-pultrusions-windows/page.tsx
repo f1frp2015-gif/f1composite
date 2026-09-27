@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
@@ -20,12 +21,12 @@ export const metadata: Metadata = buildPageMetadata({
 const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string }> = [
   {
     dimension: "Window-profile specialization",
-    f1: "Dedicated fenestration line (F1-THERM): 65/70/80/90/140-series frame, sash, mullion, transom, glazing bead",
+    f1: "Dedicated fenestration line (F1-THERM): nine window and door series from 50 to 140 mm, with frame, sash, mullion, transom and glazing-bead profiles",
     incumbents: "Tencom and Creative Pultrusions run fenestration lineals within broader custom-pultrusion programs; Inline supplies lineals alongside its own finished windows",
   },
   {
     dimension: "Resin systems for window profiles",
-    f1: "Polyurethane (GFRP-PU) or vinyl ester standard on 90-series; polyester / vinyl ester on 65–80",
+    f1: "Polyurethane (GFRP-PU) across the window and door series",
     incumbents: "Typically polyester / vinyl ester lineals; PU offerings vary by manufacturer",
   },
   {
@@ -59,7 +60,7 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Tencom fiberglass window profiles?",
     answer:
-      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom, and glazing bead in 65/70/80/90/140-series frame depths) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K).",
+      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom and glazing bead across nine series from 50 to 140 mm) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K).",
   },
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",
@@ -79,7 +80,7 @@ const faqItems = [
   {
     question: "Why source fiberglass window profiles from China instead of a North American pultruder?",
     answer:
-      "The argument is comparable specifications at factory-direct prices, plus system depth: a five-series window profile family (65–140 mm frame depths) from one supplier, polyurethane-resin profiles where the performance level calls for them, the PHI component certificate with EN 14351-1 and NAFS test reports on request, and export on FOB or DDP terms with duty itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
+      "The argument is comparable specifications at factory-direct prices, plus system depth: nine window and door series (50–140 mm frame depths) in polyurethane-resin profiles from one supplier, the PHI component certificate with EN 14351-1 and NAFS test reports on request, and export on FOB or DDP terms with duty itemized. For fabricators, that means one qualified source for the whole window system rather than assembling lineals, gaskets, and simulation data from separate suppliers. North American pultruders remain the right choice where local content rules, short freight, or existing die ownership dominate the decision.",
   },
 ];
 
@@ -112,110 +113,107 @@ export default function ChinaAlternativeWindowsPage() {
           { label: "China Alternative — Window Profiles" },
         ]}
       />
+      <PageNav items={[{ id: "positioning", label: "Positioning" }, { id: "side-by-side", label: "Side by side" }, { id: "faq", label: "FAQ" }]} />
 
       {/* Positioning intro */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>The positioning</SectionTag>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Same pultrusion fundamentals, a deeper window system, factory-direct
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites Group, USA),
-            and Inline Fiberglass (Toronto, Canada) are the names North American window
-            fabricators know for pultruded fiberglass lineals. They are capable manufacturers,
-            and they work from the same physics that{" "}
-            <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">
-              F1 Composite&apos;s fiberglass window profiles
-            </Link>{" "}
-            are built on: continuous E-glass reinforcement in a thermoset matrix,
-            conductivity ≈ 0.3 W/m·K, and the dimensional stability that lets a
-            frame move with its glass instead of against it.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Fabricators usually look at a China-made alternative for system depth
-            and route to market rather than for the material itself. F1 supplies a
-            five-series window profile family (65–140 mm frame depths)
-            including{" "}
-            <Link href="/technology/polyurethane-pultrusion-windows" className="font-semibold text-teal-text hover:text-teal">
-              polyurethane (GFRP-PU) profiles
-            </Link>{" "}
-            on the performance tier. The 90 series holds a PHI component
-            certificate, EN 14351-1 and NAFS test reports are available on request,
-            and everything ships factory-direct on FOB or DDP terms. You can buy
-            profiles for your own fabrication line or complete factory-assembled units.
-          </p>
-        </div>
-      </section>
+      <PageSection id="positioning" title="Same pultrusion fundamentals, a deeper window system, factory-direct" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Tencom (Ohio, USA), Creative Pultrusions (part of Creative Composites Group, USA),
+          and Inline Fiberglass (Toronto, Canada) are the names North American window
+          fabricators know for pultruded fiberglass lineals. They are capable manufacturers,
+          and they work from the same physics that{" "}
+          <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:text-teal">
+            F1 Composite&apos;s fiberglass window profiles
+          </Link>{" "}
+          are built on: continuous E-glass reinforcement in a thermoset matrix,
+          conductivity ≈ 0.3 W/m·K, and the dimensional stability that lets a
+          frame move with its glass instead of against it.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          Fabricators usually look at a China-made alternative for system depth
+          and route to market rather than for the material itself. F1 supplies
+          nine window and door series (50–140 mm frame depths) in{" "}
+          <Link href="/technology/polyurethane-pultrusion-windows" className="font-semibold text-teal-text hover:text-teal">
+            polyurethane (GFRP-PU) profiles
+          </Link>
+          . The 90 series holds a PHI component
+          certificate, EN 14351-1 and NAFS test reports are available on request,
+          and everything ships factory-direct on FOB or DDP terms. You can buy
+          profiles for your own fabrication line or complete factory-assembled units.
+        </p>
+      </PageSection>
 
       {/* Comparison table */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>Side by side</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            F1-THERM vs the North American lineal suppliers
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            A fair, specification-level comparison. Where a competitor detail varies by program
-            or die, it is described rather than asserted: verify per supplier during
-            qualification.
-          </p>
+      <PageSection id="side-by-side" title="F1-THERM vs the North American lineal suppliers" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          A fair, specification-level comparison. Where a competitor detail varies by program
+          or die, it is described rather than asserted: verify per supplier during
+          qualification.
+        </p>
 
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1 Composite (F1-THERM)</th>
-                  <th className="py-[13px] text-f14 font-semibold text-t1">Tencom · Creative Pultrusions · Inline</th>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Dimension</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] font-semibold text-teal-text">F1 Composite (F1-THERM)</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Tencom · Creative Pultrusions · Inline</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.dimension} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.dimension}</th>
+                  <td className="bg-teal-bg px-[14px] py-[12px] font-medium text-t1">{row.f1}</td>
+                  <td className="px-[14px] py-[12px] text-t2">{row.incumbents}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.dimension} className="border-b border-border-default align-top">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.dimension}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-teal-text">{row.f1}</td>
-                    <td className="py-[13px] text-f16 text-t2">{row.incumbents}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-[21px] text-f14 text-t3">
-            For the frame-material comparison behind these systems, see{" "}
-            <Link href="/technology/frp-vs-aluminum-windows" className="font-semibold text-teal-text hover:text-teal">
-              FRP vs aluminum
-            </Link>{" "}
-            and{" "}
-            <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text hover:text-teal">
-              FRP vs PVC window frames
-            </Link>
-            .
-          </p>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
 
-      {/* Related */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="mb-[21px] text-f18 font-bold text-t1">Verify the equivalence</h2>
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors (65–140 series)</LinkArrow>
-            <LinkArrow href="/products/window-door-profiles">Fiberglass window lineals for fabricators</LinkArrow>
-            <LinkArrow href="/technology/polyurethane-pultrusion-windows">Polyurethane pultrusion windows (GFRP-PU)</LinkArrow>
-            <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
-            <LinkArrow href="/technology/quality-testing">Quality testing (EN 13706 / ASTM)</LinkArrow>
-            <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows: Canada</LinkArrow>
-            <LinkArrow href="/resources/technical-data">Technical data &amp; test reports</LinkArrow>
-          </div>
-        </div>
-      </section>
+        <p className="mt-[20px] text-f14 text-t3">
+          For the frame-material comparison behind these systems, see{" "}
+          <Link href="/technology/frp-vs-aluminum-windows" className="font-semibold text-teal-text hover:text-teal">
+            FRP vs aluminum
+          </Link>{" "}
+          and{" "}
+          <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text hover:text-teal">
+            FRP vs PVC window frames
+          </Link>
+          .
+        </p>
+      </PageSection>
 
-      <AnswerBlocks
-        title="China alternative to Tencom, Creative Pultrusions & Inline: window profile FAQ"
-        description="Specification-level answers for window fabricators and procurement teams evaluating a China-based fiberglass window profile supplier against the North American incumbents."
-        items={faqItems}
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqItems} />
+      </PageSection>
+
+      <RelatedLinks
+        groups={[
+          {
+            title: "Products",
+            links: [
+              { href: "/products/frp-window-frames", label: "Fiberglass windows and doors, 50–140 mm" },
+              { href: "/products/window-door-profiles", label: "Window and door profiles for fabricators" },
+            ],
+          },
+          {
+            title: "Evidence and tools",
+            links: [
+              { href: "/technology/quality-testing", label: "Quality testing (EN 13706 / ASTM)" },
+              { href: "/resources/technical-data", label: "Technical data and test reports" },
+              { href: "/technology/frp-u-value-calculator", label: "Window U-value calculator" },
+            ],
+          },
+          {
+            title: "Guides",
+            links: [
+              { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows for Canada" },
+            ],
+          },
+        ]}
       />
 
       <InnerCTA title="Qualifying a window-profile supplier? Send your die drawing or spec for a like-for-like quote." />
