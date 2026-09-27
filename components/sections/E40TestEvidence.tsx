@@ -3,17 +3,17 @@ import { e40EvidenceHref, e40ReportDate, e40Reports, e40TestMethod } from "@/con
 
 export function E40EvidenceLink({ facade = false }: { facade?: boolean }) {
   return (
-    <aside className="my-[21px] rounded-card border border-border-default bg-teal-bg p-[21px]">
+    <aside className="rounded-card border border-teal-border bg-teal-bg p-[20px] sm:p-[24px]">
       <h3 className="text-f18 font-bold text-t1">E40 / 40 GPa-class test evidence</h3>
-      <p className="mt-[8px] text-f16 leading-golden text-t2">
+      <p className="mt-[8px] text-f14 leading-golden text-t2">
         SGS reports record full-section averages of 40.8 and 41.5 GPa using {e40TestMethod}.
         E40 is a commercial performance designation, not an EN 13706 grade.
         {facade
           ? " These square-profile results do not validate the facade plate laminate or blade geometry; request plate-specific evidence for your specification."
           : " Results apply to the tested samples; the report size identifiers need clarification before qualification of a particular tube size or supplied batch."}
       </p>
-      <Link href={e40EvidenceHref} className="mt-[8px] inline-flex min-h-[44px] items-center font-semibold text-teal-text underline underline-offset-4">
-        Review the SGS reports, test conditions and scope →
+      <Link href={e40EvidenceHref} className="mt-[4px] inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+        Review the SGS reports, test conditions and scope <span aria-hidden className="ml-[4px]">→</span>
       </Link>
     </aside>
   );

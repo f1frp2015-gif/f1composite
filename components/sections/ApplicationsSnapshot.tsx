@@ -19,10 +19,10 @@ export default function ApplicationsSnapshot() {
       }
       tone="muted"
     >
-      <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
         {industries.map((industry) => (
           <li key={industry.href}>
-            <CoverCard href={industry.href} cover={industryCovers[industry.href]} title={industry.title} text={industry.description} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" />
+            <CoverCard href={industry.href} cover={industryCovers[industry.href]} title={industry.title} text={industry.description} compact sizes="(max-width: 1024px) 50vw, 300px" />
           </li>
         ))}
         <li>
@@ -31,7 +31,8 @@ export default function ApplicationsSnapshot() {
             cover={{ src: "/images/industries/industrial-plating-line-concept.webp", alt: "Concept walkway with FRP grating and yellow handrails beside process tanks", note: "AI concept" }}
             title="Browse by application"
             text="Platforms, cooling towers, solar, cable trays, bridges and stakes."
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+            compact
+            sizes="(max-width: 1024px) 50vw, 300px"
           />
         </li>
       </ul>

@@ -194,7 +194,7 @@ export default async function SquareTubePage() {
         <LaminateProperties />
         <div className="mt-[24px] grid grid-cols-1 items-start gap-[16px] lg:grid-cols-2">
           <E40EvidenceLink />
-          <div className="lg:py-[21px]">
+          <div>
             <CalculatorCTA
               href="/frp-profile-calculator#shape=square-tube"
               eyebrow="Free tool · square tube preset"

@@ -15,7 +15,7 @@ import {
   stairTreadReferenceRows,
   stairTreadSelectionFamilies,
 } from "@/content/data/frpStairTreadSpecs";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Stair Treads & Fiberglass Stair Tread Covers";
@@ -124,7 +124,7 @@ function MeasurementDiagram() {
 const requestItems = [
   { title: "Tread schedule", text: "Quantity by flight with the finished width L, tread depth D and nose return H, including mixed sizes." },
   { title: "Existing stair", text: "Substrate and stringer photos. For complete treads, the clear span, loads and deflection limit." },
-  { title: "Exposure and surface", text: "Chemicals, temperature, UV, washdown and electrical exposure; surface, nosing colour, resin and test documents." },
+  { title: "Exposure and surface", text: "Chemicals, temperature, UV, washdown and electrical exposure; surface, nosing color, resin and test documents." },
   { title: "Destination and date", text: "Delivery destination, required date and any hardware preference." },
 ];
 
@@ -161,7 +161,7 @@ export default function StairTreadCoversPage() {
 
       <PageHeader
         updated={updatedAt}
-        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        reviewer={reviewerCredit(reviewer)}
         tag="Stair treads"
         line={{ name: "F1-GRID", label: "Stair treads" }}
         title="FRP Stair Treads & Fiberglass Stair Tread Covers"

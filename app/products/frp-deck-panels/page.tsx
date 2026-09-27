@@ -11,7 +11,7 @@ import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { frpDeckPanelSourceNote, frpDeckPanelSpecs } from "@/content/data/frpDeckPanelSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
@@ -90,7 +90,7 @@ const faqItems = [
 const requestItems = [
   { title: "Profile and drawing unit", text: "The candidate Profile 01–12, or the joint you need, with the unit for A, B and t1/t2 confirmed." },
   { title: "Spans and loads", text: "Clear support spacing, deck width and length, uniform, point and wheel loads, the load footprint and the deflection or vibration limit." },
-  { title: "Exposure and surface", text: "Resin, outdoor or chemical exposure, anti-slip surface, fire requirement and colour." },
+  { title: "Exposure and surface", text: "Resin, outdoor or chemical exposure, anti-slip surface, fire requirement and color." },
   { title: "Connections and delivery", text: "Hold-downs and support connections, the approval drawing or calculation package needed, quantity and destination." },
 ];
 
@@ -122,7 +122,7 @@ export default function FrpDeckPanelsPage() {
 
       <PageHeader
         updated={updatedAt}
-        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        reviewer={reviewerCredit(reviewer)}
         tag="Deck panels"
         line={{ name: "F1-STRUX", label: "Deck panels" }}
         title="Structural FRP Deck Panels — 12 Cross-Section Families"

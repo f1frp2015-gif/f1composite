@@ -10,7 +10,8 @@ import type { Cover } from "@/lib/covers";
  *
  * Photos fill the 16:10 frame; product cut-outs and drawings sit whole on
  * white (`fit: "contain"`). Renderings and illustrative photos keep their
- * label in the corner of the image, as on the page itself.
+ * label in the corner of the image, as on the page itself. Long grids pass
+ * `compact` and run two-up on phones, where the card shows only its title.
  */
 export default function CoverCard({
   href,
@@ -22,6 +23,7 @@ export default function CoverCard({
   action,
   footer,
   priority = false,
+  compact = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px",
 }: {
   href: string;
@@ -37,6 +39,8 @@ export default function CoverCard({
   /** Extra links under the card body, outside the main link. */
   footer?: React.ReactNode;
   priority?: boolean;
+  /** For long grids shown two-up on phones: a smaller body there, title only. */
+  compact?: boolean;
   sizes?: string;
 }) {
   return (
@@ -58,12 +62,12 @@ export default function CoverCard({
             </span>
           ) : null}
         </span>
-        <span className="flex flex-1 flex-col p-[18px] sm:p-[20px]">
-          {label ? <span className="block">{label}</span> : null}
-          <span className={`${label ? "mt-[8px]" : ""} text-f18 font-bold leading-snug text-t1 transition-colors group-hover:text-teal-text`}>{title}</span>
-          {text ? <span className="mt-[6px] text-f14 leading-golden text-t2">{text}</span> : null}
+        <span className={`flex flex-1 flex-col ${compact ? "p-[12px] sm:p-[20px]" : "p-[18px] sm:p-[20px]"}`}>
+          {label ? <span className={`block ${compact ? "max-sm:hidden" : ""}`}>{label}</span> : null}
+          <span className={`${label ? (compact ? "sm:mt-[8px]" : "mt-[8px]") : ""} ${compact ? "text-f16 sm:text-f18" : "text-f18"} font-bold leading-snug text-t1 transition-colors group-hover:text-teal-text`}>{title}</span>
+          {text ? <span className={`mt-[6px] text-f14 leading-golden text-t2 ${compact ? "max-sm:hidden" : ""}`}>{text}</span> : null}
           {facts?.length ? (
-            <span className="mt-[12px] flex flex-wrap gap-[6px]">
+            <span className={`mt-[12px] flex flex-wrap gap-[6px] ${compact ? "max-sm:hidden" : ""}`}>
               {facts.map((fact) => (
                 <span key={fact} className="rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] text-f12 font-medium text-t1">
                   {fact}
@@ -71,7 +75,7 @@ export default function CoverCard({
               ))}
             </span>
           ) : null}
-          {action ? <span className="mt-auto pt-[14px] text-f14 font-semibold text-teal-text">{action} <span aria-hidden>→</span></span> : null}
+          {action ? <span className={`mt-auto pt-[14px] text-f14 font-semibold text-teal-text ${compact ? "max-sm:hidden" : ""}`}>{action} <span aria-hidden>→</span></span> : null}
         </span>
       </Link>
       {footer}

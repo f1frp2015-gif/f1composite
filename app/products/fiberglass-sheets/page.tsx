@@ -90,7 +90,7 @@ const uses = [
 // The surfaces the FAQ describes, as a short list beside the edge photo.
 const surfaces = [
   { name: "Smooth, veiled", text: "Standard on both faces for liners, baffles and electrical parts." },
-  { name: "Gritted anti-slip", text: "Silica or aluminium-oxide grit bonded to one face, the material of the stair tread covers." },
+  { name: "Gritted anti-slip", text: "Silica or aluminum-oxide grit bonded to one face, the material of the stair tread covers." },
   { name: "Embossed or pigmented", text: "Available per order; confirm on the drawing." },
 ];
 

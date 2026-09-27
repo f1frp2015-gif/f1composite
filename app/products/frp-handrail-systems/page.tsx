@@ -16,7 +16,7 @@ import {
   type HandrailCatalogSystem,
 } from "@/content/data/frpHandrailSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
@@ -99,7 +99,7 @@ const requestItems = [
   { title: "Layout", text: "Total run, plan and elevations, stair slopes, corners, gates and openings." },
   { title: "Loads and limits", text: "The governing load standard, rail height and any post-spacing limit." },
   { title: "Bases and kick plates", text: "Base substrate and fixing conditions, and whether a kick plate is required." },
-  { title: "Exposure and delivery", text: "Chemical, outdoor and electrical exposure, colour, quantity and destination." },
+  { title: "Exposure and delivery", text: "Chemical, outdoor and electrical exposure, color, quantity and destination." },
 ];
 
 const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
@@ -160,7 +160,7 @@ export default function HandrailSystemsPage() {
 
       <PageHeader
         updated={updatedAt}
-        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        reviewer={reviewerCredit(reviewer)}
         tag="Handrail systems"
         line={{ name: "F1-STRUX", label: "Handrail systems" }}
         title="Fiberglass Handrail and Guardrail Systems"

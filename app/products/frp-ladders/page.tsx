@@ -19,7 +19,7 @@ import {
   type CatalogSpecRow,
 } from "@/content/data/frpLadderSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
@@ -102,7 +102,7 @@ const requestItems = [
   { title: "Elevation", text: "Vertical rise, clear width, wall stand-off and the top-exit detail, marked on an elevation or CAD file." },
   { title: "Supports", text: "Wall or frame substrate and the bracket locations." },
   { title: "Standard and fall protection", text: "The governing standard and the cage or ladder-safety concept." },
-  { title: "Exposure and delivery", text: "Exposure, colour, quantity and destination." },
+  { title: "Exposure and delivery", text: "Exposure, color, quantity and destination." },
 ];
 
 const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
@@ -154,7 +154,7 @@ export default function FrpLaddersPage() {
 
       <PageHeader
         updated={updatedAt}
-        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        reviewer={reviewerCredit(reviewer)}
         tag="Fixed ladders"
         line={{ name: "F1-STRUX", label: "Fixed ladders" }}
         title="Fiberglass Fixed Ladders and FRP Access Systems"

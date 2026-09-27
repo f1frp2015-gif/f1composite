@@ -1,13 +1,15 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/fiberglass-snow-markers";
@@ -26,12 +28,21 @@ export const metadata: Metadata = buildPageMetadata({
   image: heroImage,
 });
 
-const portfolioFacts = [
-  { value: '1/4" & 5/16"', label: "common reference diameters" },
-  { value: "2–6 ft", label: "reference cut-length range" },
-  { value: "Solid / hollow", label: "two profile constructions" },
-  { value: "1–3 bands", label: "typical reflective-tape layouts" },
+const quoteHref = buildRfqHref({
+  source: "fiberglass-snow-markers",
+  product: "Fiberglass snow markers",
+  productPath: pagePath,
+  message: "Please quote fiberglass snow markers. I will send the construction, diameter, length, color, reflective bands, pack count and quantity.",
+});
+
+const requestItems = [
+  { title: "Marker", text: "Solid or hollow, outside diameter, cut length, color, tip and cap detail." },
+  { title: "Reflective bands", text: "Band count, width and position, and the tape grade or sheeting standard if one is required." },
+  { title: "Packing", text: "Pack count, private label or barcode, carton and pallet limits." },
+  { title: "Quantity and delivery", text: "Total quantity by size, destination and the date the markers must be on site or in store." },
 ];
+
+const card = "rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]";
 
 const specificationRows = [
   {
@@ -224,52 +235,24 @@ export default function FiberglassSnowMarkersPage() {
       />
 
       <PageHeader
-        tag="Winter Visibility Products"
+        tag="Snow markers"
+        line={{ name: "Winter visibility", label: "Snow markers", mark: false }}
         title="Fiberglass snow markers for wholesale and project programs"
         description="Solid and hollow reflective driveway stakes configured by diameter, length, color, tape layout and pack count. Built for snow-removal contractors, property managers, retailers and seasonal infrastructure programs."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Products", href: "/pultruded-frp-profiles" },
-          { label: "Fiberglass Snow Markers" },
+        facts={[
+          { label: "Diameter", value: "1/4 or 5/16 in" },
+          { label: "Length", value: "2–6 ft" },
+          { label: "Construction", value: "Solid or hollow" },
+          { label: "Reflective bands", value: "1–3" },
         ]}
-      />
-
-      <section className="bg-white py-[55px] lg:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.03fr_0.97fr] lg:items-center">
-          <div>
-            <SectionTag>Snow Stakes · Driveway Markers · Plow Guides</SectionTag>
-            <h2 className="mt-[21px] max-w-[720px] text-[clamp(28px,4vw,48px)] font-extrabold leading-[1.08] text-t1">
-              Specify the marker as a complete visibility system
-            </h2>
-            <p className="mt-[21px] max-w-[720px] text-f16 leading-golden text-t2">
-              F1 Composite supplies pultruded fiberglass snow stakes as solid rods or
-              hollow tubes for wholesale packs and project quantities. A useful order
-              defines the section, cut length, color, insertion tip, reflective-band
-              layout and packaging together.
-            </p>
-            <p className="mt-[13px] max-w-[720px] text-f16 leading-golden text-t2">
-              Send the target sample or specification before pricing. We return a
-              size-by-size offer with construction, tolerances, tape details, pack
-              count, inspection points and delivery basis clearly separated.
-            </p>
-            <div className="mt-[29px] flex flex-wrap gap-[13px]">
-              <Link
-                href="/contact"
-                className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
-              >
-                Request a snow-marker quote
-              </Link>
-              <a
-                href="#reference-sizes"
-                className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
-              >
-                Review reference sizes
-              </a>
-            </div>
-          </div>
-
-          <figure>
-            <div className="relative aspect-square overflow-hidden rounded-card border border-border-default bg-bg2">
+        actions={{
+          primary: { label: "Request a snow-marker quote", href: quoteHref },
+          secondary: { label: "Review reference sizes", href: "#reference-sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Marker configurations" note="Visualization" caption="Catalog visualization of solid and hollow marker configurations. Final color, diameter, tape layout and end treatment follow the approved sample." bleed>
+            <div className="relative aspect-[5/4]">
               <Image
                 src={heroImage}
                 alt="Orange, yellow, green, blue and red fiberglass snow markers with wraparound reflective bands and pointed tips"
@@ -279,172 +262,165 @@ export default function FiberglassSnowMarkersPage() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Catalog visualization of solid and hollow marker configurations. Final
-              color, diameter, tape layout and end treatment follow the approved sample.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+          </Figure>
+        }
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Products", href: "/pultruded-frp-profiles" },
+          { label: "Fiberglass Snow Markers" },
+        ]}
+      />
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "reference-sizes", label: "Reference sizes" },
+          { id: "construction", label: "Solid or hollow" },
+          { id: "applications", label: "Applications" },
+          { id: "release", label: "Specification" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="border-y border-border-default bg-bg2 py-[34px]">
-        <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-          {portfolioFacts.map((fact) => (
-            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
-              <p className="text-f24 font-extrabold text-teal-text">{fact.value}</p>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
-            </div>
-          ))}
-        </div>
-        <p className="site-container mt-[13px] text-f12 leading-golden text-t3">
-          These dimensions and configurations are sourcing references, not an
-          automatic stock commitment. The quotation and approved sample control the
-          order-specific product.
-        </p>
-      </section>
-
-      <section id="reference-sizes" className="scroll-mt-[120px] bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Reference product matrix</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Lock every visible and hidden detail before production
-          </h2>
-          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
-            Two markers can look identical in a listing while using different wall
-            thicknesses, fiberglass content, tape grades or packaging. Use the matrix
-            below as the minimum RFQ structure.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
-            <table className="w-full min-w-[780px] border-collapse text-left">
-              <thead className="bg-bg2">
-                <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Specification item</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Reference starting point</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Order controls</th>
-                </tr>
-              </thead>
-              <tbody>
-                {specificationRows.map((row) => (
-                  <tr key={row.item} className="border-t border-border-default align-top">
-                    <th className="px-[21px] py-[16px] text-f14 font-bold text-t1">{row.item}</th>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.standard}</td>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.options}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Construction choice</SectionTag>
-          <h2 className="mt-[21px] max-w-[860px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Solid rod and hollow tube solve different buying priorities
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            {constructionOptions.map((option) => (
-              <article key={option.name} className="rounded-card border border-border-default bg-white p-[29px]">
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{option.badge}</p>
-                <h3 className="mt-[8px] text-f18 font-extrabold text-t1">{option.name}</h3>
-                <p className="mt-[13px] text-f14 font-semibold leading-golden text-t1">{option.bestFor}</p>
-                <p className="mt-[13px] text-f14 leading-golden text-t2">{option.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[760px] border-collapse text-left">
-              <thead className="bg-white">
-                <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Decision</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Solid stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Hollow stake</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.topic} className="border-t border-border-default align-top">
-                    <th className="px-[21px] py-[16px] text-f14 font-bold text-t1">{row.topic}</th>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.solid}</td>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.hollow}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <SectionTag>Applications</SectionTag>
-              <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Visibility before the first snowfall
-              </h2>
-              <p className="mt-[21px] text-f16 leading-golden text-t2">
-                The best marker plan is installed before boundaries disappear. Color
-                can separate route types, while reflective bands help an operator find
-                the same reference under vehicle lighting and low-contrast weather.
-              </p>
-              <figure className="mt-[29px]">
-                <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
-                  <Image
-                    src={applicationImage}
-                    alt="Orange fiberglass snow markers lining a plowed mountain road after heavy snowfall"
-                    fill
-                    loading="lazy"
-                    quality={75}
-                    sizes="(max-width: 1024px) calc(100vw - 68px), 40vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                  High-visibility fiberglass stakes preserve the road-edge reference
-                  after plowing, even when the shoulder and drainage line are buried.
-                </figcaption>
-              </figure>
-            </div>
-            <div className="grid gap-[13px] sm:grid-cols-2">
-              {applications.map((application) => (
-                <article key={application.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                  <h3 className="text-f16 font-bold text-t1">{application.title}</h3>
-                  <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-deep py-[89px] text-white">
-        <div className="site-container">
-          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-white/60">Four-step release</p>
-          <h2 className="mt-[13px] max-w-[840px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
-            Turn a generic snow pole into an order-ready specification
-          </h2>
-          <div className="mt-[34px] grid gap-[13px] md:grid-cols-2 xl:grid-cols-4">
-            {selectionSteps.map((item) => (
-              <article key={item.step} className="rounded-card border border-white/15 bg-white/5 p-[21px]">
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-teal-light">{item.step}</p>
-                <h3 className="mt-[8px] text-f18 font-bold">{item.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-white/70">{item.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-[21px] rounded-card border border-white/15 bg-white/5 p-[21px]">
-            <p className="text-f14 font-bold text-white">Public-road use needs a separate compliance decision</p>
-            <p className="mt-[8px] text-f14 leading-golden text-white/75">
-              A colored fiberglass stake with reflective tape is not automatically a
-              traffic-control device. Public authorities may control geometry, color,
-              retroreflective performance, placement and approvals. State those
-              requirements explicitly rather than relying on a marketplace description.
+      <PageSection id="overview" title="Specify the marker as a complete visibility system">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
+              F1 Composite supplies pultruded fiberglass snow stakes as solid rods or hollow tubes for wholesale packs and project quantities. A useful order defines the section, cut length, color, insertion tip, reflective-band layout and packaging together.
+            </p>
+            <p>
+              Send the target sample or specification before pricing. We return a size-by-size offer with construction, tolerances, tape details, pack count, inspection points and delivery basis clearly separated.
             </p>
           </div>
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Also called</p>
+            <p className="mt-[8px] text-f16 leading-golden text-t1">Snow stakes, driveway markers, snow poles and plow guides.</p>
+            <p className="mt-[10px] text-f14 leading-golden text-t2">
+              For horticulture, the same pultruded rod construction is supplied as{" "}
+              <Link href="/products/fiberglass-stakes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">plant and tree stakes</Link>.
+            </p>
+          </aside>
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection
+        id="reference-sizes"
+        title="Lock every visible and hidden detail before production"
+        tone="muted"
+        intro="Two markers can look identical in a listing while using different wall thicknesses, fiberglass content, tape grades or packaging. Use the matrix below as the minimum RFQ structure."
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+            <caption className="sr-only">Snow marker reference specification</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Specification item</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Reference starting point</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Order controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              {specificationRows.map((row) => (
+                <tr key={row.item} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{row.item}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t1">{row.standard}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.options}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] max-w-[900px] text-f14 leading-golden text-t3">
+          These dimensions and configurations are sourcing references, not an automatic stock commitment. The quotation and approved sample control the order-specific product.
+        </p>
+      </PageSection>
+
+      <PageSection id="construction" title="Solid rod and hollow tube solve different buying priorities">
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-2">
+          {constructionOptions.map((option) => (
+            <article key={option.name} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{option.badge}</p>
+              <h3 className="mt-[6px] text-f20 font-bold text-t1">{option.name}</h3>
+              <p className="mt-[10px] text-f14 font-semibold leading-golden text-t1">{option.bestFor}</p>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{option.body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="relative mt-[24px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[640px] border-collapse text-left text-f14">
+            <caption className="sr-only">Solid and hollow snow stakes compared</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Decision</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Solid stake</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Hollow stake</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.topic} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{row.topic}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.solid}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.hollow}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="applications"
+        title="Visibility before the first snowfall"
+        tone="muted"
+        intro="The best marker plan is installed before boundaries disappear. Color can separate route types, while reflective bands help an operator find the same reference under vehicle lighting and low-contrast weather."
+      >
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[40px]">
+          <Figure number={2} title="Road-edge markers after plowing" note="Illustrative image" caption="High-visibility fiberglass stakes preserve the road-edge reference after plowing, even when the shoulder and drainage line are buried." bleed>
+            <div className="relative aspect-[3/2]">
+              <Image
+                src={applicationImage}
+                alt="Orange fiberglass snow markers lining a plowed mountain road after heavy snowfall"
+                fill
+                loading="lazy"
+                quality={75}
+                sizes="(max-width: 1024px) calc(100vw - 68px), 40vw"
+                className="object-cover"
+              />
+            </div>
+          </Figure>
+          <div className="grid grid-cols-1 gap-[12px] sm:grid-cols-2">
+            {applications.map((application) => (
+              <article key={application.title} className={card}>
+                <h3 className="text-f16 font-bold text-t1">{application.title}</h3>
+                <p className="mt-[6px] text-f14 leading-golden text-t2">{application.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </PageSection>
+
+      <PageSection id="release" title="Turn a generic snow pole into an order-ready specification">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 xl:grid-cols-4">
+          {selectionSteps.map((item, index) => (
+            <li key={item.step} className={card}>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</p>
+              <h3 className="mt-[6px] text-f18 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+            </li>
+          ))}
+        </ol>
+        <aside className="mt-[16px] rounded-card border border-warn-border bg-warn-bg p-[20px] sm:p-[24px]">
+          <h3 className="text-f16 font-bold text-t1">Public-road use needs a separate compliance decision</h3>
+          <p className="mt-[6px] max-w-[900px] text-f14 leading-golden text-t2">
+            A colored fiberglass stake with reflective tape is not automatically a traffic-control device. Public authorities may control geometry, color, retroreflective performance, placement and approvals. State those requirements explicitly rather than relying on a marketplace description.
+          </p>
+        </aside>
+      </PageSection>
+
+      <PageSection id="faq" title="Snow marker questions" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
         background="white"
@@ -467,7 +443,6 @@ export default function FiberglassSnowMarkersPage() {
               { href: "/industries/construction", label: "Construction" },
               { href: "/industries/industrial", label: "Industrial facilities" },
               { href: "/regions/frp-pultrusion-supplier-usa", label: "North America supply" },
-              { href: "/contact", label: "Wholesale inquiry" },
             ],
           },
           {
@@ -477,20 +452,21 @@ export default function FiberglassSnowMarkersPage() {
               { href: "/technology/pultrusion-resin-systems", label: "Resin-system selection" },
               { href: "/technology/quality-testing", label: "Quality testing" },
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "Supplier selection guide" },
-              { href: "/contact", label: "Send a target sample" },
             ],
           },
         ]}
       />
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <ProductNextSteps path="/products/fiberglass-snow-markers" />
-      <InnerCTA title="Send your snow-marker size, tape and pack specification for quotation" />
+      <PageSection id="quote" title="Send your snow-marker size, tape and pack specification" tone="deep">
+        <ProductRfq
+          product="Fiberglass snow markers"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the target sample or specification. We return a size-by-size offer with construction, tolerances, tape details, pack count and delivery basis."
+          advisorPrompt="I need fiberglass snow markers: [solid/hollow], diameter [1/4 or 5/16 in], length [ft], colors [list], reflective bands [count and position], pack count [pcs], quantity [pcs] and destination [country]. Build the RFQ checklist and flag anything I have not specified."
+        />
+      </PageSection>
     </>
   );
 }

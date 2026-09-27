@@ -203,7 +203,7 @@ export default function DoorThresholdsPage() {
           ] },
           { title: "Profiles and tools", links: [
             { label: "Pultruded FRP profiles overview", href: "/pultruded-frp-profiles" },
-            { label: "FRP density & weight-per-metre calculator", href: "/frp-density-calculator" },
+            { label: "FRP density & weight-per-meter calculator", href: "/frp-density-calculator" },
           ] },
         ]}
       />

@@ -6,6 +6,7 @@ import Breadcrumbs, { BreadcrumbItem } from "@/components/layout/Breadcrumbs";
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import WhatsAppButton from "@/components/contact/WhatsAppButton";
 import { formatShortDate } from "@/lib/dates";
+import { holdDash } from "@/lib/typography";
 
 interface PageHeaderAction {
   label: string;
@@ -78,7 +79,7 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
             <div className={figure ? "lg:[grid-area:text]" : undefined}>
               {line ? <LineTag line={line.name} label={line.label} mark={line.mark} /> : <LineTag line={tag} mark={false} />}
               <h1 className="mt-[16px] max-w-[920px] text-[clamp(34px,4.5vw,56px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-t1">
-                {title}
+                {holdDash(title)}
               </h1>
               <p className="mt-[16px] max-w-[820px] text-f18 leading-relaxed text-t2">
                 {description}

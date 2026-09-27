@@ -19,7 +19,7 @@ export interface Cover {
   fit?: "cover" | "contain";
   /** What kind of image this is, when it could be mistaken for an F1 project photo. */
   note?: string;
-  /** CSS object-position for a photo whose subject is off centre. */
+  /** CSS object-position for a photo whose subject is off center. */
   position?: string;
 }
 
@@ -60,7 +60,7 @@ export const productCovers = {
   "/products/frp-solar-mounting-systems": { src: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp", alt: "Pultruded FRP solar mounting profiles supporting modules on an industrial rooftop in Chongqing", note: "Project photo" },
   "/products/frp-sound-barrier-wall": { src: "/images/products/frp-sound-barrier-wall/frp-sound-barrier-wall-highway.webp", alt: "Concept FRP sound barrier wall along a highway", note: AI_CONCEPT },
   "/products/frp-facade-panels": { src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp", alt: "Vertical fin sunshades on a curtain wall facade", note: RENDERING },
-  "/products/fiberglass-snow-markers": { src: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp", alt: "Fiberglass snow markers in five colours with reflective bands", note: "Visualization" },
+  "/products/fiberglass-snow-markers": { src: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp", alt: "Fiberglass snow markers in five colors with reflective bands", note: "Visualization" },
   "/products/fiberglass-stakes": { src: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", alt: "Green fiberglass stakes in several diameters and lengths", note: "Visualization" },
   "/products/frp-handrail-systems": { src: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp", alt: "Yellow fiberglass handrails around industrial platforms and stairs", note: "Reference photo" },
   "/products/frp-ladders": { src: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp", alt: "Yellow fiberglass fixed ladder with cage hoops", note: "Reference photo" },
