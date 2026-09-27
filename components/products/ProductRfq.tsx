@@ -33,8 +33,8 @@ export default function ProductRfq({
   quoteLabel?: string;
   /** A second quote route, shown as a secondary button. */
   secondaryQuote?: { label: string; href: string };
-  /** What a useful request includes. */
-  items?: { title: string; text: string }[];
+  /** What a useful request includes; the text may be left empty for a short checklist. */
+  items?: { title: string; text?: string }[];
   intro?: string;
   /** The question the engineering assistant opens with; a product question by default. */
   advisorPrompt?: string;
@@ -63,9 +63,10 @@ export default function ProductRfq({
       </div>
       <dl className="grid gap-px overflow-hidden rounded-card bg-deep sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item.title} className="bg-white px-[18px] py-[14px] sm:py-[18px]">
+          // An odd last item spans both columns, so the grid never shows a dark hole.
+          <div key={item.title} className="bg-white px-[18px] py-[14px] sm:py-[18px] sm:[&:last-child:nth-child(odd)]:col-span-2">
             <dt className="text-f16 font-bold text-t1">{item.title}</dt>
-            <dd className="mt-[6px] text-f14 leading-golden text-t2 max-sm:hidden">{item.text}</dd>
+            {item.text ? <dd className="mt-[6px] text-f14 leading-golden text-t2 max-sm:hidden">{item.text}</dd> : null}
           </div>
         ))}
       </dl>

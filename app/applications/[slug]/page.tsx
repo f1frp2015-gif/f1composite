@@ -3,17 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
-import SectionTag from "@/components/ui/SectionTag";
-import RelatedLinks from "@/components/sections/RelatedLinks";
-import AskAICard from "@/components/ai/AskAICard";
-import InnerCTA from "@/components/sections/InnerCTA";
-import JsonLd from "@/components/seo/JsonLd";
-import PedestrianBridgeGuide, { bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
-import CableTrayApplication from "@/components/sections/CableTrayApplication";
-import AgricultureStakesApplication from "@/components/sections/AgricultureStakesApplication";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import ProductRfq from "@/components/products/ProductRfq";
+import AgricultureStakesApplication from "@/components/sections/AgricultureStakesApplication";
+import CableTrayApplication from "@/components/sections/CableTrayApplication";
+import PedestrianBridgeGuide, { bridgeFaqs, bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import JsonLd from "@/components/seo/JsonLd";
+import CoverLink from "@/components/ui/CoverLink";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
+import { coverFor } from "@/lib/covers";
+import { buildRfqHref } from "@/lib/rfq";
+import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 /* Pre-filled FRP profile calculator deep links — a typical span / load /
    environment per application so each page opens the tool already scoped. */
@@ -25,6 +30,11 @@ const PROFILE_CALC_LINK: Record<string, string> = {
   "frp-chemical-plant-platforms": "/frp-profile-calculator#shape=i-beam&span=1800&load=10&env=chemical&material=frp-e23&load_type=udl&defl=360",
   "frp-pedestrian-bridge-superstructures": "/frp-profile-calculator#shape=i-beam",
 };
+
+const BRIDGE = "frp-pedestrian-bridge-superstructures";
+const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+
+type Tone = "white" | "muted";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -58,15 +68,16 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const path = `/applications/${page.slug}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: page.title,
     description: page.description,
-    url: absoluteUrl(`/applications/${page.slug}`),
+    url: absoluteUrl(path),
     about: page.shortTitle,
     publisher: { "@id": "https://www.f1composite.com/#organization" },
-    mainEntityOfPage: absoluteUrl(`/applications/${page.slug}`),
+    mainEntityOfPage: absoluteUrl(path),
     dateModified: page.lastModified,
     image: absoluteUrl(page.image),
   };
@@ -79,151 +90,167 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     return <><JsonLd data={schema} /><AgricultureStakesApplication page={page} /></>;
   }
 
+  const bridge = page.slug === BRIDGE;
+  const quoteHref = bridge ? bridgeRfqHref : buildRfqHref({ source: `application-${page.slug}`, product: page.shortTitle, productPath: path });
+  const calculator = PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator";
+  const products = page.related.filter((link) => coverFor(link.href));
+
+  const sections: { id: string; label: string; title: string; intro?: React.ReactNode; count?: string; content: (tone: Tone) => React.ReactNode }[] = [
+    {
+      id: "fit",
+      label: "Where it fits",
+      title: "Where it fits and what we supply",
+      intro: page.environment,
+      content: () => (
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <div className="text-f16 leading-golden text-t2">
+            <p>
+              Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation.
+            </p>
+            <p className="mt-[12px]">This page describes how the products are used; design and installation are included only where the quotation says so.</p>
+            <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14">
+              <Link href="/products/product-lines" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">All product families</Link>
+              <Link href="/industries" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Industries</Link>
+            </p>
+          </div>
+          {products.length ? (
+            <div>
+              <h3 className="text-f16 font-bold text-t1">Products for this application</h3>
+              <ul className="mt-[12px] grid grid-cols-1 gap-[10px]">
+                {products.map((link) => (
+                  <li key={link.href}>
+                    <CoverLink href={link.href} cover={coverFor(link.href)!} title={link.label} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      ),
+    },
+    {
+      id: "profiles",
+      label: "Profiles & resin",
+      title: "Recommended profiles and resin",
+      content: (tone) => (
+        <div className="grid grid-cols-1 items-start gap-[16px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-[24px]">
+          <ol className={`divide-y divide-border-default rounded-card border border-border-default ${tone === "muted" ? "bg-white" : "bg-bg2"}`}>
+            {page.recommendedProfiles.map((item, index) => (
+              <li key={item} className="grid grid-cols-[32px_minmax(0,1fr)] gap-x-[8px] px-[20px] py-[14px] text-f16 leading-golden text-t1">
+                <span className="font-mono text-f12 leading-[2.1] text-teal-text">{String(index + 1).padStart(2, "0")}</span>
+                {item}
+              </li>
+            ))}
+          </ol>
+          <div className={`rounded-card border border-border-default p-[20px] sm:p-[24px] ${tone === "muted" ? "bg-white" : "bg-bg2"}`}>
+            <h3 className="text-f18 font-bold text-t1">Resin</h3>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
+            <h3 className="mt-[20px] border-t border-border-default pt-[16px] text-f16 font-bold text-t1">Standards commonly referenced</h3>
+            <ul className="mt-[10px] flex flex-wrap gap-[6px]">
+              {page.standards.map((standard) => (
+                <li key={standard} className="rounded-tag border border-border-default bg-white px-[8px] py-[3px] text-f12 font-medium text-t1">
+                  {standard}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-[10px] text-f14 leading-golden text-t3">Specification and test references, not certifications of a product.</p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "checks",
+      label: "Design checks",
+      title: "Design and specification checks",
+      content: (tone) => (
+        <>
+          <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-3">
+            {page.designChecks.map((item, index) => (
+              <li key={item.title} className={`rounded-card border border-border-default p-[20px] sm:p-[24px] ${tone === "muted" ? "bg-white" : "bg-bg2"}`}>
+                <p className={mono}>Check {index + 1}</p>
+                <h3 className="mt-[4px] text-f16 font-bold text-t1">{item.title}</h3>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-[16px]">
+            <CalculatorCTA
+              href={calculator}
+              eyebrow={bridge ? "Free tool · preliminary member screening" : "Free tool · pre-filled for this application"}
+              title={`Size an FRP profile for ${page.shortTitle}`}
+              sub={bridge ? "Enter your own member span, loads and material data. This calculator screens individual profiles; it does not verify a complete bridge, its connections, stability or pedestrian vibration." : "Opens the FRP profile calculator with a typical span, load and environment for this application: bending, shear and shear-corrected deflection on one screen."}
+            />
+          </div>
+        </>
+      ),
+    },
+  ];
+
+  if (page.deepDive) {
+    const deepDive = page.deepDive;
+    sections.push({
+      id: "in-depth",
+      label: "In depth",
+      title: deepDive.heading,
+      content: () => (
+        <div className="max-w-[820px] space-y-[14px] text-f16 leading-golden text-t2">
+          {deepDive.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+        </div>
+      ),
+    });
+  }
+
+  if (bridge) {
+    sections.push(
+      { id: "bridge-guide", label: "Specification guide", title: "FRP pedestrian bridge specification guide", content: () => <PedestrianBridgeGuide /> },
+      { id: "faq", label: "FAQ", title: "FRP pedestrian bridge questions", content: () => <FAQList items={bridgeFaqs} /> },
+    );
+  }
+
+  const tone = (index: number): Tone => (index % 2 === 0 ? "white" : "muted");
+  const otherApplications = applicationPages.filter((other) => other.slug !== page.slug).map((other) => ({ href: `/applications/${other.slug}`, label: other.shortTitle }));
+
   return (
     <>
       <JsonLd data={schema} />
       <PageHeader
-        tag="FRP Application Guide"
+        tag="Applications"
+        line={{ name: "Application", label: page.shortTitle, mark: false }}
+        updated={page.lastModified}
         title={page.h1}
-        description={page.description}
+        description={page.intro}
+        figure={
+          <Figure number={1} title={page.shortTitle} note={page.imageNote} caption={page.imageCaption ?? `Application context for ${page.shortTitle}. Final member sizes, laminate, connections and code checks remain project-specific.`} bleed>
+            <div className="relative aspect-[3/2]">
+              <Image src={page.image} alt={page.imageAlt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
+            </div>
+          </Figure>
+        }
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: "Size a profile", href: calculator, variant: "secondary" },
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Applications", href: "/applications" },
           { label: page.shortTitle },
         ]}
       />
+      <PageNav items={[...sections.map((section) => ({ id: section.id, label: section.label })), { id: "quote", label: "Quote" }]} />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container grid gap-[55px] lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <SectionTag>Short answer</SectionTag>
-            <p className="mt-[21px] text-f18 leading-golden text-t2">{page.intro}</p>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">{page.environment}</p>
-          </div>
-          <aside className="rounded-card border border-border-default bg-bg2 p-[24px]">
-            <h2 className="text-f18 font-bold text-t1">Quote-ready inputs</h2>
-            <ul className="mt-[13px] space-y-[10px]">
-              {page.rfqInputs.map((item) => (
-                <li key={item} className="text-f14 leading-golden text-t2">
-                  <span className="font-bold text-teal-text">-</span> {item}
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <div className="site-container pb-[28px]"><div className="rounded-card border border-border-default bg-bg2 p-[22px]"><h2 className="text-f18 font-bold text-t1">Specify the component supply scope</h2><p className="mt-[10px] text-f16 leading-relaxed text-t2">Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation. This page describes how the products are used; design and installation are included only where the quotation says so.</p><div className="mt-[14px] flex flex-wrap gap-[20px] text-f14 font-bold text-teal-text"><Link href="/products/product-lines">Choose a product family →</Link><Link href="/industries">Browse industries →</Link></div></div></div>
-
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
-          <figure className="overflow-hidden rounded-card border border-border-default bg-bg2">
-            <Image
-              src={page.image}
-              alt={page.imageAlt}
-              width={page.imageSize?.width ?? 1280}
-              height={page.imageSize?.height ?? 720}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className={page.imageSize ? "h-auto w-full" : "aspect-[16/9] h-auto w-full object-cover"}
-              preload
-            />
-            <figcaption className="border-t border-border-default bg-white px-[21px] py-[13px] text-f14 leading-golden text-t3">
-              {page.imageCaption ?? `Application context for ${page.shortTitle}. Final member sizes, laminate, connections, and code checks remain project-specific.`}
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2">
-            <div>
-              <SectionTag>Recommended profiles</SectionTag>
-              <div className="mt-[21px] space-y-[13px]">
-                {page.recommendedProfiles.map((item) => (
-                  <div key={item} className="rounded-card border border-border-default bg-white p-[21px]">
-                    <p className="text-f16 leading-golden text-t2">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <SectionTag>Resin and standards</SectionTag>
-              <div className="mt-[21px] rounded-card border border-border-default bg-white p-[24px]">
-                <h2 className="text-f18 font-bold text-t1">Resin recommendation</h2>
-                <p className="mt-[13px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
-                <h3 className="mt-[24px] text-f16 font-bold text-t1">Common standards</h3>
-                <div className="mt-[13px] flex flex-wrap gap-[8px]">
-                  {page.standards.map((standard) => (
-                    <span key={standard} className="rounded-tag bg-bg2 px-[10px] py-[5px] text-f14 font-medium text-t2">
-                      {standard}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Engineering checks</SectionTag>
-          <h2 className="mt-[8px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            {page.shortTitle}: design and specification checks
-          </h2>
-          <div className="mt-[21px] grid gap-[21px] md:grid-cols-3">
-            {page.designChecks.map((item) => (
-              <div key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {page.deepDive && (
-        <section className="bg-white py-[55px]">
-          <div className="site-container">
-            <SectionTag>In Depth</SectionTag>
-            <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              {page.deepDive.heading}
-            </h2>
-            <div className="mt-[21px] max-w-[860px] space-y-[13px]">
-              {page.deepDive.paragraphs.map((p) => (
-                <p key={p.slice(0, 40)} className="text-f16 leading-golden text-t2">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {page.slug === "frp-pedestrian-bridge-superstructures" && <PedestrianBridgeGuide />}
-
-      <section className="bg-white pt-[55px]">
-        <div className="site-container">
-          <CalculatorCTA
-            href={PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator"}
-            eyebrow={page.slug === "frp-pedestrian-bridge-superstructures" ? "Free tool · preliminary member screening" : "Free tool · pre-filled for this application"}
-            title={`Size an FRP profile for ${page.shortTitle}`}
-            sub={page.slug === "frp-pedestrian-bridge-superstructures" ? "Enter your own member span, loads and material data. This calculator screens individual profiles; it does not verify a complete bridge, its connections, stability or pedestrian vibration." : "Opens the FRP profile calculator pre-loaded with a typical span, load, and environment for this application — bending, shear, and Timoshenko-corrected deflection in one screen, then quote against your spec."}
-          />
-        </div>
-      </section>
-
-      <AskAICard
-        prefill={`I am evaluating ${page.shortTitle}. Please recommend profile families, resin system, standards, and RFQ details for my project.`}
-      />
+      {sections.map((section, index) => (
+        <PageSection key={section.id} id={section.id} title={section.title} intro={section.intro} count={section.count} tone={tone(index)}>
+          {section.content(tone(index))}
+        </PageSection>
+      ))}
 
       <RelatedLinks
+        background={tone(sections.length) === "white" ? "white" : "bg2"}
         groups={[
-          {
-            title: "Related product pages",
-            links: page.related,
-          },
+          { title: "Related product pages", links: page.related },
           {
             title: "Core resources",
             links: [
@@ -233,18 +260,20 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               { href: "/resources/technical-data", label: "Technical data" },
             ],
           },
+          { title: "Other application guides", links: otherApplications },
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <Link href="/applications" className="text-f14 font-bold text-teal-text hover:text-teal">
-            Back to all FRP application guides
-          </Link>
-        </div>
-      </section>
-
-      <InnerCTA title={`Need a quote for ${page.shortTitle}?`} quoteHref={page.slug === "frp-pedestrian-bridge-superstructures" ? bridgeRfqHref : undefined} />
+      <PageSection id="quote" title={`Quote ${page.shortTitle}`} tone="deep">
+        <ProductRfq
+          product={page.shortTitle}
+          productPath={path}
+          quoteHref={quoteHref}
+          items={page.rfqInputs.map((input) => ({ title: input }))}
+          intro={bridge ? "Start with the span, width, site conditions and a sketch, with the owner's design criteria, the delivery scope you want and the destination." : "Send the inputs below with a drawing or sketch, and the destination."}
+          advisorPrompt={`I am evaluating ${page.shortTitle}. Please recommend profile families, resin system, standards, and RFQ details for my project.`}
+        />
+      </PageSection>
     </>
   );
 }

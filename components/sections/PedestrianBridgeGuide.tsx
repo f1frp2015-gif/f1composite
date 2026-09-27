@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { buildRfqHref } from "@/lib/rfq";
 
 export const bridgeRfqHref = buildRfqHref({
@@ -73,52 +72,61 @@ const systems = [
   ["FRP deck on another structure", "Review where the main girders are retained or specified in another material.", "Check deck attachments, movement compatibility and the condition and capacity of the supporting bridge."],
 ];
 
-const faqs = [
-  ["What span can an FRP pedestrian bridge achieve?", "There is no single span rating for FRP. Request a concept matched to clear span, width, structural depth, loading, vibration criteria and transport constraints. A profile table or photograph cannot establish the capacity of a complete bridge."],
-  ["Is an FRP bridge cheaper than a steel bridge?", "Compare quoted installed and ownership costs for the same requirements. Include engineering, foundations, transport, lifting, closures, protective treatments, inspections and future deck work. Low weight may help access logistics, but it does not guarantee a lower project price."],
-  ["Can maintenance vehicles use a fiberglass footbridge?", "Only where the bridge is designed and accepted for the specified vehicle. Supply axle loads, wheel arrangement and the intended access controls. Do not infer vehicle capacity from a pedestrian loading statement."],
-  ["Does F1 supply a complete bridge or components?", "Define the required scope in the RFQ: raw profiles, cut and drilled parts, deck panels, handrail components, fittings or agreed assemblies. Engineering, transport and installation responsibilities must be confirmed in the quotation."],
+/** Procurement questions, shown in the page's FAQ section. */
+export const bridgeFaqs = [
+  { question: "What span can an FRP pedestrian bridge achieve?", answer: "There is no single span rating for FRP. Request a concept matched to clear span, width, structural depth, loading, vibration criteria and transport constraints. A profile table or photograph cannot establish the capacity of a complete bridge." },
+  { question: "Is an FRP bridge cheaper than a steel bridge?", answer: "Compare quoted installed and ownership costs for the same requirements. Include engineering, foundations, transport, lifting, closures, protective treatments, inspections and future deck work. Low weight may help access logistics, but it does not guarantee a lower project price." },
+  { question: "Can maintenance vehicles use a fiberglass footbridge?", answer: "Only where the bridge is designed and accepted for the specified vehicle. Supply axle loads, wheel arrangement and the intended access controls. Do not infer vehicle capacity from a pedestrian loading statement." },
+  { question: "Does F1 supply a complete bridge or components?", answer: "Define the required scope in the RFQ: raw profiles, cut and drilled parts, deck panels, handrail components, fittings or agreed assemblies. Engineering, transport and installation responsibilities must be confirmed in the quotation." },
 ];
 
+const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+
+/**
+ * The specification guide of the pedestrian bridge application: a contents
+ * list, then one short chapter per decision, with the concept comparison
+ * after the first and the public source each chapter relies on. Rendered
+ * inside a PageSection; the questions and the brief live in the page's FAQ
+ * and quote sections.
+ */
 export default function PedestrianBridgeGuide() {
+  const th = "px-[14px] py-[8px] font-semibold text-t1";
   return (
-    <section className="bg-white py-[55px]">
-      <div className="site-container">
-        <nav aria-label="Bridge guide contents" className="rounded-card border border-border-default bg-bg2 p-6">
-          <h2 className="text-f18 font-bold text-t1">FRP pedestrian bridge specification guide</h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {sections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="text-f16 text-teal-text underline underline-offset-4">{section.title}</a></li>)}
-            <li><a href="#bridge-faq" className="text-f16 text-teal-text underline underline-offset-4">Common procurement questions</a></li>
-          </ul>
-        </nav>
-        <div className="mt-10 max-w-[900px] space-y-12">
-          {sections.map((section) => (
-            <section key={section.id} id={section.id} className="scroll-mt-28">
-              <h2 className="text-f24 font-bold text-t1">{section.title}</h2>
-              {section.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 45)} className="mt-4 text-f16 leading-relaxed text-t2">{paragraph}</p>)}
-              {section.source && <p className="mt-3 text-f14 text-t3">Reference: <a className="text-teal-text underline underline-offset-4" href={section.source.href}>{section.source.label}</a>.</p>}
-              {section.id === "system-selection" && (
-                <div className="mt-6 overflow-x-auto rounded-card border border-border-default">
-                  <table className="w-full min-w-[580px] text-left text-f14 leading-relaxed">
-                    <caption className="p-4 text-left font-bold text-t1">Concept comparison — selection prompts, not span ratings</caption>
-                    <thead className="bg-bg2"><tr>{["System", "Concept review", "Details to resolve"].map((label) => <th key={label} scope="col" className="p-4">{label}</th>)}</tr></thead>
-                    <tbody>{systems.map(([name, use, checks]) => <tr key={name} className="border-t border-border-default"><th scope="row" className="p-4 text-t1">{name}</th><td className="p-4 text-t2">{use}</td><td className="p-4 text-t2">{checks}</td></tr>)}</tbody>
-                  </table>
-                </div>
-              )}
-            </section>
+    <div className="grid grid-cols-1 gap-[32px] lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-[56px]">
+      <nav aria-label="Bridge guide contents" className="self-start lg:sticky lg:top-[136px]">
+        <p className={mono}>Contents</p>
+        <ol className="mt-[8px] divide-y divide-border-default border-y border-border-default text-f14">
+          {sections.map((section, index) => (
+            <li key={section.id}>
+              <a href={`#${section.id}`} className="flex min-h-[44px] items-center gap-[10px] py-[8px] font-semibold text-t1 transition-colors hover:text-teal-text">
+                <span className="font-mono text-f12 font-normal text-t3">{String(index + 1).padStart(2, "0")}</span>
+                {section.title}
+              </a>
+            </li>
           ))}
-          <section id="bridge-faq" className="scroll-mt-28">
-            <h2 className="text-f24 font-bold text-t1">FRP pedestrian bridge questions</h2>
-            <dl className="mt-5 space-y-6">{faqs.map(([question, answer]) => <div key={question}><dt className="text-f18 font-bold text-t1">{question}</dt><dd className="mt-2 text-f16 leading-relaxed text-t2">{answer}</dd></div>)}</dl>
+        </ol>
+      </nav>
+      <div className="max-w-[820px] space-y-[40px]">
+        {sections.map((section, index) => (
+          <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`} className="scroll-mt-[128px]">
+            <p className={mono}>{String(index + 1).padStart(2, "0")}</p>
+            <h3 id={`${section.id}-title`} className="mt-[4px] text-f24 font-bold leading-snug text-t1">{section.title}</h3>
+            <div className="mt-[12px] space-y-[14px] text-f16 leading-golden text-t2">
+              {section.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 45)}>{paragraph}</p>)}
+            </div>
+            {section.id === "system-selection" && (
+              <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+                <table className="w-full min-w-[580px] border-collapse text-left text-f14">
+                  <caption className="border-b border-border-default px-[14px] py-[10px] text-left font-semibold text-t1">Concept comparison: selection prompts, not span ratings</caption>
+                  <thead><tr className="border-b border-border-default bg-bg2">{["System", "Concept review", "Details to resolve"].map((label) => <th key={label} scope="col" className={th}>{label}</th>)}</tr></thead>
+                  <tbody>{systems.map(([name, use, checks]) => <tr key={name} className="border-b border-border-default align-top last:border-b-0"><th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{name}</th><td className="px-[14px] py-[12px] leading-golden text-t2">{use}</td><td className="px-[14px] py-[12px] leading-golden text-t2">{checks}</td></tr>)}</tbody>
+                </table>
+              </div>
+            )}
+            {section.source && <p className="mt-[12px] text-f14 leading-golden text-t3">Reference: <a className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal" href={section.source.href} target="_blank" rel="noopener noreferrer">{section.source.label}</a>.</p>}
           </section>
-          <div className="rounded-card border border-border-default bg-bg2 p-6">
-            <h2 className="text-f24 font-bold text-t1">Send a bridge component brief</h2>
-            <p className="mt-3 text-f16 leading-relaxed text-t2">Start with the span, width, site conditions and a sketch. Include the owner’s design criteria, proposed delivery scope and destination so the component schedule and quotation can be reviewed together.</p>
-            <Link href={bridgeRfqHref} className="mt-5 inline-block font-bold text-teal-text underline underline-offset-4">Prepare an FRP pedestrian bridge enquiry →</Link>
-          </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

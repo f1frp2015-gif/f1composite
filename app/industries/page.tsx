@@ -25,14 +25,14 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/opengraph-image",
 });
 
-// Why FRP is chosen in each sector, as the page has always stated it.
+// Why FRP is chosen in each sector, in the terms each industry page supports.
 const reasons: Record<string, string> = {
-  construction: "Thermal break (FRP frames have 1/200th the thermal conductivity of aluminum), making them the structural choice for passive house and high-performance fenestration.",
-  infrastructure: "Lifecycle cost, because FRP needs no recoating over a long service life, which removes a recurring maintenance cost on rail and marine cable trays.",
-  energy: "Corrosion resistance in coastal salt-spray environments where aluminum pits and steel needs continuous coating renewal.",
-  marine: "Corrosion resistance plus dimensional stability under sustained UV and salt exposure.",
-  industrial: "Chemical resistance: the scenario where FRP wins outright is when the alternative is exotic alloys (Hastelloy, duplex stainless) priced at 5-10× FRP.",
-  vehicle: "Weight reduction directly translates to fuel economy or payload capacity, plus electrical isolation in hybrid powertrains.",
+  construction: "Thermal performance: glass FRP conducts about 0.3 W/m·K against about 160 for aluminum, so window and facade frames need no separate thermal break.",
+  infrastructure: "Corrosion: FRP decks, handrails and cable supports do not rust, so they avoid steel's recoating cycle; the inspection plan is still set for each project.",
+  energy: "Electrical insulation with corrosion resistance, for cable supports, substations and solar structures on coastal or humid sites.",
+  marine: "Seawater: glass FRP does not rust, and a vinyl ester laminate with sealed cut edges suits splash and immersion.",
+  industrial: "Chemicals: with the resin chosen for the chemicals on site, platforms, grating and supports avoid the corrosion and recoating of steel.",
+  vehicle: "Weight and insulation: glass FRP weighs about a quarter as much as steel for the same volume and does not conduct; fire requirements are set part by part.",
   "water-wastewater": "Wet, chemically dosed service around treatment equipment, where cable supports, access frames and walkways would otherwise need repeated coating.",
 };
 
