@@ -278,7 +278,6 @@ export default function ChinaAlternativePage() {
       </section>
 
       <AnswerBlocks
-        tag="China alternative FAQ"
         title="China alternative to Strongwell, Fiberline, Creative Pultrusions & Exel: FAQ"
         description="Specification-level answers for engineers and procurement teams evaluating a China-based pultruded FRP supplier against the Western incumbents."
         items={faqItems}

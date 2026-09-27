@@ -1,19 +1,22 @@
-import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
-import { commercialFacts } from "@/content/data/engineeringEvidence";
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
-import RelatedLinks from "@/components/sections/RelatedLinks";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import AskAICard from "@/components/ai/AskAICard";
+import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import CalculatorCTA from "@/components/calculators/CalculatorCTA";
-import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
+import CoverCard from "@/components/ui/CoverCard";
+import Figure from "@/components/ui/Figure";
+import { supplyTerms } from "@/content/data/company";
+import { commercialFacts } from "@/content/data/engineeringEvidence";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { productCovers, toolCovers } from "@/lib/covers";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema, absoluteUrl, priceRangeFromWeights } from "@/lib/seo";
 
 // Real lightest/heaviest SKU across all 7 standard-profile families (rod Ø6
 // at 0.05 kg/m; SHS 240×240×12 square tube at 16.8 kg/m — see each
@@ -69,64 +72,25 @@ const faqItems = [
   },
 ];
 
-const profileTypes: Array<{
-  slug: string;
-  name: string;
-  subtitle: string;
-  image: string;
-  sizes: string;
-  brief: string;
-  imagePosition?: string;
-}> = [
-  {
-    slug: "frp-i-beam",
-    name: "I-Beam",
-    subtitle: "Wide Flange Profiles",
-    image: "/images/products/i-beam/frp-i-beam-photo.webp",
-    sizes: "76×38 mm to 305×305 mm",
-    brief: "Up to 75% lighter than steel. Maximum flexural stiffness for walkways, bridges, and platforms.",
-  },
-  {
-    slug: "frp-angle",
-    name: "Angle",
-    subtitle: "L-Profiles",
-    image: "/images/products/angle/frp-angle-photo.webp",
-    sizes: "25×25 mm to 152×152 mm",
-    brief: "Equal and unequal-leg options. Ideal as stiffeners, bracing, and ledger supports.",
-  },
-  {
-    slug: "frp-channel",
-    name: "Channel",
-    subtitle: "U-Profiles",
-    image: "/images/products/channel/frp-channel-photo.webp",
-    sizes: "38×13 mm to 360×108 mm",
-    brief: "Versatile open-section framing for cable management and modular assemblies.",
-  },
-  {
-    slug: "frp-square-tube",
-    name: "Square Tube",
-    subtitle: "SHS & RHS Profiles",
-    image: "/images/products/square-tube/frp-square-tube-photo.webp",
-    sizes: "25×25 mm to 240×240 mm",
-    brief: "Superior torsional rigidity for columns, trusses, and frame structures.",
-  },
-  {
-    slug: "frp-tube",
-    name: "Round Tube",
-    subtitle: "Circular Hollow Sections",
-    image: "/images/products/round-tube/frp-round-tube-photo.webp",
-    sizes: "25 mm to 150 mm OD",
-    brief: "Handrails, guardrails, and structural tubes with smooth interior bore.",
-  },
-  {
-    slug: "frp-flat-bar",
-    name: "Flat Bar",
-    subtitle: "Solid Rectangular Sections",
-    image: "/images/products/flat-bar/frp-flat-bar-photo.webp",
-    sizes: "12×3 mm to 305×25 mm",
-    brief: "Stiffeners, splice plates, wear strips. High-modulus options up to 70% glass.",
-  },
-];
+// The seven families in menu order, each with its catalog size range.
+const profileTypes = [
+  { slug: "frp-i-beam", name: "I-beams", sizes: "76×38 to 305×305 mm", brief: "Wide-flange sections with the most flexural stiffness, for walkways, bridges and platforms." },
+  { slug: "frp-channel", name: "Channels", sizes: "38×13 to 360×108 mm", brief: "Open-section framing for cable supports and modular assemblies." },
+  { slug: "frp-angle", name: "Angles", sizes: "25×25 to 152×152 mm", brief: "Equal and unequal legs, for stiffeners, bracing and ledger supports." },
+  { slug: "frp-square-tube", name: "Square and rectangular tubes", sizes: "25×25 to 240×240 mm", brief: "Closed sections with high torsional stiffness for columns, trusses and frames." },
+  { slug: "frp-tube", name: "Round tubes", sizes: "25 to 150 mm OD", brief: "For handrails, guardrails and structural tubing." },
+  { slug: "frp-rod", name: "Solid rods", sizes: "Ø6 to Ø50 mm", brief: "Unidirectional rods for tie-rods, soil nails, rock bolts and stakes." },
+  { slug: "frp-flat-bar", name: "Flat bars", sizes: "12×3 to 305×25 mm", brief: "Stiffeners, splice plates, wear strips and spacers." },
+] as const;
+
+const quoteHref = buildRfqHref({ source: "standard-profiles-hub", product: "FRP standard structural profiles", productPath: pagePath });
+
+const tools = [
+  { href: "/tools/profile-finder", title: "Profile finder", text: "Filter the standard sizes by shape, size, mass and stiffness, and compare up to four." },
+  { href: "/frp-profile-calculator", title: "Profile calculator", text: "Bending, shear and deflection for a section, span and load, with the steel equivalent." },
+  { href: "/frp-span-tables", title: "Span tables", text: "Allowable uniform loads for the published I-beams, channels and tubes over 1 to 6 m spans." },
+  { href: "/fiberglass-pultruded-profile-price", title: "Price estimator", text: "Planning prices per meter by section, resin, finish and volume." },
+] as const;
 
 export default function StandardProfilesPage() {
   const itemListSchema = {
@@ -181,10 +145,27 @@ export default function StandardProfilesPage() {
       />
       <PageHeader
         updated={updatedAt}
-        tag="Standard Profiles · F1-STRUX"
+        reviewer={reviewerCredit(reviewer)}
+        tag="Standard profiles"
         line={{ name: "F1-STRUX", label: "Standard profiles" }}
         title="Fiberglass structural shapes & sizes"
         description="F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 360×108 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation."
+        facts={[
+          { label: "Families", value: String(profileTypes.length) },
+          { label: "Catalog sizes", value: CATALOG_TOTAL_SKUS },
+          { label: "Standard length", value: `${supplyTerms.standardLengthM} m` },
+          { label: "EN 13706 grades", value: "E17 / E23" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: "Find a size", href: "/tools/profile-finder", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Standard sections" note="Rendering" caption="I-beam, channel, square tube and angle from the standard range. Every family has its own size table and section drawings." bleed>
+            <Image src={productCovers["/products/fiberglass-structural-shapes"].src} alt="Pultruded fiberglass I-beam, channel, square tube and angle" width={1200} height={750} preload sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" />
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },
@@ -192,87 +173,73 @@ export default function StandardProfilesPage() {
           { label: "Standard Profiles" },
         ]}
       />
-
-      {/* Profile Grid */}
-      <section className="bg-bg2 py-[36px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">
-            Browse fiberglass structural shapes by section family
-          </h2>
-          <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            {profileTypes.map((profile) => (
-              <Link
-                key={profile.slug}
-                href={`/products/fiberglass-structural-shapes/${profile.slug}`}
-                className="group overflow-hidden rounded-card border border-border-default bg-white transition-all duration-300 hover:border-teal hover:shadow-card"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-white">
-                  <Image
-                    src={profile.image}
-                    alt={`Pultruded FRP ${profile.name} profile by F1 Composite`}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    style={
-                      profile.imagePosition
-                        ? { objectPosition: profile.imagePosition }
-                        : undefined
-                    }
-                  />
-                </div>
-                <div className="p-[21px]">
-                  <h3 className="text-f18 font-bold text-t1">{profile.name}</h3>
-                  <p className="text-f14 font-medium text-teal-text">{profile.subtitle}</p>
-                  <p className="mt-[8px] text-f14 text-t3">
-                    <span className="font-semibold">Sizes:</span> {profile.sizes}
-                  </p>
-                  <p className="mt-[8px] text-f16 leading-golden text-t2">{profile.brief}</p>
-                  <span className="mt-[13px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
-                    View all sizes →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <AskAICard
-        prefill="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
+      <PageNav
+        items={[
+          { id: "families", label: "Families" },
+          { id: "tools", label: "Tools" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
       />
 
-      <div className="site-container"><E40EvidenceLink /></div>
+      <PageSection id="families" title="Browse fiberglass structural shapes by section family" count={`${profileTypes.length} families · ${CATALOG_TOTAL_SKUS} sizes`}>
+        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
+          {profileTypes.map((profile, index) => {
+            const href = `/products/fiberglass-structural-shapes/${profile.slug}`;
+            return (
+              <li key={profile.slug}>
+                <CoverCard href={href} cover={productCovers[href as keyof typeof productCovers]} title={profile.name} text={profile.brief} facts={[profile.sizes]} action="View all sizes" priority={index < 4} compact sizes="(max-width: 1024px) 50vw, 300px" />
+              </li>
+            );
+          })}
+          <li>
+            <CoverCard href="/products/custom-pultruded-profiles" cover={productCovers["/products/custom-pultruded-profiles"]} title="Custom profiles" text="A section the catalog does not cover, developed from your drawing." facts={["Up to 600 × 300 mm"]} action="Start a custom profile" compact sizes="(max-width: 1024px) 50vw, 300px" />
+          </li>
+        </ul>
+      </PageSection>
+
+      <PageSection id="tools" title="Check a section before you order" tone="muted" intro="Filter the catalog, check a span and load, and get a planning price, all against the same published section data.">
+        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
+          {tools.map((item) => (
+            <li key={item.href}>
+              <CoverCard href={item.href} cover={toolCovers[item.href]} title={item.title} text={item.text} action="Open the tool" compact sizes="(max-width: 1024px) 50vw, 300px" />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-[16px]">
+          <E40EvidenceLink />
+        </div>
+      </PageSection>
+
+      <AnswerBlocks
+        title="Standard FRP profiles — frequently asked questions"
+        description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminum options."
+        items={faqItems}
+      />
 
       <RelatedLinks
         groups={[
           {
             title: "Product range",
             links: [
-              { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
-              { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels" },
-              { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angles" },
-              { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
-              { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tubes" },
-              { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "FRP flat bars" },
               { href: "/products/frp-rebar", label: "FRP rebar for concrete reinforcement" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
               { href: "/products/fiberglass-sheets", label: "Fiberglass sheets (solid flat stock)" },
-              { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles (hollow & multi-cell)" },
-              { href: "/products/product-lines", label: "F1-STRUX / GRID / THERM / FORM product lines" },
+              { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles (hollow and multi-cell)" },
+              { href: "/products/product-lines", label: "F1-STRUX, GRID, THERM and FORM product lines" },
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
             ],
           },
           {
-            title: "Industries using standard profiles",
+            title: "Industries and projects",
             links: [
-              { href: "/industries/construction", label: "Construction & building envelopes" },
-              { href: "/industries/infrastructure", label: "Infrastructure & bridges" },
-              { href: "/industries/energy", label: "Energy, solar & transmission" },
-              { href: "/industries/marine", label: "Marine & coastal structures" },
-              { href: "/industries/industrial", label: "Industrial platforms & plants" },
-              { href: "/industries/vehicle", label: "Vehicle & rail" },
-              { href: "/regions/frp-cable-tray-uae-oil-gas", label: "FRP cable tray · UAE oil & gas" },
-              { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles · Australia" },
+              { href: "/industries/construction", label: "Construction and building envelopes" },
+              { href: "/industries/infrastructure", label: "Infrastructure and bridges" },
+              { href: "/industries/energy", label: "Energy, solar and transmission" },
+              { href: "/industries/marine", label: "Marine and coastal structures" },
+              { href: "/industries/industrial", label: "Industrial platforms and plants" },
+              { href: "/industries/vehicle", label: "Vehicle and rail" },
+              { href: "/regions/frp-cable-tray-uae-oil-gas", label: "FRP cable tray, UAE oil and gas" },
+              { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles, Australia" },
               { href: "/case-studies/european-bridge-deck", label: "Case: Netherlands bridge deck" },
               { href: "/case-studies/chongqing-rooftop-pv-frp-rail", label: "Case: Chongqing rooftop PV rail" },
               { href: "/case-studies/factory-access-staircase", label: "Case: FRP access staircase" },
@@ -280,16 +247,13 @@ export default function StandardProfilesPage() {
             ],
           },
           {
-            title: "Technology & resources",
+            title: "Technology and resources",
             links: [
-              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, concrete" },
-              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell / Exel" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum and concrete" },
+              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell and Exel" },
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
-              { href: "/frp-span-tables", label: "FRP span tables — allowable loads by profile" },
-              { href: "/frp-profile-calculator", label: "FRP load & deflection calculator" },
-              { href: "/fiberglass-pultruded-profile-price", label: "Fiberglass pultruded profile price estimator" },
-              { href: "/resources/technical-data", label: "Material properties & data sheets" },
+              { href: "/resources/technical-data", label: "Material properties and data sheets" },
               { href: "/resources/design-guides", label: "Design guides" },
               { href: "/what-is-frp", label: "What is FRP? Complete guide" },
             ],
@@ -297,27 +261,14 @@ export default function StandardProfilesPage() {
         ]}
       />
 
-      <AnswerBlocks
-        tag="Buyer FAQ"
-        title="Standard FRP profiles — frequently asked questions"
-        description="Quick answers for engineers and procurement teams comparing pultruded fiberglass structural shapes against steel and aluminum options."
-        items={faqItems}
-
-      />
-
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
-          <CalculatorCTA
-            href="/frp-profile-calculator"
-            eyebrow="Free tool · no login"
-            title="Size and verify an FRP profile in your browser"
-            sub="Pick a shape (I-beam, channel, angle, square tube or round tube), enter the span and load, and get bending, shear and Timoshenko-corrected deflection, plus the equivalent steel or aluminum section."
-          />
-        </div>
-      </section>
-
-      <ProductNextSteps path="/products/fiberglass-structural-shapes" />
-      <InnerCTA title="Need engineering data or a quotation for standard profiles?" />
+      <PageSection id="quote" title="Need engineering data or a quotation for standard profiles?" tone="deep">
+        <ProductRfq
+          product="FRP standard structural profiles"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          advisorPrompt="I'm specifying FRP standard profiles (I-beams, channels, angles, tubes). What size do I need for a [span / load / environment] application, and how does it compare to equivalent steel section?"
+        />
+      </PageSection>
     </>
   );
 }

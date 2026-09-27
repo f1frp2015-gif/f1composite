@@ -376,7 +376,7 @@ export default function FiberglassSnowMarkersPage() {
         intro="The best marker plan is installed before boundaries disappear. Color can separate route types, while reflective bands help an operator find the same reference under vehicle lighting and low-contrast weather."
       >
         <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[40px]">
-          <Figure number={2} title="Road-edge markers after plowing" note="Illustrative image" caption="High-visibility fiberglass stakes preserve the road-edge reference after plowing, even when the shoulder and drainage line are buried." bleed>
+          <Figure number={2} title="Road-edge markers after plowing" note="Illustrative photo" caption="High-visibility fiberglass stakes preserve the road-edge reference after plowing, even when the shoulder and drainage line are buried." bleed>
             <div className="relative aspect-[3/2]">
               <Image
                 src={applicationImage}

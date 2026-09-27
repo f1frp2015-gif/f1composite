@@ -81,8 +81,29 @@ export const industryCovers: Record<string, Cover> = {
       },
     ]),
   ),
-  "/industries/construction": { src: "/images/industries/frp-building-applications-concept.webp", alt: "Concept building with numbered FRP application areas", note: "Concept" },
+  "/industries/construction": { src: "/images/industries/frp-building-applications-concept.webp", alt: "Concept building with numbered FRP application areas", note: "Illustration" },
 };
+
+// Tools show themselves: a crop of each tool's working panel, captured from
+// the live page at 16:10 (public/images/covers/tools). Recapture after a
+// visible redesign of a tool.
+const tool = (file: string, alt: string): Cover => ({ src: `/images/covers/tools/${file}`, alt, position: "left top" });
+
+export const toolCovers = {
+  "/tools/profile-finder": tool("profile-finder.webp", "Profile finder with shape filters and a table of standard sizes"),
+  "/frp-profile-calculator": tool("profile-calculator.webp", "FRP profile calculator results for bending, shear and deflection"),
+  "/frp-span-tables": tool("span-tables.webp", "Span table of allowable loads for FRP I-beams from 1 to 2.5 m"),
+  "/frp-density-calculator": tool("density.webp", "Density calculator options for a reinforcement layup"),
+  "/fiberglass-pultruded-profile-price": tool("price-estimator.webp", "Price estimator showing an indicative price per meter"),
+  "/tools/thermal-expansion-calculator": tool("thermal-expansion.webp", "Thermal expansion calculator inputs for an FRP member"),
+  "/tools/handrail-load-calculator": tool("handrail-load.webp", "Handrail load check inputs for posts and top rails"),
+  "/tools/access-geometry-checker": tool("access-geometry.webp", "Ladder, stair and walkway geometry checker"),
+  "/tools/gfrp-rebar-calculator": tool("gfrp-rebar.webp", "GFRP rebar calculator matching a steel bar size"),
+  "/technology/frp-u-value-calculator": tool("u-value.webp", "Whole-window U-value calculator"),
+  "/ask": tool("ask.webp", "Engineering assistant question box with example questions"),
+  "/ai/sourcing": tool("sourcing.webp", "Sourcing assistant project description and starting points"),
+  "/ai/passive-house": tool("passive-house.webp", "Passive House window selector with climate classes and window types"),
+} satisfies Record<string, Cover>;
 
 export const applicationCovers: Record<string, Cover> = Object.fromEntries(
   applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
@@ -91,5 +112,5 @@ export const applicationCovers: Record<string, Cover> = Object.fromEntries(
 /** The cover for a page, when one is registered. */
 export function coverFor(href: string): Cover | undefined {
   const path = href.split(/[?#]/)[0];
-  return (productCovers as Record<string, Cover>)[path] ?? industryCovers[path] ?? applicationCovers[path];
+  return (productCovers as Record<string, Cover>)[path] ?? industryCovers[path] ?? applicationCovers[path] ?? (toolCovers as Record<string, Cover>)[path];
 }

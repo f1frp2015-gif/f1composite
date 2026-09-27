@@ -213,7 +213,6 @@ export default function ChinaAlternativeWindowsPage() {
       </section>
 
       <AnswerBlocks
-        tag="China alternative FAQ"
         title="China alternative to Tencom, Creative Pultrusions & Inline: window profile FAQ"
         description="Specification-level answers for window fabricators and procurement teams evaluating a China-based fiberglass window profile supplier against the North American incumbents."
         items={faqItems}

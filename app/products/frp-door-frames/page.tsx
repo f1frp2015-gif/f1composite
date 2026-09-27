@@ -47,7 +47,7 @@ export default function DoorFramesPage() {
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors", href: "/products/frp-window-frames" }, { label: "FRP Door Frames" }]}
       actions={{ primary: { label: "Request a door frame quote", href: quote }, secondary: { label: "Read the sections", href: "#sections", variant: "secondary" }, stickyMobile: true }}
       figure={
-        <Figure number={1} title="Door frame profiles" note="AI visualization" caption="Integral stops and chambers run continuously along the profile. Final geometry follows the approved section drawing." bleed>
+        <Figure number={1} title="Door frame profiles" note="AI concept" caption="Integral stops and chambers run continuously along the profile. Final geometry follows the approved section drawing." bleed>
           <Image src={page.image} alt="Three fiberglass door frame profiles with continuous hollow raised stops running the full length: two open-back frame sections and one closed mullion concept" width={1536} height={1024} sizes="(max-width: 1023px) 94vw, 44vw" preload className="h-auto w-full" />
         </Figure>
       }

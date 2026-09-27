@@ -229,7 +229,6 @@ export default function ChooseSupplierGuidePage() {
       </section>
 
       <AnswerBlocks
-        tag="Supplier-selection FAQ"
         title="Choosing an FRP pultrusion supplier — frequently asked questions"
         description="What engineers and procurement teams should verify before ordering pultruded FRP profiles from any manufacturer, in China or elsewhere."
         items={faqItems}

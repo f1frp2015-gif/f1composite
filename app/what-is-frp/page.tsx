@@ -858,14 +858,11 @@ export default function WhatIsFrpPage() {
         </div>
       </section>
 
-      <div id="faq">
-        <AnswerBlocks
-          tag="FRP FAQ"
-          title="FRP composites — frequently asked questions"
-          description="Quick reference answers for engineers, specifiers, and procurement professionals new to advanced FRP composites."
-          items={faqItems}
-        />
-      </div>
+      <AnswerBlocks
+        title="FRP composites — frequently asked questions"
+        description="Quick reference answers for engineers, specifiers, and procurement professionals new to advanced FRP composites."
+        items={faqItems}
+      />
 
       <AskAICard
         title="Ready to apply this to your project?"

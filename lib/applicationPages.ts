@@ -60,7 +60,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
     image: "/images/applications/frp-cable-ladder-gray-product.webp",
-    imageNote: "AI illustration",
+    imageNote: "AI concept",
     imageAlt:
       "Illustration of a gray pultruded fiberglass cable ladder with channel side rails and transverse rungs",
     imageSize: { width: 1536, height: 1024 },
@@ -179,7 +179,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: pedestrian bridges, coastal boardwalks, utility access decks, replacement decks on aging structures, and projects where a lighter deck reduces crane size or substructure reinforcement.",
     image: "/images/applications/frp-decking-bridge-marina.webp",
-    imageNote: "Concept",
+    imageNote: "Illustration",
     imageAlt:
       "Gray closed-top FRP deck panels with an anti-slip surface on a coastal pedestrian bridge leading to a marina and vessel-access gangway",
     imageSize: { width: 1672, height: 941 },

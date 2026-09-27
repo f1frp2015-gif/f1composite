@@ -75,7 +75,7 @@ export default function ConstructionPage() {
         title={pageTitle}
         description="From the window opening to the rooftop: find the right fiberglass product for each part of a building, understand the design decisions, and build a coordinated enquiry."
         figure={
-          <Figure number={1} title="One building, six application areas" note="Concept illustration" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
+          <Figure number={1} title="One building, six application areas" note="Illustration" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
             <Image
               src={conceptImage}
               alt="Concept building with six numbered FRP applications: 01 window frames, 02 facade fins, 03 secondary support frame, 04 grating stairs and handrails, 05 slab reinforcement, and 06 rooftop solar supports."

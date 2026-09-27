@@ -214,7 +214,6 @@ export default function TechnologyPage() {
       />
 
       <AnswerBlocks
-        tag="Engineering quick answers"
         title="FRP engineering: short technical answers"
         description="Concise, citation-ready responses to the questions our engineering team is asked most often. For deeper context, see the pultrusion process, FRP vs traditional materials, and quality testing pages."
         items={[

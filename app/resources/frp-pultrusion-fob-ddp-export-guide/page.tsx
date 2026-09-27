@@ -244,7 +244,6 @@ export default function DdpTariffHsCodeGuidePage() {
       </section>
 
       <AnswerBlocks
-        tag="Quick Answers"
         title="DDP, HS codes, and Section 301 — frequently asked"
         items={faqs}
       />
