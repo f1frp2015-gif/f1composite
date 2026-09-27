@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
@@ -11,17 +12,17 @@ const faqs = [
   {
     question: "Are these design guides free?",
     answer:
-      "Yes — the design guides on this site are free to use. CAD details and editable specification clauses are released to specifiers actively working on a project that may use F1 Composite material; request them from inquiry@f1composite.com with the project name.",
+      "Yes. The design guides on this site are free to use. CAD details and editable specification clauses are released to specifiers working on a project that may use F1 Composite material; request them from inquiry@f1composite.com with the project name.",
   },
   {
     question: "Can your engineers stamp drawings?",
     answer:
-      "We do not stamp drawings, but our team supports your engineer-of-record with material data, calculation methodology, and review of FRP-specific details. For projects where local PE/CEng stamp is required, we work with partner consultancies in Australia, the US, the EU, and the GCC.",
+      "We do not stamp drawings, but our team supports your engineer of record with material data, calculation methodology, and review of FRP-specific details. Where a local PE or CEng stamp is required, the stamping engineer is appointed locally, and we supply what they need to check the FRP elements.",
   },
   {
     question: "How do you keep these guides current with code updates?",
     answer:
-      "Each guide carries a 'Revised' date in the footer. We re-issue when an underlying standard updates (e.g. EN 13706:2024 update was incorporated within 60 days). Subscribe via the Resources newsletter to receive change notifications.",
+      "Each guide carries a revision date. We re-issue a guide when a standard it relies on is revised, and the revision date changes with it. Ask for the current revision when you request a guide.",
   },
 ];
 
@@ -36,32 +37,32 @@ export const metadata: Metadata = buildPageMetadata({
 const guides: Array<{
   title: string;
   description: string;
-  status: "Available" | "Coming Soon";
+  status: "On request" | "In preparation";
   file?: string;
 }> = [
   {
-    title: "FRP Profile Selection Guide",
+    title: "FRP profile selection guide",
     description:
       "Step-by-step methodology for selecting the right pultruded FRP profile for structural applications, including load analysis, deflection criteria, and safety factors.",
-    status: "Available",
+    status: "On request",
   },
   {
-    title: "Connection Design for FRP Structures",
+    title: "Connection design for FRP structures",
     description:
       "Detailed guidance on bolted, bonded, and hybrid connections for pultruded FRP profiles, with worked examples and capacity tables per EN 13706.",
-    status: "Available",
+    status: "On request",
   },
   {
-    title: "Fire Performance of FRP Composites",
+    title: "Fire performance of FRP composites",
     description:
       "Overview of fire reaction and fire resistance properties of pultruded FRP profiles, including fire-retardant resin options and intumescent coating systems.",
-    status: "Coming Soon",
+    status: "In preparation",
   },
   {
-    title: "Fenestration System Installation Manual",
+    title: "Fenestration system installation manual",
     description:
       "Complete installation guide for F1 Composite 70/80/90-series FRP window and door frame systems, including anchoring details and weathersealing.",
-    status: "Coming Soon",
+    status: "In preparation",
   },
 ];
 
@@ -93,86 +94,67 @@ export default function DesignGuidesPage() {
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Engineering Guidance for Pultruded FRP Specification</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
-            <p>
-              Specifying pultruded FRP is not the same as specifying steel or aluminum. The material is highly anisotropic — longitudinal modulus can be 4-6× higher than transverse — meaning the connection detail, not the cross-section, often determines whether your structure performs. The guides below are written by F1 Composite&apos;s engineering team and reviewed against real failures from our 20-year service history. Each guide assumes the reader is a structural engineer or fabricator who has worked with steel or aluminum and is approaching FRP for the first or second time.
-            </p>
-            <p>
-              <strong>Connection Design</strong> covers bolted, bonded, and hybrid joints with minimum edge distances (3d for through-bolt, 4d for blind fastener), bearing strength factors per fiber direction, and the long-running question of whether to bond + bolt (yes, for fatigue-loaded joints; not necessary for mostly-static joints). <strong>Load Tables</strong> publish allowable load (deflection-limited L/180, L/240, L/360) and ultimate capacity for every standard wide-flange beam, channel, angle, square tube, round tube, and flat bar. <strong>Corrosion-Zone Specification Language</strong> provides drop-in CFC and CRP clauses tested against Aramco SAES-W-018, SABIC, ADNOC, and US EPA chemical-plant specs.
-            </p>
-            <p>
-              <strong>FRP-to-Steel Galvanic Isolation</strong> covers isolation washer types, sleeve specifications, and acceptance criteria — most &quot;FRP corrosion&quot; complaints we trace to a galvanic path through an unprotected steel fastener, not the FRP itself. <strong>Fenestration Engineering</strong> for AS 2047 (Australia) and PHI (Passive House) is the working document behind our Yancheng talent apartment and Antarctic Qinling Station deployments — frame composition, transverse reinforcement strategy, thermal break detail, glazing rebate, and air/water/wind test procedures.
-            </p>
-            <p>
-              <strong>Solar Mounting Profile Design</strong> covers wind uplift load paths, expansion joint spacing for &gt;12 m racks, UV-stable resin selection, and AS/NZS 1170 wind compliance. <strong>Bridge Deck Connection</strong> covers panel-to-panel bonded splice plates, mechanical lap splices, and the moisture-management detail at deck-to-girder interfaces — drawn from European refurbishment project experience.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageNav items={[{ id: "overview", label: "Overview" }, { id: "guides", label: "Guides" }, { id: "standards", label: "Standards" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <div className="space-y-[21px]">
-            {guides.map((guide) => (
-              <div
-                key={guide.title}
-                className="rounded-card border border-border-default bg-white p-[34px]"
-              >
-                <div className="flex items-start justify-between gap-[21px]">
-                  <div>
-                    <h3 className="text-f18 font-bold text-t1">{guide.title}</h3>
-                    <p className="mt-[8px] text-f16 leading-golden text-t2">
-                      {guide.description}
-                    </p>
-                  </div>
-                  {guide.file ? (
-                    <a
-                      href={guide.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-[40px] shrink-0 items-center rounded-control bg-teal-text px-[16px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-                    >
-                      Download PDF
-                    </a>
-                  ) : guide.status === "Available" ? (
-                    <Link
-                      href="/contact"
-                      className="inline-flex min-h-[40px] shrink-0 items-center rounded-control bg-teal-text px-[16px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-                    >
-                      Request access
-                    </Link>
-                  ) : (
-                    <span className="shrink-0 rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                      Coming soon
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+      <PageSection id="overview" title="Engineering guidance for pultruded FRP specification" tone="white">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>
+            Specifying pultruded FRP is not the same as specifying steel or aluminum. The material is highly anisotropic (longitudinal modulus can be 4–6× the transverse), so the connection detail, not the cross-section, often decides whether a structure performs. The guidance is written by F1 Composite&apos;s engineering team and reviewed against field problems our engineers have investigated. It assumes a structural engineer or fabricator who knows steel or aluminum and is approaching FRP for the first or second time.
+          </p>
+          <p>
+            <strong className="text-t1">Connection design</strong> covers bolted, bonded and hybrid joints with minimum edge distances (3d for through-bolts, 4d for blind fasteners), bearing strength factors per fiber direction, and when to bond as well as bolt (for fatigue-loaded joints; mostly static joints do not need it). <strong className="text-t1">Load tables</strong> give allowable loads (deflection-limited at L/180, L/240 and L/360) and ultimate capacity for the standard wide-flange beams, channels, angles, square and round tubes and flat bars. <strong className="text-t1">Corrosion-zone specification language</strong> provides clauses to drop into chemical-plant specifications.
+          </p>
+          <p>
+            <strong className="text-t1">FRP-to-steel galvanic isolation</strong> covers isolation washer types, sleeve specifications and acceptance criteria: most &ldquo;FRP corrosion&rdquo; complaints trace to a galvanic path through an unprotected steel fastener, not to the FRP. <strong className="text-t1">Fenestration engineering</strong> for AS 2047 (Australia) and PHI (Passive House) is the working document behind the Yancheng talent apartment and Qinling Station deliveries: frame composition, transverse reinforcement, thermal-break detail, glazing rebate, and air, water and wind test procedures.
+          </p>
+          <p>
+            <strong className="text-t1">Solar mounting profile design</strong> covers wind uplift load paths, expansion joint spacing for racks over 12 m, UV-stable resin selection and AS/NZS 1170 wind loading. <strong className="text-t1">Bridge deck connection</strong> covers bonded panel-to-panel splice plates, mechanical lap splices and the moisture-management detail at the deck-to-girder interface.
+          </p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Standards and Code References</SectionTag>
-          <div className="mt-[21px] space-y-[13px] text-f18 leading-golden text-t2">
-            <p>Design Guides reference the following codes (we cite specific clauses where applicable):</p>
-            <ul className="list-disc space-y-[8px] pl-[21px]">
-              <li><strong>ASCE Pre-Standard</strong> for Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (2010)</li>
-              <li><strong>EN 13706</strong> Reinforced plastics composites — Specifications for pultruded profiles (Parts 1-3)</li>
-              <li><strong>ASTM D2344, D790, D695, D2583, D5379</strong> for material property test methods</li>
-              <li><strong>AS 2047</strong> Windows and external glazed doors in buildings (Australia)</li>
-              <li><strong>PHI Passive House Component reference</strong> 2491wi03: phB efficiency class, cool-temperate configuration</li>
-              <li><strong>ASTM E84</strong> Surface burning characteristics</li>
-            </ul>
-          </div>
-          <FAQ items={faqs} />
-        </div>
-      </section>
+      <PageSection id="guides" title="Design guides" count={`${guides.length} guides`} tone="muted">
+        <ul className="grid gap-[12px] md:grid-cols-2">
+          {guides.map((guide) => (
+            <li key={guide.title} className="flex flex-col rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{guide.status}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{guide.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{guide.description}</p>
+              {guide.file ? (
+                <a href={guide.file} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
+                  Download the PDF <span aria-hidden="true" className="ml-[4px]">→</span>
+                </a>
+              ) : guide.status === "On request" ? (
+                <Link href={`/contact?source=design-guides&inquiry_type=technical&message=${encodeURIComponent(`Please send the ${guide.title}.\nProject: `)}`} className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
+                  Request this guide <span aria-hidden="true" className="ml-[4px]">→</span>
+                </Link>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <PageSection id="standards" title="Standards and code references" tone="white" intro="The guides cite specific clauses of these documents where they apply.">
+        <dl className="divide-y divide-border-default border-y border-border-default">
+          {[
+            ["ASCE Pre-Standard (2010)", "Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures"],
+            ["EN 13706, parts 1–3", "Reinforced plastics composites: specifications for pultruded profiles"],
+            ["ASTM D2344, D790, D695, D2583, D5379", "Material property test methods"],
+            ["AS 2047", "Windows and external glazed doors in buildings (Australia)"],
+            ["PHI component 2491wi03", "Passive House component reference: phB efficiency class, cool-temperate configuration"],
+            ["ASTM E84", "Surface burning characteristics"],
+          ].map(([code, scope]) => (
+            <div key={code} className="grid gap-[4px] py-[14px] md:grid-cols-[minmax(0,320px)_minmax(0,1fr)] md:gap-[32px]">
+              <dt className="text-f16 font-bold text-t1">{code}</dt>
+              <dd className="text-f16 leading-golden text-t2">{scope}</dd>
+            </div>
+          ))}
+        </dl>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <InnerCTA title="Need custom engineering support?" />
     </>

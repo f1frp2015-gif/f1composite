@@ -24,6 +24,7 @@ export default function CoverCard({
   footer,
   priority = false,
   compact = false,
+  clampText = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px",
 }: {
   href: string;
@@ -41,6 +42,8 @@ export default function CoverCard({
   priority?: boolean;
   /** For long grids shown two-up on phones: a smaller body there, title only. */
   compact?: boolean;
+  /** Cut the text to three lines, for long excerpts such as article summaries. */
+  clampText?: boolean;
   sizes?: string;
 }) {
   return (
@@ -65,7 +68,7 @@ export default function CoverCard({
         <span className={`flex flex-1 flex-col ${compact ? "p-[12px] sm:p-[20px]" : "p-[18px] sm:p-[20px]"}`}>
           {label ? <span className={`block ${compact ? "max-sm:hidden" : ""}`}>{label}</span> : null}
           <span className={`${label ? (compact ? "sm:mt-[8px]" : "mt-[8px]") : ""} ${compact ? "text-f16 sm:text-f18" : "text-f18"} font-bold leading-snug text-t1 transition-colors group-hover:text-teal-text`}>{title}</span>
-          {text ? <span className={`mt-[6px] text-f14 leading-golden text-t2 ${compact ? "max-sm:hidden" : ""}`}>{text}</span> : null}
+          {text ? <span className={`mt-[6px] text-f14 leading-golden text-t2 ${clampText ? "line-clamp-3" : ""} ${compact ? "max-sm:hidden" : ""}`}>{text}</span> : null}
           {facts?.length ? (
             <span className={`mt-[12px] flex flex-wrap gap-[6px] ${compact ? "max-sm:hidden" : ""}`}>
               {facts.map((fact) => (

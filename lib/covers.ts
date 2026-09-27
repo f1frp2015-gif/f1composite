@@ -1,5 +1,6 @@
 import { industryPages } from "@/content/data/industryPages";
 import { applicationPages } from "@/lib/applicationPages";
+import type { BlogPost } from "@/content/data/blogPosts";
 
 /**
  * Cover images for cards that lead to another page. The rule: a card shows
@@ -105,6 +106,21 @@ export const toolCovers = {
   "/ai/passive-house": tool("passive-house.webp", "Passive House window selector with climate classes and window types"),
 } satisfies Record<string, Cover>;
 
+// Resource pages without a lead image show their own key table or list, like
+// the tool covers; the windows guide opens on the window it is about.
+const resource = (file: string, alt: string): Cover => ({ src: `/images/covers/resources/${file}`, alt, position: "left top" });
+
+export const resourceCovers = {
+  "/resources/technical-data": resource("technical-data.webp", "Table of E23 laminate properties with published values and EN 13706 minimums"),
+  "/resources/evidence": resource("evidence.webp", "Table of reported results from SGS, PHI and Intertek test reports"),
+  "/resources/downloads": resource("downloads.webp", "Document library with type filters and test report cards"),
+  "/resources/design-guides": resource("design-guides.webp", "List of FRP design guides available on request"),
+  "/resources/glossary": resource("glossary.webp", "Glossary entries for FRP, GRP and fiberglass"),
+  "/resources/frp-pultrusion-fob-ddp-export-guide": resource("export-guide.webp", "Table comparing FOB, CIF, DAP and DDP responsibilities"),
+  "/resources/how-to-choose-frp-pultrusion-supplier": resource("supplier-guide.webp", "Checklist cards for vetting an FRP pultrusion supplier"),
+  "/resources/frp-windows-guide": { src: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp", alt: "Corner section of a 70-series FRP window frame with triple glazing", fit: "contain", note: RENDERING },
+} satisfies Record<string, Cover>;
+
 export const applicationCovers: Record<string, Cover> = Object.fromEntries(
   applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
 );
@@ -146,6 +162,28 @@ export function coverFor(href: string): Cover | undefined {
     applicationCovers[path] ??
     (toolCovers as Record<string, Cover>)[path] ??
     (caseStudyCovers as Record<string, Cover>)[path] ??
-    (technologyCovers as Record<string, Cover>)[path]
+    (technologyCovers as Record<string, Cover>)[path] ??
+    (resourceCovers as Record<string, Cover>)[path]
   );
+}
+
+// Articles show some photos whole; a card fills its frame with them instead,
+// and uses a cut-out on white where the original has a grey backdrop.
+const blogCardCovers: Record<string, Partial<Cover>> = {
+  "frp-cable-tray-trunking-ladder-vs-metal": { fit: "cover" },
+  "china-first-all-composite-truss-bridge-pengshui": { fit: "cover" },
+  "gfrp-rebar-specification-guide-aci-440-astm-d7957": { fit: "cover" },
+  "how-to-install-frp-cable-tray": { src: "/images/covers/blog/frp-cable-ladder-gray.webp" },
+};
+
+/** A blog post's cover for a card, labelled as the post labels it. */
+export function blogCover(post: Pick<BlogPost, "slug" | "coverImage" | "coverAlt" | "coverNote" | "coverImageFit" | "coverImagePosition">): Cover {
+  return {
+    src: post.coverImage,
+    alt: post.coverAlt,
+    note: post.coverNote,
+    ...(post.coverImageFit === "contain" ? { fit: "contain" as const } : {}),
+    ...(post.coverImagePosition ? { position: post.coverImagePosition } : {}),
+    ...blogCardCovers[post.slug],
+  };
 }

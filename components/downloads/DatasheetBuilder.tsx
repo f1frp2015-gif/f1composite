@@ -10,6 +10,8 @@
 // degrades.
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import PageSection from "@/components/layout/PageSection";
 
 interface CatalogCategory {
   id: number;
@@ -56,7 +58,7 @@ const RESIN_FAMILY_ORDER = [
   "phenolic",
 ];
 
-export default function DatasheetBuilder() {
+export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | "muted" }) {
   const [categories, setCategories] = useState<CatalogCategory[]>([]);
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [formulations, setFormulations] = useState<CatalogFormulation[]>([]);
@@ -110,8 +112,6 @@ export default function DatasheetBuilder() {
     if (other.length) groups.push({ label: "High-modulus tiers", items: other });
     return groups;
   }, [formulations]);
-
-  if (!loaded || products.length === 0) return null;
 
   const toggle = (id: number) => {
     const next = new Set(selected);
@@ -178,55 +178,46 @@ export default function DatasheetBuilder() {
     }
   }
 
-  return (
-    <section className="bg-white py-[55px]" id="datasheet-builder">
-      <div className="site-container">
-        <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
-          Datasheet Builder
-        </div>
-        <h2 className="mb-[13px] text-f24 font-bold text-t1">
-          Build your own datasheet or catalog PDF
-        </h2>
-        <p className="mb-[21px] text-f16 leading-golden text-t2">
-          Pick one profile for a single-page technical data sheet, a whole family, or any mix for a
-          multi-page catalog extract. Then optionally tick one or more resin systems to get the same
-          cross-section rendered with each formulation&apos;s mechanical data — polyester vs vinyl
-          ester vs polyurethane, side by side. Cross-section drawing and exact section properties on
-          every page, generated live from our engineering database.
-        </p>
+  const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+  const card = tone === "white" ? "bg-bg2" : "bg-white";
+  const action = "inline-flex min-h-[46px] items-center justify-center rounded-control bg-teal-text px-[22px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:opacity-50";
+  const idle = "inline-flex min-h-[46px] items-center rounded-control border border-border-default bg-bg2 px-[22px] text-f14 font-semibold text-t3";
 
-        <h3 className="mb-[13px] text-f16 font-bold text-t1">
-          1 · Select profiles
-        </h3>
-        <div className="grid gap-[21px] md:grid-cols-2 lg:grid-cols-3">
+  return (
+    <PageSection
+      id="datasheet-builder"
+      title="Build your own datasheet or catalog PDF"
+      tone={tone}
+      intro="Pick one profile for a single-page datasheet, a whole family, or any mix for a multi-page catalog extract. Then tick one or more resin systems to get the same cross-section with each formulation's mechanical data: polyester, vinyl ester and polyurethane side by side. Every page carries the cross-section drawing and exact section properties, generated from our engineering database."
+    >
+      {!loaded ? (
+        <p className="min-h-[120px] text-f14 text-t3" aria-live="polite">Loading the profile catalog…</p>
+      ) : products.length === 0 ? (
+        <p className={`max-w-[760px] rounded-card border-l-4 border-l-teal px-[16px] py-[12px] text-f14 leading-golden text-t2 ${card}`} aria-live="polite">
+          The builder cannot reach the profile catalog right now. Every size still has its own
+          datasheet and DXF in the <Link href="/datasheets" className="font-semibold text-teal-text underline underline-offset-4">datasheet library</Link>.
+        </p>
+      ) : (
+        <>
+        <p className={mono}>Step 1</p>
+        <h3 className="mt-[4px] text-f18 font-bold text-t1">Select profiles</h3>
+        <div className="mt-[12px] grid gap-[12px] md:grid-cols-2 lg:grid-cols-3">
           {byCategory.map(({ category, items }) => {
             const allIn = items.every((p) => selected.has(p.id));
             return (
-              <div
-                key={category?.id ?? "other"}
-                className="rounded-card border border-border-default bg-white p-[21px]"
-              >
-                <div className="mb-[13px] flex items-center justify-between">
-                  <h3 className="text-f16 font-bold text-t1">{category?.name ?? "Other profiles"}</h3>
-                  <button
-                    onClick={() => toggleGroup(items)}
-                    className="text-f12 font-semibold text-teal-text hover:underline"
-                  >
+              <div key={category?.id ?? "other"} className={`rounded-card border border-border-default p-[20px] ${card}`}>
+                <div className="flex items-center justify-between gap-[12px]">
+                  <h4 className="text-f16 font-bold text-t1">{category?.name ?? "Other profiles"}</h4>
+                  <button type="button" onClick={() => toggleGroup(items)} className="min-h-[32px] text-f14 font-semibold text-teal-text hover:underline">
                     {allIn ? "Clear all" : "Select all"}
                   </button>
                 </div>
-                <div className="max-h-[220px] space-y-[4px] overflow-y-auto pr-[8px]">
+                <div className="mt-[8px] max-h-[220px] space-y-[4px] overflow-y-auto pr-[8px]">
                   {items.map((p) => (
-                    <label key={p.id} className="flex items-center gap-[8px] text-f14 text-t2">
-                      <input
-                        type="checkbox"
-                        checked={selected.has(p.id)}
-                        onChange={() => toggle(p.id)}
-                      />
+                    <label key={p.id} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
+                      <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggle(p.id)} className="accent-teal-text" />
                       <span className="flex-1">{p.model}</span>
-                      {p.weightPerM != null && (
-                        <span className="text-f12 text-t3">{p.weightPerM} kg/m</span>
-                      )}
+                      {p.weightPerM != null && <span className="text-f12 tabular-nums text-t3">{p.weightPerM} kg/m</span>}
                     </label>
                   ))}
                 </div>
@@ -237,32 +228,23 @@ export default function DatasheetBuilder() {
 
         {formulationGroups.length > 0 && (
           <>
-            <h3 className="mb-[8px] mt-[34px] text-f16 font-bold text-t1">
-              2 · Resin system <span className="font-normal text-t3">(optional — one page per profile per system)</span>
-            </h3>
-            <p className="mb-[13px] text-f14 text-t3">
-              Leave everything unticked to get each profile&apos;s standard formulation. Tick
-              several to compare mechanical data for the same cross-section across resin systems.
+            <p className={`mt-[32px] ${mono}`}>Step 2 · Optional</p>
+            <h3 className="mt-[4px] text-f18 font-bold text-t1">Resin system</h3>
+            <p className="mt-[4px] max-w-[760px] text-f14 leading-golden text-t2">
+              Leave everything unticked for each profile&apos;s standard formulation, or tick several
+              to compare the same cross-section across resin systems, one page per profile per system.
             </p>
-            <div className="grid gap-[13px] rounded-card border border-border-default bg-bg2 p-[21px] md:grid-cols-2 lg:grid-cols-3">
+            <div className={`mt-[12px] grid gap-[12px] rounded-card border border-border-default p-[20px] md:grid-cols-2 lg:grid-cols-3 ${card}`}>
               {formulationGroups.map(({ label, items }) => (
                 <div key={label}>
-                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
-                    {label}
-                  </div>
-                  <div className="space-y-[4px]">
+                  <p className={mono}>{label}</p>
+                  <div className="mt-[8px] space-y-[4px]">
                     {items.map((f) => (
-                      <label key={f.id} className="flex items-center gap-[8px] text-f14 text-t2">
-                        <input
-                          type="checkbox"
-                          checked={selectedF.has(f.id)}
-                          onChange={() => toggleF(f.id)}
-                        />
+                      <label key={f.id} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
+                        <input type="checkbox" checked={selectedF.has(f.id)} onChange={() => toggleF(f.id)} className="accent-teal-text" />
                         <span className="flex-1">{f.name}</span>
                         {f.grade && (
-                          <span className="rounded-tag bg-white px-[6px] py-[1px] text-f12 font-semibold text-teal-text">
-                            {f.grade}
-                          </span>
+                          <span className="rounded-tag border border-border-default bg-white px-[6px] py-[1px] text-f12 font-medium text-t1">{f.grade}</span>
                         )}
                       </label>
                     ))}
@@ -273,60 +255,52 @@ export default function DatasheetBuilder() {
           </>
         )}
 
-        <div className="mt-[21px] flex flex-wrap items-center gap-[13px]">
+        <div className="mt-[24px] flex flex-wrap items-center gap-[12px]">
           {selected.size === 0 ? (
-            <span className="rounded-control bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
-              Select products to generate a PDF
-            </span>
+            <span className={idle}>Select profiles to generate a PDF</span>
           ) : overLimit ? (
-            <span className="rounded-control bg-bg2 px-[21px] py-[13px] text-f16 font-semibold text-t3">
-              {pageCount} pages exceeds the {MAX_PAGES}-page limit — narrow the selection
-            </span>
+            <span className={idle}>{pageCount} pages is over the {MAX_PAGES}-page limit: narrow the selection</span>
           ) : needsEmail ? (
             <>
+              <label className="sr-only" htmlFor="datasheet-email">Work email</label>
               <input
+                id="datasheet-email"
                 type="email"
-                placeholder="Work email to receive catalog updates"
-                className="w-[280px] rounded-control border border-border-default px-[13px] py-[13px] text-f16"
+                autoComplete="email"
+                placeholder="Work email for catalog updates"
+                className="min-h-[46px] w-full max-w-[320px] rounded-control border border-border-default bg-white px-[14px] text-f16 text-t1"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <button
-                onClick={submitLeadAndDownload}
-                disabled={submitting}
-                className="rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90 disabled:opacity-50"
-              >
-                {submitting ? "Preparing…" : `Get catalog PDF (${pageCount} pages) →`}
+              <button type="button" onClick={submitLeadAndDownload} disabled={submitting} className={action}>
+                {submitting ? "Preparing…" : `Get the catalog PDF (${pageCount} pages)`}
               </button>
               {gateError && <p className="w-full text-f14 text-fail">{gateError}</p>}
-              <p className="w-full text-f12 text-t3">
+              <p className="w-full text-f14 text-t3">
                 Multi-page catalog extracts ask for an email so we can send revised data when a
-                spec updates. Single datasheets download freely.
+                specification changes. Single datasheets download freely.
               </p>
             </>
           ) : (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener"
-              className="rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
-            >
-              Generate PDF ({pageCount} {pageCount === 1 ? "datasheet page" : "pages"}) →
+            <a href={href} target="_blank" rel="noopener" className={action}>
+              Generate PDF ({pageCount} {pageCount === 1 ? "datasheet page" : "pages"})
             </a>
           )}
           {selected.size > 0 && (
             <button
+              type="button"
               onClick={() => {
                 setSelected(new Set());
                 setSelectedF(new Set());
               }}
-              className="text-f14 text-t3 hover:underline"
+              className="min-h-[44px] text-f14 font-semibold text-t2 hover:text-teal-text"
             >
               Clear selection
             </button>
           )}
         </div>
-      </div>
-    </section>
+        </>
+      )}
+    </PageSection>
   );
 }

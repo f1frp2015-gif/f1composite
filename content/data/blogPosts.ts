@@ -50,6 +50,8 @@ export type BlogPost = {
   standards: string[];
   coverImage: string;
   coverAlt: string;
+  /** What kind of image the cover is, in the figure-note vocabulary ("Illustrative photo", "Rendering" …): shown on cards and the article figure. */
+  coverNote: string;
   coverImagePosition?: string;
   /**
    * "contain" renders the full image letterboxed (bg2 backdrop) on both the
@@ -106,6 +108,7 @@ export const blogPosts: BlogPost[] = [
     ],
     coverImage: "/images/blog/metal-cable-ladder-tray-ceiling-installation.webp",
     coverAlt: "Metal cable ladders mounted beneath a ceiling above perforated cable trays; an independent construction example, not an FRP or F1 installation",
+    coverNote: "Reference photo",
     coverImageFit: "contain",
     coverAttribution: {
       creator: "Leotard",
@@ -430,6 +433,7 @@ Photography shows metal cable ladders, perforated trays and wire-mesh tray const
     coverImage: "/images/blog/pengshui-mao-yisheng-charity-bridge-foundation.jpg",
     coverAlt:
       "The Mao Yisheng Charity Bridge in Pengshui at its completion ceremony, with the truss spanning the river and stepped approaches; photograph published by the Mao Yisheng Foundation",
+    coverNote: "Reference photo",
     coverImageFit: "contain",
     coverAttribution: {
       creator: "Original project photographer (not named in the source)",
@@ -543,6 +547,7 @@ For further material background, explore [pultruded FRP profiles](/pultruded-frp
     coverImage: "/images/hero/frp-composite-material-hero.webp",
     coverAlt:
       "Pultruded fiberglass reinforced plastic structural profiles showing multiple constant cross-section shapes",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
     supportingAlt:
       "Fiberglass reinforced plastic production line pulling continuous glass fibers through heated pultrusion dies",
@@ -629,6 +634,7 @@ If the project needs a catalog shape, compare the dimensions and section propert
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt:
       "Engineer reviewing FRP material properties, structural profile geometry, and laminate performance data",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg",
     supportingAlt:
       "FRP structural profile engineering drawing connecting material properties with cross-section design",
@@ -715,6 +721,7 @@ Avoid copying the highest numbers from several brochures into one impossible “
     standards: ["EN 13706", "ASTM D3917", "ASCE/SEI 74-23"],
     coverImage: "/images/hero/frp-composite-material-hero.webp",
     coverAlt: "Structural profiles made from fiber reinforced polymer composites",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
     supportingAlt:
       "Pultrusion manufacturing line turning glass reinforcement and resin into continuous FRP profiles",
@@ -890,6 +897,7 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
     coverImage: "/images/blog/supplier-qualification-facade-inspection.jpg",
     coverAlt:
       "Modern facade with an opened awning window in black and white — supplier qualification is about what you verify before the windows are on the building",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Hashcode Error", "https://www.pexels.com/photo/36992804/"),
     supportingImage: "/images/products/window-door/frp-window-frame-65-series-corner-section.webp",
     supportingAlt:
@@ -982,6 +990,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     coverImage: "/images/blog/window-profile-price-yellow-facade.jpg",
     coverAlt:
       "Modern window set in a bright yellow tiled facade — what a window profile costs is decided long before it reaches the wall",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/photo/18193156/"),
     supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
     supportingAlt:
@@ -1065,6 +1074,7 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
     coverImage: "/images/blog/fiberglass-casement-open-fabrication.jpg",
     coverAlt:
       "Opened casement window with visible sash, hinge hardware, and frame joinery — every station of window fabrication meets the lineal here",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
     supportingImage: "/images/blog/window-corner-joint-interior.jpg",
     supportingAlt:
@@ -1148,6 +1158,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     coverImage: "/images/blog/cold-climate-window-interior.jpg",
     coverAlt:
       "Interior view of white-framed windows on an autumn day — the interior frame surface temperature is where the condensation battle is won or lost",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
     supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
     supportingAlt:
@@ -1230,6 +1241,7 @@ To check where a specific frame and glazing build lands before specifying, run i
     coverImage: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
     coverAlt:
       "Pultruded FRP window frame 70-series profile — the core product of the fiberglass window profile market",
+    coverNote: "Rendering",
     coverImagePosition: "center 62%",
     coverImageFit: "contain",
     supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
@@ -1343,6 +1355,7 @@ The FRP window profile market rewards exactly one kind of participant on each si
     coverImage: "/images/blog/curtain-wall-blue-glass-facade-clean.jpg",
     coverAlt:
       "Blue glass curtain wall with clean facade grid — a thermal break isolator profile sits hidden inside every joint of the mullion and transom framing",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Jan van der Wolf",
       "https://www.pexels.com/photo/11680885/",
@@ -1488,6 +1501,7 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
     coverImage: "/images/blog/oil-gas-pipeline-industrial-plant.jpg",
     coverAlt:
       "Industrial gas pipeline and process piping at an oil and gas plant",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Edoardo Colombo",
       "https://www.pexels.com/photo/industrial-gas-pipeline-industrial-plant-3229014/",
@@ -1630,6 +1644,7 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     coverImage: "/images/blog/coal-mine-underground-tunnel-track.jpg",
     coverAlt:
       "Illuminated underground coal mine tunnel with haulage track",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "I Love Pixel",
       "https://www.pexels.com/photo/a-track-in-a-mine-14747539/",
@@ -1740,6 +1755,7 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
     standards: ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"],
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt: "Engineering analysis of FRP material performance for structural applications",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
     supportingAlt: "Lifecycle cost comparison of FRP and steel in corrosive environments",
     supportingCaption:
@@ -1816,6 +1832,7 @@ At F1 Composite, we help engineers compare materials based on actual service con
     standards: ["Passivhaus reference methodology", "EN 12667", "ISO 10077"],
     coverImage: "/images/case-studies/frp-fenestration-residential-tower-facade.jpg",
     coverAlt: "High-performance building facade using FRP fenestration systems",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp",
     supportingAlt: "Pultruded FRP window frame profile section for thermal performance applications",
     supportingImageFit: "contain",
@@ -1882,6 +1899,7 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     standards: ["ASTM E84", "OSHA 1910.23", "EN ISO 14122", "ASTM D6272"],
     coverImage: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
     coverAlt: "FRP grating access platform in an industrial chemical facility",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
     supportingAlt: "FRP grating walkway used in a corrosive coastal application",
     supportingCaption:
@@ -1946,6 +1964,7 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
     standards: ["IEC 61537:2023", "UL 568", "ASTM E84"],
     coverImage: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
     coverAlt: "FRP cable tray and handrail installation in a water treatment facility",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/industries/frp-electric-power-substation-infrastructure.jpg",
     supportingAlt: "FRP composite structures used for electrical insulation near substation equipment",
     supportingCaption:
@@ -2028,6 +2047,7 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     standards: ["AASHTO LRFD", "EN 1991-2", "BD 90/05", "ASTM D7290"],
     coverImage: "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
     coverAlt: "FRP bridge deck replacement project using lightweight composite panels",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/case-studies/frp-bridge.jpg",
     supportingAlt: "Composite bridge concept illustration for FRP deck applications",
     supportingCaption:
@@ -2090,6 +2110,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
     standards: ["ASTM E1996", "ASTM E1886", "AAMA 506", "Florida Building Code HVHZ"],
     coverImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
     coverAlt: "Pultruded FRP 140-series sliding door and window frame profile detail",
+    coverNote: "Rendering",
     coverImageFit: "contain",
     supportingImage: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     supportingAlt: "PHI-certified pultruded FRP windows installed at Qinling Station, Antarctica",
@@ -2157,6 +2178,7 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM E84"],
     coverImage: "/images/technology/resin-formulation-laboratory-testing.jpg",
     coverAlt: "Resin formulation and process control work in an advanced pultrusion laboratory",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/technology/f1-composite-pultrusion-plant-floor.webp",
     supportingAlt: "F1 Composite pultrusion plant floor with continuous lines producing FRP profiles — where concept, qualification, and production reality meet",
     supportingCaption:
@@ -2229,6 +2251,7 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM D3917"],
     coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
     coverAlt: "Engineering team reviewing FRP section performance and structural data",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/technology/quality-control-inspection-testing.jpg",
     supportingAlt: "Inspection and testing workflow used to verify pultruded FRP production quality",
     supportingCaption:
@@ -2312,6 +2335,7 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ISO 9001"],
     coverImage: "/images/technology/quality-control-inspection-testing.jpg",
     coverAlt: "Quality inspection workflow for pultruded FRP profiles during qualification",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
     supportingAlt: "Engineering and commercial analysis used to qualify FRP systems for long-term use",
     supportingCaption:
@@ -2385,6 +2409,7 @@ At F1 Composite, we see the most successful projects when engineering support st
     coverImage: "/images/blog/pultrusion-patents-2026-cover.jpg",
     coverAlt:
       "Engineer reviewing pultruded profile geometry and design data on a laptop",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "MOBO",
       "https://www.pexels.com/photo/engineer-analyzing-blueprints-on-laptop-34938429/",
@@ -2498,6 +2523,7 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
     standards: ["EN 13706", "ISO 9001", "ASCE Pre-Standard for LRFD of Pultruded FRP"],
     coverImage: "/images/blog/frp-coastal-infrastructure-cover.jpg",
     coverAlt: "Coastal dock and pier structure extending over water — typical marine infrastructure environment",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Ben Gidley",
       "https://www.pexels.com/photo/beach-boardwalk-bridge-clouds-302261/",
@@ -2613,6 +2639,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     standards: ["ISO 10077-1", "ISO 10077-2", "EN 12667", "ISO 9001", "PHI Component Certificate 2491wi03"],
     coverImage: "/images/regions/frp-passive-house-windows-germany.jpg",
     coverAlt: "Modern house exterior with large glass doors and panoramic windows — high-performance building envelope",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Max Rahubovskiy",
       "https://www.pexels.com/photo/exterior-of-modern-house-with-glass-doors-and-panoramic-windows-7031607/",
@@ -2751,6 +2778,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     standards: ["ISO 14001", "EU End-of-Life Vehicles Directive 2000/53/EC", "EU Waste Framework Directive 2008/98/EC"],
     coverImage: "/images/blog/frp-recycling/frp-chemical-recycling-lab-setup.jpg",
     coverAlt: "Laboratory setup for chemical recycling of thermoset FRP composites showing fenestration profile sample and TS degradation solution",
+    coverNote: "Report photo",
     supportingImage: "/images/blog/frp-recycling/recovered-fiber-applications.jpg",
     supportingAlt: "Recovered glass fibers from chemically recycled FRP composite material ready for reuse",
     supportingCaption:
@@ -2854,6 +2882,7 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     standards: ["EN 13501-1", "ASTM E84", "BS 476", "EN 45545-2", "ASTM E162", "ASTM D635"],
     coverImage: "/images/blog/frp-fire-resistance/frp-i-beam-torch-flame-test.jpg",
     coverAlt: "Pultruded FRP I-beam profile undergoing direct flame exposure test with a butane torch",
+    coverNote: "Reference photo",
     supportingImage: "/images/blog/frp-fire-resistance/frp-profile-char-formation.jpg",
     supportingAlt: "FRP composite profile showing char layer formation during sustained torch flame application",
     supportingCaption:
@@ -2981,6 +3010,7 @@ For engineers and architects specifying structural profiles in fire-regulated ap
     standards: ["ASTM D790", "ISO 178", "ASTM D6110", "EN 13706"],
     coverImage: "/images/blog/frp-impact-resistance/material-comparison-after-drop-test.jpg",
     coverAlt: "Seven material samples after 3-point bending drop test — metals permanently deformed, wood broken, PVC damaged, PUR pultruded profile intact",
+    coverNote: "Reference photo",
     supportingImage: "/images/blog/frp-impact-resistance/3-point-bending-test-setup.jpg",
     supportingAlt: "Schematic of 3-point bending drop test setup with 320 mm support span used in the Covestro comparative material study",
     supportingCaption:
@@ -3090,6 +3120,7 @@ For engineers designing structures that must survive impact events and remain in
     standards: ["AS 2047-2014", "AS/NZS 4420.1-2016", "NCC 2022", "WERS"],
     coverImage: "/images/blog/gfrp-australia/modern-glazing-structure-facade.webp",
     coverAlt: "Modern architectural glazing structure with curved frame profiles and glass panels — representative of high-performance fenestration systems",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/@jan-van-der-wolf-11680885/"),
     supportingImage: "/images/blog/gfrp-australia/modern-glazing-structure-facade.webp",
     supportingAlt: "Curved glazing facade with structural frame profiles demonstrating the architectural potential of advanced fenestration materials",
@@ -3232,6 +3263,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
     standards: ["ISO 10077-2", "EN 12206-1", "AAMA 2604", "Qualicoat Class 2", "GSB Master"],
     coverImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
     coverAlt: "Pultruded FRP profiles entering a Gema powder coating oven on a factory production line",
+    coverNote: "Reference photo",
     supportingImage: "/images/blog/frp-profile-powder-coating-booth-spray-line.webp",
     supportingAlt: "Automated powder coating spray booth applying architectural finish to pultruded FRP window profiles",
     supportingCaption:
@@ -3377,6 +3409,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     standards: ["AS 2047-2014", "AS/NZS 4420.1-2016", "AS 4055-2021", "AS 1170.2-2021", "NCC 2022 Section J"],
     coverImage: "/images/blog/gfrp-australia/lift-sliding-door-veranda-residence.jpg",
     coverAlt: "Bright open-plan residential interior with wooden flooring and large sliding glass doors opening onto a veranda — the form factor tested in this AS 2047 evaluation",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Curtis Adams", "https://www.pexels.com/@curtis-adams-1694007/"),
     supportingImage: "/images/blog/gfrp-australia/lift-sliding-door-veranda-residence.jpg",
     supportingAlt: "Large patio sliding door integrated into a contemporary residence with covered veranda — representative of the Australian premium housing context for AS 2047-compliant fenestration",
@@ -3575,6 +3608,7 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     standards: ["AAMA 2604", "AAMA 2605", "Qualicoat Class 1", "Qualicoat Class 2", "ISO 2409", "ISO 2813", "ASTM D2244", "EN 13706"],
     coverImage: "/images/blog/frp-window-finish-metallic-samples.webp",
     coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite gray, and matte black — visually identical to architectural-grade powder-coated aluminum",
+    coverNote: "Product photo",
     supportingImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
     supportingAlt: "GEMA powder coating production line for pultruded FRP profiles — automated electrostatic spray and curing oven matching architectural aluminum finishing standards",
     supportingCaption:
@@ -3723,6 +3757,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     standards: ["EN 13706", "ASTM D3917", "ISO 9001", "Incoterms 2020"],
     coverImage: "/images/blog/frp-specification-procurement.jpg",
     coverAlt: "FRP profile procurement and sourcing process from a factory in China",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
     supportingAlt: "FRP cost benchmarking and lifecycle analysis worksheet",
     supportingCaption:
@@ -3876,6 +3911,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     standards: ["EN 13706", "ASTM D3917", "Incoterms 2020"],
     coverImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
     coverAlt: "Pultruded FRP profile cost benchmarks and lead time reference 2026",
+    coverNote: "Illustrative photo",
     supportingImage: "/images/blog/frp-specification-procurement.jpg",
     supportingAlt: "Pultruded FRP procurement specification reference",
     supportingCaption:
@@ -4043,6 +4079,7 @@ For a planning figure on a specific section, use the [fiberglass pultruded profi
     ],
     coverImage: "/images/blog/wind-onshore-farm-green-fields.webp",
     coverAlt: "Onshore wind farm spread across open fields — typical service environment for medium-length GFRP-spar-cap blades",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Merictuna",
       "https://www.pexels.com/photo/expansive-wind-farm-in-lush-green-fields-31390206/",
@@ -4138,6 +4175,7 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
     ],
     coverImage: "/images/blog/wind-offshore-turbine-speedboat.webp",
     coverAlt: "Offshore wind turbine with crew transfer vessel showing the structural scale that drives CFRP-spar-cap selection in long blades",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Donny Tang",
       "https://www.pexels.com/photo/offshore-wind-turbine-and-speedboat-at-sea-34041284/",
@@ -4232,6 +4270,7 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
     standards: ["EN 13706", "ASTM D3917", "ASTM G154", "ASTM B117", "IEC 61215"],
     coverImage: "/images/blog/frp-pultruded-offshore-fishery-solar-mount.webp",
     coverAlt: "Wind-solar-fishery hybrid plant with PV arrays over saline water and an offshore wind turbine in the distance, the operating environment for pultruded FRP solar mounts and module frames",
+    coverNote: "Reference photo",
     supportingImage: "/images/blog/frp-coastal-infrastructure-supporting.jpg",
     supportingAlt: "Coastal infrastructure exposed to salt spray and UV, the same corrosion drivers that govern offshore and fishery PV mounting selection",
     supportingCaption:
@@ -4346,6 +4385,7 @@ For a project-specific FRP solar mounting specification, full pultruded section 
     coverImage: "/images/blog/frp-curtain-wall-facade-blue-glass-grid.webp",
     coverAlt:
       "Blue glass curtain wall facade grid of mullions and transoms — the primary structural frame this article addresses, not the hidden thermal break inside it",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit(
       "Jan van der Wolf",
       "https://www.pexels.com/photo/18169294/",
@@ -4439,6 +4479,7 @@ For engineers and facade consultants tracking this development, or interested in
     coverImage: "/images/blog/window-corner-joint-interior.jpg",
     coverAlt:
       "Interior view of a window corner joint — the frame-to-glass edge zone where the spacer thermal bridge Ψg concentrates whole-window heat loss",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
     supportingImage: "/images/blog/cold-climate-window-interior.jpg",
     supportingAlt:
@@ -4540,6 +4581,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
     coverImage: "/images/blog/cold-climate-window-interior.jpg",
     coverAlt:
       "Triple-glazed windows in a bright interior — passive house comfort criterion keeps the interior window surface within 4.2 K of room temperature",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
     supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
     supportingAlt:
@@ -4638,6 +4680,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
     coverImage: "/images/blog/window-facade-solar-grid-modern.jpg",
     coverAlt:
       "Modern facade with floor-to-ceiling window grid surrounded by lush greenery — each opening negotiates heat loss (U-value) against solar gain (SHGC) through the seasons",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Steve Pancrate", "https://www.pexels.com/photo/1746203/"),
     supportingImage: "/images/blog/window-corner-joint-interior.jpg",
     supportingAlt:
@@ -4713,6 +4756,7 @@ To see both numbers interact on a real build (your frame, glazing package, and s
     coverImage: "/images/blog/facade-balcony-window-grid-thermal-break.jpg",
     coverAlt:
       "Residential facade grid of hundreds of identical aluminum-framed windows and balconies — every one of those frames depends on a pair of thermal break profiles to meet its energy code",
+    coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Badun", "https://www.pexels.com/photo/34776034/"),
     supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.webp",
     supportingAlt:
@@ -4799,6 +4843,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
     coverImage: "/images/products/standard-profiles-cover.jpg",
     coverAlt:
       "Pultruded fiberglass I-beam — FRP density is set by the glass, resin, fillers and voids inside the section",
+    coverNote: "Product photo",
     supportingImage: "/images/products/pultruded-frp-structural-profiles-overview-engineering-drawing.png",
     supportingAlt:
       "Dimensioned engineering renders of pultruded FRP structural shapes — I-beam, channel, flat, angle and square tube",
@@ -4925,6 +4970,7 @@ If your project needs a different point on the density map (an E-CR glass lamina
     ],
     coverImage: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
     coverAlt: "Yellow fiberglass handrail and guardrail systems around industrial platforms and stairs",
+    coverNote: "Reference photo",
     supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
     supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
     supportingImageFit: "contain",
@@ -5074,6 +5120,7 @@ Send a plan and elevations with every run, corner, gate and stair flight; the go
     ],
     coverImage: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
     coverAlt: "Fiberglass fixed ladder with a safety cage fixed to an industrial structure",
+    coverNote: "Reference photo",
     supportingImage: "/images/products/frp-ladders/frp-safety-cage-layout.webp",
     supportingAlt: "Layout drawing of an FRP fixed ladder with cage hoops, vertical cage strips and wall brackets",
     supportingImageFit: "contain",
@@ -5199,6 +5246,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
     ],
     coverImage: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
     coverAlt: "Glass-fiber reinforced polymer reinforcing bars with a sand-coated helical surface for bond to concrete",
+    coverNote: "Product photo",
     coverImageFit: "contain",
     supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     supportingAlt: "Straight GFRP reinforcing bars of several diameters",
@@ -5330,6 +5378,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
     ],
     coverImage: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
     coverAlt: "Factory-formed rectangular GFRP stirrups",
+    coverNote: "Supplier photo",
     coverImageFit: "contain",
     supportingImage: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
     supportingAlt: "GFRP reinforcement mesh panel with bars in two directions",
@@ -5440,6 +5489,7 @@ Before the schedule goes to production, confirm that every shape has a mark, a s
     ],
     coverImage: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
     coverAlt: "Molded FRP grating installed as a coastal observation walkway",
+    coverNote: "Catalog photo",
     supportingImage: "/images/products/molded-frp-grating/grating-clips-hardware-reference.webp",
     supportingAlt: "Reference layout of stainless steel hold-down clips and connectors used with FRP grating",
     supportingImageFit: "contain",
@@ -5564,6 +5614,7 @@ To choose the grating itself, compare [molded and pultruded fiberglass grating](
     ],
     coverImage: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
     coverAlt: "Open pultruded FRP grating installed as a rooftop walkway",
+    coverNote: "Catalog photo",
     supportingImage: "/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp",
     supportingAlt: "Close-up of pultruded FRP grating with T-shaped bearing bars and cross rods",
     supportingImageFit: "contain",
@@ -5682,6 +5733,7 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
     ],
     coverImage: "/images/applications/frp-cable-ladder-gray-product.webp",
     coverAlt: "Illustration of a gray fiberglass cable ladder with pultruded channel side rails and evenly spaced rungs",
+    coverNote: "AI concept",
     coverImageFit: "contain",
     supportingImage: "/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp",
     supportingAlt: "Concept illustration of an FRP cable tray on a wall-mounted pultruded support bracket",
@@ -5833,6 +5885,7 @@ To choose between tray and ladder, and between FRP and metal, read the [cable tr
     ],
     coverImage: "/images/products/frp-handrail-systems/frp-round-handrail-system-components.webp",
     coverAlt: "Round-tube FRP handrail system with posts, top and middle rails, molded elbow, tee and cross fittings, foot bases and kick plate",
+    coverNote: "Catalog drawing",
     coverImageFit: "contain",
     supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
     supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
@@ -5961,6 +6014,7 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
     ],
     coverImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
     coverAlt: "Close-up of the helically wrapped, sand-coated bond surface of a glass-fiber reinforced polymer bar",
+    coverNote: "Supplier photo",
     coverImageFit: "contain",
     supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     supportingAlt: "Straight GFRP reinforcing bars of several diameters",

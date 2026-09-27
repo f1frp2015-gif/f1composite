@@ -175,8 +175,8 @@ interface MechRow {
 function mechRows(f: FormulationRow | null): MechRow[] {
   const g = (k: keyof FormulationRow) => (f ? num(f[k]) : null);
   return [
-    { label: "Tensile modulus E_L (longitudinal)", value: g("e_l_gpa"), unit: "GPa", method: "EN ISO 527-4" },
-    { label: "Transverse tensile modulus E_T", value: g("e_t_gpa"), unit: "GPa", method: "EN ISO 527-4" },
+    { label: "Tensile modulus (longitudinal)", value: g("e_l_gpa"), unit: "GPa", method: "EN ISO 527-4" },
+    { label: "Tensile modulus (transverse)", value: g("e_t_gpa"), unit: "GPa", method: "EN ISO 527-4" },
     { label: "Tensile strength (longitudinal)", value: g("tensile_l_mpa"), unit: "MPa", method: "EN ISO 527-4" },
     { label: "Tensile strength (transverse)", value: g("tensile_t_mpa"), unit: "MPa", method: "EN ISO 527-4" },
     { label: "Flexural strength (longitudinal)", value: g("flexural_l_mpa"), unit: "MPa", method: "EN ISO 14125" },

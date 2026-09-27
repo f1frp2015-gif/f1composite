@@ -10,11 +10,10 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import WindowSystemExplorer from "@/components/sections/WindowSystemExplorer";
 import { WindowBuyerPaths, WindowComponentMap, WindowEvidenceCards, WindowPurchaseFlow, WindowScopeTable, WindowSupplyRoutes } from "@/components/sections/WindowBuyingGuide";
 import JsonLd from "@/components/seo/JsonLd";
-import CoverCard from "@/components/ui/CoverCard";
+import WindowProjects from "@/components/sections/WindowProjects";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { windowRequestItems } from "@/content/data/windowBuying";
-import { caseStudyCovers } from "@/lib/covers";
 import { assembleDocuments } from "@/lib/documents";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
@@ -40,17 +39,8 @@ const faq = [
   { question: "Who handles local installation and warranty?", answer: "Agree installation information, local labor, unloading, spare parts and after-sales responsibilities in the supply scope. Warranty terms depend on the contracted product and configuration. Shipping complete units does not by itself include on-site installation." },
 ];
 
-// Window projects F1 has supplied, each opening on its case account.
-const projects = [
-  { href: "/case-studies/qinling-station-antarctic-passive-windows", place: "Ross Sea, Antarctica · 2024", title: "Qinling Station", text: "90-series GFRP windows with insulated glazing for China's Ross Sea research station, designed for a −60\u00a0°C low." },
-  { href: "/case-studies/yancheng-talent-apartment-fenestration", place: "Yancheng, China · 2024", title: "Yancheng talent apartments", text: "65-series casements, 90-series sliding windows and matching facade frames across about 20 coastal buildings." },
-  { href: "/case-studies/baotou-industrial-gfrp-pu-windows", place: "Baotou, China · 2024", title: "Baotou industrial park", text: "70, 80 and 90-series GFRP-PU profiles for workshops with chemical exposure in China's severe-cold zone." },
-  { href: "/case-studies/wanhua-yantai-zero-carbon-windows", place: "Yantai, China · 2022", title: "Wanhua Yantai zero-carbon community", text: "65 and 90-series GFRP-PU profiles for a zero-carbon dormitory envelope, with a whole-window U of 0.99 W/m²·K." },
-] as const;
-
 const windowFiles = ["/downloads/f1composite-frp-window-door-catalog.pdf", "/downloads/f1-window-profile-bom-template.csv", "/downloads/f1-window-schedule-template.csv"];
 
-const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 const link = "inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:text-teal";
 
 export default function FenestrationSystemsPage() {
@@ -109,11 +99,7 @@ export default function FenestrationSystemsPage() {
       </ul>
     </PageSection>
 
-    <PageSection id="projects" title="Window projects we have supplied" count={`${projects.length} projects`} intro="From an Antarctic research station to a severe-cold industrial park. Each account names the series supplied; a project reference does not establish performance for a different assembly." aside={<Link href="/case-studies" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">All case studies</Link>}>
-      <ul className="grid grid-cols-2 gap-[12px] lg:grid-cols-4 lg:gap-[16px]">
-        {projects.map((project) => <li key={project.href}><CoverCard href={project.href} cover={caseStudyCovers[project.href]} label={<span className={mono}>{project.place}</span>} title={project.title} text={project.text} action="Read the project" compact sizes="(max-width: 1023px) 46vw, 290px" /></li>)}
-      </ul>
-    </PageSection>
+    <WindowProjects />
 
     <PageSection id="faq" title="Before you request a quote" tone="muted">
       <FAQList items={faq} />

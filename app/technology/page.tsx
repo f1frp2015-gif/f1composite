@@ -144,8 +144,46 @@ export default function TechnologyPage() {
         </ul>
       </PageSection>
 
+      <AnswerBlocks
+        tone="muted"
+        title="FRP engineering: short technical answers"
+        description="Concise, citation-ready responses to the questions our engineering team is asked most often. For deeper context, see the pultrusion process, FRP vs traditional materials, and quality testing pages."
+        items={[
+          {
+            question: "What design code governs pultruded FRP structures?",
+            answer:
+              "In North America, ASCE/SEI 74-23 (Pre-Standard for LRFD of Pultruded FRP Structures) is the primary reference. In Europe, EN 13706-1/2/3 defines grades E17 and E23 and test methods. Additional references include the EUROCOMP Design Code and ACI 440 guidelines for FRP rebar.",
+          },
+          {
+            question: "What tolerance can pultrusion achieve?",
+            answer:
+              "Cross-section tolerances follow the profile standard, EN 13706-2 or ASTM D3917, by dimension and wall thickness; straightness and twist are specified per meter of length. The tolerances for an order are those on the approved drawing, checked by dimensional inspection of the production run.",
+          },
+          {
+            question: "What fiber content is typical in pultruded FRP?",
+            answer:
+              "45–65% glass fiber by weight in general structural profiles, verified by burn-off testing per ASTM D2584. Unidirectional-dominant sections (e.g. flat bar, rod) can reach 70% glass for maximum stiffness-to-weight.",
+          },
+          {
+            question: "What is the typical elastic modulus of pultruded FRP?",
+            answer:
+              "Longitudinal elastic modulus is 17–28 GPa for E-glass/polyester pultruded profiles, compared with 200 GPa for steel and 69 GPa for aluminum. Because modulus is lower, deflection (L/360 limit) typically governs FRP design rather than strength.",
+          },
+          {
+            question: "How are FRP profiles connected on site?",
+            answer:
+              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding: thermoset FRP cannot be welded or heated.",
+          },
+          {
+            question: "What fire performance can FRP achieve?",
+            answer:
+              "Standard polyester FRP is not fire-retardant. Fire-retardant resin systems are used where a surface-burning class such as ASTM E84 Class 1 is required, and phenolic profiles where low smoke and toxicity matter, as in rail interiors under EN 45545-2. Fire reports are issued for a specified formulation and profile, so name the classification your project needs.",
+          },
+        ]}
+      />
+
       <RelatedLinks
-        background="bg2"
+        background="white"
         groups={[
           {
             title: "Product references",
@@ -187,43 +225,6 @@ export default function TechnologyPage() {
               { href: "/resources/technical-data", label: "Technical data sheets" },
               { href: "/ask", label: "Ask the AI engineering assistant" },
             ],
-          },
-        ]}
-      />
-
-      <AnswerBlocks
-        title="FRP engineering: short technical answers"
-        description="Concise, citation-ready responses to the questions our engineering team is asked most often. For deeper context, see the pultrusion process, FRP vs traditional materials, and quality testing pages."
-        items={[
-          {
-            question: "What design code governs pultruded FRP structures?",
-            answer:
-              "In North America, ASCE/SEI 74-23 (Pre-Standard for LRFD of Pultruded FRP Structures) is the primary reference. In Europe, EN 13706-1/2/3 defines grades E17 and E23 and test methods. Additional references include the EUROCOMP Design Code and ACI 440 guidelines for FRP rebar.",
-          },
-          {
-            question: "What tolerance can pultrusion achieve?",
-            answer:
-              "Cross-section tolerances follow the profile standard, EN 13706-2 or ASTM D3917, by dimension and wall thickness; straightness and twist are specified per meter of length. The tolerances for an order are those on the approved drawing, checked by dimensional inspection of the production run.",
-          },
-          {
-            question: "What fiber content is typical in pultruded FRP?",
-            answer:
-              "45–65% glass fiber by weight in general structural profiles, verified by burn-off testing per ASTM D2584. Unidirectional-dominant sections (e.g. flat bar, rod) can reach 70% glass for maximum stiffness-to-weight.",
-          },
-          {
-            question: "What is the typical elastic modulus of pultruded FRP?",
-            answer:
-              "Longitudinal elastic modulus is 17–28 GPa for E-glass/polyester pultruded profiles, compared with 200 GPa for steel and 69 GPa for aluminum. Because modulus is lower, deflection (L/360 limit) typically governs FRP design rather than strength.",
-          },
-          {
-            question: "How are FRP profiles connected on site?",
-            answer:
-              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding: thermoset FRP cannot be welded or heated.",
-          },
-          {
-            question: "What fire performance can FRP achieve?",
-            answer:
-              "Standard polyester FRP is not fire-retardant. Fire-retardant resin systems are used where a surface-burning class such as ASTM E84 Class 1 is required, and phenolic profiles where low smoke and toxicity matter, as in rail interiors under EN 45545-2. Fire reports are issued for a specified formulation and profile, so name the classification your project needs.",
           },
         ]}
       />

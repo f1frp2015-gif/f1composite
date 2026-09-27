@@ -3,9 +3,10 @@ import { commercialFacts } from "@/content/data/engineeringEvidence";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import DatasheetBuilder from "@/components/downloads/DatasheetBuilder";
 import DocumentLibrary from "@/components/downloads/DocumentLibrary";
@@ -35,7 +36,7 @@ const faqs = [
   {
     question: "Are documents available in languages other than English?",
     answer:
-      "Catalogs are available in English; Arabic and Spanish translations are issued for projects in the GCC and Latin America on request. Certifications are in English (the issuing authority's language) — contact us if a notarized translation is required.",
+      "Catalogs are available in English; Arabic and Spanish translations are issued for projects in the GCC and Latin America on request. Certifications are in English, the issuing authority's language; contact us if a notarized translation is required.",
   },
   {
     question: "Why do certain documents ask for a project name before download?",
@@ -106,88 +107,64 @@ export default async function DownloadsPage() {
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Specification, Certification, and CAD Documents</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
-            <p>
-              These are the documents specifiers, fabricators and QA teams use to check and buy pultruded FRP profiles from F1 Composite. Files with a download link are public. The rest are sent on request, with the certificate holder, report number and scope, so you can match each document to the product you are buying.
-            </p>
-            <p>
-              <strong>Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:text-teal">datasheet</Link>. <strong>On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageNav items={[{ id: "overview", label: "What is here" }, { id: "datasheet-builder", label: "Datasheet builder" }, { id: "datasheets", label: "Datasheets" }, { id: "documents", label: "Documents" }, { id: "faq", label: "FAQ" }]} />
 
-      <DatasheetBuilder />
-
-      {/* FRP profile technical datasheets — static shortlist, 8 common sizes
-          per family for customers who do not need the full DB-driven index. */}
-      <section id="datasheets" className="bg-white py-[55px]">
-        <div className="site-container">
-          <p className="mb-[21px] text-f16 text-t2">New: <Link href={e40EvidenceHref} className="font-semibold text-teal-text underline">SGS E40 / 40 GPa-class full-section test reports</Link> — review the measured results and size-identification notes before selecting a datasheet.</p>
-          <SectionTag>FRP Profile Technical Datasheets</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Technical datasheets — most-requested sizes
-          </h2>
-          <p className="mt-[8px] max-w-[860px] text-f16 leading-golden text-t2">
-            The eight most-specified sizes in each profile family, linked straight to their
-            technical datasheet — section drawing, published weight, mechanical and physical
-            properties, and a free DXF download on every page. The complete catalog of all
-            114 sizes lives in the{" "}
-            <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">
-              datasheet library
-            </Link>
-            .
+      <PageSection id="overview" title="Specification, certification and CAD documents" tone="white">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>
+            These are the documents specifiers, fabricators and QA teams use to check and buy pultruded FRP profiles from F1 Composite. Files with a download link are public. The rest are sent on request, with the certificate holder, report number and scope, so you can match each document to the product you are buying.
           </p>
-          <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
-            {datasheetHighlights.map((fam) => (
-              <div key={fam.family} className="rounded-card border border-border-default bg-white p-[21px]">
-                <h3 className="text-f16 font-bold text-t1">
-                  <Link href={fam.categoryHref} className="hover:text-teal-text">
-                    {fam.family}
-                  </Link>
-                </h3>
-                <ul className="mt-[8px] space-y-[3px]">
-                  {fam.items.map((it) => (
-                    <li key={it.slug}>
-                      <Link
-                        href={`/datasheets/${it.slug}`}
-                        className="text-f14 text-t2 hover:text-teal-text hover:underline"
-                      >
-                        {it.model} datasheet
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <p>
+            <strong className="text-t1">Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">datasheet</Link>. <strong className="text-t1">On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
+          </p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <p className="mb-[24px] text-f16 text-t2">Check document applicability in the <Link href="/resources/evidence" className="font-semibold text-teal-text underline">product evidence index</Link> before using a report in your project.</p>
-          <DocumentLibrary documents={downloads} />
-        </div>
-      </section>
+      <DatasheetBuilder tone="muted" />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>How Specifiers Use This Set</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
-            <p>
-              {commercialFacts.compliance}
-            </p>
-            <p>
-              For documents not listed — for example, third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run — write to inquiry@f1composite.com with your product and acceptance requirements. We will confirm availability and any additional testing needed.
-            </p>
-          </div>
-          <FAQ items={faqs} />
+      {/* FRP profile technical datasheets: a static shortlist, eight common sizes
+          per family, for customers who do not need the full DB-driven index. */}
+      <PageSection id="datasheets" title="Technical datasheets: the most-requested sizes" tone="white" intro={<>The eight most-specified sizes in each profile family, linked to their technical datasheet: section drawing, published weight, mechanical and physical properties, and a free DXF on every page. All 114 sizes are in the <Link href="/datasheets" className="font-semibold text-teal-text underline underline-offset-4">datasheet library</Link>.</>}>
+        <p className="mb-[20px] max-w-[860px] rounded-card border-l-4 border-l-teal bg-teal-bg px-[16px] py-[12px] text-f14 leading-golden text-t2">
+          <strong className="text-t1">E40 test evidence.</strong> Review the <Link href={e40EvidenceHref} className="font-semibold text-teal-text underline underline-offset-4">SGS 40 GPa-class full-section reports</Link> and their size-identification notes before selecting a datasheet.
+        </p>
+        <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+          {datasheetHighlights.map((fam) => (
+            <li key={fam.family} className="rounded-card border border-border-default bg-bg2 p-[20px]">
+              <h3 className="text-f16 font-bold text-t1">
+                <Link href={fam.categoryHref} className="hover:text-teal-text">
+                  {fam.family}
+                </Link>
+              </h3>
+              <ul className="mt-[8px] space-y-[2px]">
+                {fam.items.map((it) => (
+                  <li key={it.slug}>
+                    <Link href={`/datasheets/${it.slug}`} className="inline-flex min-h-[28px] items-center text-f14 text-t2 hover:text-teal-text hover:underline">
+                      {it.model} datasheet
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <PageSection id="documents" title="Document library" count={`${downloads.length} documents`} tone="muted" intro={<>Check each document&apos;s applicability in the <Link href="/resources/evidence" className="font-semibold text-teal-text underline underline-offset-4">product evidence index</Link> before using a report in your project.</>}>
+        <DocumentLibrary documents={downloads} />
+      </PageSection>
+
+      <PageSection id="faq" title="How specifiers use this set" tone="white">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>{commercialFacts.compliance}</p>
+          <p>
+            For documents not listed, such as third-country compliance dossiers, bay-by-bay test reports for a fenestration project, or batch-traceable MTCs from a specific production run, write to inquiry@f1composite.com with your product and acceptance requirements. We will confirm availability and any additional testing needed.
+          </p>
         </div>
-      </section>
+        <div className="mt-[24px]">
+          <FAQList items={faqs} />
+        </div>
+      </PageSection>
 
       <InnerCTA title="Can't find what you're looking for?" />
     </>
