@@ -94,16 +94,16 @@ export const toolCovers = {
   "/tools/profile-finder": tool("profile-finder.webp", "Profile finder with shape filters and a table of standard sizes"),
   "/frp-profile-calculator": tool("profile-calculator.webp", "FRP profile calculator results for bending, shear and deflection"),
   "/frp-span-tables": tool("span-tables.webp", "Span table of allowable loads for FRP I-beams from 1 to 2.5 m"),
-  "/frp-density-calculator": tool("density.webp", "Density calculator options for a reinforcement layup"),
+  "/frp-density-calculator": tool("density-calculator.webp", "Density calculator with calculation modes, section inputs and the material balance"),
   "/fiberglass-pultruded-profile-price": tool("price-estimator.webp", "Price estimator showing an indicative price per meter"),
   "/tools/thermal-expansion-calculator": tool("thermal-expansion.webp", "Thermal expansion calculator inputs for an FRP member"),
   "/tools/handrail-load-calculator": tool("handrail-load.webp", "Handrail load check inputs for posts and top rails"),
   "/tools/access-geometry-checker": tool("access-geometry.webp", "Ladder, stair and walkway geometry checker"),
   "/tools/gfrp-rebar-calculator": tool("gfrp-rebar.webp", "GFRP rebar calculator matching a steel bar size"),
-  "/technology/frp-u-value-calculator": tool("u-value.webp", "Whole-window U-value calculator"),
-  "/ask": tool("ask.webp", "Engineering assistant question box with example questions"),
-  "/ai/sourcing": tool("sourcing.webp", "Sourcing assistant project description and starting points"),
-  "/ai/passive-house": tool("passive-house.webp", "Passive House window selector with climate classes and window types"),
+  "/technology/frp-u-value-calculator": tool("u-value-calculator.webp", "Whole-window U-value calculator with frame, glass and spacer inputs and the result"),
+  "/ask": tool("engineering-assistant.webp", "Engineering assistant chat panel with starter questions"),
+  "/ai/sourcing": tool("sourcing-assistant.webp", "Sourcing assistant project description and starting points"),
+  "/ai/passive-house": tool("passive-house-selector.webp", "Passive House window selector with climate classes and window types"),
 } satisfies Record<string, Cover>;
 
 // Resource pages without a lead image show their own key table or list, like
@@ -130,6 +130,8 @@ export const applicationCovers: Record<string, Cover> = Object.fromEntries(
 const project = (file: string, alt: string, note?: string): Cover => ({ src: `/images/case-studies/${file}`, alt, ...(note ? { note } : {}) });
 
 export const caseStudyCovers = {
+  // The bridge page opens on its exploded-view drawing (Figure 01), captured on its own ground.
+  "/case-studies/beam-bridge": { src: "/images/covers/case-studies/beam-bridge-exploded-view.webp", alt: "Exploded view of a 12 m FRP beam bridge: pultruded GRP I-beams, cross-members, deck and railing", note: "Concept drawing" },
   "/case-studies/qinling-station-antarctic-passive-windows": project("frp-qinling-station-antarctic-ross-sea-aerial.webp", "Architectural rendering of Qinling Station on the Ross Sea coast, Antarctica", RENDERING),
   "/case-studies/yancheng-talent-apartment-fenestration": project("frp-talent-apartment-yancheng-aerial-view.webp", "Architectural rendering of the Yancheng talent apartment development from above", RENDERING),
   "/case-studies/baotou-industrial-gfrp-pu-windows": project("frp-baotou-industrial-park-aerial-rendering.webp", "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block", RENDERING),

@@ -40,7 +40,7 @@ export const chongqingRooftopPv: ApplicationCard = {
   href: "/case-studies/chongqing-rooftop-pv-frp-rail",
   kind: "Case study",
   title: "Chongqing rooftop PV retrofit",
-  text: "Pultruded GFRP H-rail on colour steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
+  text: "Pultruded GFRP H-rail on color steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
   image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   imageAlt: "Solar modules on FRP rails over a color steel-tile factory roof in Chongqing",
   note: "Project photo",

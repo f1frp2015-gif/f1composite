@@ -13,14 +13,18 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
 import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import Figure from "@/components/ui/Figure";
+import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import SectionSvg from "@/components/datasheets/SectionSvg";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import {
   approximateInchSize,
   datasheetFamily,
   datasheetFaq,
+  familyInSentence,
   datasheetSeoDescription,
   datasheetSeoTitle,
   dimensionLabel,
@@ -181,14 +185,37 @@ export default async function DatasheetPage({
       ]
     : [];
 
+  const grade = formulation?.en13706_grade ?? null;
+  // "FRP I-Beam" → "Fiberglass I-beam": the product noun in sentence case.
+  const titleNoun = family.label
+    .replace(/^FRP /, "")
+    .split(" ")
+    .map((word) => (/^[A-Z]-/.test(word) ? word[0] + word.slice(1).toLowerCase() : word.toLowerCase()))
+    .join(" ");
+  const quoteHref = buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model });
+  const hasLoads = spanRow != null && loads.length > 0;
+  const link = "font-semibold text-teal-text hover:underline";
+  const th = "px-[14px] py-[8px] font-semibold text-t1";
+  const td = "px-[14px] py-[8px]";
+  const buttonBase = "inline-flex min-h-[46px] items-center justify-center rounded-control px-[22px] text-f14 font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2";
+  // Sections alternate white and muted from the white one under the header.
+  const sectionOrder = ["section", hasLoads && "span-loads", "properties", siblings.length > 1 && "sizes", faq.length > 0 && "faq"].filter(Boolean);
+  const toneOf = (id: string) => (sectionOrder.indexOf(id) % 2 === 0 ? "white" : "muted");
+
   return (
     <>
       <JsonLd data={schema} />
       {/* A "Products" breadcrumb gives the header the product quote, advisor and WhatsApp actions. */}
       <PageHeader
-        tag="Technical Datasheet"
-        title={`${family.label.replace(/^FRP/, "Fiberglass")} ${sizeLabel}`}
-        description={`${product.model} · ${category?.name ?? "Pultruded FRP profile"} · ${formulation?.en13706_grade ? `EN 13706 ${formulation.en13706_grade}` : "engineering datasheet"}${publishedW != null ? ` · ${publishedW} kg/m` : ""}`}
+        tag="Datasheet"
+        title={`Fiberglass ${titleNoun} ${sizeLabel}`}
+        description={`Dimensions, section properties computed from the geometry${hasLoads ? ", allowable loads by span" : ""} and ${grade ? `EN 13706 ${grade}` : "laminate"} mechanical data for the ${product.model} pultruded profile.`}
+        facts={[
+          { label: "Model", value: product.model },
+          ...(grade ? [{ label: "EN 13706 grade", value: grade }] : []),
+          ...(publishedW != null ? [{ label: "Published mass", value: `${publishedW} kg/m` }] : []),
+          ...(props ? [{ label: "Section area", value: `${sig(props.A)} mm²` }] : []),
+        ]}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },
@@ -198,281 +225,262 @@ export default async function DatasheetPage({
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] md:grid-cols-2">
-            <div>
-              <SectionTag>Cross-Section</SectionTag>
-              <div className="mt-[21px] rounded-card border border-border-default p-[21px] text-center">
-                {product.geometry ? (
-                  <SectionSvg geometry={product.geometry} size={280} className="mx-auto" />
-                ) : (
-                  <p className="text-f14 text-t3">Geometry pending — contact engineering.</p>
-                )}
-                {desig && <p className="mt-[8px] text-f16 font-bold text-t1">{desig}</p>}
-                {inchSize && (
-                  <p className="mt-[4px] text-f14 text-t3">
-                    ≈ {inchSize} in (reference only; the metric dimensions govern)
-                  </p>
-                )}
-              </div>
-              {dims.length > 0 && (
-                <table className="mt-[21px] w-full text-left text-f16">
+      <PageNav
+        items={[
+          { id: "section", label: "Section" },
+          ...(hasLoads ? [{ id: "span-loads", label: "Loads by span" }] : []),
+          { id: "properties", label: "Mechanical data" },
+          ...(siblings.length > 1 ? [{ id: "sizes", label: "Other sizes" }] : []),
+          ...(faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+        ]}
+      />
+
+      <PageSection id="section" title="Cross-section and section properties" tone={toneOf("section")}>
+        <div className="grid gap-[32px] lg:grid-cols-2">
+          <div>
+            <Figure number={1} title={desig ?? product.model} note="Drawn to scale">
+              {product.geometry ? (
+                <SectionSvg geometry={product.geometry} size={260} className="mx-auto h-auto max-w-full" />
+              ) : (
+                <p className="py-[40px] text-center text-f14 text-t3">Geometry pending. Contact engineering for the drawing.</p>
+              )}
+            </Figure>
+            {inchSize && (
+              <p className="mt-[8px] text-f14 text-t3">≈ {inchSize} in, for reference only; the metric dimensions govern.</p>
+            )}
+            {dims.length > 0 && (
+              <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+                <table className="w-full text-left text-f14">
+                  <caption className="sr-only">Dimensions of {product.model}</caption>
                   <tbody>
                     {dims.map((d) => (
-                      <tr key={d.symbol} className="border-b border-border-default">
-                        <td className="py-[8px] pr-[21px] text-t2">
+                      <tr key={d.symbol} className="border-b border-border-default last:border-b-0">
+                        <th scope="row" className={`${td} font-normal text-t2`}>
                           {d.label} ({d.symbol})
-                        </td>
-                        <td className="py-[8px] font-medium text-t1">{d.value} mm</td>
+                        </th>
+                        <td className={`${td} text-right font-medium text-t1 tabular-nums`}>{d.value} mm</td>
                       </tr>
                     ))}
                     {publishedW != null && (
-                      <tr className="border-b border-border-default">
-                        <td className="py-[8px] pr-[21px] text-t2">Mass per meter (published)</td>
-                        <td className="py-[8px] font-medium text-teal-text">{publishedW} kg/m</td>
+                      <tr className="border-b border-border-default last:border-b-0">
+                        <th scope="row" className={`${td} font-normal text-t2`}>Mass per meter (published)</th>
+                        <td className={`${td} text-right font-semibold text-t1 tabular-nums`}>{publishedW} kg/m</td>
                       </tr>
                     )}
                   </tbody>
                 </table>
-              )}
-              {priceEstimate && (
-                <p className="mt-[13px] text-f14 leading-golden text-t3">
-                  For a planning budget per meter, enter these dimensions in the{" "}
-                  <Link href="/fiberglass-pultruded-profile-price" className="text-teal-text hover:underline">
-                    fiberglass pultruded profile price estimator
-                  </Link>
-                  .
-                </p>
-              )}
-              <div className="mt-[21px] flex flex-wrap gap-[13px]">
-                {source === "database" ? (
-                  <a
-                    href={`/api/datasheet?ids=${product.id}`}
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-block rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
-                  >
-                    Download PDF datasheet →
-                  </a>
-                ) : (
-                  <Link
-                    href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
-                    className="inline-block rounded-control bg-teal-text px-[21px] py-[13px] text-f16 font-semibold text-white hover:opacity-90"
-                  >
-                    Request applicable product data →
-                  </Link>
-                )}
-                {CAD_SLUGS.has(slug) && (
-                  <a
-                    href={`/cad/${slug}.dxf`}
-                    download
-                    className="inline-block rounded-control border border-teal-text px-[21px] py-[13px] text-f16 font-semibold text-teal-text hover:bg-teal-bg"
-                  >
-                    Download CAD (DXF, free) →
-                  </a>
-                )}
               </div>
-              {CAD_SLUGS.has(slug) && (
-                <p className="mt-[8px] text-f14 text-t3">
-                  Dimensioned cross-section drawing in DXF — no login, no email. Opens in AutoCAD,
-                  DraftSight, LibreCAD, and every major CAD package.
-                </p>
-              )}
-            </div>
-
-            <div>
-              <SectionTag>Section Properties (calculated)</SectionTag>
-              <table className="mt-[21px] w-full text-left text-f16">
-                <tbody>
-                  {sectionRows.map(([label, value]) => (
-                    <tr key={label} className="border-b border-border-default">
-                      <td className="py-[8px] pr-[21px] text-t2">{label}</td>
-                      <td className="py-[8px] font-medium text-t1">{value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="mt-[13px] text-f14 leading-golden text-t3">
-                Derived exactly from the cross-section geometry by polygon integration. The
-                published mass per meter is the authoritative catalog value; the calculated figure
-                is a geometric cross-check. Because FRP modulus is ~1/10 of steel, deflection
-                usually governs design — use the{" "}
-                <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">
-                  deflection calculator
-                </Link>{" "}
-                for span checks.
-              </p>
-            </div>
+            )}
           </div>
-        </div>
-      </section>
 
-      {spanRow && loads.length > 0 && (
-        <section id="span-loads" className="bg-white pb-[55px]">
-          <div className="site-container">
-            <SectionTag>Allowable Load by Span</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1">
-              What a {sizeLabel} {family.noun} carries
-            </h2>
-            <p className="mt-[13px] max-w-[820px] text-f16 leading-golden text-t2">
-              Allowable service uniform load for {product.model} as a simply supported beam, from
-              the published FRP span tables. Design basis: {DESIGN_BASIS.material};{" "}
-              {DESIGN_BASIS.method}; {DESIGN_BASIS.environment}; deflection limit{" "}
-              {DESIGN_BASIS.deflectionLimit}.
-              {family.uses ? ` Typical uses for this family: ${family.uses}.` : ""}
-            </p>
-            <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default">
-              <table className="w-full text-left text-f16">
-                <caption className="sr-only">
-                  Allowable uniform load for {product.model} by simply supported span
-                </caption>
+          <div>
+            <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+              <table className="w-full text-left text-f14">
+                <caption className="sr-only">Section properties of {product.model}, calculated from the geometry</caption>
                 <thead>
                   <tr className="border-b border-border-default bg-bg2">
-                    {["Span (m)", "Allowable UDL (kN/m)", "≈ lb/ft", "Governing check"].map((heading) => (
-                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f14 font-semibold text-t1">
-                        {heading}
-                      </th>
-                    ))}
+                    <th scope="col" className={th}>Section property (calculated)</th>
+                    <th scope="col" className={`${th} text-right`}>Value</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {loads.map((load) => (
-                    <tr key={load.spanM} className="border-b border-border-default last:border-0">
-                      <td className="px-[21px] py-[10px] text-t1">{load.spanM}</td>
-                      <td className="px-[21px] py-[10px] font-medium text-teal-text">{formatLoad(load.kNPerM)}</td>
-                      <td className="px-[21px] py-[10px] text-t2">{formatLoad(load.lbPerFt)}</td>
-                      <td className="px-[21px] py-[10px] capitalize text-t2">{load.governs}</td>
+                  {sectionRows.map(([label, value]) => (
+                    <tr key={label} className="border-b border-border-default last:border-b-0">
+                      <th scope="row" className={`${td} font-normal text-t2`}>{label}</th>
+                      <td className={`${td} text-right font-medium text-t1 tabular-nums`}>{value}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-[13px] text-f14 leading-golden text-t3">
-              Spans where the allowable load falls below 0.05 kN/m are omitted. Point loads,
-              connections, lateral restraint and other exposures need their own check:{" "}
-              <Link href={spanRow.calculatorHref} className="text-teal-text hover:underline">
-                open this section in the calculator
-              </Link>{" "}
-              or{" "}
-              <Link href={`/frp-span-tables#${family.spanTableId ?? ""}`} className="text-teal-text hover:underline">
-                compare every size in the span tables
-              </Link>
-              .
+            <p className="mt-[12px] text-f14 leading-golden text-t2">
+              Derived from the cross-section geometry by polygon integration. The published mass per meter is the catalog
+              value; the calculated figure is a geometric cross-check. Because the modulus of FRP is about a tenth of
+              steel&apos;s, deflection usually governs, so check spans in the{" "}
+              <Link href="/frp-profile-calculator" className={link}>profile calculator</Link>.
+              {priceEstimate ? (
+                <>
+                  {" "}For a planning budget per meter, enter these dimensions in the{" "}
+                  <Link href="/fiberglass-pultruded-profile-price" className={link}>price estimator</Link>.
+                </>
+              ) : null}
             </p>
+            <div className="mt-[20px] flex flex-wrap gap-[12px]">
+              {source === "database" ? (
+                <a href={`/api/datasheet?ids=${product.id}`} target="_blank" rel="noopener" className={`${buttonBase} bg-teal-text text-white hover:bg-teal`}>
+                  Download the PDF datasheet
+                </a>
+              ) : (
+                <Button
+                  href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
+                >
+                  Request product data
+                </Button>
+              )}
+              {hasCad && (
+                <a
+                  href={`/cad/${slug}.dxf`}
+                  download
+                  className={`${buttonBase} border border-border-default bg-white text-t1 hover:border-teal-border hover:text-teal-text`}
+                >
+                  Download CAD (DXF)
+                </a>
+              )}
+            </div>
+            {hasCad && (
+              <p className="mt-[8px] text-f14 text-t3">
+                A dimensioned cross-section in DXF, free and without a login. It opens in AutoCAD, DraftSight, LibreCAD and
+                other CAD packages.
+              </p>
+            )}
           </div>
-        </section>
-      )}
+        </div>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>
-            {`Mechanical & Physical Properties${formulation ? ` — ${formulation.name}` : ""}`}
-          </SectionTag>
-          <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full text-left text-f16">
+      {hasLoads && spanRow && (
+        <PageSection
+          id="span-loads"
+          title={`What a ${sizeLabel} ${family.noun} carries`}
+          intro={`Allowable service uniform load for ${product.model} as a simply supported beam, from the published FRP span tables. Design basis: ${DESIGN_BASIS.material}; ${DESIGN_BASIS.method}; ${DESIGN_BASIS.environment}; deflection limit ${DESIGN_BASIS.deflectionLimit}.${family.uses ? ` Typical uses for this family: ${family.uses}.` : ""}`}
+          tone={toneOf("span-loads")}
+        >
+          <div className="relative max-w-[820px] overflow-x-auto rounded-card border border-border-default bg-white">
+            <table className="w-full text-left text-f14">
+              <caption className="sr-only">Allowable uniform load for {product.model} by simply supported span</caption>
               <thead>
                 <tr className="border-b border-border-default bg-bg2">
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Property</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-teal-text">Value</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Test method</th>
+                  <th scope="col" className={th}>Span (m)</th>
+                  <th scope="col" className={`${th} text-right`}>Allowable UDL (kN/m)</th>
+                  <th scope="col" className={`${th} text-right`}>≈ lb/ft</th>
+                  <th scope="col" className={th}>Governing check</th>
                 </tr>
               </thead>
               <tbody>
-                {MECH_ROWS.map((r) => {
-                  const v = formulation ? num(formulation[r.key]) : null;
-                  return (
-                    <tr key={r.key} className="border-b border-border-default last:border-0">
-                      <td className="px-[21px] py-[10px] text-t2">{r.label}</td>
-                      {v == null ? (
-                        <td className="px-[21px] py-[10px] font-medium text-warn">
-                          — (verify before release)
-                        </td>
-                      ) : (
-                        <td className="px-[21px] py-[10px] font-medium text-t1">
-                          {v}
-                          {r.unit ? ` ${r.unit}` : ""}
-                        </td>
-                      )}
-                      <td className="px-[21px] py-[10px] text-t3">{r.method}</td>
-                    </tr>
-                  );
-                })}
+                {loads.map((load) => (
+                  <tr key={load.spanM} className="border-b border-border-default last:border-b-0">
+                    <th scope="row" className={`${td} font-medium text-t1 tabular-nums`}>{load.spanM}</th>
+                    <td className={`${td} text-right font-semibold text-t1 tabular-nums`}>{formatLoad(load.kNPerM)}</td>
+                    <td className={`${td} text-right text-t2 tabular-nums`}>{formatLoad(load.lbPerFt)}</td>
+                    <td className={`${td} text-t2 first-letter:uppercase`}>{load.governs}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          {formulation && (
-            <div className="mt-[13px] flex flex-wrap gap-x-[34px] gap-y-[4px] text-f14 text-t3">
-              <span>Resin: {formulation.resin ?? "—"}</span>
-              <span>Glass content: {formulation.glass_content ?? "—"}</span>
-              <span>
-                Density: {num(formulation.density_g_cm3) != null ? `${num(formulation.density_g_cm3)} g/cm³` : "—"}
-              </span>
-              <span>Grade: {formulation.en13706_grade ?? "—"}</span>
-              <span>Fire: {formulation.fire_rating ?? "—"}</span>
-            </div>
-          )}
-          {formulation?.notes && (
-            <p className="mt-[8px] text-f14 leading-golden text-t3">
-              Data basis: {formulation.notes}
-            </p>
-          )}
+          <p className="mt-[12px] max-w-[820px] text-f14 leading-golden text-t2">
+            Spans where the allowable load falls below 0.05 kN/m are omitted. Point loads, connections, lateral restraint and
+            other exposures need their own check:{" "}
+            <Link href={spanRow.calculatorHref} className={link}>open this section in the calculator</Link> or{" "}
+            <Link href={`/frp-span-tables#${family.spanTableId ?? ""}`} className={link}>compare every size in the span tables</Link>.
+          </p>
+        </PageSection>
+      )}
+
+      <PageSection
+        id="properties"
+        title="Mechanical and physical properties"
+        intro={formulation ? `Laminate ${formulation.name}. Test methods are those of EN 13706 and the ISO and ASTM methods it cites.` : undefined}
+        tone={toneOf("properties")}
+      >
+        <div className="relative max-w-[960px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full text-left text-f14">
+            <caption className="sr-only">Mechanical and physical properties of the {product.model} laminate</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className={th}>Property</th>
+                <th scope="col" className={`${th} text-right`}>Value</th>
+                <th scope="col" className={th}>Test method</th>
+              </tr>
+            </thead>
+            <tbody>
+              {MECH_ROWS.map((r) => {
+                const v = formulation ? num(formulation[r.key]) : null;
+                return (
+                  <tr key={r.key} className="border-b border-border-default last:border-b-0">
+                    <th scope="row" className={`${td} font-normal text-t2`}>{r.label}</th>
+                    {v == null ? (
+                      <td className={`${td} text-right font-medium text-warn`}>Verify before release</td>
+                    ) : (
+                      <td className={`${td} text-right font-medium text-t1 tabular-nums`}>
+                        {v}
+                        {r.unit ? ` ${r.unit}` : ""}
+                      </td>
+                    )}
+                    <td className={`${td} text-t3`}>{r.method}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        {formulation && (
+          <dl className="mt-[12px] flex max-w-[960px] flex-wrap gap-[6px] text-f12">
+            {[
+              ["Resin", formulation.resin],
+              ["Glass content", formulation.glass_content],
+              ["Density", num(formulation.density_g_cm3) != null ? `${num(formulation.density_g_cm3)} g/cm³` : null],
+              ["Grade", formulation.en13706_grade],
+              ["Fire", formulation.fire_rating],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px]">
+                <dt className="inline text-t3">{label}: </dt>
+                <dd className="inline font-medium text-t1">{value ?? "—"}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        <div className="mt-[12px] max-w-[820px] space-y-[8px] text-f14 leading-golden text-t2">
+          {formulation?.notes && <p>Data basis: {formulation.notes}</p>}
           {(product.standards || product.applications) && (
-            <p className="mt-[13px] text-f16 text-t2">
+            <p>
               {product.standards ? `Standards: ${product.standards}. ` : ""}
               {product.applications ? `Typical applications: ${product.applications}.` : ""}
             </p>
           )}
-          <p className="mt-[13px] text-f14 leading-golden text-t3">
-            Values marked &quot;verify before release&quot; are pending certified test data and are
-            never estimated. Request batch-traceable certified data via the quote form before final
+          <p>
+            Values marked &ldquo;Verify before release&rdquo; are pending certified test data and are never estimated. Request
+            batch-traceable certified data through the <Link href={quoteHref} className={link}>quote form</Link> before final
             design.
           </p>
         </div>
-      </section>
+      </PageSection>
 
       {siblings.length > 1 && (
-        <section className="bg-white py-[55px]">
-          <div className="site-container">
-            <SectionTag>Other Sizes</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1">
-              Other {family.plural.toLowerCase()} in the catalog
-            </h2>
-            <ul className="mt-[21px] flex flex-wrap gap-[8px]">
-              {siblings.map((size) => (
-                <li key={size.slug}>
-                  {size.slug === slug ? (
-                    <span aria-current="page" className="inline-block rounded-control border border-teal-text bg-teal-bg px-[13px] py-[8px] text-f14 font-semibold text-teal-text">
-                      {size.model} · {size.weight} kg/m
-                    </span>
-                  ) : (
-                    <Link href={`/datasheets/${size.slug}`} className="inline-block rounded-control border border-border-default px-[13px] py-[8px] text-f14 text-t1 hover:border-teal-border hover:text-teal-text">
-                      {size.model} · {size.weight} kg/m
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-[13px] text-f16 text-t2">
-              Applications, resin options and quotation details are on the{" "}
-              <Link href={family.href} className="font-semibold text-teal-text hover:underline">
-                {family.noun} product page
-              </Link>
-              .
-            </p>
-          </div>
-        </section>
+        <PageSection
+          id="sizes"
+          title={`Other ${familyInSentence(family)} in the catalog`}
+          count={`${siblings.length} sizes`}
+          tone={toneOf("sizes")}
+        >
+          <ul className="flex flex-wrap gap-[8px]">
+            {siblings.map((size) => (
+              <li key={size.slug}>
+                {size.slug === slug ? (
+                  <span aria-current="page" className="inline-flex min-h-[36px] items-center rounded-control border border-teal bg-teal-bg2 px-[10px] text-f14 font-semibold text-teal-text">
+                    {size.model} · {size.weight} kg/m
+                  </span>
+                ) : (
+                  <Link href={`/datasheets/${size.slug}`} className="inline-flex min-h-[36px] items-center rounded-control border border-border-default bg-white px-[10px] text-f14 text-t1 transition-colors hover:border-teal-border hover:text-teal-text">
+                    {size.model} · {size.weight} kg/m
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-[12px] text-f14 text-t2">
+            Applications, resin options and quotation details are on the{" "}
+            <Link href={family.href} className={link}>{family.noun} product page</Link>.
+          </p>
+        </PageSection>
       )}
 
       {faq.length > 0 && (
-        <section className="bg-bg2 pb-[55px] pt-[1px]">
-          <div className="site-container">
-            <FAQ items={faq} title={`${product.model}: common questions`} />
-          </div>
-        </section>
+        <PageSection id="faq" title={`${product.model}: common questions`} tone={toneOf("faq")}>
+          <FAQList items={faq} />
+        </PageSection>
       )}
 
-      <InnerCTA title={`Need a quote for ${product.model}?`} quoteHref={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model })} />
+      <InnerCTA title={`Need a quote for ${product.model}?`} quoteHref={quoteHref} />
     </>
   );
 }

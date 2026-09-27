@@ -137,6 +137,15 @@ export function datasheetFamily(shape: string | undefined): DatasheetFamily {
   return (shape && FAMILIES[shape]) || GENERIC_FAMILY;
 }
 
+/** The family's plural inside a sentence: "I-Beams" → "I-beams", "Square & Rectangular Tubes" → "square and rectangular tubes". */
+export function familyInSentence(family: DatasheetFamily): string {
+  return family.plural
+    .replace(/ & /g, " and ")
+    .split(" ")
+    .map((word) => (/^[A-Z]-/.test(word) ? word[0] + word.slice(1).toLowerCase() : word.toLowerCase()))
+    .join(" ");
+}
+
 /** "I 152×76×6.4" → "152×76×6.4"; "Rod Ø12" → "Ø12". */
 export function dimensionLabel(model: string): string {
   return model.replace(/^[A-Za-z]+\s+/, "");

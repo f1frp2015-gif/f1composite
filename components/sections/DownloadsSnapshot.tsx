@@ -1,38 +1,40 @@
 import Link from "next/link";
 import ProductSection from "@/components/products/ProductSection";
+import CoverCard from "@/components/ui/CoverCard";
+import { coverFor } from "@/lib/covers";
 
 const resources = [
   {
-    title: "Technical Data",
-    description: "Mechanical properties, resin options, standards, and engineering reference values.",
+    title: "Technical data",
+    description: "Mechanical properties, resin options, standards and engineering reference values.",
     href: "/resources/technical-data",
     action: "Review data",
   },
   {
-    title: "Profile & Span Tools",
-    description: "Shortlist a profile, check section properties, and review preliminary span guidance.",
+    title: "Profile and span tools",
+    description: "Shortlist a profile, check section properties and review preliminary span guidance.",
     href: "/frp-profile-calculator",
     action: "Open tools",
   },
   {
-    title: "Downloads & CAD",
+    title: "Downloads and CAD",
     description: "Catalogs, product datasheets, published test reports, design guides and available CAD files.",
     href: "/resources/downloads",
     action: "Browse downloads",
   },
   {
-    title: "Density & Weight Calculator",
-    description: "Estimate FRP density and weight per metre from composition, layup and section geometry.",
+    title: "Density and weight calculator",
+    description: "Estimate FRP density and weight per meter from composition, layup and section geometry.",
     href: "/frp-density-calculator",
-    action: "Calculate density & weight",
+    action: "Calculate density and weight",
   },
 ];
 
 const secondaryLinks = [
-  { label: "Design Guides", href: "/resources/design-guides" },
-  { label: "Engineering Blog", href: "/resources/blog" },
-  { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
-  { label: "DDP, Tariffs & HS Codes", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
+  { label: "Design guides", href: "/resources/design-guides" },
+  { label: "Engineering blog", href: "/resources/blog" },
+  { label: "Price estimator", href: "/fiberglass-pultruded-profile-price" },
+  { label: "DDP, tariffs and HS codes", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
 ];
 
 export default function DownloadsSnapshot() {
@@ -47,21 +49,27 @@ export default function DownloadsSnapshot() {
         </Link>
       }
     >
-      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-border-default bg-border-default md:grid-cols-2 xl:grid-cols-4">
-        {resources.map((resource) => (
-          <Link
-            key={resource.href}
-            href={resource.href}
-            className="group flex flex-col bg-white p-[22px] transition-colors hover:bg-bg2 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
-          >
-            <h3 className="text-f18 font-bold tracking-[-0.015em] text-t1 group-hover:text-teal-text">{resource.title}</h3>
-            <p className="mt-[7px] text-f14 leading-relaxed text-t2">{resource.description}</p>
-            <span className="mt-auto pt-[14px] text-f14 font-bold text-teal-text">{resource.action} →</span>
-          </Link>
-        ))}
-      </div>
+      <ul className="grid grid-cols-2 gap-[12px] xl:grid-cols-4 lg:gap-[16px]">
+        {resources.map((resource) => {
+          const cover = coverFor(resource.href);
+          if (!cover) throw new Error(`No cover registered for ${resource.href}`);
+          return (
+            <li key={resource.href}>
+              <CoverCard
+                href={resource.href}
+                cover={cover}
+                title={resource.title}
+                text={resource.description}
+                action={resource.action}
+                compact
+                sizes="(max-width: 1279px) 46vw, 290px"
+              />
+            </li>
+          );
+        })}
+      </ul>
 
-      <div className="mt-[17px] flex flex-wrap gap-x-[22px] gap-y-[6px]">
+      <div className="mt-[16px] flex flex-wrap gap-x-[20px] gap-y-[6px]">
         {secondaryLinks.map((link) => (
           <Link key={link.href} href={link.href} className="text-f14 font-semibold text-t2 hover:text-teal-text">
             {link.label}

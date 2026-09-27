@@ -22,7 +22,7 @@ export function profileSupplyItems({ sheet = false }: { sheet?: boolean } = {}) 
         },
     {
       title: "Resin & surface",
-      text: "Polyester suits general structural use; vinyl ester is the usual choice for chemicals, seawater and wastewater. Tell us the chemicals, concentration, temperature, outdoor exposure, colour and any fire requirement, and we will confirm the resin and surface veil.",
+      text: "Polyester suits general structural use; vinyl ester is the usual choice for chemicals, seawater and wastewater. Tell us the chemicals, concentration, temperature, outdoor exposure, color and any fire requirement, and we will confirm the resin and surface veil.",
     },
     {
       title: "Quantity & samples",

@@ -902,7 +902,7 @@ export default function BeamBridgeCaseStudiesPage() {
           <p className="bb-source-note">
             The four route drawings are original explanatory schematics
             developed from the concept brief, not project drawings or
-            construction details. Timber-coloured surfaces indicate a finish
+            construction details. Timber-colored surfaces indicate a finish
             concept. Manufacturing standards must match the selected process:
             vacuum infusion and hand lay-up are distinct methods. All project
             requirements and the adopted standard editions are agreed with the

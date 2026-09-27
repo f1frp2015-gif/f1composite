@@ -115,6 +115,27 @@ export const authors: Author[] = [
   },
 ];
 
+const FIELD_NAMES: Record<AuthorBucket, string> = {
+  "engineering-case": "Engineering and case studies",
+  "rd-tech": "R&D and materials science",
+  education: "Industry research and education",
+};
+
+/** The author's field in sentence case, for card labels and header facts. */
+export function authorField(author: Author): string {
+  return FIELD_NAMES[author.bucket];
+}
+
+/** "Yifan Liu" → "YL": the monogram that stands in for a portrait. */
+export function authorInitials(author: Author): string {
+  return author.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 export const authorsBySlug: Record<string, Author> = Object.fromEntries(
   authors.map((a) => [a.slug, a]),
 );

@@ -84,7 +84,7 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
 }
 
 const inputCls =
-  "w-full rounded-control border border-border-default bg-white px-[13px] py-[12px] text-f16 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
+  "w-full rounded-control border border-border-default bg-white px-[12px] py-[12px] text-f16 text-t1 outline-none transition-colors duration-[0.24s] placeholder:text-t3 focus:border-teal focus:ring-2 focus:ring-teal/10";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -156,12 +156,12 @@ function ContactFormContent() {
 
   if (state.success) {
     return (
-      <div role="status" aria-live="polite" className="rounded-card border border-teal-border bg-teal-bg p-[34px]">
+      <div role="status" aria-live="polite" className="rounded-card border border-teal-border bg-teal-bg p-[20px] sm:p-[28px]">
         <h3 className="text-f24 font-bold text-t1">Thank you for reaching out</h3>
-        <p className="mt-[13px] text-f16 leading-golden text-t2">
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
-        {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
+        {state.receiptId && <p className="mt-[12px] font-semibold text-t1">Reference: {state.receiptId}</p>}
         <p className="mt-5 text-f14 text-t2">Our team will contact you to clarify any missing details and help with your quote. You do not need to complete anything else now.</p>
         {submittedMessage && <details className="mt-5"><summary className="cursor-pointer py-3 font-semibold">View submitted requirements</summary><pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words font-sans text-f14">{submittedMessage}</pre></details>}
         <p className="mt-4 text-f14">Need to add a drawing or correction? Email <a className="font-bold underline" href="mailto:inquiry@f1composite.com">inquiry@f1composite.com</a> and include your reference.</p>
@@ -176,7 +176,7 @@ function ContactFormContent() {
       if (mountedAt.current) data.set("form_elapsed_ms", String(Date.now() - mountedAt.current));
       setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
-    }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[19px] rounded-card border border-border-default bg-white p-[20px] shadow-card sm:p-[28px]">
+    }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[20px] rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
       <input type="hidden" name="source" defaultValue={prefillSource} />
       {/* Spam trap: off-screen and out of the tab order, so only bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
@@ -190,15 +190,15 @@ function ContactFormContent() {
       {rebarDraftNotice && <p role="status" className="rounded-control bg-warn-bg p-4 text-f14 text-t1">{rebarDraftNotice}</p>}
       {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-f14 text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-f14 font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
-      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
+      {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[4px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (
-        <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 leading-golden text-t1">
-          <span className="font-bold text-teal-text">Pre-filled from AI Sourcing.</span> Your project details are included. Just add your name and email to get started.
+        <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 leading-golden text-t1">
+          <span className="font-bold text-teal-text">Pre-filled from the sourcing assistant.</span> Your project details are included. Just add your name and email to get started.
         </div>
       )}
 
       {state.message && !state.success && (
-        <div role="alert" className="rounded-control border border-fail-border bg-fail-bg p-[13px] text-f14 text-fail">
+        <div role="alert" className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail">
           {state.message}
         </div>
       )}
@@ -218,10 +218,10 @@ function ContactFormContent() {
           </div>
           <div><label htmlFor="country" className="mb-2 block text-f14 font-semibold">Country</label><select id="country" name="country" autoComplete="country-name" defaultValue={prefillCountry} className={inputCls}><option value="">To be confirmed</option>{countries.map(country => <option key={country} value={country}>{country}</option>)}</select></div>
       <div>
-        <label htmlFor="attachment" className="mb-[5px] block text-f14 font-semibold text-t1">
+        <label htmlFor="attachment" className="mb-2 block text-f14 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
         </label>
-        <div className="flex min-h-[47px] items-center gap-[12px] rounded-control border border-border-default bg-white px-[10px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
+        <div className="flex min-h-[52px] items-center gap-[12px] rounded-control border border-border-default bg-white px-[8px] py-[8px] transition-colors duration-[0.24s] focus-within:border-teal focus-within:ring-2 focus-within:ring-teal/10">
           <input
             id="attachment"
             name="attachment"
@@ -239,24 +239,23 @@ function ContactFormContent() {
           />
           <label
             htmlFor="attachment"
-            className="shrink-0 cursor-pointer rounded-control border border-border-default bg-bg2 px-[12px] py-[7px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+            className="shrink-0 cursor-pointer rounded-control border border-border-default bg-bg2 px-[12px] py-[6px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
           >
-            Choose File
+            Choose file
           </label>
           <span id="attachment-selection" className="min-w-0 truncate text-f14 text-t2" aria-live="polite">
             {attachmentName || "No file selected"}
           </span>
         </div>
-        <p id="attachment-help" className="mt-[5px] text-f12 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
+        <p id="attachment-help" className="mt-[4px] text-f12 text-t3">PDF, DWG, DXF, STEP, IGES, XLSX, CSV, ZIP, JPG, or PNG · One file or ZIP bundle · 4 MB maximum</p>
       </div>
         </div>
       </details>
       {windowInquiry && <WindowInquiryFields value={windowInquiry} onChange={setWindowInquiry} />}
       {rebarInquiry && <RebarInquiryFields value={rebarInquiry} onChange={next => { setRebarInquiry(next); if (hasRebarDraft) { try { sessionStorage.setItem(REBAR_DRAFT_KEY, JSON.stringify(next)); } catch { /* Submission still carries the current form state. */ } } }} />}
       <Button type="submit" disabled={isPending} className={`w-full sm:w-auto ${isPending ? "pointer-events-none opacity-60" : ""}`}>
-        {isPending ? "Sending..." : "Send Inquiry"}
+        {isPending ? "Sending…" : "Send inquiry"}
       </Button>
-      <p className="text-f14 leading-relaxed text-t2">We will respond within one business day and help confirm the details for your quote.</p>
       <p className="text-f12 leading-relaxed text-t3">Your information is used only to respond to this inquiry.</p>
     </form>
   );

@@ -113,7 +113,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 
 ## F1 supply terms (these override any industry benchmark below)
 - Catalog profiles: ${weeks(supplyTerms.catalogLeadTimeWeeks)}
-- Custom variant on an existing die (resin, colour, length): ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}
+- Custom variant on an existing die (resin, color, length): ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}
 - New custom profile: ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery, including ${weeks(supplyTerms.dieManufactureWeeks)} for the die
 - Window and door system projects: ${weeks(supplyTerms.fenestrationLeadTimeWeeks)}
 - Custom profile minimum order: ${supplyTerms.customMoqMeters.firstRun} m first run, ${supplyTerms.customMoqMeters.repeat} m repeat orders

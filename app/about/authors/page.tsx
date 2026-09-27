@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import SectionTag from "@/components/ui/SectionTag";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo";
-import { authors } from "@/lib/authors";
+import { authorField, authorInitials, authors } from "@/lib/authors";
+import { blogPosts } from "@/content/data/blogPosts";
 
 const pagePath = "/about/authors";
 
@@ -56,14 +57,23 @@ const authorsCollectionSchema = {
   },
 };
 
+// Articles signed by each author; the rest carry the company name.
+const articleCounts = new Map(authors.map((author) => [author.slug, blogPosts.filter((post) => post.authorName === author.fullName).length]));
+const signedArticles = [...articleCounts.values()].reduce((sum, count) => sum + count, 0);
+
 export default function AuthorsIndexPage() {
   return (
     <>
       <JsonLd data={authorsCollectionSchema} />
       <PageHeader
-        tag="Authors"
+        tag="Company"
         title="Who writes our technical content"
         description="The articles, comparisons and guides on this site are written by an application engineer, our R&D lead and an industry researcher."
+        facts={[
+          { label: "Authors", value: String(authors.length) },
+          { label: "Signed articles", value: String(signedArticles) },
+          { label: "Company-signed", value: String(blogPosts.length - signedArticles) },
+        ]}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
@@ -71,42 +81,46 @@ export default function AuthorsIndexPage() {
         ]}
       />
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Author roster</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Authors
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Each article names the person responsible for it. News commentary and sourcing guides without a single author are published under the company name.
-          </p>
-
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-3">
-            {authors.map((author) => (
-              <Link
-                key={author.slug}
-                href={`/about/authors/${author.slug}`}
-                className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-all duration-300 hover:border-teal hover:shadow-card"
-              >
-                <span
-                  className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 inline-block self-start rounded-full px-[10px] py-[4px] text-white"
-                  style={{ backgroundColor: author.accent }}
+      <PageSection
+        id="authors"
+        title="The authors"
+        intro="Each article names the person responsible for it. News commentary and sourcing guides without a single author are published under the company name."
+        tone="muted"
+      >
+        <ul className="grid gap-[12px] md:grid-cols-3 lg:gap-[16px]">
+          {authors.map((author) => {
+            const count = articleCounts.get(author.slug) ?? 0;
+            return (
+              <li key={author.slug}>
+                <Link
+                  href={`/about/authors/${author.slug}`}
+                  className="group flex h-full flex-col rounded-card border border-border-default bg-white p-[20px] transition-[border-color,box-shadow] duration-200 hover:border-teal-border hover:shadow-card sm:p-[24px]"
                 >
-                  {author.bucketLabel}
-                </span>
-                <h3 className="mt-[13px] text-f18 font-bold text-t1">{author.fullName}</h3>
-                <p className="mt-[5px] text-f14 font-medium text-teal-text">{author.jobTitle}</p>
-                <p className="mt-[13px] text-f14 leading-golden text-t2">{author.bio}</p>
-                <span className="mt-[21px] inline-block text-f14 font-bold text-teal-text transition-colors group-hover:text-teal">
-                  View profile and articles →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+                  <span className="flex items-center gap-[12px]">
+                    <span aria-hidden className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-teal-bg2 font-mono text-f16 font-medium text-teal-text">
+                      {authorInitials(author)}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-mono text-f12 uppercase tracking-[0.06em] text-t3">{authorField(author)}</span>
+                      <h3 className="mt-[2px] text-f18 font-bold leading-snug text-t1 transition-colors group-hover:text-teal-text">{author.fullName}</h3>
+                    </span>
+                  </span>
+                  <span className="mt-[12px] block text-f14 font-medium text-t1">{author.jobTitle}</span>
+                  <span className="mt-[8px] block text-f14 leading-golden text-t2">{author.bio}</span>
+                  <span className="mt-auto pt-[16px] text-f14 font-semibold text-teal-text">
+                    {count} {count === 1 ? "article" : "articles"} · View profile <span aria-hidden>→</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </PageSection>
 
-      <InnerCTA title="Questions about an article? Send them to our engineering team." />
+      <InnerCTA
+        title="Questions about an article? Send them to our engineering team."
+        text="Send the article, your question and the project it concerns."
+      />
     </>
   );
 }

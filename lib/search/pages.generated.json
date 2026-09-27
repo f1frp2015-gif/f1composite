@@ -61,7 +61,7 @@
     "title": "FRP Case Studies & Engineering References",
     "description": "Explore F1 project accounts and source-backed public engineering references for FRP profiles, bridge systems, windows, platforms, solar and infrastructure.",
     "aliases": [
-      "Projects & Engineering References"
+      "Projects and engineering references"
     ]
   },
   {
@@ -77,8 +77,8 @@
   },
   {
     "path": "/case-studies/chongqing-rooftop-pv-frp-rail",
-    "title": "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Colour Steel-Tile Roofs",
-    "description": "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on colour steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
+    "title": "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Color Steel-Tile Roofs",
+    "description": "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on color steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
     "keywords": "Energy Chongqing, China FRP rooftop solar mounting"
   },
   {
@@ -137,7 +137,7 @@
     "title": "FRP Profile Datasheets — Section Properties & EN 13706 Data",
     "description": "Technical datasheets for every F1 Composite pultruded FRP profile: exact section properties, EN 13706 mechanical data, dimensions, weights, and PDF downloads.",
     "aliases": [
-      "FRP Profile Technical Datasheets"
+      "FRP profile datasheets"
     ]
   },
   {
@@ -247,7 +247,10 @@
   {
     "path": "/privacy",
     "title": "Privacy Policy",
-    "description": "How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
+    "description": "How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights.",
+    "aliases": [
+      "Privacy policy"
+    ]
   },
   {
     "path": "/products/custom-pultruded-profiles",
@@ -808,7 +811,10 @@
   {
     "path": "/terms",
     "title": "Terms of Service",
-    "description": "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services."
+    "description": "F1 Composite terms of service. Terms and conditions governing your use of f1composite.com and our pultruded FRP products and services.",
+    "aliases": [
+      "Terms of service"
+    ]
   },
   {
     "path": "/tools",

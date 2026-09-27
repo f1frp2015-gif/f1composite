@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
-import SectionTag from "@/components/ui/SectionTag";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import BlogCard from "@/components/blog/BlogCard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
-import { authors, authorsBySlug } from "@/lib/authors";
+import { authorField, authorInitials, authors, authorsBySlug } from "@/lib/authors";
+import { formatShortDate } from "@/lib/dates";
 import { blogPosts } from "@/content/data/blogPosts";
 
 interface PageProps {
@@ -37,7 +39,9 @@ export default async function AuthorPage({ params }: PageProps) {
 
   const posts = blogPosts
     .filter((p) => p.authorName === author.fullName)
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+    // Newest first, by the publication date each card shows.
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const latestUpdate = posts.reduce<string | null>((latest, post) => (latest && latest > post.updatedAt ? latest : post.updatedAt), null);
 
   const sameAs = [author.linkedinUrl, author.orcidUrl].filter(
     (v): v is string => Boolean(v && v.trim()),
@@ -77,9 +81,14 @@ export default async function AuthorPage({ params }: PageProps) {
     <>
       <JsonLd data={profilePageSchema} />
       <PageHeader
-        tag={author.bucketLabel}
+        tag="Author"
         title={author.fullName}
         description={author.jobTitle}
+        facts={[
+          { label: "Field", value: authorField(author) },
+          { label: "Signed articles", value: String(posts.length) },
+          ...(latestUpdate ? [{ label: "Latest update", value: formatShortDate(latestUpdate) }] : []),
+        ]}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
@@ -88,90 +97,84 @@ export default async function AuthorPage({ params }: PageProps) {
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
-          <p className="text-f18 leading-golden text-t2">{author.bio}</p>
+      <PageNav
+        items={[
+          { id: "profile", label: "Profile" },
+          { id: "articles", label: "Articles", count: posts.length },
+        ]}
+      />
 
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
+      <PageSection id="profile" title="Profile" tone="white">
+        <div className="grid gap-[32px] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-[56px]">
+          <div className="flex items-start gap-[16px]">
+            <span aria-hidden className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full bg-teal-bg2 font-mono text-f18 font-medium text-teal-text">
+              {authorInitials(author)}
+            </span>
             <div>
-              <SectionTag>Expertise</SectionTag>
-              <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
-                {author.expertise.map((item) => (
-                  <li key={item} className="flex gap-[8px]">
-                    <span
-                      className="mt-[8px] inline-block h-[6px] w-[6px] flex-none rounded-full"
-                      style={{ backgroundColor: author.accent }}
-                      aria-hidden
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <SectionTag>Knows about</SectionTag>
-              <div className="mt-[13px] flex flex-wrap gap-[8px]">
-                {author.knowsAbout.map((topic) => (
-                  <span
-                    key={topic}
-                    className="rounded-full border border-border-default bg-bg2 px-[10px] py-[5px] text-f14 text-t2"
-                  >
-                    {topic}
-                  </span>
-                ))}
-              </div>
+              <p className="text-f18 leading-golden text-t1">{author.bio}</p>
+              {sameAs.length > 0 && (
+                <ul className="mt-[16px] flex flex-wrap gap-x-[16px] gap-y-[4px] text-f14">
+                  {sameAs.map((url) => (
+                    <li key={url}>
+                      <a href={url} target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">
+                        {url.replace(/^https?:\/\//, "")}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
-
-          {sameAs.length > 0 && (
-            <div className="mt-[34px]">
-              <SectionTag>Verifiable profiles</SectionTag>
-              <ul className="mt-[13px] flex flex-wrap gap-[13px] text-f14 font-semibold text-teal-text">
-                {sameAs.map((url) => (
-                  <li key={url}>
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-teal">
-                      {url.replace(/^https?:\/\//, "")}
-                    </a>
+          <div className="space-y-[24px]">
+            <div>
+              <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Expertise</h3>
+              <ul className="mt-[8px] space-y-[6px] text-f16 leading-golden text-t1">
+                {author.expertise.map((item) => (
+                  <li key={item} className="flex gap-[12px]">
+                    <span aria-hidden className="mt-[11px] h-[5px] w-[5px] shrink-0 rounded-full bg-teal" />
+                    {item}
                   </li>
                 ))}
               </ul>
             </div>
-          )}
+            <div>
+              <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Knows about</h3>
+              <ul className="mt-[8px] flex flex-wrap gap-[6px]">
+                {author.knowsAbout.map((topic) => (
+                  <li key={topic} className="rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] text-f12 font-medium text-t1">
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="mx-auto max-w-[900px] px-[34px]">
-          <SectionTag>Articles by {author.name}</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(20px,2.5vw,28px)] font-extrabold leading-[1.2] text-t1">
-            {posts.length} published article{posts.length === 1 ? "" : "s"}
-          </h2>
-          {posts.length === 0 ? (
-            <p className="mt-[13px] text-f16 text-t2">No articles attributed yet.</p>
-          ) : (
-            <ul className="mt-[21px] space-y-[13px]">
-              {posts.map((post) => (
-                <li
-                  key={post.slug}
-                  className="rounded-card border border-border-default bg-white p-[16px]"
-                >
-                  <Link
-                    href={`/resources/blog/${post.slug}`}
-                    className="text-f16 font-bold text-t1 hover:text-teal-text"
-                  >
-                    {post.title}
-                  </Link>
-                  <p className="mt-[5px] text-f14 text-t3">
-                    {post.category} · Updated {post.updatedAt} · {post.readTime}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
+      <PageSection
+        id="articles"
+        title={`Articles by ${author.name}`}
+        count={`${posts.length} ${posts.length === 1 ? "article" : "articles"}`}
+        intro="Newest first."
+        tone="muted"
+      >
+        {posts.length === 0 ? (
+          <p className="text-f16 text-t2">No articles attributed yet.</p>
+        ) : (
+          <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3 lg:gap-[16px]">
+            {posts.map((post) => (
+              <li key={post.slug}>
+                <BlogCard post={post} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </PageSection>
 
-      <InnerCTA title={`Questions for ${author.name}? Send them to our engineering team.`} />
+      <InnerCTA
+        title={`Questions for ${author.name}? Send them to our engineering team.`}
+        text="Send the article, your question and the project it concerns."
+      />
     </>
   );
 }
