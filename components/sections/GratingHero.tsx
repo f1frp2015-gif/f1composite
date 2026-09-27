@@ -18,14 +18,14 @@ export default function GratingHero({ family, title, description, image, imageAl
 }) {
   const specifications = family ? `${family}-grating-specifications` : "grating-configurations";
   const figure = family ? (
-    <Figure number={1} title={family === "molded" ? "Molded mesh" : "Pultruded bearing bars"} note="Photo" caption={caption}>
-      <div className="relative -m-[16px] aspect-[3/2]">
+    <Figure number={1} title={family === "molded" ? "Molded mesh" : "Pultruded bearing bars"} note="Photo" caption={caption} bleed>
+      <div className="relative aspect-[3/2]">
         <Image src={image} alt={imageAlt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
       </div>
     </Figure>
   ) : (
-    <Figure number={1} title="Two constructions" note="Photos · not to a common scale" caption="Compare the integral molded mesh with directional pultruded bars.">
-      <div className="-m-[16px] grid grid-cols-2 gap-[2px] bg-border-default">
+    <Figure number={1} title="Two constructions" note="Photos · not to a common scale" caption="Compare the integral molded mesh with directional pultruded bars." bleed>
+      <div className="grid grid-cols-2 gap-[2px] bg-border-default">
         {[
           ["/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", "Molded square mesh"],
           ["/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp", "Pultruded bearing bars"],

@@ -1,19 +1,20 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   fiberglassPlateSourceNote,
   fiberglassPlateSpecs,
   type FiberglassPlateSpec,
 } from "@/content/data/fiberglassPlateSpecs";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/fiberglass-plates";
@@ -95,7 +96,10 @@ function drawingLabel(profiles: readonly FiberglassPlateSpec[]) {
   return `${profiles[0].profile}–${profiles.at(-1)?.profile.replace("Plate ", "")}`;
 }
 
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
 export default function FiberglassPlatesPage() {
+  const quoteHref = buildRfqHref({ source: "plate-product-header", product: "Hollow & multi-cell fiberglass profile", productPath: pagePath });
   return (
     <>
       <JsonLd
@@ -118,9 +122,34 @@ export default function FiberglassPlatesPage() {
       />
 
       <PageHeader
-        tag="Panel & Hollow Profiles"
+        tag="Hollow & multi-cell"
+        line={{ name: "F1-STRUX", label: "Hollow & multi-cell" }}
         title="Hollow & multi-cell fiberglass profiles"
         description="Compare hollow, multi-cell and edge-formed fiberglass plate sections by drawing, A/B/t1/t2 source values and source ID. Final dimensions, material, tooling status and capacity are confirmed on the approved quotation drawing."
+        facts={[
+          { label: "Profile records", value: String(fiberglassPlateSpecs.length) },
+          { label: "Section drawings", value: String(drawingGroups.length) },
+          { label: "Published values", value: "A, B, t1/t2" },
+          { label: "Release", value: "Approved drawing" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: `Compare all ${fiberglassPlateSpecs.length} profiles`, href: "#plate-profile-catalog", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title={drawingLabel(drawingGroups[0].profiles)} note="Source drawing" caption="Dimension labels as on the supplied drawing; the quotation drawing defines units and tolerances.">
+            <Image
+              src={drawingGroups[0].drawing}
+              alt={`${drawingLabel(drawingGroups[0].profiles)} pultruded fiberglass plate section drawing`}
+              width={700}
+              height={240}
+              sizes="(max-width: 1023px) 90vw, 42vw"
+              className="h-auto w-full bg-white object-contain"
+              preload
+            />
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -128,157 +157,127 @@ export default function FiberglassPlatesPage() {
         ]}
       />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <SectionTag>Plate, Sheet, or Deck?</SectionTag>
-            <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              A profile catalog—not a flat-sheet or deck-system claim
-            </h2>
-            <p className="mt-[13px] text-f18 leading-golden text-t2">
-              These plates are constant-section pultrusions with cavities, internal webs
-              and profile-specific edges. Select them from the section drawing first,
-              then confirm the dimensions and laminate against the intended duty.
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "plate-profile-catalog", label: "Profiles", count: fiberglassPlateSpecs.length },
+          { id: "selection", label: "Selection" },
+          { id: "faq", label: "FAQ" },
+          { id: "related", label: "Related" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <PageSection id="overview" title="Plate, sheet or deck?">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
+              These plates are constant-section pultrusions with cavities, internal webs and profile-specific edges. Select them from the section drawing first, then confirm the dimensions and laminate against the intended duty.
             </p>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
-              Need solid flat stock for liners, covers or fabricated blanks? Use the
-              separate{" "}
-              <Link href="/products/fiberglass-sheets" className="font-semibold text-teal-text hover:underline">
+            <p>
+              Need solid flat stock for liners, covers or fabricated blanks? Use the separate{" "}
+              <Link href="/products/fiberglass-sheets" className={link}>
                 fiberglass sheets page
               </Link>
               . Need an engineered walking or bridge surface? Start with{" "}
-              <Link href="/products/frp-deck-panels" className="font-semibold text-teal-text hover:underline">
+              <Link href="/products/frp-deck-panels" className={link}>
                 structural FRP deck panels
               </Link>
               , where support, joint and load requirements control selection.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
+            <p>
               Some hollow or multi-cell plate geometries may also be reviewed for use as{" "}
-              <Link
-                href="/products/frp-sound-barrier-wall"
-                className="font-semibold text-teal-text hover:underline"
-              >
+              <Link href="/products/frp-sound-barrier-wall" className={link}>
                 engineered FRP sound barrier wall panels
               </Link>
-              . That use requires the joint, posts, laminate, loads, closures and any acoustic build-up
-              to be checked together; a plate record alone does not establish an acoustic rating or span.
+              . That use requires the joint, posts, laminate, loads, closures and any acoustic build-up to be checked together; a plate record alone does not establish an acoustic rating or span.
             </p>
           </div>
-
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
             <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Source boundary</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Values are published exactly as supplied.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">{fiberglassPlateSourceNote}</p>
-            <a
-              href="#plate-profile-catalog"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-control bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-            >
-              Compare all 19 profiles
-            </a>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="plate-profile-catalog" className="scroll-mt-[89px] bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Catalog Drawings</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            19 plate records across 15 schematic families
-          </h2>
-          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
-            Every catalog record is listed independently. Where the source merges one drawing
-            across several rows, the shared schematic is shown once with each A/B/thickness/ID variant beneath it.
-          </p>
-          <p className="mt-[13px] max-w-[980px] rounded-control border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
-            {fiberglassPlateSourceNote}
-          </p>
-
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            {drawingGroups.map((group) => (
-              <article key={group.drawing} className="overflow-hidden rounded-card border border-border-default bg-white">
-                <div className="border-b border-border-default bg-white px-[13px] py-[21px]">
-                  <Image
-                    src={group.drawing}
-                    alt={`${drawingLabel(group.profiles)} pultruded fiberglass plate section drawing`}
-                    width={700}
-                    height={240}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="h-auto w-full object-contain"
-                  />
-                </div>
-                <div className="p-[21px]">
-                  <h3 className="text-f18 font-bold text-t1">{drawingLabel(group.profiles)}</h3>
-                  {group.profiles[0].drawingGroup ? (
-                    <p className="mt-[4px] text-f12 leading-golden text-t3">{group.profiles[0].drawingGroup}</p>
-                  ) : null}
-                  <div className="mt-[13px] overflow-x-auto">
-                    <table className="w-full min-w-[510px] border-collapse text-left">
-                      <thead>
-                        <tr className="border-b border-border-default">
-                          {[
-                            "Profile",
-                            "A",
-                            "B",
-                            "t1 / t2",
-                            "Source ID",
-                          ].map((heading) => (
-                            <th key={heading} className="pb-[8px] pr-[13px] text-f14 font-semibold text-t3 last:pr-0">
-                              {heading}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {group.profiles.map((spec) => (
-                          <tr key={spec.profile} className="border-b border-border-default last:border-0">
-                            <td className="py-[10px] pr-[13px] text-f14 font-bold text-t1">{spec.profile.replace("Plate ", "")}</td>
-                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.a}</td>
-                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.b}</td>
-                            <td className="py-[10px] pr-[13px] text-f14 text-t2">{spec.t1t2}</td>
-                            <td className="py-[10px] text-f14 font-semibold text-teal-text">{spec.catalogId}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+      <PageSection
+        id="plate-profile-catalog"
+        title={`${fiberglassPlateSpecs.length} plate records across ${drawingGroups.length} schematic families`}
+        tone="muted"
+        intro="Every catalog record is listed independently. Where the source merges one drawing across several rows, the shared schematic is shown once with each A/B/thickness/ID variant beneath it."
+      >
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-2">
+          {drawingGroups.map((group) => (
+            <article key={group.drawing} className="overflow-hidden rounded-card border border-border-default bg-white">
+              <div className="border-b border-border-default px-[14px] py-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+                <span className="font-sans text-f14 font-semibold normal-case tracking-normal text-t1">{drawingLabel(group.profiles)}</span>
+                {group.profiles[0].drawingGroup ? <span className="ml-[8px]">{group.profiles[0].drawingGroup}</span> : null}
+              </div>
+              <div className="px-[14px] py-[18px]">
+                <Image
+                  src={group.drawing}
+                  alt={`${drawingLabel(group.profiles)} pultruded fiberglass plate section drawing`}
+                  width={700}
+                  height={240}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+              <div className="relative overflow-x-auto border-t border-border-default">
+                <table className="spec-table w-full min-w-[440px] border-collapse text-left text-f14">
+                  <thead>
+                    <tr className="border-b border-border-default bg-bg2">
+                      {["Profile", "A", "B", "t1 / t2", "Source ID"].map((heading) => (
+                        <th key={heading} scope="col" className="px-[14px] py-[8px] font-semibold text-t1">
+                          {heading}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.profiles.map((spec) => (
+                      <tr key={spec.profile} className="border-b border-border-default last:border-b-0">
+                        <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{spec.profile}</th>
+                        <td className="px-[14px] py-[10px] text-t2">{spec.a}</td>
+                        <td className="px-[14px] py-[10px] text-t2">{spec.b}</td>
+                        <td className="px-[14px] py-[10px] text-t2">{spec.t1t2}</td>
+                        <td className="px-[14px] py-[10px] font-semibold text-t1">{spec.catalogId}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Selection Workflow</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Four checks before a plate profile enters an RFQ
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-4">
-            {selectionChecks.map((item, index) => (
-              <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">
-                  {index + 1}
-                </span>
-                <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection id="selection" title="Four checks before a plate profile enters an RFQ">
+        <ol className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+          {selectionChecks.map((item, index) => (
+            <li key={item.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check {index + 1}</span>
+              <h3 className="mt-[4px] text-f16 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection id="faq" title="Questions buyers ask" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
             title: "Separate product families",
             links: [
-              {
-                href: "/products/frp-sound-barrier-wall",
-                label: "FRP sound barrier wall panels — engineered assemblies",
-              },
-              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets — solid flat stock" },
-              { href: "/products/wind-turbine-blade-panels", label: "Wind turbine blade panels — GFRP, CFRP & hybrid" },
+              { href: "/products/frp-sound-barrier-wall", label: "FRP sound barrier wall panels" },
+              { href: "/products/fiberglass-sheets", label: "Fiberglass sheets, solid flat stock" },
+              { href: "/products/wind-turbine-blade-panels", label: "Wind turbine blade panels" },
               { href: "/products/frp-deck-panels", label: "Structural FRP deck panels" },
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
@@ -287,7 +286,6 @@ export default function FiberglassPlatesPage() {
           {
             title: "Specify & verify",
             links: [
-              { href: "#plate-profile-catalog", label: "Plate profile drawings & source values" },
               { href: "/technology/pultrusion-resin-systems", label: "Resin system selection" },
               { href: "/technology/quality-testing", label: "Quality testing & order documentation" },
               { href: "/resources/downloads", label: "Downloads & CAD resources" },
@@ -296,16 +294,15 @@ export default function FiberglassPlatesPage() {
         ]}
       />
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <AskAICard prefill="I need a pultruded fiberglass plate profile for [application]. Candidate source ID [ID or unsure], section drawing [Plate 01–19], confirm A/B/t1/t2 units and tolerances, cut length and quantity [details], orientation/support spacing/load [details], resin/exposure/fire/finish [details], destination [country/postcode]. Please identify missing inputs and the drawing/engineering checks needed before quotation." />
-
-      <ProductNextSteps path="/products/fiberglass-plates" />
-      <InnerCTA title="Choose a plate drawing—then release the right laminate and dimensions." />
+      <PageSection id="quote" title="Quote a plate profile" tone="deep">
+        <ProductRfq
+          product="hollow and multi-cell fiberglass profiles"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          intro="Send the source ID or drawing, the cut length and quantity, the duty and the destination."
+          advisorPrompt="I need a pultruded fiberglass plate profile for [application]. Candidate source ID [ID or unsure], section drawing [Plate 01–19], confirm A/B/t1/t2 units and tolerances, cut length and quantity [details], orientation/support spacing/load [details], resin/exposure/fire/finish [details], destination [country/postcode]. Please identify missing inputs and the drawing/engineering checks needed before quotation."
+        />
+      </PageSection>
     </>
   );
 }

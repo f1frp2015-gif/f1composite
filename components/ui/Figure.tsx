@@ -1,10 +1,13 @@
-// Numbered figure plate for drawings and diagrams: FIG. number and title on
-// the left of the head, the drawing status on the right, caption underneath.
+// Numbered figure plate for drawings, diagrams and photos: FIG. number and
+// title on the left of the head, the drawing status or image type on the
+// right, caption underneath. Drawings sit on the grid ground with padding;
+// photos pass `bleed` and fill the plate edge to edge.
 export default function Figure({
   number,
   title,
   note = "Schematic · not to scale",
   caption,
+  bleed = false,
   children,
   className = "",
 }: {
@@ -12,6 +15,8 @@ export default function Figure({
   title: string;
   note?: string;
   caption?: React.ReactNode;
+  /** A photo that fills the plate, without the grid ground and padding. */
+  bleed?: boolean;
   children: React.ReactNode;
   className?: string;
 }) {
@@ -25,9 +30,13 @@ export default function Figure({
         </span>
         <span>{note}</span>
       </div>
-      <div className="bg-[linear-gradient(var(--color-bg2)_1px,transparent_1px),linear-gradient(90deg,var(--color-bg2)_1px,transparent_1px)] bg-[size:24px_24px] p-[16px]">
-        {children}
-      </div>
+      {bleed ? (
+        <div className="relative bg-bg2">{children}</div>
+      ) : (
+        <div className="bg-[linear-gradient(var(--color-bg2)_1px,transparent_1px),linear-gradient(90deg,var(--color-bg2)_1px,transparent_1px)] bg-[size:24px_24px] p-[16px]">
+          {children}
+        </div>
+      )}
       {caption ? <figcaption className="border-t border-border-default px-[14px] py-[10px] text-f14 text-t2">{caption}</figcaption> : null}
     </figure>
   );

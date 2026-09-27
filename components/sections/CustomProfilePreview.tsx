@@ -22,8 +22,8 @@ export default function CustomProfilePreview() {
   return (
     <section className="bg-white py-[48px] md:py-[64px]" aria-labelledby="home-custom">
       <div className="site-container grid items-center gap-[32px] lg:grid-cols-2">
-        <Figure number={1} title="Section development" note="Illustration">
-          <div className="relative -m-[16px] aspect-[4/3] bg-white">
+        <Figure number={1} title="Section development" note="Illustration" bleed>
+          <div className="relative aspect-[4/3] bg-white">
             <Image
               src="/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg"
               alt="Engineering illustration of a custom pultruded profile and its section drawing"

@@ -52,8 +52,8 @@ export default function IndustryPage({ industry, description }: { industry: Indu
         title={industry.h1}
         description={industry.intro}
         figure={
-          <Figure number={1} title={industry.name} note={industry.image.note} caption={industry.image.caption}>
-            <div className="relative -m-[16px] aspect-[16/10]">
+          <Figure number={1} title={industry.name} note={industry.image.note} caption={industry.image.caption} bleed>
+            <div className="relative aspect-[16/10]">
               <Image src={industry.image.src} alt={industry.image.alt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
             </div>
           </Figure>

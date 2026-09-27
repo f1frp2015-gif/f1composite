@@ -557,8 +557,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
           { label: "Industry", value: cs.industry },
         ]}
         figure={
-          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption}>
-            <div className="relative -m-[16px] aspect-[3/2]">
+          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption} bleed>
+            <div className="relative aspect-[3/2]">
               <Image
                 src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}
                 alt={image?.alt ?? cs.title}
@@ -601,8 +601,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {figures.length ? (
           <div className="mt-[28px] grid grid-cols-1 gap-[16px] sm:grid-cols-2">
             {figures.map((figure, index) => (
-              <Figure key={figure.src} number={index + 2} title={figure.title} note={figure.note}>
-                <div className="relative -m-[16px] aspect-[4/3]">
+              <Figure key={figure.src} number={index + 2} title={figure.title} note={figure.note} bleed>
+                <div className="relative aspect-[4/3]">
                   <Image src={figure.src} alt={figure.alt} fill sizes="(max-width: 639px) 94vw, 45vw" className="object-cover" />
                 </div>
               </Figure>

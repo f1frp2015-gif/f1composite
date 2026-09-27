@@ -1,17 +1,18 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import { frpDeckPanelSourceNote, frpDeckPanelSpecs } from "@/content/data/frpDeckPanelSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-deck-panels";
@@ -85,7 +86,16 @@ const faqItems = [
   },
 ];
 
+// What a deck request needs; the section sheet carries no load data.
+const requestItems = [
+  { title: "Profile and drawing unit", text: "The candidate Profile 01–12, or the joint you need, with the unit for A, B and t1/t2 confirmed." },
+  { title: "Spans and loads", text: "Clear support spacing, deck width and length, uniform, point and wheel loads, the load footprint and the deflection or vibration limit." },
+  { title: "Exposure and surface", text: "Resin, outdoor or chemical exposure, anti-slip surface, fire requirement and colour." },
+  { title: "Connections and delivery", text: "Hold-downs and support connections, the approval drawing or calculation package needed, quantity and destination." },
+];
+
 export default function FrpDeckPanelsPage() {
+  const quoteHref = buildRfqHref({ source: "deck-product-header", product: "Structural FRP deck panels", productPath: pagePath });
   return (
     <>
       <JsonLd
@@ -95,7 +105,7 @@ export default function FrpDeckPanelsPage() {
           path: pagePath,
           image: "/images/products/frp-structural-deck-panel-hero.webp",
           category: "Structural fiberglass deck panels and closed-profile decking",
-          productLine: "F1-GRID-P",
+          productLine: "F1-STRUX",
           schemaType: "CollectionPage",
           datePublished: publishedAt,
           dateModified: updatedAt,
@@ -112,9 +122,36 @@ export default function FrpDeckPanelsPage() {
 
       <PageHeader
         updated={updatedAt}
-        tag="Structural Deck Panels · F1-GRID-P"
+        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        tag="Deck panels"
+        line={{ name: "F1-STRUX", label: "Deck panels" }}
         title="Structural FRP Deck Panels — 12 Cross-Section Families"
         description="Closed-profile fiberglass deck panels separated from open pultruded grating — compare 12 neutral section drawings, nominal A/B/t1/t2 values, joint geometry and project-release requirements."
+        facts={[
+          { label: "Section families", value: String(frpDeckPanelSpecs.length) },
+          { label: "Published values", value: "A, B, t1/t2" },
+          { label: "Top surface", value: "Closed" },
+          { label: "Release", value: "Approved drawing" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: "Compare the sections", href: "#deck-panel-specifications", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Closed-profile deck panel" note="Rendering" caption="Final section, material, color and joint geometry follow the approved project drawing." bleed>
+            <div className="relative aspect-[21/9]">
+              <Image
+                src="/images/products/frp-structural-deck-panel-hero.webp"
+                alt="Concept rendering of a closed structural FRP deck panel with internal webs and an interlocking edge"
+                fill
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                preload
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -122,132 +159,106 @@ export default function FrpDeckPanelsPage() {
         ]}
       />
 
-      <section className="bg-white pt-[55px]">
-        <div className="site-container">
-          <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
-              <Image
-                src="/images/products/frp-structural-deck-panel-hero.webp"
-                alt="Concept rendering of a closed structural FRP deck panel with internal webs and an interlocking edge"
-                fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover"
-                preload
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Concept rendering of a closed-profile deck panel. Final section, material, color and joint geometry follow the approved project drawing.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "deck-panel-specifications", label: "Sections", count: frpDeckPanelSpecs.length },
+          { id: "release", label: "Release checks" },
+          { id: "faq", label: "FAQ" },
+          { id: "related", label: "Related" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <SectionTag>Closed-Profile Decking</SectionTag>
-            <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              Deck sections are not open-mesh grating
-            </h2>
-            <p className="mt-[13px] text-f18 leading-golden text-t2">
+      <PageSection id="overview" title="Deck sections are not open-mesh grating">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
               Structural FRP deck panels use a continuous top surface, repeated underside webs and profile-specific edge geometry. They are evaluated as a deck system with support, joint and connection requirements — not as an I-bar or T-bar grating panel.
             </p>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
+            <p>
               The attached source sheet shows 12 variants. F1 has removed the source logo and internal identifiers and publishes only neutral Profile 01–12 references, the section images and the stated A/B/t1/t2 values. No tolerance, unit, material, load, span, fire or waterproofing claim is inferred.
             </p>
           </div>
-
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
             <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Need open drainage?</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Use the separate pultruded FRP grating page.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
-              It now contains the manual-derived T-bar, I-bar, high-load and high-open specification tables plus M/J/T hold-downs.
+              It contains the manual-derived T-bar, I-bar, high-load and high-open specification tables plus M/J/T hold-downs.
             </p>
-            <Link
-              href="/products/frp-gratings"
-              className="mt-[16px] inline-flex min-h-[44px] items-center justify-center rounded-control bg-teal-text px-[18px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-            >
+            <Link href="/products/frp-gratings" className="mt-[14px] inline-flex text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
               View pultruded FRP grating
             </Link>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="deck-panel-specifications" className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Nominal Section References</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Twelve deck profile drawings and A/B/t1/t2 values
-          </h2>
-          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">
-            Profiles are kept separate even when their numeric values match because the joint and edge geometry differs. The source did not state a unit, so the values below are intentionally unitless until confirmed on an approved drawing.
-          </p>
-          <p className="mt-[13px] max-w-[980px] rounded-control border-l-[3px] border-teal bg-white px-[13px] py-[10px] text-f14 leading-golden text-t2">
-            {frpDeckPanelSourceNote}
-          </p>
-
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 xl:grid-cols-3">
-            {frpDeckPanelSpecs.map((spec) => (
-              <article key={spec.profile} className="overflow-hidden rounded-card border border-border-default bg-white">
-                <div className="border-b border-border-default bg-white p-[13px]">
-                  <Image
-                    src={spec.drawing}
-                    alt={`${spec.profile} structural FRP deck panel section drawing`}
-                    width={350}
-                    height={100}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    className="h-auto w-full object-contain"
-                  />
-                </div>
-                <div className="p-[21px]">
-                  <h3 className="text-f18 font-bold text-t1">{spec.profile}</h3>
-                  <dl className="mt-[13px] grid grid-cols-3 gap-[8px]">
-                    <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">A</dt>
-                      <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.a}</dd>
-                    </div>
-                    <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">B</dt>
-                      <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.b}</dd>
-                    </div>
-                    <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">t1 / t2</dt>
-                      <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.t1t2}</dd>
-                    </div>
-                  </dl>
-                  <p className="mt-[13px] text-f12 leading-golden text-t3">{spec.geometryNote}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+      <PageSection
+        id="deck-panel-specifications"
+        title="Twelve deck profile drawings and A/B/t1/t2 values"
+        tone="muted"
+        intro="Profiles are kept separate even when their numeric values match because the joint and edge geometry differs. The source did not state a unit, so the values below are intentionally unitless until confirmed on an approved drawing."
+      >
+        <p className="max-w-[900px] rounded-card border border-border-default bg-white px-[16px] py-[12px] text-f14 leading-golden text-t2">
+          <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Source note </span>
+          {frpDeckPanelSourceNote}
+        </p>
+        <div className="mt-[20px] grid grid-cols-1 gap-[16px] md:grid-cols-2 xl:grid-cols-3">
+          {frpDeckPanelSpecs.map((spec) => (
+            <article key={spec.profile} className="overflow-hidden rounded-card border border-border-default bg-white">
+              <h3 className="border-b border-border-default px-[14px] py-[8px] text-f14 font-semibold text-t1">{spec.profile}</h3>
+              <div className="px-[14px] py-[16px]">
+                <Image
+                  src={spec.drawing}
+                  alt={`${spec.profile} structural FRP deck panel section drawing`}
+                  width={350}
+                  height={100}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+              <dl className="grid grid-cols-3 gap-px border-t border-border-default bg-border-default">
+                {[
+                  ["A", spec.a],
+                  ["B", spec.b],
+                  ["t1 / t2", spec.t1t2],
+                ].map(([label, value]) => (
+                  <div key={label} className="bg-white px-[14px] py-[10px]">
+                    <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{label}</dt>
+                    <dd className="mt-[2px] text-f16 font-semibold text-t1">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="border-t border-border-default px-[14px] py-[10px] text-f12 leading-golden text-t3">{spec.geometryNote}</p>
+            </article>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Project Release Checks</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Four checks before selecting a deck section
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2 lg:grid-cols-4">
-            {selectionChecks.map((item, index) => (
-              <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span>
-                <h3 className="mt-[13px] text-f18 font-bold text-t1">{item.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection id="release" title="Four checks before selecting a deck section">
+        <ol className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+          {selectionChecks.map((item, index) => (
+            <li key={item.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check {index + 1}</span>
+              <h3 className="mt-[4px] text-f16 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection id="faq" title="Questions buyers ask" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
             title: "Related FRP products",
             links: [
-              { href: "/products/frp-gratings", label: "Pultruded FRP grating — open I-bar & T-bar panels" },
-              { href: "/products/molded-frp-grating", label: "Molded FRP grating — square & mini mesh" },
+              { href: "/products/frp-gratings", label: "Pultruded FRP grating, open I-bar & T-bar panels" },
+              { href: "/products/molded-frp-grating", label: "Molded FRP grating, square & mini mesh" },
               { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beam deck supports" },
               { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
               { href: "/products/fiberglass-plates", label: "Pultruded FRP plate profiles" },
@@ -265,7 +276,6 @@ export default function FrpDeckPanelsPage() {
           {
             title: "Technical resources",
             links: [
-              { href: "#deck-panel-specifications", label: "Deck cross-section references" },
               { href: "/resources/design-guides", label: "FRP design guides" },
               { href: "/resources/technical-data", label: "Technical data & submittals" },
               { href: "/technology/quality-testing", label: "Quality testing & project documentation" },
@@ -274,18 +284,16 @@ export default function FrpDeckPanelsPage() {
         ]}
       />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <AskAICard
-        prefill="I need structural FRP deck panels for [application]. Candidate Profile [01-12 or unsure], confirm drawing unit [required], clear support spacing [value/unit], deck width and length [value/unit], uniform/point/wheel loads [details], load footprint [details], deflection/vibration criteria [details], resin/exposure/surface/fire requirements [details], and preferred joint/connection. Please identify missing inputs and the approval drawing/calculation package required."
-      />
-
-      <ProductNextSteps path="/products/frp-deck-panels" />
-      <InnerCTA title="Need an FRP deck section and project-specific approval drawing?" />
+      <PageSection id="quote" title="Quote structural deck panels" tone="deep">
+        <ProductRfq
+          product="structural FRP deck panels"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the candidate profile, the spans and loads, the exposure and the destination."
+          advisorPrompt="I need structural FRP deck panels for [application]. Candidate Profile [01-12 or unsure], confirm drawing unit [required], clear support spacing [value/unit], deck width and length [value/unit], uniform/point/wheel loads [details], load footprint [details], deflection/vibration criteria [details], resin/exposure/surface/fire requirements [details], and preferred joint/connection. Please identify missing inputs and the approval drawing/calculation package required."
+        />
+      </PageSection>
     </>
   );
 }

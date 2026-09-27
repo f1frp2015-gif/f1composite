@@ -1,15 +1,15 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
-import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   frpHandrailCatalogSystems,
   frpHandrailManualImageAssets,
@@ -17,6 +17,7 @@ import {
 } from "@/content/data/frpHandrailSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-handrail-systems";
@@ -93,39 +94,51 @@ const faqItems = [
   },
 ];
 
+// What a handrail quotation needs, from the FAQ answer on quoting.
+const requestItems = [
+  { title: "Layout", text: "Total run, plan and elevations, stair slopes, corners, gates and openings." },
+  { title: "Loads and limits", text: "The governing load standard, rail height and any post-spacing limit." },
+  { title: "Bases and kick plates", text: "Base substrate and fixing conditions, and whether a kick plate is required." },
+  { title: "Exposure and delivery", text: "Chemical, outdoor and electrical exposure, colour, quantity and destination." },
+];
+
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
 function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
   return (
     <article className="overflow-hidden rounded-card border border-border-default bg-white">
-      <div className="border-b border-border-default bg-bg2 p-[21px] sm:p-[24px]">
+      <div className="border-b border-border-default px-[20px] py-[16px] sm:px-[24px]">
         <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{system.shortName} system</p>
-        <h3 className="mt-[5px] text-f20 font-bold text-t1">{system.name}</h3>
-        <p className="mt-[8px] text-f14 leading-golden text-t2">{system.description}</p>
+        <h3 className="mt-[4px] text-f20 font-bold text-t1">{system.name}</h3>
+        <p className="mt-[6px] text-f14 leading-golden text-t2">{system.description}</p>
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left">
+      <div className="relative overflow-x-auto">
+        <table className="w-full border-collapse text-left text-f14">
           <thead>
-            <tr>
-              <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">Component</th>
-              <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">Nominal catalog value</th>
+            <tr className="border-b border-border-default bg-bg2">
+              <th scope="col" className="px-[16px] py-[8px] font-semibold text-t1">Component</th>
+              <th scope="col" className="px-[16px] py-[8px] font-semibold text-t1">Nominal catalog value</th>
             </tr>
           </thead>
           <tbody>
             {system.rows.map((row) => (
-              <tr key={row.item} className="border-t border-border-default">
-                <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">{row.item}</th>
-                <td className="px-[16px] py-[12px] text-f14 text-t2">{row.nominalValue}</td>
+              <tr key={row.item} className="border-b border-border-default last:border-b-0">
+                <th scope="row" className="px-[16px] py-[10px] font-semibold text-t1">{row.item}</th>
+                <td className="px-[16px] py-[10px] text-t2">{row.nominalValue}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p className="border-t border-warn-border bg-warn-bg px-[16px] py-[13px] text-f12 leading-golden text-t2">
+      <p className="border-t border-warn-border bg-warn-bg px-[16px] py-[12px] text-f14 leading-golden text-t2">
         <strong className="text-t1">Release note:</strong> {system.releaseNote}
       </p>
     </article>
   );
 }
+
 export default function HandrailSystemsPage() {
+  const quoteHref = buildRfqHref({ source: "handrail-product-header", product: "FRP handrail and guardrail system", productPath: pagePath });
   return (
     <>
       <JsonLd
@@ -147,9 +160,36 @@ export default function HandrailSystemsPage() {
 
       <PageHeader
         updated={updatedAt}
-        tag="Edge Protection Systems · F1-STRUX"
+        reviewer={{ name: reviewer.name, title: reviewer.jobTitle.replace(/ for .*$/, ""), href: `/about/authors/${reviewer.slug}` }}
+        tag="Handrail systems"
+        line={{ name: "F1-STRUX", label: "Handrail systems" }}
         title="Fiberglass Handrail and Guardrail Systems"
         description="Industrial FRP handrail systems in square- and round-tube configurations, with posts, top and middle rails, kick plates, splices, molded fittings and base options. Manual-verified nominal specifications are separated from the project load, connection and anchor design."
+        facts={[
+          { label: "Systems", value: "Square and round tube" },
+          { label: "Parts", value: "Posts, rails, fittings, bases" },
+          { label: "Post spacing", value: "Up to 1,500 mm" },
+          { label: "Release", value: "Approved BOM" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: "See the specifications", href: "#specifications", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Handrails at an industrial platform" note="Reference photo" caption="Manual-derived application reference, cropped to remove all source branding. It demonstrates system context and is not presented as an F1 project case study." bleed>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src={frpHandrailManualImageAssets.hero}
+                alt="Yellow fiberglass handrail and guardrail systems installed around industrial platforms and stairs"
+                fill
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                preload
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -157,129 +197,111 @@ export default function HandrailSystemsPage() {
         ]}
       />
 
-      <MaterialTerminologyNote title="Specifying GRP handrails or guardrails?">
-        These glass-reinforced systems are also called GRP handrails. A graspable handrail and an edge-protection guardrail serve different functions: confirm the layout, loading and connections before ordering. A material name alone does not establish system compliance.
-      </MaterialTerminologyNote>
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "specifications", label: "Specifications" },
+          { id: "components", label: "Components" },
+          { id: "inputs", label: "Inputs" },
+          { id: "faq", label: "FAQ" },
+          { id: "related", label: "Related" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white pt-[55px]">
-        <div className="site-container">
-          <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
-              <Image
-                src={frpHandrailManualImageAssets.hero}
-                alt="Yellow fiberglass handrail and guardrail systems installed around industrial platforms and stairs"
-                fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover"
-                preload
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Manual-derived application reference, cropped to remove all source branding. It demonstrates system context and is not presented as an F1 project case study.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <SectionTag>Complete Edge-Protection Assemblies</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              Specify the rail, post, fitting, kick plate and base as one system
-            </h2>
-            <p className="mt-[21px] text-f18 leading-golden text-t2">
+      <PageSection id="overview" title="Specify the rail, post, fitting, kick plate and base as one system">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
               A fiberglass railing is not qualified by a tube size alone. The finished assembly transfers top-rail and intermediate-member loads through posts, splices, corner fittings, bases, anchors and the supporting substrate. F1 therefore keeps the catalog geometry visible while making the project load basis and release drawing explicit.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
+            <p>
               This page owns the industrial handrail and guardrail intent. For vertical access, use the separate{" "}
-              <Link href="/products/frp-ladders" className="font-semibold text-teal-text hover:underline">
+              <Link href="/products/frp-ladders" className={link}>
                 fiberglass fixed ladder systems
-              </Link>
-              {" "}page; for raw profile stock, use the round- and square-tube pages.
+              </Link>{" "}
+              page; for raw profile stock, use the round- and square-tube pages.
             </p>
+            <MaterialTerminologyNote title="Specifying GRP handrails or guardrails?">
+              These glass-reinforced systems are also called GRP handrails. A graspable handrail and an edge-protection guardrail serve different functions: confirm the layout, loading and connections before ordering. A material name alone does not establish system compliance.
+            </MaterialTerminologyNote>
           </div>
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
             <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">What the catalog establishes</p>
-            <dl className="mt-[13px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-1">
-              <div><dt className="text-f12 font-bold text-t1">Two systems</dt><dd className="mt-[3px] text-f14 text-t2">Square-tube and round-tube configurations</dd></div>
-              <div><dt className="text-f12 font-bold text-t1">Layout references</dt><dd className="mt-[3px] text-f14 text-t2">1,500 mm maximum post spacing; 1,220 mm maximum height</dd></div>
-              <div><dt className="text-f12 font-bold text-t1">Still project-specific</dt><dd className="mt-[3px] text-f14 text-t2">Loads, anchors, resin, fastener material, joints and substrate</dd></div>
+            <dl className="mt-[12px] divide-y divide-border-default border-y border-border-default">
+              {[
+                ["Two systems", "Square-tube and round-tube configurations"],
+                ["Layout references", "1,500 mm maximum post spacing; 1,220 mm maximum height"],
+                ["Still project-specific", "Loads, anchors, resin, fastener material, joints and substrate"],
+              ].map(([term, detail]) => (
+                <div key={term} className="py-[10px]">
+                  <dt className="text-f14 font-bold text-t1">{term}</dt>
+                  <dd className="mt-[2px] text-f14 leading-golden text-t2">{detail}</dd>
+                </div>
+              ))}
             </dl>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Manual-Verified Specifications</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Square and round FRP handrail system specifications
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            The source tables are rebuilt below as accessible, supplier-neutral HTML. Suspect or internally conflicting fields are not silently corrected; they are withheld or carried into a release note until an approved BOM resolves them.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] xl:grid-cols-2 xl:items-start">
-            {frpHandrailCatalogSystems.map((system) => <SystemSpecification key={system.shortName} system={system} />)}
-          </div>
+      <PageSection
+        id="specifications"
+        title="Square and round FRP handrail system specifications"
+        tone="muted"
+        intro="The source tables are rebuilt below as accessible, supplier-neutral HTML. Suspect or internally conflicting fields are not silently corrected; they are withheld or carried into a release note until an approved BOM resolves them."
+      >
+        <div className="grid grid-cols-1 gap-[16px] xl:grid-cols-2 xl:items-start">
+          {frpHandrailCatalogSystems.map((system) => <SystemSpecification key={system.shortName} system={system} />)}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-2">
-            <article>
-              <SectionTag>Square-System Connections</SectionTag>
-              <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">Internal splices, corners and kick-plate details</h2>
-              <figure className="mt-[21px]">
-                <div className="relative aspect-[71/53] overflow-hidden rounded-card border border-border-default bg-white">
-                  <Image src={frpHandrailManualImageAssets.squareSystem} alt="Square fiberglass handrail system connection concept with splices, corner details, kick plate and optional base" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
-                </div>
-                <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                  Manual-derived connection concept. Because one illustrated middle-rail detail conflicts with the source table, the approved BOM—not this image—controls the released geometry.
-                </figcaption>
-              </figure>
-            </article>
-            <article>
-              <SectionTag>Round-System Components</SectionTag>
-              <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">Tube, tee, elbow, cross, foot base and kick plate</h2>
-              <figure className="mt-[21px]">
-                <div className="relative aspect-[292/207] overflow-hidden rounded-card border border-border-default bg-white">
-                  <Image src={frpHandrailManualImageAssets.roundSystem} alt="Round fiberglass handrail assembly with numbered tube, tee, elbow, cross, foot-base and kick-plate components" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
-                </div>
-                <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                  Manual-derived round-system component reference. Diagram numbers identify component types only; they are not public SKUs.
-                </figcaption>
-              </figure>
-            </article>
-          </div>
+      <PageSection id="components" title="Connections and components">
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-2">
+          <Figure
+            number={2}
+            title="Square system: splices, corners, kick plate"
+            note="Manual drawing"
+            caption="Manual-derived connection concept. Because one illustrated middle-rail detail conflicts with the source table, the approved BOM—not this image—controls the released geometry."
+          >
+            <div className="relative aspect-[71/53] bg-white">
+              <Image src={frpHandrailManualImageAssets.squareSystem} alt="Square fiberglass handrail system connection concept with splices, corner details, kick plate and optional base" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
+            </div>
+          </Figure>
+          <Figure
+            number={3}
+            title="Round system: tube, tee, elbow, cross, foot base"
+            note="Manual drawing"
+            caption="Manual-derived round-system component reference. Diagram numbers identify component types only; they are not public SKUs."
+          >
+            <div className="relative aspect-[292/207] bg-white">
+              <Image src={frpHandrailManualImageAssets.roundSystem} alt="Round fiberglass handrail assembly with numbered tube, tee, elbow, cross, foot-base and kick-plate components" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" />
+            </div>
+          </Figure>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>From Layout to Release</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Six inputs for a coordinated industrial handrail system
-          </h2>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-            {specificationInputs.map((input, index) => (
-              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">0{index + 1}</p>
-                <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-[34px] rounded-card border border-warn-border bg-warn-bg p-[21px] text-f14 leading-golden text-t2">
-            <strong className="text-t1">Load-basis checkpoint.</strong>{" "}
-            <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.29</a>{" "}
-            applies criteria to completed guardrail systems, while{" "}
-            <a href="https://www.iso.org/standard/61282.html" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">ISO 14122-3:2016</a>{" "}
-            covers stairs, stepladders and guardrails within its machinery-access scope. Neither standard can be claimed from catalog tube sizes or post spacing alone.
-          </div>
-        </div>
-      </section>
+      <PageSection id="inputs" title="Six inputs for a coordinated industrial handrail system" tone="muted">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {specificationInputs.map((input, index) => (
+            <li key={input.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Input {index + 1}</span>
+              <h3 className="mt-[4px] text-f16 font-bold text-t1">{input.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[16px] rounded-card border border-warn-border bg-warn-bg px-[16px] py-[12px] text-f14 leading-golden text-t2">
+          <strong className="text-t1">Load-basis checkpoint.</strong>{" "}
+          <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" target="_blank" rel="noopener noreferrer" className={link}>OSHA 1910.29</a>{" "}
+          applies criteria to completed guardrail systems, while{" "}
+          <a href="https://www.iso.org/standard/61282.html" target="_blank" rel="noopener noreferrer" className={link}>ISO 14122-3:2016</a>{" "}
+          covers stairs, stepladders and guardrails within its machinery-access scope. Neither standard can be claimed from catalog tube sizes or post spacing alone.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Questions buyers ask">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
         groups={[
@@ -316,15 +338,17 @@ export default function HandrailSystemsPage() {
         ]}
       />
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <AskAICard prefill="I need an industrial fiberglass handrail / guardrail system: total run and layout [attach plan/elevation], straight/stair/corner/gate conditions, governing load standard, target height and post-spacing limit, base substrate, kick-plate requirement, environment, color and destination. Compare square and round systems and list the drawing/BOM checks required before release." />
-      <ProductNextSteps path="/products/frp-handrail-systems" />
-      <InnerCTA title="Send the platform or stair layout — receive a system-led RFQ review." />
+      <PageSection id="quote" title="Quote a handrail system" tone="deep">
+        <ProductRfq
+          product="FRP handrail and guardrail systems"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the platform or stair layout, the load basis, the bases and the destination."
+          links={[{ label: "Check a handrail load first", href: "/tools/handrail-load-calculator" }]}
+          advisorPrompt="I need an industrial fiberglass handrail / guardrail system: total run and layout [attach plan/elevation], straight/stair/corner/gate conditions, governing load standard, target height and post-spacing limit, base substrate, kick-plate requirement, environment, color and destination. Compare square and round systems and list the drawing/BOM checks required before release."
+        />
+      </PageSection>
     </>
   );
 }

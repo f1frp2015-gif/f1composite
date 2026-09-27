@@ -33,7 +33,7 @@ test("fiberglass sheet and plate have separate static product routes", async () 
     read("app/pultruded-frp-profiles/page.tsx"),
   ]);
 
-  assert.match(sheetPage, /Solid Flat Sheet · F1-FORM/);
+  assert.match(sheetPage, /line=\{\{ name: "F1-FORM", label: "Solid flat sheet" \}\}/);
   assert.match(sheetPage, /solid FRP sheet cut to size/);
   assert.match(sheetPage, /href="\/products\/fiberglass-plates"/);
   assert.doesNotMatch(sheetPage, /fiberglassPlateSpecs/);
