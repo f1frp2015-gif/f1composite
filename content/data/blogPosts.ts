@@ -50,7 +50,11 @@ export type BlogPost = {
   standards: string[];
   coverImage: string;
   coverAlt: string;
-  /** What kind of image the cover is, in the figure-note vocabulary ("Illustrative photo", "Rendering" …): shown on cards and the article figure. */
+  /**
+   * What kind of image the cover is, in the figure-note vocabulary ("Illustrative photo", "Rendering" …): shown on
+   * cards and the article figure. Empty for a cover cut from a document that labels itself, such as the article's
+   * own table or a certificate, where the badge would only sit on the document's header.
+   */
   coverNote: string;
   coverImagePosition?: string;
   /**
@@ -544,15 +548,12 @@ For further material background, explore [pultruded FRP profiles](/pultruded-frp
     authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
-    coverImage: "/images/hero/frp-composite-material-hero.webp",
-    coverAlt:
-      "Pultruded fiberglass reinforced plastic structural profiles showing multiple constant cross-section shapes",
-    coverNote: "Illustrative photo",
+    coverImage: "/images/covers/blog/pultrusion-line-schematic.webp",
+    coverAlt: "Schematic of a pultrusion line: fiber creel, guide plates, resin injection, heated die, puller and flying cut-off saw",
+    coverNote: "Schematic",
     supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
-    supportingAlt:
-      "Fiberglass reinforced plastic production line pulling continuous glass fibers through heated pultrusion dies",
-    supportingCaption:
-      "Pultrusion aligns continuous glass reinforcement along the profile and cures the resin inside a steel die, producing repeatable structural GFRP sections.",
+    supportingAlt: "Parallel pultrusion lines in production at an F1 Composite plant",
+    supportingCaption: "Production photo. Pultrusion aligns continuous glass reinforcement along the profile and cures the resin inside a steel die, producing repeatable structural GFRP sections.",
     highlights: [
       "Fiberglass reinforced plastic is a material family, not one universal grade",
       "Glass architecture, resin chemistry, and manufacturing process jointly determine performance",
@@ -631,10 +632,9 @@ If the project needs a catalog shape, compare the dimensions and section propert
     authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790", "ASCE/SEI 74-23"],
-    coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
-    coverAlt:
-      "Engineer reviewing FRP material properties, structural profile geometry, and laminate performance data",
-    coverNote: "Illustrative photo",
+    coverImage: "/images/covers/blog/frp-material-forms.webp",
+    coverAlt: "Pultruded FRP in four forms: GFRP rebar, a round tube, a channel and a two-cell plate",
+    coverNote: "Product photo",
     supportingImage: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg",
     supportingAlt:
       "FRP structural profile engineering drawing connecting material properties with cross-section design",
@@ -719,14 +719,13 @@ Avoid copying the highest numbers from several brochures into one impossible “
     authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D3917", "ASCE/SEI 74-23"],
-    coverImage: "/images/hero/frp-composite-material-hero.webp",
-    coverAlt: "Structural profiles made from fiber reinforced polymer composites",
+    coverImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
+    coverAlt: "Glass fiber rovings being pulled into a pultrusion line, where resin and a heated die turn them into a profile",
     coverNote: "Illustrative photo",
-    supportingImage: "/images/technology/pultrusion-manufacturing-production-line.webp",
-    supportingAlt:
-      "Pultrusion manufacturing line turning glass reinforcement and resin into continuous FRP profiles",
-    supportingCaption:
-      "The acronym FRP names the material family; a complete description also names the reinforcement, resin, process, grade, and product form.",
+    supportingImage: "/images/products/frp-grating-types-molded-deck-pultruded.jpg",
+    supportingAlt: "Molded FRP grating, a pultruded deck panel and pultruded grating bars",
+    supportingImageFit: "contain",
+    supportingCaption: "Grating, deck panels and bars are all fiber-reinforced polymer: the same glass-and-resin system in different forms.",
     highlights: [
       "FRP full form: fiber reinforced polymer or fiber reinforced plastic",
       "GFRP and GRP specify glass reinforcement; CFRP specifies carbon fiber",
@@ -886,7 +885,7 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
       "Qualifying a Chinese fiberglass window profile supplier comes down to nine verifiable checks: legal-entity and factory verification, production capability (own lines and dies), ASTM D3917 tolerance class in writing, material-system verification with coupon tests, the certification stack (EN 14351-1 / NAFS / PHI component), a paid first article with dimensional report, run-to-run consistency evidence across batches, finish qualification (AAMA 2604/2605 coater reports), and commercial terms that pass the logistics test (HS classification, DDP capability, staged-order structure). Any supplier confident in its process will agree to all nine without hesitation.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-07-07",
+    updatedAt: "2026-09-27",
     readTime: "11 min",
     excerpt:
       "Every window fabricator evaluating a Chinese profile supplier asks the same underlying question: will run number forty look like run number one? This checklist turns that question into nine concrete, verifiable checks (the same ones our own customers put us through) so qualification runs on evidence instead of assurances.",
@@ -936,7 +935,7 @@ Confirm that the company named in your contract owns the factory. In China's exp
 
 ## 2. Production capability: lines and dies
 
-Pultrusion capacity is countable. Ask how many pultrusion lines the supplier operates, how many window-profile dies it holds, and which frame-depth series exist as standing tooling versus new-die projects. This tells you two things: whether your order competes for line time, and whether your profiles need new tooling (with its 3–6 week lead and amortization cost) or can run on existing dies.
+Pultrusion capacity is countable. Ask how many pultrusion lines the supplier operates, how many window-profile dies it holds, and which frame-depth series exist as standing tooling versus new-die projects. This tells you two things: whether your order competes for line time, and whether your profiles need new tooling (with its 4–8 week die lead time and amortization cost) or can run on existing dies.
 
 ## 3. Tolerance class, in writing
 
@@ -979,7 +978,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
       "Fiberglass window profile pricing is driven by eight factors: resin system (polyester is the baseline; vinyl ester adds ~10–25%; polyurethane sits at the top of the range), glass content and fiber architecture, section complexity and wall thickness, die tooling amortization (the main reason MOQs exist), surface finish (mill finish vs AAMA 2604/2605 powder coating in custom RAL colors), certification and testing overhead, order volume and scheduling, and logistics terms (EXW vs FOB vs DDP with duty). Published catalog pricing for F1's fenestration profile range spans roughly €8–110 per linear meter depending on series and configuration, but B2B pricing is quoted per RFQ because these eight factors interact.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-07-07",
+    updatedAt: "2026-09-27",
     readTime: "9 min",
     excerpt:
       "Nobody in this industry publishes how window profile pricing actually works, which leaves buyers comparing quotes they cannot decompose. Here are the eight cost drivers, what each one does to the per-meter number, and why two quotes for 'the same profile' can differ by 40% without anyone cheating.",
@@ -992,12 +991,10 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
       "Modern window set in a bright yellow tiled facade — what a window profile costs is decided long before it reaches the wall",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/photo/18193156/"),
-    supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
-    supportingAlt:
-      "90-series pultruded fiberglass window frame corner section — deeper chambers, thicker walls, and premium resin systems all show up in the per-meter price",
+    supportingImage: "/images/products/fenestration/frp-window-frame-90-series-sliding.webp",
+    supportingAlt: "Rendering of a 90-series FRP sliding window frame in section with triple glazing",
     supportingImageFit: "contain",
-    supportingCaption:
-      "Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness, and finish are all invisible at thumbnail resolution.",
+    supportingCaption: "Rendering. Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness and finish are all invisible at thumbnail resolution.",
     highlights: [
       "Resin system is the biggest single lever: polyester baseline, vinyl ester +10–25%, polyurethane at the top of the range",
       "Custom-section MOQs exist to pay off the die; standing-die profiles skip that cost entirely",
@@ -1030,7 +1027,7 @@ A three-chamber sash profile with co-pultruded gasket channels pulls slower and 
 
 ## 4. Die tooling and amortization: where MOQs come from
 
-Every profile geometry needs its own pultrusion die (typically 3–6 weeks to fabricate). On a standing-die profile from the supplier's existing library, you pay no tooling. On a custom section, the die cost has to sit somewhere: either as a one-time tooling charge or amortized into the per-meter price with a minimum order quantity. Paying off the die is why custom-section MOQs exist, and why the honest answer to "what is your MOQ?" is always "which section?"
+Every profile geometry needs its own pultrusion die (typically 4–8 weeks to make). On a standing-die profile from the supplier's existing library, you pay no tooling. On a custom section, the die cost has to sit somewhere: either as a one-time tooling charge or amortized into the per-meter price with a minimum order quantity. Paying off the die is why custom-section MOQs exist, and why the honest answer to "what is your MOQ?" is always "which section?"
 
 ## 5. Surface finish
 
@@ -1076,12 +1073,10 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
       "Opened casement window with visible sash, hinge hardware, and frame joinery — every station of window fabrication meets the lineal here",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
-    supportingImage: "/images/blog/window-corner-joint-interior.jpg",
-    supportingAlt:
-      "Window frame corner joint seen from the interior — the corner is where fiberglass fabrication differs most from uPVC fusion welding",
-    supportingAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
-    supportingCaption:
-      "The corner is the honest test of any window fabrication process. uPVC fuses it; fiberglass joins it mechanically: different process, different QC point, comparable cycle time once the line settles.",
+    supportingImage: "/images/products/fenestration/frp-window-frame-70-series-casement.webp",
+    supportingAlt: "Rendering of a 70-series FRP casement frame in section, showing the pultruded chambers and the glazing",
+    supportingImageFit: "contain",
+    supportingCaption: "Rendering. The corner is the honest test of any window fabrication process. uPVC fuses it; a fiberglass frame is joined mechanically inside these chambers: a different process and a different QC point, with a comparable cycle time once the line settles.",
     highlights: [
       "Corner joining is the one genuine process change: mechanical keys + adhesive replace fusion welding. No welders on the line",
       "Screw retention improves outright: pultruded walls hold hardware directly, with no steel insert and no stripped-thread rework",
@@ -1155,17 +1150,13 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN ISO 10077-1", "AAMA 1503 (CRF)", "EN ISO 13788"],
-    coverImage: "/images/blog/cold-climate-window-interior.jpg",
-    coverAlt:
-      "Interior view of white-framed windows on an autumn day — the interior frame surface temperature is where the condensation battle is won or lost",
+    coverImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
+    coverAlt: "Icicles and packed frost hanging directly in front of a window on a deep-winter day — the freeze condition under which frame-face condensation becomes frame-face ice",
     coverNote: "Illustrative photo",
-    coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
-    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
-    supportingAlt:
-      "Icicles and packed frost hanging directly in front of a window on a deep-winter day — the freeze condition under which frame-face condensation becomes frame-face ice",
-    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
-    supportingCaption:
-      "The design condition that matters, seen from the inside: deep cold and ice on one side of the frame, a warm humidified room on the other. Whether the interior frame face stays above the dew point, or grows its own frost, is decided almost entirely by the frame material's conductivity.",
+    coverAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
+    supportingImage: "/images/blog/frame-heat-flow-aluminum.webp",
+    supportingAlt: "Diagram of heat flowing through an aluminum frame section from a +21 °C room to −20 °C outside, with condensation on the interior face",
+    supportingCaption: "Diagram. Aluminum conducts about 160 W/m·K. Where the metal runs from the outside to the room, the interior face cools toward the outdoor temperature and drops below the dew point; pultruded FRP, at about 0.3 W/m·K, keeps that face close to room temperature.",
     highlights: [
       "Condensation is surface-temperature physics: the frame face drops below dew point because aluminum conducts heat 500× faster than insulating frames",
       "Thermal breaks move the problem rather than solve it: screw ports, corner keys, and hardware penetrations bridge the break",
@@ -1238,18 +1229,15 @@ To check where a specific frame and glazing build lands before specifying, run i
     authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "EN 14351-1", "ASTM D3917", "PHI Component Criteria", "NAFS (AAMA/WDMA/CSA 101)"],
-    coverImage: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp",
-    coverAlt:
-      "Pultruded FRP window frame 70-series profile — the core product of the fiberglass window profile market",
+    coverImage: "/images/products/fenestration-systems-cover.webp",
+    coverAlt: "Rendering of a pultruded FRP window frame corner with triple glazing",
     coverNote: "Rendering",
     coverImagePosition: "center 62%",
     coverImageFit: "contain",
-    supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
-    supportingAlt:
-      "FRP window frame 90-series corner cross-section showing the multi-chamber pultruded profile geometry supplied to window fabricators",
+    supportingImage: "/images/products/window-door/frp-window-frame-70-series-corner-section.webp",
+    supportingAlt: "Rendering of a 70-series FRP window frame corner section, the multi-chamber profile supplied to window fabricators",
     supportingImageFit: "contain",
-    supportingCaption:
-      "The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set (frame, sash, mullion, transom, glazing bead) and assemble, glaze, and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
+    supportingCaption: "Rendering. The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set (frame, sash, mullion, transom, glazing bead) and assemble, glaze and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
     highlights: [
       "Two distinct businesses: lineals for fabricators vs finished fiberglass windows. Different buyers, margins, and qualification paths",
       "Demand is code-pulled: GEG 2024, BC Step Code, ENERGY STAR, and Passive House targets sit below what thermally-broken aluminum reaches comfortably",
@@ -1486,10 +1474,10 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
     title: "Pultruded FRP Pipe in Oil and Gas: Where Pultrusion Actually Fits",
     seoTitle: "Pultruded FRP Pipe in Oil & Gas Piping",
     answerBox:
-      "In oil and gas piping, high-pressure trunklines are filament winding's job, because hoop stress needs fiber wound at about ±54°; pultruded FRP is not used there. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It runs about 30% cheaper than filament-wound pipe and cuts 25-year lifecycle cost against carbon steel by roughly 65%. F1 Composite ships this as Series 01: pultruded GRE / GRVE surface-gathering pipe in serial production, DN50–DN300, 0.7–3.5 MPa, +140 °C continuous (short-term peak +160 °C), qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, and SY/T 6266.",
+      "In oil and gas piping, high-pressure trunklines are filament winding's job, because hoop stress needs fiber wound at about ±54°; pultruded FRP is not used there. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It can cost less than filament-wound pipe at the same diameter, and in a representative 25-year example its lifecycle cost comes out well below coated carbon steel with cathodic protection. F1 Composite ships this as Series 01: pultruded GRE / GRVE surface-gathering pipe in serial production, DN50–DN300, 0.7–3.5 MPa, +140 °C continuous (short-term peak +160 °C), qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, and SY/T 6266.",
     category: "Oil & Gas",
     date: "2026-06-02",
-    updatedAt: "2026-06-03",
+    updatedAt: "2026-09-27",
     readTime: "12 min",
     excerpt:
       "Pultruded FRP does not replace filament-wound high-pressure trunklines. It earns its place in oilfield piping where loads are axial or pressure is low to moderate: threaded line pipe, gathering lines, fuel-station double-wall pipe, and continuous sucker rods.",
@@ -1555,7 +1543,7 @@ The practical result is a clean division of labor. High-pressure GRE line pipe t
 
 ## The five places pultrusion wins
 
-**1. Threaded line pipe in small bore.** For DN50–150 (2–6 in) line pipe with machined API 8-round threads, pultrusion produces a straight, dimensionally tight section at 0.6–1.8 m/min, far faster than winding at 0.1–0.4 m/min. A surface fabric layer wound at ±55° (pull-winding) adds the hoop capacity these sizes need. Output runs about 30% cheaper than wound pipe at the same diameter.
+**1. Threaded line pipe in small bore.** For DN50–150 (2–6 in) line pipe with machined API 8-round threads, pultrusion produces a straight, dimensionally tight section at 0.6–1.8 m/min, far faster than winding at 0.1–0.4 m/min. A surface fabric layer wound at ±55° (pull-winding) adds the hoop capacity these sizes need. Output can cost less than wound pipe at the same diameter.
 
 **2. Low-pressure gathering and injection lines.** Field gathering and water injection at 150–450 psi (1–3 MPa), covered by API 15LR, is high-volume, long-distance work where cost per meter decides the project. Pultrusion's continuous process is built for it.
 
@@ -1594,7 +1582,7 @@ Against carbon steel, the case is lifecycle cost, not purchase price. A represen
 | Replacement / patching | 70 | 0 |
 | Total | 220 | 78 |
 
-FRP costs more to buy and about 65% less to own. That math is why Saudi Aramco runs more than 1,000 km of GRE injection line at Ghawar, why Sinopec's Shengli field has replaced over 5,000 km of carbon-steel produced-water line with FRP, and why CNPC's Changqing field has more than 3,500 km of FRP injection pipe in service.
+In this example FRP costs more to buy and about 65% less to own; run the numbers with your own installation, inspection and repair costs. That math is why Saudi Aramco runs more than 1,000 km of GRE injection line at Ghawar, why Sinopec's Shengli field has replaced over 5,000 km of carbon-steel produced-water line with FRP, and why CNPC's Changqing field has more than 3,500 km of FRP injection pipe in service.
 
 ## F1 Composite Series 01: in serial production
 
@@ -1753,13 +1741,12 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"],
-    coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
-    coverAlt: "Engineering analysis of FRP material performance for structural applications",
-    coverNote: "Illustrative photo",
-    supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
-    supportingAlt: "Lifecycle cost comparison of FRP and steel in corrosive environments",
-    supportingCaption:
-      "In corrosive service, the correct comparison is not purchase price alone but installed cost, maintenance burden, and the cost of downtime over the full asset life.",
+    coverImage: "/images/covers/blog/frp-i-beam-render.webp",
+    coverAlt: "Rendering of a pultruded FRP I-beam with its section dimensions marked",
+    coverNote: "Rendering",
+    supportingImage: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg",
+    supportingAlt: "Surfaces of FRP, steel, timber and galvanized steel side by side",
+    supportingCaption: "Illustrative photo. The comparison below is about profiles: FRP trades steel's stiffness for low weight, electrical insulation and no rust, so deflection, not strength, usually sets the FRP size.",
     highlights: [
       "About 75 percent lighter than steel",
       "Corrosion resistant without recoating cycles",
@@ -1886,10 +1873,10 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     title: "FRP Grating Lifecycle Cost: A Worked Comparison with Galvanized Steel",
     seoTitle: "FRP Grating Lifecycle Cost — Worked Example vs Steel",
     answerBox:
-      "Molded FRP grating needs no recoating in chlorinated, saltwater and acid-splash service, where hot-dip galvanized steel grating often needs replacing within 5–8 years. Installation is 30–50% faster because there is no welding or hot work, and published comparisons put 30-year lifecycle cost 20–40% lower for chemical-plant and wastewater applications. This article works through the cost model.",
+      "Molded FRP grating needs no recoating in chlorinated, saltwater and acid-splash service, where hot-dip galvanized steel grating can need replacing within 5–8 years. Installation is faster because there is no welding or hot work, and over the service life FRP often costs less in chemical-plant and wastewater applications once recoating and downtime are counted. This article works through the cost model.",
     category: "Industrial Systems",
     date: "2024-04-15",
-    updatedAt: "2026-04-01",
+    updatedAt: "2026-09-27",
     readTime: "9 min",
     excerpt:
       "A detailed engineering comparison of molded FRP grating and hot-dip galvanized steel grating across weight, corrosion resistance, installation cost, and 20-year lifecycle economics.",
@@ -1897,8 +1884,8 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM E84", "OSHA 1910.23", "EN ISO 14122", "ASTM D6272"],
-    coverImage: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
-    coverAlt: "FRP grating access platform in an industrial chemical facility",
+    coverImage: "/images/regions/frp-grating-saudi-arabia-petrochemical.jpg",
+    coverAlt: "Galvanized steel bar grating panels set in a concrete frame, with fallen leaves",
     coverNote: "Illustrative photo",
     supportingImage: "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
     supportingAlt: "FRP grating walkway used in a corrosive coastal application",
@@ -1962,9 +1949,9 @@ F1 Composite supplies molded and pultruded FRP grating systems for industrial, m
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "Editorial source check",
     standards: ["IEC 61537:2023", "UL 568", "ASTM E84"],
-    coverImage: "/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg",
-    coverAlt: "FRP cable tray and handrail installation in a water treatment facility",
-    coverNote: "Illustrative photo",
+    coverImage: "/images/covers/blog/cable-tray-types-sections.webp",
+    coverAlt: "Cross-sections of a ladder, a ventilated trough and a solid-bottom FRP cable tray carrying cables, with width and loading depth",
+    coverNote: "Schematic",
     supportingImage: "/images/industries/frp-electric-power-substation-infrastructure.jpg",
     supportingAlt: "FRP composite structures used for electrical insulation near substation equipment",
     supportingCaption:
@@ -2045,8 +2032,8 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["AASHTO LRFD", "EN 1991-2", "BD 90/05", "ASTM D7290"],
-    coverImage: "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
-    coverAlt: "FRP bridge deck replacement project using lightweight composite panels",
+    coverImage: "/images/industries/frp-infrastructure-bridge-structure.jpg",
+    coverAlt: "Steel truss bridge running out to sea in low light",
     coverNote: "Illustrative photo",
     supportingImage: "/images/case-studies/frp-bridge.jpg",
     supportingAlt: "Composite bridge concept illustration for FRP deck applications",
@@ -2108,10 +2095,9 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["ASTM E1996", "ASTM E1886", "AAMA 506", "Florida Building Code HVHZ"],
-    coverImage: "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp",
-    coverAlt: "Pultruded FRP 140-series sliding door and window frame profile detail",
-    coverNote: "Rendering",
-    coverImageFit: "contain",
+    coverImage: "/images/covers/blog/hurricane-impact-test-sequence.webp",
+    coverAlt: "Schematic of the ASTM E1886 sequence: a 2×4 timber missile strikes a glazed window assembly, which is then cycled through positive and negative wind pressure",
+    coverNote: "Schematic",
     supportingImage: "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
     supportingAlt: "PHI-certified pultruded FRP windows installed at Qinling Station, Antarctica",
     supportingCaption:
@@ -2176,9 +2162,13 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM E84"],
-    coverImage: "/images/technology/resin-formulation-laboratory-testing.jpg",
-    coverAlt: "Resin formulation and process control work in an advanced pultrusion laboratory",
+    coverImage: "/images/blog/pultrusion-patents-2026-supporting.webp",
+    coverAlt: "Automated robotic cell in a composite manufacturing facility",
     coverNote: "Illustrative photo",
+    coverAttribution: pexelsCredit(
+      "Ludovic Delot",
+      "https://www.pexels.com/photo/robots-are-working-in-a-factory-with-a-machine-18471441/",
+    ),
     supportingImage: "/images/technology/f1-composite-pultrusion-plant-floor.webp",
     supportingAlt: "F1 Composite pultrusion plant floor with continuous lines producing FRP profiles — where concept, qualification, and production reality meet",
     supportingCaption:
@@ -2249,13 +2239,12 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 13706", "ASTM D3917"],
-    coverImage: "/images/technology/frp-material-engineering-analysis.jpg",
-    coverAlt: "Engineering team reviewing FRP section performance and structural data",
-    coverNote: "Illustrative photo",
-    supportingImage: "/images/technology/quality-control-inspection-testing.jpg",
-    supportingAlt: "Inspection and testing workflow used to verify pultruded FRP production quality",
-    supportingCaption:
-      "Most engineering objections are resolved when the supplier can connect design values, tolerances, and quality records to the exact section being proposed.",
+    coverImage: "/images/covers/blog/beam-deflection-diagram.webp",
+    coverAlt: "Diagram of a simply supported beam deflecting under a midspan load, with the span marked",
+    coverNote: "Illustration",
+    supportingImage: "/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg",
+    supportingAlt: "Dimensioned drawing and rendering of a multi-chamber pultruded FRP profile",
+    supportingCaption: "Rendering. Most engineering objections are resolved when the supplier can connect design values, tolerances and quality records to the exact section being proposed, dimensioned as on this drawing.",
     highlights: [
       "Engineers ask about stiffness before they ask about strength",
       "Connections, creep, fire, and tolerances decide specification confidence",
@@ -2336,10 +2325,9 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
     coverImage: "/images/technology/quality-control-inspection-testing.jpg",
     coverAlt: "Quality inspection workflow for pultruded FRP profiles during qualification",
     coverNote: "Illustrative photo",
-    supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
-    supportingAlt: "Engineering and commercial analysis used to qualify FRP systems for long-term use",
-    supportingCaption:
-      "The core challenge is not whether pultrusion can perform. It is whether the project team can move from promising concept to approved specification without losing time, confidence, or budget.",
+    supportingImage: "/images/technology/f1-composite-quality-testing-laboratory.webp",
+    supportingAlt: "Technician at work in a materials testing laboratory",
+    supportingCaption: "Illustrative photo. Qualification moves at the speed of test data: the reports that match the profile, resin and standard are what shorten it.",
     highlights: [
       "The market's bottleneck is qualification, not raw capability",
       "Custom sections often outrun the available proof package",
@@ -2414,15 +2402,9 @@ At F1 Composite, we see the most successful projects when engineering support st
       "MOBO",
       "https://www.pexels.com/photo/engineer-analyzing-blueprints-on-laptop-34938429/",
     ),
-    supportingImage: "/images/blog/pultrusion-patents-2026-supporting.webp",
-    supportingAlt:
-      "Automated robotic cell in a composite manufacturing facility",
-    supportingCaption:
-      "The strongest 2026 signals point at throughput, process control, and documentation: the things that shorten qualification.",
-    supportingAttribution: pexelsCredit(
-      "Ludovic Delot",
-      "https://www.pexels.com/photo/robots-are-working-in-a-factory-with-a-machine-18471441/",
-    ),
+    supportingImage: "/images/technology/resin-formulation-laboratory-testing.jpg",
+    supportingAlt: "Resin samples dispensed into test tubes in a laboratory",
+    supportingCaption: "Illustrative photo. Much of the 2026 activity sits in the resin: faster-curing systems, fire-retardant chemistries and recyclable matrices all start in the laboratory.",
     highlights: [
       "Recognized design codes (ASCE/SEI 74-23, CEN/TS 19101) now back FRP specification",
       "Sustainability claims need verified EPDs, not adjectives",
@@ -2513,10 +2495,10 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Pultruded FRP profiles are replacing galvanized and stainless steel across coastal infrastructure: they weigh about 75% less, do not suffer chloride stress-corrosion cracking, and have about 30 years of installed history on marinas, piers and offshore structures.",
     category: "Lifecycle Analysis",
     date: "2026-04-03",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-09-27",
     readTime: "8 min",
     excerpt:
-      "Coastal infrastructure is among the harshest service environments for structural materials. Field data spanning 20 to 30 years now shows that pultruded FRP profiles deliver lower lifecycle cost, zero corrosion maintenance, and 75% weight reduction versus steel.",
+      "Coastal infrastructure is among the harshest service environments for structural materials. Installed FRP on marinas, piers and offshore structures now has 20 to 30 years of service history: the profiles weigh about 75% less than steel, do not rust and need no recoating.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
@@ -2530,16 +2512,15 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
     ),
     supportingImage: "/images/blog/frp-coastal-infrastructure-supporting.jpg",
     supportingAlt: "Corroded metal railing near water surface showing typical coastal steel degradation",
-    supportingCaption:
-      "Coastal steel structures often require maintenance costing 2-4x the original installation over a 50-year design life. FRP does not need that recoating cycle.",
+    supportingCaption: "Illustrative photo. Salt spray and splash attack coated steel at every scratch and weld, so coastal steel carries a recurring inspection and recoating cycle; an FRP section is chosen for that exposure from the start.",
     supportingAttribution: pexelsCredit(
       "Tim Diercks",
       "https://www.pexels.com/photo/rusty-metal-railing-by-water-surface-31478101/",
     ),
     highlights: [
       "Global corrosion costs exceed $2.5 trillion annually (NACE/AMPP)",
-      "FRP delivers 75-80% weight reduction versus steel with zero corrosion maintenance",
-      "Lifecycle payback typically within 8-12 years on coastal projects",
+      "FRP weighs about 75% less than steel and needs no corrosion recoating",
+      "Lifecycle cost compared project by project, with recoating and downtime counted",
     ],
     ogDescription:
       "Why pultruded FRP profiles are replacing steel in coastal infrastructure: corrosion economics, lifecycle data, and 30 years of field evidence.",
@@ -2637,13 +2618,9 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
     standards: ["ISO 10077-1", "ISO 10077-2", "EN 12667", "ISO 9001", "PHI Component Certificate 2491wi03"],
-    coverImage: "/images/regions/frp-passive-house-windows-germany.jpg",
-    coverAlt: "Modern house exterior with large glass doors and panoramic windows — high-performance building envelope",
-    coverNote: "Illustrative photo",
-    coverAttribution: pexelsCredit(
-      "Max Rahubovskiy",
-      "https://www.pexels.com/photo/exterior-of-modern-house-with-glass-doors-and-panoramic-windows-7031607/",
-    ),
+    coverImage: "/images/covers/blog/phi-certificate-2491wi03.webp",
+    coverAlt: "Passive House Institute component certificate 2491wi03 for the Fengdu Passive GFRP 90 Series window frame, with the map of climate zones",
+    coverNote: "",
     supportingImage: "/images/blog/frp-fenestration-passivhaus-supporting.jpg",
     supportingAlt: "Modern building facade showing window frame profiles and glazing systems",
     supportingCaption:
@@ -3122,11 +3099,10 @@ For engineers designing structures that must survive impact events and remain in
     coverAlt: "Modern architectural glazing structure with curved frame profiles and glass panels — representative of high-performance fenestration systems",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/@jan-van-der-wolf-11680885/"),
-    supportingImage: "/images/blog/gfrp-australia/modern-glazing-structure-facade.webp",
-    supportingAlt: "Curved glazing facade with structural frame profiles demonstrating the architectural potential of advanced fenestration materials",
-    supportingAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/@jan-van-der-wolf-11680885/"),
-    supportingCaption:
-      "Australia's construction market is increasingly driven by energy efficiency mandates and coastal durability requirements: conditions where GFRP fenestration offers fundamental material advantages over aluminum.",
+    supportingImage: "/images/products/fenestration/frp-window-frame-70-series-outward.webp",
+    supportingAlt: "Rendering of an outward-opening 70-series FRP window frame corner",
+    supportingImageFit: "contain",
+    supportingCaption: "Rendering. Outward-opening sashes are common in Australian housing; frame depth, glazing and hardware are confirmed per project for AS 2047.",
     highlights: [
       "Both window and door systems pass AS 2047-2014",
       "Wind load tested to 1200 Pa serviceability / 3000 Pa ultimate",
@@ -3399,7 +3375,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
       "Intertek 240821010SHF-002 records testing of a historical 3 m × 2.4 m 140 Series Lift-Sliding Door specimen. Its results apply to the reported configuration and do not automatically cover the current 140 Series Compression-Seal Sliding Door.",
     category: "Engineering Deep-Dive",
     date: "2026-04-30",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-09-27",
     readTime: "12 min",
     excerpt:
       "Historical report review: Intertek tested a 3000 × 2400 mm 140 Series Lift-Sliding Door to AS 2047-2014 / AS/NZS 4420.1-2016. Review the specimen and conditions before using these results; this report is not automatic evidence for the current 140 compression-seal door.",
@@ -3411,11 +3387,10 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     coverAlt: "Bright open-plan residential interior with wooden flooring and large sliding glass doors opening onto a veranda — the form factor tested in this AS 2047 evaluation",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Curtis Adams", "https://www.pexels.com/@curtis-adams-1694007/"),
-    supportingImage: "/images/blog/gfrp-australia/lift-sliding-door-veranda-residence.jpg",
-    supportingAlt: "Large patio sliding door integrated into a contemporary residence with covered veranda — representative of the Australian premium housing context for AS 2047-compliant fenestration",
-    supportingAttribution: pexelsCredit("Curtis Adams", "https://www.pexels.com/@curtis-adams-1694007/"),
-    supportingCaption:
-      "A 3m × 2.4m lift-sliding door is the largest single-leaf opening Australian premium residential and commercial projects routinely specify. Performance under AS 2047 at this size (and under a sheltering veranda detail like the one shown) is the meaningful test, not a 1.2m × 1.8m token sample.",
+    supportingImage: "/images/products/fenestration/frp-window-frame-140-series-sliding-b.webp",
+    supportingAlt: "Rendering of the 140-series FRP lift-sliding door frame section",
+    supportingImageFit: "contain",
+    supportingCaption: "Rendering. The 140-series lift-sliding frame whose AS 2047 test result is discussed below.",
     highlights: [
       "Tested as a full 7.2 m² door rather than a small sample",
       "Mullion deflection 1/376 at ±1200 Pa (AS 2047 limit is 1/250)",
@@ -3580,7 +3555,7 @@ For an architect, building designer, or specifier evaluating GFRP fenestration o
 
 **Accessibility check.** With an initial operating force of 99 N, the 140 Series is suitable for LHA Silver and Gold ratings and aging-in-place specifications without electric assistance.
 
-**Coastal projects.** GFRP requires no marine-grade alloy specification, no anodized or powder-coated finish for corrosion (the substrate is inherently inert), and no stainless fastener specification beyond what the threshold detailing requires. Total Cost of Ownership over 25 years drops by 30–40% versus marine-grade aluminum based on F1 Composite project data.
+**Coastal projects.** GFRP requires no marine-grade alloy specification, no anodized or powder-coated finish for corrosion (the substrate is inherently inert), and no stainless fastener specification beyond what the threshold detailing requires. Over a 25-year life that removes the finishing and corrosion items from the cost of ownership; compare it with marine-grade aluminum for the project.
 
 ## Bottom Line
 
@@ -3609,10 +3584,10 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     coverImage: "/images/blog/frp-window-finish-metallic-samples.webp",
     coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite gray, and matte black — visually identical to architectural-grade powder-coated aluminum",
     coverNote: "Product photo",
-    supportingImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
-    supportingAlt: "GEMA powder coating production line for pultruded FRP profiles — automated electrostatic spray and curing oven matching architectural aluminum finishing standards",
-    supportingCaption:
-      "The coating booth and curing oven used for powder-coated F1 Composite fenestration profiles are functionally identical to equipment used for aluminum extrusions. The underlying substrate determines whether the finish looks like an architectural window or a fiberglass tank.",
+    supportingImage: "/images/products/fenestration/frp-window-frame-70-series-awning.webp",
+    supportingAlt: "Rendering of a 70-series FRP awning frame in section",
+    supportingImageFit: "contain",
+    supportingCaption: "Rendering. The finish sits on the outer skin of the profile, while the transverse strength that holds hinge and lock screws comes from the mat and fabric layers in the walls.",
     highlights: [
       "Cross-direction reinforcement embedded below a resin-rich surface zone",
       "Powder-coated finish indistinguishable from architectural aluminum",
@@ -3747,7 +3722,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
       "US buyers sourcing pultruded FRP from China in 2026 face three structural costs: Section 301 25% tariff, UFLPA supply-chain verification, and ADD/CVD risk on certain standard profiles. Direct-from-factory DDP pricing with transparent Section 301 disclosure, EN 13706 / ASTM verification, and US-LLC-issued POs avoids 30–50% of distributor markup.",
     category: "Procurement Guide",
     date: "2026-05-05",
-    updatedAt: "2026-05-05",
+    updatedAt: "2026-09-27",
     readTime: "12 min",
     excerpt:
       "A buyer's guide for sourcing pultruded FRP profiles directly from a Chinese manufacturer in 2026: how to qualify factories, what MOQ and lead times to expect, RFQ checklist, EN 13706 / ASTM D3917 verification, Incoterms, container loading, and how to avoid the 5 most common procurement mistakes.",
@@ -3755,17 +3730,17 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "Sales & Engineering",
     standards: ["EN 13706", "ASTM D3917", "ISO 9001", "Incoterms 2020"],
-    coverImage: "/images/blog/frp-specification-procurement.jpg",
-    coverAlt: "FRP profile procurement and sourcing process from a factory in China",
-    coverNote: "Illustrative photo",
-    supportingImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
-    supportingAlt: "FRP cost benchmarking and lifecycle analysis worksheet",
-    supportingCaption:
-      "Factory-direct pricing from China is typically 30–50% lower than regional distributor pricing in the United States or European Union, but buyers realize those savings only when the procurement process is structured correctly.",
+    coverImage: "/images/covers/blog/sourcing-lead-time-table.webp",
+    coverAlt: "Table of MOQ, tooling lead time and production lead time by order type",
+    coverImagePosition: "left top",
+    coverNote: "",
+    supportingImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
+    supportingAlt: "Pultrusion lines in an F1 Composite production hall",
+    supportingCaption: "Production photo. Qualify the plant, not the sales office: line count, die library and inspection records decide how an order runs.",
     highlights: [
       "How to qualify a Chinese FRP manufacturer in 4 steps",
       "MOQ, lead time, and Incoterms benchmarks (2026)",
-      "RFQ checklist that gets a real quote in 48 hours",
+      "RFQ checklist that gets a complete quote",
     ],
     ogDescription:
       "US buyer's guide: sourcing pultruded FRP from China in 2026. RFQ checklist, Section 301 transparency, EN 13706/ASTM verification, DDP USA, lead times.",
@@ -3794,9 +3769,9 @@ The structural quality benchmark for all three regions is the same: EN 13706 E17
 
 Where China sources differ is on three commercial axes:
 
-1. **Factory-direct pricing.** Without a distributor markup, a 200 × 100 × 10 FRP I-beam delivered to Rotterdam from a factory in China typically costs $24–32/m, compared with $40–55/m from a European distributor.
-2. **Custom tooling speed.** Tooling lead time at major Chinese factories is 3–6 weeks versus 8–12 weeks at most US/EU peers, driven by larger in-house tooling shops.
-3. **Capacity for large orders.** A single Chinese factory can run 50,000–150,000 t/year. Stocking-distributor inventory in the US or EU rarely supports a single-project order above 30 tonnes without long lead times.
+1. **Factory-direct pricing.** Buying direct removes the distributor margin. Compare landed cost line by line, because freight, duty and inspection add part of the difference back.
+2. **Custom tooling.** Large Chinese plants run their own tooling shops. At F1 a new die takes 4–8 weeks, and the first delivery follows 6–10 weeks after drawing approval.
+3. **Capacity for large orders.** FengDu's production network, which F1 exports from, runs about 150,000 t a year across 5 bases. Stocking-distributor inventory in the US or EU rarely supports a single-project order above 30 tonnes without long lead times.
 
 The trade-offs are sea freight time (25–40 days to most ports), Incoterms complexity, and the overhead of qualifying a factory you cannot visit easily.
 
@@ -3816,7 +3791,7 @@ Before you send any RFQ, qualify the factory on four points:
 
 A 20-minute video call with the factory technical contact answering these four questions filters out 60–70% of the suppliers a first-time buyer might consider.
 
-## Step 2: The RFQ checklist that gets a real quote in 48 hours
+## Step 2: The RFQ checklist that gets a complete quote
 
 A vague RFQ ("please quote pultruded FRP profile, 100×100, vinyl ester, 5000m") generates a vague quote. The factory will assume the cheapest possible interpretation of every undefined parameter, which means your apples-to-apples comparison across suppliers is impossible.
 
@@ -3843,13 +3818,13 @@ Custom profiles (any cross-section that is not in the standard catalog) require 
 | Order type | Typical MOQ | Tooling lead time | Production lead time |
 | --- | --- | --- | --- |
 | Standard catalog profile | Confirmed per section | None | 2–4 weeks |
-| Custom profile, first run | 500 linear meters | 3–6 weeks | 4–6 weeks after tooling |
-| Custom profile, repeat order | 200 linear meters | None (re-use existing die) | 3–4 weeks |
+| Custom profile, first run | 500 linear meters | 4–8 weeks | 6–10 weeks from drawing approval, die included |
+| Custom profile, repeat order | 200 linear meters | None (re-use existing die) | 2–4 weeks |
 | Large project order (30+ tonnes) | None | None / project-specific | 4–8 weeks |
 
-Tooling is amortized over the first run. F1 Composite includes the tooling cost in the per-meter price for an initial run of 500–1,000 m rather than charging for it separately. For runs below the minimum order quantity, or when the buyer wants to own the tooling, tooling is quoted separately; the typical cost is $3,000–$15,000, depending on profile complexity.
+Tooling for a new section is a one-time cost, quoted with the first run: typically USD 5,000–8,000 for a small single-cavity die and USD 15,000–40,000 for a large or multi-cavity one. The die then stays at the plant, so repeat orders carry no tooling charge.
 
-The single biggest scheduling mistake is not allowing for tooling lead time on the first run. Plan 3–6 weeks tooling + 4–6 weeks production + 25–40 days sea freight = approximately 10–14 weeks from PO to project site for a custom profile shipped CIF to Europe. Stock profiles cut this to 6–8 weeks.
+The single biggest scheduling mistake is not allowing for tooling lead time on the first run. Plan 6–10 weeks from drawing approval to first delivery (4–8 weeks of it for the die) plus 25–40 days of sea freight: about 10–16 weeks from PO to project site for a custom profile shipped CIF to Europe. Catalog profiles cut this to about 6–10 weeks.
 
 ## Step 4: Incoterms and freight costs under FOB, CIF and DAP
 
@@ -3883,7 +3858,7 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 **Mistake 3: Ignoring UV protection.** "Pultruded FRP is UV-resistant" is true at the resin level but not at the surface. Outdoor profiles need a synthetic veil plus a UV-stabilized resin or protective coating. Include this requirement in the RFQ.
 
-**Mistake 4: Underestimating lead time on first runs.** Custom tooling + production + sea freight is 10–14 weeks. Buyers planning around 8 weeks routinely miss project schedules.
+**Mistake 4: Underestimating lead time on first runs.** Custom tooling, production and sea freight take about 10–16 weeks. Buyers planning around 8 weeks routinely miss project schedules.
 
 **Mistake 5: Not asking for a sample before the production order.** Reputable Chinese factories ship 0.5–2 m sample pieces free or at nominal cost via DHL/FedEx air. A 5–7 day air sample is the cheapest way to verify surface quality and dimensions before committing to a 30-tonne order.
 
@@ -3896,12 +3871,12 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
   {
     slug: "frp-profile-cost-benchmarks-and-lead-times-2026",
     title: "FRP Profile Cost Benchmarks, MOQ, and Lead Times — 2026 Reference",
-    seoTitle: "FRP Cost vs Strongwell/Bedford/CPI — 2026 Data",
+    seoTitle: "FRP Profile Prices, MOQ and Lead Times — 2026 Data",
     answerBox:
-      "2026 pultruded FRP benchmarks: F1 China lands at 5–20% below US-stocked Strongwell, Creative Pultrusions, and Bedford on most standard sections after Section 301 25%, with 4–6 wk production + 16–32 day ocean freight DDP USA. MOQ 500 m first run, repeat from 200 m, tooling $3K–$15K one-time.",
+      "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 2–4 weeks and a new die in 4–8 weeks, plus 16–32 days of ocean freight to US ports. Custom MOQ 500 m first run, repeat from 200 m; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
     category: "Procurement Reference",
     date: "2026-05-05",
-    updatedAt: "2026-05-05",
+    updatedAt: "2026-09-27",
     readTime: "9 min",
     excerpt:
       "2026 reference benchmarks for pultruded FRP profile pricing, MOQ, custom tooling lead times, container freight rates, and Incoterms cost deltas: calibrated against direct-from-factory China sourcing.",
@@ -3909,21 +3884,21 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     authorRole: "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "Export Operations",
     standards: ["EN 13706", "ASTM D3917", "Incoterms 2020"],
-    coverImage: "/images/blog/frp-lifecycle-cost-analysis.jpg",
-    coverAlt: "Pultruded FRP profile cost benchmarks and lead time reference 2026",
-    coverNote: "Illustrative photo",
-    supportingImage: "/images/blog/frp-specification-procurement.jpg",
-    supportingAlt: "Pultruded FRP procurement specification reference",
-    supportingCaption:
-      "Pricing benchmarks below are direct-from-factory FOB China for 2026; regional distributor pricing typically runs 50–100% above these levels.",
+    coverImage: "/images/covers/blog/cost-benchmark-table.webp",
+    coverAlt: "Table of FOB China prices per meter for standard pultruded FRP profiles",
+    coverImagePosition: "left top",
+    coverNote: "",
+    supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
+    supportingAlt: "Parallel pultrusion lines in production at an F1 Composite plant",
+    supportingCaption: "Production photo. Lead time is set by line capacity and die availability; the benchmarks below are FOB China reference figures, not quotations.",
     highlights: [
       "Per-meter pricing for 12 standard profile cross-sections",
       "Tooling cost and amortization for custom profiles",
       "Container freight benchmarks to US, EU, ME, AU ports",
     ],
     ogDescription:
-      "2026 FRP price benchmarks: F1 China vs Strongwell, CPI, Bedford. DDP USA landed cost with Section 301, MOQ, tooling, freight: direct comparison.",
-    ogChips: ["DDP USA landed cost", "vs Strongwell/CPI", "2026 benchmark"],
+      "2026 FRP profile benchmarks: FOB China prices per meter for 12 standard sections, MOQ, tooling cost, lead times, container freight and Incoterms.",
+    ogChips: ["FOB China per meter", "MOQ and tooling", "Lead times"],
     relatedLinks: [
       { label: "Fiberglass Pultruded Profile Price Estimator", href: "/fiberglass-pultruded-profile-price" },
       { label: "Buyer's Guide: Sourcing FRP from China", href: "/resources/blog/how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide" },
@@ -3937,28 +3912,28 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     ],
     content: `Pricing for pultruded FRP profiles is harder to benchmark than steel or aluminum because the major distributors do not publish list prices and the per-meter cost varies significantly with resin system, fiber architecture, and surface finish. This reference collects 2026 direct-from-factory FOB China benchmarks for the most common profile families, updated against active F1 Composite quotes and observed market pricing.
 
-All pricing is FOB China (Shanghai or Ningbo) in USD, polyester resin, standard veil finish, EN 13706 E23 grade, MTC included, packed in wooden crates ready for 40HC container loading. Vinyl ester adds 15–25%; polyurethane adds 20–35%; phenolic adds 40–60%. Powder-coat finish adds $4–8/m.
+The profile prices below come from the engine behind the [price estimator](/fiberglass-pultruded-profile-price): FOB China (Shanghai or Ningbo) in USD, E-glass and general-purpose polyester at 70% glass, standard gray, no options, for a 1,000 m order, price basis 30 June 2026. Each range is the estimator's ±15% band, and the weights are the published catalog values. Vinyl ester, polyurethane or phenolic resin, fire-retardant and UV packages and a surface veil each add a premium; run the estimator with the options the application needs.
 
 ## Standard profile pricing (FOB China, 2026)
 
 | Profile | Size | Weight (kg/m) | FOB China price ($/m) |
 | --- | --- | --- | --- |
-| FRP I-beam | 100×50×6 | 1.6 | 6.5 – 8.5 |
-| FRP I-beam | 152×76×6.4 | 2.9 | 9.0 – 12.0 |
-| FRP I-beam | 200×100×10 | 5.8 | 18 – 24 |
-| FRP I-beam | 305×305×12.7 | 16.0 | 55 – 75 |
-| FRP channel | 100×50×6 | 1.4 | 5.5 – 7.5 |
-| FRP channel | 200×60×8 | 3.2 | 11 – 15 |
-| FRP angle | 50×50×6 | 1.0 | 3.5 – 5.5 |
-| FRP angle | 100×100×10 | 3.4 | 10 – 13 |
-| FRP square tube | 50×50×4 | 1.1 | 4.5 – 6.5 |
-| FRP square tube | 100×100×6 | 3.2 | 12 – 16 |
-| FRP round tube | OD 50, wall 4 | 1.0 | 4.5 – 6.0 |
-| FRP flat bar | 50×6 | 0.6 | 2.0 – 3.0 |
+| FRP I-beam | 100×50×6 | 1.6 | 5.9–8.0 |
+| FRP I-beam | 152×76×6.4 | 2.9 | 8.8–12.0 |
+| FRP I-beam | 200×100×10 | 5.8 | 15.4–20.8 |
+| FRP I-beam | 305×305×12.7 | 16.0 | 38.5–52.1 |
+| FRP channel | 100×50×6 | 1.8 | 5.8–7.8 |
+| FRP channel | 200×60×8 | 3.8 | 10.3–14.0 |
+| FRP angle | 50×50×6 | 0.9 | 3.1–4.2 |
+| FRP angle | 100×100×10 | 3.0 | 7.9–10.6 |
+| FRP square tube | 50×50×5 | 1.4 | 4.4–6.0 |
+| FRP square tube | 100×100×6 | 3.5 | 9.2–12.4 |
+| FRP rectangular tube | 120×60×5 | 2.6 | 7.3–9.9 |
+| FRP round tube | OD 50, wall 4 | 0.9 | 3.0–4.0 |
 
-Volume breaks: 1,000 m order → list pricing. 5,000 m → roughly -5%. 20,000 m → roughly -10%. 50,000 m → roughly -15% with annual contract terms.
+Quantity moves the price in steps. Against the 1,000 m figures above, an order under 1,000 m costs about 5% more, 5,000 m about 3% less and 20,000 m or more about 7% less. Below the family minimum (100 m for round and square tubes and angles, 150 m for rectangular tubes, 200 m for channels and I-beams) a small-batch premium applies.
 
-Compare these against typical regional distributor pricing: UK/EU distributors quote $14–18/m on a 200×60×8 channel where FOB China is $11–15. The delivered-cost gap (FOB China + sea freight + import duty + inland) is typically 30–40% below regional distributor pricing on profile orders above 5 tonnes.
+A regional distributor prices from local stock with delivery included, so compare delivered cost (FOB China, sea freight, import duty and inland transport) with the distributor's quote line by line.
 
 ## Grating and deck panel pricing
 
@@ -3985,25 +3960,24 @@ Fenestration profile pricing assumes raw profile only (no glazing, hardware, or 
 
 ## Custom pultrusion tooling cost
 
-Tooling cost depends on cross-section complexity, not size:
+Tooling cost depends on the size and complexity of the cross-section and on the number of cavities:
 
-| Profile complexity | Tooling cost | Tooling lead time |
+| Die type | Tooling cost | Tooling lead time |
 | --- | --- | --- |
-| Simple solid (rod, flat bar variant) | $2,500 – $4,500 | 2–3 weeks |
-| Standard structural (I, C, L, square tube) | $4,500 – $9,000 | 3–4 weeks |
-| Hollow with dividers (multi-cavity tube) | $9,000 – $18,000 | 4–6 weeks |
-| Fenestration profile family | $25,000 – $45,000 per profile | 6–8 weeks |
-| Multi-cavity asymmetric custom | $15,000 – $35,000 | 5–8 weeks |
+| Single-cavity die, small open profile | USD 5,000–8,000 | 4–8 weeks |
+| Large or multi-cavity die | USD 15,000–40,000 | 4–8 weeks |
 
-For first-run orders of 500–1,000 m (the typical custom MOQ), F1 Composite folds tooling into the per-meter price at no separate tooling charge. Tooling becomes a separate line item only when the buyer wants to own the die or when first-run quantity is below MOQ.
+A new profile reaches first delivery 6–10 weeks after drawing approval, die included.
+
+Tooling is a one-time cost on the first run of a new section. The die then stays at the plant for the life of the product, so repeat orders carry no tooling charge, and on a high-volume program the tooling share of the per-meter price becomes negligible within the first production run.
 
 ## Lead time benchmarks
 
 | Order type | Tooling | Production | Sea freight | Total to EU/US |
 | --- | --- | --- | --- | --- |
 | Standard catalog profile | — | 2–4 weeks | 25–40 days | 6–10 weeks |
-| Custom profile, first run | 3–6 weeks | 4–6 weeks | 25–40 days | 11–16 weeks |
-| Custom profile, repeat | — | 3–4 weeks | 25–40 days | 7–10 weeks |
+| Custom profile, first run | 4–8 weeks | about 2 weeks after the die | 25–40 days | 10–16 weeks |
+| Custom profile, repeat | — | 2–4 weeks | 25–40 days | 6–10 weeks |
 | Large stocking order (30+ tonnes) | — | 4–8 weeks | 25–40 days | 8–14 weeks |
 | PHI-certified 90 Series fenestration | — | 6–12 weeks | 25–40 days | 10–18 weeks |
 
@@ -4021,7 +3995,7 @@ Air freight (DHL/FedEx) cuts transit to 5–7 days but costs 8–15× sea freigh
 | Shanghai / Ningbo | Sydney / Melbourne | 1,500 – 2,800 |
 | Shanghai / Ningbo | Santos (Brazil) | 2,800 – 4,800 |
 
-A 40HC packs 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Per-tonne sea freight to Rotterdam runs $55–140; per-tonne to LA runs $80–195. On a 200×100×10 I-beam at 5.8 kg/m, freight adds approximately $0.50–1.10 / m landed in Rotterdam.
+A 40HC packs 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Per-tonne sea freight to Rotterdam runs $55–140; per-tonne to LA runs $80–195. On a 200×100×10 I-beam at 5.8 kg/m in a full container, freight to Rotterdam adds about $0.30–0.80 per meter.
 
 Insurance: 0.3–0.5% of cargo value, typically included in CIF terms.
 
@@ -4042,12 +4016,12 @@ DDP is the most expensive Incoterm because the factory takes on import-side tax 
 
 For a typical project of 5 tonnes of 200×100×10 FRP I-beam (≈ 860 m) in polyester resin to EN 13706 E23, shipped CIF Rotterdam, the 2026 benchmark math is:
 
-- Profile: 860 m × $20/m = $17,200
+- Profile: 860 m × $19/m (the estimator's central figure for an order under 1,000 m) = $16,340
 - Container freight (1 × 40HC): $1,800 average
-- Insurance: $90 average
-- Total CIF Rotterdam: ≈ $19,100, or ~$22.20/m landed
+- Insurance (0.4% of cargo value): $65
+- Total CIF Rotterdam: ≈ $18,200, or about $21.20/m before import duty and inland delivery
 
-The same project sourced from a UK distributor at $42–48/m delivered would cost £36,000+ ($45,000+). Direct-from-factory savings: ~58% on the same profile to the same standard.
+Add import duty, customs clearance and inland delivery for the landed figure, then set it against a delivered quote for the same section and standard from a regional supplier.
 
 ## Caveats
 
@@ -4060,10 +4034,10 @@ For a planning figure on a specific section, use the [fiberglass pultruded profi
     title: "GFRP Pultruded Spar-Cap Laminate for Wind Blades — Fatigue Performance and Design Use",
     seoTitle: "GFRP Spar-Cap for Wind Blades — Fatigue Performance",
     answerBox:
-      "GFRP pultruded spar-cap laminate for wind turbine blades: ISO 13003 fatigue characterization, P95 S-N design line per DNVGL-ST-0376 characteristic methodology, with full datasheet for blade structural design. Replaces hand-laid laminate at 30–40% lower part cost and tighter dimensional consistency.",
+      "GFRP pultruded spar-cap laminate for wind turbine blades: ISO 13003 fatigue characterization, P95 S-N design line per DNVGL-ST-0376 characteristic methodology, with full datasheet for blade structural design. Replaces hand-laid laminate with tighter dimensional consistency and a lower part cost at volume.",
     category: "Energy",
     date: "2026-05-12",
-    updatedAt: "2026-05-12",
+    updatedAt: "2026-09-27",
     readTime: "8 min",
     excerpt:
       "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. The article walks the tension-tension S-N fatigue data per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
@@ -4271,10 +4245,9 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
     coverImage: "/images/blog/frp-pultruded-offshore-fishery-solar-mount.webp",
     coverAlt: "Wind-solar-fishery hybrid plant with PV arrays over saline water and an offshore wind turbine in the distance, the operating environment for pultruded FRP solar mounts and module frames",
     coverNote: "Reference photo",
-    supportingImage: "/images/blog/frp-coastal-infrastructure-supporting.jpg",
-    supportingAlt: "Coastal infrastructure exposed to salt spray and UV, the same corrosion drivers that govern offshore and fishery PV mounting selection",
-    supportingCaption:
-      "Offshore, tidal, and fishery PV plants face the same failure factors as coastal infrastructure: chloride attack, galvanic couples, UV, and inaccessible maintenance windows. Pultruded FRP turns these from recurring opex into a one-time material decision.",
+    supportingImage: "/images/industries/frp-marine-harbor-dock-structure.jpg",
+    supportingAlt: "Timber jetty with white railings on a sheltered bay with moored boats",
+    supportingCaption: "Illustrative photo. Offshore, tidal and fishery PV plants face the same exposure as any structure at the waterline: chloride, galvanic couples, UV and maintenance windows that are hard to reach. That is why the mounting material is chosen for the environment from the start.",
     highlights: [
       "No recoating cycle over the plant's design life",
       "Density ~1.9 g/cm³, about a quarter of carbon steel",
@@ -4481,12 +4454,9 @@ For engineers and facade consultants tracking this development, or interested in
       "Interior view of a window corner joint — the frame-to-glass edge zone where the spacer thermal bridge Ψg concentrates whole-window heat loss",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
-    supportingImage: "/images/blog/cold-climate-window-interior.jpg",
-    supportingAlt:
-      "White-framed windows seen from a warm interior — frame area is typically a quarter to a third of the whole-window area on the EN reference size",
-    supportingAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
-    supportingCaption:
-      "On the EN ISO 10077-1 reference window (1.23 × 1.48 m), frame typically takes 25–35% of the area. That is why two windows with identical glass can differ by 0.3 W/m²K: the calculation weights whatever the frame does across that fraction.",
+    supportingImage: "/images/blog/window-glass-frame-areas-diagram.webp",
+    supportingAlt: "Diagram of the 1.23 × 1.48 m reference window split into frame area, glass area and the glass edge",
+    supportingCaption: "Diagram from the window U-value calculator. On the EN ISO 10077-1 reference window (1.23 × 1.48 m) the frame takes about 30% of the area; the calculation weights Uf over that area, Ug over the glass and ψg along the dashed glass edge.",
     highlights: [
       "Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af). Three zones: glass, frame, and the glass-edge thermal bridge",
       "Worked example: Ug 0.70 triple glazing ends up Uw 0.88 with a Uf 1.0 frame on the 1.23 × 1.48 m reference window",
@@ -4578,17 +4548,14 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
     authorRole: "R&D Lead for thermal performance and Passivhaus certification work",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN ISO 10077-1", "PHI Component Criteria v5.6", "EN 673", "EN ISO 13788"],
-    coverImage: "/images/blog/cold-climate-window-interior.jpg",
-    coverAlt:
-      "Triple-glazed windows in a bright interior — passive house comfort criterion keeps the interior window surface within 4.2 K of room temperature",
-    coverNote: "Illustrative photo",
-    coverAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
-    supportingImage: "/images/blog/window-icicles-frozen-frame-cold-climate.jpg",
-    supportingAlt:
-      "Icicles hanging in front of a window in deep winter — the design condition PHI's arctic and cold climate zone window criteria are written for",
-    supportingAttribution: pexelsCredit("Harrison Haines", "https://www.pexels.com/photo/3122731/"),
-    supportingCaption:
-      "PHI's window limits tighten with climate: Uw ≤ 0.80 W/m²K in cool-temperate Central Europe, 0.60 in cold zones, 0.40 arctic. The number comes from comfort: it is the U-value at which the interior surface stays within 4.2 K of room temperature at design cold.",
+    coverImage: "/images/covers/blog/phi-climate-zone-table.webp",
+    coverAlt: "Table of PHI climate zones with the component Uw, installed Uw and reference glazing Ug for each",
+    coverImagePosition: "left top",
+    coverNote: "",
+    supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
+    supportingAlt: "Corner section of the 90-series GFRP-PU window frame with triple glazing",
+    supportingImageFit: "contain",
+    supportingCaption: "Rendering. The certified 90-series frame: insulating chambers and triple glazing, with no metal thermal break.",
     highlights: [
       "PHI Table 1 (v5.6): Uw ≤ 0.40 / 0.60 / 0.80 / 1.00 / 1.20 W/m²K for arctic / cold / cool-temperate / warm-temperate / warm zones",
       "The limits come from a comfort rule, |θsi − θop| ≤ 4.2 K, rather than an arbitrary energy target",
@@ -4682,12 +4649,10 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       "Modern facade with floor-to-ceiling window grid surrounded by lush greenery — each opening negotiates heat loss (U-value) against solar gain (SHGC) through the seasons",
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Steve Pancrate", "https://www.pexels.com/photo/1746203/"),
-    supportingImage: "/images/blog/window-corner-joint-interior.jpg",
-    supportingAlt:
-      "Window frame and glazing edge in warm interior light — coatings set SHGC, while frame and spacer set the U-value floor",
-    supportingAttribution: pexelsCredit("João Jesus", "https://www.pexels.com/photo/921294/"),
-    supportingCaption:
-      "The division of labor in one corner: low-E coatings and gas fill tune Ug and g/SHGC; the frame and spacer determine how much of that glazing performance the whole window retains.",
+    supportingImage: "/images/blog/cold-climate-window-interior.jpg",
+    supportingAlt: "White-framed windows seen from a warm interior",
+    supportingCaption: "Illustrative photo. Low-E coatings and gas fill set the glazing's Ug and g-value (SHGC); the frame and spacer decide how much of that performance the whole window keeps.",
+    supportingAttribution: pexelsCredit("Dima Solomin", "https://www.pexels.com/photo/9980246/"),
     highlights: [
       "U-value = heat loss rate (lower is always less loss); SHGC = solar admission fraction 0–1 (lower is not always better)",
       "ENERGY STAR 7.0: Northern U ≤ 0.22 IP with SHGC ≥ 0.17 prescriptive; Southern U ≤ 0.32 with SHGC ≤ 0.23",
@@ -4745,7 +4710,7 @@ To see both numbers interact on a real build (your frame, glazing package, and s
       "Thermal breaks in aluminum windows are dominated by extruded PA66-GF25 polyamide strips (Technoform, Ensinger insulbar) at ≈0.30 W/m·K conductivity, qualified to EN 14024 with roll-in knurled shear joints rated ≥24 N/mm. Pultruded GFRP thermal break profiles match that 0.30 W/m·K class while roughly doubling tensile strength, absorbing about a tenth of the moisture of PA66, and (because pultrusion handles hollow multi-chamber geometry that strip extrusion cannot) scaling to the deep, foam-filled break zones that wide sliding-door and lift-slide sections need. F1 Composite produces pultruded thermal break profiles in serial volume, with multiple completed system-window projects in China.",
     category: "Thermal Performance",
     date: "2026-07-11",
-    updatedAt: "2026-07-11",
+    updatedAt: "2026-09-27",
     readTime: "10 min",
     excerpt:
       "The polyamide strip is one of the quiet success stories of building products: two extrusions of PA66-GF25 turned thermally hopeless aluminum frames into code-compliant windows, and two European specialists wrote the rulebook. But strip extrusion has geometric and mechanical ceilings, and wide sliding doors sit right at them. Here is what the research from Technoform and Ensinger actually establishes, and where a pultruded GFRP break changes the design space.",
@@ -4815,7 +4780,7 @@ Pultruded GFRP (E-glass in polyester, vinyl ester, or polyurethane matrix) lands
 
 ## Serial production, not a lab curiosity
 
-The honest historical knock on pultruded thermal breaks was availability: polyamide strips ship from catalog in hundreds of geometries; composite breaks were a special order. That is the part that has changed. F1 Composite runs pultruded thermal break profiles in serial production (hollow and solid sections, in the same GFRP matrix systems as our [window profiles](/technology/polyurethane-pultrusion-windows) at ≈0.3 W/m·K) and the profiles are working today in multiple completed system-window and sliding-door projects in China, where deep-break aluminum systems dominate the high-performance residential market. Dies for system-specific geometries follow the same 3–6 week tooling path as any [custom pultrusion](/products/custom-pultruded-profiles).
+The honest historical knock on pultruded thermal breaks was availability: polyamide strips ship from catalog in hundreds of geometries; composite breaks were a special order. That is the part that has changed. F1 Composite runs pultruded thermal break profiles in serial production (hollow and solid sections, in the same GFRP matrix systems as our [window profiles](/technology/polyurethane-pultrusion-windows) at ≈0.3 W/m·K) and the profiles are working today in multiple completed system-window and sliding-door projects in China, where deep-break aluminum systems dominate the high-performance residential market. Dies for system-specific geometries follow the same 4–8 week tooling path as any [custom pultrusion](/products/custom-pultruded-profiles).
 
 ## Choosing between them
 
@@ -4840,10 +4805,10 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
     authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D792", "ASTM D2584", "ISO 1172", "ASTM D2734"],
-    coverImage: "/images/products/standard-profiles-cover.jpg",
-    coverAlt:
-      "Pultruded fiberglass I-beam — FRP density is set by the glass, resin, fillers and voids inside the section",
-    coverNote: "Product photo",
+    coverImage: "/images/covers/blog/frp-density-constituents-table.webp",
+    coverAlt: "Table of the densities of E-glass, E-CR glass and carbon fiber, polyester resin and the common fillers in pultruded FRP",
+    coverImagePosition: "left top",
+    coverNote: "",
     supportingImage: "/images/products/pultruded-frp-structural-profiles-overview-engineering-drawing.png",
     supportingAlt:
       "Dimensioned engineering renders of pultruded FRP structural shapes — I-beam, channel, flat, angle and square tube",
@@ -4968,13 +4933,12 @@ If your project needs a different point on the density map (an E-CR glass lamina
       "ASCE/SEI 7 Section 4.5",
       "EN ISO 14122-3:2016",
     ],
-    coverImage: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
-    coverAlt: "Yellow fiberglass handrail and guardrail systems around industrial platforms and stairs",
-    coverNote: "Reference photo",
-    supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
-    supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
-    supportingImageFit: "contain",
-    supportingCaption: "A square-section FRP handrail layout: top rail, knee rail, posts and kick plate. Catalog layouts are product references; heights, post spacing and fixings are set on the approved project drawing against the governing standard.",
+    coverImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
+    coverAlt: "Catalog drawing of a square-tube FRP handrail system with posts, rails, kick plate and fittings",
+    coverNote: "Catalog drawing",
+    supportingImage: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp",
+    supportingAlt: "Yellow fiberglass handrails and guardrails around industrial platforms and stairs",
+    supportingCaption: "Illustrative photo. Guardrails on platforms and stairs in a process plant; heights, post spacing and fixings are set on the approved project drawing against the governing standard.",
     highlights: [
       "OSHA general industry: top rail at 42 in plus or minus 3 in, 200 lb top-rail load, 150 lb midrail load, toeboards at least 3.5 in high.",
       "IBC guards apply above 30 in, stand at least 42 in high and carry the ASCE 7 loads of 50 lb/ft and 200 lb, with 20 lb/ft for some non-public industrial areas.",
@@ -5118,11 +5082,11 @@ Send a plan and elevations with every run, corner, gate and stair flight; the go
       "OSHA 29 CFR 1910.28(b)(9)",
       "EN ISO 14122-4:2016",
     ],
-    coverImage: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
-    coverAlt: "Fiberglass fixed ladder with a safety cage fixed to an industrial structure",
-    coverNote: "Reference photo",
-    supportingImage: "/images/products/frp-ladders/frp-safety-cage-layout.webp",
-    supportingAlt: "Layout drawing of an FRP fixed ladder with cage hoops, vertical cage strips and wall brackets",
+    coverImage: "/images/products/frp-ladders/frp-safety-cage-layout.webp",
+    coverAlt: "Fabrication drawing of a fixed ladder safety cage with hoop spacing and clearances",
+    coverNote: "Catalog drawing",
+    supportingImage: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp",
+    supportingAlt: "Fiberglass fixed ladder with a safety cage fixed to an industrial structure",
     supportingImageFit: "contain",
     supportingCaption: "A catalog cage layout for an FRP fixed ladder. Cage dimensions in a catalog are references; the fall protection method, cage geometry and brackets are set on the approved drawing for the jurisdiction and ladder height.",
     highlights: [
@@ -5487,9 +5451,9 @@ Before the schedule goes to production, confirm that every shape has a mark, a s
       "ASTM F3059-24",
       "OSHA 29 CFR 1910.22",
     ],
-    coverImage: "/images/products/molded-frp-grating/molded-grating-coastal-walkway.webp",
-    coverAlt: "Molded FRP grating installed as a coastal observation walkway",
-    coverNote: "Catalog photo",
+    coverImage: "/images/covers/blog/grating-clip-drawings.webp",
+    coverAlt: "Drawings of an M hold-down clip, a C panel connector and a J support-hook clamp fixing FRP grating to its supports",
+    coverNote: "Schematic",
     supportingImage: "/images/products/molded-frp-grating/grating-clips-hardware-reference.webp",
     supportingAlt: "Reference layout of stainless steel hold-down clips and connectors used with FRP grating",
     supportingImageFit: "contain",
@@ -5612,9 +5576,9 @@ To choose the grating itself, compare [molded and pultruded fiberglass grating](
     standards: [
       "ASTM F3059-24",
     ],
-    coverImage: "/images/products/pultruded-frp-grating/pultruded-grating-rooftop-walkway.webp",
-    coverAlt: "Open pultruded FRP grating installed as a rooftop walkway",
-    coverNote: "Catalog photo",
+    coverImage: "/images/covers/blog/grating-load-span-diagram.webp",
+    coverAlt: "Diagram of a grating bearing bar on two supports under a uniform load, with its deflection and the clear span",
+    coverNote: "Schematic",
     supportingImage: "/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp",
     supportingAlt: "Close-up of pultruded FRP grating with T-shaped bearing bars and cross rods",
     supportingImageFit: "contain",
@@ -5731,13 +5695,12 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
       "NFPA 70 (NEC) Article 392",
       "IEC 61537:2023",
     ],
-    coverImage: "/images/applications/frp-cable-ladder-gray-product.webp",
-    coverAlt: "Illustration of a gray fiberglass cable ladder with pultruded channel side rails and evenly spaced rungs",
+    coverImage: "/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp",
+    coverAlt: "Concept illustration of an FRP cable ladder carrying cables on a wall-mounted pultruded support bracket",
     coverNote: "AI concept",
-    coverImageFit: "contain",
-    supportingImage: "/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp",
-    supportingAlt: "Concept illustration of an FRP cable tray on a wall-mounted pultruded support bracket",
-    supportingCaption: "AI-generated concept illustration of a wall-supported FRP cable tray; the cable ladder above is also a generated product illustration. They show the arrangement only: bracket, splice and fixing details come from the supplied system's drawings and instructions.",
+    supportingImage: "/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp",
+    supportingAlt: "Concept illustration of an FRP cable ladder run on pultruded posts beside a water treatment basin",
+    supportingCaption: "AI-generated concept illustration of an FRP cable ladder run at a treatment plant; the wall bracket above is also generated. They show the arrangement only: support spacing, splice and fixing details come from the supplied system's drawings and instructions.",
     highlights: [
       "Take support spacing from the offered system's load table for the real cable load, not from the length of a straight section.",
       "Put splices about a quarter of the span from a support, never over a support or at midspan, and support fittings within 600 mm (2 ft) of each end.",
@@ -5887,10 +5850,10 @@ To choose between tray and ladder, and between FRP and metal, read the [cable tr
     coverAlt: "Round-tube FRP handrail system with posts, top and middle rails, molded elbow, tee and cross fittings, foot bases and kick plate",
     coverNote: "Catalog drawing",
     coverImageFit: "contain",
-    supportingImage: "/images/products/frp-handrail-systems/frp-square-handrail-system-layout.webp",
-    supportingAlt: "Layout of a square-section FRP handrail system with posts, top rail, knee rail and kick plate",
-    supportingImageFit: "contain",
-    supportingCaption: "Square-tube FRP handrail layout from the catalog. Post spacing, height, splices and fixings are product references until the approved project drawing sets them against the governing standard.",
+    supportingImage: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+    supportingAlt: "Access stair with orange FRP handrails and guardrails leading to a platform inside F1 Composite's factory",
+    supportingImagePosition: "center 30%",
+    supportingCaption: "Project photo: FRP handrails and guardrails on the access stair in F1 Composite's factory. On any project, post spacing, rail heights, splices and fixings come from the approved drawing and the governing standard.",
     highlights: [
       "Work from an approved layout drawing that shows posts, splices, corners, gates, base types and the anchor schedule.",
       "Keep posts within the system's spacing limit, plumb within 1/16 in per 3 ft (1.6 mm per 0.9 m), with rails within 1/4 in per 12 ft (6.4 mm per 3.7 m).",
@@ -6012,14 +5975,13 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
       "UFC 3-301-01 Appendix G (Change 5, 2026)",
       "ASTM D7957/D7957M-26",
     ],
-    coverImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
-    coverAlt: "Close-up of the helically wrapped, sand-coated bond surface of a glass-fiber reinforced polymer bar",
-    coverNote: "Supplier photo",
-    coverImageFit: "contain",
-    supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
-    supportingAlt: "Straight GFRP reinforcing bars of several diameters",
+    coverImage: "/images/covers/blog/gfrp-rebar-placement.webp",
+    coverAlt: "Section through a mat of GFRP bars on nonmetallic chairs, tied and held down against flotation, with the cover and a lap marked",
+    coverNote: "Schematic",
+    supportingImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
+    supportingAlt: "Close-up of GFRP reinforcing bars with a helical surface wrap",
     supportingImageFit: "contain",
-    supportingCaption: "Straight GFRP bars from the manufacturing source's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
+    supportingCaption: "Supplier photo of GFRP bars from the manufacturing source's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
     highlights: [
       "Lift bundles with a spreader bar at several pick-up points, and never drag or drop bars: surface damage means replacement.",
       "Store bars off the ground and shaded, below 120 °F (49 °C), and cover them with opaque sheeting on long outdoor storage.",

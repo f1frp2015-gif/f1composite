@@ -187,13 +187,11 @@ export function coverFor(href: string): Cover | undefined {
   );
 }
 
-// Articles show some photos whole; a card fills its frame with them instead,
-// and uses a cut-out on white where the original has a grey backdrop.
+// Articles show some photos whole; a card fills its frame with them instead.
 const blogCardCovers: Record<string, Partial<Cover>> = {
   "frp-cable-tray-trunking-ladder-vs-metal": { fit: "cover" },
   "china-first-all-composite-truss-bridge-pengshui": { fit: "cover" },
   "gfrp-rebar-specification-guide-aci-440-astm-d7957": { fit: "cover" },
-  "how-to-install-frp-cable-tray": { src: "/images/covers/blog/frp-cable-ladder-gray.webp" },
 };
 
 /** A blog post's cover for a card, labelled as the post labels it. */

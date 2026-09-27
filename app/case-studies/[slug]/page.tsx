@@ -411,15 +411,15 @@ const caseStudyContentImages: Record<string, { src: string; title: string; note:
     },
     {
       src: "/images/case-studies/frp-factory-staircase-platform-handrail.webp",
-      title: "Platform and handrails",
+      title: "Stair flight from below",
       note: "Project photo",
-      alt: "Elevated platform with safety-orange pultruded FRP handrails and guardrails installed above the pultrusion line",
+      alt: "Underside of the stair flight: FRP I-beam stringers carrying the treads, with the orange FRP handrail alongside",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-grating-treads.webp",
-      title: "Grating treads",
+      title: "Beam-to-post connection",
       note: "Project photo",
-      alt: "Anti-slip molded FRP grating stair treads and platform panels in corrosive factory environment",
+      alt: "Bolted connection between the platform beams and a post, all pultruded FRP profiles with stainless steel bolts",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-assembly-detail.webp",

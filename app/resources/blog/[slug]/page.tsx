@@ -369,9 +369,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                   }
                   preload
                 />
-                <span className="absolute right-[8px] top-[8px] rounded-tag bg-white/90 px-[6px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-t2">
-                  {post.coverNote}
-                </span>
+                {post.coverNote ? (
+                  <span className="absolute right-[8px] top-[8px] rounded-tag bg-white/90 px-[6px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-t2">
+                    {post.coverNote}
+                  </span>
+                ) : null}
               </div>
               {post.coverAttribution ? (
                 <figcaption className="border-t border-border-default px-[14px] py-[10px] text-f12 leading-golden text-t3">
