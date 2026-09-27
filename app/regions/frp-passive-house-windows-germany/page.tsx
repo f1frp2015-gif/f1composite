@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
+import CoverCard from "@/components/ui/CoverCard";
+import Figure from "@/components/ui/Figure";
 import JsonLd from "@/components/seo/JsonLd";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { company, supplyTerms, weeks } from "@/content/data/company";
+import { coverFor, regionCovers } from "@/lib/covers";
 
 const pageTitle = "FRP Passive House Windows — Germany Supplier";
 const pageDescription =
-  "Pultruded FRP (GFK) passive house windows for Germany. PHI Cert 2491wi03 (U_w 0.78, phB), GEG/BEG-ready, with no aluminum duty or CBAM.";
+  "Pultruded FRP (GFK) passive house windows for Germany: PHI certificate 2491wi03 (Uw 0.78, phB), CE documents per project, outside EU aluminum duties and CBAM.";
 const pagePath = "/regions/frp-passive-house-windows-germany";
+
+const cover = regionCovers[pagePath];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -24,39 +30,64 @@ export const metadata: Metadata = buildPageMetadata({
 
 const faqs = [
   {
-    question:
-      "Are FRP windows from China subject to EU anti-dumping duties or CBAM?",
+    question: "Are FRP windows from China subject to EU anti-dumping duties or CBAM?",
     answer:
-      "No. The EU's anti-dumping duties on Chinese aluminum extrusions (Regulation (EU) 2021/546, 21.2%–32.1%) apply to aluminum profiles, so aluminum window systems made with Chinese extrusions carry that cost. In its definitive regime, CBAM prices the embedded carbon in imported iron, steel, and aluminum goods, including aluminum door and window frames (CN 7610) and steel doors and windows (CN 7308 30). Pultruded FRP (fiberglass-reinforced polymer) fenestration is a glass-fiber composite classified under HS 3925.20 or 7019, placing it outside both the anti-dumping orders and CBAM. Standard EU customs duties and Germany's 19% import VAT (Einfuhrumsatzsteuer) still apply and are itemized in our DDP Germany quote.",
+      "Not under current rules. The EU's anti-dumping duties on Chinese aluminum extrusions (Implementing Regulation (EU) 2021/546, 21.2–32.1%) apply to aluminum profiles, so aluminum window systems made from Chinese extrusions carry that cost. CBAM, in its definitive period since January 2026, charges for the embedded carbon of imported iron, steel and aluminum goods, including aluminum doors, windows and frames (CN 7610) and steel ones (CN 7308 30). Pultruded FRP fenestration is a glass-fiber composite, classified under HS 3925.20 or 7019 depending on the configuration, so it falls outside both. We confirm the treatment for the classification we use when we quote. Normal EU customs duty and Germany's 19% import VAT (Einfuhrumsatzsteuer) still apply and are itemized in the DDP Germany price.",
   },
   {
     question: "Which German and EU standards do F1 Composite FRP windows follow?",
     answer:
-      "Windows placed on the EU market carry CE marking under EN 14351-1 with a Declaration of Performance — air permeability (EN 12207), watertightness (EN 12208), and wind-load resistance (EN 12210) type testing is arranged per project at an accredited European laboratory such as ift Rosenheim. Thermal performance is calculated to EN ISO 10077, and the frame's Passive House credential is the PHI Component Certificate 2491wi03 (U_w = 0.78 W/m²·K, phB class) issued by the Passive House Institute in Darmstadt — the body that wrote the standard.",
+      "Windows placed on the EU market carry CE marking under EN 14351-1 with a declaration of performance. Type testing for air permeability, watertightness and wind-load resistance (classified to EN 12207, EN 12208 and EN 12210) is arranged per project at an accredited European laboratory such as ift Rosenheim. Thermal performance is calculated to EN ISO 10077. The published Passive House document is PHI component certificate 2491wi03 for the 90-series window (Uw 0.78 W/m²·K, phB class), issued by the Passive House Institute in Darmstadt.",
   },
   {
-    question:
-      "Do F1 FRP windows meet GEG 2024, BEG funding, and Passivhaus targets?",
+    question: "Do F1 FRP windows meet GEG, BEG funding and Passivhaus targets?",
     answer:
-      "Yes. The GEG 2024 reference building assumes a window U_w of 1.3 W/m²·K; BEG funding for a single window-replacement measure requires U_w ≤ 0.95; and a PHI-certified component for the cool-temperate climate zone must reach U_w ≤ 0.80. Our 90-series GFRP-PU frame is certified at U_w 0.78 W/m²·K (PHI 2491wi03, phB). Because the entire pultruded frame is intrinsically insulating (≈ 0.3 W/m·K versus 160 for aluminum), there is no metallic thermal-break path or steel reinforcement conducting heat as there is in uPVC frames.",
+      "The certified 90-series configuration does. Its Uw of 0.78 W/m²·K (PHI 2491wi03, phB) is below the GEG reference window value of 1.3, the BEG threshold of 0.95 for replacement windows and the PHI criterion of 0.80 for the cool-temperate climate zone. The whole frame insulates (about 0.3 W/m·K, against 160 for aluminum), with no metal thermal break and no steel reinforcement as in uPVC frames. GEG compliance and BEG funding are assessed for the building or the measure, so confirm the Uw for your window sizes and glazing in the energy calculation.",
   },
   {
-    question: "What are the lead times and shipping options to German jobsites?",
+    question: "What are the lead times and shipping options to German sites?",
     answer:
-      "Standard schedule from PO: 4–6 weeks production + 30–35 days sea freight to Hamburg, Bremerhaven, or Rotterdam. Total PO-to-jobsite is typically 9–13 weeks DDP. For inland destinations (Munich, Frankfurt, Berlin, the Ruhr) we deliver DAP via truck or rail from the port of entry. Urgent samples or replacement parts ship air freight ex-Shanghai to any major German hub in 4–6 days at premium cost.",
+      `Window projects take ${weeks(supplyTerms.fenestrationLeadTimeWeeks)} in production from an approved order, depending on the series, finish and quantity. Ocean transit takes about 30–35 days to Hamburg, Bremerhaven or Rotterdam. Inland sites such as Munich, Frankfurt, Berlin and the Ruhr are served DAP by truck or rail from the port of entry. The quote gives an estimated delivery date for your site. Samples and replacement parts can go by air freight at extra cost.`,
   },
   {
     question: "Can F1 supply EUR-priced, DDP quotes for German projects?",
     answer:
-      "Yes. We quote DDP to your German jobsite in EUR or USD, with EU customs duty and 19% import VAT itemized so your quantity surveyor sees the full landed cost up front. We classify under HS 3925.20 or 7019 depending on configuration, ship with our EU customs broker handling clearance, and provide full supply-chain traceability documentation with every shipment.",
+      "Yes. We quote DDP to your German site in EUR or USD, with EU customs duty and 19% import VAT itemized so your quantity surveyor sees the landed cost up front. We state the HS classification (3925.20 or 7019, depending on the configuration), our EU customs broker handles clearance, and supply-chain traceability documents ship with each order.",
   },
   {
-    question:
-      "Does F1 supply profiles to German window fabricators, or only finished windows?",
+    question: "Does F1 supply profiles to German window fabricators, or only finished windows?",
     answer:
-      "Both models run in parallel. For Passivhaus and Effizienzhaus projects that want the glazing and gaskets fitted in the factory, we ship complete GFRP-PU window units, assembled, glazed and gasketed in the factory, including tilt-turn (Dreh-Kipp) configurations in the 80-series. For Germany's established window-fabrication industry (Fensterbau), we supply the pultruded profile set — frame, sash, mullion, transom, glazing bead — plus co-extruded EPDM gasketing and fabrication drawings, so a German fabricator assembles locally. FengDu's production network has more than 1,000 existing dies on 370 lines across 5 bases, so many engineered profiles need no new die; finishes are AAMA 2604/2605 architectural powder coating in any RAL color.",
+      `Both. For Passivhaus and Effizienzhaus projects that want the glazing and gaskets fitted in the factory, we ship complete GFRP-PU window units, including tilt-and-turn (Dreh-Kipp) openings. For Germany's window-fabrication trade (Fensterbau), we supply the pultruded profile set (frame, sash, mullion, transom and glazing bead) with EPDM gaskets and fabrication drawings, so a German fabricator assembles locally. FengDu's production network has more than ${company.production.dieSets.toLocaleString("en-US")} existing dies on ${company.production.lines} lines across ${company.production.bases} bases, so many profiles need no new die. Frames can be powder coated with AAMA 2604 / 2605 systems in RAL colors.`,
   },
 ];
+
+const standards = [
+  { requirement: "CE marking", standard: "EN 14351-1 (windows and external doors)", provides: "Air, water and wind type testing per project", documents: "Test reports and declaration of performance on request" },
+  { requirement: "Thermal calculation", standard: "EN ISO 10077, DIN 4108", provides: "Uw 0.78 W/m²·K (90-series, certified size)", documents: "Calculation on request" },
+  { requirement: "Passive House thermal", standard: "PHI component certificate", provides: "Uw 0.78, certificate 2491wi03, phB", documents: "PHI certificate (published)" },
+  { requirement: "GEG reference building", standard: "Reference window Uw 1.3", provides: "0.78 in the certified configuration", documents: "Project U-value calculation" },
+  { requirement: "BEG window funding", standard: "Replacement windows Uw ≤ 0.95", provides: "0.78 in the certified configuration", documents: "U-value calculation on request" },
+  { requirement: "Trade costs", standard: "EU anti-dumping duties (aluminum), CBAM (aluminum, steel)", provides: "FRP falls outside both under current rules", documents: "HS classification in the quote" },
+  { requirement: "Architectural coating", standard: "AAMA 2604 / 2605", provides: "Powder coating in RAL colors", documents: "Coater report on request" },
+];
+
+const steps = [
+  {
+    title: "RFQ and DDP Germany quote",
+    body: `Send a drawing or window schedule, the quantity and the delivery region. We reply within ${supplyTerms.responseTime}, then quote DDP in EUR or USD with EU duty and 19% import VAT itemized, the HS classification and an estimated delivery date.`,
+  },
+  {
+    title: "Production and documents",
+    body: `Window projects take ${weeks(supplyTerms.fenestrationLeadTimeWeeks)} in FengDu's production network. The document set includes PHI component certificate 2491wi03, plus EN ISO 10077 calculations, coating reports and CE type-test reports on request for your configuration.`,
+  },
+  {
+    title: "Ocean freight and DDP delivery",
+    body: "Ocean transit takes about 30–35 days to Hamburg, Bremerhaven or Rotterdam. Inland sites such as Munich, Frankfurt, Berlin and the Ruhr are served DAP by truck or rail from the port. The quote gives an estimated delivery date for your site.",
+  },
+];
+
+const quoteHref = "/contact?source=region-frp-passive-house-windows-germany&inquiry_type=rfq";
+const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 export default function GermanyRegionPage() {
   const webPageSchema = {
@@ -79,208 +110,171 @@ export default function GermanyRegionPage() {
       <PageHeader
         tag="Germany"
         title="FRP passive house windows for German projects"
-        description="Pultruded fiberglass (GFK) window frames for Germany's Passivhaus, Effizienzhaus, and GEG-driven buildings — PHI Component Cert 2491wi03 (U_w 0.78, phB) from the institute that wrote the standard, and outside EU anti-dumping duties on aluminum and outside CBAM."
+        description="Pultruded fiberglass (GFK) window frames for Passivhaus, Effizienzhaus and GEG projects, with PHI certificate 2491wi03 (Uw 0.78, phB) from the Passive House Institute in Darmstadt. FRP frames fall outside the EU anti-dumping duties on Chinese aluminum and outside CBAM."
+        figure={
+          <Figure number={1} title="Passive house in Germany" note={cover.note} bleed>
+            <div className="relative aspect-[16/10]">
+              <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
+            </div>
+          </Figure>
+        }
+        actions={{
+          primary: { label: "Request a DDP Germany quote", href: quoteHref },
+          secondary: { label: "See the standards", href: "#standards", variant: "secondary" },
+          stickyMobile: true,
+        }}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Regions", href: "/regions/frp-passive-house-windows-germany" },
-          { label: "Germany — FRP Passive House Windows" },
+          { label: "Markets", href: "/regions" },
+          { label: "Germany" },
         ]}
       />
+      <PageNav items={[{ id: "why", label: "Why F1" }, { id: "standards", label: "Standards" }, { id: "logistics", label: "Logistics" }, { id: "faq", label: "FAQ" }, { id: "evidence", label: "Evidence" }]} />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <div className="overflow-hidden rounded-card">
-            <Image
-              src="/images/regions/frp-passive-house-windows-germany.jpg"
-              alt="Passive house facade with large triple-glazed openings — pultruded FRP (GFK) window frames hold certified Passivhaus U-values without a metallic thermal break"
-              width={1280}
-              height={854}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-              preload
-            />
+      <PageSection id="why" title="Why FRP frames suit German energy targets" tone="white">
+        <div className="grid gap-[32px] lg:grid-cols-2">
+          <div className="space-y-[20px] text-f16 leading-golden text-t2">
+            <p>
+              German energy law keeps raising the bar for windows. The GEG reference
+              building assumes a window U<sub>w</sub> of 1.3 W/m²·K, BEG funding for
+              replacement windows asks for U<sub>w</sub> ≤ 0.95, and Passivhaus and
+              Effizienzhaus 40 projects usually aim below 0.80. Much of that is decided
+              at the frame: thermally broken aluminum needs very high-performance glazing
+              to get there, and larger uPVC sashes carry steel reinforcement that
+              conducts heat.
+            </p>
+            <p>
+              A pultruded FRP (GFK) frame conducts about 0.3 W/m·K of heat, against about
+              160 for aluminum, so it needs no metal thermal break. In its certified
+              configuration our 90-series window reaches U<sub>w</sub> 0.78 W/m²·K,
+              confirmed by <strong>PHI component certificate 2491wi03</strong> (phB
+              class) from the Passive House Institute in Darmstadt.
+            </p>
+          </div>
+          <div className="space-y-[20px] text-f16 leading-golden text-t2">
+            <p>
+              Trade costs are worth checking too. Chinese aluminum extrusions carry EU
+              anti-dumping duties of 21.2–32.1% (Implementing Regulation (EU) 2021/546),
+              and since January 2026 CBAM charges for the embedded carbon of imported
+              aluminum and steel goods, including aluminum window frames. Pultruded FRP
+              is a glass-fiber composite, so neither applies to it under current rules.
+              Normal EU duty and 19% import VAT are itemized in the DDP price.
+            </p>
+            <p>
+              German projects choose the supply model: complete factory-glazed window
+              units, including tilt-and-turn (Dreh-Kipp) openings, or pultruded profile
+              sets for a German window fabricator to assemble. Frames can be powder
+              coated with AAMA 2604 / 2605 systems in RAL colors.
+            </p>
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Why German Specifiers Source from F1</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            Certified where Passivhaus was born — without the aluminum duty stack
-          </h2>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Germany invented the Passivhaus standard, and German energy law keeps
-                raising the bar: the GEG 2024 reference building already assumes window
-                U<sub>w</sub> 1.3 W/m²·K, BEG funding for window replacement requires
-                U<sub>w</sub> ≤ 0.95, and Passivhaus / Effizienzhaus 40 projects push
-                below 0.80. Those targets are won or lost at the frame: thermally broken
-                aluminum struggles to reach them economically, and uPVC gets there only
-                with steel reinforcement that bridges heat and limits sash sizes.
-              </p>
-              <p>
-                F1 Composite&rsquo;s pultruded FRP (GFK) fenestration solves the thermal
-                problem in the material itself. The whole frame is intrinsically
-                insulating — fiberglass thermal conductivity ≈ 0.3 W/m·K versus
-                aluminum&rsquo;s 160 — so our 90-series reaches a whole-window
-                U<sub>w</sub> of 0.78 W/m²·K with no thermal break to design, install,
-                or fail. The certificate comes from the source: <strong>PHI Component
-                Certificate 2491wi03</strong> (phB class), issued by the Passive House
-                Institute in Darmstadt.
-              </p>
-            </div>
-            <div className="space-y-[21px] text-f16 leading-golden text-t2">
-              <p>
-                Then there is the cost story German buyers should check before specifying
-                imported aluminum. Chinese aluminum extrusions carry EU anti-dumping
-                duties of 21.2%–32.1% (Regulation (EU) 2021/546), and since January 2026
-                CBAM prices embedded carbon on imported aluminum and steel building
-                products — including aluminum window frames. Pultruded FRP is a
-                glass-fiber composite, not aluminum or steel, so it sits{" "}
-                <strong>outside both regimes</strong>. Normal EU duty + 19% import VAT
-                are quoted inline DDP — no surprise on landed cost.
-              </p>
-              <p>
-                German projects choose the supply model: complete factory-glazed
-                window units, including tilt-turn (Dreh-Kipp) configurations, for
-                Passivhaus jobs that want glazing and gaskets fitted in the factory, or
-                pultruded profile sets for Germany&rsquo;s Fensterbau industry to assemble
-                locally.
-                Architectural AAMA 2604 / 2605 powder coating in any RAL color, matching
-                the finish German architects specify on aluminum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>German Standards Stack</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            CE / EN 14351-1, GEG, BEG, PHI — the paperwork your spec calls for
-          </h2>
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Requirement</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">German / EU Standard</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">F1 Performance</th>
-                  <th className="py-[13px] text-f14 font-semibold text-t1">Documentation</th>
+      <PageSection id="standards" title="CE, GEG, BEG and Passive House documents" intro="What a German specification usually asks of the window, and the document we supply for each requirement." tone="muted">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[760px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Requirement</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">German or EU standard</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">What F1 provides</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Documentation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {standards.map((row) => (
+                <tr key={row.requirement} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.requirement}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.standard}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.provides}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.documents}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {[
-                  { app: "CE marking", std: "EN 14351-1 (windows & external doors)", perf: "Air / water / wind type testing per project", doc: "Declaration of Performance" },
-                  { app: "Thermal calculation", std: "EN ISO 10077 · DIN 4108", perf: "U_w 0.78 W/m²·K (90-series)", doc: "Calculation pack" },
-                  { app: "Passive House thermal", std: "PHI Component (Darmstadt)", perf: "U_w 0.78, Cert 2491wi03, phB", doc: "PHI certificate" },
-                  { app: "GEG 2024 compliance", std: "Reference window U_w 1.3", perf: "Clears reference value by 40%", doc: "Engineering calculation" },
-                  { app: "BEG window funding", std: "Single-measure U_w ≤ 0.95", perf: "0.78 qualifies with margin", doc: "U-value calculation pack" },
-                  { app: "Trade-cost exposure", std: "EU AD duties (alu) · CBAM (alu/steel)", perf: "FRP outside both regimes", doc: "HS 3925.20 / 7019 classification" },
-                  { app: "Architectural coating", std: "AAMA 2604 / 2605 · RAL colors", perf: "10-yr exposure, any RAL color", doc: "AAMA-listed coater report" },
-                ].map((row) => (
-                  <tr key={row.app} className="border-b border-border-default">
-                    <td className="py-[13px] pr-[21px] text-f16 font-medium text-t1">{row.app}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.std}</td>
-                    <td className="py-[13px] pr-[21px] text-f16 text-t2">{row.perf}</td>
-                    <td className="py-[13px] text-f16 text-t2">{row.doc}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Logistics & Landed Cost</SectionTag>
-          <h2 className="mt-[21px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
-            From our factory in China to your German jobsite, with duties and VAT itemized
-          </h2>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
-            {[
-              {
-                step: "1",
-                title: "RFQ and DDP Germany quote",
-                body: "Send a drawing or section sketch, the quantity and the delivery region. We reply within one business day, then quote DDP in EUR or USD with EU duties and 19% import VAT itemized, the HS classification and an estimated delivery date. Under current rules, aluminum anti-dumping duties and CBAM charges do not apply to FRP frames.",
-              },
-              {
-                step: "2",
-                title: "Production in 4–6 weeks · certification package",
-                body: "F1 manufactures the profiles on its own pultrusion lines. The shipment includes PHI Component Certificate 2491wi03, the EN ISO 10077 thermal calculation, a report from an AAMA-listed coating applicator, and CE type-testing documentation.",
-              },
-              {
-                step: "3",
-                title: "Ocean freight and DDP delivery",
-                body: "Ocean transit takes 30–35 days to Hamburg, Bremerhaven, or Rotterdam. The total lead time from purchase order to jobsite is 9–13 weeks. DAP delivery is available from the port of entry to Munich, Frankfurt, Berlin, and the Ruhr region.",
-              },
-            ].map((s) => (
-              <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
-                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {s.step}</div>
-                <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-[34px] flex flex-wrap gap-[13px]">
-            <LinkArrow href="/products/window-door-profiles">Pultruded window profiles (65–140)</LinkArrow>
-            <LinkArrow href="/products/frp-window-frames">Fiberglass windows &amp; doors</LinkArrow>
-            <LinkArrow href="/ai/passive-house">Free passive house window selector</LinkArrow>
-            <LinkArrow href="/technology/frp-u-value-calculator">Window U-value calculator</LinkArrow>
-            <LinkArrow href="/regions/frp-passive-house-windows-canada">FRP passive house windows — Canada</LinkArrow>
-            <LinkArrow href="/what-is-frp">What is FRP? Material guide</LinkArrow>
-          </div>
-
-          <FAQ items={faqs} />
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>Related Resources</SectionTag>
-          <div className="mt-[21px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/resources/blog/frp-fenestration-passivhaus-certification"
-              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f16 font-bold text-t1">PHI-certified GFRP frames (U_w 0.78)</h3>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">PHI Component Certificate 2491wi03 — what the Darmstadt certification covers and how to specify it.</p>
-            </Link>
-            <Link
-              href="/technology/frp-vs-pvc-windows"
-              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f16 font-bold text-t1">FRP vs uPVC — stiffness & U-value</h3>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">Why GFK frames need no steel reinforcement — larger sashes, no hidden thermal bridge.</p>
-            </Link>
-            <Link
-              href="/case-studies/wanhua-yantai-zero-carbon-windows"
-              className="group rounded-card border border-border-default bg-white p-[21px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f16 font-bold text-t1">Zero-carbon community case study</h3>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">65/90-series GFRP-PU frames across a 13,657 m² zero-carbon dormitory envelope — Wanhua Yantai.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 pb-[55px]">
-        <div className="site-container">
+        <div className="mt-[16px]">
           <CalculatorCTA
             href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"
-            title="Check a passive-house window U-value against GEG and PHI targets"
-            sub="Opens the U-value calculator pre-loaded with an F1 90-Series passive-house build-up — verify the whole-window Uw against GEG 2024, BEG funding thresholds, and the PHI 0.80 component criterion, then quote DDP Germany."
+            title="Check the U-value of a passive house window"
+            sub="Opens the U-value calculator with a 90-series passive house build-up. Change the size and glazing, compare Uw with the GEG reference value, the BEG threshold and the PHI 0.80 criterion, then ask for a DDP Germany quote."
           />
         </div>
-      </section>
+      </PageSection>
 
-      <InnerCTA title="Request a DDP Germany quote for FRP passive house windows without the aluminum duty stack" />
+      <PageSection id="logistics" title="From FengDu's plants to your German site" intro="One quote covers the frames, freight, EU duty and import VAT, so the landed cost is known before the order." tone="white">
+        <ol className="grid gap-[12px] lg:grid-cols-3">
+          {steps.map((step, index) => (
+            <li key={step.title} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className={mono}>Step {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{step.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqs} />
+      </PageSection>
+
+      <PageSection id="evidence" title="Evidence and further reading" tone="white">
+        <ul className="grid gap-[12px] md:grid-cols-3">
+          <li>
+            <CoverCard href="/technology/polyurethane-pultrusion-windows" cover={coverFor("/technology/polyurethane-pultrusion-windows")!} label={<span className={mono}>Technology</span>} title="Polyurethane pultrusion windows" text="Why the PU resin in our window profiles allows thin walls and tough frames, and what PHI certificate 2491wi03 covers." sizes="(max-width: 767px) 94vw, 390px" />
+          </li>
+          <li>
+            <CoverCard href="/technology/frp-vs-pvc-windows" cover={coverFor("/technology/frp-vs-pvc-windows")!} label={<span className={mono}>Comparison</span>} title="FRP vs PVC window frames" text="Why FRP frames need no steel reinforcement, and what that means for sash size and thermal bridges." sizes="(max-width: 767px) 94vw, 390px" />
+          </li>
+          <li>
+            <CoverCard href="/case-studies/wanhua-yantai-zero-carbon-windows" cover={coverFor("/case-studies/wanhua-yantai-zero-carbon-windows")!} label={<span className={mono}>Case study</span>} title="Wanhua Yantai zero-carbon community" text="13,657 m² of 65- and 90-series GFRP-PU windows at Uw 0.99 W/m²·K, against a 1.0 requirement." sizes="(max-width: 767px) 94vw, 390px" />
+          </li>
+        </ul>
+      </PageSection>
+
+      <RelatedLinks
+        background="bg2"
+        groups={[
+          {
+            title: "Products",
+            links: [
+              { href: "/products/frp-window-frames", label: "FRP window and door systems, 50–140 mm" },
+              { href: "/products/window-door-profiles", label: "Window profiles for local fabricators" },
+            ],
+          },
+          {
+            title: "Tools",
+            links: [
+              { href: "/ai/passive-house", label: "Free passive house window selector" },
+              { href: "/technology/frp-u-value-calculator", label: "Window U-value calculator" },
+            ],
+          },
+          {
+            title: "Guides",
+            links: [
+              { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "How pultruded frames reach Passivhaus certification" },
+              { href: "/resources/frp-windows-guide", label: "FRP windows buying guide" },
+              { href: "/what-is-frp", label: "What is FRP? Material guide" },
+            ],
+          },
+          {
+            title: "Other markets",
+            links: [
+              { href: "/regions/grp-windows-uk", label: "GRP windows for the UK" },
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows: Canada" },
+            ],
+          },
+        ]}
+      />
+
+      <InnerCTA
+        title="Request a DDP Germany quote for FRP passive house windows"
+        quoteHref={quoteHref}
+        text="Send the window schedule or drawings, the Uw target and the delivery region."
+        links={[{ label: "Window U-value calculator", href: "/technology/frp-u-value-calculator" }]}
+      />
     </>
   );
 }

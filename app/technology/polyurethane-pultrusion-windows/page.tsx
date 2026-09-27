@@ -311,8 +311,8 @@ export default function PolyurethanePultrusionWindowsPage() {
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: Thermal performance of FRP fenestration" },
               { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — complete buyer library" },
-              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada" },
-              { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows — Germany" },
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows: Canada" },
+              { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows: Germany" },
             ],
           },
         ]}

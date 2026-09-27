@@ -529,7 +529,7 @@
     "title": "FRP Supplier by Market — USA, Canada, EU, UK, GCC, AU",
     "description": "Market-specific FRP pultrusion supply: standards, certifications, duties and logistics for the USA, Canada, Germany, UK, Saudi Arabia, UAE and Australia.",
     "aliases": [
-      "FRP Supply by Market"
+      "FRP supply by market"
     ]
   },
   {
@@ -537,7 +537,7 @@
     "title": "FRP Cable Tray Supplier UAE — Oil & Gas Projects",
     "description": "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.",
     "aliases": [
-      "FRP Cable Tray Supplier for UAE Oil & Gas"
+      "FRP cable tray supplier for UAE oil and gas"
     ]
   },
   {
@@ -545,7 +545,7 @@
     "title": "FRP Grating Supplier Saudi Arabia — Petrochemical & Coastal",
     "description": "FRP grating for Riyadh, Jeddah, Dammam and Jubail: vinyl ester molded and pultruded panels, CIF or DAP delivery, fire test reports on request.",
     "aliases": [
-      "FRP Grating Supplier for Saudi Arabia"
+      "FRP grating supplier for Saudi Arabia"
     ]
   },
   {
@@ -559,7 +559,7 @@
   {
     "path": "/regions/frp-passive-house-windows-germany",
     "title": "FRP Passive House Windows — Germany Supplier",
-    "description": "Pultruded FRP (GFK) passive house windows for Germany. PHI Cert 2491wi03 (U_w 0.78, phB), GEG/BEG-ready, with no aluminum duty or CBAM.",
+    "description": "Pultruded FRP (GFK) passive house windows for Germany: PHI certificate 2491wi03 (Uw 0.78, phB), CE documents per project, outside EU aluminum duties and CBAM.",
     "aliases": [
       "FRP passive house windows for German projects"
     ]
@@ -575,7 +575,7 @@
   {
     "path": "/regions/grp-windows-uk",
     "title": "GRP Windows UK — Pultruded Fiberglass Frames Supplier",
-    "description": "Pultruded GRP (fiberglass) windows for UK projects. PHI Cert 2491wi03 (U_w 0.78), Part L and Passivhaus-ready, with itemized DDP quotes.",
+    "description": "Pultruded GRP (fiberglass) windows for UK projects: PHI certificate 2491wi03 (Uw 0.78), Part L and Passivhaus documents on request, and itemized DDP quotes.",
     "aliases": [
       "GRP windows for UK projects"
     ]
@@ -583,9 +583,9 @@
   {
     "path": "/regions/pultruded-frp-solar-mounting-australia",
     "title": "FRP Solar Mounting Australia — Fiberglass Racking Supplier",
-    "description": "Pultruded FRP solar racking for Australian utility, commercial and rooftop projects: rust-free, designed to AS/NZS 1170.2 wind loads, lighter foundations.",
+    "description": "Pultruded FRP solar racking for Australian utility, commercial and rooftop projects: no rust in coastal air, lighter members, AS/NZS 1170.2 wind design.",
     "aliases": [
-      "Pultruded FRP Solar Mounting for Australian Projects"
+      "Pultruded FRP solar mounting for Australian projects"
     ]
   },
   {

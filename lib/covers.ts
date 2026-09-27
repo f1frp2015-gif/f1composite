@@ -151,6 +151,25 @@ export const technologyCovers = {
   "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain", note: RENDERING },
   "/technology/quality-testing": { src: "/images/technology/f1-composite-quality-testing-laboratory.webp", alt: "Technician at work in a materials testing laboratory", note: ILLUSTRATIVE },
   "/technology/knowhow-services": { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "Pultrusion lines in an F1 Composite production hall", note: "Production photo" },
+  // Comparison pages open on a table rather than a picture, so their cards show it.
+  "/technology/frp-vs-aluminum-windows": { src: "/images/covers/technology/vs-aluminum-windows.webp", alt: "Table comparing FRP and thermally broken aluminum window frame properties", position: "left top" },
+  "/technology/frp-vs-pvc-windows": { src: "/images/covers/technology/vs-pvc-windows.webp", alt: "Table comparing FRP and uPVC window frame properties", position: "left top" },
+  "/technology/frp-vs-steel-gratings": { src: "/images/covers/technology/vs-steel-gratings.webp", alt: "Table comparing FRP and galvanized steel grating properties", position: "left top" },
+  "/technology/pultrusion-vs-extrusion-filament-winding": { src: "/images/covers/technology/vs-extrusion.webp", alt: "Table comparing pultrusion, extrusion and filament winding", position: "left top" },
+  "/technology/china-alternative-to-strongwell-fiberline-exel": { src: "/images/covers/technology/alt-strongwell.webp", alt: "Table comparing F1-STRUX with Western pultrusion suppliers", position: "left top" },
+  "/technology/china-alternative-to-tencom-creative-pultrusions-windows": { src: "/images/covers/technology/alt-tencom.webp", alt: "Table comparing F1-THERM with North American window lineal suppliers", position: "left top" },
+} satisfies Record<string, Cover>;
+
+// Market pages open on their header figure, so the hub shows the same picture
+// with the same note. The pages read their figure from here.
+export const regionCovers = {
+  "/regions/frp-pultrusion-supplier-usa": { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
+  "/regions/frp-passive-house-windows-canada": { src: "/images/regions/frp-passive-house-windows-canada.jpg", alt: "Snow-covered trees and icicles seen through a window in winter", note: ILLUSTRATIVE },
+  "/regions/frp-passive-house-windows-germany": { src: "/images/regions/frp-passive-house-windows-germany.jpg", alt: "Detached modern house with large windows and a timber-clad upper floor", note: ILLUSTRATIVE },
+  "/regions/grp-windows-uk": { src: "/images/regions/grp-windows-uk.jpg", alt: "Office facade with dark window frames in a repeating grid", note: ILLUSTRATIVE },
+  "/regions/frp-grating-supplier-saudi-arabia": { src: "/images/industries/frp-industrial-chemical-plant-facility.jpg", alt: "Petrochemical plant with a distillation column, pipe racks and two storage spheres", note: ILLUSTRATIVE },
+  "/regions/frp-cable-tray-uae-oil-gas": { src: "/images/industries/industrial-cable-support-concept.webp", alt: "Concept FRP cable ladder on wall brackets in a chemical processing corridor", note: AI_CONCEPT },
+  "/regions/pultruded-frp-solar-mounting-australia": { src: "/images/industries/frp-energy-solar-power-installation.jpg", alt: "Two installers fixing solar panels to mounting rails on a flat roof", note: ILLUSTRATIVE },
 } satisfies Record<string, Cover>;
 
 /** The cover for a page, when one is registered. */
@@ -163,6 +182,7 @@ export function coverFor(href: string): Cover | undefined {
     (toolCovers as Record<string, Cover>)[path] ??
     (caseStudyCovers as Record<string, Cover>)[path] ??
     (technologyCovers as Record<string, Cover>)[path] ??
+    (regionCovers as Record<string, Cover>)[path] ??
     (resourceCovers as Record<string, Cover>)[path]
   );
 }
