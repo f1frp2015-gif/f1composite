@@ -1,14 +1,14 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   frpSoundBarrierImageAssets,
   soundBarrierApplications,
@@ -19,7 +19,8 @@ import {
   soundBarrierTechnicalSources,
 } from "@/content/data/frpSoundBarrierWallSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-sound-barrier-wall";
@@ -36,18 +37,22 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/frp-sound-barrier-wall/opengraph-image",
 });
 
-const quickFacts = [
-  { value: "2", label: "reflective or absorptive configurations" },
-  {
-    value: "1 system",
-    label: "panels, posts and closures coordinated with project foundation interfaces",
-  },
-  {
-    value: "Assembly-specific",
-    label: "acoustic evidence and structural calculations tied to the offered build-up",
-  },
-  { value: "Drawing-led", label: "dimensions and interfaces released before production" },
+const quoteHref = buildRfqHref({
+  source: "frp-sound-barrier-wall",
+  product: "FRP sound barrier wall panels",
+  productPath: pagePath,
+  message: "Please review an FRP sound barrier wall. I will send the noise study, wall alignment, height and length, loads and foundation information.",
+});
+
+const requestItems = [
+  { title: "Noise study", text: "The acoustic study or source data, receiver locations, target insertion loss and whether the wall must be reflective or absorptive." },
+  { title: "Wall geometry", text: "Alignment, total length and height, openings, gates and end returns, with a marked plan and elevation." },
+  { title: "Loads and ground", text: "Wind and other structural actions, the governing code, soil and foundation information, fire and environmental criteria." },
+  { title: "Finish and delivery", text: "Color and finish, jurisdiction and submittals, quantity, destination and the required delivery date." },
 ];
+
+const card = "rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]";
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 
 const materialComparison = [
   {
@@ -182,465 +187,336 @@ export default function FrpSoundBarrierWallPage() {
 
       <PageHeader
         updated={updatedAt}
-        tag="Outdoor Noise Control · Infrastructure & Industry"
-        title="FRP Sound Barrier Wall Panels"
+        reviewer={reviewerCredit(reviewer)}
+        tag="Noise barriers"
+        line={{ name: "Noise barriers", label: "Wall panels", mark: false }}
+        title="FRP sound barrier wall panels"
         description="Project-engineered FRP sound barrier wall panels for highways, railways, industrial equipment and utility sites. Configure reflective or absorptive fiberglass noise barriers with coordinated posts, joints, closures, finishes and foundation interfaces."
+        facts={[
+          { label: "Configurations", value: "Reflective or absorptive" },
+          { label: "Supply", value: "Panels, posts, closures" },
+          { label: "Acoustic data", value: "Per tested assembly" },
+          { label: "Release", value: "Approved drawing" },
+        ]}
+        actions={{
+          primary: { label: "Request a sound-wall review", href: quoteHref },
+          secondary: { label: "Compare panel options", href: "#acoustic-options", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="FRP noise barrier along a highway" note="AI concept" caption="AI-generated application visualization for concept planning. It is not an F1 project photograph, an approved shop drawing or evidence of a tested acoustic assembly." bleed>
+            <div className="relative aspect-[3/2]">
+              <Image
+                src={frpSoundBarrierImageAssets.hero}
+                alt="Blue and teal modular FRP sound barrier wall panels installed along a highway"
+                fill
+                preload
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "FRP Sound Barrier Wall" },
         ]}
       />
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "acoustics", label: "Acoustics" },
+          { id: "acoustic-options", label: "Options" },
+          { id: "assembly", label: "Assembly" },
+          { id: "materials", label: "Materials" },
+          { id: "inputs", label: "Inputs" },
+          { id: "supply", label: "Supply" },
+          { id: "applications", label: "Applications" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div>
-            <SectionTag>Engineered FRP Noise Barrier Solutions</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(28px,4vw,48px)] font-extrabold leading-[1.08] text-t1">
-              Engineer the wall as an acoustic and structural system
-            </h2>
-            <p className="mt-[21px] text-f18 leading-golden text-t2">
-              F1 Composite supplies <strong className="text-t1">FRP sound barrier wall panels</strong> as
-              engineered-to-order outdoor systems. Pultruded fiberglass planks, also called GRP or GFRP
-              noise barrier panels, stack between posts to create a continuous wall for highway, railway,
-              industrial and commercial noise control.
+      <PageSection id="overview" title="Engineer the wall as an acoustic and structural system">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
+              F1 Composite supplies FRP sound barrier wall panels as engineered-to-order outdoor systems. Pultruded fiberglass planks, also called GRP or GFRP noise barrier panels, stack between posts to create a continuous wall for highway, railway, industrial and commercial noise control.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              The useful question is not “what dB does FRP provide?” Acoustic performance belongs to a
-              complete tested assembly and an actual site geometry. F1 therefore releases the panel,
-              joints, closures, supports, finish and foundation interfaces together, with project-specific
-              evidence identified before production.
+            <p>
+              The useful question is not “what dB does FRP provide?” Acoustic performance belongs to a complete tested assembly and an actual site geometry. F1 therefore releases the panel, joints, closures, supports, finish and foundation interfaces together, with project-specific evidence identified before production.
             </p>
-            <div className="mt-[29px] flex flex-wrap gap-[13px]">
-              <Link
-                href="/contact?source=frp-sound-barrier-wall&inquiry_type=rfq"
-                className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
-              >
-                Request a sound-wall review
-              </Link>
-              <a
-                href="#acoustic-options"
-                className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text"
-              >
-                Compare panel options
-              </a>
-            </div>
           </div>
-          <figure>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
-              <Image
-                src={frpSoundBarrierImageAssets.hero}
-                alt="Blue and teal modular FRP sound barrier wall panels installed along a highway"
-                fill
-                preload
-                sizes="(max-width: 1024px) calc(100vw - 40px), 54vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              AI-generated application visualization for concept planning. It is not an F1 project
-              photograph, an approved shop drawing or evidence of a tested acoustic assembly.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="border-y border-border-default bg-bg2 py-[34px]">
-        <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-          {quickFacts.map((fact) => (
-            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
-              <p className="text-f20 font-extrabold text-teal-text">{fact.value}</p>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.04fr_0.96fr]">
-          <div>
-            <SectionTag>How Outdoor Barriers Work</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              Height, length and continuity set the installed result
-            </h2>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
-              A sound wall reduces the direct path from source to receiver. Sound still diffracts over
-              the top and around the ends, which is why a strong panel can underperform when the wall is
-              too short, too low or interrupted by unsealed gaps.
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Specifier answer</p>
+            <p className="mt-[8px] text-f18 font-bold leading-snug text-t1">An FRP noise barrier is not “soundproof.”</p>
+            <p className="mt-[10px] text-f14 leading-golden text-t2">
+              Select the wall from source spectrum, receiver geometry, target insertion loss, barrier alignment and jurisdiction. Then verify the proposed panel assembly for transmission, absorption where required, structural loads and environmental exposure.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              The U.S. Federal Highway Administration gives two useful planning rules: just blocking the
-              line of sight commonly produces about <strong className="text-t1">5 dB(A)</strong> insertion
-              loss, while an effective design can approach <strong className="text-t1">10 dB(A)</strong>,
-              perceived roughly as half as loud for the first row of receivers. Those are geometry-based
-              highway rules of thumb, not guaranteed F1 panel values.
-            </p>
-            <a
-              href="https://www.fhwa.dot.gov/Environment/noise/noise_barriers/design_construction/design/design03.cfm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-[21px] inline-flex text-f14 font-semibold text-teal-text hover:underline"
-            >
-              Read the FHWA acoustic-design basis ↗
-            </a>
-          </div>
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
-              Specifier answer
-            </p>
-            <p className="mt-[13px] text-f18 font-bold leading-[1.35] text-t1">
-              An FRP noise barrier is not “soundproof.”
-            </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              Select the wall from source spectrum, receiver geometry, target insertion loss, barrier
-              alignment and jurisdiction. Then verify the proposed panel assembly for transmission,
-              absorption where required, structural loads and environmental exposure.
-            </p>
-            <ul className="mt-[21px] space-y-[10px] text-f14 leading-golden text-t2">
-              <li>• Put the wall near the source or receiver when the acoustic model supports it.</li>
-              <li>• Keep the barrier continuous and seal panel, post and perimeter paths.</li>
-              <li>• Use absorption only when reflections matter to the project.</li>
-              <li>• Treat gates, penetrations, steps and end returns as acoustic details.</li>
+            <ul className="mt-[14px] divide-y divide-border-default border-y border-border-default text-f14 leading-golden text-t2">
+              <li className="py-[8px]">Put the wall near the source or receiver when the acoustic model supports it.</li>
+              <li className="py-[8px]">Keep the barrier continuous and seal panel, post and perimeter paths.</li>
+              <li className="py-[8px]">Use absorption only when reflections matter to the project.</li>
+              <li className="py-[8px]">Treat gates, penetrations, steps and end returns as acoustic details.</li>
             </ul>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="acoustic-options" className="scroll-mt-[120px] bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Reflective & Absorptive Options</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Two FRP noise barrier configurations, each released by assembly
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            The configuration follows the acoustic study. Competitor test values do not transfer to an
-            F1 wall simply because both use pultruded fiberglass or a tongue-and-groove joint.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
-            {soundBarrierConfigurations.map((configuration) => (
-              <article
-                key={configuration.name}
-                className="overflow-hidden rounded-card border border-border-default bg-white"
-              >
-                <div className="border-b border-border-default bg-white p-[21px] sm:p-[29px]">
-                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
-                    {configuration.searchTerms}
-                  </p>
-                  <h3 className="mt-[8px] text-f20 font-extrabold text-t1">{configuration.name}</h3>
-                  <p className="mt-[13px] text-f14 leading-golden text-t2">
-                    {configuration.construction}
-                  </p>
-                </div>
-                <div className="grid gap-[13px] p-[21px] sm:p-[29px]">
-                  <div>
-                    <p className="text-f12 font-bold uppercase tracking-wide text-t1">Best fit</p>
-                    <p className="mt-[5px] text-f14 leading-golden text-t2">{configuration.bestFit}</p>
-                  </div>
-                  <div className="rounded-control border border-amber-200 bg-amber-50 p-[13px]">
-                    <p className="text-f12 font-bold uppercase tracking-wide text-t1">Release boundary</p>
-                    <p className="mt-[5px] text-f14 leading-golden text-t2">
-                      {configuration.releaseBoundary}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
+      <PageSection id="acoustics" title="Height, length and continuity set the installed result" tone="muted">
+        <div>
+          <div className="max-w-[820px] space-y-[14px] text-f16 leading-golden text-t2">
+            <p>
+              A sound wall reduces the direct path from source to receiver. Sound still diffracts over the top and around the ends, which is why a strong panel can underperform when the wall is too short, too low or interrupted by unsealed gaps.
+            </p>
+            <p>
+              The U.S. Federal Highway Administration gives two useful planning rules: just blocking the line of sight commonly produces about <strong className="font-semibold text-t1">5 dB(A)</strong> insertion loss, while an effective design can approach <strong className="font-semibold text-t1">10 dB(A)</strong>, perceived roughly as half as loud for the first row of receivers. Those are geometry-based highway rules of thumb, not guaranteed F1 panel values.
+            </p>
+            <a href="https://www.fhwa.dot.gov/Environment/noise/noise_barriers/design_construction/design/design03.cfm" target="_blank" rel="noopener noreferrer" className={`inline-block text-f14 ${link}`}>
+              Read the FHWA acoustic-design basis <span aria-hidden>↗</span>
+            </a>
+          </div>
+          <div className="mt-[40px]">
+            <h3 className="text-f20 font-bold text-t1">NRC, STC, OITC and insertion loss answer different questions</h3>
+            <p className="mt-[8px] max-w-[820px] text-f14 leading-golden text-t2">
+              Do not convert one number into another or use a laboratory panel rating as a guaranteed property-line result. The test report, specimen construction and site model must agree.
+            </p>
+            <div className="relative mt-[16px] overflow-x-auto rounded-card border border-border-default bg-white">
+              <table className="w-full min-w-[640px] border-collapse text-left text-f14">
+                <caption className="sr-only">What each acoustic metric answers</caption>
+                <thead>
+                  <tr className="border-b border-border-default bg-bg2">
+                    <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Metric</th>
+                    <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">What it answers</th>
+                    <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">What it does not answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {soundBarrierMetricGuide.map((row) => (
+                    <tr key={row.metric} className="border-b border-border-default align-top last:border-b-0">
+                      <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{row.metric}</th>
+                      <td className="px-[14px] py-[10px] leading-golden text-t2">{row.answers}</td>
+                      <td className="px-[14px] py-[10px] leading-golden text-t2">{row.doesNotAnswer}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Custom Manufacturing &amp; Supply</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP sound barrier panel manufacturing and export supply
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            Move from wall geometry to a controlled pultrusion and shipment package. F1 separates
-            project-specific engineering, test evidence and commercial release so the buyer can see
-            exactly what is included before tooling or production begins.
-          </p>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-3">
-            {supplyCapabilities.map((capability) => (
-              <article key={capability.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <h3 className="text-f18 font-extrabold text-t1">{capability.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{capability.body}</p>
-              </article>
-            ))}
-          </div>
-          <Link
-            href="/products/frp-pultrusion-manufacturer-factory-direct"
-            className="mt-[21px] inline-flex text-f14 font-bold text-teal-text hover:underline"
-          >
-            Review F1 factory-direct pultrusion controls →
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <figure>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-[#252d3a]">
-                <Image
-                  src={frpSoundBarrierImageAssets.panelSection}
-                  alt="Interlocking pultruded FRP sound barrier plank sections stacked between posts"
-                  fill
-                  loading="lazy"
-                  quality={85}
-                  sizes="(max-width: 1024px) calc(100vw - 40px), 45vw"
-                  className="object-scale-down"
-                />
+      <PageSection
+        id="acoustic-options"
+        title="Two FRP noise barrier configurations, each released by assembly"
+        intro="The configuration follows the acoustic study. Competitor test values do not transfer to an F1 wall simply because both use pultruded fiberglass or a tongue-and-groove joint."
+      >
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-2">
+          {soundBarrierConfigurations.map((configuration) => (
+            <article key={configuration.name} className="flex flex-col rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{configuration.searchTerms}</p>
+              <h3 className="mt-[8px] text-f20 font-bold text-t1">{configuration.name}</h3>
+              <p className="mt-[10px] text-f14 leading-golden text-t2">{configuration.construction}</p>
+              <h4 className="mt-[16px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">Best fit</h4>
+              <p className="mt-[4px] text-f14 leading-golden text-t2">{configuration.bestFit}</p>
+              <div className="mt-auto pt-[16px]">
+                <div className="rounded-control border border-warn-border bg-warn-bg p-[14px]">
+                  <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-warn">Release boundary</h4>
+                  <p className="mt-[4px] text-f14 leading-golden text-t2">{configuration.releaseBoundary}</p>
+                </div>
               </div>
-              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="assembly"
+        title="FRP sound barrier panel installation and system components"
+        tone="muted"
+        intro="A quote-ready system coordinates the pultruded planks with posts, seals, closures, finishes, anchors and foundation interfaces. This keeps the acoustic model, structural load path and installation sequence aligned through the same release drawing."
+      >
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-[40px]">
+          <Figure
+            number={2}
+            title="Interlocking plank concept"
+            note="Supplier rendering"
+            caption={
+              <>
                 Supplier reference rendering from{" "}
                 <a
                   href="https://www.fibergrate.com/products/unique-product-solutions/sound-barrier-wall/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-teal-text hover:underline"
+                  className={link}
                 >
                   Fibergrate
                 </a>{" "}
-                illustrating one proprietary interlocking-plank concept. It is not an F1 project image
-                or released F1 section; project geometry, joints and acoustic build-up must follow the
-                approved drawings.
-              </figcaption>
-            </figure>
-            <div>
-              <SectionTag>Complete Wall Assembly</SectionTag>
-              <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                FRP sound barrier panel installation and system components
-              </h2>
-              <p className="mt-[21px] text-f16 leading-golden text-t2">
-                A quote-ready system coordinates the pultruded planks with posts, seals, closures,
-                finishes, anchors and foundation interfaces. This keeps the acoustic model, structural load path
-                and installation sequence aligned through the same release drawing.
-              </p>
-            </div>
-          </div>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
+                illustrating one proprietary interlocking-plank concept. It is not an F1 project image or released F1 section; project geometry, joints and acoustic build-up must follow the approved drawings.
+              </>
+            }
+          >
+            <Image
+              src={frpSoundBarrierImageAssets.panelSection}
+              alt="Interlocking pultruded FRP sound barrier plank sections stacked between posts"
+              width={259}
+              height={194}
+              loading="lazy"
+              quality={85}
+              sizes="259px"
+              className="mx-auto h-auto w-full max-w-[259px]"
+            />
+          </Figure>
+          <ol className="grid grid-cols-1 gap-[12px] sm:grid-cols-2">
             {soundBarrierSystemComponents.map((component, index) => (
-              <article key={component.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-[8px] text-f18 font-extrabold text-t1">{component.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{component.body}</p>
-              </article>
+              <li key={component.title} className={card}>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Component {index + 1}</p>
+                <h3 className="mt-[6px] text-f16 font-bold text-t1">{component.title}</h3>
+                <p className="mt-[6px] text-f14 leading-golden text-t2">{component.body}</p>
+              </li>
             ))}
-          </div>
-
-          <div className="mt-[55px] grid gap-[34px] border-t border-border-default pt-[34px] lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-            <figure>
-              <div className="overflow-hidden rounded-card border border-border-default bg-bg2">
-                <Image
-                  src={frpSoundBarrierImageAssets.installationReference}
-                  alt="Outdoor post-and-panel wall with horizontal infill panels at a commercial site"
-                  width={1024}
-                  height={683}
-                  loading="lazy"
-                  quality={75}
-                  sizes="(max-width: 1024px) calc(100vw - 40px), 54vw"
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                User-supplied layout reference showing a post-and-panel wall form that may inform a
-                sound-wall configuration. The pictured product&apos;s material, function and project
-                ownership are unverified; it is not an F1 project photograph or acoustic-performance
-                evidence.
-              </figcaption>
-            </figure>
-            <div>
-              <SectionTag>Plate Profile Application Path</SectionTag>
-              <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                Can fiberglass plate profiles become FRP sound-wall panels?
-              </h2>
-              <p className="mt-[21px] text-f16 leading-golden text-t2">
-                Some hollow or multi-cell pultruded plate sections can be evaluated as horizontal
-                sound-wall planks when their cavity, return, edge and joint geometry fit the assembly.
-                This is an application route, not a catalog equivalence: the section, laminate, sealed
-                joints, post interface, loads and any absorptive build-up must be released together.
-              </p>
-              <p className="mt-[13px] text-f14 leading-golden text-t2">
-                A plate drawing alone has no automatic NRC, STC, OITC, transmission-loss value or
-                project span. Start with the section geometry, then complete the acoustic and structural review.
-              </p>
-              <Link
-                href="/products/fiberglass-plates"
-                className="mt-[21px] inline-flex text-f14 font-bold text-teal-text hover:underline"
-              >
-                Compare hollow and multi-cell fiberglass plate profile drawings →
-              </Link>
-            </div>
-          </div>
+          </ol>
         </div>
-      </section>
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Acoustic Metrics</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            NRC, STC, OITC and insertion loss answer different questions
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            Do not convert one number into another or use a laboratory panel rating as a guaranteed
-            property-line result. The test report, specimen construction and site model must agree.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[820px] border-collapse text-left">
-              <thead className="bg-white">
-                <tr>
-                  <th className="px-[21px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Metric</th>
-                  <th className="px-[21px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">What it answers</th>
-                  <th className="px-[21px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">What it does not answer</th>
-                </tr>
-              </thead>
-              <tbody>
-                {soundBarrierMetricGuide.map((row) => (
-                  <tr key={row.metric} className="border-t border-border-default align-top">
-                    <th className="px-[21px] py-[16px] text-f14 font-extrabold text-t1">{row.metric}</th>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.answers}</td>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-t2">{row.doesNotAnswer}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Material Decision</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP vs concrete, steel and wood sound walls
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            FRP is not the automatic winner on every site. Its strongest cases combine constrained
-            installation access with corrosive exposure, modular repair or a need to avoid metallic
-            panels. Concrete remains compelling for mass and noncombustibility.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
-            <table className="w-full min-w-[1040px] border-collapse text-left">
-              <thead className="bg-bg2">
-                <tr>
-                  <th className="px-[18px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Decision</th>
-                  <th className="px-[18px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Pultruded FRP</th>
-                  <th className="px-[18px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Concrete</th>
-                  <th className="px-[18px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Steel or wood</th>
-                </tr>
-              </thead>
-              <tbody>
-                {materialComparison.map((row) => (
-                  <tr key={row.criterion} className="border-t border-border-default align-top">
-                    <th className="px-[18px] py-[16px] text-f14 font-extrabold text-t1">{row.criterion}</th>
-                    <td className="px-[18px] py-[16px] text-f14 leading-golden text-t2">{row.frp}</td>
-                    <td className="px-[18px] py-[16px] text-f14 leading-golden text-t2">{row.concrete}</td>
-                    <td className="px-[18px] py-[16px] text-f14 leading-golden text-t2">{row.steelWood}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>From Noise Study to Release</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Six inputs for an engineered FRP sound wall
-          </h2>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-            {soundBarrierEngineeringInputs.map((input, index) => (
-              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
-                  Step {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-[8px] text-f18 font-extrabold text-t1">{input.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Applications</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Highway, railway, industrial and utility noise barriers
-          </h2>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-            {soundBarrierApplications.map((application) => (
-              <article key={application.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <h3 className="text-f18 font-extrabold text-t1">{application.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-border-default bg-bg2 py-[55px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="mt-[40px] grid grid-cols-1 items-start gap-[24px] border-t border-border-default pt-[32px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <Figure
+            number={3}
+            title="Post-and-panel layout"
+            note="Reference photo"
+            caption="User-supplied layout reference showing a post-and-panel wall form that may inform a sound-wall configuration. The pictured product's material, function and project ownership are unverified; it is not an F1 project photograph or acoustic-performance evidence."
+            bleed
+          >
+            <Image
+              src={frpSoundBarrierImageAssets.installationReference}
+              alt="Outdoor post-and-panel wall with horizontal infill panels at a commercial site"
+              width={1024}
+              height={683}
+              loading="lazy"
+              quality={75}
+              sizes="(max-width: 1023px) 94vw, 54vw"
+              className="h-auto w-full"
+            />
+          </Figure>
           <div>
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
-              Evidence and release boundary
+            <h3 className="text-f20 font-bold text-t1">Can fiberglass plate profiles become FRP sound-wall panels?</h3>
+            <p className="mt-[10px] text-f16 leading-golden text-t2">
+              Some hollow or multi-cell pultruded plate sections can be evaluated as horizontal sound-wall planks when their cavity, return, edge and joint geometry fit the assembly. This is an application route, not a catalog equivalence: the section, laminate, sealed joints, post interface, loads and any absorptive build-up must be released together.
             </p>
-            <h2 className="mt-[13px] text-f24 font-extrabold text-t1">
-              Public references explain the design method—not F1 product ratings
-            </h2>
-            <p className="mt-[13px] text-f14 leading-golden text-t2">
-              The sources below define acoustic concepts, highway design expectations and test scopes.
-              Supplier-specific NRC, STC, dimensions, spans and fire results are intentionally excluded
-              from F1 claims unless the offered configuration is traceable to the same report and authorized
-              for use. The released quotation and submittal control the actual product.
+            <p className="mt-[10px] text-f14 leading-golden text-t2">
+              A plate drawing alone has no automatic NRC, STC, OITC, transmission-loss value or project span. Start with the section geometry, then complete the acoustic and structural review.
             </p>
+            <Link href="/products/fiberglass-plates" className={`mt-[14px] inline-block text-f14 ${link}`}>
+              Compare hollow and multi-cell fiberglass plate profile drawings
+            </Link>
           </div>
-          <ul className="grid content-start gap-[8px]">
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="materials"
+        title="FRP vs concrete, steel and wood sound walls"
+        intro="FRP is not the automatic winner on every site. Its strongest cases combine constrained installation access with corrosive exposure, modular repair or a need to avoid metallic panels. Concrete remains compelling for mass and noncombustibility."
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[960px] border-collapse text-left text-f14">
+            <caption className="sr-only">Pultruded FRP compared with concrete, steel and wood sound walls</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Decision</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Pultruded FRP</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Concrete</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Steel or wood</th>
+              </tr>
+            </thead>
+            <tbody>
+              {materialComparison.map((row) => (
+                <tr key={row.criterion} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.criterion}</th>
+                  <td className="px-[14px] py-[12px] leading-golden text-t1">{row.frp}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.concrete}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.steelWood}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection id="inputs" title="Six inputs for an engineered FRP sound wall" tone="muted">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {soundBarrierEngineeringInputs.map((input, index) => (
+            <li key={input.title} className={card}>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Input {index + 1}</p>
+              <h3 className="mt-[6px] text-f18 font-bold text-t1">{input.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection
+        id="supply"
+        title="FRP sound barrier panel manufacturing and export supply"
+        intro="Move from wall geometry to a controlled pultrusion and shipment package. F1 separates project-specific engineering, test evidence and commercial release so the buyer can see exactly what is included before tooling or production begins."
+      >
+        <div className="grid grid-cols-1 gap-x-[32px] gap-y-[20px] md:grid-cols-3">
+          {supplyCapabilities.map((capability) => (
+            <article key={capability.title} className="border-t border-border-default pt-[14px]">
+              <h3 className="text-f18 font-bold text-t1">{capability.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{capability.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-[20px] text-f14 leading-golden text-t2">
+          New sections follow the{" "}
+          <Link href="/products/custom-pultruded-profiles" className={link}>custom pultrusion process</Link>; production controls are set out under{" "}
+          <Link href="/products/frp-pultrusion-manufacturer-factory-direct" className={link}>factory-direct pultrusion</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="applications" title="Highway, railway, industrial and utility noise barriers" tone="muted">
+        <div className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {soundBarrierApplications.map((application) => (
+            <article key={application.title} className={card}>
+              <h3 className="text-f18 font-bold text-t1">{application.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection id="sources" title="Public references explain the design method, not F1 product ratings">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[48px]">
+          <p className="text-f16 leading-golden text-t2">
+            The sources below define acoustic concepts, highway design expectations and test scopes. Supplier-specific NRC, STC, dimensions, spans and fire results are intentionally excluded from F1 claims unless the offered configuration is traceable to the same report and authorized for use. The released quotation and submittal control the actual product.
+          </p>
+          <ul className="divide-y divide-border-default border-y border-border-default">
             {soundBarrierTechnicalSources.map((source) => (
               <li key={source.href}>
-                <a
-                  href={source.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-f14 font-semibold leading-golden text-teal-text hover:underline"
-                >
-                  {source.label} ↗
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="group flex min-h-[44px] items-center justify-between gap-[12px] py-[10px] text-f14 font-semibold text-t1 transition-colors hover:text-teal-text">
+                  {source.label}
+                  <span aria-hidden className="text-teal-text">↗</span>
                 </a>
               </li>
             ))}
           </ul>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="mx-auto max-w-[920px] px-[20px] sm:px-[28px] lg:px-[34px]">
-          <AskAICard prefill="I need an FRP sound barrier wall: application [highway/railway/industrial/data center], source and operating spectrum [attach study if available], wall alignment/length/height [mm], receiver locations [describe], reflective or absorptive requirement [state], wind and governing code [state], soil/foundation information [state], fire/environment criteria [state], openings and access [describe], finish/color [state], quantity and destination [state]. Build the RFQ checklist and separate laboratory panel ratings from predicted field insertion loss." />
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <ProductNextSteps path="/products/frp-sound-barrier-wall" />
-      <InnerCTA title="Send the noise study and wall alignment for engineering review" />
+      <PageSection id="faq" title="FRP sound barrier questions" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
             title: "Related systems",
             links: [
-              {
-                href: "/products/fiberglass-plates",
-                label: "Fiberglass plate profiles — candidate hollow sections",
-              },
+              { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles, candidate hollow sections" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
-              {
-                href: "/products/frp-pultrusion-manufacturer-factory-direct",
-                label: "Factory-direct FRP pultrusion",
-              },
+              { href: "/products/frp-pultrusion-manufacturer-factory-direct", label: "Factory-direct FRP pultrusion" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
             ],
           },
@@ -663,6 +539,17 @@ export default function FrpSoundBarrierWallPage() {
           },
         ]}
       />
+
+      <PageSection id="quote" title="Send the noise study and wall alignment" tone="deep">
+        <ProductRfq
+          product="FRP sound barrier wall panels"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="A marked plan and elevation are the fastest starting point. We review the wall as a system, then quote the panels, posts and closures against the released drawing."
+          advisorPrompt="I need an FRP sound barrier wall: application [highway/railway/industrial/data center], source and operating spectrum [attach study if available], wall alignment/length/height [mm], receiver locations [describe], reflective or absorptive requirement [state], wind and governing code [state], soil/foundation information [state], fire/environment criteria [state], openings and access [describe], finish/color [state], quantity and destination [state]. Build the RFQ checklist and separate laboratory panel ratings from predicted field insertion loss."
+        />
+      </PageSection>
     </>
   );
 }

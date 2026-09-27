@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageSection from "@/components/layout/PageSection";
+import InnerCTA from "@/components/sections/InnerCTA";
 import ProductFamilyCards from "@/components/sections/ProductFamilyCards";
 import CollectionSchema from "@/components/seo/CollectionSchema";
+import CoverCard from "@/components/ui/CoverCard";
+import CoverLink from "@/components/ui/CoverLink";
 import {
   productFamilies,
   applicationGroups,
 } from "@/content/data/productTaxonomy";
+import { coverFor } from "@/lib/covers";
 import { buildPageMetadata } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
@@ -17,6 +22,16 @@ export const metadata: Metadata = buildPageMetadata({
   description: target.description,
   path,
 });
+
+// Panel-type profiles that sit between the structural shapes and the systems.
+const panelProfiles = [
+  { href: "/products/fiberglass-sheets", title: "Solid sheets", text: "Flat stock cut to size, smooth, gritted or embossed." },
+  { href: "/products/fiberglass-plates", title: "Hollow and multi-cell profiles", text: "Plate profiles with enclosed cells, from source drawings." },
+  { href: "/products/frp-deck-panels", title: "Decking and interlocking profiles", text: "Closed deck sections with interlocking edges." },
+];
+
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
 export default function ProductsPage() {
   return (
     <>
@@ -32,84 +47,72 @@ export default function ProductsPage() {
         description="F1 Composite specializes in standard and custom pultruded profiles. Explore windows and doors, molded and pultruded grating, GFRP concrete reinforcement, and fiberglass fasteners and fittings for complete project supply."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
-      <section className="bg-white py-[48px]">
-        <div className="site-container">
-          <h2 className="mb-[22px] text-f32 font-bold text-t1">
-            Choose your product family
-          </h2>
-          <ProductFamilyCards />
-          <div className="mt-[28px] rounded-card border border-border-default bg-bg2 p-[24px]">
-            <h2 className="text-f24 font-bold text-t1">
-              Standard section or custom development?
-            </h2>
-            <p className="mt-[10px] text-f16 leading-relaxed text-t2">
-              Choose standard profiles when an established cross-section fits
-              your design. Standard does not mean in stock: material, quantity,
-              availability and delivery are confirmed at quotation. Choose
-              custom profiles when a new geometry, interface or material
-              requirement needs development. The same profile may serve several
-              industries.
-            </p>
-            <p className="mt-[12px] text-f14 text-t2">
-              The product-line names F1-STRUX, F1-FORM, F1-THERM and F1-GRID
-              correspond respectively to standard profiles, custom profiles,
-              windows and doors, and grating. Product specifications and supply
-              scope are confirmed separately for each order.
+
+      <PageSection id="families" title="Choose your product family" count={`${productFamilies.length} families`}>
+        <ProductFamilyCards />
+        <aside className="mt-[24px] grid grid-cols-1 gap-[16px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[40px]">
+          <div>
+            <h3 className="text-f20 font-bold text-t1">Standard section or custom development?</h3>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
+              Choose standard profiles when an established cross-section fits your design. Standard does not mean in stock: material, quantity, availability and delivery are confirmed at quotation. Choose custom profiles when a new geometry, interface or material requirement needs development. The same profile may serve several industries.
             </p>
           </div>
-        </div>
-      </section>
-      <section className="bg-bg2 py-[48px]">
-        <div className="site-container">
-          <h2 className="text-f32 font-bold text-t1">
-            Panel profiles & application-specific components
-          </h2>
-          <p className="mt-[10px] max-w-[860px] text-f16 leading-relaxed text-t2">
-            Browse existing commercial pages by use. Deck panels are profiles;
-            molded grating uses a different manufacturing process. Concrete
-            reinforcing bars have their own specification and are not
-            interchangeable with ordinary solid rods.
+          <p className="text-f14 leading-golden text-t2 lg:pt-[36px]">
+            The product-line names F1-STRUX, F1-FORM, F1-THERM and F1-GRID correspond respectively to standard profiles, custom profiles, windows and doors, and grating. Product specifications and supply scope are confirmed separately for each order.
           </p>
-          <div className="mt-[20px] flex flex-wrap gap-[18px] text-f14 font-semibold text-teal-text">
-            <Link href="/products/fiberglass-sheets">Solid sheets →</Link>
-            <Link href="/products/fiberglass-plates">
-              Hollow & multi-cell profiles →
-            </Link>
-            <Link href="/products/frp-deck-panels">
-              Decking & interlocking profiles →
-            </Link>
-          </div>
-          <div className="mt-[26px] grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
-            {applicationGroups.map((group) => (
-              <div
-                key={group.label}
-                className="rounded-card border border-border-default bg-white p-[22px]"
-              >
-                <h3 className="text-f18 font-bold text-t1">{group.label}</h3>
-                <ul className="mt-[12px] space-y-[10px]">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-f14 text-teal-text hover:underline"
-                      >
-                        {link.label} →
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-[26px] flex flex-wrap gap-[24px] text-f14 font-bold text-teal-text">
-            <Link href="/industries">Find your industry →</Link>
-            <Link href="/applications">Explore applications →</Link>
-            <Link href="/pultruded-frp-profiles">
-              Pultruded FRP & GRP overview →
-            </Link>
-          </div>
-        </div>
-      </section>
+        </aside>
+      </PageSection>
+
+      <PageSection
+        id="applications"
+        title="Panel profiles & application-specific components"
+        tone="muted"
+        intro="Browse existing commercial pages by use. Deck panels are profiles; molded grating uses a different manufacturing process. Concrete reinforcing bars have their own specification and are not interchangeable with ordinary solid rods."
+      >
+        <ul className="grid grid-cols-1 gap-[10px] md:grid-cols-3">
+          {panelProfiles.map((item) => (
+            <li key={item.href}>
+              <CoverLink href={item.href} cover={coverFor(item.href)!} title={item.title} text={item.text} />
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-[24px] grid grid-cols-1 gap-[16px] md:grid-cols-2 lg:grid-cols-3">
+          {applicationGroups.map((group) => {
+            const cover = coverFor(group.href);
+            return (
+              <li key={group.label}>
+                {cover ? (
+                  <CoverCard
+                    href={group.href}
+                    cover={cover}
+                    title={group.label}
+                    text={group.description}
+                    footer={
+                      <ul className="flex flex-col border-t border-border-default px-[18px] py-[6px] sm:px-[20px]">
+                        {group.links.map((item) => (
+                          <li key={item.href}>
+                            <Link href={item.href} className="flex min-h-[36px] items-center justify-between gap-[12px] text-f14 font-semibold text-t2 hover:text-teal-text">
+                              {item.label}
+                              <span aria-hidden className="text-teal-text">→</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    }
+                  />
+                ) : null}
+              </li>
+            );
+          })}
+        </ul>
+        <p className="mt-[24px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14">
+          <Link href="/industries" className={link}>Find your industry</Link>
+          <Link href="/applications" className={link}>Explore applications</Link>
+          <Link href="/pultruded-frp-profiles" className={link}>Pultruded FRP & GRP overview</Link>
+        </p>
+      </PageSection>
+
+      <InnerCTA title="Not sure which product family fits your project?" />
     </>
   );
 }

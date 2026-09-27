@@ -5,11 +5,13 @@ import PageHeader from "@/components/layout/PageHeader";
 import ProductPageNav from "@/components/products/ProductPageNav";
 import ProductRfq from "@/components/products/ProductRfq";
 import ProductSection from "@/components/products/ProductSection";
+import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQDisclosure from "@/components/ui/FAQDisclosure";
 import CollectionSchema from "@/components/seo/CollectionSchema";
 import { buildPageMetadata } from "@/lib/seo";
+import { productCovers } from "@/lib/covers";
 import { buildRfqHref } from "@/lib/rfq";
 import {
   constructionApplications,
@@ -75,7 +77,7 @@ export default function ConstructionPage() {
         title={pageTitle}
         description="From the window opening to the rooftop: find the right fiberglass product for each part of a building, understand the design decisions, and build a coordinated enquiry."
         figure={
-          <Figure number={1} title="One building, six application areas" note="Concept illustration" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
+          <Figure number={1} title="One building, six application areas" note="Illustration" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
             <Image
               src={conceptImage}
               alt="Concept building with six numbered FRP applications: 01 window frames, 02 facade fins, 03 secondary support frame, 04 grating stairs and handrails, 05 slab reinforcement, and 06 rooftop solar supports."
@@ -140,16 +142,20 @@ export default function ConstructionPage() {
           ))}
         </div>
         <h3 className="mt-[36px] text-f24 font-bold text-t1">More components for the building and its site</h3>
-        <div className="mt-[16px] grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-[16px] grid grid-cols-2 gap-[12px] lg:grid-cols-4 lg:gap-[16px]">
           {constructionSupportingProducts.map((product) => (
-            <Link key={product.href} href={product.href} className="rounded-card border border-border-default bg-white p-[20px] transition-colors hover:border-teal-border">
-              <h4 className="font-bold text-t1">
-                {product.label} <span aria-hidden="true" className="text-teal-text">→</span>
-              </h4>
-              <p className="mt-[8px] text-f14 leading-relaxed text-t2">{product.description}</p>
-            </Link>
+            <li key={product.href}>
+              <CoverCard
+                href={product.href}
+                cover={productCovers[product.href]}
+                title={product.label}
+                text={product.description}
+                compact
+                sizes="(max-width: 1023px) 46vw, 290px"
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </ProductSection>
 
       <ProductSection id="design-guide" title="Make the material choice at the component level" tone="muted">

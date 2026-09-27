@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { buildRfqHref } from "@/lib/rfq";
-import SectionTag from "@/components/ui/SectionTag";
 import LineTag from "@/components/ui/LineTag";
 import Button from "@/components/ui/Button";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/layout/Breadcrumbs";
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import WhatsAppButton from "@/components/contact/WhatsAppButton";
 import { formatShortDate } from "@/lib/dates";
+import { holdDash } from "@/lib/typography";
 
 interface PageHeaderAction {
   label: string;
@@ -22,6 +22,7 @@ interface PageHeaderActions {
 }
 
 interface PageHeaderProps {
+  /** The page type, shown as a label over the title when there is no product line, e.g. "Industry guide". */
   tag: string;
   title: string;
   description: string;
@@ -58,8 +59,8 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
     actions ??
     (isProductPage
       ? {
-          primary: { label: "Quote This Product", href: productQuoteHref(title) },
-          secondary: { label: "Ask the AI Assistant", href: productAdvisorHref(title), variant: "secondary" },
+          primary: { label: "Request a quote", href: productQuoteHref(title) },
+          secondary: { label: "Ask the AI assistant", href: productAdvisorHref(title), variant: "secondary" },
           note: "Start with your name and email. Product details and drawings can follow.",
           stickyMobile: true,
         }
@@ -76,9 +77,9 @@ export default function PageHeader({ tag, title, description, breadcrumbs, actio
               facts and actions under the text. Phones stack text, figure, rest. */}
           <div className={figure ? "grid gap-[24px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:grid-rows-[auto_1fr] lg:gap-x-[56px] lg:[grid-template-areas:'text_figure'_'meta_figure']" : undefined}>
             <div className={figure ? "lg:[grid-area:text]" : undefined}>
-              {line ? <LineTag line={line.name} label={line.label} mark={line.mark} /> : <SectionTag>{tag}</SectionTag>}
+              {line ? <LineTag line={line.name} label={line.label} mark={line.mark} /> : <LineTag line={tag} mark={false} />}
               <h1 className="mt-[16px] max-w-[920px] text-[clamp(34px,4.5vw,56px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-t1">
-                {title}
+                {holdDash(title)}
               </h1>
               <p className="mt-[16px] max-w-[820px] text-f18 leading-relaxed text-t2">
                 {description}

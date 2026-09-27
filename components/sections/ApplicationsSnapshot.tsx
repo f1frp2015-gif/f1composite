@@ -1,35 +1,39 @@
 import Link from "next/link";
-import ProductSection from "@/components/products/ProductSection";
+import PageSection from "@/components/layout/PageSection";
+import CoverCard from "@/components/ui/CoverCard";
 import { industries } from "@/content/data/industries";
 import { applicationGroups } from "@/content/data/productTaxonomy";
+import { industryCovers } from "@/lib/covers";
 
-/** The industry pages, then the application guides as a row of links. */
+/** The industry pages as cover cards, then the application guides as a row of links. */
 export default function ApplicationsSnapshot() {
   return (
-    <ProductSection
+    <PageSection
       id="industries"
       title="FRP by industry"
       intro="Each industry page sets out where FRP is used, what to check in each area, the products and projects, and what to send for a quotation."
       aside={
-        <Link href="/industries" className="font-bold text-teal-text">
-          All industries →
+        <Link href="/industries" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+          All industries
         </Link>
       }
       tone="muted"
     >
-      <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
         {industries.map((industry) => (
           <li key={industry.href}>
-            <Link href={industry.href} className="group flex h-full flex-col rounded-card border border-border-default bg-white p-[18px] transition-colors hover:border-teal-border">
-              <span className="text-f16 font-bold text-t1 group-hover:text-teal-text">{industry.title}</span>
-              <span className="mt-[6px] text-f14 leading-relaxed text-t2">{industry.description}</span>
-            </Link>
+            <CoverCard href={industry.href} cover={industryCovers[industry.href]} title={industry.title} text={industry.description} compact sizes="(max-width: 1024px) 50vw, 300px" />
           </li>
         ))}
         <li>
-          <Link href="/applications" className="flex h-full flex-col justify-center rounded-card border border-teal-border bg-teal-bg p-[18px] text-f16 font-bold text-teal-text transition-colors hover:bg-teal-bg2">
-            All applications →
-          </Link>
+          <CoverCard
+            href="/applications"
+            cover={{ src: "/images/industries/industrial-plating-line-concept.webp", alt: "Concept walkway with FRP grating and yellow handrails beside process tanks", note: "AI concept" }}
+            title="Browse by application"
+            text="Platforms, cooling towers, solar, cable trays, bridges and stakes."
+            compact
+            sizes="(max-width: 1024px) 50vw, 300px"
+          />
         </li>
       </ul>
       <p className="mt-[20px] flex flex-wrap items-baseline gap-x-[20px] gap-y-[8px] text-f14">
@@ -40,6 +44,6 @@ export default function ApplicationsSnapshot() {
           </Link>
         ))}
       </p>
-    </ProductSection>
+    </PageSection>
   );
 }

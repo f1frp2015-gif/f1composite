@@ -91,7 +91,7 @@ export default function LaminateMicrograph() {
   const weightPct = (glassMass / (glassMass + (1 - vfFrac) * RHO_RESIN)) * 100;
 
   return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
       <div className="flex flex-wrap items-center gap-[16px]">
         <label htmlFor="vf-slider" className="text-f14 font-semibold text-t1">
           Fiber volume fraction
@@ -112,7 +112,7 @@ export default function LaminateMicrograph() {
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="mt-[13px] w-full rounded-tag"
+        className="mt-[12px] w-full rounded-tag"
         role="img"
         aria-label="Cross-section of a pultruded FRP laminate: surface veil, continuous filament mat layers, and unidirectional glass rovings embedded in the resin matrix"
       >
@@ -157,9 +157,9 @@ export default function LaminateMicrograph() {
         </text>
       </svg>
 
-      <div className="mt-[13px] grid gap-[13px] sm:grid-cols-2">
-        <div className="rounded-card bg-bg2 p-[13px]">
-          <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
+      <div className="mt-[12px] grid gap-[12px] sm:grid-cols-2">
+        <div className="rounded-card bg-bg2 p-[12px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
             Idealized UD axial modulus (rule of mixtures)
           </p>
           <p className="mt-[3px] text-f18 font-bold tabular-nums text-t1">
@@ -170,8 +170,8 @@ export default function LaminateMicrograph() {
             roving core only, not the full section.
           </p>
         </div>
-        <div className="rounded-card bg-bg2 p-[13px]">
-          <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
+        <div className="rounded-card bg-bg2 p-[12px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
             Full-section reality check (EN 13706)
           </p>
           <p className="mt-[3px] text-f18 font-bold text-t1">E17 / E23 grades</p>
@@ -182,12 +182,12 @@ export default function LaminateMicrograph() {
         </div>
       </div>
 
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         What a pultruded laminate looks like in cross-section. The white circles are glass
         fibers carrying axial load; everything amber is the resin matrix — transferring
         shear between fibers, stopping buckling, and forming the corrosion barrier at the
         surface. Drag the slider: more fiber means more stiffness but less matrix to
-        protect and bind it — pultrusion typically runs 55–72 % fiber by volume in the core.
+        protect and bind it — pultrusion typically runs 55–72% fiber by volume in the core.
       </figcaption>
     </figure>
   );

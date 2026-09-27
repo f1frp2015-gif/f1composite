@@ -11,7 +11,7 @@ export default function SheetQuoteForm() {
   const inquiry = sheetInquiry(selection);
 
   return (
-    <form action="/contact" method="get" className="mt-[24px] rounded-card border border-border-default bg-white p-[21px] sm:p-[28px]" aria-label="Prepare a fiberglass sheet inquiry">
+    <form action="/contact" method="get" className="rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]" aria-label="Prepare a fiberglass sheet inquiry">
       <input type="hidden" name="source" value="sheet-specification" />
       <input type="hidden" name="inquiry_type" value="rfq" />
       <input type="hidden" name="product" value="Solid pultruded fiberglass sheet" />

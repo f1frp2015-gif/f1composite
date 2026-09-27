@@ -1,104 +1,20 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 import { calcWindowUw } from "@/lib/windowUValue";
 
-/* ══════════════════════════════════════════════════════
-   Data — Frame systems, glass configs, spacer types
-   ══════════════════════════════════════════════════════ */
-
-type FrameSystem = { id: string; label: string; Uf: number; depth: number; faceWidth: number; certifiedReference?: boolean };
-type GlassConfig = { id: string; label: string; Ug: number; thickness: number; certifiedReference?: boolean };
-type SpacerType = { id: string; label: string; psi: number; certifiedReference?: boolean };
-
-const PHI_FRAME_ID = "frp-90-phi-2491wi03";
-const PHI_GLASS_ID = "phi-ug070";
-const PHI_SPACER_ID = "phi-psi0023";
-
-const frameSystems: FrameSystem[] = [
-  { id: "frp-65", label: "F1 FRP 65-Series (65 mm, 2-chamber)", Uf: 1.4, depth: 65, faceWidth: 54 },
-  { id: "frp-70", label: "F1 FRP 70-Series (70 mm, 3-chamber)", Uf: 1.2, depth: 70, faceWidth: 58 },
-  { id: "frp-80", label: "F1 FRP 80-Series (80 mm, 3-chamber)", Uf: 1.0, depth: 80, faceWidth: 65 },
-  { id: "frp-90", label: "F1 FRP 90-Series (90 mm, 3-chamber)", Uf: 0.85, depth: 90, faceWidth: 72 },
-  { id: PHI_FRAME_ID, label: "PHI certificate 2491wi03 — Fengdu Passive GFRP 90", Uf: 0.78, depth: 90, faceWidth: 109, certifiedReference: true },
-  { id: "alu-no-break", label: "Aluminum (no thermal break)", Uf: 5.9, depth: 65, faceWidth: 50 },
-  { id: "alu-break", label: "Aluminum (polyamide break)", Uf: 3.2, depth: 70, faceWidth: 55 },
-  { id: "pvc-multi", label: "PVC Multi-chamber", Uf: 1.5, depth: 70, faceWidth: 62 },
-  { id: "pvc-steel", label: "PVC Steel-reinforced", Uf: 1.8, depth: 70, faceWidth: 65 },
-  { id: "timber", label: "Timber (softwood, 68 mm)", Uf: 1.4, depth: 75, faceWidth: 65 },
-];
-
-const glassConfigs: GlassConfig[] = [
-  { id: "dg-air", label: "Double — 4/12Air/4", Ug: 2.8, thickness: 20 },
-  { id: "dg-ar", label: "Double — 4/16Ar/4 Low-E", Ug: 1.1, thickness: 24 },
-  { id: "dg-ar-6", label: "Double — 6/20Ar/6 Low-E", Ug: 1.0, thickness: 32 },
-  { id: "tg-ar", label: "Triple — 4/14Ar/4/14Ar/4 2×Low-E", Ug: 0.6, thickness: 40 },
-  { id: "tg-kr", label: "Triple — 4/12Kr/4/12Kr/4 2×Low-E", Ug: 0.5, thickness: 36 },
-  { id: "tg-ar-wide", label: "Triple — 4/18Ar/4/18Ar/4 2×Low-E", Ug: 0.55, thickness: 48 },
-  { id: "qg-kr", label: "Quadruple — 3/12Kr/3/12Kr/3/12Kr/3 3×Low-E", Ug: 0.3, thickness: 48 },
-  { id: PHI_GLASS_ID, label: "PHI certificate reference — 48 mm glazing, Ug 0.70", Ug: 0.70, thickness: 48, certifiedReference: true },
-];
-
-const spacerTypes: SpacerType[] = [
-  { id: "alu", label: "Aluminum spacer", psi: 0.08 },
-  { id: "steel", label: "Steel spacer", psi: 0.06 },
-  { id: "warm-basic", label: "Warm-edge (standard)", psi: 0.04 },
-  { id: "warm-premium", label: "Warm-edge (premium / TGI / Swisspacer)", psi: 0.03 },
-  { id: PHI_SPACER_ID, label: "PHI certificate — Swisspacer Ultimate", psi: 0.023, certifiedReference: true },
-];
-
-const windowTypes = [
-  { id: "fixed", label: "Fixed light", sashWidth: 0 },
-  { id: "casement", label: "Casement / Tilt-turn", sashWidth: 58 },
-  { id: "sliding", label: "Sliding door", sashWidth: 70 },
-  { id: "entrance", label: "Entrance door (glazed)", sashWidth: 85 },
-];
-
-/* Numeric targets for the quick comparison (W/m²·K). Sources and review
-   notes: docs/audits/2026-09-26-tools-standards-audit.md. */
-const TARGET_COMPARISON = [
-  { region: "EU", label: "Passive House (PHI), cool-temperate", max: 0.80 },
-  { region: "EU", label: "Passive House (PHI), cold", max: 0.60 },
-  { region: "UK", label: "England, replacement window (ADL 2021)", max: 1.40 },
-  { region: "UK", label: "England, new dwelling limit (ADL 2021)", max: 1.60 },
-  { region: "DE", label: "Germany, replaced window (Anlage 7)", max: 1.30 },
-  { region: "US", label: "ENERGY STAR v7.0 Northern", max: 1.25 },
-  { region: "US", label: "ENERGY STAR v7.0 Southern", max: 1.82 },
-  { region: "US", label: "IECC 2024 zones 5–6 and Marine 4", max: 1.59 },
-  { region: "US", label: "IECC 2024 zones 7–8", max: 1.53 },
-  { region: "CA", label: "ENERGY STAR Canada v5.0", max: 1.22 },
-  { region: "CA", label: "NBC 2020 9.36, zones 7B–8", max: 1.40 },
-  { region: "NZ", label: "H1/AS1 5th ed., zones 5–6 (R0.50)", max: 2.00 },
-  { region: "CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70 },
-  { region: "CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20 },
-] as const;
-
-const REFERENCE_TARGETS = [
-  { region: "Europe", std: "EN ISO 10077-1 / PHI", zone: "Passive House window, cool-temperate", uw: "≤ 0.80", note: "PHI component criterion; U_w,installed ≤ 0.85. Cold climate 0.60 (0.65 installed), warm-temperate 1.00 (1.05)" },
-  { region: "Europe", std: "EPBD (EU) 2024/1275", zone: "All member states", uw: "National", note: "No EU-wide window limit; member states set element limits in national law" },
-  { region: "Europe", std: "EN 14351-1", zone: "CE marking", uw: "Declared", note: "No maximum; the declared U_w goes on the declaration of performance" },
-  { region: "Germany", std: "Building energy act, Anlage 7", zone: "Windows replaced in existing buildings", uw: "≤ 1.30", note: "Roof windows 1.40; applies when windows in an existing building are replaced or renewed" },
-  { region: "UK (England)", std: "Approved Document L 2021", zone: "New dwellings, limiting value", uw: "≤ 1.60", note: "Notional dwelling uses 1.2; compliance is by whole-dwelling targets" },
-  { region: "UK (England)", std: "Approved Document L 2021", zone: "Replacement windows, existing dwellings", uw: "≤ 1.40", note: "Or window energy rating band B" },
-  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 3 and 4 (except Marine)", uw: "≤ 1.70", note: "U ≤ 0.30 Btu/h·ft²·°F" },
-  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 5–6 and Marine 4", uw: "≤ 1.59", note: "U ≤ 0.28; 0.30 allowed above 4,000 ft elevation or in windborne-debris regions" },
-  { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 7–8", uw: "≤ 1.53", note: "U ≤ 0.27 (0.30 in the 2021 edition)" },
-  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Northern", uw: "≤ 1.25", note: "U ≤ 0.22; SHGC ≥ 0.17 on the prescriptive path" },
-  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "North-Central", uw: "≤ 1.42", note: "U ≤ 0.25; SHGC ≤ 0.40" },
-  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "South-Central", uw: "≤ 1.59", note: "U ≤ 0.28; SHGC ≤ 0.23" },
-  { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Southern", uw: "≤ 1.82", note: "U ≤ 0.32; SHGC ≤ 0.23" },
-  { region: "Canada", std: "ENERGY STAR Canada v5.0", zone: "All of Canada (one zone since 2020)", uw: "≤ 1.22", note: "Or energy rating ER ≥ 34; version 6 is in preparation" },
-  { region: "Canada", std: "NBC 2020, 9.36.2.7", zone: "Zones 4–5 / 6–7A / 7B–8", uw: "1.80 / 1.60 / 1.40", note: "Houses and small buildings, prescriptive path; NBC 2025 adds SHGC limits" },
-  { region: "Australia", std: "NCC (Section J, Part H6)", zone: "Climate-zone dependent", uw: "No single limit", note: "Glazing is assessed with the wall or through NatHERS; product ratings come from AFRC" },
-  { region: "New Zealand", std: "H1/AS1 5th edition", zone: "Zones 1–4 / 5–6 (housing)", uw: "≈ 2.17 / 2.00", note: "Set as construction R-values R0.46 / R0.50; check the edition in force" },
-  { region: "China", std: "GB 55015-2021", zone: "All zones, mandatory since April 2022", uw: "Zone / WWR dependent", note: "General code; supersedes the thermal provisions of GB 50189-2015" },
-  { region: "China", std: "GB 50189-2015", zone: "Severe Cold A/B, public, WWR ≤ 0.2", uw: "≤ 2.70", note: "Limits tighten with window-to-wall ratio (2.5 / 2.2 …)" },
-  { region: "China", std: "GB 50189-2015", zone: "Severe Cold C, public, WWR ≤ 0.2", uw: "≤ 2.90", note: "Shape factor ≤ 0.3 column; tightens with WWR" },
-  { region: "China", std: "GB/T 8484-2020", zone: "Test method", uw: "—", note: "Hot-box test method for window thermal performance" },
-] as const;
+import {
+  PHI_FRAME_ID,
+  PHI_GLASS_ID,
+  PHI_SPACER_ID,
+  TARGET_COMPARISON,
+  frameSystems,
+  glassConfigs,
+  spacerTypes,
+  windowTypes,
+} from "@/lib/windowUValueData";
 
 /* F1 fenestration product page — the result routes here with the U-value spec
    carried into the RFQ. There is one fenestration page; the series is named in
@@ -173,16 +89,16 @@ function CalculationModel({
 
   /* ---- heat-loss channel shares (of the numerator) ---- */
   const channels = [
-    { key: "glass", label: "Glazing", term: "Aᵍ·Uᵍ", val: result.qGlass, color: "#38bdf8" },
-    { key: "frame", label: "Frame + sash", term: "Aᶠ·Uᶠ", val: result.qFrame, color: "#0f766e" },
-    { key: "edge", label: "Glass-edge bridge", term: "lᵍ·Ψᵍ", val: result.qEdge, color: "#f59e0b" },
+    { key: "glass", label: "Glazing", term: <>A<sub>g</sub>·U<sub>g</sub></>, val: result.qGlass, color: "#38bdf8" },
+    { key: "frame", label: "Frame + sash", term: <>A<sub>f</sub>·U<sub>f</sub></>, val: result.qFrame, color: "#0f766e" },
+    { key: "edge", label: "Glass-edge bridge", term: <>l<sub>g</sub>·Ψ<sub>g</sub></>, val: result.qEdge, color: "#f59e0b" },
   ];
   const pct = (v: number) => (result.L > 0 ? (v / result.L) * 100 : 0);
 
   const fmt = (n: number, d = 2) => n.toFixed(d);
 
   return (
-    <div className="mt-[55px]">
+    <div className="mt-[48px]">
       <h3 className="text-f24 font-bold text-t1">How this U-value is built</h3>
       <p className="mt-[8px] text-f14 leading-golden text-t2">
         The whole-window U-value is an <strong>area-weighted average</strong> of three parallel
@@ -190,10 +106,10 @@ function CalculationModel({
         edge where the spacer bridges the seal. This model updates live with your selection above.
       </p>
 
-      <div className="mt-[21px] grid gap-[21px] lg:grid-cols-[minmax(0,360px)_1fr]">
+      <div className="mt-[20px] grid gap-[20px] lg:grid-cols-[minmax(0,360px)_1fr]">
         {/* ── 1. Scaled window diagram ── */}
-        <div className="rounded-card border border-border-default bg-white p-[21px]">
-          <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+        <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+          <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[12px]">
             1 · Window geometry
           </h4>
           <div className="flex justify-center">
@@ -228,10 +144,12 @@ function CalculationModel({
               />
               {/* labels */}
               <text x={PAD + drawW / 2} y={PAD + bandY / 2 + 4} textAnchor="middle" fontSize="11" fontWeight="700" fill="#0f766e">
-                Aᶠ frame {fmt(result.Af)} m²
+                A<tspan dy="3" fontSize="8">f</tspan>
+                <tspan dy="-3"> frame {fmt(result.Af)} m²</tspan>
               </text>
               <text x={PAD + drawW / 2} y={PAD + drawH / 2} textAnchor="middle" fontSize="13" fontWeight="700" fill="#0369a1">
-                Aᵍ glass
+                A<tspan dy="3" fontSize="9">g</tspan>
+                <tspan dy="-3"> glass</tspan>
               </text>
               <text x={PAD + drawW / 2} y={PAD + drawH / 2 + 16} textAnchor="middle" fontSize="11" fill="#0369a1">
                 {fmt(result.Ag)} m² · {result.glassRatio}%
@@ -248,36 +166,42 @@ function CalculationModel({
               <line x1={PAD - 8} y1={PAD} x2={PAD - 8} y2={PAD + drawH} stroke="#94a3b8" strokeWidth={1} />
             </svg>
           </div>
-          <ul className="mt-[13px] space-y-[5px] text-f12 text-t2">
+          <ul className="mt-[12px] space-y-[4px] text-f12 text-t2">
             <li className="flex items-center gap-[8px]">
               <span className="inline-block h-[10px] w-[10px] rounded-tag" style={{ background: "#38bdf8", opacity: 0.5 }} />
-              Aᵍ — glass area = {fmt(result.glassW)} × {fmt(result.glassH)} = <strong>{fmt(result.Ag)} m²</strong>
+              <span>
+                A<sub>g</sub> — glass area = {fmt(result.glassW)} × {fmt(result.glassH)} = <strong>{fmt(result.Ag)} m²</strong>
+              </span>
             </li>
             <li className="flex items-center gap-[8px]">
               <span className="inline-block h-[10px] w-[10px] rounded-tag" style={{ background: "#0f766e", opacity: 0.4 }} />
-              Aᶠ — frame + sash area = <strong>{fmt(result.Af)} m²</strong>
+              <span>
+                A<sub>f</sub> — frame + sash area = <strong>{fmt(result.Af)} m²</strong>
+              </span>
             </li>
             <li className="flex items-center gap-[8px]">
               <span className="inline-block h-[10px] w-[10px] rounded-tag" style={{ border: "2px dashed #f59e0b" }} />
-              lᵍ — glass edge (spacer bridge) = <strong>{fmt(result.lg)} m</strong>
+              <span>
+                l<sub>g</sub> — glass edge (spacer bridge) = <strong>{fmt(result.lg)} m</strong>
+              </span>
             </li>
           </ul>
         </div>
 
         {/* ── 2. Heat-loss channels + 3. Formula assembly ── */}
-        <div className="space-y-[21px]">
+        <div className="space-y-[20px]">
           {/* Heat-loss channels */}
-          <div className="rounded-card border border-border-default bg-white p-[21px]">
-            <h4 className="mb-[4px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+          <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+            <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[4px]">
               2 · Where the heat escapes
             </h4>
-            <p className="mb-[13px] text-f12 text-t3">
+            <p className="mb-[12px] text-f12 text-t3">
               Each path’s loss coefficient (W/K) = area (or length) × its U (or Ψ) value. Together
               they make the total window loss <strong>L = {fmt(result.L)} W/K</strong>.
             </p>
 
             {/* stacked bar */}
-            <div className="flex h-[26px] w-full overflow-hidden rounded-tag">
+            <div className="flex h-[26px] w-full gap-[2px] overflow-hidden rounded-tag">
               {channels.map((c) => (
                 <div
                   key={c.key}
@@ -288,7 +212,7 @@ function CalculationModel({
               ))}
             </div>
 
-            <dl className="mt-[13px] space-y-[9px]">
+            <dl className="mt-[12px] space-y-[8px]">
               {channels.map((c) => (
                 <div key={c.key} className="flex items-center justify-between gap-[8px] text-f14">
                   <dt className="flex items-center gap-[8px] text-t2">
@@ -306,41 +230,50 @@ function CalculationModel({
           </div>
 
           {/* Formula assembly */}
-          <div className="rounded-card border border-teal-border bg-teal/5 p-[21px]">
-            <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+          <div className="rounded-card border border-teal-border bg-teal-bg p-[20px]">
+            <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[12px]">
               3 · The formula, with your numbers
             </h4>
-            <div className="space-y-[8px] font-mono text-f14 leading-relaxed text-t1">
-              <div className="text-t3">
-                Uᵂ = (Aᵍ·Uᵍ + Aᶠ·Uᶠ + lᵍ·Ψᵍ) / (Aᵍ + Aᶠ)
-              </div>
-              <div>
+            {/* Each bracket stays whole; a narrow screen breaks the line at the division. */}
+            <div className="space-y-[8px] font-mono text-f12 leading-relaxed text-t1 sm:text-f14">
+              <p className="text-t3">
+                <span className="whitespace-nowrap">
+                  U<sub>w</sub> = (A<sub>g</sub>·U<sub>g</sub> + A<sub>f</sub>·U<sub>f</sub> + l<sub>g</sub>·Ψ<sub>g</sub>)
+                </span>{" "}
+                <span className="whitespace-nowrap">
+                  / (A<sub>g</sub> + A<sub>f</sub>)
+                </span>
+              </p>
+              <p>
+                <span className="whitespace-nowrap">
+                  <span className="text-t3">= (</span>
+                  {fmt(result.Ag)}·{fmt(Ug)} + {fmt(result.Af)}·{fmt(Uf)} + {fmt(result.lg)}·{fmt(psi)}
+                  <span className="text-t3">)</span>
+                </span>{" "}
+                <span className="whitespace-nowrap">
+                  <span className="text-t3">/ (</span>
+                  {fmt(result.Ag)} + {fmt(result.Af)}
+                  <span className="text-t3">)</span>
+                </span>
+              </p>
+              <p>
                 <span className="text-t3">= (</span>
-                {fmt(result.Ag)}·{fmt(Ug)} + {fmt(result.Af)}·{fmt(Uf)} + {fmt(result.lg)}·{fmt(psi)}
-                <span className="text-t3">) / (</span>
-                {fmt(result.Ag)} + {fmt(result.Af)}
-                <span className="text-t3">)</span>
-              </div>
-              <div>
-                <span className="text-t3">= (</span>
-                <span style={{ color: "#0284c7" }}>{fmt(result.qGlass)}</span> +{" "}
-                <span style={{ color: "#0f766e" }}>{fmt(result.qFrame)}</span> +{" "}
-                <span style={{ color: "#d97706" }}>{fmt(result.qEdge)}</span>
+                {fmt(result.qGlass)} + {fmt(result.qFrame)} + {fmt(result.qEdge)}
                 <span className="text-t3">) / </span>
                 {fmt(result.Aw)}
-              </div>
-              <div>
+              </p>
+              <p>
                 <span className="text-t3">= </span>
                 {fmt(result.L)} / {fmt(result.Aw)}
-              </div>
-              <div className="border-t border-teal-border pt-[8px] text-f16 font-bold">
-                Uᵂ = {result.Uw.toFixed(2)} W/m²K
-              </div>
+              </p>
+              <p className="border-t border-teal-border pt-[8px] text-f16 font-bold">
+                U<sub>w</sub> = {result.Uw.toFixed(2)} W/m²·K
+              </p>
             </div>
-            <p className="mt-[13px] text-f12 leading-relaxed text-t3">
-              Inputs — frame <strong>{frameLabel}</strong> (Uᶠ {fmt(Uf)}), glass{" "}
-              <strong>{glassLabel}</strong> (Uᵍ {fmt(Ug)}), spacer <strong>{spacerLabel}</strong>{" "}
-              (Ψᵍ {fmt(psi)}). Dimensions in m; areas m², perimeter m. Per EN ISO 10077-1 §5.2
+            <p className="mt-[12px] text-f12 leading-relaxed text-t3">
+              Inputs — frame <strong>{frameLabel}</strong> (U<sub>f</sub> {fmt(Uf)}), glass{" "}
+              <strong>{glassLabel}</strong> (U<sub>g</sub> {fmt(Ug)}), spacer <strong>{spacerLabel}</strong>{" "}
+              (Ψ<sub>g</sub> {fmt(psi)}). Dimensions in m; areas m², perimeter m. Per EN ISO 10077-1 §5.2
               the window U-value is this area-weighted mean of the frame and glazing, plus the
               linear edge term.
             </p>
@@ -356,12 +289,12 @@ function CalculationModel({
    ══════════════════════════════════════════════════════ */
 
 function getRating(Uw: number) {
-  if (Uw <= 0.8) return { label: "At or below 0.80 target band", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.0) return { label: "0.81–1.00 performance band", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.3) return { label: "1.01–1.30 performance band", color: "text-teal", bg: "bg-teal/5 border-teal-border" };
-  if (Uw <= 1.8) return { label: "1.31–1.80 performance band", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
-  if (Uw <= 2.5) return { label: "1.81–2.50 performance band", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
-  return { label: "Above 2.50 W/m²K", color: "text-red-600", bg: "bg-red-50 border-red-200" };
+  if (Uw <= 0.8) return { label: "At or below 0.80 target band", color: "text-teal-text", bg: "bg-teal-bg2 border-teal-border" };
+  if (Uw <= 1.0) return { label: "0.81–1.00 performance band", color: "text-teal-text", bg: "bg-teal-bg border-teal-border" };
+  if (Uw <= 1.3) return { label: "1.01–1.30 performance band", color: "text-t1", bg: "bg-bg2 border-border-default" };
+  if (Uw <= 1.8) return { label: "1.31–1.80 performance band", color: "text-t1", bg: "bg-bg2 border-border-default" };
+  if (Uw <= 2.5) return { label: "1.81–2.50 performance band", color: "text-warn", bg: "bg-warn-bg border-warn-border" };
+  return { label: "Above 2.50 W/m²·K", color: "text-fail", bg: "bg-fail-bg border-fail-border" };
 }
 
 /* ══════════════════════════════════════════════════════
@@ -472,11 +405,11 @@ export default function UValueCalculator() {
     : {};
   const specMessage = result
     ? `Please review this whole-window U-value calculation (EN ISO 10077-1):\n\n` +
-      `Frame: ${selFrame.label} (Uf ${selFrame.Uf} W/m²K)\n` +
-      `Glass: ${selGlass.label} (Ug ${selGlass.Ug} W/m²K)\n` +
-      `Spacer: ${selSpacer.label} (Ψg ${selSpacer.psi} W/mK)\n` +
+      `Frame: ${selFrame.label} (Uf ${selFrame.Uf} W/m²·K)\n` +
+      `Glass: ${selGlass.label} (Ug ${selGlass.Ug} W/m²·K)\n` +
+      `Spacer: ${selSpacer.label} (Ψg ${selSpacer.psi} W/m·K)\n` +
       `Window: ${selWinType.label}, ${width}×${height} mm, glass ratio ${result.glassRatio}%\n\n` +
-      `Result: Uw = ${result.Uw.toFixed(2)} W/m²K (${rating!.label})` +
+      `Result: Uw = ${result.Uw.toFixed(2)} W/m²·K (${rating!.label})` +
       (certificateMode ? ` — read-only reproduction of PHI Component-ID 2491wi03 certificate inputs` : "") +
       (improvement > 0 ? `, ${improvement}% better than an aluminum-no-break baseline` : "") +
       `\n\nProject location / target standard (please add): ____\n` +
@@ -484,42 +417,30 @@ export default function UValueCalculator() {
     : "";
 
   const selectClass =
-    "w-full rounded-control border border-border-default bg-white px-[12px] py-[10px] text-f14 text-t1 focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
-  const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[6px]";
+    "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+  const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
   const inputClass =
-    "w-full rounded-control border border-border-default bg-white px-[12px] py-[10px] text-f14 text-t1 text-center focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
+    "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
 
   return (
-    <section className="bg-bg2 py-[89px]">
-      <div className="site-container">
-        <SectionTag>Calculator</SectionTag>
-        <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-          Whole-Window U-Value Calculator
-        </h2>
-        <p className="mt-[13px] text-f16 leading-golden text-t2">
-          Calculate the overall thermal transmittance (U<sub>w</sub>) of a window or door
-          unit per{" "}
-          <strong>EN ISO 10077-1</strong>. Select frame material, glass configuration,
-          spacer type, and window dimensions.
-        </p>
-
+    <div>
         {/* Explicit grid placement (not source order) drives the layout: inputs
             top-left, results span the right, the result-context cards fill the
             space under the inputs. This balances the two columns (killing the old
             blank area) while keeping the DOM order inputs → result → context, so
             the single-column mobile stack still leads with the result. */}
-        <div className="mt-[34px] grid items-start gap-[21px] lg:grid-cols-[1fr_380px]">
+        <div className="grid items-start gap-[20px] lg:grid-cols-[1fr_380px]">
           {/* ── A · Input panel (top-left) ── */}
-          <div className="space-y-[21px] rounded-card border border-border-default bg-white p-[34px] lg:col-start-1 lg:row-start-1">
+          <div className="space-y-[20px] rounded-card border border-border-default bg-bg2 p-[20px] lg:col-start-1 lg:row-start-1">
             {/* One-click scenario presets */}
             <div className="flex flex-wrap items-center gap-[6px]">
-              <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Quick start:</span>
               {PRESETS.map((p) => (
                 <button
                   key={p.id}
                   type="button"
                   onClick={() => applyPreset(p)}
-                  className="rounded-full border border-border-default bg-white px-[12px] py-[5px] text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                  className="rounded-full border border-border-default bg-white px-[12px] py-[4px] text-f12 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                 >
                   {p.label}
                 </button>
@@ -527,7 +448,7 @@ export default function UValueCalculator() {
             </div>
 
             {certificateMode && (
-              <div className="rounded-control border border-teal-border bg-teal/5 px-[13px] py-[10px] text-f12 leading-relaxed text-t2">
+              <div className="rounded-control border border-teal-border bg-teal-bg px-[12px] py-[10px] text-f12 leading-relaxed text-t2">
                 <strong className="text-t1">Read-only certified reference.</strong> PHI Component-ID 2491wi03,
                 Fengdu Passive GFRP 90 Series: test window 1230 × 1480 mm, U<sub>f</sub> 0.78,
                 U<sub>g</sub> 0.70, frame width 109 mm, Ψ<sub>g</sub> 0.023. The simplified formula
@@ -540,7 +461,7 @@ export default function UValueCalculator() {
             )}
 
             {/* Row 1: Frame + Glass */}
-            <div className="grid gap-[21px] sm:grid-cols-2">
+            <div className="grid gap-[20px] sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Frame System</label>
                 <select value={frame} onChange={(e) => changeFrame(e.target.value)} className={selectClass}>
@@ -561,7 +482,7 @@ export default function UValueCalculator() {
                   </optgroup>
                 </select>
                 <span className="mt-[4px] block text-f12 text-t3">
-                  U<sub>f</sub> = {selFrame.Uf} W/m²K · face {selFrame.faceWidth} mm
+                  U<sub>f</sub> = {selFrame.Uf} W/m²·K · face {selFrame.faceWidth} mm
                 </span>
               </div>
 
@@ -590,13 +511,13 @@ export default function UValueCalculator() {
                   </optgroup>
                 </select>
                 <span className="mt-[4px] block text-f12 text-t3">
-                  U<sub>g</sub> = {selGlass.Ug} W/m²K · {selGlass.thickness} mm thick
+                  U<sub>g</sub> = {selGlass.Ug} W/m²·K · {selGlass.thickness} mm thick
                 </span>
               </div>
             </div>
 
             {/* Row 2: Spacer + Window type */}
-            <div className="grid gap-[21px] sm:grid-cols-2">
+            <div className="grid gap-[20px] sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Edge Spacer</label>
                 <select value={spacer} onChange={(e) => setSpacer(e.target.value)} disabled={certificateMode} className={`${selectClass} ${certificateMode ? "opacity-60" : ""}`}>
@@ -605,7 +526,7 @@ export default function UValueCalculator() {
                   ))}
                 </select>
                 <span className="mt-[4px] block text-f12 text-t3">
-                  Ψ<sub>g</sub> = {selSpacer.psi} W/mK
+                  Ψ<sub>g</sub> = {selSpacer.psi} W/m·K
                 </span>
               </div>
 
@@ -625,7 +546,7 @@ export default function UValueCalculator() {
             {/* Row 3: Dimensions */}
             <div>
               <label className={labelClass}>Window Dimensions (mm)</label>
-              <div className="flex items-center gap-[13px]">
+              <div className="flex items-center gap-[12px]">
                 <div className="flex-1">
                   <input
                     type="number"
@@ -657,7 +578,7 @@ export default function UValueCalculator() {
             </div>
 
             {/* Formula reference */}
-            <div className="rounded-control bg-bg2 px-[13px] py-[10px] text-f12 leading-relaxed text-t3">
+            <div className="rounded-control bg-white px-[12px] py-[10px] text-f12 leading-relaxed text-t3">
               <strong>EN ISO 10077-1:</strong>{" "}
               U<sub>w</sub> = (A<sub>g</sub>·U<sub>g</sub> + A<sub>f</sub>·U<sub>f</sub> + l<sub>g</sub>·Ψ<sub>g</sub>) / (A<sub>g</sub> + A<sub>f</sub>)
               <br />
@@ -668,26 +589,26 @@ export default function UValueCalculator() {
           </div>
 
           {/* ── B · Results panel (right column, spans both left rows) ── */}
-          <div className="space-y-[13px] lg:col-start-2 lg:row-start-1 lg:row-span-2">
+          <div className="space-y-[12px] lg:col-start-2 lg:row-start-1 lg:row-span-2">
             {result ? (
               <>
                 {/* Main result */}
-                <div className={`rounded-card border p-[34px] text-center ${getRating(result.Uw).bg}`}>
-                  <span className="block text-f12 font-bold uppercase tracking-[2px] text-t3">
-                    Whole-Window U<sub>w</sub>
+                <div className={`rounded-card border p-[32px] text-center ${getRating(result.Uw).bg}`}>
+                  <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
+                    Whole-window U<sub>w</sub>
                   </span>
                   <span className="mt-[8px] block text-f56 font-extrabold leading-none tracking-[-0.02em] text-t1">
                     {result.Uw.toFixed(2)}
                   </span>
-                  <span className="block text-f14 text-t3">W/m²K</span>
-                  <span className={`mt-[13px] inline-block rounded-full px-[13px] py-[4px] text-f12 font-bold ${getRating(result.Uw).color} ${getRating(result.Uw).bg}`}>
+                  <span className="block text-f14 text-t3">W/m²·K</span>
+                  <span className={`mt-[12px] inline-block rounded-full px-[12px] py-[4px] text-f12 font-bold ${getRating(result.Uw).color} ${getRating(result.Uw).bg}`}>
                     {getRating(result.Uw).label}
                   </span>
                 </div>
 
                 {/* Breakdown */}
-                <div className="rounded-card border border-border-default bg-white p-[21px]">
-                  <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+                <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+                  <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[12px]">
                     Breakdown
                   </h4>
                   <dl className="space-y-[8px] text-f14">
@@ -709,15 +630,15 @@ export default function UValueCalculator() {
                     </div>
                     <div className="flex justify-between border-t border-border-default pt-[8px]">
                       <dt className="text-t3">Frame U<sub>f</sub></dt>
-                      <dd className="font-medium text-t1">{selFrame.Uf} W/m²K</dd>
+                      <dd className="font-medium text-t1">{selFrame.Uf} W/m²·K</dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-t3">Glass U<sub>g</sub></dt>
-                      <dd className="font-medium text-t1">{selGlass.Ug} W/m²K</dd>
+                      <dd className="font-medium text-t1">{selGlass.Ug} W/m²·K</dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-t3">Spacer Ψ<sub>g</sub></dt>
-                      <dd className="font-medium text-t1">{selSpacer.psi} W/mK</dd>
+                      <dd className="font-medium text-t1">{selSpacer.psi} W/m·K</dd>
                     </div>
                   </dl>
                 </div>
@@ -729,9 +650,9 @@ export default function UValueCalculator() {
                     <a
                       href={`${FENESTRATION_SLUG}?source=u-value-calculator`}
                       onClick={() => track("uvalue_product_click", { frame, isFRP: !!series })}
-                      className="block rounded-card border border-teal/30 bg-white p-[21px] transition-colors hover:border-teal"
+                      className="block rounded-card border border-teal-border bg-white p-[20px] transition-colors hover:border-teal"
                     >
-                      <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                      <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                         {certificateMode ? "Certified reference inputs" : series ? "F1 makes this frame" : "Switch to F1 FRP"}
                       </div>
                       <div className="mt-[4px] text-f14 text-t2">
@@ -752,9 +673,9 @@ export default function UValueCalculator() {
                 <a
                   href={`/contact?source=u-value-calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
                   onClick={() => track("uvalue_quote_click", { frame })}
-                  className="block rounded-card bg-teal px-[16px] py-[12px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="block rounded-control bg-teal-text px-[16px] py-[12px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
-                  📧 Get a fenestration quote
+                  Get a window quote
                 </a>
 
                 {/* Result-moment email capture — convert without a page jump */}
@@ -769,13 +690,13 @@ export default function UValueCalculator() {
                 <button
                   type="button"
                   onClick={copyShareLink}
-                  className="w-full rounded-card border border-border-default bg-white px-[16px] py-[10px] text-center text-f14 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
+                  className="w-full rounded-control border border-border-default bg-white px-[16px] py-[10px] text-center text-f14 font-medium text-t2 transition-colors hover:border-teal hover:text-teal-text"
                 >
-                  {copied ? "✓ Link copied" : "🔗 Copy a shareable link to this result"}
+                  {copied ? "Link copied" : "Copy a link to this result"}
                 </button>
               </>
             ) : (
-              <div className="rounded-card border border-red-200 bg-red-50 p-[21px] text-f14 text-red-700">
+              <div className="rounded-card border border-fail-border bg-fail-bg p-[20px] text-f14 text-fail">
                 Window dimensions too small for the selected frame width. Increase width or height.
               </div>
             )}
@@ -785,27 +706,27 @@ export default function UValueCalculator() {
                 balance the columns; rendered after the result in the DOM so the
                 mobile stack still leads with the U-value. ── */}
           {result && (
-            <div className="space-y-[21px] lg:col-start-1 lg:row-start-2">
+            <div className="space-y-[20px] lg:col-start-1 lg:row-start-2">
               {/* Comparison — vs aluminum baseline */}
               {baseline && improvement > 0 && (
-                <div className="rounded-card border border-teal-border bg-teal/5 p-[21px]">
-                  <h4 className="mb-[8px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
-                    vs Aluminum (no break)
+                <div className="rounded-card border border-teal-border bg-teal-bg p-[20px]">
+                  <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
+                    vs aluminum (no break)
                   </h4>
                   <p className="text-f14 text-t2">
                     <strong className="text-teal">{improvement}% better</strong> thermal
                     performance compared to an aluminum frame without thermal break
-                    (U<sub>w</sub> = {baseline.Uw.toFixed(2)} W/m²K).
+                    (U<sub>w</sub> = {baseline.Uw.toFixed(2)} W/m²·K).
                   </p>
                 </div>
               )}
 
               {/* Numeric target comparison; method/certification caveats are explicit. */}
-              <div className="rounded-card border border-border-default bg-white p-[21px]">
-                <h4 className="mb-[8px] text-f12 font-bold uppercase tracking-[2px] text-t3">
-                  Numeric Target Comparison — Not Compliance
+              <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+                <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
+                  Numeric target comparison, not compliance
                 </h4>
-                <div className="grid gap-x-[21px] gap-y-[6px] text-f12 sm:grid-cols-2 lg:grid-cols-1">
+                <div className="grid gap-x-[20px] gap-y-[6px] text-f12 sm:grid-cols-2 lg:grid-cols-1">
                   {TARGET_COMPARISON.map((t) => (
                     <div key={`${t.region}-${t.label}`} className="flex items-center justify-between gap-[4px]">
                       <span className="text-t3 truncate">
@@ -842,96 +763,6 @@ export default function UValueCalculator() {
             height={height}
           />
         )}
-
-        {/* ── Frame comparison table ── */}
-        <div className="mt-[55px]">
-          <h3 className="text-f24 font-bold text-t1">Frame Material U<sub>f</sub> Comparison</h3>
-          <p className="mt-[8px] text-f14 text-t2">
-            Frame thermal transmittance values used in this calculator. FRP frames achieve low
-            U<sub>f</sub> values inherently — no thermal break inserts required.
-          </p>
-          <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default text-left">
-                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Frame Material</th>
-                  <th className="pb-[8px] pr-[21px] font-bold text-t1">U<sub>f</sub> (W/m²K)</th>
-                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Profile Depth (mm)</th>
-                  <th className="pb-[8px] pr-[21px] font-bold text-t1">Face Width (mm)</th>
-                  <th className="pb-[8px] font-bold text-t1">Thermal Break Required</th>
-                </tr>
-              </thead>
-              <tbody>
-                {frameSystems.map((f) => (
-                  <tr
-                    key={f.id}
-                    className={`border-b border-border-default ${f.id.startsWith("frp") ? "bg-teal/5" : ""}`}
-                  >
-                    <td className="py-[8px] pr-[21px] text-t1">{f.label}</td>
-                    <td className="py-[8px] pr-[21px] font-medium text-t1">{f.Uf}</td>
-                    <td className="py-[8px] pr-[21px] text-t2">{f.depth}</td>
-                    <td className="py-[8px] pr-[21px] text-t2">{f.faceWidth}</td>
-                    <td className="py-[8px] text-t2">
-                      {f.id.startsWith("frp") || f.id === "timber"
-                        ? "No — inherently insulating"
-                        : f.id === "alu-break"
-                          ? "Yes — polyamide strip"
-                          : f.id === "pvc-steel"
-                            ? "Steel core creates thermal bridge"
-                            : f.id === "pvc-multi"
-                              ? "No — but lower stiffness"
-                              : "No — but very high conductivity"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        {/* ── National standards reference ── */}
-        <div className="mt-[55px]">
-          <h3 className="text-f24 font-bold text-t1">Window U-Value Reference Targets</h3>
-          <p className="mt-[8px] text-f14 text-t2">
-            Published U-factor limits and program targets for orientation. Calculation and certification
-            methods differ by jurisdiction, so this table is not a compliance determination.
-          </p>
-          <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default text-left">
-                  <th className="pb-[8px] pr-[13px] font-bold text-t1">Region</th>
-                  <th className="pb-[8px] pr-[13px] font-bold text-t1">Standard</th>
-                  <th className="pb-[8px] pr-[13px] font-bold text-t1">Climate Zone / Tier</th>
-                  <th className="pb-[8px] pr-[13px] font-bold text-t1">Max U<sub>w</sub> (W/m²K)</th>
-                  <th className="pb-[8px] font-bold text-t1">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {REFERENCE_TARGETS.map((row, i) => (
-                  <tr key={i} className="border-b border-border-default">
-                    <td className="py-[8px] pr-[13px] text-t1 font-medium">{row.region}</td>
-                    <td className="py-[8px] pr-[13px] text-t2 whitespace-nowrap">{row.std}</td>
-                    <td className="py-[8px] pr-[13px] text-t1">{row.zone}</td>
-                    <td className="py-[8px] pr-[13px] font-medium text-t1">{row.uw}</td>
-                    <td className="py-[8px] text-t3 text-f12">{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-[21px] rounded-control bg-bg2 px-[21px] py-[13px] text-f12 leading-relaxed text-t3">
-            <strong>Calculation standard:</strong> This calculator uses the EN ISO 10077-1:2017 simplified method.
-            US ratings follow NFRC 100 and Canadian ratings CSA A440.2, both by simulation (THERM + WINDOW) at
-            fixed model sizes and boundary conditions; Australian ratings come from AFRC, which uses NFRC-based
-            methods. Their values are not interchangeable with EN ISO 10077-1 results. From March 2027 the
-            Future Homes Standard in England asks for U-values calculated at the actual window size.
-            For Chinese compliance, U-values are verified per GB/T 8484-2020 hot-box test against the limits of
-            the mandatory GB 55015-2021. Values above are indicative — always confirm with the applicable edition
-            and local authority.
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }

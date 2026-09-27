@@ -1,14 +1,14 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   frpStakeApplications,
   frpStakeImageAssets,
@@ -16,7 +16,8 @@ import {
   frpStakeReferenceSizes,
 } from "@/content/data/frpStakeSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/fiberglass-stakes";
@@ -33,12 +34,22 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/fiberglass-stakes/opengraph-image",
 });
 
-const quickFacts = [
-  { value: "5–19 mm", label: "public-market diameter planning band" },
-  { value: "1.07–1.83 m", label: "common listed length references" },
-  { value: "5 colors", label: "green, blue-green, gray, white and orange" },
-  { value: "2 surfaces", label: "smooth or optional handling veil" },
+const quoteHref = buildRfqHref({
+  source: "fiberglass-stakes",
+  product: "Fiberglass stakes",
+  productPath: pagePath,
+  message: "Please quote fiberglass stakes. I will send the application, diameter, length, color, surface, end treatment, pack and quantity.",
+});
+
+const requestItems = [
+  { title: "Application", text: "What the stake supports (plant, tree, vine, marker) and the diameter or flexibility target." },
+  { title: "Length and ground", text: "Overall and exposed length, embedment method and the soil condition." },
+  { title: "Finish", text: "Color, smooth or surface-veil finish, tapered, flat or capped ends and any reflector." },
+  { title: "Quantity and delivery", text: "Quantity, bundle and pallet limits, labelling, destination and Incoterm." },
 ];
+
+const card = "rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]";
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 
 const selectionInputs = [
   {
@@ -179,234 +190,207 @@ export default function FiberglassStakesPage() {
 
       <PageHeader
         updated={updatedAt}
-        tag="Plant Support & Site Marking · F1-STRUX"
+        reviewer={reviewerCredit(reviewer)}
+        tag="Fiberglass stakes"
+        line={{ name: "F1-STRUX", label: "Fiberglass stakes" }}
         title="Fiberglass stakes for plants, trees, vineyards and marking"
         description="Factory-direct pultruded FRP stakes for plant support, nursery trees, vineyard training, garden crops and site identification. Start with the 5–19 mm public-market planning band below, then release the actual diameter, length, surface, color and end treatment by quotation."
+        facts={[
+          { label: "Diameter band", value: "5–19 mm" },
+          { label: "Lengths", value: "1.07–1.83 m" },
+          { label: "Surface", value: "Smooth or veil" },
+          { label: "Ends", value: "Tapered or flat" },
+        ]}
+        actions={{
+          primary: { label: "Request a stake quote", href: quoteHref },
+          secondary: { label: "Compare reference sizes", href: "#sizes", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Diameters, colors and ends" note="Visualization" caption="Product visualization of diameter, color and end-treatment options. The approved sample and order specification control the delivered stake." bleed>
+            <div className="relative aspect-[3/2]">
+              <Image
+                src={frpStakeImageAssets.hero}
+                alt="Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options"
+                fill
+                preload
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Fiberglass Stakes" },
         ]}
       />
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "sizes", label: "Sizes" },
+          { id: "selection", label: "Selection" },
+          { id: "applications", label: "Applications" },
+          { id: "comparison", label: "Materials" },
+          { id: "checklist", label: "Checklist" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div>
-            <SectionTag>Fiberglass Stakes Manufacturer</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(28px,4vw,48px)] font-extrabold leading-[1.08] text-t1">
-              One pultruded rod platform, configured around the application
-            </h2>
-            <p className="mt-[21px] text-f18 leading-golden text-t2">
+      <PageSection id="overview" title="One pultruded rod platform, configured around the application">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
               Fiberglass stakes are solid pultruded rods built from continuous glass reinforcement and a polymer matrix. The controlled geometry, low weight and corrosion-free body make them a reusable alternative to irregular bamboo, wood stakes and steel markers when the diameter, surface and installation are selected together.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              F1 quotes <strong className="text-t1">fiberglass plant stakes</strong>, tree supports and general site-marker rods on this page. For reflective plow guides and driveway visibility programs, use the dedicated{" "}
-              <Link href="/products/fiberglass-snow-markers" className="font-semibold text-teal-text hover:underline">
-                fiberglass snow markers
-              </Link>
-              {" "}page. Each application needs its own stiffness, embedment, color and accessory set.
-            </p>
-            <div className="mt-[29px] flex flex-wrap gap-[13px]">
-              <Link href="/contact" className="rounded-tag bg-teal px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal-text">
-                Request a fiberglass stake quote
-              </Link>
-              <a href="#sizes" className="rounded-tag border border-border-default bg-white px-[21px] py-[13px] text-f14 font-bold text-t1 transition-colors hover:border-teal hover:text-teal-text">
-                Compare reference sizes
-              </a>
-            </div>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
-              Planning a growing program? Follow our{" "}
-              <Link href="/applications/agriculture-horticulture-stakes" className="font-semibold text-teal-text underline">
-                agriculture and horticulture application guide
-              </Link>{" "}
-              for crop-specific selection inputs, field trials and a step-by-step route to bulk supply.
+            <p>
+              F1 quotes fiberglass plant stakes, tree supports and general site-marker rods on this page. For reflective plow guides and driveway visibility programs, use the dedicated{" "}
+              <Link href="/products/fiberglass-snow-markers" className={link}>fiberglass snow markers</Link> page. Each application needs its own stiffness, embedment, color and accessory set.
             </p>
           </div>
-          <figure>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-border-default bg-bg2">
-              <Image
-                src={frpStakeImageAssets.hero}
-                alt="Pultruded fiberglass stakes in multiple diameters, colors and tapered-end options"
-                fill
-                preload
-                sizes="(max-width: 1024px) 100vw, 54vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Product visualization of diameter, color and end-treatment options. The approved sample and order specification control the delivered stake.
-            </figcaption>
-          </figure>
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Planning a growing program?</p>
+            <p className="mt-[8px] text-f16 leading-golden text-t1">
+              The agriculture and horticulture guide covers crop-specific selection inputs, field trials and a step-by-step route to bulk supply.
+            </p>
+            <Link href="/applications/agriculture-horticulture-stakes" className={`mt-[12px] inline-block text-f14 ${link}`}>
+              Read the application guide
+            </Link>
+          </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="border-y border-border-default bg-bg2 py-[34px]">
-        <div className="site-container grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-          {quickFacts.map((fact) => (
-            <div key={fact.label} className="rounded-card border border-border-default bg-white p-[21px]">
-              <p className="text-f24 font-extrabold text-teal-text">{fact.value}</p>
-              <p className="mt-[5px] text-f14 leading-golden text-t2">{fact.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="sizes" className="scroll-mt-[120px] bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Size & Finish Planning</SectionTag>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Common fiberglass stake sizes for RFQ planning
-          </h2>
-          <p className="mt-[13px] max-w-[940px] text-f16 leading-golden text-t2">
-            The matrix reconciles current public wholesale listings into one buyer-friendly range. It helps translate an existing SKU or field sample into metric language; it is not an F1 stock promise, load table or certified design schedule.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[920px] border-collapse text-left">
-              <thead className="bg-bg2">
-                <tr>
-                  {[
-                    "Nominal diameter",
-                    "Metric reference",
-                    "Listed length reference",
-                    "Public pack reference",
-                    "Surface / color",
-                    "Planning use",
-                  ].map((heading) => (
-                    <th key={heading} className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">{heading}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {frpStakeReferenceSizes.map((row) => (
-                  <tr key={row.nominalDiameter} className="border-t border-border-default align-top">
-                    <th className="px-[16px] py-[14px] text-f14 font-bold text-t1">{row.nominalDiameter}</th>
-                    <td className="px-[16px] py-[14px] text-f14 text-t2">{row.metricDiameter}</td>
-                    <td className="px-[16px] py-[14px] text-f14 text-t2">{row.referenceLengths}</td>
-                    <td className="px-[16px] py-[14px] text-f14 text-t2">{row.publicPackReference}</td>
-                    <td className="px-[16px] py-[14px] text-f14 text-t2">{row.surfaceAndColor}</td>
-                    <td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.planningUse}</td>
-                  </tr>
+      <PageSection
+        id="sizes"
+        title="Common fiberglass stake sizes for RFQ planning"
+        tone="muted"
+        intro="The matrix reconciles current public wholesale listings into one buyer-friendly range. It helps translate an existing SKU or field sample into metric language; it is not an F1 stock promise, load table or certified design schedule."
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[920px] border-collapse text-left text-f14">
+            <caption className="sr-only">Common fiberglass stake sizes from public wholesale listings</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                {["Nominal diameter", "Metric reference", "Listed length reference", "Public pack reference", "Surface / color", "Planning use"].map((heading) => (
+                  <th key={heading} scope="col" className="px-[14px] py-[8px] font-semibold text-t1">{heading}</th>
                 ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="mt-[21px] rounded-card border border-teal-border bg-teal-bg p-[21px]">
-            <p className="text-f14 font-bold uppercase tracking-[0.12em] text-teal-text">Source and release boundary</p>
+              </tr>
+            </thead>
+            <tbody>
+              {frpStakeReferenceSizes.map((row) => (
+                <tr key={row.nominalDiameter} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{row.nominalDiameter}</th>
+                  <td className="whitespace-nowrap px-[14px] py-[10px] text-t1">{row.metricDiameter}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.referenceLengths}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.publicPackReference}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.surfaceAndColor}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.planningUse}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-[16px] grid grid-cols-1 items-start gap-[16px] rounded-card border border-border-default bg-white p-[20px] sm:p-[24px] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-[40px]">
+          <div>
+            <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Source and release boundary</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               Sources were accessed on August 30, 2026 and establish only a public market reference. They do not publish diameter tolerance, bending stiffness, breaking load, resin grade, fiber content or verified outdoor life. F1 confirms those requirements for the proposed production grade before order release.
             </p>
-            <ul className="mt-[13px] grid gap-[8px] md:grid-cols-3">
-              {frpStakePublicSources.map((source) => (
-                <li key={source.href}>
-                  <a href={source.href} target="_blank" rel="noopener noreferrer nofollow" className="text-f14 font-semibold text-teal-text hover:underline">
-                    {source.label} ↗
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Selection Workflow</SectionTag>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Six inputs that select the stake before diameter
-          </h2>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-            {selectionInputs.map((input, index) => (
-              <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
-                <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
-              </article>
+          <ul className="divide-y divide-border-default border-y border-border-default">
+            {frpStakePublicSources.map((source) => (
+              <li key={source.href}>
+                <a href={source.href} target="_blank" rel="noopener noreferrer nofollow" className="flex min-h-[44px] items-center justify-between gap-[12px] py-[10px] text-f14 font-semibold text-t1 transition-colors hover:text-teal-text">
+                  {source.label}
+                  <span aria-hidden className="text-teal-text">↗</span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Application Examples</SectionTag>
-          <h2 className="mt-[13px] max-w-[920px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP plant stakes, fiberglass tree stakes and visible marker rods
-          </h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">
-            These two application visualizations show how the same solid round pultrusion changes role across vineyard and nursery programs. They are selection examples—not named F1 project case studies or installation certificates.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] md:grid-cols-2">
-            {frpStakeApplications.map((application) => (
-              <figure key={application.title} className="overflow-hidden rounded-card border border-border-default bg-bg2">
-                <div className="relative aspect-[3/2] overflow-hidden bg-white">
-                  <Image src={application.image} alt={application.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-                </div>
-                <figcaption className="p-[21px]">
-                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{application.query}</p>
-                  <h3 className="mt-[5px] text-f18 font-bold text-t1">{application.title}</h3>
-                  <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection id="selection" title="Six inputs that select the stake before diameter">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {selectionInputs.map((input, index) => (
+            <li key={input.title} className={card}>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Input {index + 1}</p>
+              <h3 className="mt-[6px] text-f18 font-bold text-t1">{input.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
 
-      <section className="bg-deep py-[55px] text-white md:py-[89px]">
-        <div className="site-container">
-          <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-300">Material comparison</p>
-          <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
-            Fiberglass stakes vs bamboo, wood and steel markers
-          </h2>
-          <p className="mt-[13px] max-w-[940px] text-f16 leading-golden text-white/75">
-            FRP is strongest where consistency, corrosion resistance, repeat handling and controlled visibility justify the change. Natural stakes may remain sensible for short seasonal programs; steel may remain appropriate when maximum local stiffness governs.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-white/15">
-            <table className="w-full min-w-[920px] border-collapse text-left">
-              <thead className="bg-white/10">
-                <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Topic</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Fiberglass / FRP stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Bamboo / wood stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Steel marker</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.topic} className="border-t border-white/15 align-top">
-                    <th className="px-[21px] py-[16px] text-f14 font-bold">{row.topic}</th>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-white/85">{row.frp}</td>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-white/70">{row.natural}</td>
-                    <td className="px-[21px] py-[16px] text-f14 leading-golden text-white/70">{row.steel}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[0.78fr_1.22fr]">
-          <div>
-            <SectionTag>Wholesale & OEM RFQ</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              Define the finished stake, not only the raw rod
-            </h2>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              A complete quote locks down the product that arrives at the field: geometry, handling surface, installed end, visibility, pack count and documentation. If you only need an unfinished solid round profile, compare the separate <Link href="/products/fiberglass-structural-shapes/frp-rod" className="font-semibold text-teal-text hover:underline">fiberglass rod</Link> page. FRP rebar is a different concrete-reinforcement product with bond surfaces and code requirements.
-            </p>
-          </div>
-          <div className="grid gap-[13px] sm:grid-cols-2">
-            {rfqInputs.map((input, index) => (
-              <div key={input} className="flex items-start gap-[13px] rounded-card border border-border-default bg-white p-[16px]">
-                <span className="flex h-[29px] w-[29px] shrink-0 items-center justify-center rounded-full bg-teal-bg2 text-f12 font-bold text-teal-text">{index + 1}</span>
-                <p className="pt-[3px] text-f14 font-semibold leading-golden text-t1">{input}</p>
+      <PageSection
+        id="applications"
+        title="FRP plant stakes, fiberglass tree stakes and visible marker rods"
+        tone="muted"
+        intro="These two application visualizations show how the same solid round pultrusion changes role across vineyard and nursery programs. They are selection examples, not named F1 project case studies or installation certificates."
+      >
+        <div className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
+          {frpStakeApplications.map((application, index) => (
+            <Figure key={application.title} number={index + 2} title={application.title} note="Visualization" caption={application.body} bleed>
+              <div className="relative aspect-[3/2]">
+                <Image src={application.image} alt={application.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
-            ))}
-          </div>
+            </Figure>
+          ))}
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection
+        id="comparison"
+        title="Fiberglass stakes vs bamboo, wood and steel markers"
+        intro="FRP is strongest where consistency, corrosion resistance, repeat handling and controlled visibility justify the change. Natural stakes may remain sensible for short seasonal programs; steel may remain appropriate when maximum local stiffness governs."
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[920px] border-collapse text-left text-f14">
+            <caption className="sr-only">Fiberglass stakes compared with bamboo, wood and steel</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Topic</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Fiberglass / FRP stake</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Bamboo / wood stake</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Steel marker</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.topic} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.topic}</th>
+                  <td className="px-[14px] py-[12px] leading-golden text-t1">{row.frp}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.natural}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.steel}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection id="checklist" title="Define the finished stake, not only the raw rod" tone="muted">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-[48px]">
+          <p className="text-f16 leading-golden text-t2">
+            A complete quote locks down the product that arrives at the field: geometry, handling surface, installed end, visibility, pack count and documentation. If you only need an unfinished solid round profile, compare the separate{" "}
+            <Link href="/products/fiberglass-structural-shapes/frp-rod" className={link}>fiberglass rod</Link> page. FRP rebar is a different concrete-reinforcement product with bond surfaces and code requirements.
+          </p>
+          <ol className="grid grid-cols-1 gap-x-[24px] sm:grid-cols-2">
+            {rfqInputs.map((input, index) => (
+              <li key={input} className="flex items-baseline gap-[12px] border-b border-border-default py-[12px]">
+                <span className="font-mono text-f12 text-t3">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-f14 font-semibold text-t1">{input}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </PageSection>
+
+      <PageSection id="faq" title="Fiberglass stake questions">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
         groups={[
@@ -432,15 +416,16 @@ export default function FiberglassStakesPage() {
         ]}
       />
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <AskAICard prefill="I need fiberglass stakes for [plant/tree/vineyard/nursery/site marking]. Target diameter or flexibility: [ ], overall and exposed length: [ ], embedment/soil: [ ], color and visibility: [ ], surface/end treatment: [ ], quantity and pack: [ ], destination and Incoterm: [ ]. Build a quote-ready specification and flag what needs sample or test confirmation." />
-      <ProductNextSteps path="/products/fiberglass-stakes" />
-      <InnerCTA title="Send your stake use case — receive a size, finish and packing review." />
+      <PageSection id="quote" title="Send your stake use case" tone="deep">
+        <ProductRfq
+          product="Fiberglass stakes"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Describe the use and the stake you have now. We return a size, finish and packing review, with a sample before a volume run."
+          advisorPrompt="I need fiberglass stakes for [plant/tree/vineyard/nursery/site marking]. Target diameter or flexibility: [ ], overall and exposed length: [ ], embedment/soil: [ ], color and visibility: [ ], surface/end treatment: [ ], quantity and pack: [ ], destination and Incoterm: [ ]. Build a quote-ready specification and flag what needs sample or test confirmation."
+        />
+      </PageSection>
     </>
   );
 }

@@ -61,9 +61,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               defaultValue={query}
               placeholder="Search sizes, products, documents"
               autoComplete="off"
-              className="min-h-[48px] min-w-0 flex-1 rounded-control border border-border-default px-[14px] text-f16 text-t1 placeholder:text-t3"
+              className="min-h-[48px] min-w-0 flex-1 rounded-control border border-border-default bg-white px-[14px] text-f16 text-t1 outline-none placeholder:text-t3 focus:border-teal"
             />
-            <button type="submit" className="rounded-control bg-deep px-[18px] text-f14 font-bold text-white hover:bg-teal-text">
+            <button type="submit" className="min-h-[48px] rounded-control bg-teal-text px-[22px] text-f14 font-bold text-white transition-colors hover:bg-teal">
               Search
             </button>
           </form>
@@ -84,14 +84,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           ) : results.total === 0 ? (
             <div className="mt-[28px] max-w-[720px] rounded-card border border-border-default bg-bg2 p-[20px]">
               <p className="text-f16 text-t1">Tell us the size or send a drawing, and an engineer will reply. The engineering assistant can also answer questions about materials, standards and documents.</p>
-              <div className="mt-[14px] flex flex-wrap gap-[8px]">
+              <div className="mt-[16px] flex flex-wrap gap-[8px]">
                 <Link
                   href={buildRfqHref({ source: "site-search", message: `I searched the website for "${query}" and could not find it. Here is what I need:` })}
-                  className="rounded-control bg-deep px-[16px] py-[10px] text-f14 font-bold text-white hover:bg-teal-text"
+                  className="inline-flex min-h-[46px] items-center rounded-control bg-teal-text px-[22px] text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
                   Send your size or drawing
                 </Link>
-                <Link href={`/ask?prefill=${encodeURIComponent(query)}`} className="rounded-control border border-border-default bg-white px-[16px] py-[10px] text-f14 font-bold text-t1 hover:border-teal-border hover:text-teal-text">
+                <Link href={`/ask?prefill=${encodeURIComponent(query)}`} className="inline-flex min-h-[46px] items-center rounded-control border border-border-default bg-white px-[22px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text">
                   Ask the engineering assistant
                 </Link>
               </div>
@@ -106,7 +106,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   <h2 id={`results-${group.kind}`} className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                     {group.label} · {group.total}
                   </h2>
-                  <ul className="mt-[8px] divide-y divide-border-default rounded-card border border-border-default">
+                  <ul className="mt-[8px] divide-y divide-border-default overflow-hidden rounded-card border border-border-default bg-white">
                     {group.hits.map((hit) => {
                       const content = <SearchResult entry={hit.entry} highlight={hit.entry.size ? sizeMatchText(hit.entry.title, results.size) : null} />;
                       const className = "block px-[14px] py-[10px] hover:bg-teal-bg";

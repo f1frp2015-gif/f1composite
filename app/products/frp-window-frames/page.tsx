@@ -2,21 +2,32 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import FAQ from "@/components/ui/FAQ";
-import JsonLd from "@/components/seo/JsonLd";
-import ProductPageNav from "@/components/products/ProductPageNav";
-import Figure from "@/components/ui/Figure";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import DocumentCard, { libraryCard } from "@/components/downloads/DocumentCard";
+import ProductRfq from "@/components/products/ProductRfq";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import WindowSystemExplorer from "@/components/sections/WindowSystemExplorer";
-import { WindowSupplyRoutes, WindowComponentMap, WindowBuyerPaths, WindowEvidenceCards, WindowPurchaseFlow, WindowScopeTable, windowWrap } from "@/components/sections/WindowBuyingGuide";
+import { WindowBuyerPaths, WindowComponentMap, WindowEvidenceCards, WindowPurchaseFlow, WindowScopeTable, WindowSupplyRoutes } from "@/components/sections/WindowBuyingGuide";
+import JsonLd from "@/components/seo/JsonLd";
+import WindowProjects from "@/components/sections/WindowProjects";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
+import { windowRequestItems } from "@/content/data/windowBuying";
+import { assembleDocuments } from "@/lib/documents";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-09-20";
+const updatedAt = "2026-09-27";
 
 const pagePath = "/products/frp-window-frames";
 const description = "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.";
 export const metadata: Metadata = buildPageMetadata({ title: "FRP Window Frames & System Profiles | F1 Composite", description, path: pagePath, image: "/products/frp-window-frames/opengraph-image" });
+
+const profileQuote = buildWindowRfqHref({ mode: "profiles", source: "window-hub", productPath: pagePath });
+const finishedQuote = buildWindowRfqHref({ mode: "finished", source: "window-hub", productPath: pagePath });
+
 const faq = [
   { question: "Do you sell FRP profiles or finished windows and doors?", answer: "Both, through separate supply routes. Choose system profiles when you will fabricate locally. Choose finished units when you need an agreed assembly built to a window schedule. Glass, hardware, accessories, machining, packing and delivery are defined in the quotation." },
   { question: "What are fiberglass window lineals?", answer: "Lineals are the pultruded profile lengths used to make the window frame, sash, mullion and other constant-section components. A compatible set of lineals and accessories is cut, joined, glazed and fitted with hardware to form a finished window." },
@@ -28,18 +39,93 @@ const faq = [
   { question: "Who handles local installation and warranty?", answer: "Agree installation information, local labor, unloading, spare parts and after-sales responsibilities in the supply scope. Warranty terms depend on the contracted product and configuration. Shipping complete units does not by itself include on-site installation." },
 ];
 
+const windowFiles = ["/downloads/f1composite-frp-window-door-catalog.pdf", "/downloads/f1-window-profile-bom-template.csv", "/downloads/f1-window-schedule-template.csv"];
+
+const link = "inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:text-teal";
+
 export default function FenestrationSystemsPage() {
+  const documents = windowFiles.flatMap((file) => assembleDocuments().filter((document) => document.file === file));
   return <>
     <JsonLd data={buildProductFamilyPageSchema({ name: "FRP Window Frames & Door System Profiles", description, path: pagePath, image: "/images/products/window-systems/70.jpg", category: "Windows & Doors", productLine: "F1-THERM", schemaType: "CollectionPage", datePublished: "2026-04-04", dateModified: updatedAt, additionalProperty: [{ name: "Supply routes", value: "System profiles for local fabrication; finished windows and doors" }, { name: "Systems", value: "50, 55, 60, 65, 70, 80, 90 casement, 90 sliding, 140 compression-seal sliding" }, { name: "Current sliding profile references", value: "90 sliding CP001–CP005; 140 compression-seal CP006–CP011" }] })} />
-    <PageHeader updated={updatedAt} tag="Windows & Doors · F1-THERM" line={{ name: "F1-THERM", label: "Windows & doors" }} facts={[{ label: "Systems", value: "9 series, 50–140" }, { label: "Supply", value: "Profiles or finished units" }, { label: "Certificate", value: "PHI component, 90 series" }, { label: "Test reports", value: "AS 2047 (Intertek)" }]} figure={<Figure number={1} title="90 series corner section" note="Render"><Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series FRP window frame with triple glazing" width={800} height={800} sizes="(max-width: 1023px) 90vw, 360px" preload className="mx-auto h-auto w-full max-w-[320px] object-contain" /></Figure>} title="FRP window & door systems" description="Pultruded fiberglass system profiles for local fabrication, with finished windows and doors available for project supply. Find your series, define the scope and start the right conversation." breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors" }]} actions={{ primary: { label: "Request a Profile Quote", href: buildWindowRfqHref({ mode: "profiles", source: "window-hub-hero", productPath: pagePath }) }, secondary: { label: "Request a Finished-Unit Quote", href: buildWindowRfqHref({ mode: "finished", source: "window-hub-hero", productPath: pagePath }) }, note: "Start with your name and email · Technical details can follow", stickyMobile: true }} />
-    <ProductPageNav items={[{ id: "supply", label: "Supply routes" }, { id: "series", label: "Compare systems" }, { id: "frames-profiles", label: "System components" }, { id: "buyers", label: "Your buying path" }, { id: "procurement", label: "Procurement" }, { id: "evidence", label: "Evidence & resources" }, { id: "faq", label: "Questions" }]} />
-    <section id="supply" className="scroll-mt-[40px] bg-white py-9"><div className={windowWrap}><WindowSupplyRoutes /></div></section>
-    <section id="series" className="scroll-mt-[40px] bg-bg2 py-14"><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">From opening type to profile set</p><h2 className="mt-3 text-3xl font-bold text-t1">Find your starting system</h2><p className="mb-7 mt-4 max-w-3xl text-t2">Compare casement, tilt-and-turn, sliding and compression-seal systems. Review the matching sections before requesting samples or a quotation. For assembled units, use the finished-window route.</p><WindowSystemExplorer productPath="/products/frp-window-frames" /><Link href="/products/fiberglass-windows-doors#series" className="mt-7 inline-block py-2 text-sm font-bold text-teal-text">Compare these systems for finished-unit supply →</Link></div></section>
-    <section id="frames-profiles" className="scroll-mt-[40px] bg-white py-14"><div className={windowWrap}><WindowComponentMap /><div className="mt-10"><WindowScopeTable /></div></div></section>
-    <section id="buyers" className="scroll-mt-[40px] bg-bg2 py-14"><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Six buying situations</p><h2 className="mb-7 mt-3 text-3xl font-bold text-t1">Find the path that fits your work</h2><WindowBuyerPaths /></div></section>
-    <section id="procurement" className="scroll-mt-[40px] bg-white py-14"><div className={windowWrap}><h2 className="text-3xl font-bold text-t1">Know the steps before you place an order</h2><div className="mt-7"><h3 className="mb-5 text-xl font-bold text-teal-text">01 · Profiles for local fabrication</h3><WindowPurchaseFlow mode="profiles" compact /><Link href="/products/window-door-profiles#procurement" className="mt-5 inline-block py-2 text-sm font-bold text-teal-text">See the inputs and confirmation points →</Link></div><div className="mt-10 border-t border-border-default pt-9"><h3 className="mb-5 text-xl font-bold text-teal-text">02 · Finished windows &amp; doors</h3><WindowPurchaseFlow mode="finished" compact /><Link href="/products/fiberglass-windows-doors#procurement" className="mt-5 inline-block py-2 text-sm font-bold text-teal-text">See the project procurement guide →</Link></div></div></section>
-    <section id="evidence" className="scroll-mt-[40px] bg-bg2 py-14"><div className={windowWrap}><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Make an informed specification</p><h2 className="mb-7 mt-3 text-3xl font-bold text-t1">Match the evidence to the proposed assembly</h2><WindowEvidenceCards /><div className="mt-8 grid gap-4 md:grid-cols-3">{[["Nine-series catalog", "Series, section references, procurement and supply scope.", "/downloads/f1composite-frp-window-door-catalog.pdf", "Download PDF"], ["Profile BOM template", "Organize sections, cut lengths, units and accessories.", "/downloads/f1-window-profile-bom-template.csv", "Download CSV"], ["Window schedule template", "Organize opening IDs, size basis, configurations and quantities.", "/downloads/f1-window-schedule-template.csv", "Download CSV"]].map(([title, text, href, action]) => <article className="rounded-card border border-border-default bg-white p-5" key={title}><h3 className="font-bold text-t1">{title}</h3><p className="mt-2 text-sm text-t2">{text}</p><Link href={href} className="mt-4 inline-block py-2 text-sm font-bold text-teal-text">{action} →</Link></article>)}</div><div className="mt-7 flex flex-wrap gap-x-8"><Link href="/resources/frp-windows-guide" className="inline-block py-2 text-sm font-bold text-teal-text">Explore the FRP window materials, fabrication and buying guide →</Link><Link href="/technology/polyurethane-pultrusion-windows" className="inline-block py-2 text-sm font-bold text-teal-text">Polyurethane pultrusion windows →</Link><Link href="/products/frp-door-frames" className="inline-block py-2 text-sm font-bold text-teal-text">FRP door frame profiles →</Link></div></div></section>
-    <section className="bg-white py-12"><div className={`${windowWrap} grid gap-8 lg:grid-cols-2`}><div className="relative min-h-64 overflow-hidden rounded-card"><Image src="/images/case-studies/frp-fenestration-residential-tower-facade.jpg" alt="Residential building facade used as a fenestration application reference" fill sizes="(max-width: 1024px) 90vw, 44vw" className="object-cover" /></div><div className="py-3"><p className="text-xs font-bold uppercase tracking-widest text-teal-text">Applications &amp; project context</p><h2 className="mt-3 text-3xl font-bold text-t1">Connect the system to the building</h2><p className="mt-4 text-sm leading-relaxed text-t2">Residential, education, healthcare and industrial projects can require different opening arrangements, glass, hardware and installation details. Use manufacturing-partner project references to start a discussion about your own specification.</p><p className="mt-4 text-xs text-t3">An application or project reference does not establish performance for a different assembly. Confirm the supply role and relevant documents for your project.</p><div className="mt-5 flex flex-wrap gap-5"><Link href="/case-studies" className="py-2 text-sm font-bold text-teal-text">Explore project references →</Link><Link href="/industries/construction" className="py-2 text-sm font-bold text-teal-text">Building applications →</Link></div></div></div></section>
-    <section id="faq" className="scroll-mt-[40px] bg-bg2 py-14"><div className={windowWrap}><h2 className="mb-6 text-3xl font-bold text-t1">Before you request a quote</h2><FAQ items={faq} /><div data-page-rfq className="mt-10 rounded-card bg-deep p-7 text-white md:p-9"><h2 className="text-2xl font-bold">Choose your supply route</h2><p className="mt-3 max-w-2xl text-sm text-white/80">A drawing, a section list or a window schedule helps us scope the next step. Early technical and sample inquiries are welcome.</p><div className="mt-6 flex flex-wrap gap-3"><Link href={buildWindowRfqHref({ mode: "profiles", source: "window-hub", productPath: pagePath })} className="rounded-card bg-white px-5 py-3 text-sm font-bold text-deep">Request a Profile Quote →</Link><Link href={buildWindowRfqHref({ mode: "finished", source: "window-hub", productPath: pagePath })} className="rounded-card border border-white/40 px-5 py-3 text-sm font-bold text-white">Request a Finished-Unit Quote →</Link></div></div></div></section>
+    <PageHeader
+      updated={updatedAt}
+      tag="Windows & Doors · F1-THERM"
+      line={{ name: "F1-THERM", label: "Windows & doors" }}
+      title="FRP window & door systems"
+      description="Pultruded fiberglass system profiles for local fabrication, with finished windows and doors available for project supply. Find your series, define the scope and start the right conversation."
+      facts={[{ label: "Systems", value: "9 series" }, { label: "Frame depth", value: "50–140 mm" }, { label: "PHI certificate", value: "90 series" }, { label: "Test reports", value: "AS 2047" }]}
+      figure={<Figure number={1} title="90 series corner section" note="Rendering"><Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series FRP window frame with triple glazing" width={800} height={800} sizes="(max-width: 1023px) 90vw, 360px" preload className="mx-auto h-auto w-full max-w-[320px] object-contain" /></Figure>}
+      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors" }]}
+      actions={{ primary: { label: "Request a profile quote", href: buildWindowRfqHref({ mode: "profiles", source: "window-hub-hero", productPath: pagePath }) }, secondary: { label: "Request a finished-unit quote", href: buildWindowRfqHref({ mode: "finished", source: "window-hub-hero", productPath: pagePath }), variant: "secondary" }, note: "Start with your name and email · Technical details can follow", stickyMobile: true }}
+    />
+    <PageNav items={[{ id: "supply", label: "Supply routes" }, { id: "series", label: "Systems" }, { id: "components", label: "Components" }, { id: "buyers", label: "Buying paths" }, { id: "procurement", label: "Procurement" }, { id: "evidence", label: "Evidence" }, { id: "projects", label: "Projects" }, { id: "faq", label: "FAQ" }, { id: "quote", label: "Quote" }]} />
+
+    <PageSection id="supply" title="Two ways to buy: profiles or finished units" intro="Fabricators buy the profile set and build locally; project buyers specify complete units against a window schedule. Each route has its own guide and its own quotation.">
+      <WindowSupplyRoutes />
+    </PageSection>
+
+    <PageSection id="series" title="Find your starting system" count="9 systems" tone="muted" intro="Compare casement, tilt-and-turn, sliding and compression-seal systems, then review the matching sections before you ask for samples or a quotation." aside={<Link href="/products/fiberglass-windows-doors#series" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Compare for finished units</Link>}>
+      <WindowSystemExplorer productPath={pagePath} />
+    </PageSection>
+
+    <PageSection id="components" title="Specify the system, not single lineals" intro="Frame, sash and mullion sections only work with their beads, gaskets, connectors and hardware. The table shows what each supply route quotes.">
+      <WindowComponentMap figure={2} />
+      <h3 className="mt-[40px] text-f20 font-bold text-t1">What each route quotes</h3>
+      <div className="mt-[16px]"><WindowScopeTable /></div>
+    </PageSection>
+
+    <PageSection id="buyers" title="Find the path that fits your work" count="6 situations" tone="muted" intro="Open your situation to see what to share, what we review with you and what to settle before moving ahead.">
+      <WindowBuyerPaths />
+    </PageSection>
+
+    <PageSection id="procurement" title="Know the steps before you order" intro="Both routes pass agreed confirmation points; each route guide lists the inputs and outputs of every step.">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-[24px]">
+        <h3 className="text-f20 font-bold text-t1">Profiles for local fabrication</h3>
+        <Link href="/products/window-door-profiles#procurement" className={link}>Inputs and confirmation points <span aria-hidden className="ml-[4px]">→</span></Link>
+      </div>
+      <div className="mt-[12px]"><WindowPurchaseFlow mode="profiles" compact /></div>
+      <div className="mt-[32px] flex flex-wrap items-baseline justify-between gap-x-[24px] border-t border-border-default pt-[32px]">
+        <h3 className="text-f20 font-bold text-t1">Finished windows &amp; doors</h3>
+        <Link href="/products/fiberglass-windows-doors#procurement" className={link}>The project procurement guide <span aria-hidden className="ml-[4px]">→</span></Link>
+      </div>
+      <div className="mt-[12px]"><WindowPurchaseFlow mode="finished" compact /></div>
+    </PageSection>
+
+    <PageSection id="evidence" title="Match the evidence to the proposed assembly" tone="muted" intro="A certificate or report covers the configuration that was tested. Check each document against the series, size, glass and hardware you are buying.">
+      <WindowEvidenceCards />
+      <h3 className="mt-[40px] text-f20 font-bold text-t1">Catalog and RFQ templates</h3>
+      <ul className="mt-[16px] grid grid-cols-1 gap-[12px] md:grid-cols-3">
+        {documents.map((document) => <li key={document.file}><DocumentCard card={libraryCard(document)} compact /></li>)}
+      </ul>
+    </PageSection>
+
+    <WindowProjects />
+
+    <PageSection id="faq" title="Before you request a quote" tone="muted">
+      <FAQList items={faq} />
+    </PageSection>
+
+    <RelatedLinks
+      background="white"
+      groups={[
+        { title: "Window and door products", links: [{ href: "/products/window-door-profiles", label: "Window and door profiles for fabricators" }, { href: "/products/fiberglass-windows-doors", label: "Finished fiberglass windows and doors" }, { href: "/products/frp-door-frames", label: "FRP door frame profiles" }, { href: "/products/frp-window-reinforcement", label: "Fiberglass reinforcement for uPVC windows" }] },
+        { title: "Guides and tools", links: [{ href: "/resources/frp-windows-guide", label: "FRP windows: materials, fabrication and buying" }, { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion for windows" }, { href: "/technology/frp-u-value-calculator", label: "Whole-window U-value calculator" }, { href: "/ai/passive-house", label: "Passive House window selector" }] },
+        { title: "Evidence and markets", links: [{ href: "/resources/evidence", label: "Test reports and their scope" }, { href: "/industries/construction", label: "FRP in construction" }, { href: "/resources/downloads", label: "Data sheets and certificates" }] },
+      ]}
+    />
+
+    <PageSection id="quote" title="Choose your supply route" tone="deep">
+      <ProductRfq
+        product="FRP windows and doors"
+        productPath={pagePath}
+        quoteHref={profileQuote}
+        quoteLabel="Request a profile quote"
+        secondaryQuote={{ label: "Request a finished-unit quote", href: finishedQuote }}
+        items={[...windowRequestItems.hub]}
+        intro="Send a drawing, a section list or a window schedule, and the destination. Early technical and sample inquiries are welcome."
+        links={[{ label: "Compare the nine systems", href: "#series" }]}
+        advisorPrompt="I am sourcing FRP windows or doors: [profiles to fabricate locally / finished units]. Market or project: [city, country]. Opening types: [casement / tilt-and-turn / sliding / doors], quantity [approximate]. Which series fits, and what does F1 Composite need for a quote?"
+      />
+    </PageSection>
   </>;
 }

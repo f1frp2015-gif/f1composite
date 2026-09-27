@@ -1,15 +1,15 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
-import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
+import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   frpFixedLadderCatalogSpecs,
   frpLadderCageComponents,
@@ -19,7 +19,8 @@ import {
   type CatalogSpecRow,
 } from "@/content/data/frpLadderSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-ladders";
@@ -96,21 +97,32 @@ const faqItems = [
   },
 ];
 
-function SpecTable({ rows }: { rows: readonly CatalogSpecRow[] }) {
+// What a ladder quotation needs, from the FAQ answer on the RFQ.
+const requestItems = [
+  { title: "Elevation", text: "Vertical rise, clear width, wall stand-off and the top-exit detail, marked on an elevation or CAD file." },
+  { title: "Supports", text: "Wall or frame substrate and the bracket locations." },
+  { title: "Standard and fall protection", text: "The governing standard and the cage or ladder-safety concept." },
+  { title: "Exposure and delivery", text: "Exposure, color, quantity and destination." },
+];
+
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
+function SpecTable({ rows, caption }: { rows: readonly CatalogSpecRow[]; caption: string }) {
   return (
-    <div className="overflow-x-auto rounded-card border border-border-default bg-white">
-      <table className="w-full border-collapse text-left">
-        <thead className="bg-bg2">
-          <tr>
-            <th className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Component / parameter</th>
-            <th className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Nominal catalog value</th>
+    <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+      <table className="w-full border-collapse text-left text-f14">
+        <caption className="sr-only">{caption}</caption>
+        <thead>
+          <tr className="border-b border-border-default bg-bg2">
+            <th scope="col" className="px-[16px] py-[8px] font-semibold text-t1">Component / parameter</th>
+            <th scope="col" className="px-[16px] py-[8px] font-semibold text-t1">Nominal catalog value</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.item} className="border-t border-border-default">
-              <th className="px-[16px] py-[13px] text-f14 font-semibold text-t1">{row.item}</th>
-              <td className="px-[16px] py-[13px] text-f14 text-t2">{row.nominalValue}</td>
+            <tr key={row.item} className="border-b border-border-default last:border-b-0">
+              <th scope="row" className="px-[16px] py-[10px] font-semibold text-t1">{row.item}</th>
+              <td className="px-[16px] py-[10px] text-t2">{row.nominalValue}</td>
             </tr>
           ))}
         </tbody>
@@ -118,7 +130,9 @@ function SpecTable({ rows }: { rows: readonly CatalogSpecRow[] }) {
     </div>
   );
 }
+
 export default function FrpLaddersPage() {
+  const quoteHref = buildRfqHref({ source: "ladder-product-header", product: "FRP fixed ladder", productPath: pagePath });
   return (
     <>
       <JsonLd
@@ -140,9 +154,36 @@ export default function FrpLaddersPage() {
 
       <PageHeader
         updated={updatedAt}
-        tag="Fixed Access Systems · F1-STRUX"
-        title="Fiberglass Fixed Ladders and FRP Access Systems"
+        reviewer={reviewerCredit(reviewer)}
+        tag="Fixed ladders"
+        line={{ name: "F1-STRUX", label: "Fixed ladders" }}
+        title="Fiberglass fixed ladders and FRP access systems"
         description="Industrial fixed FRP / GRP ladder assemblies with pultruded side rails, fluted rungs, mounting brackets, optional cage components and separate C/U rung-cover retrofits. Nominal catalog dimensions are shown below; the approved project drawing controls fabrication and fall-protection interfaces."
+        facts={[
+          { label: "Side rails", value: "50.8 mm square tube" },
+          { label: "Rungs", value: "32 mm fluted tube" },
+          { label: "Rung spacing", value: "300 mm" },
+          { label: "Release", value: "Approved drawing" },
+        ]}
+        actions={{
+          primary: { label: "Request a quote", href: quoteHref },
+          secondary: { label: "See the dimensions", href: "#specifications", variant: "secondary" },
+          stickyMobile: true,
+        }}
+        figure={
+          <Figure number={1} title="Fixed ladder with cage" note="Reference photo" caption="Manual-derived product reference, cropped to remove all source branding. It illustrates a fixed ladder and cage arrangement, not an F1 project case study or a compliance certificate." bleed>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src={frpLadderManualImageAssets.hero}
+                alt="Yellow fiberglass fixed ladder with circular cage hoops and vertical cage strips"
+                fill
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                preload
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
@@ -150,176 +191,136 @@ export default function FrpLaddersPage() {
         ]}
       />
 
-      <MaterialTerminologyNote title="GRP ladders for permanent access">
-        GRP ladders and fiberglass fixed ladders describe the glass-reinforced access assemblies shown here. This range is for permanent industrial access; portable stepladders and extension ladders require different specifications. Confirm the installation geometry and fall-protection interfaces.
-      </MaterialTerminologyNote>
+      <PageNav
+        items={[
+          { id: "overview", label: "Overview" },
+          { id: "specifications", label: "Dimensions" },
+          { id: "cage", label: "Cage" },
+          { id: "rung-covers", label: "Rung covers" },
+          { id: "inputs", label: "Inputs" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white pt-[55px]">
-        <div className="site-container">
-          <figure>
-            <div className="relative aspect-[21/9] overflow-hidden rounded-card bg-bg2">
-              <Image
-                src={frpLadderManualImageAssets.hero}
-                alt="Yellow fiberglass fixed ladder with circular cage hoops and vertical cage strips"
-                fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover"
-                preload
-              />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-              Manual-derived product reference, cropped to remove all source branding. It illustrates a fixed ladder and cage arrangement, not an F1 project case study or a compliance certificate.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <SectionTag>Industrial Vertical Access</SectionTag>
-            <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-              A complete FRP fixed ladder is a project assembly, not a loose profile
-            </h2>
-            <p className="mt-[21px] text-f18 leading-golden text-t2">
+      <PageSection id="overview" title="A complete FRP fixed ladder is a project assembly, not a loose profile">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <div className="space-y-[14px] text-f16 leading-golden text-t2">
+            <p className="text-f18 text-t1">
               The assembly combines square pultruded side rails, fluted round rungs, rung gaskets, splice bars and project-specific wall or floor brackets. Optional hoops and cage strips form one access-safety arrangement; a vertical ladder-safety or personal-fall-arrest interface may still govern under the adopted standard.
             </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
+            <p>
               This product page owns the fixed industrial ladder intent. For platform-edge protection, use the separate{" "}
-              <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:underline">
+              <Link href="/products/frp-handrail-systems" className={link}>
                 fiberglass handrail and guardrail systems
-              </Link>
-              {" "}page; for walking surfaces, use FRP stair treads or grating.
+              </Link>{" "}
+              page; for walking surfaces, use FRP stair treads or grating.
             </p>
+            <MaterialTerminologyNote title="GRP ladders for permanent access">
+              GRP ladders and fiberglass fixed ladders describe the glass-reinforced access assemblies shown here. This range is for permanent industrial access; portable stepladders and extension ladders require different specifications. Confirm the installation geometry and fall-protection interfaces.
+            </MaterialTerminologyNote>
           </div>
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Catalog boundary</p>
-            <h2 className="mt-[8px] text-f20 font-bold text-t1">Nominal dimensions, then an approved drawing</h2>
-            <p className="mt-[13px] text-f14 leading-golden text-t2">
+          <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Catalog boundary</p>
+            <h3 className="mt-[6px] text-f18 font-bold text-t1">Nominal dimensions, then an approved drawing</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
               The manual gives geometry but no whole-ladder rated load, rung proof load, anchor capacity, resin grade, fire rating or slip-test value. F1 therefore releases each ladder only after the elevation, support, fall-protection concept, BOM and connection schedule are reviewed.
             </p>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Fixed Ladder Specifications</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Manual-verified nominal ladder dimensions
-          </h2>
-          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
-            Values are transcribed from the product manual and rebuilt as accessible HTML. They are useful for early layout and RFQ comparison, but they are not a substitute for the approved ladder elevation, load verification or anchor design.
-          </p>
-          <div className="mt-[34px]">
-            <SpecTable rows={frpFixedLadderCatalogSpecs} />
-          </div>
-        </div>
-      </section>
+      <PageSection
+        id="specifications"
+        title="Manual-verified nominal ladder dimensions"
+        tone="muted"
+        intro="Values are transcribed from the product manual and rebuilt as accessible HTML. They are useful for early layout and RFQ comparison, but they are not a substitute for the approved ladder elevation, load verification or anchor design."
+      >
+        <SpecTable rows={frpFixedLadderCatalogSpecs} caption="Nominal FRP fixed ladder dimensions from the product manual" />
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[34px] lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <figure>
-              <div className="relative aspect-[37/26] overflow-hidden rounded-card border border-border-default bg-white">
-                <Image
-                  src={frpLadderManualImageAssets.cageLayout}
-                  alt="Typical FRP fixed ladder cage arrangement with hoops, strips, brackets, walk-through and catalog dimensions"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                Manual-derived typical arrangement. The catalog dimensions shown here are not current legal requirements; the project standard and approved drawing control.
-              </figcaption>
-            </figure>
-            <div>
-              <SectionTag>Optional Cage Components</SectionTag>
-              <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">
-                Hoops, cage strips and mounting references
-              </h2>
-              <div className="mt-[21px]">
-                <SpecTable rows={frpLadderCageComponents} />
-              </div>
-              <div className="mt-[21px]">
-                <SpecTable rows={frpLadderCageLayoutReferences} />
-              </div>
+      <PageSection id="cage" title="Hoops, cage strips and mounting references">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-[48px]">
+          <Figure number={2} title="Typical cage arrangement" note="Manual drawing" caption="Manual-derived typical arrangement. The catalog dimensions shown here are not current legal requirements; the project standard and approved drawing control.">
+            <div className="relative aspect-[37/26] bg-white">
+              <Image
+                src={frpLadderManualImageAssets.cageLayout}
+                alt="Typical FRP fixed ladder cage arrangement with hoops, strips, brackets, walk-through and catalog dimensions"
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-contain"
+              />
             </div>
+          </Figure>
+          <div className="space-y-[16px]">
+            <SpecTable rows={frpLadderCageComponents} caption="Optional ladder cage components" />
+            <SpecTable rows={frpLadderCageLayoutReferences} caption="Ladder cage layout references" />
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Rung Retrofit Accessories</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            C-shape and U-shape fiberglass ladder rung covers
-          </h2>
-          <p className="mt-[13px] max-w-[900px] text-f16 leading-golden text-t2">
-            These gritted covers fit over existing steel or timber rungs. They are a retrofit accessory—not the complete ladder&apos;s 32 mm fluted FRP tube rung—and require a substrate, adhesive, preparation and slip-performance specification.
-          </p>
-          <div className="mt-[34px] grid gap-[34px] lg:grid-cols-[1fr_0.9fr] lg:items-start">
-            <figure>
-              <div className="relative aspect-[137/65] overflow-hidden rounded-card border border-border-default bg-white">
-                <Image
-                  src={frpLadderManualImageAssets.rungCovers}
-                  alt="C-shape and U-shape gritted fiberglass covers for existing ladder rungs"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="mt-[8px] text-f12 leading-golden text-t3">
-                Manual-derived, supplier-neutral product crop. The source does not publish a slip coefficient, wear test or adhesive system.
-              </figcaption>
-            </figure>
-            <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-1">
-              {frpLadderRungCoverGroups.map((group) => (
-                <article key={group.shape} className="rounded-card border border-border-default bg-white p-[21px]">
-                  <h3 className="text-f18 font-bold text-t1">{group.shape} cover</h3>
-                  <p className="mt-[5px] text-f12 font-semibold uppercase tracking-wide text-t3">Reference: {group.fitReference}</p>
-                  <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2">
-                    {group.sizes.map((size) => (
-                      <li key={size} className="rounded-tag bg-bg2 px-[12px] py-[8px] text-f14 font-medium text-t2">{size}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+      <PageSection
+        id="rung-covers"
+        title="C-shape and U-shape fiberglass ladder rung covers"
+        tone="muted"
+        intro="These gritted covers fit over existing steel or timber rungs. They are a retrofit accessory—not the complete ladder's 32 mm fluted FRP tube rung—and require a substrate, adhesive, preparation and slip-performance specification."
+      >
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <Figure number={3} title="C- and U-shape rung covers" note="Manual photo" caption="Manual-derived, supplier-neutral product crop. The source does not publish a slip coefficient, wear test or adhesive system.">
+            <div className="relative aspect-[137/65] bg-white">
+              <Image
+                src={frpLadderManualImageAssets.rungCovers}
+                alt="C-shape and U-shape gritted fiberglass covers for existing ladder rungs"
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-contain"
+              />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Specification Workflow</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Six inputs that turn a catalog ladder into a releasable system
-          </h2>
-          <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-            {selectionInputs.map((input, index) => (
-              <article key={input.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
-                <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
+          </Figure>
+          <div className="grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-1">
+            {frpLadderRungCoverGroups.map((group) => (
+              <article key={group.shape} className="rounded-card border border-border-default bg-white p-[20px]">
+                <h3 className="text-f18 font-bold text-t1">{group.shape} cover</h3>
+                <p className="mt-[4px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">Reference: {group.fitReference}</p>
+                <ul className="mt-[12px] flex flex-wrap gap-[6px]">
+                  {group.sizes.map((size) => (
+                    <li key={size} className="rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] text-f14 text-t1">{size}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
-          <div className="mt-[34px] rounded-card border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
-            <strong className="text-t1">Safety-standard checkpoint.</strong>{" "}
-            For U.S. general industry, review{" "}
-            <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.23</a>{" "}
-            and{" "}
-            <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.28</a>.
-            For permanent access to machinery, confirm whether{" "}
-            <a href="https://www.iso.org/standard/61283.html" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">ISO 14122-4:2016</a>{" "}
-            is within scope. Catalog cage dimensions do not themselves establish compliance.
-          </div>
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection id="inputs" title="Six inputs that turn a catalog ladder into a releasable system">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {selectionInputs.map((input, index) => (
+            <li key={input.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Input {index + 1}</span>
+              <h3 className="mt-[4px] text-f16 font-bold text-t1">{input.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[16px] rounded-card border border-warn-border bg-warn-bg px-[16px] py-[12px] text-f14 leading-golden text-t2">
+          <strong className="text-t1">Safety-standard checkpoint.</strong>{" "}
+          For U.S. general industry, review{" "}
+          <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" target="_blank" rel="noopener noreferrer" className={link}>OSHA 1910.23</a>{" "}
+          and{" "}
+          <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28" target="_blank" rel="noopener noreferrer" className={link}>OSHA 1910.28</a>.
+          For permanent access to machinery, confirm whether{" "}
+          <a href="https://www.iso.org/standard/61283.html" target="_blank" rel="noopener noreferrer" className={link}>ISO 14122-4:2016</a>{" "}
+          is within scope. Catalog cage dimensions do not themselves establish compliance.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Questions buyers ask" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
             title: "Complete the access system",
@@ -351,15 +352,17 @@ export default function FrpLaddersPage() {
         ]}
       />
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqItems} />
-        </div>
-      </section>
-
-      <AskAICard prefill="I need an industrial fiberglass fixed ladder: vertical rise [mm], lower/upper landing and top-exit geometry [describe or attach drawing], support substrate [concrete/steel/FRP], wall stand-off [mm], environment [chemical/coastal/electrical], governing standard [OSHA/ISO/local], and fall-protection concept [cage/ladder-safety system]. Build the RFQ checklist and flag what needs engineering approval." />
-      <ProductNextSteps path="/products/frp-ladders" />
-      <InnerCTA title="Send the ladder elevation — receive a drawing-led RFQ review." />
+      <PageSection id="quote" title="Quote a fixed ladder" tone="deep">
+        <ProductRfq
+          product="FRP fixed ladders"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the ladder elevation, the supports, the governing standard and the destination."
+          links={[{ label: "Check the ladder geometry first", href: "/tools/access-geometry-checker" }]}
+          advisorPrompt="I need an industrial fiberglass fixed ladder: vertical rise [mm], lower/upper landing and top-exit geometry [describe or attach drawing], support substrate [concrete/steel/FRP], wall stand-off [mm], environment [chemical/coastal/electrical], governing standard [OSHA/ISO/local], and fall-protection concept [cage/ladder-safety system]. Build the RFQ checklist and flag what needs engineering approval."
+        />
+      </PageSection>
     </>
   );
 }

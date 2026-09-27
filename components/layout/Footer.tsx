@@ -40,7 +40,7 @@ export default function Footer() {
       <div data-footer-cta className="bg-deep">
         <div className="site-container flex flex-col gap-[18px] py-[28px] md:flex-row md:items-center md:justify-between md:py-[32px]">
           <div>
-            <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal">Engineering &amp; RFQ support</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-white/60">Engineering &amp; RFQ support</p>
             <p className="mt-[5px] text-[clamp(21px,2.1vw,28px)] font-bold leading-tight tracking-[-0.02em] text-white">
               Tell us what you need
             </p>
@@ -52,7 +52,7 @@ export default function Footer() {
               href="/contact?source=footer-cta&inquiry_type=rfq"
               className="inline-flex min-h-[46px] items-center justify-center rounded-control bg-teal-text px-[20px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              Get a Quote
+              Get a quote
             </Link>
             <a
               href={whatsappHref(whatsappMessage())}

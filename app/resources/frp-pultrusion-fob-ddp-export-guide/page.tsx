@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import AnswerBlocks from "@/components/sections/AnswerBlocks";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP Pultrusion FOB & DDP Export Guide — HS Codes";
@@ -49,18 +51,18 @@ const incoterms: IncotermRow[] = [
     bestFor: "Buyers who want one seller-arranged freight leg but still handle their own import clearance",
   },
   {
-    term: "DDP (Delivered Duty Paid)",
-    freight: "Seller arranges freight door-to-door",
-    customsClearance: "Seller clears both export and import customs",
-    dutyPaidBy: "Seller — duty and tariff are built into the quoted price",
-    bestFor: "Buyers who want one landed-cost number with no customs surprise, and no in-house import compliance team",
-  },
-  {
     term: "DAP (Delivered at Place)",
     freight: "Seller arranges freight door-to-door",
     customsClearance: "Buyer clears import customs (duty/tax not prepaid by seller)",
     dutyPaidBy: "Buyer",
     bestFor: "Buyers who want door delivery but prefer to self-file duty for tax-recovery or bonded-warehouse reasons",
+  },
+  {
+    term: "DDP (Delivered Duty Paid)",
+    freight: "Seller arranges freight door-to-door",
+    customsClearance: "Seller clears both export and import customs",
+    dutyPaidBy: "Seller: duty and tariff are built into the quoted price",
+    bestFor: "Buyers who want one landed-cost number with no customs surprise, and no in-house import compliance team",
   },
 ];
 
@@ -142,127 +144,109 @@ export default function DdpTariffHsCodeGuidePage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Import & Trade Compliance"
-        title="FRP Pultrusion FOB & DDP Export Guide"
-        description="A practical guide to Incoterms, HS/HTSUS classification, and Section 301 tariff exposure for buyers importing pultruded FRP profiles — so the price you're quoted is the price that lands at your jobsite."
+        title="FRP pultrusion FOB and DDP export guide"
+        description="A practical guide to Incoterms, HS/HTSUS classification, and Section 301 tariff exposure for buyers importing pultruded FRP profiles, so the price you are quoted is the price that lands at your jobsite."
+        updated={updatedAt}
+        reviewer={reviewerCredit(authorsBySlug["yifan-liu"])}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "DDP, Tariffs & HS Codes" },
         ]}
       />
+      <PageNav items={[{ id: "landed-cost", label: "Landed cost" }, { id: "incoterms", label: "Incoterms" }, { id: "hs-classification", label: "HS codes" }, { id: "section-301", label: "Section 301" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Why Landed-Cost Surprises Happen</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Three variables, quoted separately, that should be quoted together
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            A landed-cost surprise on an FRP import almost always traces back to one of three things being left out of the initial quote: which Incoterm actually applies (who pays freight and duty, and when risk transfers), which HS/HTSUS heading the profile is classified under, and whether that heading currently carries Section 301 or other trade-remedy exposure. Any one of these left unstated turns a clean FOB unit-price quote into a landed cost that is 20&ndash;30% higher once the shipment clears customs.
+      <PageSection id="landed-cost" title="Three variables, quoted separately, that should be quoted together" tone="white">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>
+            A landed-cost surprise on an FRP import almost always traces back to one of three things being left out of the initial quote: which Incoterm applies (who pays freight and duty, and when risk transfers), which HS/HTSUS heading the profile is classified under, and whether that heading currently carries Section 301 or other trade-remedy exposure. Leave any one of them unstated and a clean FOB unit price becomes a landed cost well above it once the shipment clears customs.
           </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
+          <p>
             This page lays out all three in one place. For country-specific detail already worked through for real projects, see the{" "}
-            <Link href="/regions/frp-pultrusion-supplier-usa" className="text-teal-text hover:underline">
+            <Link href="/regions/frp-pultrusion-supplier-usa" className="font-semibold text-teal-text hover:underline">
               United States sourcing page
             </Link>{" "}
             and the{" "}
-            <Link href="/regions/frp-passive-house-windows-canada" className="text-teal-text hover:underline">
+            <Link href="/regions/frp-passive-house-windows-canada" className="font-semibold text-teal-text hover:underline">
               Canada passive house window page
             </Link>
             .
           </p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Incoterms for FRP Imports</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            FOB vs CIF vs DDP vs DAP — who does what
-          </h2>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[900px] border-collapse text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default bg-bg2">
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Incoterm</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Freight</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Import clearance</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Duty paid by</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Best for</th>
+      <PageSection id="incoterms" title="FOB, CIF, DAP and DDP: who does what" tone="muted" intro="Ordered by how much the seller takes on, from the origin port to your door with duty paid.">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[900px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Incoterm</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Freight</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Import clearance</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Duty paid by</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Best for</th>
+              </tr>
+            </thead>
+            <tbody>
+              {incoterms.map((row) => (
+                <tr key={row.term} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.term}</th>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.freight}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.customsClearance}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.dutyPaidBy}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{row.bestFor}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {incoterms.map((row, i) => (
-                  <tr key={row.term} className={`border-b border-border-default ${i % 2 === 0 ? "bg-white" : "bg-bg2/40"} ${row.term.startsWith("DDP") ? "bg-teal/5" : ""}`}>
-                    <td className="px-[13px] py-[13px] font-semibold text-t1">{row.term}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.freight}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.customsClearance}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.dutyPaidBy}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.bestFor}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            F1 Composite quotes FOB, CIF, and DDP on request. DDP USA and DDP Canada quotes carry the current Section 301 / GST exposure pre-quoted inline, so the number in the quote is the number that lands at the jobsite.
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] max-w-[860px] text-f16 leading-golden text-t2">
+          F1 Composite quotes FOB, CIF and DDP on request. DDP USA and DDP Canada quotes carry the current Section 301 or GST exposure inline, so the number in the quote is the number that lands at the jobsite.
+        </p>
+      </PageSection>
+
+      <PageSection id="hs-classification" title="One profile, more than one possible heading" tone="white" intro={<>Pultruded FRP has no single dedicated HS heading. Classification runs on the General Rules of Interpretation (GRI) &ldquo;essential character&rdquo; test: is the article defined by its resin matrix, or by its glass-fiber content and form? The headings below are the candidates that show up in practice; they are not exhaustive and do not replace a binding ruling on your exact profile.</>}>
+        <ul className="grid gap-[12px] lg:grid-cols-3">
+          {hsCandidates.map((row) => (
+            <li key={row.application} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{row.heading}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{row.application}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{row.logic}</p>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <PageSection id="section-301" title="Two different regimes, often conflated" tone="muted">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>
+            Section 301 tariffs apply by HTSUS heading against China-origin goods on the active USTR lists: if your profile&rsquo;s heading is listed, the tariff applies to the shipment regardless of what the part is used for. Anti-dumping and countervailing duty (AD/CVD) measures are a separate regime that, for the composites industry, has historically targeted glass fiber itself (HTSUS 7019) and a narrower set of finished glass-fiber products more specifically than pultruded structural profiles as a category.
+          </p>
+          <p>
+            In practice: assume Section 301 exposure applies to most China-origin FRP profile headings, and check AD/CVD exposure for your specific HS classification and origin rather than assuming it applies to every FRP product. Both lists change, so confirm current rates for your exact heading and shipment date with your customs broker or the current USTR and CBP publications before you finalize a purchase order.
           </p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>HS / HTSUS Classification</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            One profile, more than one possible heading
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Pultruded FRP does not have a single dedicated HS heading. Customs classification runs on the General Rules of Interpretation (GRI) &ldquo;essential character&rdquo; test — is the article&rsquo;s defining characteristic its plastic resin matrix, or its glass-fiber content and form? The table below is illustrative of the candidate headings that show up in practice; it is not exhaustive and is not a substitute for a binding ruling on your exact profile.
-          </p>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
-            {hsCandidates.map((row) => (
-              <div key={row.application} className="rounded-card border border-border-default bg-bg2 p-[29px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{row.heading}</p>
-                <h3 className="mt-[8px] text-f16 font-bold text-t1">{row.application}</h3>
-                <p className="mt-[13px] text-f14 leading-golden text-t2">{row.logic}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Section 301 &amp; Trade-Remedy Exposure</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Two different regimes, often conflated
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Section 301 tariffs apply by HTSUS heading against China-origin goods on the active USTR lists — if your profile&rsquo;s heading is listed, the tariff applies to the shipment regardless of what the part is used for. Anti-dumping and countervailing duty (AD/CVD) measures are a separate regime that, for the composites industry, has historically targeted glass fiber itself (HTSUS 7019) and a narrower set of finished glass-fiber products more specifically than it targets pultruded structural profiles as a category. In practice this means: assume Section 301 exposure applies to most China-origin FRP profile headings, and check AD/CVD exposure specifically for your HS classification and origin rather than assuming it applies uniformly across every FRP product. Both lists change; confirm current rates for your exact heading and shipment date via your customs broker or the current USTR/CBP publications before finalizing a PO.
-          </p>
-        </div>
-      </section>
-
-      <AnswerBlocks
-        tag="Quick Answers"
-        title="DDP, HS codes, and Section 301 — frequently asked"
-        items={faqs}
-      />
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="bg2"
         groups={[
           {
             title: "Country-specific sourcing pages",
             links: [
               { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP sourcing for US projects (Section 301 detail)" },
-              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada (HS & GST detail)" },
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows for Canada (HS and GST detail)" },
             ],
           },
           {
             title: "Sourcing & supplier vetting",
             links: [
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP pultrusion supplier" },
-              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell / Exel" },
+              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell and Exel" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion capability" },
               { href: "/products/frp-pultrusion-manufacturer-factory-direct", label: "Factory-direct FRP pultrusion supply" },
             ],
@@ -270,10 +254,10 @@ export default function DdpTariffHsCodeGuidePage() {
           {
             title: "Explore further",
             links: [
-              { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles hub" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/fiberglass-pultruded-profile-price", label: "Fiberglass profile price estimator (FOB baseline)" },
               { href: "/resources/glossary", label: "FRP & pultrusion glossary" },
-              { href: "/resources/technical-data", label: "Technical data sheets" },
+              { href: "/resources/technical-data", label: "Technical data" },
             ],
           },
         ]}

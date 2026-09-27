@@ -1,17 +1,21 @@
 import GratingApplicationCards from "@/components/sections/GratingApplicationCards";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import GratingHero from "@/components/sections/GratingHero";
 import GratingProjectPlanner from "@/components/sections/GratingProjectPlanner";
 import GratingVisualGuide from "@/components/sections/GratingVisualGuide";
 import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
 import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
 import CollectionSchema from "@/components/seo/CollectionSchema";
-import FAQ from "@/components/ui/FAQ";
+import CoverCard from "@/components/ui/CoverCard";
+import CoverLink from "@/components/ui/CoverLink";
+import { FAQList } from "@/components/ui/FAQ";
+import { coverFor, productCovers } from "@/lib/covers";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata } from "@/lib/seo";
-import { gratingInquiryHref } from "@/lib/gratingInquiry";
+import { gratingInquiryHref, gratingRequestItems } from "@/lib/gratingInquiry";
 
 const path = "/products/grating";
 const seo = getSeoQueryTarget(path);
@@ -35,46 +39,92 @@ const faq = [
 ];
 export const metadata: Metadata = buildPageMetadata({ title: seo.title, description: seo.description, path, image: "/images/products/grating/grating-panel-comparison.webp" });
 
+const applicationLinks = [
+  { title: "Process platforms", text: "Chemical exposure, support spacing and service access around equipment.", href: "/applications/frp-chemical-plant-platforms" },
+  { title: "Water & coastal access", text: "Wet surfaces, drainage, supports and the inspection environment.", href: "/industries/water-wastewater" },
+  { title: "Steps, handrails & decks", text: "Stair treads and guarding matched to the layout. Closed structural decks have separate specifications.", href: "/products/frp-stair-treads" },
+];
+
+const th = "px-[14px] py-[8px] font-semibold text-t1";
+const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
 export default function GratingPage() {
   return <>
     <CollectionSchema name="Fiberglass & FRP Grating" description={seo.description} path={path} links={links} />
-    <GratingHero title="Fiberglass Grating for Industrial Projects" description="Choose molded mesh or pultruded bearing-bar panels for walkways, platforms and access systems. Compare configurations, review the engineering inputs and send a panel schedule for quotation." image="/images/products/grating/grating-panel-comparison.webp" imageAlt="Illustrative green molded square-mesh and yellow pultruded grating samples side by side" caption="AI-generated product illustration showing two constructions; not a dimensioned specification or project photograph." facts={[{ label: "Constructions", value: "Molded & pultruded" }, { label: "Selection data", value: "Dimensions & weights" }, { label: "Fixing systems", value: "Matched 316SS clips" }, { label: "Procurement", value: "Project & bulk enquiries" }]} />
+    <GratingHero title="Fiberglass grating for industrial projects" description="Choose molded mesh or pultruded bearing-bar panels for walkways, platforms and access systems. Compare configurations, review the engineering inputs and send a panel schedule for quotation." image="/images/products/grating/grating-panel-comparison.webp" imageAlt="Illustrative green molded square-mesh and yellow pultruded grating samples side by side" caption="AI-generated product illustration showing two constructions; not a dimensioned specification or project photograph." facts={[{ label: "Constructions", value: "Molded & pultruded" }, { label: "Selection data", value: "Dimensions & weights" }, { label: "Fixing systems", value: "Matched 316SS clips" }, { label: "Procurement", value: "Project & bulk enquiries" }]} />
     <GratingApplicationCards />
-    <section id="grating-types" className="bg-white py-[40px] md:py-[56px]">
-      <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Choose the construction</p>
-        <h2 className="mt-[10px] text-f32 font-bold text-t1">Two ways to build your walking surface</h2>
-        <p className="mt-[12px] max-w-[850px] text-f16 leading-relaxed text-t2">Fiberglass grating is also called fibreglass or GRP grating. The important choice is how the panel carries the load and fits the layout.</p>
-        <div className="mt-[24px] grid gap-[24px] md:grid-cols-2">
-          {links.map(item => <article key={item.href} className="overflow-hidden rounded-card border border-border-default">
-            <Link href={item.href} className="relative block aspect-[5/2]"><Image src={item.image} alt={`${item.label}: close-up of the open walking surface`} fill sizes="(max-width: 767px) 94vw, 46vw" className="object-cover" /></Link>
-            <div className="p-[24px]"><p className="text-f12 font-bold uppercase tracking-wide text-teal-text">{item.tag}</p><h3 className="mt-[10px] text-f24 font-bold text-t1">{item.label}</h3><p className="mt-[12px] text-f16 leading-relaxed text-t2">{item.body}</p><p className="mt-[16px] text-f14 font-semibold text-t1">{item.details}</p><Link href={item.href} className="mt-[16px] inline-flex min-h-[44px] items-center font-bold text-teal-text">View specifications →</Link></div>
-          </article>)}
-        </div>
-        <div id="molded-vs-pultruded" className="mt-[32px] scroll-mt-[100px] overflow-x-auto rounded-card border border-border-default" role="region" aria-label="Molded and pultruded grating comparison" tabIndex={0}>
-          <table className="w-full min-w-[660px] text-left text-f14"><caption className="p-[20px] text-left text-f24 font-bold text-t1">Molded vs pultruded grating</caption><thead className="bg-bg2"><tr>{["Selection question", "Molded grating", "Pultruded grating"].map(label => <th key={label} scope="col" className="p-[16px]">{label}</th>)}</tr></thead><tbody>{comparisons.map(([question, molded, pultruded]) => <tr key={question} className="border-t border-border-default"><th scope="row" className="p-[16px] font-semibold">{question}</th><td className="p-[16px] text-t2">{molded}</td><td className="p-[16px] text-t2">{pultruded}</td></tr>)}</tbody></table>
-        </div>
+
+    <PageSection id="grating-types" title="Two ways to build your walking surface" tone="muted" intro="Fiberglass grating is also called fibreglass or GRP grating. The important choice is how the panel carries the load and fits the layout.">
+      <ul className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
+        {links.map((item) => (
+          <li key={item.href}>
+            <CoverCard
+              href={item.href}
+              cover={productCovers[item.href as keyof typeof productCovers]}
+              label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.tag}</span>}
+              title={item.label}
+              text={item.body}
+              facts={[item.details]}
+              action="View specifications"
+              sizes="(max-width: 767px) 94vw, 46vw"
+            />
+          </li>
+        ))}
+      </ul>
+      <h3 id="molded-vs-pultruded" className="mt-[40px] scroll-mt-[128px] text-f20 font-bold text-t1">Molded vs pultruded grating</h3>
+      <div className="relative mt-[16px] overflow-x-auto rounded-card border border-border-default bg-white" role="region" aria-label="Molded and pultruded grating comparison" tabIndex={0}>
+        <table className="w-full min-w-[660px] border-collapse text-left text-f14">
+          <caption className="sr-only">Molded vs pultruded grating</caption>
+          <thead>
+            <tr className="border-b border-border-default bg-bg2">{["Selection question", "Molded grating", "Pultruded grating"].map((label) => <th key={label} scope="col" className={th}>{label}</th>)}</tr>
+          </thead>
+          <tbody>
+            {comparisons.map(([question, molded, pultruded]) => (
+              <tr key={question} className="border-b border-border-default align-top last:border-b-0">
+                <th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{question}</th>
+                <td className="px-[14px] py-[12px] leading-golden text-t2">{molded}</td>
+                <td className="px-[14px] py-[12px] leading-golden text-t2">{pultruded}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </section>
-    <GratingProjectPlanner />
-    <GratingVisualGuide />
-    <GratingSelectionCriteria />
-    <GratingBuyingGuide />
-    <section className="bg-bg2 py-[44px] md:py-[60px]">
-      <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Plan the complete access system</p>
-        <h2 className="mt-[10px] text-f32 font-bold text-t1">Connect the panel to the application</h2>
-        <div className="mt-[24px] grid gap-[20px] md:grid-cols-3">
-          {[
-            { title: "Process platforms", body: "Identify chemical exposure, support spacing and service access around equipment.", href: "/applications/frp-chemical-plant-platforms", label: "Platform requirements" },
-            { title: "Water & coastal access", body: "Coordinate wet surfaces, drainage, supports and the inspection environment.", href: "/industries/water-wastewater", label: "Water and wastewater applications" },
-            { title: "Steps, handrails & decks", body: "Match stair treads and guarding to the layout. Closed structural decks have separate specifications.", href: "/products/frp-stair-treads", label: "Grating stair treads" },
-          ].map(item => <article key={item.title} className="rounded-card border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold">{item.title}</h3><p className="mt-[10px] text-f14 leading-relaxed text-t2">{item.body}</p><Link className="mt-[16px] inline-block text-f14 font-bold text-teal-text" href={item.href}>{item.label} →</Link></article>)}
-        </div>
-        <div className="mt-[22px] flex flex-wrap gap-x-[24px] gap-y-[12px] text-f14 font-semibold text-teal-text"><Link href="/case-studies/coastal-marina-walkway">Coastal walkway reference →</Link><Link href="/products/frp-handrail-systems">Handrail systems →</Link><Link href="/products/frp-deck-panels">Structural deck profiles →</Link><Link href="/technology/frp-vs-steel-gratings">FRP vs steel grating →</Link></div>
-      </div>
-    </section>
-    <section id="grating-faq" className="scroll-mt-[40px] bg-white pb-[50px]"><div className="site-container"><FAQ title="Fiberglass grating: selection & purchasing questions" items={faq} /></div></section>
-    <section className="border-t border-border-default bg-white px-[20px] py-[30px] text-center"><Link className="inline-flex min-h-[48px] items-center rounded-control bg-teal-text px-[24px] font-bold text-white" href={gratingInquiryHref(undefined, undefined, "grating-footer")}>Send your grating requirements →</Link></section>
+    </PageSection>
+
+    <GratingProjectPlanner tone="white" />
+    <GratingVisualGuide firstFigure={2} tone="muted" />
+    <GratingSelectionCriteria figure={4} tone="white" />
+    <GratingBuyingGuide tones={["muted", "white"]} />
+
+    <PageSection id="grating-applications" title="Connect the panel to the application" tone="muted">
+      <ul className="grid grid-cols-1 gap-[10px] md:grid-cols-3">
+        {applicationLinks.map((item) => (
+          <li key={item.href}>
+            <CoverLink href={item.href} cover={coverFor(item.href)!} title={item.title} text={item.text} />
+          </li>
+        ))}
+      </ul>
+      <p className="mt-[20px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14">
+        <Link className={link} href="/case-studies/coastal-marina-walkway">Coastal walkway reference</Link>
+        <Link className={link} href="/products/frp-handrail-systems">Handrail systems</Link>
+        <Link className={link} href="/products/frp-deck-panels">Structural deck profiles</Link>
+        <Link className={link} href="/technology/frp-vs-steel-gratings">FRP vs steel grating</Link>
+      </p>
+    </PageSection>
+
+    <PageSection id="grating-faq" title="Fiberglass grating: selection & purchasing questions">
+      <FAQList items={faq} />
+    </PageSection>
+
+    <PageSection id="quote" title="Send your grating requirements" tone="deep">
+      <ProductRfq
+        product="FRP grating"
+        productPath={path}
+        quoteHref={gratingInquiryHref(undefined, undefined, "grating-footer")}
+        items={gratingRequestItems}
+        links={[{ label: "Build a panel schedule", href: "#grating-quote" }]}
+        intro="Whole panels or drawing-based requirements. Send what you know; quantities, fabrication and delivery scope are confirmed with the quotation."
+      />
+    </PageSection>
   </>;
 }

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { ProcessTrio } from "@/components/sections/ConceptAnimations";
+import Figure from "@/components/ui/Figure";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Pultrusion vs Extrusion vs Filament Winding";
@@ -132,7 +134,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Manufacturing Process Comparison"
-        title="Pultrusion vs Extrusion vs Filament Winding"
+        title="Pultrusion vs extrusion vs filament winding"
         description="Three continuous composite/plastic manufacturing processes are often confused because they all push or pull material through a die or mandrel. Here's how they actually differ, and which shapes each one can and cannot make."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -140,109 +142,90 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
           { label: "Pultrusion vs Extrusion vs Filament Winding" },
         ]}
       />
+      <PageNav items={[{ id: "short-answer", label: "Short answer" }, { id: "process-comparison", label: "Comparison" }, { id: "pultrusion-vs-extrusion", label: "Extrusion" }, { id: "pultrusion-vs-filament-winding", label: "Filament winding" }, { id: "faq", label: "FAQ" }]} />
 
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Same-sounding names, three different shape and property envelopes
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Pultrusion, extrusion, and filament winding are all continuous manufacturing processes that shape material by moving it through (or around) a tool. That surface similarity is where the resemblance ends. Pultrusion pulls continuous fiber through a heated die to make open or closed constant-cross-section structural profiles. Extrusion pushes a thermoplastic melt through a die to make thin-wall profiles with no continuous fiber reinforcement. Filament winding wraps continuous fiber around a rotating mandrel to build hollow, rotationally symmetric shapes like pipe and tanks, geometrically incapable of producing an open section such as an I-beam.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Confusing the three usually happens at the RFQ stage: a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
-          </p>
-          <div className="mt-[21px] max-w-[860px]">
-            <ProcessTrio />
-          </div>
+      <PageSection id="short-answer" title="Same-sounding names, three different shape and property envelopes" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Pultrusion, extrusion, and filament winding are all continuous manufacturing processes that shape material by moving it through (or around) a tool. That surface similarity is where the resemblance ends. Pultrusion pulls continuous fiber through a heated die to make open or closed constant-cross-section structural profiles. Extrusion pushes a thermoplastic melt through a die to make thin-wall profiles with no continuous fiber reinforcement. Filament winding wraps continuous fiber around a rotating mandrel to build hollow, rotationally symmetric shapes like pipe and tanks, geometrically incapable of producing an open section such as an I-beam.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          Confusing the three usually happens at the RFQ stage: a buyer searches for &ldquo;pultruded pipe&rdquo; when what they actually need is a filament-wound pressure pipe, or specifies &ldquo;extruded FRP&rdquo; when the intent is a pultruded structural section. Getting the process right up front avoids quoting delays and, more importantly, avoids a fabricator accepting an order they cannot physically produce.
+        </p>
+        <div className="mt-[20px] max-w-[860px]">
+          <Figure
+            number={1}
+            title="Pulled, pushed, wound"
+            caption={<>The verb is the whole difference: pultrusion <strong>pulls</strong> continuous fibers through a die (structural, constant section), extrusion <strong>pushes</strong> molten plastic (no continuous reinforcement), and filament winding <strong>wraps</strong> fibers around a mandrel (hollow shapes).</>}
+          >
+            <ProcessTrio bare />
+          </Figure>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Process Comparison</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            Side-by-side: pultrusion, extrusion, and filament winding
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Property ranges are representative figures for typical material combinations in each process (E-glass/polyester pultrusion, rigid PVC or aluminum extrusion, E-glass/epoxy filament winding). They are not a single-product datasheet.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[900px] border-collapse text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default bg-bg2">
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Property</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-teal-text">Pultrusion</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Extrusion</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Filament Winding</th>
+      <PageSection id="process-comparison" title="Side-by-side: pultrusion, extrusion, and filament winding" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          Property ranges are representative figures for typical material combinations in each process (E-glass/polyester pultrusion, rigid PVC or aluminum extrusion, E-glass/epoxy filament winding). They are not a single-product datasheet.
+        </p>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[900px] border-collapse text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Property</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Pultrusion</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Extrusion</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Filament winding</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((row) => (
+                <tr key={row.property} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] text-left font-semibold text-t1">{row.property}</th>
+                  <td className="bg-teal-bg px-[14px] py-[10px] text-t1">{row.pultrusion}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.extrusion}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.filamentWinding}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, i) => (
-                  <tr key={row.property} className={`border-b border-border-default ${i % 2 === 0 ? "bg-white" : "bg-bg2/40"}`}>
-                    <td className="px-[13px] py-[13px] font-semibold text-t1">{row.property}</td>
-                    <td className="px-[13px] py-[13px] font-medium text-teal-text">{row.pultrusion}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.extrusion}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.filamentWinding}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Pultrusion vs Extrusion</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Same die concept, different material physics
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Both processes force material through a fixed-geometry die to produce a constant cross-section. This is why the two get confused, and why &ldquo;pull&rdquo; and &ldquo;extrusion&rdquo; were combined to name pultrusion in the first place. The difference is what goes into the die. Pultrusion pulls continuous fiber roving through a resin bath and then the heated die, where the thermoset resin cures irreversibly. Extrusion pushes a thermoplastic melt (with no continuous fiber, or only short/chopped fiber filler) through the die and cools it to solidify: a reversible physical change, which is also why extruded thermoplastics can be reground and re-extruded, while cured thermoset FRP cannot.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            The practical consequence for a specifying engineer: an extruded aluminum or PVC profile and a pultruded FRP profile can look identical on a drawing, but they are not interchangeable on load-bearing, corrosion, or electrical-insulation performance. Aluminum extrusion is genuinely strong and stiff (see the{" "}
-            <Link href="/technology/frp-vs-traditional-materials" className="text-teal-text hover:underline">
-              full FRP vs aluminum property comparison
-            </Link>
-            ) but conducts electricity and heat and corrodes in coastal/chemical environments. Unreinforced or short-fiber-filled thermoplastic extrusions are lighter-duty still, and are chosen for cost and formability rather than structural performance.
-          </p>
-        </div>
-      </section>
+      <PageSection id="pultrusion-vs-extrusion" title="Same die concept, different material physics" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          Both processes force material through a fixed-geometry die to produce a constant cross-section. This is why the two get confused, and why &ldquo;pull&rdquo; and &ldquo;extrusion&rdquo; were combined to name pultrusion in the first place. The difference is what goes into the die. Pultrusion pulls continuous fiber roving through a resin bath and then the heated die, where the thermoset resin cures irreversibly. Extrusion pushes a thermoplastic melt (with no continuous fiber, or only short/chopped fiber filler) through the die and cools it to solidify: a reversible physical change, which is also why extruded thermoplastics can be reground and re-extruded, while cured thermoset FRP cannot.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          The practical consequence for a specifying engineer: an extruded aluminum or PVC profile and a pultruded FRP profile can look identical on a drawing, but they are not interchangeable on load-bearing, corrosion, or electrical-insulation performance. Aluminum extrusion is genuinely strong and stiff (see the{" "}
+          <Link href="/technology/frp-vs-traditional-materials" className="text-teal-text hover:underline">
+            full FRP vs aluminum property comparison
+          </Link>
+          ) but conducts electricity and heat and corrodes in coastal/chemical environments. Unreinforced or short-fiber-filled thermoplastic extrusions are lighter-duty still, and are chosen for cost and formability rather than structural performance.
+        </p>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Pultrusion vs Filament Winding</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Open sections vs hollow rotational shapes
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Pultrusion and filament winding both lay continuous fiber into a thermoset matrix, so the raw materials can be nearly identical: the difference is entirely in the tooling geometry and fiber path. Pultrusion pulls fiber lengthwise through a stationary die, which is why it can produce open sections (I-beams, channels, angles) as easily as closed ones (tubes, rods). Filament winding wraps fiber around a rotating mandrel at a controlled helix or hoop angle, which only works for hollow, axisymmetric parts that can be slid or dissolved off the mandrel after cure: pipe, tanks, and pressure vessels.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            This is a hard geometric boundary, not a cost or quality trade-off: no amount of tooling investment lets filament winding produce an I-beam, and pultrusion cannot economically produce a large-diameter pressure vessel with hoop-dominant fiber orientation. F1 Composite&rsquo;s process is pultrusion; see{" "}
-            <Link href="/technology/pultrusion-process" className="text-teal-text hover:underline">
-              how our pultrusion lines work
-            </Link>{" "}
-            and our{" "}
-            <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">
-              custom pultrusion capability
-            </Link>{" "}
-            for open and closed constant-cross-section geometries.
-          </p>
-        </div>
-      </section>
+      <PageSection id="pultrusion-vs-filament-winding" title="Open sections vs hollow rotational shapes" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          Pultrusion and filament winding both lay continuous fiber into a thermoset matrix, so the raw materials can be nearly identical: the difference is entirely in the tooling geometry and fiber path. Pultrusion pulls fiber lengthwise through a stationary die, which is why it can produce open sections (I-beams, channels, angles) as easily as closed ones (tubes, rods). Filament winding wraps fiber around a rotating mandrel at a controlled helix or hoop angle, which only works for hollow, axisymmetric parts that can be slid or dissolved off the mandrel after cure: pipe, tanks, and pressure vessels.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          This is a hard geometric boundary, not a cost or quality trade-off: no amount of tooling investment lets filament winding produce an I-beam, and pultrusion cannot economically produce a large-diameter pressure vessel with hoop-dominant fiber orientation. F1 Composite&rsquo;s process is pultrusion; see{" "}
+          <Link href="/technology/pultrusion-process" className="text-teal-text hover:underline">
+            how our pultrusion lines work
+          </Link>{" "}
+          and our{" "}
+          <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">
+            custom pultrusion capability
+          </Link>{" "}
+          for open and closed constant-cross-section geometries.
+        </p>
+      </PageSection>
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqs} />
-        </div>
-      </section>
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
 
-      <RelatedLinks
+      <RelatedLinks background="bg2"
         groups={[
           {
             title: "Composite manufacturing processes",

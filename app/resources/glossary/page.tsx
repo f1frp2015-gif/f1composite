@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { glossaryCategories, glossaryTerms } from "@/content/data/glossary";
@@ -51,80 +51,72 @@ export default function GlossaryPage() {
         ]}
       />
 
-      {/* Table of Contents */}
-      <section className="bg-white py-[34px]">
-        <div className="site-container">
-          <div className="rounded-card border border-border-default bg-bg2 p-[29px]">
-            <h2 className="text-f14 font-bold uppercase tracking-wide text-t2">On this page</h2>
-            <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
-              {glossaryCategories.map((category) => (
-                <li key={category}>
-                  <a
-                    href={`#${slugifyCategory(category)}`}
-                    className="text-f14 text-teal-text hover:text-teal"
-                  >
-                    → {category}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <PageNav items={glossaryCategories.map((category) => ({ id: slugifyCategory(category), label: shortLabel(category) }))} />
 
       {glossaryCategories.map((category, categoryIndex) => {
         const terms = glossaryTerms.filter((t) => t.category === category);
         if (terms.length === 0) return null;
         return (
-          <section
-            key={category}
-            id={slugifyCategory(category)}
-            className={categoryIndex % 2 === 0 ? "bg-white py-[55px]" : "bg-bg2 py-[55px]"}
-          >
-            <div className="site-container">
-              <SectionTag>{category}</SectionTag>
-              <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-                {category}
-              </h2>
-              <dl className="mt-[34px] max-w-[900px] space-y-[29px]">
-                {terms.map((t) => (
-                  <div key={t.id} id={t.id} className="scroll-mt-[100px]">
-                    <dt className="text-f18 font-bold text-t1">{t.term}</dt>
-                    <dd className="mt-[8px] text-f16 leading-golden text-t2">{t.definition}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </section>
+          <PageSection key={category} id={slugifyCategory(category)} title={category} count={`${terms.length} terms`} tone={categoryIndex % 2 === 0 ? "white" : "muted"}>
+            <dl className="divide-y divide-border-default border-y border-border-default">
+              {terms.map((t) => (
+                <div key={t.id} id={t.id} className="grid scroll-mt-[40px] gap-[4px] py-[16px] md:grid-cols-[minmax(0,260px)_minmax(0,1fr)] md:gap-[32px]">
+                  <dt className="text-f16 font-bold text-t1">{t.term}</dt>
+                  <dd className="max-w-[760px] text-f16 leading-golden text-t2">{t.definition}</dd>
+                </div>
+              ))}
+            </dl>
+          </PageSection>
         );
       })}
 
-      {/* Related */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="mb-[21px] text-f18 font-bold text-t1">Keep exploring</h2>
-          <div className="flex flex-wrap gap-[13px]">
-            <LinkArrow href="/resources/blog/frp-meaning">FRP full form and meaning</LinkArrow>
-            <LinkArrow href="/what-is-frp">What is FRP? (complete guide)</LinkArrow>
-            <LinkArrow href="/technology/pultrusion-process">Pultrusion process explained</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs steel vs aluminum</LinkArrow>
-            <LinkArrow href="/pultruded-frp-profiles">Pultruded FRP profiles hub</LinkArrow>
-            <LinkArrow href="/resources/technical-data">Technical data sheets</LinkArrow>
-            <LinkArrow href="/ask">Ask the AI engineering assistant</LinkArrow>
-          </div>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Looking for a term that is not listed?{" "}
-            <Link href="/contact" className="font-semibold text-teal-text hover:text-teal">
-              Ask our engineering team
-            </Link>{" "}
-            — we will define it and add it here.
-          </p>
-        </div>
-      </section>
+      <RelatedLinks
+        title="Keep exploring"
+        background={glossaryCategories.length % 2 === 0 ? "white" : "bg2"}
+        groups={[
+          {
+            title: "Basics",
+            links: [
+              { href: "/resources/blog/frp-meaning", label: "FRP full form and meaning" },
+              { href: "/what-is-frp", label: "What is FRP? The complete guide" },
+              { href: "/technology/pultrusion-process", label: "The pultrusion process explained" },
+            ],
+          },
+          {
+            title: "Comparisons and data",
+            links: [
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel and aluminum" },
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
+              { href: "/resources/technical-data", label: "Technical data" },
+            ],
+          },
+          {
+            title: "Missing a term?",
+            links: [
+              { href: "/ask", label: "Ask the engineering assistant" },
+              { href: "/contact", label: "Ask our engineers to define it here" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Talk to our FRP engineers about your project" />
     </>
   );
+}
+
+// The section bar names each category in a word.
+const navLabels: Record<string, string> = {
+  "Materials & constituents": "Materials",
+  "The pultrusion process": "Process",
+  "Mechanical & physical properties": "Properties",
+  "Products & forms": "Products",
+  Fenestration: "Fenestration",
+  "Standards & design codes": "Standards",
+};
+
+function shortLabel(category: string) {
+  return navLabels[category] ?? category;
 }
 
 function slugifyCategory(category: string) {

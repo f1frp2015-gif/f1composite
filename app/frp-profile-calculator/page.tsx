@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AskAICard from "@/components/ai/AskAICard";
 import { prefillForCalculator } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 import { BeamDeflection } from "@/components/sections/ConceptAnimations";
+import Figure from "@/components/ui/Figure";
 import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -144,110 +146,147 @@ export default function CalculatorPage() {
         }}
       />
       <PageHeader
-        tag="Free Engineering Tool"
-        title="FRP Calculator for Beam, Load & Section Properties"
-        description="Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel/aluminum equivalence. Method-specific datasets prevent incompatible standards combinations. Free, no login."
+        tag="Tools"
+        title="FRP calculator for beam, load and section properties"
+        description="Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel or aluminum equivalence. Method-specific datasets prevent incompatible combinations of standards. Free, no login."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Technology", href: "/technology" },
-          { label: "FRP Profile Calculator" },
+          { label: "Tools", href: "/tools" },
+          { label: "Profile calculator" },
         ]}
         actions={{
-          primary: { label: "Start Calculator", href: "#profile-calculator" },
-          secondary: { label: "Send Profile RFQ", href: quoteHref, variant: "secondary" },
-          note: "Run the section check, then carry the shape, load case, environment, and destination into the RFQ.",
+          primary: { label: "Start the calculator", href: "#profile-calculator" },
+          secondary: { label: "Send a profile RFQ", href: quoteHref, variant: "secondary" },
+          note: "Run the section check, then carry the shape, load case, environment and destination into the RFQ.",
           stickyMobile: true,
         }}
       />
+      <PageNav items={[{ id: "profile-calculator", label: "Calculator" }, { id: "how-to-use", label: "How to use" }, { id: "mistakes", label: "Mistakes to avoid" }, { id: "standards", label: "Standards" }, { id: "embed", label: "Embed and cite" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-white pt-[34px]">
-        <div className="site-container">
-          <BeamDeflection />
-        </div>
-      </section>
-
-      <div id="profile-calculator" className="scroll-mt-[88px]">
+      <div id="profile-calculator" className="scroll-mt-[40px]">
         <ProfileCalculator />
       </div>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1 md:text-f32">
-            How to use the FRP calculator for profile sizing
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Prefer precomputed numbers? The{" "}
-            <Link href="/frp-span-tables" className="text-teal-text hover:underline">FRP span tables</Link>{" "}
-            publish the allowable uniform load for every standard I-beam, channel, and tube over 1–6 m
-            spans on the same design basis — each row opens here pre-loaded for verification.
-            And once a section passes, the{" "}
-            <Link href="/fiberglass-pultruded-profile-price" className="text-teal-text hover:underline">
-              pultruded profile price estimator
-            </Link>{" "}
-            gives you its budgetary USD/meter range before you send the RFQ. Compare the passing section with our{" "}
-            <Link href="/products/fiberglass-structural-shapes" className="text-teal-text hover:underline">
-              fiberglass structural shapes
-            </Link>{" "}
-            catalog before specifying the final size.
-          </p>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            This calculator screens three recurring questions in FRP profile selection: global bending, average shear, service-load deflection, and first-pass steel/aluminum equivalence. The ASCE-, CEN- and GB-oriented options apply a limited subset of factors to compatible input datasets; they are not full implementations of those standards. The ASCE option includes the time-effect factor λ for the chosen load duration. Local and lateral-torsional buckling, creep deflection and creep rupture, web crippling, connections, complete load combinations, bracing, and system stability remain outside the model.
-          </p>
-
-          <div className="mt-[55px] grid gap-[34px] lg:grid-cols-2">
-            <div>
-              <h3 className="text-f18 font-bold text-t1">Input example — walkway beam</h3>
-              <p className="mt-[13px] text-f16 leading-golden text-t2">
-                The Walkway preset loads a 3 m simply supported I-section with a 5 kN/m service UDL. It uses the illustrative balanced-GFRP dataset paired with the ASCE-oriented preliminary factors and outdoor exposure. The result is useful for eliminating clearly inadequate trial sections and seeing whether global strength or deflection governs; it is not an ASCE design release, and the material properties must be replaced with project qualification data.
-              </p>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">How to interpret the results</h3>
-              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
-                <li>
-                  <strong className="text-t1">Deflection almost always governs.</strong> FRP E_L is 17–28 GPa — roughly 1/10 of steel. Members sized for steel-equivalent strength deflect about 10× more. Check L/240 or L/360 first; if it passes, the bending and shear checks usually pass too. The Timoshenko shear-deflection share (shown below the load summary) is non-trivial for short-span beams because FRP G_LT is only ~1/6 of E_L.
-                </li>
-                <li>
-                  <strong className="text-t1">Equivalent section is deeper, not heavier.</strong> Replacing a W6×12 (152×76) steel beam at equal stiffness needs roughly ×1.7 on every dimension under geometric scaling (≈ 265 mm deep) and still lands ~25–30% lighter. Practical replacements deepen the web instead of scaling every wall, which is how optimized FRP substitutions reach 40–60% weight savings — the equivalence tab shows the conservative geometric-scaling figure.
-                </li>
-                <li>
-                  <strong className="text-t1">Why allowables look low.</strong> Allowable strength = φ × min(F_tL, F_cL) × Ω_E — pultruded FRP typically fails on the compression face first, so the lower compressive strength governs bending. The resistance factor (φ_b = 0.65 in ASCE/SEI 74-23, 1/γ_M ≈ 0.67 in CEN/TS 19101, 1/γ_R ≈ 0.63 in GB 50608) covers material and manufacturing variability; Ω_E (0.70–1.00) adds long-term environmental knockdown for outdoor/wet/hot/chemical service. Long-term creep and the ASCE 74-23 time-effect factor λ are separate checks the calculator does not model. Together these explain why the design allowable is 25–40% of the characteristic strength reported by the material spec.
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-f18 font-bold text-t1">Common specification mistakes</h3>
-              <ul className="mt-[13px] space-y-[13px] text-f16 leading-golden text-t2">
-                <li>
-                  <strong className="text-t1">Using steel allowables for FRP.</strong> FRP must never be designed using AISC 360, Eurocode 3, or GB 50017 steel allowables. Pultruded profiles follow ASCE/SEI 74-23 (US), CEN/TS 19101:2022 (Europe), or GB 50608-2020 with T/CECS 692-2020 (China). All three use distinctly different resistance factors and explicitly cap long-term stress at 20–35% of ultimate.
-                </li>
-                <li>
-                  <strong className="text-t1">Ignoring local buckling.</strong> Thin-walled FRP sections can buckle locally before reaching calculated bending capacity. The calculator flags an outstanding-flange b/t advisory (limit ≈ 18 for E-glass pultruded), but a full check per ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6 is still required — for compression-governed members the limit tightens further.
-                </li>
-                <li>
-                  <strong className="text-t1">Treating FRP as isotropic.</strong> Pultruded FRP is strongly orthotropic: longitudinal tensile strength (F_tL) is 4–5× the transverse value, and E_T is only 25–35% of E_L. Connections that load in the transverse direction (drilled holes, notches, brackets) need special detailing per ASCE/SEI 74-23 Ch.8 or T/CECS 692-2020 §7.
-                </li>
-                <li>
-                  <strong className="text-t1">Skipping shear deflection.</strong> Because G_LT is only ~3 GPa, FRP shear deflection typically contributes 5–15% of total mid-span deflection at common span-to-depth ratios — and over 20% on very short spans (L/h ≲ 10). The calculator applies a load-case-matched Timoshenko correction on the shear area automatically and reports the shear share — pure Euler-Bernoulli (Δ = 5wL⁴/384EI) under-predicts.
-                </li>
-              </ul>
-
-              <h3 className="mt-[34px] text-f18 font-bold text-t1">Referenced standards</h3>
-              <ul className="mt-[13px] space-y-[8px] text-f16 leading-golden text-t2">
-                <li><strong>EN 13706-2/-3:2002</strong> — Reinforced plastic composites — Pultruded profiles — General requirements and Specific requirements (E17 / E23 minimum-modulus grades)</li>
-                <li><strong>ASTM D3917</strong> — Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes</li>
-                <li><strong>ASCE/SEI 74-23</strong> — Standard for the Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (2023, supersedes the 2010 ACMA Pre-Standard)</li>
-                <li><strong>CEN/TS 19101:2022</strong> — Design of fibre-polymer composite structures (Eurocode-track Technical Specification preparing prEN 19101)</li>
-                <li><strong>GB 50608-2020</strong> — Technical Standard for the Engineering Application of Fiber-Reinforced Composite Materials</li>
-                <li><strong>T/CECS 692-2020</strong> — Technical Regulation for Structures of Pultruded Profiles</li>
-                <li><strong>Eurocomp Design Code and Handbook</strong> — Structural Design of Polymer Composites (companion to CEN/TS 19101)</li>
-              </ul>
-            </div>
+      <PageSection
+        id="how-to-use"
+        title="How to use the FRP calculator for profile sizing"
+        intro="The calculator screens the recurring questions in FRP profile selection: global bending, average shear, service-load deflection and a first-pass steel or aluminum equivalence. The ASCE-, CEN- and GB-oriented options apply a limited subset of factors to compatible input datasets; they are not full implementations of those standards. The ASCE option includes the time-effect factor λ for the chosen load duration. Local and lateral-torsional buckling, creep deflection and creep rupture, web crippling, connections, complete load combinations, bracing and system stability remain outside the model."
+        tone="muted"
+      >
+        <div className="grid gap-[32px] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
+          <div>
+            <Figure number={1} title="Beam deflection" caption="Deflection, not strength, usually governs FRP design. The calculator solves δ, the bending stress and the check against your deflection limit for F1 sections.">
+              <BeamDeflection bare />
+            </Figure>
+            <h3 className="mt-[24px] text-f18 font-bold text-t1">Input example: walkway beam</h3>
+            <p className="mt-[8px] text-f16 leading-golden text-t2">
+              The Walkway preset loads a 3 m simply supported I-section with a 5 kN/m service UDL. It uses the illustrative balanced-GFRP dataset paired with the ASCE-oriented preliminary factors and outdoor exposure. The result is useful for eliminating clearly inadequate trial sections and seeing whether global strength or deflection governs; it is not an ASCE design release, and the material properties must be replaced with project qualification data.
+            </p>
           </div>
-
-          <FAQ items={calculatorFaqs} />
+          <div>
+            <h3 className="text-f18 font-bold text-t1">How to interpret the results</h3>
+            <ul className="mt-[12px] space-y-[12px] text-f16 leading-golden text-t2">
+              <li>
+                <strong className="text-t1">Deflection almost always governs.</strong> FRP E_L is 17–28 GPa, roughly a tenth of steel, so members sized for steel-equivalent strength deflect about ten times more. Check L/240 or L/360 first; if it passes, the bending and shear checks usually pass too. The Timoshenko shear-deflection share (shown below the load summary) matters on short spans because FRP G_LT is only about a sixth of E_L.
+              </li>
+              <li>
+                <strong className="text-t1">The equivalent section is deeper, not heavier.</strong> Replacing a W6×12 (152×76) steel beam at equal stiffness needs roughly ×1.7 on every dimension under geometric scaling (about 265 mm deep) and still lands 25–30% lighter. Practical replacements deepen the web instead of scaling every wall, which is how optimized FRP substitutions reach 40–60% weight savings; the equivalence tab shows the conservative geometric-scaling figure.
+              </li>
+              <li>
+                <strong className="text-t1">Why the allowables look low.</strong> Allowable strength = φ × min(F_tL, F_cL) × Ω_E. Pultruded FRP typically fails on the compression face first, so the lower compressive strength governs bending. The resistance factor (φ_b = 0.65 in ASCE/SEI 74-23, 1/γ_M ≈ 0.67 in CEN/TS 19101, 1/γ_R ≈ 0.63 in GB 50608) covers material and manufacturing variability, and Ω_E (0.70–1.00) adds the long-term environmental knockdown for outdoor, wet, hot or chemical service. Long-term creep and the ASCE 74-23 time-effect factor λ are separate checks. Together these explain why the design allowable is 25–40% of the characteristic strength in the material specification.
+              </li>
+            </ul>
+          </div>
         </div>
-      </section>
+        <p className="mt-[24px] max-w-[860px] text-f16 leading-golden text-t2">
+          Prefer precomputed numbers? The{" "}
+          <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">FRP span tables</Link>{" "}
+          publish the allowable uniform load for every standard I-beam, channel and tube over 1–6 m spans on the same design basis, and each row opens here pre-loaded. Once a section passes, the{" "}
+          <Link href="/fiberglass-pultruded-profile-price" className="font-semibold text-teal-text hover:underline">price estimator</Link>{" "}
+          gives its budgetary USD/meter range, and the{" "}
+          <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:underline">fiberglass structural shapes</Link>{" "}
+          catalog lists the sizes to specify.
+        </p>
+      </PageSection>
+
+      <PageSection id="mistakes" title="Common specification mistakes" tone="white">
+        <ul className="grid gap-[12px] md:grid-cols-2">
+          {[
+            {
+              title: "Using steel allowables for FRP",
+              body: "FRP must not be designed with AISC 360, Eurocode 3 or GB 50017 steel allowables. Pultruded profiles follow ASCE/SEI 74-23 (US), CEN/TS 19101:2022 (Europe) or GB 50608-2020 with T/CECS 692-2020 (China). All three use their own resistance factors and cap long-term stress at 20–35% of ultimate.",
+            },
+            {
+              title: "Ignoring local buckling",
+              body: "Thin-walled FRP sections can buckle locally before they reach the calculated bending capacity. The calculator flags an outstanding-flange b/t advisory (limit about 18 for E-glass pultruded), but a full check to ASCE/SEI 74-23 Ch. 3 or CEN/TS 19101 §6 is still required, and the limit tightens for compression members.",
+            },
+            {
+              title: "Treating FRP as isotropic",
+              body: "Pultruded FRP is strongly orthotropic: the longitudinal tensile strength F_tL is four to five times the transverse value, and E_T is only 25–35% of E_L. Connections that load the transverse direction (drilled holes, notches, brackets) need detailing to ASCE/SEI 74-23 Ch. 8 or T/CECS 692-2020 §7.",
+            },
+            {
+              title: "Skipping shear deflection",
+              body: "Because G_LT is only about 3 GPa, shear deflection typically adds 5–15% to the mid-span deflection at common span-to-depth ratios, and over 20% on very short spans (L/h ≲ 10). The calculator applies a load-case-matched Timoshenko correction and reports the shear share; pure Euler-Bernoulli (Δ = 5wL⁴/384EI) under-predicts.",
+            },
+          ].map((item) => (
+            <li key={item.title} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <h3 className="text-f18 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.body}</p>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <PageSection id="standards" title="Referenced standards" tone="muted">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[640px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Standard</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Title and role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["EN 13706-2/-3:2002", "Reinforced plastic composites, pultruded profiles: general and specific requirements (E17 / E23 minimum-modulus grades)"],
+                ["ASTM D3917", "Dimensional tolerance of thermosetting glass-reinforced plastic pultruded shapes"],
+                ["ASCE/SEI 74-23", "Load and resistance factor design of pultruded FRP structures (2023, supersedes the 2010 ACMA pre-standard)"],
+                ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (Eurocode-track technical specification preparing prEN 19101)"],
+                ["GB 50608-2020", "Technical standard for the engineering application of fiber-reinforced composite materials"],
+                ["T/CECS 692-2020", "Technical regulation for structures of pultruded profiles"],
+                ["Eurocomp Design Code and Handbook", "Structural design of polymer composites (companion to CEN/TS 19101)"],
+              ].map(([code, title]) => (
+                <tr key={code} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{code}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{title}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection id="embed" title="Embed and cite this tool" tone="white">
+        <EmbedCode
+          toolName="FRP Profile Calculator"
+          embedPath="/frp-profile-calculator/embed"
+          canonicalPath="/frp-profile-calculator"
+          height={840}
+          attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
+        />
+        <div className="mt-[16px]">
+          <ToolCitationBlock
+            toolTitle="FRP Profile Engineering Calculator"
+            canonicalPath="/frp-profile-calculator"
+            bibtexKey="f1composite_frp_calculator_2026"
+            medium="Web application"
+          />
+        </div>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={calculatorFaqs} />
+      </PageSection>
 
       <RelatedLinks
         background="white"
@@ -268,36 +307,23 @@ export default function CalculatorPage() {
               { href: "/fiberglass-pultruded-profile-price", label: "Pultruded profile price estimator" },
             ],
           },
+          {
+            title: "Other tools",
+            links: [
+              { href: "/tools/profile-finder", label: "Profile finder" },
+              { href: "/tools/handrail-load-calculator", label: "Handrail load check" },
+              { href: "/tools", label: "All engineering tools" },
+            ],
+          },
         ]}
       />
 
-      <section className="bg-white pb-[89px]">
-        <div className="site-container">
-          <EmbedCode
-            toolName="FRP Profile Calculator"
-            embedPath="/frp-profile-calculator/embed"
-            canonicalPath="/frp-profile-calculator"
-            height={840}
-            attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
-          />
-          <div className="mt-[21px]">
-            <ToolCitationBlock
-              toolTitle="FRP Profile Engineering Calculator"
-              canonicalPath="/frp-profile-calculator"
-              bibtexKey="f1composite_frp_calculator_2026"
-              medium="Web application"
-            />
-          </div>
-        </div>
-      </section>
-
-      <AskAICard
-        title="Want the AI to walk you through the inputs?"
-        description="Open the FRP Engineering Advisor — describe your span, load, and exposure, and it will recommend a profile, deflection check approach, and standards path."
-        prefill={prefillForCalculator({ name: "FRP Profile Calculator", path: "/frp-profile-calculator" })}
+      <InnerCTA
+        title="Need engineering support for your FRP profile selection?"
+        quoteHref={quoteHref}
+        text="Send the shape and target dimensions, the span and load case, the service environment and standard, and the quantity and destination."
+        advisorPrompt={prefillForCalculator({ name: "FRP Profile Calculator", path: "/frp-profile-calculator" })}
       />
-
-      <InnerCTA title="Need engineering support for your FRP profile selection?" />
     </>
   );
 }

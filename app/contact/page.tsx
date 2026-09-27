@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/layout/PageHeader";
 import WhatsAppButton from "@/components/contact/WhatsAppButton";
 import JsonLd from "@/components/seo/JsonLd";
-import LegalEntityNote from "@/components/sections/LegalEntityNote";
 import { absoluteUrl } from "@/lib/seo";
+import { company, supplyTerms } from "@/content/data/company";
 
 export const metadata: Metadata = {
   title: "Request a Quote | F1 Composite",
@@ -13,6 +14,15 @@ export const metadata: Metadata = {
     "Start your F1 Composite inquiry with just your name and email. Drawings and specifications are optional. Our team will help confirm the details.",
   alternates: { canonical: absoluteUrl("/contact") },
 };
+
+const nextSteps = [
+  { title: "A reply within one business day", text: "We acknowledge the request and confirm the product, quantities and the next step." },
+  { title: "Details and drawings when ready", text: "Send them with the inquiry or after our reply. Engineering checks a section against the existing dies." },
+  { title: "A written quotation", text: "It follows the specification and delivery review, with price, lead time and the delivery term." },
+];
+
+const phoneHref = `tel:${company.contact.phone.replace(/-/g, "")}`;
+const phoneLabel = company.contact.phone.replace(/^\+86-(\d{3})-(\d{4})-(\d{4})$/, "+86 $1 $2 $3");
 
 export default function ContactPage() {
   const contactPageSchema = {
@@ -29,17 +39,24 @@ export default function ContactPage() {
     <>
       <JsonLd data={contactPageSchema} />
       <PageHeader
-        tag="Request a quote"
+        tag="Contact"
         title="Request a quote"
-        description="Tell us how to reach you. No drawings or complete specifications needed to get started."
+        description="Send your name, email and a short note. The export team replies and works out the product, quantity and delivery details with you."
+        facts={[
+          { label: "Reply time", value: supplyTerms.responseTime.replace(/^./, (c) => c.toUpperCase()) },
+          { label: "Languages", value: company.contact.languages.join(", ") },
+          // Last, so a phone gives the longest value the full row.
+          { label: "Office hours", value: "Mon–Fri, 08:30–17:30 GMT+8" },
+        ]}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Request a Quote" },
+          { label: "Request a quote" },
         ]}
       />
 
-      <section className="bg-bg2 py-6 md:py-8">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.15fr_0.85fr]">
+      {/* The form is this page's quote step, so the footer's quote band stays hidden. */}
+      <section data-page-rfq className="border-b border-border-default bg-bg2 py-[32px] md:py-[48px]">
+        <div className="site-container grid items-start gap-[24px] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-[32px]">
           <div>
             <h2 className="sr-only">Start your inquiry</h2>
             <Suspense fallback={<div className="text-f14 text-t3">Loading inquiry form…</div>}>
@@ -47,44 +64,52 @@ export default function ContactPage() {
             </Suspense>
           </div>
 
-          <aside className="space-y-[18px] lg:pt-[37px]" aria-label="Contact and quotation guidance">
-            <div className="rounded-card border border-border-default bg-white p-[22px]">
-              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">Direct contact</p>
-              <h2 className="mt-[7px] text-f18 font-bold text-t1">Doris Li · Sales Director</h2>
-              <div className="mt-[14px] space-y-[8px] text-f14">
-                <a href="mailto:inquiry@f1composite.com" className="block font-semibold text-teal-text hover:text-teal">
-                  inquiry@f1composite.com
+          <aside className="space-y-[12px]" aria-label="Contact and quotation guidance">
+            <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Direct contact</h2>
+              <p className="mt-[8px] text-f18 font-bold text-t1">{company.contact.salesName} · Sales Director</p>
+              <div className="mt-[12px] space-y-[4px] text-f16">
+                <a href={`mailto:${company.contact.email}`} className="block font-semibold text-teal-text hover:underline">
+                  {company.contact.email}
                 </a>
-                <a href="tel:+8613883338993" className="block font-semibold text-teal-text hover:text-teal">
-                  +86 138 8333 8993
+                <a href={phoneHref} className="block font-semibold text-teal-text hover:underline">
+                  {phoneLabel}
                 </a>
-                <WhatsAppButton location="contact-page" label="Chat on WhatsApp" />
               </div>
-              <p className="mt-[15px] border-t border-border-default pt-[13px] text-f14 leading-relaxed text-t2">
-                Monday–Friday · 08:30–17:30 GMT+8<br />
-                Chongqing, China
+              <WhatsAppButton location="contact-page" label="Chat on WhatsApp" variant="outline" className="mt-[16px] w-full sm:w-auto" />
+              <p className="mt-[16px] border-t border-border-default pt-[12px] text-f14 leading-relaxed text-t2">
+                Chongqing, China · Mon–Fri, 08:30–17:30 GMT+8
               </p>
             </div>
 
-            <div className="rounded-card bg-deep p-[22px] text-white">
-              <h2 className="text-f18 font-bold">Still working out the details?</h2>
-              <p className="mt-3 text-sm text-white/80">Send your inquiry now. We can help confirm the right product, quantity and delivery requirements together.</p>
-              <p className="mt-3 text-sm text-white/80">Already have a drawing or specification? You can attach it as an optional extra or send it after we reply.</p>
+            <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">What happens next</h2>
+              <ol className="mt-[12px] space-y-[12px]">
+                {nextSteps.map((step, index) => (
+                  <li key={step.title} className="grid grid-cols-[24px_minmax(0,1fr)] gap-x-[12px]">
+                    <span aria-hidden className="flex h-[24px] w-[24px] items-center justify-center rounded-full bg-teal-bg2 font-mono text-f12 font-medium text-teal-text">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <p className="text-f14 font-semibold text-t1">{step.title}</p>
+                      <p className="mt-[2px] text-f14 leading-relaxed text-t2">{step.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
 
-            <div className="rounded-card border border-border-default bg-white p-[22px]">
-              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">Contracting entity</p>
+            <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Contracting entity</h2>
               <p className="mt-[8px] text-f14 leading-relaxed text-t2">
-                Chongqing F1 Composites Co., Ltd. is the export company of FengDu New Material. FengDu runs the factories; F1 signs the contract and handles engineering support, documents and delivery.
+                {company.legalName} is the export company of {company.parent.name}. FengDu runs the factories; F1 signs the
+                contract and handles engineering support, documents and delivery.
               </p>
+              <Link href="/about" className="mt-[8px] inline-block text-f14 font-semibold text-teal-text hover:underline">
+                Company background →
+              </Link>
             </div>
           </aside>
-        </div>
-      </section>
-
-      <section className="bg-white py-[34px]">
-        <div className="mx-auto max-w-[900px] px-[20px] sm:px-[28px] lg:px-[36px]">
-          <LegalEntityNote />
         </div>
       </section>
     </>

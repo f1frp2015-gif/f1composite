@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ToolSection from "@/components/layout/ToolSection";
+import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import HandrailLoadCalculator from "@/components/tools/HandrailLoadCalculator";
 import { GUARD_LOAD_CASES } from "@/lib/guardrailLoads";
@@ -27,7 +31,7 @@ const faqs = [
   {
     question: "Why can a rail meet OSHA and still exceed the screen?",
     answer:
-      "OSHA asks the system to withstand 200 lb without failure, which is usually shown by testing the assembled rail. The screen applies design factors on top: a load factor of 1.6, a resistance factor of 0.65, the time-effect factor 0.8 and the outdoor knockdown. The result panel shows both: the utilisation with design factors, and the characteristic capacity without them. Use a larger post, a closer spacing or test evidence when the screen is exceeded.",
+      "OSHA asks the system to withstand 200 lb without failure, which is usually shown by testing the assembled rail. The screen applies design factors on top: a load factor of 1.6, a resistance factor of 0.65, the time-effect factor 0.8 and the outdoor knockdown. The result panel shows both: the utilization with design factors, and the characteristic capacity without them. Use a larger post, a closer spacing or test evidence when the screen is exceeded.",
   },
   {
     question: "What does the calculation leave out?",
@@ -60,7 +64,7 @@ export default function HandrailLoadCalculatorPage() {
       <PageHeader
         tag="Tools"
         title="FRP handrail and guardrail load check"
-        description="Pick the rule for the site, the post and rail tubes and the spacing. The check returns the post and rail utilisation, the top-rail deflection and the base reactions for the anchors."
+        description="Pick the rule for the site, the post and rail tubes and the spacing. The check returns the post and rail utilization, the top-rail deflection and the base reactions for the anchors."
         facts={[
           { label: "Load rules", value: String(GUARD_LOAD_CASES.length) },
           { label: "Markets", value: "US, EU, UK, CA, AU, NZ" },
@@ -69,42 +73,49 @@ export default function HandrailLoadCalculatorPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Handrail load check" }]}
       />
 
-      <section className="bg-white py-[40px]">
-        <div className="site-container">
-          <HandrailLoadCalculator />
-        </div>
-      </section>
+      <PageNav items={[{ id: "tool", label: "Load check" }, { id: "method", label: "How it works" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-bg2 py-[48px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">How the check works</h2>
-          <div className="mt-[13px] grid gap-[21px] text-f14 text-t2 md:grid-cols-3">
-            <p>
-              <strong className="text-t1">Post.</strong> The larger of the line load times the post spacing and the
-              concentrated load acts at the top rail. The post is a cantilever fixed at its base, so the base moment is
-              that force times the rail height.
-            </p>
-            <p>
-              <strong className="text-t1">Rail.</strong> The top rail spans simply between posts under the line load
-              (wL²/8) or a concentrated load at mid-span (PL/4). Continuous rails do better, so this is conservative.
-            </p>
-            <p>
-              <strong className="text-t1">Strength and deflection.</strong> Stresses use the same section properties,
-              material data and design factors as the{" "}
-              <Link href="/frp-profile-calculator" className="font-semibold text-teal-text underline">FRP profile calculator</Link>, and deflection includes the
-              shear term that FRP needs.
-            </p>
-          </div>
-          <p className="mt-[21px] max-w-[860px] text-f14 text-t2">
-            The requirements behind the load rules are compared in the{" "}
-            <Link href="/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" className="font-semibold text-teal-text underline">guardrail requirements guide</Link>. Post and rail tubes are listed with the{" "}
-            <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text underline">FRP handrail systems</Link>.
-          </p>
-          <FAQ items={faqs} />
-        </div>
-      </section>
+      <ToolSection label="Handrail and guardrail load check">
+        <HandrailLoadCalculator />
+      </ToolSection>
+
+      <PageSection id="method" title="How the check works" tone="muted">
+        <ol className="grid gap-[12px] md:grid-cols-3">
+          {[
+            {
+              title: "Post",
+              body: "The larger of the line load times the post spacing and the concentrated load acts at the top rail. The post is a cantilever fixed at its base, so the base moment is that force times the rail height.",
+            },
+            {
+              title: "Rail",
+              body: "The top rail spans simply between posts under the line load (wL²/8) or a concentrated load at mid-span (PL/4). Continuous rails do better, so this is conservative.",
+            },
+            {
+              title: "Strength and deflection",
+              body: "Stresses use the same section properties, material data and design factors as the FRP profile calculator, and deflection includes the shear term that FRP needs.",
+            },
+          ].map((step, index) => (
+            <li key={step.title} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{step.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[16px] max-w-[860px] text-f14 leading-golden text-t2">
+          The requirements behind the load rules are compared in the{" "}
+          <Link href="/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" className="font-semibold text-teal-text hover:underline">guardrail requirements guide</Link>. Post and rail tubes are listed with the{" "}
+          <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text hover:underline">FRP handrail systems</Link>, and the design factors are set out in the{" "}
+          <Link href="/frp-profile-calculator/methodology" className="font-semibold text-teal-text hover:underline">calculator methodology</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="bg2"
         groups={[
           { title: "Access systems", links: [
             { href: "/products/frp-handrail-systems", label: "FRP handrail systems" },
@@ -122,6 +133,11 @@ export default function HandrailLoadCalculatorPage() {
             { href: "/frp-profile-calculator/methodology", label: "Calculator methodology" },
           ] },
         ]}
+      />
+      <InnerCTA
+        title="Send the handrail layout with your RFQ"
+        quoteHref="/contact?source=tool-handrail-load&inquiry_type=rfq"
+        text="Send the run lengths, post spacing, load rule and the substrate the base plates fix to."
       />
     </>
   );

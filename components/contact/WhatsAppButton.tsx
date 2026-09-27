@@ -2,7 +2,7 @@ import { whatsappHref, whatsappMessage } from "@/lib/contact";
 
 type Variant = "solid" | "outline";
 
-// Brand colours with the WhatsApp mark: a green button block beside the teal
+// Brand colors with the WhatsApp mark: a green button block beside the teal
 // quote button read as two competing brands. The mark keeps WhatsApp green on
 // white so the channel is still recognisable at a glance.
 const variants: Record<Variant, string> = {

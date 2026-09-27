@@ -1,5 +1,5 @@
 import { commercialFacts, engineeringEvidence } from "@/content/data/engineeringEvidence";
-import { company, companyStatements, supplyTerms, weeks } from "@/content/data/company";
+import { company, companyStatements, supplyTerms, usdRange, weeks } from "@/content/data/company";
 import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
@@ -64,9 +64,9 @@ SHS 25×25 to SHS 240×240, RHS 40×20 to RHS 120×60
 - Min wall thickness: 1.5mm
 - Resin systems: polyester, vinyl ester, polyurethane, epoxy
 - Fiber types: E-glass, ECR-glass, carbon, basalt, aramid
-- Tooling lead time: 4-8 weeks
-- MOQ: typically 500 linear meters (first run); repeat orders from 200 meters
-- Tolerance: ±0.25mm
+- Tooling lead time: ${weeks(supplyTerms.dieManufactureWeeks)}
+- MOQ: typically ${supplyTerms.customMoqMeters.firstRun} linear meters (first run); repeat orders from ${supplyTerms.customMoqMeters.repeat} meters
+- Tolerance: to ASTM D3917 or EN 13706-2 by dimension and wall thickness, as confirmed on the approved drawing
 
 ### Fenestration Systems
 70/80/90-series FRP window and door frames.
@@ -113,7 +113,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 
 ## F1 supply terms (these override any industry benchmark below)
 - Catalog profiles: ${weeks(supplyTerms.catalogLeadTimeWeeks)}
-- Custom variant on an existing die (resin, colour, length): ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}
+- Custom variant on an existing die (resin, color, length): ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}
 - New custom profile: ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery, including ${weeks(supplyTerms.dieManufactureWeeks)} for the die
 - Window and door system projects: ${weeks(supplyTerms.fenestrationLeadTimeWeeks)}
 - Custom profile minimum order: ${supplyTerms.customMoqMeters.firstRun} m first run, ${supplyTerms.customMoqMeters.repeat} m repeat orders
@@ -158,7 +158,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 - vs stainless steel: compare the offered resin and exposure, structural design, connections and same-scope delivered and installed costs.
 - Standard profiles: stock or 2-4 weeks. Custom new tooling: 6-10 weeks. Repeat orders: 2-4 weeks.
 - Pricing: per linear meter, driven by cross-section area, resin type, fiber content. $7-$33/m for standard shapes.
-- Tooling cost: $3,000-$15,000+ depending on complexity. One-time investment, retained for repeat orders.
+- Tooling cost: ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die, ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity die. One-time investment, retained for repeat orders.
 - MOQ: use the F1 supply terms above.
 
 ### Applications

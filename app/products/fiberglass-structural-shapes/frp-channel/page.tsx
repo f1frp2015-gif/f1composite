@@ -74,7 +74,7 @@ export default async function ChannelPage() {
         tag="Channel"
         line={{ name: "F1-STRUX", label: "Channel" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Channel (FRP) Profiles"
+        title="Fiberglass channel (FRP) profiles"
         description="Pultruded fiberglass U-profiles from 38×13 mm to 360×108 mm for secondary framing, cable supports and modular frames. Every channel has a UV-protective surface veil and can be bolted to other metals without galvanic corrosion."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),

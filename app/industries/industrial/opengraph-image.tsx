@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "Industrial",
-    title: "FRP for Chemical Plants, Water Facilities, Food Processing, and Industrial Access Systems",
+    title: "FRP for Chemical Plants, Cooling Towers and Industrial Access",
     description:
-      "Industrial material guidance for corrosive, wash-down, and process-heavy environments where steel maintenance becomes expensive.",
+      "Grating, platforms, handrails, ladders and cable supports for corrosive and wash-down areas, with the resin chosen for the chemicals on site.",
     accent: "#11726c",
-    chips: ["Chemical resistance", "Access structures", "Lower maintenance"],
+    chips: ["Chemical-resistant resins", "Access structures", "Cable supports"],
   });
 }

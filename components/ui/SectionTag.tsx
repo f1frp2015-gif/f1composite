@@ -1,14 +1,16 @@
 interface SectionTagProps {
   children: React.ReactNode;
+  /** "dark" on the deep ground. */
+  tone?: "light" | "dark";
 }
 
-export default function SectionTag({ children }: SectionTagProps) {
+// A small label over a group of content, in the mono face used for figure
+// numbers and data labels. Section titles on template pages (PageSection) go
+// without one; use it only where a group needs naming apart from its heading.
+export default function SectionTag({ children, tone = "light" }: SectionTagProps) {
   return (
-    <div className="flex items-center gap-[13px]">
-      <span className="gradient-bar h-[2px] w-[21px] rounded-full" />
-      <span className="text-f12 font-bold uppercase tracking-[3px] text-teal-text">
-        {children}
-      </span>
+    <div className={`font-mono text-f12 uppercase tracking-[0.06em] ${tone === "dark" ? "text-white/60" : "text-t3"}`}>
+      {children}
     </div>
   );
 }

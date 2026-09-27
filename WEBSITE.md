@@ -369,6 +369,38 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 - **项目卡片**只用有项目实拍或自己绘图的内容（工厂楼梯、重庆屋顶光伏、梁桥指南），卡片数据在 `lib/familyApplications.ts`，行业页共用。
 - 各段标题不再加"— PRODUCTS"这类小标签；编号只用于真实步骤（定制流程、质检环节）。
 
+
+## 页面模板与细节规则（2026-09 阶段 4）
+
+阶段 4 把其余页面（行业指南、应用页、技术文章、资源指南、博客、工具、地区页、公司页、规格书、法律页）都移到同一套组件上。新页面从这些组件开始搭，不要再手写页头和段落间距。
+
+- **页头**（`PageHeader`）：`tag` 写页面类型（Tools、Company、Legal、Datasheet、Author、Case studies 等），标题用句子大小写；`facts` 最多 4 项，带 `figure` 时最多 3 项，否则数值会在窄栏里折行；`updated` 与 JSON-LD 的 `dateModified` 用同一个常量。
+- **段落**（`PageSection`）：页头下第一段为白底，之后白底和浅灰底（`muted`）交替；深蓝底只留给收尾询价区（`InnerCTA`、`ProductRfq`），页面中间不再放深蓝卡片。列表类段落用 `count` 标数量。长页面加 `PageNav`，回到第一段上方时自动滚回起点。
+- **工具页**：页头 → `PageNav` → `ToolSection`（工作面板，白底、无标题，只有 `aria-label`）→ 说明段落 → 常见问题 → `RelatedLinks` → `InnerCTA`。面板样式：`rounded-card border border-border-default bg-bg2 p-[20px]`；输入框 `rounded-control border … bg-white px-[12px] py-[8px] text-f14`，获焦 `border-teal`；标签 `font-mono text-f12 uppercase tracking-[0.06em] text-t3`；结果块 `rounded-control bg-white p-[12px]`，重点结果加 `border-teal-border bg-teal-bg`。工具里不用深蓝底。
+- **工程助手**（`/ask`，`components/chat/ChatPanel.tsx` 的 `fullPage`）：空状态显示页面自己的起始问题；开始对话后面板撑到窗口高度并滚入视野；第一条回答前不抢焦点（避免把读页头的访客拉到输入框）；用户气泡用 `bg-teal-text`（白字对比度 5.2:1）；输入框 16px（iOS 不缩放）、随内容增高，回车发送时忽略输入法组字；外框用 `overflow-clip` 而不是 `overflow-hidden`，否则 `scrollIntoView` 的 `scroll-margin` 失效。
+- **标题大小写**：H1、段落标题和按钮一律用句子大小写；专有名词（Passive House、公司名、地名）和缩写保留大写。`lib/typography.ts` 的 `holdDash` 在页头、段落标题和常见问题里把 "U-value""I-beam""E-glass" 这类字母连字词包成不换行（DM Sans 没有不换行连字符），并让带空格的破折号跟在前一个词后面。
+- **表格**：外框 `relative overflow-x-auto rounded-card border border-border-default bg-white`；表头行 `border-b bg-bg2`，单元格 `px-[14px] py-[8px]`；行首用 `th scope="row"`；数值列右对齐加 `tabular-nums`；末行 `last:border-b-0`。
+- **记号与单位**：U 值按 EN ISO 10077-1 写下标（U<sub>w</sub>、U<sub>f</sub>、Ψ<sub>g</sub>，线传热系数用大写 Ψ），单位写 W/m²·K、W/m·K。公式行用等宽字体，手机上只在除号处换行。门窗框、玻璃、间隔条和各国 U 值目标集中在 `lib/windowUValueData.ts`。
+- **拼写和标点**：美式拼写（color、meter、aluminum）；新文件的破折号密度控制在每千词 6 个以下（`npm run check:copy` 提示）。
+
+### 封面图
+
+- **规则**：卡片显示它所链接页面自己的主图；产品显示产品本身。封面登记在 `lib/covers.ts` 的各个注册表（产品、行业、应用、工具、案例、技术、地区、资源），卡片用 `coverFor(href)` 取图，`CoverCard` 负责版式。案例总览、首页资源区、作者页文章、案例页的"Products used"、建筑行业页的补充部件都已改用封面卡。
+- **图片性质标签**：可能被误认为 F1 项目实拍的图片必须带 `note`：AI concept、Rendering、Illustrative photo、Project photo、Production photo、Concept drawing。博客文章封面若是文章自己的数据表或证书（自带标题），`coverNote` 留空，否则角标会盖住文件抬头。
+- **公司与生产照片**：只用集团自己的照片（`public/images/technology/f1-composite-*`），说明写"FengDu 工厂"；图库照片不能代表 F1 的工厂或项目。
+- **更换图片内容时换文件名**：Next 的图片优化按网址缓存，覆盖同名文件后开发环境和线上都可能继续显示旧图。
+- **测试**：`scripts/covers.test.mjs` 检查每个注册封面的文件都存在、alt 文字完整、`coverFor` 取到的是它；52 篇博客的封面各不相同，也不与任何卡片封面重复。
+- **概念图**：`components/sections/ConceptAnimations.tsx` 的动画图在页面里用 `bare` 属性放进带编号的 `Figure`，标题和图号由图版提供。
+
+### 各类页面
+
+- **地区页**：7 个市场页和总览页共用地区模板，页头图从 `regionCovers` 读取，总览卡片和页头因此是同一张图、同一个标签。
+- **公司页**：`/about` 用集团自己的生产照片、竖向里程碑和"文件与覆盖范围"段；`/contact` 页头列回复时效、语言和工作时间，表单区带 `data-page-rfq`，页脚通用询价条不再出现在询价页本身。
+- **作者页**：没有照片，用姓名首字母的圆形标记，不用彩色底标签；作者页的文章用博客同款封面卡，按发表日期从新到旧。
+- **规格书**：总览页按截面族分组，每组配截面图（`SectionSvg`），公布单重按小数点对齐、保留原精度；详情页用 `PageSection`，页头列型号、EN 13706 等级、公布单重和截面积。句中出现族名用 `familyInSentence()`，不要直接 `toLowerCase()`（曾把 "I-Beams" 变成 "i-beams"）。
+- **案例总览**：卡片标题用短名，结构化数据保留案例页的完整标题；图片来自 `caseStudyCovers`，梁桥卡片用页面 Figure 01 的分解图。
+- **报价与成本数字**：模具费写在 `company.ts` 的 `supplyTerms.dieCostUsd`，用 `usdRange()` 输出，不在页面里另写一套区间。
+
 ---
 
 ## 待办事项
@@ -377,7 +409,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 |--------|------|------|
 | 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI。2026-09-26 已先删除 `/images/hero/` 下 5 张与公司无关的图片（头灯、音频线广告等） | 待确认 |
 | 高 | 风渡的英文法定名称（目前 schema 只用品牌名 FengDu New Material） | 待确认 |
-| 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实。其中码头案例（英国）配图是沙漠峡谷里的湖泊码头，水厂案例（泰国）配图是烟囱排污的图库照片，需换成项目实拍，或先撤下图片 | 待核实 |
+| 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实。码头案例（英国）配图仍是沙漠峡谷里的湖泊码头（标为 Illustrative photo），需换成项目实拍。水厂案例总览卡片已改用案例页的水厂航拍（Illustrative photo）；原烟囱排污图库照片 `public/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg` 已无引用，可随未引用图片一并移出 | 待核实 |
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
 | 中 | 隐私政策由法务审阅 | 待审阅 |
 | 高 | 在 GA4 把 `whatsapp_click`、`email_click`、`phone_click` 标为关键事件，再导入 Google Ads 作为次要转化 | 待操作 |

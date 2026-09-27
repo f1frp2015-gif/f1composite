@@ -1,5 +1,5 @@
 // Product-line marker, e.g. "F1-STRUX · Standard profile". The lime square is
-// the brand signal colour; the text stays teal on a pale ground for contrast.
+// the brand signal color; the text stays teal on a pale ground for contrast.
 // Families without a line name (rebar, fasteners) pass mark={false} and show
 // the same label without the square.
 export default function LineTag({ line, label, mark = true }: { line: string; label?: string; mark?: boolean }) {

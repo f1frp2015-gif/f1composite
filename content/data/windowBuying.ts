@@ -40,3 +40,25 @@ export const windowScopeRows = [
   { item: "Packing, freight and unloading", profiles: "Confirm lengths, protection and destination", finished: "Confirm crate dimensions, delivery and unloading" },
   { item: "Site installation and after-sales", profiles: "Fabricator responsibility and agreed support", finished: "Local installer and contract-defined service scope" },
 ] as const;
+
+/** What a useful window request includes, for the closing quote block of each route. */
+export const windowRequestItems = {
+  hub: [
+    { title: "Your route", text: "Profiles to fabricate locally, or finished units built to your schedule. Not sure yet? Tell us your role and we will advise." },
+    { title: "Series or drawing", text: "The system series and section codes, a drawing, or simply the opening types you need." },
+    { title: "Quantities", text: "A section list with cut lengths, or a window schedule with IDs, sizes and handing." },
+    { title: "Destination and stage", text: "The project city or port, and whether you need samples, a budget price or a formal quote." },
+  ],
+  profiles: [
+    { title: "Series or drawing", text: "The system series and section codes, or a section drawing with its revision and the interfaces to keep." },
+    { title: "Section list", text: "Each section with cut length, quantity and unit. The profile BOM template keeps it in order." },
+    { title: "Finish and accessories", text: "Color and surface, the gaskets, beads and connectors to include, and any machining." },
+    { title: "Demand and destination", text: "First order, expected annual demand, the sample you need and the delivery port or city." },
+  ],
+  finished: [
+    { title: "Window schedule", text: "Window IDs, width × height and quantity, and whether sizes are rough opening or frame." },
+    { title: "Operation and handing", text: "The opening type of each window, left or right handing and the viewing side of the drawings." },
+    { title: "Glass and hardware", text: "Glass build-up, hardware, and the interior and exterior colors." },
+    { title: "Project and delivery", text: "Project city, performance targets, wall details, delivery phases and installation scope." },
+  ],
+} as const;

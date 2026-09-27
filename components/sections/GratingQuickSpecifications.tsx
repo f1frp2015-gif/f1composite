@@ -24,12 +24,12 @@ export default function GratingQuickSpecifications({ family }: { family?: Gratin
   const options = family === "molded" ? molded : family === "pultruded" ? pultruded : [...molded, ...pultruded];
   return <section id="grating-configurations" className="scroll-mt-[100px] bg-white py-[40px] md:py-[56px]">
     <div className="site-container">
-      <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Configuration starting points</p>
+      <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Configuration starting points</p>
       <h2 className="mt-[10px] text-f32 font-bold text-t1">Start with a panel configuration</h2>
       <p className="mt-[12px] max-w-[880px] text-f16 leading-relaxed text-t2">Compare these examples from our current range, then review the complete specifications. Dimensions and weights are nominal; confirm the clear opening, load table, resin and delivery schedule for your project.</p>
       <div className="mt-[24px] grid gap-[16px] md:grid-cols-3">
         {options.map(option => <article key={`${option.family}-${option.title}-${option.detail}`} className="flex flex-col rounded-card border border-border-default bg-bg2 p-[22px]">
-          <p className="text-f12 font-bold uppercase tracking-wide text-teal-text">{option.use}</p>
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{option.use}</p>
           <h3 className="mt-[12px] text-f24 font-bold text-t1">{option.title}</h3>
           <p className="mt-[8px] text-f14 text-t2">{option.detail}</p>
           <dl className="my-[18px] space-y-[7px] text-f14">

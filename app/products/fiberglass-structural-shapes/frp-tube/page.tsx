@@ -93,7 +93,7 @@ export default async function TubePage() {
         tag="Round Tube"
         line={{ name: "F1-STRUX", label: "Round tube" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Round Tubes & Tubing (FRP)"
+        title="Fiberglass round tubes and tubing (FRP)"
         description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD, for handrails, guardrails, masts and conduit. The dimensions define a structural section, not a pressure rating."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Outside diameter", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),

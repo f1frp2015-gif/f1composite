@@ -22,9 +22,9 @@ export default function LayupFields({
   onVoids: (v: string) => void;
 }) {
   const control =
-    "mt-1 w-full min-w-0 rounded-card border border-border-default bg-white p-2 text-sm text-t1";
+    "mt-[4px] w-full min-w-0 rounded-control border border-border-default bg-white px-[8px] py-[6px] text-f14 text-t1 outline-none focus:border-teal";
   const input = (label: string, value: string, change: (v: string) => void) => (
-    <label className="block text-xs text-t2">
+    <label className="block text-f12 text-t2">
       {label}
       <input
         type="number"
@@ -38,24 +38,24 @@ export default function LayupFields({
     </label>
   );
   return (
-    <div className="mt-6 rounded-card border border-border-default bg-bg2 p-4">
-      <h3 className="font-bold text-t1">Reinforcement layup per meter</h3>
-      <p className="mt-2 text-sm leading-relaxed text-t2">
+    <div className="mt-[24px] rounded-card border border-border-default bg-white p-[16px]">
+      <h3 className="text-f16 font-bold text-t1">Reinforcement layup per meter</h3>
+      <p className="mt-[8px] text-f14 leading-relaxed text-t2">
         Start with the net section above. Add each mat, fabric or veil path and
         the longitudinal roving groups. The remaining volume is filled by the
         cured resin / filler matrix.
       </p>
-      <p className="mt-3 rounded-card bg-white p-3 text-sm text-t1">
+      <p className="mt-[12px] rounded-control bg-bg2 p-[12px] text-f14 text-t1">
         Surface reference: outer boundary {perimeters.outer.toFixed(2)} mm ·
         inner boundary {perimeters.inner.toFixed(2)} mm.
       </p>
-      <p className="mt-2 text-xs leading-relaxed text-t3">
+      <p className="mt-[8px] text-f12 leading-relaxed text-t3">
         Surface perimeters are thin-layer approximations. For each actual ply
         centerline, radiused corner or internal web, choose “Measured developed
         width” and enter its CAD or shop-floor width. Use separate rows when
         paths differ.
       </p>
-      <div className="mt-4 space-y-3">
+      <div className="mt-[16px] space-y-[12px]">
         {layers.map((row, i) => {
           const update = (key: keyof LayupLayer, value: string) =>
             onLayers(
@@ -65,12 +65,12 @@ export default function LayupFields({
             <details
               key={i}
               open={i === 0}
-              className="rounded-card border border-border-default bg-white p-3"
+              className="rounded-control border border-border-default bg-bg2 p-[12px]"
             >
-              <summary className="cursor-pointer text-sm font-semibold text-t1">
+              <summary className="cursor-pointer text-f14 font-semibold text-t1">
                 Layer {i + 1}: {row.name}
               </summary>
-              <label className="mt-3 block text-xs text-t2">
+              <label className="mt-[12px] block text-f12 text-t2">
                 Material / placement
                 <input
                   aria-label={`Layer ${i + 1} name`}
@@ -79,14 +79,14 @@ export default function LayupFields({
                   className={control}
                 />
               </label>
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <div className="mt-[12px] grid grid-cols-2 gap-[12px]">
                 {input(`Layer ${i + 1} GSM (g/m²)`, row.gsm, (v) =>
                   update("gsm", v),
                 )}
                 {input(`Layer ${i + 1} count`, row.layers, (v) =>
                   update("layers", v),
                 )}
-                <label className="col-span-2 text-xs text-t2">
+                <label className="col-span-2 text-f12 text-t2">
                   Developed path
                   <select
                     aria-label={`Layer ${i + 1} path`}
@@ -125,7 +125,7 @@ export default function LayupFields({
               <button
                 type="button"
                 onClick={() => onLayers(layers.filter((_, j) => j !== i))}
-                className="mt-3 text-xs text-teal-text underline"
+                className="mt-[12px] text-f12 text-teal-text underline"
               >
                 Remove layer {i + 1}
               </button>
@@ -151,26 +151,26 @@ export default function LayupFields({
             },
           ])
         }
-        className="mt-3 text-sm font-semibold text-teal-text underline"
+        className="mt-[12px] text-f14 font-semibold text-teal-text underline"
       >
         + Add mat / fabric / veil path
       </button>
-      <p className="mt-3 text-xs leading-relaxed text-t3">
+      <p className="mt-[12px] text-f12 leading-relaxed text-t3">
         Coverage applies to the path before overlap. Overlap is the total extra
         retained width per ply. Factor 1 means one meter of fabric feed per
         axial meter; use measured consumption for helical or draped feed. A ±45°
         stitched fabric does not automatically need an angle multiplier: its GSM
         already includes its fibers. Do not include discarded trim or waste.
       </p>
-      <h4 className="mt-5 text-sm font-bold text-t1">
+      <h4 className="mt-[20px] text-f14 font-bold text-t1">
         Longitudinal roving groups
       </h4>
       {rovings.map((row, i) => (
         <div
           key={i}
-          className="mt-3 rounded-card border border-border-default bg-white p-3"
+          className="mt-[12px] rounded-control border border-border-default bg-bg2 p-[12px]"
         >
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-[12px]">
             {(
               [
                 ["tex", "Tex (g/km)"],
@@ -190,7 +190,7 @@ export default function LayupFields({
           </div>
           <button
             type="button"
-            className="mt-3 text-xs text-teal-text underline"
+            className="mt-[12px] text-f12 text-teal-text underline"
             onClick={() => onRovings(rovings.filter((_, j) => j !== i))}
           >
             Remove roving group {i + 1}
@@ -199,7 +199,7 @@ export default function LayupFields({
       ))}
       <button
         type="button"
-        className="mt-3 text-sm font-semibold text-teal-text underline"
+        className="mt-[12px] text-f14 font-semibold text-teal-text underline"
         onClick={() =>
           onRovings([
             ...rovings,
@@ -209,11 +209,11 @@ export default function LayupFields({
       >
         + Add roving group
       </button>
-      <div className="mt-5 grid grid-cols-2 gap-3">
+      <div className="mt-[20px] grid grid-cols-2 gap-[12px]">
         {input("Cured resin / filler matrix density (g/cm³)", matrix, onMatrix)}
         {input("Layup void volume (%)", voids, onVoids)}
       </div>
-      <p className="mt-3 text-xs leading-relaxed text-t3">
+      <p className="mt-[12px] text-f12 leading-relaxed text-t3">
         Use effective density of the cured resin plus retained fillers and
         additives. For a filled matrix, calculate it separately from its own
         weight fractions: ρmatrix = 1 / Σ(wi / ρi). Reinforcement densities must

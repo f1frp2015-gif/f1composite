@@ -24,28 +24,28 @@ const comparisons = [
 
 export default function GratingSelectionGuide() {
   return (
-    <section className="bg-white py-[55px]">
+    <section className="bg-white py-[48px]">
       <div className="site-container">
         <SectionTag>Molded vs Pultruded</SectionTag>
-        <h2 className="mt-[13px] text-f24 font-bold text-t1">Choose the manufacturing route from the load path</h2>
-        <div className="mt-[21px] grid gap-[13px] md:grid-cols-2">
+        <h2 className="mt-[12px] text-f24 font-bold text-t1">Choose the manufacturing route from the load path</h2>
+        <div className="mt-[20px] grid gap-[12px] md:grid-cols-2">
           {routes.map((route) => (
-            <article key={route.name} className="rounded-card border border-border-default bg-bg2 p-[21px]">
+            <article key={route.name} className="rounded-card border border-border-default bg-bg2 p-[20px]">
               <h3 className="text-f18 font-bold text-t1">{route.name}</h3>
               <p className="mt-[8px] text-f14 font-semibold leading-golden text-teal-text">{route.process}</p>
               <p className="mt-[8px] text-f14 leading-golden text-t2">{route.fit}</p>
             </article>
           ))}
         </div>
-        <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default">
+        <div className="mt-[20px] overflow-x-auto rounded-card border border-border-default">
           <table className="w-full min-w-[620px] text-left text-f14">
             <thead className="bg-deep text-white">
-              <tr><th className="p-[13px]">Decision</th><th className="p-[13px]">Molded</th><th className="p-[13px]">Pultruded</th></tr>
+              <tr><th className="p-[12px]">Decision</th><th className="p-[12px]">Molded</th><th className="p-[12px]">Pultruded</th></tr>
             </thead>
             <tbody>
               {comparisons.map((row) => (
                 <tr key={row[0]} className="border-t border-border-default">
-                  {row.map((cell, index) => <td key={cell} className={`p-[13px] ${index === 0 ? "font-semibold text-t1" : "text-t2"}`}>{cell}</td>)}
+                  {row.map((cell, index) => <td key={cell} className={`p-[12px] ${index === 0 ? "font-semibold text-t1" : "text-t2"}`}>{cell}</td>)}
                 </tr>
               ))}
             </tbody>

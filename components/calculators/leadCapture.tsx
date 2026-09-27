@@ -60,7 +60,7 @@ export function ResultLeadCapture({
 
   if (status === "ok") {
     return (
-      <div className="rounded-control border border-teal/30 bg-teal/10 p-[13px] text-f14 text-teal-text">
+      <div className="rounded-control border border-teal/30 bg-teal-bg p-[13px] text-f14 text-teal-text">
         ✓ Sent. Our engineering team has your calculation and will acknowledge your requirements within one business day. A quotation follows specification review.
       </div>
     );
@@ -88,7 +88,7 @@ export function ResultLeadCapture({
           {status === "sending" ? "Sending…" : "Send"}
         </button>
       </div>
-      {status === "error" && <p className="mt-[5px] text-f12 text-red-600">{err}</p>}
+      {status === "error" && <p className="mt-[5px] text-f12 text-fail">{err}</p>}
     </form>
   );
 }

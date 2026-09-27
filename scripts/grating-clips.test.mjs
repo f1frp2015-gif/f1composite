@@ -144,8 +144,8 @@ test("molded and pultruded pages expose only their compatible clip families", as
 
   assert.match(component, /molded:[\s\S]*codes:\s*\["M",\s*"C",\s*"J"\]/);
   assert.match(component, /pultruded:[\s\S]*codes:\s*\["M",\s*"J",\s*"T"\]/);
-  assert.match(moldedPage, /<GratingClipGuide family="molded" \/>/);
-  assert.match(pultrudedPage, /<GratingClipGuide family="pultruded" \/>/);
+  assert.match(moldedPage, /<GratingClipGuide family="molded"[^>]*\/>/);
+  assert.match(pultrudedPage, /<GratingClipGuide family="pultruded"[^>]*\/>/);
   assert.match(moldedPage, /moldedGratingManualImageAssets/);
   assert.match(pultrudedPage, /View molded FRP grating/);
 });

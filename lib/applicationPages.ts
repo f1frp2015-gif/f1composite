@@ -11,6 +11,8 @@ export interface ApplicationPage {
   imageAlt: string;
   imageSize?: { width: number; height: number };
   imageCaption?: string;
+  /** What the image is, shown on its figure and on cards: "Project photo", "AI concept" … */
+  imageNote: string;
   recommendedProfiles: string[];
   resinSystem: string;
   standards: string[];
@@ -32,6 +34,7 @@ export const applicationPages: ApplicationPage[] = [
     intro: "Plan plant support for nurseries, vineyards, young orchards and growing programs. Match F1 fiberglass stakes to your crop, field conditions and planting schedule—from initial selection to sample approval and bulk supply.",
     environment: "Nurseries, vineyards, young orchards, vegetable and flower production, and compatible tree-shelter programs.",
     image: "/images/products/fiberglass-stakes/frp-stakes-vineyard-training.webp",
+    imageNote: "Visualization",
     imageAlt: "Application visualization of fiberglass stakes for young vine training",
     imageSize: { width: 1536, height: 1024 },
     imageCaption: "Application visualization, not a documented F1 installation. Confirm stake geometry and attachments for the project.",
@@ -57,6 +60,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
     image: "/images/applications/frp-cable-ladder-gray-product.webp",
+    imageNote: "AI concept",
     imageAlt:
       "Illustration of a gray pultruded fiberglass cable ladder with channel side rails and transverse rungs",
     imageSize: { width: 1536, height: 1024 },
@@ -111,9 +115,12 @@ export const applicationPages: ApplicationPage[] = [
       "Cooling towers attack galvanized steel through constant humidity, chlorides, biocides, and wet-dry cycling. F1 Composite supplies pultruded beams, tubes, angles, louvers, and grating supports in fiberglass that keep structural stiffness while removing corrosion-driven maintenance.",
     environment:
       "Best fit: industrial cooling towers, power plant cooling systems, HVAC towers, chemical plants, and replacement programs where steel members require repeated recoating.",
-    image: "/images/industries/frp-industrial-chemical-plant-facility.jpg",
+    image: "/images/industries/industrial-cooling-tower-concept.webp",
+    imageNote: "AI concept",
     imageAlt:
-      "Industrial process facility representing the wet and chemically dosed service environment for FRP cooling tower profiles",
+      "Concept cooling tower access walkway with FRP grating, yellow handrails and structural supports above the water basin",
+    imageSize: { width: 1536, height: 1024 },
+    imageCaption: "AI-generated concept of cooling tower access, not an F1 installation. Member sizes, resin and connections require project design.",
     recommendedProfiles: [
       "I-beams and channels for primary support members",
       "Square tubes for frames, posts, and bracing",
@@ -172,6 +179,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: pedestrian bridges, coastal boardwalks, utility access decks, replacement decks on aging structures, and projects where a lighter deck reduces crane size or substructure reinforcement.",
     image: "/images/applications/frp-decking-bridge-marina.webp",
+    imageNote: "Illustration",
     imageAlt:
       "Gray closed-top FRP deck panels with an anti-slip surface on a coastal pedestrian bridge leading to a marina and vessel-access gangway",
     imageSize: { width: 1672, height: 941 },
@@ -236,6 +244,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: coastal solar farms, floating PV, agricultural PV, corrosive industrial sites, and off-grid structures where weight reduction simplifies transport and installation.",
     image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
+    imageNote: "Project photo",
     imageAlt:
       "Pultruded FRP solar mounting profiles supporting photovoltaic modules on an industrial rooftop",
     recommendedProfiles: [
@@ -296,9 +305,12 @@ export const applicationPages: ApplicationPage[] = [
       "Chemical plant access platforms fail when steel framing, gratings, and handrails sit in acid splash, caustic washdown, or chloride-rich air. F1 Composite supplies the pultruded beams, channels, gratings, stair treads, and handrail profiles required for corrosion-proof platform assemblies.",
     environment:
       "Best fit: acid production, fertilizer plants, chlor-alkali units, wastewater treatment, battery materials, petrochemical areas, and any process zone where coating maintenance is expensive or unsafe.",
-    image: "/images/case-studies/frp-chemical-plant-access-platform.jpg",
+    image: "/images/industries/industrial-chemical-platform-concept.webp",
+    imageNote: "AI concept",
     imageAlt:
-      "FRP chemical plant platform with corrosion-resistant grating, beams and handrails",
+      "Concept chemical tank access platform with FRP grating, yellow handrails, stair and structural supports",
+    imageSize: { width: 1536, height: 1024 },
+    imageCaption: "AI-generated concept of a tank access platform, not an F1 installation. Members, connections and resin are confirmed by project design.",
     recommendedProfiles: [
       "FRP I-beams and channels for primary and secondary framing",
       "Molded or pultruded FRP gratings for walking surfaces",
@@ -362,6 +374,7 @@ export const applicationPages: ApplicationPage[] = [
     environment:
       "Best fit: coastal and riverside crossings, park and trail bridges, utility access bridges, replacement superstructures on retained abutments, and remote sites where smaller lifts and prefabricated modules reduce construction disruption.",
     image: "/images/applications/frp-pedestrian-bridge-truss-superstructure.webp",
+    imageNote: "Reference photo",
     imageAlt:
       "FRP pedestrian bridge with gray truss members spanning a stream beside a hillside stairway",
     imageSize: { width: 1920, height: 1280 },

@@ -1,21 +1,21 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AskAICard from "@/components/ai/AskAICard";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import Button from "@/components/ui/Button";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import {
   frpStairTreadImageAssets,
   stairTreadReferenceRows,
   stairTreadSelectionFamilies,
 } from "@/content/data/frpStairTreadSpecs";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pageTitle = "FRP Stair Treads & Fiberglass Stair Tread Covers";
@@ -120,7 +120,23 @@ function MeasurementDiagram() {
   );
 }
 
+// The measurement inputs, grouped as the quote block's checklist.
+const requestItems = [
+  { title: "Tread schedule", text: "Quantity by flight with the finished width L, tread depth D and nose return H, including mixed sizes." },
+  { title: "Existing stair", text: "Substrate and stringer photos. For complete treads, the clear span, loads and deflection limit." },
+  { title: "Exposure and surface", text: "Chemicals, temperature, UV, washdown and electrical exposure; surface, nosing color, resin and test documents." },
+  { title: "Destination and date", text: "Delivery destination, required date and any hardware preference." },
+];
+
+const fullTreadChecks = [
+  ["Molded tread", "Mesh, depth, cut, nosing, bearing and clip/end-plate detail."],
+  ["Pultruded T-bar", "Bearing direction, series, span, loads, deflection and end plates."],
+  ["Handrail interface", "Stair slope, rail height, returns, posts and load basis."],
+  ["Release documents", "Schedule, drawing, load table, resin/surface spec and hardware BOM."],
+] as const;
+
 export default function StairTreadCoversPage() {
+  const quoteHref = "/contact?source=frp-stair-treads&inquiry_type=rfq";
   return (
     <>
       <JsonLd data={buildProductFamilyPageSchema({
@@ -144,124 +160,172 @@ export default function StairTreadCoversPage() {
       })} />
 
       <PageHeader
-        tag="Stair Access · F1-GRID"
-        title="FRP Stair Treads & Fiberglass Stair Tread Covers"
+        updated={updatedAt}
+        reviewer={reviewerCredit(reviewer)}
+        tag="Stair treads"
+        line={{ name: "F1-GRID", label: "Stair treads" }}
+        title="FRP stair treads and fiberglass stair tread covers"
         description="Choose a thin anti-slip cover for a sound existing stair, a molded grating tread for drainage and bidirectional layouts, or a pultruded T-bar tread for longer one-way spans. Reference sizes, decision gates and RFQ inputs are organized below."
+        facts={[
+          { label: "Tread families", value: "Cover, molded, T-bar" },
+          { label: "Cover reference", value: "305 or 343 mm deep" },
+          { label: "Cover thickness", value: "3.2 mm" },
+          { label: "Release", value: "Approved drawing" },
+        ]}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/pultruded-frp-profiles" }, { label: "FRP Stair Treads" }]}
         actions={{
-          primary: { label: "Quote My Tread Schedule", href: "/contact?source=frp-stair-treads&inquiry_type=rfq" },
-          secondary: { label: "Compare 3 Options", href: "#choose-your-tread", variant: "secondary" },
-          note: "Send quantity × width × depth, substrate photos, environment and destination.",
+          primary: { label: "Quote my tread schedule", href: quoteHref },
+          secondary: { label: "Compare 3 options", href: "#choose-your-tread", variant: "secondary" },
           stickyMobile: true,
         }}
+        figure={
+          <Figure number={1} title="Retrofit tread covers" note="Supplier photo" caption="Supplier-reference retrofit photography. It demonstrates cover geometry and visibility, not an F1 project case study or order-specific fixing detail." bleed>
+            <div className="relative aspect-[16/9]">
+              <Image src={frpStairTreadImageAssets.coverHero} alt="Black coarse-grit fiberglass stair tread covers with high-visibility yellow nosings" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" quality={85} preload />
+            </div>
+          </Figure>
+        }
       />
 
-      <section className="bg-white py-[34px] md:py-[55px]">
-        <div className="site-container grid gap-[21px] lg:grid-cols-[1.45fr_0.55fr]">
-          <figure>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-card bg-bg2">
-              <Image src={frpStairTreadImageAssets.coverHero} alt="Black coarse-grit fiberglass stair tread covers with high-visibility yellow nosings" fill sizes="(max-width: 1024px) 100vw, 70vw" className="object-cover" quality={85} preload />
-            </div>
-            <figcaption className="mt-[8px] text-f12 leading-golden text-t3">Supplier-reference retrofit photography. It demonstrates cover geometry and visibility, not an F1 project case study or order-specific fixing detail.</figcaption>
-          </figure>
-          <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[.12em] text-teal-text">Decision in one line</p>
-            <h2 className="mt-[8px] text-f24 font-bold text-t1">Keep, replace or span?</h2>
-            <dl className="mt-[21px] space-y-[16px]">
-              <div><dt className="text-f14 font-bold text-t1">Sound existing step</dt><dd className="mt-[3px] text-f14 text-t2">Use a retrofit cover.</dd></div>
-              <div><dt className="text-f14 font-bold text-t1">Drainage or new construction</dt><dd className="mt-[3px] text-f14 text-t2">Use a molded grating tread.</dd></div>
-              <div><dt className="text-f14 font-bold text-t1">Longer one-way clear width</dt><dd className="mt-[3px] text-f14 leading-golden text-t2">Shortlist pultruded T-bar, then verify the load table.</dd></div>
-            </dl>
-            <Button href="#stair-tread-specifications" variant="secondary" className="mt-[24px] w-full">View Specification Matrix</Button>
+      <PageNav
+        items={[
+          { id: "choose-your-tread", label: "Options" },
+          { id: "gates", label: "Decision gates" },
+          { id: "stair-tread-specifications", label: "Sizes" },
+          { id: "measure", label: "Measure" },
+          { id: "full-treads", label: "Full treads" },
+          { id: "installation", label: "Installation" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <PageSection id="choose-your-tread" title="Three tread families, three different jobs" intro="Start with the existing stair and required load path. Product depth comes after that decision—not before it.">
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-3">
+          {stairTreadSelectionFamilies.map((family, index) => (
+            <article key={family.name} className="flex flex-col overflow-hidden rounded-card border border-border-default bg-white">
+              <div className="relative aspect-[16/9] bg-bg2"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" /></div>
+              <div className="flex flex-1 flex-col p-[20px] sm:p-[24px]">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Option {index + 1} · {family.decision}</p>
+                <h3 className="mt-[6px] text-f20 font-bold text-t1">{family.name}</h3>
+                <p className="mt-[12px] text-f14 leading-golden text-t2"><strong className="text-t1">Best for:</strong> {family.bestFor}</p>
+                <p className="mt-[8px] text-f14 leading-golden text-t2"><strong className="text-t1">Shortlist:</strong> {family.shortlist}</p>
+                <p className="mt-[8px] border-l-2 border-warn-border pl-[12px] text-f14 leading-golden text-t2">{family.avoidWhen}</p>
+                <Link href={family.href} className="mt-auto pt-[16px] text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Review this option</Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection id="gates" title="Four decision gates" tone="muted" intro="Resolve these before comparing prices.">
+        <div className="grid grid-cols-1 gap-[12px] md:grid-cols-2">
+          {decisionChecks.map(([label, title, body], index) => (
+            <article key={label} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Gate {index + 1} · {label}</p>
+              <h3 className="mt-[6px] text-f18 font-bold text-t1">{title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{body}</p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="stair-tread-specifications"
+        title="Cover sizes and full-tread shortlists"
+        intro="The two cover rows are metric conversions of the supplied manufacturer reference. Molded and pultruded rows are selection families tied to F1's dedicated grating data. None is an order code, guaranteed stock position or certified load value."
+      >
+        <p className="rounded-card border border-warn-border bg-warn-bg px-[16px] py-[12px] text-f14 leading-golden text-t2"><strong className="text-t1">Release boundary:</strong> covers rely on the existing step. Complete grating treads require an approved load/span check, support detail and fabrication drawing.</p>
+        <div id="cover-reference-sizes" className="relative mt-[16px] scroll-mt-[128px] overflow-x-auto rounded-card border border-border-default bg-white" role="region" aria-label="FRP stair tread selection reference matrix" tabIndex={0}>
+          <table className="w-full min-w-[1120px] border-collapse text-left text-f14">
+            <thead><tr className="border-b border-border-default bg-bg2">{["Family", "Best for", "Tread depth", "Length / width", "Structural depth", "Surface & nosing", "Release basis"].map((head) => <th key={head} scope="col" className="px-[14px] py-[10px] font-semibold text-t1">{head}</th>)}</tr></thead>
+            <tbody>{stairTreadReferenceRows.map((row) => <tr key={row.family} className="border-b border-border-default align-top last:border-b-0"><th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{row.family}</th><td className="px-[14px] py-[12px] leading-golden text-t2">{row.bestFor}</td><td className="px-[14px] py-[12px] font-semibold text-t1">{row.treadDepth}</td><td className="px-[14px] py-[12px] leading-golden text-t2">{row.lengthOrWidth}</td><td className="px-[14px] py-[12px] text-t2">{row.structuralDepth}</td><td className="px-[14px] py-[12px] leading-golden text-t2">{row.surfaceAndNosing}</td><td className="px-[14px] py-[12px] leading-golden text-t2">{row.releaseBasis}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection id="measure" title="Dimension the finished walking surface" tone="muted" intro="Record every flight as quantity × width L × tread depth D × nose return H. Note rear obstructions, side clearances and whether the existing nosing projects beyond the riser.">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
+          <Figure number={2} title="Cover measurement">
+            <MeasurementDiagram />
+          </Figure>
+          <aside className="rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">RFQ checklist</p>
+            <h3 className="mt-[6px] text-f20 font-bold text-t1">Eight inputs for a qualified quote</h3>
+            <ol className="mt-[16px] divide-y divide-border-default border-y border-border-default">
+              {measurementInputs.map((input, index) => (
+                <li key={input} className="flex gap-[12px] py-[9px] text-f14 leading-golden text-t2">
+                  <span className="w-[20px] shrink-0 font-mono text-f12 leading-[1.9] text-t3">{index + 1}</span>
+                  <span>{input}</span>
+                </li>
+              ))}
+            </ol>
+            <Button href="/contact?source=stair-tread-checklist&inquiry_type=rfq" className="mt-[20px] w-full">Send tread schedule</Button>
           </aside>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="choose-your-tread" className="scroll-mt-[88px] bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Choose in 60 Seconds</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Three tread families, three different jobs</h2>
-          <p className="mt-[13px] max-w-[920px] text-f16 leading-golden text-t2">Start with the existing stair and required load path. Product depth comes after that decision—not before it.</p>
-          <div className="mt-[34px] grid gap-[21px] lg:grid-cols-3">
-            {stairTreadSelectionFamilies.map((family, index) => (
-              <article key={family.name} className="overflow-hidden rounded-card border border-border-default bg-white">
-                <div className="relative aspect-[16/9] bg-bg2"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" /></div>
-                <div className="p-[21px] sm:p-[24px]">
-                  <div className="flex items-center gap-[10px]"><span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">{family.decision}</p></div>
-                  <h3 className="mt-[13px] text-f20 font-bold text-t1">{family.name}</h3>
-                  <p className="mt-[13px] text-f14 leading-golden text-t2"><strong className="text-t1">Best for:</strong> {family.bestFor}</p>
-                  <p className="mt-[10px] text-f14 leading-golden text-t2"><strong className="text-t1">Shortlist:</strong> {family.shortlist}</p>
-                  <p className="mt-[10px] border-l-2 border-amber-400 pl-[12px] text-f14 leading-golden text-t2">{family.avoidWhen}</p>
-                  <Link href={family.href} className="mt-[18px] inline-flex min-h-[40px] items-center font-semibold text-teal-text hover:underline">Review this option <span aria-hidden className="ml-[5px]">→</span></Link>
-                </div>
-              </article>
-            ))}
+      <PageSection id="full-treads" title="When a cover is not enough" intro="Replace the tread—or coordinate the complete stair. If the tread has lost section, the connection is unreliable, drainage is essential or the stair is new, move to a complete grating tread.">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[48px]">
+          <Figure number={3} title="Complete access stair" note="Supplier photo" caption="Treads, stringers, platform, handrail and connections are coordinated as one system." bleed>
+            <div className="relative aspect-[4/5]"><Image src={frpStairTreadImageAssets.fullStaircase} alt="Complete industrial access stair using FRP treads and yellow handrails" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" /></div>
+          </Figure>
+          <div>
+            <div className="grid grid-cols-1 gap-[12px] sm:grid-cols-2">
+              {fullTreadChecks.map(([title, body]) => (
+                <article key={title} className="rounded-card border border-border-default bg-white p-[18px]">
+                  <h3 className="text-f16 font-bold text-t1">{title}</h3>
+                  <p className="mt-[6px] text-f14 leading-golden text-t2">{body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-[20px] flex flex-wrap gap-[10px]">
+              <Button href="/products/molded-frp-grating" variant="secondary">Molded grating data</Button>
+              <Button href="/products/frp-gratings" variant="secondary">Pultruded T-bar data</Button>
+            </div>
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Four Decision Gates</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Resolve these before comparing prices</h2>
-          <div className="mt-[34px] grid gap-[13px] md:grid-cols-2">
-            {decisionChecks.map(([label, title, body], index) => <article key={label} className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[24px]"><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">{index + 1} · {label}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{body}</p></article>)}
-          </div>
+      <PageSection id="installation" title="Survey, dry-fit, fasten, inspect" tone="muted" intro="This is a selection-stage overview. The order drawing controls fastener material, holes, spacing, adhesive if used and cut-edge sealing.">
+        <ol className="grid grid-cols-1 gap-[12px] md:grid-cols-2 lg:grid-cols-4">
+          {installationSteps.map(([title, body], index) => (
+            <li key={title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</span>
+              <h3 className="mt-[4px] text-f16 font-bold text-t1">{title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{body}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-[16px] grid grid-cols-1 gap-[16px] lg:grid-cols-2">
+          <Figure number={4} title="Before retrofit" note="Supplier photo" caption="Inspect the tread, stringers and connections. Surface wear can be covered; structural loss cannot." bleed>
+            <div className="relative aspect-[4/3]"><Image src={frpStairTreadImageAssets.retrofitBefore} alt="Existing metal grating stair before fiberglass tread covers" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
+          </Figure>
+          <Figure number={5} title="Mechanical fixing" note="Supplier photo" caption="Washer bearing, bolt type, underside access and spacing must match the approved detail." bleed>
+            <div className="relative aspect-[4/3]"><Image src={frpStairTreadImageAssets.fastenerDetail} alt="Large washer and fastener securing an FRP tread cover to metal grating" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
+          </Figure>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="stair-tread-specifications" className="scroll-mt-[88px] bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <SectionTag>Selection Reference Matrix</SectionTag>
-          <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Cover sizes and full-tread shortlists</h2>
-          <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">The two cover rows are metric conversions of the supplied manufacturer reference. Molded and pultruded rows are selection families tied to F1&apos;s dedicated grating data. None is an order code, guaranteed stock position or certified load value.</p>
-          <p className="mt-[21px] rounded-card border border-amber-200 bg-amber-50 px-[18px] py-[15px] text-f14 leading-golden text-t2"><strong className="text-t1">Release boundary:</strong> covers rely on the existing step. Complete grating treads require an approved load/span check, support detail and fabrication drawing.</p>
-          <div id="cover-reference-sizes" className="mt-[34px] scroll-mt-[88px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[1120px] border-collapse text-left" aria-label="FRP stair tread selection reference matrix">
-              <thead className="bg-deep text-white"><tr>{["Family", "Best for", "Tread depth", "Length / width", "Structural depth", "Surface & nosing", "Release basis"].map((head) => <th key={head} className="px-[16px] py-[14px] text-f12 font-bold uppercase tracking-wide">{head}</th>)}</tr></thead>
-              <tbody>{stairTreadReferenceRows.map((row) => <tr key={row.family} className="border-t border-border-default align-top"><th className="px-[16px] py-[14px] text-f14 font-bold text-t1">{row.family}</th><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.bestFor}</td><td className="px-[16px] py-[14px] text-f14 font-semibold text-teal-text">{row.treadDepth}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.lengthOrWidth}</td><td className="px-[16px] py-[14px] text-f14 text-t2">{row.structuralDepth}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.surfaceAndNosing}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.releaseBasis}</td></tr>)}</tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-          <div><SectionTag>Measure Once</SectionTag><h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Dimension the finished walking surface</h2><p className="mt-[13px] text-f16 leading-golden text-t2">Record every flight as quantity × width L × tread depth D × nose return H. Note rear obstructions, side clearances and whether the existing nosing projects beyond the riser.</p><div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[13px] sm:p-[21px]"><MeasurementDiagram /></div></div>
-          <aside className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[34px]"><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">RFQ checklist</p><h3 className="mt-[8px] text-f24 font-bold text-t1">Eight inputs for a qualified quote</h3><ol className="mt-[21px] space-y-[11px]">{measurementInputs.map((input, index) => <li key={input} className="flex gap-[11px] text-f14 leading-golden text-t2"><span className="flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full bg-white text-f12 font-bold text-teal-text">{index + 1}</span><span>{input}</span></li>)}</ol><Button href="/contact?source=stair-tread-checklist&inquiry_type=rfq" className="mt-[24px] w-full">Send Tread Schedule</Button></aside>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[21px] lg:grid-cols-2">
-            <figure className="overflow-hidden rounded-card border border-border-default bg-white"><div className="relative aspect-[4/3]"><Image src={frpStairTreadImageAssets.retrofitBefore} alt="Existing metal grating stair before fiberglass tread covers" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div><figcaption className="p-[16px] text-f14 leading-golden text-t2"><strong className="text-t1">Before retrofit:</strong> inspect the tread, stringers and connections. Surface wear can be covered; structural loss cannot.</figcaption></figure>
-            <figure className="overflow-hidden rounded-card border border-border-default bg-white"><div className="relative aspect-[4/3]"><Image src={frpStairTreadImageAssets.fastenerDetail} alt="Large washer and fastener securing an FRP tread cover to metal grating" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div><figcaption className="p-[16px] text-f14 leading-golden text-t2"><strong className="text-t1">Mechanical fixing reference:</strong> washer bearing, bolt type, underside access and spacing must match the approved detail.</figcaption></figure>
-          </div>
-          <p className="mt-[10px] text-f12 leading-golden text-t3">Supplier-reference application photography; shown for selection context, not as an F1 project case study.</p>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px] md:py-[89px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[.92fr_1.08fr] lg:items-start">
-          <figure><div className="relative aspect-[4/5] overflow-hidden rounded-card"><Image src={frpStairTreadImageAssets.fullStaircase} alt="Complete industrial access stair using FRP treads and yellow handrails" fill sizes="(max-width: 1024px) 100vw, 44vw" className="object-cover" /></div><figcaption className="mt-[8px] text-f12 leading-golden text-t3">Complete-stair context: treads, stringers, platform, handrail and connections are coordinated as one system.</figcaption></figure>
-          <div><SectionTag>When a Cover Is Not Enough</SectionTag><h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Replace the tread—or coordinate the complete stair</h2><p className="mt-[13px] text-f18 leading-golden text-t2">If the tread has lost section, the connection is unreliable, drainage is essential or the stair is new, move to a complete grating tread.</p><div className="mt-[24px] grid gap-[13px] sm:grid-cols-2">{[["Molded tread", "Mesh, depth, cut, nosing, bearing and clip/end-plate detail."], ["Pultruded T-bar", "Bearing direction, series, span, loads, deflection and end plates."], ["Handrail interface", "Stair slope, rail height, returns, posts and load basis."], ["Release documents", "Schedule, drawing, load table, resin/surface spec and hardware BOM."]].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-bg2 p-[18px]"><h3 className="text-f16 font-bold text-t1">{title}</h3><p className="mt-[7px] text-f14 leading-golden text-t2">{body}</p></article>)}</div><div className="mt-[24px] flex flex-wrap gap-[10px]"><Button href="/products/molded-frp-grating" variant="secondary">Molded Grating Data</Button><Button href="/products/frp-gratings" variant="secondary">Pultruded T-Bar Data</Button></div></div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[55px] md:py-[89px]">
-        <div className="site-container"><SectionTag>Cover Installation Sequence</SectionTag><h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Survey, dry-fit, fasten, inspect</h2><p className="mt-[13px] max-w-[930px] text-f16 leading-golden text-t2">This is a selection-stage overview. The order drawing controls fastener material, holes, spacing, adhesive if used and cut-edge sealing.</p><ol className="mt-[34px] grid gap-[13px] md:grid-cols-2 lg:grid-cols-4">{installationSteps.map(([title, body], index) => <li key={title} className="rounded-card border border-border-default bg-white p-[21px]"><span className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-deep text-f12 font-bold text-white">{index + 1}</span><h3 className="mt-[13px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[9px] text-f14 leading-golden text-t2">{body}</p></li>)}</ol></div>
-      </section>
+      <PageSection id="faq" title="Questions buyers ask">
+        <FAQList items={faqItems} />
+      </PageSection>
 
       <RelatedLinks groups={[
         { title: "Complete the access system", links: [{ href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" }, { href: "/products/frp-ladders", label: "FRP fixed access ladders" }, { href: "/products/grating", label: "Fiberglass grating: molded and pultruded" }, { href: "/products/molded-frp-grating", label: "Molded grating panels & clips" }, { href: "/products/frp-gratings", label: "Pultruded T-bar & I-bar grating" }, { href: "/case-studies/factory-access-staircase", label: "Factory access staircase case study" }] },
-        { title: "Specify & approve", links: [{ href: "#stair-tread-specifications", label: "Stair-tread selection matrix" }, { href: "/technology/quality-testing", label: "Quality & testing" }, { href: "/resources/technical-data", label: "Technical data & load tables" }, { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "FOB, DDP & export guide" }, { href: "/tools/access-geometry-checker", label: "Stair geometry checker (OSHA, ISO 14122-3, IBC)" }] },
+        { title: "Specify & approve", links: [{ href: "/technology/quality-testing", label: "Quality & testing" }, { href: "/resources/technical-data", label: "Technical data & load tables" }, { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "FOB, DDP & export guide" }, { href: "/tools/access-geometry-checker", label: "Stair geometry checker (OSHA, ISO 14122-3, IBC)" }] },
       ]} />
 
-      <section className="bg-bg2 py-[55px] md:py-[89px]"><div className="site-container"><FAQ items={faqItems} /></div></section>
-      <AskAICard prefill="I need FRP stair treads. Existing stair and substrate [details], option [cover / molded / pultruded / unsure], quantity and dimensions [width × depth × nose], span and loads for full treads [details], environment and surface/fire/accessibility requirements [details], destination [city/country]. Please recommend the family and list missing RFQ inputs." />
-      <ProductNextSteps path="/products/frp-stair-treads" />
-      <InnerCTA title="Send your tread schedule—get a qualified shortlist before pricing." />
+      <PageSection id="quote" title="Quote stair treads" tone="deep">
+        <ProductRfq
+          product="FRP stair treads"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send the tread schedule, photos of the existing stair, the exposure and the destination."
+          advisorPrompt="I need FRP stair treads. Existing stair and substrate [details], option [cover / molded / pultruded / unsure], quantity and dimensions [width × depth × nose], span and loads for full treads [details], environment and surface/fire/accessibility requirements [details], destination [city/country]. Please recommend the family and list missing RFQ inputs."
+        />
+      </PageSection>
     </>
   );
 }

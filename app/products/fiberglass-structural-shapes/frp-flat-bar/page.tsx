@@ -83,7 +83,7 @@ export default async function FlatBarPage() {
         tag="Flat Bar"
         line={{ name: "F1-STRUX", label: "Flat bar" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Flat Bars (FRP Bar Stock)"
+        title="Fiberglass flat bars (FRP bar stock)"
         description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm, held to ±0.25 mm on thickness. Used as stiffeners, splice plates, wear strips and spacers."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Width", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),

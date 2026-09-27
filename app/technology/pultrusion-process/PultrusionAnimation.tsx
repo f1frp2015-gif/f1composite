@@ -36,28 +36,31 @@ export default function PultrusionAnimation() {
       ref={rootRef}
       className="overflow-hidden rounded-card border border-border-default bg-white"
     >
-      {/* Card header */}
-      <div className="flex items-center justify-between gap-[13px] border-b border-border-default px-[21px] py-[13px]">
-        <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">
-          Animated Schematic — Injection Pultrusion Line
-        </p>
-        <button
-          type="button"
-          onClick={() => setPlaying((p) => !p)}
-          aria-label={playing ? "Pause animation" : "Play animation"}
-          className="flex shrink-0 items-center gap-[5px] rounded-full border border-teal-border bg-teal-bg px-[13px] py-[3px] text-f12 font-bold text-teal-text transition-colors hover:bg-teal-bg2"
-        >
-          {playing ? (
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-              <path d="M2 1h2.4v8H2zM5.6 1H8v8H5.6z" fill="currentColor" />
-            </svg>
-          ) : (
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-              <path d="M2 1l7 4-7 4z" fill="currentColor" />
-            </svg>
-          )}
-          {playing ? "Pause" : "Play"}
-        </button>
+      {/* Plate head, as on a Figure: number and title left, image type and the play control right */}
+      <div className="flex flex-wrap items-center justify-between gap-x-[12px] gap-y-[4px] border-b border-border-default px-[14px] py-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+        <span>
+          FIG. 2 <span className="font-sans text-f14 font-semibold normal-case tracking-normal text-t1">Injection pultrusion line</span>
+        </span>
+        <span className="flex items-center gap-[12px]">
+          Animated schematic
+          <button
+            type="button"
+            onClick={() => setPlaying((p) => !p)}
+            aria-label={playing ? "Pause animation" : "Play animation"}
+            className="flex min-h-[28px] shrink-0 items-center gap-[6px] rounded-full border border-teal-border bg-teal-bg px-[12px] font-sans text-f12 font-semibold normal-case tracking-normal text-teal-text transition-colors hover:bg-teal-bg2"
+          >
+            {playing ? (
+              <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                <path d="M2 1h2.4v8H2zM5.6 1H8v8H5.6z" fill="currentColor" />
+              </svg>
+            ) : (
+              <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                <path d="M2 1l7 4-7 4z" fill="currentColor" />
+              </svg>
+            )}
+            {playing ? "Pause" : "Play"}
+          </button>
+        </span>
       </div>
 
       {/* Scene */}
@@ -484,12 +487,12 @@ export default function PultrusionAnimation() {
 
           {/* ── Station labels ── */}
           {[
-            { x: 84, n: 1, name: "Fiber Creel", spec: "E-glass roving · CFM" },
-            { x: 197, n: 2, name: "Guide Plates", spec: "spatial alignment" },
-            { x: 296, n: 3, name: "Resin Injection", spec: "3–8 bar · ±1 %" },
-            { x: 422, n: 4, name: "Heated Die", spec: "3 zones · 120–180 °C" },
+            { x: 84, n: 1, name: "Fiber creel", spec: "E-glass roving · CFM" },
+            { x: 197, n: 2, name: "Guide plates", spec: "spatial alignment" },
+            { x: 296, n: 3, name: "Resin injection", spec: "3–8 bar · ±1%" },
+            { x: 422, n: 4, name: "Heated die", spec: "3 zones · 120–180 °C" },
             { x: 630, n: 5, name: "Puller", spec: "0.3–1.5 m/min" },
-            { x: 800, n: 6, name: "Flying Cut-Off", spec: "±0.5 mm" },
+            { x: 800, n: 6, name: "Flying cut-off", spec: "±0.5 mm" },
           ].map((s) => (
             <a key={s.n} href={`#step-${s.n}`} aria-label={`Read about stage ${s.n}: ${s.name}`}>
               <g className="pa-label">
@@ -579,10 +582,9 @@ export default function PultrusionAnimation() {
         </svg>
       </div>
 
-      <p className="border-t border-border-default px-[21px] py-[8px] text-f12 leading-golden text-t3">
-        Cutaway schematic of our standard injection pultrusion process — proportions
-        simplified, parameters typical. Click a numbered station to jump to its
-        detailed description below.
+      <p className="border-t border-border-default px-[14px] py-[10px] text-f14 text-t2">
+        Cutaway of our standard injection pultrusion process, with simplified proportions and
+        typical parameters. Select a numbered station to read about that stage below.
       </p>
     </div>
   );

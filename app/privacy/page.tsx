@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const h2 = "mb-[13px] text-f18 font-bold text-t1";
-const h3 = "mb-[6px] mt-[18px] text-f16 font-bold text-t1";
-const list = "list-disc space-y-[6px] pl-[20px]";
+const h2 = "mb-[12px] text-f20 font-bold text-t1";
+const h3 = "mb-[4px] mt-[16px] text-f16 font-bold text-t1";
+const list = "list-disc space-y-[6px] pl-[20px] marker:text-teal";
 
 const cookies = [
   { name: "_ga, _ga_*", provider: "Google Analytics", purpose: "Tells visits apart so pages and visits can be counted", lasts: "Up to 2 years" },
@@ -32,17 +32,18 @@ export default function PrivacyPage() {
     <>
       <PageHeader
         tag="Legal"
-        title="Privacy Policy"
-        description="Last updated: 24 September 2026"
+        title="Privacy policy"
+        description="How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
+        updated="2026-09-24"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Privacy Policy" },
+          { label: "Privacy policy" },
         ]}
       />
 
-      <section className="bg-white py-[89px]">
-        <div className="mx-auto max-w-[780px] px-[34px]">
-          <div className="prose-custom space-y-[34px] text-f16 leading-golden text-t2">
+      <section className="bg-white py-[48px] md:py-[64px]">
+        <div className="site-container">
+          <div className="max-w-[760px] space-y-[32px] text-f16 leading-golden text-t2">
             <div>
               <h2 className={h2}>1. Who we are</h2>
               <p>
@@ -86,7 +87,7 @@ export default function PrivacyPage() {
                   includes an email address, it is also saved as an enquiry.
                 </li>
               </ul>
-              <p className="mt-[10px]">Please do not enter information you would not put in an email to us.</p>
+              <p className="mt-[12px]">Please do not enter information you would not put in an email to us.</p>
               <h3 className={h3}>Site statistics and advertising</h3>
               <ul className={list}>
                 <li>
@@ -106,39 +107,39 @@ export default function PrivacyPage() {
               </p>
             </div>
 
-            <div id="cookies" className="scroll-mt-[100px]">
+            <div id="cookies" className="scroll-mt-[96px]">
               <h2 className={h2}>3. Cookies and browser storage</h2>
               <p>
                 Google cookies are only set when analytics or advertising is allowed. If you withdraw consent, the site
                 deletes the Google cookies it can reach.
               </p>
-              <div className="mt-[14px] overflow-x-auto">
+              <div className="relative mt-[16px] overflow-x-auto rounded-card border border-border-default bg-white">
                 <table className="w-full min-w-[560px] border-collapse text-left text-f14">
                   <thead>
-                    <tr className="border-b border-border-default text-t1">
-                      <th scope="col" className="py-[8px] pr-[12px] font-bold">Name</th>
-                      <th scope="col" className="py-[8px] pr-[12px] font-bold">Set by</th>
-                      <th scope="col" className="py-[8px] pr-[12px] font-bold">Purpose</th>
-                      <th scope="col" className="py-[8px] font-bold">Kept for</th>
+                    <tr className="border-b border-border-default bg-bg2 text-t1">
+                      <th scope="col" className="px-[14px] py-[8px] font-semibold">Name</th>
+                      <th scope="col" className="px-[14px] py-[8px] font-semibold">Set by</th>
+                      <th scope="col" className="px-[14px] py-[8px] font-semibold">Purpose</th>
+                      <th scope="col" className="px-[14px] py-[8px] font-semibold">Kept for</th>
                     </tr>
                   </thead>
                   <tbody>
                     {cookies.map((cookie) => (
-                      <tr key={cookie.name} className="border-b border-border-default align-top">
-                        <td className="py-[8px] pr-[12px] font-mono text-f12 text-t1">{cookie.name}</td>
-                        <td className="py-[8px] pr-[12px]">{cookie.provider}</td>
-                        <td className="py-[8px] pr-[12px]">{cookie.purpose}</td>
-                        <td className="py-[8px]">{cookie.lasts}</td>
+                      <tr key={cookie.name} className="border-b border-border-default align-top last:border-b-0">
+                        <th scope="row" className="px-[14px] py-[8px] font-mono text-f12 font-normal text-t1">{cookie.name}</th>
+                        <td className="px-[14px] py-[8px]">{cookie.provider}</td>
+                        <td className="px-[14px] py-[8px]">{cookie.purpose}</td>
+                        <td className="px-[14px] py-[8px]">{cookie.lasts}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <p className="mt-[14px]">
+              <p className="mt-[16px]">
                 The factory video on the home page loads from YouTube only when you press play, in YouTube&rsquo;s
                 privacy-enhanced mode.
               </p>
-              <p className="mt-[14px]">
+              <p className="mt-[16px]">
                 <CookieSettingsButton className="font-semibold text-teal-text underline underline-offset-4" />
               </p>
             </div>
@@ -153,7 +154,7 @@ export default function PrivacyPage() {
                 <li>Resend: delivers enquiry emails to our sales team</li>
                 <li>YouTube (Google): the factory video, when you play it</li>
               </ul>
-              <p className="mt-[10px]">
+              <p className="mt-[12px]">
                 We do not sell personal information. If you allow advertising cookies, Google may use them to show our
                 ads to you on other sites.
               </p>

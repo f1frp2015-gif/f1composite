@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import Button from "@/components/ui/Button";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
+import Figure from "@/components/ui/Figure";
 import { doorThresholds as page } from "@/content/data/doorThresholds";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildRfqHref } from "@/lib/rfq";
@@ -17,13 +20,34 @@ export const metadata: Metadata = buildPageMetadata({
   image: page.socialImage,
 });
 
-const wrap = "site-container";
 const quote = buildRfqHref({
   source: "door-thresholds",
   product: "F1 Fiberglass Door Thresholds",
   productPath: page.path,
   message: page.message,
 });
+
+const roles = [
+  ["Material role", "A composite base that can help reduce heat conduction through the sill."],
+  ["System role", "An interface between the door frame, seals, drainage and supported floor edge."],
+  ["Supply role", "Profile lengths and agreed machining for your fabrication process."],
+] as const;
+
+const sillSteps = [
+  ["Match the frame", "Check jamb feet, corners, end blocks and seal compression against mating drawings."],
+  ["Plan the water path", "Coordinate exterior fall, outlets, end sealing and the sill-to-building interface."],
+  ["Support the loads", "Define bearing beneath the threshold, fixings and concentrated loads from tracks or traffic."],
+  ["Verify the assembly", "Review thermal, air, water and access requirements for the proposed door and installation."],
+] as const;
+
+// The drawing checklist, grouped into the quote block's four items.
+const [operation, dimensions, interfaces, loads, drainage, finish, order] = page.checklist;
+const requestItems = [
+  { title: "Door and section", text: `${operation}; ${dimensions.toLowerCase()}.` },
+  { title: "Interfaces", text: `${interfaces}.` },
+  { title: "Loads and water", text: `${loads}; ${drainage.toLowerCase()}.` },
+  { title: "Finish and supply", text: `${finish}; ${order.toLowerCase()}.` },
+];
 
 export default function DoorThresholdsPage() {
   return (
@@ -38,9 +62,16 @@ export default function DoorThresholdsPage() {
         schemaType: "ItemPage",
       })} />
       <PageHeader
-        tag="F1 Composite · Windows & Doors"
+        tag="Door thresholds"
+        line={{ name: "F1-THERM", label: "Door thresholds" }}
         title={page.h1}
         description={page.intro}
+        facts={[
+          { label: "Sill sections", value: `${page.profileVariants.length} configurations` },
+          { label: "Base", value: "Closed or hooked" },
+          { label: "Door swing", value: "Inward or outward" },
+          { label: "Supply", value: "Lengths, machining" },
+        ]}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/products/product-lines" },
@@ -48,193 +79,138 @@ export default function DoorThresholdsPage() {
           { label: "Fiberglass Door Thresholds" },
         ]}
         actions={{
-          primary: { label: "Request a Threshold Quote", href: quote },
-          secondary: { label: "Explore the Section", href: "#threshold-design" },
+          primary: { label: "Request a threshold quote", href: quote },
+          secondary: { label: "Compare the sections", href: "#configurations", variant: "secondary" },
+          stickyMobile: true,
         }}
+        figure={
+          <Figure number={1} title="Threshold profile" note="Profile illustration" caption="Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.">
+            <Image src={page.image} alt={page.profileVariants[3].alt} width={1440} height={1098} sizes="(max-width: 1023px) 90vw, 42vw" preload className="h-auto w-full bg-white" />
+          </Figure>
+        }
       />
 
-      <section id="threshold-design" className="scroll-mt-[110px] bg-white py-[48px] md:py-[64px]">
-        <div className={`${wrap} grid items-center gap-[32px] lg:grid-cols-[1.35fr_1fr]`}>
-          <figure className="min-w-0">
-            <Image
-              src={page.image}
-              alt={page.profileVariants[3].alt}
-              width={1440}
-              height={1098}
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              preload
-              className="h-auto w-full rounded-card"
-            />
-            <figcaption className="mt-[12px] text-f12 leading-relaxed text-t3">
-              F1 profile illustration. Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.
-            </figcaption>
-          </figure>
+      <PageNav
+        items={[
+          { id: "threshold-design", label: "Overview" },
+          { id: "configurations", label: "Sections", count: page.profileVariants.length },
+          { id: "applications", label: "Applications" },
+          { id: "sill", label: "Sill connection" },
+          { id: "specification", label: "Specification" },
+          { id: "faq", label: "FAQ" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <PageSection id="threshold-design" title="The base of a well-detailed door">
+        <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div>
-            <SectionTag>A specific application of pultrusion</SectionTag>
-            <h2 className="mt-[16px] text-f32 font-bold leading-tight text-t1">The base of a well-detailed door</h2>
-            <p className="mt-[16px] text-f16 leading-relaxed text-t2">
-              Continuous glass reinforcement and resin form a constant-section sill profile.
-              Hollow chambers, support webs and mating features can be developed around
-              the opening rather than selected as an unrelated trim piece.
+            <p className="text-f18 leading-golden text-t1">
+              Continuous glass reinforcement and resin form a constant-section sill profile. Hollow chambers, support webs and mating features can be developed around the opening rather than selected as an unrelated trim piece.
             </p>
-            <dl className="mt-[24px] divide-y divide-border-default border-y border-border-default">
-              {[
-                ["Material role", "A composite base that can help reduce heat conduction through the sill."],
-                ["System role", "An interface between the door frame, seals, drainage and supported floor edge."],
-                ["Supply role", "Profile lengths and agreed machining for your fabrication process."],
-              ].map(([title, body]) => (
-                <div key={title} className="py-[14px]">
-                  <dt className="text-f14 font-bold text-teal-text">{title}</dt>
-                  <dd className="mt-[5px] text-f16 leading-relaxed text-t2">{body}</dd>
-                </div>
-              ))}
-            </dl>
-            <Link href="/products/custom-pultruded-profiles" className="mt-[20px] inline-block text-f14 font-bold text-teal-text underline-offset-4 hover:underline">
-              Explore custom profile development →
+            <Link href="/products/custom-pultruded-profiles" className="mt-[16px] inline-block text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              Explore custom profile development
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[48px] md:py-[64px]" aria-labelledby="profile-configurations">
-        <div className={wrap}>
-          <SectionTag>Threshold profile configurations</SectionTag>
-          <h2 id="profile-configurations" className="mt-[16px] text-f32 font-bold text-t1">Four continuous sill sections</h2>
-          <p className="mt-[16px] max-w-[800px] text-f16 leading-relaxed text-t2">
-            Compare closed and hooked bases for inward- and outward-opening door layouts.
-            Each profile has a constant cross-section: chambers, steps and ribs run along its full length.
-            Final selection depends on the mating frame and installation drawing.
-          </p>
-          <div className="mt-[28px] grid gap-[24px] md:grid-cols-2">
-            {page.profileVariants.map((item) => (
-              <figure key={item.id} className="overflow-hidden rounded-card border border-border-default bg-white">
-                <a href={item.image} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={1440}
-                    height={1098}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1320px) 50vw, 624px"
-                    className="h-auto w-full object-contain"
-                  />
-                </a>
-                <figcaption className="p-[24px]">
-                  <h3 className="text-f20 font-bold text-t1">{item.title}</h3>
-                  <p className="mt-[10px] text-f14 leading-relaxed text-t2">{item.body}</p>
-                </figcaption>
-              </figure>
+          <dl className="divide-y divide-border-default border-y border-border-default">
+            {roles.map(([title, body]) => (
+              <div key={title} className="py-[12px]">
+                <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{title}</dt>
+                <dd className="mt-[4px] text-f16 leading-golden text-t1">{body}</dd>
+              </div>
             ))}
-          </div>
-          <p className="mt-[20px] text-f12 leading-relaxed text-t3">Illustrative section options. Seals, end blocks and other assembly components are specified separately.</p>
+          </dl>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[48px] md:py-[64px]">
-        <div className={wrap}>
-          <SectionTag>Door threshold applications</SectionTag>
-          <h2 className="mt-[16px] text-f32 font-bold text-t1">Choose the opening before the section</h2>
-          <div className="mt-[28px] grid gap-[20px] lg:grid-cols-3">
-            {page.applications.map((item, index) => (
-              <article key={item.title} className="flex flex-col rounded-card border border-border-default bg-white p-[26px]">
-                <span className="text-f14 font-bold uppercase tracking-[0.08em] text-teal-text">0{index + 1} / {item.tag}</span>
-                <h3 className="mt-[20px] text-f24 font-bold leading-tight text-t1">{item.title}</h3>
-                <p className="mt-[14px] flex-1 text-f16 leading-relaxed text-t2">{item.body}</p>
-                <p className="mt-[24px] border-t border-border-default pt-[16px] text-f12 font-semibold leading-relaxed text-t2">{item.inputs}</p>
-              </article>
+      <PageSection
+        id="configurations"
+        title="Four continuous sill sections"
+        tone="muted"
+        intro="Compare closed and hooked bases for inward- and outward-opening door layouts. Each profile has a constant cross-section: chambers, steps and ribs run along its full length. Final selection depends on the mating frame and installation drawing."
+      >
+        <div className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
+          {page.profileVariants.map((item, index) => (
+            <Figure key={item.id} number={index + 2} title={item.title} note="Section option">
+              <a href={item.image} aria-label={`View full-size ${item.title.toLowerCase()} profile`}>
+                <Image src={item.image} alt={item.alt} width={1440} height={1098} sizes="(max-width: 768px) 100vw, (max-width: 1320px) 50vw, 624px" className="h-auto w-full bg-white object-contain" />
+              </a>
+              <p className="mt-[12px] text-f14 leading-golden text-t2">{item.body}</p>
+            </Figure>
+          ))}
+        </div>
+        <p className="mt-[16px] text-f14 leading-golden text-t3">Illustrative section options. Seals, end blocks and other assembly components are specified separately.</p>
+      </PageSection>
+
+      <PageSection id="applications" title="Choose the opening before the section">
+        <div className="grid grid-cols-1 gap-[16px] lg:grid-cols-3">
+          {page.applications.map((item, index) => (
+            <article key={item.title} className="flex flex-col rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Opening {index + 1} · {item.tag}</span>
+              <h3 className="mt-[6px] text-f20 font-bold leading-tight text-t1">{item.title}</h3>
+              <p className="mt-[10px] flex-1 text-f14 leading-golden text-t2">{item.body}</p>
+              <p className="mt-[16px] border-t border-border-default pt-[12px] text-f14 leading-golden text-t1">{item.inputs}</p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection id="sill" title="Detail the whole sill connection" tone="muted" intro="A fiberglass threshold works as part of the door assembly. Develop the section together with the frame and installation detail so the sealing, drainage and load paths remain continuous at the bottom of the opening.">
+        <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-2 lg:gap-[48px]">
+          <ol className="grid grid-cols-1 gap-[12px] sm:grid-cols-2">
+            {sillSteps.map(([title, body], index) => (
+              <li key={title} className="rounded-card border border-border-default bg-white p-[20px]">
+                <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</span>
+                <h3 className="mt-[4px] text-f16 font-bold text-t1">{title}</h3>
+                <p className="mt-[6px] text-f14 leading-golden text-t2">{body}</p>
+              </li>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[48px] md:py-[64px]">
-        <div className={`${wrap} grid items-center gap-[32px] lg:grid-cols-2`}>
-          <div>
-            <SectionTag>From profile to entrance</SectionTag>
-            <h2 className="mt-[16px] text-f32 font-bold leading-tight text-t1">Detail the whole sill connection</h2>
-            <p className="mt-[16px] text-f16 leading-relaxed text-t2">
-              A fiberglass threshold works as part of the door assembly. Develop the
-              section together with the frame and installation detail so the sealing,
-              drainage and load paths remain continuous at the bottom of the opening.
-            </p>
-            <ol className="mt-[24px] space-y-[18px]">
-              {[
-                ["Match the frame", "Check jamb feet, corners, end blocks and seal compression against mating drawings."],
-                ["Plan the water path", "Coordinate exterior fall, outlets, end sealing and the sill-to-building interface."],
-                ["Support the loads", "Define bearing beneath the threshold, fixings and concentrated loads from tracks or traffic."],
-                ["Verify the assembly", "Review thermal, air, water and access requirements for the proposed door and installation."],
-              ].map(([title, body], index) => (
-                <li key={title} className="flex gap-[14px]">
-                  <span className="flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-full bg-bg2 text-f14 font-bold text-teal-text">{index + 1}</span>
-                  <div><h3 className="text-f16 font-bold text-t1">{title}</h3><p className="mt-[4px] text-f14 leading-relaxed text-t2">{body}</p></div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <figure className="min-w-0">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-bg2">
-              <Image
-                src="/images/products/door-thresholds/garden-door-opening-application.webp"
-                alt="Glazed doors opening from an interior to a planted courtyard"
-                fill
-                sizes="(max-width: 1024px) 100vw, 48vw"
-                className="object-cover"
-              />
+          </ol>
+          <Figure
+            number={page.profileVariants.length + 2}
+            title="Garden door opening"
+            note="Illustrative photo"
+            caption={<>Application context; the pictured doors are not an F1 installation. Photo by <a href="https://unsplash.com/photos/open-glass-doors-reveal-a-lush-green-courtyard-garden-4_Dzj4pqbcg" className="underline underline-offset-2">强 任 / Unsplash</a>, used under the <a href="https://unsplash.com/license" className="underline underline-offset-2">Unsplash License</a>.</>}
+            bleed
+          >
+            <div className="relative aspect-[4/3]">
+              <Image src="/images/products/door-thresholds/garden-door-opening-application.webp" alt="Glazed doors opening from an interior to a planted courtyard" fill sizes="(max-width: 1024px) 100vw, 48vw" className="object-cover" />
             </div>
-            <figcaption className="mt-[12px] text-f12 leading-relaxed text-t3">
-              Application context; the pictured doors are not an F1 installation.
-              Photo by <a href="https://unsplash.com/photos/open-glass-doors-reveal-a-lush-green-courtyard-garden-4_Dzj4pqbcg" className="underline underline-offset-2">强 任 / Unsplash</a>, used under the <a href="https://unsplash.com/license" className="underline underline-offset-2">Unsplash License</a>.
-            </figcaption>
-          </figure>
+          </Figure>
         </div>
-      </section>
+      </PageSection>
 
-      <section id="specification" className="scroll-mt-[110px] bg-bg2 py-[48px] md:py-[64px]">
-        <div className={`${wrap} grid gap-[32px] lg:grid-cols-2`}>
-          <div>
-            <SectionTag>Profile supply & customization</SectionTag>
-            <h2 className="mt-[16px] text-f32 font-bold text-t1">Specify your F1 threshold</h2>
-            <p className="mt-[16px] text-f16 leading-relaxed text-t2">{page.scope}</p>
-            <div className="mt-[24px] rounded-card border border-border-default bg-white p-[24px]">
-              <h3 className="text-f18 font-bold text-t1">From drawing to repeat supply</h3>
-              <p className="mt-[12px] text-f16 leading-relaxed text-t2">
-                Start with the mating section and purchase requirements. F1 reviews
-                tooling and material selection, agrees the sample inspection criteria,
-                then confirms the production and delivery scope in the quotation.
-              </p>
-              <p className="mt-[12px] text-f14 leading-relaxed text-t2">
-                Confirm the required laminate data and door-system evidence during
-                development. Performance of a complete door cannot be inferred from
-                a threshold profile alone.
-              </p>
-            </div>
-          </div>
-          <div className="rounded-card border border-border-default bg-white p-[24px] sm:p-[30px]">
-            <h3 className="text-f24 font-bold text-t1">Send these details with your drawing</h3>
-            <ul className="mt-[20px] list-disc space-y-[12px] pl-[20px] text-f14 leading-relaxed text-t2">
-              {page.checklist.map((item) => <li key={item}>{item}</li>)}
-            </ul>
-            <Button href={quote} className="mt-[26px]">Request a Threshold Quote</Button>
-          </div>
+      <PageSection id="specification" title="Specify your F1 threshold" intro={page.scope}>
+        <div className="max-w-[820px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+          <h3 className="text-f18 font-bold text-t1">From drawing to repeat supply</h3>
+          <p className="mt-[8px] text-f16 leading-golden text-t2">Start with the mating section and purchase requirements. F1 reviews tooling and material selection, agrees the sample inspection criteria, then confirms the production and delivery scope in the quotation.</p>
+          <p className="mt-[8px] text-f14 leading-golden text-t2">Confirm the required laminate data and door-system evidence during development. Performance of a complete door cannot be inferred from a threshold profile alone.</p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white pb-[64px] pt-[1px]">
-        <div className={wrap}>
-          <FAQ title="Fiberglass door threshold questions" items={[...page.faq]} />
-          <div className="mt-[40px] border-t border-border-default pt-[28px]">
-            <h2 className="text-f18 font-bold text-t1">Continue with the matching product or tool</h2>
-            <ul className="mt-[18px] grid gap-[14px] text-f14 font-semibold text-teal-text sm:grid-cols-2">
-              {[
-                ["Window & door profiles for fabricators", "/products/window-door-profiles"],
-                ["FRP door frame profiles for jambs & heads", "/products/frp-door-frames"],
-                ["Pultruded FRP profiles overview", "/pultruded-frp-profiles"],
-                ["Finished fiberglass windows & doors", "/products/fiberglass-windows-doors"],
-                ["FRP density & weight-per-metre calculator", "/frp-density-calculator"],
-              ].map(([label, href]) => <li key={href}><Link href={href} className="underline-offset-4 hover:underline">{label} →</Link></li>)}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <PageSection id="faq" title="Fiberglass door threshold questions" tone="muted">
+        <FAQList items={[...page.faq]} />
+      </PageSection>
+
+      <RelatedLinks
+        background="white"
+        title="Continue with the matching product or tool"
+        groups={[
+          { title: "Windows & doors", links: [
+            { label: "Window & door profiles for fabricators", href: "/products/window-door-profiles" },
+            { label: "FRP door frame profiles for jambs & heads", href: "/products/frp-door-frames" },
+            { label: "Finished fiberglass windows & doors", href: "/products/fiberglass-windows-doors" },
+          ] },
+          { title: "Profiles and tools", links: [
+            { label: "Pultruded FRP profiles overview", href: "/pultruded-frp-profiles" },
+            { label: "FRP density & weight-per-meter calculator", href: "/frp-density-calculator" },
+          ] },
+        ]}
+      />
+
+      <PageSection id="quote" title="Send these details with your drawing" tone="deep">
+        <ProductRfq product="fiberglass door thresholds" productPath={page.path} quoteHref={quote} items={requestItems} intro="Send the mating frame section, the threshold dimensions and interfaces, the loads and drainage, and the supply details." />
+      </PageSection>
     </>
   );
 }

@@ -60,7 +60,11 @@ export const supplyTerms = {
   dieManufactureWeeks: [4, 8],
   fenestrationLeadTimeWeeks: [6, 12],
   customMoqMeters: { firstRun: 500, repeat: 200 },
+  /** One-time die cost in USD: a small single-cavity die, and a large or multi-cavity one. */
+  dieCostUsd: { singleCavity: [5_000, 8_000], largeOrMultiCavity: [15_000, 40_000] },
   standardLengthM: 6,
 } as const;
 
 export const weeks = ([low, high]: readonly [number, number]) => `${low}–${high} weeks`;
+
+export const usdRange = ([low, high]: readonly [number, number]) => `USD ${low.toLocaleString("en-US")}–${high.toLocaleString("en-US")}`;

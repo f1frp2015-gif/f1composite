@@ -8,9 +8,11 @@ import ProductPageNav from "@/components/products/ProductPageNav";
 import ProductRfq from "@/components/products/ProductRfq";
 import ProductSection from "@/components/products/ProductSection";
 import JsonLd from "@/components/seo/JsonLd";
+import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import SectionGlyph, { type GlyphShape } from "@/components/ui/SectionGlyph";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { coverFor } from "@/lib/covers";
 import { prefillForCaseStudy } from "@/lib/aiPrefill";
 import { assembleDocuments } from "@/lib/documents";
 import { buildRfqHref } from "@/lib/rfq";
@@ -112,7 +114,7 @@ const caseStudyData: Record<
     challenge:
       "In early 2024 an industrial complex on the edge of Baotou, Inner Mongolia, started building a production campus: manufacturing workshops, buildings that handle chemicals, freight yards, rooftop PV and an office and welfare block. Two conditions shaped the window specification. Baotou is in China's severe-cold climate zone, with winter design lows around −25 °C and a heating season of more than 200 days, and the energy code for industrial buildings there sets a window U-value ceiling that thermally broken aluminum struggles to meet without special glazing. Several workshops also handle chemical reagents, acid mist and chloride aerosols. In that air, aluminum frames pit and corrode where they meet fasteners, and coatings need renewing within a few years, which means production downtime on a building planned to run for 30 years. PVC could not span the workshop openings, many of them taller than 2.5 m, and becomes brittle under the strong UV at this altitude. Steel frames carry the load but conduct heat and rust. The owner wanted one frame material for every building: one that met the thermal limit, tolerated the chemical exposure, spanned the tall openings and kept maintenance low over a 25- to 30-year life.",
     solution:
-      "F1 supplied pultruded glass-fiber-reinforced polyurethane (GFRP-PU) window profiles from FengDu's Yancheng plant for both the chemical-exposure workshops and the office and welfare block. Workshop facades used 70- and 80-series casement and tilt-and-turn profiles. The larger office openings used 90-series sliding profiles, with matching subframe sections where the windows meet the workshop curtain wall. The GFRP-PU frame conducts heat at about 0.3 W/m·K, roughly 500 times less than aluminum, so it needs no metal thermal break or polyamide insert. With a triple-glazed unit (5 + 12 Ar + 5 Low-E + 12 Ar + 5 Low-E), the whole-window U-value was below the code ceiling for the project. The frame has no anodized surface to pit and no metal to corrode, but resistance to the specific reagents on site depends on their concentration and temperature and has to be confirmed building by building. Profiles arrived factory-finished in a dark frame colour, with co-extruded EPDM gaskets, reinforced corner joints and mounting brackets set to the site's anchor lines. They were delivered in two batches to follow the civil works.",
+      "F1 supplied pultruded glass-fiber-reinforced polyurethane (GFRP-PU) window profiles from FengDu's Yancheng plant for both the chemical-exposure workshops and the office and welfare block. Workshop facades used 70- and 80-series casement and tilt-and-turn profiles. The larger office openings used 90-series sliding profiles, with matching subframe sections where the windows meet the workshop curtain wall. The GFRP-PU frame conducts heat at about 0.3 W/m·K, roughly 500 times less than aluminum, so it needs no metal thermal break or polyamide insert. With a triple-glazed unit (5 + 12 Ar + 5 Low-E + 12 Ar + 5 Low-E), the whole-window U-value was below the code ceiling for the project. The frame has no anodized surface to pit and no metal to corrode, but resistance to the specific reagents on site depends on their concentration and temperature and has to be confirmed building by building. Profiles arrived factory-finished in a dark frame color, with co-extruded EPDM gaskets, reinforced corner joints and mounting brackets set to the site's anchor lines. They were delivered in two batches to follow the civil works.",
     results:
       "The same GFRP-PU frame system was used across the workshops and the office block. For a similar project, check the whole-window U-value for your actual sizes and glazing, and confirm resin compatibility with the chemicals, concentrations and temperatures on your site. This account does not show a maintenance-free period or resistance to every acid, alkali or chloride exposure.",
     stats: [
@@ -156,7 +158,7 @@ const caseStudyData: Record<
     challenge:
       "Wanhua Chemical, the world's largest producer of MDI and a supplier of polyurethane raw materials, decided in 2021 to build a zero-carbon employee community on its campus in the Yantai Economic and Technological Development Zone, Shandong. The complex has 112,815 m² of above-ground floor area in mid- and high-rise dormitories and supporting buildings. It had to meet two energy standards at once: China's national near-zero energy building standard and Shandong's passive ultra-low energy residential standard. That meant a cap of 50 kWh per square metre per year for heating, cooling and lighting, an envelope well inside the national code, and blower-door testing of airtightness. The windows were the hardest part. The specification asked for whole-window U-values below 1.0 W/m²·K, which thermally broken aluminum rarely reaches without special glazing, and PVC frames could not span the tall openings on the stair towers. Wanhua also wanted the frames to be made with its own polyurethane resin.",
     solution:
-      "F1 supplied pultruded GFRP-PU window profiles from FengDu's Yancheng plant for the 13,657 m² dormitory part of the project. The smaller dormitory windows used 65-series inward-opening casement and tilt-and-turn profiles, the balconies used 90-series sliding profiles, and matching facade-frame sections were used at the stair-tower curtain wall. With a triple-glazed unit (5 mm single-silver Low-E + 16 mm argon + 5 mm single-silver Low-E + 16 mm argon + 5 mm Low-E), the whole-window U-value was 0.99 W/m²·K against the 1.0 W/m²·K requirement. The frame has no metal thermal break: the GFRP-PU section conducts heat at about 0.3 W/m·K, around 500 times less than aluminum. The profiles were pultruded with Wanhua polyurethane resin, from the same supplier as the building's polyurethane sandwich wall insulation. They were finished in a dark frame colour with co-extruded EPDM gasket channels and reinforced corners, and delivered on pallets in installation order during eight months of overlapping site work.",
+      "F1 supplied pultruded GFRP-PU window profiles from FengDu's Yancheng plant for the 13,657 m² dormitory part of the project. The smaller dormitory windows used 65-series inward-opening casement and tilt-and-turn profiles, the balconies used 90-series sliding profiles, and matching facade-frame sections were used at the stair-tower curtain wall. With a triple-glazed unit (5 mm single-silver Low-E + 16 mm argon + 5 mm single-silver Low-E + 16 mm argon + 5 mm Low-E), the whole-window U-value was 0.99 W/m²·K against the 1.0 W/m²·K requirement. The frame has no metal thermal break: the GFRP-PU section conducts heat at about 0.3 W/m·K, around 500 times less than aluminum. The profiles were pultruded with Wanhua polyurethane resin, from the same supplier as the building's polyurethane sandwich wall insulation. They were finished in a dark frame color with co-extruded EPDM gasket channels and reinforced corners, and delivered on pallets in installation order during eight months of overlapping site work.",
     results:
       "The dormitory envelope was completed with F1's GFRP-PU windows as the main opening component. Figures from the building-envelope verification at handover: a comprehensive building energy-saving rate of 61.11 % against the national baseline (the near-zero energy threshold in the standard is 60 %), an envelope-only energy-saving rate of 47.56 %, a renewable-energy share of 51.81 %, and airtightness of N50 = 1.0 air changes per hour at 50 Pa. With the wall insulation, ground-source heat pumps, rooftop PV and solar hot water, the development is projected to cut CO₂ emissions by more than 2,000 tonnes a year across its 112,815 m². Wanhua Chemical's 2022 sustainability reporting lists it as the company's first zero-carbon community. For F1 it is the main reference for near-zero energy and passive residential projects: 13,657 m² of GFRP-PU windows at a whole-window U-value of 0.99 W/m²·K.",
     stats: [
@@ -186,21 +188,21 @@ const caseStudyData: Record<
     ],
   },
   "chongqing-rooftop-pv-frp-rail": {
-    title: "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Colour Steel-Tile Roofs",
+    title: "Chongqing Rooftop PV Retrofit: Pultruded FRP H-Rail on Color Steel-Tile Roofs",
     summary:
-      "Pultruded GFRP H-rail let an industrial park in Chongqing add rooftop PV to colour steel-tile roofs within their original live-load reserve, with about 75% less rail dead load than galvanized steel.",
+      "Pultruded GFRP H-rail let an industrial park in Chongqing add rooftop PV to color steel-tile roofs within their original live-load reserve, with about 75% less rail dead load than galvanized steel.",
     seoTitle: "Chongqing PV Rooftop Retrofit — FRP H-Rail Mounting",
     seoDescription:
-      "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on colour steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
+      "Chongqing rooftop PV retrofit: pultruded GFRP H-rail on color steel-tile roofs, about 75% less rail weight than galvanized steel and no zinc coating to renew.",
     focusKeyphrase: "FRP rooftop solar mounting",
     industry: "Energy",
     location: "Chongqing, China",
     year: "2024",
     products: ["Custom Pultrusions", "Standard Profiles"],
     challenge:
-      "In 2024 the owner of an industrial park in Chongqing decided to add rooftop PV to a group of existing factory buildings, to cut the campus's carbon emissions and earn revenue from unused roof area. Two things ruled out the usual galvanized-steel and aluminum rails. First, the roofs had little spare capacity. They were designed for a generic industrial live load of about 0.5 kN/m², the common reserve for Chinese industrial roofs built before 2012, with no allowance for a permanent PV array. A monocrystalline array on galvanized-steel rail adds roughly 15–20 kg/m² once panels, rail, clamps and ballast are counted, a large share of that reserve, and the structural reviewer named it as the limit on the retrofit. The owner needed a rail clearly lighter than steel, and ideally lighter than aluminum, so the roofs could take the array without strengthening work that would have wiped out the payback. Second, the rooftop environment is harsh. Chongqing's humidity is above 80 % for much of the year, dew is frequent (the city is known locally as the Fog City), and rain in the Yangtze industrial corridor is acidic. On a colour steel-tile roof the surface passes 70 °C in summer and falls close to freezing in winter, with a heating and cooling cycle every day. Galvanized rail there loses zinc quickly and would need recoating every 5–8 years, which means lifting the panels off each time, over an asset designed for 25 years. Aluminum rail avoids rust, but its anodized surface pits in acidic, humid air and it forms a galvanic couple with stainless-steel clamps and the copper earthing wire.",
+      "In 2024 the owner of an industrial park in Chongqing decided to add rooftop PV to a group of existing factory buildings, to cut the campus's carbon emissions and earn revenue from unused roof area. Two things ruled out the usual galvanized-steel and aluminum rails. First, the roofs had little spare capacity. They were designed for a generic industrial live load of about 0.5 kN/m², the common reserve for Chinese industrial roofs built before 2012, with no allowance for a permanent PV array. A monocrystalline array on galvanized-steel rail adds roughly 15–20 kg/m² once panels, rail, clamps and ballast are counted, a large share of that reserve, and the structural reviewer named it as the limit on the retrofit. The owner needed a rail clearly lighter than steel, and ideally lighter than aluminum, so the roofs could take the array without strengthening work that would have wiped out the payback. Second, the rooftop environment is harsh. Chongqing's humidity is above 80 % for much of the year, dew is frequent (the city is known locally as the Fog City), and rain in the Yangtze industrial corridor is acidic. On a color steel-tile roof the surface passes 70 °C in summer and falls close to freezing in winter, with a heating and cooling cycle every day. Galvanized rail there loses zinc quickly and would need recoating every 5–8 years, which means lifting the panels off each time, over an asset designed for 25 years. Aluminum rail avoids rust, but its anodized surface pits in acidic, humid air and it forms a galvanic couple with stainless-steel clamps and the copper earthing wire.",
     solution:
-      "F1 supplied pultruded glass-fiber-reinforced polymer (GFRP) H-section rail from FengDu's Yancheng plant, with a matched accessory kit: mid-clamps, end-clamps, splice plates and Jiaochi-type roof clamps that grip the standing seams of the existing colour steel-tile roof without drilling through it. The rail answers both problems. On weight, GFRP has a density of about 1.9 g/cm³, against 7.85 g/cm³ for carbon steel and 2.70 g/cm³ for 6063 aluminum. A typical rooftop layout needs 4–6 kg per metre of galvanized C-section or 1.5–2.5 kg/m of aluminum extrusion; the GFRP H-rail weighs about 1.0–1.5 kg/m, roughly three-quarters less rail dead load than steel. A 1 MW rooftop array uses around 2,000 m of rail, so the saving runs to several tonnes and the roofs stayed within their original live-load reserve without strengthening. On durability, the GFRP rail has no zinc to renew and no anodized surface to pit, and it does not form a galvanic couple with the stainless clamps or the copper earthing wire. The accessory kit was produced in two batches to match the installation sequence, with a published bolt schedule (M6 × 12 for rail splices, M8 × 25 for mid- and end-clamps and T-bolts, M8 × 30 for the Jiaochi roof clamps) that matched the installer's standard rooftop kit. Rails were cut to length in the factory and palletised in installation order for hoisting from ground level.",
+      "F1 supplied pultruded glass-fiber-reinforced polymer (GFRP) H-section rail from FengDu's Yancheng plant, with a matched accessory kit: mid-clamps, end-clamps, splice plates and Jiaochi-type roof clamps that grip the standing seams of the existing color steel-tile roof without drilling through it. The rail answers both problems. On weight, GFRP has a density of about 1.9 g/cm³, against 7.85 g/cm³ for carbon steel and 2.70 g/cm³ for 6063 aluminum. A typical rooftop layout needs 4–6 kg per metre of galvanized C-section or 1.5–2.5 kg/m of aluminum extrusion; the GFRP H-rail weighs about 1.0–1.5 kg/m, roughly three-quarters less rail dead load than steel. A 1 MW rooftop array uses around 2,000 m of rail, so the saving runs to several tonnes and the roofs stayed within their original live-load reserve without strengthening. On durability, the GFRP rail has no zinc to renew and no anodized surface to pit, and it does not form a galvanic couple with the stainless clamps or the copper earthing wire. The accessory kit was produced in two batches to match the installation sequence, with a published bolt schedule (M6 × 12 for rail splices, M8 × 25 for mid- and end-clamps and T-bolts, M8 × 30 for the Jiaochi roof clamps) that matched the installer's standard rooftop kit. Rails were cut to length in the factory and palletised in installation order for hoisting from ground level.",
     results:
       "The PV arrays were commissioned within the roofs' original live-load reserve, with no structural strengthening and without taking the factory roofs out of use. Compared with galvanized steel rail at 4–6 kg/m, the GFRP rail at about 1.0–1.5 kg/m removed roughly 75 % of the rail's share of the permanent dead load. It also removes the 5–8-year zinc recoating that steel rail would have needed, and the pitting and galvanic-corrosion upkeep that aluminum rail would have brought in this humid, acidic climate. For F1, this project is the reference for rooftop PV retrofits where roof capacity and weathering both limit the design.",
     stats: [
@@ -374,7 +376,7 @@ const caseStudyImageMeta: Record<string, { title: string; note: string; alt: str
   "chongqing-rooftop-pv-frp-rail": {
     title: "Rooftop array",
     note: "Project photo",
-    alt: "PV modules on pultruded FRP rails over a blue colour steel-tile factory roof in Chongqing",
+    alt: "PV modules on pultruded FRP rails over a blue color steel-tile factory roof in Chongqing",
   },
   "qinling-station-antarctic-passive-windows": {
     title: "Qinling Station",
@@ -411,15 +413,15 @@ const caseStudyContentImages: Record<string, { src: string; title: string; note:
     },
     {
       src: "/images/case-studies/frp-factory-staircase-platform-handrail.webp",
-      title: "Platform and handrails",
+      title: "Stair flight from below",
       note: "Project photo",
-      alt: "Elevated platform with safety-orange pultruded FRP handrails and guardrails installed above the pultrusion line",
+      alt: "Underside of the stair flight: FRP I-beam stringers carrying the treads, with the orange FRP handrail alongside",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-grating-treads.webp",
-      title: "Grating treads",
+      title: "Beam-to-post connection",
       note: "Project photo",
-      alt: "Anti-slip molded FRP grating stair treads and platform panels in corrosive factory environment",
+      alt: "Bolted connection between the platform beams and a post, all pultruded FRP profiles with stainless steel bolts",
     },
     {
       src: "/images/case-studies/frp-factory-staircase-assembly-detail.webp",
@@ -557,8 +559,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
           { label: "Industry", value: cs.industry },
         ]}
         figure={
-          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption}>
-            <div className="relative -m-[16px] aspect-[3/2]">
+          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption} bleed>
+            <div className="relative aspect-[3/2]">
               <Image
                 src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}
                 alt={image?.alt ?? cs.title}
@@ -601,8 +603,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {figures.length ? (
           <div className="mt-[28px] grid grid-cols-1 gap-[16px] sm:grid-cols-2">
             {figures.map((figure, index) => (
-              <Figure key={figure.src} number={index + 2} title={figure.title} note={figure.note}>
-                <div className="relative -m-[16px] aspect-[4/3]">
+              <Figure key={figure.src} number={index + 2} title={figure.title} note={figure.note} bleed>
+                <div className="relative aspect-[4/3]">
                   <Image src={figure.src} alt={figure.alt} fill sizes="(max-width: 639px) 94vw, 45vw" className="object-cover" />
                 </div>
               </Figure>
@@ -625,17 +627,25 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <ProductSection id="products" title="Products used" count={`${products.length} product ${products.length === 1 ? "family" : "families"}`} tone="muted">
         <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <li key={product.href}>
-              <Link href={product.href} className="flex h-full items-start gap-[14px] rounded-card border border-border-default bg-white p-[16px] transition-colors hover:border-teal-border">
-                <SectionGlyph shape={product.glyph} size={40} />
-                <span>
-                  <span className="block text-f16 font-bold text-t1">{product.label}</span>
-                  {product.text ? <span className="mt-[4px] block text-f14 leading-golden text-t2">{product.text}</span> : null}
-                </span>
-              </Link>
-            </li>
-          ))}
+          {products.map((product) => {
+            // A product card shows the product itself; a family without a cover keeps its section glyph.
+            const cover = coverFor(product.href);
+            return (
+              <li key={product.href}>
+                {cover ? (
+                  <CoverCard href={product.href} cover={cover} title={product.label} text={product.text || undefined} action="View the product" sizes="(max-width: 639px) 94vw, (max-width: 1023px) 46vw, 390px" />
+                ) : (
+                  <Link href={product.href} className="flex h-full items-start gap-[14px] rounded-card border border-border-default bg-white p-[16px] transition-colors hover:border-teal-border">
+                    <SectionGlyph shape={product.glyph} size={40} />
+                    <span>
+                      <span className="block text-f16 font-bold text-t1">{product.label}</span>
+                      {product.text ? <span className="mt-[4px] block text-f14 leading-golden text-t2">{product.text}</span> : null}
+                    </span>
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
         <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           {[

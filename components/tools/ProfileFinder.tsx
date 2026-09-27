@@ -133,7 +133,7 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
     source: "profile-finder",
     product: "Standard FRP profiles",
     specification: selected.map((row) => row.model).join(", "),
-    message: `Please quote these standard profiles: ${selected.map((row) => row.model).join(", ")}. Length per piece, quantity, resin and colour:`,
+    message: `Please quote these standard profiles: ${selected.map((row) => row.model).join(", ")}. Length per piece, quantity, resin and color:`,
   });
 
   const checkbox = (row: FinderRow) => (

@@ -1,15 +1,18 @@
-import ProductNextSteps from "@/components/sections/ProductNextSteps";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import InnerCTA from "@/components/sections/InnerCTA";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
+import Figure from "@/components/ui/Figure";
+import { company } from "@/content/data/company";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { authorsBySlug } from "@/lib/authors";
+import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { buildRfqHref } from "@/lib/rfq";
+import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-pultrusion-manufacturer-factory-direct";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -25,11 +28,25 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/opengraph-image",
 });
 
+const quoteHref = buildRfqHref({
+  source: "factory-direct-manufacturer",
+  product: "Factory-direct FRP pultrusion",
+  productPath: pagePath,
+  message: "Please quote factory-direct FRP profiles. I will send the drawing or profile type, quantity, standards, application and destination.",
+});
+
+const requestItems = [
+  { title: "Drawing or model", text: "A drawing, catalog model or the application, with the critical dimensions." },
+  { title: "Quantities", text: "Quantity by length, cut schedule, annual demand and order cadence." },
+  { title: "Requirements", text: "Resin, exposure, fire, UV, color, surface and mechanical requirements; standards, reports, certificates and inspection hold points." },
+  { title: "Packing and delivery", text: "Machining, labeling, bundling, pallet, container and unloading constraints; the named destination and Incoterm (EXW, FOB, CIF, DAP or DDP)." },
+];
+
 const evidence = [
   {
-    value: "370",
+    value: String(company.production.lines),
     label: "pultrusion lines",
-    detail: "Distributed across five manufacturing bases for repeat production and capacity planning.",
+    detail: `Distributed across ${company.production.bases} manufacturing bases for repeat production and capacity planning.`,
   },
   {
     value: "600 × 300 mm",
@@ -98,162 +115,138 @@ export default function FactoryDirectPultrusionPage() {
       />
       <PageHeader
         updated={updatedAt}
-        tag="Factory-Direct FRP Supply"
-        title="FRP Pultrusion Manufacturer for Factory-Direct Global Projects"
+        reviewer={reviewerCredit(reviewer)}
+        tag="Manufacturing"
+        title="FRP pultrusion manufacturer for factory-direct global projects"
         description="Judge a pultruded FRP supplier on engineering evidence, process controls, tooling, inspection records and landed cost as well as unit price. F1 Composite handles standard and custom profile supply from drawing review to FOB or DDP delivery."
+        facts={[
+          { label: "Pultrusion lines", value: String(company.production.lines) },
+          { label: "Production bases", value: String(company.production.bases) },
+          { label: "Existing dies", value: `${company.production.dieSets.toLocaleString("en-US")}+` },
+          { label: "Delivery", value: "FOB or DDP" },
+        ]}
+        figure={
+          <Figure number={1} title="Pultrusion lines" note="Production photo" caption="Pultrusion lines in FengDu's production network; F1 Composite is its export company." bleed>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                alt="F1 Composite pultrusion manufacturing lines used for factory-direct FRP profile supply"
+                fill
+                preload
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                style={{ objectPosition: "62% center" }}
+              />
+            </div>
+          </Figure>
+        }
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/pultruded-frp-profiles" },
           { label: "Factory-Direct Manufacturer" },
         ]}
         actions={{
-          primary: {
-            label: "Request a Factory Quote",
-            href: "/contact?source=factory-direct-manufacturer&inquiry_type=rfq",
-          },
-          secondary: {
-            label: "Review Product Range",
-            href: "/pultruded-frp-profiles",
-            variant: "secondary",
-          },
+          primary: { label: "Request a factory quote", href: quoteHref },
+          secondary: { label: "Review the product range", href: "/pultruded-frp-profiles", variant: "secondary" },
           note: "Send a drawing or profile type, quantity, standards, application, and destination for a scoped response.",
           stickyMobile: true,
         }}
       />
+      <PageNav
+        items={[
+          { id: "why", label: "Why direct" },
+          { id: "capacity", label: "Capacity" },
+          { id: "range", label: "Supply range" },
+          { id: "workflow", label: "Qualification" },
+          { id: "delivery", label: "FOB or DDP" },
+          { id: "quote", label: "Quote" },
+        ]}
+      />
 
-      <section className="bg-white py-[72px]">
-        <div className="site-container grid gap-[40px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div>
-            <SectionTag>What factory-direct should prove</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-              Why buy from the production network
-            </h2>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
-              Buying direct puts your project requirements in front of the people who control the die, reinforcement schedule, resin mix, pull speed, cure temperature and inspection plan. The saving on sales margin is the smaller part of it. The bigger benefit is that tolerance, surface, load, fire, corrosion, machining and packaging questions get settled before production instead of turning up as defects.
-            </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              F1 Composite handles international projects and export for FengDu&rsquo;s production network: five production bases with 370 pultrusion lines. Each order runs against an approved drawing, a defined material system, first-article checks, traceable inspection records and a shipping specification agreed with the buyer.
-            </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              If you are still choosing a profile, start with the <Link href="/pultruded-frp-profiles" className="text-teal-text hover:underline">pultruded FRP profile range</Link>. This page covers how to check the supplier and plan the purchase.
-            </p>
-          </div>
-          <Image
-            src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
-            alt="F1 Composite pultrusion manufacturing lines used for factory-direct FRP profile supply"
-            width={2000}
-            height={788}
-            sizes="(max-width: 1024px) calc(100vw - 68px), 54vw"
-            className="h-auto w-full rounded-card border border-border-default object-cover shadow-pop"
-          />
-        </div>
-      </section>
-
-      <section className="bg-bg2 py-[72px]">
-        <div className="site-container">
-          <SectionTag>Verifiable scope</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Capacity figures, and what they cover
-          </h2>
-          <div className="mt-[34px] grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
-            {evidence.map((item) => (
-              <article key={item.label} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f24 font-extrabold text-teal-text">{item.value}</p>
-                <h3 className="mt-[5px] text-f16 font-bold text-t1">{item.label}</h3>
-                <p className="mt-[8px] text-f14 leading-relaxed text-t2">{item.detail}</p>
-              </article>
-            ))}
-          </div>
-          <p className="mt-[21px] max-w-[960px] text-f16 leading-golden text-t2">
-            These figures describe the production network. They do not qualify a specific profile: mechanical values, resin, glass architecture, fire performance, tolerances and certificates are tied to the quoted section and its production plan. The <Link href="/technology/quality-testing" className="text-teal-text hover:underline">FRP quality-testing</Link> page explains how incoming material checks, in-process checks, coupon tests and project acceptance evidence differ.
+      <PageSection id="why" title="Why buy from the production network">
+        <div className="max-w-[820px] space-y-[14px] text-f16 leading-golden text-t2">
+          <p className="text-f18 text-t1">
+            Buying direct puts your project requirements in front of the people who control the die, reinforcement schedule, resin mix, pull speed, cure temperature and inspection plan. The saving on sales margin is the smaller part of it. The bigger benefit is that tolerance, surface, load, fire, corrosion, machining and packaging questions get settled before production instead of turning up as defects.
+          </p>
+          <p>
+            F1 Composite handles international projects and export for FengDu&rsquo;s production network: {company.production.bases} production bases with {company.production.lines} pultrusion lines. Each order runs against an approved drawing, a defined material system, first-article checks, traceable inspection records and a shipping specification agreed with the buyer.
+          </p>
+          <p>
+            If you are still choosing a profile, start with the{" "}
+            <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultruded FRP profile range</Link>. This page covers how to check the supplier and plan the purchase.
           </p>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-white py-[72px]">
-        <div className="site-container">
-          <SectionTag>Supply range</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            What you can order direct
-          </h2>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default">
-            <table className="w-full min-w-[820px] border-collapse bg-white text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default bg-bg2 text-left text-t1">
-                  <th className="px-[16px] py-[13px] font-bold">Product family</th>
-                  <th className="px-[16px] py-[13px] font-bold">Typical supply</th>
-                  <th className="px-[16px] py-[13px] font-bold">RFQ inputs that govern</th>
+      <PageSection id="capacity" title="Capacity figures, and what they cover" tone="muted">
+        <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-border-default bg-border-default sm:grid-cols-2 lg:grid-cols-4">
+          {evidence.map((item) => (
+            <div key={item.label} className="bg-white px-[20px] py-[16px]">
+              <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.label}</dt>
+              <dd className="mt-[6px] text-f24 font-extrabold leading-tight text-t1">{item.value}</dd>
+              <dd className="mt-[6px] text-f14 leading-golden text-t2">{item.detail}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-[16px] max-w-[960px] text-f16 leading-golden text-t2">
+          These figures describe the production network. They do not qualify a specific profile: mechanical values, resin, glass architecture, fire performance, tolerances and certificates are tied to the quoted section and its production plan. The{" "}
+          <Link href="/technology/quality-testing" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP quality-testing</Link> page explains how incoming material checks, in-process checks, coupon tests and project acceptance evidence differ.
+        </p>
+      </PageSection>
+
+      <PageSection id="range" title="What you can order direct">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14">
+            <caption className="sr-only">Product families supplied factory-direct</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Product family</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Typical supply</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">RFQ inputs that govern</th>
+              </tr>
+            </thead>
+            <tbody>
+              {supplyFamilies.map(([family, supply, inputs]) => (
+                <tr key={family} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="whitespace-nowrap px-[14px] py-[12px] font-semibold text-t1">{family}</th>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{supply}</td>
+                  <td className="px-[14px] py-[12px] leading-golden text-t2">{inputs}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {supplyFamilies.map(([family, supply, inputs], index) => (
-                  <tr key={family} className={`border-b border-border-default ${index % 2 ? "bg-bg2/40" : "bg-white"}`}>
-                    <td className="px-[16px] py-[14px] font-semibold text-t1">{family}</td>
-                    <td className="px-[16px] py-[14px] leading-relaxed text-t2">{supply}</td>
-                    <td className="px-[16px] py-[14px] leading-relaxed text-t2">{inputs}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            Standard structural profiles use existing dies and published section data, so they are usually the quickest to qualify. A <Link href="/products/custom-pultruded-profiles" className="text-teal-text hover:underline">custom pultruded profile</Link> adds tooling and a first-article stage, but it can remove secondary assembly, cut the part count, build in channels or fastening features, and put reinforcement where the load is. The quotation should list recurring profile cost separately from one-time tooling, testing, machining and certification costs.
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] max-w-[960px] text-f16 leading-golden text-t2">
+          Standard structural profiles use existing dies and published section data, so they are usually the quickest to qualify. A{" "}
+          <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">custom pultruded profile</Link> adds tooling and a first-article stage, but it can remove secondary assembly, cut the part count, build in channels or fastening features, and put reinforcement where the load is. The quotation should list recurring profile cost separately from one-time tooling, testing, machining and certification costs.
+        </p>
+      </PageSection>
+
+      <PageSection id="workflow" title="Five steps from specification to repeat orders" tone="muted">
+        <ol className="divide-y divide-border-default rounded-card border border-border-default bg-white px-[20px] sm:px-[24px]">
+          {qualificationSteps.map((step, index) => (
+            <li key={step.title} className="grid gap-[4px] py-[16px] md:grid-cols-[minmax(0,280px)_minmax(0,1fr)] md:gap-[24px]">
+              <div>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</p>
+                <h3 className="mt-[4px] text-f16 font-bold text-t1">{step.title}</h3>
+              </div>
+              <p className="text-f14 leading-golden text-t2 md:pt-[20px]">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection id="delivery" title="Compare quotes on the same delivery terms">
+        <div className="grid grid-cols-1 gap-[16px] text-f16 leading-golden text-t2 lg:grid-cols-2 lg:gap-[48px]">
+          <p>
+            FOB suits buyers who already handle freight forwarding, customs brokerage, insurance and import compliance. DDP suits buyers who want one delivered price, provided the seller states the classification and duty assumptions behind it. CIF and DAP split the responsibilities in other ways. No Incoterm is always cheaper, so compare quotes on the same port or site, shipment size, packing, insurance, customs clearance, tariffs, local charges, unloading and tax treatment.
+          </p>
+          <p>
+            The{" "}
+            <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP pultrusion FOB and DDP export guide</Link> covers these terms, HS/HTSUS classification and Section 301 duties in more detail. It is a purchasing guide, not customs or legal advice: the importer should confirm the classification with its broker or customs authority for the exact section and use.
           </p>
         </div>
-      </section>
-
-      <section className="bg-bg2 py-[72px]">
-        <div className="site-container">
-          <SectionTag>Qualification workflow</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            Five steps from specification to repeat orders
-          </h2>
-          <ol className="mt-[34px] space-y-[18px]">
-            {qualificationSteps.map((step, index) => (
-              <li key={step.title} className="grid gap-[13px] rounded-card border border-border-default bg-white p-[21px] sm:grid-cols-[42px_1fr]">
-                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-teal-text text-f14 font-bold text-white">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="text-f18 font-bold text-t1">{step.title}</h3>
-                  <p className="mt-[8px] text-f16 leading-golden text-t2">{step.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="bg-white py-[72px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-2">
-          <div>
-            <SectionTag>FOB or DDP</SectionTag>
-            <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-              Compare quotes on the same delivery terms
-            </h2>
-            <p className="mt-[21px] text-f16 leading-golden text-t2">
-              FOB suits buyers who already handle freight forwarding, customs brokerage, insurance and import compliance. DDP suits buyers who want one delivered price, provided the seller states the classification and duty assumptions behind it. CIF and DAP split the responsibilities in other ways. No Incoterm is always cheaper, so compare quotes on the same port or site, shipment size, packing, insurance, customs clearance, tariffs, local charges, unloading and tax treatment.
-            </p>
-            <p className="mt-[13px] text-f16 leading-golden text-t2">
-              The <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="text-teal-text hover:underline">FRP pultrusion FOB and DDP export guide</Link> covers these terms, HS/HTSUS classification and Section 301 duties in more detail. It is a purchasing guide, not customs or legal advice: the importer should confirm the classification with its broker or customs authority for the exact section and use.
-            </p>
-          </div>
-          <div className="rounded-card border border-border-default bg-bg2 p-[26px]">
-            <h2 className="text-f18 font-bold text-t1">What to send for a comparable quote</h2>
-            <ul className="mt-[18px] space-y-[10px] text-f16 leading-relaxed text-t2">
-              <li>• Drawing, catalog model, or application with critical dimensions</li>
-              <li>• Quantity by length, cut schedule, annual demand, and order cadence</li>
-              <li>• Resin, exposure, fire, UV, color, surface, and mechanical requirements</li>
-              <li>• Applicable standards, reports, certificates, and inspection hold points</li>
-              <li>• Machining, labeling, bundling, pallet, container, and unloading constraints</li>
-              <li>• Named destination and Incoterm: EXW, FOB, CIF, DAP, or DDP</li>
-            </ul>
-            <p className="mt-[18px] text-f14 leading-relaxed text-t3">
-              Without these details we can only give an indicative price. The final offer references the approved specification and lists what is excluded.
-            </p>
-          </div>
-        </div>
-      </section>
+      </PageSection>
 
       <RelatedLinks
         groups={[
@@ -283,8 +276,16 @@ export default function FactoryDirectPultrusionPage() {
           },
         ]}
       />
-      <ProductNextSteps path="/products/frp-pultrusion-manufacturer-factory-direct" />
-      <InnerCTA title="Qualify a factory-direct FRP profile supply route" />
+
+      <PageSection id="quote" title="Qualify a factory-direct FRP profile supply route" tone="deep">
+        <ProductRfq
+          product="Factory-direct FRP pultrusion"
+          productPath={pagePath}
+          quoteHref={quoteHref}
+          items={requestItems}
+          intro="Send what you have. Without these details we can only give an indicative price; the final offer references the approved specification and lists what is excluded."
+        />
+      </PageSection>
     </>
   );
 }

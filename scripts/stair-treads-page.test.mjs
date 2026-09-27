@@ -19,10 +19,10 @@ test("stair-tread page presents a decision-first three-family selection flow", a
   const page = await readFile(pagePath, "utf8");
 
   assert.match(page, /Three tread families, three different jobs/);
-  assert.match(page, /Four Decision Gates/);
-  assert.match(page, /Selection Reference Matrix/);
+  assert.match(page, /Four decision gates/i);
+  assert.match(page, /selection reference matrix/i);
   assert.match(page, /MeasurementDiagram/);
-  assert.match(page, /When a Cover Is Not Enough/);
+  assert.match(page, /When a cover is not enough/i);
   assert.match(page, /Survey, dry-fit, fasten, inspect/);
   assert.match(page, /preload/);
   assert.match(page, /Supplier-reference retrofit photography/);

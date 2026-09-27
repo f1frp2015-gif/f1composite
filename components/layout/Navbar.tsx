@@ -424,7 +424,7 @@ export default function Navbar() {
             className="ml-[7px] inline-flex min-h-[44px] items-center rounded-control bg-teal-text px-[17px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
             onClick={closeNavigation}
           >
-            Get a Quote
+            Get a quote
           </Link>
         </div>
 

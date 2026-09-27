@@ -7,14 +7,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import AskAICard from "@/components/ai/AskAICard";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { supplyTerms, usdRange } from "@/content/data/company";
 import {
   estimatePrice,
   PRICE_BASIS_DATE,
@@ -78,7 +79,7 @@ export default function ProfilePricePage() {
   const faqs = [
     {
       question: "How much do fiberglass pultruded profiles cost?",
-      answer: `For standard E-glass polyester profiles in production quantities, indicative export pricing runs about $${fmt(minPerM)} to $${fmt(maxPerM)} per meter depending on the cross-section — roughly $${fmt(minPerKg)}–$${fmt(maxPerKg)} per kilogram. Small open shapes (angles, small tubes) sit at the bottom of the range; deep wide-flange I-beams at the top. Resin upgrades (vinyl ester, polyurethane), fire-retardant or UV packages, surface veil, and small order quantities move the number up from there.`,
+      answer: `For standard E-glass polyester profiles in production quantities, indicative export pricing runs about $${fmt(minPerM)} to $${fmt(maxPerM)} per meter depending on the cross-section, or roughly $${fmt(minPerKg)}–$${fmt(maxPerKg)} per kilogram. Small open shapes (angles, small tubes) sit at the bottom of the range; deep wide-flange I-beams at the top. Resin upgrades (vinyl ester, polyurethane), fire-retardant or UV packages, surface veil, and small order quantities move the number up from there.`,
     },
     {
       question: "What is the price of pultruded FRP per kg?",
@@ -92,16 +93,16 @@ export default function ProfilePricePage() {
     {
       question: "What is the minimum order quantity for pultruded profiles?",
       answer:
-        "Standard catalog sections run from 100 m (rounds, squares, angles) to 200 m (channels, I-beams) minimum. Below those lengths the estimator adds a small-batch premium, which reflects real setup economics rather than a penalty. Custom cross-sections carry a 500 m first-run minimum — see the custom pultrusions page for tooling costs and lead times.",
+        `Standard catalog sections run from 100 m (rounds, squares, angles) to 200 m (channels, I-beams) minimum. Below those lengths the estimator adds a small-batch premium, which reflects real setup economics rather than a penalty. Custom cross-sections carry a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum; the custom pultrusions page gives tooling costs and lead times.`,
     },
     {
       question: "How much more expensive is carbon fiber pultrusion?",
-      answer: `Substituting carbon fiber with an epoxy matrix multiplies the per-meter price of the same section by roughly ${carbonRatio}× against E-glass polyester, driven almost entirely by the raw fiber cost. Carbon pays off where stiffness per weight governs — spar caps, curtain-wall mullions with hybrid layups, robotics — not where corrosion resistance alone is the goal.`,
+      answer: `Substituting carbon fiber with an epoxy matrix multiplies the per-meter price of the same section by roughly ${carbonRatio}× against E-glass polyester, driven almost entirely by the raw fiber cost. Carbon pays off where stiffness per weight governs (spar caps, curtain-wall mullions with hybrid layups, robotics), not where corrosion resistance alone is the goal.`,
     },
     {
       question: "Does the price include shipping and import duty?",
       answer:
-        "No — the figures on this page are indicative FOB China. Ocean freight, insurance, import duty, and Section 301 exposure depend on your port and HS classification. We quote DDP for the USA with duty pre-cleared line by line; the DDP, tariffs and HS-code guide explains exactly how those layers stack.",
+        "No. The figures on this page are indicative FOB China. Ocean freight, insurance, import duty, and Section 301 exposure depend on your port and HS classification. We quote DDP for the USA with duty pre-cleared line by line; the DDP, tariffs and HS-code guide explains exactly how those layers stack.",
     },
     {
       question: "How do I convert the price per meter to price per foot?",
@@ -128,270 +129,180 @@ export default function ProfilePricePage() {
       />
 
       <PageHeader
-        tag="Free Pricing Tool"
-        title="Fiberglass Pultruded Profile Price"
-        description={`Live price estimator plus a published price table for pultruded fiberglass profiles — indicative ${"$"}${fmt(minPerM)}–${"$"}${fmt(maxPerM)} per meter (${"$"}${fmt(minPerKg)}–${"$"}${fmt(maxPerKg)}/kg) for standard E-glass sections, FOB China, before resin upgrades and options. Adjust the section, materials, and quantity below and watch the range move.`}
+        tag="Tools"
+        title="Fiberglass pultruded profile price"
+        description={`Live price estimator and a published price table for pultruded fiberglass profiles: indicative ${"$"}${fmt(minPerM)}–${"$"}${fmt(maxPerM)} per meter (${"$"}${fmt(minPerKg)}–${"$"}${fmt(maxPerKg)}/kg) for standard E-glass sections, FOB China, before resin upgrades and options. Adjust the section, materials and quantity and watch the range move.`}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Fiberglass Pultruded Profile Price" },
+          { label: "Tools", href: "/tools" },
+          { label: "Price estimator" },
         ]}
         actions={{
-          primary: { label: "Estimate Price", href: "#price-estimator" },
-          secondary: { label: "Request Firm Quote", href: quoteHref, variant: "secondary" },
-          note: "Use the estimator for a budget range; send the drawing, quantity, resin, and destination for a firm number.",
+          primary: { label: "Estimate a price", href: "#price-estimator" },
+          secondary: { label: "Request a firm quote", href: quoteHref, variant: "secondary" },
+          note: "Use the estimator for a budget range; send the drawing, quantity, resin and destination for a firm number.",
           stickyMobile: true,
         }}
       />
+      <PageNav items={[{ id: "price-estimator", label: "Estimator" }, { id: "price-table", label: "Price table" }, { id: "cost-drivers", label: "Cost drivers" }, { id: "context", label: "Against steel" }, { id: "firm-quote", label: "Firm quote" }, { id: "faq", label: "FAQ" }]} />
 
-      {/* Answer box */}
-      <section className="bg-white pb-[34px]">
-        <div className="site-container">
-          <div className="max-w-[860px] rounded-card border-l-4 border-teal bg-bg2 p-[21px]">
-            <p className="text-f16 leading-golden text-t2">
-              <strong className="text-t1">
-                Fiberglass pultruded profile price, in one sentence:
-              </strong>{" "}
-              standard E-glass polyester structural profiles export at roughly{" "}
-              <strong className="text-t1">${fmt(minPerM)}&ndash;${fmt(maxPerM)} per meter</strong>{" "}
-              (about ${fmt(minPerKg)}&ndash;${fmt(maxPerKg)}/kg) FOB China depending on
-              cross-section and order quantity, with vinyl ester, polyurethane,
-              fire-retardant, and UV packages adding 10&ndash;30% and carbon fiber
-              multiplying the number several times over. Price basis {PRICE_BASIS_DATE},
-              &plusmn;15% band.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Estimator */}
-      <section id="price-estimator" className="scroll-mt-[88px] bg-white pb-[55px]">
-        <div className="site-container">
-          <SectionTag>Live Estimator</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Estimate your pultruded profile price
-          </h2>
-          <p className="mt-[8px] max-w-[860px] text-f16 leading-golden text-t2">
+      <PageSection
+        id="price-estimator"
+        title="Estimate your pultruded profile price"
+        intro={
+          <>
             Pick a shape, enter the section dimensions from your drawing or the closest{" "}
-            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
-              standard fiberglass profile
-            </Link>
-            , choose materials and quantity. The range updates as you type.
-          </p>
-          <div className="mt-[21px]">
-            <PriceEstimator />
-          </div>
-        </div>
-      </section>
+            <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:underline">standard fiberglass profile</Link>, then choose materials and quantity. The range updates as you type.
+          </>
+        }
+        tone="white"
+      >
+        <p className="mb-[24px] max-w-[860px] rounded-card border-l-4 border-l-teal bg-teal-bg px-[20px] py-[16px] text-f16 leading-golden text-t2">
+          <strong className="text-t1">In one sentence:</strong> standard E-glass polyester structural profiles export at roughly{" "}
+          <strong className="text-t1">${fmt(minPerM)}&ndash;${fmt(maxPerM)} per meter</strong>{" "}
+          (about ${fmt(minPerKg)}&ndash;${fmt(maxPerKg)}/kg) FOB China depending on cross-section and order quantity, with
+          vinyl ester, polyurethane, fire-retardant and UV packages adding 10&ndash;30% and carbon fiber multiplying the
+          number several times over. Price basis {PRICE_BASIS_DATE}, &plusmn;15% band.
+        </p>
+        <PriceEstimator />
+      </PageSection>
 
-      {/* Published price table */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>Price Table</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Pultruded fiberglass profile price table — USD per meter, FOB China
-          </h2>
-          <p className="mt-[8px] max-w-[860px] text-f16 leading-golden text-t2">
-            One representative size per family, E-glass / GP polyester at 70% glass,
-            standard gray, no options. Engine basis {PRICE_BASIS_DATE}; each cell is the
-            same &plusmn;15% band the estimator returns.
-          </p>
-          <div className="mt-[21px] overflow-x-auto">
-            <table className="w-full border-collapse text-left text-f14">
-              <thead>
-                <tr className="border-b-2 border-t1/20 text-f12 font-bold uppercase tracking-[1px] text-t3">
-                  <th className="py-[8px] pr-[13px]">Profile (mm)</th>
-                  <th className="py-[8px] pr-[13px]">kg/m</th>
-                  {QTY_TIERS.map((q) => (
-                    <th key={q} className="py-[8px] pr-[13px]">
-                      {q.toLocaleString("en-US")} m order
-                    </th>
+      <PageSection
+        id="price-table"
+        title="Pultruded fiberglass profile price table, USD per meter FOB China"
+        intro={<>One representative size per family, E-glass / GP polyester at 70% glass, standard gray, no options. Engine basis {PRICE_BASIS_DATE}; each cell is the same &plusmn;15% band the estimator returns.</>}
+        tone="muted"
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[640px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Profile (mm)</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">kg/m</th>
+                {QTY_TIERS.map((q) => (
+                  <th scope="col" key={q} className="px-[14px] py-[8px] text-right font-semibold text-t1">
+                    {q.toLocaleString("en-US")} m order
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.map((row) => (
+                <tr key={row.label} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.label}</th>
+                  <td className="px-[14px] py-[10px] text-right tabular-nums text-t2">{row.tiers[0].kgPerMeter}</td>
+                  {row.tiers.map((t, i) => (
+                    <td key={QTY_TIERS[i]} className="px-[14px] py-[10px] text-right tabular-nums text-t2">
+                      ${fmt(t.usdPerMeterLow)}&ndash;${fmt(t.usdPerMeterHigh)}
+                    </td>
                   ))}
                 </tr>
-              </thead>
-              <tbody>
-                {table.map((row) => (
-                  <tr key={row.label} className="border-b border-border-default">
-                    <td className="py-[8px] pr-[13px] font-semibold text-t1">{row.label}</td>
-                    <td className="py-[8px] pr-[13px] text-t2">{row.tiers[0].kgPerMeter}</td>
-                    {row.tiers.map((t, i) => (
-                      <td key={QTY_TIERS[i]} className="py-[8px] pr-[13px] text-t2">
-                        ${fmt(t.usdPerMeterLow)}&ndash;${fmt(t.usdPerMeterHigh)}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[13px] max-w-[860px] text-f12 leading-golden text-t3">
-            Indicative export pricing for budgeting, not an offer. Dimensions follow the{" "}
-            <Link href="/products/fiberglass-structural-shapes" className="underline hover:text-teal-text">
-              published size catalog
-            </Link>
-            ; the kg/m column is the pricing model&rsquo;s nominal-section mass — where a
-            datasheet publishes a lower weight, the datasheet prevails. Other sizes scale
-            with section mass. Duty and freight excluded — see the{" "}
-            <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="underline hover:text-teal-text">
-              DDP, tariffs &amp; HS code guide
-            </Link>
-            .
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[12px] max-w-[860px] text-f14 leading-golden text-t3">
+          Indicative export pricing for budgeting, not an offer. Dimensions follow the{" "}
+          <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:underline">published size catalog</Link>; the kg/m column is the pricing model&rsquo;s nominal-section mass, and where a datasheet publishes a lower weight, the datasheet prevails. Other sizes scale with section mass. Duty and freight are excluded; see the{" "}
+          <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="font-semibold text-teal-text hover:underline">DDP, tariffs and HS code guide</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="cost-drivers" title="Six factors that set a fiberglass profile price" tone="white">
+        <ol className="grid gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Section mass (kg per meter)",
+              body: <>The biggest driver. Glass and resin are bought by the kilogram, so a 305&times;305 I-beam at 16 kg/m contains about ten times the material of a 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes mean more than per-meter ones.</>,
+            },
+            {
+              title: "Resin system",
+              body: <>GP polyester is the baseline. Vinyl ester roughly doubles the resin unit cost for chemical service; polyurethane buys impact strength and fine walls; epoxy pairs with carbon. Resin is 30&ndash;40% of the laminate by weight, so an upgrade moves the finished price by 10&ndash;25%, not 2&times;. The <Link href="/technology/pultrusion-resin-systems" className="font-semibold text-teal-text hover:underline">resin systems guide</Link> covers selection.</>,
+            },
+            {
+              title: "Pull speed of the shape",
+              body: <>Simple rounds pull at three to four times the line speed of a deep wide-flange beam, so the machine-hour cost per meter differs widely. Open, thin, symmetric shapes are cheap; thick flange-web junctions are slow.</>,
+            },
+            {
+              title: "Order quantity",
+              body: <>Setup, die warm-up and first-article scrap are spread over the run. Expect roughly 5% off at 1,000+ m, 8% at 5,000 m and 12% at 20,000 m, and a premium below the family MOQ. The quantity columns in the table show the effect.</>,
+            },
+            {
+              title: "Performance packages",
+              body: <>Fire-retardant formulations (ASTM E84 targets), UV and weathering packages, surface veil for corrosion and appearance, and non-standard colors each add a defined premium. They stack, so specify what the application needs rather than everything at once.</>,
+            },
+            {
+              title: "Fiber architecture",
+              body: <>ECR glass for acid service costs more than E-glass as a raw material, and carbon is in a different bracket entirely (see the FAQ). Higher glass content raises stiffness and raw cost per kg while lowering the resin share; the estimator reflects glass content through the material choice.</>,
+            },
+          ].map((factor, index) => (
+            <li key={factor.title} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Factor {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{factor.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{factor.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
+      <PageSection id="context" title="Reading FRP prices against steel and aluminum" tone="muted">
+        <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>
+            Per kilogram, pultruded fiberglass costs more than mild steel. Per meter of equivalent structural duty it is
+            usually closer than the kg number suggests, because the FRP section weighs much less: about 25&ndash;60% less
+            at equal stiffness, depending on how the section is proportioned. Over a service life in a corrosive
+            environment, FRP is often cheaper overall, with no galvanizing or repainting cycles and lighter lifts. The
+            comparison, with worked numbers, is in{" "}
+            <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:underline">FRP vs steel vs aluminum</Link>.
+          </p>
+          <p>
+            If your section is not in the catalog, tooling enters the picture: a custom die is a one-time cost of{" "}
+            {usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die to{" "}
+            {usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity one. The{" "}
+            <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:underline">custom pultrusions page</Link>{" "}
+            breaks down tooling, MOQ and lead time; the estimator still gives the per-meter baseline from the closest standard shape.
+          </p>
+          <p>
+            To check a section before pricing it, run the load case through the{" "}
+            <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>{" "}
+            or read allowable loads from the{" "}
+            <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:underline">FRP span tables</Link>.
+            Sizing first and pricing second avoids paying for stiffness you do not need.
           </p>
         </div>
-      </section>
+      </PageSection>
 
-      {/* What drives the price */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Cost Drivers</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Six factors that set a fiberglass profile price
-          </h2>
-          <div className="mt-[21px] grid max-w-[1100px] gap-[21px] md:grid-cols-2">
-            <div>
-              <h3 className="text-f18 font-bold text-t1">1. Section mass (kg per meter)</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                The single biggest driver. Glass and resin are bought by the kilogram, so a
-                305&times;305 I-beam at 16 kg/m simply contains ten times the material of a
-                50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes
-                are more meaningful than per-meter ones.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">2. Resin system</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                GP polyester is the baseline. Vinyl ester roughly doubles the resin unit cost
-                for chemical service; polyurethane buys impact strength and fine walls; epoxy
-                pairs with carbon. Because resin is 30&ndash;40% of the laminate by weight, a
-                resin upgrade moves the finished price by 10&ndash;25%, not 2&times;. The{" "}
-                <Link href="/technology/pultrusion-resin-systems" className="font-semibold text-teal-text hover:text-teal">
-                  resin systems guide
-                </Link>{" "}
-                covers selection in depth.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">3. Pull speed of the shape</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                Simple rounds pull at 3&ndash;4&times; the line speed of a deep wide-flange
-                beam, so the machine-hour cost lands very differently per meter. Open, thin,
-                symmetric shapes are cheap; thick flange-web junctions are slow.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">4. Order quantity</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                Setup, die warm-up, and first-article scrap amortize over the run. Expect
-                roughly 5% off at 1,000+ m, 8% at 5,000 m, 12% at 20,000 m &mdash; and a
-                premium below the family MOQ. The quantity column in the table above shows
-                the effect directly.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">5. Performance packages</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                Fire-retardant formulations (ASTM E84 targets), UV/weathering packages,
-                surface veil for corrosion and appearance, and non-standard colors each add
-                a defined premium. They stack, so specify what the application needs &mdash;
-                not everything at once.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-f18 font-bold text-t1">6. Fiber architecture</h3>
-              <p className="mt-[5px] text-f16 leading-golden text-t2">
-                ECR glass for acid service costs ~40% more than E-glass as a raw material;
-                carbon is in a different bracket entirely (see FAQ). Higher glass content
-                raises stiffness and raw cost per kg while lowering resin share &mdash; the
-                estimator exposes glass content indirectly through the material choice.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageSection id="firm-quote" title="How to turn this estimate into a firm offer" tone="white">
+        <ol className="grid gap-[12px] lg:grid-cols-3">
+          {[
+            { title: "Send the details", body: "The section drawing or catalog model number, total quantity with cut lengths, resin and performance requirements, and the destination port." },
+            { title: "Written quotation", body: `We reply within ${supplyTerms.responseTime}, then send per-meter and per-piece pricing, the packing specification and lead time, and for US destinations a DDP option with US duties itemized line by line.` },
+            { title: "Documents with the order", body: "Mill test reports ship with every order, and EN 13706 test data is available on request; the quality and testing page lists what is measured." },
+          ].map((step, index) => (
+            <li key={step.title} className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{step.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[16px] text-f14 leading-golden text-t2">
+          See <Link href="/technology/quality-testing" className="font-semibold text-teal-text hover:underline">quality and testing</Link> for the inspection records that go with an order.
+        </p>
+      </PageSection>
 
-      {/* Context & compare */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <SectionTag>Context</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            Reading FRP prices against steel and aluminum
-          </h2>
-          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f16 leading-golden text-t2">
-            <p>
-              Per kilogram, pultruded fiberglass costs more than mild steel. Per meter of
-              equivalent structural duty it is usually closer than the kg number suggests,
-              because the FRP section weighs 70&ndash;80% less &mdash; and per installed,
-              maintained meter over a service life in a corrosive environment, FRP routinely
-              wins outright: no galvanizing, no repainting cycles, no crane for placement.
-              The full argument, with worked numbers, lives in{" "}
-              <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:text-teal">
-                FRP vs steel vs aluminum
-              </Link>
-              .
-            </p>
-            <p>
-              If your section is not in the catalog, tooling enters the picture: a custom
-              die is a one-time USD 5,000&ndash;40,000 investment depending on complexity,
-              amortized over the die&rsquo;s production life. The{" "}
-              <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text hover:text-teal">
-                custom pultrusions page
-              </Link>{" "}
-              breaks down tooling, MOQ, and lead time; this estimator still gives you the
-              right per-meter baseline using the closest standard shape.
-            </p>
-            <p>
-              To sanity-check a section before pricing it, run the load case through the{" "}
-              <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:text-teal">
-                FRP profile calculator
-              </Link>{" "}
-              or read allowable loads straight from the{" "}
-              <Link href="/frp-span-tables" className="font-semibold text-teal-text hover:text-teal">
-                FRP span tables
-              </Link>{" "}
-              &mdash; sizing first, pricing second, avoids paying for stiffness you do not
-              need.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Firm quote path */}
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>From Estimate to Quote</SectionTag>
-          <h2 className="mt-[8px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            How to turn this estimate into a firm offer
-          </h2>
-          <div className="mt-[21px] max-w-[860px] space-y-[13px] text-f16 leading-golden text-t2">
-            <p>
-              Send the section drawing (or catalog model number), total quantity with cut
-              lengths, resin and performance requirements, and the destination port. We reply
-              within one business day, then send a written quotation: per-meter and per-piece pricing,
-              packing specification, lead time, and for US destinations a DDP option with
-              US duties itemized line by line. Mill test reports ship with every order, and
-              EN 13706 test data is available on request; see{" "}
-              <Link href="/technology/quality-testing" className="font-semibold text-teal-text hover:text-teal">
-                quality &amp; testing
-              </Link>{" "}
-              for what is measured.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqs} />
-        </div>
-      </section>
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
-            title: "Size & selection",
+            title: "Size and selection",
             links: [
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
-              { href: "/datasheets", label: "Profile datasheets & DXF drawings" },
+              { href: "/datasheets", label: "Profile datasheets and DXF drawings" },
               { href: "/frp-profile-calculator", label: "FRP profile calculator" },
               { href: "/frp-profile-calculator/methodology", label: "Calculator methodology" },
               { href: "/frp-profile-calculator/validation", label: "Calculator validation benchmarks" },
@@ -401,18 +312,21 @@ export default function ProfilePricePage() {
           {
             title: "Buying from China",
             links: [
-              { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "DDP, tariffs & HS codes guide" },
+              { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "DDP, tariffs and HS codes guide" },
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
-              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions & tooling cost" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions and tooling cost" },
               { href: "/resources/blog/fiberglass-window-profile-price-drivers", label: "Window profile price drivers" },
             ],
           },
         ]}
       />
 
-      <AskAICard prefill="I need budgetary pricing for a pultruded FRP profile: shape [I-beam/channel/tube], dimensions [mm], resin [polyester/VE/PU], quantity [meters], destination [port/country]. What drives the price here and what would you quote indicatively?" />
-
-      <InnerCTA title="Ready for firm pricing? Send us your drawing for a quote." />
+      <InnerCTA
+        title="Ready for firm pricing? Send us your drawing for a quote."
+        quoteHref={quoteHref}
+        text="Send the drawing or model number, quantity with cut lengths, resin and performance requirements, and the destination."
+        advisorPrompt="I need budgetary pricing for a pultruded FRP profile: shape [I-beam/channel/tube], dimensions [mm], resin [polyester/VE/PU], quantity [meters], destination [port/country]. What drives the price here and what would you quote indicatively?"
+      />
     </>
   );
 }

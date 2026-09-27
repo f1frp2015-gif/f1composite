@@ -31,7 +31,7 @@ export const industries: Industry[] = [
   {
     slug: "marine",
     title: "Marine & Offshore",
-    description: "Saltwater-resistant gratings and profiles for docks, offshore platforms, and vessels.",
+    description: "Saltwater-resistant grating, decking and profiles for docks, marinas, boardwalks and offshore access.",
     icon: "anchor",
     href: "/industries/marine",
   },

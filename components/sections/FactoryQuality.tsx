@@ -28,21 +28,19 @@ export default function FactoryQuality() {
             </p>
 
             <ol className="mt-[24px] divide-y divide-border-default border-y border-border-default">
-              {checkpoints.map((item) => (
-                <li key={item.number} className="grid grid-cols-[34px_1fr] gap-[12px] py-[13px]">
-                  <span className="pt-[2px] text-f12 font-extrabold text-teal-text">{item.number}</span>
-                  <div>
-                    <h3 className="text-f14 font-bold text-t1">{item.title}</h3>
-                    <p className="mt-[2px] text-f14 leading-relaxed text-t2">{item.description}</p>
-                  </div>
+              {checkpoints.map((item, index) => (
+                <li key={item.number} className="py-[12px]">
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Check {index + 1}</p>
+                  <h3 className="mt-[2px] text-f16 font-bold text-t1">{item.title}</h3>
+                  <p className="mt-[2px] text-f14 leading-golden text-t2">{item.description}</p>
                 </li>
               ))}
             </ol>
 
             <div className="mt-[20px] flex flex-wrap gap-[10px]">
-              <Button href="/technology/quality-testing">Review Quality System</Button>
+              <Button href="/technology/quality-testing">Review the quality system</Button>
               <Button href="/products/frp-pultrusion-manufacturer-factory-direct" variant="secondary">
-                Factory-Direct Supply
+                Factory-direct supply
               </Button>
             </div>
           </div>
@@ -52,11 +50,11 @@ export default function FactoryQuality() {
           </div>
         </div>
 
-        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-white px-[18px] py-[15px] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-[28px] flex flex-col gap-[10px] rounded-card border border-border-default bg-white px-[20px] py-[14px] sm:flex-row sm:items-center sm:justify-between">
           <p className="text-f14 font-bold text-t1">Technical documents for your specification</p>
-          <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
+          <div className="flex flex-wrap gap-x-[20px] gap-y-[6px]">
             {standards.map((standard) => (
-              <Link href={standard.href} key={standard.href} className="text-f12 font-bold uppercase tracking-[0.07em] text-t3">
+              <Link href={standard.href} key={standard.href} className="text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
                 {standard.label}
               </Link>
             ))}

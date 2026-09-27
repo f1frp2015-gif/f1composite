@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import Figure from "@/components/ui/Figure";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import PageSection from "@/components/layout/PageSection";
 import PultrusionAnimation from "./PultrusionAnimation";
 import InnerCTA from "@/components/sections/InnerCTA";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
+import ReadMore from "@/components/ui/ReadMore";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
@@ -44,7 +47,7 @@ interface ProcessStage {
 const processStages: ProcessStage[] = [
   {
     step: 1,
-    title: "Fiber Creel",
+    title: "Fiber creel",
     subtitle: "50–300+ spools of continuous fiber roving organized on a steel rack",
     params: [
       { label: "Fibers", value: "E-glass, ECR-glass, carbon, aramid" },
@@ -58,7 +61,7 @@ const processStages: ProcessStage[] = [
   },
   {
     step: 2,
-    title: "Guide Plate",
+    title: "Guide plate",
     subtitle: "Precision cards with ceramic-lined eyelets arrange fibers into the correct spatial configuration",
     params: [
       { label: "Function", value: "Spatial arrangement + pre-tensioning" },
@@ -72,25 +75,25 @@ const processStages: ProcessStage[] = [
   },
   {
     step: 3,
-    title: "Resin Impregnation",
+    title: "Resin impregnation",
     subtitle: "Fibers are fully wetted with thermoset resin via injection or open-bath",
     params: [
       { label: "Method", value: "Injection (standard) or open-bath" },
       { label: "Injection pressure", value: "3–8 bar" },
-      { label: "Ratio control", value: "±1 % of target (injection)" },
+      { label: "Ratio control", value: "±1% of target (injection)" },
     ],
     detail: [
-      "Every fiber filament must be completely wetted by the resin system: any dry fibers create internal voids that reduce mechanical strength and durability. In injection systems, resin is injected under controlled pressure (3–8 bar) into a sealed chamber at the die entrance. This achieves near-zero emissions, minimal waste, and ±1 % resin-to-fiber ratio control.",
-      "Open-bath systems submerge fibers in a resin trough: simpler and lower cost, but with higher styrene emissions and ±3–5 % ratio control. Injection pultrusion is our standard process.",
+      "Every fiber filament must be completely wetted by the resin system: any dry fibers create internal voids that reduce mechanical strength and durability. In injection systems, resin is injected under controlled pressure (3–8 bar) into a sealed chamber at the die entrance. This achieves near-zero emissions, minimal waste, and ±1% resin-to-fiber ratio control.",
+      "Open-bath systems submerge fibers in a resin trough: simpler and lower cost, but with higher styrene emissions and ±3–5% ratio control. Injection pultrusion is our standard process.",
     ],
   },
   {
     step: 4,
-    title: "Heated Die",
+    title: "Heated die",
     subtitle: "Chrome-plated steel die at 120–180 °C cures the resin and forms the profile shape",
     params: [
       { label: "Die length", value: "600–1200 mm" },
-      { label: "Temperature", value: "100–180 °C, 3-zone control" },
+      { label: "Temperature", value: "120–180 °C typical, 3-zone control" },
       { label: "Accuracy", value: "±2 °C across all zones" },
     ],
     detail: [
@@ -100,21 +103,21 @@ const processStages: ProcessStage[] = [
   },
   {
     step: 5,
-    title: "Pull Mechanism",
+    title: "Pull mechanism",
     subtitle: "Reciprocating clamp or caterpillar puller draws the cured profile at 0.3–1.5 m/min",
     params: [
       { label: "Pull speed", value: "0.3–1.5 m/min (typical)" },
       { label: "Max pull force", value: "Up to 100 kN" },
-      { label: "Control", value: "Servo-driven, ±0.5 % accuracy" },
+      { label: "Control", value: "Servo-driven, ±0.5% accuracy" },
     ],
     detail: [
       "Two types of puller are used: reciprocating clamp pullers (hydraulic, for large profiles requiring up to 100 kN pull force) and caterpillar belt pullers (smoother, vibration-free, preferred for thin-walled profiles).",
-      "Pull speed determines the residence time inside the heated die and controls the degree of cure. Thick-walled profiles run at 0.3 m/min (longer heat penetration time), while small shapes reach 1.5 m/min. Our servo-driven pullers maintain ±0.5 % speed accuracy.",
+      "Pull speed determines the residence time inside the heated die and controls the degree of cure. Thick-walled profiles run at 0.3 m/min (longer heat penetration time), while small shapes reach 1.5 m/min. Our servo-driven pullers maintain ±0.5% speed accuracy.",
     ],
   },
   {
     step: 6,
-    title: "Cut-Off",
+    title: "Cut-off",
     subtitle: "Flying saw cuts continuous profile to length without stopping the line",
     params: [
       { label: "Blade", value: "Diamond/carbide-tipped, wet cutting" },
@@ -140,14 +143,14 @@ interface MethodComparison {
 }
 
 const methodComparison: MethodComparison[] = [
-  { parameter: "VOC Emissions", injection: "Near zero", openBath: "High", injectionBetter: true },
-  { parameter: "Resin Ratio Control", injection: "±1 %", openBath: "±3–5 %", injectionBetter: true },
-  { parameter: "Resin Waste", injection: "Minimal", openBath: "5–10 %", injectionBetter: true },
-  { parameter: "Surface Finish", injection: "Excellent", openBath: "Good", injectionBetter: true },
-  { parameter: "Capital Cost", injection: "Higher", openBath: "Lower", injectionBetter: false },
-  { parameter: "Resin Compatibility", injection: "Polyester, VE, epoxy, PU", openBath: "Polyester, VE", injectionBetter: true },
-  { parameter: "Changeover Time", injection: "30–60 min", openBath: "15–30 min", injectionBetter: false },
-  { parameter: "Operator Exposure", injection: "Minimal", openBath: "Significant", injectionBetter: true },
+  { parameter: "VOC emissions", injection: "Near zero", openBath: "High", injectionBetter: true },
+  { parameter: "Resin ratio control", injection: "±1%", openBath: "±3–5%", injectionBetter: true },
+  { parameter: "Resin waste", injection: "Minimal", openBath: "5–10%", injectionBetter: true },
+  { parameter: "Surface finish", injection: "Excellent", openBath: "Good", injectionBetter: true },
+  { parameter: "Capital cost", injection: "Higher", openBath: "Lower", injectionBetter: false },
+  { parameter: "Resin compatibility", injection: "Polyester, VE, epoxy, PU", openBath: "Polyester, VE", injectionBetter: true },
+  { parameter: "Changeover time", injection: "30–60 min", openBath: "15–30 min", injectionBetter: false },
+  { parameter: "Operator exposure", injection: "Minimal", openBath: "Significant", injectionBetter: true },
 ];
 
 /* ═══════════════════════════════════════════════════════
@@ -155,14 +158,14 @@ const methodComparison: MethodComparison[] = [
    ═══════════════════════════════════════════════════════ */
 
 const equipmentSpecs = [
-  { parameter: "Line Speed", range: "0.2 – 2.0 m/min", note: "Servo-controlled, ±0.5 % accuracy" },
-  { parameter: "Die Temperature", range: "100 – 200 °C", note: "3-zone independent control, ±2 °C" },
-  { parameter: "Maximum Pull Force", range: "Up to 100 kN", note: "Hydraulic clamp puller" },
-  { parameter: "Profile Envelope", range: "500 mm × 100 mm", note: "Width × depth bounding rectangle" },
-  { parameter: "Min. Wall Thickness", range: "1.5 mm", note: "With CFM reinforcement" },
-  { parameter: "Fiber Volume Fraction", range: "55 – 72 %", note: "Geometry and resin dependent" },
-  { parameter: "Injection Pressure", range: "3 – 8 bar", note: "Closed-loop pressure regulation" },
-  { parameter: "Cut-Off Accuracy", range: "±0.5 mm", note: "Flying saw, automatic tracking" },
+  { parameter: "Line speed range", range: "0.2–2.0 m/min", note: "Servo-controlled, ±0.5% accuracy" },
+  { parameter: "Die heating range", range: "100–200 °C", note: "Three independent zones, ±2 °C" },
+  { parameter: "Maximum pull force", range: "Up to 100 kN", note: "Hydraulic clamp puller" },
+  { parameter: "Profile envelope", range: "500 × 100 mm", note: "Width × depth bounding rectangle" },
+  { parameter: "Minimum wall", range: "1.5 mm", note: "With CFM reinforcement" },
+  { parameter: "Fiber volume range", range: "55–72%", note: "Depends on geometry and resin" },
+  { parameter: "Injection pressure", range: "3–8 bar", note: "Closed-loop pressure regulation" },
+  { parameter: "Cut-off accuracy", range: "±0.5 mm", note: "Flying saw with automatic tracking" },
 ];
 
 /* ═══════════════════════════════════════════════════════
@@ -180,7 +183,7 @@ const faqItems = [
   },
   {
     question: "What is the difference between injection and open-bath pultrusion?",
-    answer: "In open-bath pultrusion, fibers pass through an open resin trough. In injection pultrusion, resin is injected into a sealed chamber under 3–8 bar pressure. Injection offers near-zero VOC emissions, ±1 % resin ratio control, less waste, and better surface finish. Open-bath is simpler and lower in capital cost.",
+    answer: "In open-bath pultrusion, fibers pass through an open resin trough. In injection pultrusion, resin is injected into a sealed chamber under 3–8 bar pressure. Injection offers near-zero VOC emissions, ±1% resin ratio control, less waste, and better surface finish. Open-bath is simpler and lower in capital cost.",
   },
   {
     question: "What types of fibers and resins are used?",
@@ -188,13 +191,15 @@ const faqItems = [
   },
   {
     question: "What are the advantages of pultrusion over hand lay-up or filament winding?",
-    answer: "Pultrusion is the most cost-effective method for constant-cross-section profiles: continuous, highly automated, 60–70 % fiber volume fraction (vs 30–45 % for hand lay-up). Hand lay-up suits complex one-off shapes. Filament winding suits hollow rotational parts (pipes, tanks) but cannot produce open shapes like I-beams or channels.",
+    answer: "Pultrusion is the most cost-effective method for constant-cross-section profiles: continuous, highly automated, 60–70% fiber volume fraction (vs 30–45% for hand lay-up). Hand lay-up suits complex one-off shapes. Filament winding suits hollow rotational parts (pipes, tanks) but cannot produce open shapes like I-beams or channels.",
   },
 ];
 
 /* ═══════════════════════════════════════════════════════
    SVG Icons for each stage
    ═══════════════════════════════════════════════════════ */
+
+const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 function StageIcon({ step }: { step: number }) {
   const paths: Record<number, React.ReactNode> = {
@@ -249,17 +254,9 @@ function StageIcon({ step }: { step: number }) {
   };
 
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="text-teal">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" className="shrink-0 text-teal">
       <rect width="40" height="40" rx="8" className="fill-teal-bg" />
       {paths[step]}
-    </svg>
-  );
-}
-
-function ChevronDown({ className }: { className?: string }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={className}>
-      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -319,264 +316,169 @@ export default function PultrusionProcessPage() {
       <PageHeader
         updated={updatedAt}
         tag="Pultrusion Process"
-        title="The Fiberglass Pultrusion Process, Step by Step"
+        title="The fiberglass pultrusion process, step by step"
         description="Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Fiber makes up 60–70% of the profile by volume, which gives pultruded sections high strength along their length."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
           { label: "Pultrusion Process" },
         ]}
+        facts={[
+          { label: "Fiber volume", value: "60–70%" },
+          { label: "Line speed", value: "0.3–1.5 m/min" },
+          { label: "Die temperature", value: "±2 °C" },
+          { label: "Cut-off length", value: "±0.5 mm" },
+        ]}
+        figure={
+          <Figure number={1} title="F1 Composite pultrusion hall" note="Production photo" bleed>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                alt="Inside an F1 Composite pultrusion plant — multiple parallel continuous pultrusion lines in production"
+                fill
+                sizes="(max-width: 1023px) 94vw, 44vw"
+                className="object-cover"
+                preload
+              />
+            </div>
+          </Figure>
+        }
       />
-      {/* ── Key stats bar ── */}
-      <section className="bg-white py-[34px]">
-        <div className="site-container">
-          <div className="grid grid-cols-2 gap-[13px] sm:grid-cols-4">
-            {[
-              { value: "60–70%", label: "Fiber volume fraction" },
-              { value: "0.3–1.5", label: "m/min line speed" },
-              { value: "±2°C", label: "Die temp accuracy" },
-              { value: "±0.5mm", label: "Cut-off tolerance" },
-            ].map((s) => (
-              <div key={s.label} className="rounded-card bg-bg2 px-[21px] py-[13px] text-center">
-                <span className="text-f24 font-extrabold text-teal-text">{s.value}</span>
-                <p className="mt-[3px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hero image */}
-      <section className="bg-white pb-[34px]">
-        <div className="site-container">
-          <div className="overflow-hidden rounded-card">
-            <Image
-              src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
-              alt="Inside an F1 Composite pultrusion plant — multiple parallel continuous pultrusion lines in production"
-              width={2000}
-              height={788}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="h-auto w-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
+      <PageNav items={[{ id: "process-flow", label: "Six stages" }, { id: "impregnation-methods", label: "Impregnation" }, { id: "equipment", label: "Line specifications" }, { id: "faq", label: "FAQ" }]} />
       {/* ══════════════════════════════════════════════════
          §1  Process Flow — visual diagram
          ══════════════════════════════════════════════════ */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Process Flow</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            The Six Stages of Pultrusion
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            Watch the full line in motion, from fiber pay-off to the flying cut-off saw. Every
-            speed in the animation is derived from one line speed, just like a real production
-            line.
-          </p>
+      <PageSection id="process-flow" title="The six stages of pultrusion" tone="white" intro="Watch the full line in motion, from fiber pay-off to the flying cut-off saw. Every speed in the animation is derived from one line speed, as on a real line.">
+        <PultrusionAnimation />
 
-          {/* ── Animated line schematic ── */}
-          <div className="mt-[34px]">
-            <PultrusionAnimation />
-          </div>
-
-          {/* ── Horizontal flow diagram (desktop: 6 columns, mobile: vertical) ── */}
-          <div className="relative mt-[55px]">
-            {/* Connector line — desktop */}
-            <div className="absolute left-[50px] right-[50px] top-[19px] hidden h-[2px] bg-gradient-to-r from-teal via-teal/60 to-teal/30 lg:block" />
-            {/* Connector line — mobile */}
-            <div className="absolute left-[19px] top-[20px] h-[calc(100%-40px)] w-[2px] bg-gradient-to-b from-teal via-teal/60 to-teal/30 lg:hidden" />
-
-            <div className="grid gap-[34px] lg:grid-cols-6 lg:gap-[13px]">
-              {processStages.map((stage) => (
-                <div
-                  key={stage.step}
-                  id={`step-${stage.step}`}
-                  className="relative scroll-mt-[89px] pl-[55px] lg:pl-0"
-                >
-                  {/* Step circle — mobile */}
-                  <div className="absolute left-[5px] top-0 flex h-[28px] w-[28px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f12 font-extrabold text-teal-text lg:hidden">
-                    {stage.step}
-                  </div>
-
-                  {/* Step icon — desktop */}
-                  <div className="hidden lg:flex lg:justify-center">
-                    <div className="relative z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border-[3px] border-teal bg-white text-f14 font-extrabold text-teal-text">
-                      {stage.step}
-                    </div>
-                  </div>
-
-                  {/* Icon + title */}
-                  <div className="mt-0 lg:mt-[13px] lg:text-center">
-                    <div className="hidden lg:flex lg:justify-center">
-                      <StageIcon step={stage.step} />
-                    </div>
-                    <h3 className="text-f16 font-bold text-t1 lg:mt-[8px]">{stage.title}</h3>
-                    <p className="mt-[3px] text-f12 leading-golden text-t3">{stage.subtitle}</p>
-                  </div>
-
-                  {/* Key parameters */}
-                  <div className="mt-[8px] space-y-[3px]">
-                    {stage.params.map((p) => (
-                      <div key={p.label} className="text-f12 leading-golden">
-                        <span className="font-bold text-t2">{p.label}: </span>
-                        <span className="text-t3">{p.value}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Collapsible detail */}
-                  <details className="group mt-[8px]">
-                    <summary className="flex cursor-pointer select-none items-center gap-[5px] text-f12 font-bold text-teal-text transition-colors hover:text-teal">
-                      <ChevronDown className="h-[14px] w-[14px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
-                      Details
-                    </summary>
-                    <div className="mt-[8px] space-y-[8px] pl-[19px] text-f14 leading-golden text-t2">
-                      {stage.detail.map((para, j) => (
-                        <p key={j}>{para}</p>
-                      ))}
-                    </div>
-                  </details>
+        <ol className="mt-[32px] grid gap-[12px] md:grid-cols-2 lg:grid-cols-3">
+          {processStages.map((stage) => (
+            <li key={stage.step} id={`step-${stage.step}`} className="scroll-mt-[40px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
+              <div className="flex items-start justify-between gap-[12px]">
+                <div>
+                  <p className={mono}>Stage {stage.step}</p>
+                  <h3 className="mt-[4px] text-f18 font-bold text-t1">{stage.title}</h3>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Simplified flow arrow diagram */}
-          <div className="mt-[55px] hidden overflow-x-auto lg:block">
-            <div className="flex items-center justify-center gap-[5px] text-f14">
-              {processStages.map((stage, i) => (
-                <div key={stage.step} className="flex items-center gap-[5px]">
-                  <div className="flex items-center gap-[5px] rounded-full bg-teal px-[13px] py-[5px] text-white">
-                    <span className="font-extrabold">{stage.step}</span>
-                    <span className="font-bold">{stage.title}</span>
+                <StageIcon step={stage.step} />
+              </div>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{stage.subtitle}</p>
+              <dl className="mt-[12px] space-y-[6px] border-t border-border-default pt-[12px] text-f14 leading-golden">
+                {stage.params.map((param) => (
+                  <div key={param.label} className="grid grid-cols-[minmax(96px,40%)_1fr] gap-[12px]">
+                    <dt className="text-t3">{param.label}</dt>
+                    <dd className="text-t1">{param.value}</dd>
                   </div>
-                  {i < processStages.length - 1 && (
-                    <svg width="24" height="12" viewBox="0 0 24 12" className="shrink-0 text-teal/40">
-                      <path d="M0 6h20M16 2l4 4-4 4" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+                ))}
+              </dl>
+              <ReadMore label="How it works" className="mt-[4px]">
+                {stage.detail.map((paragraph) => (
+                  <p key={paragraph} className="text-f14 leading-golden text-t2">{paragraph}</p>
+                ))}
+              </ReadMore>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
 
       {/* ══════════════════════════════════════════════════
          §2  Injection vs Open-Bath — visual comparison
          ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Impregnation Methods</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Injection vs Open-Bath
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            We operate injection pultrusion as our standard process. The comparison below
-            shows why.
-          </p>
-
-          <div className="mt-[34px] overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-f14 leading-golden">
-              <thead>
-                <tr className="border-b-2 border-teal-border bg-teal-bg text-left">
-                  <th className="px-[13px] py-[13px] font-bold text-t1">Parameter</th>
-                  <th className="px-[13px] py-[13px] font-bold text-teal">Injection</th>
-                  <th className="px-[13px] py-[13px] font-bold text-t1">Open-Bath</th>
+      <PageSection id="impregnation-methods" title="Injection vs open bath" tone="muted" intro="We run injection pultrusion as our standard process. The stronger option on each row is set in bold.">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[600px] border-collapse text-left text-f14 leading-golden">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Parameter</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] font-semibold text-teal-text">Injection (our standard)</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Open bath</th>
+              </tr>
+            </thead>
+            <tbody>
+              {methodComparison.map((row) => (
+                <tr key={row.parameter} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.parameter}</th>
+                  <td className={`bg-teal-bg px-[14px] py-[10px] ${row.injectionBetter ? "font-semibold text-t1" : "text-t2"}`}>{row.injection}</td>
+                  <td className={`px-[14px] py-[10px] ${!row.injectionBetter ? "font-semibold text-t1" : "text-t2"}`}>{row.openBath}</td>
                 </tr>
-              </thead>
-              <tbody className="divide-y divide-border-default">
-                {methodComparison.map((row, i) => (
-                  <tr key={row.parameter} className={i % 2 === 0 ? "bg-white" : "bg-bg2"}>
-                    <td className="px-[13px] py-[13px] font-semibold text-t1">{row.parameter}</td>
-                    <td className={`px-[13px] py-[13px] ${row.injectionBetter ? "font-bold text-teal" : "text-t2"}`}>
-                      {row.injection}
-                    </td>
-                    <td className={`px-[13px] py-[13px] ${!row.injectionBetter ? "font-bold text-t1" : "text-t2"}`}>
-                      {row.openBath}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+      </PageSection>
 
       {/* ══════════════════════════════════════════════════
          §3  Equipment Specs — data-driven
          ══════════════════════════════════════════════════ */}
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Equipment</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(26px,3vw,38px)] font-extrabold leading-[1.15] tracking-[-0.02em] text-t1">
-            Production Line Specifications
-          </h2>
+      <PageSection id="equipment" title="Production line specifications" tone="white">
+        <Figure number={3} title="Plant floor" note="Production photo" bleed>
+          <Image
+            src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
+            alt="Finished pultruded profiles on inspection tables beside fiber-handling and pulling equipment in an F1 Composite plant"
+            sizes="(max-width: 1280px) 94vw, 1216px"
+            width={2000}
+            height={832}
+            className="h-auto w-full"
+          />
+        </Figure>
 
-          <div className="mt-[34px] overflow-hidden rounded-card">
-            <Image
-              src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
-              alt="F1 Composite pultrusion plant floor — finished pultruded profiles on inspection tables alongside fiber-handling and pulling equipment"
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              width={2000}
-              height={832}
-              className="h-auto w-full object-cover"
-            />
-          </div>
+        <ul className="mt-[20px] grid grid-cols-2 gap-[12px] lg:grid-cols-4">
+          {equipmentSpecs.map((spec) => (
+            <li key={spec.parameter} className="rounded-card border border-border-default bg-bg2 p-[16px] sm:p-[20px]">
+              <p className={mono}>{spec.parameter}</p>
+              <p className="mt-[4px] text-f18 font-bold text-t1">{spec.range}</p>
+              <p className="mt-[4px] text-f14 leading-golden text-t3">{spec.note}</p>
+            </li>
+          ))}
+        </ul>
 
-          <div className="mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
-            {equipmentSpecs.map((spec) => (
-              <div key={spec.parameter} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">{spec.parameter}</p>
-                <p className="mt-[5px] text-f18 font-extrabold text-t1">{spec.range}</p>
-                <p className="mt-[3px] text-f12 text-t3">{spec.note}</p>
-              </div>
-            ))}
-          </div>
+        <ReadMore label="How the process parameters are controlled" className="mt-[12px]">
+          <p className="text-f16 leading-golden text-t2">
+            Every production run is governed by a validated recipe specifying exact values
+            for pull speed, die zone temperatures, injection pressure, and resin mix ratios.
+            Recipes are stored digitally and version-controlled; any parameter change triggers
+            a formal engineering change order (ECO) with re-validation testing.
+          </p>
+          <p className="text-f16 leading-golden text-t2">
+            Real-time statistical process control (SPC) monitors key parameters at one-second
+            intervals against control limits. If any parameter drifts outside its control band,
+            the system generates an immediate alert and can automatically pause the puller for
+            critical deviations.
+          </p>
+        </ReadMore>
+      </PageSection>
 
-          <details className="group mt-[34px]">
-            <summary className="flex cursor-pointer select-none items-center gap-[8px] text-f14 font-bold text-teal-text transition-colors hover:text-teal">
-              <ChevronDown className="h-[16px] w-[16px] shrink-0 transition-transform duration-200 group-open:rotate-180" />
-              Process parameter control details
-            </summary>
-            <div className="mt-[13px] space-y-[13px] pl-[24px] text-f16 leading-golden text-t2">
-              <p>
-                Every production run is governed by a validated recipe specifying exact values
-                for pull speed, die zone temperatures, injection pressure, and resin mix ratios.
-                Recipes are stored digitally and version-controlled; any parameter change triggers
-                a formal engineering change order (ECO) with re-validation testing.
-              </p>
-              <p>
-                Real-time statistical process control (SPC) monitors key parameters at one-second
-                intervals against control limits. If any parameter drifts outside its control band,
-                the system generates an immediate alert and can automatically pause the puller for
-                critical deviations.
-              </p>
-            </div>
-          </details>
-        </div>
-      </section>
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqItems} />
+      </PageSection>
 
-      {/* ── Cross-links and FAQ ── */}
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Related Resources</SectionTag>
-          <h2 className="mt-[21px] text-f24 font-bold text-t1">Explore Further</h2>
-          <div className="mt-[21px] flex flex-wrap gap-[21px]">
-            <LinkArrow href="/pultruded-frp-profiles">FRP pultruded profiles</LinkArrow>
-            <LinkArrow href="/products/custom-pultruded-profiles">Custom pultrusion services</LinkArrow>
-            <LinkArrow href="/what-is-frp">What is FRP?</LinkArrow>
-            <LinkArrow href="/technology/pultrusion-resin-systems">Resin Systems &amp; Matrix Selection</LinkArrow>
-            <LinkArrow href="/technology/knowhow-services">Know-How Transfer Services</LinkArrow>
-            <LinkArrow href="/technology/frp-vs-traditional-materials">FRP vs Traditional Materials</LinkArrow>
-            <LinkArrow href="/technology/quality-testing">Quality & Testing Standards</LinkArrow>
-          </div>
-          <FAQ items={faqItems} />
-        </div>
-      </section>
+      <RelatedLinks background="white"
+        groups={[
+          {
+            title: "Products",
+            links: [
+              { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles" },
+              { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
+              { href: "/technology/knowhow-services", label: "Know-how transfer services" },
+            ],
+          },
+          {
+            title: "Materials",
+            links: [
+              { href: "/what-is-frp", label: "What is FRP?" },
+              { href: "/technology/pultrusion-resin-systems", label: "Resin systems and matrix selection" },
+              { href: "/technology/frp-vs-traditional-materials", label: "FRP vs traditional materials" },
+            ],
+          },
+          {
+            title: "Quality",
+            links: [
+              { href: "/technology/quality-testing", label: "Quality and testing standards" },
+              { href: "/technology/pultrusion-vs-extrusion-filament-winding", label: "Pultrusion vs extrusion and filament winding" },
+              { href: "/resources/technical-data", label: "Technical data" },
+            ],
+          },
+        ]}
+      />
 
       <InnerCTA title="Ready to discuss your pultrusion requirements?" />
     </>

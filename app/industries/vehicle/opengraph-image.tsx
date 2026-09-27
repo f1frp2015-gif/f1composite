@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "Vehicle",
-    title: "Lightweight FRP Profiles for Commercial Vehicles, Rail, and Specialty Transport",
+    title: "FRP Profiles for Bus, Trailer, Rail and Specialty Vehicles",
     description:
-      "Pultruded FRP profiles reduce vehicle weight, resist corrosion, and extend service life across bus, truck, rail, and specialty transport applications.",
+      "Pultruded profiles for selected body, wall and interior components, designed around the vehicle maker's loads, joints and fire requirements.",
     accent: "#126f68",
-    chips: ["Lightweight", "Corrosion-free", "Rail & transport"],
+    chips: ["Lighter than steel", "Does not rust", "Custom sections"],
   });
 }

@@ -83,7 +83,7 @@ export default async function RodPage() {
         tag="Round Rod"
         line={{ name: "F1-STRUX", label: "Round rod" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Rods (Solid FRP)"
+        title="Fiberglass rods (solid FRP)"
         description="Solid pultruded fiberglass rods from Ø6 to Ø50 mm with 65–70% unidirectional glass. Non-magnetic and non-conductive, for soil nails, rock bolts, tie-rods and plant stakes."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Diameter", values: sizes.map((size) => size.d), prefix: "Ø", weights: sizes.map((size) => size.mass ?? NaN) }),

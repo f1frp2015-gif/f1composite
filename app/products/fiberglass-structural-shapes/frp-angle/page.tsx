@@ -74,7 +74,7 @@ export default async function AnglePage() {
         tag="Angle"
         line={{ name: "F1-STRUX", label: "Angle" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Angle (FRP) Profiles"
+        title="Fiberglass angle (FRP) profiles"
         description="Equal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm, with unequal legs made to order. Used as stiffeners, bracing, ledgers and connection angles where steel would corrode."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),

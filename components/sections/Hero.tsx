@@ -60,14 +60,14 @@ export default function Hero() {
 
           <div className="mt-[16px] flex flex-wrap gap-[11px]">
             <Button href="/pultruded-frp-profiles" className="!bg-teal-text !text-white hover:!bg-teal">
-              Explore Pultruded Profiles
+              Explore pultruded profiles
             </Button>
             <Button
               href={buildRfqHref({ source: "homepage-custom", product: "Custom Pultruded Profiles", productPath: "/products/custom-pultruded-profiles", message: "Please review my custom profile.\nDrawing / cross-section:\nMaterial or service environment:\nLength and quantity:\nDelivery country:" })}
               variant="secondary"
               className="!border-white/25 !bg-transparent !text-white hover:!border-white/45 hover:!bg-white/10"
             >
-              Send Your Drawing
+              Send your drawing
             </Button>
           </div>
         </div>

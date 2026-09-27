@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import Figure from "@/components/ui/Figure";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import CoverCard from "@/components/ui/CoverCard";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import SectionTag from "@/components/ui/SectionTag";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { caseStudyCovers, productCovers } from "@/lib/covers";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -124,6 +129,25 @@ const faqs = [
   },
 ];
 
+// The three window cases, each shown by the picture its case opens on.
+const installations = [
+  {
+    href: "/case-studies/qinling-station-antarctic-passive-windows",
+    title: "Qinling Station, Antarctica: −60°C design low",
+    text: "90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phB efficiency class for the cool-temperate climate zone, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.",
+  },
+  {
+    href: "/case-studies/baotou-industrial-gfrp-pu-windows",
+    title: "Baotou Industrial Park: −25°C plus chemical exposure",
+    text: "70/80/90-series GFRP-PU windows on a severe-cold-zone manufacturing campus, chosen to beat an aluminum thermal-bridge penalty while resisting acid mist and chloride aerosol without a recoating cycle.",
+  },
+  {
+    href: "/case-studies/wanhua-yantai-zero-carbon-windows",
+    title: "Wanhua Yantai Zero-Carbon Community: 13,657 m² of GFRP-PU fenestration",
+    text: "Whole-window Uw 0.99 W/m²·K across 13,657 m² of dormitory windows on a near-zero energy development, with measured airtightness of N50 = 1.0.",
+  },
+] as const;
+
 export default function PolyurethanePultrusionWindowsPage() {
   const articleSchema = {
     "@context": "https://schema.org",
@@ -148,9 +172,16 @@ export default function PolyurethanePultrusionWindowsPage() {
     <>
       <JsonLd data={articleSchema} />
       <PageHeader
+        figure={
+          <Figure number={1} title="90 series corner section" note="Rendering" bleed>
+            <div className="relative aspect-[16/10] bg-white">
+              <Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series GFRP-PU window frame with triple glazing" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-contain p-[16px]" preload />
+            </div>
+          </Figure>
+        }
         updated={updatedAt}
         tag="Material Technology"
-        title="Polyurethane Pultrusion Windows (GFRP-PU)"
+        title="Polyurethane pultrusion windows (GFRP-PU)"
         description="Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -158,144 +189,109 @@ export default function PolyurethanePultrusionWindowsPage() {
           { label: "Polyurethane Pultrusion Windows" },
         ]}
       />
+      <PageNav items={[{ id: "short-answer", label: "Short answer" }, { id: "resin-comparison", label: "Resin comparison" }, { id: "where-it-is-proven", label: "Where it is proven" }, { id: "how-to-buy", label: "How to buy" }, { id: "faq", label: "FAQ" }, { id: "products", label: "Products" }]} />
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>The Short Answer</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Same pultrusion process, tougher matrix: the frame technology behind arctic-class windows
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window, but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
-          </p>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            F1 Composite supplies GFRP-PU window profiles as standard for its 90-series fenestration system: the frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
-          </p>
-        </div>
-      </section>
+      <PageSection id="short-answer" title="Same pultrusion process, tougher matrix: the frame technology behind arctic-class windows" tone="white">
+        <p className="text-f16 leading-golden text-t2">
+          A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window, but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          F1 Composite pultrudes its window and door profiles in GFRP-PU, including the 90-series frame behind PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone) and the windows installed at Qinling Station, Antarctica. This page explains what the PU chemistry changes, when it is worth the premium, and how the profiles are supplied.
+        </p>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>Resin Comparison</SectionTag>
-          <h2 className="mt-[13px] text-f24 font-bold text-t1 md:text-f32">
-            Polyurethane vs vinyl ester vs polyester in a pultruded window profile
-          </h2>
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            All three matrices produce an insulating fiberglass frame at ≈ 0.3 W/m·K conductivity. The differences show up in mechanical performance and manufacturability. Highlighted rows show where polyurethane leads.
-          </p>
-          <div className="mt-[34px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full border-collapse text-f14">
-              <thead>
-                <tr className="border-b-2 border-border-default bg-bg2">
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Property</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Polyurethane (GFRP-PU)</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Vinyl ester</th>
-                  <th className="px-[13px] py-[13px] text-left font-bold text-t1">Polyester</th>
+      <PageSection id="resin-comparison" title="Polyurethane vs vinyl ester vs polyester in a pultruded window profile" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          All three matrices produce an insulating fiberglass frame at ≈ 0.3 W/m·K conductivity. The differences show up in mechanical performance and manufacturability. Bold marks the properties where polyurethane leads.
+        </p>
+        <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full border-collapse text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Property</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Polyurethane (GFRP-PU)</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Vinyl ester</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Polyester</th>
+              </tr>
+            </thead>
+            <tbody>
+              {resinComparison.map((row) => (
+                <tr
+                  key={row.property}
+                  className="border-b border-border-default align-top last:border-b-0"
+                >
+                  <th scope="row" className="px-[14px] py-[10px] text-left font-semibold text-t1">{row.property}</th>
+                  <td className={`bg-teal-bg px-[14px] py-[10px] ${row.puBetter ? "font-semibold text-t1" : "text-t2"}`}>
+                    {row.pu}
+                  </td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.vinylester}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.polyester}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {resinComparison.map((row) => (
-                  <tr
-                    key={row.property}
-                    className={`border-b border-border-default ${row.puBetter ? "bg-teal/5" : ""}`}
-                  >
-                    <td className="px-[13px] py-[13px] font-medium text-t1">{row.property}</td>
-                    <td className={`px-[13px] py-[13px] ${row.puBetter ? "font-semibold text-teal-text" : "text-t2"}`}>
-                      {row.pu}
-                    </td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.vinylester}</td>
-                    <td className="px-[13px] py-[13px] text-t2">{row.polyester}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[13px] text-f14 leading-golden text-t3">
-            Figures are typical ranges for continuous E-glass pultrusion; exact values depend on fiber architecture and profile geometry. F1 runs 90-series window profiles in polyurethane or vinyl ester as standard, and polyester or vinyl ester for the 65/70/80-series where the mechanical demand allows.
-          </p>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+        <p className="mt-[12px] text-f14 leading-golden text-t3">
+          Figures are typical ranges for continuous E-glass pultrusion; exact values depend on fiber architecture and profile geometry. F1&apos;s nine window and door series are pultruded in polyurethane (GFRP-PU).
+        </p>
+      </PageSection>
 
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <SectionTag>Where It Is Proven</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Three GFRP-PU window installations, from the Antarctic to production residential
-          </h2>
-          <div className="mt-[34px] max-w-[860px] space-y-[21px]">
-            <Link
-              href="/case-studies/qinling-station-antarctic-passive-windows"
-              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f18 font-bold text-t1">Qinling Station, Antarctica: −60°C design low</h3>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phB efficiency class for the cool-temperate climate zone, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-            </Link>
-            <Link
-              href="/case-studies/baotou-industrial-gfrp-pu-windows"
-              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f18 font-bold text-t1">Baotou Industrial Park: −25°C plus chemical exposure</h3>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                70/80/90-series GFRP-PU windows on a severe-cold-zone manufacturing campus, chosen to beat an aluminum thermal-bridge penalty while resisting acid mist and chloride aerosol without a recoating cycle.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-            </Link>
-            <Link
-              href="/case-studies/wanhua-yantai-zero-carbon-windows"
-              className="group block rounded-card border border-border-default bg-bg2 p-[34px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-            >
-              <h3 className="text-f18 font-bold text-t1">Wanhua Yantai Zero-Carbon Community: 13,657 m² of GFRP-PU fenestration</h3>
-              <p className="mt-[8px] text-f16 leading-golden text-t2">
-                Whole-window U_w 0.99 W/m²·K across 13,657 m² of dormitory windows on a near-zero energy development, with measured airtightness of N50 = 1.0.
-              </p>
-              <span className="mt-[13px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-            </Link>
-          </div>
+      <PageSection id="where-it-is-proven" title="Three GFRP-PU window installations, from the Antarctic to production residential" tone="white">
+        <ul className="grid gap-[12px] md:grid-cols-3 lg:gap-[16px]">
+          {installations.map((item) => (
+            <li key={item.href}>
+              <CoverCard
+                href={item.href}
+                cover={caseStudyCovers[item.href]}
+                title={item.title}
+                text={item.text}
+                action="Read the case study"
+                sizes="(max-width: 767px) 94vw, 390px"
+              />
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <PageSection id="how-to-buy" title="Profiles for your fabrication line, or finished GFRP-PU units" tone="muted">
+        <p className="text-f16 leading-golden text-t2">
+          F1 supplies polyurethane pultruded window profiles the same two ways as the rest of the{" "}
+          <Link href="/products/frp-window-frames" className="text-teal-text hover:underline">
+            fenestration range
+          </Link>
+          : as a profile set (frame, sash, mullion, transom, and glazing bead with co-extruded EPDM gasketing, corner kits, and fabrication drawings) for window fabricators who assemble locally, or as complete factory-assembled units, glazed, hardware-fitted, and leak-tested before shipment, delivered DDP with duty pre-itemized. The profiles are identical in both models; only the assembly location changes.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
+
+      <PageSection id="products" title="GFRP-PU windows from F1 Composite" tone="muted" intro="The 90 series is the PHI-certified polyurethane system; profiles and finished units are quoted separately.">
+        <ul className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
+            <li>
+              <CoverCard href="/products/window-door-profiles" cover={productCovers["/products/window-door-profiles"]} title="Window and door profiles" text="Frame, sash and mullion sections with agreed accessories, for local fabrication." action="Explore profile systems" sizes="(max-width: 767px) 94vw, 46vw" />
+            </li>
+            <li>
+              <CoverCard href="/products/fiberglass-windows-doors" cover={productCovers["/products/fiberglass-windows-doors"]} title="Finished windows and doors" text="Units built to your window schedule, with the glass, hardware and delivery agreed." action="Explore finished units" sizes="(max-width: 767px) 94vw, 46vw" />
+            </li>
+        </ul>
+        <div className="mt-[16px]">
+        <CalculatorCTA
+          href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
+          eyebrow="Free tool · GFRP-PU 90-Series preset"
+          title="Check the whole-window U-value of a GFRP-PU 90-Series window"
+          sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series polyurethane frame and triple glazing, see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets."
+        />
         </div>
-      </section>
+      </PageSection>
 
-      <section className="bg-bg2 py-[89px]">
-        <div className="site-container">
-          <SectionTag>How To Buy</SectionTag>
-          <h2 className="mt-[13px] max-w-[860px] text-f24 font-bold text-t1 md:text-f32">
-            Profiles for your fabrication line, or finished GFRP-PU units
-          </h2>
-          <p className="mt-[21px] text-f16 leading-golden text-t2">
-            F1 supplies polyurethane pultruded window profiles the same two ways as the rest of the{" "}
-            <Link href="/products/frp-window-frames" className="text-teal-text hover:underline">
-              fenestration range
-            </Link>
-            : as a profile set (frame, sash, mullion, transom, and glazing bead with co-extruded EPDM gasketing, corner kits, and fabrication drawings) for window fabricators who assemble locally, or as complete factory-assembled units, glazed, hardware-fitted, and leak-tested before shipment, delivered DDP with duty pre-itemized. The profiles are identical in both models; only the assembly location changes.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <FAQ items={faqs} />
-        </div>
-      </section>
-
-      <section className="bg-bg2 pt-[55px] pb-[55px]">
-        <div className="site-container">
-          <CalculatorCTA
-            href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
-            eyebrow="Free tool · GFRP-PU 90-Series preset"
-            title="Check the whole-window U-value of a GFRP-PU 90-Series window"
-            sub="Opens the U-value calculator pre-loaded with the PHI-certified 90-Series polyurethane frame and triple glazing, see the EN ISO 10077-1 Uw and the pass/fail against Passive House, ENERGY STAR, CSA, and GB targets."
-          />
-        </div>
-      </section>
-
-      <RelatedLinks
+      <RelatedLinks background="white"
         groups={[
           {
             title: "FRP fenestration products",
             links: [
-              { href: "/products/frp-window-frames", label: "Fiberglass windows & doors (65–140 series)" },
+              { href: "/products/frp-window-frames", label: "Fiberglass windows and doors, 50–140 mm" },
               { href: "/products/window-door-profiles", label: "Window & door profiles for fabricators" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded window profiles" },
               { href: "/technology/frp-u-value-calculator", label: "U-value calculator (EN ISO 10077-1)" },
@@ -316,8 +312,8 @@ export default function PolyurethanePultrusionWindowsPage() {
               { href: "/resources/blog/frp-fenestration-passivhaus-certification", label: "Blog: Passivhaus certification path" },
               { href: "/resources/blog/frp-fenestration-thermal-performance", label: "Blog: Thermal performance of FRP fenestration" },
               { href: "/resources/frp-windows-guide", label: "FRP Windows Guide — complete buyer library" },
-              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows — Canada" },
-              { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows — Germany" },
+              { href: "/regions/frp-passive-house-windows-canada", label: "FRP passive house windows: Canada" },
+              { href: "/regions/frp-passive-house-windows-germany", label: "FRP passive house windows: Germany" },
             ],
           },
         ]}

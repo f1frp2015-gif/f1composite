@@ -1,4 +1,4 @@
-import SectionTag from "@/components/ui/SectionTag";
+import PageSection from "@/components/layout/PageSection";
 import FAQDisclosure from "@/components/ui/FAQDisclosure";
 
 export interface AnswerBlockItem {
@@ -7,43 +7,22 @@ export interface AnswerBlockItem {
 }
 
 interface AnswerBlocksProps {
-  tag?: string;
   title: string;
   description?: string;
   items: AnswerBlockItem[];
+  id?: string;
+  tone?: "white" | "muted";
 }
 
-export default function AnswerBlocks({
-  tag = "Quick Answers",
-  title,
-  description,
-  items,
-}: AnswerBlocksProps) {
+/** Questions and answers as a page section, laid out like the product pages' FAQ. */
+export default function AnswerBlocks({ title, description, items, id = "faq", tone = "white" }: AnswerBlocksProps) {
   return (
-    <section className="bg-white py-[89px]">
-      <div className="site-container">
-        <SectionTag>{tag}</SectionTag>
-        <h2 className="mt-[13px] max-w-[900px] text-f24 font-bold tracking-[-0.02em] text-t1 md:text-f32">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mt-[13px] text-f16 leading-golden text-t2">
-            {description}
-          </p>
-        ) : null}
-
-        <div className="mt-[34px] grid items-start gap-[21px] md:grid-cols-2">
-          {items.map((item) => (
-            <FAQDisclosure
-              key={item.question}
-              question={item.question}
-              answer={item.answer}
-              surface="muted"
-              size="large"
-            />
-          ))}
-        </div>
+    <PageSection id={id} title={title} intro={description} tone={tone}>
+      <div className="grid items-start gap-[12px] md:grid-cols-2">
+        {items.map((item) => (
+          <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />
+        ))}
       </div>
-    </section>
+    </PageSection>
   );
 }

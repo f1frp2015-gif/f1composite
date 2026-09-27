@@ -84,7 +84,7 @@ export default async function SquareTubePage() {
         tag="Square Tube"
         line={{ name: "F1-STRUX", label: "Square & rectangular tube" }}
         updated={LAST_UPDATED}
-        title="Fiberglass Square & Rectangular Tubes (FRP)"
+        title="Fiberglass square and rectangular tubes (FRP)"
         description="Pultruded fiberglass square and rectangular tubing (SHS / RHS) from 25×25 mm to 240×240 mm. The closed section resists torsion, which suits columns, trusses, posts and frames."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Outer size", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
@@ -194,7 +194,7 @@ export default async function SquareTubePage() {
         <LaminateProperties />
         <div className="mt-[24px] grid grid-cols-1 items-start gap-[16px] lg:grid-cols-2">
           <E40EvidenceLink />
-          <div className="lg:py-[21px]">
+          <div>
             <CalculatorCTA
               href="/frp-profile-calculator#shape=square-tube"
               eyebrow="Free tool · square tube preset"

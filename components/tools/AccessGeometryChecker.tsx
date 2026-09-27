@@ -23,8 +23,8 @@ import { buildRfqHref } from "@/lib/rfq";
 
 type Tab = "ladder" | "stair" | "walkway";
 
-const inputClass = "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
-const labelClass = "mb-[5px] block text-f12 font-bold uppercase tracking-[0.06em] text-t3";
+const inputClass = "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 // Square-mesh molded grating from the F1 catalog: pitch and top bar width, mm.
 const GRATING_MESHES = [
@@ -44,21 +44,21 @@ function NumberField({ id, label, value, onChange, step = "1" }: { id: string; l
 
 function Results({ checks, error }: { checks: GeometryCheck[]; error: string | null }) {
   if (error) {
-    return <div className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700" role="alert">{error}</div>;
+    return <div className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail" role="alert">{error}</div>;
   }
   const failed = checks.filter((check) => check.status === "fail").length;
   return (
     <div className="space-y-[8px]">
-      <div className={`rounded-control border p-[13px] text-f16 font-bold ${failed ? "border-red-200 bg-red-50 text-red-700" : "border-teal/20 bg-teal/10 text-teal-text"}`}>
+      <div className={`rounded-control border p-[12px] text-f16 font-bold ${failed ? "border-fail-border bg-fail-bg text-fail" : "border-teal-border bg-teal-bg text-teal-text"}`}>
         {failed ? `${failed} requirement${failed > 1 ? "s" : ""} not met` : "All checked requirements met"}
       </div>
       <ul className="space-y-[8px]">
         {checks.map((check) => (
-          <li key={check.label} className="rounded-control bg-white p-[13px] text-f14 text-t2">
+          <li key={check.label} className="rounded-control bg-white p-[12px] text-f14 text-t2">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
               <span className="font-bold text-t1">{check.label}</span>
               <span
-                className={`rounded-tag px-[8px] py-[2px] text-f12 font-bold uppercase tracking-[0.06em] ${check.status === "pass" ? "bg-teal-bg text-teal-text" : check.status === "fail" ? "bg-red-50 text-red-700" : "bg-amber-50 text-amber-800"}`}
+                className={`rounded-tag px-[8px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] ${check.status === "pass" ? "bg-teal-bg text-teal-text" : check.status === "fail" ? "bg-fail-bg text-fail" : "bg-warn-bg text-warn"}`}
               >
                 {check.status === "pass" ? "Meets" : check.status === "fail" ? "Does not meet" : "Check"}
               </span>
@@ -117,7 +117,7 @@ export default function AccessGeometryChecker() {
 
   return (
     <div>
-      <div className="mb-[21px] flex flex-wrap gap-[8px]" role="tablist" aria-label="Access system">
+      <div className="mb-[20px] flex flex-wrap gap-[8px]" role="tablist" aria-label="Access system">
         {tabs.map((item) => (
           <button
             key={item.id}
@@ -125,15 +125,15 @@ export default function AccessGeometryChecker() {
             role="tab"
             aria-selected={tab === item.id}
             onClick={() => { setTab(item.id); track("access_tab", { tab: item.id }); }}
-            className={`rounded-control px-[21px] py-[8px] text-f14 font-semibold transition-colors ${tab === item.id ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${tab === item.id ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             {item.label}
           </button>
         ))}
       </div>
 
-      <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr]">
-        <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
+      <div className="grid gap-[20px] lg:grid-cols-[1fr_1fr]">
+        <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
           {tab === "ladder" && (
             <>
               <div>
@@ -144,7 +144,7 @@ export default function AccessGeometryChecker() {
                   ))}
                 </select>
               </div>
-              <div className="grid gap-[13px] sm:grid-cols-2">
+              <div className="grid gap-[12px] sm:grid-cols-2">
                 <NumberField id="ag-pitch" label="Rung spacing (mm)" value={ladder.rungPitchMm} onChange={(v) => setLadder({ ...ladder, rungPitchMm: v })} />
                 <NumberField id="ag-width" label="Clear width between rails (mm)" value={ladder.clearWidthMm} onChange={(v) => setLadder({ ...ladder, clearWidthMm: v })} />
                 <NumberField id="ag-toe" label="Clearance behind rungs (mm)" value={ladder.toeClearanceMm} onChange={(v) => setLadder({ ...ladder, toeClearanceMm: v })} />
@@ -184,7 +184,7 @@ export default function AccessGeometryChecker() {
                   ))}
                 </select>
               </div>
-              <div className="grid gap-[13px] sm:grid-cols-2">
+              <div className="grid gap-[12px] sm:grid-cols-2">
                 <NumberField id="ag-riser" label="Riser height h (mm)" value={stair.riserMm} onChange={(v) => setStair({ ...stair, riserMm: v })} />
                 <NumberField id="ag-going" label="Going / tread depth g (mm)" value={stair.goingMm} onChange={(v) => setStair({ ...stair, goingMm: v })} />
                 <NumberField id="ag-swidth" label="Clear width (mm)" value={stair.widthMm} onChange={(v) => setStair({ ...stair, widthMm: v })} />
@@ -204,7 +204,7 @@ export default function AccessGeometryChecker() {
 
           {tab === "walkway" && (
             <>
-              <div className="grid gap-[13px] sm:grid-cols-2">
+              <div className="grid gap-[12px] sm:grid-cols-2">
                 <NumberField id="ag-wwidth" label="Clear width (mm)" value={walkway.widthMm} onChange={(v) => setWalkway({ ...walkway, widthMm: v })} />
                 <NumberField id="ag-whead" label="Headroom (mm)" value={walkway.headroomMm} onChange={(v) => setWalkway({ ...walkway, headroomMm: v })} />
                 <div>
@@ -245,13 +245,13 @@ export default function AccessGeometryChecker() {
           )}
         </div>
 
-        <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
+        <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
           <Results
             checks={checks}
             error={tab === "ladder" ? ladderInputError(ladder) : tab === "stair" ? stairInputError(stair) : checks.length ? null : "Enter positive dimensions in millimetres."}
           />
-          <Link href={product.href} className="block rounded-control border border-teal/30 bg-white p-[13px] text-f14 text-t2 transition-colors hover:border-teal">
-            <span className="block text-f12 font-bold uppercase tracking-[0.06em] text-teal-text">Related product</span>
+          <Link href={product.href} className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
+            <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">Related product</span>
             {product.name} <span aria-hidden>→</span>
           </Link>
           <a

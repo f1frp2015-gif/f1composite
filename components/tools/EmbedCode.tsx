@@ -35,12 +35,12 @@ export default function EmbedCode({
   }
 
   return (
-    <section className="rounded-card border border-border-default bg-bg2 p-[21px] md:p-[34px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[20px] md:p-[24px]">
       <div className="flex flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
         <div className="max-w-[760px]">
-          <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Free to embed</p>
-          <h2 className="mt-[8px] text-f24 font-bold text-t1">Embed this tool on your website</h2>
-          <p className="mt-[10px] text-f16 leading-golden text-t2">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Free to embed</p>
+          <h3 className="mt-[4px] text-f20 font-bold text-t1">Embed this tool on your website</h3>
+          <p className="mt-[8px] text-f16 leading-golden text-t2">
             Add the live engineering tool to a course page, design guide, distributor resource center, or internal
             wiki. The iframe stays updated when the calculation engine changes; no API key or account is required.
           </p>
@@ -51,12 +51,12 @@ export default function EmbedCode({
           aria-expanded={expanded}
           className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-control bg-teal-text px-[18px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
         >
-          {expanded ? "Hide embed code" : "Embed This Tool"}
+          {expanded ? "Hide the embed code" : "Embed this tool"}
         </button>
       </div>
 
       {expanded && (
-        <div className="mt-[21px] border-t border-border-default pt-[21px]">
+        <div className="mt-[20px] border-t border-border-default pt-[20px]">
           <label htmlFor={`embed-${embedPath.replaceAll("/", "-")}`} className="text-f14 font-semibold text-t1">
             Copy and paste this HTML where you want the tool to appear
           </label>
@@ -66,9 +66,9 @@ export default function EmbedCode({
             value={code}
             rows={11}
             onFocus={(event) => event.currentTarget.select()}
-            className="mt-[8px] w-full rounded-control border border-border-default bg-white p-[13px] font-mono text-f12 leading-relaxed text-t2 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+            className="mt-[8px] w-full rounded-control border border-border-default bg-white p-[12px] font-mono text-f12 leading-relaxed text-t2 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
           />
-          <div className="mt-[10px] flex flex-wrap items-center gap-[13px]">
+          <div className="mt-[8px] flex flex-wrap items-center gap-[12px]">
             <button
               type="button"
               onClick={copyCode}
@@ -84,6 +84,6 @@ export default function EmbedCode({
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 }

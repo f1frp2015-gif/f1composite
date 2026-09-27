@@ -16,6 +16,18 @@
   --color-lime-ink: #2e3a00;
   /* WhatsApp's own green, for its mark only (4.1:1 on white). */
   --color-whatsapp: #128c53;
+  /* Teal for text and marks on the deep ground (10.5:1 on deep). */
+  --color-teal-light: #8fd6ce;
+
+  /* States for checks, calculator results and cautions. A pass uses the
+     brand teal (teal-text on teal-bg); warn and fail have their own set.
+     Text colours hold about 6:1 on white and on their own ground. */
+  --color-warn: #8a5300;
+  --color-warn-bg: #fff7e8;
+  --color-warn-border: #f0d39c;
+  --color-fail: #b42318;
+  --color-fail-bg: #fef3f2;
+  --color-fail-border: #f4c3bd;
 
   /* Backgrounds */
   --color-bg: #ffffff;

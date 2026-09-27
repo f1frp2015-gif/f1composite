@@ -32,6 +32,7 @@ export const factoryStaircase: Omit<ApplicationCard, "used"> = {
   text: "A bolted FRP stair in our Chongqing plant, assembled by four people with hand tools: no welding, hot work or crane.",
   image: "/images/case-studies/frp-factory-staircase-structural-view.webp",
   imageAlt: "FRP I-beam stringers and pultruded profiles forming a staircase frame in F1 Composite's factory",
+  note: "Project photo",
 };
 
 // Two more project cards, used on the home page and the industry pages.
@@ -39,9 +40,10 @@ export const chongqingRooftopPv: ApplicationCard = {
   href: "/case-studies/chongqing-rooftop-pv-frp-rail",
   kind: "Case study",
   title: "Chongqing rooftop PV retrofit",
-  text: "Pultruded GFRP H-rail on colour steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
+  text: "Pultruded GFRP H-rail on color steel-tile factory roofs, with about 75% less rail dead load than galvanized steel.",
   image: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
-  imageAlt: "Solar modules on FRP rails over a colour steel-tile factory roof in Chongqing",
+  imageAlt: "Solar modules on FRP rails over a color steel-tile factory roof in Chongqing",
+  note: "Project photo",
 };
 
 export const beamBridgeGuide: ApplicationCard = {
@@ -71,6 +73,7 @@ export function familyApplications(category: ProfileCategory, limit = 3): Applic
       text: `${line}.`,
       image: page.image,
       imageAlt: page.imageAlt,
+      note: page.imageNote,
     });
   }
   return cards.slice(0, limit);

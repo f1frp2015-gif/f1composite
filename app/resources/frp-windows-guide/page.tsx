@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ProductRfq from "@/components/products/ProductRfq";
+import BlogCard from "@/components/blog/BlogCard";
+import WindowProjects, { windowProjects } from "@/components/sections/WindowProjects";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { blogPosts } from "@/content/data/blogPosts";
+import { windowRequestItems } from "@/content/data/windowBuying";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const pagePath = "/resources/frp-windows-guide";
@@ -25,7 +31,11 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 interface Stage {
-  step: string;
+  id: string;
+  /** The stage's name in the section bar. */
+  nav: string;
+  /** Position in the buyer journey; a stage outside it has none. */
+  step?: number;
   title: string;
   description: string;
   slugs: string[];
@@ -34,22 +44,26 @@ interface Stage {
 
 const stages: Stage[] = [
   {
-    step: "1",
+    id: "frame-material",
+    nav: "Frame material",
+    step: 1,
     title: "Decide the frame material",
     description:
-      "Why specifiers move from aluminum or PVC to pultruded fiberglass — and when they should not.",
+      "Why specifiers move from aluminum or PVC to pultruded fiberglass, and when they should not.",
     slugs: [
       "aluminum-window-condensation-cold-climate",
       "fabricating-fiberglass-window-lineals-switching-guide",
     ],
     links: [
-      { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum windows — master comparison" },
+      { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum windows: the full comparison" },
       { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC windows" },
       { href: "/technology/polyurethane-pultrusion-windows", label: "Polyurethane pultrusion windows (GFRP-PU)" },
     ],
   },
   {
-    step: "2",
+    id: "thermal-target",
+    nav: "Thermal target",
+    step: 2,
     title: "Hit the thermal target",
     description:
       "Whole-window U-value engineering: frames, glazing, spacers, and thermal-break strategy.",
@@ -63,7 +77,9 @@ const stages: Stage[] = [
     ],
   },
   {
-    step: "3",
+    id: "certify",
+    nav: "Certification",
+    step: 3,
     title: "Certify and comply",
     description:
       "Match reports to the offered configuration: PHI component scope, market requirements and AS 2047 specimen results. Historical lift-sliding evidence does not automatically cover the current 140 compression-seal door.",
@@ -74,13 +90,15 @@ const stages: Stage[] = [
       "frp-lift-sliding-door-as2047-engineering",
     ],
     links: [
-      { href: "/regions/frp-passive-house-windows-canada", label: "Canada — passive house windows" },
-      { href: "/regions/frp-passive-house-windows-germany", label: "Germany — Passivhaus supply" },
-      { href: "/regions/grp-windows-uk", label: "UK — GRP windows" },
+      { href: "/regions/frp-passive-house-windows-canada", label: "Canada: passive house windows" },
+      { href: "/regions/frp-passive-house-windows-germany", label: "Germany: Passivhaus supply" },
+      { href: "/regions/grp-windows-uk", label: "UK: GRP windows" },
     ],
   },
   {
-    step: "4",
+    id: "supply-path",
+    nav: "Supply path",
+    step: 4,
     title: "Choose a supply path and prepare the RFQ",
     description:
       "For local fabrication, prepare a profile BOM; for finished units, prepare a window schedule. Compare scope, drawings, configuration and evidence before quoting.",
@@ -93,31 +111,28 @@ const stages: Stage[] = [
     ],
     links: [
       { href: "/products/window-door-profiles", label: "Fiberglass window and door profiles: series selection and BOM" },
-      { href: "/products/fiberglass-windows-doors", label: "Finished units — configuration and window schedule" },
-      { href: "/products/frp-window-frames", label: "F1 fenestration systems (65–90 series)" },
+      { href: "/products/fiberglass-windows-doors", label: "Finished units: configuration and window schedule" },
+      { href: "/products/frp-window-frames", label: "F1 window and door systems, 50–140 mm" },
       { href: "/products/frp-window-reinforcement", label: "Window reinforcement profiles" },
       { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
     ],
   },
   {
-    step: "+",
+    id: "curtain-wall",
+    nav: "Curtain wall",
     title: "Beyond windows: curtain wall",
     description:
-      "The same thermal physics at facade scale — FRP isolators, mullions and transoms.",
+      "The same thermal physics at facade scale: FRP isolators, mullions and transoms.",
     slugs: ["frp-curtain-wall-mullion-transom-carbon-glass-hybrid-pultrusion"],
     links: [
-      { href: "/products/frp-facade-panels", label: "Facade & sunshade panels" },
+      { href: "/products/frp-facade-panels", label: "Facade and sunshade panels" },
     ],
   },
 ];
 
-const caseStudies = [
-  { href: "/case-studies/qinling-station-antarctic-passive-windows", label: "Qinling Station, Antarctica — 90-series windows, −60 °C design low" },
-  { href: "/case-studies/yancheng-talent-apartment-fenestration", label: "Yancheng talent apartments — windows for about 20 coastal buildings" },
-  { href: "/case-studies/wanhua-yantai-zero-carbon-windows", label: "Wanhua Yantai zero-carbon community — 13,657 m² of GFRP-PU windows" },
-];
-
 const postBySlug = new Map(blogPosts.map((p) => [p.slug, p]));
+const articleCount = new Set(stages.flatMap((stage) => stage.slugs).filter((slug) => postBySlug.has(slug))).size;
+const journeySteps = stages.filter((stage) => stage.step).length;
 
 export default function FrpWindowsGuidePage() {
   return (
@@ -146,100 +161,57 @@ export default function FrpWindowsGuidePage() {
       />
       <PageHeader
         tag="Buyer Journey Library"
-        title="The FRP Windows Guide"
-        description="Everything on this site about fiberglass windows and doors — 14 articles, 2 free tools, 5 comparison pages and 3 project case studies — organized in the order a fenestration project actually asks the questions."
+        title="The FRP windows guide"
+        description={`Everything on this site about fiberglass windows and doors: ${articleCount} articles, the tools, the comparison and market pages, and ${windowProjects.length} project case studies, in the order a fenestration project asks the questions.`}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "FRP Windows Guide" },
         ]}
       />
+      <PageNav items={[...stages.map((stage) => ({ id: stage.id, label: stage.nav })), { id: "projects", label: "Projects" }]} />
 
-      <section className="bg-white pb-[55px]">
-        <div className="site-container">
-          <div className="space-y-[55px]">
-            {stages.map((stage) => (
-              <div key={stage.title}>
-                <div className="flex items-baseline gap-[13px]">
-                  <span className="text-f24 font-extrabold text-teal" aria-hidden="true">
-                    {stage.step}
-                  </span>
-                  <div>
-                    <h2 className="text-f24 font-bold text-t1">{stage.title}</h2>
-                    <p className="mt-[3px] text-f16 leading-golden text-t2">
-                      {stage.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-[21px] grid gap-[13px] md:grid-cols-2 lg:grid-cols-3">
-                  {stage.slugs.map((slug) => {
-                    const post = postBySlug.get(slug);
-                    if (!post) return null;
-                    return (
-                      <Link
-                        key={slug}
-                        href={`/resources/blog/${slug}`}
-                        className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-shadow hover:shadow-card"
-                      >
-                        <h3 className="text-f16 font-bold leading-snug text-t1 group-hover:text-teal-text">
-                          {post.title}
-                        </h3>
-                        <p className="mt-[8px] flex-1 text-f14 leading-golden text-t2 line-clamp-3">
-                          {post.excerpt}
-                        </p>
-                        <p className="mt-[13px] text-f12 font-semibold uppercase tracking-[0.06em] text-t3">
-                          {post.readTime}
-                        </p>
-                      </Link>
-                    );
-                  })}
-                </div>
-                {stage.links.length > 0 && (
-                  <div className="mt-[13px] flex flex-wrap gap-x-[21px] gap-y-[8px]">
-                    {stage.links.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-f14 font-semibold text-teal-text hover:underline"
-                      >
-                        → {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {stages.map((stage, index) => (
+        <PageSection key={stage.id} id={stage.id} title={stage.title} count={stage.step ? `Step ${stage.step} of ${journeySteps}` : undefined} tone={index % 2 === 0 ? "white" : "muted"} intro={stage.description}>
+          <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
+            {stage.slugs.map((slug) => {
+              const post = postBySlug.get(slug);
+              if (!post) return null;
+              return (
+                <li key={slug}>
+                  <BlogCard post={post} />
+                </li>
+              );
+            })}
+          </ul>
+          {stage.links.length > 0 ? (
+            <ul className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold">
+              {stage.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-teal-text hover:underline">
+                    {link.label} <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </PageSection>
+      ))}
 
-      <section className="bg-bg2 py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">Proof: window projects delivered</h2>
-          <div className="mt-[21px] flex flex-wrap gap-x-[21px] gap-y-[8px]">
-            {caseStudies.map((cs) => (
-              <Link
-                key={cs.href}
-                href={cs.href}
-                className="text-f14 font-semibold text-teal-text hover:underline"
-              >
-                → {cs.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WindowProjects tone={stages.length % 2 === 0 ? "white" : "muted"} />
 
-      <section className="border-y border-border-default bg-white py-[38px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">Prepare your window and door inquiry</h2>
-          <p className="mt-[8px] text-f16 text-t2">Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have.</p>
-          <div className="mt-[21px] flex flex-wrap gap-[13px]">
-            <Link className="rounded-control bg-teal px-[21px] py-[13px] font-semibold text-white" href={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}>Request system profiles →</Link>
-            <Link className="rounded-control border border-teal px-[21px] py-[13px] font-semibold text-teal-text" href={buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath })}>Request finished units →</Link>
-          </div>
-        </div>
-      </section>
+      <PageSection id="quote" title="Prepare your window and door inquiry" tone="deep">
+        <ProductRfq
+          product="FRP windows and doors"
+          productPath={pagePath}
+          quoteHref={buildWindowRfqHref({ mode: "profiles", source: "window-guide", productPath: pagePath })}
+          quoteLabel="Request system profiles"
+          secondaryQuote={{ label: "Request finished units", href: buildWindowRfqHref({ mode: "finished", source: "window-guide", productPath: pagePath }) }}
+          items={[...windowRequestItems.hub]}
+          intro="Send a profile BOM for local fabrication or a window schedule for finished units. Early inquiries can start with the information you have."
+          links={[{ label: "Compare the nine systems", href: "/products/frp-window-frames#series" }, { label: "Estimate a whole-window U-value", href: "/technology/frp-u-value-calculator" }]}
+        />
+      </PageSection>
     </>
   );
 }

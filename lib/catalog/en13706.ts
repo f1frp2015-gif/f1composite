@@ -50,8 +50,8 @@ export const PROPERTY_ROWS: {
   unit: string;
   method: string;
 }[] = [
-  { key: "e_l_gpa", label: "Tensile modulus E_L (longitudinal)", unit: "GPa", method: "EN ISO 527-4" },
-  { key: "e_t_gpa", label: "Transverse tensile modulus E_T", unit: "GPa", method: "EN ISO 527-4" },
+  { key: "e_l_gpa", label: "Tensile modulus (longitudinal)", unit: "GPa", method: "EN ISO 527-4" },
+  { key: "e_t_gpa", label: "Tensile modulus (transverse)", unit: "GPa", method: "EN ISO 527-4" },
   { key: "tensile_l_mpa", label: "Tensile strength (longitudinal)", unit: "MPa", method: "EN ISO 527-4" },
   { key: "tensile_t_mpa", label: "Tensile strength (transverse)", unit: "MPa", method: "EN ISO 527-4" },
   { key: "flexural_l_mpa", label: "Flexural strength (longitudinal)", unit: "MPa", method: "EN ISO 14125" },

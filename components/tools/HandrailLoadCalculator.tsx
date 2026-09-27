@@ -30,8 +30,8 @@ const REGIONS = [
   { id: "NZ", label: "New Zealand" },
 ] as const;
 
-const inputClass = "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
-const labelClass = "mb-[5px] block text-f12 font-bold uppercase tracking-[0.06em] text-t3";
+const inputClass = "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 function SectionPicker({ id, label, sectionId, setSectionId, custom, setCustom }: {
   id: string;
@@ -67,9 +67,9 @@ function SectionPicker({ id, label, sectionId, setSectionId, custom, setCustom }
 function Utilisation({ label, value }: { label: string; value: number }) {
   const ok = value <= 1;
   return (
-    <div className={`rounded-control border p-[13px] ${ok ? "border-teal/20 bg-teal/10" : "border-red-200 bg-red-50"}`}>
-      <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">{label}</div>
-      <div className={`mt-[4px] text-f24 font-bold ${ok ? "text-teal-text" : "text-red-700"}`}>{(value * 100).toFixed(0)}%</div>
+    <div className={`rounded-control border p-[12px] ${ok ? "border-teal-border bg-teal-bg" : "border-fail-border bg-fail-bg"}`}>
+      <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{label}</div>
+      <div className={`mt-[4px] text-f24 font-bold ${ok ? "text-teal-text" : "text-fail"}`}>{(value * 100).toFixed(0)}%</div>
       <div className="text-f12 text-t3">{ok ? "within the screen" : "exceeds the screen"}</div>
     </div>
   );
@@ -183,15 +183,15 @@ export default function HandrailLoadCalculator() {
     ? `Handrail / guardrail load check (F1 Composite tool)\n` +
       `Rule: ${loadCase.label} (${loadCase.clause})\n` +
       `Loads: line ${result.lineKnPerM.toFixed(2)} kN/m, point ${result.pointKn.toFixed(2)} kN; height ${heightMm} mm; post spacing ${spacingMm} mm${endPost ? " (end post)" : ""}\n` +
-      `Post: ${describe(post)}, utilisation ${(result.post.utilisation * 100).toFixed(0)}%; rail: ${describe(rail)}, utilisation ${(result.rail.utilisation * 100).toFixed(0)}%\n` +
+      `Post: ${describe(post)}, utilization ${(result.post.utilisation * 100).toFixed(0)}%; rail: ${describe(rail)}, utilization ${(result.rail.utilisation * 100).toFixed(0)}%\n` +
       `Top-rail deflection ${result.deflectionMm.toFixed(1)} mm (${result.deflectionCase})\n` +
       `Base reactions per post (service): ${result.base.serviceShearKn.toFixed(2)} kN, ${result.base.serviceMomentKnm.toFixed(2)} kN·m\n`
     : "";
 
   return (
-    <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr]">
-      <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
-        <div className="grid gap-[13px] sm:grid-cols-2">
+    <div className="grid gap-[20px] lg:grid-cols-[1fr_1fr]">
+      <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div>
             <label className={labelClass} htmlFor="hr-region">Project location</label>
             <select id="hr-region" value={region} onChange={(e) => chooseRegion(e.target.value)} className={inputClass}>
@@ -212,7 +212,7 @@ export default function HandrailLoadCalculator() {
         <p className="text-f12 text-t3">{loadCase.clause}</p>
 
         {loadCase.userEntry && (
-          <div className="grid gap-[13px] rounded-control border border-teal/30 bg-white p-[13px] sm:grid-cols-2">
+          <div className="grid gap-[12px] rounded-control border border-teal/30 bg-white p-[12px] sm:grid-cols-2">
             <div>
               <label className={labelClass} htmlFor="hr-w">Line load at the top (kN/m)</label>
               <input id="hr-w" type="number" min="0" step="0.01" value={lineEntry} placeholder="from the clause above" onChange={(e) => setLineEntry(e.target.value)} className={inputClass} />
@@ -225,7 +225,7 @@ export default function HandrailLoadCalculator() {
           </div>
         )}
 
-        <div className="grid gap-[13px] sm:grid-cols-2">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div>
             <label className={labelClass} htmlFor="hr-height">Top-rail height above the post base (mm)</label>
             <input id="hr-height" type="number" min="1" value={heightMm} onChange={(e) => setHeightMm(+e.target.value)} className={inputClass} />
@@ -236,12 +236,12 @@ export default function HandrailLoadCalculator() {
           </div>
         </div>
 
-        <div className="grid gap-[13px] sm:grid-cols-2">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <SectionPicker id="hr-post" label="Post" sectionId={postId} setSectionId={setPostId} custom={customPost} setCustom={setCustomPost} />
           <SectionPicker id="hr-rail" label="Top rail" sectionId={railId} setSectionId={setRailId} custom={customRail} setCustom={setCustomRail} />
         </div>
 
-        <div className="grid gap-[13px] sm:grid-cols-3">
+        <div className="grid gap-[12px] sm:grid-cols-3">
           <div>
             <label className={labelClass} htmlFor="hr-material">Material</label>
             <select id="hr-material" value={materialId} onChange={(e) => setMaterialId(e.target.value)} className={inputClass}>
@@ -271,21 +271,21 @@ export default function HandrailLoadCalculator() {
           End or corner post (half the tributary line load)
         </label>
 
-        <ul className="space-y-[5px] border-t border-border-default pt-[10px] text-f12 text-t2">
+        <ul className="space-y-[4px] border-t border-border-default pt-[10px] text-f12 text-t2">
           {loadCase.notes.map((note) => (
             <li key={note}>{note}</li>
           ))}
         </ul>
       </div>
 
-      <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
+      <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
         {error || !result ? (
-          <div className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700" role="alert">
+          <div className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail" role="alert">
             {error ?? "Check the inputs."}
           </div>
         ) : (
           <>
-            <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
+            <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
               Service loads: line <strong className="text-t1">{result.lineKnPerM.toFixed(2)} kN/m</strong>, concentrated{" "}
               <strong className="text-t1">{result.pointKn.toFixed(2)} kN</strong>
               {loadCase.pointPerSpacingKnPerM !== undefined ? " (300 N/m × post spacing)" : ""}; not applied together.
@@ -297,43 +297,43 @@ export default function HandrailLoadCalculator() {
               <Utilisation label="Top rail between posts" value={result.rail.utilisation} />
             </div>
 
-            <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Post</div>
-              <p className="mt-[5px]">
+            <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Post</div>
+              <p className="mt-[4px]">
                 {result.post.serviceForceKn.toFixed(2)} kN at the rail ({result.post.governingLoad} load governs), base moment{" "}
                 {result.post.serviceMomentKnm.toFixed(2)} kN·m. Bending {result.post.bendingStressMPa.toFixed(0)} MPa against{" "}
                 {result.post.bendingAllowableMPa.toFixed(0)} MPa.
               </p>
-              <p className="mt-[5px] text-f12 text-t3">
+              <p className="mt-[4px] text-f12 text-t3">
                 Characteristic capacity at rail height, without design factors: {result.post.characteristicCapacityKn.toFixed(2)} kN,{" "}
                 {result.post.capacityRatio.toFixed(1)} × the applied load. A without-failure test such as OSHA&apos;s sees this margin;
                 the percentages above include the design factors.
               </p>
             </div>
 
-            <div className={`rounded-control p-[13px] text-f14 ${result.flags.deflectionExceeds ? "border border-red-200 bg-red-50 text-red-700" : "bg-white text-t2"}`}>
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Top-rail deflection</div>
-              <p className="mt-[5px]">
+            <div className={`rounded-control p-[12px] text-f14 ${result.flags.deflectionExceeds ? "border border-fail-border bg-fail-bg text-fail" : "bg-white text-t2"}`}>
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Top-rail deflection</div>
+              <p className="mt-[4px]">
                 <strong>{result.deflectionMm.toFixed(1)} mm</strong> under the {result.deflectionCase}
                 {loadCase.deflectionLimitMm !== undefined ? `; limit ${loadCase.deflectionLimitMm} mm` : ""}. Post fixed at the base; plate and anchor rotation add to this.
               </p>
               {result.loadedHeightMm !== undefined && (
-                <p className={`mt-[5px] ${result.flags.loadedHeightBelowMin ? "text-red-700" : ""}`}>
+                <p className={`mt-[4px] ${result.flags.loadedHeightBelowMin ? "text-fail" : ""}`}>
                   Under the downward load the rail sits at {result.loadedHeightMm.toFixed(0)} mm; it must stay at or above {loadCase.minLoadedHeightMm} mm (39 in).
                 </p>
               )}
             </div>
 
-            <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Base reactions per post, for the anchors</div>
-              <p className="mt-[5px]">
+            <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Base reactions per post, for the anchors</div>
+              <p className="mt-[4px]">
                 Service: {result.base.serviceShearKn.toFixed(2)} kN and {result.base.serviceMomentKnm.toFixed(2)} kN·m. Factored:{" "}
                 {result.base.factoredShearKn.toFixed(2)} kN and {result.base.factoredMomentKnm.toFixed(2)} kN·m.
               </p>
             </div>
 
             {(result.flags.heightBelowMin || result.flags.heightAboveMax || result.flags.spacingAboveMax || result.flags.slenderWall) && (
-              <ul className="space-y-[5px] rounded-control border border-amber-200 bg-amber-50 p-[13px] text-f14 text-amber-800">
+              <ul className="space-y-[4px] rounded-control border border-warn-border bg-warn-bg p-[12px] text-f14 text-warn">
                 {result.flags.heightBelowMin && <li>Rail height is below the {loadCase.heightMinMm} mm minimum of this rule.</li>}
                 {result.flags.heightAboveMax && <li>Rail height is above the {loadCase.heightMaxMm} mm maximum of this rule.</li>}
                 {result.flags.spacingAboveMax && <li>Post spacing is above {loadCase.maxPostSpacingMm} mm.</li>}
@@ -341,8 +341,8 @@ export default function HandrailLoadCalculator() {
               </ul>
             )}
 
-            <Link href="/products/frp-handrail-systems" className="block rounded-control border border-teal/30 bg-white p-[13px] text-f14 text-t2 transition-colors hover:border-teal">
-              <span className="block text-f12 font-bold uppercase tracking-[0.06em] text-teal-text">F1 handrail systems</span>
+            <Link href="/products/frp-handrail-systems" className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">F1 handrail systems</span>
               Square and round post-and-rail systems, fittings and kick plates <span aria-hidden>→</span>
             </Link>
 

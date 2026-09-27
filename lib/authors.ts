@@ -5,6 +5,8 @@ export interface Author {
   name: string;
   fullName: string;
   credentials: string;
+  /** Short role for a byline or reviewer credit, e.g. "Application Engineer". */
+  role: string;
   jobTitle: string;
   bucket: AuthorBucket;
   bucketLabel: string;
@@ -26,6 +28,7 @@ export const authors: Author[] = [
     name: "Yifan Liu",
     fullName: "Yifan Liu, Application Engineer",
     credentials: "Application Engineer",
+    role: "Application Engineer",
     jobTitle:
       "Senior Application Engineer, pultruded FRP structural design and project specification",
     seoDescription:
@@ -55,6 +58,7 @@ export const authors: Author[] = [
     name: "Haifeng Gong",
     fullName: "Haifeng Gong, Ph.D.",
     credentials: "Ph.D.",
+    role: "R&D Lead",
     jobTitle:
       "R&D Lead for composite materials, pultrusion process development and standards",
     seoDescription:
@@ -84,6 +88,7 @@ export const authors: Author[] = [
     name: "Duowei Wang",
     fullName: "Duowei Wang, Ph.D.",
     credentials: "Ph.D.",
+    role: "Industry Research",
     jobTitle:
       "Industry research and education: markets, standards and pultrusion adoption",
     seoDescription:
@@ -110,9 +115,35 @@ export const authors: Author[] = [
   },
 ];
 
+const FIELD_NAMES: Record<AuthorBucket, string> = {
+  "engineering-case": "Engineering and case studies",
+  "rd-tech": "R&D and materials science",
+  education: "Industry research and education",
+};
+
+/** The author's field in sentence case, for card labels and header facts. */
+export function authorField(author: Author): string {
+  return FIELD_NAMES[author.bucket];
+}
+
+/** "Yifan Liu" → "YL": the monogram that stands in for a portrait. */
+export function authorInitials(author: Author): string {
+  return author.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 export const authorsBySlug: Record<string, Author> = Object.fromEntries(
   authors.map((a) => [a.slug, a]),
 );
+
+/** The reviewer credit a page header shows beside its last-updated date. */
+export function reviewerCredit(author: Author) {
+  return { name: author.name, title: author.role, href: `/about/authors/${author.slug}` };
+}
 
 // Reverse-lookup helper: given a stored authorName from blogPosts.ts,
 // return the corresponding author slug. Falls back to undefined if the

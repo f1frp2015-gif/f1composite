@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import CoverCard from "@/components/ui/CoverCard";
+import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { industries } from "@/content/data/industries";
+import { industryCovers } from "@/lib/covers";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const faqs = [
@@ -23,37 +25,15 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/industries/opengraph-image",
 });
 
-const icons: Record<string, React.ReactNode> = {
-  building: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0v-2M5 21H3m2 0v-2m4-14h2m-2 4h2m4-4h2m-2 4h2" />
-    </svg>
-  ),
-  bridge: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 10v4m4-4v4m4-4v4" />
-    </svg>
-  ),
-  bolt: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  ),
-  anchor: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8a2 2 0 100-4 2 2 0 000 4zm0 0v12m-7-4a7 7 0 0014 0M5 12H3m18 0h-2" />
-    </svg>
-  ),
-  factory: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V8l4 3V3h4v8l4-3v13m2-10v10m3-7v7" />
-    </svg>
-  ),
-  vehicle: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 17h.01M16 17h.01M3 11l1.5-5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.4L21 11M3 11h18M3 11v6a1 1 0 001 1h1a2 2 0 104 0h6a2 2 0 104 0h1a1 1 0 001-1v-6" />
-    </svg>
-  ),
+// Why FRP is chosen in each sector, in the terms each industry page supports.
+const reasons: Record<string, string> = {
+  construction: "Thermal performance: glass FRP conducts about 0.3 W/m·K against about 160 for aluminum, so window and facade frames need no separate thermal break.",
+  infrastructure: "Corrosion: FRP decks, handrails and cable supports do not rust, so they avoid steel's recoating cycle; the inspection plan is still set for each project.",
+  energy: "Electrical insulation with corrosion resistance, for cable supports, substations and solar structures on coastal or humid sites.",
+  marine: "Seawater: glass FRP does not rust, and a vinyl ester laminate with sealed cut edges suits splash and immersion.",
+  industrial: "Chemicals: with the resin chosen for the chemicals on site, platforms, grating and supports avoid the corrosion and recoating of steel.",
+  vehicle: "Weight and insulation: glass FRP weighs about a quarter as much as steel for the same volume and does not conduct; fire requirements are set part by part.",
+  "water-wastewater": "Wet, chemically dosed service around treatment equipment, where cable supports, access frames and walkways would otherwise need repeated coating.",
 };
 
 export default function IndustriesPage() {
@@ -83,54 +63,73 @@ export default function IndustriesPage() {
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Industries Served by Pultruded FRP</SectionTag>
-          <h2 className="mt-[21px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-            FRP industrial applications across six sectors
-          </h2>
-          <div className="mt-[13px] space-y-[21px] text-f18 leading-golden text-t2">
-            <p>
-              F1 Composite supplies pultruded fiberglass profiles to six industries where corrosion, weight, electrical neutrality, or radio transparency drive the material decision. Each industry has its own qualification standards, procurement language, and typical failure modes — we publish the engineering and specification context for each so that procurement teams and engineers can move from concept to qualified supplier without re-discovering the wheel.
-            </p>
-            <p>
-              The case for FRP is rarely &quot;lighter than steel&quot; alone — every industry has a specific reason. <strong>Construction</strong>: thermal break (FRP frames have 1/200th the thermal conductivity of aluminum), making them the structural choice for passive house and high-performance fenestration. <strong>Infrastructure</strong>: lifecycle cost, because FRP needs no recoating over a long service life, which removes a recurring maintenance cost on rail and marine cable trays. <strong>Energy</strong>: corrosion resistance in coastal salt-spray environments where aluminum pits and steel needs continuous coating renewal. <strong>Marine</strong>: corrosion resistance plus dimensional stability under sustained UV and salt exposure. <strong>Industrial</strong>: chemical resistance — the scenario where FRP wins outright is when the alternative is exotic alloys (Hastelloy, duplex stainless) priced at 5-10× FRP. <strong>Vehicle</strong>: weight reduction directly translates to fuel economy or payload capacity, plus electrical isolation in hybrid powertrains.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-[89px]">
-        <div className="site-container">
-          <div className="grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => (
-              <Link
-                key={industry.slug}
+      <PageSection
+        id="sectors"
+        title={`FRP industrial applications across ${industries.length === 7 ? "seven" : industries.length} sectors`}
+        intro={`F1 Composite supplies pultruded fiberglass profiles to ${industries.length === 7 ? "seven" : industries.length} industries where corrosion, weight, electrical neutrality, or radio transparency drive the material decision. Each industry has its own qualification standards, procurement language, and typical failure modes; we publish the engineering and specification context for each so that procurement teams and engineers can move from concept to qualified supplier.`}
+      >
+        <ul className="grid grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-3">
+          {industries.map((industry, index) => (
+            <li key={industry.slug}>
+              <CoverCard
                 href={industry.href}
-                className="group relative block rounded-card border border-border-default bg-white p-[34px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:border-teal-border hover:shadow-card"
-              >
-                <div className="card-topbar absolute inset-x-0 top-0 rounded-t-card" />
-                <div className="mb-[13px] flex h-[36px] w-[36px] items-center justify-center rounded-control bg-teal-bg">
-                  {icons[industry.icon]}
-                </div>
-                <h3 className="mb-[8px] text-f18 font-bold text-t1">
-                  {industry.title}
-                </h3>
-                <p className="text-f14 leading-golden text-t2">
-                  {industry.description}
-                </p>
-                <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-0 transition-opacity duration-[0.34s] group-hover:opacity-100">
-                  Learn more →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+                cover={industryCovers[industry.href]}
+                title={industry.title}
+                text={industry.description}
+                action="Explore the sector"
+                priority={index < 3}
+              />
+            </li>
+          ))}
+          <li>
+            <CoverCard
+              href="/applications"
+              cover={{ src: "/images/industries/industrial-plating-line-concept.webp", alt: "Concept walkway with FRP grating and yellow handrails beside process tanks", note: "AI concept" }}
+              title="Browse by application"
+              text="Platforms, cooling towers, solar mounting, cable trays, bridges and agricultural stakes: start from the component's use."
+              action="All applications"
+            />
+          </li>
+        </ul>
+      </PageSection>
 
-      <div className="site-container py-[24px] text-f16"><Link href="/applications" className="font-bold text-teal-text">Browse by application: platforms, cooling towers, solar and more →</Link></div>
+      <PageSection id="why-frp" title="Why FRP, sector by sector" tone="muted" intro='The case for FRP is rarely "lighter than steel" alone. Every industry has a specific reason.'>
+        <dl className="divide-y divide-border-default rounded-card border border-border-default bg-white px-[20px] sm:px-[24px]">
+          {industries.map((industry) => (
+            <div key={industry.slug} className="grid gap-[4px] py-[14px] md:grid-cols-[240px_minmax(0,1fr)] md:gap-[16px]">
+              <dt>
+                <Link href={industry.href} className="text-f16 font-bold text-t1 hover:text-teal-text">{industry.title}</Link>
+              </dt>
+              <dd className="text-f14 leading-golden text-t2">{reasons[industry.slug]}</dd>
+            </div>
+          ))}
+        </dl>
+      </PageSection>
+
+      <PageSection id="markets" title="Regional supplier pages" intro="For procurement teams in regions with local supplier compliance requirements.">
+        <ul className="divide-y divide-border-default border-y border-border-default">
+          {[
+            { href: "/regions/frp-grating-supplier-saudi-arabia", label: "FRP Grating Supplier in Saudi Arabia", detail: "Aramco SAES-W-018, SABIC, ADNOC procurement" },
+            { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Pultruded FRP Solar Mounting in Australia", detail: "AS/NZS 1170, NCC, Clean Energy Council" },
+            { href: "/regions/frp-cable-tray-uae-oil-gas", label: "FRP Cable Tray for UAE Oil & Gas", detail: "ADNOC, ESMA conformity, IECEx where applicable" },
+          ].map((market) => (
+            <li key={market.href}>
+              <Link href={market.href} className="group flex flex-wrap items-baseline justify-between gap-x-[16px] gap-y-[2px] py-[12px]">
+                <span className="text-f16 font-semibold text-t1 group-hover:text-teal-text">{market.label}</span>
+                <span className="text-f14 text-t3">{market.detail}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link href="/regions" className="mt-[14px] inline-block text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">All global markets</Link>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           {
             title: "Product families for every sector",
@@ -165,36 +164,6 @@ export default function IndustriesPage() {
           },
         ]}
       />
-
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Regional Supplier Pages</SectionTag>
-          <div className="mt-[21px] space-y-[21px] text-f18 leading-golden text-t2">
-            <p>For procurement teams in regions with local supplier compliance requirements:</p>
-            <ul className="list-disc space-y-[8px] pl-[21px]">
-              <li>
-                <Link href="/regions/frp-grating-supplier-saudi-arabia" className="text-teal-text hover:underline">
-                  FRP Grating Supplier in Saudi Arabia
-                </Link>{" "}
-                — Aramco SAES-W-018, SABIC, ADNOC procurement
-              </li>
-              <li>
-                <Link href="/regions/pultruded-frp-solar-mounting-australia" className="text-teal-text hover:underline">
-                  Pultruded FRP Solar Mounting in Australia
-                </Link>{" "}
-                — AS/NZS 1170, NCC, Clean Energy Council
-              </li>
-              <li>
-                <Link href="/regions/frp-cable-tray-uae-oil-gas" className="text-teal-text hover:underline">
-                  FRP Cable Tray for UAE Oil &amp; Gas
-                </Link>{" "}
-                — ADNOC, ESMA conformity, IECEx where applicable
-              </li>
-            </ul>
-          </div>
-          <FAQ items={faqs} />
-        </div>
-      </section>
 
       <InnerCTA title="Not sure which FRP solution fits your project?" />
     </>
