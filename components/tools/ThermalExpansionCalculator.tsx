@@ -35,8 +35,8 @@ const PRESETS: Preset[] = [
   { id: "pvc-compare", label: "PVC-U frame for comparison", member: "pvc-u", substrate: "glass-soda-lime", lengthMm: 2400, installC: 20, minC: -20, maxC: 70, href: "/technology/frp-vs-pvc-windows", product: "FRP vs PVC windows" },
 ];
 
-const inputClass = "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
-const labelClass = "mb-[5px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+const inputClass = "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 const mm = (value: number) => `${value.toFixed(value < 10 ? 2 : 1)} mm`;
 
@@ -126,8 +126,8 @@ export default function ThermalExpansionCalculator() {
     : "";
 
   return (
-    <div className="grid gap-[21px] lg:grid-cols-[1fr_1fr]">
-      <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
+    <div className="grid gap-[20px] lg:grid-cols-[1fr_1fr]">
+      <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
         <div className="flex flex-wrap items-center gap-[6px]">
           <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Examples:</span>
           {PRESETS.map((item) => (
@@ -135,14 +135,14 @@ export default function ThermalExpansionCalculator() {
               key={item.id}
               type="button"
               onClick={() => applyPreset(item)}
-              className={`rounded-full border px-[12px] py-[5px] text-f12 font-medium transition-colors ${presetId === item.id ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2 hover:border-teal"}`}
+              className={`rounded-full border px-[12px] py-[4px] text-f12 font-medium transition-colors ${presetId === item.id ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2 hover:border-teal"}`}
             >
               {item.label}
             </button>
           ))}
         </div>
 
-        <div className="grid gap-[13px] sm:grid-cols-2">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div>
             <label className={labelClass} htmlFor="te-member">Member material</label>
             <select id="te-member" value={member} onChange={(e) => setMember(e.target.value)} className={inputClass}>
@@ -167,7 +167,7 @@ export default function ThermalExpansionCalculator() {
           <input id="te-length" type="number" min="1" value={lengthMm} onChange={(e) => setLengthMm(+e.target.value)} className={inputClass} />
         </div>
 
-        <div className="grid gap-[13px] sm:grid-cols-3">
+        <div className="grid gap-[12px] sm:grid-cols-3">
           <div>
             <label className={labelClass} htmlFor="te-install">Installed at (°C)</label>
             <input id="te-install" type="number" value={installC} onChange={(e) => setInstallC(+e.target.value)} className={inputClass} />
@@ -186,7 +186,7 @@ export default function ThermalExpansionCalculator() {
           temperature; take the local design values from EN 1991-1-5, ASHRAE or the project climate data.
         </p>
 
-        <div className="grid gap-[13px] sm:grid-cols-2">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div>
             <label className={labelClass} htmlFor="te-area">Section area (mm²), for restrained force</label>
             <input id="te-area" type="number" min="0" value={areaMm2} onChange={(e) => setAreaMm2(+e.target.value)} className={inputClass} />
@@ -202,25 +202,25 @@ export default function ThermalExpansionCalculator() {
         </div>
       </div>
 
-      <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
+      <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
         {error || !result ? (
-          <div className="rounded-control border border-fail-border bg-fail-bg p-[13px] text-f14 text-fail" role="alert">
+          <div className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail" role="alert">
             {error ?? "Check the inputs."}
           </div>
         ) : (
           <>
             <div className="grid gap-[8px] sm:grid-cols-3">
-              <div className="rounded-control bg-white p-[13px]">
+              <div className="rounded-control bg-white p-[12px]">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Expands</div>
                 <div className="mt-[4px] text-f24 font-bold text-t1">{mm(result.expansionMm)}</div>
                 <div className="text-f12 text-t3">{installC} → {maxC} °C</div>
               </div>
-              <div className="rounded-control bg-white p-[13px]">
+              <div className="rounded-control bg-white p-[12px]">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Contracts</div>
                 <div className="mt-[4px] text-f24 font-bold text-t1">{mm(result.contractionMm)}</div>
                 <div className="text-f12 text-t3">{installC} → {minC} °C</div>
               </div>
-              <div className="rounded-control border border-teal-border bg-teal-bg p-[13px]">
+              <div className="rounded-control border border-teal-border bg-teal-bg p-[12px]">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Total range</div>
                 <div className="mt-[4px] text-f24 font-bold text-t1">{mm(result.totalRangeMm)}</div>
                 <div className="text-f12 text-t3">α = {result.member.alpha} × 10⁻⁶/K</div>
@@ -228,45 +228,45 @@ export default function ThermalExpansionCalculator() {
             </div>
 
             {result.substrate && (
-              <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
+              <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Movement relative to {result.substrate.label.toLowerCase()}</div>
-                <p className="mt-[5px]">
+                <p className="mt-[4px]">
                   Hot: <strong className="text-t1">{mm(Math.abs(result.differentialHotMm ?? 0))}</strong>{" "}
                   {(result.differentialHotMm ?? 0) >= 0 ? "more growth in the member" : "more growth in the substrate"}.
                   Cold: <strong className="text-t1">{mm(Math.abs(result.differentialColdMm ?? 0))}</strong>{" "}
                   {(result.differentialColdMm ?? 0) >= 0 ? "more shrinkage in the member" : "more shrinkage in the substrate"}.
                 </p>
-                <p className="mt-[5px] text-f12 text-t3">
+                <p className="mt-[4px] text-f12 text-t3">
                   Slotted holes or sliding brackets at all but one fixing must take this relative movement, plus the bolt clearance.
                 </p>
               </div>
             )}
 
-            <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
+            <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
               <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">If both ends were fully restrained</div>
-              <p className="mt-[5px]">
+              <p className="mt-[4px]">
                 Axial stress about <strong className="text-t1">{result.restrainedHotMPa.toFixed(1)} MPa</strong> compression when hot and{" "}
                 <strong className="text-t1">{result.restrainedColdMPa.toFixed(1)} MPa</strong> tension when cold
                 {result.restrainedForceKn !== undefined ? <>, a force of about <strong className="text-t1">{result.restrainedForceKn.toFixed(1)} kN</strong> on the fixings</> : null}.
               </p>
-              <p className="mt-[5px] text-f12 text-t3">
+              <p className="mt-[4px] text-f12 text-t3">
                 Upper bound: E · α · ΔT with E = {result.member.E} GPa. Restraint also puts compression members at risk of buckling, so provide movement rather than rely on the section.
               </p>
             </div>
 
             {result.sealantJointMm !== undefined && (
-              <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
+              <div className="rounded-control bg-white p-[12px] text-f14 text-t2">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Sealed butt joint at one end</div>
-                <p className="mt-[5px]">
+                <p className="mt-[4px]">
                   Minimum joint width at installation: <strong className="text-t1">{mm(result.sealantJointMm)}</strong>{" "}
                   (larger of the opening and closing movement divided by the sealant class).
                 </p>
-                <p className="mt-[5px] text-f12 text-t3">Add construction tolerance, and follow the sealant maker&apos;s width-to-depth ratio.</p>
+                <p className="mt-[4px] text-f12 text-t3">Add construction tolerance, and follow the sealant maker&apos;s width-to-depth ratio.</p>
               </div>
             )}
 
             {preset && (
-              <Link href={preset.href} className="block rounded-control border border-teal/30 bg-white p-[13px] text-f14 text-t2 transition-colors hover:border-teal">
+              <Link href={preset.href} className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
                 <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">Related product</span>
                 {preset.product} <span aria-hidden>→</span>
               </Link>

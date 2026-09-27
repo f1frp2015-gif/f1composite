@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ToolSection from "@/components/layout/ToolSection";
+import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AccessGeometryChecker from "@/components/tools/AccessGeometryChecker";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
@@ -68,28 +72,29 @@ export default function AccessGeometryCheckerPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Ladder, stair and walkway checker" }]}
       />
 
-      <section className="bg-white py-[40px]">
-        <div className="site-container">
-          <AccessGeometryChecker />
-        </div>
-      </section>
+      <PageNav items={[{ id: "tool", label: "Checker" }, { id: "before-detailing", label: "Before detailing" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-bg2 py-[48px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">Before you detail an FRP access system</h2>
-          <p className="mt-[13px] max-w-[860px] text-f14 text-t2">
-            Geometry is only one part. The fall protection concept, the loads on rungs, treads and grating, the fixings and
-            the substrate are designed for the same rule. The{" "}
-            <Link href="/resources/blog/fixed-ladder-requirements-osha-iso-14122-4" className="font-semibold text-teal-text underline">fixed ladder requirements guide</Link>{" "}
-            explains the OSHA timeline and the EN ISO 14122-4 cage rules, and the{" "}
-            <Link href="/tools/handrail-load-calculator" className="font-semibold text-teal-text underline">handrail load check</Link>{" "}
-            covers the guardrails at platform edges and stairs.
-          </p>
-          <FAQ items={faqs} />
-        </div>
-      </section>
+      <ToolSection label="Ladder, stair and walkway checker">
+        <AccessGeometryChecker />
+      </ToolSection>
+
+      <PageSection id="before-detailing" title="Before you detail an FRP access system" tone="muted">
+        <p className="max-w-[860px] text-f16 leading-golden text-t2">
+          Geometry is only one part. The fall protection concept, the loads on rungs, treads and grating, the fixings and
+          the substrate are designed for the same rule. The{" "}
+          <Link href="/resources/blog/fixed-ladder-requirements-osha-iso-14122-4" className="font-semibold text-teal-text hover:underline">fixed ladder requirements guide</Link>{" "}
+          explains the OSHA timeline and the EN ISO 14122-4 cage rules, and the{" "}
+          <Link href="/tools/handrail-load-calculator" className="font-semibold text-teal-text hover:underline">handrail load check</Link>{" "}
+          covers the guardrails at platform edges and stairs.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="bg2"
         groups={[
           { title: "Products", links: [
             { href: "/products/frp-ladders", label: "FRP fixed ladders" },
@@ -107,6 +112,11 @@ export default function AccessGeometryCheckerPage() {
             { href: "/resources/blog/how-to-install-frp-grating", label: "How to install FRP grating" },
           ] },
         ]}
+      />
+      <InnerCTA
+        title="Send the access layout with your RFQ"
+        quoteHref="/contact?source=tool-access-geometry&inquiry_type=rfq"
+        text="Send the ladder heights, stair runs or walkway lengths, the rule that applies and the fixing substrate."
       />
     </>
   );

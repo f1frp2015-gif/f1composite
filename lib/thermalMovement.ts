@@ -34,7 +34,7 @@ export const THERMAL_MATERIALS: readonly ThermalMaterial[] = [
   { id: "gfrp-rebar-longitudinal", label: "GFRP rebar, lengthwise", alpha: 8, E: 50, source: "ACI 440.1R-15 Table 4.1 range 6.0–10.0 × 10⁻⁶/K" },
   { id: "steel-carbon", label: "Carbon steel", alpha: 12, E: 210, source: "EN 1993-1-1 §3.2.6" },
   { id: "steel-stainless-austenitic", label: "Stainless steel 1.4301 / 1.4401 (304 / 316)", alpha: 16, E: 200, source: "EN 1993-1-4 Table 2.3" },
-  { id: "aluminium", label: "Aluminium alloy", alpha: 23, E: 70, source: "EN 1999-1-1 §3.2.5" },
+  { id: "aluminium", label: "Aluminum alloy", alpha: 23, E: 70, source: "EN 1999-1-1 §3.2.5" },
   { id: "concrete", label: "Concrete", alpha: 10, E: 33, source: "EN 1992-1-1 §3.1.3(5)" },
   { id: "glass-soda-lime", label: "Soda-lime glass", alpha: 9, E: 70, source: "EN 572-1 Table 1" },
   { id: "pvc-u", label: "PVC-U window profile", alpha: 70, E: 2.5, source: "Typical PVC-U value (about 60–80 × 10⁻⁶/K); declare the supplied value" },

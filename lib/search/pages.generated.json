@@ -136,7 +136,7 @@
     "title": "Fiberglass Pultruded Profile Price — Estimator & Guide",
     "description": "Estimate fiberglass pultruded profile prices in USD per meter and kilogram. See how section size, resin, glass content, finish and order volume affect cost.",
     "aliases": [
-      "Fiberglass Pultruded Profile Price"
+      "Fiberglass pultruded profile price"
     ]
   },
   {
@@ -150,9 +150,9 @@
   {
     "path": "/frp-profile-calculator",
     "title": "FRP Calculator — Beam, Load & Section Properties",
-    "description": "Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel/aluminum equivalence. Method-specific datasets prevent incompatible standards combinations. Free, no login.",
+    "description": "Preliminary global-beam screening for pultruded FRP: bending, average shear, Timoshenko-corrected deflection, environmental reductions, and steel or aluminum equivalence. Method-specific datasets prevent incompatible combinations of standards. Free, no login.",
     "aliases": [
-      "FRP Calculator for Beam, Load & Section Properties"
+      "FRP calculator for beam, load and section properties"
     ]
   },
   {
@@ -174,9 +174,9 @@
   {
     "path": "/frp-span-tables",
     "title": "FRP Span Tables — Pultruded Fiberglass Load Charts",
-    "description": "Allowable uniform load for every published F1 pultruded profile — I-beams, channels, square and round tubes — over 1 to 6 m simple spans. EN 13706 E23 material, LRFD strength checks per ASCE/SEI 74-23, and L/250 deflection with the Timoshenko shear correction FRP needs. Every row opens pre-loaded in the calculator.",
+    "description": "Allowable uniform load for every published F1 pultruded profile (I-beams, channels, square and round tubes) over 1 to 6 m simple spans. EN 13706 E23 material, LRFD strength checks to ASCE/SEI 74-23, and L/250 deflection with the Timoshenko shear correction FRP needs. Every row opens pre-loaded in the calculator.",
     "aliases": [
-      "FRP Span Tables & Load Charts"
+      "FRP span tables and load charts"
     ]
   },
   {

@@ -10,7 +10,7 @@ import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { company, supplyTerms, weeks } from "@/content/data/company";
+import { company, supplyTerms, usdRange, weeks } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, regionCovers } from "@/lib/covers";
 
@@ -53,7 +53,7 @@ const faqs = [
   {
     question: "What is the MOQ for custom pultrusion in the US market?",
     answer:
-      `The minimum first run is ${supplyTerms.customMoqMeters.firstRun} linear meters, and repeat orders start at ${supplyTerms.customMoqMeters.repeat} meters. A new die takes ${weeks(supplyTerms.dieManufactureWeeks)} to make and costs about $3,000–$15,000, depending on the complexity of the cross-section. It is a one-time cost, and we keep the die for repeat orders. For samples and validation orders under ${supplyTerms.customMoqMeters.repeat} meters, we ship an existing standard section or a close match from the existing dies. Send us your drawing: if it matches an existing die, a shorter validation run may be possible.`,
+      `The minimum first run is ${supplyTerms.customMoqMeters.firstRun} linear meters, and repeat orders start at ${supplyTerms.customMoqMeters.repeat} meters. A new die takes ${weeks(supplyTerms.dieManufactureWeeks)} to make and costs from ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die to ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity one. It is a one-time cost, and we keep the die for repeat orders. For samples and validation orders under ${supplyTerms.customMoqMeters.repeat} meters, we ship an existing standard section or a close match from the existing dies. Send us your drawing: if it matches an existing die, a shorter validation run may be possible.`,
   },
   {
     question: "How does F1's FRP compare to Strongwell, Creative Pultrusions, and Bedford Reinforced?",

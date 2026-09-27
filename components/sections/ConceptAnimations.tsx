@@ -285,8 +285,8 @@ export function BeamDeflection() {
         <text x="120" y="86" textAnchor="middle" fontSize="9" fill={GRAY}>span L</text>
       </svg>
       <figcaption className="mt-[8px] text-center text-f14 leading-golden text-t2">
-        Deflection — not strength — usually governs FRP design. The calculator below solves δ, bending
-        stress, and the pass/fail against your deflection limit for real F1 sections.
+        Deflection, not strength, usually governs FRP design. The calculator solves δ, the bending stress
+        and the check against your deflection limit for F1 sections.
       </figcaption>
     </figure>
   );

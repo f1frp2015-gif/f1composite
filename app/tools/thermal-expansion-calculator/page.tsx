@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ToolSection from "@/components/layout/ToolSection";
+import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import ThermalExpansionCalculator from "@/components/tools/ThermalExpansionCalculator";
 import { THERMAL_MATERIALS } from "@/lib/thermalMovement";
@@ -22,12 +26,12 @@ const faqs = [
   {
     question: "What is the thermal expansion coefficient of pultruded FRP?",
     answer:
-      "Lengthwise, manufacturer design manuals give about 6 to 11 × 10⁻⁶ per K for E-glass pultruded profiles, close to glass and concrete and below carbon steel (12 × 10⁻⁶/K) and aluminium (23 × 10⁻⁶/K). Crosswise the value is several times higher because the resin controls it. The calculator uses 8 × 10⁻⁶/K lengthwise; replace it with the value declared for the supplied profile when your specification needs it.",
+      "Lengthwise, manufacturer design manuals give about 6 to 11 × 10⁻⁶ per K for E-glass pultruded profiles, close to glass and concrete and below carbon steel (12 × 10⁻⁶/K) and aluminum (23 × 10⁻⁶/K). Crosswise the value is several times higher because the resin controls it. The calculator uses 8 × 10⁻⁶/K lengthwise; replace it with the value declared for the supplied profile when your specification needs it.",
   },
   {
     question: "Why does the fixing substrate matter?",
     answer:
-      "A member fixed at both ends to a material that moves differently is strained by the difference, not by its own movement. An FRP rail on a steel platform moves about 4 × 10⁻⁶/K less than the steel, so over a 6 m run and an 80 K range the relative movement is only about 2 mm. An FRP frame against aluminium would see almost four times that.",
+      "A member fixed at both ends to a material that moves differently is strained by the difference, not by its own movement. An FRP rail on a steel platform moves about 4 × 10⁻⁶/K less than the steel, so over a 6 m run and an 80 K range the relative movement is only about 2 mm. An FRP frame against aluminum would see almost four times that.",
   },
   {
     question: "How wide should a sealed joint be?",
@@ -74,56 +78,56 @@ export default function ThermalExpansionPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Thermal expansion" }]}
       />
 
-      <section className="bg-white py-[40px]">
-        <div className="site-container">
-          <ThermalExpansionCalculator />
-        </div>
-      </section>
+      <PageNav items={[{ id: "tool", label: "Calculator" }, { id: "coefficients", label: "Coefficients" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-bg2 py-[48px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">Coefficients used</h2>
-          <p className="mt-[8px] max-w-[820px] text-f14 text-t2">
-            Free movement is α · L · ΔT. The steel, aluminium, concrete and glass values are the ones given in the
-            Eurocodes and EN 572-1. The FRP and PVC-U values are typical published ranges and vary with the glass
-            content and resin, so a specification should quote the value declared for the supplied product
-            (measured to ASTM E831 or ISO 11359-2).
-          </p>
-          <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[640px] text-f14">
-              <thead className="bg-bg2 text-left text-t1">
-                <tr>
-                  <th className="p-[12px]">Material</th>
-                  <th className="p-[12px] text-right">α (10⁻⁶/K)</th>
-                  <th className="p-[12px] text-right">E (GPa)</th>
-                  <th className="p-[12px]">Source</th>
+      <ToolSection label="Thermal expansion calculator">
+        <ThermalExpansionCalculator />
+      </ToolSection>
+
+      <PageSection
+        id="coefficients"
+        title="Coefficients used"
+        intro="Free movement is α · L · ΔT. The steel, aluminum, concrete and glass values are the ones given in the Eurocodes and EN 572-1. The FRP and PVC-U values are typical published ranges and vary with the glass content and resin, so a specification should quote the value declared for the supplied product (measured to ASTM E831 or ISO 11359-2)."
+        tone="muted"
+      >
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[640px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Material</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">α (10⁻⁶/K)</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">E (GPa)</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {THERMAL_MATERIALS.map((material) => (
+                <tr key={material.id} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{material.label}</th>
+                  <td className="px-[14px] py-[10px] text-right tabular-nums text-t2">{material.alpha}</td>
+                  <td className="px-[14px] py-[10px] text-right tabular-nums text-t2">{material.E}</td>
+                  <td className="px-[14px] py-[10px] text-t3">{material.source}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {THERMAL_MATERIALS.map((material) => (
-                  <tr key={material.id} className="border-t border-border-default">
-                    <td className="p-[12px] text-t1">{material.label}</td>
-                    <td className="p-[12px] text-right tabular-nums">{material.alpha}</td>
-                    <td className="p-[12px] text-right tabular-nums">{material.E}</td>
-                    <td className="p-[12px] text-f12 text-t3">{material.source}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-[13px] max-w-[820px] text-f14 text-t2">
-            Low movement is one reason FRP window frames stay tight against the glass. See{" "}
-            <Link href="/products/frp-window-frames" className="font-semibold text-teal-text underline">FRP window frames</Link>{" "}
-            and the{" "}
-            <Link href="/technology/frp-u-value-calculator" className="font-semibold text-teal-text underline">window U-value calculator</Link>.
-            For spans and loads, use the{" "}
-            <Link href="/frp-profile-calculator" className="font-semibold text-teal-text underline">FRP profile calculator</Link>.
-          </p>
-          <FAQ items={faqs} />
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+        <p className="mt-[16px] max-w-[820px] text-f14 leading-golden text-t2">
+          Low movement is one reason FRP window frames stay tight against the glass. See{" "}
+          <Link href="/products/frp-window-frames" className="font-semibold text-teal-text hover:underline">FRP window frames</Link>{" "}
+          and the{" "}
+          <Link href="/technology/frp-u-value-calculator" className="font-semibold text-teal-text hover:underline">window U-value calculator</Link>.
+          For spans and loads, use the{" "}
+          <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="bg2"
         groups={[
           { title: "Other tools", links: [
             { href: "/tools", label: "All engineering tools" },
@@ -141,6 +145,11 @@ export default function ThermalExpansionPage() {
             { href: "/technology/frp-vs-traditional-materials", label: "FRP vs traditional materials" },
           ] },
         ]}
+      />
+      <InnerCTA
+        title="Send the movement check with your RFQ"
+        quoteHref="/contact?source=tool-thermal-expansion&inquiry_type=rfq"
+        text="Send the member lengths, fixings, substrate and temperature range with the profile list."
       />
     </>
   );

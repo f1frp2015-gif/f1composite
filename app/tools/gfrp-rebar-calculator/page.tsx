@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ToolSection from "@/components/layout/ToolSection";
+import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
+import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import GfrpRebarCalculator from "@/components/tools/GfrpRebarCalculator";
 import { BAR_SIZES, BAR_SYSTEMS, GFRP_STANDARDS_BY_MARKET, matchGfrpSize, type BarSystem } from "@/lib/gfrpRebar";
@@ -71,70 +75,83 @@ export default function GfrpRebarCalculatorPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "GFRP rebar calculator" }]}
       />
 
-      <section className="bg-white py-[40px]">
-        <div className="site-container">
-          <GfrpRebarCalculator />
-        </div>
-      </section>
+      <PageNav items={[{ id: "tool", label: "Calculator" }, { id: "standards", label: "Standards" }, { id: "bar-sizes", label: "Bar sizes" }, { id: "faq", label: "FAQ" }]} />
 
-      <section className="bg-bg2 py-[48px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">GFRP reinforcement standards by market</h2>
-          <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default bg-white">
-            <table className="w-full min-w-[820px] text-f14">
-              <thead className="bg-bg2 text-left text-t1">
-                <tr><th className="p-[12px]">Market</th><th className="p-[12px]">Design</th><th className="p-[12px]">Bars</th><th className="p-[12px]">Notes</th></tr>
-              </thead>
-              <tbody>
-                {GFRP_STANDARDS_BY_MARKET.map((row) => (
-                  <tr key={row.market} className="border-t border-border-default align-top text-t2">
-                    <td className="p-[12px] font-semibold text-t1">{row.market}</td>
-                    <td className="p-[12px]">{row.design}</td>
-                    <td className="p-[12px]">{row.product}</td>
-                    <td className="p-[12px] text-f12">{row.notes}</td>
+      <ToolSection label="GFRP rebar calculator">
+        <GfrpRebarCalculator />
+      </ToolSection>
+
+      <PageSection id="standards" title="GFRP reinforcement standards by market" tone="muted">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[820px] border-collapse text-left text-f14">
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Market</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Design</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Bars</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {GFRP_STANDARDS_BY_MARKET.map((row) => (
+                <tr key={row.market} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.market}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.design}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.product}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t3">{row.notes}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="bar-sizes"
+        title="Bar size cross-reference"
+        intro="Nominal diameters and areas of the steel bar series, with the closest GFRP diameter on the F1 inquiry list. ASTM D7957 GFRP bars use the ASTM A615 designations."
+        tone="white"
+      >
+        <div className="grid gap-[16px] md:grid-cols-2">
+          {SYSTEM_ORDER.map((system) => (
+            <div key={system} className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+              <table className="w-full border-collapse text-left text-f14">
+                <caption className="border-b border-border-default px-[14px] py-[10px] text-left text-f16 font-bold text-t1">{BAR_SYSTEMS[system]}</caption>
+                <thead>
+                  <tr className="border-b border-border-default bg-bg2">
+                    <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Size</th>
+                    <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">Ø mm</th>
+                    <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">Area mm²</th>
+                    <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">GFRP Ø</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <h2 className="mt-[48px] text-f24 font-bold text-t1">Bar size cross-reference</h2>
-          <p className="mt-[8px] max-w-[820px] text-f14 text-t2">
-            Nominal diameters and areas of the steel bar series, with the closest GFRP diameter on the F1 inquiry list.
-            ASTM D7957 GFRP bars use the ASTM A615 designations.
-          </p>
-          <div className="mt-[21px] grid gap-[21px] md:grid-cols-2">
-            {SYSTEM_ORDER.map((system) => (
-              <div key={system} className="overflow-x-auto rounded-card border border-border-default bg-white">
-                <table className="spec-table w-full text-f14">
-                  <caption className="p-[12px] text-left text-f14 font-bold text-t1">{BAR_SYSTEMS[system]}</caption>
-                  <thead className="bg-bg2 text-left text-t1">
-                    <tr><th className="p-[10px]">Size</th><th className="p-[10px]">Ø mm</th><th className="p-[10px]">Area mm²</th><th className="p-[10px]">GFRP Ø</th></tr>
-                  </thead>
-                  <tbody>
-                    {BAR_SIZES.filter((size) => size.system === system).map((size) => (
-                      <tr key={size.designation} className="border-t border-border-default">
-                        <td className="p-[10px]">{size.designation}</td>
-                        <td className="p-[10px]">{size.diameterMm}</td>
-                        <td className="p-[10px]">{size.areaMm2}</td>
-                        <td className="p-[10px]">{matchGfrpSize(size.diameterMm)?.f1DiameterMm}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ))}
-          </div>
-          <p className="mt-[21px] max-w-[860px] text-f14 text-t2">
-            Specification practice is covered in the{" "}
-            <Link href="/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" className="font-semibold text-teal-text underline">GFRP rebar specification guide</Link>, and the bar forms and schedule builder are on the{" "}
-            <Link href="/products/frp-rebar" className="font-semibold text-teal-text underline">FRP rebar page</Link>.
-          </p>
-          <FAQ items={faqs} />
+                </thead>
+                <tbody>
+                  {BAR_SIZES.filter((size) => size.system === system).map((size) => (
+                    <tr key={size.designation} className="border-b border-border-default last:border-b-0">
+                      <th scope="row" className="px-[14px] py-[8px] font-semibold text-t1">{size.designation}</th>
+                      <td className="px-[14px] py-[8px] text-right tabular-nums text-t2">{size.diameterMm}</td>
+                      <td className="px-[14px] py-[8px] text-right tabular-nums text-t2">{size.areaMm2}</td>
+                      <td className="px-[14px] py-[8px] text-right tabular-nums text-t2">{matchGfrpSize(size.diameterMm)?.f1DiameterMm}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
         </div>
-      </section>
+        <p className="mt-[16px] max-w-[860px] text-f14 leading-golden text-t2">
+          Specification practice is covered in the{" "}
+          <Link href="/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" className="font-semibold text-teal-text hover:underline">GFRP rebar specification guide</Link>, and the bar forms and schedule builder are on the{" "}
+          <Link href="/products/frp-rebar" className="font-semibold text-teal-text hover:underline">FRP rebar page</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={faqs} />
+      </PageSection>
 
       <RelatedLinks
+        background="white"
         groups={[
           { title: "GFRP reinforcement", links: [
             { href: "/products/frp-rebar", label: "FRP rebar: bars, stirrups and mesh" },
@@ -152,6 +169,11 @@ export default function GfrpRebarCalculatorPage() {
             { href: "/industries/infrastructure", label: "FRP for infrastructure" },
           ] },
         ]}
+      />
+      <InnerCTA
+        title="Send the bar schedule with your RFQ"
+        quoteHref="/contact?source=tool-gfrp-rebar&inquiry_type=rfq"
+        text="Send the bar schedule or drawings, diameters, bends and quantities, and the design code for the project."
       />
     </>
   );

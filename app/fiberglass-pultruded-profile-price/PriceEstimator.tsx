@@ -76,9 +76,9 @@ const DIM_FIELDS: Record<ProfileType, { key: string; label: string }[]> = {
 };
 
 const inputClass =
-  "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
+  "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
 const selectClass = inputClass;
-const labelClass = "mb-[5px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 function fmtUsd(n: number): string {
   return n.toLocaleString("en-US", { maximumFractionDigits: n < 100 ? 2 : 0 });
@@ -149,10 +149,10 @@ export default function PriceEstimator() {
   }, [fetchEstimate]);
 
   return (
-    <div className="grid gap-[21px] lg:grid-cols-[1fr_380px]">
+    <div className="grid gap-[20px] lg:grid-cols-[1fr_380px]">
       {/* Inputs */}
-      <div className="rounded-card border border-border-default bg-white p-[21px]">
-        <div className="grid gap-[13px] sm:grid-cols-2">
+      <div className="rounded-card border border-border-default bg-white p-[20px]">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label className={labelClass} htmlFor="pe-type">Profile type</label>
             <select
@@ -210,7 +210,7 @@ export default function PriceEstimator() {
               className={inputClass}
             />
           </div>
-          <div className="flex flex-col justify-end gap-[5px]">
+          <div className="flex flex-col justify-end gap-[4px]">
             <label className="flex items-center gap-[8px] text-f14 text-t2">
               <input type="checkbox" checked={fireRetardant} onChange={(e) => setFireRetardant(e.target.checked)} />
               Fire-retardant resin
@@ -228,17 +228,17 @@ export default function PriceEstimator() {
       </div>
 
       {/* Result */}
-      <div className="rounded-card border border-teal/30 bg-bg2 p-[21px]">
+      <div className="rounded-card border border-teal/30 bg-bg2 p-[20px]">
         <p className={labelClass}>Indicative export price (FOB China)</p>
         {error ? (
-          <p className="mt-[13px] text-f16 text-t2">{error}</p>
+          <p className="mt-[12px] text-f16 text-t2">{error}</p>
         ) : result ? (
           <>
             <p className={`text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.1] text-t1 ${loading ? "opacity-50" : ""}`}>
               ${fmtUsd(result.usdPerMeterLow)}&ndash;${fmtUsd(result.usdPerMeterHigh)}
               <span className="text-f16 font-bold text-t3"> / meter</span>
             </p>
-            <ul className="mt-[13px] space-y-[5px] text-f14 text-t2">
+            <ul className="mt-[12px] space-y-[4px] text-f14 text-t2">
               <li>&asymp; ${fmtUsd(result.usdPerKgLow)}&ndash;${fmtUsd(result.usdPerKgHigh)} per kg</li>
               <li>Section mass: {result.kgPerMeter} kg/m</li>
               <li className="text-f12 text-t3">
@@ -252,7 +252,7 @@ export default function PriceEstimator() {
               </li>
             </ul>
             {result.warnings.length > 0 && (
-              <ul className="mt-[13px] space-y-[3px] text-f12 text-warn">
+              <ul className="mt-[12px] space-y-[3px] text-f12 text-warn">
                 {result.warnings.map((w) => (
                   <li key={w}>{w}</li>
                 ))}
@@ -260,9 +260,9 @@ export default function PriceEstimator() {
             )}
           </>
         ) : (
-          <p className="mt-[13px] text-f16 text-t2">Calculating&hellip;</p>
+          <p className="mt-[12px] text-f16 text-t2">Calculating&hellip;</p>
         )}
-        <p className="mt-[13px] text-f12 leading-golden text-t3">
+        <p className="mt-[12px] text-f12 leading-golden text-t3">
           Budgetary estimate, &plusmn;15% band, excludes ocean freight and import duty. Exact standard
           E-glass/polyester sections use the same published kg/m values as the product catalog and
           span tables; custom dimensions and other material systems use a labeled nominal calculation.
@@ -270,7 +270,7 @@ export default function PriceEstimator() {
         </p>
         <Link
           href="/contact?source=price-estimator&inquiry_type=rfq"
-          className="mt-[13px] inline-block rounded-control bg-teal px-[21px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
+          className="mt-[12px] inline-block rounded-control bg-teal px-[20px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
         >
           Get a firm quote &rarr;
         </Link>

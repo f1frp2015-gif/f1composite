@@ -38,37 +38,37 @@ export default function ToolCitationBlock({
   }
 
   return (
-    <section className="rounded-card border border-border-default bg-bg2 p-[21px] md:p-[34px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[20px] md:p-[24px]">
       <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Citable engineering resource</p>
-      <h2 className="mt-[8px] text-f24 font-bold text-t1">📚 How to cite this tool in your design report</h2>
-      <p className="mt-[10px] max-w-[800px] text-f16 leading-golden text-t2">
+      <h3 className="mt-[4px] text-f20 font-bold text-t1">How to cite this tool in a design report</h3>
+      <p className="mt-[8px] max-w-[800px] text-f16 leading-golden text-t2">
         Use the format required by your client, university, or document-control system. The permanent URL below
         always points to the current maintained version of the tool.
       </p>
 
-      <div className="mt-[21px] grid gap-[13px] lg:grid-cols-3">
+      <div className="mt-[20px] grid gap-[12px] lg:grid-cols-3">
         {(Object.keys(citations) as (keyof typeof citations)[]).map((style) => (
           <div key={style} className="flex min-w-0 flex-col rounded-card border border-border-default bg-white p-[16px]">
-            <div className="flex items-center justify-between gap-[13px]">
-              <h3 className="text-f16 font-bold text-t1">{style}</h3>
+            <div className="flex items-center justify-between gap-[12px]">
+              <h4 className="text-f16 font-bold text-t1">{style}</h4>
               <button
                 type="button"
                 onClick={() => copyCitation(style)}
                 className="shrink-0 rounded-control border border-border-default px-[10px] py-[6px] text-f12 font-bold text-teal-text transition-colors hover:border-teal hover:bg-teal-bg"
               >
-                {copyState === style ? "✓ Copied" : `📋 Copy ${style}`}
+                {copyState === style ? "Copied" : `Copy ${style}`}
               </button>
             </div>
-            <pre className="mt-[13px] min-w-0 max-w-full flex-1 whitespace-pre-wrap break-all font-mono text-f12 leading-relaxed text-t2">
+            <pre className="mt-[12px] min-w-0 max-w-full flex-1 whitespace-pre-wrap break-all font-mono text-f12 leading-relaxed text-t2">
               {citations[style]}
             </pre>
           </div>
         ))}
       </div>
 
-      <p role="status" className="mt-[10px] min-h-[20px] text-f12 text-t3">
+      <p role="status" className="mt-[8px] min-h-[20px] text-f12 text-t3">
         {copyState === "error" ? "Clipboard access was blocked. Select the citation text and copy it manually." : ""}
       </p>
-    </section>
+    </div>
   );
 }

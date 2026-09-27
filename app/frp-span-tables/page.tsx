@@ -6,10 +6,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import FAQ from "@/components/ui/FAQ";
-import SectionTag from "@/components/ui/SectionTag";
+import { FAQList } from "@/components/ui/FAQ";
 import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import SpanTablesContent from "@/components/tools/SpanTablesContent";
@@ -42,7 +43,7 @@ const spanTableFaqs = [
   {
     question: "Do these span tables include shear deflection?",
     answer:
-      "Yes. Pultruded FRP has G_LT of only ~3.5 GPa against E_L of 23 GPa, so shear deformation contributes 5–15% of total deflection at common span-to-depth ratios and more on short spans. Every deflection-governed value in these tables applies the load-case-matched Timoshenko correction — plain 5wL⁴/384EI tables overstate what short-span FRP beams can carry.",
+      "Yes. Pultruded FRP has G_LT of only ~3.5 GPa against E_L of 23 GPa, so shear deformation contributes 5–15% of total deflection at common span-to-depth ratios and more on short spans. Every deflection-governed value in these tables applies the load-case-matched Timoshenko correction; plain 5wL⁴/384EI tables overstate what short-span FRP beams can carry.",
   },
   {
     question: "Are these tables valid for FRP profiles from any manufacturer?",
@@ -52,7 +53,7 @@ const spanTableFaqs = [
   {
     question: "Can I use these span tables for FRP grating?",
     answer:
-      "No — molded and pultruded gratings are plate-like panels with their own load-deflection tables per panel type and bearing-bar pitch. These tables cover single pultruded structural profiles in bending. For grating, see the FRP gratings product page or ask engineering for panel load tables against your support spacing.",
+      "No. Molded and pultruded gratings are plate-like panels with their own load-deflection tables per panel type and bearing-bar pitch. These tables cover single pultruded structural profiles in bending. For grating, see the FRP gratings product page or ask engineering for panel load tables against your support spacing.",
   },
 ];
 
@@ -92,73 +93,101 @@ export default function SpanTablesPage() {
         }}
       />
       <PageHeader
-        tag="Free Engineering Data"
-        title="FRP Span Tables & Load Charts"
-        description="Allowable uniform load for every published F1 pultruded profile — I-beams, channels, square and round tubes — over 1 to 6 m simple spans. EN 13706 E23 material, LRFD strength checks per ASCE/SEI 74-23, and L/250 deflection with the Timoshenko shear correction FRP needs. Every row opens pre-loaded in the calculator."
+        tag="Tools"
+        title="FRP span tables and load charts"
+        description="Allowable uniform load for every published F1 pultruded profile (I-beams, channels, square and round tubes) over 1 to 6 m simple spans. EN 13706 E23 material, LRFD strength checks to ASCE/SEI 74-23, and L/250 deflection with the Timoshenko shear correction FRP needs. Every row opens pre-loaded in the calculator."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Technology", href: "/technology" },
-          { label: "FRP Span Tables" },
+          { label: "Tools", href: "/tools" },
+          { label: "Span tables" },
+        ]}
+        actions={{
+          primary: { label: "Open the I-beam table", href: "#i-beam" },
+          secondary: { label: "Check a section", href: "/frp-profile-calculator", variant: "secondary" },
+        }}
+      />
+      <PageNav
+        items={[
+          { id: "basis", label: "Design basis" },
+          ...families.map((family) => ({ id: family.id, label: family.title.replace(/^FRP /, "").replace(/ span table$/, "").replace(/^./, (c) => c.toUpperCase()) })),
+          { id: "how-to-read", label: "How to read" },
+          { id: "embed", label: "Embed and cite" },
+          { id: "faq", label: "FAQ" },
         ]}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <SectionTag>Design Basis</SectionTag>
-          <div className="mt-[21px] grid gap-[13px] rounded-card border border-border-default bg-bg2 p-[21px] text-f14 leading-golden text-t2 md:grid-cols-2">
-            <div><strong className="text-t1">Material:</strong> {DESIGN_BASIS.material}: E_L {DESIGN_BASIS.E_L_GPa} GPa and shear strength {DESIGN_BASIS.shearStrengthMPa} MPa (EN 13706 minimums), G_LT {DESIGN_BASIS.G_LT_GPa} GPa (assumed)</div>
-            <div><strong className="text-t1">Strength:</strong> {DESIGN_BASIS.method}; design bending strength {DESIGN_BASIS.bendingAllowableMPa} MPa, shear {DESIGN_BASIS.shearAllowableMPa} MPa after λ and the knockdown</div>
-            <div><strong className="text-t1">Environment:</strong> {DESIGN_BASIS.environment}</div>
-            <div><strong className="text-t1">Load case:</strong> {DESIGN_BASIS.loadCase}</div>
-            <div className="md:col-span-2"><strong className="text-t1">Deflection:</strong> {DESIGN_BASIS.deflectionLimit}</div>
-          </div>
-          <p className="mt-[13px] text-f14 text-t3">
-            Values are the maximum service UDL in kN/m (1 kN/m ≈ 68.5 lb/ft). Superscript marks the governing check:{" "}
-            <sup>d</sup> deflection, <sup>b</sup> bending, <sup>v</sup> shear. “—” = below practical loading.
-            Local buckling, lateral-torsional buckling, connections, and long-term creep are not covered — review per
-            ASCE/SEI 74-23 / CEN/TS 19101. For a different deflection limit, point loads, cantilevers, or another code, use the{" "}
-            <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">FRP profile calculator</Link>.
-          </p>
-        </div>
-      </section>
+      <PageSection id="basis" title="Design basis" tone="white">
+        <dl className="grid gap-[12px] rounded-card border border-border-default bg-bg2 p-[20px] text-f14 leading-golden text-t2 md:grid-cols-2">
+          <div><dt className="inline font-semibold text-t1">Material: </dt><dd className="inline">{DESIGN_BASIS.material}: E_L {DESIGN_BASIS.E_L_GPa} GPa and shear strength {DESIGN_BASIS.shearStrengthMPa} MPa (EN 13706 minimums), G_LT {DESIGN_BASIS.G_LT_GPa} GPa (assumed)</dd></div>
+          <div><dt className="inline font-semibold text-t1">Strength: </dt><dd className="inline">{DESIGN_BASIS.method}; design bending strength {DESIGN_BASIS.bendingAllowableMPa} MPa, shear {DESIGN_BASIS.shearAllowableMPa} MPa after λ and the knockdown</dd></div>
+          <div><dt className="inline font-semibold text-t1">Environment: </dt><dd className="inline">{DESIGN_BASIS.environment}</dd></div>
+          <div><dt className="inline font-semibold text-t1">Load case: </dt><dd className="inline">{DESIGN_BASIS.loadCase}</dd></div>
+          <div className="md:col-span-2"><dt className="inline font-semibold text-t1">Deflection: </dt><dd className="inline">{DESIGN_BASIS.deflectionLimit}</dd></div>
+        </dl>
+        <p className="mt-[12px] max-w-[980px] text-f14 leading-golden text-t3">
+          Values are the maximum service UDL in kN/m (1 kN/m ≈ 68.5 lb/ft). The superscript marks the governing check:{" "}
+          <sup>d</sup> deflection, <sup>b</sup> bending, <sup>v</sup> shear; a dash means below practical loading.
+          Local buckling, lateral-torsional buckling, connections and long-term creep are not covered; review them to
+          ASCE/SEI 74-23 or CEN/TS 19101. For a different deflection limit, point loads, cantilevers or another code, use the{" "}
+          <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>.
+        </p>
+      </PageSection>
 
-      <SpanTablesContent families={families} datasheetHrefs={datasheetHrefs} />
+      <SpanTablesContent families={families} datasheetHrefs={datasheetHrefs} variant="page" />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container">
-          <h2 className="text-f24 font-bold text-t1">How to read an FRP span chart</h2>
-          <div className="mt-[21px] grid gap-[34px] lg:grid-cols-2">
-            <div className="space-y-[13px] text-f16 leading-golden text-t2">
-              <p>
-                Find the profile row and read across to your span: the value is the maximum uniformly distributed
-                service load the section carries with every check passing. Nearly every value in these tables is
-                deflection-governed (<sup>d</sup>) — the defining feature of fiberglass structural design. With E_L
-                around 1/10 of steel, an FRP member sized for strength alone would deflect far past any serviceability
-                limit, so span tables for pultruded profiles are effectively stiffness tables.
-              </p>
-              <p>
-                Shear (<sup>v</sup>) only governs on short, deep sections, and bending (<sup>b</sup>) rarely governs at
-                all under L/250. If your project uses L/180 (industrial economy) or L/360 (pedestrian comfort, IBC
-                1604.3), the ranking of sections stays the same but every value scales — use the{" "}
-                <Link href="/frp-profile-calculator" className="text-teal-text hover:underline">calculator</Link> with
-                your exact limit.
-              </p>
-            </div>
-            <div className="space-y-[13px] text-f16 leading-golden text-t2">
-              <p>
-                Exact section properties (A, Ix, Iy, Sx, torsion, and EN 13706 mechanical data) for every row live in
-                the <Link href="/datasheets" className="text-teal-text hover:underline">profile datasheets</Link>, and
-                dimensioned drawings are on the{" "}
-                <Link href="/products/fiberglass-structural-shapes" className="text-teal-text hover:underline">fiberglass structural shapes size chart</Link>.
-                For members these tables can’t represent — angles in single-leg bending, continuous spans, frames —
-                ask <Link href="/ask" className="text-teal-text hover:underline">the FRP Engineering Advisor</Link> or
-                send the case to engineering.
-              </p>
-            </div>
+      <PageSection id="how-to-read" title="How to read an FRP span chart" tone="muted">
+        <div className="grid gap-[32px] lg:grid-cols-2">
+          <div className="space-y-[12px] text-f16 leading-golden text-t2">
+            <p>
+              Find the profile row and read across to your span: the value is the maximum uniformly distributed
+              service load the section carries with every check passing. Nearly every value in these tables is
+              deflection-governed (<sup>d</sup>), the defining feature of fiberglass structural design. With E_L
+              around a tenth of steel, an FRP member sized for strength alone would deflect far past any serviceability
+              limit, so span tables for pultruded profiles are effectively stiffness tables.
+            </p>
+            <p>
+              Shear (<sup>v</sup>) only governs on short, deep sections, and bending (<sup>b</sup>) rarely governs at
+              all under L/250. If your project uses L/180 (industrial economy) or L/360 (pedestrian comfort, IBC
+              1604.3), the ranking of sections stays the same but every value scales, so use the{" "}
+              <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">calculator</Link> with
+              your exact limit.
+            </p>
           </div>
-          <FAQ items={spanTableFaqs} />
+          <div className="space-y-[12px] text-f16 leading-golden text-t2">
+            <p>
+              Exact section properties (A, Ix, Iy, Sx, torsion and EN 13706 mechanical data) for every row are in
+              the <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">profile datasheets</Link>, and
+              dimensioned drawings are on the{" "}
+              <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:underline">fiberglass structural shapes size chart</Link>.
+              For members these tables cannot represent (angles in single-leg bending, continuous spans, frames),
+              ask the <Link href="/ask" className="font-semibold text-teal-text hover:underline">engineering assistant</Link> or
+              send the case to engineering.
+            </p>
+          </div>
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection id="embed" title="Embed and cite the tables" tone="white">
+        <EmbedCode
+          toolName="FRP Span Tables"
+          embedPath="/frp-span-tables/embed"
+          canonicalPath="/frp-span-tables"
+          height={920}
+          attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
+        />
+        <div className="mt-[16px]">
+          <ToolCitationBlock
+            toolTitle="FRP Span Tables & Load Charts"
+            canonicalPath="/frp-span-tables"
+            bibtexKey="f1composite_frp_span_tables_2026"
+            medium="Data set"
+          />
+        </div>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
+        <FAQList items={spanTableFaqs} />
+      </PageSection>
 
       <RelatedLinks
         background="white"
@@ -181,30 +210,22 @@ export default function SpanTablesPage() {
               { href: "/fiberglass-pultruded-profile-price", label: "Estimate profile price" },
             ],
           },
+          {
+            title: "Other tools",
+            links: [
+              { href: "/tools/profile-finder", label: "Profile finder" },
+              { href: "/frp-density-calculator", label: "Density and weight calculator" },
+              { href: "/tools", label: "All engineering tools" },
+            ],
+          },
         ]}
       />
 
-      <section className="bg-white pb-[89px]">
-        <div className="site-container">
-          <EmbedCode
-            toolName="FRP Span Tables"
-            embedPath="/frp-span-tables/embed"
-            canonicalPath="/frp-span-tables"
-            height={920}
-            attribution="F1 Composite — Pultruded FRP Profiles Manufacturer"
-          />
-          <div className="mt-[21px]">
-            <ToolCitationBlock
-              toolTitle="FRP Span Tables & Load Charts"
-              canonicalPath="/frp-span-tables"
-              bibtexKey="f1composite_frp_span_tables_2026"
-              medium="Data set"
-            />
-          </div>
-        </div>
-      </section>
-
-      <InnerCTA title="Need a section these tables don't cover?" />
+      <InnerCTA
+        title="Need a section these tables don't cover?"
+        quoteHref="/contact?source=tool-span-tables&inquiry_type=rfq"
+        text="Send the member, span, support conditions, loads and deflection limit, with the service environment."
+      />
     </>
   );
 }

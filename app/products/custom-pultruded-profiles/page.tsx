@@ -10,7 +10,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import CoverCard from "@/components/ui/CoverCard";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
-import { company, supplyTerms, weeks } from "@/content/data/company";
+import { company, supplyTerms, usdRange, weeks } from "@/content/data/company";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { productCovers } from "@/lib/covers";
@@ -139,7 +139,7 @@ const faqItems = [
   {
     question: "How much does custom pultrusion tooling cost?",
     answer:
-      "Tooling costs depend on the complexity and size of the cross-section. Simple single-cavity dies for small profiles start at approximately USD 5,000 to 8,000, while large or complex multi-cavity dies can range from USD 15,000 to 40,000. Tooling is a one-time investment that we maintain and store at our facility for the life of the product. For high-volume programs, the tooling cost per linear meter becomes negligible within the first production run.",
+      `Tooling costs depend on the complexity and size of the cross-section. Simple single-cavity dies for small profiles start at approximately ${usdRange(supplyTerms.dieCostUsd.singleCavity)}, while large or complex multi-cavity dies can range from ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)}. Tooling is a one-time investment that we maintain and store at our facility for the life of the product. For high-volume programs, the tooling cost per linear meter becomes negligible within the first production run.`,
   },
   {
     question: "What is the minimum order quantity for custom profiles?",
@@ -411,11 +411,11 @@ export default function CustomPultrusionsPage() {
             <dl className="mt-[14px] divide-y divide-border-default border-y border-border-default">
               <div className="flex flex-wrap items-baseline justify-between gap-x-[16px] gap-y-[2px] py-[10px]">
                 <dt className="text-f14 text-t2">Single-cavity die, small open profile</dt>
-                <dd className="text-f16 font-semibold text-t1">USD 5,000–8,000</dd>
+                <dd className="text-f16 font-semibold text-t1">{usdRange(supplyTerms.dieCostUsd.singleCavity)}</dd>
               </div>
               <div className="flex flex-wrap items-baseline justify-between gap-x-[16px] gap-y-[2px] py-[10px]">
                 <dt className="text-f14 text-t2">Large or multi-cavity die</dt>
-                <dd className="text-f16 font-semibold text-t1">USD 15,000–40,000</dd>
+                <dd className="text-f16 font-semibold text-t1">{usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)}</dd>
               </div>
             </dl>
             <p className="mt-[14px] text-f14 leading-golden text-t2">
