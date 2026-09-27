@@ -10,7 +10,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
-import { productCovers } from "@/lib/covers";
+import { caseStudyCovers, productCovers } from "@/lib/covers";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
@@ -129,6 +129,25 @@ const faqs = [
   },
 ];
 
+// The three window cases, each shown by the picture its case opens on.
+const installations = [
+  {
+    href: "/case-studies/qinling-station-antarctic-passive-windows",
+    title: "Qinling Station, Antarctica: −60°C design low",
+    text: "90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phB efficiency class for the cool-temperate climate zone, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.",
+  },
+  {
+    href: "/case-studies/baotou-industrial-gfrp-pu-windows",
+    title: "Baotou Industrial Park: −25°C plus chemical exposure",
+    text: "70/80/90-series GFRP-PU windows on a severe-cold-zone manufacturing campus, chosen to beat an aluminum thermal-bridge penalty while resisting acid mist and chloride aerosol without a recoating cycle.",
+  },
+  {
+    href: "/case-studies/wanhua-yantai-zero-carbon-windows",
+    title: "Wanhua Yantai Zero-Carbon Community: 13,657 m² of GFRP-PU fenestration",
+    text: "Whole-window Uw 0.99 W/m²·K across 13,657 m² of dormitory windows on a near-zero energy development, with measured airtightness of N50 = 1.0.",
+  },
+] as const;
+
 export default function PolyurethanePultrusionWindowsPage() {
   const articleSchema = {
     "@context": "https://schema.org",
@@ -218,38 +237,20 @@ export default function PolyurethanePultrusionWindowsPage() {
       </PageSection>
 
       <PageSection id="where-it-is-proven" title="Three GFRP-PU window installations, from the Antarctic to production residential" tone="white">
-        <div className="max-w-[860px] space-y-[20px]">
-          <Link
-            href="/case-studies/qinling-station-antarctic-passive-windows"
-            className="group block rounded-card border border-border-default bg-bg2 p-[32px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-          >
-            <h3 className="text-f18 font-bold text-t1">Qinling Station, Antarctica: −60°C design low</h3>
-            <p className="mt-[8px] text-f16 leading-golden text-t2">
-              90-series GFRP-PU passive windows certified to PHI Component-ID 2491wi03 at the phB efficiency class for the cool-temperate climate zone, factory-assembled and leak-tested before a single-summer Antarctic installation window, against 45 m/s katabatic winds.
-            </p>
-            <span className="mt-[12px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-          </Link>
-          <Link
-            href="/case-studies/baotou-industrial-gfrp-pu-windows"
-            className="group block rounded-card border border-border-default bg-bg2 p-[32px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-          >
-            <h3 className="text-f18 font-bold text-t1">Baotou Industrial Park: −25°C plus chemical exposure</h3>
-            <p className="mt-[8px] text-f16 leading-golden text-t2">
-              70/80/90-series GFRP-PU windows on a severe-cold-zone manufacturing campus, chosen to beat an aluminum thermal-bridge penalty while resisting acid mist and chloride aerosol without a recoating cycle.
-            </p>
-            <span className="mt-[12px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-          </Link>
-          <Link
-            href="/case-studies/wanhua-yantai-zero-carbon-windows"
-            className="group block rounded-card border border-border-default bg-bg2 p-[32px] transition-all hover:-translate-y-[2px] hover:border-teal-border"
-          >
-            <h3 className="text-f18 font-bold text-t1">Wanhua Yantai Zero-Carbon Community: 13,657 m² of GFRP-PU fenestration</h3>
-            <p className="mt-[8px] text-f16 leading-golden text-t2">
-              Whole-window U_w 0.99 W/m²·K across 13,657 m² of dormitory windows on a near-zero energy development, with measured airtightness of N50 = 1.0.
-            </p>
-            <span className="mt-[12px] block text-f14 font-semibold text-teal-text">Read the case study →</span>
-          </Link>
-        </div>
+        <ul className="grid gap-[12px] md:grid-cols-3 lg:gap-[16px]">
+          {installations.map((item) => (
+            <li key={item.href}>
+              <CoverCard
+                href={item.href}
+                cover={caseStudyCovers[item.href]}
+                title={item.title}
+                text={item.text}
+                action="Read the case study"
+                sizes="(max-width: 767px) 94vw, 390px"
+              />
+            </li>
+          ))}
+        </ul>
       </PageSection>
 
       <PageSection id="how-to-buy" title="Profiles for your fabrication line, or finished GFRP-PU units" tone="muted">

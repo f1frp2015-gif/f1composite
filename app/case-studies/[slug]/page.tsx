@@ -8,9 +8,11 @@ import ProductPageNav from "@/components/products/ProductPageNav";
 import ProductRfq from "@/components/products/ProductRfq";
 import ProductSection from "@/components/products/ProductSection";
 import JsonLd from "@/components/seo/JsonLd";
+import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import SectionGlyph, { type GlyphShape } from "@/components/ui/SectionGlyph";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { coverFor } from "@/lib/covers";
 import { prefillForCaseStudy } from "@/lib/aiPrefill";
 import { assembleDocuments } from "@/lib/documents";
 import { buildRfqHref } from "@/lib/rfq";
@@ -625,17 +627,25 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <ProductSection id="products" title="Products used" count={`${products.length} product ${products.length === 1 ? "family" : "families"}`} tone="muted">
         <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <li key={product.href}>
-              <Link href={product.href} className="flex h-full items-start gap-[14px] rounded-card border border-border-default bg-white p-[16px] transition-colors hover:border-teal-border">
-                <SectionGlyph shape={product.glyph} size={40} />
-                <span>
-                  <span className="block text-f16 font-bold text-t1">{product.label}</span>
-                  {product.text ? <span className="mt-[4px] block text-f14 leading-golden text-t2">{product.text}</span> : null}
-                </span>
-              </Link>
-            </li>
-          ))}
+          {products.map((product) => {
+            // A product card shows the product itself; a family without a cover keeps its section glyph.
+            const cover = coverFor(product.href);
+            return (
+              <li key={product.href}>
+                {cover ? (
+                  <CoverCard href={product.href} cover={cover} title={product.label} text={product.text || undefined} action="View the product" sizes="(max-width: 639px) 94vw, (max-width: 1023px) 46vw, 390px" />
+                ) : (
+                  <Link href={product.href} className="flex h-full items-start gap-[14px] rounded-card border border-border-default bg-white p-[16px] transition-colors hover:border-teal-border">
+                    <SectionGlyph shape={product.glyph} size={40} />
+                    <span>
+                      <span className="block text-f16 font-bold text-t1">{product.label}</span>
+                      {product.text ? <span className="mt-[4px] block text-f14 leading-golden text-t2">{product.text}</span> : null}
+                    </span>
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
         <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           {[
