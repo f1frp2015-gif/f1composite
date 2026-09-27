@@ -109,8 +109,30 @@ export const applicationCovers: Record<string, Cover> = Object.fromEntries(
   applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
 );
 
+// Case studies open on Figure 1 of the case, with the same note: most window
+// projects are shown by the architect's rendering, not a site photograph.
+const project = (file: string, alt: string, note?: string): Cover => ({ src: `/images/case-studies/${file}`, alt, ...(note ? { note } : {}) });
+
+export const caseStudyCovers = {
+  "/case-studies/qinling-station-antarctic-passive-windows": project("frp-qinling-station-antarctic-ross-sea-aerial.webp", "Architectural rendering of Qinling Station on the Ross Sea coast, Antarctica", RENDERING),
+  "/case-studies/yancheng-talent-apartment-fenestration": project("frp-talent-apartment-yancheng-aerial-view.webp", "Architectural rendering of the Yancheng talent apartment development from above", RENDERING),
+  "/case-studies/baotou-industrial-gfrp-pu-windows": project("frp-baotou-industrial-park-aerial-rendering.webp", "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block", RENDERING),
+  "/case-studies/wanhua-yantai-zero-carbon-windows": project("frp-wanhua-yantai-zero-carbon-community-aerial.webp", "Architectural rendering of the Wanhua Yantai zero-carbon community from above", RENDERING),
+  "/case-studies/chongqing-rooftop-pv-frp-rail": project("frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp", "PV modules on pultruded FRP rails over a blue color steel-tile factory roof in Chongqing", "Project photo"),
+  "/case-studies/factory-access-staircase": project("frp-factory-access-staircase-hero.webp", "FRP access staircase and platform with orange handrails inside F1 Composite's Chongqing plant", "Project photo"),
+  "/case-studies/european-bridge-deck": project("frp-bridge-deck-replacement-infrastructure-project.jpg", "Covered pedestrian bridge with curved timber slats and a white steel arch", ILLUSTRATIVE),
+  "/case-studies/coastal-marina-walkway": project("frp-coastal-marina-walkway-grating-system.jpg", "Paved walkway with steel railings leading down to a marina on a lake", ILLUSTRATIVE),
+  "/case-studies/water-treatment-cable-tray": project("frp-water-treatment-plant-aerial-cable-tray-handrail.webp", "Aerial view of circular clarifiers and rectangular basins at a water treatment plant", ILLUSTRATIVE),
+} satisfies Record<string, Cover>;
+
 /** The cover for a page, when one is registered. */
 export function coverFor(href: string): Cover | undefined {
   const path = href.split(/[?#]/)[0];
-  return (productCovers as Record<string, Cover>)[path] ?? industryCovers[path] ?? applicationCovers[path] ?? (toolCovers as Record<string, Cover>)[path];
+  return (
+    (productCovers as Record<string, Cover>)[path] ??
+    industryCovers[path] ??
+    applicationCovers[path] ??
+    (toolCovers as Record<string, Cover>)[path] ??
+    (caseStudyCovers as Record<string, Cover>)[path]
+  );
 }

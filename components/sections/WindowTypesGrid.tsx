@@ -46,19 +46,19 @@ const windowTypes: ReadonlyArray<{
   },
   {
     type: "sliding",
-    name: "90 Series Sliding",
+    name: "90 series sliding",
     description: "Horizontal sliding window; confirm the 90 sliding configuration.",
   },
   {
     type: "compression-seal",
-    name: "140 Series Compression-Seal Sliding Door",
+    name: "140 compression-seal sliding door",
     description: "Schematic: slide horizontally, then press toward the seal when closing. Hardware geometry requires confirmation.",
   },
 ];
 
-const FRAME = "#0b1730";
-const TEAL = "#0a9b91";
-const GLASS = "rgba(10, 155, 145, 0.08)";
+const FRAME = "var(--color-t1)";
+const TEAL = "var(--color-teal)";
+const GLASS = "var(--color-teal-bg2)";
 const GUIDE = "rgba(11, 23, 48, 0.28)";
 const DURATION = "5.4s";
 
@@ -200,23 +200,23 @@ export default function WindowTypesGrid() {
   const animate = playing && !reducedMotion;
   return (
     <div>
-      <div className="mb-4 flex flex-wrap items-center gap-3">
-        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-11 rounded-card border border-border-default px-4 py-2 text-f14 font-semibold text-teal-text disabled:cursor-default disabled:text-t3">
+      <div className="flex flex-wrap items-center gap-x-[16px] gap-y-[8px]">
+        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-[40px] rounded-control border border-border-default bg-white px-[14px] text-f14 font-semibold text-teal-text transition-colors hover:border-teal-border disabled:cursor-default disabled:text-t3">
           {animate ? "Stop motion" : "Play opening diagrams"}
         </button>
-        <p className="text-f12 text-t3">{reducedMotion ? "Static diagrams shown to respect your reduced-motion preference." : "Motion is optional. Stopping returns each diagram to its closed position."}</p>
+        <p className="text-f14 text-t3">{reducedMotion ? "Static diagrams shown to respect your reduced-motion preference." : "Motion is optional. Stopping returns each diagram to its closed position."}</p>
       </div>
-      <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-[16px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
       {windowTypes.map(({ type, name, description }) => (
-        <div key={type} className="rounded-card border border-border-default bg-white p-[16px]">
-          <div className="mb-[13px] flex h-[86px] items-center justify-center overflow-hidden rounded-control bg-bg2">
+        <li key={type} className="rounded-card border border-border-default bg-white p-[20px]">
+          <div className="flex h-[96px] items-center justify-center overflow-hidden rounded-control bg-bg2">
             <WindowTypeAnimation type={type} name={name} animate={animate} />
           </div>
-          <h3 className="text-f16 font-bold text-t1">{name}</h3>
-          <p className="mt-[5px] text-f14 leading-golden text-t2">{description}</p>
-        </div>
+          <h3 className="mt-[14px] text-f16 font-bold text-t1">{name}</h3>
+          <p className="mt-[6px] text-f14 leading-golden text-t2">{description}</p>
+        </li>
       ))}
-      </div>
+      </ul>
     </div>
   );
 }
