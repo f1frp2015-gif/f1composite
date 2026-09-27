@@ -48,9 +48,14 @@ export default function PageNav({ items }: { items: PageNavItem[] }) {
   const list = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    const link = list.current?.querySelector<HTMLElement>('[aria-current="location"]');
     const scroller = list.current;
-    if (!link || !scroller) return;
+    if (!scroller) return;
+    const link = scroller.querySelector<HTMLElement>('[aria-current="location"]');
+    // Back above the first section, the bar shows its start again.
+    if (!link) {
+      scroller.scrollLeft = 0;
+      return;
+    }
     const left = link.offsetLeft - 16;
     const right = link.offsetLeft + link.offsetWidth + 16;
     if (left < scroller.scrollLeft) scroller.scrollLeft = left;

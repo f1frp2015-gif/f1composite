@@ -26,12 +26,18 @@
   {
     "path": "/ai/passive-house",
     "title": "AI Passive House Window Selector — PHI Window Tool",
-    "description": "Free AI tool for Passive House windows: match climate, target U-value, and opening type to PHI-certified FRP frame series, calculators, and case studies."
+    "description": "Free AI tool for Passive House windows: match climate, target U-value, and opening type to PHI-certified FRP frame series, calculators, and case studies.",
+    "aliases": [
+      "Passive House window selector"
+    ]
   },
   {
     "path": "/ai/sourcing",
     "title": "AI FRP Sourcing Assistant — Free Project Specification",
-    "description": "Use the free AI FRP sourcing assistant to match profiles, resin systems, standards and case studies to your project, then send the result as a quote request."
+    "description": "Use the free AI FRP sourcing assistant to match profiles, resin systems, standards and case studies to your project, then send the result as a quote request.",
+    "aliases": [
+      "FRP sourcing assistant"
+    ]
   },
   {
     "path": "/applications",
@@ -45,7 +51,10 @@
   {
     "path": "/ask",
     "title": "FRP Engineering Advisor & Profile Selection Assistant",
-    "description": "Ask the F1 Composite AI advisor about FRP profile selection, resins, standards and documents. Answers link to catalog data and published test reports."
+    "description": "Ask the F1 Composite AI advisor about FRP profile selection, resins, standards and documents. Answers link to catalog data and published test reports.",
+    "aliases": [
+      "FRP engineering assistant"
+    ]
   },
   {
     "path": "/case-studies",
@@ -144,6 +153,7 @@
     "title": "FRP Density Calculator",
     "description": "Calculate FRP density from mat GSM, fabric layup, roving tex and section geometry. Estimate fiberglass profile weight and convert g/cm³, kg/m³ and lb/in³.",
     "aliases": [
+      "FRP density calculator",
       "FRP Density Calculator | Fiberglass Profile Weight & kg/m³"
     ]
   },
@@ -160,6 +170,7 @@
     "title": "FRP Profile Calculator Methodology",
     "description": "See the equations, design assumptions, material inputs, load factors, shear correction, standards scope, and limits behind F1 Composite's FRP calculator.",
     "aliases": [
+      "FRP profile calculator methodology",
       "FRP Profile Calculator Methodology | F1 Composite"
     ]
   },
@@ -168,6 +179,7 @@
     "title": "FRP Calculator Validation Benchmarks",
     "description": "Review 12 reproducible section-property benchmarks, build-time tolerances, validation scope, and known limits for the F1 Composite FRP calculator.",
     "aliases": [
+      "FRP calculator validation benchmarks",
       "FRP Calculator Validation Benchmarks | F1 Composite"
     ]
   },
@@ -705,7 +717,7 @@
     "title": "Free Window U-Value Calculator — EN ISO 10077-1",
     "description": "Free EN ISO 10077-1 U-value calculator. Compare FRP, aluminum, PVC and timber against numeric targets, or load a locked PHI certificate reference.",
     "aliases": [
-      "Free Window U-Value Calculator"
+      "Window U-value calculator"
     ]
   },
   {

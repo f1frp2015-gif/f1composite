@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { holdDash } from "@/lib/typography";
 
 interface FAQDisclosureProps {
   question: string;
@@ -16,7 +17,7 @@ export default function FAQDisclosure({
 }: FAQDisclosureProps) {
   const questionRow = (
     <>
-      <span>{question}</span>
+      <span>{holdDash(question)}</span>
       <span
         aria-hidden="true"
         className="mt-[1px] flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full border border-teal-border bg-white text-f16 leading-none text-teal-text transition-transform duration-200 group-open:rotate-45"

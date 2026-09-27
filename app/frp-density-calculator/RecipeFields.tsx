@@ -23,7 +23,7 @@ export default function RecipeFields({
 }) {
   const result = calculateMixture(rows, basis, voids);
   const control =
-    "mt-1 w-full min-w-0 rounded-card border border-border-default bg-white p-2 text-f14 text-t1 focus-visible:outline-2 focus-visible:outline-teal";
+    "mt-[4px] w-full min-w-0 rounded-control border border-border-default bg-white px-[8px] py-[6px] text-f14 text-t1 outline-none focus:border-teal";
   const update = (index: number, key: keyof Constituent, value: string) =>
     onRows(
       rows.map((row, i) => (i === index ? { ...row, [key]: value } : row)),
@@ -44,16 +44,16 @@ export default function RecipeFields({
     onBasis(next);
   }
   return (
-    <div className="mt-6 rounded-card border border-border-default bg-bg2 p-4">
-      <h3 className="font-bold text-t1">Laminate formulation</h3>
-      <p className="mt-2 text-f14 leading-relaxed text-t2">
+    <div className="mt-[24px] rounded-card border border-border-default bg-white p-[16px]">
+      <h3 className="text-f16 font-bold text-t1">Laminate formulation</h3>
+      <p className="mt-[8px] text-f14 leading-relaxed text-t2">
         Enter each constituent separately. Percentages describe the finished,
         cured material before voids; exclude solvents lost during curing.
         Example values are editable assumptions, not a certified production
         recipe.
       </p>
       <label
-        className="mt-4 block text-f14 font-medium text-t1"
+        className="mt-[16px] block text-f14 font-medium text-t1"
         htmlFor="recipe-basis"
       >
         Content basis
@@ -67,18 +67,18 @@ export default function RecipeFields({
           <option value="volume">Solid volume percentage (vol%)</option>
         </select>
       </label>
-      <p className="mt-2 text-f12 text-t3">
+      <p className="mt-[8px] text-f12 text-t3">
         Switching basis converts a valid recipe to preserve density. Volume
         percentages sum to 100% of non-void material; voids are entered
         separately below.
       </p>
-      <div className="mt-4 space-y-3">
+      <div className="mt-[16px] space-y-[12px]">
         {rows.map((row, index) => (
           <fieldset
             key={index}
-            className="rounded-card border border-border-default bg-white p-3"
+            className="rounded-control border border-border-default bg-bg2 p-[12px]"
           >
-            <legend className="px-1 text-f12 font-semibold text-t2">
+            <legend className="px-[4px] text-f12 font-semibold text-t2">
               Constituent {index + 1}
             </legend>
             <label className="block text-f12 text-t2">
@@ -90,7 +90,7 @@ export default function RecipeFields({
                 className={control}
               />
             </label>
-            <div className="mt-2 grid grid-cols-2 gap-3">
+            <div className="mt-[8px] grid grid-cols-2 gap-[12px]">
               <label className="text-f12 text-t2">
                 Content ({basis === "weight" ? "wt%" : "solid vol%"})
                 <input
@@ -122,7 +122,7 @@ export default function RecipeFields({
             {index >= 5 && (
               <button
                 type="button"
-                className="mt-2 text-f12 text-teal-text underline"
+                className="mt-[8px] text-f12 text-teal-text underline"
                 onClick={() => onRows(rows.filter((_, i) => i !== index))}
               >
                 Remove constituent {index + 1}
@@ -131,7 +131,7 @@ export default function RecipeFields({
           </fieldset>
         ))}
       </div>
-      <div className="mt-3 flex flex-wrap gap-4">
+      <div className="mt-[12px] flex flex-wrap gap-[16px]">
         <button
           type="button"
           className="text-f14 font-semibold text-teal-text underline"
@@ -157,7 +157,7 @@ export default function RecipeFields({
         </button>
       </div>
       <label
-        className="mt-4 block text-f14 font-medium text-t1"
+        className="mt-[16px] block text-f14 font-medium text-t1"
         htmlFor="recipe-voids"
       >
         Void content (% of final laminate volume)
@@ -173,7 +173,7 @@ export default function RecipeFields({
           className={control}
         />
       </label>
-      <p className="mt-3 text-f12 leading-relaxed text-t3">
+      <p className="mt-[12px] text-f12 leading-relaxed text-t3">
         Use cured resin density and solid constituent density—not loose mat bulk
         density. Roving, mat and fabric made from the same glass share its
         density. Account for binders, stitching and fillers separately, or use

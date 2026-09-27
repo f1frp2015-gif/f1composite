@@ -72,7 +72,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
   const hasResult = !!object && Object.keys(object).length > 0;
 
   return (
-    <div className="mt-[34px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
       <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
         Describe your project
       </label>
@@ -81,10 +81,10 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
         onChange={(e) => setValue(e.target.value)}
         rows={5}
         placeholder="For example: I need FRP structural beams and grating for a 300 m coastal walkway in Saudi Arabia. It will carry pedestrian loads and face salt and chlorine splash. We need a lightweight system with a 25-year design life and minimal maintenance. What do you recommend?"
-        className="mt-[8px] w-full rounded-card border border-border-default bg-white px-[16px] py-[13px] text-f16 leading-golden text-t1 outline-none focus:border-teal"
+        className="mt-[8px] w-full rounded-card border border-border-default bg-white px-[16px] py-[12px] text-f16 leading-golden text-t1 outline-none focus:border-teal"
       />
 
-      <div className="mt-[13px] flex flex-col gap-[8px] sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-[12px] flex flex-col gap-[8px] sm:flex-row sm:items-center sm:justify-between">
         <p className="text-f12 text-t3">
           AI returns a structured recommendation: profile family, resin, standards, RFQ inputs, and next steps.
         </p>
@@ -93,7 +93,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             <button
               type="button"
               onClick={stop}
-              className="rounded-control border border-border-default bg-white px-[21px] py-[10px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
+              className="rounded-control border border-border-default bg-white px-[20px] py-[10px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
             >
               Stop
             </button>
@@ -102,26 +102,26 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               type="button"
               onClick={() => handleSubmit(value)}
               disabled={value.trim().length < 10}
-              className="rounded-control bg-teal-text px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-control bg-teal-text px-[20px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Get AI recommendation →
+              Get an AI recommendation
             </button>
           )}
         </div>
       </div>
 
       {error && (
-        <div className="mt-[21px] rounded-card border border-fail-border bg-fail-bg p-[16px] text-f14 text-fail">
+        <div className="mt-[20px] rounded-card border border-fail-border bg-fail-bg p-[16px] text-f14 text-fail">
           The recommendation failed to load. Try again, or open the{" "}
           <Link href="/ask" className="underline">
-            full FRP advisor
+            engineering assistant
           </Link>
           .
         </div>
       )}
 
       {(isLoading || hasResult) && (
-        <div className="mt-[34px] space-y-[21px]">
+        <div className="mt-[32px] space-y-[20px]">
           {object?.summary && (
             <section className="rounded-card border border-teal-border bg-teal-bg p-[24px]">
               <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
@@ -136,7 +136,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Profile family
               </h3>
-              <p className="mt-[5px] text-f18 font-bold text-t1">{object.profileFamily.name}</p>
+              <p className="mt-[4px] text-f18 font-bold text-t1">{object.profileFamily.name}</p>
               {object.profileFamily.why && (
                 <p className="mt-[8px] text-f16 leading-golden text-t2">
                   {object.profileFamily.why}
@@ -153,7 +153,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                       <li key={`${p.name}-${p.path}`}>
                         <Link
                           href={p.path}
-                          className="block rounded-card border border-border-default bg-bg2 p-[13px] text-f14 text-t1 transition-colors hover:border-teal"
+                          className="block rounded-card border border-border-default bg-bg2 p-[12px] text-f14 text-t1 transition-colors hover:border-teal"
                         >
                           <span className="font-semibold">{p.name}</span>
                           <span className="ml-[8px] text-f12 text-t3">{p.path}</span>
@@ -165,13 +165,13 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
             </section>
           )}
 
-          <div className="grid gap-[21px] md:grid-cols-2">
+          <div className="grid gap-[20px] md:grid-cols-2">
             {object?.resinSystem?.recommended && (
               <section className="rounded-card border border-border-default bg-white p-[24px]">
                 <h3 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Resin system
                 </h3>
-                <p className="mt-[5px] text-f18 font-bold text-t1">
+                <p className="mt-[4px] text-f18 font-bold text-t1">
                   {object.resinSystem.recommended}
                 </p>
                 {object.resinSystem.why && (
@@ -261,7 +261,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                   <Link
                     key={`${step.label}-${step.href}`}
                     href={step.href}
-                    className="rounded-card bg-teal px-[21px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                    className="rounded-card bg-teal px-[20px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
                   >
                     {step.label} →
                   </Link>
@@ -281,7 +281,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               >
                 Send formal RFQ to F1 team →
               </Link>
-              <p className="mt-[13px] text-f12 italic text-t3">
+              <p className="mt-[12px] text-f12 italic text-t3">
                 AI-generated recommendation. Verify critical engineering data with the F1 Composite team.
               </p>
             </section>
@@ -289,9 +289,9 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
         </div>
       )}
 
-      <div className="mt-[34px]">
+      <div className="mt-[32px]">
         <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Or pick a starting point</div>
-        <div className="mt-[13px] grid gap-[8px]">
+        <div className="mt-[12px] grid gap-[8px]">
           {examples.map((ex) => (
             <button
               key={ex.label}
@@ -303,13 +303,13 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               disabled={isLoading}
               className="group rounded-card border border-border-default bg-white p-[16px] text-left transition-all hover:border-teal hover:bg-teal-bg disabled:opacity-50"
             >
-              <div className="flex items-center justify-between gap-[13px]">
+              <div className="flex items-center justify-between gap-[12px]">
                 <span className="text-f14 font-semibold text-t1">{ex.label}</span>
                 <span className="text-f14 text-teal-text opacity-0 transition-opacity group-hover:opacity-100">
                   Run →
                 </span>
               </div>
-              <p className="mt-[5px] text-f12 leading-golden text-t2 line-clamp-2">{ex.prompt}</p>
+              <p className="mt-[4px] text-f12 leading-golden text-t2 line-clamp-2">{ex.prompt}</p>
             </button>
           ))}
         </div>

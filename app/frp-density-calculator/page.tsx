@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
-import FAQ from "@/components/ui/FAQ";
+import PageNav from "@/components/layout/PageNav";
+import PageSection from "@/components/layout/PageSection";
+import ToolSection from "@/components/layout/ToolSection";
+import RelatedLinks from "@/components/sections/RelatedLinks";
+import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import { FAQList } from "@/components/ui/FAQ";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import DensityCalculator from "./DensityCalculator";
 
+const pagePath = "/frp-density-calculator";
+const pageDescription =
+  "Calculate FRP density from mat GSM, fabric layup, roving tex and section geometry. Estimate fiberglass profile weight and convert g/cm³, kg/m³ and lb/in³.";
+
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Density Calculator | Fiberglass Profile Weight & kg/m³",
-  description:
-    "Calculate FRP density from mat GSM, fabric layup, roving tex and section geometry. Estimate fiberglass profile weight and convert g/cm³, kg/m³ and lb/in³.",
-  path: "/frp-density-calculator",
+  description: pageDescription,
+  path: pagePath,
 });
+
 const faqs = [
   {
     question: "What is FRP profile weight per meter?",
@@ -78,6 +87,25 @@ const formulas = [
   ["L-angle", "t × (B + H − t)"],
   ["C-channel / I-beam", "2B × tf + (H − 2tf) × tw"],
 ];
+
+const steps = [
+  {
+    title: "Describe the section",
+    text: "Select the profile shape and enter the outside dimensions and wall thickness in millimeters, or the net area from CAD for a complex section.",
+  },
+  {
+    title: "Enter the material",
+    text: "In layup mode, drag the GSM, roving-end or void sliders and play the fill animation to inspect the volume balance. For weight, enter the material density, piece length and quantity. For density, weigh one bare sample and enter its length.",
+  },
+  {
+    title: "Read density and weight",
+    text: "Read density in g/cm³, kg/m³ and lb/in³, with the net area and profile mass. Send the results with your inquiry to confirm the supply specification.",
+  },
+];
+
+const link = "font-semibold text-teal-text hover:underline";
+const external = { target: "_blank", rel: "noopener noreferrer" } as const;
+
 export default function DensityPage() {
   return (
     <>
@@ -86,337 +114,252 @@ export default function DensityPage() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "FRP Density & Profile Weight Calculator",
-          url: absoluteUrl("/frp-density-calculator"),
-          applicationCategory: "UtilitiesApplication",
+          url: absoluteUrl(pagePath),
+          description: pageDescription,
+          applicationCategory: "EngineeringApplication",
           operatingSystem: "Any",
-          browserRequirements: "Requires JavaScript",
           isAccessibleForFree: true,
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-          description:
-            "Calculate pultruded fiberglass profile mass from material density and section dimensions, or infer density from a weighed sample.",
-          provider: { "@id": absoluteUrl("/#organization") },
+          publisher: { "@id": "https://www.f1composite.com/#organization" },
         }}
       />
       <PageHeader
-        tag="Free material & weight tool"
-        title="FRP Density Calculator"
-        description="Calculate fiberglass density from mat and fabric layup, roving tex and your profile section, turn density into profile weight, or check a weighed sample. Calculate tubes, rods, angles, channels and beams in seconds."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Engineering", href: "/technology" },
-          { label: "FRP Density Calculator" },
+        tag="Tools"
+        title="FRP density calculator"
+        description="FRP density is the mass per unit volume of the composite. For pultruded fiberglass profiles, 1.9 g/cm³ (1,900 kg/m³, about 0.0686 lb/in³) is a useful starting assumption. Work density out from the mat, fabric and roving layup or the formulation, turn it into profile weight, or check a weighed sample."
+        facts={[
+          { label: "Estimating density", value: "1.9 g/cm³" },
+          { label: "Section types", value: "8" },
+          { label: "Calculation modes", value: "4" },
         ]}
-        actions={{
-          primary: { label: "Start calculating", href: "#calculator" },
-          secondary: {
-            label: "Browse FRP profiles",
-            href: "/products/fiberglass-structural-shapes",
-            variant: "secondary",
-          },
-        }}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Density and weight" }]}
       />
-      <section className="bg-white py-8">
-        <div className="site-container">
-          <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
-            <div>
-              <h2 className="text-f20 font-bold text-t1">
-                What is FRP density?
-              </h2>
-              <p className="mt-3 leading-relaxed text-t2">
-                FRP density is mass per unit of composite material volume. For
-                pultruded fiberglass profiles,{" "}
-                <strong>1.9 g/cm³ = 1,900 kg/m³ ≈ 0.0686 lb/in³</strong> is a
-                useful starting assumption. Use the actual laminate value when
-                available; resin, reinforcement and fillers affect the result.
-              </p>
-            </div>
-            <div className="rounded-card border border-border-default bg-bg2 p-5">
-              <p className="text-f14 font-semibold text-teal-text">
-                Two quantities, two units
-              </p>
-              <p className="mt-2 text-t1">
-                <strong>Density:</strong> kg/m³ — material property
-              </p>
-              <p className="mt-2 text-t1">
-                <strong>Linear mass:</strong> kg/m — density × net area
-              </p>
-              <p className="mt-2 text-f14 text-t2">
-                An empty tube core contributes no material mass.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <DensityCalculator />
-      <section className="bg-white py-14">
-        <div className="site-container">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="text-f24 font-bold text-t1">
-                How to calculate FRP density and weight
-              </h2>
-              <ol className="mt-5 list-decimal space-y-3 pl-5 leading-relaxed text-t2">
-                <li>
-                  Select the profile shape and enter outside dimensions and wall
-                  thickness in millimeters.
-                </li>
-                <li>
-                  In layup mode, drag the GSM, roving-end or void sliders to see
-                  density and weight per meter change. Play the fill animation
-                  to inspect the volume balance. For weight, enter material
-                  density, piece length and quantity. For density, weigh one
-                  bare sample and enter that sample’s length.
-                </li>
-                <li>
-                  Read density in g/cm³, kg/m³ and lb/in³, plus net area and
-                  profile mass. Send the results with your inquiry to confirm
-                  the supply specification.
-                </li>
-              </ol>
-              <div className="mt-6 rounded-card bg-bg2 p-5 font-mono text-f14 leading-loose text-t1">
-                <p>Volume (m³) = area (mm²) × length (m) / 10⁶</p>
-                <p>Density (kg/m³) = sample mass (kg) / volume (m³)</p>
-                <p>Linear mass (kg/m) = area (mm²) × density (kg/m³) / 10⁶</p>
-                <p>Total mass = linear mass × length × quantity</p>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-f24 font-bold text-t1">
-                Worked example: 50 × 50 × 5 mm tube
-              </h2>
-              <p className="mt-5 leading-relaxed text-t2">
-                The outside area is 2,500 mm² and the hollow core is 40 × 40 =
-                1,600 mm². Net material area is <strong>900 mm²</strong>. At
-                1,900 kg/m³, the tube weighs <strong>1.71 kg/m</strong>.
-              </p>
-              <p className="mt-4 leading-relaxed text-t2">
-                One 6 m piece weighs <strong>10.26 kg</strong>; ten pieces weigh{" "}
-                <strong>102.6 kg</strong> before packing. Conversely, a bare
-                sample weighing 10.26 kg over 6 m with that net area gives an
-                inferred density of 1,900 kg/m³.
-              </p>
-              <p className="mt-4 leading-relaxed text-t2">
-                These are ideal sharp-corner dimensions. For an actual extruded
-                or pultruded section with radii, use the supplier’s CAD area or
-                published mass per meter.
-              </p>
-              <Link
-                className="mt-5 inline-block font-semibold text-teal-text underline"
-                href="/products/fiberglass-structural-shapes/frp-square-tube"
-              >
-                Explore fiberglass square tubes →
-              </Link>
-            </div>
-          </div>
-          <div className="mt-14">
-            <h2 className="text-f24 font-bold text-t1">
-              From mat GSM and fabric layup to profile density
-            </h2>
-            <p className="mt-4 leading-relaxed text-t2">
-              A section’s surface perimeter determines how much mat or fabric is
-              needed to cover a path. Its net area determines how much material
-              volume exists per meter. Their relationship lets the calculator
-              connect the actual reinforcement schedule to laminate density.
-            </p>
-            <ol className="mt-4 list-decimal space-y-3 pl-5 text-t2">
-              <li>
-                Retained width = actual ply path × coverage fraction + total
-                overlap allowance.
-              </li>
-              <li>
-                Mat / fabric mass (g/m) = GSM × retained width (mm) / 1,000 ×
-                layer count × feed factor.
-              </li>
-              <li>
-                Roving mass (g/m) = tex × end count × feed factor / 1,000.
-              </li>
-              <li>
-                Reinforcement occupied area (mm²) = Σ[mass (g/m) / constituent
-                density (g/cm³)].
-              </li>
-              <li>
-                Matrix area = net area × (1 − void fraction) − reinforcement
-                area.
-              </li>
-              <li>
-                Total mass (g/m) = reinforcement mass + matrix area × cured
-                matrix density. Profile density (g/cm³) = total mass / net area.
-              </li>
-            </ol>
-            <p className="mt-4 leading-relaxed text-t2">
-              For a sharp-corner 50 × 50 × 5 mm tube, the outer perimeter is 200
-              mm, inner perimeter 160 mm and net area 900 mm². One 450 g/m² mat
-              on each surface contributes 90 + 72 g/m. An 80 mm-wide 600 g/m²
-              local fabric strip adds 48 g/m; 400 ends of 2,400 tex roving add
-              960 g/m. With all reinforcement at 2.54 g/cm³, a 1.20 g/cm³ cured
-              matrix and zero voids, the result is <strong>1.6972 kg/m</strong>{" "}
-              and <strong>1.8858 g/cm³</strong>. Surface paths are
-              approximations in this example; actual ply centerlines refine the
-              result.
-            </p>
-            <p className="mt-4 leading-relaxed text-t2">
-              For axial feed, the consumption factor is 1. For a winding or
-              draping process, use measured retained fabric area per axial
-              meter; do not multiply a fabric’s GSM again merely because its
-              fibers are oriented at ±45°. Enter different reinforcement paths
-              as separate rows. This model balances volume; it does not predict
-              compaction, wet-out or manufacturability.{" "}
-              <a
-                href="https://pultruders.com/pultrusion/4-raw-materials/"
-                className="font-semibold text-teal-text underline"
-              >
-                EPTA’s raw-material guide
-              </a>{" "}
-              describes pultrusion rovings, mats and fabrics.
-            </p>
-          </div>
-          <div className="mt-14">
-            <h2 className="text-f24 font-bold text-t1">
-              Calculate FRP density from the laminate formulation
-            </h2>
-            <p className="mt-4 leading-relaxed text-t2">
-              Track roving, mat and fabric separately for your recipe, then add
-              cured resin, fillers and any other retained constituent. Every
-              percentage is relative to the whole cured, non-void mixture and
-              must total 100%. A resin recipe expressed in parts per hundred
-              resin (phr) must first be converted to whole-composite fractions.
-            </p>
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <div className="rounded-card bg-bg2 p-5">
-                <h3 className="font-bold text-t1">Weight fractions</h3>
-                <p className="mt-3 font-mono text-t1">ρ₀ = 1 / Σ(wᵢ / ρᵢ)</p>
-                <p className="mt-3 text-f14 text-t2">
-                  wᵢ is each constituent’s mass fraction (percentage ÷ 100). Do
-                  not take an arithmetic average of densities weighted by mass.
-                </p>
-              </div>
-              <div className="rounded-card bg-bg2 p-5">
-                <h3 className="font-bold text-t1">Solid volume fractions</h3>
-                <p className="mt-3 font-mono text-t1">ρ₀ = Σ(vᵢ × ρᵢ)</p>
-                <p className="mt-3 text-f14 text-t2">
-                  vᵢ is the fraction of non-void material volume. For void
-                  fraction φ of final laminate volume, ρ = ρ₀ × (1 − φ),
-                  neglecting gas mass.
-                </p>
-              </div>
-            </div>
-            <p className="mt-5 leading-relaxed text-t2">
-              Example assumptions: 50 wt% roving + 10 wt% mat + 10 wt% fabric,
-              all at 2.54 g/cm³, plus 30 wt% cured resin at 1.20 g/cm³. The
-              void-free result is <strong>1.9026 g/cm³</strong>. At 2% void
-              volume, it becomes <strong>1.8646 g/cm³</strong>. Rearranging the
-              same glass mass among those three forms does not itself change the
-              calculated density.
-            </p>
-            <p className="mt-4 leading-relaxed text-t2">
-              Use supplier-specific constituent values for your glass chemistry
-              and cured resin system. Formula accuracy is not measurement
-              accuracy: resin cure, binders, filler loading, moisture and voids
-              affect real production.{" "}
-              <a
-                className="font-semibold text-teal-text underline"
-                href="https://compositeskn.org/KPC/A213"
-              >
-                CKN explains weight versus volume fractions
-              </a>
-              ; its{" "}
-              <a
-                className="font-semibold text-teal-text underline"
-                href="https://compositeskn.org/KPC/M109"
-              >
-                reinforcement-content guide
-              </a>{" "}
-              describes composition and void measurement relationships.
-            </p>
-          </div>
-          <h2 className="mt-14 text-f24 font-bold text-t1">
-            Net cross-section area formulas
-          </h2>
-          <p className="mt-3 text-t2">
-            All dimensions are in mm; area is in mm². B = width, H = height, D =
-            outside diameter, t = uniform wall, tf = flange thickness, tw = web
-            thickness. Angles, channels and beams use ideal square corners;
-            channel and I-beam flanges have equal width and thickness.
+
+      <PageNav
+        items={[
+          { id: "tool", label: "Calculator" },
+          { id: "method", label: "Method" },
+          { id: "layup", label: "From the layup" },
+          { id: "formulation", label: "From the formulation" },
+          { id: "formulas", label: "Area formulas" },
+          { id: "reference", label: "Reference values" },
+          { id: "faq", label: "FAQ" },
+        ]}
+      />
+
+      <ToolSection label="FRP density and weight calculator">
+        <DensityCalculator />
+      </ToolSection>
+
+      <PageSection id="method" title="How to calculate FRP density and weight" tone="muted">
+        <div className="max-w-[820px] rounded-card border-l-4 border-l-teal bg-white p-[20px]">
+          <p className="text-f16 font-bold text-t1">Two quantities, two units</p>
+          <p className="mt-[4px] text-f14 leading-golden text-t2">
+            <strong className="text-t1">Density</strong> (kg/m³) is a property of the material.{" "}
+            <strong className="text-t1">Linear mass</strong> (kg/m) is density multiplied by the net area of the section,
+            so the empty core of a tube contributes no mass.
           </p>
-          <div className="mt-5 overflow-x-auto rounded-card border border-border-default">
-            <table className="w-full text-left text-f14">
-              <caption className="sr-only">
-                Ideal FRP profile material area formulas
-              </caption>
-              <thead className="bg-bg2">
-                <tr>
-                  <th scope="col" className="p-4">
-                    Section
-                  </th>
-                  <th scope="col" className="p-4">
-                    Net area A
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {formulas.map(([name, formula]) => (
-                  <tr key={name} className="border-t border-border-default">
-                    <th scope="row" className="p-4 font-medium text-t1">
-                      {name}
-                    </th>
-                    <td className="p-4 font-mono text-t2">{formula}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        </div>
+        <ol className="mt-[24px] grid gap-[12px] md:grid-cols-3">
+          {steps.map((step, index) => (
+            <li key={step.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{step.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-[24px] grid gap-[24px] lg:grid-cols-2">
+          <div className="rounded-card border border-border-default bg-white p-[20px]">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Formulas</p>
+            <div className="mt-[8px] space-y-[4px] font-mono text-f14 leading-golden text-t1">
+              <p>Volume (m³) = area (mm²) × length (m) / 10⁶</p>
+              <p>Density (kg/m³) = sample mass (kg) / volume (m³)</p>
+              <p>Linear mass (kg/m) = area (mm²) × density (kg/m³) / 10⁶</p>
+              <p>Total mass = linear mass × length × quantity</p>
+            </div>
           </div>
-          <div className="mt-12 rounded-card bg-bg2 p-6">
-            <h2 className="text-f20 font-bold text-t1">
-              Density reference and limits
-            </h2>
-            <p className="mt-3 leading-relaxed text-t2">
-              The calculator’s 1.9 g/cm³ default is an estimating assumption,
-              not a certified F1 product value. As a published manufacturer
-              example, Strongwell lists 1.72–1.94 g/cm³ for its Series 500/525
-              and 625 structural shapes. Its plate ranges differ, illustrating
-              why the exact product matters.{" "}
-              <a
-                className="font-semibold text-teal-text underline"
-                href="https://www.strongwell.com/wp-content/uploads/2015/08/StrongwellSpecs-FRP-Structural-Shapes-and-Plate.pdf"
-              >
-                Read Strongwell’s material property table (PDF)
-              </a>
-              .
+          <div className="rounded-card border border-border-default bg-white p-[20px]">
+            <h3 className="text-f18 font-bold text-t1">Worked example: 50 × 50 × 5 mm tube</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              The outside area is 2,500 mm² and the hollow core is 40 × 40 = 1,600 mm², so the net material area is{" "}
+              <strong className="text-t1">900 mm²</strong>. At 1,900 kg/m³ the tube weighs <strong className="text-t1">1.71 kg/m</strong>.
+              One 6 m piece weighs <strong className="text-t1">10.26 kg</strong>, and ten pieces weigh{" "}
+              <strong className="text-t1">102.6 kg</strong> before packing. Working backwards, a bare sample weighing 10.26 kg over 6 m
+              with that net area gives an inferred density of 1,900 kg/m³.
             </p>
-            <p className="mt-3 leading-relaxed text-t2">
-              This tool uses geometric volume, not a displacement test. It does
-              not determine structural capacity, laminate grade or shipping
-              gross weight. Use a supplier datasheet for final material density
-              and include packaging separately.
-            </p>
-            <Link
-              className="mt-4 inline-block font-semibold text-teal-text underline"
-              href="/resources/blog/frp-density-fiberglass-profile-density-explained"
-            >
-              Read the full guide to fiberglass profile density →
-            </Link>
-          </div>
-          <FAQ items={faqs} title="FRP density questions" />
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {[
-              ["Compare profile specifications", "/resources/technical-data"],
-              ["Screen beam deflection", "/frp-profile-calculator"],
-              [
-                "Estimate a profile price",
-                "/fiberglass-pultruded-profile-price",
-              ],
-            ].map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className="rounded-card border border-border-default p-5 font-semibold text-teal-text hover:bg-bg2"
-              >
-                {label} →
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              These are ideal sharp-corner dimensions. For a pultruded section with radii, use the supplier&rsquo;s CAD area or
+              published mass per meter.{" "}
+              <Link href="/products/fiberglass-structural-shapes/frp-square-tube" className={link}>
+                FRP square tubes
               </Link>
-            ))}
+            </p>
           </div>
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection
+        id="layup"
+        title="From mat GSM and fabric layup to profile density"
+        intro="A section's surface perimeter sets how much mat or fabric covers a path, and its net area sets how much material there is per meter. Together they connect the reinforcement schedule to the laminate density."
+        tone="white"
+      >
+        <ol className="max-w-[820px] list-decimal space-y-[8px] pl-[20px] text-f16 leading-golden text-t2">
+          <li>Retained width = actual ply path × coverage fraction + total overlap allowance.</li>
+          <li>Mat or fabric mass (g/m) = GSM × retained width (mm) / 1,000 × layer count × feed factor.</li>
+          <li>Roving mass (g/m) = tex × end count × feed factor / 1,000.</li>
+          <li>Reinforcement occupied area (mm²) = Σ[mass (g/m) / constituent density (g/cm³)].</li>
+          <li>Matrix area = net area × (1 − void fraction) − reinforcement area.</li>
+          <li>
+            Total mass (g/m) = reinforcement mass + matrix area × cured matrix density. Profile density (g/cm³) = total mass / net
+            area.
+          </li>
+        </ol>
+        <p className="mt-[16px] max-w-[820px] text-f16 leading-golden text-t2">
+          For a sharp-corner 50 × 50 × 5 mm tube, the outer perimeter is 200 mm, the inner perimeter 160 mm and the net area
+          900 mm². One 450 g/m² mat on each surface contributes 90 + 72 g/m. An 80 mm-wide 600 g/m² local fabric strip adds
+          48 g/m, and 400 ends of 2,400 tex roving add 960 g/m. With all reinforcement at 2.54 g/cm³, a 1.20 g/cm³ cured matrix
+          and no voids, the result is <strong className="text-t1">1.6972 kg/m</strong> and{" "}
+          <strong className="text-t1">1.8858 g/cm³</strong>. Surface paths are approximations here; actual ply centerlines refine
+          the result.
+        </p>
+        <p className="mt-[16px] max-w-[820px] text-f16 leading-golden text-t2">
+          For axial feed the consumption factor is 1. For a winding or draping process, use the measured retained fabric area per
+          axial meter; do not multiply a fabric&rsquo;s GSM again because its fibers run at ±45°. Enter different reinforcement
+          paths as separate rows. The model balances volume; it does not predict compaction, wet-out or manufacturability.{" "}
+          <a href="https://pultruders.com/pultrusion/4-raw-materials/" className={link} {...external}>
+            EPTA&rsquo;s raw-material guide
+          </a>{" "}
+          describes pultrusion rovings, mats and fabrics.
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="formulation"
+        title="Calculate FRP density from the laminate formulation"
+        intro="Track roving, mat and fabric separately, then add the cured resin, fillers and any other retained constituent. Every percentage is of the whole cured, non-void mixture and must total 100%; a resin recipe in parts per hundred resin (phr) has to be converted to whole-composite fractions first."
+        tone="muted"
+      >
+        <div className="grid gap-[12px] md:grid-cols-2">
+          <div className="rounded-card border border-border-default bg-white p-[20px]">
+            <h3 className="text-f18 font-bold text-t1">Weight fractions</h3>
+            <p className="mt-[8px] font-mono text-f16 text-t1">ρ₀ = 1 / Σ(wᵢ / ρᵢ)</p>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              wᵢ is each constituent&rsquo;s mass fraction (percentage ÷ 100). Do not take an average of densities weighted by
+              mass.
+            </p>
+          </div>
+          <div className="rounded-card border border-border-default bg-white p-[20px]">
+            <h3 className="text-f18 font-bold text-t1">Solid volume fractions</h3>
+            <p className="mt-[8px] font-mono text-f16 text-t1">ρ₀ = Σ(vᵢ × ρᵢ)</p>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              vᵢ is the fraction of non-void material volume. For a void fraction φ of the final laminate volume,
+              ρ = ρ₀ × (1 − φ), neglecting the mass of the gas.
+            </p>
+          </div>
+        </div>
+        <p className="mt-[20px] max-w-[820px] text-f16 leading-golden text-t2">
+          Example: 50 wt% roving, 10 wt% mat and 10 wt% fabric, all at 2.54 g/cm³, plus 30 wt% cured resin at 1.20 g/cm³. The
+          void-free result is <strong className="text-t1">1.9026 g/cm³</strong>; at 2% void volume it becomes{" "}
+          <strong className="text-t1">1.8646 g/cm³</strong>. Moving the same glass mass between the three forms does not change
+          the calculated density.
+        </p>
+        <p className="mt-[16px] max-w-[820px] text-f16 leading-golden text-t2">
+          Use supplier values for your glass chemistry and cured resin system. Formula accuracy is not measurement accuracy:
+          resin cure, binders, filler loading, moisture and voids all affect real production.{" "}
+          <a href="https://compositeskn.org/KPC/A213" className={link} {...external}>
+            CKN explains weight versus volume fractions
+          </a>
+          , and its{" "}
+          <a href="https://compositeskn.org/KPC/M109" className={link} {...external}>
+            reinforcement-content guide
+          </a>{" "}
+          describes how composition and voids are measured.
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="formulas"
+        title="Net cross-section area formulas"
+        intro="Dimensions in mm, area in mm². B = width, H = height, D = outside diameter, t = uniform wall, tf = flange thickness, tw = web thickness. Angles, channels and beams use ideal square corners; channel and I-beam flanges have equal width and thickness."
+        tone="white"
+      >
+        <div className="relative max-w-[820px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full border-collapse text-left text-f14">
+            <caption className="sr-only">Ideal FRP profile net area formulas</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Section</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Net area A</th>
+              </tr>
+            </thead>
+            <tbody>
+              {formulas.map(([name, formula]) => (
+                <tr key={name} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{name}</th>
+                  <td className="px-[14px] py-[10px] font-mono text-t2">{formula}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
+
+      <PageSection id="reference" title="Density reference and limits" tone="muted">
+        <div className="max-w-[820px] space-y-[16px] text-f16 leading-golden text-t2">
+          <p>
+            The calculator&rsquo;s 1.9 g/cm³ default is an estimating assumption, not a certified F1 product value. As a published
+            manufacturer example, Strongwell lists 1.72–1.94 g/cm³ for its Series 500/525 and 625 structural shapes, and its plate
+            ranges differ, which is why the exact product matters.{" "}
+            <a
+              href="https://www.strongwell.com/wp-content/uploads/2015/08/StrongwellSpecs-FRP-Structural-Shapes-and-Plate.pdf"
+              className={link}
+              {...external}
+            >
+              Strongwell&rsquo;s material property table (PDF)
+            </a>
+          </p>
+          <p>
+            The tool uses geometric volume, not a displacement test. It does not determine structural capacity, laminate grade or
+            shipping weight. Use the supplier&rsquo;s datasheet for the final material density and add packaging separately.
+          </p>
+          <p>
+            <Link href="/resources/blog/frp-density-fiberglass-profile-density-explained" className={link}>
+              Read the full guide to fiberglass profile density
+            </Link>
+          </p>
+        </div>
+      </PageSection>
+
+      <PageSection id="faq" title="Frequently asked questions" tone="white">
+        <FAQList items={faqs} />
+      </PageSection>
+
+      <RelatedLinks
+        background="bg2"
+        groups={[
+          { title: "Other tools", links: [
+            { href: "/tools", label: "All engineering tools" },
+            { href: "/frp-profile-calculator", label: "FRP profile calculator" },
+            { href: "/fiberglass-pultruded-profile-price", label: "Profile price estimator" },
+          ] },
+          { title: "Profiles", links: [
+            { href: "/products/fiberglass-structural-shapes", label: "Standard FRP structural profiles" },
+            { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
+            { href: "/datasheets", label: "Profile datasheets" },
+          ] },
+          { title: "Material data", links: [
+            { href: "/resources/technical-data", label: "FRP technical data" },
+            { href: "/resources/blog/frp-density-fiberglass-profile-density-explained", label: "FRP density explained" },
+            { href: "/technology/pultruded-profile-performance", label: "Pultruded profile performance" },
+          ] },
+        ]}
+      />
+      <InnerCTA
+        title="Send the section and density with your RFQ"
+        quoteHref="/contact?source=tool-density&inquiry_type=rfq"
+        text="Send the section drawing or dimensions, the laminate or resin requirement, lengths and quantities."
+      />
     </>
   );
 }

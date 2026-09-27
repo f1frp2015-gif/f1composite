@@ -51,20 +51,20 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
   const selectedType = typeOptions.find((t) => t.value === windowType);
 
   return (
-    <div className="mt-[34px] rounded-card border border-border-default bg-white p-[21px] shadow-card">
-      <div className="grid gap-[21px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+      <div className="grid gap-[20px]">
         {/* Climate */}
         <div>
           <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
             1. Climate class (PHI)
           </label>
-          <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-[8px] grid gap-[4px] sm:grid-cols-2 lg:grid-cols-5">
             {climateOptions.map((opt) => (
               <button
                 key={opt.value}
                 type="button"
                 onClick={() => setClimate(opt.value)}
-                className={`rounded-control border px-[13px] py-[10px] text-left transition-colors ${
+                className={`rounded-control border px-[12px] py-[10px] text-left transition-colors ${
                   climate === opt.value
                     ? "border-teal bg-teal-bg"
                     : "border-border-default bg-white hover:border-teal"
@@ -82,13 +82,13 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
           <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
             2. Window type
           </label>
-          <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2">
+          <div className="mt-[8px] grid gap-[4px] sm:grid-cols-2">
             {typeOptions.map((opt) => (
               <button
                 key={opt.value}
                 type="button"
                 onClick={() => setWindowType(opt.value)}
-                className={`rounded-control border px-[13px] py-[10px] text-left transition-colors ${
+                className={`rounded-control border px-[12px] py-[10px] text-left transition-colors ${
                   windowType === opt.value
                     ? "border-teal bg-teal-bg"
                     : "border-border-default bg-white hover:border-teal"
@@ -107,17 +107,17 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
         </div>
 
         {/* Target U-value + units */}
-        <div className="grid gap-[13px] sm:grid-cols-2">
+        <div className="grid gap-[12px] sm:grid-cols-2">
           <div>
             <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
-              3. Target U_w (W/m²K)
+              3. Target U<sub>w</sub> (W/m²·K)
             </label>
             <input
               type="number"
               step="0.1"
               value={targetU}
               onChange={(e) => setTargetU(e.target.value)}
-              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal"
             />
             <p className="mt-[4px] text-f12 text-t3">
               Enter the project target. Whole-window performance depends on dimensions, glazing, spacer and frame configuration.
@@ -132,7 +132,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
               value={units}
               onChange={(e) => setUnits(e.target.value)}
               placeholder="e.g. 200, or 'not yet'"
-              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[13px] py-[10px] text-f14 outline-none focus:border-teal"
+              className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal"
             />
           </div>
         </div>
@@ -141,9 +141,9 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
           type="button"
           onClick={launch}
           disabled={!canLaunch}
-          className="rounded-control bg-teal-text px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-control bg-teal-text px-[20px] py-[12px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Get AI-matched FRP series →
+          Get an AI-matched FRP series
         </button>
       </div>
     </div>

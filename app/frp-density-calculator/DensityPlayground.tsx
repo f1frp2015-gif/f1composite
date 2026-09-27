@@ -71,10 +71,10 @@ export default function DensityPlayground({
   return (
     <div
       aria-live="off"
-      className="mt-5 rounded-card border border-border-default bg-bg2 p-4"
+      className="mt-[20px] rounded-card border border-border-default bg-white p-[16px]"
     >
-      <div className="flex items-center justify-between gap-3">
-        <h3 className="font-bold text-t1">Explore the material balance</h3>
+      <div className="flex items-center justify-between gap-[12px]">
+        <h3 className="text-f16 font-bold text-t1">Explore the material balance</h3>
         <button
           type="button"
           onClick={() => {
@@ -89,12 +89,12 @@ export default function DensityPlayground({
             setStage(0);
             setPlaying(true);
           }}
-          className="shrink-0 rounded-card border border-border-default bg-white px-3 py-2 text-f12 font-semibold text-teal-text"
+          className="shrink-0 rounded-control border border-border-default bg-white px-[12px] py-[6px] text-f12 font-semibold text-teal-text transition-colors hover:border-teal-border"
         >
           {playing ? "Pause animation" : "Play fill animation"}
         </button>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-2">
+      <div className="mt-[12px] grid grid-cols-3 gap-[8px]">
         {stages.map((name, index) => (
           <button
             key={name}
@@ -104,7 +104,7 @@ export default function DensityPlayground({
               setPlaying(false);
               setStage(index);
             }}
-            className={`rounded-card border p-2 text-left text-f12 ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2"}`}
+            className={`rounded-control border p-[8px] text-left text-f12 ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-bg2 text-t2"}`}
           >
             {index + 1}. {name}
           </button>
@@ -116,7 +116,7 @@ export default function DensityPlayground({
             viewBox="0 0 400 120"
             role="img"
             aria-label={`Material volume balance: ${result.reinforcementVolumePercent!.toFixed(2)}% reinforcement, ${((result.matrixArea! / area) * 100).toFixed(2)}% matrix, ${voids}% voids. Stage ${stage + 1}.`}
-            className="mt-4 w-full"
+            className="mt-[16px] w-full"
           >
             <rect
               x="10"
@@ -164,13 +164,13 @@ export default function DensityPlayground({
                 ? `${result.matrixArea!.toFixed(2)} mm² remains for the cured matrix; voids occupy ${result.voidArea!.toFixed(2)} mm².`
                 : `One meter: ${result.kgPerM!.toFixed(4)} kg · density: ${result.density!.toFixed(4)} g/cm³.`}
           </p>
-          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-f12 text-t2">
+          <div className="mt-[12px] flex flex-wrap gap-x-[12px] gap-y-[4px] text-f12 text-t2">
             {bars
               .filter((b) => b.area > 0)
               .map((bar, index) => (
-                <span key={index} className="inline-flex items-center gap-1">
+                <span key={index} className="inline-flex items-center gap-[4px]">
                   <span
-                    className="inline-block h-2 w-2 rounded-full"
+                    className="inline-block h-[8px] w-[8px] rounded-full"
                     style={{ background: bar.color }}
                   />
                   {bar.label}
@@ -179,20 +179,20 @@ export default function DensityPlayground({
           </div>
         </>
       ) : (
-        <p className="mt-4 text-f14 text-t2">
+        <p className="mt-[16px] text-f14 text-t2">
           Adjust the inputs to restore a valid material balance. The animation
           resumes when the section can contain the reinforcement and matrix.
         </p>
       )}
-      <p className="mt-3 text-f12 text-t3">
+      <p className="mt-[12px] text-f12 text-t3">
         Band widths show volume proportions, not physical ply locations. Final
         results always use the complete material balance.
       </p>
-      <details className="mt-4" open>
+      <details className="mt-[16px]" open>
         <summary className="cursor-pointer text-f14 font-semibold text-teal-text">
           Drag to calculate
         </summary>
-        <div className="mt-4 space-y-4">
+        <div className="mt-[16px] space-y-[16px]">
           {layer && (
             <div>
               <label
@@ -204,7 +204,7 @@ export default function DensityPlayground({
                   id="interactive-layer"
                   value={layerIndex}
                   onChange={(e) => setSelectedLayer(Number(e.target.value))}
-                  className="mt-1 w-full rounded-card border border-border-default bg-white p-2 text-f14"
+                  className="mt-[4px] w-full rounded-control border border-border-default bg-white px-[8px] py-[6px] text-f14 text-t1 outline-none focus:border-teal"
                 >
                   {layers.map((row, index) => (
                     <option key={index} value={index}>
@@ -215,7 +215,7 @@ export default function DensityPlayground({
               </label>
               <label
                 htmlFor="interactive-gsm"
-                className="mt-3 block text-f14 text-t1"
+                className="mt-[12px] block text-f14 text-t1"
               >
                 Mat / fabric GSM: <strong>{layer.gsm} g/m²</strong>
                 <input
@@ -234,7 +234,7 @@ export default function DensityPlayground({
                       ),
                     )
                   }
-                  className="mt-2 w-full accent-teal"
+                  className="mt-[8px] w-full accent-teal"
                 />
               </label>
             </div>
@@ -259,7 +259,7 @@ export default function DensityPlayground({
                     ),
                   )
                 }
-                className="mt-2 w-full accent-teal"
+                className="mt-[8px] w-full accent-teal"
               />
             </label>
           )}
@@ -273,7 +273,7 @@ export default function DensityPlayground({
               step="0.1"
               value={Number(voids) || 0}
               onChange={(e) => onVoids(e.target.value)}
-              className="mt-2 w-full accent-teal"
+              className="mt-[8px] w-full accent-teal"
             />
           </label>
         </div>

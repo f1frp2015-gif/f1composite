@@ -3,6 +3,7 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useState, useRef, useEffect, useMemo } from "react";
 
 function renderMarkdown(text: string) {
@@ -52,11 +53,11 @@ function renderMarkdown(text: string) {
 
     // Headers
     if (trimmed.startsWith("### ")) {
-      out.push(`<h4 class="font-bold text-f14 mt-[10px] mb-[4px]">${inlineFormat(trimmed.slice(4))}</h4>`);
+      out.push(`<h4 class="mt-[12px] mb-[4px] text-f16 font-bold">${inlineFormat(trimmed.slice(4))}</h4>`);
       continue;
     }
     if (trimmed.startsWith("## ")) {
-      out.push(`<h3 class="font-bold text-f16 mt-[12px] mb-[4px]">${inlineFormat(trimmed.slice(3))}</h3>`);
+      out.push(`<h3 class="mt-[12px] mb-[4px] text-f18 font-bold">${inlineFormat(trimmed.slice(3))}</h3>`);
       continue;
     }
 
@@ -65,9 +66,9 @@ function renderMarkdown(text: string) {
       const items = trimmed
         .split("\n")
         .filter((l) => l.match(/^[-*] /))
-        .map((l) => `<li class="ml-[16px] mb-[3px] list-disc">${inlineFormat(l.replace(/^[-*] /, ""))}</li>`)
+        .map((l) => `<li class="ml-[20px] mb-[4px] list-disc">${inlineFormat(l.replace(/^[-*] /, ""))}</li>`)
         .join("");
-      out.push(`<ul class="my-[6px]">${items}</ul>`);
+      out.push(`<ul class="my-[8px]">${items}</ul>`);
       continue;
     }
 
@@ -76,9 +77,9 @@ function renderMarkdown(text: string) {
       const items = trimmed
         .split("\n")
         .filter((l) => l.match(/^\d+\. /))
-        .map((l) => `<li class="ml-[16px] mb-[3px] list-decimal">${inlineFormat(l.replace(/^\d+\. /, ""))}</li>`)
+        .map((l) => `<li class="ml-[20px] mb-[4px] list-decimal">${inlineFormat(l.replace(/^\d+\. /, ""))}</li>`)
         .join("");
-      out.push(`<ol class="my-[6px]">${items}</ol>`);
+      out.push(`<ol class="my-[8px]">${items}</ol>`);
       continue;
     }
 
@@ -119,18 +120,24 @@ function safeHref(url: string): string {
 }
 
 const SUGGESTIONS = [
-  "Recommend an FRP profile for a 6m pedestrian bridge",
-  "Compare FRP vs steel for marine walkways",
-  "What resin system for chemical plant environments?",
+  "Recommend an FRP profile for a 6 m pedestrian bridge",
+  "Compare FRP and steel for marine walkways",
+  "Which resin system suits a chemical plant?",
   "FRP window frame thermal performance data",
 ];
 
+// Grows with the question up to about six lines, then scrolls.
+const INPUT_MAX_HEIGHT = 168;
+
 interface ChatPanelProps {
+  /** The /ask page: a panel sized to the window that waits for the visitor before taking focus. */
   fullPage?: boolean;
   initialPrompt?: string;
+  /** Starting questions shown before the first message. */
+  suggestions?: string[];
 }
 
-export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanelProps) {
+export default function ChatPanel({ fullPage = false, initialPrompt, suggestions = SUGGESTIONS }: ChatPanelProps) {
   const [input, setInput] = useState("");
   // Touch usePathname so the panel re-renders on route changes; we read
   // the live pathname/title from window at send-time inside the transport,
@@ -159,9 +166,12 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
   );
 
   const { messages, sendMessage, status, stop, error } = useChat({ transport });
+  const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const initialPromptSentRef = useRef(false);
+  const wasLoadingRef = useRef(false);
+  const startedRef = useRef(false);
 
   const isLoading = status === "submitted" || status === "streaming";
 
@@ -169,9 +179,20 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
+  // The widget takes focus as it opens. The page waits until an answer has
+  // finished, so a visitor still reading the page is not pulled to the input.
   useEffect(() => {
-    if (!isLoading) inputRef.current?.focus();
-  }, [isLoading]);
+    if (!isLoading && (!fullPage || wasLoadingRef.current)) inputRef.current?.focus({ preventScroll: true });
+    wasLoadingRef.current = isLoading;
+  }, [isLoading, fullPage]);
+
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    // scrollHeight leaves out the 1px border on each side.
+    el.style.height = `${Math.min(el.scrollHeight + 2, INPUT_MAX_HEIGHT)}px`;
+  }, [input]);
 
   // Auto-send initialPrompt from URL ?prefill= once on mount.
   useEffect(() => {
@@ -181,49 +202,86 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
     }
   }, [initialPrompt, messages.length, sendMessage]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // Once a conversation starts, the page panel grows to the window; bring all
+  // of it into view, at once for a question sent from another page.
+  useEffect(() => {
+    if (!fullPage || startedRef.current || messages.length === 0) return;
+    startedRef.current = true;
+    panelRef.current?.scrollIntoView({ block: "end", behavior: initialPromptSentRef.current ? "auto" : "smooth" });
+  }, [fullPage, messages.length]);
+
+  const send = () => {
     if (!input.trim() || isLoading) return;
     sendMessage({ text: input });
     setInput("");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    send();
   };
 
   const handleSuggestion = (text: string) => {
     sendMessage({ text });
   };
 
-  const containerHeight = fullPage ? "h-[calc(100vh-55px-120px)]" : "h-[480px]";
+  // Before the first message the page panel is as tall as its questions (or
+  // the column beside it); a conversation fills the window below the two
+  // navigation bars (72 + 48 px) with room to spare. The widget keeps one height.
+  const containerHeight = !fullPage
+    ? "h-[480px]"
+    : messages.length === 0
+      ? "h-full"
+      : "h-[clamp(480px,calc(100svh-200px),760px)] scroll-mb-[16px]";
 
   return (
-    <div className={`flex flex-col ${containerHeight}`}>
+    <div ref={panelRef} className={`flex flex-col ${containerHeight}`}>
       {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-[16px] py-[16px] space-y-[16px]">
-        {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center px-[16px]">
-            <div className="w-[40px] h-[40px] rounded-full bg-teal flex items-center justify-center mb-[13px]">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path d="M10 2L18 10L10 18L2 10L10 2Z" stroke="white" strokeWidth="1.5" fill="none" />
-                <circle cx="10" cy="10" r="3" fill="white" />
-              </svg>
+      <div ref={scrollRef} className={`flex-1 space-y-[16px] overflow-y-auto ${fullPage ? "p-[12px] sm:p-[20px]" : "p-[16px]"}`}>
+        {messages.length === 0 &&
+          (fullPage ? (
+            // The page header already names the assistant; the panel opens on questions.
+            <div className="max-w-[640px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Start with a question</p>
+              <div className="mt-[12px] grid gap-[8px]">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => handleSuggestion(s)}
+                    className="min-h-[44px] rounded-control border border-border-default bg-white px-[14px] py-[10px] text-left text-f14 leading-snug text-t1 transition-colors hover:border-teal-border hover:bg-teal-bg hover:text-teal-text"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
             </div>
-            <h3 className="text-f16 font-bold text-t1 mb-[5px]">FRP Engineering Advisor</h3>
-            <p className="text-f14 text-t3 mb-[21px] max-w-[300px]">
-              Ask anything about FRP profiles, material selection, specifications, and applications.
-            </p>
-            <div className="grid grid-cols-1 gap-[8px] w-full max-w-[360px]">
-              {SUGGESTIONS.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => handleSuggestion(s)}
-                  className="text-left text-f14 text-t2 px-[13px] py-[8px] rounded-control border border-border-default hover:border-teal-border hover:text-teal-text transition-colors"
-                >
-                  {s}
-                </button>
-              ))}
+          ) : (
+            <div className="flex h-full flex-col items-center justify-center px-[16px] text-center">
+              <div className="mb-[12px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-teal-text">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                  <path d="M10 2L18 10L10 18L2 10L10 2Z" stroke="white" strokeWidth="1.5" fill="none" />
+                  <circle cx="10" cy="10" r="3" fill="white" />
+                </svg>
+              </div>
+              <h3 className="mb-[4px] text-f16 font-bold text-t1">FRP engineering assistant</h3>
+              <p className="mb-[20px] max-w-[300px] text-f14 text-t3">
+                Ask about FRP profiles, material selection, specifications and applications.
+              </p>
+              <div className="grid w-full max-w-[360px] grid-cols-1 gap-[8px]">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => handleSuggestion(s)}
+                    className="rounded-control border border-border-default px-[12px] py-[8px] text-left text-f14 text-t2 transition-colors hover:border-teal-border hover:text-teal-text"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          ))}
 
         {messages.map((msg) => (
           <div
@@ -231,20 +289,22 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] rounded-card px-[13px] py-[8px] text-f14 leading-golden ${
+              className={`rounded-card px-[16px] py-[12px] text-f16 leading-golden ${
                 msg.role === "user"
-                  ? "bg-teal text-white"
-                  : "bg-bg2 text-t1"
+                  ? "max-w-[85%] bg-teal-text text-white"
+                  : // Answers take the full width on a phone, where tables need the room.
+                    "max-w-full bg-bg2 text-t1 sm:max-w-[85%]"
               }`}
             >
               {msg.parts?.map((part, i) => {
                 if (part.type === "text") {
                   if (msg.role === "user") {
-                    return <span key={i}>{part.text}</span>;
+                    return <span key={i} className="whitespace-pre-wrap">{part.text}</span>;
                   }
                   return (
                     <div
                       key={i}
+                      className="[&>:first-child]:mt-0 [&>:last-child]:mb-0"
                       dangerouslySetInnerHTML={{ __html: renderMarkdown(part.text) }}
                     />
                   );
@@ -252,45 +312,49 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
                 return null;
               })}
               {msg.role === "assistant" && msg.id === messages[messages.length - 1]?.id && status === "streaming" && (
-                <span className="inline-block w-[6px] h-[14px] bg-teal animate-pulse ml-[2px]" />
+                <span className="ml-[2px] inline-block h-[16px] w-[6px] animate-pulse bg-teal align-middle" />
               )}
             </div>
           </div>
         ))}
 
         {error && (
-          <div className="text-center text-f14 text-fail py-[8px]">
-            Something went wrong. Please try again.
-          </div>
+          <p className="py-[8px] text-center text-f14 text-fail">
+            The answer did not load. Try again, or{" "}
+            <Link href="/contact?source=tool-ask&inquiry_type=technical" className="font-semibold underline">
+              send the question to our engineers
+            </Link>
+            .
+          </p>
         )}
       </div>
 
       {/* Input */}
-      <div className="border-t border-border-default p-[12px] bg-white">
-        <form onSubmit={handleSubmit} className="flex gap-[8px]">
+      <div className="border-t border-border-default bg-white p-[12px]">
+        <form onSubmit={handleSubmit} className="flex items-end gap-[8px]">
           <textarea
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
+              // Enter sends, Shift+Enter starts a new line; Enter that confirms
+              // an input-method composition (Chinese, Japanese) does neither.
+              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
                 e.preventDefault();
-                if (input.trim() && !isLoading) {
-                  sendMessage({ text: input });
-                  setInput("");
-                }
+                send();
               }
             }}
-            placeholder="Ask about FRP profiles..."
+            aria-label="Your question"
+            placeholder="Ask about FRP profiles…"
             rows={1}
-            className="flex-1 resize-none rounded-control border border-border-default px-[13px] py-[8px] text-f14 text-t1 placeholder:text-t3 focus:border-teal-border focus:outline-none"
+            className="min-h-[46px] flex-1 resize-none rounded-control border border-border-default bg-white px-[12px] py-[10px] text-f16 leading-[24px] text-t1 outline-none placeholder:text-t3 focus:border-teal"
             disabled={isLoading}
           />
           {isLoading ? (
             <button
               type="button"
               onClick={stop}
-              className="shrink-0 rounded-control border border-border-default bg-white px-[16px] py-[8px] text-f14 font-semibold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
+              className="min-h-[46px] shrink-0 rounded-control border border-border-default bg-white px-[20px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
             >
               Stop
             </button>
@@ -298,14 +362,14 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             <button
               type="submit"
               disabled={!input.trim()}
-              className="shrink-0 rounded-control bg-teal-text px-[16px] py-[8px] text-f14 font-medium text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
+              className="min-h-[46px] shrink-0 rounded-control bg-teal-text px-[20px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
             >
               Send
             </button>
           )}
         </form>
-        <p className="mt-[6px] text-center text-f12 text-t3">
-          AI-generated answers. Verify critical engineering data with F1 Composite team.
+        <p className="mt-[8px] text-center text-f12 text-t3">
+          AI-generated answers. Check critical engineering data with the F1 Composite team.
         </p>
       </div>
     </div>
