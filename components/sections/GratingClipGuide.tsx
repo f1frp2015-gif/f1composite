@@ -61,8 +61,8 @@ function MClipFigure({ alt }: { alt: string }) {
       <path d="M180 38 v20" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" />
       <path d="m174 51 6 7 6 -7" fill="none" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       <text x="180" y="28" textAnchor="middle" fontSize="12" fontWeight="700" fill={TEAL}>hold-down action</text>
-      <text x="112" y="150" textAnchor="middle" fontSize="10" fill={DARK}>grating bar</text>
-      <text x="248" y="150" textAnchor="middle" fontSize="10" fill={DARK}>grating bar</text>
+      <text x="80" y="128" textAnchor="end" fontSize="11" fill={DARK}>grating bar</text>
+      <text x="280" y="128" fontSize="11" fill={DARK}>grating bar</text>
     </svg>
   );
 }
@@ -110,21 +110,18 @@ function JClipFigure({ alt }: { alt: string }) {
       <title id="j-clip-title">J support-hook clamp</title>
       <desc id="j-clip-desc">{alt}. Typical installation, not to scale.</desc>
       <rect x="88" y="150" width="220" height="28" rx="4" fill={SUPPORT_FILL} stroke={DARK} strokeWidth="2" />
-      <text x="210" y="205" textAnchor="middle" fontSize="11" fill={DARK}>support flange — not drilled</text>
+      <text x="198" y="214" textAnchor="middle" fontSize="11" fill={DARK}>support flange — not drilled</text>
       <path d="M104 62 h46 v88 h-46 z" fill={PANEL_FILL} stroke={TEAL} strokeWidth="3" />
       <path d="M184 62 h46 v88 h-46 z" fill={PANEL_FILL} stroke={TEAL} strokeWidth="3" />
       <path d="M88 84 h88" fill="none" stroke={GRAY} strokeWidth="9" strokeLinecap="round" />
       <line x1="78" y1="79" x2="78" y2="169" stroke={DARK} strokeWidth="4" />
       <circle cx="78" cy="77" r="8" fill={GRAY} stroke={DARK} strokeWidth="2" />
       <path d="M78 166 v10 q0 17 17 17 h58" fill="none" stroke={GRAY} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M273 112 164 188" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" />
-      <path d="m174 187 -10 1 4 -9" fill="none" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="285" y="103" textAnchor="end" fontSize="11" fontWeight="700" fill={TEAL}>lower J hook</text>
+      <text x="168" y="197" fontSize="11" fontWeight="700" fill={TEAL}>lower J hook</text>
       <path d="M132 34 v24" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" />
       <path d="m126 51 6 7 6 -7" fill="none" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       <text x="132" y="24" textAnchor="middle" fontSize="12" fontWeight="700" fill={TEAL}>approved upper clip</text>
-      <text x="127" y="140" textAnchor="middle" fontSize="10" fill={DARK}>grating bar</text>
-      <text x="207" y="140" textAnchor="middle" fontSize="10" fill={DARK}>grating bar</text>
+      <text x="244" y="110" fontSize="11" fill={DARK}>grating bars</text>
     </svg>
   );
 }
@@ -150,8 +147,8 @@ function TClipFigure({ alt }: { alt: string }) {
       <path d="M180 38 v20" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" />
       <path d="m174 51 6 7 6 -7" fill="none" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       <text x="180" y="27" textAnchor="middle" fontSize="12" fontWeight="700" fill={TEAL}>F1 series-specific hold-down</text>
-      <text x="113" y="146" textAnchor="middle" fontSize="10" fill={DARK}>bearing bar</text>
-      <text x="247" y="146" textAnchor="middle" fontSize="10" fill={DARK}>bearing bar</text>
+      <text x="94" y="132" textAnchor="end" fontSize="11" fill={DARK}>bearing bar</text>
+      <text x="266" y="132" fontSize="11" fill={DARK}>bearing bar</text>
     </svg>
   );
 }
@@ -171,7 +168,7 @@ function ClipFigure({ code, alt }: { code: GratingClipCode; alt: string }) {
 
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid gap-[3px] border-t border-border-default py-[8px] sm:grid-cols-[118px_1fr] sm:gap-[13px]">
+    <div className="grid gap-[3px] border-t border-border-default py-[8px] sm:grid-cols-[118px_1fr] sm:gap-[12px]">
       <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{label}</dt>
       <dd className="text-f14 leading-golden text-t2">{value}</dd>
     </div>

@@ -10,21 +10,21 @@ import {
 
 /**
  * Shared concept animations — pure inline SVG with SMIL, zero JS.
- * Each component is a self-contained explainer figure used on the
- * educational/comparison pages so a reader grasps the physics or the
- * mechanism in two seconds before reading the numbers.
+ * Each component is an explainer figure used on the educational and
+ * comparison pages so a reader grasps the physics or the mechanism in two
+ * seconds before reading the numbers. Pages pass `bare` and place the
+ * drawing in a numbered Figure, which carries the caption.
  */
 
 const COLD = "#3b82f6";
 const WARM = "#f59e0b";
 
 /** Heat streaming through an aluminum frame vs stopped by an FRP frame. */
-export function HeatFlowFrameComparison() {
-  return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
-      <div className="grid gap-[21px] sm:grid-cols-2">
+export function HeatFlowFrameComparison({ bare = false }: { bare?: boolean } = {}) {
+  const diagrams = (
+      <div className="grid gap-[20px] sm:grid-cols-2">
         {/* Aluminum */}
-        <svg viewBox="0 0 220 120" className="w-full" aria-label="Heat flowing rapidly through an aluminum window frame, causing interior condensation">
+        <svg viewBox="0 0 220 132" className="w-full" aria-label="Heat flowing rapidly through an aluminum window frame, causing interior condensation">
           <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={DARK}>Aluminum · 160 W/m·K</text>
           <text x="18" y="30" fontSize="9" fill={COLD} fontWeight="600">−20°C</text>
           <text x="174" y="30" fontSize="9" fill={WARM} fontWeight="600">+21°C</text>
@@ -52,11 +52,11 @@ export function HeatFlowFrameComparison() {
               <animate attributeName="opacity" values="1;0" dur="1.4s" begin={`${i * 0.7}s`} repeatCount="indefinite" />
             </circle>
           ))}
-          <text x="110" y="118" textAnchor="middle" fontSize="8.5" fill={COLD}>cold interior face → condensation</text>
+          <text x="110" y="128" textAnchor="middle" fontSize="8.5" fill={COLD}>cold interior face → condensation</text>
         </svg>
 
         {/* FRP */}
-        <svg viewBox="0 0 220 120" className="w-full" aria-label="Heat blocked by an insulating pultruded FRP window frame, interior face stays warm and dry">
+        <svg viewBox="0 0 220 132" className="w-full" aria-label="Heat blocked by an insulating pultruded FRP window frame, interior face stays warm and dry">
           <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={TEAL}>Pultruded FRP · 0.3 W/m·K</text>
           <text x="18" y="30" fontSize="9" fill={COLD} fontWeight="600">−20°C</text>
           <text x="174" y="30" fontSize="9" fill={WARM} fontWeight="600">+21°C</text>
@@ -72,10 +72,16 @@ export function HeatFlowFrameComparison() {
           <line x1="130" y1="28" x2="130" y2="108" stroke={WARM} strokeWidth="2.4" strokeLinecap="round">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite" />
           </line>
-          <text x="110" y="118" textAnchor="middle" fontSize="8.5" fill={TEAL}>warm interior face → stays dry</text>
+          <text x="110" y="128" textAnchor="middle" fontSize="8.5" fill={TEAL}>warm interior face → stays dry</text>
         </svg>
       </div>
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+  );
+  // Bare: the two drawings alone, for a numbered Figure that carries its own caption.
+  if (bare) return diagrams;
+  return (
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
+      {diagrams}
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         Same winter night, same glazing — the only variable is the frame material. Aluminum conducts
         heat ~500× faster, so its interior face drops below the dew point; the FRP face stays warm and dry.
       </figcaption>
@@ -86,7 +92,7 @@ export function HeatFlowFrameComparison() {
 /** Steel insert (thermal bridge) vs pultruded GRP core inside a uPVC chamber. */
 export function SteelVsFrpChamberCore({ bare = false }: { bare?: boolean } = {}) {
   const diagrams = (
-      <div className="grid gap-[21px] sm:grid-cols-2">
+      <div className="grid gap-[20px] sm:grid-cols-2">
         {/* Steel insert */}
         <svg viewBox="0 0 220 110" className="w-full" aria-label="Galvanized steel insert inside a uPVC window chamber conducting heat straight through">
           <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={DARK}>Steel insert · ≈50 W/m·K</text>
@@ -131,9 +137,9 @@ export function SteelVsFrpChamberCore({ bare = false }: { bare?: boolean } = {})
   // Bare: the two drawings alone, for a numbered Figure that carries its own caption.
   if (bare) return diagrams;
   return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
       {diagrams}
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         Both cores do the same structural job inside the same uPVC chamber. The steel one re-installs
         the thermal bridge the plastic frame was supposed to avoid; the pultruded core does not.
       </figcaption>
@@ -145,7 +151,7 @@ export function SteelVsFrpChamberCore({ bare = false }: { bare?: boolean } = {})
 
 function OpeningFrame({ children, label, sub }: { children: ReactNode; label: string; sub: string }) {
   return (
-    <div className="rounded-card border border-border-default bg-bg2 p-[13px]">
+    <div className="rounded-card border border-border-default bg-bg2 p-[12px]">
       <svg viewBox="0 0 170 130" className="w-full" aria-label={`${label} window opening animation`}>
         {children}
       </svg>
@@ -159,8 +165,8 @@ function OpeningFrame({ children, label, sub }: { children: ReactNode; label: st
 export function WindowOpeningTypes() {
   const frame = <rect x="45" y="16" width="80" height="100" rx="3" fill="none" stroke={DARK} strokeWidth="3" />;
   return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
-      <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
+      <div className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
         {/* Casement — side-hung, swings like a door */}
         <OpeningFrame label="Casement" sub="Side-hung — swings like a door; full opening, maximum airflow.">
           {frame}
@@ -241,7 +247,7 @@ export function WindowOpeningTypes() {
           </g>
         </OpeningFrame>
       </div>
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         How each opening type moves. Whatever the motion, the sealing principle in an FRP system is the
         same: multi-point locking pulls the sash into continuous EPDM gasket compression, and the
         insulating frame carries no metallic path for heat to escape through.
@@ -251,9 +257,8 @@ export function WindowOpeningTypes() {
 }
 
 /** Simply-supported beam deflecting under a cycling midspan load. */
-export function BeamDeflection() {
-  return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
+export function BeamDeflection({ bare = false }: { bare?: boolean } = {}) {
+  const drawing = (
       <svg viewBox="0 0 240 100" className="mx-auto w-full max-w-[560px]" aria-label="Simply supported beam deflecting under a midspan load, showing the deflection the calculator computes">
         {/* load arrow */}
         <g>
@@ -284,6 +289,11 @@ export function BeamDeflection() {
         <path d="M24 70 v8 M216 70 v8" stroke={GRAY} strokeWidth="1" />
         <text x="120" y="86" textAnchor="middle" fontSize="9" fill={GRAY}>span L</text>
       </svg>
+  );
+  if (bare) return drawing;
+  return (
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
+      {drawing}
       <figcaption className="mt-[8px] text-center text-f14 leading-golden text-t2">
         Deflection, not strength, usually governs FRP design. The calculator solves δ, the bending stress
         and the check against your deflection limit for F1 sections.
@@ -322,19 +332,18 @@ function ExtrusionIcon() {
 }
 
 /** Three continuous processes side by side: pull vs push vs wind. */
-export function ProcessTrio() {
+export function ProcessTrio({ bare = false }: { bare?: boolean } = {}) {
   const items = [
     { label: "Pultrusion — fibers PULLED", note: "continuous reinforcement, thermoset", icon: <PultrusionIcon />, highlight: true },
     { label: "Extrusion — melt PUSHED", note: "no continuous fibers, thermoplastic", icon: <ExtrusionIcon /> },
     { label: "Filament winding — fibers WOUND", note: "hollow rotational parts", icon: <FilamentWindingIcon /> },
   ];
-  return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
-      <div className="grid gap-[21px] sm:grid-cols-3">
+  const cards = (
+      <div className="grid gap-[20px] sm:grid-cols-3">
         {items.map((it) => (
           <div
             key={it.label}
-            className={`rounded-card p-[13px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
+            className={`rounded-card p-[12px] ${it.highlight ? "border-2 border-teal bg-teal-bg" : "border border-border-default bg-bg2"}`}
           >
             {it.icon}
             <p className={`mt-[8px] text-f14 font-bold ${it.highlight ? "text-teal-text" : "text-t1"}`}>{it.label}</p>
@@ -342,7 +351,12 @@ export function ProcessTrio() {
           </div>
         ))}
       </div>
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+  );
+  if (bare) return cards;
+  return (
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
+      {cards}
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         The verb is the whole difference: pultrusion <strong>pulls</strong> continuous fibers through a
         die (structural, constant section), extrusion <strong>pushes</strong> molten plastic (no continuous
         reinforcement), filament winding <strong>wraps</strong> fibers around a mandrel (hollow shapes).
@@ -354,8 +368,8 @@ export function ProcessTrio() {
 /** Tensile and 3-point flexural coupon tests. */
 export function TensileFlexuralTest() {
   return (
-    <figure className="rounded-card border border-border-default bg-white p-[21px]">
-      <div className="grid gap-[21px] sm:grid-cols-2">
+    <figure className="rounded-card border border-border-default bg-white p-[20px]">
+      <div className="grid gap-[20px] sm:grid-cols-2">
         {/* Tensile */}
         <svg viewBox="0 0 220 120" className="w-full" aria-label="Tensile test: dogbone coupon stretched between grips per ASTM D638">
           <text x="110" y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill={DARK}>Tensile · ASTM D638</text>
@@ -407,7 +421,7 @@ export function TensileFlexuralTest() {
           <text x="110" y="118" textAnchor="middle" fontSize="8.5" fill={GRAY}>flexural modulus per batch, mill certificate</text>
         </svg>
       </div>
-      <figcaption className="mt-[13px] text-f14 leading-golden text-t2">
+      <figcaption className="mt-[12px] text-f14 leading-golden text-t2">
         The two coupon tests behind every mill certificate: tensile (ASTM D638) and three-point flexural
         (ASTM D790), run per production batch so the datasheet numbers stay tied to the material you receive.
       </figcaption>

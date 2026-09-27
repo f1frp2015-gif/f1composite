@@ -11,6 +11,7 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import ProfileCalculator from "./ProfileCalculator";
 import { BeamDeflection } from "@/components/sections/ConceptAnimations";
+import Figure from "@/components/ui/Figure";
 import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import RelatedLinks from "@/components/sections/RelatedLinks";
@@ -174,7 +175,9 @@ export default function CalculatorPage() {
       >
         <div className="grid gap-[32px] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
           <div>
-            <BeamDeflection />
+            <Figure number={1} title="Beam deflection" caption="Deflection, not strength, usually governs FRP design. The calculator solves δ, the bending stress and the check against your deflection limit for F1 sections.">
+              <BeamDeflection bare />
+            </Figure>
             <h3 className="mt-[24px] text-f18 font-bold text-t1">Input example: walkway beam</h3>
             <p className="mt-[8px] text-f16 leading-golden text-t2">
               The Walkway preset loads a 3 m simply supported I-section with a 5 kN/m service UDL. It uses the illustrative balanced-GFRP dataset paired with the ASCE-oriented preliminary factors and outdoor exposure. The result is useful for eliminating clearly inadequate trial sections and seeing whether global strength or deflection governs; it is not an ASCE design release, and the material properties must be replaced with project qualification data.

@@ -11,6 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { productCovers } from "@/lib/covers";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { HeatFlowFrameComparison } from "@/components/sections/ConceptAnimations";
+import Figure from "@/components/ui/Figure";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "FRP vs Aluminum Windows: Thermal, Cost & U-Value Data";
@@ -126,7 +127,9 @@ export default function FrpVsAluminumWindowsPage() {
           This page compares FRP and aluminum on the properties that drive specification decisions: frame Uf, thermal bridging ψ, thermal expansion, corrosion, cost and PHI certification. The values are typical ranges; use the certified or calculated values of the actual frame in your design.
         </p>
         <div className="mt-[20px] max-w-[860px]">
-          <HeatFlowFrameComparison />
+          <Figure number={1} title="Heat through an aluminum and an FRP frame" caption="Same winter night, same glazing: only the frame material changes. Aluminum conducts heat about 500 times faster than pultruded FRP, so its interior face drops below the dew point while the FRP face stays warm and dry.">
+            <HeatFlowFrameComparison bare />
+          </Figure>
         </div>
       </PageSection>
 
