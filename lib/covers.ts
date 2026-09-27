@@ -77,7 +77,7 @@ export const industryCovers: Record<string, Cover> = {
       {
         src: page.image.src,
         alt: page.image.alt,
-        note: /AI-generated/i.test(page.image.note) ? AI_CONCEPT : /Rendering/i.test(page.image.note) ? RENDERING : /Illustrative/i.test(page.image.note) ? ILLUSTRATIVE : undefined,
+        note: page.image.note,
       },
     ]),
   ),

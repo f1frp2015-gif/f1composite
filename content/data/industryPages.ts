@@ -43,15 +43,18 @@ export interface IndustryPageData {
   documentPaths: string[];
   faqs: { question: string; answer: string }[];
   request: { title: string; text: string }[];
+  /** Opening of the quote block, when the industry needs more than the default. */
+  quoteIntro?: string;
 }
 
 function applicationCard(slug: string, text?: string): ApplicationCard {
   const page = getApplicationPage(slug);
   if (!page) throw new Error(`Unknown application page: ${slug}`);
-  return { href: `/applications/${page.slug}`, kind: "Application", title: page.shortTitle, text: text ?? page.description, image: page.image, imageAlt: page.imageAlt };
+  return { href: `/applications/${page.slug}`, kind: "Application", title: page.shortTitle, text: text ?? page.description, image: page.image, imageAlt: page.imageAlt, note: page.imageNote };
 }
 
-const ILLUSTRATIVE = "Illustrative photo, not an F1 project";
+// Image notes use the site vocabulary; the caption says what the image is not.
+const ILLUSTRATIVE = "Illustrative photo";
 
 export const industryPages = {
   energy: {
@@ -66,7 +69,7 @@ export const industryPages = {
       src: "/images/industries/frp-electric-power-substation-infrastructure.jpg",
       alt: "Electrical substation with steel gantries at dusk",
       note: ILLUSTRATIVE,
-      caption: "Substations, cable routes and solar sites are where FRP supports and frames replace steel most often.",
+      caption: "Illustrative photo, not an F1 project. Substations, cable routes and solar sites are where FRP supports and frames replace steel most often.",
     },
     areasIntro: "The parts change from one kind of energy site to the next, and so do the checks. Electrical and fire requirements belong to the specified laminate and assembly, not to fiberglass as a category.",
     areas: [
@@ -84,12 +87,14 @@ export const industryPages = {
       { label: "Pultruded grating", href: "/products/frp-gratings", glyph: "grating", reason: "Walkways and platforms around equipment." },
       { label: "Fasteners and fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", reason: "Fiberglass threaded rods, nuts and fittings for non-metallic joints." },
     ],
+    // The solar application page opens on the same rooftop photo as the case
+    // study, so it is linked below rather than shown as a second card.
     projects: [
       chongqingRooftopPv,
-      applicationCard("frp-solar-mounting-profiles"),
       applicationCard("frp-cable-tray-supports"),
     ],
     reading: [
+      { label: "PV support design guide", href: "/applications/frp-solar-mounting-profiles" },
       { label: "FRP for offshore, tidal and fishery-PV mounts", href: "/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames" },
       { label: "How to specify FRP cable tray", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
     ],
@@ -111,15 +116,15 @@ export const industryPages = {
     slug: "industrial",
     path: "/industries/industrial",
     name: "Industrial & chemical",
-    updated: "2026-09-26",
+    updated: "2026-09-27",
     h1: "FRP for Chemical & Industrial Facilities",
     intro:
-      "Fiber-reinforced polymer (FRP) profiles for processing plants, water treatment facilities and manufacturing sites where steel corrodes: chemical-resistant resins, fire-retardant grades and low maintenance.",
+      "Fiber-reinforced polymer (FRP) profiles, grating and access systems for processing plants and manufacturing sites where steel corrodes. The resin is chosen for the chemicals on site, with fire-retardant grades where the plant requires them.",
     image: {
       src: "/images/industries/industrial-chemical-platform-concept.webp",
       alt: "Concept chemical tank access platform with FRP grating, rails and structural supports",
-      note: "AI-generated concept; not an F1 installation",
-      caption: "Illustrative tank access platform. Final members and connections require project design.",
+      note: "AI concept",
+      caption: "AI concept of a tank access platform, not an F1 installation. Final members and connections require project design.",
     },
     areasIntro: "Corrosion, wash-down and access needs differ across a plant. Resin compatibility is confirmed per chemical, and safety requirements apply to the complete assembly.",
     areas: [
@@ -137,10 +142,12 @@ export const industryPages = {
       { label: "Standard structural profiles", href: "/products/fiberglass-structural-shapes", glyph: "i_beam", reason: "Beams, channels, angles and tubes for frames and supports." },
       { label: "FRP sound barrier walls", href: "/products/frp-sound-barrier-wall", glyph: "multicell", reason: "Noise barrier panels for industrial equipment and plant boundaries." },
     ],
+    // The cooling-tower application opens on the guide's own concept image, so
+    // the cable-support application takes its place here.
     projects: [
-      applicationCard("frp-chemical-plant-platforms"),
       { ...factoryStaircase, used: "I-beams, square tubes, round tube, flat bar and molded grating" },
-      applicationCard("frp-cooling-tower-profiles"),
+      applicationCard("frp-chemical-plant-platforms"),
+      applicationCard("frp-cable-tray-supports"),
     ],
     reading: [
       { label: "FRP vs steel grating", href: "/technology/frp-vs-steel-gratings" },
@@ -149,17 +156,20 @@ export const industryPages = {
     ],
     documentPaths: ["/products/fiberglass-structural-shapes", "/pultruded-frp-profiles"],
     faqs: [
-      { question: "Which chemicals can FRP profiles resist?", answer: "It depends on the resin. Vinyl ester is the usual choice for acids, alkalis, chlorine chemicals and wastewater; isophthalic polyester suits milder exposure. Send each chemical with its concentration and temperature, and whether it splashes or immerses, and resin compatibility is confirmed per chemical." },
-      { question: "What fire performance do FRP profiles achieve in industrial settings?", answer: "Fire requirements depend on the installed component and plant area. State the governing tests and acceptance criteria, then request reports for the offered laminate and configuration. A resin label or small-sample rating alone does not establish assembly compliance." },
+      { question: "Which chemicals can FRP profiles resist?", answer: "It depends on the complete laminate and the chemical, concentration, temperature, exposure time and cleaning cycle. Vinyl ester is the usual starting point for acids, alkalis, chlorine chemicals and wastewater; isophthalic polyester suits milder exposure. Send the process-chemical list with the inquiry so the resin and surface construction can be reviewed for the actual service; a generic vinyl-ester rating does not cover every formulation or mixture." },
+      { question: "When should a plant use molded rather than pultruded grating?", answer: "Molded panels are a useful starting point for layouts with frequent openings or support in two directions. Pultruded panels have a defined bearing-bar direction and suit span-led layouts. Both need a panel-specific load and deflection check, suitable edge support, hold-downs, surface and openings." },
+      { question: "Can an FRP beam replace a steel beam of the same size?", answer: "Not directly. FRP can be sized for the same loads, usually as a deeper section, because its modulus is about a tenth of steel's. Compare the complete assembly against its load cases, deflection limit, buckling, connection bearing and exposure, using the span tables and the profile calculator, then confirm with the project calculation. Retrofitted anchors and the remaining structure also need review." },
+      { question: "Is every FRP profile fire rated or suitable for a hazardous area?", answer: "No. Specify the flame, smoke, structural fire, static-control and hazardous-area requirements for the installed component or assembly, then request reports for the offered laminate and test configuration. A resin label or small-sample rating alone does not establish project acceptance." },
       { question: "Do FRP ladders and handrails meet OSHA requirements?", answer: "Compliance belongs to the complete assembly: rails, posts, fittings, anchors and the supporting structure. OSHA 1910.29 sets the requirements for guardrails and fixed ladders in general industry, and the design and installation are checked against it for the project." },
-      { question: "Can FRP profiles carry the same loads as steel?", answer: "They can be sized for the same loads, usually as deeper sections, because the modulus is about a tenth of steel's. Compare sections with the span tables and the profile calculator, then confirm with the project calculations." },
+      { question: "Can these products be used in food or pharmaceutical production areas?", answer: "FRP may be evaluated for non-product-contact access and service areas exposed to frequent washdown. Direct food contact, cleanroom use and validated hygiene performance require separate review of the finished product, surface, joints, cleaning chemicals and the site's acceptance criteria. Do not infer those approvals from a resin ingredient." },
     ],
     request: [
-      { title: "Chemicals and temperatures", text: "Each chemical with its concentration, temperature and splash or immersion." },
-      { title: "Loads and layout", text: "Spans, supports, openings and drawings for platforms, stairs and frames." },
-      { title: "Safety and fire", text: "Guard, ladder and fire requirements, and the standards your plant uses." },
-      { title: "Quantities and delivery", text: "Panel areas, lengths or assemblies, destination and target date." },
+      { title: "Process environment", text: "Each chemical with its concentration, the cleaning agents, operating and cleaning temperatures, and splash, mist, immersion or washdown." },
+      { title: "Geometry and loads", text: "Plan, elevations, openings and access route; spans, support spacing, load cases, deflection limits and grating direction." },
+      { title: "Interfaces and rules", text: "Anchors and base material; the guardrail, stair, ladder and egress basis; fire, smoke, electrical and hygiene requirements." },
+      { title: "Supply and evidence", text: "Profiles, panels or a fabricated package; drawings, tests, samples and inspection records; quantity, destination and installation window." },
     ],
+    quoteIntro: "Send a marked-up layout and a short exposure schedule; for a replacement, add the existing member and anchor drawings.",
   },
   infrastructure: {
     slug: "infrastructure",
@@ -218,15 +228,15 @@ export const industryPages = {
     slug: "marine",
     path: "/industries/marine",
     name: "Marine & offshore",
-    updated: "2026-09-26",
+    updated: "2026-09-27",
     h1: "FRP for Marine Docks, Walkways & Access Platforms",
     intro:
       "Pultruded FRP profiles and grating for docks, marinas, offshore platforms and coastal walkways. Glass FRP does not rust in seawater, so it avoids the recoating cycle of steel; vinyl ester is the usual resin for splash and immersion.",
     image: {
       src: "/images/industries/marine-marina-access-concept.webp",
       alt: "Concept marina dock with fiberglass grating, mooring cleats and boats",
-      note: "AI-generated concept; not an F1 installation",
-      caption: "Illustrative marina access route. Deck support and fixings require project design.",
+      note: "AI concept",
+      caption: "AI concept of a marina access route, not an F1 installation. Deck support and fixings require project design.",
     },
     areasIntro: "Salt, splash and UV act on every marine structure; the loads and approval routes differ. These are the usual areas and what to confirm for each.",
     areas: [
@@ -245,6 +255,15 @@ export const industryPages = {
       { label: "Solid rods", href: "/products/fiberglass-structural-shapes/frp-rod", glyph: "rod", reason: "Ø6–50 mm rods for tie-rods and anchors." },
     ],
     projects: [
+      {
+        href: "/case-studies/coastal-marina-walkway",
+        kind: "Case study",
+        title: "Coastal marina walkway",
+        text: "A 500 m walkway of pultruded FRP subframes and anti-slip molded grating at a UK marina, installed in sections during low-tide windows.",
+        image: "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
+        imageAlt: "Paved walkway with steel railings leading down to a marina on a lake",
+        note: "Illustrative photo",
+      },
       applicationCard("frp-bridge-deck-panels"),
       applicationCard("frp-pedestrian-bridge-superstructures"),
     ],
@@ -256,30 +275,33 @@ export const industryPages = {
     documentPaths: ["/products/fiberglass-structural-shapes", "/products/frp-deck-panels"],
     faqs: [
       { question: "Does FRP corrode in seawater?", answer: "Glass FRP does not rust. The resin and the cut edges still have to suit the immersion or splash, so vinyl ester and sealed edges are usual in marine work; confirm the laminate for the exposure." },
-      { question: "Which fire requirements apply offshore?", answer: "They depend on the location and the operator's rules. State them in the RFQ so the resin, for example phenolic or fire-retardant vinyl ester, and the test route can be agreed." },
-      { question: "Can FRP grating carry vehicle loads on a dock?", answer: "Only if it is designed for them. Specify the wheel load and footprint, the span and support conditions, and use the load table for the selected panel; pedestrian grating is not a vehicle deck." },
+      { question: "Which FRP deck is best for a marina finger pier?", answer: "Start with the pier's clear span, support layout, pedestrian or trolley loads, allowable deck openings, wet slip requirement and local overwater permit. Molded grating, pultruded grating and closed deck panels solve different layout problems; select the panel and its fixings as one assembly." },
+      { question: "Does open FRP grating satisfy a dock light-transmission permit?", answer: "An open panel may help transmit light, but compliance depends on the local permit and the complete dock. Framing, floats and equipment can block light below a panel. Submit the proposed panel open area and full overwater layout for permitting review." },
+      { question: "Can a marine FRP grating carry carts, equipment or vehicles?", answer: "Only if it is designed for them. Wheel and leg loads can govern differently from pedestrian loading, and pedestrian grating is not a vehicle deck. Specify the load and its footprint, the span and support conditions, and request load and deflection data for the exact grating configuration." },
+      { question: "Which fire rules and approvals apply offshore or on a ship?", answer: "They depend on the location, the fire scenario and the governing project, flag-state or class rules; no general offshore or shipboard approval is claimed here. State them in the RFQ so the resin, for example phenolic or fire-retardant vinyl ester, and the test route can be agreed, and have the responsible designer or authority review the finished assembly." },
       { question: "Which fasteners suit marine FRP structures?", answer: "Stainless A4-316 bolts with oversized washers, or FRP threaded rods and nuts where a non-metallic joint is wanted. Isolate dissimilar metals and follow the connection detailing for the profile." },
     ],
     request: [
-      { title: "Location and exposure", text: "Splash, immersion or salt air, water temperature and UV." },
-      { title: "Loads and layout", text: "Spans, supports, crowd, point or wheel loads, with drawings." },
-      { title: "Fire and approvals", text: "Operator, class or port requirements that apply." },
-      { title: "Quantities and delivery", text: "Panel areas, lengths or assemblies, destination and target date." },
+      { title: "Layout and spans", text: "A marked plan of each deck, support, stair, ladder and rail, with spans, support widths, openings and clearances." },
+      { title: "Loads", text: "Pedestrian, cart, equipment, wheel and maintenance loads stated separately, plus moving dock joints and flood or wave action." },
+      { title: "Exposure and permits", text: "Immersion, splash, salt air, UV, temperature and cleaning media; slip, opening, accessibility and overwater permit requirements." },
+      { title: "Approvals and supply", text: "Fire, offshore, flag-state or class rules; resin, color, fixings, reports, quantities and destination." },
     ],
+    quoteIntro: "Send a marked plan with the loads, exposure and approvals that apply, and ask for load and deflection data for the selected panel and span.",
   },
   vehicle: {
     slug: "vehicle",
     path: "/industries/vehicle",
     name: "Transportation & rail",
-    updated: "2026-09-26",
+    updated: "2026-09-27",
     h1: "FRP Profiles for Vehicle & Transport Components",
     intro:
       "Pultruded FRP profiles for bus and coach bodies, rail interiors, trailers and specialty vehicles. They are lighter than steel and do not rust; fire, smoke and toxicity requirements are confirmed for each application.",
     image: {
       src: "/images/industries/vehicle-bus-body-concept.webp",
       alt: "Concept bus body with light-colored fiberglass roof and ceiling support profiles",
-      note: "AI-generated concept; not an F1 installation",
-      caption: "Illustrative bus body application. The vehicle maker designs and approves each component.",
+      note: "AI concept",
+      caption: "AI concept of a bus body application, not an F1 installation. The vehicle maker designs and approves each component.",
     },
     areasIntro: "The vehicle maker designs and certifies the vehicle; the profiles are specified against its requirements. These are the usual uses and what to agree for each.",
     areas: [
@@ -303,16 +325,19 @@ export const industryPages = {
     ],
     documentPaths: ["/products/custom-pultruded-profiles", "/products/fiberglass-structural-shapes"],
     faqs: [
-      { question: "Does FRP meet fire safety standards for rail?", answer: "Rail requirements such as EN 45545-2 apply to the specified product and hazard level. Phenolic and fire-retardant formulations are the usual starting point, and test reports are issued for the specific formulation, so state the standard and hazard level in the RFQ." },
-      { question: "How much lighter than steel is FRP?", answer: "Glass FRP has a density of about 1.9 g/cm³ against 7.85 g/cm³ for steel, so a part of the same volume weighs about 75% less. FRP is less stiff, so sections are often larger and the saving on a finished part is smaller than that ratio." },
-      { question: "Can FRP profiles be used for structural body framing?", answer: "Yes, where the vehicle maker's design covers the joints, fatigue and crash requirements. F1 supplies the profiles and custom sections; the vehicle design and certification stay with the maker." },
+      { question: "Can an FRP profile replace a steel vehicle frame member?", answer: "Only after the vehicle engineer checks that member and its connections against the full load and safety requirements. F1 supplies profiles and custom sections; the vehicle design and certification stay with the maker. A primary crash structure, occupant restraint anchor or other safety-critical member needs an OEM-led validation program." },
+      { question: "How much lighter than steel is an FRP part?", answer: "Glass FRP has a density of about 1.9 g/cm³ against 7.85 g/cm³ for steel, so the same volume weighs about 75% less. FRP is less stiff, so a section often has to be deeper or shaped differently to meet the same stiffness target, and the saving on a finished part is smaller than that ratio. Compare the installed part, joints and hardware included, before quoting a weight reduction." },
+      { question: "Are FRP profiles automatically compliant with EN 45545-2?", answer: "No. The rail buyer identifies the component's requirement set and hazard level. Compliance depends on the tested formulation and end-use configuration, including any surface treatment or coating; phenolic and fire-retardant formulations are the usual starting point. Request the reports for the proposed profile before treating it as qualified." },
+      { question: "Will fiberglass sideposts reduce a refrigerated trailer's energy use?", answer: "They can reduce a conductive path through the wall when designed into an insulated assembly. The trailer's actual heat loss also depends on foam, skins, doors, joints and air leakage. Request a wall- or body-level thermal comparison under the same test conditions; profile data alone cannot establish refrigeration energy savings." },
+      { question: "Can FRP provide electrical insulation in an electric vehicle?", answer: "A suitable glass-fiber profile can help separate selected components electrically, but the finished vehicle still needs its own high-voltage architecture, insulation and safety validation. State the voltage, environment, creepage and clearance needs in the inquiry so the proposed part can be evaluated in context." },
     ],
     request: [
-      { title: "Part and function", text: "What the part does, with drawings or a sample of the current part." },
-      { title: "Standards", text: "Fire, smoke and toxicity, electrical and any customer specification." },
-      { title: "Program", text: "Annual volume, first-article timing and tooling expectations." },
-      { title: "Delivery", text: "Lengths or finished parts, packing and destination." },
+      { title: "Part and location", text: "Vehicle type and program, the marked location of each part, and a 2D drawing or CAD of the section envelope." },
+      { title: "Loads and joints", text: "Static, impact and cyclic loads, support spacing, deflection and fatigue targets; mating materials and the fastener or bond pattern." },
+      { title: "Exposure and standards", text: "Temperature, water, salt, cleaners, UV and electrical exposure; the fire, electrical or vehicle standards and reports required." },
+      { title: "Program and supply", text: "Cut lengths, tolerances, quantity forecast and first-article timing; raw profiles, machined parts or assemblies." },
     ],
+    quoteIntro: "Send the drawing with the vehicle interface and the acceptance basis, so the profile can be assessed for manufacturing and test scope.",
   },
   "water-wastewater": {
     slug: "water-wastewater",
