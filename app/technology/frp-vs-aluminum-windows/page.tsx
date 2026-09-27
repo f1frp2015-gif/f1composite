@@ -18,7 +18,7 @@ const pageDescription =
   "FRP vs aluminum windows compared on U-value, thermal bridging, condensation, lifecycle cost and Passive House suitability, with certified frame data.";
 const pagePath = "/technology/frp-vs-aluminum-windows";
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-04-15";
+const updatedAt = "2026-09-27";
 const referencedStandards = ["EN ISO 10077-1", "EN ISO 10077-2", "EN 14024", "NFRC 100", "PHI certified components"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -37,16 +37,15 @@ interface CompRow {
 }
 
 const comparisonData: CompRow[] = [
-  { property: "Frame Uf (70mm section)", unit: "W/m²·K", frp: "0.85 – 1.2", aluminum: "1.8 – 2.4", frpBetter: true },
-  { property: "Frame Uf (90mm passive section)", unit: "W/m²·K", frp: "0.78 – 0.95", aluminum: "1.4 – 1.8", frpBetter: true },
-  { property: "Thermal Conductivity", unit: "W/m·K", frp: "0.3 – 0.5", aluminum: "160 – 200", frpBetter: true },
-  { property: "Thermal Bridge at Frame", unit: "ψ, W/m·K", frp: "≈ 0.035 (warm-edge)", aluminum: "0.06 – 0.11", frpBetter: true },
-  { property: "Coefficient of Thermal Expansion", unit: "10⁻⁶/K", frp: "8 – 10 (matches glass)", aluminum: "23 – 24 (3× glass)", frpBetter: true },
-  { property: "Condensation Risk (fRsi ≥ 0.7)", frp: "Passes at -20°C exterior", aluminum: "Fails in cold climates without additional break", frpBetter: true },
-  { property: "Tensile Strength (longitudinal)", unit: "MPa", frp: "240 – 400", aluminum: "240 – 310 (6063-T6)" },
+  { property: "Frame Uf (70 mm section)", unit: "W/m²·K", frp: "0.85 – 1.2", aluminum: "1.8 – 2.4", frpBetter: true },
+  { property: "Frame Uf (90 mm passive section)", unit: "W/m²·K", frp: "0.78 – 0.95", aluminum: "1.4 – 1.8", frpBetter: true },
+  { property: "Thermal conductivity", unit: "W/m·K", frp: "0.3 – 0.5", aluminum: "160 – 200", frpBetter: true },
+  { property: "Glass-edge thermal bridge", unit: "ψ, W/m·K", frp: "≈ 0.035 (warm-edge)", aluminum: "0.06 – 0.11", frpBetter: true },
+  { property: "Thermal expansion", unit: "10⁻⁶/K", frp: "8 – 10 (matches glass)", aluminum: "23 – 24 (3× glass)", frpBetter: true },
+  { property: "Tensile strength (longitudinal)", unit: "MPa", frp: "240 – 400", aluminum: "240 – 310 (6063-T6)" },
   { property: "Density", unit: "g/cm³", frp: "1.9", aluminum: "2.7" },
-  { property: "Corrosion Resistance", frp: "Does not corrode in salt, chloride or sulfur atmospheres", aluminum: "Pitting in coastal and industrial atmospheres", frpBetter: true },
-  { property: "Passive House Certified", frp: "Yes: 90-series PHI certified", aluminum: "Few products certified, require complex breaks", frpBetter: true },
+  { property: "Corrosion resistance", frp: "Does not corrode in salt, chloride or sulfur atmospheres", aluminum: "Pitting in coastal and industrial atmospheres", frpBetter: true },
+  { property: "Passive House certification", frp: "90-series: PHI component certificate 2491wi03", aluminum: "Certified systems use deep thermal breaks or insulated cores" },
   { property: "Recyclability", frp: "Limited (thermoset)", aluminum: "Excellent (infinite loop)" },
   { property: "Embodied CO₂", unit: "kg CO₂/kg", frp: "3.1 – 5.0", aluminum: "8.0 – 12.0 (primary)", frpBetter: true },
 ];
@@ -55,7 +54,7 @@ const faqs = [
   {
     question: "Can aluminum window frames match FRP on U-value?",
     answer:
-      "Standard thermally-broken aluminum frames rarely reach Uf below 1.4 W/m²·K. Premium polyamide-broken aluminum systems achieve Uf around 1.1 W/m²·K at significant cost premium. Pultruded FRP 90-series frames deliver Uf of 0.85 W/m²·K without any thermal break assembly because FRP is inherently 500× less conductive than aluminum. For Uw ≤ 0.80 W/m²·K (PHI passive house target), FRP is the only mainstream frame material that consistently meets the limit at residential window sizes.",
+      "Standard thermally broken aluminum frames rarely reach Uf below 1.4 W/m²·K. Premium systems with deep polyamide breaks and insulating inserts get to around 1.0 or lower, at a cost premium. A pultruded FRP 90-series frame reaches Uf 0.85 W/m²·K with no thermal break, because the material conducts about 500 times less heat than aluminum. For the PHI target of Uw ≤ 0.80 W/m²·K, FRP meets the limit with standard triple glazing; the aluminum systems that do are the premium, deep-break end of the range.",
   },
   {
     question: "Why does thermal bridging favor FRP so strongly?",
@@ -65,17 +64,17 @@ const faqs = [
   {
     question: "Is FRP more expensive than aluminum for window frames?",
     answer:
-      "At bare frame cost, FRP and premium thermally-broken aluminum systems are comparable: FRP is typically 10–20% higher per linear meter. Over a 30-year period the economics can reverse: FRP frames need no repainting and have no thermal-break assembly to maintain, though gaskets and hardware still need normal upkeep. Lifecycle cost analysis for passive house residential projects shows FRP at 15–25% lower total cost when reduced HVAC sizing (from lower Uw) is included.",
+      "At frame level, FRP is priced close to premium thermally broken aluminum systems, and often somewhat above them per linear meter, so compare quotes for the same Uw target. Over the building's life, FRP frames need no repainting and have no thermal-break assembly to maintain, though gaskets and hardware still need normal upkeep. Whether that makes FRP cheaper overall depends on the energy prices, HVAC sizing and maintenance assumed for the project.",
   },
   {
     question: "How does FRP handle thermal expansion compared to aluminum?",
     answer:
-      "The coefficient of thermal expansion (CTE) of FRP is 8–10 × 10⁻⁶/K, essentially matching glass at 8 × 10⁻⁶/K. Aluminum expands at 23–24 × 10⁻⁶/K: three times faster than glass. Over a 2 m long window, aluminum grows 1.4 mm more than the glass across a 30°C temperature swing, cycling this stress into the perimeter sealant every day. Seal failures and fogging between panes are common aluminum-frame failure modes; FRP eliminates the cyclic stress source entirely.",
+      "The coefficient of thermal expansion (CTE) of FRP is 8–10 × 10⁻⁶/K, essentially matching glass at 8 × 10⁻⁶/K. Aluminum expands at 23–24 × 10⁻⁶/K: three times faster than glass. Over a 2 m long window, aluminum grows 1.4 mm more than the glass across a 30°C temperature swing, cycling this stress into the perimeter sealant every day. Seal failures and fogging between panes are common aluminum-frame failure modes; an FRP frame largely removes that cyclic stress.",
   },
   {
     question: "Do FRP frames work in both hot and cold climates?",
     answer:
-      "Yes. FRP window frames perform across the full climate range from -50°C to +80°C without any change in thermal or structural behavior. The low thermal conductivity reduces heat loss in cold climates and heat gain in hot climates equally. In tropical coastal projects, FRP additionally solves the aluminum pitting-corrosion problem that typically drives aluminum frame replacement in 15–20 years.",
+      "Yes. Pultruded FRP frames are used from Antarctic stations to hot coastal sites; check the resin's service temperature range for the project. The low thermal conductivity reduces heat loss in cold climates and heat gain in hot ones. On tropical coastal projects, FRP also avoids the pitting corrosion that shortens the life of aluminum frames in salt air.",
   },
   {
     question: "What certificates does F1 Composite have for window frames?",
@@ -119,12 +118,12 @@ export default function FrpVsAluminumWindowsPage() {
       />
       <PageNav items={[{ id: "short-answer", label: "Short answer" }, { id: "property-comparison", label: "Comparison" }, { id: "thermal-performance", label: "Thermal performance" }, { id: "where-aluminum-still-wins", label: "Where aluminum wins" }, { id: "faq", label: "FAQ" }, { id: "products", label: "Products" }]} />
 
-      <PageSection id="short-answer" title="For passive house and net-zero buildings, FRP is the only mainstream frame that meets Uw ≤ 0.80 W/m²·K without extraordinary glazing" tone="white">
+      <PageSection id="short-answer" title="For passive house targets, an FRP frame reaches Uw 0.80 W/m²·K with standard triple glazing" tone="white">
         <p className="text-f16 leading-golden text-t2">
-          Aluminum dominated commercial fenestration for 40 years because it combines high strength, long spans, low maintenance, and clean aesthetics. Those advantages still hold, but the energy-code floor moved. Most national codes now require whole-window Uw below 1.4 W/m²·K, and passive house targets 0.80. Aluminum cannot reach either limit without elaborate polyamide thermal breaks, oversized glazing cavities, or both. Pultruded FRP reaches them with a monolithic section and standard triple glazing.
+          Aluminum dominated commercial fenestration for 40 years because it combines high strength, long spans, low maintenance, and clean aesthetics. Those advantages still hold, but the energy-code floor moved. Most national codes now require whole-window Uw below 1.4 W/m²·K, and passive house targets 0.80. Aluminum reaches them only with deep polyamide thermal breaks, insulated cores or both. A pultruded FRP section reaches them without a thermal break, as our PHI-certified 90-series window does with triple glazing.
         </p>
         <p className="mt-[12px] text-f16 leading-golden text-t2">
-          This page compares FRP and aluminum across the 13 properties that actually drive specification decisions: frame Uf, thermal bridging ψ, coefficient of thermal expansion, condensation resistance, corrosion resistance, lifecycle cost, and PHI certifiability. Every number is sourced from EN ISO 10077-1 calculations, manufacturer datasheets, or third-party certification test reports.
+          This page compares FRP and aluminum on the properties that drive specification decisions: frame Uf, thermal bridging ψ, thermal expansion, corrosion, cost and PHI certification. The values are typical ranges; use the certified or calculated values of the actual frame in your design.
         </p>
         <div className="mt-[20px] max-w-[860px]">
           <HeatFlowFrameComparison />
@@ -142,7 +141,7 @@ export default function FrpVsAluminumWindowsPage() {
                 <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Property</th>
                 <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Unit</th>
                 <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Pultruded FRP</th>
-                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Thermally-Broken Aluminum</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Thermally broken aluminum</th>
               </tr>
             </thead>
             <tbody>
@@ -164,12 +163,12 @@ export default function FrpVsAluminumWindowsPage() {
         </div>
       </PageSection>
 
-      <PageSection id="thermal-performance" title="The 500× conductivity gap is the whole story" tone="white">
+      <PageSection id="thermal-performance" title="A 500-fold difference in conductivity" tone="white">
         <p className="text-f16 leading-golden text-t2">
           Aluminum conducts heat at 160–200 W/m·K. Pultruded FRP conducts at 0.3–0.5 W/m·K. Everything else (thermal breaks, chamber geometries, spacer upgrades) is engineering effort directed at narrowing a 500× gap that the base material imposes. FRP starts with the gap already closed.
         </p>
         <p className="mt-[12px] text-f16 leading-golden text-t2">
-          For a 1230 × 1480 mm triple-glazed window (Ug = 0.6), the whole-window Uw calculation per EN ISO 10077-1 produces Uw ≈ 1.05 W/m²·K with a 70 mm thermally-broken aluminum frame, versus Uw ≈ 0.72 W/m²·K with an F1 Composite 90-series FRP frame. The aluminum window fails the PHI 0.80 limit by 31%; the FRP window passes with 10% margin.
+          For a 1230 × 1480 mm triple-glazed window (Ug = 0.6), the whole-window Uw calculation per EN ISO 10077-1 gives Uw ≈ 1.05 W/m²·K with a 70 mm thermally broken aluminum frame and Uw ≈ 0.72 W/m²·K with an F1 Composite 90-series FRP frame. The aluminum window misses the PHI 0.80 limit; the FRP window meets it.
         </p>
         <p className="mt-[12px] text-f16 leading-golden text-t2">
           Try the calculation yourself with real dimensions and frame properties: our <Link href="/technology/frp-u-value-calculator" className="text-teal-text hover:underline">U-value calculator</Link> implements the EN ISO 10077-1 method.
@@ -181,7 +180,7 @@ export default function FrpVsAluminumWindowsPage() {
           This page argues FRP is better for energy-focused projects, but aluminum remains the right choice in three contexts. <strong className="text-t1">Large spans:</strong> aluminum&apos;s higher elastic modulus (69 GPa vs FRP&apos;s 23–28 GPa) allows longer clear-span mullions on curtain walls above 3 m without intermediate supports. <strong className="text-t1">End-of-life recyclability:</strong> aluminum recycles infinitely at ~5% of primary production energy; thermoset FRP does not. <strong className="text-t1">Tight budget, mild climate:</strong> if Uw = 1.4 W/m²·K is sufficient, a standard thermally-broken aluminum system is lower first-cost.
         </p>
         <p className="mt-[12px] text-f16 leading-golden text-t2">
-          For residential and commercial envelopes targeting Uw ≤ 1.0 W/m²·K in climates where condensation, corrosion, or thermal bridging are design drivers, FRP wins decisively.
+          For residential and commercial envelopes targeting Uw ≤ 1.0 W/m²·K, where condensation, corrosion or thermal bridging drive the design, FRP is the stronger choice.
         </p>
       </PageSection>
 

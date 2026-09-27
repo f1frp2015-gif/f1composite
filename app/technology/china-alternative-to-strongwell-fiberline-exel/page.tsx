@@ -9,6 +9,7 @@ import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { company, supplyTerms, weeks } from "@/content/data/company";
 
 const pagePath = "/technology/china-alternative-to-strongwell-fiberline-exel";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -42,12 +43,12 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Custom die / tooling lead time",
-    f1: "3–6 weeks die fabrication; 6–10 weeks total first production",
+    f1: `${weeks(supplyTerms.dieManufactureWeeks)} to make a new die; ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery`,
     incumbents: "Varies by region and tooling queue",
   },
   {
     dimension: "Export terms",
-    f1: "FOB or DDP to 30+ countries, export documentation handled in-house",
+    f1: `FOB or DDP to ${company.exportCountries} countries, export documentation handled in-house`,
     incumbents: "Domestic-market focus; export via distributors where available",
   },
 ];
@@ -66,7 +67,7 @@ const faqItems = [
   {
     question: "Are Chinese pultruded FRP profiles made to the same standards as Western brands?",
     answer:
-      "F1 Composite's profiles are supplied to the same international standards the Western brands use: EN 13706 for pultruded profiles (structural grades E17 and E23), ASTM D3917 for dimensional tolerance (±0.25 mm), and mechanical testing to ASTM D638 / D790 / D695. Mill test certificates are issued for each production batch, and third-party test reports and the ISO 9001 certificate are provided on request, so specifying engineers can check equivalence before purchase. Two SGS full-section modulus reports to EN 13706-2 Annex D are published on the evidence page.",
+      "F1 Composite's profiles are supplied to the same international standards the Western brands use: EN 13706 for pultruded profiles (structural grades E17 and E23), ASTM D3917 for dimensional tolerances, and mechanical testing to ASTM D638 / D790 / D695. Mill test certificates are issued for each production batch, and third-party test reports and the ISO 9001 certificate are provided on request, so specifying engineers can check equivalence before purchase. Two SGS full-section modulus reports to EN 13706-2 Annex D are published on the evidence page.",
   },
   {
     question: "Is there a Pultex or EXTREN crossover chart to F1-STRUX profiles?",
@@ -76,7 +77,7 @@ const faqItems = [
   {
     question: "Why source pultruded FRP profiles from China instead of a Western manufacturer?",
     answer:
-      "The case for a China alternative is standards-parity at a factory-direct price: identical EN 13706 / ASTM D3917 compliance, the full structural and custom range from one supplier, custom-die tooling in 3–6 weeks, and export to 30+ countries on FOB or DDP terms, without regional distributor markups. For corrosion-critical or weight-critical projects, this lowers landed cost while keeping the same engineering specification.",
+      `The case for a China alternative is the same specification at a factory-direct price: profiles made to EN 13706 and ASTM D3917, the full structural and custom range from one supplier, a new die in ${weeks(supplyTerms.dieManufactureWeeks)}, and export to ${company.exportCountries} countries on FOB or DDP terms, without regional distributor markups. For corrosion-critical or weight-critical projects, this lowers landed cost while keeping the same engineering specification.`,
   },
 ];
 
@@ -130,8 +131,8 @@ export default function ChinaAlternativePage() {
           <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:text-teal">
             F1-STRUX structural profiles
           </Link>{" "}
-          direct from the factory for export, on FOB or DDP terms to 30+
-          countries, without the regional distributor layer that sits between
+          direct from the factory for export, on FOB or DDP terms to{" "}
+          {company.exportCountries} countries, without the regional distributor layer that sits between
           the Western brands and an international project. For corrosion- or
           weight-critical work, that lowers landed cost while keeping the exact
           engineering specification a designer has already approved.

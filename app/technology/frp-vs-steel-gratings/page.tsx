@@ -16,7 +16,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-09-25";
+const updatedAt = "2026-09-27";
 const referencedStandards = ["ASTM E2979", "ASTM F3125", "HSE UK Slip Resistance", "OSHA 1910.29", "IBC 1607.8"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -35,19 +35,18 @@ interface CompRow {
 }
 
 const comparisonData: CompRow[] = [
-  { property: "Density (installed)", unit: "kg/m²", frp: "14 – 22 (38mm molded)", steel: "34 – 48 (25mm bar)", frpBetter: true },
-  { property: "Load Capacity (30mm deep)", unit: "kN/m² UDL", frp: "≥ 500", steel: "≥ 500" },
-  { property: "Concentrated Load (wheel)", unit: "kN", frp: "45 – 90 (pultruded)", steel: "90 – 180" },
-  { property: "Corrosion Resistance", frp: "Resists acids, alkalis, chlorides and saltwater (resin-dependent)", steel: "Coating-dependent; HDG fails 10–15 yr in aggressive environments", frpBetter: true },
-  { property: "Electrical Conductivity", frp: "Non-conductive (insulator)", steel: "Fully conductive (fault current path)", frpBetter: true },
-  { property: "Slip Resistance (wet)", unit: "PTV", frp: "≥ 55 (grit top)", steel: "25 – 40 (serrated)", frpBetter: true },
-  { property: "Fire Rating", frp: "Class 1 flame spread (FR resin)", steel: "Non-combustible" },
-  { property: "Installation Tools", frp: "Standard hand tools, no hot work permit", steel: "Cutting torch, welding, grinding", frpBetter: true },
-  { property: "Recoating (coastal / industrial)", frp: "None; life depends on resin and UV exposure", steel: "Typically every 10 – 15 years", frpBetter: true },
-  { property: "Repaint / Re-galvanize Cost", frp: "None", steel: "$15 – $30 per m² every 10 yr", frpBetter: true },
-  { property: "Spark Risk", frp: "No impact sparks; assess static risk in ATEX zones", steel: "Sparks on impact", frpBetter: true },
-  { property: "Magnetic Interference", frp: "Non-magnetic", steel: "Ferromagnetic", frpBetter: true },
-  { property: "Thermal Conductivity", unit: "W/m·K", frp: "0.3 – 0.5", steel: "50", frpBetter: true },
+  { property: "Weight (installed)", unit: "kg/m²", frp: "14 – 22 (38 mm molded)", steel: "34 – 48 (25 mm bar)", frpBetter: true },
+  { property: "Load capacity (30 mm deep)", unit: "kN/m² UDL", frp: "≥ 500", steel: "≥ 500" },
+  { property: "Concentrated load (wheel)", unit: "kN", frp: "45 – 90 (pultruded)", steel: "90 – 180" },
+  { property: "Corrosion resistance", frp: "Resists acids, alkalis, chlorides and salt water (resin-dependent)", steel: "Coating-dependent; galvanizing can fail in 10–15 years in aggressive service", frpBetter: true },
+  { property: "Electrical conductivity", frp: "Non-conductive (insulator)", steel: "Fully conductive (fault current path)", frpBetter: true },
+  { property: "Slip resistance (wet)", unit: "PTV", frp: "High with a grit top; report on request", steel: "25 – 40 (serrated)", frpBetter: true },
+  { property: "Fire", frp: "ASTM E84 Class 1 with FR resin; report on request", steel: "Non-combustible" },
+  { property: "Installation tools", frp: "Standard hand tools, no hot work permit", steel: "Cutting torch, welding, grinding", frpBetter: true },
+  { property: "Recoating (coastal / industrial)", frp: "None; life depends on resin and UV exposure", steel: "Often every 10 – 15 years", frpBetter: true },
+  { property: "Spark risk", frp: "No impact sparks; assess static risk in ATEX zones", steel: "Sparks on impact", frpBetter: true },
+  { property: "Magnetic interference", frp: "Non-magnetic", steel: "Ferromagnetic", frpBetter: true },
+  { property: "Thermal conductivity", unit: "W/m·K", frp: "0.3 – 0.5", steel: "50", frpBetter: true },
 ];
 
 const faqs = [
@@ -59,7 +58,7 @@ const faqs = [
   {
     question: "Why do industrial facilities specify FRP over hot-dip galvanized steel?",
     answer:
-      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs $15–$30 per m² and disrupts operations. FRP is immune to the electrochemical corrosion that attacks steel, so there is no coating to fail and no recoating cycle. In water treatment, pulp and paper, chemical process and coastal offshore applications, FRP often costs less than galvanized steel over the life of the walkway once recoating and downtime are counted.",
+      "Hot-dip galvanized steel typically survives 20–30 years in benign atmospheres but fails in 10–15 years under acid rain, coastal salt, chlorine, H₂S, or wash-down chemicals. Every recoating cycle costs money and disrupts operations. FRP is immune to the electrochemical corrosion that attacks steel, so there is no coating to fail and no recoating cycle. In water treatment, pulp and paper, chemical process and coastal offshore applications, FRP often costs less than galvanized steel over the life of the walkway once recoating and downtime are counted.",
   },
   {
     question: "Are FRP gratings safe around electrical equipment?",
@@ -69,7 +68,7 @@ const faqs = [
   {
     question: "How does slip resistance compare in wet conditions?",
     answer:
-      "FRP gratings with factory-applied grit top surface achieve Pendulum Test Values (PTV) above 55 per HSE UK guidance, well above the 36 threshold for low-slip risk on wet surfaces. Serrated steel bar gratings typically PTV 25–40 when wet; smooth-top steel plates fall below PTV 20. For offshore platforms, wastewater plants, and any walkway exposed to rain or process water, FRP offers materially safer footing.",
+      "UK HSE guidance treats a Pendulum Test Value (PTV) of 36 or more as low slip risk on wet surfaces. FRP gratings with a factory-applied grit top are made for that wet service; ask for the slip test report for the surface you specify. Serrated steel bar gratings typically test at PTV 25–40 when wet, and smooth steel plate lower. For offshore platforms, wastewater plants and any walkway exposed to rain or process water, a gritted FRP surface gives better footing.",
   },
   {
     question: "Is FRP cost-competitive with steel on initial installed cost?",
@@ -121,10 +120,10 @@ export default function FrpVsSteelGratingsPage() {
 
       <PageSection id="short-answer" title="In corrosive, electrical or wet areas, FRP gratings avoid the recoating cycle that limits galvanized steel" tone="white">
         <p className="text-f16 leading-golden text-t2">
-          Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings eliminate the cycle entirely while delivering better slip resistance, lower installed weight, and inherent electrical insulation.
+          Steel bar gratings dominate industrial walkways for one reason: low material cost. In dry, non-corrosive, non-electrical environments with heavy vehicle traffic, that cost advantage wins. Everywhere else (chemical plants, wastewater, offshore platforms, coastal marinas, substations, food processing with wash-down) galvanized steel enters a 10–15 year recoating cycle that erases its initial savings. Pultruded and molded FRP gratings remove that cycle and add a gritted walking surface, lower installed weight and electrical insulation.
         </p>
         <p className="mt-[12px] text-f16 leading-golden text-t2">
-          This page compares the two across 13 properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion mechanisms, slip resistance on wet surfaces, fire rating, electrical conductivity, and 30-year lifecycle cost.
+          This page compares the two on the properties that matter to grating specifiers: uniform and concentrated load capacity, corrosion, wet slip resistance, fire, electrical conductivity and lifecycle cost.
         </p>
       </PageSection>
 
@@ -138,8 +137,8 @@ export default function FrpVsSteelGratingsPage() {
               <tr className="border-b border-border-default bg-bg2">
                 <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Property</th>
                 <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Unit</th>
-                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Pultruded / Molded FRP</th>
-                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Hot-Dip Galvanized Steel</th>
+                <th scope="col" className="bg-teal-bg2 px-[14px] py-[8px] text-left font-semibold text-teal-text">Pultruded or molded FRP</th>
+                <th scope="col" className="px-[14px] py-[8px] text-left font-semibold text-t1">Hot-dip galvanized steel</th>
               </tr>
             </thead>
             <tbody>
@@ -161,29 +160,29 @@ export default function FrpVsSteelGratingsPage() {
         </div>
       </PageSection>
 
-      <PageSection id="where-frp-replaces-steel" title="Five environments where FRP is now the default specification" tone="white">
+      <PageSection id="where-frp-replaces-steel" title="Five environments where FRP often replaces steel" tone="white">
         <ul className="space-y-[20px] text-f16 leading-golden text-t2">
           <li>
-            <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine, and constant humidity corrode galvanized steel gratings in 8–12 years. Vinyl ester FRP grating does not rust and needs no recoating in the same service, which is why many water utilities now specify it for treatment works.
+            <strong className="text-t1">Wastewater treatment plants.</strong> H₂S, chlorine and constant humidity can corrode galvanized steel gratings within a decade. Vinyl ester FRP grating does not rust and needs no recoating in the same service, which is why many water utilities now specify it for treatment works.
           </li>
           <li>
-            <strong className="text-t1">Offshore platforms and coastal marinas.</strong> Saltwater and salt spray pit galvanized coatings within 5–10 years. Stainless steel grating costs 3–4× FRP. Every major offshore operator now specifies FRP gratings for secondary walkways, helideck surrounds, and engine-room access platforms.
+            <strong className="text-t1">Offshore platforms and coastal marinas.</strong> Salt water and salt spray pit galvanized coatings, and stainless steel grating costs considerably more than FRP. Offshore operators widely use FRP gratings for secondary walkways, helideck surrounds and engine-room access platforms.
           </li>
           <li>
-            <strong className="text-t1">Electrical substations and power plants.</strong> Non-conductive FRP eliminates fault current paths, reduces grounding infrastructure cost by $200,000–$500,000 on a typical 220 kV substation, and removes arc-flash risk in cable management areas.
+            <strong className="text-t1">Electrical substations and power plants.</strong> A non-conductive FRP grating carries no fault current, which reduces touch and step potential hazards around equipment. Metal supports and fixings still follow the grounding design.
           </li>
           <li>
             <strong className="text-t1">Chemical and pulp & paper plants.</strong> Sulfuric acid, sodium hydroxide, hypochlorite, and solvent exposure attack any steel coating. FRP vinyl ester gratings resist the full range of process chemicals per the chemical resistance chart, which is why process plants routinely replace steel mezzanines and walkways with FRP during turnarounds.
           </li>
           <li>
-            <strong className="text-t1">Food and pharmaceutical facilities.</strong> FDA-compliant polyester resins, non-porous sealed surfaces, and cleanability with caustic CIP solutions make FRP the right choice for environments where steel corrosion particulates could contaminate product.
+            <strong className="text-t1">Food and pharmaceutical facilities.</strong> Food-contact resins where specified, sealed non-porous surfaces and cleanability with caustic CIP solutions make FRP a good choice for environments where steel corrosion particulates could contaminate product.
           </li>
         </ul>
       </PageSection>
 
       <PageSection id="where-steel-still-wins" title="Heavy vehicle traffic in dry, non-corrosive environments" tone="muted">
         <p className="text-f16 leading-golden text-t2">
-          Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin achieves Class 1 flame spread but is not non-combustible.
+          Steel bar gratings remain the right specification in three scenarios. <strong className="text-t1">Heavy wheel loads:</strong> forklifts above 45 kN per wheel and truck traffic on loading docks still benefit from steel&apos;s higher concentrated-load capacity. <strong className="text-t1">Dry industrial buildings:</strong> indoor steel mills, dry warehouses, and foundries with low humidity and no chemical exposure see galvanized steel last 40+ years without recoating, eliminating FRP&apos;s lifecycle advantage. <strong className="text-t1">Fire-critical primary structures:</strong> where code requires non-combustible structural elements, steel is the direct choice; FRP with FR resin can reach ASTM E84 Class 1 flame spread but is not non-combustible.
         </p>
       </PageSection>
 

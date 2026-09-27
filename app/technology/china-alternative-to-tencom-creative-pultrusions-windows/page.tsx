@@ -8,6 +8,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { company } from "@/content/data/company";
 
 const pagePath = "/technology/china-alternative-to-tencom-creative-pultrusions-windows";
 
@@ -31,7 +32,7 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Thermal certification",
-    f1: "PHI Component Certificate 2491wi03: U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone",
+    f1: "PHI component certificate 2491wi03: Uw 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone",
     incumbents: "Varies by system; certification is usually carried by the window fabricator, not the profile supplier",
   },
   {
@@ -41,17 +42,17 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   },
   {
     dimension: "Dimensional consistency",
-    f1: "ASTM D3917 tolerances (±0.25 mm class), batch mill certificates, co-pultruded gasket channels for repeatable seal fit",
+    f1: "ASTM D3917 tolerances, batch mill certificates, co-pultruded gasket channels for repeatable seal fit",
     incumbents: "Established pultruders hold comparable tolerance classes; verify per supplier and per die",
   },
   {
     dimension: "Supply models",
-    f1: "Profile sets for fabricators, or complete factory-assembled, glazed, leak-tested units",
+    f1: "Profile sets for fabricators, or complete factory-assembled, glazed units",
     incumbents: "Primarily profile/lineal supply (Tencom, Creative); Inline also sells finished windows in North America",
   },
   {
     dimension: "Sourcing model",
-    f1: "Direct from the manufacturing factory, FOB or DDP export to 30+ countries",
+    f1: `Direct from the manufacturing factory, FOB or DDP export to ${company.exportCountries} countries`,
     incumbents: "North-America-centric supply; export reach varies",
   },
 ];
@@ -60,7 +61,7 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Tencom fiberglass window profiles?",
     answer:
-      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom and glazing bead across nine series from 50 to 140 mm) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI Component Certificate 2491wi03 (U_w 0.78 W/m²·K).",
+      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom and glazing bead across nine series from 50 to 140 mm) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI component certificate 2491wi03 (Uw 0.78 W/m²·K).",
   },
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",
@@ -70,12 +71,12 @@ const faqItems = [
   {
     question: "How consistent are Chinese pultruded window profiles across production runs?",
     answer:
-      "Consistency is a fair concern when qualifying any new pultrusion supplier, and it should be verified with data rather than promised. F1 Composite holds window profiles to ASTM D3917 dimensional tolerance classes (±0.25 mm on critical dimensions), issues mill test certificates per production batch, and pultrudes gasket channels co-continuously with the profile so seal fit does not drift between runs. For qualification, we support third-party inspection (SGS/BV), pre-shipment dimensional reports against the die drawing, and staged orders (a first article run, then production volumes) so a fabricator can verify run-to-run repeatability on their own equipment before committing.",
+      "Consistency is a fair concern when qualifying any new pultrusion supplier, and it should be verified with data rather than promised. F1 Composite holds window profiles to ASTM D3917 dimensional tolerances, issues mill test certificates per production batch, and pultrudes gasket channels co-continuously with the profile so seal fit does not drift between runs. For qualification, we support third-party inspection (SGS/BV), pre-shipment dimensional reports against the die drawing, and staged orders (a first article run, then production volumes) so a fabricator can verify run-to-run repeatability on their own equipment before committing.",
   },
   {
     question: "What certifications back F1's window profiles compared to North American suppliers?",
     answer:
-      "The 90-series frame holds PHI Component Certificate 2491wi03 (whole-window U_w 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone). EN 14351-1 (CE marking) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports are provided on request for the configuration you specify. Profile properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply finished units, or profiles plus the simulation data a fabricator needs for its own certification.",
+      "The 90-series frame holds PHI component certificate 2491wi03 (whole-window Uw 0.78 W/m²·K, phB efficiency class for the cool-temperate climate zone). EN 14351-1 (CE marking) and NAFS (AAMA/WDMA/CSA 101/I.S.2/A440) test reports are provided on request for the configuration you specify. Profile properties are characterized to EN ISO 10077-2 for thermal simulation. Most North American lineal suppliers leave unit-level certification to the window fabricator; F1 can supply finished units, or profiles plus the simulation data a fabricator needs for its own certification.",
   },
   {
     question: "Why source fiberglass window profiles from China instead of a North American pultruder?",
