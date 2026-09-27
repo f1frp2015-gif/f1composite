@@ -89,7 +89,7 @@ export default function AuthorsIndexPage() {
                 className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-all duration-300 hover:border-teal hover:shadow-card"
               >
                 <span
-                  className="inline-block self-start rounded-full px-[10px] py-[4px] text-f12 font-bold uppercase tracking-[0.16em] text-white"
+                  className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 inline-block self-start rounded-full px-[10px] py-[4px] text-white"
                   style={{ backgroundColor: author.accent }}
                 >
                   {author.bucketLabel}

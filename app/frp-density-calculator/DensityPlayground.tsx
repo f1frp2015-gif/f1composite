@@ -89,7 +89,7 @@ export default function DensityPlayground({
             setStage(0);
             setPlaying(true);
           }}
-          className="shrink-0 rounded-card border border-border-default bg-white px-3 py-2 text-xs font-semibold text-teal-text"
+          className="shrink-0 rounded-card border border-border-default bg-white px-3 py-2 text-f12 font-semibold text-teal-text"
         >
           {playing ? "Pause animation" : "Play fill animation"}
         </button>
@@ -104,7 +104,7 @@ export default function DensityPlayground({
               setPlaying(false);
               setStage(index);
             }}
-            className={`rounded-card border p-2 text-left text-xs ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2"}`}
+            className={`rounded-card border p-2 text-left text-f12 ${stage === index ? "border-teal bg-teal-bg text-teal-text" : "border-border-default bg-white text-t2"}`}
           >
             {index + 1}. {name}
           </button>
@@ -157,14 +157,14 @@ export default function DensityPlayground({
               Material contained in 1 meter of profile
             </text>
           </svg>
-          <p className="text-xs leading-relaxed text-t2">
+          <p className="text-f12 leading-relaxed text-t2">
             {stage === 0
               ? `${result.reinforcementArea!.toFixed(2)} mm² is occupied by retained reinforcement.`
               : stage === 1
                 ? `${result.matrixArea!.toFixed(2)} mm² remains for the cured matrix; voids occupy ${result.voidArea!.toFixed(2)} mm².`
                 : `One meter: ${result.kgPerM!.toFixed(4)} kg · density: ${result.density!.toFixed(4)} g/cm³.`}
           </p>
-          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-t2">
+          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-f12 text-t2">
             {bars
               .filter((b) => b.area > 0)
               .map((bar, index) => (
@@ -179,17 +179,17 @@ export default function DensityPlayground({
           </div>
         </>
       ) : (
-        <p className="mt-4 text-sm text-t2">
+        <p className="mt-4 text-f14 text-t2">
           Adjust the inputs to restore a valid material balance. The animation
           resumes when the section can contain the reinforcement and matrix.
         </p>
       )}
-      <p className="mt-3 text-xs text-t3">
+      <p className="mt-3 text-f12 text-t3">
         Band widths show volume proportions, not physical ply locations. Final
         results always use the complete material balance.
       </p>
       <details className="mt-4" open>
-        <summary className="cursor-pointer text-sm font-semibold text-teal-text">
+        <summary className="cursor-pointer text-f14 font-semibold text-teal-text">
           Drag to calculate
         </summary>
         <div className="mt-4 space-y-4">
@@ -197,14 +197,14 @@ export default function DensityPlayground({
             <div>
               <label
                 htmlFor="interactive-layer"
-                className="block text-xs text-t2"
+                className="block text-f12 text-t2"
               >
                 Mat / fabric path
                 <select
                   id="interactive-layer"
                   value={layerIndex}
                   onChange={(e) => setSelectedLayer(Number(e.target.value))}
-                  className="mt-1 w-full rounded-card border border-border-default bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-card border border-border-default bg-white p-2 text-f14"
                 >
                   {layers.map((row, index) => (
                     <option key={index} value={index}>
@@ -215,7 +215,7 @@ export default function DensityPlayground({
               </label>
               <label
                 htmlFor="interactive-gsm"
-                className="mt-3 block text-sm text-t1"
+                className="mt-3 block text-f14 text-t1"
               >
                 Mat / fabric GSM: <strong>{layer.gsm} g/m²</strong>
                 <input
@@ -240,7 +240,7 @@ export default function DensityPlayground({
             </div>
           )}
           {roving && (
-            <label htmlFor="interactive-ends" className="block text-sm text-t1">
+            <label htmlFor="interactive-ends" className="block text-f14 text-t1">
               Roving group 1:{" "}
               <strong>
                 {roving.ends} ends × {roving.tex} tex
@@ -263,7 +263,7 @@ export default function DensityPlayground({
               />
             </label>
           )}
-          <label htmlFor="interactive-voids" className="block text-sm text-t1">
+          <label htmlFor="interactive-voids" className="block text-f14 text-t1">
             Void volume: <strong>{voids}%</strong>
             <input
               id="interactive-voids"

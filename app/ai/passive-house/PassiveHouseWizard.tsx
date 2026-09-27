@@ -55,7 +55,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
       <div className="grid gap-[21px]">
         {/* Climate */}
         <div>
-          <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
+          <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
             1. Climate class (PHI)
           </label>
           <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2 lg:grid-cols-5">
@@ -79,7 +79,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
 
         {/* Window type */}
         <div>
-          <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
+          <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
             2. Window type
           </label>
           <div className="mt-[8px] grid gap-[5px] sm:grid-cols-2">
@@ -109,7 +109,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
         {/* Target U-value + units */}
         <div className="grid gap-[13px] sm:grid-cols-2">
           <div>
-            <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
+            <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
               3. Target U_w (W/m²K)
             </label>
             <input
@@ -124,7 +124,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
             </p>
           </div>
           <div>
-            <label className="block text-f14 font-bold uppercase tracking-[2px] text-t3">
+            <label className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
               4. Project size (units)
             </label>
             <input
@@ -141,7 +141,7 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
           type="button"
           onClick={launch}
           disabled={!canLaunch}
-          className="rounded-card bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-control bg-teal-text px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-40"
         >
           Get AI-matched FRP series →
         </button>

@@ -17,7 +17,7 @@ import {
 import { buildRfqHref } from "@/lib/rfq";
 
 const inputClass = "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
-const labelClass = "mb-[5px] block text-f12 font-bold uppercase tracking-[0.06em] text-t3";
+const labelClass = "mb-[5px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 export default function GfrpRebarCalculator() {
   const [system, setSystem] = useState<BarSystem>("astm");
@@ -140,29 +140,29 @@ export default function GfrpRebarCalculator() {
 
       <div className="space-y-[13px] rounded-card border border-border-default bg-bg2 p-[21px]">
         <div className="rounded-control bg-white p-[13px]">
-          <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Selected GFRP bar</div>
+          <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Selected GFRP bar</div>
           <div className="mt-[4px] text-f24 font-bold text-t1">Ø{gfrpDiameter} mm · {area} mm²</div>
         </div>
 
         {design ? (
           <div className="grid gap-[8px] sm:grid-cols-2">
             <div className="rounded-control bg-white p-[13px]">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Design tensile strength</div>
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Design tensile strength</div>
               <div className="mt-[4px] text-f20 font-bold text-t1">{design.designStrengthMPa.toFixed(0)} MPa</div>
               <div className="text-f12 text-t3">C_E {ACI_440_11.environmentalFactor} × f*fu · {design.designForceKn.toFixed(1)} kN per bar</div>
             </div>
             <div className="rounded-control bg-white p-[13px]">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Sustained stress limit</div>
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Sustained stress limit</div>
               <div className="mt-[4px] text-f20 font-bold text-t1">{design.sustainedLimitMPa.toFixed(0)} MPa</div>
               <div className="text-f12 text-t3">{ACI_440_11.sustainedStressRatio} × ffu · {design.sustainedForceKn.toFixed(1)} kN per bar</div>
             </div>
             <div className="rounded-control bg-white p-[13px]">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Design rupture strain</div>
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Design rupture strain</div>
               <div className="mt-[4px] text-f20 font-bold text-t1">{(design.ruptureStrain * 100).toFixed(2)}%</div>
               <div className="text-f12 text-t3">ffu / Ef</div>
             </div>
             <div className="rounded-control bg-white p-[13px]">
-              <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Stiffness vs steel</div>
+              <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Stiffness vs steel</div>
               <div className="mt-[4px] text-f20 font-bold text-t1">{(design.stiffnessRatio * 100).toFixed(0)}%</div>
               <div className="text-f12 text-t3">Ef / 200 GPa</div>
             </div>
@@ -172,7 +172,7 @@ export default function GfrpRebarCalculator() {
         )}
 
         <div className="rounded-control bg-white p-[13px] text-f14 text-t2">
-          <div className="text-f12 font-bold uppercase tracking-[0.06em] text-t3">Weight</div>
+          <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Weight</div>
           <p className="mt-[5px]">
             {unitMass.toFixed(3)} kg/m; {count} bars × {lengthM} m ≈ <strong className="text-t1">{totalMass.toFixed(0)} kg</strong>.
           </p>
@@ -185,7 +185,7 @@ export default function GfrpRebarCalculator() {
         </p>
 
         <Link href="/products/frp-rebar" className="block rounded-control border border-teal/30 bg-white p-[13px] text-f14 text-t2 transition-colors hover:border-teal">
-          <span className="block text-f12 font-bold uppercase tracking-[0.06em] text-teal-text">F1 GFRP rebar</span>
+          <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">F1 GFRP rebar</span>
           Straight bars, factory-formed stirrups and mesh, with a bar schedule builder <span aria-hidden>→</span>
         </Link>
         <a

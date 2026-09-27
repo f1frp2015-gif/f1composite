@@ -78,7 +78,7 @@ const DIM_FIELDS: Record<ProfileType, { key: string; label: string }[]> = {
 const inputClass =
   "w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
 const selectClass = inputClass;
-const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[5px]";
+const labelClass = "mb-[5px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 function fmtUsd(n: number): string {
   return n.toLocaleString("en-US", { maximumFractionDigits: n < 100 ? 2 : 0 });
@@ -252,7 +252,7 @@ export default function PriceEstimator() {
               </li>
             </ul>
             {result.warnings.length > 0 && (
-              <ul className="mt-[13px] space-y-[3px] text-f12 text-amber-700">
+              <ul className="mt-[13px] space-y-[3px] text-f12 text-warn">
                 {result.warnings.map((w) => (
                   <li key={w}>{w}</li>
                 ))}

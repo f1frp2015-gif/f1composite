@@ -51,7 +51,7 @@ export default function PassiveHousePage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+            <span className="inline-block rounded-tag bg-teal-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-teal-text">
               Free · PHI Component-ID 2491wi03 · phB · cool-temperate · No Login
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
@@ -124,7 +124,7 @@ export default function PassiveHousePage() {
             </h2>
             <div className="mt-[13px] grid gap-[13px] sm:grid-cols-2">
               <div>
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Thermal bridging
                 </div>
                 <p className="mt-[4px] text-f14 leading-golden text-t2">
@@ -133,7 +133,7 @@ export default function PassiveHousePage() {
                 </p>
               </div>
               <div>
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   PHI component reference
                 </div>
                 <p className="mt-[4px] text-f14 leading-golden text-t2">
@@ -145,7 +145,7 @@ export default function PassiveHousePage() {
                 </p>
               </div>
               <div>
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   No repainting
                 </div>
                 <p className="mt-[4px] text-f14 leading-golden text-t2">
@@ -154,7 +154,7 @@ export default function PassiveHousePage() {
                 </p>
               </div>
               <div>
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Coastal durability
                 </div>
                 <p className="mt-[4px] text-f14 leading-golden text-t2">

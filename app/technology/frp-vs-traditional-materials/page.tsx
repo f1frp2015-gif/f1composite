@@ -35,12 +35,14 @@ export const metadata: Metadata = buildPageMetadata({
 const materials = ["FRP", "Steel", "Aluminum", "Timber", "Concrete"] as const;
 type Material = (typeof materials)[number];
 
+// FRP is the subject of every chart, so it alone is teal; the materials it is
+// compared with share one neutral. Each bar is labelled with its material.
 const matColors: Record<Material, string> = {
   FRP: "bg-teal",
-  Steel: "bg-slate-500",
-  Aluminum: "bg-blue-400",
-  Timber: "bg-amber-600",
-  Concrete: "bg-stone-400",
+  Steel: "bg-t3/45",
+  Aluminum: "bg-t3/45",
+  Timber: "bg-t3/45",
+  Concrete: "bg-t3/45",
 };
 
 const matLabels: Record<Material, string> = {
@@ -345,7 +347,7 @@ export default function FrpVsTraditionalPage() {
             ].map((stat) => (
               <div key={stat.label} className="rounded-card bg-bg2 p-[21px] text-center">
                 <span className="text-f32 font-extrabold leading-none text-teal">{stat.value}</span>
-                <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{stat.label}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -360,15 +362,6 @@ export default function FrpVsTraditionalPage() {
             FRP vs steel and aluminum: key properties at a glance
           </h2>
 
-          {/* Legend */}
-          <div className="mt-[21px] flex flex-wrap gap-[13px]">
-            {materials.map((m) => (
-              <div key={m} className="flex items-center gap-[5px]">
-                <span className={`inline-block h-[10px] w-[10px] rounded-tag ${matColors[m]}`} />
-                <span className="text-f12 text-t3">{m}</span>
-              </div>
-            ))}
-          </div>
 
           <div className="mt-[34px] grid gap-[34px] lg:grid-cols-2">
             {barCharts.map((chart) => (
@@ -386,11 +379,11 @@ export default function FrpVsTraditionalPage() {
                       </span>
                       <div className="relative h-[24px] flex-1 overflow-hidden rounded-tag bg-bg2">
                         <div
-                          className={`absolute inset-y-0 left-0 rounded-tag ${matColors[bar.material]} ${bar.material === "FRP" ? "opacity-100" : "opacity-60"}`}
+                          className={`absolute inset-y-0 left-0 rounded-tag ${matColors[bar.material]}`}
                           style={{ width: `${Math.max(bar.pct, 2)}%` }}
                         />
                       </div>
-                      <span className={`w-[55px] shrink-0 text-f12 ${bar.material === "FRP" ? "font-bold text-teal" : "text-t3"}`}>
+                      <span className={`w-[55px] shrink-0 text-f12 tabular-nums ${bar.material === "FRP" ? "font-bold text-t1" : "text-t2"}`}>
                         {bar.value}
                       </span>
                     </div>

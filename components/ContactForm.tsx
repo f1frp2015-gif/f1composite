@@ -162,9 +162,9 @@ function ContactFormContent() {
           {state.message || "We have received your inquiry and will respond within one business day."}
         </p>
         {state.receiptId && <p className="mt-[13px] font-semibold text-t1">Reference: {state.receiptId}</p>}
-        <p className="mt-5 text-sm text-t2">Our team will contact you to clarify any missing details and help with your quote. You do not need to complete anything else now.</p>
-        {submittedMessage && <details className="mt-5"><summary className="cursor-pointer py-3 font-semibold">View submitted requirements</summary><pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words font-sans text-sm">{submittedMessage}</pre></details>}
-        <p className="mt-4 text-sm">Need to add a drawing or correction? Email <a className="font-bold underline" href="mailto:inquiry@f1composite.com">inquiry@f1composite.com</a> and include your reference.</p>
+        <p className="mt-5 text-f14 text-t2">Our team will contact you to clarify any missing details and help with your quote. You do not need to complete anything else now.</p>
+        {submittedMessage && <details className="mt-5"><summary className="cursor-pointer py-3 font-semibold">View submitted requirements</summary><pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words font-sans text-f14">{submittedMessage}</pre></details>}
+        <p className="mt-4 text-f14">Need to add a drawing or correction? Email <a className="font-bold underline" href="mailto:inquiry@f1composite.com">inquiry@f1composite.com</a> and include your reference.</p>
       </div>
     );
   }
@@ -187,9 +187,9 @@ function ContactFormContent() {
       <input type="hidden" name="product_path" value={productPath} />
       <input type="hidden" name="inquiry_type" value={rebarInquiry ? (rebarInquiry.stage === "technical" ? "technical" : "rfq") : inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
       {rebarInquiry && <input type="hidden" name="rebar_inquiry" value={JSON.stringify(rebarInquiry)} />}
-      {rebarDraftNotice && <p role="status" className="rounded-control bg-amber-50 p-4 text-sm text-t1">{rebarDraftNotice}</p>}
-      {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-sm text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
-      {gratingProject && <details><summary className="cursor-pointer py-2 text-sm font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
+      {rebarDraftNotice && <p role="status" className="rounded-control bg-warn-bg p-4 text-f14 text-t1">{rebarDraftNotice}</p>}
+      {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-f14 text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
+      {gratingProject && <details><summary className="cursor-pointer py-2 text-f14 font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
       {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[5px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (
         <div className="rounded-control border border-teal-border bg-teal-bg p-[13px] text-f14 leading-golden text-t1">
@@ -198,25 +198,25 @@ function ContactFormContent() {
       )}
 
       {state.message && !state.success && (
-        <div role="alert" className="rounded-control border border-red-200 bg-red-50 p-[13px] text-f14 text-red-700">
+        <div role="alert" className="rounded-control border border-fail-border bg-fail-bg p-[13px] text-f14 text-fail">
           {state.message}
         </div>
       )}
 
-      <p className="text-sm leading-relaxed text-t2">Only your name and email are required. No drawings or complete specifications needed to get started.</p>
+      <p className="text-f14 leading-relaxed text-t2">Only your name and email are required. No drawings or complete specifications needed to get started.</p>
       <div className="grid gap-4 sm:grid-cols-2">
-        <div><label htmlFor="name" className="mb-2 block text-sm font-semibold text-t1">Name <span className="text-red-500">*</span></label><input id="name" name="name" type="text" autoComplete="name" required maxLength={200} placeholder="Your name" className={inputCls} /></div>
-        <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-t1">Email <span className="text-red-500">*</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" className={inputCls} /></div>
+        <div><label htmlFor="name" className="mb-2 block text-f14 font-semibold text-t1">Name <span className="text-fail">*</span></label><input id="name" name="name" type="text" autoComplete="name" required maxLength={200} placeholder="Your name" className={inputCls} /></div>
+        <div><label htmlFor="email" className="mb-2 block text-f14 font-semibold text-t1">Email <span className="text-fail">*</span></label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" className={inputCls} /></div>
       </div>
-      <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-t1">What do you need? <span className="font-normal text-t3">(optional)</span></label><textarea ref={messageRef} id="message" name="message" rows={3} maxLength={16000} defaultValue={prefillMessage} placeholder="A short note is enough. We can work out the details together." className={inputCls} /></div>
+      <div><label htmlFor="message" className="mb-2 block text-f14 font-semibold text-t1">What do you need? <span className="font-normal text-t3">(optional)</span></label><textarea ref={messageRef} id="message" name="message" rows={3} maxLength={16000} defaultValue={prefillMessage} placeholder="A short note is enough. We can work out the details together." className={inputCls} /></div>
       <details open={Boolean(rebarInquiry)} className="rounded-card border border-border-default px-4">
-        <summary className="cursor-pointer py-3 text-sm font-semibold text-t1">Add company, delivery details or a file (optional)</summary>
+        <summary className="cursor-pointer py-3 text-f14 font-semibold text-t1">Add company, delivery details or a file (optional)</summary>
         <div className="space-y-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div><label htmlFor="company" className="mb-2 block text-sm font-semibold">Company</label><input id="company" name="company" autoComplete="organization" defaultValue={prefillCompany} maxLength={200} className={inputCls} /></div>
-            <div><label htmlFor="phone" className="mb-2 block text-sm font-semibold">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={100} className={inputCls} /></div>
+            <div><label htmlFor="company" className="mb-2 block text-f14 font-semibold">Company</label><input id="company" name="company" autoComplete="organization" defaultValue={prefillCompany} maxLength={200} className={inputCls} /></div>
+            <div><label htmlFor="phone" className="mb-2 block text-f14 font-semibold">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={100} className={inputCls} /></div>
           </div>
-          <div><label htmlFor="country" className="mb-2 block text-sm font-semibold">Country</label><select id="country" name="country" autoComplete="country-name" defaultValue={prefillCountry} className={inputCls}><option value="">To be confirmed</option>{countries.map(country => <option key={country} value={country}>{country}</option>)}</select></div>
+          <div><label htmlFor="country" className="mb-2 block text-f14 font-semibold">Country</label><select id="country" name="country" autoComplete="country-name" defaultValue={prefillCountry} className={inputCls}><option value="">To be confirmed</option>{countries.map(country => <option key={country} value={country}>{country}</option>)}</select></div>
       <div>
         <label htmlFor="attachment" className="mb-[5px] block text-f14 font-semibold text-t1">
           Drawing or specification file <span className="font-normal text-t3">(optional)</span>
@@ -256,7 +256,7 @@ function ContactFormContent() {
       <Button type="submit" disabled={isPending} className={`w-full sm:w-auto ${isPending ? "pointer-events-none opacity-60" : ""}`}>
         {isPending ? "Sending..." : "Send Inquiry"}
       </Button>
-      <p className="text-sm leading-relaxed text-t2">We will respond within one business day and help confirm the details for your quote.</p>
+      <p className="text-f14 leading-relaxed text-t2">We will respond within one business day and help confirm the details for your quote.</p>
       <p className="text-f12 leading-relaxed text-t3">Your information is used only to respond to this inquiry.</p>
     </form>
   );

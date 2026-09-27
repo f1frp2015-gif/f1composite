@@ -198,7 +198,7 @@ export default function TechnicalDataPage() {
       <section className="bg-bg2 py-[55px]">
         <div className="site-container">
           <div className="mb-[21px]">
-            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+            <span className="inline-block rounded-tag bg-teal-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-teal-text">
               Publishing Q3–Q4 2026
             </span>
             <h2 className="mt-[13px] text-f24 font-bold tracking-[-0.02em] text-t1">
@@ -268,7 +268,7 @@ export default function TechnicalDataPage() {
                 className="rounded-card border border-border-default bg-white p-[21px]"
               >
                 <div className="flex items-center gap-[8px]">
-                  <span className="rounded-full bg-amber-100 px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-amber-800 dark:bg-amber-950 dark:text-amber-200">
+                  <span className="rounded-tag border border-warn-border bg-warn-bg px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-warn">
                     {report.eta}
                   </span>
                 </div>

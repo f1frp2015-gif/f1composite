@@ -65,7 +65,7 @@ export default function SpanTablesContent({
             <div className="mt-[21px] overflow-x-auto rounded-card border border-border-default">
               <table className="w-full min-w-[1200px] border-collapse text-f14">
                 <thead>
-                  <tr className="bg-slate-50 text-left text-t1">
+                  <tr className="bg-bg2 text-left text-t1">
                     <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">Section (mm)</th>
                     <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">kg/m</th>
                     <th className="whitespace-nowrap px-[13px] py-[10px] font-semibold">Ix ×10⁶ mm⁴</th>

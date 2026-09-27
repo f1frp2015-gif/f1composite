@@ -260,7 +260,7 @@ export default function VehiclePage() {
               <article key={scenario.id} id={"application-" + scenario.id} className="scroll-mt-28 rounded-card border border-border-default bg-white p-[24px] md:p-[34px]">
                 <div className="grid gap-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] lg:gap-[46px]">
                   <div>
-                    <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{scenario.number} / {scenario.label}</p>
+                    <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{scenario.number} / {scenario.label}</p>
                     <h3 className="mt-[10px] text-f24 font-bold leading-snug text-t1">{scenario.title}</h3>
                     <p className="mt-[17px] text-f16 font-medium leading-[1.75] text-t1">{scenario.lead}</p>
                     <div className="mt-[18px] space-y-[15px] text-f16 leading-[1.8] text-t2">

@@ -15,7 +15,7 @@ function renderMarkdown(text: string) {
 
     // Horizontal rule — a thin divider instead of literal dashes.
     if (/^([-*_])\1{2,}$/.test(trimmed)) {
-      out.push('<hr class="my-[10px] border-t border-neutral-200" />');
+      out.push('<hr class="my-[10px] border-t border-border-default" />');
       continue;
     }
 
@@ -28,7 +28,7 @@ function renderMarkdown(text: string) {
       const th = head
         .map(
           (c) =>
-            `<th class="border-b border-neutral-200 bg-neutral-50 px-[10px] py-[6px] text-left font-semibold text-t1">${inlineFormat(c)}</th>`,
+            `<th class="border-b border-border-default bg-bg2 px-[10px] py-[6px] text-left font-semibold text-t1">${inlineFormat(c)}</th>`,
         )
         .join("");
       const rows = body
@@ -38,14 +38,14 @@ function renderMarkdown(text: string) {
             head
               .map(
                 (_, i) =>
-                  `<td class="border-b border-neutral-100 px-[10px] py-[6px] align-top text-t2">${inlineFormat(r[i] ?? "")}</td>`,
+                  `<td class="border-b border-border-default px-[10px] py-[6px] align-top text-t2">${inlineFormat(r[i] ?? "")}</td>`,
               )
               .join("") +
             "</tr>",
         )
         .join("");
       out.push(
-        `<div class="my-[8px] overflow-x-auto rounded-control border border-neutral-200"><table class="w-full border-collapse bg-white text-f14"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`,
+        `<div class="my-[8px] overflow-x-auto rounded-control border border-border-default"><table class="w-full border-collapse bg-white text-f14"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`,
       );
       continue;
     }
@@ -102,7 +102,7 @@ function inlineFormat(text: string) {
     .replace(/'/g, "&#39;")
     .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/`(.*?)`/g, '<code class="bg-neutral-100 px-[4px] py-[1px] rounded-tag text-f14">$1</code>')
+    .replace(/`(.*?)`/g, '<code class="bg-bg2 px-[4px] py-[1px] rounded-tag text-f14">$1</code>')
     // Validate the href scheme so model output can't smuggle a javascript:/data:
     // URI; quote-escaping above already blocks attribute breakout.
     .replace(/\[(.*?)\]\((.*?)\)/g, (_m, label: string, url: string) =>
@@ -259,7 +259,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
         ))}
 
         {error && (
-          <div className="text-center text-f14 text-red-500 py-[8px]">
+          <div className="text-center text-f14 text-fail py-[8px]">
             Something went wrong. Please try again.
           </div>
         )}
@@ -290,7 +290,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt }: ChatPanel
             <button
               type="button"
               onClick={stop}
-              className="shrink-0 rounded-control bg-neutral-200 px-[16px] py-[8px] text-f14 font-medium text-t2 hover:bg-neutral-300 transition-colors"
+              className="shrink-0 rounded-control border border-border-default bg-white px-[16px] py-[8px] text-f14 font-semibold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
             >
               Stop
             </button>

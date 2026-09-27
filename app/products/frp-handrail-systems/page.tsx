@@ -97,7 +97,7 @@ function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
   return (
     <article className="overflow-hidden rounded-card border border-border-default bg-white">
       <div className="border-b border-border-default bg-bg2 p-[21px] sm:p-[24px]">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{system.shortName} system</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{system.shortName} system</p>
         <h3 className="mt-[5px] text-f20 font-bold text-t1">{system.name}</h3>
         <p className="mt-[8px] text-f14 leading-golden text-t2">{system.description}</p>
       </div>
@@ -105,8 +105,8 @@ function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
         <table className="w-full border-collapse text-left">
           <thead>
             <tr>
-              <th className="px-[16px] py-[12px] text-f12 font-bold uppercase tracking-wide text-t1">Component</th>
-              <th className="px-[16px] py-[12px] text-f12 font-bold uppercase tracking-wide text-t1">Nominal catalog value</th>
+              <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">Component</th>
+              <th className="px-[16px] py-[12px] text-f14 font-semibold text-t1">Nominal catalog value</th>
             </tr>
           </thead>
           <tbody>
@@ -119,7 +119,7 @@ function SystemSpecification({ system }: { system: HandrailCatalogSystem }) {
           </tbody>
         </table>
       </div>
-      <p className="border-t border-amber-200 bg-amber-50 px-[16px] py-[13px] text-f12 leading-golden text-t2">
+      <p className="border-t border-warn-border bg-warn-bg px-[16px] py-[13px] text-f12 leading-golden text-t2">
         <strong className="text-t1">Release note:</strong> {system.releaseNote}
       </p>
     </article>
@@ -200,7 +200,7 @@ export default function HandrailSystemsPage() {
             </p>
           </div>
           <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">What the catalog establishes</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">What the catalog establishes</p>
             <dl className="mt-[13px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-1">
               <div><dt className="text-f12 font-bold text-t1">Two systems</dt><dd className="mt-[3px] text-f14 text-t2">Square-tube and round-tube configurations</dd></div>
               <div><dt className="text-f12 font-bold text-t1">Layout references</dt><dd className="mt-[3px] text-f14 text-t2">1,500 mm maximum post spacing; 1,220 mm maximum height</dd></div>
@@ -265,13 +265,13 @@ export default function HandrailSystemsPage() {
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {specificationInputs.map((input, index) => (
               <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[34px] rounded-card border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border border-warn-border bg-warn-bg p-[21px] text-f14 leading-golden text-t2">
             <strong className="text-t1">Load-basis checkpoint.</strong>{" "}
             <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.29" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.29</a>{" "}
             applies criteria to completed guardrail systems, while{" "}

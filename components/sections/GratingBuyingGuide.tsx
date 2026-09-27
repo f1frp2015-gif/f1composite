@@ -16,12 +16,12 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
   return <>
     <section id="grating-engineering" className="scroll-mt-[40px] bg-bg2 py-[44px] md:py-[60px]">
       <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Engineering & downloads</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Engineering & downloads</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Match the documents to your panel</h2>
         <p className="mt-[12px] max-w-[850px] text-f16 leading-relaxed text-t2">Download the current selection data and clip drawings. For a load/deflection table or test report, identify the panel and service conditions so the documents match the proposed supply.</p>
         <div className="mt-[24px] grid gap-[18px] lg:grid-cols-3">
           <article className="rounded-card border border-border-default bg-white p-[24px]">
-            <div aria-label="Selection data preview" className="mb-4 overflow-hidden rounded-control border border-border-default bg-bg2 p-3 text-xs"><p className="mb-2 font-bold uppercase tracking-wide text-teal-text">Inside the selection CSV</p><table className="w-full text-left"><thead><tr><th>Depth</th><th>Weight</th><th>Open area</th></tr></thead><tbody>{(family === 'pultruded' ? pultrudedGratingSpecGroups[0].rows : moldedGratingSpecGroups[0].rows).slice(0,3).map((r,i) => <tr key={i} className="border-t border-border-default"><td className="py-2">{r.depth} mm</td><td>{r.weight} kg/m²</td><td>{r.openArea}</td></tr>)}</tbody></table><p className="mt-2 text-t3">Nominal selection data · not a load table</p></div><h3 className="text-f18 font-bold">Panel selection data</h3>
+            <div aria-label="Selection data preview" className="mb-4 overflow-hidden rounded-control border border-border-default bg-bg2 p-3 text-f12"><p className="mb-2 font-mono text-f12 uppercase tracking-[0.06em] text-t3">Inside the selection CSV</p><table className="w-full text-left"><thead><tr><th>Depth</th><th>Weight</th><th>Open area</th></tr></thead><tbody>{(family === 'pultruded' ? pultrudedGratingSpecGroups[0].rows : moldedGratingSpecGroups[0].rows).slice(0,3).map((r,i) => <tr key={i} className="border-t border-border-default"><td className="py-2">{r.depth} mm</td><td>{r.weight} kg/m²</td><td>{r.openArea}</td></tr>)}</tbody></table><p className="mt-2 text-t3">Nominal selection data · not a load table</p></div><h3 className="text-f18 font-bold">Panel selection data</h3>
             <p className="mt-[10px] text-f14 leading-relaxed text-t2">Spreadsheet-ready CSV with the same dimensions, nominal weights and open areas shown on our product pages. Selection reference, not a load table.</p>
             {families.map(item => <a key={item} className="mt-[14px] block min-h-[36px] text-f14 font-bold text-teal-text underline underline-offset-4" href={`/api/grating-specifications?family=${item}`} download>Download {item} specifications (CSV) ↓</a>)}
           </article>
@@ -40,7 +40,7 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
     </section>
     <section id="grating-supply" className="scroll-mt-[40px] bg-white py-[44px] md:py-[60px]">
       <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Project & bulk procurement</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Project & bulk procurement</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Plan the supply as well as the panel</h2>
         <p className="mt-[12px] max-w-[880px] text-f16 leading-relaxed text-t2">For US, Canadian, Australian, New Zealand and UK enquiries, include the destination and required units. Panel specification, quantity, cutting, fixing kits, packing and freight determine the quoted scope.</p>
         <div className="mt-[24px] grid gap-[20px] sm:grid-cols-2 lg:grid-cols-4">{supply.map((item, index) => <article key={item.title}><span className="text-f14 font-bold text-teal-text">0{index + 1}</span><h3 className="mt-[10px] text-f18 font-bold text-t1">{item.title}</h3><p className="mt-[10px] text-f14 leading-relaxed text-t2">{item.body}</p></article>)}</div>
@@ -48,7 +48,7 @@ export default function GratingBuyingGuide({ family }: { family?: GratingFamily 
           <div><h3 className="text-f18 font-bold">Have a drawing, or still choosing?</h3><p className="mt-[8px] max-w-[740px] text-f14 leading-relaxed text-white/80">{commercialFacts.response} Attach your layout to the enquiry, or describe the application and ask us to help shortlist a configuration.</p></div>
           <Link className="inline-flex min-h-[46px] shrink-0 items-center justify-center rounded-control bg-white px-[20px] text-f14 font-bold text-deep" href="#grating-quote">Quote a drawing or schedule →</Link>
         </div>
-        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-teal-text"><Link className="inline-flex min-h-11 items-center underline" href="#grating-budget">Get a budget estimate</Link><Link className="inline-flex min-h-11 items-center underline" href="#grating-review">Prepare a specification review</Link><Link className="inline-flex min-h-11 items-center underline" href={gratingInquiryHref(family, 'Sample request: please confirm the configuration, finish, sample cost and shipping arrangements.', 'grating-sample')}>Request a sample</Link></div>
+        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-f14 font-semibold text-teal-text"><Link className="inline-flex min-h-11 items-center underline" href="#grating-budget">Get a budget estimate</Link><Link className="inline-flex min-h-11 items-center underline" href="#grating-review">Prepare a specification review</Link><Link className="inline-flex min-h-11 items-center underline" href={gratingInquiryHref(family, 'Sample request: please confirm the configuration, finish, sample cost and shipping arrangements.', 'grating-sample')}>Request a sample</Link></div>
         <p className="mt-[12px] text-f12 leading-relaxed text-t3">{commercialFacts.availability}</p>
       </div>
     </section>

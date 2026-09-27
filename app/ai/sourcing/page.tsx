@@ -78,7 +78,7 @@ export default function SourcingPage() {
       <section className="bg-white py-[55px]">
         <div className="mx-auto max-w-[900px] px-[21px]">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-teal-bg px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+            <span className="inline-block rounded-tag bg-teal-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-teal-text">
               Free · AI-Native Sourcing · No Login
             </span>
             <h1 className="mt-[13px] text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-t1">
@@ -123,7 +123,7 @@ export default function SourcingPage() {
             </p>
             <div className="mt-[21px] grid gap-[21px] sm:grid-cols-3">
               <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 1</div>
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step 1</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">Describe the application</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Describe the service environment, loads, geometry, required standards, order
@@ -131,7 +131,7 @@ export default function SourcingPage() {
                 </p>
               </div>
               <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 2</div>
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step 2</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">AI organizes the options</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Receive a profile-family and resin recommendation, relevant standards,
@@ -139,7 +139,7 @@ export default function SourcingPage() {
                 </p>
               </div>
               <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step 3</div>
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step 3</div>
                 <h3 className="mt-[5px] text-f16 font-bold text-t1">Hand off for review</h3>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">
                   Send the structured result to sales for pricing or to engineering for a drawing,

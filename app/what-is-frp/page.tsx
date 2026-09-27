@@ -188,7 +188,7 @@ export default function WhatIsFrpPage() {
       <section className="bg-white py-[34px]">
         <div className="site-container">
           <div className="rounded-card border border-border-default bg-bg2 p-[29px]">
-            <h2 className="text-f14 font-bold uppercase tracking-wide text-t2">On this page</h2>
+            <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">On this page</h2>
             <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
               {toc.map((item) => (
                 <li key={item.id}>
@@ -576,9 +576,9 @@ export default function WhatIsFrpPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Value</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Test standard</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Value</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Test standard</th>
                 </tr>
               </thead>
               <tbody>
@@ -718,8 +718,8 @@ export default function WhatIsFrpPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Standard</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Scope</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Standard</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Scope</th>
                 </tr>
               </thead>
               <tbody>

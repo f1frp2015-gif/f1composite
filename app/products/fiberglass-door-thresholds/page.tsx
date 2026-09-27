@@ -136,7 +136,7 @@ export default function DoorThresholdsPage() {
           <div className="mt-[28px] grid gap-[20px] lg:grid-cols-3">
             {page.applications.map((item, index) => (
               <article key={item.title} className="flex flex-col rounded-card border border-border-default bg-white p-[26px]">
-                <span className="text-f14 font-bold uppercase tracking-[0.08em] text-teal-text">0{index + 1} / {item.tag}</span>
+                <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">0{index + 1} / {item.tag}</span>
                 <h3 className="mt-[20px] text-f24 font-bold leading-tight text-t1">{item.title}</h3>
                 <p className="mt-[14px] flex-1 text-f16 leading-relaxed text-t2">{item.body}</p>
                 <p className="mt-[24px] border-t border-border-default pt-[16px] text-f12 font-semibold leading-relaxed text-t2">{item.inputs}</p>

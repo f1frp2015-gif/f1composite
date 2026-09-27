@@ -330,7 +330,7 @@ export default async function DatasheetPage({
                 <thead>
                   <tr className="border-b border-border-default bg-bg2">
                     {["Span (m)", "Allowable UDL (kN/m)", "≈ lb/ft", "Governing check"].map((heading) => (
-                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
+                      <th key={heading} scope="col" className="px-[21px] py-[13px] text-f14 font-semibold text-t1">
                         {heading}
                       </th>
                     ))}
@@ -373,9 +373,9 @@ export default async function DatasheetPage({
             <table className="w-full text-left text-f16">
               <thead>
                 <tr className="border-b border-border-default bg-bg2">
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">Value</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Property</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-teal-text">Value</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Test method</th>
                 </tr>
               </thead>
               <tbody>
@@ -385,7 +385,7 @@ export default async function DatasheetPage({
                     <tr key={r.key} className="border-b border-border-default last:border-0">
                       <td className="px-[21px] py-[10px] text-t2">{r.label}</td>
                       {v == null ? (
-                        <td className="px-[21px] py-[10px] font-medium text-amber-700">
+                        <td className="px-[21px] py-[10px] font-medium text-warn">
                           — (verify before release)
                         </td>
                       ) : (

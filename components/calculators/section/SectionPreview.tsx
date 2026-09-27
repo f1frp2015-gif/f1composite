@@ -65,7 +65,7 @@ export default function SectionPreview({
   return (
     <div className="rounded-control bg-white p-[13px]">
       <div className="flex items-center justify-between">
-        <div className="text-f12 font-bold uppercase tracking-[2px] text-t3">Section Preview</div>
+        <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Section Preview</div>
         {webglOk && (
           <div className="flex gap-[3px]">
             <button type="button" onClick={() => switchView("3d")} className={tabClass(view === "3d")}>

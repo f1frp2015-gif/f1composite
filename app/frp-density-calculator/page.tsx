@@ -119,7 +119,7 @@ export default function DensityPage() {
         <div className="site-container">
           <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
             <div>
-              <h2 className="text-xl font-bold text-t1">
+              <h2 className="text-f20 font-bold text-t1">
                 What is FRP density?
               </h2>
               <p className="mt-3 leading-relaxed text-t2">
@@ -131,7 +131,7 @@ export default function DensityPage() {
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-5">
-              <p className="text-sm font-semibold text-teal-text">
+              <p className="text-f14 font-semibold text-teal-text">
                 Two quantities, two units
               </p>
               <p className="mt-2 text-t1">
@@ -140,7 +140,7 @@ export default function DensityPage() {
               <p className="mt-2 text-t1">
                 <strong>Linear mass:</strong> kg/m — density × net area
               </p>
-              <p className="mt-2 text-sm text-t2">
+              <p className="mt-2 text-f14 text-t2">
                 An empty tube core contributes no material mass.
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function DensityPage() {
         <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-bold text-t1">
+              <h2 className="text-f24 font-bold text-t1">
                 How to calculate FRP density and weight
               </h2>
               <ol className="mt-5 list-decimal space-y-3 pl-5 leading-relaxed text-t2">
@@ -173,7 +173,7 @@ export default function DensityPage() {
                   the supply specification.
                 </li>
               </ol>
-              <div className="mt-6 rounded-card bg-bg2 p-5 font-mono text-sm leading-loose text-t1">
+              <div className="mt-6 rounded-card bg-bg2 p-5 font-mono text-f14 leading-loose text-t1">
                 <p>Volume (m³) = area (mm²) × length (m) / 10⁶</p>
                 <p>Density (kg/m³) = sample mass (kg) / volume (m³)</p>
                 <p>Linear mass (kg/m) = area (mm²) × density (kg/m³) / 10⁶</p>
@@ -181,7 +181,7 @@ export default function DensityPage() {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-t1">
+              <h2 className="text-f24 font-bold text-t1">
                 Worked example: 50 × 50 × 5 mm tube
               </h2>
               <p className="mt-5 leading-relaxed text-t2">
@@ -209,7 +209,7 @@ export default function DensityPage() {
             </div>
           </div>
           <div className="mt-14">
-            <h2 className="text-2xl font-bold text-t1">
+            <h2 className="text-f24 font-bold text-t1">
               From mat GSM and fabric layup to profile density
             </h2>
             <p className="mt-4 leading-relaxed text-t2">
@@ -271,7 +271,7 @@ export default function DensityPage() {
             </p>
           </div>
           <div className="mt-14">
-            <h2 className="text-2xl font-bold text-t1">
+            <h2 className="text-f24 font-bold text-t1">
               Calculate FRP density from the laminate formulation
             </h2>
             <p className="mt-4 leading-relaxed text-t2">
@@ -285,7 +285,7 @@ export default function DensityPage() {
               <div className="rounded-card bg-bg2 p-5">
                 <h3 className="font-bold text-t1">Weight fractions</h3>
                 <p className="mt-3 font-mono text-t1">ρ₀ = 1 / Σ(wᵢ / ρᵢ)</p>
-                <p className="mt-3 text-sm text-t2">
+                <p className="mt-3 text-f14 text-t2">
                   wᵢ is each constituent’s mass fraction (percentage ÷ 100). Do
                   not take an arithmetic average of densities weighted by mass.
                 </p>
@@ -293,7 +293,7 @@ export default function DensityPage() {
               <div className="rounded-card bg-bg2 p-5">
                 <h3 className="font-bold text-t1">Solid volume fractions</h3>
                 <p className="mt-3 font-mono text-t1">ρ₀ = Σ(vᵢ × ρᵢ)</p>
-                <p className="mt-3 text-sm text-t2">
+                <p className="mt-3 text-f14 text-t2">
                   vᵢ is the fraction of non-void material volume. For void
                   fraction φ of final laminate volume, ρ = ρ₀ × (1 − φ),
                   neglecting gas mass.
@@ -329,7 +329,7 @@ export default function DensityPage() {
               describes composition and void measurement relationships.
             </p>
           </div>
-          <h2 className="mt-14 text-2xl font-bold text-t1">
+          <h2 className="mt-14 text-f24 font-bold text-t1">
             Net cross-section area formulas
           </h2>
           <p className="mt-3 text-t2">
@@ -339,7 +339,7 @@ export default function DensityPage() {
             channel and I-beam flanges have equal width and thickness.
           </p>
           <div className="mt-5 overflow-x-auto rounded-card border border-border-default">
-            <table className="w-full text-left text-sm">
+            <table className="w-full text-left text-f14">
               <caption className="sr-only">
                 Ideal FRP profile material area formulas
               </caption>
@@ -366,7 +366,7 @@ export default function DensityPage() {
             </table>
           </div>
           <div className="mt-12 rounded-card bg-bg2 p-6">
-            <h2 className="text-xl font-bold text-t1">
+            <h2 className="text-f20 font-bold text-t1">
               Density reference and limits
             </h2>
             <p className="mt-3 leading-relaxed text-t2">

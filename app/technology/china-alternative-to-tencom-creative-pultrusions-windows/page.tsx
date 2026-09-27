@@ -165,9 +165,9 @@ export default function ChinaAlternativeWindowsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-THERM)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Tencom · Creative Pultrusions · Inline</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Dimension</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1 Composite (F1-THERM)</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Tencom · Creative Pultrusions · Inline</th>
                 </tr>
               </thead>
               <tbody>

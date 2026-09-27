@@ -160,7 +160,7 @@ export default function KnowhowServicesPage() {
               <div className="flex items-center gap-[13px]">
                 <IconConsulting />
                 <div>
-                  <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 1</span>
+                  <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Tier 1</span>
                   <h3 className="text-f24 font-bold text-t1">Consulting</h3>
                 </div>
               </div>
@@ -201,8 +201,8 @@ export default function KnowhowServicesPage() {
                 <IconTransfer />
                 <div>
                   <div className="flex items-center gap-[8px]">
-                    <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 2</span>
-                    <span className="rounded-tag bg-teal px-[8px] py-[2px] text-f12 font-bold uppercase tracking-[0.06em] text-white">Most Popular</span>
+                    <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Tier 2</span>
+                    <span className="rounded-tag bg-teal-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-teal-text">Most Popular</span>
                   </div>
                   <h3 className="text-f24 font-bold text-t1">Technology Transfer</h3>
                 </div>
@@ -243,7 +243,7 @@ export default function KnowhowServicesPage() {
               <div className="flex items-center gap-[13px]">
                 <IconTurnkey />
                 <div>
-                  <span className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Tier 3</span>
+                  <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Tier 3</span>
                   <h3 className="text-f24 font-bold text-t1">Turnkey</h3>
                 </div>
               </div>
@@ -383,28 +383,28 @@ export default function KnowhowServicesPage() {
           <div className="mt-[55px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">4</span>
-              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Continents Delivered</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">Continents Delivered</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Commissioned pultrusion operations across Asia, Europe, the Middle East, and Africa.
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">15+</span>
-              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Years Experience</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">Years Experience</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Every engagement is led by senior engineers with production-floor experience.
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">100%</span>
-              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Clean IP Transfer</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">Clean IP Transfer</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 Recipes, die designs, and procedures become your property upon handover. No royalties, no licensing.
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[34px]">
               <span className="text-f32 leading-none">&quot;Why&quot;</span>
-              <p className="mt-[5px] text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">Not Just &quot;What&quot;</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">Not Just &quot;What&quot;</p>
               <p className="mt-[13px] text-f14 leading-golden text-t2">
                 We transfer the reasoning behind every parameter, so your team can troubleshoot, optimize, and innovate.
               </p>

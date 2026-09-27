@@ -96,7 +96,7 @@ export default function FastenersFittingsPage() {
                   <Image src={`${imageBase}${range.image}`} alt={range.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" className="object-contain" />
                 </div>
                 <div className="flex flex-1 flex-col p-[22px]">
-                  <p className="text-f12 font-bold uppercase tracking-[0.08em] text-teal-text">{range.label}</p>
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{range.label}</p>
                   <h3 className="mt-[8px] text-f20 font-bold leading-tight text-t1">{range.name}</h3>
                   <p className="mt-[12px] text-f14 leading-relaxed text-t2">{range.description}</p>
                   <p className="mt-[14px] rounded-control bg-bg2 p-[12px] text-f14 leading-relaxed text-t1">{range.specification}</p>
@@ -124,7 +124,7 @@ export default function FastenersFittingsPage() {
           <div role="region" aria-label="Threaded rod catalog sizes, scroll horizontally on small screens" tabIndex={0} className="mt-[24px] overflow-x-auto rounded-card border border-border-default focus-visible:outline-2 focus-visible:outline-teal">
             <table className="w-full min-w-[650px] text-left text-f14">
               <caption className="sr-only">Vinyl ester UNC and epoxy metric threaded rod catalog sizes; lengths subject to order confirmation</caption>
-              <thead className="bg-bg2 text-f12 uppercase tracking-wide text-t1"><tr>{["Resin", "Thread designation", "Nominal diameter", "Catalog lengths", "Inquiry"].map((label) => <th key={label} scope="col" className="px-[18px] py-[15px]">{label}</th>)}</tr></thead>
+              <thead className="bg-bg2 text-f14 text-t1"><tr>{["Resin", "Thread designation", "Nominal diameter", "Catalog lengths", "Inquiry"].map((label) => <th key={label} scope="col" className="px-[18px] py-[15px]">{label}</th>)}</tr></thead>
               <tbody>{threadedRodSeries.map((row) => <tr key={`${row.resin}-${row.thread}`} className="border-t border-border-default">
                 <td className="px-[18px] py-[12px] text-t2">{row.resin}</td>
                 <th scope="row" className="px-[18px] py-[12px] font-semibold text-t1">{row.thread}</th>

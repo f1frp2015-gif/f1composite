@@ -207,8 +207,8 @@ export default function WindowReinforcementProfilesPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Aspect</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">What you get</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Aspect</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">What you get</th>
                 </tr>
               </thead>
               <tbody>

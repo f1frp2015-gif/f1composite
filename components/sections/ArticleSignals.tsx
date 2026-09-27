@@ -27,7 +27,7 @@ export default function ArticleSignals({
           <div className="grid gap-[10px] lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div className="grid gap-[6px] sm:grid-cols-2 xl:grid-cols-4">
               <div>
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Published
                 </p>
                 <p className="mt-[2px] text-f14 font-semibold text-t1">
@@ -35,7 +35,7 @@ export default function ArticleSignals({
                 </p>
               </div>
               <div>
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Updated
                 </p>
                 <p className="mt-[2px] text-f14 font-semibold text-t1">
@@ -43,7 +43,7 @@ export default function ArticleSignals({
                 </p>
               </div>
               <div>
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Author
                 </p>
                 {authorHref ? (
@@ -59,7 +59,7 @@ export default function ArticleSignals({
                 <p className="mt-[1px] text-f12 text-t3">{authorRole}</p>
               </div>
               <div>
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Technical Review
                 </p>
                 <p className="mt-[2px] text-f14 font-semibold text-t1">
@@ -70,7 +70,7 @@ export default function ArticleSignals({
             </div>
 
             <div>
-              <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Standards and References
               </p>
               <div className="mt-[5px] flex flex-wrap gap-[5px]">

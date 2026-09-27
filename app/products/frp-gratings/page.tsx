@@ -213,7 +213,7 @@ export default function PultrudedGratingsPage() {
             </div>
 
             <aside className="space-y-[13px] rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-              <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Other surface families</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Other surface families</p>
               <div>
                 <h3 className="text-f18 font-bold text-t1">Need bidirectional molded mesh?</h3>
                 <Link href="/products/molded-frp-grating" className="mt-[8px] inline-flex text-f14 font-bold text-teal-text hover:text-teal">
@@ -262,7 +262,7 @@ export default function PultrudedGratingsPage() {
                 <dl className="mt-[21px]">
                   {configuration.specs.map((spec) => (
                     <div key={spec.label} className="grid gap-[4px] border-t border-border-default py-[9px] sm:grid-cols-[150px_1fr] sm:gap-[13px]">
-                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">{spec.label}</dt>
+                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{spec.label}</dt>
                       <dd className="text-f14 leading-golden text-t2">{spec.value}</dd>
                     </div>
                   ))}
@@ -298,12 +298,12 @@ export default function PultrudedGratingsPage() {
                       <caption className="sr-only">Pultruded grating nominal selection specifications</caption>
                       <thead>
                         <tr className="border-b-2 border-border-default">
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Type</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bearing-bar center (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Cross-bar center (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
-                          <th scope="col" className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Type</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Depth (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Bearing-bar center (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Cross-bar center (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Open area</th>
+                          <th scope="col" className="py-[13px] text-f14 font-semibold text-t1">Weight (kg/m²)</th>
                           <th scope="col" className="py-[13px] pl-[16px] text-f12 font-bold text-t1">Quotation</th>
                         </tr>
                       </thead>

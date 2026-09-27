@@ -165,7 +165,7 @@ export default function StairTreadCoversPage() {
             <figcaption className="mt-[8px] text-f12 leading-golden text-t3">Supplier-reference retrofit photography. It demonstrates cover geometry and visibility, not an F1 project case study or order-specific fixing detail.</figcaption>
           </figure>
           <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[.12em] text-teal-text">Decision in one line</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Decision in one line</p>
             <h2 className="mt-[8px] text-f24 font-bold text-t1">Keep, replace or span?</h2>
             <dl className="mt-[21px] space-y-[16px]">
               <div><dt className="text-f14 font-bold text-t1">Sound existing step</dt><dd className="mt-[3px] text-f14 text-t2">Use a retrofit cover.</dd></div>
@@ -187,11 +187,11 @@ export default function StairTreadCoversPage() {
               <article key={family.name} className="overflow-hidden rounded-card border border-border-default bg-white">
                 <div className="relative aspect-[16/9] bg-bg2"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" /></div>
                 <div className="p-[21px] sm:p-[24px]">
-                  <div className="flex items-center gap-[10px]"><span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">{family.decision}</p></div>
+                  <div className="flex items-center gap-[10px]"><span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-teal text-f12 font-bold text-white">{index + 1}</span><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{family.decision}</p></div>
                   <h3 className="mt-[13px] text-f20 font-bold text-t1">{family.name}</h3>
                   <p className="mt-[13px] text-f14 leading-golden text-t2"><strong className="text-t1">Best for:</strong> {family.bestFor}</p>
                   <p className="mt-[10px] text-f14 leading-golden text-t2"><strong className="text-t1">Shortlist:</strong> {family.shortlist}</p>
-                  <p className="mt-[10px] border-l-2 border-amber-400 pl-[12px] text-f14 leading-golden text-t2">{family.avoidWhen}</p>
+                  <p className="mt-[10px] border-l-2 border-warn-border pl-[12px] text-f14 leading-golden text-t2">{family.avoidWhen}</p>
                   <Link href={family.href} className="mt-[18px] inline-flex min-h-[40px] items-center font-semibold text-teal-text hover:underline">Review this option <span aria-hidden className="ml-[5px]">→</span></Link>
                 </div>
               </article>
@@ -205,7 +205,7 @@ export default function StairTreadCoversPage() {
           <SectionTag>Four Decision Gates</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Resolve these before comparing prices</h2>
           <div className="mt-[34px] grid gap-[13px] md:grid-cols-2">
-            {decisionChecks.map(([label, title, body], index) => <article key={label} className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[24px]"><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">{index + 1} · {label}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{body}</p></article>)}
+            {decisionChecks.map(([label, title, body], index) => <article key={label} className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[24px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{index + 1} · {label}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{body}</p></article>)}
           </div>
         </div>
       </section>
@@ -215,10 +215,10 @@ export default function StairTreadCoversPage() {
           <SectionTag>Selection Reference Matrix</SectionTag>
           <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Cover sizes and full-tread shortlists</h2>
           <p className="mt-[13px] max-w-[980px] text-f16 leading-golden text-t2">The two cover rows are metric conversions of the supplied manufacturer reference. Molded and pultruded rows are selection families tied to F1&apos;s dedicated grating data. None is an order code, guaranteed stock position or certified load value.</p>
-          <p className="mt-[21px] rounded-card border border-amber-200 bg-amber-50 px-[18px] py-[15px] text-f14 leading-golden text-t2"><strong className="text-t1">Release boundary:</strong> covers rely on the existing step. Complete grating treads require an approved load/span check, support detail and fabrication drawing.</p>
+          <p className="mt-[21px] rounded-card border border-warn-border bg-warn-bg px-[18px] py-[15px] text-f14 leading-golden text-t2"><strong className="text-t1">Release boundary:</strong> covers rely on the existing step. Complete grating treads require an approved load/span check, support detail and fabrication drawing.</p>
           <div id="cover-reference-sizes" className="mt-[34px] scroll-mt-[88px] overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[1120px] border-collapse text-left" aria-label="FRP stair tread selection reference matrix">
-              <thead className="bg-deep text-white"><tr>{["Family", "Best for", "Tread depth", "Length / width", "Structural depth", "Surface & nosing", "Release basis"].map((head) => <th key={head} className="px-[16px] py-[14px] text-f12 font-bold uppercase tracking-wide">{head}</th>)}</tr></thead>
+              <thead className="bg-deep text-white"><tr>{["Family", "Best for", "Tread depth", "Length / width", "Structural depth", "Surface & nosing", "Release basis"].map((head) => <th key={head} className="px-[16px] py-[14px] text-f14 font-semibold">{head}</th>)}</tr></thead>
               <tbody>{stairTreadReferenceRows.map((row) => <tr key={row.family} className="border-t border-border-default align-top"><th className="px-[16px] py-[14px] text-f14 font-bold text-t1">{row.family}</th><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.bestFor}</td><td className="px-[16px] py-[14px] text-f14 font-semibold text-teal-text">{row.treadDepth}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.lengthOrWidth}</td><td className="px-[16px] py-[14px] text-f14 text-t2">{row.structuralDepth}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.surfaceAndNosing}</td><td className="px-[16px] py-[14px] text-f14 leading-golden text-t2">{row.releaseBasis}</td></tr>)}</tbody>
             </table>
           </div>
@@ -228,7 +228,7 @@ export default function StairTreadCoversPage() {
       <section className="bg-white py-[55px] md:py-[89px]">
         <div className="site-container grid gap-[34px] lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div><SectionTag>Measure Once</SectionTag><h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">Dimension the finished walking surface</h2><p className="mt-[13px] text-f16 leading-golden text-t2">Record every flight as quantity × width L × tread depth D × nose return H. Note rear obstructions, side clearances and whether the existing nosing projects beyond the riser.</p><div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[13px] sm:p-[21px]"><MeasurementDiagram /></div></div>
-          <aside className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[34px]"><p className="text-f12 font-bold uppercase tracking-[.1em] text-teal-text">RFQ checklist</p><h3 className="mt-[8px] text-f24 font-bold text-t1">Eight inputs for a qualified quote</h3><ol className="mt-[21px] space-y-[11px]">{measurementInputs.map((input, index) => <li key={input} className="flex gap-[11px] text-f14 leading-golden text-t2"><span className="flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full bg-white text-f12 font-bold text-teal-text">{index + 1}</span><span>{input}</span></li>)}</ol><Button href="/contact?source=stair-tread-checklist&inquiry_type=rfq" className="mt-[24px] w-full">Send Tread Schedule</Button></aside>
+          <aside className="rounded-card border border-border-default bg-bg2 p-[21px] sm:p-[34px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">RFQ checklist</p><h3 className="mt-[8px] text-f24 font-bold text-t1">Eight inputs for a qualified quote</h3><ol className="mt-[21px] space-y-[11px]">{measurementInputs.map((input, index) => <li key={input} className="flex gap-[11px] text-f14 leading-golden text-t2"><span className="flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full bg-white text-f12 font-bold text-teal-text">{index + 1}</span><span>{input}</span></li>)}</ol><Button href="/contact?source=stair-tread-checklist&inquiry_type=rfq" className="mt-[24px] w-full">Send Tread Schedule</Button></aside>
         </div>
       </section>
 

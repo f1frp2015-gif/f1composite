@@ -222,13 +222,13 @@ export default function FrpVsSteelGratingsPage() {
           <div className="mt-[21px] flex flex-wrap justify-center gap-[13px]">
             <Link
               href="/products/molded-frp-grating"
-              className="inline-block rounded-card bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="inline-block rounded-control bg-teal-text px-[34px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               View Molded Grating →
             </Link>
             <Link
               href="/products/frp-gratings"
-              className="inline-block rounded-card border border-border-default bg-white px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text transition-colors hover:border-teal"
+              className="inline-block rounded-control border border-border-default bg-white px-[22px] py-[12px] text-f14 font-bold text-t1 transition-colors hover:border-teal-border hover:text-teal-text"
             >
               View Pultruded Grating →
             </Link>

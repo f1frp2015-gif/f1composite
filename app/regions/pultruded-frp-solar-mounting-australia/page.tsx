@@ -136,10 +136,10 @@ export default function AustraliaSolarPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Pultruded FRP (E-glass / polyester)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Aluminum 6063-T5</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Galvanized Steel</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Pultruded FRP (E-glass / polyester)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Aluminum 6063-T5</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Galvanized Steel</th>
                 </tr>
               </thead>
               <tbody>

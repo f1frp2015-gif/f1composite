@@ -120,7 +120,7 @@ export default function RegionsHubPage() {
                 href={m.href}
                 className="group flex flex-col rounded-card border border-border-default bg-white p-[21px] transition-shadow hover:shadow-card"
               >
-                <p className="text-f14 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   <span aria-hidden="true" className="mr-[8px]">{m.flag}</span>
                   {m.region}
                 </p>

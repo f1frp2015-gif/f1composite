@@ -55,7 +55,7 @@ export default function GlossaryPage() {
       <section className="bg-white py-[34px]">
         <div className="site-container">
           <div className="rounded-card border border-border-default bg-bg2 p-[29px]">
-            <h2 className="text-f14 font-bold uppercase tracking-wide text-t2">On this page</h2>
+            <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">On this page</h2>
             <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
               {glossaryCategories.map((category) => (
                 <li key={category}>

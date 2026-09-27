@@ -64,9 +64,9 @@ export default function CalculatorValidationPage() {
       <article className="bg-white py-[55px]">
         <div className="site-container">
           <div className="grid gap-[21px] md:grid-cols-3">
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="text-f12 font-bold uppercase tracking-[1px] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Build status</p><p className="mt-[5px] text-f24 font-bold text-teal-text">PASS</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Reference cases</p><p className="mt-[5px] text-f24 font-bold text-t1">{benchmarks.length}</p></div>
+            <div className="rounded-card border border-border-default bg-bg2 p-[21px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Acceptance tolerance</p><p className="mt-[5px] text-f24 font-bold text-t1">≤ {BENCHMARK_TOLERANCE_PERCENT}%</p></div>
           </div>
 
           <div className="mt-[34px] max-w-[920px] text-f16 leading-golden text-t2">

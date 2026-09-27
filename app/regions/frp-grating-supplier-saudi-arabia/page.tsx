@@ -126,7 +126,7 @@ export default function SaudiGratingPage() {
                 <p className="mt-[8px] text-t2">Send your grating layout, quantity and delivery requirements. We&apos;ll quote CIF Jebel Ali or DAP and list the documents included.</p>
                 <Link
                   href="/contact"
-                  className="mt-[13px] inline-block rounded-card bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="mt-[13px] inline-block rounded-control bg-teal-text px-[21px] py-[11px] text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
                   Request Quote Now →
                 </Link>
@@ -165,11 +165,11 @@ export default function SaudiGratingPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Application</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Grating Type</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Mesh × Thickness</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Resin</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Finish</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Application</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Grating Type</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Mesh × Thickness</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Resin</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Finish</th>
                 </tr>
               </thead>
               <tbody>
@@ -253,7 +253,7 @@ export default function SaudiGratingPage() {
               },
             ].map((s) => (
               <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>
@@ -268,7 +268,7 @@ export default function SaudiGratingPage() {
               </div>
               <Link
                 href="/contact"
-                className="rounded-card bg-teal px-[21px] py-[11px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[21px] py-[11px] text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Get Quote →
               </Link>

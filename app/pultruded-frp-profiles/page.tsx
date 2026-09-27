@@ -447,7 +447,7 @@ export default function PultrudedFRPProfilesHubPage() {
         <div className="site-container">
           <div className="rounded-card border border-border-default bg-bg2 p-[24px]">
             <div className="flex flex-wrap items-baseline justify-between gap-[8px]">
-              <h2 className="text-f14 font-bold uppercase tracking-[2px] text-teal-text">Key facts</h2>
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Key facts</h2>
               <p className="text-f12 text-t3">
                 Authored by{" "}
                 <Link href={`/about/authors/${AUTHOR.slug}`} className="font-semibold text-teal-text hover:text-teal">
@@ -463,7 +463,7 @@ export default function PultrudedFRPProfilesHubPage() {
             <dl className="mt-[16px] grid gap-x-[34px] gap-y-[13px] sm:grid-cols-2 lg:grid-cols-4">
               {keyFacts.map((f) => (
                 <div key={f.label}>
-                  <dt className="text-f12 font-bold uppercase tracking-[1px] text-t3">{f.label}</dt>
+                  <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{f.label}</dt>
                   <dd className="mt-[3px] text-f16 font-semibold text-t1">{f.value}</dd>
                 </div>
               ))}
@@ -538,7 +538,7 @@ export default function PultrudedFRPProfilesHubPage() {
                 <span className="rounded-tag bg-bg2 px-[13px] py-[5px] text-f14 font-medium text-t2">PHI 2491wi03 (90-series window)</span>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-neutral-50">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-bg2">
               <Image
                 src="/images/hero/frp-composite-material-hero.webp"
                 alt="Pultruded FRP profiles manufactured by F1 Composite — fiberglass structural shapes"
@@ -674,9 +674,9 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Resin system</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Typical use</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Notes</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Resin system</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Typical use</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Notes</th>
                 </tr>
               </thead>
               <tbody>
@@ -711,10 +711,10 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">Pultruded FRP</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Carbon steel</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Aluminum</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">Pultruded FRP</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Carbon steel</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Aluminum</th>
                 </tr>
               </thead>
               <tbody>
@@ -778,10 +778,10 @@ export default function PultrudedFRPProfilesHubPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Property</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Test method</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">E17</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-teal-text">E23</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Property</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Test method</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">E17</th>
+                  <th className="py-[13px] text-f14 font-semibold text-teal-text">E23</th>
                 </tr>
               </thead>
               <tbody>

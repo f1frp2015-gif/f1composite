@@ -22,7 +22,7 @@ export default function RelatedLinks({
         <div className="grid gap-[34px] md:grid-cols-2 lg:grid-cols-3">
           {groups.map((group) => (
             <div key={group.title}>
-              <h2 className="mb-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[13px]">
                 {group.title}
               </h2>
               <div className="flex flex-col items-start gap-[8px]">

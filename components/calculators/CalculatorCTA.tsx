@@ -19,7 +19,7 @@ export default function CalculatorCTA({
       href={href}
       className="group block rounded-card border border-teal-border bg-teal-bg p-[21px] transition-colors hover:border-teal"
     >
-      <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">{eyebrow}</div>
+      <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{eyebrow}</div>
       <div className="mt-[6px] text-f18 font-bold text-t1">
         {title} <span aria-hidden>→</span>
       </div>

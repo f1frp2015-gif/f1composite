@@ -81,7 +81,7 @@ export default function ArticleSummarizer({ title, content }: ArticleSummarizerP
         </pre>
       )}
       {status === "error" && (
-        <p className="mt-[13px] text-f14 text-red-700">
+        <p className="mt-[13px] text-f14 text-fail">
           Summary failed. Please try again or read the full article below.
         </p>
       )}

@@ -231,7 +231,7 @@ export default function ResinSelector() {
               <tbody>
                 {active.specs.map((row) => (
                   <tr key={row.label} className="border-b border-border-default">
-                    <td className="py-[8px] pr-[13px] font-semibold uppercase tracking-[0.05em] text-t2">
+                    <td className="py-[8px] pr-[13px] font-semibold text-t1">
                       {row.label}
                     </td>
                     <td className="py-[8px] text-t1">{row.value}</td>

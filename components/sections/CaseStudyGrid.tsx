@@ -17,7 +17,7 @@ export default function CaseStudyGrid({ items }: { items: CaseItem[] }) {
                 aria-pressed={selected === ind}
                 onClick={() => setSelected(ind)}
                 key={ind}
-                className="cursor-pointer rounded-tag border border-border-default px-[13px] py-[5px] text-f12 font-bold uppercase tracking-[2px] text-t3 transition-colors hover:border-teal-border hover:text-teal-text aria-pressed:border-teal-text aria-pressed:bg-teal-text aria-pressed:text-white"
+                className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 cursor-pointer rounded-tag border border-border-default px-[13px] py-[5px] transition-colors hover:border-teal-border hover:text-teal-text aria-pressed:border-teal-text aria-pressed:bg-teal-text aria-pressed:text-white"
               >
                 {ind}
               </button>
@@ -42,7 +42,7 @@ export default function CaseStudyGrid({ items }: { items: CaseItem[] }) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-[0.34s] group-hover:scale-[1.03]"
                   />
-                  <span className="absolute left-[13px] top-[13px] z-10 rounded-tag bg-teal-text px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
+                  <span className="absolute left-[13px] top-[13px] z-10 rounded-tag bg-deep/85 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-white">
                     {cs.industry}
                   </span>
                 </div>

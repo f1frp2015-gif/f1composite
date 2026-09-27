@@ -272,7 +272,7 @@ export default function FiberglassStakesPage() {
                     "Surface / color",
                     "Planning use",
                   ].map((heading) => (
-                    <th key={heading} className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">{heading}</th>
+                    <th key={heading} className="px-[16px] py-[13px] text-f14 font-semibold text-t1">{heading}</th>
                   ))}
                 </tr>
               </thead>
@@ -291,7 +291,7 @@ export default function FiberglassStakesPage() {
             </table>
           </div>
           <div className="mt-[21px] rounded-card border border-teal-border bg-teal-bg p-[21px]">
-            <p className="text-f14 font-bold uppercase tracking-[0.12em] text-teal-text">Source and release boundary</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Source and release boundary</p>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               Sources were accessed on August 30, 2026 and establish only a public market reference. They do not publish diameter tolerance, bending stiffness, breaking load, resin grade, fiber content or verified outdoor life. F1 confirms those requirements for the proposed production grade before order release.
             </p>
@@ -317,7 +317,7 @@ export default function FiberglassStakesPage() {
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {selectionInputs.map((input, index) => (
               <article key={input.title} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
@@ -342,7 +342,7 @@ export default function FiberglassStakesPage() {
                   <Image src={application.image} alt={application.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 </div>
                 <figcaption className="p-[21px]">
-                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{application.query}</p>
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{application.query}</p>
                   <h3 className="mt-[5px] text-f18 font-bold text-t1">{application.title}</h3>
                   <p className="mt-[8px] text-f14 leading-golden text-t2">{application.body}</p>
                 </figcaption>
@@ -354,7 +354,7 @@ export default function FiberglassStakesPage() {
 
       <section className="bg-deep py-[55px] text-white md:py-[89px]">
         <div className="site-container">
-          <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-300">Material comparison</p>
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-white/60">Material comparison</p>
           <h2 className="mt-[13px] max-w-[900px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
             Fiberglass stakes vs bamboo, wood and steel markers
           </h2>
@@ -365,10 +365,10 @@ export default function FiberglassStakesPage() {
             <table className="w-full min-w-[920px] border-collapse text-left">
               <thead className="bg-white/10">
                 <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Topic</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Fiberglass / FRP stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Bamboo / wood stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide">Steel marker</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold">Topic</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold">Fiberglass / FRP stake</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold">Bamboo / wood stake</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold">Steel marker</th>
                 </tr>
               </thead>
               <tbody>

@@ -198,7 +198,7 @@ export default function ProfilePricePage() {
           <div className="mt-[21px] overflow-x-auto">
             <table className="w-full border-collapse text-left text-f14">
               <thead>
-                <tr className="border-b-2 border-t1/20 text-f12 font-bold uppercase tracking-[1px] text-t3">
+                <tr className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 border-b-2 border-t1/20">
                   <th className="py-[8px] pr-[13px]">Profile (mm)</th>
                   <th className="py-[8px] pr-[13px]">kg/m</th>
                   {QTY_TIERS.map((q) => (

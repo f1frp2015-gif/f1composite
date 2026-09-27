@@ -223,7 +223,7 @@ export default function IndustrialPage() {
               <article key={application.id} id={application.id} className="scroll-mt-28 py-[42px] first:pt-0 last:pb-0">
                 <div className="grid gap-[30px] lg:grid-cols-[minmax(0,1fr)_310px] lg:gap-[50px]">
                   <div>
-                    <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{application.number} / {application.summary}</p>
+                    <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{application.number} / {application.summary}</p>
                     <h2 className="mt-[12px] text-[clamp(24px,2.6vw,32px)] font-bold leading-tight text-t1">{application.title}</h2>
                     {index > 0 ? (
                       <figure className="mt-[22px]">

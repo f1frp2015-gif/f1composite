@@ -135,7 +135,7 @@ export default function PultrudedProfilePerformancePage() {
     <div className="site-container grid gap-8 py-10 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-10">
       <aside className="min-w-0">
         <nav aria-label="Performance page contents" className="rounded-card border border-border-default bg-bg2 p-5 lg:sticky lg:top-[110px]">
-          <p className="text-f14 font-bold uppercase tracking-wider text-t2">On this page</p>
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">On this page</p>
           <ol className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-1">
             {performanceSections.map((section, index) => <li key={section.id}><a className="flex min-h-11 items-center gap-3 rounded-tag px-2 py-2 text-f14 font-semibold text-t1 hover:bg-white hover:text-teal-text" href={`#${section.id}`}><span className="text-teal-text">0{index + 1}</span>{section.short}</a></li>)}
             <li><a href="#standards" className="block px-2 py-3 text-f14 font-semibold text-t1 hover:text-teal-text">Standards & scope</a></li>

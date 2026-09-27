@@ -56,7 +56,7 @@ export default function FactoryQuality() {
           <p className="text-f14 font-bold text-t1">Technical documents for your specification</p>
           <div className="flex flex-wrap gap-x-[16px] gap-y-[5px]">
             {standards.map((standard) => (
-              <Link href={standard.href} key={standard.href} className="text-f12 font-bold uppercase tracking-[0.07em] text-t3">
+              <Link href={standard.href} key={standard.href} className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 {standard.label}
               </Link>
             ))}

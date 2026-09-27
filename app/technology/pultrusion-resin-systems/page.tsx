@@ -112,7 +112,7 @@ export default function PultrusionResinSystemsPage() {
           </p>
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-3">
             <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Fiber decides
               </p>
               <p className="mt-[8px] text-f16 leading-golden text-t2">
@@ -121,7 +121,7 @@ export default function PultrusionResinSystemsPage() {
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Matrix decides
               </p>
               <p className="mt-[8px] text-f16 leading-golden text-t2">
@@ -130,7 +130,7 @@ export default function PultrusionResinSystemsPage() {
               </p>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f14 font-bold uppercase tracking-wide text-teal-text">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 You decide
               </p>
               <p className="mt-[8px] text-f16 leading-golden text-t2">

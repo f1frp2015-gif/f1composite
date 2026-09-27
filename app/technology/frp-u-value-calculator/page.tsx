@@ -214,7 +214,7 @@ export default function UValueCalculatorPage() {
           </p>
           <Link
             href="/products/frp-window-frames"
-            className="mt-[21px] inline-block rounded-card bg-teal px-[34px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+            className="mt-[21px] inline-block rounded-control bg-teal-text px-[34px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal"
           >
             Explore FRP windows &amp; doors →
           </Link>

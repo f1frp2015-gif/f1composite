@@ -136,10 +136,10 @@ export default function UAECableTrayPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">NEMA Class</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Load (lb/ft / kg/m)</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Span (ft / m)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Typical UAE application</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">NEMA Class</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Load (lb/ft / kg/m)</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Span (ft / m)</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Typical UAE application</th>
                 </tr>
               </thead>
               <tbody>

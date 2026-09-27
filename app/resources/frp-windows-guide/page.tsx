@@ -187,7 +187,7 @@ export default function FrpWindowsGuidePage() {
                         <p className="mt-[8px] flex-1 text-f14 leading-golden text-t2 line-clamp-3">
                           {post.excerpt}
                         </p>
-                        <p className="mt-[13px] text-f12 font-semibold uppercase tracking-[0.06em] text-t3">
+                        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[13px]">
                           {post.readTime}
                         </p>
                       </Link>

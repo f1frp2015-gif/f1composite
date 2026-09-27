@@ -235,7 +235,7 @@ export default function MarinePage() {
               <article key={application.id} id={application.id} className="scroll-mt-28 py-[40px] first:pt-0">
                 <div className="grid gap-[28px] lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-[50px]">
                   <div>
-                    <p className="text-f14 font-bold uppercase tracking-wider text-teal-text">{application.number} / {application.title}</p>
+                    <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{application.number} / {application.title}</p>
                     <h3 className="mt-[10px] text-f24 font-bold leading-snug text-t1">{application.heading}</h3>
                     <p className="mt-[16px] text-f18 font-medium leading-relaxed text-t1">{application.intro}</p>
                     <div className="mt-[18px] space-y-[16px] text-f16 leading-[1.8] text-t2">

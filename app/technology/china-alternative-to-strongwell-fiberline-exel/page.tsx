@@ -159,9 +159,9 @@ export default function ChinaAlternativePage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Dimension</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1 Composite (F1-STRUX)</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Strongwell · Creative · Fiberline · Exel</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Dimension</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1 Composite (F1-STRUX)</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Strongwell · Creative · Fiberline · Exel</th>
                 </tr>
               </thead>
               <tbody>
@@ -208,10 +208,10 @@ export default function ChinaAlternativePage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Incumbent series</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Resin system / fire class</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-teal-text">F1-STRUX crossover</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Verify before substituting</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Incumbent series</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Resin system / fire class</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-teal-text">F1-STRUX crossover</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Verify before substituting</th>
                 </tr>
               </thead>
               <tbody>

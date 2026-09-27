@@ -38,7 +38,7 @@ export default function EmbedCode({
     <section className="rounded-card border border-border-default bg-bg2 p-[21px] md:p-[34px]">
       <div className="flex flex-col gap-[16px] md:flex-row md:items-start md:justify-between">
         <div className="max-w-[760px]">
-          <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Free to embed</p>
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Free to embed</p>
           <h2 className="mt-[8px] text-f24 font-bold text-t1">Embed this tool on your website</h2>
           <p className="mt-[10px] text-f16 leading-golden text-t2">
             Add the live engineering tool to a course page, design guide, distributor resource center, or internal

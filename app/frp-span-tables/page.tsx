@@ -105,7 +105,7 @@ export default function SpanTablesPage() {
       <section className="bg-white py-[55px]">
         <div className="site-container">
           <SectionTag>Design Basis</SectionTag>
-          <div className="mt-[21px] grid gap-[13px] rounded-card border border-border-default bg-slate-50 p-[21px] text-f14 leading-golden text-t2 md:grid-cols-2">
+          <div className="mt-[21px] grid gap-[13px] rounded-card border border-border-default bg-bg2 p-[21px] text-f14 leading-golden text-t2 md:grid-cols-2">
             <div><strong className="text-t1">Material:</strong> {DESIGN_BASIS.material}: E_L {DESIGN_BASIS.E_L_GPa} GPa and shear strength {DESIGN_BASIS.shearStrengthMPa} MPa (EN 13706 minimums), G_LT {DESIGN_BASIS.G_LT_GPa} GPa (assumed)</div>
             <div><strong className="text-t1">Strength:</strong> {DESIGN_BASIS.method}; design bending strength {DESIGN_BASIS.bendingAllowableMPa} MPa, shear {DESIGN_BASIS.shearAllowableMPa} MPa after λ and the knockdown</div>
             <div><strong className="text-t1">Environment:</strong> {DESIGN_BASIS.environment}</div>

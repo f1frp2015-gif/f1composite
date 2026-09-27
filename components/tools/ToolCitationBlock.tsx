@@ -39,7 +39,7 @@ export default function ToolCitationBlock({
 
   return (
     <section className="rounded-card border border-border-default bg-bg2 p-[21px] md:p-[34px]">
-      <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Citable engineering resource</p>
+      <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Citable engineering resource</p>
       <h2 className="mt-[8px] text-f24 font-bold text-t1">📚 How to cite this tool in your design report</h2>
       <p className="mt-[10px] max-w-[800px] text-f16 leading-golden text-t2">
         Use the format required by your client, university, or document-control system. The permanent URL below

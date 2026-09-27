@@ -42,13 +42,13 @@ export default function GratingPage() {
     <GratingApplicationCards />
     <section id="grating-types" className="bg-white py-[40px] md:py-[56px]">
       <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Choose the construction</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Choose the construction</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Two ways to build your walking surface</h2>
         <p className="mt-[12px] max-w-[850px] text-f16 leading-relaxed text-t2">Fiberglass grating is also called fibreglass or GRP grating. The important choice is how the panel carries the load and fits the layout.</p>
         <div className="mt-[24px] grid gap-[24px] md:grid-cols-2">
           {links.map(item => <article key={item.href} className="overflow-hidden rounded-card border border-border-default">
             <Link href={item.href} className="relative block aspect-[5/2]"><Image src={item.image} alt={`${item.label}: close-up of the open walking surface`} fill sizes="(max-width: 767px) 94vw, 46vw" className="object-cover" /></Link>
-            <div className="p-[24px]"><p className="text-f12 font-bold uppercase tracking-wide text-teal-text">{item.tag}</p><h3 className="mt-[10px] text-f24 font-bold text-t1">{item.label}</h3><p className="mt-[12px] text-f16 leading-relaxed text-t2">{item.body}</p><p className="mt-[16px] text-f14 font-semibold text-t1">{item.details}</p><Link href={item.href} className="mt-[16px] inline-flex min-h-[44px] items-center font-bold text-teal-text">View specifications →</Link></div>
+            <div className="p-[24px]"><p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.tag}</p><h3 className="mt-[10px] text-f24 font-bold text-t1">{item.label}</h3><p className="mt-[12px] text-f16 leading-relaxed text-t2">{item.body}</p><p className="mt-[16px] text-f14 font-semibold text-t1">{item.details}</p><Link href={item.href} className="mt-[16px] inline-flex min-h-[44px] items-center font-bold text-teal-text">View specifications →</Link></div>
           </article>)}
         </div>
         <div id="molded-vs-pultruded" className="mt-[32px] scroll-mt-[100px] overflow-x-auto rounded-card border border-border-default" role="region" aria-label="Molded and pultruded grating comparison" tabIndex={0}>
@@ -62,7 +62,7 @@ export default function GratingPage() {
     <GratingBuyingGuide />
     <section className="bg-bg2 py-[44px] md:py-[60px]">
       <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Plan the complete access system</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Plan the complete access system</p>
         <h2 className="mt-[10px] text-f32 font-bold text-t1">Connect the panel to the application</h2>
         <div className="mt-[24px] grid gap-[20px] md:grid-cols-3">
           {[

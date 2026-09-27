@@ -159,7 +159,7 @@ export default function LaminateMicrograph() {
 
       <div className="mt-[13px] grid gap-[13px] sm:grid-cols-2">
         <div className="rounded-card bg-bg2 p-[13px]">
-          <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
             Idealized UD axial modulus (rule of mixtures)
           </p>
           <p className="mt-[3px] text-f18 font-bold tabular-nums text-t1">
@@ -171,7 +171,7 @@ export default function LaminateMicrograph() {
           </p>
         </div>
         <div className="rounded-card bg-bg2 p-[13px]">
-          <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t2">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
             Full-section reality check (EN 13706)
           </p>
           <p className="mt-[3px] text-f18 font-bold text-t1">E17 / E23 grades</p>

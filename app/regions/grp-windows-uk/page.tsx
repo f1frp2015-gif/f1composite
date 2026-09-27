@@ -164,10 +164,10 @@ export default function UkRegionPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">Requirement</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">UK Standard / Threshold</th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">F1 Performance</th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Documentation</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Requirement</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">UK Standard / Threshold</th>
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">F1 Performance</th>
+                  <th className="py-[13px] text-f14 font-semibold text-t1">Documentation</th>
                 </tr>
               </thead>
               <tbody>
@@ -218,7 +218,7 @@ export default function UkRegionPage() {
               },
             ].map((s) => (
               <div key={s.step} className="rounded-card border border-border-default bg-white p-[34px]">
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Step {s.step}</div>
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Step {s.step}</div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{s.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{s.body}</p>
               </div>

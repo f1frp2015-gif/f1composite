@@ -111,7 +111,7 @@ export default function WindTurbineBladePanelsPage() {
               dimensional controls and mechanical evidence against the blade program.
             </p>
             <div className="mt-[29px] rounded-card border border-teal/30 bg-teal-bg p-[21px]">
-              <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Cut to the required length
               </p>
               <p className="mt-[8px] text-f16 font-bold leading-golden text-t1">
@@ -179,7 +179,7 @@ export default function WindTurbineBladePanelsPage() {
                   />
                 </div>
                 <div className="border-t border-border-default p-[21px]">
-                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                     {program.shortName}
                   </p>
                   <h3 className="mt-[8px] text-f18 font-bold text-t1">{program.name}</h3>
@@ -212,7 +212,7 @@ export default function WindTurbineBladePanelsPage() {
               ["Vf", gfpWe20Report.physical.fiberVolumeContent, "Calculated average fiber volume"],
             ].map(([symbol, value, label]) => (
               <div key={symbol} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-t3">{symbol}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{symbol}</p>
                 <p className="mt-[5px] text-[clamp(24px,3vw,34px)] font-extrabold leading-none text-teal-text">{value}</p>
                 <p className="mt-[8px] text-f12 leading-golden text-t2">{label}</p>
               </div>
@@ -288,7 +288,7 @@ export default function WindTurbineBladePanelsPage() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-[21px] rounded-control border border-amber-300 bg-amber-50 p-[13px] text-f12 leading-golden text-amber-950">
+              <p className="mt-[21px] rounded-control border border-warn-border bg-warn-bg p-[13px] text-f12 leading-golden text-warn">
                 {gfpWe20SourceBoundary}
               </p>
             </div>

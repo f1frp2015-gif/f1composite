@@ -102,8 +102,8 @@ function SpecTable({ rows }: { rows: readonly CatalogSpecRow[] }) {
       <table className="w-full border-collapse text-left">
         <thead className="bg-bg2">
           <tr>
-            <th className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Component / parameter</th>
-            <th className="px-[16px] py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Nominal catalog value</th>
+            <th className="px-[16px] py-[13px] text-f14 font-semibold text-t1">Component / parameter</th>
+            <th className="px-[16px] py-[13px] text-f14 font-semibold text-t1">Nominal catalog value</th>
           </tr>
         </thead>
         <tbody>
@@ -193,7 +193,7 @@ export default function FrpLaddersPage() {
             </p>
           </div>
           <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Catalog boundary</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Catalog boundary</p>
             <h2 className="mt-[8px] text-f20 font-bold text-t1">Nominal dimensions, then an approved drawing</h2>
             <p className="mt-[13px] text-f14 leading-golden text-t2">
               The manual gives geometry but no whole-ladder rated load, rung proof load, anchor capacity, resin grade, fire rating or slip-test value. F1 therefore releases each ladder only after the elevation, support, fall-protection concept, BOM and connection schedule are reviewed.
@@ -278,7 +278,7 @@ export default function FrpLaddersPage() {
               {frpLadderRungCoverGroups.map((group) => (
                 <article key={group.shape} className="rounded-card border border-border-default bg-white p-[21px]">
                   <h3 className="text-f18 font-bold text-t1">{group.shape} cover</h3>
-                  <p className="mt-[5px] text-f12 font-semibold uppercase tracking-wide text-t3">Reference: {group.fitReference}</p>
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[5px]">Reference: {group.fitReference}</p>
                   <ul className="mt-[13px] grid gap-[8px] sm:grid-cols-2">
                     {group.sizes.map((size) => (
                       <li key={size} className="rounded-tag bg-bg2 px-[12px] py-[8px] text-f14 font-medium text-t2">{size}</li>
@@ -300,13 +300,13 @@ export default function FrpLaddersPage() {
           <div className="mt-[34px] grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
             {selectionInputs.map((input, index) => (
               <article key={input.title} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">0{index + 1}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">0{index + 1}</p>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{input.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">{input.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[34px] rounded-card border border-amber-200 bg-amber-50 p-[21px] text-f14 leading-golden text-t2">
+          <div className="mt-[34px] rounded-card border border-warn-border bg-warn-bg p-[21px] text-f14 leading-golden text-t2">
             <strong className="text-t1">Safety-standard checkpoint.</strong>{" "}
             For U.S. general industry, review{" "}
             <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.23" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-text hover:underline">OSHA 1910.23</a>{" "}

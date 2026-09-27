@@ -38,7 +38,7 @@ export default function PultrusionAnimation() {
     >
       {/* Card header */}
       <div className="flex items-center justify-between gap-[13px] border-b border-border-default px-[21px] py-[13px]">
-        <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
           Animated Schematic — Injection Pultrusion Line
         </p>
         <button

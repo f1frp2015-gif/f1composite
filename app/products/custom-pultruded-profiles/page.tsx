@@ -274,7 +274,7 @@ export default function CustomPultrusionsPage() {
                 </span>
                 {/* Content */}
                 <h3 className="mt-[8px] text-f16 font-bold text-t1">{step.title}</h3>
-                <span className="mt-[3px] text-f12 font-semibold uppercase tracking-wide text-teal-text">{step.duration}</span>
+                <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[3px]">{step.duration}</span>
                 <p className="mt-[5px] text-f14 leading-golden text-t2">{step.brief}</p>
               </div>
             ))}

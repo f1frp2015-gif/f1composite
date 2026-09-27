@@ -133,20 +133,20 @@ export default function DesignGuidesPage() {
                       href={guide.file}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 rounded-tag bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="inline-flex min-h-[40px] shrink-0 items-center rounded-control bg-teal-text px-[16px] text-f14 font-bold text-white transition-colors hover:bg-teal"
                     >
                       Download PDF
                     </a>
                   ) : guide.status === "Available" ? (
                     <Link
                       href="/contact"
-                      className="flex-shrink-0 rounded-tag bg-teal px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-white hover:bg-teal-text"
+                      className="inline-flex min-h-[40px] shrink-0 items-center rounded-control bg-teal-text px-[16px] text-f14 font-bold text-white transition-colors hover:bg-teal"
                     >
-                      Request Access
+                      Request access
                     </Link>
                   ) : (
-                    <span className="flex-shrink-0 rounded-tag bg-bg2 px-[21px] py-[8px] text-f12 font-bold uppercase tracking-[1px] text-t3">
-                      Coming Soon
+                    <span className="shrink-0 rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+                      Coming soon
                     </span>
                   )}
                 </div>

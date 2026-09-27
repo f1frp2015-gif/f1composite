@@ -547,7 +547,7 @@ export default function FacadeSunshadePanelsPage() {
                 key={format.name}
                 className="flex flex-col rounded-card border border-border-default bg-white p-[34px]"
               >
-                <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   {format.tag}
                 </div>
                 <h3 className="mt-[8px] text-f18 font-bold text-t1">{format.name}</h3>
@@ -709,13 +709,13 @@ export default function FacadeSunshadePanelsPage() {
               <table className="w-full border-collapse text-left">
                 <thead>
                   <tr className="border-b-2 border-border-default">
-                    <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                       Blade thickness
                     </th>
-                    <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                       q_p = 1.0 kPa
                     </th>
-                    <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
+                    <th className="py-[13px] text-f14 font-semibold text-t1">
                       q_p = 1.5 kPa
                     </th>
                   </tr>
@@ -781,13 +781,13 @@ export default function FacadeSunshadePanelsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                     Property
                   </th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                     Value
                   </th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] text-f14 font-semibold text-t1">
                     Design relevance
                   </th>
                 </tr>
@@ -826,13 +826,13 @@ export default function FacadeSunshadePanelsPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b-2 border-border-default">
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                     Criterion
                   </th>
-                  <th className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                     Aluminum blade
                   </th>
-                  <th className="py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th className="py-[13px] text-f14 font-semibold text-t1">
                     F1 E40 FRP blade
                   </th>
                 </tr>

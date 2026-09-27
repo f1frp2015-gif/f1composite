@@ -190,7 +190,7 @@ export default function DensityCalculator() {
     <label
       key={key}
       htmlFor={`density-${key}`}
-      className="block text-sm font-medium text-t2"
+      className="block text-f14 font-medium text-t2"
     >
       {label}
       <input
@@ -213,10 +213,10 @@ export default function DensityCalculator() {
       <div className="site-container">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-text">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
               Density ↔ profile weight
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-t1">
+            <h2 className="mt-2 text-f24 font-bold text-t1">
               Calculate with your section
             </h2>
           </div>
@@ -236,7 +236,7 @@ export default function DensityCalculator() {
               setUnit("g/cm³");
               setMassUnit("kg/m");
             }}
-            className="rounded-card border border-border-default px-4 py-2 text-sm font-semibold text-t1"
+            className="rounded-card border border-border-default px-4 py-2 text-f14 font-semibold text-t1"
           >
             Reset example
           </button>
@@ -258,7 +258,7 @@ export default function DensityCalculator() {
                 ).map(([value, label]) => (
                   <label
                     key={value}
-                    className={`flex cursor-pointer items-center gap-2 rounded-card border p-3 text-sm font-semibold ${mode === value ? "border-teal bg-teal-bg text-teal-text" : "border-border-default text-t2"}`}
+                    className={`flex cursor-pointer items-center gap-2 rounded-card border p-3 text-f14 font-semibold ${mode === value ? "border-teal bg-teal-bg text-teal-text" : "border-border-default text-t2"}`}
                   >
                     <input
                       type="radio"
@@ -302,7 +302,7 @@ export default function DensityCalculator() {
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {dimensions.map(field)}
             </div>
-            <p className="mt-3 text-xs leading-relaxed text-t3">
+            <p className="mt-3 text-f12 leading-relaxed text-t3">
               Use actual dimensions in mm. Ideal sections exclude corner radii,
               coatings and fittings. For complex profiles, enter the net area
               from CAD.
@@ -331,7 +331,7 @@ export default function DensityCalculator() {
                     {field(["density", `Material density (${unit})`])}
                     <label
                       htmlFor="density-unit"
-                      className="text-sm font-medium text-t2"
+                      className="text-f14 font-medium text-t2"
                     >
                       Density unit
                       <select
@@ -376,7 +376,7 @@ export default function DensityCalculator() {
                 {field(["quantity", "Number of identical pieces"])}
               </div>
             </fieldset>
-            <p className="mt-3 text-xs leading-relaxed text-t3">
+            <p className="mt-3 text-f12 leading-relaxed text-t3">
               {mode === "weight"
                 ? "1.9 g/cm³ is an editable estimating assumption. Use your supplier’s laminate density for purchasing."
                 : mode === "recipe"
@@ -391,7 +391,7 @@ export default function DensityCalculator() {
             className="scroll-mt-24 rounded-card border border-border-default bg-white p-5 md:p-8"
           >
             <SectionSketch shape={shape} />
-            <p className="text-center text-xs text-t3">
+            <p className="text-center text-f12 text-t3">
               Shaded = net material area · schematic only
             </p>
             <div className="lg:sticky lg:top-28">
@@ -411,14 +411,14 @@ export default function DensityCalculator() {
                 {result.error ? (
                   <p
                     role="alert"
-                    className="rounded-card bg-red-50 p-4 text-red-800"
+                    className="rounded-card bg-fail-bg p-4 text-fail"
                   >
                     {result.error}
                   </p>
                 ) : (
                   <>
-                    <div className="rounded-card bg-[#031697] p-6 text-white">
-                      <p className="text-sm">
+                    <div className="rounded-card bg-deep p-6 text-white">
+                      <p className="text-f14">
                         {mode === "layup"
                           ? "Layup-derived density · volume balance"
                           : mode === "recipe"
@@ -427,24 +427,24 @@ export default function DensityCalculator() {
                               ? "Estimated mass per meter"
                               : "Inferred material density"}
                       </p>
-                      <p className="mt-2 break-words text-4xl font-bold tabular-nums">
+                      <p className="mt-2 break-words text-f32 font-bold tabular-nums">
                         {fmt(
                           mode === "weight"
                             ? result.kgPerM!
                             : result.densityKg! / 1000,
                         )}{" "}
-                        <span className="text-lg font-normal">
+                        <span className="text-f18 font-normal">
                           {mode === "weight" ? "kg/m" : "g/cm³"}
                         </span>
                       </p>
-                      <p className="mt-3 text-sm text-white/80">
+                      <p className="mt-3 text-f14 text-white/80">
                         {fmt(result.densityKg!)} kg/m³ ·{" "}
                         {fmt(result.densityKg! / densityFactors["lb/in³"])}{" "}
                         lb/in³
                       </p>
                     </div>
                     {mode === "recipe" && !mixture.error && (
-                      <div className="mt-4 rounded-card border border-border-default p-4 text-sm text-t2">
+                      <div className="mt-4 rounded-card border border-border-default p-4 text-f14 text-t2">
                         <p>
                           Void-free theoretical density:{" "}
                           <strong>{fmt(mixture.theoretical!)} g/cm³</strong>
@@ -473,7 +473,7 @@ export default function DensityCalculator() {
                       </div>
                     )}
                     {mode === "layup" && !layup.error && (
-                      <div className="mt-4 rounded-card border border-border-default p-4 text-sm text-t2">
+                      <div className="mt-4 rounded-card border border-border-default p-4 text-f14 text-t2">
                         <p>
                           Retained reinforcement:{" "}
                           <strong>{fmt(layup.reinforcementGrams!)} g/m</strong>{" "}
@@ -504,7 +504,7 @@ export default function DensityCalculator() {
                             ))}
                           </ul>
                         </details>
-                        <p className="mt-3 text-xs">
+                        <p className="mt-3 text-f12">
                           A positive resin remainder is a volume balance, not
                           proof that the proposed reinforcement can be packed,
                           wetted or pultruded. Verify real layer paths and
@@ -515,7 +515,7 @@ export default function DensityCalculator() {
                     <div className="mt-5 rounded-card border border-teal bg-teal-bg p-4">
                       <label
                         htmlFor="weight-per-meter-unit"
-                        className="flex flex-wrap items-center justify-between gap-2 text-sm font-semibold text-teal-text"
+                        className="flex flex-wrap items-center justify-between gap-2 text-f14 font-semibold text-teal-text"
                       >
                         Weight per meter / unit length
                         <select
@@ -534,11 +534,11 @@ export default function DensityCalculator() {
                           ))}
                         </select>
                       </label>
-                      <p className="mt-3 break-words text-3xl font-bold tabular-nums text-t1">
+                      <p className="mt-3 break-words text-f32 font-bold tabular-nums text-t1">
                         {fmt(result.kgPerM! * weightPerMeterFactors[massUnit])}{" "}
-                        <span className="text-base">{massUnit}</span>
+                        <span className="text-f16">{massUnit}</span>
                       </p>
-                      <p className="mt-2 text-xs text-t2">
+                      <p className="mt-2 text-f12 text-t2">
                         Weight per meter = net area × material density. Changing
                         display units preserves the same profile.
                       </p>
@@ -551,21 +551,21 @@ export default function DensityCalculator() {
                         ["Total profile mass", `${fmt(result.totalKg!)} kg`],
                       ].map(([label, value]) => (
                         <div key={label} className="rounded-card bg-bg2 p-3">
-                          <dt className="text-xs text-t2">{label}</dt>
-                          <dd className="mt-1 break-words text-lg font-bold text-t1">
+                          <dt className="text-f12 text-t2">{label}</dt>
+                          <dd className="mt-1 break-words text-f18 font-bold text-t1">
                             {value}
                           </dd>
                         </div>
                       ))}
                     </dl>
-                    <p className="mt-4 text-xs leading-relaxed text-t3">
+                    <p className="mt-4 text-f12 leading-relaxed text-t3">
                       Net profile mass only. Packaging, pallets, fasteners, cut
                       waste and manufacturing tolerances are excluded.
                       Sample-derived density is a geometric estimate, not a
                       laboratory test result.
                     </p>
                     {(result.densityKg! < 1700 || result.densityKg! > 2100) && (
-                      <p className="mt-3 rounded-card bg-amber-50 p-3 text-sm text-amber-900">
+                      <p className="mt-3 rounded-card bg-warn-bg p-3 text-f14 text-warn">
                         This density is outside the 1.7–2.1 g/cm³ estimating
                         range used here for pultruded glass-fiber profiles.
                         Check units, hollow area and laminate data; other FRP
@@ -583,7 +583,7 @@ export default function DensityCalculator() {
                   Request a quote with these results →
                 </Link>
               )}
-              <p className="mt-3 text-center text-xs text-t3">
+              <p className="mt-3 text-center text-f12 text-t3">
                 Section inputs and results are carried into the inquiry form.
                 Formulation ingredient details are not included.
               </p>
@@ -592,13 +592,13 @@ export default function DensityCalculator() {
         </div>
       </div>
       <div data-page-bottom-bar className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border-default bg-white px-4 py-3 shadow-card lg:hidden">
-        <div className="text-sm text-t1" aria-live="polite">
+        <div className="text-f14 text-t1" aria-live="polite">
           {result.error ? (
             "Check calculation inputs"
           ) : (
             <>
               <strong>{fmt(result.kgPerM!)} kg/m</strong>
-              <span className="ml-3 text-xs text-t2">
+              <span className="ml-3 text-f12 text-t2">
                 {fmt(result.densityKg! / 1000)} g/cm³
               </span>
             </>
@@ -606,7 +606,7 @@ export default function DensityCalculator() {
         </div>
         <a
           href="#material-results"
-          className="shrink-0 rounded-card bg-teal px-3 py-2 text-xs font-semibold text-white"
+          className="shrink-0 rounded-card bg-teal px-3 py-2 text-f12 font-semibold text-white"
         >
           Results & sliders
         </a>

@@ -228,7 +228,7 @@ export default function FrpProcessShowcase() {
             href="/technology/pultrusion-process"
             className="group relative rounded-card border-2 border-teal bg-teal-bg p-[21px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:shadow-card sm:col-span-2 lg:col-span-1"
           >
-            <span className="absolute right-[13px] top-[13px] rounded-tag bg-teal px-[8px] py-[3px] text-f12 font-bold uppercase tracking-[1px] text-white">
+            <span className="absolute right-[13px] top-[13px] rounded-tag bg-deep/85 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-white">
               Our process · 370 lines
             </span>
             <PultrusionIcon />

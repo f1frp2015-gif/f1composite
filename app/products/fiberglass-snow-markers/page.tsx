@@ -318,9 +318,9 @@ export default function FiberglassSnowMarkersPage() {
             <table className="w-full min-w-[780px] border-collapse text-left">
               <thead className="bg-bg2">
                 <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Specification item</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Reference starting point</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Order controls</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Specification item</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Reference starting point</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Order controls</th>
                 </tr>
               </thead>
               <tbody>
@@ -346,7 +346,7 @@ export default function FiberglassSnowMarkersPage() {
           <div className="mt-[34px] grid gap-[21px] lg:grid-cols-2">
             {constructionOptions.map((option) => (
               <article key={option.name} className="rounded-card border border-border-default bg-white p-[29px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">{option.badge}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{option.badge}</p>
                 <h3 className="mt-[8px] text-f18 font-extrabold text-t1">{option.name}</h3>
                 <p className="mt-[13px] text-f14 font-semibold leading-golden text-t1">{option.bestFor}</p>
                 <p className="mt-[13px] text-f14 leading-golden text-t2">{option.body}</p>
@@ -357,9 +357,9 @@ export default function FiberglassSnowMarkersPage() {
             <table className="w-full min-w-[760px] border-collapse text-left">
               <thead className="bg-white">
                 <tr>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Decision</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Solid stake</th>
-                  <th className="px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-t1">Hollow stake</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Decision</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Solid stake</th>
+                  <th className="px-[21px] py-[13px] text-f14 font-semibold text-t1">Hollow stake</th>
                 </tr>
               </thead>
               <tbody>
@@ -421,20 +421,20 @@ export default function FiberglassSnowMarkersPage() {
 
       <section className="bg-deep py-[89px] text-white">
         <div className="site-container">
-          <p className="text-f12 font-bold uppercase tracking-[0.14em] text-teal-300">Four-step release</p>
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-white/60">Four-step release</p>
           <h2 className="mt-[13px] max-w-[840px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
             Turn a generic snow pole into an order-ready specification
           </h2>
           <div className="mt-[34px] grid gap-[13px] md:grid-cols-2 xl:grid-cols-4">
             {selectionSteps.map((item) => (
               <article key={item.step} className="rounded-card border border-white/15 bg-white/5 p-[21px]">
-                <p className="text-f14 font-extrabold text-teal-300">{item.step}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-teal-light">{item.step}</p>
                 <h3 className="mt-[8px] text-f18 font-bold">{item.title}</h3>
                 <p className="mt-[8px] text-f14 leading-golden text-white/70">{item.body}</p>
               </article>
             ))}
           </div>
-          <div className="mt-[21px] rounded-card border border-amber-300/35 bg-amber-300/10 p-[21px]">
+          <div className="mt-[21px] rounded-card border border-white/15 bg-white/5 p-[21px]">
             <p className="text-f14 font-bold text-white">Public-road use needs a separate compliance decision</p>
             <p className="mt-[8px] text-f14 leading-golden text-white/75">
               A colored fiberglass stake with reflective tape is not automatically a

@@ -28,10 +28,12 @@ const sizes = themeTokens("text");
 const radii = themeTokens("radius");
 const shadows = themeTokens("shadow");
 
+// Tailwind's own palette (red-50, slate-500 …) is not part of the brand: states
+// have their own tokens (warn, fail; a pass uses teal), so these names fail.
 const PALETTE = /^(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(50|[1-9]00|950)$/;
-const isColor = (value) => colors.has(value) || PALETTE.test(value) || ["white", "black", "transparent", "current", "inherit"].includes(value);
+const isColor = (value) => colors.has(value) || ["white", "black", "transparent", "current", "inherit"].includes(value);
 const KEYWORDS = {
-  text: /^(xs|sm|base|lg|[2-9]?xl|left|center|right|justify|start|end|wrap|nowrap|balance|pretty|ellipsis|clip)$/,
+  text: /^(left|center|right|justify|start|end|wrap|nowrap|balance|pretty|ellipsis|clip)$/,
   bg: /^(fixed|local|scroll|clip-(border|padding|content|text)|origin-(border|padding|content)|no-repeat|repeat(-x|-y|-round|-space)?|auto|cover|contain|center|top|bottom|left|right|(left|right)-(top|bottom)|none|radial|conic|(gradient|linear)-to-(t|tr|r|br|b|bl|l|tl)|blend-.+)$/,
   border: /^(solid|dashed|dotted|double|hidden|none|collapse|separate|spacing)$|^(x|y|t|r|b|l|s|e)$/,
   outline: /^(none|hidden|solid|dashed|dotted|double|offset)$/,
@@ -69,6 +71,9 @@ function utilityOf(token) {
 function problem(utility) {
   const size = utility.match(/^text-f(\d+)$/);
   if (size) return sizes.has(`f${size[1]}`) ? null : "no such --text size";
+  if (/^text-(xs|sm|base|lg|[2-9]?xl)$/.test(utility)) return "use the nine-step scale, text-f12 … text-f56";
+  // Colours come from the theme, never a literal: bg-[#031697] made one card royal blue.
+  if (/^(text|bg|border|outline|ring|decoration|divide|fill|stroke|from|via|to|placeholder|caret|accent)-(?:[a-z]+-)?\[(?:#|rgba?\(|hsla?\(|color:)/.test(utility)) return "use a theme colour token, not a literal colour";
   // Corners and shadows come only from the theme tokens (rounded-card, shadow-pop …).
   const corner = utility.match(/^rounded(?:-(?:t|r|b|l|s|e|tl|tr|br|bl|ss|se|es|ee))?(?:-(.+))?$/);
   if (corner) return corner[1] === "full" || corner[1] === "none" || radii.has(corner[1]) ? null : "use rounded-tag, rounded-control or rounded-card";
@@ -85,6 +90,7 @@ function problem(utility) {
   if (prefix === "text" && sizes.has(value)) return null;
   if (KEYWORDS[prefix]?.test(value)) return null;
   if (isColor(value)) return null;
+  if (PALETTE.test(value)) return "Tailwind palette colour; use a brand or state token (teal, t1–t3, bg2, warn, fail …)";
   return prefix === "shadow" ? "use shadow-card, shadow-pop or shadow-bar" : "no such --color token";
 }
 

@@ -23,7 +23,7 @@ export default function E40TestEvidence() {
   return (
     <section id="e40-test-reports" className="scroll-mt-[100px] bg-bg2 py-[55px]" aria-labelledby="e40-evidence-heading">
       <div className="site-container">
-        <p className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">Original SGS test reports · {e40ReportDate}</p>
+        <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Original SGS test reports · {e40ReportDate}</p>
         <h2 id="e40-evidence-heading" className="mt-[13px] text-f24 font-bold text-t1">E40 evidence: full-section results above 40 GPa</h2>
         <p className="mt-[13px] max-w-[960px] text-f16 leading-golden text-t2">
           Two SGS-CSTC Standards Technical Services (Shanghai) Co., Ltd. reports record

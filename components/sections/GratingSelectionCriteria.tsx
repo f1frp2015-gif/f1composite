@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function GratingSelectionCriteria() {
   return <section id="grating-selection" className="scroll-mt-[40px] border-y border-border-default bg-bg2 py-[44px] md:py-[60px]">
     <div className="site-container">
-      <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Before choosing a thickness</p>
+      <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Before choosing a thickness</p>
       <h2 className="mt-[10px] text-f32 font-bold text-t1">Specify the opening, surface and service conditions</h2>
       <div className="mt-[24px] grid gap-[24px] lg:grid-cols-[0.9fr_1.1fr]">
         <figure className="rounded-card border border-border-default bg-white p-[22px]">

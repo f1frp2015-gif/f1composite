@@ -193,7 +193,7 @@ function CalculationModel({
       <div className="mt-[21px] grid gap-[21px] lg:grid-cols-[minmax(0,360px)_1fr]">
         {/* ── 1. Scaled window diagram ── */}
         <div className="rounded-card border border-border-default bg-white p-[21px]">
-          <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+          <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[13px]">
             1 · Window geometry
           </h4>
           <div className="flex justify-center">
@@ -268,7 +268,7 @@ function CalculationModel({
         <div className="space-y-[21px]">
           {/* Heat-loss channels */}
           <div className="rounded-card border border-border-default bg-white p-[21px]">
-            <h4 className="mb-[4px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+            <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[4px]">
               2 · Where the heat escapes
             </h4>
             <p className="mb-[13px] text-f12 text-t3">
@@ -307,7 +307,7 @@ function CalculationModel({
 
           {/* Formula assembly */}
           <div className="rounded-card border border-teal-border bg-teal/5 p-[21px]">
-            <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+            <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[13px]">
               3 · The formula, with your numbers
             </h4>
             <div className="space-y-[8px] font-mono text-f14 leading-relaxed text-t1">
@@ -356,12 +356,12 @@ function CalculationModel({
    ══════════════════════════════════════════════════════ */
 
 function getRating(Uw: number) {
-  if (Uw <= 0.8) return { label: "At or below 0.80 target band", color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.0) return { label: "0.81–1.00 performance band", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
-  if (Uw <= 1.3) return { label: "1.01–1.30 performance band", color: "text-teal", bg: "bg-teal/5 border-teal-border" };
-  if (Uw <= 1.8) return { label: "1.31–1.80 performance band", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
-  if (Uw <= 2.5) return { label: "1.81–2.50 performance band", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
-  return { label: "Above 2.50 W/m²K", color: "text-red-600", bg: "bg-red-50 border-red-200" };
+  if (Uw <= 0.8) return { label: "At or below 0.80 target band", color: "text-teal-text", bg: "bg-teal-bg2 border-teal-border" };
+  if (Uw <= 1.0) return { label: "0.81–1.00 performance band", color: "text-teal-text", bg: "bg-teal-bg border-teal-border" };
+  if (Uw <= 1.3) return { label: "1.01–1.30 performance band", color: "text-t1", bg: "bg-bg2 border-border-default" };
+  if (Uw <= 1.8) return { label: "1.31–1.80 performance band", color: "text-t1", bg: "bg-bg2 border-border-default" };
+  if (Uw <= 2.5) return { label: "1.81–2.50 performance band", color: "text-warn", bg: "bg-warn-bg border-warn-border" };
+  return { label: "Above 2.50 W/m²K", color: "text-fail", bg: "bg-fail-bg border-fail-border" };
 }
 
 /* ══════════════════════════════════════════════════════
@@ -485,7 +485,7 @@ export default function UValueCalculator() {
 
   const selectClass =
     "w-full rounded-control border border-border-default bg-white px-[12px] py-[10px] text-f14 text-t1 focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
-  const labelClass = "block text-f12 font-bold uppercase tracking-[2px] text-t3 mb-[6px]";
+  const labelClass = "mb-[6px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
   const inputClass =
     "w-full rounded-control border border-border-default bg-white px-[12px] py-[10px] text-f14 text-t1 text-center focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
 
@@ -513,7 +513,7 @@ export default function UValueCalculator() {
           <div className="space-y-[21px] rounded-card border border-border-default bg-white p-[34px] lg:col-start-1 lg:row-start-1">
             {/* One-click scenario presets */}
             <div className="flex flex-wrap items-center gap-[6px]">
-              <span className="text-f12 font-bold uppercase tracking-[2px] text-t3">Quick start:</span>
+              <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Quick start:</span>
               {PRESETS.map((p) => (
                 <button
                   key={p.id}
@@ -673,7 +673,7 @@ export default function UValueCalculator() {
               <>
                 {/* Main result */}
                 <div className={`rounded-card border p-[34px] text-center ${getRating(result.Uw).bg}`}>
-                  <span className="block text-f12 font-bold uppercase tracking-[2px] text-t3">
+                  <span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 block">
                     Whole-Window U<sub>w</sub>
                   </span>
                   <span className="mt-[8px] block text-f56 font-extrabold leading-none tracking-[-0.02em] text-t1">
@@ -687,7 +687,7 @@ export default function UValueCalculator() {
 
                 {/* Breakdown */}
                 <div className="rounded-card border border-border-default bg-white p-[21px]">
-                  <h4 className="mb-[13px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+                  <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[13px]">
                     Breakdown
                   </h4>
                   <dl className="space-y-[8px] text-f14">
@@ -731,7 +731,7 @@ export default function UValueCalculator() {
                       onClick={() => track("uvalue_product_click", { frame, isFRP: !!series })}
                       className="block rounded-card border border-teal/30 bg-white p-[21px] transition-colors hover:border-teal"
                     >
-                      <div className="text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                      <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                         {certificateMode ? "Certified reference inputs" : series ? "F1 makes this frame" : "Switch to F1 FRP"}
                       </div>
                       <div className="mt-[4px] text-f14 text-t2">
@@ -752,7 +752,7 @@ export default function UValueCalculator() {
                 <a
                   href={`/contact?source=u-value-calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
                   onClick={() => track("uvalue_quote_click", { frame })}
-                  className="block rounded-card bg-teal px-[16px] py-[12px] text-center text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+                  className="block rounded-control bg-teal-text px-[16px] py-[12px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
                   📧 Get a fenestration quote
                 </a>
@@ -775,7 +775,7 @@ export default function UValueCalculator() {
                 </button>
               </>
             ) : (
-              <div className="rounded-card border border-red-200 bg-red-50 p-[21px] text-f14 text-red-700">
+              <div className="rounded-card border border-fail-border bg-fail-bg p-[21px] text-f14 text-fail">
                 Window dimensions too small for the selected frame width. Increase width or height.
               </div>
             )}
@@ -789,7 +789,7 @@ export default function UValueCalculator() {
               {/* Comparison — vs aluminum baseline */}
               {baseline && improvement > 0 && (
                 <div className="rounded-card border border-teal-border bg-teal/5 p-[21px]">
-                  <h4 className="mb-[8px] text-f12 font-bold uppercase tracking-[2px] text-teal-text">
+                  <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
                     vs Aluminum (no break)
                   </h4>
                   <p className="text-f14 text-t2">
@@ -802,7 +802,7 @@ export default function UValueCalculator() {
 
               {/* Numeric target comparison; method/certification caveats are explicit. */}
               <div className="rounded-card border border-border-default bg-white p-[21px]">
-                <h4 className="mb-[8px] text-f12 font-bold uppercase tracking-[2px] text-t3">
+                <h4 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
                   Numeric Target Comparison — Not Compliance
                 </h4>
                 <div className="grid gap-x-[21px] gap-y-[6px] text-f12 sm:grid-cols-2 lg:grid-cols-1">

@@ -44,7 +44,7 @@ export default function AskAICard({
             </div>
             <Link
               href={href}
-              className="shrink-0 rounded-card bg-teal px-[21px] py-[13px] text-f14 font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-text"
+              className="shrink-0 rounded-control bg-teal-text px-[21px] py-[13px] text-f14 font-bold text-white transition-colors hover:bg-teal"
             >
               {ctaLabel}
             </Link>

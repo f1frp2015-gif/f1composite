@@ -172,7 +172,7 @@ function ClipFigure({ code, alt }: { code: GratingClipCode; alt: string }) {
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid gap-[3px] border-t border-border-default py-[8px] sm:grid-cols-[118px_1fr] sm:gap-[13px]">
-      <dt className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">{label}</dt>
+      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{label}</dt>
       <dd className="text-f14 leading-golden text-t2">{value}</dd>
     </div>
   );
@@ -218,7 +218,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
             >
               <div className="flex flex-wrap items-start justify-between gap-[10px] border-b border-border-default bg-bg2 px-[21px] py-[16px] sm:px-[34px]">
                 <div>
-                  <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">
+                  <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                     F1-GRID clip {clip.code}
                   </p>
                   <h3 className="mt-[4px] text-f18 font-bold text-t1">{clip.name}</h3>
@@ -283,7 +283,7 @@ export default function GratingClipGuide({ family }: { family: GratingClipFamily
           </div>
 
           <div className="rounded-card border border-border-default bg-deep p-[21px] text-white sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal">
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
               Combined CAD detail
             </p>
             <h3 className="mt-[8px] text-f18 font-bold">{familyDxf.name}</h3>

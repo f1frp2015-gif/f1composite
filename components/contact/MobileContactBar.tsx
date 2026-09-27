@@ -40,7 +40,7 @@ export default function MobileContactBar() {
     >
       <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[8px]">
         <Button href="/contact?source=mobile-contact-bar&inquiry_type=rfq" className="w-full px-[10px]">
-          Get a Quote
+          Get a quote
         </Button>
         <WhatsAppButton location="mobile-contact-bar" variant="outline" className="w-full" />
       </div>

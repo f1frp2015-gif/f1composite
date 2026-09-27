@@ -97,7 +97,7 @@ export function GuideDownloadGate({
         </button>
       </div>
       {status === "error" && (
-        <p className="mt-[8px] text-f12 text-red-600">
+        <p className="mt-[8px] text-f12 text-fail">
           {err}{" "}
           <a href={fileHref} download className="underline">
             Download directly instead

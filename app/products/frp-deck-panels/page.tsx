@@ -158,7 +158,7 @@ export default function FrpDeckPanelsPage() {
           </div>
 
           <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Need open drainage?</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Need open drainage?</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Use the separate pultruded FRP grating page.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
               It now contains the manual-derived T-bar, I-bar, high-load and high-open specification tables plus M/J/T hold-downs.
@@ -203,15 +203,15 @@ export default function FrpDeckPanelsPage() {
                   <h3 className="text-f18 font-bold text-t1">{spec.profile}</h3>
                   <dl className="mt-[13px] grid grid-cols-3 gap-[8px]">
                     <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">A</dt>
+                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">A</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.a}</dd>
                     </div>
                     <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">B</dt>
+                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">B</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.b}</dd>
                     </div>
                     <div className="rounded-control bg-bg2 p-[10px]">
-                      <dt className="text-f12 font-bold uppercase tracking-wide text-t3">t1 / t2</dt>
+                      <dt className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">t1 / t2</dt>
                       <dd className="mt-[3px] text-f14 font-semibold text-t1">{spec.t1t2}</dd>
                     </div>
                   </dl>

@@ -339,7 +339,7 @@ export default function PultrusionProcessPage() {
             ].map((s) => (
               <div key={s.label} className="rounded-card bg-bg2 px-[21px] py-[13px] text-center">
                 <span className="text-f24 font-extrabold text-teal-text">{s.value}</span>
-                <p className="mt-[3px] text-f12 font-bold uppercase tracking-[0.08em] text-t3">{s.label}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mt-[3px]">{s.label}</p>
               </div>
             ))}
           </div>
@@ -530,7 +530,7 @@ export default function PultrusionProcessPage() {
           <div className="mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
             {equipmentSpecs.map((spec) => (
               <div key={spec.parameter} className="rounded-card border border-border-default bg-white p-[21px]">
-                <p className="text-f12 font-bold uppercase tracking-[0.08em] text-t3">{spec.parameter}</p>
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{spec.parameter}</p>
                 <p className="mt-[5px] text-f18 font-extrabold text-t1">{spec.range}</p>
                 <p className="mt-[3px] text-f12 text-t3">{spec.note}</p>
               </div>

@@ -181,7 +181,7 @@ export default function DatasheetBuilder() {
   return (
     <section className="bg-white py-[55px]" id="datasheet-builder">
       <div className="site-container">
-        <div className="mb-[8px] text-f14 font-bold uppercase tracking-wide text-teal-text">
+        <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
           Datasheet Builder
         </div>
         <h2 className="mb-[13px] text-f24 font-bold text-t1">
@@ -247,7 +247,7 @@ export default function DatasheetBuilder() {
             <div className="grid gap-[13px] rounded-card border border-border-default bg-bg2 p-[21px] md:grid-cols-2 lg:grid-cols-3">
               {formulationGroups.map(({ label, items }) => (
                 <div key={label}>
-                  <div className="mb-[8px] text-f12 font-bold uppercase tracking-wide text-t3">
+                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3 mb-[8px]">
                     {label}
                   </div>
                   <div className="space-y-[4px]">
@@ -298,7 +298,7 @@ export default function DatasheetBuilder() {
               >
                 {submitting ? "Preparing…" : `Get catalog PDF (${pageCount} pages) →`}
               </button>
-              {gateError && <p className="w-full text-f14 text-red-600">{gateError}</p>}
+              {gateError && <p className="w-full text-f14 text-fail">{gateError}</p>}
               <p className="w-full text-f12 text-t3">
                 Multi-page catalog extracts ask for an email so we can send revised data when a
                 spec updates. Single datasheets download freely.

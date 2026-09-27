@@ -201,10 +201,10 @@ export default function WindowTypesGrid() {
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center gap-3">
-        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-11 rounded-card border border-border-default px-4 py-2 text-sm font-semibold text-teal-text disabled:cursor-default disabled:text-t3">
+        <button type="button" aria-pressed={animate} disabled={reducedMotion} onClick={() => setPlaying((current) => !current)} className="min-h-11 rounded-card border border-border-default px-4 py-2 text-f14 font-semibold text-teal-text disabled:cursor-default disabled:text-t3">
           {animate ? "Stop motion" : "Play opening diagrams"}
         </button>
-        <p className="text-xs text-t3">{reducedMotion ? "Static diagrams shown to respect your reduced-motion preference." : "Motion is optional. Stopping returns each diagram to its closed position."}</p>
+        <p className="text-f12 text-t3">{reducedMotion ? "Static diagrams shown to respect your reduced-motion preference." : "Motion is optional. Stopping returns each diagram to its closed position."}</p>
       </div>
       <div className="grid gap-[13px] sm:grid-cols-2 lg:grid-cols-3">
       {windowTypes.map(({ type, name, description }) => (

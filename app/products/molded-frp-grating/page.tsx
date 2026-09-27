@@ -182,7 +182,7 @@ export default function MoldedFrpGratingPage() {
         <div className="site-container mt-[34px] grid gap-[13px] sm:grid-cols-2 lg:grid-cols-4">
           {moldedAdvantages.map((item) => (
             <article key={item.label} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f12 font-bold uppercase tracking-[0.1em] text-teal-text">{item.label}</p>
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.label}</p>
               <h3 className="mt-[8px] text-f18 font-bold text-t1">{item.value}</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">{item.detail}</p>
             </article>
@@ -222,11 +222,11 @@ export default function MoldedFrpGratingPage() {
                       <caption className="sr-only">Molded grating nominal selection specifications</caption>
                       <thead>
                         <tr className="border-b-2 border-border-default">
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Depth (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Bar top / bottom (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Standard panel sizes (mm)</th>
-                          <th scope="col" className="py-[13px] pr-[21px] text-f12 font-bold uppercase tracking-wide text-t1">Weight (kg/m²)</th>
-                          <th scope="col" className="py-[13px] text-f12 font-bold uppercase tracking-wide text-t1">Open area</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Depth (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Bar top / bottom (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Standard panel sizes (mm)</th>
+                          <th scope="col" className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">Weight (kg/m²)</th>
+                          <th scope="col" className="py-[13px] text-f14 font-semibold text-t1">Open area</th>
                           <th scope="col" className="py-[13px] pl-[16px] text-f12 font-bold text-t1">Quotation</th>
                         </tr>
                       </thead>
@@ -323,7 +323,7 @@ export default function MoldedFrpGratingPage() {
       <section className="bg-deep py-[55px] text-white">
         <div className="site-container flex flex-col gap-[21px] lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal">Separate product family</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Separate product family</p>
             <h2 className="mt-[8px] text-[clamp(22px,3vw,30px)] font-extrabold">Need longer one-way spans or I-bar / T-bar panels?</h2>
             <p className="mt-[8px] max-w-[760px] text-f14 leading-golden text-white/75">
               Compare pultruded bearing-bar configurations, one-way span requirements and M/J/T fixing options.

@@ -166,7 +166,7 @@ export default function FiberglassPlatesPage() {
           </div>
 
           <aside className="rounded-card border border-teal-border bg-teal-bg p-[21px] sm:p-[34px]">
-            <p className="text-f12 font-bold uppercase tracking-[0.12em] text-teal-text">Source boundary</p>
+            <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Source boundary</p>
             <h3 className="mt-[8px] text-f18 font-bold text-t1">Values are published exactly as supplied.</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">{fiberglassPlateSourceNote}</p>
             <a
@@ -222,7 +222,7 @@ export default function FiberglassPlatesPage() {
                             "t1 / t2",
                             "Source ID",
                           ].map((heading) => (
-                            <th key={heading} className="pb-[8px] pr-[13px] text-f12 font-bold uppercase tracking-wide text-t3 last:pr-0">
+                            <th key={heading} className="pb-[8px] pr-[13px] text-f14 font-semibold text-t3 last:pr-0">
                               {heading}
                             </th>
                           ))}

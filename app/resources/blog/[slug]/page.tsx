@@ -134,7 +134,7 @@ function renderArticleContent(content: string) {
             <thead>
               <tr className="border-b-2 border-border-default">
                 {headerCells.map((cell, ci) => (
-                  <th key={ci} className="py-[13px] pr-[21px] text-f14 font-bold uppercase tracking-wide text-t1">
+                  <th key={ci} className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
                     {renderInlineMarkdown(cell, `table-head-${index}-${ci}`)}
                   </th>
                 ))}
@@ -370,7 +370,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 aria-label="Article summary"
                 className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
               >
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-teal-text">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   TL;DR
                 </p>
                 <blockquote className="mt-[8px] text-f16 leading-golden text-t1">
@@ -384,7 +384,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 aria-label="Master comparison page"
                 className="mt-[13px] max-w-[800px] rounded-card border border-teal-border bg-white p-[21px]"
               >
-                <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                   Part of a larger comparison
                 </p>
                 <p className="mt-[8px] text-f14 leading-golden text-t2">
@@ -400,7 +400,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             ) : null}
 
             <div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Why This Article Matters
               </p>
               <div className="mt-[13px] grid gap-[8px] sm:grid-cols-3">
@@ -513,7 +513,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           <aside className="space-y-[21px] lg:sticky lg:top-[34px] lg:self-start">
             <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Quick Signals
               </p>
               <div className="mt-[13px] space-y-[13px]">
@@ -527,7 +527,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-card border border-border-default bg-white p-[21px]">
-              <p className="text-f12 font-semibold uppercase tracking-[0.08em] text-t3">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
                 Need Project Support
               </p>
               <p className="mt-[8px] text-f14 leading-golden text-t2">
@@ -536,7 +536,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </p>
               <Link
                 href="/contact"
-                className="mt-[13px] inline-flex rounded-control bg-teal px-[13px] py-[8px] text-f14 font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-teal-text"
+                className="mt-[13px] inline-flex rounded-control bg-teal-text px-[13px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Talk to Engineering
               </Link>
