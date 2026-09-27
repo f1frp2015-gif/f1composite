@@ -181,7 +181,7 @@ export default function PolyurethanePultrusionWindowsPage() {
         }
         updated={updatedAt}
         tag="Material Technology"
-        title="Polyurethane Pultrusion Windows (GFRP-PU)"
+        title="Polyurethane pultrusion windows (GFRP-PU)"
         description="Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers."
         breadcrumbs={[
           { label: "Home", href: "/" },

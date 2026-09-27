@@ -32,7 +32,7 @@ export default function RebarPage() {
       updated={catalog.revision}
       tag="Concrete reinforcement"
       line={{ name: "GFRP reinforcement", mark: false }}
-      title="FRP Rebar for Concrete Reinforcement"
+      title="FRP rebar for concrete reinforcement"
       description="GFRP straight bars, factory-formed stirrups and reinforcement mesh. Start with your concrete application, then confirm the bar grade, dimensions and documents for your project."
       facts={[
         { label: "Straight bars", value: `${catalog.diameters.length} diameters, ${diameters}` },

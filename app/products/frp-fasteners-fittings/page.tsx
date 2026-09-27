@@ -59,7 +59,7 @@ export default function FastenersFittingsPage() {
         updated={updatedAt}
         tag="Connections"
         line={{ name: "Connections", mark: false }}
-        title="FRP Fasteners and Fittings"
+        title="FRP fasteners and fittings"
         description="Specify the connection as a complete set: fiberglass threaded rods, matching nuts, washers and molded fittings for industrial FRP assemblies. Compare the catalog range and send your joint requirements for a project quotation."
         facts={[
           { label: "UNC rods", value: `${uncSizes[0]}–${uncSizes[uncSizes.length - 1]}` },

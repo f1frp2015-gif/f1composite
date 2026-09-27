@@ -280,7 +280,7 @@ export default function FrpVsTraditionalPage() {
       <PageHeader
         updated={updatedAt}
         tag="Material Comparison"
-        title="FRP vs Steel, Aluminum, Timber & Concrete"
+        title="FRP vs steel, aluminum, timber and concrete"
         description="Pultruded glass-fiber FRP weighs about a quarter as much as steel (1.8–2.1 g/cm³ against 7.85) and reaches 350–700 MPa tensile strength, in the range of structural steel. Its elastic modulus is only 20–40 GPa, against 200 GPa for steel and 69 GPa for aluminum, so deflection usually governs an FRP design. FRP does not rust or conduct electricity and conducts little heat, but its resin softens at high temperature, so fire exposure needs separate review."
         breadcrumbs={[
           { label: "Home", href: "/" },

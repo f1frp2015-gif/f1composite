@@ -91,7 +91,7 @@ export default function ResourcesPage() {
       <JsonLd data={resourceSchema} />
       <PageHeader
         tag="Resources"
-        title="Knowledge Hub"
+        title="Knowledge hub"
         description="Technical data, design guidance, and expert insights to support your FRP composite project from concept to completion."
         breadcrumbs={[
           { label: "Home", href: "/" },

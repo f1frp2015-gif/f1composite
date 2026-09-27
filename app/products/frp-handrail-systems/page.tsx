@@ -163,7 +163,7 @@ export default function HandrailSystemsPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Handrail systems"
         line={{ name: "F1-STRUX", label: "Handrail systems" }}
-        title="Fiberglass Handrail and Guardrail Systems"
+        title="Fiberglass handrail and guardrail systems"
         description="Industrial FRP handrail systems in square- and round-tube configurations, with posts, top and middle rails, kick plates, splices, molded fittings and base options. Manual-verified nominal specifications are separated from the project load, connection and anchor design."
         facts={[
           { label: "Systems", value: "Square and round tube" },

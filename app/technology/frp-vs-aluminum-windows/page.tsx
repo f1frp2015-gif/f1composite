@@ -109,7 +109,7 @@ export default function FrpVsAluminumWindowsPage() {
       <JsonLd data={webPageSchema} />
       <PageHeader
         tag="Material Comparison"
-        title="FRP vs Aluminum Window Frames"
+        title="FRP vs aluminum window frames"
         description="Thermal performance, lifecycle cost, condensation risk, and passive house suitability compared. Why pultruded fiberglass frames outperform even premium thermally-broken aluminum on every metric that matters to energy code compliance."
         breadcrumbs={[
           { label: "Home", href: "/" },

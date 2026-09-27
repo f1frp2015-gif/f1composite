@@ -110,7 +110,7 @@ export default function FrpVsPvcWindowsPage() {
       <JsonLd data={webPageSchema} />
       <PageHeader
         tag="Material Comparison"
-        title="FRP vs PVC Window Frames"
+        title="FRP vs PVC window frames"
         description="Thermal performance, structural capacity, UV stability, dimensional stability, and fire safety compared. When PVC is genuinely the right choice, and when only pultruded FRP meets the requirement."
         breadcrumbs={[
           { label: "Home", href: "/" },

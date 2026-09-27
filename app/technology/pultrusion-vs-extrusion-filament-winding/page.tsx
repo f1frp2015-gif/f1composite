@@ -134,7 +134,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Manufacturing Process Comparison"
-        title="Pultrusion vs Extrusion vs Filament Winding"
+        title="Pultrusion vs extrusion vs filament winding"
         description="Three continuous composite/plastic manufacturing processes are often confused because they all push or pull material through a die or mandrel. Here's how they actually differ, and which shapes each one can and cannot make."
         breadcrumbs={[
           { label: "Home", href: "/" },

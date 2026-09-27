@@ -294,7 +294,7 @@ export default function FiberglassRebarVsSteelPage() {
       <PageHeader
         updated={updatedAt}
         tag="Evidence-Based Comparison"
-        title="Fiberglass Rebar vs Steel"
+        title="Fiberglass rebar vs steel"
         description="GFRP rebar does not rust and weighs about a quarter as much as steel (specific gravity 1.92 against 7.85). In a University of Kentucky program for FHWA, GFRP bars reached 612 MPa mean ultimate strength against 487 MPa yield and 653 MPa ultimate for steel, but their modulus was 40 GPa against 196 GPa, about one-fifth of the stiffness, with no yield plateau. It is not a one-for-one substitute: crack width and deflection usually govern, so bar size, spacing, cover and laps are recalculated to ACI CODE-440.11 or the governing code."
         breadcrumbs={[
           { label: "Home", href: "/" },

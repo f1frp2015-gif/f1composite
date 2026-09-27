@@ -171,7 +171,7 @@ export default function KnowhowServicesPage() {
             </div>
           </Figure>
         }
-        title="Pultrusion Expertise, Transferred to Your Operation"
+        title="Pultrusion expertise, transferred to your operation"
         description="We do more than manufacture FRP profiles. We transfer the engineering knowledge, process recipes, and quality systems that enable our partners to build their own pultrusion capability."
         breadcrumbs={[
           { label: "Home", href: "/" },

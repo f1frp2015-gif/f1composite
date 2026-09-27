@@ -164,7 +164,7 @@ export default function StairTreadCoversPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Stair treads"
         line={{ name: "F1-GRID", label: "Stair treads" }}
-        title="FRP Stair Treads & Fiberglass Stair Tread Covers"
+        title="FRP stair treads and fiberglass stair tread covers"
         description="Choose a thin anti-slip cover for a sound existing stair, a molded grating tread for drainage and bidirectional layouts, or a pultruded T-bar tread for longer one-way spans. Reference sizes, decision gates and RFQ inputs are organized below."
         facts={[
           { label: "Tread families", value: "Cover, molded, T-bar" },

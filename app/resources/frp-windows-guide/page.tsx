@@ -161,7 +161,7 @@ export default function FrpWindowsGuidePage() {
       />
       <PageHeader
         tag="Buyer Journey Library"
-        title="The FRP Windows Guide"
+        title="The FRP windows guide"
         description={`Everything on this site about fiberglass windows and doors: ${articleCount} articles, the tools, the comparison and market pages, and ${windowProjects.length} project case studies, in the order a fenestration project asks the questions.`}
         breadcrumbs={[
           { label: "Home", href: "/" },

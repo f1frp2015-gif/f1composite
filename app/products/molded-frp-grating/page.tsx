@@ -139,7 +139,7 @@ export default function MoldedFrpGratingPage() {
         })}
       />
 
-      <GratingHero family="molded" title="Molded FRP Grating — Square & Mini Mesh"
+      <GratingHero family="molded" title="Molded FRP grating: square and mini mesh"
         description="Compare molded fiberglass grating by mesh, depth, panel size and surface. Select a configuration for your project quotation, with matched M/C/J stainless-steel clips."
         image={moldedGratingManualImageAssets.closeup} imageAlt="Green molded fiberglass square mesh with a gritted surface"
         caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."

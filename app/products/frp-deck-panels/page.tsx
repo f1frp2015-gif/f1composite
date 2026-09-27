@@ -125,7 +125,7 @@ export default function FrpDeckPanelsPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Deck panels"
         line={{ name: "F1-STRUX", label: "Deck panels" }}
-        title="Structural FRP Deck Panels — 12 Cross-Section Families"
+        title="Structural FRP deck panels: 12 cross-section families"
         description="Closed-profile fiberglass deck panels separated from open pultruded grating — compare 12 neutral section drawings, nominal A/B/t1/t2 values, joint geometry and project-release requirements."
         facts={[
           { label: "Section families", value: String(frpDeckPanelSpecs.length) },

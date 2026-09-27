@@ -96,7 +96,7 @@ export default function PultrusionResinSystemsPage() {
           </Figure>
         }
         tag="Materials Science"
-        title="Pultrusion Resin Systems: Choosing the Right Matrix"
+        title="Pultrusion resin systems: choosing the right matrix"
         description="The glass fiber gives a pultruded FRP profile its stiffness: the resin matrix decides whether it survives the chemicals, the heat, the fire code, and the decades. This guide compares the five thermoset systems we pultrude and shows how to match a matrix to your project."
         breadcrumbs={[
           { label: "Home", href: "/" },

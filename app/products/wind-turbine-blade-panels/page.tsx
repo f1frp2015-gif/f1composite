@@ -105,7 +105,7 @@ export default function WindTurbineBladePanelsPage() {
       <PageHeader
         tag="Wind blade panels"
         line={{ name: "Wind energy", label: "Blade panels", mark: false }}
-        title="Wind Turbine Blade Panels — GFRP, CFRP & Carbon-Glass Hybrid"
+        title="Wind turbine blade panels: GFRP, CFRP and carbon-glass hybrid"
         description="Pultruded composite panels for wind turbine blade spar caps and reinforcement programs, supplied in glass fiber, carbon fiber and carbon-glass hybrid architectures with project-specific cut lengths."
         facts={[
           { label: "Programs", value: "GFRP, CFRP, hybrid" },

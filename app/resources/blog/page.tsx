@@ -37,7 +37,7 @@ export default function BlogPage() {
       <JsonLd data={blogSchema} />
       <PageHeader
         tag="Blog"
-        title="Engineering Insights"
+        title="Engineering insights"
         description="Technical articles and industry perspectives from the F1 Composite engineering team."
         breadcrumbs={[
           { label: "Home", href: "/" },

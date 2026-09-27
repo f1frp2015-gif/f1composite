@@ -98,7 +98,7 @@ export default async function DownloadsPage() {
       <JsonLd data={downloadsSchema} />
       <PageHeader
         tag="Downloads"
-        title="Document Library"
+        title="Document library"
         description="Product catalogs, certifications, CAD files, and technical documents available for download."
         breadcrumbs={[
           { label: "Home", href: "/" },

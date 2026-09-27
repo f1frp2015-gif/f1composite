@@ -117,7 +117,7 @@ export default function FactoryDirectPultrusionPage() {
         updated={updatedAt}
         reviewer={reviewerCredit(reviewer)}
         tag="Manufacturing"
-        title="FRP Pultrusion Manufacturer for Factory-Direct Global Projects"
+        title="FRP pultrusion manufacturer for factory-direct global projects"
         description="Judge a pultruded FRP supplier on engineering evidence, process controls, tooling, inspection records and landed cost as well as unit price. F1 Composite handles standard and custom profile supply from drawing review to FOB or DDP delivery."
         facts={[
           { label: "Pultrusion lines", value: String(company.production.lines) },

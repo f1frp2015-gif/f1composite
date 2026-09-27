@@ -85,7 +85,7 @@ export default function DesignGuidesPage() {
       <JsonLd data={guideSchema} />
       <PageHeader
         tag="Design Guides"
-        title="Engineering Design Resources"
+        title="Engineering design resources"
         description="Practical design guidance developed by our engineering team to help you specify and detail FRP composite structures with confidence."
         breadcrumbs={[
           { label: "Home", href: "/" },

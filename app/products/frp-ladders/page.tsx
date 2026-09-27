@@ -157,7 +157,7 @@ export default function FrpLaddersPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Fixed ladders"
         line={{ name: "F1-STRUX", label: "Fixed ladders" }}
-        title="Fiberglass Fixed Ladders and FRP Access Systems"
+        title="Fiberglass fixed ladders and FRP access systems"
         description="Industrial fixed FRP / GRP ladder assemblies with pultruded side rails, fluted rungs, mounting brackets, optional cage components and separate C/U rung-cover retrofits. Nominal catalog dimensions are shown below; the approved project drawing controls fabrication and fall-protection interfaces."
         facts={[
           { label: "Side rails", value: "50.8 mm square tube" },

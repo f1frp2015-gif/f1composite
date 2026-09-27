@@ -190,7 +190,7 @@ export default function FrpSoundBarrierWallPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Noise barriers"
         line={{ name: "Noise barriers", label: "Wall panels", mark: false }}
-        title="FRP Sound Barrier Wall Panels"
+        title="FRP sound barrier wall panels"
         description="Project-engineered FRP sound barrier wall panels for highways, railways, industrial equipment and utility sites. Configure reflective or absorptive fiberglass noise barriers with coordinated posts, joints, closures, finishes and foundation interfaces."
         facts={[
           { label: "Configurations", value: "Reflective or absorptive" },

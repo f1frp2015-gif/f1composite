@@ -108,7 +108,7 @@ export default function FrpVsSteelGratingsPage() {
       <PageHeader
         updated={updatedAt}
         tag="Material Comparison"
-        title="FRP Grating vs Steel Grating"
+        title="FRP grating vs steel grating"
         description="FRP grating weighs about half as much as galvanized steel bar grating (14–22 kg/m² for 38 mm molded FRP against 34–48 kg/m² for 25 mm steel bar), does not rust and does not conduct electricity. Galvanized steel costs less per square meter and carries higher concentrated wheel loads (90–180 kN against 45–90 kN for pultruded FRP). FRP pays off where corrosion, wet footing or electrical safety drive the choice; steel remains the usual choice for dry areas with heavy vehicles."
         breadcrumbs={[
           { label: "Home", href: "/" },

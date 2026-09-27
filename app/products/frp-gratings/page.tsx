@@ -187,7 +187,7 @@ export default function PultrudedGratingsPage() {
         })}
       />
 
-      <GratingHero family="pultruded" title="Pultruded FRP Grating — T-Bar & I-Bar"
+      <GratingHero family="pultruded" title="Pultruded FRP grating: T-bar and I-bar"
         description="Select pultruded fiberglass grating for one-way spans, industrial platforms and walkways. Compare 36 T-bar, I-bar and specialty configurations with matched M/J/T clips."
         image={pultrudedGratingManualImages.closeup} imageAlt="Yellow pultruded fiberglass bearing bars and transverse cross-rods"
         caption="Product construction reference. Confirm resin, surface and final geometry for the selected configuration."

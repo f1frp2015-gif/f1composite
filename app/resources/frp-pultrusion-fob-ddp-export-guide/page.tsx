@@ -144,7 +144,7 @@ export default function DdpTariffHsCodeGuidePage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         tag="Import & Trade Compliance"
-        title="FRP Pultrusion FOB & DDP Export Guide"
+        title="FRP pultrusion FOB and DDP export guide"
         description="A practical guide to Incoterms, HS/HTSUS classification, and Section 301 tariff exposure for buyers importing pultruded FRP profiles, so the price you are quoted is the price that lands at your jobsite."
         updated={updatedAt}
         reviewer={reviewerCredit(authorsBySlug["yifan-liu"])}

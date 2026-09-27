@@ -185,7 +185,7 @@ export default async function IBeamPage() {
         line={{ name: "F1-STRUX", label: "I-beam" }}
         updated={LAST_UPDATED}
         reviewer={REVIEWER}
-        title="Fiberglass I-Beam (FRP) Profiles"
+        title="Fiberglass I-beam (FRP) profiles"
         description="Wide-flange pultruded fiberglass I-beams from 76×38 to 305×305 mm, 68–83% lighter than a steel section of the same depth. They do not rust, and deflection rather than strength usually decides the size."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
