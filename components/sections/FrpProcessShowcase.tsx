@@ -1,6 +1,6 @@
 import Link from "next/link";
-import SectionTag from "@/components/ui/SectionTag";
-import LinkArrow from "@/components/ui/LinkArrow";
+import PageSection from "@/components/layout/PageSection";
+import { company } from "@/content/data/company";
 
 /**
  * Animated icon showcase of the six FRP manufacturing processes.
@@ -181,94 +181,91 @@ const otherProcesses = [
   {
     name: "Filament winding",
     icon: <FilamentWindingIcon />,
-    body: "Continuous fibers wound helically around a rotating mandrel — the route to pipes, tanks, and pressure vessels.",
+    body: "Continuous fibers wound helically around a rotating mandrel: the route to pipes, tanks and pressure vessels.",
     href: "/technology/pultrusion-vs-extrusion-filament-winding",
     linkLabel: "vs pultrusion",
   },
   {
     name: "Compression molding (SMC/BMC)",
     icon: <CompressionMoldingIcon />,
-    body: "Pre-compounded sheet or bulk charge pressed in a heated matched die — high-volume parts like enclosures and covers.",
+    body: "Pre-compounded sheet or bulk charge pressed in a heated matched die, for high-volume parts like enclosures and covers.",
   },
   {
     name: "Hand lay-up",
     icon: <HandLayupIcon />,
-    body: "Fabric laid into an open mold and wetted out by hand roller — low tooling cost, one-off and large parts.",
+    body: "Fabric laid into an open mold and wetted out by hand roller: low tooling cost, for one-off and large parts.",
   },
   {
     name: "Vacuum infusion",
     icon: <VacuumInfusionIcon />,
-    body: "Dry fabric stack under a vacuum bag, resin drawn through by vacuum — boat hulls, blades, large panels.",
+    body: "A dry fabric stack under a vacuum bag, with resin drawn through by vacuum, for boat hulls, blades and large panels.",
   },
   {
     name: "RTM (resin transfer molding)",
     icon: <RtmIcon />,
-    body: "Resin injected into a closed matched mold under pressure — two finished faces, mid-volume structural parts.",
+    body: "Resin injected into a closed matched mold under pressure: two finished faces, for mid-volume structural parts.",
   },
 ];
 
-export default function FrpProcessShowcase() {
+export default function FrpProcessShowcase({ tone = "white" }: { tone?: "white" | "muted" }) {
+  const card = tone === "white" ? "bg-bg2" : "bg-white";
   return (
-    <section id="processes" className="bg-white py-[55px]">
-      <div className="site-container">
-        <SectionTag>Manufacturing Processes</SectionTag>
-        <h2 className="mt-[13px] text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15] text-t1">
-          How is FRP made? Six processes at a glance
-        </h2>
-        <p className="mt-[21px] text-f16 leading-golden text-t2">
-          The same glass-fiber-plus-resin material becomes very different
-          products depending on how it is formed. Six processes cover most of
-          the FRP world — and one of them, pultrusion, is the route to every
-          structural profile, window frame, and grating on this site.
-        </p>
-
-        <div className="mt-[34px] grid gap-[21px] sm:grid-cols-2 lg:grid-cols-3">
-          {/* Pultrusion — the funnel card */}
+    <PageSection
+      id="processes"
+      title="How is FRP made? Six processes at a glance"
+      tone={tone}
+      intro="The same glass-fiber-plus-resin material becomes very different products depending on how it is formed. Six processes cover most of the FRP world, and one of them, pultrusion, is the route to every structural profile, window frame and grating on this site."
+    >
+      <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
+        {/* Pultrusion: the process F1 runs, so its card leads to the process page */}
+        <li className="sm:col-span-2 lg:col-span-1">
           <Link
             href="/technology/pultrusion-process"
-            className="group relative rounded-card border-2 border-teal bg-teal-bg p-[21px] transition-all duration-[0.34s] hover:-translate-y-[2px] hover:shadow-card sm:col-span-2 lg:col-span-1"
+            className="group relative block h-full rounded-card border border-teal-border bg-teal-bg p-[20px] transition-[border-color,box-shadow] duration-200 hover:border-teal hover:shadow-card sm:p-[24px]"
           >
-            <span className="absolute right-[13px] top-[13px] rounded-tag bg-deep/85 px-[8px] py-[3px] font-mono text-f12 uppercase tracking-[0.06em] text-white">
-              Our process · 370 lines
+            <span className="absolute right-[12px] top-[12px] rounded-tag bg-deep px-[8px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-white">
+              Our process · {company.production.lines} lines
             </span>
             <PultrusionIcon />
-            <h3 className="mt-[13px] text-f18 font-bold text-t1">Pultrusion</h3>
+            <h3 className="mt-[12px] text-f18 font-bold text-t1 transition-colors group-hover:text-teal-text">Pultrusion</h3>
             <p className="mt-[8px] text-f14 leading-golden text-t2">
-              Continuous fibers pulled through a resin bath and a heated die —
-              constant cross-sections at industrial throughput. This is the
-              process behind every F1 profile, from I-beams to PHI-certified
-              window frames.
+              Continuous fibers pulled through a resin bath or injection box and a heated die,
+              making constant cross-sections at industrial throughput. It is the process behind
+              every F1 profile, from I-beams to PHI-certified window frames.
             </p>
-            <span className="mt-[13px] block text-f14 font-semibold text-teal-text opacity-80 transition-opacity duration-[0.34s] group-hover:opacity-100">
-              See the process step by step →
+            <span className="mt-[12px] block text-f14 font-semibold text-teal-text">
+              See the process step by step <span aria-hidden="true">→</span>
             </span>
           </Link>
+        </li>
 
-          {otherProcesses.map((p) => (
-            <div key={p.name} className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              {p.icon}
-              <h3 className="mt-[13px] text-f18 font-bold text-t1">{p.name}</h3>
-              <p className="mt-[8px] text-f14 leading-golden text-t2">{p.body}</p>
-              {p.href ? (
-                <Link
-                  href={p.href}
-                  className="mt-[8px] inline-block text-f14 font-semibold text-teal-text hover:underline"
-                >
-                  How it compares {p.linkLabel} →
-                </Link>
-              ) : null}
-            </div>
-          ))}
-        </div>
+        {otherProcesses.map((p) => (
+          <li key={p.name} className={`rounded-card border border-border-default p-[20px] sm:p-[24px] ${card}`}>
+            {p.icon}
+            <h3 className="mt-[12px] text-f18 font-bold text-t1">{p.name}</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">{p.body}</p>
+            {p.href ? (
+              <Link href={p.href} className="mt-[4px] inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:underline">
+                How it compares {p.linkLabel} <span aria-hidden="true" className="ml-[4px]">→</span>
+              </Link>
+            ) : null}
+          </li>
+        ))}
+      </ul>
 
-        <div className="mt-[34px] flex flex-wrap gap-[13px]">
-          <LinkArrow href="/technology/pultrusion-process">The pultrusion process in 6 stages</LinkArrow>
-          <LinkArrow href="/pultruded-frp-profiles">Browse pultruded FRP profiles</LinkArrow>
-          <LinkArrow href="/technology/pultrusion-vs-extrusion-filament-winding">
-            Pultrusion vs extrusion vs filament winding
-          </LinkArrow>
-        </div>
-      </div>
-    </section>
+      <ul className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[4px] text-f14 font-semibold">
+        {[
+          { href: "/technology/pultrusion-process", label: "The pultrusion process in six stages" },
+          { href: "/pultruded-frp-profiles", label: "Browse pultruded FRP profiles" },
+          { href: "/technology/pultrusion-vs-extrusion-filament-winding", label: "Pultrusion vs extrusion vs filament winding" },
+        ].map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="inline-flex min-h-[44px] items-center text-teal-text hover:underline">
+              {link.label} <span aria-hidden="true" className="ml-[4px]">→</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </PageSection>
   );
 }

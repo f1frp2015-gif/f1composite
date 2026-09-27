@@ -4,6 +4,8 @@ import { formatShortDate as formatDate } from "@/lib/dates";
 type ArticleSignalsProps = {
   publishedAt: string;
   updatedAt: string;
+  /** e.g. "14 min" */
+  readTime?: string;
   authorName: string;
   authorRole: string;
   authorHref?: string;
@@ -11,9 +13,17 @@ type ArticleSignalsProps = {
   standards?: string[];
 };
 
+const label = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+const value = "mt-[2px] text-f14 font-semibold text-t1";
+
+/**
+ * The article's editorial record under its header: dates, author, reviewer and
+ * the standards it cites, set like the page header's key figures.
+ */
 export default function ArticleSignals({
   publishedAt,
   updatedAt,
+  readTime,
   authorName,
   authorRole,
   authorHref,
@@ -21,71 +31,55 @@ export default function ArticleSignals({
   standards = [],
 }: ArticleSignalsProps) {
   return (
-    <section className="bg-white py-[13px]">
-      <div className="site-container">
-        <div className="border-y border-border-default py-[10px]">
-          <div className="grid gap-[10px] lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-            <div className="grid gap-[6px] sm:grid-cols-2 xl:grid-cols-4">
-              <div>
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  Published
-                </p>
-                <p className="mt-[2px] text-f14 font-semibold text-t1">
-                  {formatDate(publishedAt)}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  Updated
-                </p>
-                <p className="mt-[2px] text-f14 font-semibold text-t1">
-                  {formatDate(updatedAt)}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  Author
-                </p>
-                {authorHref ? (
-                  <Link
-                    href={authorHref}
-                    className="mt-[2px] block text-f14 font-semibold text-teal-text transition-colors hover:text-teal"
-                  >
-                    {authorName}
-                  </Link>
-                ) : (
-                  <p className="mt-[2px] text-f14 font-semibold text-t1">{authorName}</p>
-                )}
-                <p className="mt-[1px] text-f12 text-t3">{authorRole}</p>
-              </div>
-              <div>
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  Technical Review
-                </p>
-                <p className="mt-[2px] text-f14 font-semibold text-t1">
-                  {reviewedBy ?? authorName}
-                </p>
-                <p className="mt-[1px] text-f12 text-t3">Standards and application check</p>
-              </div>
-            </div>
-
-            <div>
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Standards and References
-              </p>
-              <div className="mt-[5px] flex flex-wrap gap-[5px]">
+    <section aria-label="Article details" className="border-b border-border-default bg-white">
+      <div className="site-container py-[16px]">
+        <dl className="grid grid-cols-2 gap-x-[24px] gap-y-[12px] sm:grid-cols-4 lg:gap-x-[40px]">
+          <div>
+            <dt className={label}>Published</dt>
+            <dd className={value}>
+              <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
+              {readTime ? <span className="font-normal text-t3"> · {readTime} read</span> : null}
+            </dd>
+          </div>
+          <div>
+            <dt className={label}>Updated</dt>
+            <dd className={value}>
+              <time dateTime={updatedAt}>{formatDate(updatedAt)}</time>
+            </dd>
+          </div>
+          <div>
+            <dt className={label}>Author</dt>
+            <dd className={value}>
+              {authorHref ? (
+                <Link href={authorHref} className="text-teal-text hover:underline">
+                  {authorName}
+                </Link>
+              ) : (
+                authorName
+              )}
+              <span className="block text-f12 font-normal text-t3">{authorRole}</span>
+            </dd>
+          </div>
+          <div>
+            <dt className={label}>Technical review</dt>
+            <dd className={value}>
+              {reviewedBy ?? authorName}
+              <span className="block text-f12 font-normal text-t3">Standards and application check</span>
+            </dd>
+          </div>
+          {standards.length ? (
+            <div className="col-span-2 sm:col-span-4">
+              <dt className={label}>Standards and references</dt>
+              <dd className="mt-[4px] flex flex-wrap gap-[6px]">
                 {standards.map((standard) => (
-                  <span
-                    key={standard}
-                    className="rounded-full border border-border-default bg-bg2 px-[8px] py-[2px] text-f12 font-medium text-t2"
-                  >
+                  <span key={standard} className="rounded-tag border border-border-default bg-bg2 px-[8px] py-[3px] text-f12 font-medium text-t1">
                     {standard}
                   </span>
                 ))}
-              </div>
+              </dd>
             </div>
-          </div>
-        </div>
+          ) : null}
+        </dl>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
 import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
-import AskAICard from "@/components/ai/AskAICard";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
@@ -96,6 +96,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+// Anchors for the article's own headings, used by the contents list beside it.
+function headingId(text: string) {
+  return text.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+}
+
+// The article's related links, grouped by where they lead.
+function relatedGroups(links: Array<{ label: string; href: string }>) {
+  const kind = (href: string) =>
+    /^\/(products|pultruded-frp-profiles)/.test(href) ? "Products"
+      : /^\/(industries|applications|case-studies)/.test(href) ? "Applications"
+        : /^\/(technology|resources|what-is-frp)/.test(href) && !href.startsWith("/technology/frp-u-value-calculator") ? "Guides"
+          : "Tools and help";
+  const order = ["Products", "Applications", "Guides", "Tools and help"];
+  return order
+    .map((title) => ({ title, links: links.filter((link) => kind(link.href) === title) }))
+    .filter((group) => group.links.length > 0);
+}
+
 function renderArticleContent(content: string) {
   const blocks = content.split("\n\n");
   const result: React.ReactNode[] = [];
@@ -129,12 +147,12 @@ function renderArticleContent(content: string) {
       );
 
       result.push(
-        <div key={index} className="my-[21px] overflow-x-auto">
-          <table className="w-full border-collapse text-left">
+        <div key={index} className="relative my-[24px] overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[520px] border-collapse text-left text-f14">
             <thead>
-              <tr className="border-b-2 border-border-default">
+              <tr className="border-b border-border-default bg-bg2">
                 {headerCells.map((cell, ci) => (
-                  <th key={ci} className="py-[13px] pr-[21px] text-f14 font-semibold text-t1">
+                  <th key={ci} scope="col" className="px-[14px] py-[8px] font-semibold text-t1">
                     {renderInlineMarkdown(cell, `table-head-${index}-${ci}`)}
                   </th>
                 ))}
@@ -142,12 +160,18 @@ function renderArticleContent(content: string) {
             </thead>
             <tbody>
               {dataRows.map((row, ri) => (
-                <tr key={ri} className="border-b border-border-default">
-                  {row.map((cell, ci) => (
-                    <td key={ci} className={`py-[13px] pr-[21px] text-f16 ${ci === 0 ? "font-medium text-t1" : "text-t2"}`}>
-                      {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
-                    </td>
-                  ))}
+                <tr key={ri} className="border-b border-border-default align-top last:border-b-0">
+                  {row.map((cell, ci) =>
+                    ci === 0 ? (
+                      <th key={ci} scope="row" className="px-[14px] py-[10px] font-semibold text-t1">
+                        {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
+                      </th>
+                    ) : (
+                      <td key={ci} className="px-[14px] py-[10px] leading-golden text-t2">
+                        {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
+                      </td>
+                    ),
+                  )}
                 </tr>
               ))}
             </tbody>
@@ -160,9 +184,10 @@ function renderArticleContent(content: string) {
     i++;
 
     if (paragraph.startsWith("## ")) {
+      const heading = paragraph.replace("## ", "");
       result.push(
-        <h2 key={index} className="mb-[13px] mt-[34px] text-f24 font-bold text-t1">
-          {paragraph.replace("## ", "")}
+        <h2 key={index} id={headingId(heading)} className="mb-[12px] mt-[40px] text-f24 font-bold leading-[1.25] text-t1 first:mt-0">
+          {heading}
         </h2>
       );
       continue;
@@ -170,7 +195,7 @@ function renderArticleContent(content: string) {
 
     if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
       result.push(
-        <h3 key={index} className="mb-[8px] mt-[21px] text-f16 font-bold text-t1">
+        <h3 key={index} className="mb-[8px] mt-[24px] text-f18 font-bold text-t1">
           {paragraph.replace(/\*\*/g, "")}
         </h3>
       );
@@ -180,12 +205,12 @@ function renderArticleContent(content: string) {
     const linkBlockMatch = paragraph.match(/^\[(.+?)\]\((.+?)\)$/);
     if (linkBlockMatch) {
       result.push(
-        <p key={index} className="my-[21px]">
+        <p key={index} className="my-[24px]">
           <a
             href={linkBlockMatch[2]}
             target={linkBlockMatch[2].startsWith("/") ? undefined : "_blank"}
             rel={linkBlockMatch[2].startsWith("/") ? undefined : "noopener noreferrer"}
-            className="inline-flex items-center gap-[8px] rounded-control border border-teal bg-teal/5 px-[16px] py-[12px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal/10"
+            className="inline-flex min-h-[46px] items-center gap-[8px] rounded-control border border-teal-border bg-teal-bg px-[16px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal-bg2"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path d="M4 14V2h8l2 3v9H4z" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -201,7 +226,7 @@ function renderArticleContent(content: string) {
     const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
     if (videoMatch) {
       result.push(
-        <figure key={index} className="my-[21px] overflow-hidden rounded-card border border-border-default bg-black">
+        <figure key={index} className="my-[24px] overflow-hidden rounded-card border border-border-default bg-black">
           <video
             src={videoMatch[1]}
             controls
@@ -210,7 +235,7 @@ function renderArticleContent(content: string) {
             className="w-full"
           />
           {videoMatch[2] && (
-            <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f14 leading-golden text-t2">
+            <figcaption className="border-t border-border-default bg-white px-[14px] py-[10px] text-f14 leading-golden text-t2">
               {videoMatch[2]}
             </figcaption>
           )}
@@ -220,7 +245,7 @@ function renderArticleContent(content: string) {
     }
 
     result.push(
-      <p key={index} className="mb-[13px] text-f16 leading-golden text-t2">
+      <p key={index} className="mb-[16px] text-f16 leading-golden text-t2">
         {renderInlineMarkdown(paragraph, `paragraph-${index}`)}
       </p>
     );
@@ -294,13 +319,19 @@ export default async function BlogPostPage({ params }: PageProps) {
       : {}),
   };
 
+  const headings = post.content
+    .split("\n\n")
+    .filter((block) => block.startsWith("## "))
+    .map((block) => block.replace("## ", ""));
+  const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
+
   return (
     <>
       <JsonLd data={articleSchema} />
       <PageHeader
-        tag="Blog"
+        tag={post.category}
         title={post.title}
-        description={`${post.date} · ${post.readTime} read`}
+        description={post.excerpt}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
@@ -312,6 +343,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <ArticleSignals
         publishedAt={post.date}
         updatedAt={post.updatedAt}
+        readTime={post.readTime}
         authorName={post.authorName}
         authorRole={post.authorRole}
         authorHref={authorHref}
@@ -319,8 +351,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         standards={post.standards}
       />
 
-      <section className="bg-white py-[55px]">
-        <div className="site-container grid gap-[34px] lg:grid-cols-[minmax(0,1fr)_320px]">
+      <section className="bg-white py-[40px] md:py-[56px]">
+        <div className="site-container grid gap-[40px] lg:grid-cols-[minmax(0,800px)_minmax(0,1fr)] lg:gap-[56px]">
           <div className="min-w-0">
             <figure className="overflow-hidden rounded-card border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
@@ -328,7 +360,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   src={post.coverImage}
                   alt={post.coverAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 960px"
+                  sizes="(max-width: 1023px) 94vw, 800px"
                   className={post.coverImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
                     post.coverImagePosition && post.coverImageFit !== "contain"
@@ -337,89 +369,58 @@ export default async function BlogPostPage({ params }: PageProps) {
                   }
                   preload
                 />
+                <span className="absolute right-[8px] top-[8px] rounded-tag bg-white/90 px-[6px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-t2">
+                  {post.coverNote}
+                </span>
               </div>
-              <figcaption className="border-t border-border-default bg-bg2 px-[21px] py-[13px] text-f14 leading-golden text-t2">
-                <p>{post.excerpt}</p>
-                {post.coverAttribution ? (
-                  <p className="mt-[8px] text-f12 text-t3">
-                    Image by{" "}
-                    <a
-                      href={post.coverAttribution.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-text hover:underline"
-                    >
-                      {post.coverAttribution.creator}
-                    </a>{" "}
-                    via {post.coverAttribution.source} ·{" "}
-                    <a
-                      href={post.coverAttribution.licenseHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-text hover:underline"
-                    >
-                      {post.coverAttribution.license}
-                    </a>
-                  </p>
-                ) : null}
-              </figcaption>
+              {post.coverAttribution ? (
+                <figcaption className="border-t border-border-default px-[14px] py-[10px] text-f12 leading-golden text-t3">
+                  Image by{" "}
+                  <a href={post.coverAttribution.href} target="_blank" rel="noopener noreferrer" className="text-teal-text hover:underline">
+                    {post.coverAttribution.creator}
+                  </a>{" "}
+                  via {post.coverAttribution.source} ·{" "}
+                  <a href={post.coverAttribution.licenseHref} target="_blank" rel="noopener noreferrer" className="text-teal-text hover:underline">
+                    {post.coverAttribution.license}
+                  </a>
+                </figcaption>
+              ) : null}
             </figure>
 
             {post.answerBox ? (
-              <aside
-                aria-label="Article summary"
-                className="mt-[21px] rounded-card border-l-[4px] border-teal bg-teal-bg px-[21px] py-[18px] max-w-[800px]"
-              >
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  TL;DR
-                </p>
-                <blockquote className="mt-[8px] text-f16 leading-golden text-t1">
-                  {post.answerBox}
-                </blockquote>
+              <aside aria-label="Article summary" className="mt-[24px] rounded-card border-l-4 border-l-teal bg-teal-bg px-[20px] py-[16px]">
+                <p className={mono}>Short answer</p>
+                <blockquote className="mt-[8px] text-f16 leading-golden text-t1">{post.answerBox}</blockquote>
               </aside>
             ) : null}
 
             {post.masterComparison ? (
-              <aside
-                aria-label="Master comparison page"
-                className="mt-[13px] max-w-[800px] rounded-card border border-teal-border bg-white p-[21px]"
-              >
-                <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                  Part of a larger comparison
-                </p>
-                <p className="mt-[8px] text-f14 leading-golden text-t2">
-                  {post.masterComparison.note}
-                </p>
-                <Link
-                  href={post.masterComparison.href}
-                  className="mt-[8px] inline-block text-f16 font-bold text-teal-text hover:underline"
-                >
-                  → {post.masterComparison.label}
+              <aside aria-label="Master comparison page" className="mt-[12px] rounded-card border border-teal-border bg-white p-[20px]">
+                <p className={mono}>Part of a larger comparison</p>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">{post.masterComparison.note}</p>
+                <Link href={post.masterComparison.href} className="mt-[4px] inline-flex min-h-[44px] items-center text-f16 font-bold text-teal-text hover:underline">
+                  {post.masterComparison.label} <span aria-hidden="true" className="ml-[4px]">→</span>
                 </Link>
               </aside>
             ) : null}
 
-            <div className="mt-[21px] rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Why This Article Matters
-              </p>
-              <div className="mt-[13px] grid gap-[8px] sm:grid-cols-3">
+            <div className="mt-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
+              <p className={mono}>Key points</p>
+              <ul className="mt-[8px] space-y-[8px]">
                 {post.highlights.map((highlight) => (
-                  <div
-                    key={highlight}
-                    className="rounded-control border border-border-default bg-white px-[13px] py-[13px] text-f14 leading-golden text-t2"
-                  >
-                    {highlight}
-                  </div>
+                  <li key={highlight} className="flex gap-[10px] text-f14 leading-golden text-t2">
+                    <span aria-hidden="true" className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-teal" />
+                    <span>{highlight}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="mt-[34px] max-w-[800px]">
+            <div className="mt-[24px]">
               <ArticleSummarizer title={post.title} content={summarizerContent} />
             </div>
 
-            <article className="prose-f1 mt-[34px] max-w-[800px]">
+            <article className="prose-f1 mt-[40px]">
               {renderArticleContent(post.content)}
               {post.faq ? (
                 <FAQ
@@ -432,13 +433,13 @@ export default async function BlogPostPage({ params }: PageProps) {
               ) : null}
             </article>
 
-            <figure className="mt-[34px] overflow-hidden rounded-card border border-border-default bg-white max-w-[800px]">
+            <figure className="mt-[40px] overflow-hidden rounded-card border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
                   src={post.supportingImage}
                   alt={post.supportingAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 800px"
+                  sizes="(max-width: 1023px) 94vw, 800px"
                   className={post.supportingImageFit === "contain" ? "object-contain" : "object-cover"}
                   style={
                     post.supportingImagePosition && post.supportingImageFit !== "contain"
@@ -447,26 +448,16 @@ export default async function BlogPostPage({ params }: PageProps) {
                   }
                 />
               </div>
-              <figcaption className="border-t border-border-default px-[21px] py-[13px] text-f14 leading-golden text-t2">
+              <figcaption className="border-t border-border-default px-[14px] py-[10px] text-f14 leading-golden text-t2">
                 <p>{post.supportingCaption}</p>
                 {post.supportingAttribution ? (
-                  <p className="mt-[8px] text-f12 text-t3">
+                  <p className="mt-[4px] text-f12 text-t3">
                     Image by{" "}
-                    <a
-                      href={post.supportingAttribution.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-text hover:underline"
-                    >
+                    <a href={post.supportingAttribution.href} target="_blank" rel="noopener noreferrer" className="text-teal-text hover:underline">
                       {post.supportingAttribution.creator}
                     </a>{" "}
                     via {post.supportingAttribution.source} ·{" "}
-                    <a
-                      href={post.supportingAttribution.licenseHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-teal-text hover:underline"
-                    >
+                    <a href={post.supportingAttribution.licenseHref} target="_blank" rel="noopener noreferrer" className="text-teal-text hover:underline">
                       {post.supportingAttribution.license}
                     </a>
                   </p>
@@ -475,83 +466,55 @@ export default async function BlogPostPage({ params }: PageProps) {
             </figure>
 
             {post.sourceLinks?.length ? (
-              <div className="mt-[34px] max-w-[800px] border-t border-border-default pt-[21px]">
-                <h3 className="mb-[13px] text-f16 font-bold text-t1">Referenced Signals</h3>
-                <div className="space-y-[10px]">
+              <div className="mt-[40px] border-t border-border-default pt-[20px]">
+                <h2 className="text-f18 font-bold text-t1">Sources</h2>
+                <ul className="mt-[8px] space-y-[4px]">
                   {post.sourceLinks.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-f14 leading-golden text-teal-text hover:underline"
-                    >
-                      {link.label} ↗
-                    </a>
+                    <li key={link.href}>
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[32px] items-center text-f14 leading-golden text-teal-text hover:underline">
+                        {link.label} <span aria-hidden="true" className="ml-[4px]">↗</span>
+                      </a>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ) : null}
-
-            <div className="mt-[55px] max-w-[800px] border-t border-border-default pt-[21px]">
-              <h2 className="mb-[13px] text-f18 font-bold text-t1">
-                Related FRP products, applications and tools
-              </h2>
-              <div className="flex flex-wrap gap-[13px]">
-                {post.relatedLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-f14 text-teal-text hover:underline"
-                  >
-                    {link.label} →
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
 
-          <aside className="space-y-[21px] lg:sticky lg:top-[34px] lg:self-start">
-            <div className="rounded-card border border-border-default bg-bg2 p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Quick Signals
-              </p>
-              <div className="mt-[13px] space-y-[13px]">
-                {post.highlights.map((highlight) => (
-                  <div key={highlight} className="flex gap-[8px] text-f14 leading-golden text-t2">
-                    <span className="mt-[5px] h-[6px] w-[6px] rounded-full bg-teal" />
-                    <span>{highlight}</span>
-                  </div>
-                ))}
+          <aside aria-label="On this page" className="hidden lg:block">
+            <div className="sticky top-[112px] space-y-[16px]">
+              {headings.length >= 2 ? (
+                <nav aria-label="Article contents" className="border-l border-border-default pl-[16px]">
+                  <p className={mono}>On this page</p>
+                  <ol className="mt-[8px] space-y-[2px]">
+                    {headings.map((heading) => (
+                      <li key={heading}>
+                        <a href={`#${headingId(heading)}`} className="block py-[4px] text-f14 leading-golden text-t2 hover:text-teal-text">
+                          {heading}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              ) : null}
+              <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
+                <p className={mono}>Project support</p>
+                <p className="mt-[8px] text-f14 leading-golden text-t2">
+                  Need a section sized, specification wording checked, or test documents for an
+                  approval? Send the details to our engineering team.
+                </p>
+                <Link href="/contact?source=blog-aside&inquiry_type=technical" className="mt-[12px] inline-flex min-h-[40px] items-center rounded-control bg-teal-text px-[16px] text-f14 font-bold text-white transition-colors hover:bg-teal">
+                  Talk to engineering
+                </Link>
               </div>
-            </div>
-
-            <div className="rounded-card border border-border-default bg-white p-[21px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                Need Project Support
-              </p>
-              <p className="mt-[8px] text-f14 leading-golden text-t2">
-                Need a section sized, specification wording checked, or test documents for an
-                approval? Send the details to our engineering team.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-[13px] inline-flex rounded-control bg-teal-text px-[13px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal"
-              >
-                Talk to Engineering
-              </Link>
             </div>
           </aside>
         </div>
       </section>
 
-      <AskAICard
-        title={`Have questions about "${post.title}"?`}
-        description="The advisor opens with a question about this article. Follow up with your own loads, environment or standard to see how it applies to your project."
-        prefill={prefillForBlog({ title: post.title, slug: post.slug })}
-      />
+      <RelatedLinks title="Related products, applications and tools" background="bg2" groups={relatedGroups(post.relatedLinks)} />
 
-      <InnerCTA />
+      <InnerCTA advisorPrompt={prefillForBlog({ title: post.title, slug: post.slug })} />
     </>
   );
 }
