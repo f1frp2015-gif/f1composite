@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-09-26（工具审查）
+> 最后更新: 2026-09-28（工具第二轮）
 
 ---
 
@@ -212,8 +212,12 @@ f1composite.com
 | `/technology/u-value-calculator` | "window U-value calculator" | EN ISO 10077-1 |
 | `/tools/thermal-expansion-calculator` | "FRP thermal expansion calculator" | 伸缩缝、与钢/混凝土/玻璃的差异变形 |
 | `/tools/handrail-load-calculator` | "FRP handrail load calculator" / "guardrail load OSHA IBC" | 护栏立柱与扶手校核，锚栓反力 |
-| `/tools/access-geometry-checker` | "ladder stair walkway requirements checker" | OSHA 1910 / EN ISO 14122 / IBC 尺寸校核 |
+| `/tools/access-geometry-checker` | "ladder stair walkway requirements checker" | OSHA 1910 / EN ISO 14122 / AS 1657 / IBC 尺寸校核 |
 | `/tools/gfrp-rebar-calculator` | "GFRP rebar size conversion" / "ACI 440.11 design strength" | 钢筋规格对照、ACI 440.11 设计值 |
+| `/tools/frp-column-calculator` | "FRP column buckling calculator" / "pultruded column capacity" | 整体屈曲、翼缘/腹板/管壁局部屈曲、压碎，最轻可用目录规格 |
+| `/tools/frp-cut-list-optimizer` | "FRP cut list optimizer" / "profile stock length nesting" | 按 5.8/6/11.8/12 m 定尺排料，下料图、余料、重量、CSV |
+| `/tools/frp-unit-converter` | "MPa to ksi" / "GPa to Msi" / "kg/m to lb/ft" | 公英制换算，英制型材尺寸对应最近的公制目录规格 |
+| `/tools/frp-life-cycle-cost-calculator` | "FRP vs steel life cycle cost" / "galvanized steel maintenance cost" | ISO 15686-5 现值法，镀锌寿命按 ISO 9223 / ISO 1461 估算 |
 
 ### Resources (内容营销 / 证据)
 | URL | 主意图 |
@@ -309,11 +313,13 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 `scripts/theme-classes.test.mjs` 同时检查圆角和阴影：`rounded-*` 只能是 tag / control / card / full / none，阴影只能是 card / pop / bar / none。
 
 
-## 工具的设计基础（2026-09-26 审查）
+## 工具的设计基础（2026-09-26 审查，2026-09-28 第二轮）
 
 - **共享设计基础**：`lib/frpDesignBasis.ts` 集中了材料数据（EN 13706 E17/E23 最小值、各国钢材和铝材）、设计方法系数、环境折减（强度和刚度）和 ASCE 时间效应系数 λ。型材计算器、跨度表和护栏校核都从这里取值，改系数只改这一个文件；`scripts/engineering-tools.test.mjs` 会检查关键数值。
-- **法规数值**：各工具只写入核对过的规范数值，并在界面上标明条款。未能核对原文的（英国 NA.8 表、加拿大 NBC 4.1.5.14、AS/NZS 1170.1 表 3.3、AS 1657）让用户按条款输入，不预填数字。审查记录和待复核清单见 `docs/audits/2026-09-26-tools-standards-audit.md`。
-- **菜单**：主菜单链接总数上限 76（测试检查），热膨胀和 GFRP 筋材两个工具只放在 `/tools` 和相关产品页，没有进主菜单。
+- **法规数值**：各工具只写入核对过的规范数值，并在界面上标明条款。2026-09-28 起，英国 BS 6180 / NA.8 的工业类荷载、加拿大 NBC 4.1.5.14、AS 1657:2018 和 AS/NZS 1170.1 表 3.3 的办公和作业区荷载改为预设。这些数值只核对到二手资料（B 级），所以备注里写明“请按正版核对”。其他类别仍由用户按条款输入。AS 1657 的爬梯护笼高度各资料说法不一，只作提示，不判定合格与否。审查记录见 `docs/audits/2026-09-26-tools-standards-audit.md` 和 `docs/audits/2026-09-28-tools-round-2.md`。
+- **柱屈曲**（`lib/frpColumn.ts`）：只用可推导的力学公式，包括 Engesser 剪切修正的欧拉屈曲、简支正交异性板局部屈曲（下限值）和压碎。ASCE/SEI 74-23 的受压 φ 未能核实，所以各破坏模式一律取受弯 φ，结果偏安全。槽钢和角钢会发生弯扭屈曲，不在筛查范围内。局部与整体屈曲接近时给出交互提示。
+- **成本与单位**：全寿命成本工具的所有费用都由用户输入，默认值以钢材安装费 = 100 为指数，结果如实显示钢材在 C2/C3 环境更便宜。单位换算用精确定义和 NIST SP 811 系数。
+- **菜单**：主菜单链接总数上限 76（测试检查）。热膨胀、GFRP 筋材、柱屈曲、下料、单位换算和全寿命成本这六个工具只放在 `/tools` 和相关产品页，没有进主菜单。
 
 ## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
 
@@ -422,6 +428,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |
 | 中 | 视觉系统阶段 1 的两个默认选择待业主确认：信号色用标志渐变末端的 lime #BBDF35（备选：安全黄）；产品线沿用站内已有的 F1-STRUX / F1-GRID / F1-THERM / F1-FORM，未新起线名。改色只需改 `app/globals.css` 的 `--color-lime` | 待确认 |
 | 高 | 工具中标为 B/C 级的规范数值（ASCE/SEI 74-23 的 φ 和 λ、CEN/TS 19101 的 γ_M、EN ISO 14122 尺寸、英国/加拿大/澳新护栏荷载、AS 1657、新西兰窗户 R 值、ACI 440.11 的 C_E）需用正版标准复核，清单见 `docs/audits/2026-09-26-tools-standards-audit.md` 第四节 | 待复核 |
+| 高 | 采购 ASCE/SEI 74-23 和 CEN/TS 19101（或其开放获取的官方注释本），核实受压 φ、λ 表和螺栓连接条款，再决定是否做螺栓连接校核工具、是否把柱屈曲的 φ 提高到规范值。清单见 `docs/audits/2026-09-28-tools-round-2.md` | 待采购 |
 | 高 | 目录护栏立柱按 OSHA 200 lb 筛查超限（50×50×6.4 方管 119%，50×5 圆管 237%），建议准备整体试验报告，并复核圆管立柱规格；目录爬梯外宽 500 mm 时净宽约 398 mm，低于 OSHA 406 mm 和 EN ISO 14122-4 400 mm，需按图纸确认 | 待决定 |
 | 中 | 德国和英国地区页的法规表述（GEG 2024、Future Homes Standard）需按 2026 年新情况核实更新 | 待核实 |
 | 中 | 阶段 2 菜单结构按改版方案图 19 调整（产品、行业、工具、资源、公司；技术文章并入资源的知识库，质量体系和技术服务放在公司下），请确认或提出修改 | 待确认 |

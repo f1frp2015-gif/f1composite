@@ -333,6 +333,7 @@ export default function HandrailSystemsPage() {
               { href: "/resources/blog/how-to-install-frp-grating", label: "How to install FRP grating" },
               { href: "/tools/handrail-load-calculator", label: "Handrail and guardrail load check" },
               { href: "/tools/thermal-expansion-calculator", label: "Thermal expansion of long rail runs" },
+              { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost vs galvanized steel" },
             ],
           },
         ]}

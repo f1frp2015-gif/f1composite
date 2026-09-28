@@ -311,6 +311,7 @@ export default function CalculatorPage() {
             title: "Other tools",
             links: [
               { href: "/tools/profile-finder", label: "Profile finder" },
+              { href: "/tools/frp-column-calculator", label: "Column buckling calculator" },
               { href: "/tools/handrail-load-calculator", label: "Handrail load check" },
               { href: "/tools", label: "All engineering tools" },
             ],

@@ -88,8 +88,12 @@ const quoteHref = buildRfqHref({ source: "standard-profiles-hub", product: "FRP 
 const tools = [
   { href: "/tools/profile-finder", title: "Profile finder", text: "Filter the standard sizes by shape, size, mass and stiffness, and compare up to four." },
   { href: "/frp-profile-calculator", title: "Profile calculator", text: "Bending, shear and deflection for a section, span and load, with the steel equivalent." },
+  { href: "/tools/frp-column-calculator", title: "Column buckling", text: "Global and local buckling and crushing of I-beams and tubes, with the lightest sizes that pass." },
   { href: "/frp-span-tables", title: "Span tables", text: "Allowable uniform loads for the published I-beams, channels and tubes over 1 to 6 m spans." },
+  { href: "/tools/frp-cut-list-optimizer", title: "Cut list optimizer", text: "Nest piece lengths into 6 m or 12 m bars and see the bars to order, waste and weight." },
+  { href: "/tools/frp-unit-converter", title: "Unit converter", text: "Metric and US units, and inch profile sizes matched to the closest catalog size." },
   { href: "/fiberglass-pultruded-profile-price", title: "Price estimator", text: "Planning prices per meter by section, resin, finish and volume." },
+  { href: "/tools/frp-life-cycle-cost-calculator", title: "Life-cycle cost", text: "FRP against galvanized or painted steel over the life of the project, as present values." },
 ] as const;
 
 export default function StandardProfilesPage() {
@@ -198,7 +202,7 @@ export default function StandardProfilesPage() {
         </ul>
       </PageSection>
 
-      <PageSection id="tools" title="Check a section before you order" tone="muted" intro="Filter the catalog, check a span and load, and get a planning price, all against the same published section data.">
+      <PageSection id="tools" title="Check a section before you order" tone="muted" intro="Filter the catalog, check a beam or a column, plan the cut list and compare prices and life-cycle cost, all against the same published section data.">
         <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
           {tools.map((item) => (
             <li key={item.href}>

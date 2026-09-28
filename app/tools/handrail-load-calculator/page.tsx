@@ -14,7 +14,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/tools/handrail-load-calculator";
 const pageDescription =
-  "Check FRP handrail posts and rails against OSHA 1910.29, IBC 2024 and EN ISO 14122-3 loads, or enter AS/NZS 1170.1, NBC or UK values. Free, no login.";
+  "Check FRP handrail posts and rails against OSHA 1910.29, IBC 2024, EN ISO 14122-3, BS 6180, NBC 2020 and AS 1657 guard loads, with base reactions for anchors.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Handrail & Guardrail Load Calculator",
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Which guardrail loads does the calculator use?",
     answer:
-      "OSHA 1910.29: 200 lb (0.89 kN) outward or downward at the top rail. IBC 2024 with ASCE 7-22: 50 lb/ft (0.73 kN/m) or 200 lb, not together, and 20 lb/ft in non-public industrial areas with fewer than 50 occupants. EN ISO 14122-3: 300 N/m multiplied by the post spacing with 30 mm maximum deflection. For UK buildings, Canada, Australia and New Zealand you enter the value from the named clause, because it depends on the occupancy category.",
+      "OSHA 1910.29: 200 lb (0.89 kN) outward or downward at the top rail. IBC 2024 with ASCE 7-22: 50 lb/ft (0.73 kN/m) or 200 lb, not together, and 20 lb/ft in non-public industrial areas with fewer than 50 occupants. EN ISO 14122-3: 300 N/m multiplied by the post spacing with 30 mm maximum deflection. UK buildings: 0.74 kN/m in industrial and storage areas and 0.36 kN/m on light industrial routes (BS 6180 and the UK National Annex). Canada, NBC 4.1.5.14: 1.0 kN at any point on access to equipment platforms, otherwise 0.75 kN/m or 1.0 kN. Australia, AS 1657:2018: 0.35 kN/m or 0.6 kN with 100 mm maximum deflection; AS/NZS 1170.1 work areas in Australia and New Zealand: 0.75 kN/m or 0.6 kN. The UK, Canadian and Australian values were checked against published summaries rather than the code text, so confirm the row in your copy; for other occupancies you enter the value from the named clause.",
   },
   {
     question: "Why can a rail meet OSHA and still exceed the screen?",
@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "Which height and post spacing should I use?",
     answer:
-      "OSHA sets the top edge at 42 in ± 3 in, the IBC at 42 in minimum and EN ISO 14122-3 at 1,100 mm minimum with posts no more than 1,500 mm apart. The F1 catalog handrail systems list a 1,500 mm maximum post spacing and a 1,220 mm maximum height; the project drawing sets both for the rule that applies.",
+      "OSHA sets the top edge at 42 in ± 3 in, the IBC at 42 in minimum, EN ISO 14122-3 at 1,100 mm minimum with posts no more than 1,500 mm apart, and AS 1657 at 900 to 1,100 mm. The F1 catalog handrail systems list a 1,500 mm maximum post spacing and a 1,220 mm maximum height; the project drawing sets both for the rule that applies.",
   },
 ];
 

@@ -826,7 +826,7 @@
   {
     "path": "/tools",
     "title": "FRP Engineering Tools & Calculators",
-    "description": "Free tools for pultruded FRP: profile finder, beam calculator, span tables, weight, thermal movement, handrail loads, ladder and stair checks, GFRP rebar.",
+    "description": "Free tools for pultruded FRP: beam and column checks, span tables, handrail loads, ladder checks, cut lists, life-cycle cost vs steel and a unit converter.",
     "aliases": [
       "Engineering tools"
     ]
@@ -834,10 +834,45 @@
   {
     "path": "/tools/access-geometry-checker",
     "title": "Ladder, Stair & Walkway Checker",
-    "description": "Check ladder, stair and walkway dimensions against OSHA 1910, EN ISO 14122 and IBC 2024: rung spacing, clear width, fall protection, risers, grating openings.",
+    "description": "Check ladder, stair and walkway dimensions against OSHA 1910, EN ISO 14122, AS 1657 and IBC 2024: rung spacing, clear width, fall protection, risers, openings.",
     "aliases": [
       "Ladder, stair and walkway checker",
       "Ladder, Stair & Walkway Checker | OSHA, ISO 14122"
+    ]
+  },
+  {
+    "path": "/tools/frp-column-calculator",
+    "title": "FRP Column Buckling Calculator",
+    "description": "Screen pultruded FRP columns in axial compression: global buckling, flange, web and tube-wall local buckling and crushing, with the lightest catalog sizes.",
+    "aliases": [
+      "FRP column buckling calculator",
+      "FRP Column Buckling Calculator | Pultruded Sections"
+    ]
+  },
+  {
+    "path": "/tools/frp-cut-list-optimizer",
+    "title": "FRP Cut List Optimizer",
+    "description": "Nest FRP profile cut lengths into 6 m, 12 m or container-length stock bars with saw kerf and end trim. See bars to order, waste, weight and a CSV cut list.",
+    "aliases": [
+      "FRP cut list optimizer",
+      "FRP Cut List Optimizer | Stock Bars & Waste"
+    ]
+  },
+  {
+    "path": "/tools/frp-life-cycle-cost-calculator",
+    "title": "FRP vs Steel Life-Cycle Cost Calculator",
+    "description": "Compare the life-cycle cost of FRP with galvanized or painted steel as present values, with galvanizing life from ISO 9223 corrosion rates and your own quotes.",
+    "aliases": [
+      "FRP vs steel life-cycle cost calculator"
+    ]
+  },
+  {
+    "path": "/tools/frp-unit-converter",
+    "title": "FRP Unit Converter",
+    "description": "Convert FRP engineering units between metric and US: MPa, ksi, GPa, Msi, kN/m, plf, psf, kg/m, lb/ft, in⁴, U-values and R-values, and inch profile sizes.",
+    "aliases": [
+      "FRP engineering unit converter",
+      "FRP Unit Converter | MPa, ksi, Msi, kg/m, lb/ft"
     ]
   },
   {
@@ -852,7 +887,7 @@
   {
     "path": "/tools/handrail-load-calculator",
     "title": "FRP Handrail & Guardrail Load Calculator",
-    "description": "Check FRP handrail posts and rails against OSHA 1910.29, IBC 2024 and EN ISO 14122-3 loads, or enter AS/NZS 1170.1, NBC or UK values. Free, no login.",
+    "description": "Check FRP handrail posts and rails against OSHA 1910.29, IBC 2024, EN ISO 14122-3, BS 6180, NBC 2020 and AS 1657 guard loads, with base reactions for anchors.",
     "aliases": [
       "FRP handrail and guardrail load check"
     ]

@@ -214,6 +214,7 @@ export default function SpanTablesPage() {
             title: "Other tools",
             links: [
               { href: "/tools/profile-finder", label: "Profile finder" },
+              { href: "/tools/frp-cut-list-optimizer", label: "Cut list optimizer" },
               { href: "/frp-density-calculator", label: "Density and weight calculator" },
               { href: "/tools", label: "All engineering tools" },
             ],

@@ -2,10 +2,12 @@
 //
 // Loads come from the rule the user selects; section properties and design
 // strengths come from the same engine as the FRP profile calculator
-// (lib/frpSectionProperties.ts, lib/frpDesignBasis.ts). Where a code value
-// could not be confirmed against the published text, the preset asks the user
-// to enter it from the named clause instead of showing a number
-// (docs/audits/2026-09-26-tools-standards-audit.md).
+// (lib/frpSectionProperties.ts, lib/frpDesignBasis.ts). Presets carry values
+// that agree across reliable sources; the UK, Canadian and Australian/New
+// Zealand rows were checked against secondary sources only, and say so in
+// their notes. Other categories ask the user to enter the value from the
+// named clause (docs/audits/2026-09-26-tools-standards-audit.md and
+// docs/audits/2026-09-28-tools-round-2.md).
 //
 // Model: posts are cantilevers fixed at the base plate; the top rail spans
 // simply between posts (conservative for continuous rails). The line load and
@@ -29,6 +31,8 @@ export interface GuardLoadCase {
   pointPerSpacingKnPerM?: number;
   heightMinMm?: number;
   heightMaxMm?: number;
+  /** Height the tool starts from when the rule is chosen; defaults to heightMinMm. */
+  defaultHeightMm?: number;
   /** Horizontal deflection limit at the handrail under the service load, mm. */
   deflectionLimitMm?: number;
   /** OSHA 1910.29(b)(4): under the downward load the top rail stays at or above this height, mm. */
@@ -78,6 +82,7 @@ export const GUARD_LOAD_CASES: readonly GuardLoadCase[] = [
     pointKn: 0.89,
     heightMinMm: 991,
     heightMaxMm: 1143,
+    defaultHeightMm: 1067,
     minLoadedHeightMm: 991,
     method: "lrfd-asce",
     notes: [
@@ -123,20 +128,75 @@ export const GUARD_LOAD_CASES: readonly GuardLoadCase[] = [
     ],
   },
   {
+    id: "uk-industrial",
+    region: "UK",
+    label: "UK industrial or storage area, not prone to overcrowding",
+    clause: "BS 6180:2011 Table 2; BS EN 1991-1-1 UK National Annex, Table NA.8",
+    lineKnPerM: 0.74,
+    pointKn: 0,
+    method: "lrfd-cents19101",
+    notes: [
+      "0.74 kN/m at the top. The infill takes 1.0 kN/m² or 0.5 kN on any part as separate cases, which this tool does not check.",
+      "Row as quoted from BS 6180 and the UK National Annex by barrier designers; confirm it in your copy. On the Eurocode route the infill loads are in PD 6688-1-1.",
+    ],
+  },
+  {
+    id: "uk-light-industrial",
+    region: "UK",
+    label: "UK light pedestrian route in an industrial building",
+    clause: "BS 6180:2011 Table 2; BS EN 1991-1-1 UK National Annex, Table NA.8",
+    lineKnPerM: 0.36,
+    pointKn: 0,
+    method: "lrfd-cents19101",
+    notes: [
+      "0.36 kN/m for light pedestrian traffic routes in industrial and storage buildings, except designated escape routes. Infill 0.5 kN/m² or 0.25 kN.",
+      "Light access stairs and gangways no more than 600 mm wide take 0.22 kN/m; enter that with the other-category option.",
+      "Row as quoted from BS 6180 and the UK National Annex by barrier designers; confirm it in your copy.",
+    ],
+  },
+  {
     id: "uk-buildings",
     region: "UK",
-    label: "UK buildings: enter the NA.8 category load",
+    label: "UK buildings, other category: enter the NA.8 load",
     clause: "BS EN 1991-1-1 UK National Annex, Table NA.8; BS 6180 for heights",
     lineKnPerM: null,
     pointKn: null,
     method: "lrfd-cents19101",
     userEntry: true,
-    notes: ["Take the horizontal line load and point load for the occupancy category from Table NA.8."],
+    notes: ["Take the horizontal line load for the occupancy category from Table NA.8. Enter 0 for the concentrated load unless the category gives one for the top rail."],
+  },
+  {
+    id: "ca-nbc-equipment",
+    region: "CA",
+    label: "Canada: access to equipment platforms",
+    clause: "NBC 2020 Division B, Article 4.1.5.14 (or the provincial code in force)",
+    lineKnPerM: 0,
+    pointKn: 1.0,
+    method: "lrfd-asce",
+    notes: [
+      "1.0 kN concentrated at any point, for access ways to equipment platforms, contiguous stairs and similar areas where the gathering of many people is improbable.",
+      "A vertical 1.5 kN/m on the top, not applied with the horizontal load, is not checked here.",
+      "Provinces adopt NBC editions at different times, and NBC 2025 has been published; check the edition in force.",
+    ],
+  },
+  {
+    id: "ca-nbc-general",
+    region: "CA",
+    label: "Canada: guards in other locations",
+    clause: "NBC 2020 Division B, Article 4.1.5.14 (or the provincial code in force)",
+    lineKnPerM: 0.75,
+    pointKn: 1.0,
+    method: "lrfd-asce",
+    notes: [
+      "0.75 kN/m or 1.0 kN concentrated at any point, whichever governs. Individual infill elements take 0.5 kN over 100 × 100 mm.",
+      "Viewing stands and the means of egress in grandstands and arenas take 3.0 kN/m; use the enter-a-load option.",
+      "Provinces adopt NBC editions at different times, and NBC 2025 has been published; check the edition in force.",
+    ],
   },
   {
     id: "ca-nbc",
     region: "CA",
-    label: "Canada: enter the NBC guard load",
+    label: "Canada, other case: enter the NBC guard load",
     clause: "NBC 2020 Division B, Article 4.1.5.14 (or the provincial code in force)",
     lineKnPerM: null,
     pointKn: null,
@@ -145,20 +205,64 @@ export const GUARD_LOAD_CASES: readonly GuardLoadCase[] = [
     notes: ["Enter the uniform and concentrated guard loads for the occupancy from Article 4.1.5.14; guard heights are in Part 3 or Part 9."],
   },
   {
+    id: "au-as1657",
+    region: "AU",
+    label: "Australia: AS 1657 platforms, walkways and stairways",
+    clause: "AS 1657:2018 (guardrailing); AS/NZS 1170.1 Table 3.3 row for fixed access",
+    lineKnPerM: 0.35,
+    pointKn: 0.6,
+    heightMinMm: 900,
+    heightMaxMm: 1100,
+    defaultHeightMm: 1000,
+    deflectionLimitMm: 100,
+    method: "lrfd-asce",
+    notes: [
+      "600 N at any point of the top rail, intermediate rail or post, or 350 N/m along a rail, outward or downward; elastic deflection no more than 100 mm.",
+      "Guardrail height 900 to 1100 mm. Toeboards take 100 N with no more than 30 mm deflection.",
+      "Values as published in AS 1657:2018 summaries by access-system designers and state regulators; confirm them in your copy.",
+    ],
+  },
+  {
+    id: "au-1170-work",
+    region: "AU",
+    label: "Australia: offices and work areas",
+    clause: "AS/NZS 1170.1 Table 3.3 (occupancy types B and E)",
+    lineKnPerM: 0.75,
+    pointKn: 0.6,
+    method: "lrfd-asce",
+    notes: [
+      "0.75 kN/m horizontal or 0.6 kN concentrated at the top edge, as separate cases; infill 1.0 kPa or 0.5 kN.",
+      "Combine with the AS/NZS 1170.0 load factors for the ultimate check.",
+    ],
+  },
+  {
     id: "au-1170",
     region: "AU",
-    label: "Australia: enter the AS/NZS 1170.1 barrier load",
-    clause: "AS/NZS 1170.1 Table 3.3; AS 1657:2018 for platforms, walkways and stairways within its scope",
+    label: "Australia, other occupancy: enter the Table 3.3 load",
+    clause: "AS/NZS 1170.1 Table 3.3",
     lineKnPerM: null,
     pointKn: null,
     method: "lrfd-asce",
     userEntry: true,
-    notes: ["Enter the top-edge line load and the concentrated load for the occupancy type from Table 3.3, or the AS 1657 values for industrial access."],
+    notes: ["Enter the top-edge line load and the concentrated load for the occupancy type from Table 3.3."],
+  },
+  {
+    id: "nz-1170-work",
+    region: "NZ",
+    label: "New Zealand: offices and work areas",
+    clause: "AS/NZS 1170.1 Table 3.3 (occupancy types B and E) through NZBC B1; barrier geometry under NZBC F4",
+    lineKnPerM: 0.75,
+    pointKn: 0.6,
+    method: "lrfd-asce",
+    notes: [
+      "0.75 kN/m horizontal or 0.6 kN concentrated at the top edge, as separate cases; infill 1.0 kPa or 0.5 kN.",
+      "Combine with the AS/NZS 1170.0 load factors for the ultimate check.",
+    ],
   },
   {
     id: "nz-1170",
     region: "NZ",
-    label: "New Zealand: enter the AS/NZS 1170.1 barrier load",
+    label: "New Zealand, other occupancy: enter the Table 3.3 load",
     clause: "AS/NZS 1170.1 Table 3.3 through NZBC B1; barrier geometry under NZBC F4",
     lineKnPerM: null,
     pointKn: null,
