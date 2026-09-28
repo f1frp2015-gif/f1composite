@@ -141,7 +141,7 @@ export function findStandardProfile(section: StandardSection): StandardProfilePr
 }
 
 /** Nominal H × B of a catalog product in calculator terms (angle legs, tube OD). */
-function nominalSection(product: StandardProfileProduct): { shape: StandardSection["shape"]; h: number; b: number; t: number } | null {
+export function nominalSection(product: StandardProfileProduct): { shape: StandardSection["shape"]; h: number; b: number; t: number } | null {
   const d = product.geometry.dims;
   switch (product.geometry.shape) {
     case "i_beam": return { shape: "i-beam", h: d.H, b: d.B, t: d.tw };

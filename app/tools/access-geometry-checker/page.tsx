@@ -13,7 +13,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/tools/access-geometry-checker";
 const pageDescription =
-  "Check ladder, stair and walkway dimensions against OSHA 1910, EN ISO 14122 and IBC 2024: rung spacing, clear width, fall protection, risers, grating openings.";
+  "Check ladder, stair and walkway dimensions against OSHA 1910, EN ISO 14122, AS 1657 and IBC 2024: rung spacing, clear width, fall protection, risers, openings.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Ladder, Stair & Walkway Checker | OSHA, ISO 14122",
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Which rules does the checker cover?",
     answer:
-      "Fixed ladders to OSHA 1910.23 and 1910.28(b)(9) or EN ISO 14122-4; stairs to OSHA 1910.25 (standard and ship stairs), EN ISO 14122-3 or IBC 2024 §1011; walkways to EN ISO 14122-2, with the ASCE 7-22 and OSHA floor-load references for the grating. AS 1657:2018 for Australia and New Zealand and the Canadian provincial rules are named but not encoded yet, so check their limits on the drawing.",
+      "Fixed ladders to OSHA 1910.23 and 1910.28(b)(9), EN ISO 14122-4 or AS 1657:2018; stairs to OSHA 1910.25 (standard and ship stairs), EN ISO 14122-3, AS 1657:2018 or IBC 2024 §1011; walkways to EN ISO 14122-2, with the ASCE 7-22 and OSHA floor-load references for the grating. The AS 1657 limits come from state-regulator and designer summaries of the standard, and the ladder cage height is left as advice because those summaries disagree. Canadian provincial rules are named but not encoded, so check their limits on the drawing.",
   },
   {
     question: "Do cages still count as fall protection on US fixed ladders?",
@@ -65,8 +65,8 @@ export default function AccessGeometryCheckerPage() {
         title="Ladder, stair and walkway checker"
         description="Enter the dimensions of a fixed ladder, a stair or a walkway and see each requirement of the chosen rule, with its clause, before the FRP ladder, stair treads or grating are detailed."
         facts={[
-          { label: "Ladders", value: "OSHA · EN ISO 14122-4" },
-          { label: "Stairs", value: "OSHA · EN ISO 14122-3 · IBC" },
+          { label: "Ladders", value: "OSHA · EN ISO 14122-4 · AS 1657" },
+          { label: "Stairs", value: "OSHA · EN ISO 14122-3 · AS 1657 · IBC" },
           { label: "Walkways", value: "EN ISO 14122-2" },
         ]}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Ladder, stair and walkway checker" }]}

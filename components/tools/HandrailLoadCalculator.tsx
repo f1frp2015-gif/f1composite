@@ -156,7 +156,8 @@ export default function HandrailLoadCalculator() {
     if (!item) return;
     setCaseId(item.id);
     setMethod(item.method);
-    if (item.heightMinMm) setHeightMm(item.id === "us-osha" ? 1067 : item.heightMinMm);
+    const height = item.defaultHeightMm ?? item.heightMinMm;
+    if (height) setHeightMm(height);
     track("handrail_rule", { rule: item.id });
   }
 

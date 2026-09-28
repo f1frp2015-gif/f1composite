@@ -8,6 +8,7 @@ import { DESIGN_MATERIALS, designResistance, LOAD_DURATIONS, ENV_FACTORS } from 
 import { calcShearArea } from "../lib/frpSectionProperties.ts";
 import { checkLadder, checkStair, checkWalkway, moldedGratingClearOpening } from "../lib/accessGeometry.ts";
 import { barSize, gfrpDesignValues, matchGfrpSize } from "../lib/gfrpRebar.ts";
+import { calculateCutList, cutListError, parsePieceList } from "../lib/cutList.ts";
 import { loadProjectModule } from "./load-project-module.mjs";
 
 const near = (actual, expected, tolerance = 1e-9) =>
@@ -148,6 +149,37 @@ test("guardrail check: OSHA point load, IBC line load and EN ISO 14122-3 test lo
   near(au.post.serviceForceKn, 0.75 * 1.5);
 });
 
+test("guardrail presets for the UK, Canada and Australia", () => {
+  const { checkGuardrail, guardLoadCase, GUARD_LOAD_CASES, GUARD_SECTIONS } = loadProjectModule("lib/guardrailLoads.ts");
+  const shs = GUARD_SECTIONS.find((item) => item.id === "shs-50-6.4").section;
+  const base = { heightMm: 1100, spacingMm: 1500, post: shs, rail: shs, materialId: "frp-e23", method: "asd", envId: "indoor-dry" };
+  // BS 6180 / UK NA.8: 0.74 kN/m line load only, no top-rail point load.
+  const uk = checkGuardrail({ ...base, caseId: "uk-industrial" });
+  near(uk.post.serviceForceKn, 0.74 * 1.5, 1e-12);
+  near(uk.pointKn, 0);
+  // NBC 4.1.5.14 equipment access: 1.0 kN anywhere, no line load.
+  const ca = checkGuardrail({ ...base, caseId: "ca-nbc-equipment" });
+  near(ca.post.serviceForceKn, 1.0);
+  assert.equal(ca.post.governingLoad, "point");
+  const caGeneral = checkGuardrail({ ...base, caseId: "ca-nbc-general" });
+  near(caGeneral.post.serviceForceKn, Math.max(0.75 * 1.5, 1.0), 1e-12);
+  // AS 1657: 0.35 kN/m or 0.6 kN, 900–1100 mm, 100 mm deflection.
+  const as1657 = guardLoadCase("au-as1657");
+  assert.equal(as1657.defaultHeightMm, 1000);
+  const au = checkGuardrail({ ...base, caseId: "au-as1657", heightMm: 1000 });
+  near(au.post.serviceForceKn, 0.6);
+  assert.equal(au.flags.heightBelowMin, false);
+  assert.equal(checkGuardrail({ ...base, caseId: "au-as1657", heightMm: 1150 }).flags.heightAboveMax, true);
+  // Every region keeps an enter-your-own option for other occupancies.
+  for (const region of ["UK", "CA", "AU", "NZ"]) {
+    assert.ok(GUARD_LOAD_CASES.some((item) => item.region === region && item.userEntry), region);
+  }
+  // Rows checked only against secondary sources say so in their notes.
+  for (const id of ["uk-industrial", "uk-light-industrial", "au-as1657"]) {
+    assert.ok(guardLoadCase(id).notes.some((note) => /confirm/.test(note)), id);
+  }
+});
+
 test("ladder, stair and walkway rules", () => {
   const ladder = { code: "osha", rungPitchMm: 300, clearWidthMm: 398, toeClearanceMm: 180, heightMm: 9000, railExtensionMm: 1070, fallProtection: "cage", newInstallation: true };
   const osha = Object.fromEntries(checkLadder(ladder).map((check) => [check.label, check.status]));
@@ -168,6 +200,19 @@ test("ladder, stair and walkway rules", () => {
   const ship = Object.fromEntries(checkStair({ code: "osha-ship", riserMm: 250, goingMm: 150, widthMm: 500, headroomMm: 2100, flightRiseMm: 3000 }).map((check) => [check.label, check.status]));
   assert.equal(ship.Angle, "pass");
 
+  const as1657 = Object.fromEntries(checkLadder({ ...ladder, code: "as1657", rungPitchMm: 280, clearWidthMm: 450, toeClearanceMm: 200 }).map((check) => [check.label, check.status]));
+  assert.equal(as1657["Rung spacing"], "pass");
+  assert.equal(as1657["Clear width between stiles"], "pass");
+  assert.equal(as1657["Clearance behind the rungs"], "pass");
+  assert.equal(as1657["Fall protection and landings"], "advice", "published summaries disagree on the AS 1657 cage height");
+  const asNarrow = Object.fromEntries(checkLadder({ ...ladder, code: "as1657", rungPitchMm: 320, clearWidthMm: 360 }).map((check) => [check.label, check.status]));
+  assert.equal(asNarrow["Rung spacing"], "fail");
+  assert.equal(asNarrow["Clear width between stiles"], "fail");
+  const asStair = Object.fromEntries(checkStair({ code: "as1657", riserMm: 180, goingMm: 250, widthMm: 550, headroomMm: 2100, flightRiseMm: 3600 }).map((check) => [check.label, check.status]));
+  assert.equal(asStair["Step formula 2R + G"], "pass", "360 + 250 = 610 mm");
+  assert.equal(asStair["Risers in one flight"], "fail", "3600 / 180 = 20 risers");
+  assert.equal(asStair["Clear width"], "advice");
+
   near(moldedGratingClearOpening(38.1, 6), 32.1);
   const walk = Object.fromEntries(checkWalkway({ widthMm: 800, headroomMm: 2200, clearOpeningMm: 32.1, peopleBelow: false }).map((check) => [check.label, check.status]));
   assert.equal(walk["Openings in the walking surface"], "pass");
@@ -187,4 +232,158 @@ test("GFRP rebar size match and ACI CODE-440.11-22 values", () => {
   near(values.sustainedLimitMPa, 255);
   near(values.stiffnessRatio, 0.25);
   assert.equal(gfrpDesignValues({ guaranteedStrengthMPa: 0, modulusGPa: 50, areaMm2: 201 }), null);
+});
+
+test("cut list: kerf, trim, lower bound and the stock comparison", () => {
+  // Two 3000 mm pieces need 6003 mm with a 3 mm kerf, so each takes a bar.
+  const kerf = calculateCutList({ stockLengthMm: 6000, kerfMm: 3, trimMm: 0, pieces: [{ lengthMm: 3000, qty: 4 }] });
+  assert.equal(kerf.bars, 4);
+  // Without a kerf they pair up exactly, with no offcut.
+  const exact = calculateCutList({ stockLengthMm: 6000, kerfMm: 0, trimMm: 0, pieces: [{ lengthMm: 3000, qty: 4 }] });
+  assert.equal(exact.bars, 2);
+  assert.equal(exact.provenMinimum, true);
+  assert.equal(exact.patterns[0].offcutMm, 0);
+  near(exact.wastePercent, 0);
+
+  const mixed = calculateCutList({ stockLengthMm: 6000, kerfMm: 3, trimMm: 5, pieces: [{ lengthMm: 2400, qty: 12 }, { lengthMm: 1150, qty: 12 }, { lengthMm: 900, qty: 30, label: "rung" }] });
+  assert.equal(mixed.pieceCount, 54);
+  near(mixed.requiredMm, 2400 * 12 + 1150 * 12 + 900 * 30);
+  assert.ok(mixed.bars >= mixed.lowerBound);
+  assert.equal(mixed.patterns.reduce((sum, pattern) => sum + pattern.count, 0), mixed.bars);
+  // Every pattern fits: pieces + kerfs between them ≤ stock − 2 × trim.
+  for (const pattern of mixed.patterns) {
+    const used = pattern.cuts.reduce((sum, cut) => sum + cut, 0) + (pattern.cuts.length - 1) * 3;
+    assert.ok(used <= 6000 - 10 + 1e-9, pattern.cuts.join("+"));
+  }
+  // All pieces are cut, no more and no fewer.
+  const cut = new Map();
+  for (const pattern of mixed.patterns) for (const length of pattern.cuts) cut.set(length, (cut.get(length) ?? 0) + pattern.count);
+  assert.deepEqual(Object.fromEntries(cut), { 2400: 12, 1150: 12, 900: 30 });
+  near(mixed.wasteMm, mixed.orderedMm - mixed.requiredMm, 1e-6);
+
+  // A piece longer than the usable length is refused, with the usable length named.
+  assert.match(cutListError({ stockLengthMm: 6000, kerfMm: 3, trimMm: 10, pieces: [{ lengthMm: 5990, qty: 1 }] }), /usable 5980 mm/);
+  assert.match(cutListError({ stockLengthMm: 6000, kerfMm: 3, trimMm: 0, pieces: [{ lengthMm: 1000, qty: 1.5 }] }), /whole-number quantity/);
+  assert.equal(calculateCutList({ stockLengthMm: 6000, kerfMm: 3, trimMm: 0, pieces: [] }), null);
+});
+
+test("cut list: pasted lists from text or a spreadsheet", () => {
+  const { pieces, skipped } = parsePieceList("2400 x 12 Top rail\n1150\t24\tPost\n900,30\nnotes\n94.5 × 6");
+  assert.deepEqual(pieces, [
+    { lengthMm: 2400, qty: 12, label: "Top rail" },
+    { lengthMm: 1150, qty: 24, label: "Post" },
+    { lengthMm: 900, qty: 30 },
+    { lengthMm: 94.5, qty: 6 },
+  ]);
+  assert.deepEqual(skipped, ["notes"]);
+});
+
+test("column screen: shear-corrected Euler, plate buckling and crushing", () => {
+  const { checkColumn, maxColumnLength, lightestPassing, columnInputError } = loadProjectModule("lib/frpColumn.ts");
+  const base = { lengthMm: 3000, K: 1, weakAxisDivisor: 1, loadKn: 20, materialId: "frp-e23", method: "lrfd-asce", envId: "indoor-dry", durationId: "occupancy" };
+  const ibeam = { shape: "i-beam", h: 200, b: 100, tf: 10, tw: 10 };
+  const r = checkColumn({ ...base, section: ibeam });
+  const byMode = Object.fromEntries(r.modes.map((mode) => [mode.mode, mode]));
+  // Weak axis: Iy = (2·10·100³ + 180·10³)/12, Euler with the Engesser shear term.
+  const Iy = (2 * 10 * 100 ** 3 + 180 * 10 ** 3) / 12;
+  const PE = (Math.PI ** 2 * 23000 * Iy) / 3000 ** 2;
+  const Av = (5 / 6) * 2 * 100 * 10;
+  near(byMode["global-y"].nominalKn, PE / (1 + PE / (3500 * Av)) / 1000, 1e-9);
+  // Flange outstand b = 50 mm: G_LT (t/b)².
+  near(byMode["local-flange"].stressMPa, 3500 * (10 / 50) ** 2, 1e-9);
+  // Web at the centerline depth 190 mm, both edges simply supported.
+  near(byMode["local-web"].stressMPa, (Math.PI ** 2 / 6) * (10 / 190) ** 2 * (Math.sqrt(23000 * 7000) + 0.3 * 7000 + 2 * 3500), 1e-9);
+  near(byMode.crushing.stressMPa, 200);
+  // Every mode takes φ 0.65 × λ 0.8 on the ASCE-style screen; the load takes 1.6.
+  near(byMode.crushing.designKn, byMode.crushing.nominalKn * 0.65 * 0.8, 1e-9);
+  near(r.factoredLoadKn, 32);
+  assert.equal(r.governing.mode, "global-y");
+  // Bracing at mid-height halves the weak-axis length and lifts that mode.
+  const braced = checkColumn({ ...base, section: ibeam, weakAxisDivisor: 2 });
+  assert.ok(braced.modes.find((mode) => mode.mode === "global-y").nominalKn > 3.5 * byMode["global-y"].nominalKn);
+
+  // A 12 in wide-flange is governed by its flange outstands, not the length.
+  const wide = checkColumn({ ...base, section: { shape: "i-beam", h: 305, b: 305, tf: 12.7, tw: 12.7 } });
+  assert.equal(wide.governing.mode, "local-flange");
+
+  // Outdoor knockdown reaches crushing but not stiffness.
+  const outdoor = checkColumn({ ...base, section: ibeam, envId: "outdoor" });
+  near(outdoor.modes.find((mode) => mode.mode === "crushing").stressMPa, 170);
+  near(outdoor.modes.find((mode) => mode.mode === "global-y").stressMPa, byMode["global-y"].stressMPa);
+
+  // Longest passing length sits on utilization 1.
+  const tube = { shape: "rect-tube", h: 100, b: 100, tf: 8, tw: 8 };
+  const longest = maxColumnLength({ ...base, section: tube });
+  near(checkColumn({ ...base, section: tube, lengthMm: longest }).utilisation, 1, 1e-6);
+  assert.equal(maxColumnLength({ ...base, section: { shape: "i-beam", h: 305, b: 305, tf: 12.7, tw: 12.7 }, loadKn: 400 }), null, "local buckling does not improve with a shorter column");
+
+  const picks = lightestPassing(base, 4);
+  assert.ok(picks.length > 0);
+  for (let i = 1; i < picks.length; i += 1) assert.ok(picks[i].product.weight >= picks[i - 1].product.weight);
+  assert.ok(picks.every((pick) => pick.utilisation <= 1));
+
+  assert.match(columnInputError({ ...base, section: ibeam, materialId: "steel-s355" }), /FRP material/);
+  assert.match(columnInputError({ ...base, section: { shape: "rect-tube", h: 50, b: 50, tf: 30, tw: 30 } }), /too thick/);
+});
+
+test("unit converter: exact factors, temperature offsets and inch sizes", () => {
+  const { convertAll, parseInches, inchSizeToCatalog, QUANTITIES } = loadProjectModule("lib/unitConverter.ts");
+  const to = (quantity, value, from, unit) => convertAll(quantity, value, from).find((row) => row.unit.id === unit).value;
+  near(to("stress", 1, "ksi", "MPa"), 6.894757293168, 1e-9);
+  near(to("modulus", 1, "Msi", "GPa"), 6.894757293168, 1e-9);
+  near(to("force", 200, "lbf", "kN"), 0.88964432305, 1e-9);
+  near(to("line-load", 50, "lbf/ft", "kN/m"), 0.72969514, 1e-6);
+  near(to("pressure", 40, "psf", "kPa"), 1.91521, 1e-5);
+  near(to("mass-length", 1, "lb/ft", "kg/m"), 1.48816394, 1e-8);
+  near(to("inertia", 1, "in4", "mm4"), 25.4 ** 4, 1e-6);
+  near(to("temperature", -40, "C", "F"), -40, 1e-9);
+  near(to("temperature", 212, "F", "C"), 100, 1e-9);
+  near(to("u-value", 1, "Btu/hft2F", "W/m2K"), 5.678263, 1e-6);
+  near(to("r-value", 1, "hft2F/Btu", "m2K/W"), 0.1761102, 1e-7);
+  near(to("expansion", 8, "1e-6/K", "1e-6/F"), 8 / 1.8, 1e-9);
+  // Round trip through every unit returns the input.
+  for (const quantity of QUANTITIES) {
+    for (const unit of quantity.units) {
+      const back = convertAll(quantity.id, to(quantity.id, 3.7, quantity.units[0].id, unit.id), unit.id)[0].value;
+      near(back, 3.7, 1e-9);
+    }
+  }
+  assert.deepEqual(["4", "1/4", "1-1/2", "1 1/2", '3/8"', "0.375 in", "x", "1/0"].map(parseInches), [4, 0.25, 1.5, 1.5, 0.375, 0.375, null, null]);
+  const wf = inchSizeToCatalog("i-beam", 12, 12, 0.5);
+  assert.equal(wf.product.model, "I 305×305×12.7");
+  assert.equal(wf.exact, true);
+  const shs = inchSizeToCatalog("square-tube", 4, 4, 0.25);
+  assert.equal(shs.product.model, "SHS 100×100×6");
+  assert.equal(shs.exact, false, "6 mm against a 6.35 mm wall is more than 2% off");
+});
+
+test("life-cycle cost: present values, events, residual credit and galvanizing life", () => {
+  const { calculateLcc, galvanizingLife, lccInputError } = loadProjectModule("lib/lifeCycleCost.ts");
+  // ISO 9223 zinc rates with the ISO 1461 85 µm coating.
+  const c5 = galvanizingLife("C5", 85);
+  near(c5.shortYears, 85 / 8.4);
+  near(c5.longYears, 85 / 4.2);
+  near(c5.midYears, 85 / 6.3);
+  near(galvanizingLife("C3", 85).shortYears, 85 / 2.1);
+
+  const option = (label, initial, first, interval, cost, annual = 0, life = 0) => ({ label, initial, firstMaintenanceYear: first, maintenanceInterval: interval, maintenanceCost: cost, annualCost: annual, serviceLife: life });
+  const base = { studyYears: 30, discountPercent: 3, downtimePerEvent: 0, residualValue: true };
+  const r = calculateLcc({ ...base, frp: option("FRP", 130, 25, 25, 10), steel: option("Steel", 100, 13, 15, 40) });
+  assert.deepEqual(r.steel.events.map((event) => event.year), [13, 28]);
+  near(r.steel.total, 100 + 40 / 1.03 ** 13 + 40 / 1.03 ** 28, 1e-9);
+  near(r.frp.total, 130 + 10 / 1.03 ** 25, 1e-9);
+  near(r.saving, r.steel.total - r.frp.total, 1e-12);
+  assert.equal(r.breakEvenYear, 28);
+  near(r.steel.cumulative[30], r.steel.total, 1e-9);
+
+  // Undiscounted: replacement at 20, one maintenance per life, half a life credited back.
+  const flat = calculateLcc({ ...base, discountPercent: 0, downtimePerEvent: 5, frp: option("FRP", 100, 0, 0, 0, 1), steel: option("Steel", 100, 10, 10, 20, 0, 20) });
+  assert.deepEqual(flat.steel.events.map((event) => [event.kind, event.year]), [["maintenance", 10], ["replacement", 20]]);
+  near(flat.steel.residual, 50);
+  near(flat.steel.total, 100 + 20 + 100 + 2 * 5 - 50);
+  near(flat.frp.total, 130);
+  near(flat.steel.annualized, flat.steel.total / 30);
+
+  assert.match(lccInputError({ ...base, studyYears: 0, frp: option("FRP", 1, 0, 0, 0), steel: option("Steel", 1, 0, 0, 0) }), /study period/);
+  assert.match(lccInputError({ ...base, frp: option("FRP", 0, 0, 0, 0), steel: option("Steel", 1, 0, 0, 0) }), /FRP: enter the installed cost/);
 });

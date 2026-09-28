@@ -168,8 +168,8 @@ export default function AccessGeometryChecker() {
               )}
               <p className="text-f12 text-t3">
                 Clear width is measured between the inside faces of the side rails, so it is the overall width minus both
-                rails. Australia and New Zealand (AS 1657:2018) and Canadian provincial rules are not encoded; check their
-                limits on the drawing.
+                rails. AS 1657:2018 values are taken from state-regulator and designer summaries of the standard. Canadian
+                provincial rules are not encoded; check their limits on the drawing.
               </p>
             </>
           )}
@@ -196,8 +196,8 @@ export default function AccessGeometryChecker() {
                 </div>
               </div>
               <p className="text-f12 text-t3">
-                The FRP stair tread depth is the going. AS 1657:2018 (Australia, New Zealand) is not encoded; check its angle,
-                riser and going limits on the drawing.
+                The FRP stair tread depth is the going. AS 1657:2018 values are taken from state-regulator and designer
+                summaries of the standard; confirm them in your copy.
               </p>
             </>
           )}

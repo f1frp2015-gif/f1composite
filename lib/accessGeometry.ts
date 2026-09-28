@@ -3,9 +3,12 @@
 //
 // Each rule carries its clause. OSHA values are the regulation text; EN ISO
 // 14122 values follow the 2016 editions as summarised in published guidance,
-// and IBC values the 2024 edition. AS 1657 (Australia/NZ) and Canadian
-// provincial OHS rules are not encoded yet: the checker names them instead
-// (see docs/audits/2026-09-26-tools-standards-audit.md).
+// and IBC values the 2024 edition. AS 1657:2018 (Australia, also used in New
+// Zealand) values agree across state-regulator guidance and access-system
+// designers' summaries; where the summaries disagree (ladder cage height,
+// stair width) the check is advice, not pass or fail. Canadian provincial OHS
+// rules are not encoded (see docs/audits/2026-09-26-tools-standards-audit.md
+// and docs/audits/2026-09-28-tools-round-2.md).
 
 export type CheckStatus = "pass" | "fail" | "advice";
 
@@ -25,7 +28,7 @@ const within = (value: number, min: number, max: number) => value >= min - 1e-9 
 
 // ── Fixed ladders ──────────────────────────────────────────────────────────
 
-export type LadderCode = "osha" | "iso14122-4";
+export type LadderCode = "osha" | "iso14122-4" | "as1657";
 export type FallProtection = "none" | "cage" | "ladder-safety-system" | "personal-fall-arrest";
 
 export interface LadderInput {
@@ -46,6 +49,7 @@ export interface LadderInput {
 export const LADDER_CODES: Record<LadderCode, string> = {
   osha: "OSHA 29 CFR 1910.23 and 1910.28(b)(9) (US general industry)",
   "iso14122-4": "EN ISO 14122-4:2016 (permanent access to machinery, EU/UK)",
+  as1657: "AS 1657:2018 (fixed platforms, walkways, stairways and ladders, AU/NZ)",
 };
 
 export function ladderInputError(input: LadderInput): string | null {
@@ -108,6 +112,38 @@ export function checkLadder(input: LadderInput): GeometryCheck[] {
     return checks;
   }
 
+  if (input.code === "as1657") {
+    checks.push({
+      label: "Rung spacing",
+      value: mm(input.rungPitchMm),
+      requirement: "250 to 300 mm, uniform along the ladder",
+      status: within(input.rungPitchMm, 250, 300) ? "pass" : "fail",
+      clause: "AS 1657:2018",
+    });
+    checks.push({
+      label: "Clear width between stiles",
+      value: mm(input.clearWidthMm),
+      requirement: "375 to 525 mm",
+      status: within(input.clearWidthMm, 375, 525) ? "pass" : "fail",
+      clause: "AS 1657:2018",
+    });
+    checks.push({
+      label: "Clearance behind the rungs",
+      value: mm(input.toeClearanceMm),
+      requirement: "At least 200 mm behind the rungs",
+      status: input.toeClearanceMm >= 200 ? "pass" : "fail",
+      clause: "AS 1657:2018",
+    });
+    checks.push({
+      label: "Fall protection and landings",
+      value: `${(input.heightMm / 1000).toFixed(2)} m`,
+      requirement: "AS 1657 sets when a cage or a fall-arrest system is needed and the longest flight between landings (6 m in published summaries). Published summaries disagree on the cage height, so take it from the standard",
+      status: "advice",
+      clause: "AS 1657:2018",
+    });
+    return checks;
+  }
+
   checks.push({
     label: "Rung pitch",
     value: mm(input.rungPitchMm),
@@ -145,12 +181,13 @@ export function checkLadder(input: LadderInput): GeometryCheck[] {
 
 // ── Stairs ─────────────────────────────────────────────────────────────────
 
-export type StairCode = "osha-standard" | "osha-ship" | "iso14122-3" | "ibc";
+export type StairCode = "osha-standard" | "osha-ship" | "iso14122-3" | "as1657" | "ibc";
 
 export const STAIR_CODES: Record<StairCode, string> = {
   "osha-standard": "OSHA 29 CFR 1910.25(c), standard stairs (US workplaces)",
   "osha-ship": "OSHA 29 CFR 1910.25(e), ship stairs (US workplaces)",
   "iso14122-3": "EN ISO 14122-3:2016, stairs for machinery access (EU/UK)",
+  as1657: "AS 1657:2018, stairways for industrial access (AU/NZ)",
   ibc: "IBC 2024 §1011, stairways in buildings (US)",
 };
 
@@ -202,6 +239,16 @@ export function checkStair(input: StairInput): GeometryCheck[] {
     add("Clear width", mm(input.widthMm), "At least 600 mm; 800 mm recommended", input.widthMm >= 600, "EN ISO 14122-3:2016");
     add("Headroom", mm(input.headroomMm), "At least 2,300 mm", input.headroomMm >= 2300, "EN ISO 14122-3:2016");
     add("Flight rise between landings", mm(input.flightRiseMm), "No more than 3,000 mm", input.flightRiseMm <= 3000, "EN ISO 14122-3:2016");
+  } else if (input.code === "as1657") {
+    const pitch = input.goingMm + 2 * input.riserMm;
+    const risers = Math.ceil(input.flightRiseMm / input.riserMm - 1e-9);
+    add("Angle", angleText, "20° to 45°; 30° to 38° preferred", within(angle, 20, 45), "AS 1657:2018");
+    add("Riser height", mm(input.riserMm), "130 to 225 mm", within(input.riserMm, 130, 225), "AS 1657:2018");
+    add("Going", mm(input.goingMm), "215 to 355 mm", within(input.goingMm, 215, 355), "AS 1657:2018");
+    add("Step formula 2R + G", mm(pitch), "540 to 700 mm", within(pitch, 540, 700), "AS 1657:2018");
+    add("Risers in one flight", `${risers}`, "No more than 18 risers between landings", risers <= 18, "AS 1657:2018");
+    add("Headroom", mm(input.headroomMm), "At least 2,000 mm, more where hard hats are worn", input.headroomMm >= 2000, "AS 1657:2018");
+    checks.push({ label: "Clear width", value: mm(input.widthMm), requirement: "Published summaries give at least 600 mm between stiles; confirm in the standard. Handrails on both sides above 1,000 mm width", status: input.widthMm >= 600 ? "pass" : "advice", clause: "AS 1657:2018" });
   } else {
     add("Riser height", both(input.riserMm), "4 to 7 in (102–178 mm)", within(input.riserMm, 4 * IN, 7 * IN), "IBC 2024 §1011.5.2");
     add("Tread depth", both(input.goingMm), "At least 11 in (279 mm)", input.goingMm >= 11 * IN - 1e-9, "IBC 2024 §1011.5.2");
@@ -228,7 +275,7 @@ export const WALKWAY_LOADS = [
   { rule: "ASCE 7-22 Table 4.3-1 (US)", use: "Walkways and elevated platforms other than exitways", load: "60 psf (2.87 kPa)" },
   { rule: "OSHA 29 CFR 1910.22(b) (US)", use: "Every walking-working surface", load: "Its maximum intended load; no fixed value" },
   { rule: "EN ISO 14122-2:2016 (EU/UK)", use: "Working platforms and walkways", load: "2 kN/m² on the structure; 1.5 kN on 200 × 200 mm on the flooring; deflection no more than span/200 and 4 mm step to the adjacent unloaded panel" },
-  { rule: "AS/NZS 1170.1 and AS 1657:2018 (AU/NZ)", use: "Walkways and platforms", load: "Enter the values for the occupancy from the standard" },
+  { rule: "AS/NZS 1170.1 and AS 1657:2018 (AU/NZ)", use: "Walkways and platforms", load: "Take the values for the occupancy from the standard; AS 1657 walkways are at least 600 mm wide with 2,000 mm headroom" },
   { rule: "NBC Part 4 (Canada)", use: "Service rooms, catwalks and platforms", load: "Enter the value from Table 4.1.5.3 of the code in force" },
 ] as const;
 
