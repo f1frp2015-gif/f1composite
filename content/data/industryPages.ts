@@ -74,6 +74,7 @@ export const industryPages = {
     },
     areasIntro: "The parts change from one kind of energy site to the next, and so do the checks. Electrical and fire requirements belong to the specified laminate and assembly, not to fiberglass as a category.",
     areas: [
+      { area: "Overhead distribution lines", exposure: "Timber crossarms can decay and steel hardware can corrode in wet or coastal service", parts: "Pultruded fiberglass crossarm members with agreed drilling and assembly scope", check: "Conductor load cases, pole mount and brace capacity, clearances, tracking, UV and water ingress" },
       { area: "Substations and switchyards", exposure: "Steel frames need grounding and bonding, and corrode in coastal or industrial air", parts: "Equipment stands, frames and trench covers from standard profiles", check: "Clearances, dielectric data for the specified laminate, UV exposure and any fire classification" },
       { area: "Cable routes in plants", exposure: "Steel trays and supports rust in damp, chemical or coastal areas", parts: "Channels, angles and brackets for cable supports; custom tray sections", check: "Cable weight, support spacing, fire-retardant resin where required, the electrical design basis" },
       { area: "Solar mounting", exposure: "Zinc coatings wear on coastal, agricultural and floating sites; many roofs have little spare capacity", parts: "Rails, posts, clamps and PV module frame profiles", check: "Wind and snow loads, UV-stabilised resin and surface veil, connections and roof capacity" },
@@ -92,9 +93,11 @@ export const industryPages = {
     // study, so it is linked below rather than shown as a second card.
     projects: [
       chongqingRooftopPv,
+      applicationCard("frp-utility-crossarms"),
       applicationCard("frp-cable-tray-supports"),
     ],
     reading: [
+      { label: "FRP utility crossarm application guide", href: "/applications/frp-utility-crossarms" },
       { label: "PV support design guide", href: "/applications/frp-solar-mounting-profiles" },
       { label: "FRP for offshore, tidal and fishery-PV mounts", href: "/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames" },
       { label: "How to specify FRP cable tray", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
