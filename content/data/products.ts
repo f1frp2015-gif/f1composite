@@ -68,6 +68,17 @@ export const productCategories: ProductCategory[] = [
     imageScale: 1.2,
   },
   {
+    slug: "fiberglass-dog-bone",
+    title: "Fiberglass Dog Bone Profiles",
+    description: "Drawing-led pultruded insulating supports for transformer winding and electrical equipment assemblies.",
+    icon: "custom",
+    href: "/products/fiberglass-dog-bone",
+    image: "/images/products/fiberglass-dog-bone/fiberglass-dog-bone-section.svg",
+    imageWidth: 1200,
+    imageHeight: 800,
+    imageAlt: "Illustrative fiberglass dog bone profile section with widened ends and a narrow waist",
+  },
+  {
     slug: "frp-solar-mounting-systems",
     title: "Solar Module Frames & Mounting",
     description: "Pultruded FRP module frame profiles, structural PV supports, and lightweight rooftop rails for corrosive and weight-sensitive solar projects.",

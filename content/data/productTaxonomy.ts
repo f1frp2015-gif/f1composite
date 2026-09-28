@@ -54,6 +54,10 @@ export const productFamilies = [
         href: "/products/custom-pultruded-profiles",
       },
       {
+        label: "Fiberglass Dog Bone Profiles",
+        href: "/products/fiberglass-dog-bone",
+      },
+      {
         label: "Materials & Resin Options",
         href: "/technology/pultrusion-resin-systems",
       },

@@ -146,6 +146,7 @@ const profileFamily: Array<{
 
 // Products built from these profiles for one application.
 const applicationProducts = [
+  { href: "/products/fiberglass-dog-bone", title: "Fiberglass dog bone profiles" },
   { href: "/products/frp-solar-mounting-systems", title: "Solar frames and supports" },
   { href: "/products/wind-turbine-blade-panels", title: "Wind turbine blade panels" },
   { href: "/products/frp-rebar", title: "GFRP rebar" },
