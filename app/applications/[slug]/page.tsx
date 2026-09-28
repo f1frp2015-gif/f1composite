@@ -9,6 +9,7 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import ProductRfq from "@/components/products/ProductRfq";
 import AgricultureStakesApplication from "@/components/sections/AgricultureStakesApplication";
 import CableTrayApplication from "@/components/sections/CableTrayApplication";
+import UtilityCrossarmApplication from "@/components/sections/UtilityCrossarmApplication";
 import PedestrianBridgeGuide, { bridgeFaqs, bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
@@ -84,6 +85,10 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
 
   if (page.slug === "frp-cable-tray-supports") {
     return <><JsonLd data={schema} /><CableTrayApplication page={page} /></>;
+  }
+
+  if (page.slug === "frp-utility-crossarms") {
+    return <><JsonLd data={schema} /><UtilityCrossarmApplication page={page} /></>;
   }
 
   if (page.slug === "agriculture-horticulture-stakes") {

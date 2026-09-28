@@ -146,6 +146,16 @@ export const productFamilies = [
 
 export const applicationGroups = [
   {
+    label: "Overhead Power Lines",
+    description: "Fiberglass crossarm assemblies for distribution poles, with geometry, loading, electrical and qualification guidance.",
+    href: "/applications/frp-utility-crossarms",
+    products: ["standard", "custom"],
+    links: [
+      { label: "FRP Crossarm Application Guide", href: "/applications/frp-utility-crossarms" },
+      { label: "Square & Rectangular Tubes", href: "/products/fiberglass-structural-shapes/frp-square-tube" },
+    ],
+  },
+  {
     label: "Agriculture & Horticulture",
     description: "Plant support for nurseries, vineyards, orchards and crops, from stake selection and field trials to bulk supply.",
     href: "/applications/agriculture-horticulture-stakes",
