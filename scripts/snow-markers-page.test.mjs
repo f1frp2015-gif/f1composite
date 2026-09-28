@@ -53,7 +53,7 @@ test("snow-marker imagery is local, SEO-named, compressed and responsibly loaded
   assert.match(page, /quality=\{75\}/);
   assert.match(page, /sizes="\(max-width: 1024px\) calc\(100vw - 68px\), 40vw"/);
   assert.doesNotMatch(page, /src=\{?[^\n]*(\.png|\.jpe?g)/i);
-  assert.match(page, /Catalog visualization of solid and hollow marker configurations/);
+  assert.match(page, /Solid and hollow marker configurations/);
   assert.match(page, /Final[\s\S]*approved sample/);
 });
 

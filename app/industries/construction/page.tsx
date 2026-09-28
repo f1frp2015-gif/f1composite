@@ -23,7 +23,7 @@ const pageTitle = "FRP Products for Buildings & Construction";
 const pageDescription =
   "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application.";
 const pagePath = "/industries/construction";
-const conceptImage = "/images/industries/frp-building-applications-concept.webp";
+const conceptImage = "/images/industries/frp-building-applications-overview.webp";
 const quoteHref = buildRfqHref({
   source: "construction-industry",
   product: "FRP products for a building project",
@@ -77,10 +77,10 @@ export default function ConstructionPage() {
         title={pageTitle}
         description="From the window opening to the rooftop: find the right fiberglass product for each part of a building, understand the design decisions, and build a coordinated enquiry."
         figure={
-          <Figure number={1} title="One building, six application areas" note="Illustration" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
+          <Figure number={1} title="One building, six application areas" caption="Teal marks potential FRP components; connections and proportions are schematic. The numbers match the product groups below.">
             <Image
               src={conceptImage}
-              alt="Concept building with six numbered FRP applications: 01 window frames, 02 facade fins, 03 secondary support frame, 04 grating stairs and handrails, 05 slab reinforcement, and 06 rooftop solar supports."
+              alt="Building with six numbered FRP applications: 01 window frames, 02 facade fins, 03 secondary support frame, 04 grating stairs and handrails, 05 slab reinforcement, and 06 rooftop solar supports."
               width={1536}
               height={1024}
               sizes="(max-width: 1023px) 94vw, 44vw"

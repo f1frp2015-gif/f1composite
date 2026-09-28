@@ -56,8 +56,8 @@ export default function WindowProcurementPage({ mode }: { mode: keyof typeof win
         ? [{ label: "Systems", value: "9 series" }, { label: "Frame depth", value: "50–140 mm" }, { label: "Supply", value: "Profile sets" }, { label: "RFQ template", value: "Profile BOM" }]
         : [{ label: "Systems", value: "9 series" }, { label: "Frame depth", value: "50–140 mm" }, { label: "Test reports", value: "AS 2047" }, { label: "RFQ template", value: "Window schedule" }]}
       figure={profiles
-        ? <Figure number={1} title="70 series corner section" note="Rendering"><Image src="/images/products/window-door/frp-window-frame-70-series-corner-section.webp" alt="Corner section of a 70-series FRP window frame showing the profile chambers" width={800} height={800} sizes="(max-width: 1023px) 90vw, 300px" preload className="mx-auto h-auto w-full max-w-[300px] object-contain" /></Figure>
-        : <Figure number={1} title="80 series tilt-and-turn" note="Rendering"><Image src="/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp" alt="Corner section of an 80-series tilt-and-turn FRP window" width={600} height={600} sizes="(max-width: 1023px) 90vw, 300px" preload className="mx-auto h-auto w-full max-w-[300px] object-contain" /></Figure>}
+        ? <Figure number={1} title="70 series corner section" note={null}><Image src="/images/products/window-door/frp-window-frame-70-series-corner-section.webp" alt="Corner section of a 70-series FRP window frame showing the profile chambers" width={800} height={800} sizes="(max-width: 1023px) 90vw, 300px" preload className="mx-auto h-auto w-full max-w-[300px] object-contain" /></Figure>
+        : <Figure number={1} title="80 series tilt-and-turn" note={null}><Image src="/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp" alt="Corner section of an 80-series tilt-and-turn FRP window" width={600} height={600} sizes="(max-width: 1023px) 90vw, 300px" preload className="mx-auto h-auto w-full max-w-[300px] object-contain" /></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors", href: "/products/frp-window-frames" }, { label: profiles ? "Profiles for Fabricators" : "Finished Units" }]}
       actions={{ primary: { label: profiles ? "Request a profile quote" : "Request a finished-unit quote", href: quote }, secondary: { label: profiles ? "Download the BOM template" : "Download the schedule template", href: template, variant: "secondary" }, note: "Start with a sample, a budget estimate, a technical review or a formal quotation.", stickyMobile: true }}
     />
@@ -81,7 +81,7 @@ export default function WindowProcurementPage({ mode }: { mode: keyof typeof win
           ? <Figure number={2} title="Profile samples" note="Product photo" bleed>
               <Image src={page.image} alt={page.imageAlt} width={1672} height={941} sizes="(max-width: 1023px) 94vw, 560px" className="h-auto w-full bg-white" />
             </Figure>
-          : <Figure number={2} title="140 series sliding door" note="Rendering">
+          : <Figure number={2} title="140 series sliding door" note={null}>
               <div className="relative aspect-[4/3]"><Image src="/images/products/window-door/frp-window-door-frame-140-series-sliding.webp" alt="Corner section of a 140-series FRP sliding door frame with triple glazing" fill sizes="(max-width: 1023px) 90vw, 560px" className="object-contain" /></div>
             </Figure>}
       </div>

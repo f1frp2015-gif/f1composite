@@ -51,7 +51,7 @@ export type BlogPost = {
   coverImage: string;
   coverAlt: string;
   /**
-   * What kind of image the cover is, in the figure-note vocabulary ("Illustrative photo", "Rendering" …): shown on
+   * What kind of image the cover is, in the figure-note vocabulary ("Illustrative photo", "Schematic" …): shown on
    * cards and the article figure. Empty for a cover cut from a document that labels itself, such as the article's
    * own table or a certificate, where the badge would only sit on the document's header.
    */
@@ -635,7 +635,7 @@ If the project needs a catalog shape, compare the dimensions and section propert
     coverImage: "/images/covers/blog/frp-material-forms.webp",
     coverAlt: "Pultruded FRP in four forms: GFRP rebar, a round tube, a channel and a two-cell plate",
     coverNote: "Product photo",
-    supportingImage: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg",
+    supportingImage: "/images/technology/frp-profile-engineering-drawing-3d-view.jpg",
     supportingAlt:
       "FRP structural profile engineering drawing connecting material properties with cross-section design",
     supportingCaption:
@@ -992,9 +992,9 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/photo/18193156/"),
     supportingImage: "/images/products/fenestration/frp-window-frame-90-series-sliding.webp",
-    supportingAlt: "Rendering of a 90-series FRP sliding window frame in section with triple glazing",
+    supportingAlt: "90-series FRP sliding window frame in section with triple glazing",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness and finish are all invisible at thumbnail resolution.",
+    supportingCaption: "Two profiles can look identical in a catalog thumbnail and differ by 40% in price: resin system, glass content, wall thickness and finish are all invisible at thumbnail resolution.",
     highlights: [
       "Resin system is the biggest single lever: polyester baseline, vinyl ester +10–25%, polyurethane at the top of the range",
       "Custom-section MOQs exist to pay off the die; standing-die profiles skip that cost entirely",
@@ -1074,9 +1074,9 @@ The practical takeaway for buyers: **make quotes decomposable.** Ask every suppl
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Tizzy", "https://www.pexels.com/photo/29857358/"),
     supportingImage: "/images/products/fenestration/frp-window-frame-70-series-casement.webp",
-    supportingAlt: "Rendering of a 70-series FRP casement frame in section, showing the pultruded chambers and the glazing",
+    supportingAlt: "70-series FRP casement frame in section, showing the pultruded chambers and the glazing",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. The corner is the honest test of any window fabrication process. uPVC fuses it; a fiberglass frame is joined mechanically inside these chambers: a different process and a different QC point, with a comparable cycle time once the line settles.",
+    supportingCaption: "The corner is the honest test of any window fabrication process. uPVC fuses it; a fiberglass frame is joined mechanically inside these chambers: a different process and a different QC point, with a comparable cycle time once the line settles.",
     highlights: [
       "Corner joining is the one genuine process change: mechanical keys + adhesive replace fusion welding. No welders on the line",
       "Screw retention improves outright: pultruded walls hold hardware directly, with no steel insert and no stripped-thread rework",
@@ -1230,14 +1230,14 @@ To check where a specific frame and glazing build lands before specifying, run i
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "EN 14351-1", "ASTM D3917", "PHI Component Criteria", "NAFS (AAMA/WDMA/CSA 101)"],
     coverImage: "/images/products/fenestration-systems-cover.webp",
-    coverAlt: "Rendering of a pultruded FRP window frame corner with triple glazing",
-    coverNote: "Rendering",
+    coverAlt: "Pultruded FRP window frame corner with triple glazing",
+    coverNote: "",
     coverImagePosition: "center 62%",
     coverImageFit: "contain",
     supportingImage: "/images/products/window-door/frp-window-frame-70-series-corner-section.webp",
-    supportingAlt: "Rendering of a 70-series FRP window frame corner section, the multi-chamber profile supplied to window fabricators",
+    supportingAlt: "70-series FRP window frame corner section, the multi-chamber profile supplied to window fabricators",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set (frame, sash, mullion, transom, glazing bead) and assemble, glaze and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
+    supportingCaption: "The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set (frame, sash, mullion, transom, glazing bead) and assemble, glaze and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
     highlights: [
       "Two distinct businesses: lineals for fabricators vs finished fiberglass windows. Different buyers, margins, and qualification paths",
       "Demand is code-pulled: GEG 2024, BC Step Code, ENERGY STAR, and Passive House targets sit below what thermally-broken aluminum reaches comfortably",
@@ -1741,9 +1741,9 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
     standards: ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"],
-    coverImage: "/images/covers/blog/frp-i-beam-render.webp",
-    coverAlt: "Rendering of a pultruded FRP I-beam with its section dimensions marked",
-    coverNote: "Rendering",
+    coverImage: "/images/covers/blog/frp-i-beam-section.webp",
+    coverAlt: "Pultruded FRP I-beam with its section dimensions marked",
+    coverNote: "",
     supportingImage: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg",
     supportingAlt: "Surfaces of FRP, steel, timber and galvanized steel side by side",
     supportingCaption: "Illustrative photo. The comparison below is about profiles: FRP trades steel's stiffness for low weight, electrical insulation and no rust, so deflection, not strength, usually sets the FRP size.",
@@ -2035,8 +2035,8 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     coverImage: "/images/industries/frp-infrastructure-bridge-structure.jpg",
     coverAlt: "Steel truss bridge running out to sea in low light",
     coverNote: "Illustrative photo",
-    supportingImage: "/images/case-studies/frp-bridge.jpg",
-    supportingAlt: "Composite bridge concept illustration for FRP deck applications",
+    supportingImage: "/images/applications/frp-decking-bridge-marina.webp",
+    supportingAlt: "Gray closed-top FRP deck panels with an anti-slip surface on a coastal pedestrian bridge leading to a marina",
     supportingCaption:
       "The main value of FRP bridge decks is system-level: lower dead load, faster installation, less corrosion maintenance, and reduced closure time.",
     highlights: [
@@ -2242,9 +2242,9 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     coverImage: "/images/covers/blog/beam-deflection-diagram.webp",
     coverAlt: "Diagram of a simply supported beam deflecting under a midspan load, with the span marked",
     coverNote: "Illustration",
-    supportingImage: "/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg",
-    supportingAlt: "Dimensioned drawing and rendering of a multi-chamber pultruded FRP profile",
-    supportingCaption: "Rendering. Most engineering objections are resolved when the supplier can connect design values, tolerances and quality records to the exact section being proposed, dimensioned as on this drawing.",
+    supportingImage: "/images/products/custom-frp-profile-engineering-drawing-3d-view.jpg",
+    supportingAlt: "Dimensioned drawing and 3D view of a multi-chamber pultruded FRP profile",
+    supportingCaption: "Most engineering objections are resolved when the supplier can connect design values, tolerances and quality records to the exact section being proposed, dimensioned as on this drawing.",
     highlights: [
       "Engineers ask about stiffness before they ask about strength",
       "Connections, creep, fire, and tolerances decide specification confidence",
@@ -3100,9 +3100,9 @@ For engineers designing structures that must survive impact events and remain in
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Jan van der Wolf", "https://www.pexels.com/@jan-van-der-wolf-11680885/"),
     supportingImage: "/images/products/fenestration/frp-window-frame-70-series-outward.webp",
-    supportingAlt: "Rendering of an outward-opening 70-series FRP window frame corner",
+    supportingAlt: "Outward-opening 70-series FRP window frame corner",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. Outward-opening sashes are common in Australian housing; frame depth, glazing and hardware are confirmed per project for AS 2047.",
+    supportingCaption: "Outward-opening sashes are common in Australian housing; frame depth, glazing and hardware are confirmed per project for AS 2047.",
     highlights: [
       "Both window and door systems pass AS 2047-2014",
       "Wind load tested to 1200 Pa serviceability / 3000 Pa ultimate",
@@ -3388,9 +3388,9 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
     coverNote: "Illustrative photo",
     coverAttribution: pexelsCredit("Curtis Adams", "https://www.pexels.com/@curtis-adams-1694007/"),
     supportingImage: "/images/products/fenestration/frp-window-frame-140-series-sliding-b.webp",
-    supportingAlt: "Rendering of the 140-series FRP lift-sliding door frame section",
+    supportingAlt: "140-series FRP lift-sliding door frame section",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. The 140-series lift-sliding frame whose AS 2047 test result is discussed below.",
+    supportingCaption: "The 140-series lift-sliding frame whose AS 2047 test result is discussed below.",
     highlights: [
       "Tested as a full 7.2 m² door rather than a small sample",
       "Mullion deflection 1/376 at ±1200 Pa (AS 2047 limit is 1/250)",
@@ -3585,9 +3585,9 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     coverAlt: "Pultruded F1 Composite FRP window profile finish samples in champagne, copper-bronze, marine blue, anthracite gray, and matte black — visually identical to architectural-grade powder-coated aluminum",
     coverNote: "Product photo",
     supportingImage: "/images/products/fenestration/frp-window-frame-70-series-awning.webp",
-    supportingAlt: "Rendering of a 70-series FRP awning frame in section",
+    supportingAlt: "70-series FRP awning frame in section",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. The finish sits on the outer skin of the profile, while the transverse strength that holds hinge and lock screws comes from the mat and fabric layers in the walls.",
+    supportingCaption: "The finish sits on the outer skin of the profile, while the transverse strength that holds hinge and lock screws comes from the mat and fabric layers in the walls.",
     highlights: [
       "Cross-direction reinforcement embedded below a resin-rich surface zone",
       "Powder-coated finish indistinguishable from architectural aluminum",
@@ -4555,7 +4555,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
     supportingImage: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp",
     supportingAlt: "Corner section of the 90-series GFRP-PU window frame with triple glazing",
     supportingImageFit: "contain",
-    supportingCaption: "Rendering. The certified 90-series frame: insulating chambers and triple glazing, with no metal thermal break.",
+    supportingCaption: "The certified 90-series frame: insulating chambers and triple glazing, with no metal thermal break.",
     highlights: [
       "PHI Table 1 (v5.6): Uw ≤ 0.40 / 0.60 / 0.80 / 1.00 / 1.20 W/m²K for arctic / cold / cool-temperate / warm-temperate / warm zones",
       "The limits come from a comfort rule, |θsi − θop| ≤ 4.2 K, rather than an arbitrary energy target",
@@ -4725,7 +4725,7 @@ To see both numbers interact on a real build (your frame, glazing package, and s
     coverAttribution: pexelsCredit("Badun", "https://www.pexels.com/photo/34776034/"),
     supportingImage: "/images/blog/pultruded-thermal-break-aluminum-sliding-section.webp",
     supportingAlt:
-      "Cutaway render of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles rolled into both sashes, bridging a deep insulating zone no extruded strip geometry can serve",
+      "Cutaway of a thermally broken aluminum sliding-door meeting stile: pultruded GFRP thermal break profiles rolled into both sashes, bridging a deep insulating zone no extruded strip geometry can serve",
     supportingImageFit: "contain",
     supportingCaption:
       "The case in cross-section: pultruded GFRP break profiles rolled into both sashes of a sliding-door meeting stile, spanning a break zone far deeper than strip extrusion serves. The break's conductivity sets the heat loss, its depth sets the interior surface temperature, and its mechanical section decides whether the composite profile still acts as one beam after twenty years of load cycles.",
@@ -4772,7 +4772,7 @@ Pultruded GFRP (E-glass in polyester, vinyl ester, or polyurethane matrix) lands
 
 **Strength, and what it buys.** EN 13706 E23 pultrusion carries roughly twice the tensile strength of PA66-GF25, with modulus to match, and, critically for the EN 14024 load case, it does not lose a large fraction of that strength when conditioned to equilibrium moisture, because it barely takes on moisture at all (thermoset GFRP absorbs about a tenth of what PA66 does; PA66's mechanical datasheet values are famously different dry-as-molded versus conditioned). For the designer this cashes out as wider screw-port spacing, longer unsupported break spans, and break profiles that hold heavy triple-glazed sashes without auxiliary reinforcement.
 
-**Geometry strip extrusion cannot reach.** A polyamide strip is fundamentally a flat, thin extrusion: I-shapes, C-shapes, hollow chambers up to modest widths. Pultrusion produces closed multi-chamber hollow sections at essentially any depth the die allows. That is what the render shows: a deep break zone in a lift-slide meeting stile, bridged by hollow GFRP profiles with insulating infill in the cavity. Insulbar LI gets to λ 0.21 by foaming the polymer; a hollow pultruded break with low-conductivity infill gets the equivalent zone-level result by geometry, without giving up the solid material's mechanical section where the loads run. On wide sliding doors, where the meeting stile is both the thermal weak point and the stiffness-critical member, this is the argument that decides projects.
+**Geometry strip extrusion cannot reach.** A polyamide strip is fundamentally a flat, thin extrusion: I-shapes, C-shapes, hollow chambers up to modest widths. Pultrusion produces closed multi-chamber hollow sections at essentially any depth the die allows. That is what the cutaway shows: a deep break zone in a lift-slide meeting stile, bridged by hollow GFRP profiles with insulating infill in the cavity. Insulbar LI gets to λ 0.21 by foaming the polymer; a hollow pultruded break with low-conductivity infill gets the equivalent zone-level result by geometry, without giving up the solid material's mechanical section where the loads run. On wide sliding doors, where the meeting stile is both the thermal weak point and the stiffness-critical member, this is the argument that decides projects.
 
 **The CTE question, answered honestly.** Longitudinal CTE of pultruded GFRP is lower than aluminum's: the two do move differently with temperature, and pretending otherwise would be fabrication. The engineering answers are the same ones the polyamide world already uses at its own joints: knurl geometry sized for the differential, joint qualification across EN 14024's temperature range (the curtain-wall version of this argument, where the break also carries glass dead load, is [covered separately](/resources/blog/frp-thermal-break-profiles-curtain-wall)), and in deep-break designs, break lengths short enough per segment that differential strain stays inside the joint's capacity. It is a design constraint to engineer around rather than a reason to rule the material out. It also comes with a benefit polyamide cannot offer: GFRP's stiffness barely changes from −40°C to +80°C, while PA66's modulus drops substantially when warm and wet.
 
@@ -4811,7 +4811,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
     coverNote: "",
     supportingImage: "/images/products/pultruded-frp-structural-profiles-overview-engineering-drawing.png",
     supportingAlt:
-      "Dimensioned engineering renders of pultruded FRP structural shapes — I-beam, channel, flat, angle and square tube",
+      "Dimensioned 3D drawings of pultruded FRP structural shapes — I-beam, channel, flat, angle and square tube",
     supportingImageFit: "contain",
     supportingCaption:
       "Same fiber, same resin, different architecture: a roving-dominant bar and a mat-rich wide flange from the same catalog can differ by 10% in density, which is why datasheets quote a range, not a constant.",
@@ -5696,11 +5696,11 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
       "IEC 61537:2023",
     ],
     coverImage: "/images/applications/frp-cable-tray-wall-support-pultruded-texture.webp",
-    coverAlt: "Concept illustration of an FRP cable ladder carrying cables on a wall-mounted pultruded support bracket",
-    coverNote: "AI concept",
+    coverAlt: "FRP cable ladder carrying cables on a wall-mounted pultruded support bracket",
+    coverNote: "",
     supportingImage: "/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp",
-    supportingAlt: "Concept illustration of an FRP cable ladder run on pultruded posts beside a water treatment basin",
-    supportingCaption: "AI-generated concept illustration of an FRP cable ladder run at a treatment plant; the wall bracket above is also generated. They show the arrangement only: support spacing, splice and fixing details come from the supplied system's drawings and instructions.",
+    supportingAlt: "FRP cable ladder run on pultruded posts beside a water treatment basin",
+    supportingCaption: "An FRP cable ladder run at a treatment plant. Support spacing, splice and fixing details come from the supplied system's drawings and instructions.",
     highlights: [
       "Take support spacing from the offered system's load table for the real cable load, not from the length of a straight section.",
       "Put splices about a quarter of the span from a support, never over a support or at midspan, and support fittings within 600 mm (2 ft) of each end.",

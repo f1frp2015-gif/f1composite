@@ -1,7 +1,7 @@
 # Water treatment application rendering
 
 - Page: `/industries/water-wastewater`
-- Asset: `public/images/industries/frp-pultruded-profiles-water-treatment-rendering.webp`
+- Asset: `public/images/industries/frp-pultruded-profiles-water-treatment-platform.webp`
 - Generation: built-in image generation tool, 2026-09-21.
 - Purpose: illustrative application concept, not a photograph of a delivered project or an engineering design.
 - Web delivery: WebP with responsive Next.js Image sizing and intrinsic aspect ratio.

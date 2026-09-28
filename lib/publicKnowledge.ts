@@ -83,7 +83,7 @@ export function buildPublicKnowledge() {
         buyer: doorThresholds.buyer,
         applications: doorThresholds.applications.map(item => item.title),
         quotationInputs: doorThresholds.checklist,
-        releaseBoundary: "Section geometry, tooling, material, mating interfaces and supply scope require quotation review. Concept illustrations do not establish dimensions, system compatibility or whole-door performance.",
+        releaseBoundary: "Section geometry, tooling, material, mating interfaces and supply scope require quotation review. Product images do not establish dimensions, system compatibility or whole-door performance.",
       },
       {
         id: "standard-profiles",

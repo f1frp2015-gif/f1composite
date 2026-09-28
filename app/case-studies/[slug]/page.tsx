@@ -338,7 +338,7 @@ const caseStudyData: Record<
 const caseStudyImages: Record<string, string> = {
   "european-bridge-deck": "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg",
   "coastal-marina-walkway": "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
-  "baotou-industrial-gfrp-pu-windows": "/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp",
+  "baotou-industrial-gfrp-pu-windows": "/images/case-studies/frp-baotou-industrial-park-aerial.webp",
   "wanhua-yantai-zero-carbon-windows": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
   "chongqing-rooftop-pv-frp-rail": "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
@@ -347,10 +347,10 @@ const caseStudyImages: Record<string, string> = {
   "qinling-station-antarctic-passive-windows": "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
 };
 
-// Figure 1 of each case: a short title, what the image is, and its alt text.
-// Renderings and illustrative photos say so, so neither is read as a
-// photograph of the project (WEBSITE.md: case images must show the project).
-const caseStudyImageMeta: Record<string, { title: string; note: string; alt: string; caption?: string }> = {
+// Figure 1 of each case: a short title, the photo's source and its alt text.
+// A stock photo says so, so it is not read as a photograph of the project
+// (WEBSITE.md: case images must show the project).
+const caseStudyImageMeta: Record<string, { title: string; note?: string; alt: string }> = {
   "european-bridge-deck": {
     title: "Pedestrian bridge",
     note: "Illustrative photo",
@@ -363,15 +363,11 @@ const caseStudyImageMeta: Record<string, { title: string; note: string; alt: str
   },
   "baotou-industrial-gfrp-pu-windows": {
     title: "Industrial park",
-    note: "Rendering",
-    alt: "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block",
-    caption: "Architectural rendering of the project, not a site photograph.",
+    alt: "Baotou industrial park, with workshop buildings, rooftop PV and an office block",
   },
   "wanhua-yantai-zero-carbon-windows": {
     title: "Zero-carbon community",
-    note: "Rendering",
-    alt: "Architectural rendering of the Wanhua Yantai zero-carbon community from above",
-    caption: "Architectural rendering of the project, not a site photograph.",
+    alt: "Wanhua Yantai zero-carbon community seen from above",
   },
   "chongqing-rooftop-pv-frp-rail": {
     title: "Rooftop array",
@@ -380,15 +376,11 @@ const caseStudyImageMeta: Record<string, { title: string; note: string; alt: str
   },
   "qinling-station-antarctic-passive-windows": {
     title: "Qinling Station",
-    note: "Rendering",
-    alt: "Architectural rendering of Qinling Station on the Ross Sea coast, Antarctica",
-    caption: "Architectural rendering of the station, not a site photograph.",
+    alt: "Qinling Station on the Ross Sea coast, Antarctica, seen from above",
   },
   "yancheng-talent-apartment-fenestration": {
     title: "Apartment development",
-    note: "Rendering",
-    alt: "Architectural rendering of the Yancheng talent apartment development from above",
-    caption: "Architectural rendering of the project, not a site photograph.",
+    alt: "Yancheng talent apartment development seen from above",
   },
   "factory-access-staircase": {
     title: "Stair and platform",
@@ -403,7 +395,7 @@ const caseStudyImageMeta: Record<string, { title: string; note: string; alt: str
 };
 
 // Further figures, shown with what F1 supplied.
-const caseStudyContentImages: Record<string, { src: string; title: string; note: string; alt: string }[]> = {
+const caseStudyContentImages: Record<string, { src: string; title: string; note?: string; alt: string }[]> = {
   "factory-access-staircase": [
     {
       src: "/images/case-studies/frp-factory-staircase-structural-view.webp",
@@ -448,8 +440,7 @@ const caseStudyContentImages: Record<string, { src: string; title: string; note:
     {
       src: "/images/case-studies/frp-wanhua-yantai-passive-house-building.webp",
       title: "Dormitory building",
-      note: "Rendering",
-      alt: "Wanhua Yantai Zero-Carbon Community — rendering of a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
+      alt: "Wanhua Yantai Zero-Carbon Community: a passive-house dormitory building with continuous pultruded GFRP-PU window frames and a high-glazing facade",
     },
     {
       src: "/images/case-studies/frp-wanhua-yantai-residential-tower-courtyard.webp",
@@ -559,7 +550,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           { label: "Industry", value: cs.industry },
         ]}
         figure={
-          <Figure number={1} title={image?.title ?? cs.location} note={image?.note ?? "Photo"} caption={image?.caption} bleed>
+          <Figure number={1} title={image?.title ?? cs.location} note={image?.note} bleed>
             <div className="relative aspect-[3/2]">
               <Image
                 src={caseStudyImages[slug] || "/images/case-studies/frp-bridge-deck-replacement-infrastructure-project.jpg"}

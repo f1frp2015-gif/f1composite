@@ -22,10 +22,10 @@ export default function CustomProfilePreview() {
   return (
     <section className="bg-white py-[48px] md:py-[64px]" aria-labelledby="home-custom">
       <div className="site-container grid items-center gap-[32px] lg:grid-cols-2">
-        <Figure number={1} title="From section drawing to profile" note="Drawing and rendering" bleed>
+        <Figure number={1} title="From section drawing to profile" bleed>
           <Image
-            src="/images/products/custom-frp-profile-drawing-render.webp"
-            alt="Toleranced drawing of a two-cell custom pultruded profile beside a rendering of the finished profile"
+            src="/images/products/custom-frp-profile-drawing-3d-view.webp"
+            alt="Toleranced drawing of a two-cell custom pultruded profile beside a 3D view of the finished profile"
             width={800}
             height={517}
             sizes="(max-width: 1024px) 90vw, 45vw"

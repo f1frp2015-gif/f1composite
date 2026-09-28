@@ -477,6 +477,6 @@ export default function SectionViewer3D({
   }, [section, pbr, annotations]);
 
   return (
-    <div ref={hostRef} className={className} role="img" aria-label="Interactive 3D profile render — drag to rotate" />
+    <div ref={hostRef} className={className} role="img" aria-label="Interactive 3D profile view — drag to rotate" />
   );
 }

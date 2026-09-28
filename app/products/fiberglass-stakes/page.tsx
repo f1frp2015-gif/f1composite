@@ -207,7 +207,7 @@ export default function FiberglassStakesPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Diameters, colors and ends" note="Visualization" caption="Product visualization of diameter, color and end-treatment options. The approved sample and order specification control the delivered stake." bleed>
+          <Figure number={1} title="Diameters, colors and ends" caption="Diameter, color and end-treatment options. The approved sample and order specification control the delivered stake." bleed>
             <div className="relative aspect-[3/2]">
               <Image
                 src={frpStakeImageAssets.hero}
@@ -328,11 +328,11 @@ export default function FiberglassStakesPage() {
         id="applications"
         title="FRP plant stakes, fiberglass tree stakes and visible marker rods"
         tone="muted"
-        intro="These two application visualizations show how the same solid round pultrusion changes role across vineyard and nursery programs. They are selection examples, not named F1 project case studies or installation certificates."
+        intro="These two applications show how the same solid round pultrusion changes role across vineyard and nursery programs. They are selection examples, not named F1 project case studies or installation certificates."
       >
         <div className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
           {frpStakeApplications.map((application, index) => (
-            <Figure key={application.title} number={index + 2} title={application.title} note="Visualization" caption={application.body} bleed>
+            <Figure key={application.title} number={index + 2} title={application.title} caption={application.body} bleed>
               <div className="relative aspect-[3/2]">
                 <Image src={application.image} alt={application.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>

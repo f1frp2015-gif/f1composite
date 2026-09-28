@@ -28,10 +28,9 @@ test("fiberglass stakes page owns a complete, bounded commercial intent", async 
   assert.match(page, /Fiberglass stakes for plants, trees, vineyards and marking/);
   assert.match(page, /Common fiberglass stake sizes for RFQ planning/);
   assert.match(page, /FRP plant stakes, fiberglass tree stakes and visible marker rods/);
-  assert.match(page, /These two application visualizations/);
+  assert.match(page, /These two applications show how the same solid round pultrusion/);
   assert.match(page, /Fiberglass stakes vs bamboo, wood and steel markers/);
-  assert.match(page, /Product visualization/);
-  assert.match(page, /application visualizations/);
+  assert.match(page, /The approved sample and order specification control the delivered stake/);
   assert.match(page, /rel="noopener noreferrer nofollow"/);
   assert.doesNotMatch(page, /in stock|buy now|add to cart/i);
 

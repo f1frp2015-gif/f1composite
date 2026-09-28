@@ -228,7 +228,7 @@ export default function CustomPultrusionsPage() {
           name: "Custom Pultruded FRP Profiles",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/custom-frp-profile-drawing-render.webp",
+          image: "/images/products/custom-frp-profile-drawing-3d-view.webp",
           category: "Custom Pultruded FRP Profiles",
           productLine: "F1-FORM",
           schemaType: "CollectionPage",
@@ -285,10 +285,10 @@ export default function CustomPultrusionsPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="From section drawing to profile" note="Drawing and rendering" caption="A customer section as drawn and toleranced, and as rendered from the drawing. Every custom profile starts from a drawing like this." bleed>
+          <Figure number={1} title="From section drawing to profile" caption="A customer section as drawn and toleranced, and the profile it describes. Every custom profile starts from a drawing like this." bleed>
             <Image
-              src="/images/products/custom-frp-profile-drawing-render.webp"
-              alt="Toleranced drawing of a two-cell custom pultruded profile, 111.9 mm wide and 33.5 mm deep, beside a rendering of the finished profile"
+              src="/images/products/custom-frp-profile-drawing-3d-view.webp"
+              alt="Toleranced drawing of a two-cell custom pultruded profile, 111.9 mm wide and 33.5 mm deep, beside a 3D view of the finished profile"
               width={800}
               height={517}
               sizes="(max-width: 1023px) 94vw, 44vw"

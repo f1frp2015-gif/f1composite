@@ -251,7 +251,7 @@ export default function FiberglassSnowMarkersPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Marker configurations" note="Visualization" caption="Catalog visualization of solid and hollow marker configurations. Final color, diameter, tape layout and end treatment follow the approved sample." bleed>
+          <Figure number={1} title="Marker configurations" caption="Solid and hollow marker configurations. Final color, diameter, tape layout and end treatment follow the approved sample." bleed>
             <div className="relative aspect-[5/4]">
               <Image
                 src={heroImage}

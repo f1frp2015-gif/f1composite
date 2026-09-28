@@ -48,7 +48,7 @@ test("sound-barrier page owns a bounded, assembly-specific product intent", asyn
   assert.match(seo, /primaryQuery: "FRP sound barrier wall"/);
   assert.doesNotMatch(`${specs}\n${og}`, /Fibergrate|Soundscape|Intertek certified/i);
   assert.doesNotMatch(page, /Soundscape|Intertek certified/i);
-  assert.match(page, /Supplier reference rendering from/);
+  assert.match(page, /Supplier reference image from/);
   assert.match(page, /src=\{frpSoundBarrierImageAssets\.panelSection\}/);
   assert.doesNotMatch(page, /src=\{frpSoundBarrierImageAssets\.system\}/);
   assert.match(

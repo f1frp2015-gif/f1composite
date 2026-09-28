@@ -167,7 +167,7 @@ export default function CaseStudiesPage() {
       <PageSection
         id="cases"
         title="All cases"
-        intro="Each card opens the case with its scope, the products supplied and the documents behind it. Pictures are labeled: renderings and illustrative photos are marked as such."
+        intro="Each card opens the case with its scope, the products supplied and the documents behind it."
         tone="muted"
       >
         <CaseStudyGrid items={cards} />

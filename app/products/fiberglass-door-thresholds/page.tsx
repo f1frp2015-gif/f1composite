@@ -84,7 +84,7 @@ export default function DoorThresholdsPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Threshold profile" note="Profile illustration" caption="Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.">
+          <Figure number={1} title="Threshold profile" note={null} caption="Dimensions, wall thicknesses and mating interfaces are confirmed on the approved section drawing.">
             <Image src={page.image} alt={page.profileVariants[3].alt} width={1440} height={1098} sizes="(max-width: 1023px) 90vw, 42vw" preload className="h-auto w-full bg-white" />
           </Figure>
         }

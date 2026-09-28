@@ -435,7 +435,7 @@ export default function PultrudedFRPProfilesHubPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Pultruded sections" note="Visualization" caption="Tubes, rods, channels and flat sections, all made by pulling glass fiber through a resin bath and a heated die." bleed>
+          <Figure number={1} title="Pultruded sections" caption="Tubes, rods, channels and flat sections, all made by pulling glass fiber through a resin bath and a heated die." bleed>
             <Image src="/images/hero/frp-composite-material-hero.webp" alt="Pultruded fiberglass tubes, rods, channels and flat sections standing upright" width={1280} height={807} preload sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" />
           </Figure>
         }

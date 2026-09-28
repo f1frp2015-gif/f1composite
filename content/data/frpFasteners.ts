@@ -37,7 +37,7 @@ export const fastenerRanges = [
     name: "FRP washers",
     label: "Bearing & interface details",
     image: "frp-washers.webp",
-    alt: "Illustration of a grey flat composite washer",
+    alt: "Grey flat composite washer",
     description: "Flat composite washers offered in UP and VE materials. Select the complete washer geometry with the fastener and supporting surface.",
     specification: "Catalog diameter labels: Ø9, Ø11, Ø13, Ø17, Ø21 and Ø26.",
     confirm: "Confirm bore, outside diameter and thickness; the catalog labels alone do not define the finished washer.",

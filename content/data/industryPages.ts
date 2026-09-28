@@ -34,7 +34,8 @@ export interface IndustryPageData {
   updated: string;
   h1: string;
   intro: string;
-  image: { src: string; alt: string; note: string; caption: string };
+  /** `note` names a stock photo (Illustrative photo), as on the figure head. */
+  image: { src: string; alt: string; note?: string; caption: string };
   areas: IndustryArea[];
   areasIntro: string;
   products: IndustryProduct[];
@@ -53,7 +54,7 @@ function applicationCard(slug: string, text?: string): ApplicationCard {
   return { href: `/applications/${page.slug}`, kind: "Application", title: page.shortTitle, text: text ?? page.description, image: page.image, imageAlt: page.imageAlt, note: page.imageNote };
 }
 
-// Image notes use the site vocabulary; the caption says what the image is not.
+// Image notes use the site vocabulary; a stock photo's caption says it is not an F1 project.
 const ILLUSTRATIVE = "Illustrative photo";
 
 export const industryPages = {
@@ -121,10 +122,9 @@ export const industryPages = {
     intro:
       "Fiber-reinforced polymer (FRP) profiles, grating and access systems for processing plants and manufacturing sites where steel corrodes. The resin is chosen for the chemicals on site, with fire-retardant grades where the plant requires them.",
     image: {
-      src: "/images/industries/industrial-chemical-platform-concept.webp",
-      alt: "Concept chemical tank access platform with FRP grating, rails and structural supports",
-      note: "AI concept",
-      caption: "AI concept of a tank access platform, not an F1 installation. Final members and connections require project design.",
+      src: "/images/industries/industrial-chemical-tank-platform.webp",
+      alt: "Chemical tank access platform with FRP grating, rails and structural supports",
+      caption: "Grating, rails and structural supports at a tank access platform. Final members and connections require project design.",
     },
     areasIntro: "Corrosion, wash-down and access needs differ across a plant. Resin compatibility is confirmed per chemical, and safety requirements apply to the complete assembly.",
     areas: [
@@ -180,9 +180,8 @@ export const industryPages = {
     intro:
       "Fiber-reinforced polymer (FRP) profiles for bridge decks, pedestrian structures, handrails and utility infrastructure. They do not rust, so they avoid the corrosion cycle that wears out steel and reinforced concrete.",
     image: {
-      src: "/images/industries/frp-infrastructure-pultruded-profiles-rendering.webp",
-      alt: "Rendering of a pedestrian bridge with pultruded FRP girders and yellow handrails over a river",
-      note: "Rendering",
+      src: "/images/industries/frp-infrastructure-pedestrian-bridge.webp",
+      alt: "Pedestrian bridge with pultruded FRP girders and yellow handrails over a river",
       caption: "Pedestrian bridges, decks, handrails and noise barriers are the usual infrastructure uses; members and connections are designed for each project.",
     },
     areasIntro: "Infrastructure work runs to a design code and an owner's acceptance process. The checks below are the ones that usually decide whether FRP fits.",
@@ -233,10 +232,9 @@ export const industryPages = {
     intro:
       "Pultruded FRP profiles and grating for docks, marinas, offshore platforms and coastal walkways. Glass FRP does not rust in seawater, so it avoids the recoating cycle of steel; vinyl ester is the usual resin for splash and immersion.",
     image: {
-      src: "/images/industries/marine-marina-access-concept.webp",
-      alt: "Concept marina dock with fiberglass grating, mooring cleats and boats",
-      note: "AI concept",
-      caption: "AI concept of a marina access route, not an F1 installation. Deck support and fixings require project design.",
+      src: "/images/industries/marine-marina-access-grating.webp",
+      alt: "Marina dock with fiberglass grating, mooring cleats and boats",
+      caption: "Fiberglass grating on a marina access route. Deck support and fixings require project design.",
     },
     areasIntro: "Salt, splash and UV act on every marine structure; the loads and approval routes differ. These are the usual areas and what to confirm for each.",
     areas: [
@@ -298,10 +296,9 @@ export const industryPages = {
     intro:
       "Pultruded FRP profiles for bus and coach bodies, rail interiors, trailers and specialty vehicles. They are lighter than steel and do not rust; fire, smoke and toxicity requirements are confirmed for each application.",
     image: {
-      src: "/images/industries/vehicle-bus-body-concept.webp",
-      alt: "Concept bus body with light-colored fiberglass roof and ceiling support profiles",
-      note: "AI concept",
-      caption: "AI concept of a bus body application, not an F1 installation. The vehicle maker designs and approves each component.",
+      src: "/images/industries/vehicle-bus-body-profiles.webp",
+      alt: "Bus body with light-colored fiberglass roof and ceiling support profiles",
+      caption: "Roof and ceiling support profiles in a bus body. The vehicle maker designs and approves each component.",
     },
     areasIntro: "The vehicle maker designs and certifies the vehicle; the profiles are specified against its requirements. These are the usual uses and what to agree for each.",
     areas: [
@@ -348,9 +345,8 @@ export const industryPages = {
     intro:
       "Water and wastewater projects use pultruded profiles and grating for cable supports, equipment access and walking surfaces. F1 supplies the specified profiles, panels and agreed fabricated components; treatment equipment and complete civil works are separate scopes.",
     image: {
-      src: "/images/industries/frp-pultruded-profiles-water-treatment-rendering.webp",
-      alt: "Concept rendering of gray pultruded FRP beams, columns and bracing supporting a grating access platform with yellow handrails beside wastewater treatment basins",
-      note: "Rendering",
+      src: "/images/industries/frp-pultruded-profiles-water-treatment-platform.webp",
+      alt: "Gray pultruded FRP beams, columns and bracing supporting a grating access platform with yellow handrails beside wastewater treatment basins",
       caption: "Structural profiles, grating platforms, stairs and handrails around treatment basins. Final members and connections are designed for the project loads and exposure.",
     },
     areasIntro: "Exposure changes from one part of a treatment plant to the next, so the parts and the resin change too. This is where pultruded FRP is most often used, and what to check in each area.",

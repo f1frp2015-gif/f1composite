@@ -28,7 +28,7 @@ export default function ApplicationsSnapshot() {
         <li>
           <CoverCard
             href="/applications"
-            cover={{ src: "/images/industries/industrial-plating-line-concept.webp", alt: "Concept walkway with FRP grating and yellow handrails beside process tanks", note: "AI concept" }}
+            cover={{ src: "/images/industries/industrial-plating-line-walkway.webp", alt: "Walkway with FRP grating and yellow handrails beside process tanks" }}
             title="Browse by application"
             text="Platforms, cooling towers, solar, cable trays, bridges and stakes."
             compact
