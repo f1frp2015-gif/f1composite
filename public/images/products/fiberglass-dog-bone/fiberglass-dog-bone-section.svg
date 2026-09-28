@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Fiberglass dog bone profile section</title>
+  <desc id="desc">Illustrative dog bone cross-section and a length of pultruded profile. No dimensions are implied.</desc>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1">
+      <stop stop-color="#071e36"/>
+      <stop offset="1" stop-color="#123f55"/>
+    </linearGradient>
+    <linearGradient id="face" x2="1" y2="1">
+      <stop stop-color="#f2eacb"/>
+      <stop offset="1" stop-color="#c8bf9d"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#b5d8dc" stroke-opacity=".12"/>
+    </pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#ground)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <path d="M0 622H1200" stroke="#8bbbc3" stroke-opacity=".38"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#d8eef0">
+    <text x="76" y="100" font-size="22" letter-spacing="4" fill="#72d7cf">F1 COMPOSITE  /  PROFILE CONCEPT</text>
+    <text x="76" y="154" font-size="40" font-weight="700">Fiberglass dog bone</text>
+    <text x="76" y="193" font-size="22" fill="#a9c6cd">Pultruded insulating support profile</text>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M342 278 Q342 244 377 244 H635 Q670 244 670 278 V317 Q670 350 637 356 L566 368 Q535 374 535 405 V440 Q535 471 566 477 L637 489 Q670 495 670 528 V567 Q670 601 635 601 H377 Q342 601 342 567 V528 Q342 495 375 489 L446 477 Q477 471 477 440 V405 Q477 374 446 368 L375 356 Q342 350 342 317 Z" fill="url(#face)" stroke="#fff9df" stroke-width="5"/>
+    <path d="M359 278 Q359 261 377 261 H635 Q653 261 653 278 V317 Q653 336 634 340 L563 352 Q518 360 518 405 V440 Q518 485 563 493 L634 505 Q653 509 653 528 V567 Q653 584 635 584 H377 Q359 584 359 567 V528 Q359 509 378 505 L449 493 Q494 485 494 440 V405 Q494 360 449 352 L378 340 Q359 336 359 317 Z" fill="none" stroke="#817d69" stroke-opacity=".42" stroke-width="3"/>
+    <path d="M372 280H640 M372 565H640" stroke="#fffce8" stroke-opacity=".65" stroke-width="3"/>
+  </g>
+  <g stroke="#77d4cb" stroke-width="2" fill="none">
+    <path d="M326 338H181V294"/><circle cx="326" cy="338" r="5" fill="#77d4cb"/>
+    <path d="M527 422H795V386"/><circle cx="527" cy="422" r="5" fill="#77d4cb"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#d8eef0" font-size="20">
+    <text x="77" y="275">Widened bearing end</text>
+    <text x="798" y="372">Narrow waist</text>
+    <text x="798" y="465" font-size="17" fill="#a9c6cd">Drawing-controlled section</text>
+    <text x="798" y="497" font-size="17" fill="#a9c6cd">Grade-specific qualification</text>
+    <text x="76" y="715" font-size="17" fill="#a9c6cd">SECTION CONCEPT  ·  NOT TO SCALE  ·  FINAL GEOMETRY BY APPROVED DRAWING</text>
+  </g>
+</svg>

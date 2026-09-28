@@ -61,6 +61,7 @@ export const productCovers = {
   "/products/frp-facade-panels": { src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp", alt: "Vertical fin sunshades on a curtain wall facade" },
   "/products/fiberglass-snow-markers": { src: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp", alt: "Fiberglass snow markers in five colors with reflective bands" },
   "/products/fiberglass-stakes": { src: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", alt: "Green fiberglass stakes in several diameters and lengths" },
+  "/products/fiberglass-dog-bone": { src: "/images/products/fiberglass-dog-bone/fiberglass-dog-bone-section.svg", alt: "Schematic fiberglass dog bone profile section" },
   "/products/frp-handrail-systems": { src: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp", alt: "Yellow fiberglass handrails around industrial platforms and stairs", note: "Reference photo" },
   "/products/frp-ladders": { src: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp", alt: "Yellow fiberglass fixed ladder with cage hoops", note: "Reference photo" },
   "/products/frp-stair-treads": { src: "/images/products/frp-stair-treads/frp-stair-tread-covers-installed.webp", alt: "Black gritted fiberglass stair tread covers with yellow nosings", note: "Supplier photo" },
