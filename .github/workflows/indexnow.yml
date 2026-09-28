@@ -28,7 +28,25 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
+
+      # Pages also change through shared data and components, not only through
+      # their own files. A push builds the site before and after it so the
+      # script can compare the prerendered pages. If a build fails, the script
+      # falls back to the pages it maps from the changed files.
+      - name: Build the site before and after the push
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        continue-on-error: true
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          npm ci
+          npm run build
+          git worktree add "$RUNNER_TEMP/before" "$BEFORE_SHA"
+          cd "$RUNNER_TEMP/before"
+          npm ci
+          npm run build
 
       - name: Wait for the Vercel production deployment
         env:
@@ -60,5 +78,6 @@ jobs:
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             node scripts/submit-indexnow.mjs --urls "$MANUAL_URLS"
           else
-            node scripts/submit-indexnow.mjs --before "$BEFORE_SHA" --after "$AFTER_SHA"
+            node scripts/submit-indexnow.mjs --before "$BEFORE_SHA" --after "$AFTER_SHA" \
+              --html-before "$RUNNER_TEMP/before/.next/server/app" --html-after .next/server/app
           fi

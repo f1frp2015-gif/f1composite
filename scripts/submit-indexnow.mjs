@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
@@ -222,6 +222,80 @@ export function collectChangedPaths(beforeRef, afterRef) {
   return [...paths].sort();
 }
 
+// A page can change without any file of its route changing: covers, blog and
+// application records, industry data and shared components feed many pages.
+// When the workflow has built the site before and after the push, compare
+// the prerendered pages themselves. Framework scripts and hashed asset names
+// differ between any two builds; what a reader or crawler sees, JSON-LD
+// included, does not.
+export function normalizePageHtml(html) {
+  return html
+    .replace(/<script\b(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/g, "")
+    .replace(/\/_next\/static\/[^"'\s)]+/g, "/_next/static/")
+    .replace(/[?&]dpl=[^"'&\s]+/g, "");
+}
+
+// index.html is the home page and products/grating.html is /products/grating.
+// Files starting with an underscore (_not-found, _global-error) are not routes.
+export function routeFromHtmlFile(file) {
+  const path = file.replace(/\\/g, "/").replace(/\.html$/, "");
+  if (path.split("/").some((segment) => segment.startsWith("_"))) return null;
+  return path === "index" ? "/" : `/${path}`;
+}
+
+function builtPageFiles(dir) {
+  const files = new Map();
+  for (const entry of readdirSync(dir, { recursive: true, withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith(".html")) continue;
+    const file = join(entry.parentPath, entry.name);
+    const route = routeFromHtmlFile(relative(dir, file));
+    if (route) files.set(route, file);
+  }
+  return files;
+}
+
+export function sitemapRoutes(dir) {
+  const file = join(dir, "sitemap.xml.body");
+  if (!existsSync(file)) return new Set();
+  const routes = new Set();
+  for (const [, loc] of readFileSync(file, "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    // A malformed entry must not stop the whole submission.
+    if (!URL.canParse(loc)) continue;
+    const url = new URL(loc);
+    if (url.hostname === HOST) routes.add(url.pathname);
+  }
+  return routes;
+}
+
+// A build directory (.next/server/app) is usable when it has the home page
+// and the sitemap; a failed or skipped build leaves neither.
+export function isBuiltSite(dir) {
+  return Boolean(dir) && existsSync(join(dir, "index.html")) && existsSync(join(dir, "sitemap.xml.body"));
+}
+
+// Pages whose prerendered HTML differs between the two builds, including
+// pages added or removed, limited to the indexable pages of either sitemap.
+// Pages rendered on request have no HTML here; the file mapping covers them.
+export function changedBuiltRoutes(beforeDir, afterDir) {
+  const before = builtPageFiles(beforeDir);
+  const after = builtPageFiles(afterDir);
+  const indexable = new Set([...sitemapRoutes(beforeDir), ...sitemapRoutes(afterDir)]);
+  const changed = [];
+  for (const route of new Set([...before.keys(), ...after.keys()])) {
+    if (!indexable.has(route)) continue;
+    const beforeFile = before.get(route);
+    const afterFile = after.get(route);
+    if (
+      !beforeFile ||
+      !afterFile ||
+      normalizePageHtml(readFileSync(beforeFile, "utf8")) !== normalizePageHtml(readFileSync(afterFile, "utf8"))
+    ) {
+      changed.push(route);
+    }
+  }
+  return changed.sort();
+}
+
 export function normalizeUrls(value) {
   const urls = new Set();
   for (const item of value.split(/[\s,]+/).filter(Boolean)) {
@@ -236,24 +310,40 @@ export function normalizeUrls(value) {
 }
 
 function parseArgs(argv) {
-  const options = { before: "", after: "HEAD", urls: "", dryRun: false };
+  const options = { before: "", after: "HEAD", urls: "", htmlBefore: "", htmlAfter: "", dryRun: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--dry-run") options.dryRun = true;
     else if (arg === "--before") options.before = argv[++index] ?? "";
     else if (arg === "--after") options.after = argv[++index] ?? "HEAD";
     else if (arg === "--urls") options.urls = argv[++index] ?? "";
+    else if (arg === "--html-before") options.htmlBefore = argv[++index] ?? "";
+    else if (arg === "--html-after") options.htmlAfter = argv[++index] ?? "";
     else throw new Error(`Unknown argument: ${arg}`);
   }
   return options;
 }
 
+function collectPushRoutes(options) {
+  const before = options.before || git(["rev-parse", `${options.after}^`]).trim();
+  const routes = new Set(collectChangedPaths(before, options.after));
+  if (!options.htmlBefore && !options.htmlAfter) return [...routes].sort();
+
+  if (isBuiltSite(options.htmlBefore) && isBuiltSite(options.htmlAfter)) {
+    const mapped = routes.size;
+    for (const route of changedBuiltRoutes(options.htmlBefore, options.htmlAfter)) routes.add(route);
+    console.error(`IndexNow: ${mapped} page(s) from changed files, ${routes.size - mapped} more from the build comparison.`);
+  } else {
+    console.error("IndexNow: the build comparison is unavailable; submitting pages from changed files only.");
+  }
+  return [...routes].sort();
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
-  const before = options.before || git(["rev-parse", `${options.after}^`]).trim();
   const urlList = options.urls
     ? normalizeUrls(options.urls)
-    : collectChangedPaths(before, options.after).map((route) => `${BASE_URL}${route}`);
+    : collectPushRoutes(options).map((route) => `${BASE_URL}${route}`);
 
   if (urlList.length === 0) {
     console.log("IndexNow: no changed public URLs to submit.");
