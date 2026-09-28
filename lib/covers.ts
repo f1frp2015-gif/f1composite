@@ -1,4 +1,4 @@
-import { industryPages } from "@/content/data/industryPages";
+import { industryPages, type IndustryPageData } from "@/content/data/industryPages";
 import { applicationPages } from "@/lib/applicationPages";
 import type { BlogPost } from "@/content/data/blogPosts";
 
@@ -10,15 +10,15 @@ import type { BlogPost } from "@/content/data/blogPosts";
  * Product covers are cut-outs centred on a 1200×750 white canvas at one scale
  * (public/images/covers, made with scripts/make-product-cover.mjs and
  * scripts/compose-family-cover.mjs), so a grid of products reads as a set.
- * Photos and renderings of places fill the frame and keep the label their page
- * gives them ("AI concept", "Rendering", "Illustrative photo").
+ * Photos of places fill the frame and keep the source label their page gives
+ * them ("Project photo", "Supplier photo", "Illustrative photo").
  */
 export interface Cover {
   src: string;
   alt: string;
   /** "contain" for an image of another ratio that must show whole; covers otherwise fill the frame. */
   fit?: "cover" | "contain";
-  /** What kind of image this is, when it could be mistaken for an F1 project photo. */
+  /** The photo's source, as its page labels it: "Project photo", "Supplier photo", "Illustrative photo" … */
   note?: string;
   /** CSS object-position for a photo whose subject is off center. */
   position?: string;
@@ -29,8 +29,6 @@ export interface Cover {
 const product = (file: string, alt: string): Cover => ({ src: `/images/covers/${file}`, alt });
 
 // Notes as the site writes them in figure heads.
-const AI_CONCEPT = "AI concept";
-const RENDERING = "Rendering";
 const ILLUSTRATIVE = "Illustrative photo";
 
 export const productCovers = {
@@ -59,10 +57,10 @@ export const productCovers = {
   "/products/wind-turbine-blade-panels": { ...product("wind-blade-panel.webp", "Pultruded fiberglass wind blade panel samples"), note: "Supplier photo" },
   "/products/frp-window-reinforcement": { src: "/images/products/upvc-window-fiberglass-reinforcement-context.jpg", alt: "White uPVC tilt-and-turn window", note: ILLUSTRATIVE, position: "center 35%" },
   "/products/frp-solar-mounting-systems": { src: "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp", alt: "Pultruded FRP solar mounting profiles supporting modules on an industrial rooftop in Chongqing", note: "Project photo" },
-  "/products/frp-sound-barrier-wall": { src: "/images/products/frp-sound-barrier-wall/frp-sound-barrier-wall-highway.webp", alt: "Concept FRP sound barrier wall along a highway", note: AI_CONCEPT },
-  "/products/frp-facade-panels": { src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp", alt: "Vertical fin sunshades on a curtain wall facade", note: RENDERING },
-  "/products/fiberglass-snow-markers": { src: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp", alt: "Fiberglass snow markers in five colors with reflective bands", note: "Visualization" },
-  "/products/fiberglass-stakes": { src: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", alt: "Green fiberglass stakes in several diameters and lengths", note: "Visualization" },
+  "/products/frp-sound-barrier-wall": { src: "/images/products/frp-sound-barrier-wall/frp-sound-barrier-wall-highway.webp", alt: "FRP sound barrier wall along a highway" },
+  "/products/frp-facade-panels": { src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp", alt: "Vertical fin sunshades on a curtain wall facade" },
+  "/products/fiberglass-snow-markers": { src: "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp", alt: "Fiberglass snow markers in five colors with reflective bands" },
+  "/products/fiberglass-stakes": { src: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp", alt: "Green fiberglass stakes in several diameters and lengths" },
   "/products/frp-handrail-systems": { src: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp", alt: "Yellow fiberglass handrails around industrial platforms and stairs", note: "Reference photo" },
   "/products/frp-ladders": { src: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp", alt: "Yellow fiberglass fixed ladder with cage hoops", note: "Reference photo" },
   "/products/frp-stair-treads": { src: "/images/products/frp-stair-treads/frp-stair-tread-covers-installed.webp", alt: "Black gritted fiberglass stair tread covers with yellow nosings", note: "Supplier photo" },
@@ -73,7 +71,7 @@ export const productCovers = {
 // and the construction page have their own.
 export const industryCovers: Record<string, Cover> = {
   ...Object.fromEntries(
-    Object.values(industryPages).map((page) => [
+    (Object.values(industryPages) as IndustryPageData[]).map((page) => [
       page.path,
       {
         src: page.image.src,
@@ -82,7 +80,7 @@ export const industryCovers: Record<string, Cover> = {
       },
     ]),
   ),
-  "/industries/construction": { src: "/images/industries/frp-building-applications-concept.webp", alt: "Concept building with numbered FRP application areas", note: "Illustration" },
+  "/industries/construction": { src: "/images/industries/frp-building-applications-overview.webp", alt: "Building with numbered FRP application areas" },
 };
 
 // Tools show themselves: a crop of each tool's working panel, captured from
@@ -118,24 +116,23 @@ export const resourceCovers = {
   "/resources/glossary": resource("glossary.webp", "Glossary entries for FRP, GRP and fiberglass"),
   "/resources/frp-pultrusion-fob-ddp-export-guide": resource("export-guide.webp", "Table comparing FOB, CIF, DAP and DDP responsibilities"),
   "/resources/how-to-choose-frp-pultrusion-supplier": resource("supplier-guide.webp", "Checklist cards for vetting an FRP pultrusion supplier"),
-  "/resources/frp-windows-guide": { src: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp", alt: "Corner section of a 70-series FRP window frame with triple glazing", fit: "contain", note: RENDERING },
+  "/resources/frp-windows-guide": { src: "/images/products/window-door/frp-window-frame-70-series-inward-hero.webp", alt: "Corner section of a 70-series FRP window frame with triple glazing", fit: "contain" },
 } satisfies Record<string, Cover>;
 
 export const applicationCovers: Record<string, Cover> = Object.fromEntries(
   applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
 );
 
-// Case studies open on Figure 1 of the case, with the same note: most window
-// projects are shown by the architect's rendering, not a site photograph.
+// Case studies open on Figure 1 of the case, with the same note.
 const project = (file: string, alt: string, note?: string): Cover => ({ src: `/images/case-studies/${file}`, alt, ...(note ? { note } : {}) });
 
 export const caseStudyCovers = {
   // The bridge page opens on its exploded-view drawing (Figure 01), captured on its own ground.
   "/case-studies/beam-bridge": { src: "/images/covers/case-studies/beam-bridge-exploded-view.webp", alt: "Exploded view of a 12 m FRP beam bridge: pultruded GRP I-beams, cross-members, deck and railing", note: "Concept drawing" },
-  "/case-studies/qinling-station-antarctic-passive-windows": project("frp-qinling-station-antarctic-ross-sea-aerial.webp", "Architectural rendering of Qinling Station on the Ross Sea coast, Antarctica", RENDERING),
-  "/case-studies/yancheng-talent-apartment-fenestration": project("frp-talent-apartment-yancheng-aerial-view.webp", "Architectural rendering of the Yancheng talent apartment development from above", RENDERING),
-  "/case-studies/baotou-industrial-gfrp-pu-windows": project("frp-baotou-industrial-park-aerial-rendering.webp", "Architectural rendering of the Baotou industrial park, with workshop buildings, rooftop PV and an office block", RENDERING),
-  "/case-studies/wanhua-yantai-zero-carbon-windows": project("frp-wanhua-yantai-zero-carbon-community-aerial.webp", "Architectural rendering of the Wanhua Yantai zero-carbon community from above", RENDERING),
+  "/case-studies/qinling-station-antarctic-passive-windows": project("frp-qinling-station-antarctic-ross-sea-aerial.webp", "Qinling Station on the Ross Sea coast, Antarctica, seen from above"),
+  "/case-studies/yancheng-talent-apartment-fenestration": project("frp-talent-apartment-yancheng-aerial-view.webp", "Yancheng talent apartment development seen from above"),
+  "/case-studies/baotou-industrial-gfrp-pu-windows": project("frp-baotou-industrial-park-aerial.webp", "Baotou industrial park, with workshop buildings, rooftop PV and an office block"),
+  "/case-studies/wanhua-yantai-zero-carbon-windows": project("frp-wanhua-yantai-zero-carbon-community-aerial.webp", "Wanhua Yantai zero-carbon community seen from above"),
   "/case-studies/chongqing-rooftop-pv-frp-rail": project("frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp", "PV modules on pultruded FRP rails over a blue color steel-tile factory roof in Chongqing", "Project photo"),
   "/case-studies/factory-access-staircase": project("frp-factory-access-staircase-hero.webp", "FRP access staircase and platform with orange handrails inside F1 Composite's Chongqing plant", "Project photo"),
   "/case-studies/european-bridge-deck": project("frp-bridge-deck-replacement-infrastructure-project.jpg", "Covered pedestrian bridge with curved timber slats and a white steel arch", ILLUSTRATIVE),
@@ -145,12 +142,12 @@ export const caseStudyCovers = {
 
 // Technology pages open on their header figure; the tools keep their own covers.
 export const technologyCovers = {
-  "/technology/pultruded-profile-performance": { src: "/images/technology/frp-profile-engineering-drawing-3d-render.jpg", alt: "Dimensioned drawing and rendering of a custom pultruded FRP profile", fit: "contain", note: "Drawing and rendering" },
+  "/technology/pultruded-profile-performance": { src: "/images/technology/frp-profile-engineering-drawing-3d-view.jpg", alt: "Dimensioned drawing and 3D view of a custom pultruded FRP profile", fit: "contain" },
   "/technology/pultrusion-process": { src: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp", alt: "Parallel pultrusion lines in production at an F1 Composite plant", note: "Production photo" },
   "/technology/frp-vs-traditional-materials": { src: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg", alt: "Surfaces of FRP, steel, timber and galvanized steel side by side", note: ILLUSTRATIVE },
   "/technology/fiberglass-rebar-vs-steel": { src: "/images/products/frp-rebar/gfrp-straight-bars.webp", alt: "Helically surfaced GFRP reinforcing bars", note: "Supplier photo" },
   "/technology/pultrusion-resin-systems": { src: "/images/technology/resin-formulation-laboratory-testing.jpg", alt: "Resin samples dispensed into test tubes in a laboratory", note: ILLUSTRATIVE },
-  "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain", note: RENDERING },
+  "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain" },
   "/technology/quality-testing": { src: "/images/technology/f1-composite-quality-testing-laboratory.webp", alt: "Technician at work in a materials testing laboratory", note: ILLUSTRATIVE },
   "/technology/knowhow-services": { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "Pultrusion lines in an F1 Composite production hall", note: "Production photo" },
   // Comparison pages open on a table rather than a picture, so their cards show it.
@@ -170,7 +167,7 @@ export const regionCovers = {
   "/regions/frp-passive-house-windows-germany": { src: "/images/regions/frp-passive-house-windows-germany.jpg", alt: "Detached modern house with large windows and a timber-clad upper floor", note: ILLUSTRATIVE },
   "/regions/grp-windows-uk": { src: "/images/regions/grp-windows-uk.jpg", alt: "Office facade with dark window frames in a repeating grid", note: ILLUSTRATIVE },
   "/regions/frp-grating-supplier-saudi-arabia": { src: "/images/industries/frp-industrial-chemical-plant-facility.jpg", alt: "Petrochemical plant with a distillation column, pipe racks and two storage spheres", note: ILLUSTRATIVE },
-  "/regions/frp-cable-tray-uae-oil-gas": { src: "/images/industries/industrial-cable-support-concept.webp", alt: "Concept FRP cable ladder on wall brackets in a chemical processing corridor", note: AI_CONCEPT },
+  "/regions/frp-cable-tray-uae-oil-gas": { src: "/images/industries/industrial-cable-ladder-support.webp", alt: "FRP cable ladder on wall brackets in a chemical processing corridor" },
   "/regions/pultruded-frp-solar-mounting-australia": { src: "/images/industries/frp-energy-solar-power-installation.jpg", alt: "Two installers fixing solar panels to mounting rails on a flat roof", note: ILLUSTRATIVE },
 } satisfies Record<string, Cover>;
 

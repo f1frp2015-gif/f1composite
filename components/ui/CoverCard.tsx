@@ -9,9 +9,10 @@ import type { Cover } from "@/lib/covers";
  * industries, applications, markets, tools), so a grid reads as a set.
  *
  * Photos fill the 16:10 frame; product cut-outs and drawings sit whole on
- * white (`fit: "contain"`). Renderings and illustrative photos keep their
- * label in the corner of the image, as on the page itself. Long grids pass
- * `compact` and run two-up on phones, where the card shows only its title.
+ * white (`fit: "contain"`). Photos keep their source label ("Project photo",
+ * "Illustrative photo") in the corner of the image, as on the page itself.
+ * Long grids pass `compact` and run two-up on phones, where the card shows
+ * only its title.
  */
 export default function CoverCard({
   href,

@@ -5,13 +5,12 @@ import type { IndustryGuide } from "@/content/data/industryGuides";
 
 const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 const textLink = "inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:text-teal";
-const badge = "absolute right-[8px] top-[8px] rounded-tag bg-white/90 px-[6px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-t2";
 const number = (index: number) => String(index + 1).padStart(2, "0");
 
 /**
  * The application guide of an industry page: a card per application that
- * jumps to it, then one article each with its concept image, the components
- * to evaluate and the checks to bring to the specification. Figures number on
+ * jumps to it, then one article each with its image, the components to
+ * evaluate and the checks to bring to the specification. Figures number on
  * from the page header's Fig. 1.
  */
 export function GuideApplications({ guide, firstFigure }: { guide: IndustryGuide; firstFigure: number }) {
@@ -28,7 +27,6 @@ export function GuideApplications({ guide, firstFigure }: { guide: IndustryGuide
                 {thumbnail ? (
                   <span className="relative block aspect-[16/10] overflow-hidden border-b border-border-default bg-bg2">
                     <Image src={thumbnail} alt="" fill sizes="(max-width: 1023px) 46vw, 290px" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
-                    <span className={`${badge} max-sm:hidden`}>AI concept</span>
                   </span>
                 ) : null}
                 <span className="flex flex-1 flex-col p-[12px] sm:p-[16px]">
@@ -68,7 +66,7 @@ export function GuideApplications({ guide, firstFigure }: { guide: IndustryGuide
               </div>
               <div className="space-y-[16px] self-start">
                 {item.image ? (
-                  <Figure number={figures[index]!} title={item.label} note="AI concept" caption="AI concept, not an F1 installation or an approved detail." bleed>
+                  <Figure number={figures[index]!} title={item.label} bleed>
                     <div className="relative aspect-[3/2]">
                       <Image src={item.image.src} alt={item.image.alt} fill sizes="(max-width: 1023px) 94vw, 440px" className="object-cover" />
                     </div>

@@ -6,8 +6,7 @@
 //
 // The same content rules apply: a guide describes design questions and the
 // evidence to ask for. It does not approve an assembly, certify a product or
-// promise a result (WEBSITE.md, content and fact rules). Images are AI
-// concepts and are labeled as such where they appear.
+// promise a result (WEBSITE.md, content and fact rules).
 
 export interface IndustryGuideApplication {
   id: string;
@@ -19,7 +18,7 @@ export interface IndustryGuideApplication {
   /** The opening paragraph, set larger. */
   lead: string;
   paragraphs: string[];
-  /** An AI concept of the application; left out where the page header shows it. */
+  /** An image of the application; left out where the page header shows it. */
   image?: { src: string; alt: string };
   /** The thumbnail on the application card, when there is no article image. */
   thumbnail?: string;
@@ -68,7 +67,7 @@ export const industryGuides = {
             "For a floating dock, show how panels bear on the frame, how hold-downs fit the supports, and how the deck meets hinged gangways, cleats, service pedestals and removable access covers. Gangway slope, heel and wheel openings, wet slip resistance, edge protection and maintenance access all affect the finished route.",
             "Where habitat rules apply, ask the permitting authority for the required light-transmitting deck area. Panel open area is only one input: joists, floats and service equipment also shade the water below. The open mesh still needs a load and accessibility check for the actual pier layout.",
           ],
-          thumbnail: "/images/industries/marine-marina-access-concept.webp",
+          thumbnail: "/images/industries/marine-marina-access-grating.webp",
           checksTitle: "Bring to the specification",
           checks: [
             "Gangway movement, transitions and berth-side clear width",
@@ -93,7 +92,7 @@ export const industryGuides = {
             "Match the panel to the route: a public promenade may need smaller openings or a continuous surface where mobility aids, narrow wheels or dropped-object concerns govern. A maintenance-only branch may use a different mesh and access arrangement. On either route, check the grit surface, panel edges, transitions and replaceable sections.",
             "Pultruded beams, channels or tubes can form an engineered support frame; FRP handrail components can complete the edge. The project engineer must check wind, pedestrian loads, deflection, connections, foundations and any flood or wave action at the site.",
           ],
-          image: { src: "/images/industries/marine-coastal-boardwalk-concept.webp", alt: "Concept raised coastal boardwalk with open fiberglass grating and edge rails beside a tidal shoreline" },
+          image: { src: "/images/industries/marine-coastal-boardwalk.webp", alt: "Raised coastal boardwalk with open fiberglass grating and edge rails beside a tidal shoreline" },
           checksTitle: "Bring to the specification",
           checks: [
             "Public-access loads, wheel paths and permitted openings",
@@ -118,7 +117,7 @@ export const industryGuides = {
             "Fire and blast exposure, emergency escape function and platform rules can govern material choice. A resin description or a generic flame-spread result does not approve an installed offshore assembly. Request evidence for the proposed product and have the platform designer or relevant authority review it against the project's acceptance basis.",
             "On a vessel, a removable service grating or maintenance access member is a separate design case. Shipboard location, fire zone, flag-state and class requirements must be established before offering a part for that duty. Passenger spaces, primary escape routes and ship structures require their own approval path.",
           ],
-          image: { src: "/images/industries/marine-offshore-access-concept.webp", alt: "Concept offshore service platform with open fiberglass walkway grating, handrails and a ladder near equipment" },
+          image: { src: "/images/industries/marine-offshore-access-platform.webp", alt: "Offshore service platform with open fiberglass walkway grating, handrails and a ladder near equipment" },
           checksTitle: "Bring to the specification",
           checks: [
             "Access function, personnel and equipment loading, escape route",
@@ -143,7 +142,7 @@ export const industryGuides = {
             "A complete access package may combine structural channels or beams, grating, stairs, ladders and handrails. Lay out valve reach, pump withdrawal, hose routes and safe cleaning access before choosing panel widths or post positions. Equipment handling loads need their own check; a pedestrian grating selection does not establish machine support capacity.",
             "Specify the actual liquid and cleaning chemicals, concentration, temperature, immersion or splash frequency, outdoor exposure and fastener environment. Resin, surfacing veil, cut-edge sealing and metal hardware are then reviewed for the service conditions and documented in the approved order data.",
           ],
-          image: { src: "/images/industries/marine-seawater-pump-platform-concept.webp", alt: "Concept seawater pump service platform with fiberglass grating, structural supports and edge protection" },
+          image: { src: "/images/industries/marine-seawater-pump-platform.webp", alt: "Seawater pump service platform with fiberglass grating, structural supports and edge protection" },
           checksTitle: "Bring to the specification",
           checks: [
             "Pipe penetrations, removable panels and maintenance clearances",
@@ -201,7 +200,7 @@ export const industryGuides = {
             "Pultruded I-beams or channels can form the support frame; molded or pultruded grating provides the walking surface; stair treads, guardrails and toe boards complete the access route. The guardrail posts transfer their loads into the platform frame, while base plates and anchors transfer all reactions into the existing structure. A replacement for steel therefore needs a new member and connection check, even when the footprint is unchanged.",
             "Start resin selection with a list of chemicals, concentrations, temperatures and exposure modes, including cleaning agents. Define where cuts, drilled holes and metal fasteners will be exposed. Supply can be limited to profiles and panels or expanded to a cut, drilled and labeled component package against approved drawings.",
           ],
-          thumbnail: "/images/industries/industrial-chemical-platform-concept.webp",
+          thumbnail: "/images/industries/industrial-chemical-tank-platform.webp",
           components: ["I-beams and channels", "Grating and stair treads", "Handrails, toe boards and fittings"],
           checksTitle: "Confirm before selection",
           checks: ["Operating and maintenance loads, clear spans and deflection", "Guardrail layout, anchor substrate and local connection loads", "Chemical splash, washdown and fire requirements"],
@@ -222,7 +221,7 @@ export const industryGuides = {
             "Molded grating is often a useful starting point for irregular layouts with several cutouts or support in two directions. Pultruded grating suits layouts organized around a defined bearing-bar direction and a checked span. In either case, the chosen mesh or bar opening, surface texture, edge supports, hold-down clips and the load from tools or carts belong on the panel schedule.",
             "Chemical compatibility is specific to the actual bath and cleaning chemistry. A resin family name alone cannot establish suitability for concentrated acids, oxidizers or elevated temperatures. Review the proposed laminate and any exposed cut edges with the material supplier before releasing the layout.",
           ],
-          image: { src: "/images/industries/industrial-plating-line-concept.webp", alt: "Concept plating line walkway with FRP grating panels alongside process baths and a guarded access route" },
+          image: { src: "/images/industries/industrial-plating-line-walkway.webp", alt: "Plating line walkway with FRP grating panels alongside process baths and a guarded access route" },
           components: ["Molded or pultruded grating", "Stair treads and edge framing", "Guardrails and removable-panel hardware"],
           checksTitle: "Confirm before selection",
           checks: ["Bath chemistry, mist, spills and washdown temperature", "Cutout positions, support bearing and grating orientation", "Slip surface, drainage, clips and safe removal sequence"],
@@ -243,7 +242,7 @@ export const industryGuides = {
             "The design must account for the tower's maximum expected water temperature, sustained loads, member buckling, service deflection and the stiffness of bolted joints. Water chemistry and the biocide program affect resin selection. CTI STD-137 addresses pultruded structural products for cooling towers, including material and quality requirements; its use still requires the offered product and project design to be checked.",
             "For refurbishment, provide the existing tower drawings, support positions and the replacement sequence. A lighter component may simplify handling, but the existing anchors, remaining structure and temporary support during change-out still need engineering review.",
           ],
-          image: { src: "/images/industries/industrial-cooling-tower-concept.webp", alt: "Concept cooling tower wet zone with FRP grating walkway, beams, bracing and guardrails" },
+          image: { src: "/images/industries/industrial-cooling-tower-walkway.webp", alt: "Cooling tower wet zone with FRP grating walkway, beams, bracing and guardrails" },
           components: ["I-beams, channels and square tubes", "Angles, grating and louvers", "Guardrails and connection plates"],
           checksTitle: "Confirm before selection",
           checks: ["Water chemistry, biocides and maximum temperature", "Long-duration loads, buckling and service deflection", "Connections, cut-edge treatment and replacement staging"],
@@ -264,7 +263,7 @@ export const industryGuides = {
             "Pultruded channels and angles can form wall brackets and secondary supports; square tubes can serve as posts in a free-standing frame. A cable ladder or tray is a complete system with side rails, rungs or base, splices and fittings. Confirm whether the inquiry is for component profiles, fabricated supports or a qualified complete tray system before citing IEC 61537 or another system standard.",
             "FRP members are nonmetallic, but they do not settle the electrical design. Cable bonding, metallic fasteners, static control, fire and smoke requirements, and any hazardous-area rules remain with the project engineer. State these requirements separately from the chemical exposure specification.",
           ],
-          image: { src: "/images/industries/industrial-cable-support-concept.webp", alt: "Concept FRP cable ladder on wall brackets in a chemical processing corridor" },
+          image: { src: "/images/industries/industrial-cable-ladder-support.webp", alt: "FRP cable ladder on wall brackets in a chemical processing corridor" },
           components: ["Channels and angles for brackets", "Square tubes for support posts", "Agreed tray, ladder and fitting package"],
           checksTitle: "Confirm before selection",
           checks: ["Cable load, future fill, route geometry and support spacing", "Bracket anchors, splices and concentrated maintenance loads", "Electrical, fire and hazardous-area requirements"],
@@ -336,7 +335,7 @@ export const industryGuides = {
             "Candidate locations include roof-edge and ceiling rails, luggage-door frames, interior panel supports, HVAC duct supports and service-hatch surrounds. These are component opportunities, not a claim that a standard FRP section can replace a complete bus frame. An OEM may retain metal members for the primary load path and crash structure while evaluating composites in the surrounding details.",
             "A ceiling rail sees vibration, temperature changes and loads from fixtures over many service cycles. A luggage-door frame adds repeated opening, latch and hinge forces. Define these load cases and the allowable movement before setting the section thickness or fastening pattern. Bonded joints need substrate preparation and production controls; bolted joints need bearing, edge-distance and clamp-load checks.",
           ],
-          thumbnail: "/images/industries/vehicle-bus-body-concept.webp",
+          thumbnail: "/images/industries/vehicle-bus-body-profiles.webp",
           components: ["Roof-edge, ceiling and interior-panel support rails", "Luggage-door, hatch and HVAC duct framing", "Custom flanges or channels matched to metal interfaces"],
           checksTitle: "Design and approval checks",
           checks: ["Attachment loads, fatigue, vibration and allowable deflection", "Joint design, differential movement and production tolerances", "Impact, surface finish and any vehicle-specific fire requirement"],
@@ -355,7 +354,7 @@ export const industryGuides = {
             "The geometry must suit the panel spacing, insulation thickness and liner fastening method. At high-impact positions, the post may need a different section or a reinforced local attachment. Door-edge and corner details also depend on gasket compression, drainage and repair access; they should be designed as part of the body rather than copied from a metal section.",
             "The lower thermal conductivity of a fiberglass profile does not establish the energy use of the finished trailer. Compare complete wall or body assemblies with the same insulation, joints and test method. Validate fastener strength, cargo impact, washdown, moisture ingress and temperature cycling alongside thermal performance.",
           ],
-          image: { src: "/images/industries/vehicle-reefer-body-concept.webp", alt: "Concept cutaway of a refrigerated trailer wall showing fiberglass sideposts, insulated panels and an interior liner" },
+          image: { src: "/images/industries/vehicle-reefer-body-cutaway.webp", alt: "Cutaway of a refrigerated trailer wall showing fiberglass sideposts, insulated panels and an interior liner" },
           components: ["Insulated-wall sideposts and liner fixing rails", "Door-edge, corner and panel-support details", "Custom sections integrated with the foam and skin build-up"],
           checksTitle: "Design and approval checks",
           checks: ["Wall-level heat transfer and condensation risk", "Cargo impact, fastener pull-through and joint sealing", "Washdown, moisture ingress and repair procedure"],
@@ -374,7 +373,7 @@ export const industryGuides = {
             "These parts may be bonded or mechanically fixed to a metal carbody. The joint must transfer the specified service loads and accommodate tolerances, temperature movement, vibration and maintenance access. For exterior pieces, review weathering, cleaning agents and finish repair. For interior pieces, include passenger contact, fixture loads and the complete installed configuration in the design review.",
             "Fire performance is assigned to the particular component and its operating context. The rail customer should state the applicable requirement set and hazard level under EN 45545-2 or the governing local standard. Ask for test evidence for the offered resin, reinforcement, surface veil, coating and assembly; a generic statement about phenolic or fire-retardant resin is not product approval.",
           ],
-          image: { src: "/images/industries/vehicle-rail-interior-concept.webp", alt: "Concept unfinished railcar body with light-colored ceiling support rails inside a metal shell" },
+          image: { src: "/images/industries/vehicle-rail-interior-rails.webp", alt: "Unfinished railcar body with light-colored ceiling support rails inside a metal shell" },
           components: ["Roof-edge, sidewall and skirt support details", "Interior ceiling, luggage-rack and window-surround profiles", "Cable-cover and equipment-enclosure sections"],
           checksTitle: "Design and approval checks",
           checks: ["Applicable fire requirement set, hazard level and tested configuration", "Bonded or bolted joint evidence and fatigue loads", "Exterior weathering or interior wear and cleaning regime"],
@@ -393,7 +392,7 @@ export const industryGuides = {
             "The useful boundary is the component and its function. A profile that supports an access panel is different from a crash member, occupant restraint anchor or lifting point. The vehicle designer must identify those safety-critical load paths and approve any material change before supply.",
             "Define the actual exposure: road salt, detergents, oil mist, sunlight, standing water or chemical splash. Resin selection, finish, drainage and compatible hardware follow from that service profile. Where field repair matters, agree a replaceable joint and inspection method early in the design.",
           ],
-          image: { src: "/images/industries/vehicle-specialty-body-concept.webp", alt: "Concept service vehicle equipment compartment with fiberglass panel edging and secondary support rails" },
+          image: { src: "/images/industries/vehicle-specialty-body-compartment.webp", alt: "Service vehicle equipment compartment with fiberglass panel edging and secondary support rails" },
           components: ["Equipment-door and removable-panel frames", "Cable-protection covers and compartment edging", "Secondary rails for approved equipment attachments"],
           checksTitle: "Design and approval checks",
           checks: ["Equipment mass, local loads and access-door cycles", "Chemical, UV and road-salt exposure", "Inspection, replacement and compatible fasteners"],

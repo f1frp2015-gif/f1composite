@@ -12,7 +12,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { supplyTerms } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
-import { blogCover, coverFor, regionCovers } from "@/lib/covers";
+import { blogCover, coverFor, regionCovers, type Cover } from "@/lib/covers";
 
 const pageTitle =
   "FRP Cable Tray Supplier UAE — Oil & Gas Projects";
@@ -20,7 +20,7 @@ const pageDescription =
   "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.";
 const pagePath = "/regions/frp-cable-tray-uae-oil-gas";
 
-const cover = regionCovers[pagePath];
+const cover: Cover = regionCovers[pagePath];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,

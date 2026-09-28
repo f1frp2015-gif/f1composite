@@ -93,8 +93,8 @@ const KEYWORD_PATH_REDIRECTS = [
   ["/technology/u-value-calculator", "/technology/frp-u-value-calculator"],
 ] as const;
 
-// Preserve indexed image URLs while moving heavy PNG sources to lossless WebP.
-// Internal references point directly to the new descriptive asset paths.
+// Preserve indexed image URLs when an asset moves to lossless WebP or gets a
+// new name. Internal references point directly to the new descriptive paths.
 const IMAGE_ASSET_REDIRECTS = [
   ["/images/blog/pultruded-thermal-break-aluminum-sliding-section.png", "/images/blog/pultruded-thermal-break-aluminum-sliding-section.webp"],
   ["/images/products/channel/frp-channel-profile-200x60x12mm.png", "/images/products/channel/frp-channel-profile-200x60x12mm.webp"],
@@ -110,6 +110,27 @@ const IMAGE_ASSET_REDIRECTS = [
   ["/images/products/fenestration/frp-window-frame-140-series-sliding.webp", "/images/products/window-door/frp-window-door-frame-140-series-sliding.webp"],
   ["/images/products/fenestration/frp-window-frame-80-series-tilt-turn.webp", "/images/products/window-door/frp-window-door-frame-80-series-tilt-turn.webp"],
   ["/images/products/angle/frp-angle-section-100x100x10mm.webp", "/images/products/angle/frp-angle-photo.webp"],
+  // 2026-09-28: file names describe what the image shows, not how it was made.
+  ["/images/technology/frp-profile-engineering-drawing-3d-render.jpg", "/images/technology/frp-profile-engineering-drawing-3d-view.jpg"],
+  ["/images/products/custom-frp-profile-drawing-render.webp", "/images/products/custom-frp-profile-drawing-3d-view.webp"],
+  ["/images/products/custom-frp-profile-engineering-drawing-3d-render.jpg", "/images/products/custom-frp-profile-engineering-drawing-3d-view.jpg"],
+  ["/images/industries/industrial-plating-line-concept.webp", "/images/industries/industrial-plating-line-walkway.webp"],
+  ["/images/industries/industrial-chemical-platform-concept.webp", "/images/industries/industrial-chemical-tank-platform.webp"],
+  ["/images/industries/vehicle-bus-body-concept.webp", "/images/industries/vehicle-bus-body-profiles.webp"],
+  ["/images/industries/marine-marina-access-concept.webp", "/images/industries/marine-marina-access-grating.webp"],
+  ["/images/industries/industrial-cooling-tower-concept.webp", "/images/industries/industrial-cooling-tower-walkway.webp"],
+  ["/images/industries/industrial-cable-support-concept.webp", "/images/industries/industrial-cable-ladder-support.webp"],
+  ["/images/industries/frp-building-applications-concept.webp", "/images/industries/frp-building-applications-overview.webp"],
+  ["/images/industries/vehicle-specialty-body-concept.webp", "/images/industries/vehicle-specialty-body-compartment.webp"],
+  ["/images/industries/vehicle-reefer-body-concept.webp", "/images/industries/vehicle-reefer-body-cutaway.webp"],
+  ["/images/industries/vehicle-rail-interior-concept.webp", "/images/industries/vehicle-rail-interior-rails.webp"],
+  ["/images/industries/marine-seawater-pump-platform-concept.webp", "/images/industries/marine-seawater-pump-platform.webp"],
+  ["/images/industries/marine-offshore-access-concept.webp", "/images/industries/marine-offshore-access-platform.webp"],
+  ["/images/industries/marine-coastal-boardwalk-concept.webp", "/images/industries/marine-coastal-boardwalk.webp"],
+  ["/images/industries/frp-pultruded-profiles-water-treatment-rendering.webp", "/images/industries/frp-pultruded-profiles-water-treatment-platform.webp"],
+  ["/images/industries/frp-infrastructure-pultruded-profiles-rendering.webp", "/images/industries/frp-infrastructure-pedestrian-bridge.webp"],
+  ["/images/covers/blog/frp-i-beam-render.webp", "/images/covers/blog/frp-i-beam-section.webp"],
+  ["/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp", "/images/case-studies/frp-baotou-industrial-park-aerial.webp"],
 ] as const;
 
 const nextConfig: NextConfig = {

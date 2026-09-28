@@ -35,7 +35,6 @@ export default function WindowSystemExplorer({ mode = "profiles", productPath }:
         {visible.map((series) => <article key={series.id} id={`system-${series.id}`} className="scroll-mt-[128px] overflow-hidden rounded-card border border-border-default bg-white">
           <div className="relative aspect-[4/3] border-b border-border-default bg-white">
             <Image src={series.image} alt={series.imageAlt} fill sizes="(max-width: 767px) 94vw, (max-width: 1279px) 46vw, 380px" className="object-contain p-[16px]" />
-            <span className="absolute right-[8px] top-[8px] rounded-tag bg-white/90 px-[6px] py-[2px] font-mono text-f12 uppercase tracking-[0.06em] text-t2">Rendering</span>
           </div>
           <div className="px-[18px] pb-[8px] pt-[16px] sm:px-[20px]">
             <p className={mono}>{series.depthMm} mm frame · {kinds[series.kind]}</p>

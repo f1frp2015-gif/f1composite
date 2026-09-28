@@ -351,13 +351,13 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 能源、基础设施、水处理 3 个行业页共用 `components/industries/IndustryPage.tsx`，内容在 `content/data/industryPages.ts`。海洋、工业化工、交通行业页因需要逐场景展开部件、设计输入和概念图，分别在各自的 `page.tsx` 实现；`industryPages.ts` 保留这些页面的搜索标题等索引信息。建筑行业页也保留独立页面，按应用区组织产品目录和设计指南。
 
 - **写什么**：每一句都要能在产品页、应用页、案例、`company.ts` 或证据库里找到出处。认证、使用寿命、节省比例和测试结果不对整个产品线下结论，只说"按指定配方和产品提供报告"。文件头注释写了这条规则。
-- **图片**：图库照片和渲染图在图版右上角标明 "Illustrative photo, not an F1 project" 或 "Rendering"。交通行业页原来用的新干线图库照片换成了工厂拉挤生产线照片。待核实的三个案例（见待办事项）不放进行业页的案例卡片。
+- **图片**：图库照片在图版右上角标明 "Illustrative photo"，图注说明不是 F1 项目；AI 生成图和渲染图不加标注（见"封面图"一节）。交通行业页原来用的新干线图库照片换成了工厂拉挤生产线照片。待核实的三个案例（见待办事项）不放进行业页的案例卡片。
 - **搜索索引**：行业页的 H1 在数据文件里，`scripts/search-pages.mjs` 从 `industryPages.ts` 读取作为搜索别名；改了 H1 或 metadata 要运行 `npm run search:pages`。
 - **内链归属**：`seoQueryTargets.ts` 要求行业页保留的链接（如能源页链到风电叶片板、工业页链到声屏障、爬梯和格栅对比页、基础设施页链到桥面板、梁桥指南和筋材对比页、建筑页链到成窗和筋材对比页）写在数据文件的产品、案例或延伸阅读里。
 
 ### 案例页
 
-9 个数据驱动的案例（`app/case-studies/[slug]/page.tsx`）用同一套页头、章节导航（挑战、F1 供货、结果、产品、文件、类似项目询价）和带图号的图版。每个案例的 `summary` 是页头下的一句话，只能复述正文里已有的内容。图版右上角写明图片性质：Project photo、Rendering 或 Illustrative photo；三个待核实案例（见待办事项）的图库照片标为 Illustrative photo，alt 文字描述画面本身，不再写成项目实景。文件区用下载页同款卡片，文件在文件库里时沿用库里的类型、签发方和大小。
+9 个数据驱动的案例（`app/case-studies/[slug]/page.tsx`）用同一套页头、章节导航（挑战、F1 供货、结果、产品、文件、类似项目询价）和带图号的图版。每个案例的 `summary` 是页头下的一句话，只能复述正文里已有的内容。图版右上角写明照片来源：Project photo 或 Illustrative photo，建筑效果图不加标注；三个待核实案例（见待办事项）的图库照片标为 Illustrative photo，alt 文字描述画面本身，不再写成项目实景。文件区用下载页同款卡片，文件在文件库里时沿用库里的类型、签发方和大小。
 
 梁桥指南页（`/case-studies/beam-bridge`）保留自己的版式，配色已改成品牌色：强调色、链接和按钮用 teal-text / teal，深色区块用品牌海军蓝，浅蓝底色改成中性冷灰，图中的构件由钢蓝改为青灰（与建筑概念图里"青绿色 = FRP 构件"一致）。以后不要再往 `beam-bridge.css` 里加蓝色。
 
@@ -386,10 +386,11 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 ### 封面图
 
 - **规则**：卡片显示它所链接页面自己的主图；产品显示产品本身。封面登记在 `lib/covers.ts` 的各个注册表（产品、行业、应用、工具、案例、技术、地区、资源），卡片用 `coverFor(href)` 取图，`CoverCard` 负责版式。案例总览、首页资源区、作者页文章、案例页的"Products used"、建筑行业页的补充部件都已改用封面卡。
-- **图片性质标签**：可能被误认为 F1 项目实拍的图片必须带 `note`：AI concept、Rendering、Illustrative photo、Project photo、Production photo、Concept drawing。博客文章封面若是文章自己的数据表或证书（自带标题），`coverNote` 留空，否则角标会盖住文件抬头。
+- **图片来源标签**：照片的 `note` 写来源：Project photo、Production photo、Supplier photo、Reference photo、Catalog photo，图库照片写 Illustrative photo；图纸写图纸状态（默认 Schematic · not to scale，或 Concept drawing、Manual drawing 等）。博客文章封面若是文章自己的数据表或证书（自带标题），`coverNote` 留空，否则角标会盖住文件抬头。
+- **AI 生成图和渲染图不加提示**（2026-09-28 起）：角标、图注和 alt 都不写 "AI concept"、"AI-generated"、"Rendering"、"Visualization"、"Concept …" 之类的字样，只描述画面和设计要求（如"最终构件和连接按项目设计确定"）。文字也不能把这类图说成 F1 的项目、工厂或实拍照片。`Figure` 的照片图版（`bleed`）不传 `note` 就没有角标；产品视图等非照片图版用 `note={null}`，否则会显示默认的 Schematic。带生成工具水印的图片不要上线，也不要裁掉或修掉水印，换一张图。`scripts/covers.test.mjs` 会检查这些字样。
 - **公司与生产照片**：只用集团自己的照片（`public/images/technology/f1-composite-*`），说明写"FengDu 工厂"；图库照片不能代表 F1 的工厂或项目。
 - **更换图片内容时换文件名**：Next 的图片优化按网址缓存，覆盖同名文件后开发环境和线上都可能继续显示旧图。
-- **测试**：`scripts/covers.test.mjs` 检查每个注册封面的文件都存在、alt 文字完整、`coverFor` 取到的是它；52 篇博客的封面各不相同，也不与任何卡片封面重复。
+- **测试**：`scripts/covers.test.mjs` 检查每个注册封面的文件都存在、alt 文字完整、`coverFor` 取到的是它；52 篇博客的封面各不相同，也不与任何卡片封面重复；图片标注里没有 AI 生成或渲染的字样。
 - **概念图**：`components/sections/ConceptAnimations.tsx` 的动画图在页面里用 `bare` 属性放进带编号的 `Figure`，标题和图号由图版提供。
 
 ### 各类页面
@@ -407,7 +408,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 | 优先级 | 事项 | 状态 |
 |--------|------|------|
-| 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI。2026-09-26 已先删除 `/images/hero/` 下 5 张与公司无关的图片（头灯、音频线广告等） | 待确认 |
+| 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI。2026-09-26 已先删除 `/images/hero/` 下 5 张与公司无关的图片（头灯、音频线广告等）。2026-09-28 桥面板设计文章的配图 `public/images/case-studies/frp-bridge.jpg` 右下角带生成工具的 "ai" 水印，已换成应用页的桥面板图，该文件随未引用图片一并移出 | 待确认 |
 | 高 | 风渡的英文法定名称（目前 schema 只用品牌名 FengDu New Material） | 待确认 |
 | 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实。码头案例（英国）配图仍是沙漠峡谷里的湖泊码头（标为 Illustrative photo），需换成项目实拍。水厂案例总览卡片已改用案例页的水厂航拍（Illustrative photo）；原烟囱排污图库照片 `public/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg` 已无引用，可随未引用图片一并移出 | 待核实 |
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |

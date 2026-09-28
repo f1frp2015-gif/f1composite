@@ -11,7 +11,7 @@
       "referenceMaxLeafKg": 65,
       "summary": "50 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/50.jpg",
-      "imageAlt": "50 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "50 Series Window System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Outward-opening",
@@ -51,7 +51,7 @@
       "referenceMaxLeafKg": 70,
       "summary": "55 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/55.jpg",
-      "imageAlt": "55 Series Window & Door System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "55 Series Window & Door System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Outward-opening",
@@ -100,7 +100,7 @@
       "referenceMaxLeafKg": 75,
       "summary": "60 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/60.jpg",
-      "imageAlt": "60 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "60 Series Window System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Outward-opening",
@@ -158,7 +158,7 @@
       "referenceMaxLeafKg": 110,
       "summary": "65 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/65.jpg",
-      "imageAlt": "65 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "65 Series Window System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Outward-opening",
@@ -216,7 +216,7 @@
       "referenceMaxLeafKg": 120,
       "summary": "70 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/70.jpg",
-      "imageAlt": "70 Series Window & Door System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "70 Series Window & Door System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Outward-opening",
@@ -277,7 +277,7 @@
       "referenceMaxLeafKg": 130,
       "summary": "80 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/80.jpg",
-      "imageAlt": "80 Series Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "80 Series Window System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Tilt-and-turn"
@@ -314,7 +314,7 @@
       "referenceMaxLeafKg": 130,
       "summary": "90 mm frame-depth reference system for local fabrication or separately specified finished-unit supply. Confirm opening, glazing and hardware together.",
       "image": "/images/products/window-systems/90-casement.jpg",
-      "imageAlt": "90 Series Casement / Tilt-and-Turn System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "90 Series Casement / Tilt-and-Turn System corner assembly",
       "openingTypes": [
         "Inward-opening",
         "Tilt-and-turn",
@@ -354,7 +354,7 @@
       "referenceMaxLeafKg": 120,
       "summary": "Sliding window system with five current profile codes. Section drawings and component names must be confirmed during technical review.",
       "image": "/images/products/window-systems/90-sliding.jpg",
-      "imageAlt": "90 Series Sliding Window System corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "90 Series Sliding Window System corner assembly",
       "openingTypes": [
         "Sliding"
       ],
@@ -395,7 +395,7 @@
       "referenceMaxLeafKg": 200,
       "summary": "Side-pressure compression-seal sliding system. Confirm current assembly drawings and hardware; historical inward-opening component labels remain traceable.",
       "image": "/images/products/window-systems/140.jpg",
-      "imageAlt": "140 Series Compression-Seal Sliding Door corner assembly illustration extracted from the July 2026 source catalog",
+      "imageAlt": "140 Series Compression-Seal Sliding Door corner assembly",
       "openingTypes": [
         "Sliding with side-pressure compression seal"
       ],

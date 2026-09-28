@@ -42,13 +42,12 @@ const requestItems = [
 const card = "rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]";
 
 // Each orientation shown with the facade image of that blade arrangement.
-const orientationImages = {
+const orientationImages: Record<"Vertical fins" | "Horizontal louvers", { src: string; alt: string; width: number; height: number; note?: string }> = {
   "Vertical fins": {
     src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp",
     alt: "Vertical fin sunshade array on a curtain wall facade",
     width: 1232,
     height: 928,
-    note: "Rendering",
   },
   "Horizontal louvers": {
     src: "/images/products/facade-sunshade/frp-facade-sunshade-angled-louver-blades.webp",
@@ -57,7 +56,7 @@ const orientationImages = {
     height: 1536,
     note: "Reference photo",
   },
-} as const;
+};
 
 const bladeEngineering = [
   {

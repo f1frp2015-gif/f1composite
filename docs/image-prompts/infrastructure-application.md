@@ -1,7 +1,7 @@
 # Infrastructure application rendering
 
 - Page: `/industries/infrastructure`
-- Asset: `public/images/industries/frp-infrastructure-pultruded-profiles-rendering.webp`
+- Asset: `public/images/industries/frp-infrastructure-pedestrian-bridge.webp`
 - Generation: built-in imagegen, 2026-09-21.
 - Purpose: illustrative application concept, not a photograph of a delivered project or an engineering design.
 - Web delivery: WebP with responsive Next.js Image sizing and intrinsic aspect ratio.

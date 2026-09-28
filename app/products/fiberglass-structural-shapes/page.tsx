@@ -162,7 +162,7 @@ export default function StandardProfilesPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Standard sections" note="Rendering" caption="I-beam, channel, square tube and angle from the standard range. Every family has its own size table and section drawings." bleed>
+          <Figure number={1} title="Standard sections" caption="I-beam, channel, square tube and angle from the standard range. Every family has its own size table and section drawings." bleed>
             <Image src={productCovers["/products/fiberglass-structural-shapes"].src} alt="Pultruded fiberglass I-beam, channel, square tube and angle" width={1200} height={750} preload sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" />
           </Figure>
         }

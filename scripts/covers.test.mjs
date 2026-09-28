@@ -1,6 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 import { loadProjectModule } from "./load-project-module.mjs";
 
 const covers = loadProjectModule("lib/covers.ts");
@@ -38,5 +40,32 @@ test("every blog post has its own cover, not shared with another post or a card"
     assert.ok(!seen.has(cover.src), `${post.slug} and ${seen.get(cover.src)} share ${cover.src}`);
     assert.ok(!cardCovers.has(cover.src), `${post.slug} reuses the card cover ${cover.src}`);
     seen.set(cover.src, post.slug);
+  }
+});
+
+// WEBSITE.md (封面图): a note names where a photo comes from, and captions and
+// alt text describe what an image shows, never that it is AI-generated or
+// rendered.
+test("image labels never announce AI generation or rendering", () => {
+  const made = /\bAI\b|generated|\brender|visuali[sz]/i;
+  const leading = /^(Concept|Illustrative|Illustration|Rendering)\b/;
+  const images = [
+    ...REGISTRIES.flatMap((name) => Object.entries(covers[name]).map(([href, cover]) => [`${name} ${href}`, cover])),
+    ...blogPosts.map((post) => [`${post.slug} cover`, covers.blogCover(post)]),
+    ...blogPosts.map((post) => [`${post.slug} supporting image`, { alt: post.supportingAlt, caption: post.supportingCaption }]),
+  ];
+  for (const [where, image] of images) {
+    for (const text of [image.note, image.caption]) assert.ok(!made.test(text ?? ""), `${where}: "${text}"`);
+    assert.ok(!made.test(image.alt ?? "") && !leading.test(image.alt ?? ""), `${where}: alt "${image.alt}"`);
+  }
+  const labels = /AI concept|AI[- ]generated (?:product|concept|application|image|illustration)|note[=:]\s*"(?:Rendering|Visualization|Drawing and rendering|Supplier rendering)"|· render"/;
+  const root = fileURLToPath(new URL("..", import.meta.url));
+  for (const dir of ["app", "components", "lib", "content"]) {
+    for (const entry of readdirSync(join(root, dir), { recursive: true, withFileTypes: true })) {
+      if (!entry.isFile() || !/\.(tsx?|json)$/.test(entry.name)) continue;
+      const file = join(entry.parentPath, entry.name);
+      const line = readFileSync(file, "utf8").split("\n").findIndex((text) => labels.test(text));
+      assert.equal(line, -1, `${relative(root, file)}:${line + 1} labels an image as AI-generated or rendered`);
+    }
   }
 });

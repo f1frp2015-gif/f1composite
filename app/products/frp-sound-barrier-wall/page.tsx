@@ -204,7 +204,7 @@ export default function FrpSoundBarrierWallPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="FRP noise barrier along a highway" note="AI concept" caption="AI-generated application visualization for concept planning. It is not an F1 project photograph, an approved shop drawing or evidence of a tested acoustic assembly." bleed>
+          <Figure number={1} title="FRP noise barrier along a highway" caption="Panel layout, posts and acoustic build-up follow the approved shop drawing; acoustic ratings apply only to the tested assembly." bleed>
             <div className="relative aspect-[3/2]">
               <Image
                 src={frpSoundBarrierImageAssets.hero}
@@ -340,11 +340,11 @@ export default function FrpSoundBarrierWallPage() {
         <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-[40px]">
           <Figure
             number={2}
-            title="Interlocking plank concept"
-            note="Supplier rendering"
+            title="Interlocking plank design"
+            note="Supplier image"
             caption={
               <>
-                Supplier reference rendering from{" "}
+                Supplier reference image from{" "}
                 <a
                   href="https://www.fibergrate.com/products/unique-product-solutions/sound-barrier-wall/"
                   target="_blank"
@@ -353,7 +353,7 @@ export default function FrpSoundBarrierWallPage() {
                 >
                   Fibergrate
                 </a>{" "}
-                illustrating one proprietary interlocking-plank concept. It is not an F1 project image or released F1 section; project geometry, joints and acoustic build-up must follow the approved drawings.
+                showing one proprietary interlocking-plank design. It is not an F1 project image or released F1 section; project geometry, joints and acoustic build-up must follow the approved drawings.
               </>
             }
           >

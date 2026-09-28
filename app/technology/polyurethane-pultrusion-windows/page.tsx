@@ -173,7 +173,7 @@ export default function PolyurethanePultrusionWindowsPage() {
       <JsonLd data={articleSchema} />
       <PageHeader
         figure={
-          <Figure number={1} title="90 series corner section" note="Rendering" bleed>
+          <Figure number={1} title="90 series corner section" bleed>
             <div className="relative aspect-[16/10] bg-white">
               <Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series GFRP-PU window frame with triple glazing" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-contain p-[16px]" preload />
             </div>

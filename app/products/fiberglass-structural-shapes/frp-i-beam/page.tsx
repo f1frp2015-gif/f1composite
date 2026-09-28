@@ -201,7 +201,7 @@ export default async function IBeamPage() {
             <ProfileFigure model="I 152×76×6.4" />
             <HeroPhotos
               photos={[
-                { src: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp", alt: "Rendering of a pultruded FRP I-beam", caption: "I 200×100×10 · render" },
+                { src: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp", alt: "Pultruded FRP I-beam", caption: "I 200×100×10" },
                 { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />

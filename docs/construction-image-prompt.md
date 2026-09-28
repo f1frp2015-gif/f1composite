@@ -1,7 +1,7 @@
 # Construction application concept image
 
 Generated with the built-in image_gen tool on 2026-09-21.
-Website asset: `public/images/industries/frp-building-applications-concept.webp`.
+Website asset: `public/images/industries/frp-building-applications-overview.webp`.
 The six numbered areas correspond to the construction page's linked legend. This is an illustrative application map, not an installed project photograph or construction detail.
 
 ## Final generation prompt

@@ -11,7 +11,7 @@ export interface ApplicationCard {
   imageAlt: string;
   /** Diagrams sit whole on white; photos fill the frame. */
   fit?: "cover" | "contain";
-  /** What kind of image this is ("AI concept", "Rendering"), as its page labels it. */
+  /** The photo's source ("Project photo", "Illustrative photo"), as its page labels it. */
   note?: string;
   /** The profiles the project used, as its case study states them. */
   used?: string;
@@ -19,8 +19,8 @@ export interface ApplicationCard {
 
 /**
  * Projects and applications that use the product, each with its image. A
- * rendering or concept keeps its label: on the image from tablet width, beside
- * the card type on phones, where the thumbnail is too small for a badge.
+ * photo keeps its source label: on the image from tablet width, beside the
+ * card type on phones, where the thumbnail is too small for a badge.
  */
 export default function ApplicationCards({ cards }: { cards: ApplicationCard[] }) {
   return (

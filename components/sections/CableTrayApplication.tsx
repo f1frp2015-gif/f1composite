@@ -115,7 +115,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       updated={page.lastModified}
       title={page.h1}
       description={page.description}
-      figure={<Figure number={1} title="Cable ladder at a treatment plant" note="AI concept" caption="AI concept of an FRP cable ladder on pultruded supports; not an F1 installation." bleed><div className="relative aspect-[16/10]"><Image src="/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp" alt="Concept FRP cable ladder carrying power cables on pultruded supports beside water treatment basins" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload /></div></Figure>}
+      figure={<Figure number={1} title="Cable ladder at a treatment plant" bleed><div className="relative aspect-[16/10]"><Image src="/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp" alt="FRP cable ladder carrying power cables on pultruded supports beside water treatment basins" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload /></div></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications", href: "/applications" }, { label: "FRP cable trays & cable ladders" }]}
       actions={{ primary: { label: "Discuss your cable route", href: rfqHref }, secondary: { label: "Specification checklist", href: "#specification", variant: "secondary" }, note: "Start with your name and email. Route drawings and details can follow.", stickyMobile: true }}
     />
@@ -124,10 +124,10 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
     <PageSection id="overview" title="From cable route to component schedule">
       <ul className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
         {productFamilies.map((family) => <li key={family.id}>
-          <CoverCard href={`#${family.id}`} cover={{ src: family.image, alt: family.alt, fit: "contain", note: "AI concept" }} label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{family.label}</span>} title={family.title} text={`${family.description} ${family.selection}`} action={`Explore ${family.title.replace("FRP ", "")}`} sizes="(max-width: 767px) 94vw, 46vw" />
+          <CoverCard href={`#${family.id}`} cover={{ src: family.image, alt: family.alt, fit: "contain" }} label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{family.label}</span>} title={family.title} text={`${family.description} ${family.selection}`} action={`Explore ${family.title.replace("FRP ", "")}`} sizes="(max-width: 767px) 94vw, 46vw" />
         </li>)}
       </ul>
-      <p className="mt-[12px] text-f14 leading-golden text-t3">AI-generated product illustrations informed by supplier references. Profiles, slot patterns and connections are illustrative; confirm the offered configuration in the quotation.</p>
+      <p className="mt-[12px] text-f14 leading-golden text-t3">Profiles, slot patterns and connections vary by system; confirm the offered configuration in the quotation.</p>
       <div className="mt-[32px] grid grid-cols-1 gap-[24px] lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-[48px]">
         <div className="space-y-[14px] text-f16 leading-golden text-t2">
           <p className="text-f18 text-t1">FRP cable trays and ladders carry power, control and instrumentation cables through wet, coastal and chemically aggressive environments. Their support channels, brackets and frames complete the load path into the structure.</p>

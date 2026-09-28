@@ -6,8 +6,8 @@ import type { Cover } from "@/lib/covers";
  * A compact link with a cover thumbnail, for secondary lists of destinations
  * (application products, guides, industries) where full cover cards would
  * crowd the page. The cover comes from the same registry as CoverCard; its
- * note ("AI concept", "Rendering") runs as a small label over the title,
- * because a badge would hide a thumbnail this size.
+ * note ("Project photo", "Illustrative photo") runs as a small label over the
+ * title, because a badge would hide a thumbnail this size.
  */
 export default function CoverLink({ href, cover, title, text }: { href: string; cover: Cover; title: string; text?: string }) {
   return (

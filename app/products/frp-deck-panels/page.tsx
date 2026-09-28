@@ -139,11 +139,11 @@ export default function FrpDeckPanelsPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Closed-profile deck panel" note="Rendering" caption="Final section, material, color and joint geometry follow the approved project drawing." bleed>
+          <Figure number={1} title="Closed-profile deck panel" caption="Final section, material, color and joint geometry follow the approved project drawing." bleed>
             <div className="relative aspect-[21/9]">
               <Image
                 src="/images/products/frp-structural-deck-panel-hero.webp"
-                alt="Concept rendering of a closed structural FRP deck panel with internal webs and an interlocking edge"
+                alt="Closed structural FRP deck panel with internal webs and an interlocking edge"
                 fill
                 sizes="(max-width: 1023px) 94vw, 44vw"
                 className="object-cover"
