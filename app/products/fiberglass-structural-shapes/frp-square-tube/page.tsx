@@ -147,6 +147,7 @@ export default async function SquareTubePage() {
               { label: "Infrastructure trusses", href: "/industries/infrastructure" },
               { label: "Construction columns", href: "/industries/construction" },
               { label: "Solar racking posts", href: "/industries/energy" },
+              { label: "Utility crossarm design guide", href: "/applications/frp-utility-crossarms" },
             ]}
           />
         </div>

@@ -131,8 +131,8 @@ export const mainNav = [
         links: [
           { label: "Agriculture & Horticulture", href: "/applications/agriculture-horticulture-stakes" },
           { label: "Cable Trays & Ladders", href: "/applications/frp-cable-tray-supports" },
+          { label: "Utility Crossarms", href: "/applications/frp-utility-crossarms" },
           { label: "Cooling Tower Profiles", href: "/applications/frp-cooling-tower-profiles" },
-          { label: "Bridge Deck Panels", href: "/applications/frp-bridge-deck-panels" },
           { label: "Chemical Plant Platforms", href: "/applications/frp-chemical-plant-platforms" },
           { label: "Pedestrian Bridge Structures", href: "/applications/frp-pedestrian-bridge-superstructures" },
           { label: "Solar Mounting Profiles", href: "/applications/frp-solar-mounting-profiles" },

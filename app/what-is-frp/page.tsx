@@ -119,7 +119,7 @@ const decisionPaths = [
 
 const applicationGroups = [
   { href: "/industries/infrastructure", title: "Infrastructure and transport", examples: "Pedestrian bridges and deck panels, rail platform canopies, cable trays and pipe supports in utility corridors, and highway noise barriers.", products: [{ href: "/products/frp-sound-barrier-wall", label: "FRP noise barriers" }] },
-  { href: "/industries/energy", title: "Energy and utilities", examples: "Transmission cross-arms and substation equipment, solar mounting frames, wind-turbine secondary structures, and oil and gas access platforms.", products: [{ href: "/products/frp-solar-mounting-systems", label: "FRP solar profiles" }] },
+  { href: "/industries/energy", title: "Energy and utilities", examples: "Overhead distribution crossarms and substation equipment, solar mounting frames, wind-turbine secondary structures, and oil and gas access platforms.", products: [{ href: "/products/frp-solar-mounting-systems", label: "FRP solar profiles" }, { href: "/applications/frp-utility-crossarms", label: "Crossarm application guide" }] },
   { href: "/industries/industrial", title: "Chemical and marine", examples: "Chemical plant walkways and handrails, cooling tower structures, wastewater and desalination gratings, and offshore platforms and floating docks.", products: [{ href: "/products/molded-frp-grating", label: "Molded grating" }] },
   { href: "/industries/construction", title: "Building and construction", examples: "Window profiles for passive-house and low-energy buildings, facade supports and curtain-wall mullions, rooftop platforms, and rebar for concrete in corrosive service.", products: [{ href: "/products/frp-window-frames", label: "Window profiles" }] },
 ] as const;
