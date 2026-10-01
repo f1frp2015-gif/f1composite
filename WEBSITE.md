@@ -412,7 +412,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 ## 设计手册（2026-10）
 
-`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf`（DOC-PF-2026-EN Rev. B，47 页）不是手工编辑的文件，由 `scripts/build-design-manual.mjs` 生成：`npm run build:manual` 把站内数据渲染成 HTML（DM Sans / DM Mono、站内配色、同一截面引擎画的带尺寸截面图），再用无头 Chromium 打印成 A4 PDF，并检查每一页都没有溢出、PDF 页数等于生成的页数。
+`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf`（DOC-PF-2026-EN Rev. B，46 页）不是手工编辑的文件，由 `scripts/build-design-manual.mjs` 生成：`npm run build:manual` 把站内数据渲染成 HTML（DM Sans / DM Mono、站内配色、同一截面引擎画的带尺寸截面图），再用无头 Chromium 打印成 A4 PDF，并检查每一页都没有溢出、PDF 页数等于生成的页数。
 
 - **数据来源**：层合板数值和试验方法 `lib/catalog/en13706.ts`；树脂体系 `lib/catalog/seed.ts` 的 `SEED_FORMULATIONS`；114 个规格和公布单重 `lib/catalog/standardProfiles.ts`，截面性能由 `lib/catalog/sectionRows.ts` 按名义截面计算；许用荷载表 `lib/spanTables.ts`；设计基础（φ、λ、环境系数、各国规范、荷载工况）`lib/frpDesignBasis.ts`；柱屈曲算例 `lib/frpColumn.ts`；公司事实和供货条款 `content/data/company.ts`；应用指南 `lib/applicationPages.ts`；护栏、爬梯目录数据和护栏荷载 `content/data/frpHandrailSpecs.ts`、`frpLadderSpecs.ts`、`lib/guardrailLoads.ts`；证据 `content/data/engineeringEvidence.ts`、`e40Evidence.ts`、`pvFrameEvidence.ts`；参考性能值 `content/data/pultrudedPerformance.ts`。改了这些数据就重新生成并提交 PDF；不要在脚本里手填数字。
 - **文档编号**：`MANUAL` 常量（编号、修订号、发布月份、文件名）在脚本顶部；改版时换修订号和文件名，旧网址在 `next.config.ts` 加 301。

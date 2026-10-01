@@ -24,7 +24,7 @@ export const fallbackDownloads: DownloadItem[] = [
     title: "FRP Profile Design Manual — DOC-PF-2026-EN Rev. B",
     format: "PDF",
     size: "3 MB",
-    description: "47-page engineering reference for F1 Composite pultruded structural profiles, generated from the same data as the website. EN 13706 E23 laminate values with grade minimums and test methods, resin systems, design basis (ASCE/SEI 74-23, CEN/TS 19101 and GB 50608 screening factors, time-effect and environment factors), section properties of all 114 catalog sizes, allowable uniform-load tables over 1–6 m spans, application guides, handrail and ladder data, durability by resin formulation, fabrication, inspection and ordering. Doc no. DOC-PF-2026-EN Rev. B, October 2026; supersedes the withdrawn Rev. A.",
+    description: "46-page engineering reference for F1 Composite pultruded structural profiles, generated from the same data as the website. EN 13706 E23 laminate values with grade minimums and test methods, resin systems, design basis (ASCE/SEI 74-23, CEN/TS 19101 and GB 50608 screening factors, time-effect and environment factors), section properties of all 114 catalog sizes, allowable uniform-load tables over 1–6 m spans, application guides, handrail and ladder data, durability by resin formulation, fabrication, inspection and ordering. Doc no. DOC-PF-2026-EN Rev. B, October 2026; supersedes the withdrawn Rev. A.",
     file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
   },
   {

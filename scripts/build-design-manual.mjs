@@ -89,10 +89,15 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 const num = (v, max = 2, min = 0) => (v == null || !Number.isFinite(v) ? "—" : v.toLocaleString("en-US", { minimumFractionDigits: min, maximumFractionDigits: max }));
 /** Published mass, with the catalog's own precision. */
 const mass = (v) => (v == null ? "—" : String(v));
-const sig3 = (v) => (Math.abs(v) >= 100 ? num(v, 0) : Math.abs(v) >= 10 ? num(v, 1) : num(v, 2));
 /** Four significant figures from the unrounded value, trailing zeros dropped. */
 const sig4 = (v) => (v == null || !Number.isFinite(v) ? "—" : Number(v.toPrecision(4)).toLocaleString("en-US", { maximumFractionDigits: 6 }));
-const mono = (s) => `<span class="mono">${esc(s)}</span>`;
+const code = (s) => `<span class="code">${esc(s)}</span>`;
+/** Subscripts for the k_F, γ_M, T_g notation of the data strings (after esc). */
+const sym = (s) => String(s).replace(/(?<!\w)([γkTEGF])_([A-Za-z]{1,3})\b/g, "$1<sub>$2</sub>").replace(/(T<sub>g<\/sub>) - /g, "$1 − ");
+/** Keep standard designations on one line (ASCE/SEI 74-23, EN ISO 14122-3 …). */
+const nb = (html) => html.replace(/\b((?:ASCE\/SEI|PD CEN\/TS|CEN\/TS|BS EN ISO|BS EN|EN ISO|EN|ISO|ASTM|IEC|CSA|AS\/NZS|GB\/T|GB|UL|IBC|OSHA|NBC|ACI|ANSI|BS|AS) \d[\w.]*(?:-[\w.]+)*(?::\d{4})?)/g, '<span class="nbsp">$1</span>');
+/** Source labels of the performance registry use "BODY · number"; print "BODY number". */
+const srcLabel = (label) => label.replace(/^([A-Z/]+) · /, "$1 ");
 const tag = (s) => `<span class="tag">${esc(s)}</span>`;
 const note = (html, cls = "") => `<div class="note ${cls}">${html}</div>`;
 const p = (html) => `<p>${html}</p>`;
@@ -272,15 +277,13 @@ const thermal = (id) => THERMAL_MATERIALS.find((m) => m.id === id);
 const TH = { L: supplyTerms.standardLengthM * 1000, dTh: 30, dTc: 30 };
 const thMove = (m, dT) => m.alpha * 1e-6 * TH.L * dT;
 
-// E23 resistance for the connections text (ASCE path, outdoor, occupancy).
-const resistE23 = designResistance({ material: DESIGN_MATERIALS["frp-e23"], method: "lrfd-asce", envId: "outdoor", durationId: "occupancy" });
 
 // Resin "use" sentence: the seed notes minus the shared provenance sentences.
 const EN_NOTE_RE = /Minimum requirements per EN 13706-3:2002 Table 1, grade E\d+\. Guaranteed minimums for laminates declared to this grade; replace with measured values where certified test data exists\.\s*/;
 const DG_TYP = "Density and glass content shown are typical for the resin system, not certified F1 values.";
 const resinUse = (f) => f.code === "E23-ISO"
   ? "Standard laminate for general structural use: the published values of this section. Not fire-retardant; specify FR-E23 for an ASTM E84 Class 1 requirement."
-  : (f.notes ?? "").replace(EN_NOTE_RE, "").replace(DG_TYP, "").replace(TYP_NOTE, "").replace(/\s+/g, " ").trim();
+  : (f.notes ?? "").replace(EN_NOTE_RE, "").replace(DG_TYP, "").replace(TYP_NOTE, "").replace(/\s+/g, " ").trim().split(";")[0].replace(/\.?$/, ".");
 
 const FAMILY_WORDS = {
   i_beam: /\bI-beams?\b/i, channel: /\bchannels?\b/i, angle: /\bangles?\b/i, shs: /\bsquare tubes?\b|\bsquare hollow\b/i,
@@ -323,11 +326,11 @@ page(`
   ${h3("What changed from Rev. A")}
   ${ul([
     `The standard laminate is the <strong>isophthalic polyester E23 laminate</strong> printed on every F1 datasheet. Rev. A described an epoxy laminate as standard; epoxy is a project option.`,
-    `Section tables cover <strong>all ${rows.length} catalog sizes</strong> with the published mass and section properties computed from the nominal section, in place of five sizes with unverifiable properties.`,
+    `Section tables cover <strong>all ${rows.length} catalog sizes</strong> with the published mass and section properties computed from the nominal section, in place of five section types (about fifteen imperial sizes) whose properties could not be reproduced.`,
     `Load tables follow the <strong>published design basis</strong> (LRFD to ASCE/SEI 74-23 factors, L/250, shear deflection included) and give allowable loads, not unfactored deflections at L/200.`,
-    `Fire and chemical performance are stated <strong>by resin formulation with their evidence status</strong>. The UK fire-classification table (which included aluminum decking rows) and the unattributed chemical table were removed.`,
+    `Fire and chemical performance are stated <strong>by resin formulation with their evidence status</strong>. The UK fire-classification table (which included an aluminum deck and cladding row and platform-system rows) and the unattributed chemical table were removed.`,
     `No design-life, warranty or maintenance-interval promise is made; durability depends on the formulation, the exposure and the inspection plan (Section 7).`,
-    `Standard citations were corrected: interlaminar shear is EN ISO 14130; EN 13706-2 Annex D is the full-section modulus test and Annex E the pin-bearing test.`,
+    `Standard citations were corrected: interlaminar shear is EN ISO 14130 (Rev. A printed a truncated standard number) and the grade minimums are cited to EN 13706-3 Table 1; the pin-bearing method is EN 13706-2 Annex E, as the datasheets now also state.`,
   ])}
   ${h3("How values are labeled")}
   ${table({ head: ["Label", "Meaning"], widths: ["26mm", "auto"], body: [
@@ -365,7 +368,7 @@ openSection("01", "F1 Composite and the F1-STRUX range",
   <div class="cols2">
   ${h3("The company")}
   ${p(esc(companyStatements.relationship))}
-  ${p(`The group's production network has ${company.production.bases} manufacturing bases and ${company.production.lines} pultrusion lines with about ${num(company.production.annualTonnes, 0)} tonnes of annual capacity and ${num(company.production.dieSets, 0)} die sets, in ${company.production.locations.map(esc).join(" and ")}. F1 Composite was founded in ${esc(company.foundingYear)} and supplies ${esc(company.exportCountries)} countries. ${esc(company.manufacturer.name)} is the FengDu subsidiary named on several product documents, including the SGS full-section reports in Section 2.`)}
+  ${p(`The group's production network has ${company.production.bases} manufacturing bases and ${company.production.lines} pultrusion lines with about ${num(company.production.annualTonnes, 0)} metric tons of annual capacity and ${num(company.production.dieSets, 0)} die sets, in ${company.production.locations.map(esc).join(" and ")}. F1 Composite was founded in ${esc(company.foundingYear)} and supplies ${esc(company.exportCountries)} countries. ${esc(company.manufacturer.name)} is the FengDu subsidiary named on several product documents, including the SGS full-section reports in Section 2.`)}
   ${p(`The "F1" stands for "Fiber One". F1 Composite is an industrial FRP company with no connection to motorsport.`)}
   ${h3("Certificates and evidence")}
   ${p(esc(companyStatements.certificates))}
@@ -385,7 +388,7 @@ page(`
   <div class="cols2">
   ${p(`<strong>Catalog sizes are standard section options, not stock.</strong> ${esc(commercialFacts.availability)} ${esc(commercialFacts.pricing)}`)}
   ${table({ head: ["Item", "F1 term"], widths: ["48mm", "auto"], body: [
-    ["Reply to an enquiry", `Within ${esc(supplyTerms.responseTime)}`],
+    ["Reply to an inquiry", `Within ${esc(supplyTerms.responseTime)}`],
     ["Catalog section, existing die", weeks(supplyTerms.catalogLeadTimeWeeks)],
     ["Variant on an existing die", weeks(supplyTerms.existingDieVariantLeadTimeWeeks)],
     ["New section, new die", `${weeks(supplyTerms.newDieLeadTimeWeeks)} (die manufacture ${weeks(supplyTerms.dieManufactureWeeks)})`],
@@ -399,18 +402,7 @@ page(`
   ${p(`Standard colors are gray and safety yellow; custom RAL colors are available for orders that meet the minimum quantity, typically 200 linear meters. Standard profiles are pultruded with a surface veil that forms a resin-rich outer layer; UV-stabilized resin and a compatible coating can be specified for exposed service (Section 7).`)}
   ${p(`Dimensional tolerances follow ASTM D3917 unless the drawing calls up EN 13706-2 or GB/T 31539 classes. There is no single ± value for every shape: agree the size band, the datum, the wall and corner limits, straightness over a stated gauge length, twist and cut length on the approved drawing (Section 9). Flat bars are held to ±0.25 mm on thickness and ±0.5 mm on width, with ±5 mm on a 6 m length.`)}
   </div>
-  ${note(`<strong>Resin is chosen per production run.</strong> The same die runs isophthalic polyester, fire-retardant polyester, vinyl ester, polyurethane or phenolic; the resin system becomes part of the quoted specification and is recorded on the mill certificate. State chemicals, temperature, fire code and UV exposure in the enquiry.`)}`);
-
-page(`
-  ${h2("The catalog at a glance", `${familyCards.length} families · ${rows.length} sizes · ${mass(massMin)} to ${mass(massMax)} kg/m`)}
-  <div class="cards">
-    ${familyCards.map((f) => `<div class="card">${glyph(f.shape, 13)}<div><div class="card-title">${esc(f.label)}</div><div class="card-fact mono">${f.rows.length} sizes · ${esc(f.range(f.rows))}</div><div class="card-text">${esc(f.use)}</div><div class="card-fact mono">${mass(Math.min(...f.rows.map((r) => r.mass)))}–${mass(Math.max(...f.rows.map((r) => r.mass)))} kg/m</div></div></div>`).join("")}
-  </div>
-  ${h3("Beyond the catalog")}
-  <div class="cols2">
-  ${p(`A section the catalog does not cover is developed from your drawing on new tooling (F1-FORM): cross-sections up to about 600 × 300 mm, multi-cell hollows, dog-bone and strut profiles, and sections with integrated screw channels. Tooling, sampling and secondary fabrication are reviewed before production; the minimum runs and die costs opposite apply.`)}
-  ${p(`Handrail and fixed-ladder systems assembled from catalog tubes, angles and flat bars are described in Section 6, with the catalog dimensions and the load cases they are checked against. Grating, stair treads, GFRP rebar, window profiles and fasteners have their own catalogs on the website.`)}
-  </div>
+  ${note(`<strong>Resin is chosen per production run.</strong> The same die runs isophthalic polyester, fire-retardant polyester, vinyl ester, polyurethane, epoxy or phenolic; the resin system becomes part of the quoted specification and is recorded on the mill certificate. State chemicals, temperature, fire code and UV exposure in the inquiry.`)}
   ${h3("Standards the range is specified against")}
   ${table({ head: ["Topic", "Europe", "North America", "China"], widths: ["38mm", "auto", "auto", "auto"], cls: "small", body: [
     ["Profile grade and test methods", "EN 13706-1/-2/-3 (grades E17, E23)", "ASTM D7290 characteristic values; ASTM D638, D790, D695, D2344 coupon methods", "GB/T 31539-2015"],
@@ -419,6 +411,28 @@ page(`
     ["Workplace access", "EN ISO 14122 series", "OSHA 29 CFR 1910 Subpart D; IBC 2024", "GB 4053"],
     ["Reaction to fire", "EN 13501-1; EN 45545-2 (rail)", "ASTM E84; UL 94 (plastic parts)", "GB 8624-2012 (2025 edition from 1 January 2027)"],
   ] })}`);
+
+page(`
+  ${h2("The catalog at a glance", `${familyCards.length} families · ${rows.length} sizes · ${mass(massMin)} to ${mass(massMax)} kg/m`)}
+  <div class="cards">
+    ${familyCards.map((f) => `<div class="card">${glyph(f.shape, 13)}<div><div class="card-title">${esc(f.label)}</div><div class="card-fact mono">${f.rows.length} sizes · ${esc(f.range(f.rows))}</div><div class="card-text">${esc(f.use)}</div><div class="card-fact mono">${mass(Math.min(...f.rows.map((r) => r.mass)))}–${mass(Math.max(...f.rows.map((r) => r.mass)))} kg/m</div></div></div>`).join("")}
+  </div>
+  ${h3("Beyond the catalog")}
+  <div class="cols2">
+  ${p(`A section the catalog does not cover is developed from your drawing on new tooling (F1-FORM): cross-sections up to about 600 × 300 mm, multi-cell hollows, dog-bone and strut profiles, and sections with integrated screw channels. Tooling, sampling and secondary fabrication are reviewed before production; the minimum runs and die costs on the previous page apply.`)}
+  ${p(`Handrail and fixed-ladder systems assembled from square and round tube, angles and flat bars of the handrail and ladder catalogs (some wall thicknesses differ from the Section 4 profile sizes) are described in Section 6, with the catalog dimensions and the load cases they are checked against. Grating, stair treads, GFRP rebar, window profiles and fasteners have their own catalogs on the website.`)}
+  </div>
+  ${h3("How a catalog designation reads")}
+  ${table({ head: ["Prefix", "Family", "Designation", "Dimensions in order"], widths: ["16mm", "40mm", "34mm", "auto"], cls: "small", body: [
+    ["I", "I-beams and wide flanges", "I 200×100×10", "depth H × flange width B × thickness t (flange and web)"],
+    ["U", "Channels", "U 200×60×8", "depth H × flange width B × thickness t"],
+    ["L", "Angles", "L 100×100×10", "leg a × leg b × thickness t"],
+    ["SHS / RHS", "Square and rectangular tubes", "SHS 100×100×8, RHS 120×60×5", "outside depth × outside width × wall t"],
+    ["CHS", "Round tubes", "CHS 100×6", "outside diameter × wall t"],
+    ["Rod", "Solid rods", "Rod Ø25", "diameter"],
+    ["FB", "Flat bars", "FB 100×10", "width × thickness"],
+  ] })}
+  ${p(`<span class="small">The datasheet of a size is at ${SITE.replace("https://", "")}/datasheets/‹designation›, with the designation written in lower case and "x" between the numbers (i-200x100x10, chs-100x6, rod-25, fb-100x10).</span>`)}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 02 · Material
@@ -432,23 +446,23 @@ openSection("02", "Material: the E23 laminate and resin systems",
   ${h3("Why direction matters")}
   ${p(`Longitudinal properties are two to five times the transverse ones (tensile strength ${E23_MIN.tensile_l_mpa} against ${E23_MIN.tensile_t_mpa} MPa at the E23 minimum). Member checks use the longitudinal values; connections, bearing at bolts, web crippling and local buckling depend on the transverse and shear values. Every table in this manual states the direction.`)}
   ${h3("Matrix role")}
-  ${p(`The cured resin, about ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/(\d+)–/)[1])} to ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/–(\d+)/)[1])} percent of the standard laminate by weight and roughly half by volume, binds the fibers, transfers load between them in shear, stops fiber micro-buckling in compression and forms the barrier to the environment. Two profiles with identical E23 stiffness can have very different service lives if one has the wrong matrix for the exposure (Section 7).`)}
+  ${p(`The cured resin, about ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/–(\d+)/)[1])} to ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/(\d+)–/)[1])} percent of the standard laminate by weight and roughly half by volume, binds the fibers, transfers load between them in shear, stops fiber micro-buckling in compression and forms the barrier to the environment. Two profiles with identical E23 stiffness can have very different service lives if one has the wrong matrix for the exposure (Section 7).`)}
   </div>
   ${fig(nextFig(), "Laminate build-up of a pultruded flange or wall", `
-    <svg width="170mm" height="34mm" viewBox="0 0 170 34" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="2.8">
-      <rect x="2" y="3" width="110" height="3" fill="#bbdf35" opacity="0.9"/>
-      <rect x="2" y="6" width="110" height="4" fill="rgba(10,155,145,0.35)"/>
-      <rect x="2" y="10" width="110" height="12" fill="rgba(10,155,145,0.14)"/>
-      ${Array.from({ length: 9 }, (_, i) => `<line x1="4" y1="${11.5 + i * 1.2}" x2="110" y2="${11.5 + i * 1.2}" stroke="#007a74" stroke-width="0.35"/>`).join("")}
-      <rect x="2" y="22" width="110" height="4" fill="rgba(10,155,145,0.35)"/>
-      <rect x="2" y="26" width="110" height="3" fill="#bbdf35" opacity="0.9"/>
-      <rect x="2" y="3" width="110" height="26" fill="none" stroke="#0b1838" stroke-width="0.35"/>
+    <svg width="180mm" height="34mm" viewBox="0 0 180 34" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="2.7">
+      <rect x="2" y="3" width="90" height="3" fill="#bbdf35" opacity="0.9"/>
+      <rect x="2" y="6" width="90" height="4" fill="rgba(10,155,145,0.35)"/>
+      <rect x="2" y="10" width="90" height="12" fill="rgba(10,155,145,0.14)"/>
+      ${Array.from({ length: 9 }, (_, i) => `<line x1="4" y1="${11.5 + i * 1.2}" x2="90" y2="${11.5 + i * 1.2}" stroke="#007a74" stroke-width="0.35"/>`).join("")}
+      <rect x="2" y="22" width="90" height="4" fill="rgba(10,155,145,0.35)"/>
+      <rect x="2" y="26" width="90" height="3" fill="#bbdf35" opacity="0.9"/>
+      <rect x="2" y="3" width="90" height="26" fill="none" stroke="#0b1838" stroke-width="0.35"/>
       <g fill="#0b1730">
-        <text x="116" y="5.6">Surface veil: resin-rich skin, UV and chemical barrier</text>
-        <text x="116" y="9.4">Continuous filament mat: transverse strength, shear</text>
-        <text x="116" y="17">Unidirectional rovings: axial stiffness and strength</text>
-        <text x="116" y="25">Continuous filament mat</text>
-        <text x="116" y="28.8">Surface veil</text>
+        <text x="96" y="5.6">Surface veil: resin-rich skin, UV and chemical barrier</text>
+        <text x="96" y="9.4">Continuous filament mat: transverse strength and shear</text>
+        <text x="96" y="17">Unidirectional rovings: axial stiffness and strength</text>
+        <text x="96" y="25">Continuous filament mat</text>
+        <text x="96" y="28.8">Surface veil</text>
       </g>
       <text x="2" y="33" fill="#626d80" font-size="2.4">Schematic, not to scale. Layer count and mat weight vary by section and wall thickness.</text>
     </svg>`)}`);
@@ -469,7 +483,7 @@ page(`
   ] })}
   <div class="cols2 top">
   ${p(`<strong>Reading the table.</strong> Interlaminar shear strength is published at ${E23_ISO_PUBLISHED.shear_mpa} MPa, above the EN 13706 minimum of ${E23_MIN.shear_mpa} MPa. The moduli, tensile, flexural and pin-bearing strengths are published at the E23 minimums, which is what a laminate declared to the grade guarantees; batch values are higher and are reported on request. Transverse values are much lower than longitudinal, so connections need their own check.`)}
-  ${p(`${esc(TYP_NOTE)} The ILSS value is an apparent interlaminar shear strength from the short-beam method (EN ISO 14130); it is not an in-plane shear strength, and the design tools use it as the shear strength only because EN 13706 gives no in-plane value.`)}
+  ${p(`${esc(TYP_NOTE)} The ILSS value is an apparent interlaminar shear strength from the short-beam method (EN ISO 14130); it is not an in-plane shear strength. The design tools and the span tables of Section 5 take the EN minimum of ${E23_MIN.shear_mpa} MPa, not the published ${E23_ISO_PUBLISHED.shear_mpa} MPa, as the shear strength, because EN 13706 gives no in-plane value and the minimum is what every batch guarantees.`)}
   </div>
   ${note(`<strong>E23 establishes stiffness and strength, nothing else.</strong> Fire behavior, electrical insulation and resistance to a particular chemical need their own evidence for the supplied formulation and configuration. EN 13706 and ASTM D3917 are specification references, not proof of blanket certification.`)}`);
 
@@ -479,7 +493,7 @@ page(`
   ${h3("E17 and E23")}
   ${p(`EN 13706-3 defines two structural grades, named for the minimum full-section flexural modulus in GPa. E23 is the F1 standard for load-bearing members; E17 (glass content ${esc(SEED_FORMULATIONS.find((f) => f.code === "UP-E17").glass_content)}, density ${SEED_FORMULATIONS.find((f) => f.code === "UP-E17").density_g_cm3} g/cm³, both ${tag("Typical")}) is offered for secondary and lightly loaded members where cost matters more than stiffness. The E17 minimums are in the table on the previous page.`)}
   ${h3("Higher-modulus laminates")}
-  ${p(`Above E23 the names are commercial, not EN grades. <strong>E30</strong> is a vendor tier defined by a full-section modulus of at least 30 GPa. <strong>"E40"</strong> is a bridge-grade threshold used by Austroads ATS 5880 (full-section modulus of at least 40 GPa); its benchmark construction is a fire-retardant vinyl ester laminate with about 77 percent glass by weight. For both tiers only the defining modulus is set; every strength requires program test data before release, and bridge use additionally needs characteristic values to ASTM D7290 and full-section four-point bending to ASTM D6109.`)}
+  ${p(`Above E23 the names are commercial, not EN grades. <strong>E30</strong> is a vendor tier defined by a full-section modulus of at least 30 GPa. <strong>"E40"</strong> is a bridge-grade threshold used by Austroads ATS 5880 (full-section modulus of at least 40 GPa); its benchmark construction, as published for an Australian pultruder's bridge product (industry reference, not F1 data), is a fire-retardant vinyl ester laminate with about 77 percent glass by weight. For both tiers only the defining modulus is set; every strength requires program test data before release, and the bridge specification a project adopts may additionally call for characteristic values to ASTM D7290 and a full-section bending test (for example ASTM D6109 or EN 13706-2 Annex D).`)}
   ${h3("What the SGS reports show")}
   ${p(`Two SGS full-section tests to ${esc(e40TestMethod)} on square tubes, issued ${esc(e40ReportDate)} to ${esc(company.manufacturer.name)}, gave averages of ${e40Reports.map((r) => r.average).join(" and ")} GPa. They support a 40 GPa-class laminate for the tested samples. They are not EN 13706 certification, not a design allowable and not size-specific qualification: the specification code on page 1 of each report and the specimen size on page 3 do not match, and the laboratory's clarification is needed before a result is assigned to a catalog size. Both originals are published on the website evidence page.`)}
   </div>
@@ -488,7 +502,7 @@ page(`
 
 const resinRows = SEED_FORMULATIONS.filter((f) => f.resin);
 page(`
-  ${h2("Resin systems", "All declared to EN 13706 grade E23; the resin sets chemical and fire behavior, not stiffness")}
+  ${h2("Resin systems", "Declared to EN 13706 grade E23 (UP-E17 to grade E17); the resin sets chemical and fire behavior, not stiffness")}
   ${table({ head: ["Code", "Matrix", "Glass (by weight)", "Density", "Fire behavior of the formulation", "Where it is used"], widths: ["16mm", "30mm", "20mm", "16mm", "48mm", "auto"], aligns: ["", "", "r", "r", "", ""], cls: "xs", body: resinRows.map((f) => [
     `<strong>${esc(f.code)}</strong>`, esc(f.resin), esc(f.glass_content ?? "—"), f.density_g_cm3 ? `${f.density_g_cm3} g/cm³` : "—", esc(f.fire_rating ?? "—"), esc(resinUse(f)),
   ]) })}
@@ -496,14 +510,14 @@ page(`
   ${p(`<strong>Provenance.</strong> The E23-ISO row is the published standard laminate. For the other rows the glass content and density are typical for the resin system, not certified F1 values, and the mechanical minimums are the EN 13706-3 values of the declared grade. ${esc(TYP_NOTE)}`)}
   ${p(`<strong>Choosing.</strong> Work through the service conditions in order; the first that applies usually decides the matrix. Fire code governs (rail interiors, tunnels, offshore): phenolic, or a fire-retardant polyester or vinyl ester with the test report for the exact formulation. Chemical or marine exposure: vinyl ester checked against the resin supplier's corrosion guide for the chemical, concentration and temperature, with a surface veil. Sustained heat or high-cycle fatigue: epoxy or a high-HDT vinyl ester. Thin walls, fasteners or impact: polyurethane. Otherwise: isophthalic polyester.`)}
   </div>
-  ${table({ head: ["Resin system", "HDT or Tg (typical)", "Signature property", "Chemical duty", "Fire route", "Relative cost"], cls: "small", widths: ["28mm", "26mm", "auto", "auto", "auto", "20mm"], body: [
-    ["Isophthalic polyester", "HDT 80–110 °C", "Fastest line speeds, most economical", "General atmospheric, mild chemical", "ATH-filled grades reach ASTM E84 Class A", "$ (baseline)"],
-    ["Vinyl ester", "HDT 100–150 °C", "Chemical resistance, toughness, hydrolysis resistance", "Acids, chlorides, caustics, immersion, marine", "Brominated or ATH grades; Class A available", "$$ (about 1.5–2×)"],
-    ["Polyurethane", "HDT 80–110 °C", "Transverse strength and impact toughness; thinner walls, screw retention", "General duty", "FR grades emerging; verify per project", "$$"],
-    ["Epoxy", "Tg 120–180 °C", "Highest mechanicals and fatigue life, low cure shrinkage", "Very good, solvent resistant", "Add-on FR systems only", "$$$"],
-    ["Phenolic", "Highest service temperature", "Inherent fire resistance, low smoke and toxicity", "Good general duty", "Inherent; specified for EN 45545-2 rail, tunnels, offshore", "$$"],
+  ${table({ head: ["Resin system", "HDT or Tg (typical)", "Signature property", "Chemical duty", "Fire route"], cls: "small", widths: ["28mm", "26mm", "auto", "auto", "auto"], body: [
+    ["Isophthalic polyester", "HDT 80–110 °C", "Fastest line speeds, most economical", "General atmospheric, mild chemical", "ATH-filled grades reach ASTM E84 Class A"],
+    ["Vinyl ester", "HDT 100–150 °C", "Chemical resistance, toughness, hydrolysis resistance", "Acids, chlorides, caustics, immersion, marine", "Brominated or ATH grades; Class A available"],
+    ["Polyurethane", "HDT 80–110 °C", "Transverse strength and impact toughness; thinner walls, screw retention", "General duty", "FR grades emerging; verify per project"],
+    ["Epoxy", "Tg 120–180 °C", "Highest mechanicals and fatigue life, low cure shrinkage", "Very good, solvent resistant", "Add-on FR systems only"],
+    ["Phenolic", "Highest service temperature", "Inherently low flame spread, smoke and toxicity", "Good general duty", "Inherent; specified for EN 45545-2 rail, tunnels, offshore"],
   ] })}
-  ${p(`<span class="small">Typical published ranges for pultrusion-grade formulations, compiled from resin supplier data sheets and industry references ${tag("Reference")}. Formulation-specific values, including every fire result, come from the test report of the formulation quoted.</span>`)}`);
+  ${p(`<span class="small">Typical ranges for pultrusion-grade formulations, compiled from resin-supplier technical data sheets and industry references ${tag("Typical")}; they are not F1 measurements. Formulation-specific values, including every fire result, come from the test report of the formulation quoted.</span>`)}`);
 
 const perfRows = (id) => performanceSections.find((s) => s.id === id);
 const perfTable = (id) => {
@@ -515,7 +529,7 @@ page(`
   ${p(`Reference values are explicitly attributed and are not F1 batch results. "Published reference" rows name their source; "Product-specific" rows must be measured for the offered formulation and are listed so that a specification asks for the right test.`)}
   ${perfTable("thermal")}
   ${perfTable("electrical")}
-  ${p(`<span class="small">Sources: ${["epta", "gbThermal", "isoThermal", "dielectric", "volumeResistivity", "surfaceResistivity", "arc", "nhcElectrical"].map((k) => esc(performanceSources[k].label)).join("; ")}. The pultruded profile performance guide on the website lists the full registry with links.</span>`)}`);
+  ${p(`<span class="small">Sources: ${["epta", "gbThermal", "isoThermal", "dielectric", "volumeResistivity", "surfaceResistivity", "arc", "nhcElectrical"].map((k) => esc(srcLabel(performanceSources[k].label))).join("; ")}. The pultruded profile performance guide on the website lists the full registry with links.</span>`)}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 03 · Design basis
@@ -535,7 +549,7 @@ openSection("03", "Design basis",
   ])}
   ${h3("Design workflow")}
   ${ol([
-    "Fix the loads, combinations and deflection limit from the code adopted where the structure is built (opposite).",
+    "Fix the loads, combinations and deflection limit from the code adopted where the structure is built (codes by market, in this section).",
     "Select the laminate and resin for the exposure; take the environment and load-duration factors from this section.",
     "Size the member for deflection with the section properties of Section 4, shear deflection included.",
     "Check bending and shear strength against the factored demand; check local and lateral-torsional stability.",
@@ -547,7 +561,7 @@ openSection("03", "Design basis",
 
 page(`
   ${h2("Codes by market", "Loads come from where the structure is built; only two documents design pultruded shapes")}
-  ${table({ head: ["Market", "Loads and main combinations", "Pultruded FRP design document", "Related documents"], widths: ["24mm", "auto", "auto", "auto"], cls: "small", body: MARKET_CODES.map((m) => [esc(m.market), esc(m.loads), esc(m.design), esc(m.related)]) })}
+  ${table({ head: ["Market", "Loads and main combinations", "Pultruded FRP design document", "Related documents"], widths: ["24mm", "auto", "auto", "auto"], cls: "small", body: MARKET_CODES.map((m) => [esc(m.market), sym(esc(m.loads)), esc(m.design), esc(m.related)]) })}
   <div class="cols2 top">
   ${h3("What each document contributes")}
   ${p(`<strong>ASCE/SEI 74-23</strong> is the US load-and-resistance-factor design standard for structures of pultruded GFRP shapes, connections and prefabricated products. This manual uses its resistance factors and the time-effect factors of the 2010 ASCE LRFD Pre-Standard it builds on; it does not reproduce the standard chapter by chapter.`)}
@@ -559,14 +573,14 @@ page(`
 page(`
   ${h2("Resistance model, load duration and environment")}
   ${p(`Design strength = φ · λ · F<sub>k</sub> · C<sub>env</sub>, compared with the factored stress. F<sub>k</sub> is min(F<sub>tL</sub>, F<sub>cL</sub>) for bending and the shear strength for shear. On the ASCE path λ is the time-effect factor of the load duration; the CEN path uses γ<sub>M</sub> with the EN 1990 variable-action factor and no creep conversion for permanent loads, which therefore need a separate check.`)}
-  ${table({ head: ["Method", "φ bending", "φ shear", "Load factor on the variable action", "Basis"], widths: ["52mm", "16mm", "16mm", "30mm", "auto"], aligns: ["", "r", "r", "r", ""], cls: "small", body: Object.values(DESIGN_METHODS).map((m) => [esc(m.label), num(m.phiFlex, 3), num(m.phiShear, 3), num(m.loadFactor, 2), esc(m.basis)]) })}
+  ${table({ head: ["Method", "φ bending", "φ shear", "Load factor on the variable action", "Basis"], widths: ["52mm", "16mm", "16mm", "30mm", "auto"], aligns: ["", "r", "r", "r", ""], cls: "small", body: Object.values(DESIGN_METHODS).map((m) => [esc(m.label), num(m.phiFlex, 3), num(m.phiShear, 3), num(m.loadFactor, 2), sym(esc(m.basis))]) })}
   <div class="cols2 top">
   ${h3("Time-effect factor λ (ASCE path)")}
   ${table({ head: ["Load duration", "λ", "Load factor"], widths: ["auto", "12mm", "18mm"], aligns: ["", "r", "r"], cls: "small", body: LOAD_DURATIONS.map((d) => [esc(d.label), num(d.lambda, 1), num(d.loadFactor, 1)]) })}
   ${p(`<span class="small">Values of the ASCE LRFD Pre-Standard for pultruded FRP (2010), Table 2.3-1, on which ASCE/SEI 74-23 builds. A member under permanent load alone keeps only 40 percent of its short-term design strength.</span>`)}
   ${h3("Environment factors (screening)")}
   ${table({ head: ["Service environment", "Strength", "Stiffness"], widths: ["auto", "16mm", "16mm"], aligns: ["", "r", "r"], cls: "small", body: ENV_FACTORS.map((e) => [esc(e.label), num(e.factor, 2), num(e.stiffness, 2)]) })}
-  ${p(`<span class="small">${ENV_FACTORS.map((e) => `<strong>${esc(e.label.split(",")[0])}:</strong> ${esc(e.note)}.`).join(" ")}</span>`)}
+  ${p(`<span class="small">${ENV_FACTORS.map((e) => `<strong>${esc(e.label.split(",")[0])}:</strong> ${sym(esc(e.note))}.`).join(" ")}</span>`)}
   </div>
 `);
 
@@ -588,9 +602,9 @@ page(`
 page(`
   ${h2("Load effects, deflection and section formulas")}
   <div class="cols2">
-  ${table({ head: ["Load case", "Maximum moment", "Bending deflection", "Shear coefficient c"], widths: ["auto", "20mm", "26mm", "16mm"], aligns: ["", "", "", "r"], cls: "small", body: BEAM_LOAD_CASES.map((c) => [esc(c.name), mono(c.moment), mono(c.deflection), c.c]) })}
+  ${table({ head: ["Load case", "Maximum moment", "Bending deflection", "Shear coefficient c"], widths: ["auto", "20mm", "26mm", "16mm"], aligns: ["", "", "", "r"], cls: "small", body: BEAM_LOAD_CASES.map((c) => [esc(c.name), code(c.moment), code(c.deflection), c.c]) })}
   ${p(`Bending stress is M/W<sub>x</sub>; the average shear check is V/A<sub>v</sub>. Total deflection applies a load-case-matched Timoshenko correction:`)}
-  <div class="formula">δ<sub>total</sub> = δ<sub>bending</sub> · [1 + c · E · I<sub>x</sub> / (G · A<sub>v</sub> · L²)]</div>
+  <div class="formula">δ<sub>total</sub> = δ<sub>b</sub> · [1 + c·E·I<sub>x</sub> / (G·A<sub>v</sub>·L²)]</div>
   ${p(`For wet service both moduli are reduced by the stiffness factor before the deflection is calculated. Strength checks use the factored load; deflection stays a service-load calculation, so a load factor is never applied twice.`)}
   ${h3("Section properties")}
   ${p(`I-beams and channels: I<sub>x</sub> = [B·H³ − (B − t<sub>w</sub>)·(H − 2t<sub>f</sub>)³] / 12. Square and rectangular tubes: outer rectangle minus the concentric inner rectangle. Round tubes: I = π·(R<sub>o</sub>⁴ − R<sub>i</sub>⁴) / 4 and A = π·(R<sub>o</sub>² − R<sub>i</sub>²). Angles: two non-overlapping rectangles, centroid first, then the parallel-axis theorem; W<sub>x</sub> uses the farther extreme fiber from the calculated centroid. The shear area A<sub>v</sub> is the clear web for I-beams and channels, the two side walls between the flanges, 2·(H − 2t)·t, for box sections, half the annulus for round tubes and the loaded leg for angles. These are classical geometry identities; Section 4 tabulates them for every size.`)}
@@ -611,7 +625,7 @@ page(`
     ["Section", `${esc(EX.model)} (H ${EX.h}, B ${EX.b}, t<sub>f</sub> = t<sub>w</sub> = ${EX.t} mm)`],
     ["A, I<sub>x</sub>, W<sub>x</sub>, A<sub>v</sub>", `${num(exA, 0)} mm², ${num(exIx / 1e4, 1)} cm⁴, ${num(exWx / 1e3, 1)} cm³, ${num(exAv, 0)} mm² ${tag("Calculated")}`],
     ["Material", `${esc(DESIGN_BASIS.material)}: E<sub>L</sub> ${DESIGN_BASIS.E_L_GPa} GPa, G<sub>LT</sub> ${DESIGN_BASIS.G_LT_GPa} GPa (assumed), F<sub>cL</sub> ${DESIGN_MATERIALS["frp-e23"].sigma_c} MPa (assumed, below the ${E23_ISO_PUBLISHED.compressive_l_mpa} MPa typical value of Section 2 because EN 13706 specifies no compressive strength and the typical value is not certified), shear ${DESIGN_BASIS.shearStrengthMPa} MPa`],
-    ["Method", esc(DESIGN_BASIS.method)],
+    ["Method", sym(esc(DESIGN_BASIS.method))],
     ["Environment", `${esc(DESIGN_BASIS.environment)}; stiffness factor 1.0`],
     ["Design strengths", `bending ${exResist.basis.phiFlex} × ${exResist.lambda} × ${DESIGN_MATERIALS["frp-e23"].sigma_c} × ${exResist.envStrength} = <strong>${num(exResist.bendingAllowable, 2)} MPa</strong>; shear ${exResist.basis.phiShear} × ${exResist.lambda} × ${DESIGN_BASIS.shearStrengthMPa} × ${exResist.envStrength} = <strong>${num(exResist.shearAllowable, 2)} MPa</strong>`],
     ["Serviceability", `L/${DEFL_N} = ${num(EX.span / DEFL_N, 0)} mm at service load`],
@@ -657,7 +671,7 @@ page(`
     "Edge and end distance at least 3d for through-bolts and 4d for blind fasteners (F1 detailing minimums from the connection design guide, stricter than typical code minimums; confirm the end and side distances of the project code); hole clearance as for steel, never slotted in the bearing direction.",
     "Flat washers under head and nut, large enough to spread the clamping force over the laminate, and snug-tight torque: an over-torqued bolt crushes the laminate through the thickness and the joint loses its preload.",
     "Load along the profile wherever the detail allows; a transverse bearing load has less than half the capacity.",
-    "Stainless-steel (A2/A4) or FRP fasteners. Where carbon-steel hardware is unavoidable, isolate it with sleeves and washers and keep water out of the joint: most \"FRP corrosion\" complaints trace to an unprotected steel fastener rusting in trapped moisture or to a galvanic couple between dissimilar metals in the joint; the laminate itself is an insulator.",
+    "Stainless-steel (A2/A4) or FRP fasteners. Where carbon-steel hardware is unavoidable, isolate it with sleeves and washers and keep water out of the joint: \"FRP corrosion\" at a joint is normally an unprotected steel fastener rusting in trapped moisture or a galvanic couple between dissimilar metals; the laminate itself is an insulator.",
     "Net-section tension, shear-out and block-shear checks to ASCE/SEI 74-23 Chapter 8 or CEN/TS 19101 for the governing case; this manual does not tabulate bolt-group capacities.",
   ])}
   ${h3("Bonded and hybrid joints")}
@@ -744,7 +758,7 @@ page(`${h2("Round tubes", `${byShape("tube").length} sizes`)}
 page(`${h2("Solid rods", `${byShape("rod").length} sizes`)}
   ${fig(nextFig(), "Solid rod", sectionDrawing("rod", SECTION_COLS.rod.drawing.dims, { maxMm: 30 }) + `<div class="fig-text">${sectionIntro.rod}</div>`)}
   ${sectionTable("rod")}
-  ${p(`<span class="small">Rods are also supplied as agriculture and horticulture stakes with agreed cut length, surface and end treatment; GFRP rebar for concrete is a separate, bar-specific product with its own qualification route (ACI 440.11, CSA S807, ISO 10406-1).</span>`)}`);
+  ${p(`<span class="small">Rods are also supplied as agriculture and horticulture stakes with agreed cut length, surface and end treatment; GFRP rebar for concrete is a separate, bar-specific product qualified to its own product standards (ASTM D7957, CSA S807, ISO 10406-1 test methods) and designed to ACI CODE-440.11 or CSA S806.</span>`)}`);
 page(`${h2("Flat bars", `${byShape("flat").length} sizes`)}
   ${fig(nextFig(), "Flat bar", sectionDrawing("flat", SECTION_COLS.flat.drawing.dims, { maxMm: 36 }) + `<div class="fig-text">${sectionIntro.flat}</div>`)}
   ${sectionTable("flat")}
@@ -767,7 +781,7 @@ openSection("05", "Allowable load tables",
   ${h3("Design basis of every value")}
   ${kv([
     ["Material", `${esc(DESIGN_BASIS.material)}: E<sub>L</sub> ${DESIGN_BASIS.E_L_GPa} GPa and shear strength ${DESIGN_BASIS.shearStrengthMPa} MPa (EN 13706 minimums), G<sub>LT</sub> ${DESIGN_BASIS.G_LT_GPa} GPa (assumed)`],
-    ["Strength", `${esc(DESIGN_BASIS.method)}; design bending strength ${num(exResist.bendingAllowable, 2)} MPa and shear ${num(exResist.shearAllowable, 2)} MPa after λ and the environment factor`],
+    ["Strength", `${sym(esc(DESIGN_BASIS.method))}; design bending strength ${num(exResist.bendingAllowable, 2)} MPa and shear ${num(exResist.shearAllowable, 2)} MPa after λ and the environment factor`],
     ["Environment", esc(DESIGN_BASIS.environment)],
     ["Load case", esc(DESIGN_BASIS.loadCase)],
     ["Deflection", esc(DESIGN_BASIS.deflectionLimit)],
@@ -776,7 +790,7 @@ openSection("05", "Allowable load tables",
   ${p(`Find the section and read across to the span: the value is the largest uniformly distributed <em>service</em> load the member carries with every check passing. The superscript marks the governing check: <strong>d</strong> deflection, <strong>b</strong> bending, <strong>v</strong> shear; a dash means below practical loading. 1 kN/m ≈ 68.5 lb/ft; a 1.2 m wide walkway at 5 kPa live load puts 6 kN/m on its pair of stringers, 3 kN/m on each.`)}
   ${p(`Nearly every value is deflection-governed, the defining feature of fiberglass design. Shear governs only short, deep sections; bending rarely governs under L/250. For a different limit, a point load, a cantilever or another code, use the website calculator, which opens each row pre-loaded; for a member these tables cannot represent (angles, continuous spans, frames), send the case to engineering.`)}
   </div>
-  ${note(`Not covered: local and lateral-torsional buckling, connections, concentrated loads, dynamic effects and long-term creep; review them to ASCE/SEI 74-23 or CEN/TS 19101. The values are a preliminary screen for comparing sections and preparing an enquiry, not a certified capacity.`)}
+  ${note(`Not covered: local and lateral-torsional buckling, connections, concentrated loads, dynamic effects and long-term creep; review them to ASCE/SEI 74-23 or CEN/TS 19101. The values are a preliminary screen for comparing sections and preparing an inquiry, not a certified capacity.`)}
   ${h3(spanFamilies[0].title.replace(/^FRP /, "").replace(/^./, (c) => c.toUpperCase()))}
   ${p(`<span class="small">${esc(spanFamilies[0].intro)}</span>`)}
   ${spanTable(spanFamilies[0])}`);
@@ -793,7 +807,7 @@ for (const family of spanFamilies.slice(1)) {
 const appsForMatrix = applicationPages.filter((a) => a.slug !== "agriculture-horticulture-stakes");
 const matrixShapes = ["i_beam", "channel", "angle", "shs", "rhs", "tube", "rod", "flat"];
 openSection("06", "Applications and systems",
-  `Which profile family carries which job, the application guides published on the website in condensed form, and the handrail and ladder systems assembled from catalog sections with the load cases they are checked against. An application page writes "what profile, which resin, which standards"; the industry pages opposite describe who buys and why.`,
+  `Which profile family carries which job, the application guides published on the website in condensed form, and the handrail and ladder systems assembled from catalog sections with the load cases they are checked against. An application page writes "what profile, which resin, which standards"; the industries table below describes who buys and why.`,
   `
   ${h3("Selection matrix")}
   ${p(`<span class="small">A mark means the application guide recommends the family. Custom pultrusions (brackets, strut, tray sections, crossarm profiles) appear in most guides and are not shown.</span>`)}
@@ -821,7 +835,7 @@ const industriesBlock = `
 // The opener carries the first two guides; three fit on a continuation page; the
 // last page holds what remains with the industries and references.
 pages[pages.length - 1].body = pages[pages.length - 1].body.replace("{INDUSTRIES}", industriesBlock);
-const rfqTable = `${h3("What each guide asks for in an enquiry")}${table({ head: ["Application", "Enquiry inputs"], widths: ["40mm", "auto"], cls: "small", body: guideApps.map((a) => [esc(a.shortTitle), a.rfqInputs.map(esc).join(" · ")]) })}`;
+const rfqTable = `${h3("What each guide asks for in an inquiry")}${table({ head: ["Application", "Inquiry inputs"], widths: ["40mm", "auto"], cls: "small", body: guideApps.map((a) => [esc(a.shortTitle), a.rfqInputs.map(esc).join(" · ")]) })}`;
 for (let i = 0; i < guideApps.length; i += 2) {
   const pair = guideApps.slice(i, i + 2);
   const last = i + 2 >= guideApps.length;
@@ -830,16 +844,16 @@ for (let i = 0; i < guideApps.length; i += 2) {
 
 const guardRows = GUARD_LOAD_CASES.filter((c) => !c.userEntry);
 page(`
-  ${h2("Handrail and guardrail systems", "Catalog assemblies from square or round tube; the post is a cantilever under the code load")}
-  <div class="cols2">
-  ${frpHandrailCatalogSystems.map((s) => `${h3(s.name)}${p(`<span class="small">${esc(s.description)}</span>`)}${table({ head: ["Item", "Catalog value"], widths: ["38mm", "auto"], cls: "small", body: s.rows.map((r) => [esc(r.item), esc(r.nominalValue)]) })}${p(`<span class="small">${esc(s.releaseNote)}</span>`)}`).join("")}
+  ${h2("Handrail and guardrail systems", "Catalog assemblies in handrail-system tube sizes (wall thicknesses differ from Section 4); the post is a cantilever under the code load")}
+  <div class="two-tables even">
+  ${frpHandrailCatalogSystems.map((s) => `<div>${h3(s.name)}${p(`<span class="small">${esc(s.description)}</span>`)}${table({ head: ["Item", "Catalog value"], widths: ["38mm", "auto"], cls: "small", body: s.rows.map((r) => [esc(r.item), esc(r.nominalValue)]) })}${p(`<span class="small">${esc(s.releaseNote)}</span>`)}</div>`).join("")}
   </div>
   ${h3("How a post-and-rail system is checked")}
   ${p(`The post is a cantilever fixed at its base plate under the horizontal rail load; the top rail spans simply between posts, which is conservative for a continuous rail. The line load and the concentrated load are separate cases, as the codes apply them. The check compares the post bending stress at the base and the rail stress at mid-span with the design strengths of Section 3, reports the horizontal deflection at the hand rail and the anchor-bolt reactions, and gives the characteristic (unfactored) capacity beside the design capacity so that a test load can be compared with it. The load cases are on the next page.`)}
-  ${note(`<strong>Verify the post, not just the rail.</strong> The post is a cantilever fixed at its base plate; the top rail spans simply between posts. Line and concentrated loads are separate cases. Screening the catalog 50 × 50 × 6.4 mm post at 1,067 mm under the OSHA 200 lb load with the ASCE factors gives a utilization above 100 percent, so a project relies on a whole-assembly load test or a project-specific post and base design, which F1 prepares with the handrail load calculator on the website. The installed rail height comes from the rule, not from the catalog maximum: the catalog's 1,220 mm exceeds the 1,143 mm (45 in) OSHA maximum, so a US system is built lower. Under the downward 200 lb load the OSHA rail must stay at or above 991 mm; EN ISO 14122-3 limits the horizontal deflection to 30 mm under 300 N/m × post spacing.`)}`);
+  ${note(`<strong>Verify the post, not just the rail.</strong> Screening the square system's 50 × 50 × 6.4 mm tube as the post at 1,067 mm under the OSHA 200 lb load with the ASCE factors gives a utilization above 100 percent, so a project relies on a whole-assembly load test or a project-specific post and base design, which F1 prepares with the handrail load calculator on the website. The installed rail height comes from the rule, not from the catalog maximum: the catalog's 1,220 mm exceeds the 1,143 mm (45 in) OSHA maximum, so a US system is built lower. Under the downward 200 lb load the OSHA rail must stay at or above 991 mm; EN ISO 14122-3 limits the horizontal deflection to 30 mm under 300 N/m × post spacing.`)}`);
 
 page(`
-  ${h2("Guard-rail load cases", "The rules the handrail systems are checked against")}
+  ${h2("Guardrail load cases", "The rules the handrail systems are checked against")}
   ${table({ head: ["Region", "Rule", "Clause", "Line load (kN/m)", "Concentrated (kN)", "Rail height (mm)"], widths: ["12mm", "auto", "auto", "20mm", "24mm", "24mm"], aligns: ["", "", "", "r", "r", "r"], cls: "xs", body: guardRows.map((c) => [esc(c.region), esc(c.label), `<span class="small">${esc(c.clause)}</span>`, c.lineKnPerM ? num(c.lineKnPerM, 2) : "—", c.pointKn != null ? num(c.pointKn, 2) : c.pointPerSpacingKnPerM ? `${num(c.pointPerSpacingKnPerM, 2)} × spacing` : "per clause", c.heightMinMm ? `${num(c.heightMinMm, 0)}${c.heightMaxMm ? `–${num(c.heightMaxMm, 0)}` : " min"}` : "per clause"]) })}
   ${h3("Notes by rule")}
   ${table({ head: ["Rule", "Note (the first of each rule; the website tool lists all)"], widths: ["44mm", "auto"], cls: "xs", body: guardRows.filter((c) => c.notes.length).map((c) => [esc(c.label), esc(c.notes[0])]) })}
@@ -854,7 +868,6 @@ page(`
   ${table({ head: ["Item", "Catalog value"], widths: ["44mm", "auto"], cls: "small", body: frpLadderCageLayoutReferences.map((r) => [esc(r.item), esc(r.nominalValue)]) })}
   </div>
   ${note(`<strong>Check the clear width on the drawing.</strong> The catalog lists an outside width of 500 mm rail to rail with 50.8 mm rails, which leaves about 398 mm clear, below the 406 mm (16 in) of OSHA 1910.23 and the 400 mm of EN ISO 14122-4. Confirm which dimension the 500 mm controls before release; if it is the outside width, the ladder is widened for the project. In the United States a new fixed ladder over 24 ft (7.3 m) needs a ladder safety or personal fall-arrest system; a cage alone no longer satisfies OSHA.`)}
-  <div class="cols2 top">
   ${h3("Access rules the geometry is checked against")}
   ${table({ head: ["Element", "United States", "Europe and United Kingdom", "Australia"], cls: "small", widths: ["26mm", "auto", "auto", "auto"], body: [
     ["Fixed ladders", "OSHA 1910.23 and 1910.28(b)(9)", "EN ISO 14122-4:2016", "AS 1657:2018: rungs 250–300 mm, 375–525 mm between stiles, 200 mm behind rungs"],
@@ -862,8 +875,7 @@ page(`
     ["Walkways and platforms", "ASCE 7-22 Table 4.3-1 loads; OSHA 1910 Subpart D", "EN ISO 14122-2:2016", "AS 1657: headroom ≥ 2,000 mm; AS/NZS 1170.1 loads"],
     ["Guard rails", "OSHA 1910.29; IBC 2024 §1607.9.1", "EN ISO 14122-3: 1,100 mm, 300 N/m × spacing, 30 mm", "AS 1657: 900–1,100 mm; 0.35 kN/m or 0.6 kN"],
   ] })}
-  ${p(`<span class="small">The Australian and some European values were checked against secondary sources only; verify them against the current edition before a compliance statement. Canadian provincial ladder rules differ by province. The website access-geometry checker applies these rules to a proposed layout.</span>`)}
-  </div>`);
+  ${p(`<span class="small">The Australian and some European values were checked against secondary sources only; verify them against the current edition before a compliance statement. Canadian provincial ladder rules differ by province. The website access-geometry checker applies these rules to a proposed layout.</span>`)}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 07 · Durability
@@ -880,13 +892,13 @@ openSection("07", "Durability: chemical, fire, weathering and temperature",
   ${p(`<span class="small">+ resistant, 0 limited resistance (check with the supplier), − not resistant. Methyl ethyl ketone attacks both matrices: solvents are a separate screening question.</span>`)}
   ${h3("What a chemical specification states")}
   ${table({ head: ["Property", "What to agree", "Methods"], widths: ["40mm", "auto", "44mm"], cls: "small", body: perfRows("chemical").rows.map((r) => [esc(r.property), `<span class="small">${esc(r.conditions)}</span>`, esc(r.methods)]) })}
-  ${p(`<span class="small"><strong>Takeaway.</strong> ${esc(perfRows("chemical").takeaway)} A 2,000 h third-party immersion program (sulfuric acid, sodium hydroxide, chlorine; ASTM G48 and D543 methodology) on vinyl ester and isophthalic polyester profiles is being commissioned; ask whether its results bear on a current project.</span>`)}`);
+  ${p(`<span class="small"><strong>Takeaway.</strong> ${esc(perfRows("chemical").takeaway)} A 2,000 h third-party immersion program (sulfuric acid, sodium hydroxide, chlorine; ASTM D543 and ISO 175 methodology) on vinyl ester and isophthalic polyester profiles is being commissioned; ask whether its results bear on a current project.</span>`)}`);
 
 page(`
   ${h2("Fire and smoke")}
-  <div class="cols2">
-  ${p(`Fire performance belongs to the resin formulation, its thickness, finish and installation, never to the E23 grade or to fiberglass in general. Standard isophthalic polyester is <strong>not</strong> fire-retardant. Fire-retardant polyester and vinyl ester carry halogen or alumina-trihydrate packages that reach ASTM E84 Class A (Class 1, flame-spread index 25 or less) in building applications; phenolic is inherently fire-resistant with low smoke and toxicity and is the choice for rail interiors, tunnels and offshore. In every case the classification comes from the test report of the exact formulation quoted, per profile where the standard requires it.`)}
   ${table({ head: ["Formulation", "Fire behavior F1 states for it"], widths: ["24mm", "auto"], cls: "small", body: resinRows.map((f) => [`<strong>${esc(f.code)}</strong>`, esc(f.fire_rating ?? "—")]) })}
+  <div class="cols2">
+  ${p(`Fire performance belongs to the resin formulation, its thickness, finish and installation, never to the E23 grade or to fiberglass in general. Standard isophthalic polyester is <strong>not</strong> fire-retardant. Fire-retardant polyester and vinyl ester carry halogen or alumina-trihydrate packages that reach ASTM E84 Class A (Class 1, flame-spread index 25 or less) in building applications; phenolic is inherently low in flame spread, smoke and toxicity (reaction to fire, not fire resistance in minutes) and is the choice for rail interiors, tunnels and offshore. In every case the classification comes from the test report of the exact formulation quoted, per profile where the standard requires it.`)}
   </div>
   ${h3("Classifications are not interchangeable")}
   ${table({ head: ["Test or class", "What it measures", "What it does not establish"], widths: ["40mm", "auto", "auto"], cls: "small", body: [
@@ -899,7 +911,7 @@ page(`
   ] })}
   <div class="cols2 top">
   ${h3("Evidence on file")}
-  ${p(`<strong>${esc(ul94.issuer)} ${esc(ul94.reference)}</strong> (${esc(ul94.issued)}): ${esc(ul94.detail)} ${esc(ul94.scope)} ${tag("Test report")}`)}
+  ${p(`<strong>${esc(ul94.issuer)} ${esc(ul94.reference)}</strong> (${esc(ul94.issued)}): ${esc(ul94.detail)} ${esc(ul94.scope.replace("the separate Wuxi frame report", "the separate Wuxi frame report (CPVT 2025DACS20319, on the website evidence page)"))} ${tag("Test report")}`)}
   ${p(`Flame-spread reports for fire-retardant grades are issued per profile on request. A third-party program on phenolic and fire-retardant polyester variants (EN 45545-2 hazard levels and ASTM E84 with smoke density and toxicity) is being commissioned; its reports will be added to the website evidence index.`)}
   ${h3("Specifying fire")}
   ${ul([
@@ -923,7 +935,7 @@ page(`
   <div class="cols2 top">
   ${h3("Electrical insulation")}
   ${p(`Glass-fiber profiles are selected for electrical insulation; carbon reinforcement or conductive additives change that. Dielectric strength is a laboratory result at a stated thickness and conditioning, not an operating-voltage rating: equipment design must account for creepage, clearance, moisture, contamination, joints and the applicable equipment standard. Request the volume and surface resistivity (IEC 62631-3-1/-3-2 or ASTM D257), dielectric strength (ASTM D149 or IEC 60243-1) and, for crossarms and switchgear, tracking (ASTM D2303, IEC 60112) for the exact laminate, with the test direction stated.`)}
-  ${h3("Service life and maintenance, stated honestly")}
+  ${h3("Service life and maintenance")}
   ${p(`${esc(commercialFacts.serviceLife)} ${esc(commercialFacts.corrosion)} What FRP removes is the recoating cycle of steel and the galvanic couple of aluminum; what remains is periodic cleaning, an annual inspection of fixings, joints and cut edges (Section 8), and replacement of any damaged member. The website life-cycle cost calculator compares that against galvanized or painted steel as present values, and reports the cases where steel is cheaper.`)}
   </div>`);
 
@@ -933,15 +945,15 @@ page(`
 openSection("08", "Fabrication, installation and maintenance",
   `Pultruded profiles are cut, drilled and bolted with ordinary tools and no hot work, which is why a four-person crew assembled the factory staircase in Section 6 without welding or a crane. Dust control, edge sealing and fastener practice decide the quality of the result.`,
   `
-  <div class="cols2">
   ${h3("Cutting and drilling")}
-  ${table({ head: ["Operation", "Tool", "Practice"], widths: ["22mm", "40mm", "auto"], cls: "small", body: [
+  ${table({ head: ["Operation", "Tool", "Practice"], widths: ["26mm", "58mm", "auto"], cls: "small", body: [
     ["Straight cuts", "Circular saw with a carbide-tipped or diamond (continuous-rim) blade", "Support both sides of the cut; feed steadily; a fine-tooth blade leaves the cleanest edge. Coolant is not required."],
     ["Curves and notches", "Jigsaw or band saw, carbide or diamond-grit blade", "Drill a relief hole at inside corners; do not notch the tension flange of a beam."],
     ["Holes", "Carbide-tipped or diamond-coated drill bits; hole saws for large diameters", "Back the exit face to avoid breakout; no countersinking in load-bearing holes. HSS bits work but dull quickly."],
     ["Finishing", "Abrasive paper or a flap disc", "Chamfer cut edges lightly; do not grind through the veil elsewhere."],
-    ["Dust", "Extraction at the tool; FFP3 (EU) or N95 (US) respirator, goggles, gloves, long sleeves", "Cured FRP dust is a mechanical irritant to skin, eyes and airways; it is not classified as explosive. Wash before eating."],
+    ["Dust", "Extraction at the tool; FFP3 (EU) or N95 (US) respirator, goggles, gloves, long sleeves", "Cured FRP dust is a mechanical irritant to skin, eyes and airways. Wash before eating."],
   ] })}
+  <div class="cols2">
   ${h3("Seal every cut")}
   ${p(`A cut end or a drilled hole exposes glass that would otherwise be behind the veil. Coat cut ends, holes and notches with a compatible resin or a two-part sealant before assembly, especially outdoors, in wet service and in chemical exposure. Cut-face sealing is part of the machining scope in the quotation when F1 cuts to length.`)}
   </div>
@@ -961,10 +973,10 @@ openSection("08", "Fabrication, installation and maintenance",
     "Keep profiles dry before bonding; abrade and solvent-clean bonding surfaces.",
   ], "small")}
   </div>
-  ${note(`<strong>Before work starts.</strong> Verify that the design has been accepted by the engineer of record and the authority having jurisdiction; keep non-essential personnel clear until the structure is braced; follow the power-tool manuals; and use the barrier cream, gloves, eye protection and respirator the task needs. Respirators need a clean-shaven fit.`)}`);
+  ${note(`<strong>Before work starts.</strong> Confirm that the design has been accepted by the engineer of record and the authority having jurisdiction, brace the structure before releasing the crane or props, follow the power-tool manuals, and use the gloves, eye protection and respirator the task needs.`)}`);
 
 page(`
-  ${h2("Installation sequence and safety data summary")}
+  ${h2("Installation, safety data, cleaning and inspection")}
   <div class="cols2">
   ${h3("Bolt-up sequence for a platform or stair")}
   ${ol([
@@ -975,32 +987,6 @@ page(`
     "Install posts, rails and splices; check rail height and post spacing against the code case in Section 6.",
     "Tighten all bolts to snug-tight, seal exposed cut edges, remove swarf and dust, and record the inspection.",
   ], "small")}
-  ${h3("Safety data summary")}
-  ${p(`<span class="small">For the cured product. The full safety data sheet of the supplied formulation is sent with the order on request.</span>`)}
-  ${table({ head: ["Item", "Information"], widths: ["34mm", "auto"], cls: "small", body: [
-    ["Product", "Glass-fiber reinforced thermoset profile (isophthalic polyester standard; other matrices as ordered). Common names: GRP, FRP, fiberglass."],
-    ["Normal handling", "Not hazardous; the cured laminate is inert and does not release monomer."],
-    ["Cutting and grinding", "Dust may irritate eyes, skin and the respiratory tract. Use extraction and the PPE above; wash exposed skin with soap and water."],
-    ["Fire", "Combustible; burning resin releases dense smoke and irritant gases. Use water spray, foam or dry powder; firefighters wear breathing apparatus."],
-    ["First aid", "Eyes: rinse with clean water for at least 10 minutes, lids held open; seek attention if irritation persists. Skin: wash; moisturize. Inhalation of dust or fumes: fresh air; medical attention for decomposition fumes. Ingestion: rinse the mouth, do not induce vomiting."],
-    ["Disposal", "Inert, non-leaching solid; dispose of off-cuts and dust as construction waste under local rules, or return for the group's recycling program."],
-  ] })}
-  </div>`);
-
-page(`
-  ${h2("Cleaning and inspection")}
-  <div class="cols2">
-  ${h3("Cleaning")}
-  ${p(`Ordinary dirt leaves with a stiff brush and warm water with a mild alkaline detergent, followed by rinsing. For traffic film or grease use a water-based degreaser at the maker's dilution, a 10 to 15 minute dwell and a rinse. A pressure washer may be used up to about 100 bar (1,500 psi) with the nozzle at least 25 cm from the surface and never held on one spot; closer or hotter jets erode the veil. Clean more often in high-traffic and food areas and on anti-slip surfaces, whose grit holds dirt.`)}
-  ${table({ head: ["Do", "Do not"], cls: "small", body: [
-    ["Clean before first use and remove spills of oil, grease, food and chemicals promptly", "Exceed the cleaner's recommended concentration or mix cleaning chemicals"],
-    ["Use brushes rather than mops; rinse thoroughly", "Use solvent, phenol or strong-acid cleaners: they attack the resin surface"],
-    ["Remove mold at first appearance with warm soapy water", "Use abrasive pads or wire brushes on textured or coated surfaces"],
-    ["Clear snow and ice with a plastic shovel or broom", "Use metal tools, which score the finish and expose fiber"],
-    ["Refer chemical spills to the resistance review in Section 7; dilute and rinse", "Flood electrical interfaces or bolted joints with high-pressure water"],
-  ] })}
-  </div>
-  <div class="cols2 top">
   ${h3("Annual inspection")}
   ${ul([
     "Bolted connections: tightness, washer condition, corrosion of steel hardware, cracking around holes.",
@@ -1011,8 +997,27 @@ page(`
     "Record findings with photographs and repair before the next season: seal exposed fiber with resin, replace damaged members, retorque to snug-tight.",
   ], "small")}
   ${h3("Repairs")}
-  ${p(`Surface damage that has not cut rovings is abraded, cleaned and recoated with a compatible resin or gel coat. Damage that cuts rovings in a load-bearing member is a structural repair: replace the member or splice it to an engineer's detail. Keep a record of repairs with the inspection file.`)}
-  </div>`);
+  ${p(`<span class="small">Surface damage that has not cut rovings is abraded, cleaned and recoated with a compatible resin or gel coat. Damage that cuts rovings in a load-bearing member is a structural repair: replace the member or splice it to an engineer's detail. Keep a record of repairs with the inspection file.</span>`)}
+  </div>
+  ${h3("Safety data summary")}
+  ${p(`<span class="small">General statements for a cured glass-fiber thermoset laminate; the safety data sheet of the supplied formulation governs and is sent with the order on request.</span>`)}
+  ${table({ head: ["Item", "Information"], widths: ["30mm", "auto"], cls: "xs", body: [
+    ["Product", "Glass-fiber reinforced thermoset profile (isophthalic polyester standard; other matrices as ordered). Common names: GRP, FRP, fiberglass."],
+    ["Normal handling", "Not hazardous; the cured laminate is inert and does not release monomer."],
+    ["Cutting and grinding", "Dust may irritate eyes, skin and the respiratory tract. Use extraction and the PPE above; wash exposed skin with soap and water."],
+    ["Fire", "Combustible; burning resin releases dense smoke and irritant gases. Use water spray, foam or dry powder; firefighters wear breathing apparatus."],
+    ["First aid", "Eyes: rinse with clean water for at least 10 minutes, lids held open; seek attention if irritation persists. Skin: wash; moisturize. Inhalation of dust or fumes: fresh air; medical attention for decomposition fumes. Ingestion: rinse the mouth, do not induce vomiting."],
+    ["Disposal", "Inert, non-leaching solid; dispose of off-cuts and dust as construction waste under local rules."],
+  ] })}
+  ${h3("Cleaning")}
+  ${p(`<span class="small">Ordinary dirt leaves with a stiff brush and warm water with a mild alkaline detergent, followed by rinsing; use a water-based degreaser at the maker's dilution for traffic film or grease. A pressure washer may be used up to about 100 bar (1,500 psi) with the nozzle kept well clear of the surface and moving; closer or hotter jets erode the veil. Clean more often in high-traffic and food areas and on anti-slip surfaces, whose grit holds dirt.</span>`)}
+  ${table({ head: ["Do", "Do not"], cls: "xs", body: [
+    ["Clean before first use and remove spills of oil, grease, food and chemicals promptly", "Exceed the cleaner's recommended concentration or mix cleaning chemicals"],
+    ["Use brushes rather than mops; rinse thoroughly", "Use solvent or strong-acid cleaners: they attack the resin surface"],
+    ["Remove mold at first appearance with warm soapy water", "Use abrasive pads or wire brushes on textured or coated surfaces"],
+    ["Clear snow and ice with a plastic shovel or broom", "Use metal tools, which score the finish and expose fiber"],
+    ["Refer chemical spills to the resistance review in Section 7; dilute and rinse", "Flood electrical interfaces or bolted joints with high-pressure water"],
+  ] })}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 09 · Ordering and documents
@@ -1023,7 +1028,7 @@ openSection("09", "Ordering, documents and contact",
   `What a quotation needs, what F1 confirms in it, the documents that exist today for the profile range and how to reach the engineering team. ${esc(commercialFacts.response)}`,
   `
   <div class="cols2">
-  ${h3("What to send with an enquiry")}
+  ${h3("What to send with an inquiry")}
   ${ul([
     "Section designation or drawing, with the dimensional tolerance class or the agreed limits.",
     "Cut length and number of pieces, end cuts, holes and machining; whether F1 seals cut faces.",
@@ -1053,18 +1058,19 @@ page(`
   <div class="cols2 top">
   ${h3("On request, with holder, number and scope")}
   ${ul(["ISO 9001 quality-management certificate of the manufacturing entity.", "CE declaration of performance where the product and intended use have an assessment route.", "Fire test reports for fire-retardant and phenolic formulations, per profile.", "Chemical-resistance data of the resin supplier for the quoted system.", "Batch mill certificates and inspection records as agreed before production.", "STEP models, project submittal packages and third-country compliance dossiers."], "small")}
+  </div>
   ${h3("Engineering tools on the website")}
-  ${table({ head: ["Tool", "Address"], widths: ["auto", "60mm"], cls: "small", body: [
+  ${table({ head: ["Tool", "Address"], widths: ["auto", "74mm"], cls: "small", body: [
     ["Profile finder (filter the catalog, compare four sizes)", `${SITE.replace("https://", "")}/tools/profile-finder`],
     ["Profile calculator (bending, shear, deflection; any code)", `${SITE.replace("https://", "")}/frp-profile-calculator`],
     ["Span tables (this manual's Section 5, live)", `${SITE.replace("https://", "")}/frp-span-tables`],
     ["Column buckling", `${SITE.replace("https://", "")}/tools/frp-column-calculator`],
-    ["Handrail load check; access geometry checker", `${SITE.replace("https://", "")}/tools/handrail-load-calculator`],
-    ["Thermal expansion; unit converter; cut-list optimizer", `${SITE.replace("https://", "")}/tools`],
+    ["Handrail load check", `${SITE.replace("https://", "")}/tools/handrail-load-calculator`],
+    ["Access geometry checker (ladders, stairs, walkways)", `${SITE.replace("https://", "")}/tools/access-geometry-checker`],
+    ["Thermal expansion, unit converter, cut-list optimizer, life-cycle cost", `${SITE.replace("https://", "")}/tools`],
     ["Datasheet and DXF of every size", `${SITE.replace("https://", "")}/datasheets`],
     ["Evidence index (all reports and certificates)", `${SITE.replace("https://", "")}/resources/evidence`],
-  ] })}
-  </div>`);
+  ] })}`);
 
 // Back cover ────────────────────────────────────────────────────────────────
 page(`
@@ -1143,7 +1149,7 @@ sub, sup { font-size: 70%; line-height: 0; }
 .steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 0.1mm; font-family: "DM Mono", monospace; font-size: 7pt; color: var(--teal-text); letter-spacing: .04em; }
 .note { break-inside: avoid; border-left: 1mm solid var(--teal); background: var(--teal-bg); border-radius: 0 1.6mm 1.6mm 0; padding: 2.4mm 3.2mm; margin: 2.4mm 0; color: var(--t2); font-size: 8.4pt; }
 .note strong { color: var(--t1); }
-.formula { font-family: "DM Mono", monospace; font-size: 8pt; color: var(--t1); background: var(--bg2); border-radius: 1.6mm; padding: 1.8mm 3mm; margin: 1.6mm 0 2.2mm; }
+.formula { font-family: "DM Mono", monospace; font-size: 7.6pt; color: var(--t1); background: var(--bg2); border-radius: 1.6mm; padding: 1.8mm 3mm; margin: 1.6mm 0 2.2mm; white-space: nowrap; }
 .t { width: 100%; border-collapse: collapse; margin: 0 0 2.6mm; break-inside: auto; }
 .t th, .t td { text-align: left; vertical-align: top; padding: 1.25mm 1.8mm; border-bottom: 0.3pt solid var(--border); font-size: 8pt; line-height: 1.32; }
 .t thead th { background: var(--bg2); color: var(--t1); font-weight: 600; font-size: 7.2pt; border-bottom: 0.5pt solid rgba(11,24,56,0.22); }
@@ -1153,6 +1159,12 @@ sub, sup { font-size: 70%; line-height: 0; }
 .t td.c, .t th.c { text-align: center; }
 .t.small th, .t.small td { font-size: 7.3pt; padding: 1.05mm 1.6mm; }
 .t.xs th, .t.xs td { font-size: 6.8pt; padding: 0.85mm 1.4mm; line-height: 1.28; }
+.cols2 .t, .cols2 .note, .cols2 .fig { break-inside: avoid; }
+.cols2 h3 { break-after: avoid; }
+.t tr { break-inside: avoid; }
+.nbsp { white-space: nowrap; }
+.code { font-family: "DM Mono", monospace; font-size: 7.4pt; color: var(--t1); }
+.two-tables.even { grid-template-columns: 1fr 1fr; }
 .t.spec tbody th { white-space: nowrap; }
 .t.spec td { font-variant-numeric: tabular-nums; }
 .t.span td sup { color: var(--teal-text); font-size: 65%; margin-left: 0.2mm; }
@@ -1236,6 +1248,7 @@ sub, sup { font-size: 70%; line-height: 0; }
 function renderPage(pg, index) {
   const n = index + 1;
   if (pg.bare) return `<section class="page ${pg.cls}" id="p${n}">${pg.body}</section>`;
+  pg.body = nb(pg.body);
   return `<section class="page ${pg.cls}" id="p${n}">
     <div class="hdr"><span>${esc(company.brand)} · ${esc(MANUAL.title)} · ${esc(MANUAL.code)} Rev. ${esc(MANUAL.revision)}</span><span>${esc(pg.section)}</span></div>
     ${pg.body}

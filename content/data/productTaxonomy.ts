@@ -34,7 +34,7 @@ export const productFamilies = [
     brand: "F1-STRUX",
     href: "/products/fiberglass-structural-shapes",
     description:
-      "Choose an established fiberglass section and review dimensions, properties and weight per metre. Standard sections are also known as FRP structural shapes or GRP profiles.",
+      "Choose an established fiberglass section and review dimensions, properties and weight per meter. Standard sections are also known as FRP structural shapes or GRP profiles.",
     image: "/images/products/standard-profiles-cover.jpg",
     imageAlt: "Pultruded fiberglass I-beam",
     links: standardProfileLinks,

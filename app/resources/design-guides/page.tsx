@@ -43,7 +43,7 @@ const guides: Array<{
   {
     title: "FRP profile design manual (DOC-PF-2026-EN Rev. B)",
     description:
-      "47-page reference generated from the website's data: the EN 13706 E23 laminate beside the grade minimums, resin systems, the design basis behind the calculator and span tables (ASCE/SEI 74-23, CEN/TS 19101, GB 50608 screening factors), section properties of all 114 catalog sizes, allowable uniform-load tables, application guides, handrail and ladder data, durability by resin formulation, fabrication and inspection. Supersedes the withdrawn Rev. A.",
+      "46-page reference generated from the website's data: the EN 13706 E23 laminate beside the grade minimums, resin systems, the design basis behind the calculator and span tables (ASCE/SEI 74-23, CEN/TS 19101, GB 50608 screening factors), section properties of all 114 catalog sizes, allowable uniform-load tables, application guides, handrail and ladder data, durability by resin formulation, fabrication and inspection. Supersedes the withdrawn Rev. A.",
     status: "Available",
     file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
   },

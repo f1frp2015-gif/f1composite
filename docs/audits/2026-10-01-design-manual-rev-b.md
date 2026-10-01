@@ -1,6 +1,6 @@
 # 设计手册审核与 Rev. B 修订（2026-10-01）
 
-审核对象：`FRP Profile Design Manual`，DOC-PF-2026-EN Rev. A（2026-04，24 页，2026-09 撤下）。对照基准：f1composite.com 当前的数据文件（`lib/catalog/en13706.ts`、`lib/catalog/seed.ts`、`lib/catalog/standardProfiles.ts`、`lib/frpDesignBasis.ts`、`lib/spanTables.ts`、`content/data/company.ts`、`content/data/engineeringEvidence.ts`、`lib/applicationPages.ts` 等）和 `WEBSITE.md` 的内容与事实规则。产出：Rev. B（`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf`，47 页），由 `scripts/build-design-manual.mjs` 从站内数据生成。
+审核对象：`FRP Profile Design Manual`，DOC-PF-2026-EN Rev. A（2026-04，24 页，2026-09 撤下）。对照基准：f1composite.com 当前的数据文件（`lib/catalog/en13706.ts`、`lib/catalog/seed.ts`、`lib/catalog/standardProfiles.ts`、`lib/frpDesignBasis.ts`、`lib/spanTables.ts`、`content/data/company.ts`、`content/data/engineeringEvidence.ts`、`lib/applicationPages.ts` 等）和 `WEBSITE.md` 的内容与事实规则。产出：Rev. B（`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf`，46 页），由 `scripts/build-design-manual.mjs` 从站内数据生成。
 
 ## 一、方法
 
@@ -45,7 +45,7 @@
 
 ## 四、Rev. B 的内容
 
-47 页，九个章节：公司与产品线（供货条款、定尺长度、颜色与公差）；材料（E23 公布值与 EN 13706-3 E23/E17 最小值并列、SGS 全截面报告及其范围、七种树脂配方、热/电参考值）；设计基础（各国规范、φ/λ/环境系数、荷载工况与剪切修正、挠度限值、工字梁算例、柱屈曲算例、连接与热胀）；截面表（114 个规格，公布单重 + 名义截面性能，带尺寸的截面图）；许用均布荷载表（65 个规格 × 8 个跨度，与网站跨度表同一代码）；应用与系统（选型矩阵、7 个应用指南、护栏与爬梯目录数据、各国护栏荷载）；耐久（按树脂配方说明化学、防火、紫外、温度、电气，列出已有证据和待做试验）；加工、安装、维护、安全数据；订购与文件、联系方式。
+46 页，九个章节：公司与产品线（供货条款、定尺长度、颜色与公差）；材料（E23 公布值与 EN 13706-3 E23/E17 最小值并列、SGS 全截面报告及其范围、七种树脂配方、热/电参考值）；设计基础（各国规范、φ/λ/环境系数、荷载工况与剪切修正、挠度限值、工字梁算例、柱屈曲算例、连接与热胀）；截面表（114 个规格，公布单重 + 名义截面性能，带尺寸的截面图）；许用均布荷载表（65 个规格 × 8 个跨度，与网站跨度表同一代码）；应用与系统（选型矩阵、7 个应用指南、护栏与爬梯目录数据、各国护栏荷载）；耐久（按树脂配方说明化学、防火、紫外、温度、电气，列出已有证据和待做试验）；加工、安装、维护、安全数据；订购与文件、联系方式。
 
 每个数值带状态标签：Published（F1 公布）、EN minimum、Typical（行业典型值，待 F1 实测）、Reference（有出处的外部参考）、Calculated（名义截面或公式）、Test report（指定报告及范围）。不写设计寿命、质保和免维护。
 
@@ -95,3 +95,74 @@
 | 41 | HDT 范围与站内术语表不一致；"−40 °C 以下仍保持强度"无依据 | 温度范围改为引用第 2 节树脂表（供应商范围）；低温句改为"−20 °C 以下请索取该配方低温数据" |
 | 36 | 目录护栏高度 1,220 mm 超过 OSHA 1,143 mm 上限而未说明 | 校核说明中加注安装高度按规则取、美国系统做低 |
 | 15 | "所有许用荷载随挠度限值等比缩放"不准确（剪切控制格不变） | 改为只有挠度控制格缩放 |
+
+### 标准引用
+
+| 页 | 发现 | 处理 |
+|---|---|---|
+| 39 | 浸泡试验方法写成 "ASTM G48 and D543"：G48 是不锈钢点蚀/缝隙腐蚀试验，不适用于 FRP 层合板 | 改为 "ASTM D543 and ISO 175 methodology"；站内 technical-data 页的待做试验行同步 |
+| 15 | IBC 表 1604.3 的 L/240、L/360 归属写反 | 见"数值溯源" |
+| 25 | GFRP 筋的"资质路线"列了设计规范 ACI 440.11 | 改为产品/试验标准 ASTM D7957、CSA S807、ISO 10406-1，设计规范（ACI CODE-440.11、CSA S806）另注 |
+| 19 | ACI 440.1R-15 热膨胀出处写成 "Table 4.1" | `lib/thermalMovement.ts` 改为 §4.1.2（站内热膨胀工具同步） |
+| 19 | 不锈钢热膨胀出处 "EN 1993-1-4 Table 2.3" 无法核实 | 改为 §2.1.3（材料系数设计值所在条款） |
+| 9 | E40 基准构造（40 GPa、阻燃乙烯基酯、77% 玻纤）未注明是同行公布值 | 注明为行业参考，非 F1 数据 |
+| 9 | 把 ASTM D6109（塑料木材弯曲试验）写成桥梁应用的必需项 | 改为"项目采用的桥梁规范可能要求…例如…" |
+| 33 | 四个应用指南的"标准"行列了 ISO 9001:2015（质量体系标准，非产品标准，且站内规则禁止隐含认证声明） | 从 `lib/applicationPages.ts` 的四个数组删除；证书留在"按需提供"列表 |
+| 13 | NBC 2025 "adopted by each province" 断言各省已采用 | `lib/frpDesignBasis.ts` 改为"各省按各自时间表采用，核对现行版本"（方法页同步） |
+| 13 | CSA S806 范围写成"主要是加固" | 改为"覆盖自承重 FRP 构件和 FRP 配筋/加固混凝土" |
+| 10 | 防火字符串 "UL94" 与他处 "UL 94" 不一致 | `lib/catalog/seed.ts` 改为 UL 94（规格书同步） |
+| 38 | 通道规则表被分栏截断，标准号在栏末断开 | 表移出双栏，见"版面" |
+
+### 文案规则
+
+| 页 | 发现 | 处理 |
+|---|---|---|
+| 43 | 安全数据表称"可退回集团回收计划"，站内无此计划；表的其余内容没有 SDS 出处 | 删除回收句，表只保留站内已有陈述，注明供应商 SDS 按需提供 |
+| 2 | 对 Rev. A 的描述不准："五个尺寸"实为五种截面约 15 个英制规格；Annex D/E 的修正是站内数据的修正，不是相对 Rev. A 的 | 改写修订说明；Rev. A 真正的错误是 ILSS 标准号被截断 |
+| 7 | 树脂重量比打印成 "35 to 30 percent" | 交换运算顺序，印 "30 to 35" |
+| 10 | PU 行把内部数据整理备注（"replace with measured values per program"）印了出来 | 树脂表只打印每个配方说明的应用分句 |
+| 10 | 树脂比较表标 Reference 但没有出处 | 图注列出来源（EPTA 简报、树脂供应商数据表） |
+| 40 | 酚醛写成 "inherently fire-resistant"，与同页"不对目录型材作耐火极限声明"矛盾 | 改为"低火焰蔓延、低烟低毒（燃烧性能）" |
+| 19 | "most FRP corrosion complaints…" 没有投诉数据支持 | 改为机理陈述：接头处的"FRP 腐蚀"通常是钢紧固件积水锈蚀或异种金属电偶 |
+| 36 | 护栏说明里的内部整理备注（"source illustration and table disagree"、"appears anomalous"） | `content/data/frpHandrailSpecs.ts` 改写为面向读者的说明（目录图与零件表不一致处以批准的项目 BOM 为准） |
+| 44 | 清洁段落（1,500 psi、喷嘴 25 cm、停留 10–15 分钟、塑料铲）复制自 Rev. A 所抄的他厂手册 | 只保留站内陈述：温和清洁剂刷洗冲净，高压水不超过 1,500 psi 且避开电气和螺栓接口 |
+| 42 | "未归类为爆炸性粉尘"、"隔离霜"、"须刮净胡须"等复制自 Rev. A | 删除；施工前说明改为 F1 自己的表述（设计经审核、支撑和防坠按现场规则） |
+| 5、27、35、45 | 英式拼写 enquiry，与页脚 inquiry@ 不一致 | 全部改为 inquiry（`lib/applicationPages.ts` 同步） |
+| 4、14、37、39、40、45 | 英式拼写 tonnes、metre、modelled、unfavourable、programme、fibre | 改为美式；`company.ts`、`productTaxonomy.ts`、`frpDesignBasis.ts`、`guardrailLoads.ts`、`pultrudedPerformance.ts`、`pvFrameEvidence.ts` 同步 |
+| 41 | 标题 "Service life and maintenance, stated honestly" 自夸 | 改为 Service life and maintenance |
+| 2 | "aluminum decking rows" 对 Rev. A 防火表的描述不全 | 改为"铝甲板/覆层行和 Type 40/100 平台系统行" |
+
+### 版面
+
+| 页 | 发现 | 处理 |
+|---|---|---|
+| 7 | 图 1 层合板图例右侧三行标签被裁切 | 图用满 180 mm 内容宽度，色块缩窄、标签右移 |
+| 14、31、38、40、42、43、44、45、46 | 双栏内的表格被分栏截断（行从中间断开、表头重复、单行孤立在栏底）；三栏的切割表挤在半栏里每格折 10 行以上 | CSS 加 `.cols2 .t { break-inside: avoid }`、`.t tr { break-inside: avoid }`、`h3 { break-after: avoid }`；切割/钻孔表、通道规则表、燃烧性能表、安全数据表、Do / Do not 表、验收字段表、工具表改为通栏或 `.two-tables` 网格 |
+| 18、40 | "ASCE/SEI 74-23"、"EN 45545-2" 等标准号在栏末从连字符处断开 | `nb()` 把标准号整体设为不换行，整页渲染时统一应用 |
+| 13、14、17 | k_F、γ_M、γ_Q、T_g 以下划线原样打印；"T_g - 22 °C" 用连字符当减号 | `sym()` 转为下标，减号用 −（审阅后发现 γ 前的 `\b` 不匹配，已改为 `(?<!\w)`） |
+| 16 | 剪切挠度公式在等宽块里折行，"L²)]" 单独成行 | `.formula` 不换行，公式缩写 |
+| 3、5、9、13、16、17、28、30、43、44 | 多页只用了一半版面，看起来像未完成 | 合并短主题：供货条款与目录概览、公式与算例、SGS 报告与树脂表、安装与清洁；总页数 47 → 46 |
+| 11、39 | 来源列表沿用网站链接标签的中点（"ISO · 11357-2"） | 去掉中点，只印标准号 |
+| 6、31、12 | "opposite" 在单页 PDF 阅读器里没有意义 | 改为明确指向（"on page 5"、"the industries table below"、"codes by market, in this section"） |
+| 36 | 立柱校核说明的前两句重复上文 | 删除，直接从校核数值开始 |
+| 37 | 页标题 Guard-rail 与他处 guardrail 不一致 | 统一 guardrail（`lib/guardrailLoads.ts` 同步） |
+
+### 内部一致性
+
+| 页 | 发现 | 处理 |
+|---|---|---|
+| 16 | 荷载工况表的公式被等宽样式转成大写（W、EIX），与算例的 w、Ix 冲突（W 又是截面模量符号） | 公式用不转大写的样式，下标用 sub |
+| 46 | 工具表把"通道几何检查器"指向护栏计算器地址 | 拆成两行，各指各的地址 |
+| 10 | 树脂表副标题"全部声明为 E23"，但表内含 UP-E17 | 改为 "Declared to EN 13706 grade E23 (UP-E17 to grade E17)" |
+| 8 | 第 2 节 ILSS 公布值 30 MPa，而第 3、5 节和算例都用 25 MPa，未说明 | 注明设计工具和跨度表用 EN 最小值 25 MPa，公布值只作比较 |
+| 6 | 第 6 节护栏/爬梯目录的管材壁厚（50×50×6.4、38×38×6.4、Ø32×6.4）与第 4 节型材目录不同 | 第 6 页说明"部分壁厚与第 4 节不同"，第 36 页注明目录管材 |
+| 36 | 校核说明里的 50×50×6.4 立柱在方管系统表中没有"立柱"行 | 说明改为引用该系统的目录截面并注明来源 |
+| 5 | "同一模具可跑的树脂"列表漏了环氧 | 加入 epoxy |
+| 40 | "separate Wuxi frame report" 没有编号，第 9 节文件表也没列 | 加报告号 CPVT 2025DACS20319 并指向站内证据页 |
+| 7、11/19 | 树脂体积比、热膨胀两个值 | 见"数值溯源" |
+
+### 最终状态
+
+- 终稿 46 页（A4），生成时无页面溢出，PDF 页数等于生成页数。
+- `node --test scripts/design-manual.test.mjs`：7 项通过（目录 114 个规格与公布单重、层合板表、许用荷载表与 `lib/spanTables.ts` 一致、设计基础、禁用表述、公司信息、PDF 与站内登记一致）；`scripts/withdrawn-downloads.test.mjs` 含 Rev. A 到 Rev. B 的 301 重定向检查。
+- `npm run lint`、`npm run check:copy` 通过（既有警告不变）。

@@ -673,7 +673,7 @@ export default function WhatIsFrpPage() {
           <GuideDownloadGate
             fileHref="/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf"
             fileLabel="FRP Profile Design Manual (DOC-PF-2026-EN Rev. B)"
-            fileDescription="47-page engineering reference: the E23 laminate beside the EN 13706 minimums, section properties of all 114 catalog sizes, allowable-load tables to the published design basis, application guides, durability by resin formulation, fabrication and inspection."
+            fileDescription="46-page engineering reference: the E23 laminate beside the EN 13706 minimums, section properties of all 114 catalog sizes, allowable-load tables to the published design basis, application guides, durability by resin formulation, fabrication and inspection."
             source="what-is-frp-guide-download"
           />
         </div>

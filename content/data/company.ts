@@ -44,7 +44,7 @@ export const companyStatements = {
     "F1 Composite (Chongqing F1 Composites Co., Ltd.) is the export company of FengDu New Material. FengDu is the parent company of Chongqing Xianju New Material Co., Ltd. and runs the production network; F1 handles international sales, engineering support, documentation and delivery.",
   short: "F1 Composite is the export company of FengDu New Material.",
   production:
-    "FengDu's production network has 5 manufacturing bases and 370 pultrusion lines, with about 150,000 tonnes of annual capacity.",
+    "FengDu's production network has 5 manufacturing bases and 370 pultrusion lines, with about 150,000 metric tons of annual capacity.",
   certificates:
     "ISO 9001, CE, fire-test and other certificates are provided on request, with the certificate holder, number and scope. Published test reports are listed on the evidence page.",
   disambiguation:

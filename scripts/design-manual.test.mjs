@@ -14,7 +14,8 @@ import { MANUAL, build } from "./build-design-manual.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const { htmlPath, pages } = build({ htmlOnly: true });
 const html = readFileSync(htmlPath, "utf8");
-const text = html.replace(/<style>[\s\S]*?<\/style>/, "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ");
+// Subscript tags are dropped without a space so "γ<sub>Q</sub>" compares as "γQ".
+const text = html.replace(/<style>[\s\S]*?<\/style>/, "").replace(/<\/?sub>/g, "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ");
 
 test("every catalog size and its published mass are in the section tables", () => {
   const { buildProducts } = loadProjectModule("lib/catalog/standardProfiles.ts");
@@ -57,7 +58,7 @@ test("the allowable-load tables match lib/spanTables.ts", () => {
 
 test("the design basis is the published one", () => {
   const { DESIGN_BASIS } = loadProjectModule("lib/spanTables.ts");
-  assert.ok(text.includes(DESIGN_BASIS.method));
+  assert.ok(text.includes(DESIGN_BASIS.method.replace(/_/g, "")), "method line (symbols are set as subscripts)");
   assert.ok(text.includes(DESIGN_BASIS.deflectionLimit));
   assert.ok(text.includes(DESIGN_BASIS.environment));
 });
