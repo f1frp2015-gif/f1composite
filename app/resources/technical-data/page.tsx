@@ -131,7 +131,7 @@ export default function TechnicalDataPage() {
         </div>
         <p className="mt-[12px] max-w-[860px] text-f14 leading-golden text-t3">
           ILSS is published at 30 MPa, above the EN 13706 minimum of 25 MPa (FRP Profile Design
-          Manual DOC-PF-2026-EN Rev. A). {TYP_NOTE} Values apply to the standard general-purpose
+          Manual DOC-PF-2026-EN Rev. B). {TYP_NOTE} Values apply to the standard general-purpose
           laminate; fire-retardant, vinyl ester, epoxy, polyurethane and phenolic systems each have
           their own formulation sheet on the per-size datasheets.
         </p>

@@ -6,24 +6,8 @@ import PageSection from "@/components/layout/PageSection";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import { ENV_FACTORS } from "@/lib/frpDesignBasis";
+import { BEAM_LOAD_CASES, ENV_FACTORS, MARKET_CODES } from "@/lib/frpDesignBasis";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
-
-const MARKET_CODES = [
-  { market: "United States", loads: "ASCE 7-22 through the IBC: 1.4D; 1.2D + 1.6L", design: "ASCE/SEI 74-23 (LRFD for pultruded GFRP shapes and connections)", related: "OSHA 29 CFR 1910 Subpart D for workplace access; ASTM D3917 dimensional tolerances" },
-  { market: "European Union", loads: "EN 1990:2023 and EN 1991: 1.35·k_F·G; 1.5·k_F·Q (k_F = 1.0 for CC2), national annexes", design: "CEN/TS 19101:2022, Eurocode expected by 2028", related: "EN 13706 product specification; EN ISO 14122 for machinery access" },
-  { market: "United Kingdom", loads: "BS EN 1990 and BS EN 1991 with UK National Annexes", design: "PD CEN/TS 19101:2022", related: "BS EN 13706; BS EN ISO 14122 for machinery access" },
-  { market: "Canada", loads: "NBC Part 4 (NBC 2020; NBC 2025 published December 2025 and adopted by each province): 1.4D; 1.25D + 1.5L", design: "No standard specific to pultruded shapes; CSA S806 covers FRP in buildings, mainly as reinforcement and strengthening", related: "CSA S6:25 for bridges; CSA S807 for FRP bars" },
-  { market: "Australia", loads: "AS/NZS 1170.0 and 1170.1: 1.35G; 1.2G + 1.5Q", design: "No Australian standard for pultruded shapes; published Australian design guides use the ASCE LRFD approach with AS/NZS 1170 loads", related: "AS 1657:2018 for platforms, walkways, stairs and ladders; AS 5204:2023 for FRP bars" },
-  { market: "New Zealand", loads: "AS/NZS 1170.0 and 1170.1 through NZBC B1: 1.35G; 1.2G + 1.5Q", design: "No New Zealand standard for pultruded shapes; the resistance model is agreed with the building consent authority", related: "NZBC D1 and F4 for access routes and barriers" },
-] as const;
-
-const LOAD_CASES = [
-  { name: "Simple span, UDL", moment: "wL²/8", deflection: "5wL⁴/(384EIx)", c: "9.6" },
-  { name: "Simple span, mid-point load", moment: "PL/4", deflection: "PL³/(48EIx)", c: "12" },
-  { name: "Cantilever, tip load", moment: "PL", deflection: "PL³/(3EIx)", c: "3" },
-  { name: "Cantilever, UDL", moment: "wL²/2", deflection: "wL⁴/(8EIx)", c: "4" },
-];
 
 const pagePath = "/frp-profile-calculator/methodology";
 const publishedAt = "2026-07-30";
@@ -139,7 +123,7 @@ export default function CalculatorMethodologyPage() {
               </tr>
             </thead>
             <tbody>
-              {LOAD_CASES.map((row) => (
+              {BEAM_LOAD_CASES.map((row) => (
                 <tr key={row.name} className="border-b border-border-default align-top last:border-b-0">
                   <th scope="row" className={`${td} font-semibold text-t1`}>{row.name}</th>
                   <td className={`${td} font-mono text-t2`}>{row.moment}</td>

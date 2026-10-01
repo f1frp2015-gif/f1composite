@@ -8,7 +8,7 @@
 //    Table 1 — standard values, legitimate to publish as guaranteed minimums
 //    for any laminate declared to that grade.
 //  - E23_ISO_PUBLISHED overlays the F1-published general-purpose laminate
-//    (FRP Profile Design Manual DOC-PF-2026-EN Rev. A): ILSS 30 published
+//    (FRP Profile Design Manual DOC-PF-2026-EN Rev. B): ILSS 30 published
 //    above the EN minimum of 25; compressive / Barcol / water absorption are
 //    typical industry values pending F1 certified test data (EN 13706 does
 //    not specify them).
@@ -43,7 +43,9 @@ export const TYP_NOTE =
   "Compressive strength, Barcol hardness and water absorption are not specified by EN 13706 — the figures shown are typical industry values for this resin system, pending F1 certified test data; request certified values before final design.";
 
 // Property rows, labels and test methods as the datasheets (MECH_ROWS) show
-// them: one vocabulary on /resources/technical-data and the product pages.
+// them: one vocabulary on /resources/technical-data, the product pages and
+// the design manual. EN 13706-2:2002 Annex D is the full-section flexural
+// modulus test; Annex E is the pin-bearing test.
 export const PROPERTY_ROWS: {
   key: keyof typeof E23_ISO_PUBLISHED & keyof typeof E23_MIN | "compressive_l_mpa" | "barcol" | "water_abs_pct";
   label: string;
@@ -57,8 +59,8 @@ export const PROPERTY_ROWS: {
   { key: "flexural_l_mpa", label: "Flexural strength (longitudinal)", unit: "MPa", method: "EN ISO 14125" },
   { key: "flexural_t_mpa", label: "Flexural strength (transverse)", unit: "MPa", method: "EN ISO 14125" },
   { key: "shear_mpa", label: "Interlaminar shear strength (ILSS)", unit: "MPa", method: "EN ISO 14130" },
-  { key: "pin_bearing_l_mpa", label: "Pin-bearing strength (longitudinal)", unit: "MPa", method: "EN 13706-2 Annex D" },
-  { key: "pin_bearing_t_mpa", label: "Pin-bearing strength (transverse)", unit: "MPa", method: "EN 13706-2 Annex D" },
+  { key: "pin_bearing_l_mpa", label: "Pin-bearing strength (longitudinal)", unit: "MPa", method: "EN 13706-2 Annex E" },
+  { key: "pin_bearing_t_mpa", label: "Pin-bearing strength (transverse)", unit: "MPa", method: "EN 13706-2 Annex E" },
   { key: "compressive_l_mpa", label: "Compressive strength (longitudinal)", unit: "MPa", method: "EN ISO 604" },
   { key: "barcol", label: "Barcol hardness", unit: "", method: "ASTM D2583" },
   { key: "water_abs_pct", label: "Water absorption (24 h)", unit: "%", method: "EN ISO 62" },

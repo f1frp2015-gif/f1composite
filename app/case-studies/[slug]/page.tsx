@@ -215,6 +215,11 @@ const caseStudyData: Record<
     ],
     downloads: [
       {
+        label: "FRP Profile Design Manual — Rev. B (PDF)",
+        href: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
+        description: "Design basis, section properties of all 114 catalog sizes, allowable-load tables and application guidance for F1 pultruded profiles, including the rail and frame sections used on rooftop mounting.",
+      },
+      {
         label: "EPD & Carbon Footprint Analysis (PDF)",
         href: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
         description: "Environmental Product Declaration and carbon-footprint analysis for the pultruded GFRP composite profile range — cradle-to-grave 36.1 kg CO₂e/m².",

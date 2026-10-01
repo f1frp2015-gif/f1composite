@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadProjectModule } from "./load-project-module.mjs";
@@ -19,7 +19,7 @@ function sourceFiles(dir) {
 }
 
 test("withdrawn downloads are not linked from pages, data or machine-readable surfaces", () => {
-  assert.ok(withdrawnDownloads.length > 0);
+  assert.ok(Array.isArray(withdrawnDownloads));
   const files = ["app", "components", "content", "lib"].flatMap(sourceFiles).filter((path) => path !== registry);
   const llms = loadProjectModule("lib/llmsContent.ts").buildLlmsContent();
   const knowledge = JSON.stringify(loadProjectModule("lib/publicKnowledge.ts").buildPublicKnowledge());
@@ -37,4 +37,12 @@ test("withdrawn downloads are served with a noindex header", () => {
     assert.ok(at > 0, `next.config.ts has no header rule for ${file}`);
     assert.match(config.slice(at, at + 200), /key: "X-Robots-Tag", value: "noindex"/);
   }
+});
+
+test("the replaced design manual Rev. A redirects to Rev. B", () => {
+  const config = read("next.config.ts");
+  const at = config.indexOf('source: "/downloads/f1composite-frp-profile-design-manual-2026.pdf"');
+  assert.ok(at > 0, "next.config.ts has no redirect for the Rev. A URL");
+  assert.match(config.slice(at, at + 200), /destination: "\/downloads\/f1composite-frp-profile-design-manual-2026-rev-b\.pdf"/);
+  assert.ok(!existsSync(join(root, "public/downloads/f1composite-frp-profile-design-manual-2026.pdf")), "the withdrawn Rev. A file should be gone");
 });

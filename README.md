@@ -31,6 +31,16 @@ npm run check:owner-links  # after build: supporting pages link to their query o
 
 `npm run test:images` checks public image weight and duplicates.
 
+## Design manual
+
+`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf` is generated,
+not edited: `npm run build:manual` renders `scripts/build-design-manual.mjs` (catalog,
+section engine, span tables, design basis, laminate data, company facts, application
+and evidence data) to HTML and prints it with headless Chromium (`CHROMIUM_PATH`, or
+`$PLAYWRIGHT_BROWSERS_PATH/chromium`, or `chromium` on PATH). Rebuild and commit the
+PDF whenever those data change; `npm run test:manual` checks that the published PDF
+matches the data.
+
 ## Where things live
 
 - `content/data/company.ts`: company facts, production figures, lead times, MOQs and

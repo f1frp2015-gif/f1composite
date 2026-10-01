@@ -37,9 +37,16 @@ export const metadata: Metadata = buildPageMetadata({
 const guides: Array<{
   title: string;
   description: string;
-  status: "On request" | "In preparation";
+  status: "Available" | "On request" | "In preparation";
   file?: string;
 }> = [
+  {
+    title: "FRP profile design manual (DOC-PF-2026-EN Rev. B)",
+    description:
+      "47-page reference generated from the website's data: the EN 13706 E23 laminate beside the grade minimums, resin systems, the design basis behind the calculator and span tables (ASCE/SEI 74-23, CEN/TS 19101, GB 50608 screening factors), section properties of all 114 catalog sizes, allowable uniform-load tables, application guides, handrail and ladder data, durability by resin formulation, fabrication and inspection. Supersedes the withdrawn Rev. A.",
+    status: "Available",
+    file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
+  },
   {
     title: "FRP profile selection guide",
     description:
@@ -137,7 +144,8 @@ export default function DesignGuidesPage() {
       <PageSection id="standards" title="Standards and code references" tone="white" intro="The guides cite specific clauses of these documents where they apply.">
         <dl className="divide-y divide-border-default border-y border-border-default">
           {[
-            ["ASCE Pre-Standard (2010)", "Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures"],
+            ["ASCE/SEI 74-23", "Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (builds on the 2010 ASCE Pre-Standard)"],
+            ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (European technical specification, Eurocode expected by 2028)"],
             ["EN 13706, parts 1–3", "Reinforced plastics composites: specifications for pultruded profiles"],
             ["ASTM D2344, D790, D695, D2583, D5379", "Material property test methods"],
             ["AS 2047", "Windows and external glazed doors in buildings (Australia)"],

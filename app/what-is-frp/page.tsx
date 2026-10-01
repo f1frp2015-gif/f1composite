@@ -4,6 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import PageSection from "@/components/layout/PageSection";
 import PageNav from "@/components/layout/PageNav";
 import FrpProcessShowcase from "@/components/sections/FrpProcessShowcase";
+import { GuideDownloadGate } from "@/components/sections/GuideDownloadGate";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import CoverCard from "@/components/ui/CoverCard";
@@ -71,7 +72,7 @@ const faqItems = [
   {
     question: "Is FRP flammable?",
     answer:
-      "Standard polyester FRP is self-extinguishing (UL 94 V-0). With fire-retardant additives or phenolic resin, pultruded FRP achieves Class 1 surface spread of flame (BS 476 Part 7), low smoke, and low toxicity, and is approved for offshore platforms, tunnels, and rail interiors under EN 45545-2. Composites for rail and passenger transport use phenolic or modified acrylic systems.",
+      "The standard isophthalic polyester laminate is combustible and is not fire-retardant. Fire-retardant polyester and vinyl ester formulations reach ASTM E84 Class A (flame-spread index 25 or less) with the right additive package, and phenolic resin gives inherently low flame spread, smoke and toxicity, which is why it is specified for rail interiors (EN 45545-2), tunnels and offshore platforms. A fire class belongs to the tested formulation, thickness and installation, so ask for the test report of the formulation quoted rather than relying on a resin name; UL 94, ASTM E84 and EN 13501-1 results are not interchangeable.",
   },
   {
     question: "How long do FRP composites last?",
@@ -666,7 +667,17 @@ export default function WhatIsFrpPage() {
             </tbody>
           </table>
         </div>
-      </PageSection>
+              {/* Soft-gated download: the PDF is public (also linked from /resources/downloads);
+            the e-mail creates an inquiry through the shared /api/contact pipeline. */}
+        <div className="mt-[24px] max-w-[640px]">
+          <GuideDownloadGate
+            fileHref="/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf"
+            fileLabel="FRP Profile Design Manual (DOC-PF-2026-EN Rev. B)"
+            fileDescription="47-page engineering reference: the E23 laminate beside the EN 13706 minimums, section properties of all 114 catalog sizes, allowable-load tables to the published design basis, application guides, durability by resin formulation, fabrication and inspection."
+            source="what-is-frp-guide-download"
+          />
+        </div>
+</PageSection>
 
       {/* Applications */}
       <PageSection id="applications" title="Where advanced FRP composites are specified" tone="muted">
