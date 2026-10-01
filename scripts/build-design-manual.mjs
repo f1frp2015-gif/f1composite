@@ -69,8 +69,14 @@ const { authorsBySlug } = loadProjectModule("lib/authors.ts");
 
 const SITE = "https://www.f1composite.com";
 const products = buildProducts();
-const rows = products.map((p) => sectionRow(p.model, p.geometry.shape, p.geometry.dims, p.weight));
-if (rows.some((r) => !r)) throw new Error("A catalog size could not be described by the section engine");
+// sectionRow rounds to four significant figures for the web tables; the manual
+// formats from the unrounded engine values so nothing is rounded twice.
+const rows = products.map((p) => {
+  const row = sectionRow(p.model, p.geometry.shape, p.geometry.dims, p.weight);
+  if (!row) throw new Error(`${p.model} could not be described by the section engine`);
+  const exact = computeProperties(p.geometry);
+  return { ...row, A: exact.A, Ix: exact.Ix / 1e4, Iy: exact.Iy / 1e4, Wx: exact.Sx / 1e3, Wy: exact.Sy / 1e3, rx: exact.rx, ry: exact.ry };
+});
 const byShape = (shape) => rows.filter((r) => r.shape === shape);
 const spanFamilies = buildSpanTables();
 const epd = fallbackDownloads.find((d) => d.file === "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf");
@@ -84,6 +90,8 @@ const num = (v, max = 2, min = 0) => (v == null || !Number.isFinite(v) ? "—" :
 /** Published mass, with the catalog's own precision. */
 const mass = (v) => (v == null ? "—" : String(v));
 const sig3 = (v) => (Math.abs(v) >= 100 ? num(v, 0) : Math.abs(v) >= 10 ? num(v, 1) : num(v, 2));
+/** Four significant figures from the unrounded value, trailing zeros dropped. */
+const sig4 = (v) => (v == null || !Number.isFinite(v) ? "—" : Number(v.toPrecision(4)).toLocaleString("en-US", { maximumFractionDigits: 6 }));
 const mono = (s) => `<span class="mono">${esc(s)}</span>`;
 const tag = (s) => `<span class="tag">${esc(s)}</span>`;
 const note = (html, cls = "") => `<div class="note ${cls}">${html}</div>`;
@@ -256,6 +264,8 @@ if (Math.abs(ex_w - exCell.w) > 0.02 * exCell.w) throw new Error(`Worked example
 const colInput = { section: { shape: "i-beam", h: EX.h, b: EX.b, tf: EX.t, tw: EX.t }, lengthMm: 3000, K: 1, weakAxisDivisor: 1, loadKn: 20, materialId: "frp-e23", method: "lrfd-asce", envId: "indoor-dry", durationId: "occupancy" };
 const col = checkColumn(colInput);
 if (!col) throw new Error("Column example did not compute");
+const colBraced = { 2: checkColumn({ ...colInput, weakAxisDivisor: 2 }), 3: checkColumn({ ...colInput, weakAxisDivisor: 3 }) };
+const weakKn = (c) => c.modes.find((m) => m.mode === "global-y").nominalKn;
 
 // Thermal example: a 6 m member, installed at 20 °C, service −10 to +50 °C.
 const thermal = (id) => THERMAL_MATERIALS.find((m) => m.id === id);
@@ -420,9 +430,9 @@ openSection("02", "Material: the E23 laminate and resin systems",
   ${h3("Fiber architecture")}
   ${p(`<strong>Unidirectional rovings</strong> in the core carry axial tension, compression and bending; they give the longitudinal modulus of ${E23_ISO_PUBLISHED.e_l_gpa} GPa. <strong>Continuous filament mat</strong> layers add transverse strength and hold the rovings together under shear; without them the transverse modulus would fall well below the ${E23_ISO_PUBLISHED.e_t_gpa} GPa grade minimum. A <strong>surface veil</strong> forms a resin-rich skin that protects the glass from UV, moisture and chemicals and gives the finish. Glass content is ${esc(E23_ISO_PUBLISHED.glass_content)} and density ${E23_ISO_PUBLISHED.density_g_cm3} g/cm³ for the standard laminate.`)}
   ${h3("Why direction matters")}
-  ${p(`Longitudinal properties are three to five times the transverse ones (tensile strength ${E23_MIN.tensile_l_mpa} against ${E23_MIN.tensile_t_mpa} MPa at the E23 minimum). Member checks use the longitudinal values; connections, bearing at bolts, web crippling and local buckling depend on the transverse and shear values. Every table in this manual states the direction.`)}
+  ${p(`Longitudinal properties are two to five times the transverse ones (tensile strength ${E23_MIN.tensile_l_mpa} against ${E23_MIN.tensile_t_mpa} MPa at the E23 minimum). Member checks use the longitudinal values; connections, bearing at bolts, web crippling and local buckling depend on the transverse and shear values. Every table in this manual states the direction.`)}
   ${h3("Matrix role")}
-  ${p(`The cured resin, typically 30 to 45 percent of the composite by volume, binds the fibers, transfers load between them in shear, stops fiber micro-buckling in compression and forms the barrier to the environment. Two profiles with identical E23 stiffness can have very different service lives if one has the wrong matrix for the exposure (Section 7).`)}
+  ${p(`The cured resin, about ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/(\d+)–/)[1])} to ${100 - Number(String(E23_ISO_PUBLISHED.glass_content).match(/–(\d+)/)[1])} percent of the standard laminate by weight and roughly half by volume, binds the fibers, transfers load between them in shear, stops fiber micro-buckling in compression and forms the barrier to the environment. Two profiles with identical E23 stiffness can have very different service lives if one has the wrong matrix for the exposure (Section 7).`)}
   </div>
   ${fig(nextFig(), "Laminate build-up of a pultruded flange or wall", `
     <svg width="170mm" height="34mm" viewBox="0 0 170 34" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="2.8">
@@ -467,7 +477,7 @@ page(`
   ${h2("Grades, higher-modulus tiers and the SGS full-section reports")}
   <div class="cols2">
   ${h3("E17 and E23")}
-  ${p(`EN 13706-3 defines two structural grades, named for the minimum full-section flexural modulus in GPa. E23 is the F1 standard for load-bearing members; E17 (glass content ${esc(SEED_FORMULATIONS.find((f) => f.code === "UP-E17").glass_content)}, density ${SEED_FORMULATIONS.find((f) => f.code === "UP-E17").density_g_cm3} g/cm³) is offered for secondary and lightly loaded members where cost matters more than stiffness. The E17 minimums are in the table on the previous page.`)}
+  ${p(`EN 13706-3 defines two structural grades, named for the minimum full-section flexural modulus in GPa. E23 is the F1 standard for load-bearing members; E17 (glass content ${esc(SEED_FORMULATIONS.find((f) => f.code === "UP-E17").glass_content)}, density ${SEED_FORMULATIONS.find((f) => f.code === "UP-E17").density_g_cm3} g/cm³, both ${tag("Typical")}) is offered for secondary and lightly loaded members where cost matters more than stiffness. The E17 minimums are in the table on the previous page.`)}
   ${h3("Higher-modulus laminates")}
   ${p(`Above E23 the names are commercial, not EN grades. <strong>E30</strong> is a vendor tier defined by a full-section modulus of at least 30 GPa. <strong>"E40"</strong> is a bridge-grade threshold used by Austroads ATS 5880 (full-section modulus of at least 40 GPa); its benchmark construction is a fire-retardant vinyl ester laminate with about 77 percent glass by weight. For both tiers only the defining modulus is set; every strength requires program test data before release, and bridge use additionally needs characteristic values to ASTM D7290 and full-section four-point bending to ASTM D6109.`)}
   ${h3("What the SGS reports show")}
@@ -567,13 +577,13 @@ page(`
   ${p(`<span class="small">FRP rows: EN 13706-3 minimums for E, E<sub>T</sub>, tensile strength and interlaminar shear; G<sub>LT</sub> and F<sub>cL</sub> are stated assumptions (not in EN 13706), and "strength" is the longitudinal tensile strength. Metals: minimum yield strength of the product standard and the modulus of the matching design code. A stiffness comparison at equal section uses E; a like-for-like member comparison needs the deflection limit, because the FRP member is deflection-governed and the steel one usually strength-governed.</span>`)}
   ${h3("Deflection limits in common use")}
   ${table({ head: ["Limit", "Where it is used", "Note"], widths: ["18mm", "auto", "auto"], cls: "small", body: [
-    ["L/180", "Industrial platforms and equipment supports where economy governs", "Lowest limit normally accepted for walking surfaces"],
-    ["L/240", "General floors and roofs under live load in many building codes", "IBC Table 1604.3 live-load limit for floor members"],
+    ["L/180", "Industrial platforms and equipment supports where economy governs", "Lowest limit normally accepted for walking surfaces; IBC Table 1604.3 live-load limit for roof members not supporting a ceiling"],
+    ["L/240", "Floors under dead plus live load; roofs with non-plaster ceilings", "IBC Table 1604.3: D + L limit for floor members, live-load limit for roof members with non-plaster ceilings"],
     ["L/250", "The span tables in Section 5", "Common serviceability limit for walkways; EN 1990 national annexes often use L/250 for floors"],
-    ["L/360", "Pedestrian comfort, public access, brittle finishes", "IBC Table 1604.3 for floors with plaster or brittle finishes; bridges often tighter, with a vibration check"],
+    ["L/360", "Floors under live load, public access, brittle finishes", "IBC Table 1604.3 live-load limit for floor members and for roof members supporting plaster; bridges often tighter, with a vibration check"],
     ["30 mm", "Guard rails to EN ISO 14122-3 under the test load", "Horizontal deflection at the hand rail, not a ratio"],
   ] })}
-  ${p(`<span class="small">Limits are the project's to set; the ranking of sections does not change between them, but every allowable load scales, so run the calculator with the exact limit when it differs from L/250.</span>`)}`);
+  ${p(`<span class="small">Limits are the project's to set; the ranking of sections does not change between them, but the deflection-governed values scale with the limit (shear-governed cells do not), so run the calculator with the exact limit when it differs from L/250.</span>`)}`);
 
 page(`
   ${h2("Load effects, deflection and section formulas")}
@@ -600,7 +610,7 @@ page(`
   ${kv([
     ["Section", `${esc(EX.model)} (H ${EX.h}, B ${EX.b}, t<sub>f</sub> = t<sub>w</sub> = ${EX.t} mm)`],
     ["A, I<sub>x</sub>, W<sub>x</sub>, A<sub>v</sub>", `${num(exA, 0)} mm², ${num(exIx / 1e4, 1)} cm⁴, ${num(exWx / 1e3, 1)} cm³, ${num(exAv, 0)} mm² ${tag("Calculated")}`],
-    ["Material", `${esc(DESIGN_BASIS.material)}: E<sub>L</sub> ${DESIGN_BASIS.E_L_GPa} GPa, G<sub>LT</sub> ${DESIGN_BASIS.G_LT_GPa} GPa (assumed), F<sub>cL</sub> ${DESIGN_MATERIALS["frp-e23"].sigma_c} MPa (assumed), shear ${DESIGN_BASIS.shearStrengthMPa} MPa`],
+    ["Material", `${esc(DESIGN_BASIS.material)}: E<sub>L</sub> ${DESIGN_BASIS.E_L_GPa} GPa, G<sub>LT</sub> ${DESIGN_BASIS.G_LT_GPa} GPa (assumed), F<sub>cL</sub> ${DESIGN_MATERIALS["frp-e23"].sigma_c} MPa (assumed, below the ${E23_ISO_PUBLISHED.compressive_l_mpa} MPa typical value of Section 2 because EN 13706 specifies no compressive strength and the typical value is not certified), shear ${DESIGN_BASIS.shearStrengthMPa} MPa`],
     ["Method", esc(DESIGN_BASIS.method)],
     ["Environment", `${esc(DESIGN_BASIS.environment)}; stiffness factor 1.0`],
     ["Design strengths", `bending ${exResist.basis.phiFlex} × ${exResist.lambda} × ${DESIGN_MATERIALS["frp-e23"].sigma_c} × ${exResist.envStrength} = <strong>${num(exResist.bendingAllowable, 2)} MPa</strong>; shear ${exResist.basis.phiShear} × ${exResist.lambda} × ${DESIGN_BASIS.shearStrengthMPa} × ${exResist.envStrength} = <strong>${num(exResist.shearAllowable, 2)} MPa</strong>`],
@@ -617,7 +627,7 @@ page(`
   </div>
   ${p(`At ${num(ex_w, 2)} kN/m the beam uses ${num((ex_w / ex_wb) * 100, 0)} percent of its bending capacity and ${num((ex_w / ex_wv) * 100, 0)} percent of its shear capacity, which is the normal picture for pultruded FRP: the deflection limit, not strength, sets the load. Shear deformation adds ${num((ex_k - 1) * 100, 0)} percent to the bending deflection at this span-to-depth ratio of ${num(EX.span / EX.h, 0)}.`)}
   ${h3("The same section in steel")}
-  ${p(`For a like-for-like stiffness comparison, a steel member needs only E<sub>FRP</sub>/E<sub>steel</sub> = ${DESIGN_BASIS.E_L_GPa}/${DESIGN_MATERIALS["steel-s355"].E} ≈ ${num(DESIGN_BASIS.E_L_GPa / DESIGN_MATERIALS["steel-s355"].E, 2)} of the second moment of area to deflect the same amount, so the FRP replacement for a steel beam is usually deeper. Its mass is not: this ${esc(EX.model)} weighs ${mass(products.find((pr) => pr.model === EX.model).weight)} kg/m against ${num(exA * DESIGN_MATERIALS["steel-s355"].density / 1000, 1)} kg/m for the same nominal section in steel (density ${DESIGN_MATERIALS["steel-s355"].density} g/cm³).`)}
+  ${p(`For a like-for-like stiffness comparison, a steel member needs only E<sub>FRP</sub>/E<sub>steel</sub> = ${DESIGN_BASIS.E_L_GPa}/${DESIGN_MATERIALS["steel-s355"].E} ≈ ${num(DESIGN_BASIS.E_L_GPa / DESIGN_MATERIALS["steel-s355"].E, 2)} of the second moment of area to deflect the same amount, so the FRP replacement for a steel beam is usually deeper. Its mass is not: at the nominal area this ${esc(EX.model)} is ${num(exA * E23_ISO_PUBLISHED.density_g_cm3 / 1000, 1)} kg/m in FRP (${E23_ISO_PUBLISHED.density_g_cm3} g/cm³; catalog mass ${mass(products.find((pr) => pr.model === EX.model).weight)} kg/m) against ${num(exA * DESIGN_MATERIALS["steel-s355"].density / 1000, 1)} kg/m in steel (${DESIGN_MATERIALS["steel-s355"].density} g/cm³).`)}
   ${note(`The FRP profile calculator on the website reproduces this example and accepts another section, span, load type, code, environment and deflection limit. Its validation page recomputes published benchmarks from the same engine on every site build.`)}`);
 
 const COLPAGE = page(`
@@ -626,7 +636,7 @@ const COLPAGE = page(`
   ${p(`Pultruded columns fail by one of three mechanisms, and all three are plate or column mechanics rather than code coefficients:`)}
   ${ul([
     `<strong>Global flexural buckling</strong> about each axis, Euler with the Engesser shear correction: P = P<sub>E</sub> / (1 + P<sub>E</sub> / (G·A<sub>v</sub>)), P<sub>E</sub> = π²·E<sub>L</sub>·I / (K·L)². The correction is worth a few percent on stocky members.`,
-    `<strong>Local buckling</strong> of each wall as a long orthotropic plate with simply supported junctions (a lower bound): flange outstand with one free edge σ = G<sub>LT</sub>·(t/b)²; web or tube wall held on both edges σ = (π²/6)·(t/b)²·[√(E<sub>L</sub>·E<sub>T</sub>) + ν<sub>LT</sub>·E<sub>T</sub> + 2·G<sub>LT</sub>], with ν<sub>LT</sub> = 0.3 unless measured.`,
+    `<strong>Local buckling</strong> of each wall as a long orthotropic plate with simply supported junctions (a lower bound): flange outstand with one free edge, b = B/2, σ = G<sub>LT</sub>·(t/b)²; web or tube wall held on both edges, b = H − t (the widest wall for a tube), σ = (π²/6)·(t/b)²·[√(E<sub>L</sub>·E<sub>T</sub>) + ν<sub>LT</sub>·E<sub>T</sub> + 2·G<sub>LT</sub>], with ν<sub>LT</sub> = 0.3 unless measured.`,
     `<strong>Crushing</strong>: F<sub>cL</sub> · A.`,
   ])}
   ${p(`Every mode takes the bending resistance factor of the chosen method (and λ on the ASCE path). ASCE/SEI 74-23 is understood to allow higher factors for buckling, but they were not confirmed against the published text, so the lower factor is used as the conservative choice. Flexural-torsional buckling of open sections, local–global interaction, eccentric load and creep are flagged, not calculated: channels and angles as columns need a separate check.`)}
@@ -636,18 +646,18 @@ const COLPAGE = page(`
   </div>
   ${h3(`Example: ${EX.model} as a ${colInput.lengthMm / 1000} m pinned column, indoor, occupancy live load`)}
   ${table({ head: ["Mode", "Critical stress (MPa)", "Nominal capacity (kN)", "Design capacity (kN)"], widths: ["auto", "30mm", "30mm", "30mm"], aligns: ["", "r", "r", "r"], cls: "small", body: col.modes.map((m) => [`${esc(m.label)}${m.mode === col.governing.mode ? ` ${tag("governs")}` : ""}`, num(m.stressMPa, 1), num(m.nominalKn, 1), num(m.designKn, 1)]) })}
-  ${p(`<span class="small">Slenderness KL/r: ${num(col.slenderness.x, 0)} about x, ${num(col.slenderness.y, 0)} about y. Resistance factor ${num(col.resistanceFactor, 2)}, λ ${num(col.lambda, 1)}; the design capacity is the nominal capacity × ${num(col.resistanceFactor * col.lambda, 2)}. The weak-axis Euler load of ${num(col.modes.find((m) => m.mode === "global-y").nominalKn, 0)} kN is the hand-calculation check: π² × ${DESIGN_BASIS.E_L_GPa} GPa × ${num(col.props.Iy / 1e4, 0)} cm⁴ / (3 m)² corrected for shear. Bracing the weak axis at mid-height raises that mode fourfold and the flange outstand becomes the limit, which is the usual outcome for wide-flange FRP columns.</span>`)}`);
+  ${p(`<span class="small">Slenderness KL/r: ${num(col.slenderness.x, 0)} about x, ${num(col.slenderness.y, 0)} about y. Resistance factor ${num(col.resistanceFactor, 2)}, λ ${num(col.lambda, 1)}; the design capacity is the nominal capacity × ${num(col.resistanceFactor * col.lambda, 2)}. The weak-axis Euler load of ${num(col.modes.find((m) => m.mode === "global-y").nominalKn, 0)} kN is the hand-calculation check: π² × ${DESIGN_BASIS.E_L_GPa} GPa × ${num(col.props.Iy / 1e4, 0)} cm⁴ / (3 m)² corrected for shear. Bracing the weak axis at mid-height raises that mode to about ${num(weakKn(colBraced[2]), 0)} kN nominal (just under four times, because the shear correction grows with the Euler load) and it still governs (${esc(colBraced[2].governing.label.toLowerCase())}); at third points it reaches about ${num(weakKn(colBraced[3]), 0)} kN, close to the local-buckling values of the walls (web ${num(col.modes.find((m) => m.mode === "local-web").nominalKn, 0)} kN, flange ${num(col.modes.find((m) => m.mode === "local-flange").nominalKn, 0)} kN), which set the limit of any more closely braced wide-flange FRP column.</span>`)}`);
 
 page(`
   ${h2("Connections and thermal movement")}
   <div class="cols2">
   ${h3("Bolted connections")}
-  ${p(`Bearing at the hole is the usual limit. EN 13706 E23 guarantees a pin-bearing strength of ${E23_MIN.pin_bearing_l_mpa} MPa along the profile and ${E23_MIN.pin_bearing_t_mpa} MPa across it (${esc(PROPERTY_ROWS.find((r) => r.key === "pin_bearing_l_mpa").method)}); after the resistance factor, λ and the outdoor factor of the ASCE screening path the design bearing stress along the profile is about ${num(resistE23.basis.phiFlex * resistE23.lambda * E23_MIN.pin_bearing_l_mpa * resistE23.envStrength, 0)} MPa. Detail with:`)}
+  ${p(`Bearing at the hole is the usual limit. EN 13706 E23 guarantees a pin-bearing strength of ${E23_MIN.pin_bearing_l_mpa} MPa along the profile and ${E23_MIN.pin_bearing_t_mpa} MPa across it (${esc(PROPERTY_ROWS.find((r) => r.key === "pin_bearing_l_mpa").method)}). The design bearing stress takes the connection resistance factor of the project code (ASCE/SEI 74-23 Chapter 8, lower than the flexural φ used for members, with λ and the environment factor; CEN/TS 19101 its own γ<sub>M</sub>), which is why this manual tabulates no bolt capacities. Detail with:`)}
   ${ul([
-    "Edge distance at least 3d for through-bolts and 4d for blind fasteners; hole clearance as for steel, never slotted in the bearing direction.",
-    "Flat washers under head and nut, at least 2.5d across, and snug-tight torque: an over-torqued bolt crushes the laminate through the thickness and the joint loses its preload.",
+    "Edge and end distance at least 3d for through-bolts and 4d for blind fasteners (F1 detailing minimums from the connection design guide, stricter than typical code minimums; confirm the end and side distances of the project code); hole clearance as for steel, never slotted in the bearing direction.",
+    "Flat washers under head and nut, large enough to spread the clamping force over the laminate, and snug-tight torque: an over-torqued bolt crushes the laminate through the thickness and the joint loses its preload.",
     "Load along the profile wherever the detail allows; a transverse bearing load has less than half the capacity.",
-    "Stainless-steel (A2/A4) or FRP fasteners. Where carbon-steel hardware is unavoidable, isolate it with sleeves and washers: most \"FRP corrosion\" complaints trace to a galvanic path through an unprotected steel fastener.",
+    "Stainless-steel (A2/A4) or FRP fasteners. Where carbon-steel hardware is unavoidable, isolate it with sleeves and washers and keep water out of the joint: most \"FRP corrosion\" complaints trace to an unprotected steel fastener rusting in trapped moisture or to a galvanic couple between dissimilar metals in the joint; the laminate itself is an insulator.",
     "Net-section tension, shear-out and block-shear checks to ASCE/SEI 74-23 Chapter 8 or CEN/TS 19101 for the governing case; this manual does not tabulate bolt-group capacities.",
   ])}
   ${h3("Bonded and hybrid joints")}
@@ -658,7 +668,8 @@ page(`
   ${p(`Free movement ΔL = α·L·ΔT; fully restrained axial stress σ = E·α·ΔT. Lengthwise, pultruded GFRP moves about as much as glass or concrete and less than steel or aluminum, so an FRP member fixed to a steel or aluminum frame moves relative to it; crosswise the coefficient is several times higher because the resin controls it. Declare the value measured for the supplied profile when the specification needs it.`)}
   ${p(`<span class="small">Example: a ${supplyTerms.standardLengthM} m FRP rail installed at 20 °C and reaching 50 °C grows ${num(thMove(thermal("gfrp-pultruded-longitudinal"), TH.dTh), 1)} mm; the same rail in aluminum grows ${num(thMove(thermal("aluminium"), TH.dTh), 1)} mm. Allow for the difference at every fixing to a dissimilar frame, and size sealant joints for the full annual range with the sealant's movement class.</span>`)}
   </div>
-  ${table({ head: ["Material", "α (10⁻⁶/K)", "E (GPa)", `Movement, ${supplyTerms.standardLengthM} m, ±${TH.dTh} K`, "Source"], widths: ["auto", "16mm", "14mm", "26mm", "auto"], aligns: ["", "r", "r", "r", ""], cls: "small", body: THERMAL_MATERIALS.filter((m) => !["pvc-u"].includes(m.id)).map((m) => [esc(m.label), num(m.alpha, 0), num(m.E, 0), `±${num(thMove(m, TH.dTh), 1)} mm`, `<span class="small">${esc(m.source.split(";")[0])}</span>`]) })}`);
+  ${table({ head: ["Material", "α (10⁻⁶/K)", "E (GPa)", `Movement, ${supplyTerms.standardLengthM} m, ±${TH.dTh} K`, "Source"], widths: ["auto", "16mm", "14mm", "26mm", "auto"], aligns: ["", "r", "r", "r", ""], cls: "small", body: THERMAL_MATERIALS.filter((m) => !["pvc-u"].includes(m.id)).map((m) => [esc(m.label), num(m.alpha, 0), num(m.E, 0), `±${num(thMove(m, TH.dTh), 1)} mm`, `<span class="small">${esc(m.source)}</span>`]) })}
+  ${p(`<span class="small">The EPTA comparison value of 11 × 10⁻⁶/K in Section 2 lies at the top of the lengthwise range manufacturer manuals give for E-glass pultrusions and would make the ${supplyTerms.standardLengthM} m example ${num(11e-6 * TH.L * TH.dTh, 1)} mm; the website tools and this table use 8 × 10⁻⁶/K. Use the value declared for the supplied profile when the specification needs it.</span>`)}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 04 · Section tables
@@ -680,8 +691,8 @@ function sectionTable(shape) {
   const head = ["Designation", ...cfg.dims.map(([s]) => `${s} (mm)`), "Mass (kg/m)", "A (mm²)", "I<sub>x</sub> (cm⁴)", "W<sub>x</sub> (cm³)", "r<sub>x</sub> (mm)", ...(symmetric ? [] : ["I<sub>y</sub> (cm⁴)", "W<sub>y</sub> (cm³)", "r<sub>y</sub> (mm)"]), "DXF"];
   const aligns = ["", ...head.slice(1).map(() => "r")];
   const body = list.map((r) => [
-    esc(r.model), ...cfg.dims.map(([, k]) => num(r[k], 2)), mass(r.mass), num(r.A, 0), sig3(r.Ix), sig3(r.Wx), num(r.rx, 1),
-    ...(symmetric ? [] : [sig3(r.Iy), sig3(r.Wy), num(r.ry, 1)]), r.dxf ? "●" : "",
+    esc(r.model), ...cfg.dims.map(([, k]) => num(r[k], 2)), mass(r.mass), sig4(r.A), sig4(r.Ix), sig4(r.Wx), sig4(r.rx),
+    ...(symmetric ? [] : [sig4(r.Iy), sig4(r.Wy), sig4(r.ry)]), r.dxf ? "●" : "",
   ]);
   return table({ head, body, aligns, cls: "spec small" });
 }
@@ -702,7 +713,7 @@ openSection("04", "Section tables",
   ${h3("Conventions")}
   ${ul([
     `<strong>Axes.</strong> x–x is the horizontal centroidal axis in the drawing, y–y the vertical one; I<sub>x</sub> is the second moment of area about x–x, W<sub>x</sub> = I<sub>x</sub>/c with c the farther extreme fiber, r<sub>x</sub> = √(I<sub>x</sub>/A).`,
-    `<strong>Units.</strong> Dimensions in mm, A in mm², I in cm⁴ (1 cm⁴ = 10⁴ mm⁴), W in cm³ (1 cm³ = 10³ mm³), r in mm. Four significant figures.`,
+    `<strong>Units.</strong> Dimensions in mm, A in mm², I in cm⁴ (1 cm⁴ = 10⁴ mm⁴), W in cm³ (1 cm³ = 10³ mm³), r in mm. Four significant figures, as on the datasheets.`,
     `<strong>Mass.</strong> The catalog value in kg/m, with its own precision; it includes the surface veil and the as-pultruded corners, so it is not exactly A × density.`,
     `<strong>Thickness.</strong> Catalog I-beams and channels have equal flange and web thickness t; tubes a uniform wall t.`,
     `<strong>Inch sizes.</strong> ${esc(byShape("angle").filter((r) => r.model.includes("152")).length ? "Sizes such as 76×38×6.4, 152×152×12.7 and 305×305×12.7 are the imperial 3, 6 and 12 in sections; the website unit converter matches an inch size to the nearest catalog size." : "")}`,
@@ -746,7 +757,7 @@ const fmtLoad = (w) => (w < 0.05 ? "—" : w < 1 ? w.toFixed(2) : w.toFixed(1));
 const GOV = { deflection: "d", bending: "b", shear: "v" };
 function spanTable(family) {
   const head = ["Section", "kg/m", "I<sub>x</sub> (cm⁴)", ...SPANS_MM.map((L) => `${(L / 1000).toFixed(1).replace(/\.0$/, "")} m`)];
-  const body = family.rows.map((r) => [esc(r.model), mass(r.weightKgPerM), sig3(r.IxMm4 / 1e4), ...r.cells.map((c) => (c.w < 0.05 ? "—" : `${fmtLoad(c.w)}<sup>${GOV[c.governs]}</sup>`))]);
+  const body = family.rows.map((r) => [esc(r.model), mass(r.weightKgPerM), sig4(r.IxMm4 / 1e4), ...r.cells.map((c) => (c.w < 0.05 ? "—" : `${fmtLoad(c.w)}<sup>${GOV[c.governs]}</sup>`))]);
   return table({ head, body, aligns: ["", "r", "r", ...SPANS_MM.map(() => "r")], cls: "spec small span" });
 }
 openSection("05", "Allowable load tables",
@@ -762,7 +773,7 @@ openSection("05", "Allowable load tables",
     ["Deflection", esc(DESIGN_BASIS.deflectionLimit)],
   ])}
   ${h3("How to read a value")}
-  ${p(`Find the section and read across to the span: the value is the largest uniformly distributed <em>service</em> load the member carries with every check passing. The superscript marks the governing check: <strong>d</strong> deflection, <strong>b</strong> bending, <strong>v</strong> shear; a dash means below practical loading. 1 kN/m ≈ 68.5 lb/ft; a 1.2 m wide walkway at 5 kPa live load puts 6 kN/m on each of two stringers.`)}
+  ${p(`Find the section and read across to the span: the value is the largest uniformly distributed <em>service</em> load the member carries with every check passing. The superscript marks the governing check: <strong>d</strong> deflection, <strong>b</strong> bending, <strong>v</strong> shear; a dash means below practical loading. 1 kN/m ≈ 68.5 lb/ft; a 1.2 m wide walkway at 5 kPa live load puts 6 kN/m on its pair of stringers, 3 kN/m on each.`)}
   ${p(`Nearly every value is deflection-governed, the defining feature of fiberglass design. Shear governs only short, deep sections; bending rarely governs under L/250. For a different limit, a point load, a cantilever or another code, use the website calculator, which opens each row pre-loaded; for a member these tables cannot represent (angles, continuous spans, frames), send the case to engineering.`)}
   </div>
   ${note(`Not covered: local and lateral-torsional buckling, connections, concentrated loads, dynamic effects and long-term creep; review them to ASCE/SEI 74-23 or CEN/TS 19101. The values are a preliminary screen for comparing sections and preparing an enquiry, not a certified capacity.`)}
@@ -825,7 +836,7 @@ page(`
   </div>
   ${h3("How a post-and-rail system is checked")}
   ${p(`The post is a cantilever fixed at its base plate under the horizontal rail load; the top rail spans simply between posts, which is conservative for a continuous rail. The line load and the concentrated load are separate cases, as the codes apply them. The check compares the post bending stress at the base and the rail stress at mid-span with the design strengths of Section 3, reports the horizontal deflection at the hand rail and the anchor-bolt reactions, and gives the characteristic (unfactored) capacity beside the design capacity so that a test load can be compared with it. The load cases are on the next page.`)}
-  ${note(`<strong>Verify the post, not just the rail.</strong> The post is a cantilever fixed at its base plate; the top rail spans simply between posts. Line and concentrated loads are separate cases. Screening the catalog 50 × 50 × 6.4 mm post at 1,067 mm under the OSHA 200 lb load with the ASCE factors gives a utilization above 100 percent, so a project relies on a whole-assembly load test or a project-specific post and base design, which F1 prepares with the handrail load calculator on the website. Under the downward 200 lb load the OSHA rail must stay at or above 991 mm; EN ISO 14122-3 limits the horizontal deflection to 30 mm under 300 N/m × post spacing.`)}`);
+  ${note(`<strong>Verify the post, not just the rail.</strong> The post is a cantilever fixed at its base plate; the top rail spans simply between posts. Line and concentrated loads are separate cases. Screening the catalog 50 × 50 × 6.4 mm post at 1,067 mm under the OSHA 200 lb load with the ASCE factors gives a utilization above 100 percent, so a project relies on a whole-assembly load test or a project-specific post and base design, which F1 prepares with the handrail load calculator on the website. The installed rail height comes from the rule, not from the catalog maximum: the catalog's 1,220 mm exceeds the 1,143 mm (45 in) OSHA maximum, so a US system is built lower. Under the downward 200 lb load the OSHA rail must stay at or above 991 mm; EN ISO 14122-3 limits the horizontal deflection to 30 mm under 300 N/m × post spacing.`)}`);
 
 page(`
   ${h2("Guard-rail load cases", "The rules the handrail systems are checked against")}
@@ -905,7 +916,7 @@ page(`
   ${h3("UV and outdoor exposure")}
   ${p(`The resin at the surface, not the glass, degrades under UV: unprotected laminates chalk and expose fiber ("fiber bloom"), which is cosmetic first and structural only after years of neglect. Outdoor configurations use a UV-stabilized resin, a surface veil and, where the project needs color retention, a compatible coating. Appearance retention and structural retention are separate acceptance criteria: ask for exposure cycle, hours and retained flexural properties (ISO 4892-3, ASTM G154 or GB/T 2573) for the offered surface system. A 5,000 h ASTM G154 Cycle 1 program on polyester, vinyl ester and UV-stabilized systems is being commissioned to publish original data; until it is, no weathering rating is claimed for the catalog.`)}
   ${h3("Temperature")}
-  ${p(`Glass-transition temperature, heat-deflection temperature and continuous service temperature are different quantities. Stiffness falls as the matrix approaches its T<sub>g</sub>; the ASCE screening path limits service temperature to T<sub>g</sub> − 22 °C, and the environment factor for 32 to 60 °C service is 0.7 on strength. Typical HDT ranges are 80–110 °C for isophthalic polyester and polyurethane, 100–150 °C for vinyl ester; epoxy T<sub>g</sub> 120–180 °C; phenolic the highest. Specify the continuous and peak temperatures, their duration, moisture and sustained load together, and ask for the measured T<sub>g</sub> (ISO 11357-2 or ASTM E1640) of the formulation. Below −40 °C the laminate stiffens and loses some toughness but keeps its strength.`)}
+  ${p(`Glass-transition temperature, heat-deflection temperature and continuous service temperature are different quantities. Stiffness falls as the matrix approaches its T<sub>g</sub>; the ASCE screening path limits service temperature to T<sub>g</sub> − 22 °C, and the environment factor for 32 to 60 °C service is 0.7 on strength. Typical heat-deflection and T<sub>g</sub> ranges by resin are in the resin table of Section 2; they are supplier ranges, not F1 measurements. Specify the continuous and peak temperatures, their duration, moisture and sustained load together, and ask for the measured T<sub>g</sub> (ISO 11357-2 or ASTM E1640) of the formulation. For service below −20 °C ask for low-temperature impact and flexural data of the formulation; none is published for the catalog laminate.`)}
   ${h3("Moisture")}
   ${p(`Water absorption of the standard laminate is ${E23_ISO_PUBLISHED.water_abs_pct} percent at 24 h (EN ISO 62) ${tag("Typical")}. Wet or immersed service takes the 0.75 strength and 0.90 stiffness factors of Section 3 for a polyester matrix; vinyl ester resists hydrolysis better. Seal cut ends and drilled holes so that water does not wick along the rovings. A 28-day boiling-water program (ASTM D570, extended) is being commissioned for water-treatment and marina specifiers.`)}
   </div>
