@@ -38,6 +38,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/pultrusion-machines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/pultrusion-dies`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/resin-mixing-injection`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/pullwinding-equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/slitting-cutting-equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/smc-production-lines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/bmc-smc-molds`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/fiberglass-direct-roving`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/fiberglass-mat-veil`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/stitched-fiberglass-fabrics`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sourcing/gelcoat-resins`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
+
     { url: `${BASE}/products/fiberglass-square-rods`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-t-profiles`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/frp-sheet-piling`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },

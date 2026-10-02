@@ -737,6 +737,104 @@
     ]
   },
   {
+    "path": "/sourcing/bmc-smc-molds",
+    "title": "BMC & SMC Molds",
+    "description": "Define matched tooling for BMC or SMC components. Review part geometry, compound, molding-machine interfaces, trial parts and the tooling handover package.",
+    "aliases": [
+      "BMC & SMC Molds | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/equipment",
+    "title": "Composite Equipment & Tooling Sourcing",
+    "description": "Specify pultrusion lines, dies, resin mixing, pullwinding, slitters, SMC equipment and BMC tooling. Review sourcing, interfaces and acceptance with F1."
+  },
+  {
+    "path": "/sourcing/fiberglass-direct-roving",
+    "title": "Fiberglass Direct Roving",
+    "description": "Specify fiberglass direct roving by glass type, sizing, linear density and resin compatibility. Prepare a qualification and delivery request for your process.",
+    "aliases": [
+      "Fiberglass Direct Roving | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/fiberglass-mat-veil",
+    "title": "Fiberglass Mat & Surface Veil",
+    "description": "Compare continuous filament mat, chopped strand mat and surface veil for your composite process. Define binder compatibility, handling and surface requirements.",
+    "aliases": [
+      "Fiberglass Mat & Surface Veil | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/gelcoat-resins",
+    "title": "Gelcoat Resins",
+    "description": "Specify gelcoat by application, substrate, finish and exposure. Review the grade, processing documents, sample panels and delivery conditions.",
+    "aliases": [
+      "Gelcoat Resins | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/materials",
+    "title": "Composite Raw Material Sourcing",
+    "description": "Specify fiberglass direct roving, mat, surface veil, stitched fabrics and gelcoat. Review grade compatibility, qualification, lot documents and delivery."
+  },
+  {
+    "path": "/sourcing/pullwinding-equipment",
+    "title": "Pullwinding Equipment",
+    "description": "Specify pullwinding equipment for composite tubes. Coordinate the mandrel, winding heads, resin system, pulling controls and acceptance trials.",
+    "aliases": [
+      "Pullwinding Equipment | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/pultrusion-dies",
+    "title": "Pultrusion Dies & Tooling",
+    "description": "Specify pultrusion dies, mandrels and preformers by section drawing, material and line interfaces. Review tooling ownership, trials and acceptance.",
+    "aliases": [
+      "Pultrusion Dies & Tooling | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/pultrusion-machines",
+    "title": "Pultrusion Machines",
+    "description": "Specify a pultrusion line around the profiles you plan to make. Review hydraulic or caterpillar pulling, resin handling, tooling and acceptance trials with F1.",
+    "aliases": [
+      "Pultrusion Machines | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/resin-mixing-injection",
+    "title": "Resin Mixing & PU Injection",
+    "description": "Compare batch mixing and metered resin injection for composite production. Define material compatibility, dosing, cleaning and the connection to the line.",
+    "aliases": [
+      "Resin Mixing & PU Injection | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/slitting-cutting-equipment",
+    "title": "Mat Slitters & Profile Cutters",
+    "description": "Specify mat slitters and cured-profile cutters. Review feed handling, dimensions, line synchronization, extraction and cut-quality acceptance.",
+    "aliases": [
+      "Mat Slitters & Profile Cutters | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/smc-production-lines",
+    "title": "SMC Production Lines",
+    "description": "Specify SMC sheet-compounding equipment. Review resin paste, chopped reinforcement, carrier film, compaction and the downstream molding interface.",
+    "aliases": [
+      "SMC Production Lines | Specification & Sourcing"
+    ]
+  },
+  {
+    "path": "/sourcing/stitched-fiberglass-fabrics",
+    "title": "Stitched Fiberglass Fabrics",
+    "description": "Specify stitched glass fabrics by fiber orientation, area weight, width and backing. Match the construction to your laminate and manufacturing process.",
+    "aliases": [
+      "Stitched Fiberglass Fabrics | Specification & Sourcing"
+    ]
+  },
+  {
     "path": "/technology",
     "title": "Pultrusion Technology & FRP Engineering Know-How",
     "description": "Technical resources for specifiers: the pultrusion process, FRP compared with steel and aluminum, resin selection, and quality testing to EN 13706 and ASTM.",

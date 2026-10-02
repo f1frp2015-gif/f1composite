@@ -239,6 +239,8 @@ export const mainNav = [
           { label: "Manufacturing Capabilities", href: "/products/frp-pultrusion-manufacturer-factory-direct" },
           { label: "Quality & Testing", href: "/technology/quality-testing" },
           { label: "Know-How & Services", href: "/technology/knowhow-services" },
+          { label: "Equipment & Tooling Sourcing", href: "/sourcing/equipment" },
+          { label: "Composite Material Sourcing", href: "/sourcing/materials" },
           { label: "Technical Authors", href: "/about/authors" },
           { label: "Contact", href: "/contact" },
         ],
