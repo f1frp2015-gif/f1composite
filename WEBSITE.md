@@ -324,6 +324,8 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 ## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
 
 **业务层级（2026-10-02 业主确认）**：设备、模具和原材料是 Know-How & Services 下的技术转移/生产支持配套，不作为主要产品业务。入口放在 `/technology/knowhow-services#sourcing`；不得在产品总目录、首页产品线或全局导航中作为独立业务并列展示。保留 `/sourcing/*` 地址，其面包屑、页面标签和搜索标签归属 Know-How。
+- **Know-How 交付支持**：现有 `/sourcing/*` 页面通过 `content/data/knowhowSupport.ts` 补充配置、预成型/工装与验收章节；不另建主要业务入口。`lib/knowhowInquiry.ts` 和 `KnowHowProjectBrief` 将目标、模块和工厂背景带入现有 Contact 表单。配套页可用 `?module=preforming#project-brief` 等有效模块参数预选；模板位于 `public/downloads/knowhow-*.txt`。FAT/SAT 与最终产品资格验证分开说明，周期、IP 和支持责任按项目确认。
+
 
 - **搜索索引**：`lib/search/buildIndex.ts` 在构建时生成 `/search-index.json`，包含 114 个目录规格（公布单重、按名义截面计算的 Ix 或 A、规格书和 DXF 链接）、全部静态页、博客、应用页、案例、术语、作者和文件库。页面标题和描述写在各页面文件里，由 `scripts/search-pages.mjs` 读出，存进 `lib/search/pages.generated.json`。改了页面标题或描述、或新增页面后，运行 `npm run search:pages` 并提交这个文件，否则 `npm test` 会失败。
 - **查询规则**（`lib/search/query.ts`）：认得 100x100、100 × 100 × 8 mm、I152、rod Ø25 这类写法，矩形管两边顺序可以颠倒；没有精确尺寸时列出最接近的规格（壁厚权重低于外形尺寸）；E23、D7957 这类代号整体匹配。这个文件在浏览器里运行，不能用正则后行断言（旧版 Safari 会让整段脚本报错），测试会检查。

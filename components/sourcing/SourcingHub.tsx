@@ -1,3 +1,5 @@
+import KnowHowSupportSections from "@/components/sourcing/KnowHowSupportSections";
+import { materialSupportSections } from "@/content/data/knowhowSupport";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -14,7 +16,7 @@ export default function SourcingHub({ group }: { group: SourcingGroup }) {
   const title = equipment ? "Equipment & tooling support" : "Material qualification & sourcing support";
   const intro = equipment
     ? "Equipment and tooling support within F1 Know-How & Services. Define production-line modules, tooling interfaces and acceptance trials as part of technology transfer or a production improvement project."
-    : "Material qualification and sourcing support within F1 Know-How & Services. Match reinforcement and surface materials to your resin and process, then define trials and delivery requirements.";
+    : "Material qualification and sourcing support within F1 Know-How & Services. Coordinate resins, cure systems, reinforcement, release agents and additives with your tooling and production process.";
   const pages = sourcingPages.filter(page => page.group === group);
   const path = `/sourcing/${group}`;
   const quoteHref = buildRfqHref({ source: `sourcing-${group}`, product: title, productPath: path });
@@ -37,9 +39,10 @@ export default function SourcingHub({ group }: { group: SourcingGroup }) {
       <PageSection id="specifications" title={equipment ? "Equipment and tooling specifications" : "Material specifications"} count={`${pages.length} guides`} intro="Each guide supports the equipment or material scope of a Know-How engagement. The quotation confirms availability, the proposed supplier, qualification and delivery responsibilities.">
         <ul className="grid gap-[20px] md:grid-cols-2 lg:grid-cols-3">{pages.map(page => <li key={page.slug}><Link href={`/sourcing/${page.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card border border-border-default bg-white hover:border-teal-border"><Image src={page.image} alt={page.imageAlt} width={900} height={600} sizes="(max-width: 767px) 94vw, (max-width: 1023px) 46vw, 30vw" className="h-auto w-full border-b border-border-default" /><div className="flex flex-1 flex-col p-[22px]"><h3 className="text-f20 font-bold text-t1">{page.name}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{page.intro}</p><span className="mt-auto pt-[18px] text-f14 font-semibold text-teal-text">Prepare a specification →</span></div></Link></li>)}</ul>
       </PageSection>
+      {!equipment ? <KnowHowSupportSections sections={materialSupportSections} /> : null}
       <PageSection id="procurement" title="From requirements to an agreed package" tone="muted">
         <ol className="grid gap-[16px] md:grid-cols-3">{steps.map(([heading, body], index) => <li key={heading} className="rounded-card border border-border-default bg-white p-[24px]"><p className="font-mono text-f12 text-teal-text">STEP {index + 1}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{heading}</h3><p className="mt-[12px] text-f16 leading-golden text-t2">{body}</p></li>)}</ol>
-        <p className="mt-[24px] flex flex-wrap gap-[24px] text-f14 font-semibold text-teal-text"><Link href={equipment ? "/sourcing/materials" : "/sourcing/equipment"}>{equipment ? "Material qualification support" : "Equipment & tooling support"} →</Link><Link href="/technology/knowhow-services">Technology transfer & consulting →</Link><Link href="/products/product-lines">Buy finished FRP products →</Link></p>
+        <p className="mt-[24px] flex flex-wrap gap-[24px] text-f14 font-semibold text-teal-text"><Link href={equipment ? "/sourcing/materials" : "/sourcing/equipment"}>{equipment ? "Material qualification support" : "Equipment & tooling support"} →</Link><Link href="/technology/knowhow-services#project-brief">Build a connected Know-How project brief →</Link><Link href="/products/product-lines">Buy finished FRP products →</Link></p>
       </PageSection>
       <PageSection id="inquiry" title="Send your project brief" tone="deep"><p className="max-w-[820px] text-f18 leading-relaxed text-white/85">Share the {equipment ? "product drawings, planned output, factory location and existing equipment" : "material specification, resin and process, trial quantity and destination"}. F1 will review the requirements within the proposed Know-How engagement.</p><div className="mt-[24px]"><Button href={quoteHref}>Discuss sourcing requirements</Button></div></PageSection>
     </>

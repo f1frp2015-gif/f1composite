@@ -3,8 +3,8 @@ import { sourcingPages } from "@/content/data/sourcingPages";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Pultrusion Dies & Tooling | Specification & Sourcing",
-  description: "Specify pultrusion dies, mandrels and preformers by section drawing, material and line interfaces. Review tooling ownership, trials and acceptance.",
+  title: "Pultrusion Dies, Preformers & Fixtures | Know-How",
+  description: "Specify pultrusion dies, mandrels, preformers and production fixtures. Review profile families, tooling interfaces, inspection and handover.",
   path: "/sourcing/pultrusion-dies",
 });
 

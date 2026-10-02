@@ -1,3 +1,5 @@
+import KnowHowSupportSections from "@/components/sourcing/KnowHowSupportSections";
+import { sourcingSupportSections } from "@/content/data/knowhowSupport";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -12,6 +14,9 @@ import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl } from "@/lib/seo";
 
 export default function SourcingDetail({ page }: { page: SourcingPage }) {
+  const supportSections = sourcingSupportSections[page.slug] ?? [];
+  const briefModule = ({ "pultrusion-dies": "tooling", "pultrusion-machines": "line", "resin-mixing-injection": "injection", "slitting-cutting-equipment": "finishing" } as Record<string, string>)[page.slug] ?? (page.group === "materials" ? "materials" : "line");
+  const briefHref = `/technology/knowhow-services?module=${briefModule}#project-brief`;
   const path = `/sourcing/${page.slug}`;
   const hub = `/sourcing/${page.group}`;
   const hubName = page.group === "equipment" ? "Equipment & tooling" : "Composite materials";
@@ -33,7 +38,7 @@ export default function SourcingDetail({ page }: { page: SourcingPage }) {
         actions={{ primary: { label: "Discuss sourcing requirements", href: quoteHref }, secondary: { label: "Prepare a specification", href: "#specification", variant: "secondary" }, stickyMobile: true }}
         figure={<Figure number={1} title="Specification interfaces" caption="A scope diagram; the proposed supplier confirms the final configuration."><Image src={page.image} alt={page.imageAlt} width={900} height={600} className="h-auto w-full" preload /></Figure>}
       />
-      <PageNav items={[{ id: "scope", label: "Supply scope" }, { id: "specification", label: "Specification" }, { id: "acceptance", label: "Acceptance" }, { id: "questions", label: "Questions" }, { id: "inquiry", label: "Inquiry" }]} />
+      <PageNav items={[{ id: "scope", label: "Supply scope" }, { id: "specification", label: "Specification" }, ...supportSections.map(section => ({ id: section.id, label: section.title })), { id: "acceptance", label: "Acceptance" }, { id: "questions", label: "Questions" }, { id: "inquiry", label: "Inquiry" }]} />
       <PageSection id="scope" title="Define the proposed supply package">
         <div className="grid gap-[24px] lg:grid-cols-2">
           <p className="text-f18 leading-relaxed text-t1">Equipment, tooling and material sourcing support forms part of F1 Know-How & Services. We review requirements within a technology-transfer, production-setup or improvement engagement.</p>
@@ -49,6 +54,7 @@ export default function SourcingDetail({ page }: { page: SourcingPage }) {
           </table>
         </div>
       </PageSection>
+      <KnowHowSupportSections sections={supportSections} />
       <PageSection id="acceptance" title="Resolve acceptance before placing an order">
         <ol className="grid gap-[16px] md:grid-cols-3">{page.checks.map((item, index) => <li key={item.title} className="rounded-card border border-border-default bg-bg2 p-[24px]"><p className="font-mono text-f12 text-teal-text">CHECK {index + 1}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{item.title}</h3><p className="mt-[12px] text-f16 leading-golden text-t2">{item.body}</p></li>)}</ol>
       </PageSection>
@@ -63,7 +69,7 @@ export default function SourcingDetail({ page }: { page: SourcingPage }) {
       </PageSection>
       <PageSection id="inquiry" title={`Discuss ${page.name}`} tone="deep">
         <div className="grid gap-[24px] lg:grid-cols-2">
-          <div><p className="max-w-[600px] text-f18 leading-relaxed text-white/85">Share the specification and destination. The next step is to define the equipment or material support needed within your Know-How engagement.</p><div className="mt-[24px]"><Button href={quoteHref}>Send a sourcing inquiry</Button></div><p className="mt-[16px] text-f14 text-white/75">Drawings and technical documents can follow after the initial contact.</p></div>
+          <div><p className="max-w-[600px] text-f18 leading-relaxed text-white/85">Share the specification and destination. The next step is to define the equipment or material support needed within your Know-How engagement.</p><div className="mt-[24px]"><Button href={quoteHref}>Send a sourcing inquiry</Button><Link href={briefHref} className="mt-[14px] block text-f14 font-semibold text-white underline underline-offset-4">Include this in a Know-How project brief →</Link></div><p className="mt-[16px] text-f14 text-white/75">Drawings and technical documents can follow after the initial contact.</p></div>
           <ul className="divide-y divide-white/15">{page.inputs.map((input, index) => <li key={input} className="flex gap-[12px] py-[12px] text-f16 leading-golden text-white"><span className="font-mono text-lime">{index + 1}</span>{input}</li>)}</ul>
         </div>
       </PageSection>

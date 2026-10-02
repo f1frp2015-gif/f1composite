@@ -21,7 +21,7 @@ export const sourcingPages: SourcingPage[] = [
     name: "Pultrusion Machines",
     group: "equipment",
     title: "Pultrusion Machines | Specification & Sourcing",
-    description: "Specify a pultrusion line around the profiles you plan to make. Review hydraulic or caterpillar pulling, resin handling, tooling and acceptance trials with F1.",
+    description: "Compare profile, rebar, rock-bolt and mesh pultrusion lines. Coordinate tooling, resin delivery, preforming, pulling, take-up and acceptance.",
     intro: "Specify a pultrusion line around the profiles you plan to make. Review hydraulic or caterpillar pulling, resin handling, tooling and acceptance trials with F1.",
     rows: [
       [
@@ -86,8 +86,8 @@ export const sourcingPages: SourcingPage[] = [
     slug: "pultrusion-dies",
     name: "Pultrusion Dies & Tooling",
     group: "equipment",
-    title: "Pultrusion Dies & Tooling | Specification & Sourcing",
-    description: "Specify pultrusion dies, mandrels and preformers by section drawing, material and line interfaces. Review tooling ownership, trials and acceptance.",
+    title: "Pultrusion Dies, Preformers & Fixtures | Know-How",
+    description: "Specify pultrusion dies, mandrels, preformers and production fixtures. Review profile families, tooling interfaces, inspection and handover.",
     intro: "Prepare a pultrusion die inquiry with the section drawing, resin system, reinforcement and line interfaces. Define tooling ownership, trial parts and acceptance.",
     rows: [
       [

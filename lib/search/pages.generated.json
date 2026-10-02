@@ -779,7 +779,7 @@
   {
     "path": "/sourcing/materials",
     "title": "Material Qualification & Sourcing",
-    "description": "Material qualification and sourcing support within F1 Know-How: glass reinforcement, mats, fabrics and gelcoat matched to your production process.",
+    "description": "Qualify resins, cure systems, glass reinforcement, release agents and additives with F1 Know-How. Connect the material BOM to tooling and trials.",
     "aliases": [
       "Material Qualification & Sourcing | Pultrusion Know-How"
     ]
@@ -794,16 +794,16 @@
   },
   {
     "path": "/sourcing/pultrusion-dies",
-    "title": "Pultrusion Dies & Tooling",
-    "description": "Specify pultrusion dies, mandrels and preformers by section drawing, material and line interfaces. Review tooling ownership, trials and acceptance.",
+    "title": "Pultrusion Dies, Preformers & Fixtures",
+    "description": "Specify pultrusion dies, mandrels, preformers and production fixtures. Review profile families, tooling interfaces, inspection and handover.",
     "aliases": [
-      "Pultrusion Dies & Tooling | Specification & Sourcing"
+      "Pultrusion Dies, Preformers & Fixtures | Know-How"
     ]
   },
   {
     "path": "/sourcing/pultrusion-machines",
     "title": "Pultrusion Machines",
-    "description": "Specify a pultrusion line around the profiles you plan to make. Review hydraulic or caterpillar pulling, resin handling, tooling and acceptance trials with F1.",
+    "description": "Compare profile, rebar, rock-bolt and mesh pultrusion lines. Coordinate tooling, resin delivery, preforming, pulling, take-up and acceptance.",
     "aliases": [
       "Pultrusion Machines | Specification & Sourcing"
     ]
@@ -915,7 +915,7 @@
   {
     "path": "/technology/knowhow-services",
     "title": "Pultrusion Tech Transfer & Consulting: Turnkey Lines",
-    "description": "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.",
+    "description": "Pultrusion know-how from tooling, preforming and materials to line setup, resin injection, trials, operator training and production handover.",
     "aliases": [
       "Pultrusion expertise, transferred to your operation"
     ]

@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import KnowHowWorkflow, { KnowHowAcceptance, KnowHowHandover } from "@/components/sourcing/KnowHowWorkflow";
+import KnowHowProjectBrief from "@/components/sourcing/KnowHowProjectBrief";
 import SourcingLinks from "@/components/sourcing/SourcingLinks";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -14,7 +17,7 @@ import { company } from "@/content/data/company";
 
 const pageTitle = "Pultrusion Tech Transfer & Consulting: Turnkey Lines";
 const pageDescription =
-  "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.";
+  "Pultrusion know-how from tooling, preforming and materials to line setup, resin injection, trials, operator training and production handover.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
 const updatedAt = "2026-10-02";
@@ -28,26 +31,11 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const faqItems = [
-  {
-    question: "What is pultrusion technology transfer?",
-    answer:
-      "Pultrusion technology transfer is the structured delivery of the complete knowledge package required to operate a pultrusion production line and manufacture fiber-reinforced polymer profiles to commercial quality standards. It encompasses die design methodology, resin formulation selection, process parameter development (pull speed, die temperatures, injection pressure), fiber architecture design, quality control procedures, and operator training. The goal is to enable the receiving organization to independently produce conforming FRP profiles without ongoing reliance on the technology provider. Our technology transfer programs include on-site commissioning support, recipe validation, and a defined post-handover technical assistance period.",
-  },
-  {
-    question: "How long does a typical pultrusion consulting engagement take?",
-    answer:
-      "The duration depends on the scope. A focused consulting engagement (such as optimizing an existing production line, troubleshooting a specific quality issue, or evaluating the feasibility of a new profile design) typically requires 2–4 weeks of on-site and remote work. A full technology transfer program, covering die design, recipe development, operator training, and production validation for a new pultrusion line, typically spans 3–6 months from kickoff to handover. A complete turnkey project, including equipment specification, procurement support, factory layout, installation supervision, and production commissioning, runs 8–14 months depending on equipment lead times and facility readiness.",
-  },
-  {
-    question: "Can F1 Composite help us start a new pultrusion operation from scratch?",
-    answer:
-      "Yes. Our Turnkey tier is specifically designed for organizations entering the pultrusion industry for the first time. We guide you through every step: market and product feasibility analysis, business case development, equipment specification and vendor selection, factory layout and utility planning, die design and procurement, raw material supplier qualification, operator recruitment support, hands-on training, process recipe development and validation, quality system setup, and production ramp-up to target volumes. We have successfully delivered turnkey pultrusion programs on four continents and can adapt the scope to your specific market, product range, and investment level.",
-  },
-  {
-    question: "What ongoing support is available after project handover?",
-    answer:
-      "Every engagement includes a defined post-handover support period, typically 3 months for Consulting, 6 months for Technology Transfer, and 12 months for Turnkey projects. During this period, our engineers are available for remote troubleshooting, recipe adjustments, and quality review via video conference and email. After the support period ends, we offer annual retainer agreements for ongoing technical assistance, as well as on-demand consulting for new product development, process optimization, or capacity expansion projects. Many of our technology transfer clients maintain a long-term advisory relationship as they expand their product range and production capacity.",
-  },
+  { question: "Can the engagement cover a complete production package?", answer: "The agreed scope can connect product development, material qualification, dies and preforming, equipment selection, injection, fabrication, trials and operator handover. The proposal names deliverables and responsibilities for F1, the suppliers and the receiving factory." },
+  { question: "Can we use our existing machines, molds or material suppliers?", answer: "Yes, start with an interface and capability review. Share the current line, tool drawings, material grades and quality records. The project can focus on an upgrade, a new section or local material qualification instead of a new line." },
+  { question: "How are timing, warranty and aftercare agreed?", answer: "The proposal sets milestones around design release, procurement, trials and site readiness. Support duration, on-site work, spare parts and equipment warranties are stated by responsible party; they depend on the purchased scope." },
+  { question: "Who owns drawings, process documents and recipes?", answer: "Ownership, permitted use, confidentiality and any supplier licensing are agreed before design and procurement. The handover list identifies the editable records and operating documents included in the engagement." },
+  { question: "Does accepting a line also certify our profiles?", answer: "No. Factory and site acceptance establish that the agreed equipment package performs as specified. Product qualification uses the exact profile, material and process against the project’s test requirements." },
 ];
 
 const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
@@ -55,8 +43,8 @@ const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 const tiers = [
   {
     name: "Consulting",
-    duration: "2–4 weeks",
-    support: "3 months",
+    duration: "Scope-based plan",
+    support: "Agreed in proposal",
     text: "Targeted advice for an existing operation or a new-market evaluation: recommendations you can act on, with no ongoing implementation commitment.",
     deliverables: [
       "Feasibility assessment for new profile designs or market applications",
@@ -69,23 +57,23 @@ const tiers = [
   },
   {
     name: "Technology transfer",
-    duration: "3–6 months",
-    support: "6 months",
+    duration: "Trial-based milestones",
+    support: "Agreed in proposal",
     text: "The complete knowledge package (die design, process recipes, quality systems and operator training) for independent production.",
     deliverables: [
       "Complete die design package (CAD, tolerances, chrome plating specifications)",
       "Resin formulation and mixing procedures with a qualified supplier list",
       "Validated process recipes (pull speed, die temperatures, injection pressure, fiber lay-up)",
-      "Operator training: classroom theory plus 2–3 weeks hands-on",
+      "Operator training with agreed classroom and practical competency checks",
       "Quality control procedures, test methods and acceptance criteria",
       "Production validation run with mechanical testing",
-      "Six months of remote technical support after handover",
+      "Remote support schedule and escalation contacts agreed for handover",
     ],
   },
   {
     name: "Turnkey",
-    duration: "8–14 months",
-    support: "12 months",
+    duration: "Project schedule",
+    support: "Agreed in proposal",
     text: "End-to-end delivery, from the business case through equipment installation to production ramp-up at target volumes.",
     deliverables: [
       "Market analysis and product range definition",
@@ -94,7 +82,7 @@ const tiers = [
       "The full technology transfer package (all tier 2 deliverables)",
       "On-site installation supervision and equipment commissioning",
       "Production ramp-up until the target output rate and quality are reached",
-      "Twelve months of remote and on-call support after handover",
+      "Agreed remote/on-site support and equipment-supplier warranty responsibilities",
     ],
   },
 ];
@@ -102,7 +90,7 @@ const tiers = [
 const steps = [
   {
     title: "Assessment",
-    meta: "1–2 weeks",
+    meta: "Define the baseline",
     text: "An evaluation of your situation, objectives and constraints. For a new operation: market analysis, product range and investment scoping. For an existing one: production audit, quality data review and equipment assessment. It ends with a documented scope and feasibility statement.",
   },
   {
@@ -117,8 +105,8 @@ const steps = [
   },
   {
     title: "Handover",
-    meta: "3–12 months support",
-    text: "Formal handover with the complete documentation, a production validation report and a defined support schedule, confirmed in a review meeting. The support period (3 to 12 months by tier) covers your team while it takes over.",
+    meta: "Agreed support plan",
+    text: "Formal handover with the complete documentation, a production validation report and a defined support schedule, confirmed in a review meeting. The support period and escalation process are agreed for the receiving team.",
   },
 ];
 
@@ -130,8 +118,8 @@ const advantages = [
   },
   {
     label: "Ownership",
-    title: "Your IP after handover",
-    text: "Recipes, die designs and procedures become your property at handover. No royalties and no licensing.",
+    title: "Clear document ownership",
+    text: "Drawing, recipe and procedure rights are defined before work starts, including any supplier licensing and confidentiality requirements.",
   },
   {
     label: "Method",
@@ -173,14 +161,16 @@ export default function KnowhowServicesPage() {
           </Figure>
         }
         title="Pultrusion expertise, transferred to your operation"
-        description="We do more than manufacture FRP profiles. We transfer the engineering knowledge, process recipes, and quality systems that enable our partners to build their own pultrusion capability."
+        description="Connect your product requirements to materials, dies, preforming, equipment, trials and operator handover. Build a defined support package for a new line, a new profile or an existing production process."
+        actions={{ primary: { label: "Build a project brief", href: "#project-brief" }, secondary: { label: "Explore the support modules", href: "#delivery-chain", variant: "secondary" }, stickyMobile: true }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
           { label: "Know-How & Services" },
         ]}
       />
-      <PageNav items={[{ id: "service-tiers", label: "Service tiers" }, { id: "engagement-process", label: "Engagement process" }, { id: "our-advantage", label: "Our advantage" }, { id: "faq", label: "FAQ" }, { id: "sourcing", label: "Equipment & materials" }]} />
+      <PageNav items={[{ id: "delivery-chain", label: "Support modules" }, { id: "service-tiers", label: "Engagement" }, { id: "acceptance", label: "Acceptance" }, { id: "handover", label: "Handover" }, { id: "sourcing", label: "Equipment & materials" }, { id: "project-brief", label: "Project brief" }, { id: "faq", label: "FAQ" }]} />
+      <KnowHowWorkflow />
       <PageSection id="service-tiers" title="Three levels of engagement" tone="white" intro="Choose the depth that matches your needs. Each tier ends with a defined period of support after handover.">
         <ol className="grid gap-[12px] lg:grid-cols-3">
           {tiers.map((tier, index) => (
@@ -236,11 +226,17 @@ export default function KnowhowServicesPage() {
         </ul>
       </PageSection>
 
+      <KnowHowAcceptance />
+      <KnowHowHandover />
+
       <PageSection id="faq" title="Frequently asked questions" tone="muted">
         <FAQList items={faqItems} />
       </PageSection>
 
       <SourcingLinks />
+      <PageSection id="project-brief" title="Build your Know-How project brief" intro="Choose the support you need and add the information you already have. Review the generated brief before continuing to the contact form.">
+        <Suspense fallback={<p className="text-f16 text-t2">Loading project brief…</p>}><KnowHowProjectBrief /></Suspense>
+      </PageSection>
 
       <RelatedLinks
         groups={[
@@ -266,7 +262,7 @@ export default function KnowhowServicesPage() {
         ]}
       />
 
-      <InnerCTA title="Ready to explore a know-how partnership?" />
+      <InnerCTA title="Ready to define your production project?" quoteHref="#project-brief" />
     </>
   );
 }
