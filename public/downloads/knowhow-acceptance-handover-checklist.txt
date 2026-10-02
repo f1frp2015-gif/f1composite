@@ -1,0 +1,51 @@
+F1 COMPOSITE — ACCEPTANCE AND HANDOVER CHECKLIST
+Project planning record. Set project-specific criteria before using this sheet.
+This checklist does not certify a machine or qualify a finished product.
+
+Project / revision / date:
+Equipment / tooling IDs:
+Material grades / lots:
+Responsible parties:
+
+For each item record: criterion | result | evidence | owner | open action.
+
+DESIGN RELEASE
+[ ] Product and inspection drawings approved
+[ ] Material candidates and qualification requirements agreed
+[ ] Tool / preformer / fixture drawings and interfaces agreed
+[ ] Scope, utilities and buyer/supplier responsibilities agreed
+[ ] FAT, SAT and product qualification plans approved
+
+FACTORY ACCEPTANCE (FAT)
+[ ] Delivered equipment configuration matches purchase scope
+[ ] Tooling IDs, mounting/alignment and guides checked
+[ ] Dosing / heating / controls checked to approved methods
+[ ] Representative materials and process records identified
+[ ] Agreed trial completed with sample and inspection records
+[ ] Deviations logged; corrective actions and release conditions agreed
+
+SITE ACCEPTANCE (SAT)
+[ ] Site utilities and receiving-factory readiness confirmed
+[ ] Installation and interface checks completed by responsible parties
+[ ] Local operation trial completed against agreed acceptance criteria
+[ ] Operator training and competency records complete
+[ ] Open items assigned with owner and completion date
+
+PRODUCT QUALIFICATION
+[ ] Named material / reinforcement / section / process identified
+[ ] Required product tests completed and reviewed
+[ ] Acceptance authority signs the product-release decision
+[ ] Changes and substitutions require the agreed review process
+
+HANDOVER AND AFTERCARE
+[ ] Approved drawings and material BOM delivered
+[ ] Trial, inspection and product-test records delivered
+[ ] Supplier manuals and control/document access confirmed
+[ ] Wear parts, spares and maintenance schedule agreed
+[ ] Ownership / licensing / confidentiality terms recorded
+[ ] Support contacts, duration and warranty responsibilities identified
+[ ] Handover signed; remaining actions recorded
+
+F1 coordination and supplier responsibilities follow the signed engagement.
+Contact: inquiry@f1composite.com
+https://www.f1composite.com/technology/knowhow-services

@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
   title: "Material Qualification & Sourcing | Pultrusion Know-How",
-  description: "Material qualification and sourcing support within F1 Know-How: glass reinforcement, mats, fabrics and gelcoat matched to your production process.",
+  description: "Qualify resins, cure systems, glass reinforcement, release agents and additives with F1 Know-How. Connect the material BOM to tooling and trials.",
   path: "/sourcing/materials",
 });
 

@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
   title: "Pultrusion Machines | Specification & Sourcing",
-  description: "Specify a pultrusion line around the profiles you plan to make. Review hydraulic or caterpillar pulling, resin handling, tooling and acceptance trials with F1.",
+  description: "Compare profile, rebar, rock-bolt and mesh pultrusion lines. Coordinate tooling, resin delivery, preforming, pulling, take-up and acceptance.",
   path: "/sourcing/pultrusion-machines",
 });
 

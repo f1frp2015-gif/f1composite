@@ -1,0 +1,44 @@
+F1 COMPOSITE — KNOW-HOW PROJECT SCOPE TEMPLATE
+Planning worksheet. Complete what is known; identify items requiring review.
+
+Project / revision / date:
+Contact / company / factory location:
+Objective: new line / new profile / process upgrade / localization
+
+1. PRODUCT AND ACCEPTANCE
+Product drawing and revision:
+Cross-section, length and volume / target output:
+Service conditions and required product tests:
+Critical dimensions, appearance and mating interfaces:
+
+2. MATERIAL PACKAGE
+Resin / cure system / supplier grade:
+Roving, mat, fabric and veil grades:
+Release agents, fillers, pigments or functional additives:
+Technical and safety documents available:
+Proposed trial lots and qualification criteria:
+
+3. TOOLING, PREFORMING AND FIXTURES
+Die, mandrel and forming sequence:
+Creel / fiber routing / guide plates:
+Mounting, puller contacts, cutting/drilling and inspection fixtures:
+Tool ownership, drawings and replaceable components:
+
+4. EQUIPMENT AND FACTORY
+Existing or proposed line and modules:
+Bath or injection, component ratio basis and dosing interface:
+Heating, pulling, cooling, cutting or take-up:
+Power, air, cooling, extraction, layout and handling:
+Included equipment / buyer-supplied interfaces:
+
+5. TRIALS, ACCEPTANCE AND HANDOVER
+Factory trial: materials, duration/quantity, checks and acceptance criteria:
+Site readiness / installation checks / site acceptance:
+Product qualification methods and responsible laboratory:
+Training, operating documents, spare parts and maintenance:
+Support duration, warranty parties and escalation contacts:
+Open issues / owner / due date:
+
+Proposed supplier and final scope are confirmed in the project quotation.
+Contact: inquiry@f1composite.com
+https://www.f1composite.com/technology/knowhow-services
