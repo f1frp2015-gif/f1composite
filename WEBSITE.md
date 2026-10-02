@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-10-02（报告核验页、价格接口防护）
+> 最后更新: 2026-10-02（自有照片水印与版权信息、商标方案）
 
 ---
 
@@ -289,6 +289,7 @@ f1composite.com
 - **检测报告数据**：证据页（`/resources/evidence`）的结果表来自 `content/data/engineeringEvidence.ts` 的 `reportedResults`；光伏边框和 UL 94 报告的数据在 `content/data/pvFrameEvidence.ts`，光伏页和证据库共用。TÜV Rheinland 和 Intertek 报告限制摘录复制，结果表只写报告结论，不新增测量值摘录（测试检查）。
 - **报告核验页与原件**：每份第三方报告/证书在 `/resources/evidence/[slug]` 有核验页，数据在 `content/data/reportVerification.ts`（持证方、报告号、机构印在报告上的核验方式，全部照原文）。实验室原件必须原样发布，不加水印、不改字节：多份带数字签名，Intertek 和无锡检测院写明涂改无效；`scripts/evidence-protection.test.mjs` 锁定原件哈希。F1 的英文注释副本可以加注，用 `scripts/stamp-annotated-reports.py` 在右侧注释栏底部写持证方和核验网址。核验页的 SHA-256 和文件大小在构建时从 `public/` 读取。
 - **价格与目录接口**：`/api/profile-price` 只接受本站页面的请求（`lib/browserRequest.ts` 同源校验），每个 IP 5 分钟 90 次、每天 400 次；`/api/catalog` 每个 IP 10 分钟 30 次。限流计数在单个实例内存中（`lib/rateLimit.ts`），要全局生效需换 Upstash 或 Vercel KV。
+- **图片使用条款**：`/terms#image-use` 说明自有照片的版权和授权方式，是照片元数据里的权利说明网址，改动锚点时同步改 `ownedPhotos.ts`（测试检查）。
 - **Cookie**：Consent Mode v2，欧洲经济区/英国/瑞士默认拒绝；横幅按欧洲时区显示，页脚"Cookie settings"可随时修改。隐私政策在 `/privacy`。
 - **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
 - **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。
@@ -404,7 +405,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 - **规则**：卡片显示它所链接页面自己的主图；产品显示产品本身。封面登记在 `lib/covers.ts` 的各个注册表（产品、行业、应用、工具、案例、技术、地区、资源），卡片用 `coverFor(href)` 取图，`CoverCard` 负责版式。案例总览、首页资源区、作者页文章、案例页的"Products used"、建筑行业页的补充部件都已改用封面卡。
 - **图片来源标签**：照片的 `note` 写来源：Project photo、Production photo、Supplier photo、Reference photo、Catalog photo，图库照片写 Illustrative photo；图纸写图纸状态（默认 Schematic · not to scale，或 Concept drawing、Manual drawing 等）。博客文章封面若是文章自己的数据表或证书（自带标题），`coverNote` 留空，否则角标会盖住文件抬头。
 - **AI 生成图和渲染图不加提示**（2026-09-28 起）：角标、图注和 alt 都不写 "AI concept"、"AI-generated"、"Rendering"、"Visualization"、"Concept …" 之类的字样，只描述画面和设计要求（如"最终构件和连接按项目设计确定"）。文字也不能把这类图说成 F1 的项目、工厂或实拍照片。`Figure` 的照片图版（`bleed`）不传 `note` 就没有角标；产品视图等非照片图版用 `note={null}`，否则会显示默认的 Schematic。带生成工具水印的图片不要上线，也不要裁掉或修掉水印，换一张图。`scripts/covers.test.mjs` 会检查这些字样。
-- **公司与生产照片**：只用集团自己的照片（`public/images/technology/f1-composite-*`），说明写"FengDu 工厂"；图库照片不能代表 F1 的工厂或项目。
+- **公司与生产照片**：只用集团自己的照片，说明写"FengDu 工厂"；图库照片不能代表 F1 的工厂或项目。集团自有照片登记在 `content/data/ownedPhotos.ts`，放在 `/images/f1-photos/`，带右下角 "© f1composite.com" 水印和 XMP/EXIF 版权信息（`node scripts/mark-owned-photos.mjs` 生成，位置规则在 `lib/photoMark.ts`，保证各种裁切下水印不会只露半截）。图库、供应商、目录和来源有争议的照片不进这个清单。
 - **更换图片内容时换文件名**：Next 的图片优化按网址缓存，覆盖同名文件后开发环境和线上都可能继续显示旧图。
 - **测试**：`scripts/covers.test.mjs` 检查每个注册封面的文件都存在、alt 文字完整、`coverFor` 取到的是它；52 篇博客的封面各不相同，也不与任何卡片封面重复；图片标注里没有 AI 生成或渲染的字样。
 - **概念图**：`components/sections/ConceptAnimations.tsx` 的动画图在页面里用 `bare` 属性放进带编号的 `Figure`，标题和图号由图版提供。
@@ -435,6 +436,10 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 | 优先级 | 事项 | 状态 |
 |--------|------|------|
+| 最高 | GitHub 仓库 `f1frp2015-gif/f1composite` 目前是公开的：整站源码、价格引擎系数和无水印原图任何人都能下载。请在 GitHub → Settings → General → Danger Zone 改为 Private，改后确认 Vercel 正常部署、Actions 用量在套餐内。说明见 `docs/audits/2026-10-02-photo-marks-and-trademark-plan.md` 第〇节 | 待操作 |
+| 高 | 商标申请：先定申请人、中国基础注册、logo 文字（logo 写 "F1 COMPOSITES"，品牌是 "F1 Composite"）和产品线名，再由代理按方案提交（建议第 19、17 类，马德里指定美、欧、英、澳、加，海湾国家视预算）。方案、官费和 Formula One 冲突风险见同一文档第二节 | 待决定 |
+| 中 | 照片标签冲突：`f1-composite-quality-testing-laboratory.webp` 在关于我们页标为集团实验室的 Production photo，其他页标为 Illustrative photo；`frp-passive-house-windows-canada.jpg` 封面标为 Production photo，画面是摆拍雪景窗户。请确认来源后统一标签 | 待确认 |
+| 低 | 重庆屋顶光伏案例照片（`frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp`）如为 F1 自拍，可加入 `ownedPhotos.ts` 打标 | 待确认 |
 | 高 | 把 116 张未引用图片移出 `public/`，之后把 `test:images` 加入 CI。2026-09-26 已先删除 `/images/hero/` 下 5 张与公司无关的图片（头灯、音频线广告等）。2026-09-28 桥面板设计文章的配图 `public/images/case-studies/frp-bridge.jpg` 右下角带生成工具的 "ai" 水印，已换成应用页的桥面板图，该文件随未引用图片一并移出 | 待确认 |
 | 高 | 风渡的英文法定名称（目前 schema 只用品牌名 FengDu New Material） | 待确认 |
 | 中 | 三个保留案例（european-bridge-deck / coastal-marina-walkway / water-treatment-cable-tray）的事实核实。码头案例（英国）配图仍是沙漠峡谷里的湖泊码头（标为 Illustrative photo），需换成项目实拍。水厂案例总览卡片已改用案例页的水厂航拍（Illustrative photo）；原烟囱排污图库照片 `public/images/case-studies/frp-water-treatment-cable-tray-handrail.jpg` 已无引用，可随未引用图片一并移出 | 待核实 |

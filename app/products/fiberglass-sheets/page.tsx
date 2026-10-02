@@ -105,7 +105,7 @@ export default function FiberglassSheetsPage() {
           name: "Fiberglass Sheets (Pultruded Solid Flat Stock)",
           description: pageDescription,
           path: pagePath,
-          image: "/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp",
+          image: "/images/f1-photos/pultruded-fiberglass-sheet-black-surface.webp",
           category: "Solid pultruded FRP sheet",
           productLine: "F1-FORM",
           material: ["E-glass fiber", "Isophthalic polyester resin", "Vinyl ester resin", "Fire-retardant polyester resin"],
@@ -137,7 +137,7 @@ export default function FiberglassSheetsPage() {
           <Figure number={1} title="Solid sheet surface" note="Production photo" caption="Finished black pultruded fiberglass sheet surface during production." bleed>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp"
+                src="/images/f1-photos/pultruded-fiberglass-sheet-black-surface.webp"
                 alt="Black pultruded fiberglass sheet with a finished surface on the production line"
                 fill
                 sizes="(max-width: 1023px) 94vw, 44vw"
@@ -206,7 +206,7 @@ export default function FiberglassSheetsPage() {
           <Figure number={2} title="Formed-edge sample" note="Production photo" caption="Thin-wall sample with formed returns; confirm flat-sheet versus shaped-profile scope on the approved drawing." bleed>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/products/fiberglass-sheets/pultruded-frp-sheet-formed-edge-sample.webp"
+                src="/images/f1-photos/pultruded-frp-sheet-formed-edge-sample.webp"
                 alt="Black pultruded FRP sheet-program sample with thin walls and formed return edges"
                 fill
                 sizes="(max-width: 1023px) 94vw, 44vw"

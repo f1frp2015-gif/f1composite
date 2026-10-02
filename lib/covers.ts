@@ -72,7 +72,7 @@ export const productCovers = {
   "/products/frp-handrail-systems": { src: "/images/products/frp-handrail-systems/fiberglass-handrail-industrial-platform.webp", alt: "Yellow fiberglass handrails around industrial platforms and stairs", note: "Reference photo" },
   "/products/frp-ladders": { src: "/images/products/frp-ladders/fiberglass-fixed-ladder-cage.webp", alt: "Yellow fiberglass fixed ladder with cage hoops", note: "Reference photo" },
   "/products/frp-stair-treads": { src: "/images/products/frp-stair-treads/frp-stair-tread-covers-installed.webp", alt: "Black gritted fiberglass stair tread covers with yellow nosings", note: "Supplier photo" },
-  "/products/frp-pultrusion-manufacturer-factory-direct": { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "F1 Composite pultrusion hall with rows of pultrusion lines" },
+  "/products/frp-pultrusion-manufacturer-factory-direct": { src: "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "F1 Composite pultrusion hall with rows of pultrusion lines" },
 } satisfies Record<string, Cover>;
 
 // Industry pages keep their header image in industryPages.ts; the three guides
@@ -146,7 +146,7 @@ export const caseStudyCovers = {
   "/case-studies/baotou-industrial-gfrp-pu-windows": project("frp-baotou-industrial-park-aerial.webp", "Baotou industrial park, with workshop buildings, rooftop PV and an office block"),
   "/case-studies/wanhua-yantai-zero-carbon-windows": project("frp-wanhua-yantai-zero-carbon-community-aerial.webp", "Wanhua Yantai zero-carbon community seen from above"),
   "/case-studies/chongqing-rooftop-pv-frp-rail": project("frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp", "PV modules on pultruded FRP rails over a blue color steel-tile factory roof in Chongqing", "Project photo"),
-  "/case-studies/factory-access-staircase": project("frp-factory-access-staircase-hero.webp", "FRP access staircase and platform with orange handrails inside F1 Composite's Chongqing plant", "Project photo"),
+  "/case-studies/factory-access-staircase": { src: "/images/f1-photos/frp-factory-access-staircase-hero.webp", alt: "FRP access staircase and platform with orange handrails inside F1 Composite's Chongqing plant", note: "Project photo" },
   "/case-studies/european-bridge-deck": project("frp-bridge-deck-replacement-infrastructure-project.jpg", "Covered pedestrian bridge with curved timber slats and a white steel arch", ILLUSTRATIVE),
   "/case-studies/coastal-marina-walkway": project("frp-coastal-marina-walkway-grating-system.jpg", "Paved walkway with steel railings leading down to a marina on a lake", ILLUSTRATIVE),
   "/case-studies/water-treatment-cable-tray": project("frp-water-treatment-plant-aerial-cable-tray-handrail.webp", "Aerial view of circular clarifiers and rectangular basins at a water treatment plant", ILLUSTRATIVE),
@@ -169,13 +169,13 @@ export const technologyCovers = {
   "/sourcing/materials": { src: "/images/sourcing/materials.svg", alt: "Sourcing specification and qualification workflow" },
 
   "/technology/pultruded-profile-performance": { src: "/images/technology/frp-profile-engineering-drawing-3d-view.jpg", alt: "Dimensioned drawing and 3D view of a custom pultruded FRP profile", fit: "contain" },
-  "/technology/pultrusion-process": { src: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp", alt: "Parallel pultrusion lines in production at an F1 Composite plant", note: "Production photo" },
+  "/technology/pultrusion-process": { src: "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp", alt: "Parallel pultrusion lines in production at an F1 Composite plant", note: "Production photo" },
   "/technology/frp-vs-traditional-materials": { src: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg", alt: "Surfaces of FRP, steel, timber and galvanized steel side by side", note: ILLUSTRATIVE },
   "/technology/fiberglass-rebar-vs-steel": { src: "/images/products/frp-rebar/gfrp-straight-bars.webp", alt: "Helically surfaced GFRP reinforcing bars", note: "Supplier photo" },
   "/technology/pultrusion-resin-systems": { src: "/images/technology/resin-formulation-laboratory-testing.jpg", alt: "Resin samples dispensed into test tubes in a laboratory", note: ILLUSTRATIVE },
   "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain" },
   "/technology/quality-testing": { src: "/images/technology/f1-composite-quality-testing-laboratory.webp", alt: "Technician at work in a materials testing laboratory", note: ILLUSTRATIVE },
-  "/technology/knowhow-services": { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "Pultrusion lines in an F1 Composite production hall", note: "Production photo" },
+  "/technology/knowhow-services": { src: "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "Pultrusion lines in an F1 Composite production hall", note: "Production photo" },
   // Comparison pages open on a table rather than a picture, so their cards show it.
   "/technology/frp-vs-aluminum-windows": { src: "/images/covers/technology/vs-aluminum-windows.webp", alt: "Table comparing FRP and thermally broken aluminum window frame properties", position: "left top" },
   "/technology/frp-vs-pvc-windows": { src: "/images/covers/technology/vs-pvc-windows.webp", alt: "Table comparing FRP and uPVC window frame properties", position: "left top" },
@@ -188,7 +188,7 @@ export const technologyCovers = {
 // Market pages open on their header figure, so the hub shows the same picture
 // with the same note. The pages read their figure from here.
 export const regionCovers = {
-  "/regions/frp-pultrusion-supplier-usa": { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
+  "/regions/frp-pultrusion-supplier-usa": { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
   "/regions/frp-passive-house-windows-canada": { src: "/images/regions/frp-passive-house-windows-canada.jpg", alt: "Snow-covered trees and icicles seen through a window in winter", note: ILLUSTRATIVE },
   "/regions/frp-passive-house-windows-germany": { src: "/images/regions/frp-passive-house-windows-germany.jpg", alt: "Detached modern house with large windows and a timber-clad upper floor", note: ILLUSTRATIVE },
   "/regions/grp-windows-uk": { src: "/images/regions/grp-windows-uk.jpg", alt: "Office facade with dark window frames in a repeating grid", note: ILLUSTRATIVE },

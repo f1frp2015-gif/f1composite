@@ -30,7 +30,7 @@ export const factoryStaircase: Omit<ApplicationCard, "used"> = {
   kind: "Case study",
   title: "Factory access staircase",
   text: "A bolted FRP stair in our Chongqing plant, assembled by four people with hand tools: no welding, hot work or crane.",
-  image: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+  image: "/images/f1-photos/frp-factory-staircase-structural-view.webp",
   imageAlt: "FRP I-beam stringers and pultruded profiles forming a staircase frame in F1 Composite's factory",
   note: "Project photo",
 };

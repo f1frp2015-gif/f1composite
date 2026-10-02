@@ -103,7 +103,7 @@ export default function FactoryDirectPultrusionPage() {
           name: "Factory-direct FRP pultrusion manufacturing and export supply",
           description: seoTarget.description,
           path: pagePath,
-          image: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
+          image: "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp",
           category: "FRP pultrusion manufacturer",
           material: ["E-glass reinforced polymer", "Polyester resin", "Vinyl ester resin", "Polyurethane resin"],
           schemaType: "WebPage",
@@ -129,7 +129,7 @@ export default function FactoryDirectPultrusionPage() {
           <Figure number={1} title="Pultrusion lines" note="Production photo" caption="Pultrusion lines in FengDu's production network; F1 Composite is its export company." bleed>
             <div className="relative aspect-[16/10]">
               <Image
-                src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                src="/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"
                 alt="F1 Composite pultrusion manufacturing lines used for factory-direct FRP profile supply"
                 fill
                 preload

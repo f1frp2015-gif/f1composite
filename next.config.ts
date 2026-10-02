@@ -131,6 +131,19 @@ const IMAGE_ASSET_REDIRECTS = [
   ["/images/industries/frp-infrastructure-pultruded-profiles-rendering.webp", "/images/industries/frp-infrastructure-pedestrian-bridge.webp"],
   ["/images/covers/blog/frp-i-beam-render.webp", "/images/covers/blog/frp-i-beam-section.webp"],
   ["/images/case-studies/frp-baotou-industrial-park-aerial-rendering.webp", "/images/case-studies/frp-baotou-industrial-park-aerial.webp"],
+  // The group's own photos, re-issued with the f1composite.com mark and
+  // copyright metadata (content/data/ownedPhotos.ts).
+  ["/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"],
+  ["/images/technology/f1-composite-pultrusion-plant-floor.webp", "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp"],
+  ["/images/technology/f1-composite-pultrusion-production-line-aerial.webp", "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"],
+  ["/images/case-studies/frp-factory-access-staircase-hero.webp", "/images/f1-photos/frp-factory-access-staircase-hero.webp"],
+  ["/images/case-studies/frp-factory-staircase-assembly-detail.webp", "/images/f1-photos/frp-factory-staircase-assembly-detail.webp"],
+  ["/images/case-studies/frp-factory-staircase-grating-treads.webp", "/images/f1-photos/frp-factory-staircase-grating-treads.webp"],
+  ["/images/case-studies/frp-factory-staircase-platform-handrail.webp", "/images/f1-photos/frp-factory-staircase-platform-handrail.webp"],
+  ["/images/case-studies/frp-factory-staircase-structural-view.webp", "/images/f1-photos/frp-factory-staircase-structural-view.webp"],
+  ["/images/products/fiberglass-sheets/pultruded-fiberglass-sheet-black-surface.webp", "/images/f1-photos/pultruded-fiberglass-sheet-black-surface.webp"],
+  ["/images/products/fiberglass-sheets/pultruded-frp-sheet-formed-edge-sample.webp", "/images/f1-photos/pultruded-frp-sheet-formed-edge-sample.webp"],
+  ["/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp", "/images/f1-photos/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp"],
 ] as const;
 
 const nextConfig: NextConfig = {

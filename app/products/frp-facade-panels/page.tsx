@@ -371,7 +371,7 @@ export default function FacadeSunshadePanelsPage() {
           description:
             "Multi-layer fabric-reinforced pultruded FRP plates with full-section modulus up to 40 GPa (E40) for curtain-wall sunshades: vertical fins, horizontal louvers, and custom blade sections.",
           path: pagePath,
-          image: "/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp",
+          image: "/images/f1-photos/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp",
           category: "FRP Facade Sunshade and Solar Shading Panels",
           // Indicative per-meter blade band (basis: ~10 kg/m for a 250×20 E40 blade
           // across the 6–14 kg/m section range). Routes to /contact for a firm quote.
@@ -409,7 +409,7 @@ export default function FacadeSunshadePanelsPage() {
           <Figure number={1} title="The E40 plate as pultruded" note="Production photo" caption="A multi-layer fabric-reinforced plate on the pultrusion line, before finishing." bleed>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/products/facade-sunshade/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp"
+                src="/images/f1-photos/pultruded-frp-sunshade-plate-multilayer-fabric-e40.webp"
                 alt="Multi-layer fabric-reinforced pultruded FRP sunshade plate on the pultrusion line at F1 Composite"
                 fill
                 preload

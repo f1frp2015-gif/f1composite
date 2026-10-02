@@ -91,7 +91,7 @@ export default async function ChannelPage() {
             <HeroPhotos
               photos={[
                 { src: "/images/products/channel/frp-channel-profile-200x60x12mm.webp", alt: "Pultruded FRP channel", caption: "U 200×60×12" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>

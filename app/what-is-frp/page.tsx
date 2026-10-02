@@ -114,7 +114,7 @@ const decisionPaths = [
       "Send the section, quantity, service environment, and destination for an engineering review and a scoped export quotation.",
     href: "/contact?source=what-is-frp-decision-path&inquiry_type=rfq",
     label: "Request a project quote",
-    cover: { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
+    cover: { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
   },
 ] as const;
 

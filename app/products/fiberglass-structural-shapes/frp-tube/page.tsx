@@ -110,7 +110,7 @@ export default async function TubePage() {
             <HeroPhotos
               photos={[
                 { src: "/images/products/round-tube/frp-round-tube-photo.webp", alt: "Pultruded FRP round tube", caption: "Round tube", fit: "contain" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>
