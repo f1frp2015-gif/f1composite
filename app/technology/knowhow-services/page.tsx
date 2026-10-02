@@ -17,7 +17,7 @@ const pageDescription =
   "Pultrusion technology transfer and consulting: feasibility, die design, line setup, commissioning and EN 13706 quality handover, backed by FengDu's 370 lines.";
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
-const updatedAt = "2026-07-07";
+const updatedAt = "2026-10-02";
 const standards = ["ISO 9001:2015", "EN 13706", "ASTM D3917", "EN 10204 Type 3.1"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -180,7 +180,7 @@ export default function KnowhowServicesPage() {
           { label: "Know-How & Services" },
         ]}
       />
-      <PageNav items={[{ id: "service-tiers", label: "Service tiers" }, { id: "engagement-process", label: "Engagement process" }, { id: "our-advantage", label: "Our advantage" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "service-tiers", label: "Service tiers" }, { id: "engagement-process", label: "Engagement process" }, { id: "our-advantage", label: "Our advantage" }, { id: "faq", label: "FAQ" }, { id: "sourcing", label: "Equipment & materials" }]} />
       <PageSection id="service-tiers" title="Three levels of engagement" tone="white" intro="Choose the depth that matches your needs. Each tier ends with a defined period of support after handover.">
         <ol className="grid gap-[12px] lg:grid-cols-3">
           {tiers.map((tier, index) => (

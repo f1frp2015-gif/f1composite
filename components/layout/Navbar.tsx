@@ -13,6 +13,7 @@ const items: readonly NavItem[] = mainNav;
 
 function pathMatches(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
+  if (href === "/technology/knowhow-services" && pathname.startsWith("/sourcing/")) return true;
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 

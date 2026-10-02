@@ -746,8 +746,11 @@
   },
   {
     "path": "/sourcing/equipment",
-    "title": "Composite Equipment & Tooling Sourcing",
-    "description": "Specify pultrusion lines, dies, resin mixing, pullwinding, slitters, SMC equipment and BMC tooling. Review sourcing, interfaces and acceptance with F1."
+    "title": "Equipment & Tooling Support",
+    "description": "Equipment and tooling support within F1 Know-How: line specifications, die interfaces, sourcing and acceptance for technology-transfer projects.",
+    "aliases": [
+      "Equipment & Tooling Support | Pultrusion Know-How"
+    ]
   },
   {
     "path": "/sourcing/fiberglass-direct-roving",
@@ -775,8 +778,11 @@
   },
   {
     "path": "/sourcing/materials",
-    "title": "Composite Raw Material Sourcing",
-    "description": "Specify fiberglass direct roving, mat, surface veil, stitched fabrics and gelcoat. Review grade compatibility, qualification, lot documents and delivery."
+    "title": "Material Qualification & Sourcing",
+    "description": "Material qualification and sourcing support within F1 Know-How: glass reinforcement, mats, fabrics and gelcoat matched to your production process.",
+    "aliases": [
+      "Material Qualification & Sourcing | Pultrusion Know-How"
+    ]
   },
   {
     "path": "/sourcing/pullwinding-equipment",
