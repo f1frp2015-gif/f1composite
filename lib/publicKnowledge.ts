@@ -4,6 +4,7 @@ import { productFamilies as commercialFamilies, applicationGroups, taxonomyRevis
 import { windowProcurement } from "@/content/data/windowProcurement";
 import { doorThresholds } from "@/content/data/doorThresholds";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
+import { verificationForEvidence, verificationPath } from "@/content/data/reportVerification";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
 
@@ -404,7 +405,14 @@ export function buildPublicKnowledge() {
         year: "2024",
       },
     ],
-    downloadableEvidence: engineeringEvidence.map((item) => ({ ...item, url: `${SITE}${item.file}` })),
+    downloadableEvidence: engineeringEvidence.map((item) => {
+      const verification = verificationForEvidence(item.id);
+      return {
+        ...item,
+        url: `${SITE}${item.file}`,
+        ...(verification && { holder: verification.holder, issuer: verification.issuer, verificationUrl: `${SITE}${verificationPath(verification.slug)}` }),
+      };
+    }),
   };
 
   return payload;

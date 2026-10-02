@@ -8,6 +8,7 @@ import generatedPages from "./pages.generated.json";
 import type { SearchEntry, SearchKind } from "./types";
 import { blogPosts } from "@/content/data/blogPosts";
 import { engineeringEvidence } from "@/content/data/engineeringEvidence";
+import { reportVerifications, verificationDescription, verificationPath, verificationTitle } from "@/content/data/reportVerification";
 import { glossaryTerms } from "@/content/data/glossary";
 import { productFamilies } from "@/content/data/productTaxonomy";
 import { applicationPages } from "@/lib/applicationPages";
@@ -123,6 +124,18 @@ function documentEntries(): SearchEntry[] {
       summary: `${record.kind} · ${record.reference} · ${record.productLabel}`,
       keywords: clip(record.scope, 400),
       badge: "PDF",
+    });
+  }
+  // A report number typed into search finds the page that says how to check it.
+  for (const item of reportVerifications) {
+    entries.push({
+      id: `verify:${item.slug}`,
+      kind: "document",
+      title: verificationTitle(item),
+      url: verificationPath(item.slug),
+      summary: clip(verificationDescription(item), 160),
+      keywords: clip(`${item.reference} ${item.otherReferences.map((ref) => ref.value).join(" ")} ${item.issuer} ${item.holder} verify authenticity`, 400),
+      badge: "Verify",
     });
   }
   return entries;

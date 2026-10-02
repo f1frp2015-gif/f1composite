@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-09-28（工具第二轮）
+> 最后更新: 2026-10-02（报告核验页、价格接口防护）
 
 ---
 
@@ -229,6 +229,8 @@ f1composite.com
 | `/resources/technical-data` | "FRP mechanical properties" / 数据表 |
 | `/resources/design-guides` | "FRP design guide" |
 | `/resources/downloads` | "FRP catalog PDF" / "FRP CAD download" |
+| `/resources/evidence` | "FRP test reports" / 证据库索引 |
+| `/resources/evidence/[slug]` | 报告编号长尾："Intertek 240821010SHF-001"、"SGS GZMR260702529004" 等：持证方、机构核验方式、文件 SHA-256 |
 
 ### 链接规则（在 PR review 时检查）
 1. **Application page (`/applications/*`) 永远不写"who buys this"画像**——那是 industry 的工作。Application 写"用什么型材+哪种树脂+哪些标准"。
@@ -285,6 +287,8 @@ f1composite.com
 - **内链归属**：`content/data/seoQueryTargets.ts` 为每个核心搜索词指定一个主页面，列在 `supportingUrls` 里的辅助页必须在正文里链回主页面。`npm run check:owner-links`（CI 在构建后运行）检查这一点；新增辅助页或改动相关链接时同步更新这个文件。
 - **页头日期**：`PageHeader` 的 `updated` 显示 "Last updated"，必须和该页 JSON-LD 的 `dateModified` 用同一个常量（`scripts/geo-citability.test.mjs` 检查）。只有改写文案、增删内容区块时才更新日期；只加链接不算。
 - **检测报告数据**：证据页（`/resources/evidence`）的结果表来自 `content/data/engineeringEvidence.ts` 的 `reportedResults`；光伏边框和 UL 94 报告的数据在 `content/data/pvFrameEvidence.ts`，光伏页和证据库共用。TÜV Rheinland 和 Intertek 报告限制摘录复制，结果表只写报告结论，不新增测量值摘录（测试检查）。
+- **报告核验页与原件**：每份第三方报告/证书在 `/resources/evidence/[slug]` 有核验页，数据在 `content/data/reportVerification.ts`（持证方、报告号、机构印在报告上的核验方式，全部照原文）。实验室原件必须原样发布，不加水印、不改字节：多份带数字签名，Intertek 和无锡检测院写明涂改无效；`scripts/evidence-protection.test.mjs` 锁定原件哈希。F1 的英文注释副本可以加注，用 `scripts/stamp-annotated-reports.py` 在右侧注释栏底部写持证方和核验网址。核验页的 SHA-256 和文件大小在构建时从 `public/` 读取。
+- **价格与目录接口**：`/api/profile-price` 只接受本站页面的请求（`lib/browserRequest.ts` 同源校验），每个 IP 5 分钟 90 次、每天 400 次；`/api/catalog` 每个 IP 10 分钟 30 次。限流计数在单个实例内存中（`lib/rateLimit.ts`），要全局生效需换 Upstash 或 Vercel KV。
 - **Cookie**：Consent Mode v2，欧洲经济区/英国/瑞士默认拒绝；横幅按欧洲时区显示，页脚"Cookie settings"可随时修改。隐私政策在 `/privacy`。
 - **联系渠道与事件**：WhatsApp 号码写在 `company.ts` 的 `contact.whatsapp`，按钮统一用 `components/contact/WhatsAppButton`（产品页标题区、手机底部条、InnerCTA、联系页、页脚）。点击 WhatsApp、邮件、电话链接分别发送 GA4 事件 `whatsapp_click`、`email_click`、`phone_click`（参数 `link_location`、`page_path`）；询价成功发送 `rfq_submit_success` 和 Google Ads 转化。
 - **CSP**：`next.config.ts` 的 Content-Security-Policy 已放行 Google Ads 转化和再营销请求。新增第三方脚本、像素或嵌入内容时，同时更新 CSP，否则浏览器会静默拦截。
@@ -449,5 +453,10 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 高 | 目录公布单重按名义截面折算密度为 1.35–2.0 g/cm³（中位 1.56），与公布密度 1.9 g/cm³ 不符；设计手册 Rev. B 和规格书照印公布单重并注明。需按实际截面或过磅复核 `lib/catalog/standardProfiles.ts` 的单重或公布密度 | 待核实 |
 | 中 | 设计手册待补数据：螺栓连接承载力（手册不列承压值，等 ASCE/SEI 74-23 第 8 章核实）；紫外（ISO 4892-2 / ASTM G154）、防火（按配方的 ASTM E84 / UL 94 报告）、浸泡（ASTM D543 / ISO 175）试验结果。数据进站内数据文件后 `npm run build:manual` 重新生成并提交 PDF | 待提供数据 |
 | 高 | 目录护栏立柱按 OSHA 200 lb 筛查超限（50×50×6.4 方管 119%，50×5 圆管 237%），建议准备整体试验报告，并复核圆管立柱规格；目录爬梯外宽 500 mm 时净宽约 398 mm，低于 OSHA 406 mm 和 EN ISO 14122-4 400 mm，需按图纸确认 | 待决定 |
+| 高 | TÜV Rheinland 报告 CN24KZ3A 002/003：报告写明"仅数字签名"，但站上的 PDF 没有内嵌签名，买家无法在 Acrobat 里核验。请向 TÜV 索取带签名的原版替换（替换后更新 `scripts/evidence-protection.test.mjs` 中的哈希），核验页现已如实说明 | 待提供文件 |
+| 高 | 报告使用许可：TÜV 报告附加条款第 4 条要求客户为广告目的公开或复制须事先取得书面同意；Intertek 声明第 5 条要求在销售或广告中使用 Intertek 名称须事先书面批准。网站公开这些报告并在标题中使用机构名称，请向两家机构取得书面许可 | 待确认 |
+| 中 | 核验页写明 Fengdu New Material (Yancheng) Co., Ltd.（Intertek 报告申请方）和 Chongqing Fengdu New Material Co., Ltd.（TÜV 报告委托方）属于风渡集团，请确认 | 待确认 |
+| 中 | PHI 证书 2491wi03 有效期到 2026-12-31，续证后替换 PDF、`reportVerification.ts` 和测试中的哈希 | 2026-12 前 |
+| 中 | 价格接口的人机验证：可在 Vercel 后台开启防火墙的机器人防护或接入 BotID，需在预览环境确认估算器仍能出价后再上线 | 待操作 |
 | 中 | 德国和英国地区页的法规表述（GEG 2024、Future Homes Standard）需按 2026 年新情况核实更新 | 待核实 |
 | 中 | 阶段 2 菜单结构按改版方案图 19 调整（产品、行业、工具、资源、公司；技术文章并入资源的知识库，质量体系和技术服务放在公司下），请确认或提出修改 | 待确认 |
