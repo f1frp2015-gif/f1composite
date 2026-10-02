@@ -1,3 +1,4 @@
+import SourcingLinks from "@/components/sourcing/SourcingLinks";
 import { customProductPages } from "@/content/data/customProductPages";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -118,6 +119,8 @@ export default function ProductsPage() {
           {customProductPages.map((page) => <li key={page.slug}><CoverCard href={`/products/${page.slug}`} cover={coverFor(`/products/${page.slug}`)!} title={page.name} text={page.description} /></li>)}
         </ul>
       </PageSection>
+
+      <SourcingLinks />
 
       <InnerCTA title="Not sure which product family fits your project?" />
     </>

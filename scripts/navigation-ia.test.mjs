@@ -35,8 +35,8 @@ test("five menus: products by family, industries, tools, resources and company",
   assert.ok(mainNav[0].sections[0].links.every(link => link.glyph), "every standard profile shows its section glyph");
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...destinations(item.sections)])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  // Nine new custom-product/application destinations retain the same five-menu layout.
-  assert.ok(allLinks.length <= 85, "keep a bounded desktop and mobile menu");
+  // Custom products, applications and two sourcing hubs retain the five-menu layout.
+  assert.ok(allLinks.length <= 87, "keep a bounded desktop and mobile menu");
   // The Products side panel repeats a few libraries as shortcuts; they must also have their own place.
   for (const shortcut of [productShortcuts.finder, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
   const tools = mainNav.find(item => item.id === "tools").sections.flatMap(section => section.links.map(link => link.href));

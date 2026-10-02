@@ -1,3 +1,4 @@
+import SourcingLinks from "@/components/sourcing/SourcingLinks";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/layout/PageHeader";
@@ -238,6 +239,8 @@ export default function KnowhowServicesPage() {
       <PageSection id="faq" title="Frequently asked questions" tone="muted">
         <FAQList items={faqItems} />
       </PageSection>
+
+      <SourcingLinks />
 
       <RelatedLinks
         groups={[
