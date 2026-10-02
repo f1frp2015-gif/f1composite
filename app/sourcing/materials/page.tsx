@@ -2,8 +2,8 @@ import SourcingHub from "@/components/sourcing/SourcingHub";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Composite Raw Material Sourcing",
-  description: "Specify fiberglass direct roving, mat, surface veil, stitched fabrics and gelcoat. Review grade compatibility, qualification, lot documents and delivery.",
+  title: "Material Qualification & Sourcing | Pultrusion Know-How",
+  description: "Material qualification and sourcing support within F1 Know-How: glass reinforcement, mats, fabrics and gelcoat matched to your production process.",
   path: "/sourcing/materials",
 });
 

@@ -323,6 +323,8 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 ## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
 
+**业务层级（2026-10-02 业主确认）**：设备、模具和原材料是 Know-How & Services 下的技术转移/生产支持配套，不作为主要产品业务。入口放在 `/technology/knowhow-services#sourcing`；不得在产品总目录、首页产品线或全局导航中作为独立业务并列展示。保留 `/sourcing/*` 地址，其面包屑、页面标签和搜索标签归属 Know-How。
+
 - **搜索索引**：`lib/search/buildIndex.ts` 在构建时生成 `/search-index.json`，包含 114 个目录规格（公布单重、按名义截面计算的 Ix 或 A、规格书和 DXF 链接）、全部静态页、博客、应用页、案例、术语、作者和文件库。页面标题和描述写在各页面文件里，由 `scripts/search-pages.mjs` 读出，存进 `lib/search/pages.generated.json`。改了页面标题或描述、或新增页面后，运行 `npm run search:pages` 并提交这个文件，否则 `npm test` 会失败。
 - **查询规则**（`lib/search/query.ts`）：认得 100x100、100 × 100 × 8 mm、I152、rod Ø25 这类写法，矩形管两边顺序可以颠倒；没有精确尺寸时列出最接近的规格（壁厚权重低于外形尺寸）；E23、D7957 这类代号整体匹配。这个文件在浏览器里运行，不能用正则后行断言（旧版 Safari 会让整段脚本报错），测试会检查。
 - **入口**：导航栏搜索框、Ctrl/⌘ K 或 "/"、手机页头的放大镜和手机菜单顶部；完整结果页 `/search` 设为 noindex。GA4 事件：选中结果记 `search`（带 search_term），零结果记 `search_no_results`。零结果词可作为补充规格和内容的依据。

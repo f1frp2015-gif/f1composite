@@ -95,7 +95,7 @@ function pageEntries(): SearchEntry[] {
       url: page.path,
       summary: clip(page.description, 160),
       keywords: [...(page.aliases ?? []), page.keywords ?? ""].join(" ").trim() || undefined,
-      ...(line ? { badge: line } : {}),
+      ...(line ? { badge: line } : page.path.startsWith("/sourcing/") ? { badge: "Know-How" } : {}),
     };
   });
 }
