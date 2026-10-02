@@ -1,3 +1,5 @@
+import SupplierImageFigure from "@/components/sourcing/SupplierImageFigure";
+import { sourcingHeroImages } from "@/content/data/sourcingImages";
 import KnowHowSupportSections from "@/components/sourcing/KnowHowSupportSections";
 import { sourcingSupportSections } from "@/content/data/knowhowSupport";
 import Image from "next/image";
@@ -14,6 +16,7 @@ import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl } from "@/lib/seo";
 
 export default function SourcingDetail({ page }: { page: SourcingPage }) {
+  const supplierImage = sourcingHeroImages[page.slug];
   const supportSections = sourcingSupportSections[page.slug] ?? [];
   const briefModule = ({ "pultrusion-dies": "tooling", "pultrusion-machines": "line", "resin-mixing-injection": "injection", "slitting-cutting-equipment": "finishing" } as Record<string, string>)[page.slug] ?? (page.group === "materials" ? "materials" : "line");
   const briefHref = `/technology/knowhow-services?module=${briefModule}#project-brief`;
@@ -28,7 +31,7 @@ export default function SourcingDetail({ page }: { page: SourcingPage }) {
   });
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: page.title, description: page.description, url: absoluteUrl(path), isPartOf: { "@type": "CollectionPage", url: absoluteUrl(hub) }, dateModified: "2026-10-02", image: absoluteUrl(page.image), publisher: { "@id": "https://www.f1composite.com/#organization" } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: page.title, description: page.description, url: absoluteUrl(path), isPartOf: { "@type": "CollectionPage", url: absoluteUrl(hub) }, dateModified: "2026-10-02", image: absoluteUrl(supplierImage?.src ?? page.image), publisher: { "@id": "https://www.f1composite.com/#organization" } }} />
       <PageHeader
         tag="Know-How support"
         title={page.name}
@@ -36,7 +39,7 @@ export default function SourcingDetail({ page }: { page: SourcingPage }) {
         updated="2026-10-02"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Know-How & Services", href: "/technology/knowhow-services" }, { label: hubName, href: hub }, { label: page.name }]}
         actions={{ primary: { label: "Discuss sourcing requirements", href: quoteHref }, secondary: { label: "Prepare a specification", href: "#specification", variant: "secondary" }, stickyMobile: true }}
-        figure={<Figure number={1} title="Specification interfaces" caption="A scope diagram; the proposed supplier confirms the final configuration."><Image src={page.image} alt={page.imageAlt} width={900} height={600} className="h-auto w-full" preload /></Figure>}
+        figure={supplierImage ? <SupplierImageFigure photo={supplierImage} number={1} preload sizes="(max-width: 1023px) 94vw, 44vw" /> : <Figure number={1} title="Specification interfaces" caption="A scope diagram; the proposed supplier confirms the final configuration."><Image src={page.image} alt={page.imageAlt} width={900} height={600} className="h-auto w-full" preload /></Figure>}
       />
       <PageNav items={[{ id: "scope", label: "Supply scope" }, { id: "specification", label: "Specification" }, ...supportSections.map(section => ({ id: section.id, label: section.title })), { id: "acceptance", label: "Acceptance" }, { id: "questions", label: "Questions" }, { id: "inquiry", label: "Inquiry" }]} />
       <PageSection id="scope" title="Define the proposed supply package">

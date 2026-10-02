@@ -6,6 +6,8 @@ export const metadata = buildPageMetadata({
   title: "Resin Mixing & PU Injection | Specification & Sourcing",
   description: "Compare batch mixing and metered resin injection for composite production. Define material compatibility, dosing, cleaning and the connection to the line.",
   path: "/sourcing/resin-mixing-injection",
+  image: "/images/sourcing/supplier-equipment/two-component-resin-injection-unit.jpg",
+  imageSize: { width: 450, height: 450 },
 });
 
 export default function Page() {

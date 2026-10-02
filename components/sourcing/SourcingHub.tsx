@@ -1,3 +1,5 @@
+import SupplierImageFigure from "@/components/sourcing/SupplierImageFigure";
+import { frpzsImages, sourcingHeroImages, supplierImageNote } from "@/content/data/sourcingImages";
 import KnowHowSupportSections from "@/components/sourcing/KnowHowSupportSections";
 import { materialSupportSections } from "@/content/data/knowhowSupport";
 import Image from "next/image";
@@ -34,10 +36,16 @@ export default function SourcingHub({ group }: { group: SourcingGroup }) {
       <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: title, description: intro, url: absoluteUrl(path), isPartOf: { "@type": "WebPage", name: "Know-How & Services", url: absoluteUrl("/technology/knowhow-services") }, mainEntity: { "@type": "ItemList", itemListElement: pages.map((page, index) => ({ "@type": "ListItem", position: index + 1, name: page.name, url: absoluteUrl(`/sourcing/${page.slug}`) })) } }} />
       <PageHeader tag="Know-How support" title={title} description={intro} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Know-How & Services", href: "/technology/knowhow-services" }, { label: title }]} updated="2026-10-02"
         actions={{ primary: { label: "Discuss your requirements", href: quoteHref }, secondary: { label: "Browse specifications", href: "#specifications", variant: "secondary" }, stickyMobile: true }}
-        figure={<Figure number={1} title={equipment ? "A coordinated production package" : "A qualified material package"} caption="Confirm the proposed supplier and scope in the project quotation."><Image src={`/images/sourcing/${group}.svg`} alt={equipment ? "Diagram connecting product requirements, equipment interfaces and acceptance trials" : "Diagram connecting material grade selection, process trials and lot documentation"} width={900} height={600} className="h-auto w-full" preload /></Figure>}
+        figure={equipment ? <SupplierImageFigure photo={frpzsImages.hydraulicLine} number={1} preload sizes="(max-width: 1023px) 94vw, 44vw" /> : <Figure number={1} title="A qualified material package" caption="Confirm the proposed supplier and scope in the project quotation."><Image src="/images/sourcing/materials.svg" alt="Diagram connecting material grade selection, process trials and lot documentation" width={900} height={600} className="h-auto w-full" preload /></Figure>}
       />
       <PageSection id="specifications" title={equipment ? "Equipment and tooling specifications" : "Material specifications"} count={`${pages.length} guides`} intro="Each guide supports the equipment or material scope of a Know-How engagement. The quotation confirms availability, the proposed supplier, qualification and delivery responsibilities.">
-        <ul className="grid gap-[20px] md:grid-cols-2 lg:grid-cols-3">{pages.map(page => <li key={page.slug}><Link href={`/sourcing/${page.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card border border-border-default bg-white hover:border-teal-border"><Image src={page.image} alt={page.imageAlt} width={900} height={600} sizes="(max-width: 767px) 94vw, (max-width: 1023px) 46vw, 30vw" className="h-auto w-full border-b border-border-default" /><div className="flex flex-1 flex-col p-[22px]"><h3 className="text-f20 font-bold text-t1">{page.name}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{page.intro}</p><span className="mt-auto pt-[18px] text-f14 font-semibold text-teal-text">Prepare a specification →</span></div></Link></li>)}</ul>
+        <ul className="grid gap-[20px] md:grid-cols-2 lg:grid-cols-3">{pages.map(page => {
+          const photo = sourcingHeroImages[page.slug];
+          return <li key={page.slug}><Link href={`/sourcing/${page.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card border border-border-default bg-white hover:border-teal-border">
+            <div className="relative aspect-[3/2] border-b border-border-default bg-white"><Image src={photo?.src ?? page.image} alt={photo?.alt ?? page.imageAlt} fill sizes="(max-width: 767px) 94vw, (max-width: 1023px) 46vw, 30vw" className="object-contain" /></div>
+            <div className="flex flex-1 flex-col p-[22px]">{photo ? <p className="mb-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">{supplierImageNote}</p> : null}<h3 className="text-f20 font-bold text-t1">{page.name}</h3><p className="mt-[10px] text-f14 leading-golden text-t2">{page.intro}</p><span className="mt-auto pt-[18px] text-f14 font-semibold text-teal-text">Prepare a specification →</span></div>
+          </Link></li>;
+        })}</ul>
       </PageSection>
       {!equipment ? <KnowHowSupportSections sections={materialSupportSections} /> : null}
       <PageSection id="procurement" title="From requirements to an agreed package" tone="muted">
