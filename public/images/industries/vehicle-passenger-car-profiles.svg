@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Passenger vehicle candidate constant-section profile zones</title>
+  <desc id="desc">Generic passenger car side schematic with candidate sill or rocker, seat crossmember, and bumper beam zones. Locations are conceptual and require vehicle-specific engineering.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfdfd"/><stop offset="1" stop-color="#edf4f3"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fbfb"/><stop offset="1" stop-color="#d9e7e8"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7e8e9"/><stop offset="1" stop-color="#a7c2c6"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#d7e6e5" stroke-width="1"/></pattern>
+    <filter id="shadow" x="-15%" y="-25%" width="130%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b2b3a" flood-opacity=".1"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#background)"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity=".38"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="68" y="70" fill="#126f68" font-size="19" font-weight="700" letter-spacing="2.5">PASSENGER VEHICLE · SIDE SCHEMATIC</text>
+    <text x="68" y="115" fill="#0b2b3a" font-size="36" font-weight="700">Candidate constant-section profile zones</text>
+    <text x="69" y="148" fill="#536d74" font-size="20">Illustrative integration points for engineering review</text>
+
+    <path d="M80 585H1120" stroke="#a7bdbc" stroke-width="3"/>
+    <path d="M110 600H1090" stroke="#d3e1df" stroke-width="2" stroke-dasharray="8 11"/>
+
+    <!-- Generic side body, with wheel openings implied by the wheel-well outlines. -->
+    <path d="M108 501 L124 458 Q136 430 181 420 L278 406 L344 317 Q381 268 447 265 L652 265 Q717 268 768 314 L852 391 L1008 416 Q1060 425 1081 467 L1092 478 L1092 531 Q1088 554 1064 557 L991 557 Q986 495 926 495 Q866 495 862 557 L388 557 Q383 495 321 495 Q260 495 255 557 L145 557 Q108 551 108 517 Z" fill="url(#body)" stroke="#0b2b3a" stroke-width="5" stroke-linejoin="round" filter="url(#shadow)"/>
+    <path d="M357 391 L405 318 Q424 291 455 289 L551 289 L551 393 Z M572 289 L650 289 Q704 292 745 331 L812 393 L572 393 Z" fill="url(#glass)" stroke="#5e858b" stroke-width="3"/>
+    <path d="M561 290V395 M358 406H829 M564 405V524 M833 402L851 518 M357 410L349 487" fill="none" stroke="#7f9da1" stroke-width="3"/>
+    <path d="M469 423h42 M673 423h42" stroke="#64858a" stroke-width="5" stroke-linecap="round"/>
+    <path d="M205 432h64 M991 435h38" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+
+    <!-- Highlighted profile zones are candidate locations, not validated parts. -->
+    <path d="M401 524 H850 L841 548 H393 Z" fill="#126f68" opacity=".9"/>
+    <path d="M405 531H838" fill="none" stroke="#7ed2c5" stroke-width="3" opacity=".8"/>
+    <rect x="583" y="437" width="45" height="86" rx="5" fill="#126f68" opacity=".22" stroke="#126f68" stroke-width="4" stroke-dasharray="7 5"/>
+    <path d="M602 441V508" stroke="#126f68" stroke-width="5" stroke-dasharray="9 7"/>
+    <path d="M1045 473H1084V513H1045Z" fill="#126f68" opacity=".8" stroke="#0e5b56" stroke-width="3"/>
+    <path d="M1054 484H1074" stroke="#b3e2da" stroke-width="3"/>
+
+    <!-- Seat bases identify the cabin region without implying a particular platform layout. -->
+    <path d="M492 451l-13-42c-3-10 3-18 12-19l16-2 23 63h54 M658 451l-13-42c-3-10 3-18 12-19l16-2 23 63h46" fill="none" stroke="#719095" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    <path d="M471 457h87 M636 457h85" stroke="#719095" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+    <path d="M514 460v42 M682 460v42" stroke="#719095" stroke-width="5" opacity=".7"/>
+
+    <g fill="#0b2b3a" stroke="#49636d" stroke-width="4">
+      <circle cx="322" cy="552" r="55"/><circle cx="927" cy="552" r="55"/>
+    </g>
+    <g fill="#c8d9d9" stroke="#eef4f2" stroke-width="5"><circle cx="322" cy="552" r="29"/><circle cx="927" cy="552" r="29"/></g>
+    <g fill="#719096"><circle cx="322" cy="552" r="9"/><circle cx="927" cy="552" r="9"/></g>
+
+    <!-- Numbered leaders remain visible when the illustration is rendered as a card. -->
+    <g fill="none" stroke="#126f68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M485 536 L385 592 L222 622"/>
+      <path d="M605 478 L605 621"/>
+      <path d="M1064 490 L1003 587 L976 622"/>
+    </g>
+    <g fill="#126f68" stroke="#ffffff" stroke-width="3"><circle cx="485" cy="536" r="9"/><circle cx="605" cy="478" r="9"/><circle cx="1064" cy="490" r="9"/></g>
+    <g fill="#ffffff" stroke="#c7dcd9" stroke-width="2">
+      <rect x="65" y="622" width="322" height="92" rx="13"/>
+      <rect x="439" y="622" width="322" height="92" rx="13"/>
+      <rect x="813" y="622" width="322" height="92" rx="13"/>
+    </g>
+    <g fill="#126f68"><circle cx="101" cy="667" r="21"/><circle cx="475" cy="667" r="21"/><circle cx="849" cy="667" r="21"/></g>
+    <g fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle"><text x="101" y="673">01</text><text x="475" y="673">02</text><text x="849" y="673">03</text></g>
+    <g fill="#0b2b3a" font-size="23" font-weight="700"><text x="135" y="675">Sill / rocker</text><text x="509" y="675">Seat crossmember</text><text x="883" y="675">Bumper beam</text></g>
+    <text x="68" y="765" fill="#557078" font-size="18">Conceptual locations · section geometry, joining and crash performance require vehicle-specific validation</text>
+  </g>
+</svg>

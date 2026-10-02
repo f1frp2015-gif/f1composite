@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "Vehicle",
-    title: "FRP Profiles for Bus, Trailer, Rail and Specialty Vehicles",
+    title: "FRP Profiles for Automotive and Bus Components",
     description:
-      "Pultruded profiles for selected body, wall and interior components, designed around the vehicle maker's loads, joints and fire requirements.",
+      "Pultruded profiles for buses, cars and EV enclosures, designed around the vehicle maker's loads, joints and approval requirements.",
     accent: "#126f68",
-    chips: ["Lighter than steel", "Does not rust", "Custom sections"],
+    chips: ["Custom sections", "Vehicle interfaces", "Part-level validation"],
   });
 }

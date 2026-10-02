@@ -337,7 +337,6 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/industries/infrastructure",
       "/industries/industrial",
-      "/industries/vehicle",
       "/products/custom-pultruded-profiles",
       "/what-is-frp",
     ],

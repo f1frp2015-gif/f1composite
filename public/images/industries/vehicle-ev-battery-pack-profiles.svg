@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">EV battery enclosure candidate constant-section profile zones</title>
+  <desc id="desc">Generic battery enclosure plan schematic identifies candidate perimeter rail, crossmember, edge frame, and tray interface zones. It is not a production design or approval drawing.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfdfd"/><stop offset="1" stop-color="#edf4f3"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#d7e6e5" stroke-width="1"/></pattern>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b2b3a" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#background)"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity=".38"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="68" y="70" fill="#126f68" font-size="19" font-weight="700" letter-spacing="2.5">EV BATTERY ENCLOSURE · PLAN SCHEMATIC</text>
+    <text x="68" y="115" fill="#0b2b3a" font-size="36" font-weight="700">Candidate profile and interface zones</text>
+
+    <!-- Upper labels and orthogonal leaders make the four distinct functions clear. -->
+    <g fill="#ffffff" stroke="#c7dcd9" stroke-width="2">
+      <rect x="67" y="139" width="470" height="72" rx="13"/>
+      <rect x="663" y="139" width="470" height="72" rx="13"/>
+      <rect x="67" y="617" width="470" height="72" rx="13"/>
+      <rect x="663" y="617" width="470" height="72" rx="13"/>
+    </g>
+    <g fill="#126f68"><circle cx="105" cy="175" r="21"/><circle cx="701" cy="175" r="21"/><circle cx="105" cy="653" r="21"/><circle cx="701" cy="653" r="21"/></g>
+    <g fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle"><text x="105" y="181">01</text><text x="701" y="181">02</text><text x="105" y="659">03</text><text x="701" y="659">04</text></g>
+    <g fill="#0b2b3a" font-size="24" font-weight="700"><text x="141" y="183">Perimeter rail</text><text x="737" y="183">Crossmember</text><text x="141" y="661">Edge frame</text><text x="737" y="661">Tray interface</text></g>
+
+    <!-- Generic tray: two enclosing frame layers, candidate transverse members, and unlabeled module zones. -->
+    <rect x="205" y="242" width="790" height="322" rx="27" fill="#dce9e9" stroke="#6f9596" stroke-width="10" filter="url(#shadow)"/>
+    <rect x="225" y="260" width="750" height="286" rx="17" fill="#f9fbfa" stroke="#126f68" stroke-width="18"/>
+    <rect x="254" y="288" width="692" height="230" rx="7" fill="#e8f0ef" stroke="#9dbab9" stroke-width="3"/>
+    <g fill="#d5e5e3" stroke="#abc5c2" stroke-width="2">
+      <rect x="272" y="303" width="137" height="91" rx="6"/><rect x="420" y="303" width="137" height="91" rx="6"/>
+      <rect x="643" y="303" width="137" height="91" rx="6"/><rect x="791" y="303" width="137" height="91" rx="6"/>
+      <rect x="272" y="409" width="137" height="91" rx="6"/><rect x="420" y="409" width="137" height="91" rx="6"/>
+      <rect x="643" y="409" width="137" height="91" rx="6"/><rect x="791" y="409" width="137" height="91" rx="6"/>
+    </g>
+    <path d="M588 284V522 M622 284V522" stroke="#0b2b3a" stroke-width="13"/>
+    <path d="M605 287V519" stroke="#5da9a2" stroke-width="7"/>
+    <path d="M259 403H941" stroke="#9cb8b8" stroke-width="5"/>
+
+    <!-- External attachment features are conceptual tray interfaces. -->
+    <g fill="#e7f1ef" stroke="#456e72" stroke-width="4">
+      <rect x="179" y="309" width="28" height="48" rx="6"/><rect x="179" y="449" width="28" height="48" rx="6"/>
+      <rect x="993" y="309" width="28" height="48" rx="6"/><rect x="993" y="449" width="28" height="48" rx="6"/>
+    </g>
+    <g fill="#779b9b"><circle cx="193" cy="333" r="5"/><circle cx="193" cy="473" r="5"/><circle cx="1007" cy="333" r="5"/><circle cx="1007" cy="473" r="5"/></g>
+
+    <g fill="none" stroke="#126f68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M394 270 V227 L304 211"/>
+      <path d="M605 326 V227 L898 211"/>
+      <path d="M205 528 L120 565 V617"/>
+      <path d="M1007 473 L1084 564 V617"/>
+    </g>
+    <g fill="#126f68" stroke="#ffffff" stroke-width="3"><circle cx="394" cy="270" r="9"/><circle cx="605" cy="326" r="9"/><circle cx="205" cy="528" r="9"/><circle cx="1007" cy="473" r="9"/></g>
+    <text x="68" y="750" fill="#557078" font-size="18">Conceptual layout · confirm load paths, seals, attachments and service access for each vehicle program</text>
+    <text x="68" y="775" fill="#6c8187" font-size="16">Not to scale · no performance or approval status implied</text>
+  </g>
+</svg>

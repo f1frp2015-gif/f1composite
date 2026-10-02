@@ -44,8 +44,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "vehicle",
-    title: "Transportation & Rail",
-    description: "Lightweight, high-strength FRP profiles for commercial vehicles, rail, and specialty transport applications.",
+    title: "Automotive & Rail",
+    description: "Pultruded profiles to evaluate for buses, EV battery enclosures, commercial bodies and selected rail components.",
     icon: "vehicle",
     href: "/industries/vehicle",
   },
