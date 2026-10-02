@@ -101,7 +101,7 @@ export default async function SquareTubePage() {
             <HeroPhotos
               photos={[
                 { src: "/images/products/square-tube/frp-square-tube-100x100x6mm.webp", alt: "Pultruded FRP square tube", caption: "SHS 100×100×6" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>

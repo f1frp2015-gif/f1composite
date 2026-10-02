@@ -330,7 +330,7 @@ export default function BeamBridgeCaseStudiesPage() {
           <div className="bb-capability-layout">
             <figure className="bb-factory-proof">
               <Image
-                src="/images/case-studies/frp-factory-access-staircase-hero.webp"
+                src="/images/f1-photos/frp-factory-access-staircase-hero.webp"
                 alt="F1 factory FRP staircase and elevated access platform assembled from composite structural profiles and grating"
                 width={1200}
                 height={900}

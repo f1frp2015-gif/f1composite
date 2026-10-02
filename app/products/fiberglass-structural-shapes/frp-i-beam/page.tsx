@@ -134,7 +134,7 @@ const applications = [
     kind: "Case study",
     title: "Factory access staircase",
     text: "A bolted FRP stair in our Chongqing plant, assembled by four people with hand tools: no welding, hot work or crane.",
-    image: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+    image: "/images/f1-photos/frp-factory-staircase-structural-view.webp",
     imageAlt: "FRP I-beam stringers and pultruded profiles forming a staircase frame in F1 Composite's factory",
     used: "I-beam stringers and landing beams with square tubes, in vinyl ester",
   },
@@ -202,7 +202,7 @@ export default async function IBeamPage() {
             <HeroPhotos
               photos={[
                 { src: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp", alt: "Pultruded FRP I-beam", caption: "I 200×100×10" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>

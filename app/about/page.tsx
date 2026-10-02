@@ -95,7 +95,7 @@ export default function AboutPage() {
           <Figure number={1} title="Pultrusion lines at a FengDu plant" note="Production photo" bleed>
             <div className="relative aspect-[16/10]">
               <Image
-                src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                src="/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"
                 alt="Rows of blue pultrusion machines pulling profiles in a FengDu production hall"
                 fill
                 sizes="(max-width: 1023px) 94vw, 44vw"
@@ -190,7 +190,7 @@ export default function AboutPage() {
           <Figure number={2} title="A hall of pultrusion lines" note="Production photo" bleed>
             <div className="relative aspect-[3/2]">
               <Image
-                src="/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"
+                src="/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"
                 alt="Rows of KraussMaffei pultrusion lines with creels and cutting tables in a FengDu hall"
                 fill
                 sizes="(max-width: 767px) 94vw, 45vw"

@@ -156,7 +156,7 @@ export default function KnowhowServicesPage() {
         figure={
           <Figure number={1} title="Production hall" note="Production photo" bleed>
             <div className="relative aspect-[16/10]">
-              <Image src="/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp" alt="Pultrusion lines in an F1 Composite production hall" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
+              <Image src="/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp" alt="Pultrusion lines in an F1 Composite production hall" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
             </div>
           </Figure>
         }

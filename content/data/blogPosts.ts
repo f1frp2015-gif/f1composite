@@ -551,7 +551,7 @@ For further material background, explore [pultruded FRP profiles](/pultruded-frp
     coverImage: "/images/covers/blog/pultrusion-line-schematic.webp",
     coverAlt: "Schematic of a pultrusion line: fiber creel, guide plates, resin injection, heated die, puller and flying cut-off saw",
     coverNote: "Schematic",
-    supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
+    supportingImage: "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp",
     supportingAlt: "Parallel pultrusion lines in production at an F1 Composite plant",
     supportingCaption: "Production photo. Pultrusion aligns continuous glass reinforcement along the profile and cures the resin inside a steel die, producing repeatable structural GFRP sections.",
     highlights: [
@@ -2169,7 +2169,7 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
       "Ludovic Delot",
       "https://www.pexels.com/photo/robots-are-working-in-a-factory-with-a-machine-18471441/",
     ),
-    supportingImage: "/images/technology/f1-composite-pultrusion-plant-floor.webp",
+    supportingImage: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp",
     supportingAlt: "F1 Composite pultrusion plant floor with continuous lines producing FRP profiles — where concept, qualification, and production reality meet",
     supportingCaption:
       "The industry's current questions all point in one direction: buyers want less uncertainty between concept, qualification, and production reality.",
@@ -3734,7 +3734,7 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     coverAlt: "Table of MOQ, tooling lead time and production lead time by order type",
     coverImagePosition: "left top",
     coverNote: "",
-    supportingImage: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
+    supportingImage: "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp",
     supportingAlt: "Pultrusion lines in an F1 Composite production hall",
     supportingCaption: "Production photo. Qualify the plant, not the sales office: line count, die library and inspection records decide how an order runs.",
     highlights: [
@@ -3888,7 +3888,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     coverAlt: "Table of FOB China prices per meter for standard pultruded FRP profiles",
     coverImagePosition: "left top",
     coverNote: "",
-    supportingImage: "/images/technology/f1-composite-pultrusion-production-line-aerial.webp",
+    supportingImage: "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp",
     supportingAlt: "Parallel pultrusion lines in production at an F1 Composite plant",
     supportingCaption: "Production photo. Lead time is set by line capacity and die availability; the benchmarks below are FOB China reference figures, not quotations.",
     highlights: [
@@ -5850,7 +5850,7 @@ To choose between tray and ladder, and between FRP and metal, read the [cable tr
     coverAlt: "Round-tube FRP handrail system with posts, top and middle rails, molded elbow, tee and cross fittings, foot bases and kick plate",
     coverNote: "Catalog drawing",
     coverImageFit: "contain",
-    supportingImage: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+    supportingImage: "/images/f1-photos/frp-factory-staircase-structural-view.webp",
     supportingAlt: "Access stair with orange FRP handrails and guardrails leading to a platform inside F1 Composite's factory",
     supportingImagePosition: "center 30%",
     supportingCaption: "Project photo: FRP handrails and guardrails on the access stair in F1 Composite's factory. On any project, post spacing, rail heights, splices and fixings come from the approved drawing and the governing standard.",

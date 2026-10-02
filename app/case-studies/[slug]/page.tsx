@@ -347,7 +347,7 @@ const caseStudyImages: Record<string, string> = {
   "wanhua-yantai-zero-carbon-windows": "/images/case-studies/frp-wanhua-yantai-zero-carbon-community-aerial.webp",
   "chongqing-rooftop-pv-frp-rail": "/images/case-studies/frp-chongqing-rooftop-solar-mounting-colored-steel-tile.webp",
   "water-treatment-cable-tray": "/images/case-studies/frp-water-treatment-plant-aerial-cable-tray-handrail.webp",
-  "factory-access-staircase": "/images/case-studies/frp-factory-access-staircase-hero.webp",
+  "factory-access-staircase": "/images/f1-photos/frp-factory-access-staircase-hero.webp",
   "yancheng-talent-apartment-fenestration": "/images/case-studies/frp-talent-apartment-yancheng-aerial-view.webp",
   "qinling-station-antarctic-passive-windows": "/images/case-studies/frp-qinling-station-antarctic-ross-sea-aerial.webp",
 };
@@ -403,25 +403,25 @@ const caseStudyImageMeta: Record<string, { title: string; note?: string; alt: st
 const caseStudyContentImages: Record<string, { src: string; title: string; note?: string; alt: string }[]> = {
   "factory-access-staircase": [
     {
-      src: "/images/case-studies/frp-factory-staircase-structural-view.webp",
+      src: "/images/f1-photos/frp-factory-staircase-structural-view.webp",
       title: "Stringers and frame",
       note: "Project photo",
       alt: "Side view of FRP I-beam stringers and pultruded structural profiles forming the staircase frame inside F1 Composite's Chongqing factory",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-platform-handrail.webp",
+      src: "/images/f1-photos/frp-factory-staircase-platform-handrail.webp",
       title: "Stair flight from below",
       note: "Project photo",
       alt: "Underside of the stair flight: FRP I-beam stringers carrying the treads, with the orange FRP handrail alongside",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-grating-treads.webp",
+      src: "/images/f1-photos/frp-factory-staircase-grating-treads.webp",
       title: "Beam-to-post connection",
       note: "Project photo",
       alt: "Bolted connection between the platform beams and a post, all pultruded FRP profiles with stainless steel bolts",
     },
     {
-      src: "/images/case-studies/frp-factory-staircase-assembly-detail.webp",
+      src: "/images/f1-photos/frp-factory-staircase-assembly-detail.webp",
       title: "Bolted connection",
       note: "Project photo",
       alt: "Bolted connection detail between pultruded FRP profiles and 316L stainless steel fasteners — no welding required",

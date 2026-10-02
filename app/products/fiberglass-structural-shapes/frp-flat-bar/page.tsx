@@ -99,8 +99,8 @@ export default async function FlatBarPage() {
             <ProfileFigure model="FB 100×10" />
             <HeroPhotos
               photos={[
-                { src: "/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "F1 Composite pultrusion hall with rows of pultrusion lines", caption: "Pultrusion hall" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", alt: "F1 Composite pultrusion hall with rows of pultrusion lines", caption: "Pultrusion hall" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>

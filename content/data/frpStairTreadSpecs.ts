@@ -14,7 +14,7 @@ export const frpStairTreadImageAssets = {
   fastenerDetail: "/images/products/frp-stair-treads/frp-stair-tread-cover-fastener-detail.webp",
   moldedCloseup: "/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp",
   pultrudedCloseup: "/images/products/pultruded-frp-grating/pultruded-grating-t-bar-closeup.webp",
-  fullStaircase: "/images/case-studies/frp-factory-access-staircase-hero.webp",
+  fullStaircase: "/images/f1-photos/frp-factory-access-staircase-hero.webp",
 } as const;
 
 /**

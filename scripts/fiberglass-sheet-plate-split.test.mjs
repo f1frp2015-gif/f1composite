@@ -80,7 +80,7 @@ test("sheet production photos use descriptive SEO-safe WebP assets", async () =>
 
   for (const name of photoNames) {
     assert.match(sheetPage, new RegExp(name.replaceAll(".", "\\.")));
-    const info = await stat(path.join(root, `public/images/products/fiberglass-sheets/${name}`));
+    const info = await stat(path.join(root, `public/images/f1-photos/${name}`));
     assert.ok(info.size > 20_000, `${name} should contain a real optimized product photo`);
     assert.ok(info.size < 150_000, `${name} should remain compressed for web delivery`);
   }

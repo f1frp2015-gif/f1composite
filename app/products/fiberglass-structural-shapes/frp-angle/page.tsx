@@ -91,7 +91,7 @@ export default async function AnglePage() {
             <HeroPhotos
               photos={[
                 { src: "/images/products/angle/frp-angle-profile-100x100x10mm.webp", alt: "Pultruded FRP angle", caption: "L 100×100×10" },
-                { src: "/images/technology/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
+                { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "F1 Composite pultrusion plant floor with finished profiles on inspection tables", caption: "Pultrusion plant floor" },
               ]}
             />
           </>

@@ -333,7 +333,7 @@ export default function PultrusionProcessPage() {
           <Figure number={1} title="F1 Composite pultrusion hall" note="Production photo" bleed>
             <div className="relative aspect-[16/10]">
               <Image
-                src="/images/technology/f1-composite-pultrusion-production-line-aerial.webp"
+                src="/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"
                 alt="Inside an F1 Composite pultrusion plant — multiple parallel continuous pultrusion lines in production"
                 fill
                 sizes="(max-width: 1023px) 94vw, 44vw"
@@ -412,7 +412,7 @@ export default function PultrusionProcessPage() {
       <PageSection id="equipment" title="Production line specifications" tone="white">
         <Figure number={3} title="Plant floor" note="Production photo" bleed>
           <Image
-            src="/images/technology/f1-composite-pultrusion-plant-floor.webp"
+            src="/images/f1-photos/f1-composite-pultrusion-plant-floor.webp"
             alt="Finished pultruded profiles on inspection tables beside fiber-handling and pulling equipment in an F1 Composite plant"
             sizes="(max-width: 1280px) 94vw, 1216px"
             width={2000}
