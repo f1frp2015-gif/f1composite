@@ -95,7 +95,7 @@ export const GUARD_LOAD_CASES: readonly GuardLoadCase[] = [
   {
     id: "eu-iso14122",
     region: "EU",
-    label: "EN ISO 14122-3 guard-rail (machinery access)",
+    label: "EN ISO 14122-3 guardrail (machinery access)",
     clause: "EN ISO 14122-3:2016",
     lineKnPerM: 0,
     pointKn: null,
@@ -105,15 +105,15 @@ export const GUARD_LOAD_CASES: readonly GuardLoadCase[] = [
     maxPostSpacingMm: 1500,
     method: "lrfd-cents19101",
     notes: [
-      "Test load F = 300 N/m × post spacing at the most unfavourable point; deflection no more than 30 mm.",
-      "The standard's ultimate test factor of 1.75 is given for steel and aluminium guard-rails; an FRP system needs its own test or design justification.",
+      "Test load F = 300 N/m × post spacing at the most unfavorable point; deflection no more than 30 mm.",
+      "The standard's ultimate test factor of 1.75 is given for steel and aluminum guardrails; an FRP system needs its own test or design justification.",
       "Knee rail with openings of no more than 500 mm; toe plate at least 100 mm high, no more than 10 mm above the walking level.",
     ],
   },
   {
     id: "uk-iso14122",
     region: "UK",
-    label: "BS EN ISO 14122-3 guard-rail (machinery access)",
+    label: "BS EN ISO 14122-3 guardrail (machinery access)",
     clause: "BS EN ISO 14122-3:2016",
     lineKnPerM: 0,
     pointKn: null,

@@ -164,6 +164,13 @@ const nextConfig: NextConfig = {
         destination: `${CANONICAL_ORIGIN}${destination}`,
         statusCode: 301 as const,
       })),
+      // The withdrawn design manual Rev. A (April 2026) is replaced by Rev. B;
+      // links already sent land on the current edition.
+      {
+        source: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
+        destination: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
+        permanent: true,
+      },
       // Normalize every other apex-host URL to www. Vercel's production domain
       // must also use www as primary so HTTP apex requests do not receive an
       // additional platform-level HTTPS hop in front of this rule.
@@ -354,13 +361,6 @@ const nextConfig: NextConfig = {
         // explicitly exclude the resources from the search index while they
         // are live so stale deployment URLs do not compete with real pages.
         source: "/_next/static/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
-      },
-      {
-        // Withdrawn from the site until its revised edition is published
-        // (withdrawnDownloads in content/data/engineeringEvidence.ts). The file
-        // still opens from links already sent, but leaves search results.
-        source: "/downloads/f1composite-frp-profile-design-manual-2026.pdf",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
     ];

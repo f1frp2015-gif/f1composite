@@ -293,7 +293,7 @@ const faqItems = [
   {
     question: "What is the typical lead time for pultruded FRP profiles?",
     answer:
-      "Stock standard profiles: 2–4 weeks. Custom profiles using existing tooling: 4–6 weeks. Custom profiles requiring new dies: 6–10 weeks total (3–6 weeks for die manufacturing + trial + production). Fenestration system projects: 6–12 weeks depending on volume.",
+      `Catalog sections on an existing die: ${weeks(supplyTerms.catalogLeadTimeWeeks)}. Variants on existing tooling: ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}. New sections on a new die: ${weeks(supplyTerms.newDieLeadTimeWeeks)} in total, of which die manufacture takes ${weeks(supplyTerms.dieManufactureWeeks)} before trial and production. Window and door projects: ${weeks(supplyTerms.fenestrationLeadTimeWeeks)} depending on volume. Catalog dimensions are standard section options, not live inventory; production timing is confirmed in the quotation.`,
   },
   {
     question: "Is FRP more expensive than steel?",
@@ -308,7 +308,7 @@ const faqItems = [
   {
     question: "What is the minimum order quantity for custom FRP profiles?",
     answer:
-      "F1 Composite's minimum order quantity for custom pultruded profiles is 500 linear meters for the first production run; repeat orders start from 200 meters. Stock standard profiles have no MOQ.",
+      `F1 Composite's minimum order quantity for custom pultruded profiles is ${supplyTerms.customMoqMeters.firstRun} linear meters for the first production run; repeat orders start from ${supplyTerms.customMoqMeters.repeat} meters. Catalog sections have no fixed minimum; quantity and production timing are confirmed in the quotation.`,
   },
   {
     question: "How does FRP compare to Strongwell, Fiberline, and Creative Pultrusions?",
@@ -327,12 +327,12 @@ const faqItems = [
 // E23 = 23 GPa min full-section flexural modulus); strength / density / glass /
 // hardness are F1 characteristic values per the cited test method.
 const en13706Rows = [
-  { property: "Full-section flexural modulus (grade definition)", method: "EN ISO 14125", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
+  { property: "Full-section flexural modulus (grade definition)", method: "EN 13706-2 Annex D", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
   { property: "Axial tensile modulus", method: "EN ISO 527-4", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
   { property: "Axial tensile strength", method: "EN ISO 527-4", e17: "170 MPa", e23: "240 MPa" },
-  { property: "In-plane shear strength", method: "EN ISO 14130", e17: "25 MPa", e23: "30 MPa" },
-  { property: "Density", method: "EN ISO 1183", e17: "1.9 g/cm³", e23: "1.9 g/cm³" },
-  { property: "Glass content (by weight)", method: "ISO 1172", e17: "60–65%", e23: "65–70%" },
+  { property: "Interlaminar shear strength (short-beam)", method: "EN ISO 14130", e17: "15 MPa", e23: "30 MPa" },
+  { property: "Density", method: "EN ISO 1183", e17: "1.8 g/cm³", e23: "1.9 g/cm³" },
+  { property: "Glass content (by weight)", method: "ISO 1172", e17: "55–60%", e23: "65–70%" },
   { property: "Barcol hardness (cure proxy)", method: "ASTM D2583", e17: "≥ 40", e23: "≥ 40" },
 ];
 
@@ -348,6 +348,7 @@ const hubGlossary = [
 ];
 
 const hubDownloads = [
+  "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
   "/downloads/f1composite-pu-gf-pultruded-mechanical-data.pdf",
   "/downloads/f1composite-wind-energy-pultruded-laminate-datasheet.pdf",
   "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",

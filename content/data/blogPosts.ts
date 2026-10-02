@@ -2021,7 +2021,7 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     title: "FRP Bridge Deck Design: Engineering Considerations and Specification Guide",
     seoTitle: "FRP Bridge Deck Design — Engineering Guide",
     answerBox:
-      "FRP bridge deck panels weigh ~20% of equivalent concrete decks, install in fractions of conventional time, and carry AASHTO H-5 / H-10 / H-20 vehicular load ratings. Design life is 75–100 years with zero corrosion maintenance vs 25–40 years for steel decks, with documented 30-year installed evidence in Europe and the US.",
+      "FRP bridge deck panels weigh ~20% of equivalent concrete decks, install in fractions of conventional time, and carry AASHTO H-5 / H-10 / H-20 vehicular load ratings. Project specifications for FRP decks commonly call for design lives well beyond those of steel decks in the same exposure, because the deck has no steel to corrode; the achievable life depends on the laminate, the loads, the exposure and the inspection plan, with documented 30-year installed evidence in Europe and the US.",
     category: "Infrastructure",
     date: "2024-06-15",
     updatedAt: "2026-04-01",
@@ -2846,7 +2846,7 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     title: "Fire Resistance of FRP Profiles: Ratings, Resin Chemistry, and Real-World Applications",
     seoTitle: "ASTM E84 Class A FRP — Fire Resistance Guide",
     answerBox:
-      "FRP profiles achieve ASTM E84 Class A (FSI ≤ 25, SDI ≤ 450) through resin chemistry (phenolic, fire-retardant vinyl ester) and reactive flame retardants. Qualifying for US interior structural use, BS 476 Class 0, and EN 45545-2 rolling stock, F1's Class 1 ratings sit alongside mineral fiber boards and fire-rated gypsum.",
+      "FRP profiles achieve ASTM E84 Class A (FSI ≤ 25, SDI ≤ 450) through resin chemistry (phenolic, fire-retardant vinyl ester) and reactive flame retardants. Formulations qualified for US interior structural use, BS 476 Class 0 or EN 45545-2 rolling stock are classified per profile and thickness; F1 issues the test report of the formulation quoted rather than a blanket rating.",
     category: "Technical Guide",
     date: "2026-04-06",
     updatedAt: "2026-04-06",

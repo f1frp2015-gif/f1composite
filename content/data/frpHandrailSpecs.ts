@@ -32,7 +32,7 @@ export const frpHandrailCatalogSystems: readonly HandrailCatalogSystem[] = [
       { item: "Catalog connection rivet", nominalValue: "4 × 20 mm" },
     ],
     releaseNote:
-      "The source illustration and table disagree on part of the middle-rail geometry. The approved project BOM and connection drawing therefore control the released assembly.",
+      "F1's catalog drawing and parts list differ on part of the middle-rail geometry; the approved project BOM and connection drawing govern the released assembly.",
   },
   {
     name: "Round-tube FRP handrail system",
@@ -51,7 +51,7 @@ export const frpHandrailCatalogSystems: readonly HandrailCatalogSystem[] = [
       { item: "Catalog foot-base anchors", nominalValue: "M6 × 90; two per foot base" },
     ],
     releaseNote:
-      "A kick-plate splice length in the source table appears anomalous and is intentionally omitted. Final splice size, fastener material and anchorage come from the approved project drawing.",
+      "The catalog's kick-plate splice length is not reproduced here; final splice size, fastener material and anchorage come from the approved project drawing.",
   },
 ] as const;
 

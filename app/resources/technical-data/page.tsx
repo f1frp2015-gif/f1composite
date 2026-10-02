@@ -28,7 +28,7 @@ const designSteps = [
 // Third-party programs being prepared. Dates and laboratories are confirmed per
 // program when the work is contracted, so they are not printed here.
 const plannedTests = [
-  { title: "Chemical resistance: 2000 h in H₂SO₄, NaOH and Cl₂", standard: "ASTM G48 and D543 methodology", scope: "Vinyl ester and isophthalic polyester profiles, 2000-hour exposure at concentrations relevant to chemical plants, pulp and paper, and water treatment. Tensile retention curves per resin system." },
+  { title: "Chemical resistance: 2000 h in H₂SO₄, NaOH and Cl₂", standard: "ASTM D543 and ISO 175 methodology", scope: "Vinyl ester and isophthalic polyester profiles, 2000-hour exposure at concentrations relevant to chemical plants, pulp and paper, and water treatment. Tensile retention curves per resin system." },
   { title: "UV durability: 5000 h", standard: "ASTM G154 Cycle 1", scope: "5000 hours of accelerated UV and moisture exposure. Surface blush, color shift (ΔE) and flexural retention by resin system: polyester, vinyl ester and UV-stabilized." },
   { title: "Hydrolysis: 28 days in boiling water", standard: "ASTM D570, extended", scope: "Tensile and flexural retention and dimensional swelling after 28 days of boiling-water immersion, for water treatment, marina and coastal specifiers." },
   { title: "Fire: EN 45545-2 and ASTM E84", standard: "EN 45545-2, ASTM E84", scope: "Phenolic and fire-retardant polyester variants tested for rail (EN 45545-2 HL1/HL2/HL3) and North American building use (ASTM E84 Class A/B), with smoke density and toxicity." },
@@ -131,7 +131,7 @@ export default function TechnicalDataPage() {
         </div>
         <p className="mt-[12px] max-w-[860px] text-f14 leading-golden text-t3">
           ILSS is published at 30 MPa, above the EN 13706 minimum of 25 MPa (FRP Profile Design
-          Manual DOC-PF-2026-EN Rev. A). {TYP_NOTE} Values apply to the standard general-purpose
+          Manual DOC-PF-2026-EN Rev. B). {TYP_NOTE} Values apply to the standard general-purpose
           laminate; fire-retardant, vinyl ester, epoxy, polyurethane and phenolic systems each have
           their own formulation sheet on the per-size datasheets.
         </p>

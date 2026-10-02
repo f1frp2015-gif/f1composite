@@ -29,7 +29,7 @@ export const applicationPages: ApplicationPage[] = [
     lastModified: "2026-09-21",
     title: "Fiberglass Stakes for Agriculture & Horticulture",
     shortTitle: "Agriculture & horticulture stakes",
-    description: "Plan fiberglass stakes for nurseries, vineyards, orchards and crops. Compare configurations, qualify samples and prepare a bulk planting stake enquiry.",
+    description: "Plan fiberglass stakes for nurseries, vineyards, orchards and crops. Compare configurations, qualify samples and prepare a bulk planting stake inquiry.",
     h1: "Fiberglass stakes for agriculture & horticulture",
     intro: "Plan plant support for nurseries, vineyards, young orchards and growing programs. Match F1 fiberglass stakes to your crop, field conditions and planting schedule—from initial selection to sample approval and bulk supply.",
     environment: "Nurseries, vineyards, young orchards, vegetable and flower production, and compatible tree-shelter programs.",
@@ -55,7 +55,7 @@ export const applicationPages: ApplicationPage[] = [
       "Compare FRP cable trays and cable ladders for corrosive environments. Define tray bases, ladder rungs, resins, supports, fittings and project requirements.",
     h1: "FRP cable trays & cable ladders",
     intro:
-      "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the enquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
+      "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the inquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
     environment:
       "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
     image: "/images/applications/frp-cable-ladder-gray-product.webp",
@@ -154,7 +154,7 @@ export const applicationPages: ApplicationPage[] = [
     ],
     resinSystem:
       "Vinyl ester is recommended for chlorinated water, high humidity, and aggressive cooling tower chemistry. Isophthalic polyester can be used for mild HVAC towers with controlled water treatment.",
-    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790", "ISO 9001:2015"],
+    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
     designChecks: [
       {
         title: "Water chemistry and temperature",
@@ -217,7 +217,7 @@ export const applicationPages: ApplicationPage[] = [
     ],
     resinSystem:
       "Isophthalic polyester is common for general infrastructure. Vinyl ester is recommended for coastal, de-icing salt, marine, wastewater, and chemical exposure. Gritted top surfaces are used for pedestrian slip resistance.",
-    standards: ["EN 13706", "ASTM D3917", "AASHTO load classes", "AS 4586", "ISO 9001:2015"],
+    standards: ["EN 13706", "ASTM D3917", "AASHTO load classes", "AS 4586"],
     designChecks: [
       {
         title: "Panel span and load distribution",
@@ -279,7 +279,7 @@ export const applicationPages: ApplicationPage[] = [
     ],
     resinSystem:
       "UV-stabilized isophthalic polyester is the baseline for standard outdoor PV supports. Vinyl ester is recommended for coastal, floating PV, fertilizer exposure, and aggressive industrial environments.",
-    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790", "ISO 9001:2015"],
+    standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
     designChecks: [
       {
         title: "Wind, snow, and array geometry",
@@ -342,7 +342,7 @@ export const applicationPages: ApplicationPage[] = [
     ],
     resinSystem:
       "Vinyl ester is the default resin for chemical exposure. Phenolic or fire-retardant systems can be evaluated when the project combines corrosion resistance with strict flame, smoke, or offshore requirements.",
-    standards: ["EN 13706", "ASTM D3917", "ASTM E84", "BS 476", "ISO 9001:2015"],
+    standards: ["EN 13706", "ASTM D3917", "ASTM E84", "BS 476"],
     designChecks: [
       {
         title: "Chemical compatibility",

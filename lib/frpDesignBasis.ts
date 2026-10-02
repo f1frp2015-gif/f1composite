@@ -63,6 +63,27 @@ export const DESIGN_MATERIALS: Record<string, DesignMaterial> = {
   "alu-6063": { label: "Aluminum 6063-T5", group: "Metal", standard: "EN 1999-1-1 Table 3.2b (EN AW-6063 T5, 3–25 mm) / ASTM B221", E: 70, sigma: 110, density: 2.7 },
 };
 
+/**
+ * Load codes and pultruded-FRP design documents by market, as printed on the
+ * calculator methodology page and in the design manual.
+ */
+export const MARKET_CODES = [
+  { market: "United States", loads: "ASCE 7-22 through the IBC: 1.4D; 1.2D + 1.6L", design: "ASCE/SEI 74-23 (LRFD for pultruded GFRP shapes and connections)", related: "OSHA 29 CFR 1910 Subpart D for workplace access; ASTM D3917 dimensional tolerances" },
+  { market: "European Union", loads: "EN 1990:2023 and EN 1991: 1.35·k_F·G; 1.5·k_F·Q (k_F = 1.0 for CC2), national annexes", design: "CEN/TS 19101:2022, Eurocode expected by 2028", related: "EN 13706 product specification; EN ISO 14122 for machinery access" },
+  { market: "United Kingdom", loads: "BS EN 1990 and BS EN 1991 with UK National Annexes", design: "PD CEN/TS 19101:2022", related: "BS EN 13706; BS EN ISO 14122 for machinery access" },
+  { market: "Canada", loads: "NBC Part 4 (NBC 2020; NBC 2025 published December 2025, adopted by each province on its own timetable: check the edition in force): 1.4D; 1.25D + 1.5L", design: "No standard specific to pultruded shapes; CSA S806 covers self-supporting FRP components and FRP-reinforced or strengthened concrete in buildings and is the usual Canadian reference", related: "CSA S6:25 for bridges; CSA S807 for FRP bars" },
+  { market: "Australia", loads: "AS/NZS 1170.0 and 1170.1: 1.35G; 1.2G + 1.5Q", design: "No Australian standard for pultruded shapes; published Australian design guides use the ASCE LRFD approach with AS/NZS 1170 loads", related: "AS 1657:2018 for platforms, walkways, stairs and ladders; AS 5204:2023 for FRP bars" },
+  { market: "New Zealand", loads: "AS/NZS 1170.0 and 1170.1 through NZBC B1: 1.35G; 1.2G + 1.5Q", design: "No New Zealand standard for pultruded shapes; the resistance model is agreed with the building consent authority", related: "NZBC D1 and F4 for access routes and barriers" },
+] as const;
+
+/** Simple beam load cases with the Timoshenko shear-correction coefficient c the calculator applies. */
+export const BEAM_LOAD_CASES = [
+  { name: "Simple span, UDL", moment: "wL²/8", deflection: "5wL⁴/(384EIx)", c: "9.6" },
+  { name: "Simple span, mid-point load", moment: "PL/4", deflection: "PL³/(48EIx)", c: "12" },
+  { name: "Cantilever, tip load", moment: "PL", deflection: "PL³/(3EIx)", c: "3" },
+  { name: "Cantilever, UDL", moment: "wL²/2", deflection: "wL⁴/(8EIx)", c: "4" },
+] as const;
+
 export type DesignMethod = "lrfd-asce" | "lrfd-cents19101" | "lrfd-gb50608" | "asd";
 
 export interface DesignMethodBasis {
@@ -79,7 +100,7 @@ export interface DesignMethodBasis {
    path also takes the time-effect factor λ (see LOAD_DURATIONS). */
 export const DESIGN_METHODS: Record<DesignMethod, DesignMethodBasis> = {
   "lrfd-asce": { label: "Preliminary LRFD screen, ASCE/SEI 74-23", phiFlex: 0.65, phiShear: 0.65, loadFactor: 1.6, basis: "Preliminary global beam screen using ASCE/SEI 74-23-style φ, the time-effect factor λ and ASCE 7-22 load factors; not a complete code check" },
-  "lrfd-cents19101": { label: "Preliminary partial-factor screen, CEN/TS 19101:2022", phiFlex: 1 / 1.5, phiShear: 1 / 1.5, loadFactor: 1.5, basis: "Preliminary global beam screen using CEN/TS 19101-style γ_M = 1.5 and EN 1990:2023 variable-action γ_Q (CC2, k_F = 1.0); creep conversion for permanent loads is not modelled; not a complete code check" },
+  "lrfd-cents19101": { label: "Preliminary partial-factor screen, CEN/TS 19101:2022", phiFlex: 1 / 1.5, phiShear: 1 / 1.5, loadFactor: 1.5, basis: "Preliminary global beam screen using CEN/TS 19101-style γ_M = 1.5 and EN 1990:2023 variable-action γ_Q (CC2, k_F = 1.0); creep conversion for permanent loads is not modeled; not a complete code check" },
   "lrfd-gb50608": { label: "Preliminary LRFD screen, GB 50608-2020", phiFlex: 1 / 1.6, phiShear: 1 / 1.6, loadFactor: 1.5, basis: "Preliminary global beam screen using GB 50608-style γ_R and GB 55001 variable-action γ_Q; not a complete code check" },
   "asd": { label: "Preliminary ASD screen, user-selected properties", phiFlex: 1 / 2.5, phiShear: 1 / 3.0, loadFactor: 1.0, basis: "Preliminary allowable-stress screen: F/2.5 bending and F/3.0 shear; not a code compliance check" },
 };

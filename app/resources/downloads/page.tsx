@@ -48,7 +48,7 @@ const faqs = [
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Datasheets, CAD Files & Certificates",
   description:
-    "Download F1 Composite catalogs, material data sheets, published test reports and DXF drawings for pultruded FRP profiles. Certificates are sent on request.",
+    "Download F1 Composite catalogs, the FRP profile design manual, material data sheets, published test reports and DXF drawings. Certificates are sent on request.",
   path: "/resources/downloads",
   image: "/resources/downloads/opengraph-image",
 });
@@ -115,7 +115,7 @@ export default async function DownloadsPage() {
             These are the documents specifiers, fabricators and QA teams use to check and buy pultruded FRP profiles from F1 Composite. Files with a download link are public. The rest are sent on request, with the certificate holder, report number and scope, so you can match each document to the product you are buying.
           </p>
           <p>
-            <strong className="text-t1">Published now:</strong> the window and door catalog, the oilfield and mine pipe catalog, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">datasheet</Link>. <strong className="text-t1">On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
+            <strong className="text-t1">Published now:</strong> the FRP profile design manual (Rev. B), the window and door catalog, the oilfield and mine pipe catalog, material data sheets, SGS, Intertek and TÜV test reports, the PHI component certificate, the CABR green building certificate and EPD, and CSV templates for window and rebar schedules. DXF drawings for catalog sections are linked from each <Link href="/datasheets" className="font-semibold text-teal-text hover:underline">datasheet</Link>. <strong className="text-t1">On request:</strong> ISO 9001 and CE documentation, fire and chemical test reports, STEP models and project submittal packages.
           </p>
         </div>
       </PageSection>

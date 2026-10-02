@@ -410,6 +410,16 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 
 ---
 
+## 设计手册（2026-10）
+
+`public/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf`（DOC-PF-2026-EN Rev. B，46 页）不是手工编辑的文件，由 `scripts/build-design-manual.mjs` 生成：`npm run build:manual` 把站内数据渲染成 HTML（DM Sans / DM Mono、站内配色、同一截面引擎画的带尺寸截面图），再用无头 Chromium 打印成 A4 PDF，并检查每一页都没有溢出、PDF 页数等于生成的页数。
+
+- **数据来源**：层合板数值和试验方法 `lib/catalog/en13706.ts`；树脂体系 `lib/catalog/seed.ts` 的 `SEED_FORMULATIONS`；114 个规格和公布单重 `lib/catalog/standardProfiles.ts`，截面性能由 `lib/catalog/sectionRows.ts` 按名义截面计算；许用荷载表 `lib/spanTables.ts`；设计基础（φ、λ、环境系数、各国规范、荷载工况）`lib/frpDesignBasis.ts`；柱屈曲算例 `lib/frpColumn.ts`；公司事实和供货条款 `content/data/company.ts`；应用指南 `lib/applicationPages.ts`；护栏、爬梯目录数据和护栏荷载 `content/data/frpHandrailSpecs.ts`、`frpLadderSpecs.ts`、`lib/guardrailLoads.ts`；证据 `content/data/engineeringEvidence.ts`、`e40Evidence.ts`、`pvFrameEvidence.ts`；参考性能值 `content/data/pultrudedPerformance.ts`。改了这些数据就重新生成并提交 PDF；不要在脚本里手填数字。
+- **文档编号**：`MANUAL` 常量（编号、修订号、发布月份、文件名）在脚本顶部；改版时换修订号和文件名，旧网址在 `next.config.ts` 加 301。
+- **数值标注**：手册里每个数值带状态标签：Published（F1 公布值）、EN minimum（EN 13706-3 表 1 最小值）、Typical（行业典型值，待 F1 实测）、Reference（有出处的外部参考值）、Calculated（按名义截面或公式计算）、Test report（指定报告的结果及范围）。不写设计寿命、质保、"免维护"；防火和耐化学按树脂配方说明并注明证据状态。
+- **测试**：`scripts/design-manual.test.mjs`（在 `npm test` 里）用无浏览器模式生成 HTML，核对 114 个规格和单重、E23 数值和试验方法（销承压为 EN 13706-2 Annex E）、跨度表数值、设计基础、公司事实，并检查已撤回的说法没有回流，以及已发布的 PDF 页数与生成页数一致、文件已登记到证据库和下载列表。
+- **Rev. A 的问题**（2026-10 审核）：标准树脂写成环氧"FL-P22"（目录是间苯聚酯）；"免维护 / 60 年设计寿命 / 25 年质保"；BS 476 防火表含铝制品和 Type 40/100 平台；无出处的环氧耐化学表；ILSS 方法写成"EN ISO 1430"；只有 5 个英制尺寸且截面性能和挠度表不可复现；联系邮箱为私人邮箱。审核记录见 `docs/audits/2026-10-01-design-manual-rev-b.md`。
+
 ## 待办事项
 
 | 优先级 | 事项 | 状态 |
@@ -420,7 +430,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 价格对标文章（F1 vs Strongwell/CPI/Bedford）是否保留竞品报价 | 待决定 |
 | 中 | 隐私政策由法务审阅 | 待审阅 |
 | 高 | 在 GA4 把 `whatsapp_click`、`email_click`、`phone_click` 标为关键事件，再导入 Google Ads 作为次要转化 | 待操作 |
-| 高 | 设计手册 PDF（`f1composite-frp-profile-design-manual-2026.pdf`）需修订后再做网页版：标准树脂前后矛盾（环氧 vs 间苯聚酯，目录数据为间苯聚酯）、"免维护 / 60 年设计寿命 / 25 年质保"、防火分级表（含铝制品）、化学耐腐蚀表的来源和树脂。2026-09 起全站已撤下它的链接（下载页、设计指南、拉挤型材页、What is FRP、案例页、证据库和 AI 知识数据）；文件保留在原地址，已发出的链接仍能打开，但带 noindex。修订版请换新文件名上传，再恢复链接，并删除 `content/data/engineeringEvidence.ts` 的 `withdrawnDownloads` 条目和 `next.config.ts` 里对应的 noindex 规则；技术数据页和尺寸页仍以文字注明数据出自 DOC-PF-2026-EN Rev. A（`app/resources/technical-data/page.tsx`、`lib/catalog/seed.ts`），届时一并更新版本号 | 待修订 |
+| 高 | 设计手册 PDF：Rev. A 已于 2026-10 由 Rev. B 取代（`f1composite-frp-profile-design-manual-2026-rev-b.pdf`，由 `npm run build:manual` 从站内数据生成，见"设计手册"一节）。旧文件已删除，旧网址 301 跳转到新文件；下载页、设计指南、拉挤型材页、What is FRP、案例页、证据库、AI 知识数据和目录 seed 的链接已恢复；`withdrawnDownloads` 清空，noindex 规则删除；技术数据页和 seed 注明 Rev. B | 已完成 |
 | 高 | EPD 与绿色建材三星证书英文版把持证方写成 "F1 Composite Co., Ltd."，与 Intertek 报告上的 Fengdu New Material (Yancheng) Co., Ltd. 及法定主体不一致，需按原证书核对 | 待核实 |
 | 高 | 光伏页（`/products/frp-solar-mounting-systems`）摘录了 TÜV 报告 CN24KZ3A 002/003 的强度和保持率数值，下载页也写了 Intertek 窗报告的部分结果；TÜV 报告封面写明未经检测机构许可不得摘录复制，Intertek 报告也只允许整份复制。请向两家机构确认许可，或删去这些摘录。2026-09-25 业主决定暂时保留 | 暂时保留 |
 | 中 | 化学耐腐蚀选型页：需要树脂供应商授权的耐腐蚀数据或自测浸泡数据 | 待提供数据 |

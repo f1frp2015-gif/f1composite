@@ -85,7 +85,7 @@ export const pvFrameReports: PvFrameReport[] = [
     issuer: "SGS",
     reference: "GZMR260702529004",
     issued: "2026-07-30",
-    detail: "Chongqing Xianju glass-fibre-reinforced composite profile E-TS-AB, tested as longitudinal A1 sheet specimens at 10.1 mm thickness. UL 94-2023 Rev.2-2024, Section 8: V-0, Pass.",
+    detail: "Chongqing Xianju glass-fiber-reinforced composite profile E-TS-AB, tested as longitudinal A1 sheet specimens at 10.1 mm thickness. UL 94-2023 Rev.2-2024, Section 8: V-0, Pass.",
     scope: "This result applies to the specified material and tested thickness. It does not establish V-0 for thin-wall PV frames or replace the V-1 result in the separate Wuxi frame report. SGS states that this report is for internal reference.",
     file: "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-en.pdf",
     original: "frp-composite-profile-sgs-ul94-v0-test-report-gzmr260702529004-original-zh.pdf",
