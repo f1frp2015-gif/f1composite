@@ -169,7 +169,7 @@ export default function KnowhowServicesPage() {
           { label: "Know-How & Services" },
         ]}
       />
-      <PageNav items={[{ id: "delivery-chain", label: "Support modules" }, { id: "service-tiers", label: "Engagement" }, { id: "acceptance", label: "Acceptance" }, { id: "handover", label: "Handover" }, { id: "sourcing", label: "Equipment & materials" }, { id: "project-brief", label: "Project brief" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "delivery-chain", label: "Support modules" }, { id: "service-tiers", label: "Engagement" }, { id: "acceptance", label: "Acceptance" }, { id: "handover", label: "Handover" }, { id: "faq", label: "FAQ" }, { id: "sourcing", label: "Equipment & materials" }, { id: "project-brief", label: "Project brief" }]} />
       <KnowHowWorkflow />
       <PageSection id="service-tiers" title="Three levels of engagement" tone="white" intro="Choose the depth that matches your needs. Each tier ends with a defined period of support after handover.">
         <ol className="grid gap-[12px] lg:grid-cols-3">
