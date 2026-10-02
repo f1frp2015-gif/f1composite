@@ -1,3 +1,4 @@
+import { customProductPages } from "@/content/data/customProductPages";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -110,6 +111,12 @@ export default function ProductsPage() {
           <Link href="/applications" className={link}>Explore applications</Link>
           <Link href="/pultruded-frp-profiles" className={link}>Pultruded FRP & GRP overview</Link>
         </p>
+      </PageSection>
+
+      <PageSection id="custom-components" title="Custom shapes & project components" intro="Review the configuration, interfaces and qualification needed for a project quotation.">
+        <ul className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
+          {customProductPages.map((page) => <li key={page.slug}><CoverCard href={`/products/${page.slug}`} cover={coverFor(`/products/${page.slug}`)!} title={page.name} text={page.description} /></li>)}
+        </ul>
       </PageSection>
 
       <InnerCTA title="Not sure which product family fits your project?" />

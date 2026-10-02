@@ -305,6 +305,14 @@
     ]
   },
   {
+    "path": "/products/fiberglass-square-rods",
+    "title": "Fiberglass Square Rods",
+    "description": "Specify solid fiberglass square rods for spacers, insulating supports and machined components. Review section size, tolerances, resin and cut lengths.",
+    "aliases": [
+      "Fiberglass Square Rods | Custom Solid GFRP Bars"
+    ]
+  },
+  {
     "path": "/products/fiberglass-stakes",
     "title": "Fiberglass Stakes Manufacturer",
     "description": "Factory-direct pultruded FRP stakes for plant support, nursery trees, vineyard training, garden crops and site identification. Start with the 5–19 mm public-market planning band below, then release the actual diameter, length, surface, color and end treatment by quotation.",
@@ -379,6 +387,14 @@
     ]
   },
   {
+    "path": "/products/fiberglass-t-profiles",
+    "title": "Fiberglass T Profiles",
+    "description": "Custom pultruded fiberglass T profiles for panel supports, stiffeners and frames. Define flange, stem, resin, connections and qualification requirements.",
+    "aliases": [
+      "Fiberglass T Profiles | Custom Pultruded Tee Sections"
+    ]
+  },
+  {
     "path": "/products/fiberglass-windows-doors",
     "title": "Finished Fiberglass Windows & Doors",
     "description": "Specify finished fiberglass windows and doors by opening schedule, glazing, hardware and project requirements. Review assembly scope, reports and packing.",
@@ -422,6 +438,14 @@
     ]
   },
   {
+    "path": "/products/frp-fencing",
+    "title": "FRP Fencing",
+    "description": "Plan FRP fencing with fiberglass posts, pickets or grating infill. Specify panel layout, gates, connections, exposure and project acceptance requirements.",
+    "aliases": [
+      "FRP Fencing | Fiberglass Posts, Panels & Gates"
+    ]
+  },
+  {
     "path": "/products/frp-gratings",
     "title": "Pultruded FRP & GRP Grating",
     "description": "Compare pultruded fiberglass grating, also called GRP grating, in T-bar and I-bar series with panel data, load-table support and matched 316SS clips.",
@@ -462,6 +486,22 @@
     "aliases": [
       "FRP rebar for concrete reinforcement",
       "FRP Rebar | GFRP Bars, Stirrups & Reinforcement Mesh"
+    ]
+  },
+  {
+    "path": "/products/frp-rock-bolts",
+    "title": "FRP Rock Bolts",
+    "description": "Specify GFRP rock bolts for tunnel, mine and ground-support projects. Review bar geometry, plates, nuts, grout interfaces and system qualification.",
+    "aliases": [
+      "FRP Rock Bolts | GFRP Ground Support Inquiry"
+    ]
+  },
+  {
+    "path": "/products/frp-sheet-piling",
+    "title": "FRP Sheet Piling",
+    "description": "Review custom FRP sheet piling for waterfront walls and retaining structures. Specify interlocks, site conditions, structural evidence and installation scope.",
+    "aliases": [
+      "FRP Sheet Piling | Custom Composite Waterfront Profiles"
     ]
   },
   {

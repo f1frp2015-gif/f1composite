@@ -35,7 +35,8 @@ test("five menus: products by family, industries, tools, resources and company",
   assert.ok(mainNav[0].sections[0].links.every(link => link.glyph), "every standard profile shows its section glyph");
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...destinations(item.sections)])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  assert.ok(allLinks.length <= 76, "keep a bounded desktop and mobile menu");
+  // Nine new custom-product/application destinations retain the same five-menu layout.
+  assert.ok(allLinks.length <= 85, "keep a bounded desktop and mobile menu");
   // The Products side panel repeats a few libraries as shortcuts; they must also have their own place.
   for (const shortcut of [productShortcuts.finder, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
   const tools = mainNav.find(item => item.id === "tools").sections.flatMap(section => section.links.map(link => link.href));
@@ -136,4 +137,14 @@ test("every navigation data route resolves to a real page or registered applicat
 
     assert.fail(`navigation route has no page: ${route}`);
   }
+});
+
+// Product sublinks must be reachable on phones, as well as desktop mega menus.
+test("mobile product families expose their child destinations", async () => {
+  const navbar = await read("components/layout/Navbar.tsx");
+  const mobile = navbar.slice(navbar.indexOf("function MobileProducts"), navbar.indexOf("export default function Navbar"));
+  assert.match(mobile, /section\.links\.map/);
+  assert.match(mobile, /<details/);
+  assert.match(mobile, /<summary/);
+  assert.match(mobile, /onClick=\{onNavigate\}/);
 });

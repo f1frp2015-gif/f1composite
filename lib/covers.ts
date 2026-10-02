@@ -32,6 +32,12 @@ const product = (file: string, alt: string): Cover => ({ src: `/images/covers/${
 const ILLUSTRATIVE = "Illustrative photo";
 
 export const productCovers = {
+  "/products/fiberglass-square-rods": { src: "/images/products/custom-range/fiberglass-square-rods.svg", alt: "Schematic of fiberglass square rods; conceptual geometry, not a production drawing", note: "Concept diagram" },
+  "/products/fiberglass-t-profiles": { src: "/images/products/custom-range/fiberglass-t-profiles.svg", alt: "Schematic of fiberglass t profiles; conceptual geometry, not a production drawing", note: "Concept diagram" },
+  "/products/frp-sheet-piling": { src: "/images/products/custom-range/frp-sheet-piling.svg", alt: "Schematic of frp sheet piling; conceptual geometry, not a production drawing", note: "Concept diagram" },
+  "/products/frp-rock-bolts": { src: "/images/products/custom-range/frp-rock-bolts.svg", alt: "Schematic of frp rock bolts; conceptual geometry, not a production drawing", note: "Concept diagram" },
+  "/products/frp-fencing": { src: "/images/products/custom-range/frp-fencing.svg", alt: "Schematic of frp fencing; conceptual geometry, not a production drawing", note: "Concept diagram" },
+
   "/products/fiberglass-structural-shapes": product("standard-profiles.webp", "Pultruded fiberglass I-beam, channel, square tube and angle"),
   "/products/fiberglass-structural-shapes/frp-i-beam": product("frp-i-beam.webp", "Pultruded fiberglass I-beam"),
   "/products/fiberglass-structural-shapes/frp-channel": product("frp-channel.webp", "Pultruded fiberglass channel"),

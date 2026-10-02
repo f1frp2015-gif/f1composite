@@ -38,6 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    { url: `${BASE}/products/fiberglass-square-rods`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/fiberglass-t-profiles`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-sheet-piling`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-rock-bolts`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-fencing`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+
     { url: BASE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/technology/pultruded-profile-performance`, lastModified: performanceReviewed, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/pultruded-frp-profiles`, changeFrequency: "weekly", priority: 0.95 },

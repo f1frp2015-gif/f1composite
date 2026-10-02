@@ -102,7 +102,13 @@ export const mainNav = [
       },
       { id: "rebar", label: "GFRP rebar & mesh", href: "/products/frp-rebar", glyph: "rebar", links: [] },
       { id: "fasteners", label: "Fasteners & fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", links: [] },
-      { id: "custom-profiles", label: "Custom profiles", href: "/products/custom-pultruded-profiles", line: "F1-FORM", glyph: "custom", links: [] },
+      { id: "custom-profiles", label: "Custom profiles", href: "/products/custom-pultruded-profiles", line: "F1-FORM", glyph: "custom", links: [
+        { label: "Square Rods", href: "/products/fiberglass-square-rods" },
+        { label: "T Profiles", href: "/products/fiberglass-t-profiles" },
+        { label: "Sheet Piling", href: "/products/frp-sheet-piling" },
+        { label: "Rock Bolts", href: "/products/frp-rock-bolts" },
+        { label: "Fencing", href: "/products/frp-fencing" },
+      ] },
     ],
   },
   {
@@ -136,6 +142,11 @@ export const mainNav = [
           { label: "Chemical Plant Platforms", href: "/applications/frp-chemical-plant-platforms" },
           { label: "Pedestrian Bridge Structures", href: "/applications/frp-pedestrian-bridge-superstructures" },
           { label: "Solar Mounting Profiles", href: "/applications/frp-solar-mounting-profiles" },
+          { label: "Waterfront retaining walls", href: "/applications/frp-waterfront-retaining-walls" },
+          { label: "Mining & tunneling support", href: "/applications/frp-mining-tunneling" },
+          { label: "Utility & industrial fencing", href: "/applications/frp-utility-fencing" },
+          { label: "Swimming pool facilities", href: "/applications/frp-swimming-pool-facilities" },
+
         ],
       },
       {
