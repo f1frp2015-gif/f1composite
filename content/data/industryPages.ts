@@ -300,7 +300,7 @@ export const industryPages = {
       "Explore custom pultruded FRP profiles for selected passenger-car reinforcements, EV battery-pack details, bus and coach bodies, commercial vehicles and rail interiors. Long, constant-section parts are evaluated against the vehicle program's loads, joints, environment and approval requirements; a candidate location is not a qualified replacement part.",
     image: {
       src: "/images/industries/vehicle-bus-body-profiles.webp",
-      alt: "Illustrative bus body showing candidate roof and ceiling support-profile locations",
+      alt: "Bus body showing candidate roof and ceiling support-profile locations",
       caption: "Candidate roof and ceiling rail locations in a bus body; final components require vehicle-maker design and approval.",
     },
     areasIntro: "Start with the component's function and installation interface. These are candidate locations for long, constant-section FRP parts; the vehicle maker defines the acceptance basis and approves the installed component.",
