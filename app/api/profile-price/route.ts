@@ -1,10 +1,19 @@
 // Budgetary price API for the /fiberglass-pultruded-profile-price estimator.
 // Validates the request by hand (no schema dep) and returns USD ranges only —
-// the engine's cost constants never leave the server.
+// the engine's cost constants never leave the server. Enough answers would
+// let someone fit those constants, so the endpoint serves only this site's
+// pages and caps how many estimates one address gets.
 
 import { NextResponse } from "next/server";
+import { isSameOriginRequest } from "@/lib/browserRequest";
 import { estimatePrice, type Fiber, type Geometry, type Resin } from "@/lib/pricing/engine";
 import { getPriceGeometryError } from "@/lib/pricing/geometry";
+import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
+
+// The estimator asks again 400 ms after each change, so one person trying
+// sizes sends a few dozen requests; these leave room for that.
+const PRICE_BURST_LIMIT = { limit: 90, windowMs: 5 * 60_000 };
+const PRICE_DAILY_LIMIT = { limit: 400, windowMs: 24 * 60 * 60_000 };
 
 const FIBERS: Fiber[] = ["e_glass", "ecr_glass", "carbon"];
 const RESINS: Resin[] = ["up", "ve", "epoxy", "pu", "phenolic"];
@@ -65,6 +74,14 @@ function parseGeometry(raw: unknown): Geometry | null {
 }
 
 export async function POST(req: Request) {
+  if (!isSameOriginRequest(req)) {
+    return NextResponse.json({ error: "Use the price estimator on f1composite.com, or send the section for a quotation." }, { status: 403 });
+  }
+  const burst = rateLimit(req, "profile-price", PRICE_BURST_LIMIT);
+  if (!burst.ok) return tooManyRequests(burst, "Too many estimates in a short time. Wait a few minutes, or send the section for a quotation.");
+  const daily = rateLimit(req, "profile-price-day", PRICE_DAILY_LIMIT);
+  if (!daily.ok) return tooManyRequests(daily, "Daily estimate limit reached. Send the sections for a quotation and we will price them.");
+
   let body: Record<string, unknown>;
   try {
     body = await req.json();

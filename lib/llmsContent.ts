@@ -1,6 +1,7 @@
 import { buildPublicKnowledge } from "@/lib/publicKnowledge";
 import { productCategories } from "@/content/data/products";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
+import { verificationForEvidence, verificationPath } from "@/content/data/reportVerification";
 import { company, companyStatements, supplyTerms } from "@/content/data/company";
 
 const SITE = "https://www.f1composite.com";
@@ -54,7 +55,10 @@ export function buildLlmsIndex(): string {
     .map((item) => `- [${item.name}](${SITE}${item.path})`)
     .join("\n");
   const evidence = engineeringEvidence
-    .map((item) => `- [${item.reference}: ${item.title}](${SITE}${item.file})`)
+    .map((item) => {
+      const verification = verificationForEvidence(item.id);
+      return `- [${item.reference}: ${item.title}](${SITE}${item.file})${verification ? ` · [how to verify](${SITE}${verificationPath(verification.slug)})` : ""}`;
+    })
     .join("\n");
   const pages = Object.entries(knowledge.keyPages)
     .filter(([key]) => !["llmsTxt", "sitemap"].includes(key))
@@ -96,7 +100,11 @@ export function buildLlmsContent(): string {
   const knowledge = buildPublicKnowledge();
   const products = productCategories.map((item) => `- ${item.title}: ${item.description} ${SITE}${item.href}`).join("\n");
   const families = knowledge.productFamilies.map((item) => `- ${item.family}: ${item.url}\n  Specification: ${JSON.stringify(item)}`).join("\n");
-  const evidence = engineeringEvidence.map((item) => `- ${item.reference}: ${item.scope} ${SITE}${item.file}`).join("\n");
+  const evidence = engineeringEvidence.map((item) => {
+    const verification = verificationForEvidence(item.id);
+    const holder = verification ? ` ${verification.holderRole}: ${verification.holder}. Verify: ${SITE}${verificationPath(verification.slug)}` : "";
+    return `- ${item.reference}: ${item.scope} ${SITE}${item.file}${holder}`;
+  }).join("\n");
   return `# F1 Composite
 > Brief revision: ${evidenceRevision}
 > Public engineering and procurement reference. Product documents and quotation drawings control applicability.
