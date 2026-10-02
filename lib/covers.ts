@@ -1,3 +1,4 @@
+import { sourcingHeroImages, frpzsImages, supplierImageNote } from "@/content/data/sourcingImages";
 import { industryPages, type IndustryPageData } from "@/content/data/industryPages";
 import { applicationPages } from "@/lib/applicationPages";
 import type { BlogPost } from "@/content/data/blogPosts";
@@ -153,9 +154,9 @@ export const caseStudyCovers = {
 
 // Technology pages open on their header figure; the tools keep their own covers.
 export const technologyCovers = {
-  "/sourcing/pultrusion-machines": { src: "/images/sourcing/pultrusion-machines.svg", alt: "Diagram of pultrusion machines showing the main specification interfaces" },
-  "/sourcing/pultrusion-dies": { src: "/images/sourcing/pultrusion-dies.svg", alt: "Diagram of pultrusion dies & tooling showing the main specification interfaces" },
-  "/sourcing/resin-mixing-injection": { src: "/images/sourcing/resin-mixing-injection.svg", alt: "Diagram of resin mixing & pu injection showing the main specification interfaces" },
+  "/sourcing/pultrusion-machines": { src: sourcingHeroImages["pultrusion-machines"].src, alt: sourcingHeroImages["pultrusion-machines"].alt, note: supplierImageNote, fit: "contain" },
+  "/sourcing/pultrusion-dies": { src: sourcingHeroImages["pultrusion-dies"].src, alt: sourcingHeroImages["pultrusion-dies"].alt, note: supplierImageNote, fit: "contain" },
+  "/sourcing/resin-mixing-injection": { src: sourcingHeroImages["resin-mixing-injection"].src, alt: sourcingHeroImages["resin-mixing-injection"].alt, note: supplierImageNote, fit: "contain" },
   "/sourcing/pullwinding-equipment": { src: "/images/sourcing/pullwinding-equipment.svg", alt: "Diagram of pullwinding equipment showing the main specification interfaces" },
   "/sourcing/slitting-cutting-equipment": { src: "/images/sourcing/slitting-cutting-equipment.svg", alt: "Diagram of mat slitters & profile cutters showing the main specification interfaces" },
   "/sourcing/smc-production-lines": { src: "/images/sourcing/smc-production-lines.svg", alt: "Diagram of smc production lines showing the main specification interfaces" },
@@ -164,7 +165,7 @@ export const technologyCovers = {
   "/sourcing/fiberglass-mat-veil": { src: "/images/sourcing/fiberglass-mat-veil.svg", alt: "Diagram of fiberglass mat & surface veil showing the main specification interfaces" },
   "/sourcing/stitched-fiberglass-fabrics": { src: "/images/sourcing/stitched-fiberglass-fabrics.svg", alt: "Diagram of stitched fiberglass fabrics showing the main specification interfaces" },
   "/sourcing/gelcoat-resins": { src: "/images/sourcing/gelcoat-resins.svg", alt: "Diagram of gelcoat resins showing the main specification interfaces" },
-  "/sourcing/equipment": { src: "/images/sourcing/equipment.svg", alt: "Sourcing specification and qualification workflow" },
+  "/sourcing/equipment": { src: frpzsImages.hydraulicLine.src, alt: frpzsImages.hydraulicLine.alt, note: supplierImageNote, fit: "contain" },
   "/sourcing/materials": { src: "/images/sourcing/materials.svg", alt: "Sourcing specification and qualification workflow" },
 
   "/technology/pultruded-profile-performance": { src: "/images/technology/frp-profile-engineering-drawing-3d-view.jpg", alt: "Dimensioned drawing and 3D view of a custom pultruded FRP profile", fit: "contain" },

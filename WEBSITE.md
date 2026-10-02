@@ -324,6 +324,8 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 ## 站内搜索、型材筛选器、导航和文件库（2026-09 阶段 2）
 
 **业务层级（2026-10-02 业主确认）**：设备、模具和原材料是 Know-How & Services 下的技术转移/生产支持配套，不作为主要产品业务。入口放在 `/technology/knowhow-services#sourcing`；不得在产品总目录、首页产品线或全局导航中作为独立业务并列展示。保留 `/sourcing/*` 地址，其面包屑、页面标签和搜索标签归属 Know-How。
+- **供应商图片（2026-10-02 业主确认）**：FRPZS/河南众晟是 F1 供应商之一，获业主明确要求在必要位置使用其产品图。图片使用 `Supplier image · FRPZS` 标识，保持 Know-How 配套归属，不冒充 F1 工厂/项目照片；源页面、原图 URL、SHA-256 和原始尺寸保存在 `docs/frpzs-image-sources.json`，已有图中标识保留。
+
 - **Know-How 交付支持**：现有 `/sourcing/*` 页面通过 `content/data/knowhowSupport.ts` 补充配置、预成型/工装与验收章节；不另建主要业务入口。`lib/knowhowInquiry.ts` 和 `KnowHowProjectBrief` 将目标、模块和工厂背景带入现有 Contact 表单。配套页可用 `?module=preforming#project-brief` 等有效模块参数预选；模板位于 `public/downloads/knowhow-*.txt`。FAT/SAT 与最终产品资格验证分开说明，周期、IP 和支持责任按项目确认。
 
 
