@@ -37,7 +37,7 @@ export default function EvidencePage() {
       </div>
       <p className="mt-[12px] max-w-[860px] text-f14 leading-golden text-t3">Intertek and TÜV Rheinland rows give the conclusion printed in each report, because both laboratories restrict partial reproduction. Open the complete report for the measured values. Data sheets and the window catalog are listed below but not tabulated.</p>
     </PageSection>
-    <PageSection id="documents" title="All documents" count={`${engineeringEvidence.length} documents`} tone="muted" intro={<>{commercialFacts.compliance} The original document controls its holder, issue date, validity and scope. For material or batch-specific records, <Link href="/contact?source=evidence-request&inquiry_type=technical" className="font-semibold text-teal-text underline underline-offset-4">request the applicable evidence</Link>.</>}>
+    <PageSection id="documents" title="All documents" count={`${engineeringEvidence.length} documents`} tone="muted" intro={<>{commercialFacts.compliance} The original document controls its holder, issue date, validity and scope. Each test report and certificate has a verification page naming its holder, the issuer&apos;s own check and the SHA-256 of the published file. For material or batch-specific records, <Link href="/contact?source=evidence-request&inquiry_type=technical" className="font-semibold text-teal-text underline underline-offset-4">request the applicable evidence</Link>.</>}>
       <EvidenceExplorer />
     </PageSection>
     <RelatedLinks

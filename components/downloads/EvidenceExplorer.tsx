@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { engineeringEvidence } from "@/content/data/engineeringEvidence";
+import { reportVerifications, verificationPath } from "@/content/data/reportVerification";
 import { buildRfqHref } from "@/lib/rfq";
 import { trackEvent } from "@/lib/analytics";
+
+const verificationHrefs = new Map(reportVerifications.map((item) => [item.evidenceId, verificationPath(item.slug)]));
 
 export default function EvidenceExplorer() {
   const [kind, setKind] = useState("All");
@@ -21,6 +24,7 @@ export default function EvidenceExplorer() {
       <p className="text-f12 font-bold text-teal-text">{item.kind} · {item.reference}</p><h2 className="mt-[8px] text-f24 font-bold">{item.title}</h2><p className="mt-[10px] max-w-[880px] text-f16 text-t2">{item.scope}</p>
       <div className="mt-[16px] flex flex-wrap gap-x-[22px] gap-y-[12px] text-f14 font-bold text-teal-text">
         <a href={item.file} className="inline-flex min-h-[44px] items-center underline underline-offset-4" onClick={() => trackEvent("download_evidence", { evidence_id: item.id, product_path: item.product })}>Open document (PDF)</a>
+        {verificationHrefs.has(item.id) && <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={verificationHrefs.get(item.id)!}>Verify this document</Link>}
         {item.contextHref && <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={item.contextHref}>Read test results and scope notes</Link>}
         <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={item.product}>{item.productLabel}</Link>
         <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={buildRfqHref({ source: "evidence-library", evidenceId: item.id, product: item.productLabel, productPath: item.product, message: `Please confirm whether ${item.reference} applies to my proposed ${item.productLabel.toLowerCase()} configuration. I will provide the dimensions, quantity and project requirements below.` })}>Check applicability to my project</Link>
