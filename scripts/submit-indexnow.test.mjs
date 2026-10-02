@@ -1,16 +1,23 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import test from "node:test";
 import { loadProjectModule } from "./load-project-module.mjs";
 import {
   affectsDatasheetPages,
+  changedBuiltRoutes,
   changedSlugs,
   indexedDatasheetRoutes,
+  isBuiltSite,
   isSubmittableRoute,
+  normalizePageHtml,
   normalizeUrls,
   parseIndexedDatasheetSlugs,
   parseSlugBlocks,
+  routeFromHtmlFile,
   routeFromPageFile,
+  sitemapRoutes,
 } from "./submit-indexnow.mjs";
 
 test("maps static App Router page files to canonical paths", () => {
@@ -78,5 +85,61 @@ test("recognizes the files that render datasheet pages", () => {
   }
   for (const file of ["app/datasheets/page.tsx", "app/products/frp-gratings/page.tsx", "lib/datasheetHighlights.ts"]) {
     assert.ok(!affectsDatasheetPages(file), file);
+  }
+});
+
+test("compares pages the way a reader sees them, not build hashes", () => {
+  const page = (chunk, alt, schema) =>
+    `<html><head><link rel="stylesheet" href="/_next/static/css/${chunk}.css"/><script type="application/ld+json">{"name":"${schema}"}</script></head>` +
+    `<body><img alt="${alt}" src="/_next/image?url=%2Fimages%2Fa.webp&w=640&q=75"/><script src="/_next/static/chunks/${chunk}.js" async=""></script>` +
+    `<script>self.__next_f.push([1,"${chunk}"])</script></body></html>`;
+  assert.equal(normalizePageHtml(page("a1b2", "Grating", "F1")), normalizePageHtml(page("c3d4", "Grating", "F1")));
+  assert.notEqual(normalizePageHtml(page("a1b2", "Grating", "F1")), normalizePageHtml(page("a1b2", "Deck panel", "F1")));
+  assert.notEqual(normalizePageHtml(page("a1b2", "Grating", "F1")), normalizePageHtml(page("a1b2", "Grating", "F1 Composite")));
+});
+
+test("maps prerendered HTML files to routes", () => {
+  assert.equal(routeFromHtmlFile("index.html"), "/");
+  assert.equal(routeFromHtmlFile("about.html"), "/about");
+  assert.equal(routeFromHtmlFile("products/fiberglass-structural-shapes/frp-rod.html"), "/products/fiberglass-structural-shapes/frp-rod");
+  assert.equal(routeFromHtmlFile("_not-found.html"), null);
+  assert.equal(routeFromHtmlFile("_global-error.html"), null);
+});
+
+test("finds changed, added and removed indexable pages between two builds", () => {
+  const root = mkdtempSync(join(tmpdir(), "indexnow-"));
+  const write = (build, file, content) => {
+    const path = join(root, build, file);
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, content);
+  };
+  const sitemap = (...routes) =>
+    `<urlset>${routes.map((route) => `<url><loc>https://www.f1composite.com${route === "/" ? "" : route}</loc><image:image><image:loc>https://www.f1composite.com/images/a.webp</image:loc></image:image></url>`).join("")}</urlset>`;
+  try {
+    // "/" and /about only differ in hashed asset names; /industries/marine lost a label;
+    // /old was removed; /new was added; /search changed but is not in either sitemap.
+    write("before", "index.html", `<link href="/_next/static/chunks/aaa.js"/>Home`);
+    write("after", "index.html", `<link href="/_next/static/chunks/bbb.js"/>Home`);
+    write("before", "about.html", "About");
+    write("after", "about.html", "About");
+    write("before", "industries/marine.html", `<img alt="Marina dock"/><span>AI concept</span>`);
+    write("after", "industries/marine.html", `<img alt="Marina dock"/>`);
+    write("before", "old.html", "Old");
+    write("after", "new.html", "New");
+    write("before", "search.html", "Search v1");
+    write("after", "search.html", "Search v2");
+    write("before", "_not-found.html", "Not found v1");
+    write("after", "_not-found.html", "Not found v2");
+    write("before", "sitemap.xml.body", sitemap("/", "/about", "/industries/marine", "/old"));
+    write("after", "sitemap.xml.body", sitemap("/", "/about", "/industries/marine", "/new"));
+
+    const before = join(root, "before");
+    const after = join(root, "after");
+    assert.deepEqual([...sitemapRoutes(after)].sort(), ["/", "/about", "/industries/marine", "/new"]);
+    assert.ok(isBuiltSite(before) && isBuiltSite(after));
+    assert.ok(!isBuiltSite(join(root, "missing")) && !isBuiltSite(""));
+    assert.deepEqual(changedBuiltRoutes(before, after), ["/industries/marine", "/new", "/old"]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
 });

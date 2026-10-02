@@ -265,6 +265,15 @@ f1composite.com
 | 博客slug | `[核心词]-[长尾词]` (3-7词) | `frp-vs-steel-structural-profiles` |
 | Alt文本 | `[主体] [材料] [场景] [品牌]` | `"Pultruded FRP I-beam 305mm by F1 Composite"` |
 
+### IndexNow 提交
+
+- **自动提交：** 推送到 main 后，`.github/workflows/indexnow.yml` 等 Vercel 生产部署完成，再用 `scripts/submit-indexnow.mjs` 提交有变化的页面。页面有两个来源：
+  - 按改动的文件推算：页面文件、博客和应用页记录、数据表试点、站点地图、重定向。
+  - 把推送前后的站点各构建一次，逐页比较预渲染的 HTML（忽略框架脚本和构建哈希，保留 JSON-LD）。这部分补上共享数据和组件带来的变化，例如封面、卡片、行业数据；只取两份站点地图里的可索引页面。
+- **构建失败时：** 只提交第一部分。
+- **手动补交：** 在 Actions 里运行这个工作流，把地址填进 `urls`。同一分支的运行会互相取消，要等自动那次跑完再手动提交。
+- **本地预览：** `node scripts/submit-indexnow.mjs --before <sha> --after <sha> --dry-run`；加上 `--html-before`、`--html-after`，分别指向两次构建的 `.next/server/app`。
+
 ### AI 建设路线图
 
 | Phase | 功能 | 优先级 | 预估 |
