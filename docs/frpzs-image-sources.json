@@ -7,17 +7,17 @@
   "assets": [
     {
       "key": "hydraulicLine",
-      "localPath": "public/images/sourcing/frpzs/hydraulic-profile-pultrusion-line.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/hydraulic-profile-pultrusion-line.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Machine/Frp-GRP-Hydraulic-Profile-Pultrusio.html",
-      "originalUrl": "https://www.frpzs.com/d/file/p/2023-09-08/e5070f8b32d2ad24d579fed9dc65ba62.jpg",
-      "width": 1200,
-      "height": 533,
-      "bytes": 40773,
-      "sha256": "4708501fc4b7683cd7a9690f3783785e75f5fefb8eb2ac8434f620d7c19f1fda"
+      "originalUrl": "https://www.frpzs.com/d/file/p/2023-09-08/ee31b6644e6df9d8e1812906f8223192.jpg",
+      "width": 450,
+      "height": 450,
+      "bytes": 11920,
+      "sha256": "795586eb0a0a768ce5132a0fae0d4dd86fcbd941de8d4b43677d731eefdfd490"
     },
     {
       "key": "crawlerLine",
-      "localPath": "public/images/sourcing/frpzs/crawler-profile-pultrusion-line.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/crawler-profile-pultrusion-line.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Machine/Crawler-type-fiberglass-Profile-Pult.html",
       "originalUrl": "https://www.frpzs.com/d/file/p/2025-05-13/355359330fb84867b36554f3a628d36b.jpg",
       "width": 500,
@@ -27,7 +27,7 @@
     },
     {
       "key": "channelDie",
-      "localPath": "public/images/sourcing/frpzs/channel-pultrusion-die-face.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/channel-pultrusion-die-face.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Mould/FRP-Structural-Profiles-Mould/Fiberglass-Channels-Pulrrusion-die.html",
       "originalUrl": "https://www.frpzs.com/d/file/p/2023-07-08/9f0e17df7ef54b79687403fc855df9db.jpg",
       "width": 450,
@@ -37,7 +37,7 @@
     },
     {
       "key": "dieGuides",
-      "localPath": "public/images/sourcing/frpzs/channel-die-guide-plate-assembly.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/channel-die-guide-plate-assembly.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Mould/FRP-Structural-Profiles-Mould/Fiberglass-Channels-Pulrrusion-die.html",
       "originalUrl": "https://www.frpzs.com/d/file/p/2023-07-08/6ae5543ce7b91c5691674448ea2f1586.jpg",
       "width": 450,
@@ -47,7 +47,7 @@
     },
     {
       "key": "injectionUnit",
-      "localPath": "public/images/sourcing/frpzs/two-component-resin-injection-unit.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/two-component-resin-injection-unit.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Machine/Resin-injection-machine.html",
       "originalUrl": "https://www.frpzs.com/d/file/p/2023-07-05/317e0ca8f8a924da693837d7741fd17a.jpg",
       "width": 450,
@@ -57,7 +57,7 @@
     },
     {
       "key": "injectionTanks",
-      "localPath": "public/images/sourcing/frpzs/resin-injection-tank-detail.jpg",
+      "localPath": "public/images/sourcing/supplier-equipment/resin-injection-tank-detail.jpg",
       "sourcePage": "https://www.frpzs.com/FRP-Pultrusion-Machine/Resin-injection-machine.html",
       "originalUrl": "https://www.frpzs.com/d/file/p/2023-07-05/1b1277f25862a63d49bd58319c28e2d5.jpg",
       "width": 450,
@@ -65,5 +65,6 @@
       "bytes": 37420,
       "sha256": "3dbc64df2bf85ccf1f541bd2501300f009c5f85f06680d3127a694f8e3ca691c"
     }
-  ]
+  ],
+  "publicAttribution": "Owner requested no FRPZS name on public pages; use generic Supplier image labels and neutral asset paths. The hydraulic image is a separately published unmarked original, not an edited watermark removal."
 }
