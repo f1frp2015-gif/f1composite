@@ -32,7 +32,7 @@ const reasons: Record<string, string> = {
   energy: "Electrical insulation with corrosion resistance, for cable supports, substations and solar structures on coastal or humid sites.",
   marine: "Seawater: glass FRP does not rust, and a vinyl ester laminate with sealed cut edges suits splash and immersion.",
   industrial: "Chemicals: with the resin chosen for the chemicals on site, platforms, grating and supports avoid the corrosion and recoating of steel.",
-  vehicle: "Weight and insulation: glass FRP weighs about a quarter as much as steel for the same volume and does not conduct; fire requirements are set part by part.",
+  vehicle: "Candidate parts in buses, EV enclosures and rail can use FRP's low density and electrical insulation; geometry, connections and approval stay specific to each part.",
   "water-wastewater": "Wet, chemically dosed service around treatment equipment, where cable supports, access frames and walkways would otherwise need repeated coating.",
 };
 

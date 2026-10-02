@@ -32,7 +32,7 @@ export default function PageSection({
         <div className="flex flex-wrap items-end justify-between gap-x-[24px] gap-y-[10px]">
           <h2 id={`${id}-title`} className={`text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.15] tracking-[-0.02em] ${tone === "deep" ? "text-white" : "text-t1"}`}>
             {typeof title === "string" ? holdDash(title) : title}
-            {count ? <span className="ml-[10px] align-middle font-mono text-f12 font-normal uppercase tracking-[0.06em] text-t3">{count}</span> : null}
+            {count ? <>{" "}<span className="ml-[10px] align-middle font-mono text-f12 font-normal uppercase tracking-[0.06em] text-t3">{count}</span></> : null}
           </h2>
           {aside ? <div className="text-f14">{aside}</div> : null}
         </div>

@@ -54,7 +54,12 @@ const dataLinks = [
  * table, the references follow the projects. Sections alternate white and
  * pale grounds in whatever order they end up; the quote block is dark.
  */
-export default function IndustryPage({ industry, description, guide }: { industry: IndustryPageData; description: string; guide?: IndustryGuide }) {
+export default function IndustryPage({ industry, description, guide, supplement }: {
+  industry: IndustryPageData;
+  description: string;
+  guide?: IndustryGuide;
+  supplement?: { id: string; label: string; title: string; intro: string; content: React.ReactNode };
+}) {
   const quote = buildRfqHref({ source: `industry-${industry.slug}`, product: `FRP for ${industry.name.toLowerCase()}`, productPath: industry.path });
   const schema = {
     "@context": "https://schema.org",
@@ -125,6 +130,16 @@ export default function IndustryPage({ industry, description, guide }: { industr
       const adjacent = guide.adjacent;
       sections.push({ id: "adjacent", title: adjacent.title, content: (tone) => <GuideAdjacent adjacent={adjacent} cardTone={tone} /> });
     }
+  }
+
+  if (supplement) {
+    sections.push({
+      id: supplement.id,
+      label: supplement.label,
+      title: supplement.title,
+      intro: supplement.intro,
+      content: () => supplement.content,
+    });
   }
 
   sections.push({

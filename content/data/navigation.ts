@@ -126,7 +126,7 @@ export const mainNav = [
           { label: "Energy & Power", href: "/industries/energy" },
           { label: "Industrial & Chemical", href: "/industries/industrial" },
           { label: "Marine & Offshore", href: "/industries/marine" },
-          { label: "Transportation & Rail", href: "/industries/vehicle" },
+          { label: "Automotive & Rail", href: "/industries/vehicle" },
         ],
       },
       {
