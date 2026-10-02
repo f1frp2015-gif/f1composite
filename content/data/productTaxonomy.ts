@@ -57,6 +57,8 @@ export const productFamilies = [
         label: "Fiberglass Dog Bone Profiles",
         href: "/products/fiberglass-dog-bone",
       },
+      { label: "Fiberglass Square Rods", href: "/products/fiberglass-square-rods" },
+      { label: "Fiberglass T Profiles", href: "/products/fiberglass-t-profiles" },
       {
         label: "Materials & Resin Options",
         href: "/technology/pultrusion-resin-systems",
@@ -145,6 +147,82 @@ export const productFamilies = [
 ] as const;
 
 export const applicationGroups = [
+  {
+    label: "Waterfront retaining walls",
+    description: "Plan composite sheet piling for canal edges and waterfront retaining walls. Define ground conditions, water levels, interlocks, anchors and supply scope.",
+    href: "/applications/frp-waterfront-retaining-walls",
+    products: [
+      "standard",
+      "custom"
+    ],
+    links: [
+      {
+        label: "Waterfront retaining walls guide",
+        href: "/applications/frp-waterfront-retaining-walls"
+      },
+      {
+        label: "FRP Sheet Piling",
+        href: "/products/frp-sheet-piling"
+      }
+    ]
+  },
+  {
+    label: "Mining & tunneling support",
+    description: "Prepare GFRP ground-support and tunnel-access inquiries. Separate rock-bolt qualification, cutting requirements and underground access components.",
+    href: "/applications/frp-mining-tunneling",
+    products: [
+      "standard",
+      "custom"
+    ],
+    links: [
+      {
+        label: "Mining & tunneling support guide",
+        href: "/applications/frp-mining-tunneling"
+      },
+      {
+        label: "FRP Rock Bolts",
+        href: "/products/frp-rock-bolts"
+      }
+    ]
+  },
+  {
+    label: "Utility & industrial fencing",
+    description: "Plan fiberglass fences for utility and industrial boundaries. Review infill, posts, gates, foundations, electrical interfaces and maintenance access.",
+    href: "/applications/frp-utility-fencing",
+    products: [
+      "standard",
+      "custom"
+    ],
+    links: [
+      {
+        label: "Utility & industrial fencing guide",
+        href: "/applications/frp-utility-fencing"
+      },
+      {
+        label: "FRP Fencing",
+        href: "/products/frp-fencing"
+      }
+    ]
+  },
+  {
+    label: "Swimming pool facilities",
+    description: "Specify FRP access components and GFRP reinforcement for swimming pool facilities, with wet-area surfaces, chemical exposure and electrical coordination.",
+    href: "/applications/frp-swimming-pool-facilities",
+    products: [
+      "grating",
+      "rebar"
+    ],
+    links: [
+      {
+        label: "Swimming pool facilities guide",
+        href: "/applications/frp-swimming-pool-facilities"
+      },
+      {
+        label: "GFRP rebar & mesh",
+        href: "/products/frp-rebar"
+      }
+    ]
+  },
   {
     label: "Overhead Power Lines",
     description: "Fiberglass crossarm assemblies for distribution poles, with geometry, loading, electrical and qualification guidance.",
@@ -305,4 +383,4 @@ export const applicationGroups = [
   },
 ] as const;
 
-export const taxonomyRevision = "2026-09-21";
+export const taxonomyRevision = "2026-10-02";

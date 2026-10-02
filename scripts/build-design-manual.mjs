@@ -804,7 +804,9 @@ for (const family of spanFamilies.slice(1)) {
 // ───────────────────────────────────────────────────────────────────────────
 // 06 · Applications and systems
 // ───────────────────────────────────────────────────────────────────────────
-const appsForMatrix = applicationPages.filter((a) => a.slug !== "agriculture-horticulture-stakes");
+// Specialist ground, wall and pool applications need a separate design basis;
+// they are outside this structural-profile manual.
+const appsForMatrix = applicationPages.filter((a) => a.slug !== "agriculture-horticulture-stakes" && a.calculator !== false);
 const matrixShapes = ["i_beam", "channel", "angle", "shs", "rhs", "tube", "rod", "flat"];
 openSection("06", "Applications and systems",
   `Which profile family carries which job, the application guides published on the website in condensed form, and the handrail and ladder systems assembled from catalog sections with the load cases they are checked against. An application page writes "what profile, which resin, which standards"; the industries table below describes who buys and why.`,
@@ -823,7 +825,7 @@ const appGuide = (a) => `
       <div><span class="mono">Design checks</span>${ul(a.designChecks.map((c) => `<strong>${esc(c.title)}.</strong> ${esc(c.body)}`), "tight small")}</div>
     </div>
   </div>`;
-const guideApps = applicationPages.filter((a) => a.slug !== "agriculture-horticulture-stakes");
+const guideApps = applicationPages.filter((a) => a.slug !== "agriculture-horticulture-stakes" && a.calculator !== false);
 const industriesBlock = `
   <div class="cols2 top">
   ${h3("Industries served")}

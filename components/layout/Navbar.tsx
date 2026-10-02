@@ -201,6 +201,22 @@ function MobileProducts({ item, pathname, onNavigate }: { item: NavItem; pathnam
               {section.label}
               {section.line ? <span className="font-mono text-f12 font-normal text-teal-text">{section.line}</span> : null}
             </Link>
+            {section.links.length ? (
+              <details className="ml-[36px] border-l border-border-default pl-[12px]">
+                <summary className="flex min-h-[44px] cursor-pointer items-center text-f14 font-semibold text-teal-text">
+                  Browse {section.label.toLowerCase()} <span aria-hidden className="ml-[8px]">+</span>
+                </summary>
+                <ul className="pb-[8px]">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} prefetch={false} onClick={onNavigate} aria-current={pathname === link.href ? "page" : undefined} className={`flex min-h-[44px] items-center rounded-control px-[8px] text-f14 ${linkState(pathname, link.href)}`}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ) : null}
           </li>
         ))}
       </ul>

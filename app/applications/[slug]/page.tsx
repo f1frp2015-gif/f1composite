@@ -110,7 +110,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="text-f16 leading-golden text-t2">
             <p>
-              Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation.
+              {page.supplyScope ?? "Identify raw profile lengths, cut or drilled components, grating panels and any agreed assemblies. The quotation states who is responsible for fasteners, engineering and installation."}
             </p>
             <p className="mt-[12px]">This page describes how the products are used; design and installation are included only where the quotation says so.</p>
             <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14">
@@ -150,7 +150,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
           <div className={`rounded-card border border-border-default p-[20px] sm:p-[24px] ${tone === "muted" ? "bg-white" : "bg-bg2"}`}>
             <h3 className="text-f18 font-bold text-t1">Resin</h3>
             <p className="mt-[8px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
-            <h3 className="mt-[20px] border-t border-border-default pt-[16px] text-f16 font-bold text-t1">Standards commonly referenced</h3>
+            <h3 className="mt-[20px] border-t border-border-default pt-[16px] text-f16 font-bold text-t1">{page.standards.length ? "Standards commonly referenced" : "Project acceptance criteria"}</h3>
             <ul className="mt-[10px] flex flex-wrap gap-[6px]">
               {page.standards.map((standard) => (
                 <li key={standard} className="rounded-tag border border-border-default bg-white px-[8px] py-[3px] text-f12 font-medium text-t1">
@@ -158,7 +158,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-            <p className="mt-[10px] text-f14 leading-golden text-t3">Specification and test references, not certifications of a product.</p>
+            <p className="mt-[10px] text-f14 leading-golden text-t3">{page.standards.length ? "Specification and test references, not certifications of a product." : "Provide the governing project specification and required test methods. Agree the evidence and acceptance criteria for the offered grade and complete assembly."}</p>
           </div>
         </div>
       ),
@@ -178,14 +178,14 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               </li>
             ))}
           </ol>
-          <div className="mt-[16px]">
+          {page.calculator !== false ? <div className="mt-[16px]">
             <CalculatorCTA
               href={calculator}
               eyebrow={bridge ? "Free tool · preliminary member screening" : "Free tool · pre-filled for this application"}
               title={`Size an FRP profile for ${page.shortTitle}`}
               sub={bridge ? "Enter your own member span, loads and material data. This calculator screens individual profiles; it does not verify a complete bridge, its connections, stability or pedestrian vibration." : "Opens the FRP profile calculator with a typical span, load and environment for this application: bending, shear and shear-corrected deflection on one screen."}
             />
-          </div>
+          </div> : null}
         </>
       ),
     },
@@ -235,7 +235,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         }
         actions={{
           primary: { label: "Request a quote", href: quoteHref },
-          secondary: { label: "Size a profile", href: calculator, variant: "secondary" },
+          secondary: page.calculator === false ? { label: "Review design checks", href: "#checks", variant: "secondary" } : { label: "Size a profile", href: calculator, variant: "secondary" },
           stickyMobile: true,
         }}
         breadcrumbs={[

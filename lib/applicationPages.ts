@@ -1,5 +1,7 @@
 export interface ApplicationPage {
   slug: string;
+  calculator?: false;
+  supplyScope?: string;
   lastModified: string;
   title: string;
   shortTitle: string;
@@ -24,6 +26,282 @@ export interface ApplicationPage {
 }
 
 export const applicationPages: ApplicationPage[] = [
+  {
+    slug: "frp-waterfront-retaining-walls",
+    shortTitle: "Waterfront retaining walls",
+    title: "FRP Waterfront Retaining Walls | Sheet Pile Specification",
+    description: "Plan composite sheet piling for canal edges and waterfront retaining walls. Define ground conditions, water levels, interlocks, anchors and supply scope.",
+    h1: "FRP profiles for waterfront retaining walls",
+    intro: "A waterfront wall connects ground engineering, hydraulic conditions and a structural section. Use this guide to prepare a custom FRP sheet-pile inquiry with the site information needed to evaluate a suitable wall system.",
+    environment: "Canal banks, marina boundaries and waterfront retaining structures where the designer is evaluating a composite wall.",
+    supplyScope: "The inquiry covers interlocking sections and agreed caps, corner pieces or connection components. Confirm design responsibility, geotechnical work, accessories and installation separately in the project scope.",
+    recommendedProfiles: [
+      "Interlocking sheet-pile sections selected for the wall geometry",
+      "Capping sections and corner transitions matched to the interlocks",
+      "Walers and connection components reviewed as part of the anchor layout"
+    ],
+    resinSystem: "Provide soil and water chemistry, salinity, abrasion, temperature and UV exposure. Review durability evidence and resin suitability for both submerged and exposed portions.",
+    designChecks: [
+      {
+        title: "Ground and water",
+        body: "Provide soil strata, groundwater and surface-water levels, surcharge and scour conditions. The designer establishes embedment, drainage and global stability."
+      },
+      {
+        title: "Wall and connections",
+        body: "Use properties for the offered section to check long-term bending, shear, local stability, interlock loads and anchor connections. Define movement and leakage acceptance criteria."
+      },
+      {
+        title: "Installation access",
+        body: "Review delivery lengths, lifting points, working space and the driving method. A trial in representative ground helps establish protection and acceptance procedures."
+      }
+    ],
+    rfqInputs: [
+      "Wall plan, sections and retained levels",
+      "Geotechnical information and design water levels",
+      "Loads, movement limits and required design life",
+      "Tie rods, walers, corners and sealing requirements",
+      "Proposed installation method, quantities and destination"
+    ],
+    related: [
+      {
+        label: "FRP sheet piling",
+        href: "/products/frp-sheet-piling"
+      },
+      {
+        label: "Marine & offshore",
+        href: "/industries/marine"
+      },
+      {
+        label: "Deck panels",
+        href: "/products/frp-deck-panels"
+      }
+    ],
+    deepDive: {
+      heading: "Keep the wall and the deck as separate design packages",
+      paragraphs: [
+        "A boardwalk deck carries people above the water. A retaining wall resists earth and water pressure and interacts with the ground. They may share a site, but they need different design inputs and acceptance checks.",
+        "Define interfaces between the wall cap, deck supports and any railing. Agree how loads transfer into the wall, whether connections accommodate movement and which party designs each interface. A lighter panel does not establish the capacity of the complete wall."
+      ]
+    },
+    lastModified: "2026-10-02",
+    image: "/images/applications/frp-waterfront-retaining-walls.svg",
+    imageAlt: "Diagram of waterfront retaining walls with labeled component interfaces",
+    imageNote: "Concept diagram",
+    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageSize: {
+      width: 900,
+      height: 600
+    },
+    standards: [],
+    calculator: false
+  },
+  {
+    slug: "frp-mining-tunneling",
+    shortTitle: "Mining & tunneling support",
+    title: "GFRP for Mining & Tunneling | Ground Support Planning",
+    description: "Prepare GFRP ground-support and tunnel-access inquiries. Separate rock-bolt qualification, cutting requirements and underground access components.",
+    h1: "GFRP components for mining & tunneling",
+    intro: "Underground projects use composites for different tasks, from ground reinforcement to corrosion-exposed access components. Define the support duty and approval requirements first, then prepare a separate specification for each component package.",
+    environment: "Tunnel face reinforcement and selected mine or underground civil works where the project design permits qualified GFRP components.",
+    supplyScope: "Submit rock-bolt assemblies for a sourcing and qualification review. Access profiles, grating and cable-support components can be reviewed as separate packages. Ground-support design and site installation responsibilities must be assigned explicitly.",
+    recommendedProfiles: [
+      "Qualified GFRP rock-bolt assemblies with matching nuts and bearing plates",
+      "Grating and support sections for agreed underground access areas",
+      "Cable-support profiles with the required fire and environmental evidence"
+    ],
+    resinSystem: "Identify groundwater chemistry, temperature and underground fire or smoke requirements. Antistatic performance, where required, must be supported for the offered material and assembly; ordinary GFRP is not automatically suitable.",
+    designChecks: [
+      {
+        title: "Support design",
+        body: "The responsible designer sets the support pattern, loads, acceptable displacement and service duration. Qualify the bolt, plate, nut and grout interface together."
+      },
+      {
+        title: "Cut-through zones",
+        body: "Identify excavation sequences and the equipment that will encounter the reinforcement. Confirm cutting behavior and embedded hardware with the project team."
+      },
+      {
+        title: "Underground acceptance",
+        body: "State the owner’s fire, smoke, electrical, durability and site-test requirements. Separate temporary excavation support from permanent ground support."
+      }
+    ],
+    rfqInputs: [
+      "Tunnel or mine support specification and design duty",
+      "Bolt assembly geometry and required loads",
+      "Grout system and installation method",
+      "Cut-through locations and machinery interface",
+      "Fire, antistatic and other owner acceptance requirements"
+    ],
+    related: [
+      {
+        label: "FRP rock bolts",
+        href: "/products/frp-rock-bolts"
+      },
+      {
+        label: "Cable trays & supports",
+        href: "/applications/frp-cable-tray-supports"
+      },
+      {
+        label: "Pultruded grating",
+        href: "/products/frp-gratings"
+      }
+    ],
+    deepDive: {
+      heading: "Qualify the assembly before scheduling bulk supply",
+      paragraphs: [
+        "A bolt’s longitudinal tensile result describes only one possible limit. Nut engagement, plate bearing, grout bond and installation quality may govern the installed support. Agree test methods and acceptance criteria for the full assembly.",
+        "Keep trial quantities and production release as separate milestones. Record the exact bar, accessories and installation materials used in qualification so a later substitution does not silently change the approved system."
+      ]
+    },
+    lastModified: "2026-10-02",
+    image: "/images/applications/frp-mining-tunneling.svg",
+    imageAlt: "Diagram of mining & tunneling support with labeled component interfaces",
+    imageNote: "Concept diagram",
+    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageSize: {
+      width: 900,
+      height: 600
+    },
+    standards: [],
+    calculator: false
+  },
+  {
+    slug: "frp-utility-fencing",
+    shortTitle: "Utility & industrial fencing",
+    title: "FRP Utility Fencing | Substation & Industrial Boundaries",
+    description: "Plan fiberglass fences for utility and industrial boundaries. Review infill, posts, gates, foundations, electrical interfaces and maintenance access.",
+    h1: "FRP fencing for utility & industrial boundaries",
+    intro: "A boundary fence must fit the site’s access, loading and electrical requirements. Coordinate fiberglass posts, rails and infill with gate hardware and foundations to define a complete, reviewable fence package.",
+    environment: "Substations, water-treatment compounds, industrial equipment enclosures and coastal utility sites.",
+    supplyScope: "Specify profile lengths, fabricated fence panels or an agreed component kit. Confirm gate hardware, anchors, foundations and installation as separate line items in the quotation.",
+    recommendedProfiles: [
+      "Pultruded square tubes for posts and fence frames",
+      "Pickets or grating infill selected for the opening and security requirements",
+      "Rails and connection plates matched to the panel layout"
+    ],
+    resinSystem: "Match resin and surface protection to weather, UV, salt spray and process chemicals. Electrical performance belongs to the offered material and complete assembly, including hardware and surface condition.",
+    designChecks: [
+      {
+        title: "Boundary geometry",
+        body: "Define height, terrain changes, infill openings and access gates. The utility owner sets clearances, security requirements and maintenance access."
+      },
+      {
+        title: "Posts and foundations",
+        body: "Check wind loading, post bending, rail deflection, gate reactions and anchorage. Provide foundation details or assign their design before fabrication."
+      },
+      {
+        title: "Electrical coordination",
+        body: "Identify metallic hardware and connections to surrounding equipment. Have the project electrical designer assess clearances, bonding and the complete fence arrangement."
+      }
+    ],
+    rfqInputs: [
+      "Site boundary plan, levels and heights",
+      "Panel type, aperture and post spacing",
+      "Wind criteria and foundation interfaces",
+      "Gate schedule and hardware materials",
+      "Electrical and owner approval requirements"
+    ],
+    related: [
+      {
+        label: "FRP fencing components",
+        href: "/products/frp-fencing"
+      },
+      {
+        label: "Utility crossarms",
+        href: "/applications/frp-utility-crossarms"
+      },
+      {
+        label: "Handrail systems",
+        href: "/products/frp-handrail-systems"
+      }
+    ],
+    deepDive: {
+      heading: "Choose the infill before finalizing the posts",
+      paragraphs: [
+        "Pickets, grating and closed panels present different areas to the wind and create different visibility and access conditions. Finalize those requirements before choosing a post section or repeating a spacing from another site.",
+        "Gate leaves concentrate loads at hinges and posts. Include operating loads, latch alignment and the surrounding foundation in the review, with replacement and inspection access for moving parts."
+      ]
+    },
+    lastModified: "2026-10-02",
+    image: "/images/applications/frp-utility-fencing.svg",
+    imageAlt: "Diagram of utility & industrial fencing with labeled component interfaces",
+    imageNote: "Concept diagram",
+    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageSize: {
+      width: 900,
+      height: 600
+    },
+    standards: [],
+    calculator: false
+  },
+  {
+    slug: "frp-swimming-pool-facilities",
+    shortTitle: "Swimming pool facilities",
+    title: "FRP for Swimming Pools | Access & GFRP Reinforcement",
+    description: "Specify FRP access components and GFRP reinforcement for swimming pool facilities, with wet-area surfaces, chemical exposure and electrical coordination.",
+    h1: "FRP components for swimming pool facilities",
+    intro: "Pool facilities combine wet public areas, chemical-handling rooms and reinforced concrete. Match each location to its own product and acceptance criteria, from maintenance platforms to the reinforcement specified for the pool shell.",
+    environment: "Pool plant rooms, equipment access platforms and engineered pool-shell reinforcement packages. Public walking surfaces require a finish qualified for their actual use.",
+    supplyScope: "F1 can review profiles, grating and reinforcement inquiries against the project schedule. The structural designer, pool designer and electrical designer define the accepted system and interfaces.",
+    recommendedProfiles: [
+      "Grating and support profiles for plant-room access and equipment platforms",
+      "Handrail components with a suitable surface finish and connection design",
+      "GFRP concrete reinforcing bars, factory-formed bends and mesh per an engineered schedule"
+    ],
+    resinSystem: "Provide the chemical names, concentrations, cleaning agents, temperature and whether exposure is splash, vapor or immersion. Review grade-specific compatibility instead of assuming all fiberglass tolerates all pool chemicals.",
+    designChecks: [
+      {
+        title: "Wet surfaces",
+        body: "Specify footwear or barefoot use, openings, edge finish, cleanability and the required slip test. An industrial gritted surface may be unsuitable for barefoot public areas."
+      },
+      {
+        title: "Pool-shell design",
+        body: "GFRP reinforcing bars require a design using their own properties, bond and bend details. Confirm crack control, cover and water-retaining requirements with the structural designer."
+      },
+      {
+        title: "Electrical and access",
+        body: "Coordinate the pool bonding and earthing system independently. GFRP reinforcement does not provide the conductive path of steel; metallic equipment and accessories still need the project electrical design."
+      }
+    ],
+    rfqInputs: [
+      "Facility layout and intended use of each component",
+      "Load, span and support details for access areas",
+      "Bar schedule and approved concrete reinforcement design",
+      "Chemical exposure and surface acceptance requirements",
+      "Electrical interfaces, quantities and destination"
+    ],
+    related: [
+      {
+        label: "GFRP rebar & mesh",
+        href: "/products/frp-rebar"
+      },
+      {
+        label: "Molded grating",
+        href: "/products/molded-frp-grating"
+      },
+      {
+        label: "Handrail systems",
+        href: "/products/frp-handrail-systems"
+      }
+    ],
+    deepDive: {
+      heading: "Separate public poolside finishes from maintenance access",
+      paragraphs: [
+        "Maintenance staff in footwear and barefoot visitors interact with surfaces differently. Define the user, cleaning regime and wet slip criteria for every area rather than extending one industrial grating specification throughout the facility.",
+        "For concrete reinforcement, agree the complete bar schedule before manufacture. Factory-formed bends, laps, supports and placement details must be coordinated with the pool design; do not improvise field bending of cured GFRP bars."
+      ]
+    },
+    lastModified: "2026-10-02",
+    image: "/images/applications/frp-swimming-pool-facilities.svg",
+    imageAlt: "Diagram of swimming pool facilities with labeled component interfaces",
+    imageNote: "Concept diagram",
+    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageSize: {
+      width: 900,
+      height: 600
+    },
+    standards: [],
+    calculator: false
+  },
   {
     slug: "agriculture-horticulture-stakes",
     lastModified: "2026-09-21",
