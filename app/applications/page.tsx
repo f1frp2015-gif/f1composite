@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
+import PageNav from "@/components/layout/PageNav";
+import { applicationNavigation } from "@/content/data/applicationNavigation";
 import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import CollectionSchema from "@/components/seo/CollectionSchema";
@@ -13,7 +15,7 @@ import { coverFor } from "@/lib/covers";
 import { buildPageMetadata } from "@/lib/seo";
 
 const description =
-  "Explore FRP applications in agriculture, plant support, platforms, bridges, cooling towers, cable supports and solar, with product and selection guidance.";
+  "Explore pultruded FRP and CFRP applications in water treatment, power, rail, paper mills and industrial equipment, with design and specification guidance.";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profile Applications | Components & Selection",
   description,
@@ -47,15 +49,19 @@ export default function ApplicationsPage() {
       <PageHeader
         tag="Applications"
         title="Find FRP profiles by application"
-        description="Start with the task: supporting a crop, building a platform, carrying cables or assembling a structure. Each application connects the use case to F1 products and the inputs needed for selection."
+        description="Start with the component's job: carrying a load, controlling flow, providing electrical separation or supporting moving equipment. Each guide connects the application to material choices, design interfaces, standards and a project specification."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications" }]}
       />
 
+      <PageNav items={applicationNavigation.map((category) => ({ id: category.id, label: category.label, count: category.links.length }))} />
+      {applicationNavigation.map((category, categoryIndex) => (
       <PageSection
-        id="applications"
-        title="One profile can serve several industries"
-        count={`${applicationGroups.length} applications`}
-        intro="An industry describes the customer or project sector; an application describes what the component does. A channel may support cables in a wastewater plant, a factory or a power facility. Its geometry, material, connections and exposure still need to be specified for that use."
+        key={category.id}
+        id={category.id}
+        title={category.label}
+        count={`${category.links.length} applications`}
+        intro={category.description}
+        tone={categoryIndex % 2 ? "muted" : "white"}
         aside={
           <Link href="/industries" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Browse by industry instead
@@ -63,7 +69,9 @@ export default function ApplicationsPage() {
         }
       >
         <ul className="grid grid-cols-1 gap-[16px] md:grid-cols-2 lg:grid-cols-3">
-          {applicationGroups.map((group, index) => {
+          {category.links.map((destination, index) => {
+            const group = applicationGroups.find((group) => group.href === destination.href);
+            if (!group) return null;
             const cover = coverFor(group.href);
             const families = productFamilies.filter((family) => (group.products as readonly string[]).includes(family.id));
             return (
@@ -74,7 +82,7 @@ export default function ApplicationsPage() {
                     cover={cover}
                     title={group.label}
                     text={group.description}
-                    priority={index < 3}
+                    priority={categoryIndex === 0 && index < 3}
                     footer={
                       <div className="border-t border-border-default px-[18px] py-[10px] sm:px-[20px]">
                         <ul className="flex flex-wrap gap-x-[16px] gap-y-[2px]">
@@ -104,6 +112,7 @@ export default function ApplicationsPage() {
           })}
         </ul>
       </PageSection>
+      ))}
 
       <PageSection id="scope" title="Define the supply and design scope" tone="muted">
         <div className="grid grid-cols-1 gap-[16px] md:grid-cols-3">

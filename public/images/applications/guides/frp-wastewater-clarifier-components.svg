@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Clarifier component interfaces</title><desc id="desc">Moving collector flights and static overflow components. Flight • attachment • wear shoe • chain. Weir crest • baffle • supports • seals. Schematic, not to scale.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
+<rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
+<rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Clarifier component interfaces</text><text x="42" y="89" font-size="21">Moving collector flights and static overflow components</text>
+
+<path d="M150 205V550H1040V205" class="steel"/><path d="M165 280H1025V530H165Z" fill="#e2f1f5"/>
+<path d="M250 360H840Q905 360 905 425Q905 490 840 490H250Q185 490 185 425Q185 360 250 360Z" fill="none" stroke="#929da8" stroke-width="12"/>
+<g fill="#00a199"><rect x="300" y="343" width="18" height="167"/><rect x="515" y="343" width="18" height="167"/><rect x="730" y="343" width="18" height="167"/></g>
+<path d="M995 255V440" stroke="#031697" stroke-width="18"/><path d="M1030 268l17 -25 17 25 17 -25" fill="none" stroke="#031697" stroke-width="9"/>
+<path d="M374 398H478" class="arrow"/><text x="344" y="327" class="small">COLLECTOR DIRECTION</text>
+<path d="M523 350V240H450" class="leader"/><text x="282" y="225" class="label">Pultruded flight</text>
+<path d="M993 425H920V590" class="leader"/><text x="737" y="620" class="label">Scum baffle</text>
+<path d="M1060 246V205H922" class="leader"/><text x="827" y="189" class="label">Overflow weir</text>
+<path d="M310 507V590H235" class="leader"/><text x="148" y="620" class="label">Wear interface</text>
+<rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
+<text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Moving assembly</text><text x="38" y="769" style="fill:#fff;font-size:19px">Flight • attachment • wear shoe • chain</text>
+<text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Static hydraulic parts</text><text x="625" y="769" style="fill:#fff;font-size:19px">Weir crest • baffle • supports • seals</text>
+</svg>

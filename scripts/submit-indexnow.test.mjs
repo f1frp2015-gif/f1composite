@@ -4,14 +4,26 @@ import test from "node:test";
 import { loadProjectModule } from "./load-project-module.mjs";
 import {
   affectsDatasheetPages,
+  affectsSpecialistGuides,
   changedSlugs,
   indexedDatasheetRoutes,
   isSubmittableRoute,
   normalizeUrls,
   parseIndexedDatasheetSlugs,
   parseSlugBlocks,
+  parseSpecialistGuideRoutes,
   routeFromPageFile,
 } from "./submit-indexnow.mjs";
+
+test("specialist guides are submitted for content and template changes", () => {
+  const source = readFileSync(new URL("../content/data/pultrusionGuideIndex.ts", import.meta.url), "utf8");
+  const { pultrusionGuides } = loadProjectModule("content/data/pultrusionGuides.ts");
+  const expected = pultrusionGuides.map(page => `/${page.kind === "application" ? "applications" : "products"}/${page.slug}`);
+  assert.deepEqual(parseSpecialistGuideRoutes(source), expected);
+  assert.deepEqual(parseSpecialistGuideRoutes(""), []);
+  for (const file of ["content/data/pultrusionGridGuides.ts", "content/data/pultrusionGuideIndex.ts", "components/sections/PultrusionGuidePage.tsx", "app/products/[slug]/page.tsx"]) assert.ok(affectsSpecialistGuides(file));
+  assert.ok(!affectsSpecialistGuides("content/data/navigation.ts"));
+});
 
 test("maps static App Router page files to canonical paths", () => {
   assert.equal(routeFromPageFile("app/page.tsx"), "/");

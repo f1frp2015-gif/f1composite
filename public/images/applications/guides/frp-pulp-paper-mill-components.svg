@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Pulp and paper corrosion zones</title><desc id="desc">Separate access framing from hot process equipment. Splash • vapour • washdown • temperature. Grating → beam → support → foundation. Schematic, not to scale.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
+<rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
+<rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Pulp and paper corrosion zones</text><text x="42" y="89" font-size="21">Separate access framing from hot process equipment</text>
+
+<rect x="710" y="240" width="250" height="290" rx="48" fill="#d9e1e8" stroke="#738193" stroke-width="5"/><ellipse cx="835" cy="240" rx="125" ry="30" fill="#edf1f4" stroke="#738193" stroke-width="5"/>
+<path d="M835 210V175H590V320" class="steel"/><text x="772" y="400" class="label">PROCESS</text><text x="780" y="434" class="label">VESSEL</text>
+<path d="M180 432H684M225 432V580M630 432V580M225 568L630 443" stroke="#00a199" stroke-width="20" fill="none"/>
+<path d="M170 416H700M180 292H685M180 350H685M188 280V415M440 280V415M685 280V415" stroke="#031697" stroke-width="8" fill="none"/>
+<path d="M200 418l28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15" stroke="#031697" stroke-width="8"/>
+<path d="M437 455V530H480" class="leader"/><text x="472" y="568" class="label">Support bracing</text>
+<text x="176" y="246" class="label">Access system</text><path d="M730 578H991" stroke="#edb529" stroke-width="6" stroke-dasharray="14 12"/>
+<text x="747" y="620" class="small">SEPARATE PROCESS DUTY</text>
+<rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
+<text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Map the exposure</text><text x="38" y="769" style="fill:#fff;font-size:19px">Splash • vapour • washdown • temperature</text>
+<text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Keep the load path clear</text><text x="625" y="769" style="fill:#fff;font-size:19px">Grating → beam → support → foundation</text>
+</svg>

@@ -62,7 +62,7 @@ export const industryPages = {
     slug: "energy",
     path: "/industries/energy",
     name: "Energy & power",
-    updated: "2026-09-26",
+    updated: "2026-10-03",
     h1: "FRP Composite Profiles for Energy & Electric Power",
     intro:
       "Pultruded FRP profiles for substations, cable routes, solar mounting and wind energy. Glass FRP is non-conductive and does not rust, so it suits equipment areas where steel needs grounding, bonding or recoating; the laminate and the assembly are confirmed for each project.",
@@ -98,6 +98,10 @@ export const industryPages = {
     ],
     reading: [
       { label: "FRP utility crossarm application guide", href: "/applications/frp-utility-crossarms" },
+      { label: "Dry-type transformer insulation supports", href: "/applications/frp-transformer-insulation-supports" },
+      { label: "Switchgear insulating supports and operating links", href: "/applications/frp-switchgear-insulation-components" },
+      { label: "Composite cores for overhead conductors", href: "/applications/composite-overhead-conductor-cores" },
+      { label: "Live-line tool component qualification", href: "/applications/frp-live-line-tool-components" },
       { label: "PV support design guide", href: "/applications/frp-solar-mounting-profiles" },
       { label: "FRP for offshore, tidal and fishery-PV mounts", href: "/resources/blog/pultruded-frp-offshore-fishery-solar-mounts-and-frames" },
       { label: "How to specify FRP cable tray", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
@@ -154,6 +158,11 @@ export const industryPages = {
     ],
     reading: [
       { label: "FRP vs steel grating", href: "/technology/frp-vs-steel-gratings" },
+      { label: "Pulp and paper mill component specification", href: "/applications/frp-pulp-paper-mill-components" },
+      { label: "Carbon-fiber industrial rollers", href: "/applications/carbon-fiber-industrial-rollers" },
+      { label: "Robot beams and structural struts", href: "/applications/cfrp-robotic-beams-struts" },
+      { label: "Scrubber and demister internals", href: "/applications/frp-scrubber-demister-profiles" },
+      { label: "MRI patient-support component qualification", href: "/applications/composite-mri-patient-supports" },
       { label: "FRP pipe for coal mine gas drainage", href: "/resources/blog/frp-pipe-for-coal-mine-gas-drainage" },
       { label: "Water and wastewater facilities", href: "/industries/water-wastewater" },
     ],
@@ -178,7 +187,7 @@ export const industryPages = {
     slug: "infrastructure",
     path: "/industries/infrastructure",
     name: "Infrastructure",
-    updated: "2026-09-26",
+    updated: "2026-10-03",
     h1: "FRP Composite Profiles for Infrastructure",
     intro:
       "Fiber-reinforced polymer (FRP) profiles for bridge decks, pedestrian structures, handrails and utility infrastructure. They do not rust, so they avoid the corrosion cycle that wears out steel and reinforced concrete.",
@@ -211,6 +220,8 @@ export const industryPages = {
     reading: [
       { label: "Fiberglass rebar vs steel", href: "/technology/fiberglass-rebar-vs-steel" },
       { label: "FRP vs steel, aluminum and timber", href: "/technology/frp-vs-traditional-materials" },
+      { label: "Rail interior profile qualification", href: "/applications/frp-rail-interior-profiles" },
+      { label: "Third-rail protective cover systems", href: "/applications/frp-third-rail-protection" },
       { label: "Custom pultrusions", href: "/products/custom-pultruded-profiles" },
     ],
     documentPaths: ["/products/fiberglass-structural-shapes", "/products/frp-deck-panels"],
@@ -377,6 +388,7 @@ export const industryPages = {
     reading: [
       { label: "How to specify FRP cable tray", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
       { label: "Grating lifecycle cost example", href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison" },
+      { label: "Clarifier flights, weirs and baffles", href: "/applications/frp-wastewater-clarifier-components" },
       { label: "Material and resin selection", href: "/technology/pultrusion-resin-systems" },
       { label: "Technical references and report scope", href: "/resources/evidence" },
     ],

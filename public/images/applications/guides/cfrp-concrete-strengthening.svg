@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">CFRP strip load transfer</title><desc id="desc">Concrete, adhesive and laminate form the strengthening system. Substrate • existing reinforcement • loads • defects. Laminate • adhesive • end transfer • installation. Schematic, not to scale.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
+<rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
+<rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">CFRP strip load transfer</text><text x="42" y="89" font-size="21">Concrete, adhesive and laminate form the strengthening system</text>
+
+<rect x="170" y="285" width="860" height="165" fill="#dce2e7" stroke="#82909f" stroke-width="4"/><path d="M194 415H1007" stroke="#8a939f" stroke-width="7" stroke-dasharray="25 7"/>
+<rect x="288" y="451" width="624" height="9" fill="#e4b63e"/><rect x="288" y="461" width="624" height="16" fill="#00a199"/>
+<path d="M205 458L167 517H245ZM995 458L957 517H1035Z" fill="#acb8c2"/>
+<path d="M435 182V266M599 182V266M761 182V266" class="arrow"/>
+<path d="M360 486V547H271" class="leader"/><text x="167" y="582" class="label">End transfer zone</text>
+<path d="M743 475V567H821" class="leader"/><text x="811" y="607" class="label">CFRP strip</text>
+<path d="M953 454V243H905" class="leader"/><text x="845" y="217" class="label">Bond line</text>
+<text x="444" y="371" class="label">EXISTING CONCRETE</text>
+<rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
+<text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Assess the existing structure</text><text x="38" y="769" style="fill:#fff;font-size:19px">Substrate • existing reinforcement • loads • defects</text>
+<text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Validate the bonded system</text><text x="625" y="769" style="fill:#fff;font-size:19px">Laminate • adhesive • end transfer • installation</text>
+</svg>

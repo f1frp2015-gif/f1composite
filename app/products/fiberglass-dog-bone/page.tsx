@@ -262,6 +262,7 @@ export default function FiberglassDogBonePage() {
           { href: "/technology/pultrusion-resin-systems", label: "Fiber and resin options" },
         ] },
         { title: "Qualification", links: [
+          { href: "/applications/frp-transformer-insulation-supports", label: "Transformer support application guide" },
           { href: "/technology/quality-testing", label: "Quality and testing" },
           { href: "/resources/evidence", label: "Test reports and certificates" },
         ] },

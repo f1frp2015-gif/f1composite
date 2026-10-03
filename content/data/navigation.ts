@@ -1,3 +1,4 @@
+import { applicationNavigation, specialistProductCategories } from "./applicationNavigation";
 import type { GlyphShape } from "@/components/ui/SectionGlyph";
 
 export type NavLink = {
@@ -46,9 +47,9 @@ export const productShortcuts = {
 } as const;
 
 /**
- * Five menus follow the way an industrial buyer narrows a project: product,
- * where it is used, the tools to size it, the documents to check it, and the
- * supplier. Long-tail pages stay reachable from these hubs and in-page links.
+ * Product families and application guides have separate entry points.
+ * Compact category links lead to specialist components without loading articles
+ * into the shared navigation.
  */
 export const mainNav = [
   {
@@ -109,7 +110,20 @@ export const mainNav = [
         { label: "Rock Bolts", href: "/products/frp-rock-bolts" },
         { label: "Fencing", href: "/products/frp-fencing" },
       ] },
+      {
+        id: "specialist-components", label: "Specialist components",
+        href: "/products/product-lines#specialist-components", glyph: "custom",
+        links: specialistProductCategories.map((category) => ({
+          label: category.label, href: `/products/product-lines#${category.id}`,
+        })),
+      },
     ],
+  },
+  {
+    id: "applications",
+    label: "Applications",
+    href: "/applications",
+    sections: applicationNavigation,
   },
   {
     id: "industries",
@@ -127,26 +141,6 @@ export const mainNav = [
           { label: "Industrial & Chemical", href: "/industries/industrial" },
           { label: "Marine & Offshore", href: "/industries/marine" },
           { label: "Automotive & Rail", href: "/industries/vehicle" },
-        ],
-      },
-      {
-        id: "by-application",
-        label: "By application",
-        href: "/applications",
-        hrefLabel: "All applications",
-        links: [
-          { label: "Agriculture & Horticulture", href: "/applications/agriculture-horticulture-stakes" },
-          { label: "Cable Trays & Ladders", href: "/applications/frp-cable-tray-supports" },
-          { label: "Utility Crossarms", href: "/applications/frp-utility-crossarms" },
-          { label: "Cooling Tower Profiles", href: "/applications/frp-cooling-tower-profiles" },
-          { label: "Chemical Plant Platforms", href: "/applications/frp-chemical-plant-platforms" },
-          { label: "Pedestrian Bridge Structures", href: "/applications/frp-pedestrian-bridge-superstructures" },
-          { label: "Solar Mounting Profiles", href: "/applications/frp-solar-mounting-profiles" },
-          { label: "Waterfront retaining walls", href: "/applications/frp-waterfront-retaining-walls" },
-          { label: "Mining & tunneling support", href: "/applications/frp-mining-tunneling" },
-          { label: "Utility & industrial fencing", href: "/applications/frp-utility-fencing" },
-          { label: "Swimming pool facilities", href: "/applications/frp-swimming-pool-facilities" },
-
         ],
       },
       {
@@ -248,14 +242,14 @@ export const mainNav = [
 ] as const satisfies readonly NavItem[];
 
 /**
- * The footer repeats the five menus as short lists of hubs and high-intent
+ * The footer combines industry and application hubs in a compact set of
  * routes. Leaf pages stay discoverable through the menus and in-page links.
  */
 export const footerNav = {
   products: [
     { label: "All Products", href: "/products/product-lines" },
     { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
-    { label: "Custom Pultruded Profiles", href: "/products/custom-pultruded-profiles" },
+    { label: "Specialist Components", href: "/products/product-lines#specialist-components" },
     { label: "Windows & Doors", href: "/products/frp-window-frames" },
     { label: "FRP Grating", href: "/products/grating" },
     { label: "FRP Rebar", href: "/products/frp-rebar" },

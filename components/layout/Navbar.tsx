@@ -18,7 +18,8 @@ function pathMatches(pathname: string, href: string) {
 }
 
 function itemMatches(pathname: string, item: NavItem) {
-  if (item.id === "products" && pathMatches(pathname, pultrudedOverviewLink.href)) return true;
+  if (item.id === "products") return pathMatches(pathname, "/products") || pathMatches(pathname, pultrudedOverviewLink.href);
+  if (item.id === "applications") return pathMatches(pathname, "/applications");
   if (pathMatches(pathname, item.href)) return true;
   return item.sections?.some((section) =>
     (section.href && pathMatches(pathname, section.href)) || section.links.some((link) => pathMatches(pathname, link.href)),
@@ -388,7 +389,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-[44px] items-center pl-[11px] pr-[5px] text-f14 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+                    className="inline-flex min-h-[44px] items-center pl-[8px] pr-[3px] text-f14 xl:pl-[11px] xl:pr-[5px] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
                     aria-current={pathname === item.href ? "page" : undefined}
                     onClick={closeNavigation}
                   >
@@ -401,7 +402,7 @@ export default function Navbar() {
                         else desktopToggleRefs.current.delete(item.id);
                       }}
                       type="button"
-                      className="inline-flex h-[44px] w-[32px] items-center justify-center rounded-r-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
+                      className="inline-flex h-[44px] w-[28px] xl:w-[32px] items-center justify-center rounded-r-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
                       aria-label={`${expanded ? "Close" : "Open"} ${item.label} navigation`}
                       aria-expanded={expanded}
                       aria-controls={menuId}
@@ -438,7 +439,7 @@ export default function Navbar() {
           </span>
           <Link
             href="/contact?source=header&inquiry_type=rfq"
-            className="ml-[7px] inline-flex min-h-[44px] items-center rounded-control bg-teal-text px-[17px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+            className="ml-[7px] inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap rounded-control bg-teal-text px-[12px] xl:px-[17px] text-f14 font-bold text-white transition-colors hover:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
             onClick={closeNavigation}
           >
             Get a quote

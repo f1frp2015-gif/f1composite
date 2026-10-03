@@ -2,6 +2,7 @@ import { sourcingHeroImages, frpzsImages, supplierImageNote } from "@/content/da
 import { industryPages, type IndustryPageData } from "@/content/data/industryPages";
 import { applicationPages } from "@/lib/applicationPages";
 import type { BlogPost } from "@/content/data/blogPosts";
+import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 
 /**
  * Cover images for cards that lead to another page. The rule: a card shows
@@ -132,7 +133,10 @@ export const resourceCovers = {
 } satisfies Record<string, Cover>;
 
 export const applicationCovers: Record<string, Cover> = Object.fromEntries(
-  applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
+  [
+    ...applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
+    ...specialistProductIndex.map((page) => [`/products/${page.slug}`, { src: page.image, alt: page.imageAlt, note: "Component schematic" }]),
+  ],
 );
 
 // Case studies open on Figure 1 of the case, with the same note.

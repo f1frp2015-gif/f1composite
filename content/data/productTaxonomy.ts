@@ -1,3 +1,5 @@
+import { specialistApplicationGroups } from "./pultrusionGuideIndex";
+
 /** Shared commercial taxonomy. Applications reference products; they do not create new families. */
 export const standardProfileLinks = [
   {
@@ -147,6 +149,7 @@ export const productFamilies = [
 ] as const;
 
 export const applicationGroups = [
+  ...specialistApplicationGroups,
   {
     label: "Waterfront retaining walls",
     description: "Plan composite sheet piling for canal edges and waterfront retaining walls. Define ground conditions, water levels, interlocks, anchors and supply scope.",
@@ -287,6 +290,16 @@ export const applicationGroups = [
     ],
   },
   {
+    label: "Pedestrian bridge structures",
+    description: "Specify pultruded members, bracing and connections for pedestrian bridge superstructures, with project loads, serviceability and installation interfaces.",
+    href: "/applications/frp-pedestrian-bridge-superstructures",
+    products: ["standard", "custom"],
+    links: [
+      { label: "Pedestrian bridge design guide", href: "/applications/frp-pedestrian-bridge-superstructures" },
+      { label: "Structural profile selection", href: "/products/fiberglass-structural-shapes" },
+    ],
+  },
+  {
     label: "Cooling Towers",
     description:
       "Pultruded framing, bracing and support sections for wet industrial service.",
@@ -383,4 +396,4 @@ export const applicationGroups = [
   },
 ] as const;
 
-export const taxonomyRevision = "2026-10-02";
+export const taxonomyRevision = "2026-10-03";
