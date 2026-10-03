@@ -1,17 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-<title id="title">Transformer support interfaces</title><desc id="desc">Mechanical restraint, insulation and cooling share one space. Clamp force • fault loads • creep • contact area. Clearance • creepage • air path • insulation system. Schematic, not to scale.</desc>
+<title id="title">Transformer support interfaces</title><desc id="desc">Local section of two winding blocks with dogbone-profile spacers and a clear axial cooling duct. Core and clamp arrangement omitted. Conceptual, not to scale.</desc>
 <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
 <rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
 <rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Transformer support interfaces</text><text x="42" y="89" font-size="21">Mechanical restraint, insulation and cooling share one space</text>
 
-<rect x="410" y="210" width="380" height="360" rx="30" fill="#d9e1e8" stroke="#8190a0" stroke-width="5"/><rect x="485" y="272" width="230" height="236" fill="white"/>
-<g stroke="#d49b26" stroke-width="18" fill="none"><rect x="349" y="290" width="143" height="210" rx="30"/><rect x="705" y="290" width="143" height="210" rx="30"/><path d="M370 293V498m26 -205v205m27 -205v205m26 -205v205M730 293V498m26 -205v205m27 -205v205m26 -205v205"/></g>
-<path d="M319 273h25v40h-7v150h7v40h-25v-40h7V313h-7ZM851 273h25v40h-7v150h7v40h-25v-40h7V313h-7Z" fill="#00a199"/>
-<path d="M558 502V306M642 502V306" class="arrow"/><text x="534" y="416" class="small">AIR</text>
-<path d="M323 278V220H160" class="leader"/><text x="139" y="193" class="label">Shaped supports</text>
-<path d="M797 516H975" class="leader"/><text x="865" y="550" class="label">Winding</text>
-<path d="M600 570V606H477" class="leader"/><text x="351" y="631" class="label">Core and clamping layout</text>
+
+<text x="62" y="166" class="small">TRANSVERSE SECTION · SPACER LENGTH RUNS OUT OF THE PAGE</text>
+<rect x="414" y="246" width="145" height="287" fill="#d49b26" stroke="#a16f22" stroke-width="3"/>
+<rect x="651" y="246" width="145" height="287" fill="#d49b26" stroke="#a16f22" stroke-width="3"/>
+<g stroke="#f5d590" stroke-width="3"><path d="M419 262H554M656 262H791"/><path d="M419 289H554M656 289H791"/><path d="M419 316H554M656 316H791"/><path d="M419 343H554M656 343H791"/><path d="M419 370H554M656 370H791"/><path d="M419 397H554M656 397H791"/><path d="M419 424H554M656 424H791"/><path d="M419 451H554M656 451H791"/><path d="M419 478H554M656 478H791"/><path d="M419 505H554M656 505H791"/></g>
+<path d="M559 350H578V381H632V350H651V430H632V399H578V430H559Z" fill="#00a199" stroke="#0d675f" stroke-width="2"/>
+<circle cx="605" cy="292" r="16" fill="white" stroke="#00a199" stroke-width="3"/>
+<circle cx="605" cy="292" r="5" fill="#00a199"/>
+<circle cx="605" cy="492" r="16" fill="white" stroke="#00a199" stroke-width="3"/>
+<circle cx="605" cy="492" r="5" fill="#00a199"/>
+<path d="M567 370H347V260H87" class="leader"/><circle cx="567" cy="370" r="4" fill="#233a50"/>
+<text x="65" y="211" class="label">Profile spacer</text><text x="65" y="241" class="small">Dogbone section, shown locally</text>
+<text x="857" y="314" class="label">Winding</text><text x="857" y="345" class="label">sections</text><path d="M850 356H755" class="leader"/>
+<text x="801" y="574" class="label">Axial cooling duct</text><text x="801" y="604" class="small">Flow out of the page</text><path d="M790 565H605V508" class="leader"/>
+<text x="65" y="621" class="small">Spacers keep adjacent winding sections apart while preserving a cooling path.</text>
+<text x="65" y="652" class="small">Local detail only · core, clamps and full winding arrangement omitted · not to scale.</text>
 <rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
 <text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Mechanical input</text><text x="38" y="769" style="fill:#fff;font-size:19px">Clamp force • fault loads • creep • contact area</text>
 <text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Electrical and thermal input</text><text x="625" y="769" style="fill:#fff;font-size:19px">Clearance • creepage • air path • insulation system</text>

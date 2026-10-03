@@ -1,18 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-<title id="title">Insulating rod and tube components</title><desc id="desc">The tube, interfaces and complete tool are different test objects. Solid rod or foam-filled tube • surface • lot tests. End fittings • joints • finished-tool verification. Schematic, not to scale.</desc>
+<title id="title">Insulating rod and tube components</title><desc id="desc">Rod or tube assembly with metal fittings and an exposed insulating section measured between fitting edges. Separate solid-rod and foam-filled-tube cross-sections. No working-distance or voltage rating is specified.</desc>
 <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
 <rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
 <rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Insulating rod and tube components</text><text x="42" y="89" font-size="21">The tube, interfaces and complete tool are different test objects</text>
 
-<rect x="205" y="332" width="633" height="88" rx="20" fill="#00a199"/><path d="M246 341H814M246 408H814" stroke="#56c7bd" stroke-width="5"/>
-<rect x="147" y="320" width="110" height="112" rx="9" fill="#b7c2cc"/><rect x="813" y="320" width="135" height="112" rx="9" fill="#b7c2cc"/>
-<path d="M142 275V475M955 275V475" stroke="#c79f38" stroke-width="4" stroke-dasharray="10 8"/>
-<circle cx="350" cy="560" r="54" fill="#00a199"/><circle cx="594" cy="560" r="54" fill="#00a199"/><circle cx="594" cy="560" r="35" fill="#f5e6b9"/>
-<text x="276" y="654" class="small">SOLID ROD</text><text x="487" y="654" class="small">FOAM-FILLED TUBE</text>
-<path d="M516 330V233H385" class="leader"/><text x="313" y="207" class="label">Insulating length</text>
-<path d="M884 427V546H814" class="leader"/><text x="769" y="590" class="label">End interface</text>
-<text x="174" y="281" class="small">FITTING</text><text x="836" y="281" class="small">FITTING</text>
+
+<text x="65" y="164" class="small">COMPONENT ASSEMBLY · NOT A COMPLETE TOOL OR SAFE-WORKING DISTANCE</text>
+<rect x="205" y="332" width="633" height="88" rx="10" fill="#00a199"/>
+<path d="M246 342H814M246 409H814" stroke="#56c7bd" stroke-width="5"/>
+<rect x="147" y="320" width="110" height="112" rx="9" fill="#b7c2cc" stroke="#8190a0" stroke-width="3"/>
+<rect x="813" y="320" width="135" height="112" rx="9" fill="#b7c2cc" stroke="#8190a0" stroke-width="3"/>
+<path d="M257 264V310M813 264V310M257 277H813" class="leader"/>
+<path d="M257 277l12 -6v12ZM813 277l-12 -6v12Z" fill="#657c8e"/>
+<text x="343" y="242" class="label">Exposed insulating section</text>
+<text x="126" y="477" class="small">Metal fitting</text><path d="M207 449V415" class="leader"/>
+<text x="850" y="477" class="small">Metal fitting</text><path d="M894 449V415" class="leader"/>
+<circle cx="350" cy="555" r="48" fill="#00a199" stroke="#0d675f" stroke-width="3"/>
+<circle cx="594" cy="555" r="48" fill="#00a199" stroke="#0d675f" stroke-width="3"/>
+<circle cx="594" cy="555" r="30" fill="#f5e6b9" stroke="#aa975e" stroke-width="2"/>
+<text x="292" y="640" class="small">Solid rod</text><text x="499" y="640" class="small">Foam-filled tube</text>
+<text x="756" y="566" class="small">FRP wall</text><path d="M744 559H636" class="leader"/>
+<text x="756" y="612" class="small">Foam core</text><path d="M744 605H687L594 555" class="leader"/>
+<text x="76" y="558" class="small">Section</text><text x="76" y="586" class="small">alternatives</text>
 <rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
 <text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Qualify the component</text><text x="38" y="769" style="fill:#fff;font-size:19px">Solid rod or foam-filled tube • surface • lot tests</text>
 <text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Qualify the final assembly</text><text x="625" y="769" style="fill:#fff;font-size:19px">End fittings • joints • finished-tool verification</text>

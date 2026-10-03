@@ -6,16 +6,30 @@ import { useEffect, useRef, useState } from "react";
    Animated schematic — injection pultrusion line
    Side-elevation cutaway, all motion driven by CSS
    keyframes at a single consistent line speed (25 px/s):
-   spool rpm, belt treads, roller spin, and cut-length
-   growth are all derived from it.
+   belt treads, contact rollers and cut-length growth use
+   that illustrative speed; no production setting is specified.
    ═══════════════════════════════════════════════════════ */
 
+const LINE_SPEED = 25; // schematic pixels per second, not a physical process setting
+const rotationPeriod = (radius: number) => `${2 * Math.PI * radius / LINE_SPEED}s`;
 const CYCLE = 8; // s — one cut-off cycle (200 px of profile at 25 px/s)
 
 export default function PultrusionAnimation() {
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [inView, setInView] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => {
+      setReducedMotion(preference.matches);
+      if (preference.matches) setPlaying(false);
+    };
+    sync();
+    preference.addEventListener("change", sync);
+    return () => preference.removeEventListener("change", sync);
+  }, []);
 
   // Pause the whole scene while scrolled off-screen
   useEffect(() => {
@@ -29,7 +43,7 @@ export default function PultrusionAnimation() {
     return () => io.disconnect();
   }, []);
 
-  const running = playing && inView;
+  const running = playing && inView && !reducedMotion;
 
   return (
     <div
@@ -45,8 +59,9 @@ export default function PultrusionAnimation() {
           Animated schematic
           <button
             type="button"
+            disabled={reducedMotion}
             onClick={() => setPlaying((p) => !p)}
-            aria-label={playing ? "Pause animation" : "Play animation"}
+            aria-label={reducedMotion ? "Animation paused for reduced motion" : playing ? "Pause animation" : "Play animation"}
             className="flex min-h-[28px] shrink-0 items-center gap-[6px] rounded-full border border-teal-border bg-teal-bg px-[12px] font-sans text-f12 font-semibold normal-case tracking-normal text-teal-text transition-colors hover:bg-teal-bg2"
           >
             {playing ? (
@@ -58,7 +73,7 @@ export default function PultrusionAnimation() {
                 <path d="M2 1l7 4-7 4z" fill="currentColor" />
               </svg>
             )}
-            {playing ? "Pause" : "Play"}
+            {reducedMotion ? "Reduced motion" : playing ? "Pause" : "Play"}
           </button>
         </span>
       </div>
@@ -138,15 +153,15 @@ export default function PultrusionAnimation() {
             </g>
             {/* spools — rotation speed matches 25 px/s pay-off on a Ø40 spool */}
             {[
-              { cx: 52, cy: 154, dur: 5.0 },
-              { cx: 52, cy: 214, dur: 5.5 },
-              { cx: 52, cy: 274, dur: 4.7 },
-              { cx: 116, cy: 154, dur: 5.3 },
-              { cx: 116, cy: 214, dur: 4.9 },
-              { cx: 116, cy: 274, dur: 5.6 },
+              { cx: 52, cy: 154 },
+              { cx: 52, cy: 214 },
+              { cx: 52, cy: 274 },
+              { cx: 116, cy: 154 },
+              { cx: 116, cy: 214 },
+              { cx: 116, cy: 274 },
             ].map((s) => (
               <g key={`${s.cx}-${s.cy}`}>
-                <g className="pa-rot" style={{ animationDuration: `${s.dur}s` }}>
+                <g className="pa-rot" style={{ animationDuration: rotationPeriod(20) }}>
                   <circle cx={s.cx} cy={s.cy} r="20" fill="#d8dbe4" stroke="#9aa1b3" strokeWidth="1.5" />
                   <circle cx={s.cx} cy={s.cy} r="16.5" fill="none" stroke="#dfd6b8" strokeWidth="2.5" />
                   <circle cx={s.cx} cy={s.cy} r="12.5" fill="none" stroke="#d4c9a4" strokeWidth="2" />
@@ -203,7 +218,7 @@ export default function PultrusionAnimation() {
               <line x1={x} y1="270" x2={x} y2="320" stroke="#8b93a5" strokeWidth="4" />
               {(x === 184
                 ? [196, 204, 212, 220, 228, 236]
-                : [201, 205.5, 209, 212.5, 216, 219.5]
+                : [201, 205.5, 208.5, 211.5, 214.5, 219]
               ).map((y) => (
                 <circle key={y} cx={x} cy={y} r="2.4" fill="#f4f5f9" stroke="#4a5164" strokeWidth="0.8" />
               ))}
@@ -284,7 +299,7 @@ export default function PultrusionAnimation() {
               <line x1="316" y1="177" x2="316" y2="171.5" stroke="#c0392b" strokeWidth="1.4" />
             </g>
             <text x="316" y="163" textAnchor="middle" fontSize="9.5" fill="#6e7189">
-              3–8 bar
+              Pressure
             </text>
             {/* chamber body (cutaway: top + bottom walls) */}
             <rect x="268" y="188" width="56" height="12" fill="#6b7385" />
@@ -337,9 +352,9 @@ export default function PultrusionAnimation() {
               <path d="M479 185 v-8 h10" />
             </g>
             <g fontSize="9.5" fill="#6e7189" textAnchor="middle">
-              <text x="359" y="170">Z1 · 130 °C</text>
-              <text x="419" y="170">Z2 · 160 °C</text>
-              <text x="479" y="170">Z3 · 175 °C</text>
+              <text x="359" y="170">Zone 1</text>
+              <text x="419" y="170">Zone 2</text>
+              <text x="479" y="170">Zone 3</text>
             </g>
             {/* heat shimmer */}
             {[352, 394, 436, 478].map((x, i) => (
@@ -357,7 +372,7 @@ export default function PultrusionAnimation() {
             {/* gel-point marker inside cutaway */}
             <line x1="452" y1="201" x2="452" y2="219" stroke="#4b4f6a" strokeWidth="0.8" strokeDasharray="2 2" />
             <text x="452" y="256" textAnchor="middle" fontSize="9" fill="#6e7189">
-              gel point
+              cure progression
             </text>
           </g>
 
@@ -365,7 +380,7 @@ export default function PultrusionAnimation() {
           <g>
             <rect x="588" y="86" width="86" height="18" rx="9" fill="rgba(0,161,153,0.08)" stroke="rgba(0,161,153,0.18)" />
             <text x="622" y="98.5" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#00857e">
-              0.9 m/min
+              Feed →
             </text>
             <path d="M660 95 h6 m-2.5 -3 l3 3 -3 3" stroke="#00857e" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </g>
@@ -407,17 +422,15 @@ export default function PultrusionAnimation() {
             />
             {/* belt wheels */}
             {[
-              { cx: 596, cy: 178.5 },
-              { cx: 630, cy: 178.5 },
-              { cx: 664, cy: 178.5 },
-              { cx: 596, cy: 241.5 },
-              { cx: 630, cy: 241.5 },
-              { cx: 664, cy: 241.5 },
+              { cx: 592, cy: 178.5 },
+              { cx: 668, cy: 178.5 },
+              { cx: 592, cy: 241.5 },
+              { cx: 668, cy: 241.5 },
             ].map((w) => (
-              <g key={`${w.cx}-${w.cy}`} className="pa-rot" style={{ animationDuration: "3.3s" }}>
-                <circle cx={w.cx} cy={w.cy} r="12" fill="#aab1c2" stroke="#5b6272" strokeWidth="1.5" />
-                <line x1={w.cx - 12} y1={w.cy} x2={w.cx + 12} y2={w.cy} stroke="#5b6272" strokeWidth="1.2" />
-                <line x1={w.cx} y1={w.cy - 12} x2={w.cx} y2={w.cy + 12} stroke="#5b6272" strokeWidth="1.2" />
+              <g key={`${w.cx}-${w.cy}`} className="pa-rot" style={{ animationDuration: rotationPeriod(20), animationDirection: w.cy < 210 ? "reverse" : "normal" }}>
+                <circle cx={w.cx} cy={w.cy} r="20" fill="#aab1c2" stroke="#5b6272" strokeWidth="1.5" />
+                <line x1={w.cx - 20} y1={w.cy} x2={w.cx + 20} y2={w.cy} stroke="#5b6272" strokeWidth="1.2" />
+                <line x1={w.cx} y1={w.cy - 20} x2={w.cx} y2={w.cy + 20} stroke="#5b6272" strokeWidth="1.2" />
                 <circle cx={w.cx} cy={w.cy} r="2.5" fill="#31384a" />
               </g>
             ))}
@@ -426,7 +439,7 @@ export default function PultrusionAnimation() {
           {/* ── Roller table ── */}
           {[840, 890, 940, 990, 1038].map((cx) => (
             <g key={cx}>
-              <g className="pa-rot" style={{ animationDuration: "2s" }}>
+              <g className="pa-rot" style={{ animationDuration: rotationPeriod(8) }}>
                 <circle cx={cx} cy="228" r="8" fill="#c2c8d6" stroke="#6b7385" strokeWidth="1.5" />
                 <line x1={cx - 8} y1="228" x2={cx + 8} y2="228" stroke="#6b7385" strokeWidth="1" />
                 <line x1={cx} y1="220" x2={cx} y2="236" stroke="#6b7385" strokeWidth="1" />
@@ -475,24 +488,24 @@ export default function PultrusionAnimation() {
               </g>
               {/* carriage body */}
               <rect x="750" y="112" width="44" height="26" rx="3" fill="#6b7385" stroke="#4a5164" strokeWidth="1.5" />
-              {/* sparks at the kerf */}
-              <g className="pa-sparks" stroke="#ff9a3d" strokeWidth="1.6" strokeLinecap="round">
+              {/* Composite cutting dust near the kerf, not metal sparks. */}
+              <g className="pa-sparks" stroke="#9aa2ab" strokeWidth="1.6" strokeLinecap="round">
                 <line x1="772" y1="222" x2="762" y2="230" className="pa-flick" />
                 <line x1="772" y1="222" x2="782" y2="231" className="pa-flick" style={{ animationDelay: "-0.06s" }} />
-                <line x1="772" y1="224" x2="772" y2="233" stroke="#ffcf3d" className="pa-flick" style={{ animationDelay: "-0.1s" }} />
-                <line x1="772" y1="222" x2="765" y2="234" stroke="#ffcf3d" className="pa-flick" style={{ animationDelay: "-0.03s" }} />
+                <line x1="772" y1="224" x2="772" y2="233" stroke="#b8c0c8" className="pa-flick" style={{ animationDelay: "-0.1s" }} />
+                <line x1="772" y1="222" x2="765" y2="234" stroke="#b8c0c8" className="pa-flick" style={{ animationDelay: "-0.03s" }} />
               </g>
             </g>
           </g>
 
           {/* ── Station labels ── */}
           {[
-            { x: 84, n: 1, name: "Fiber creel", spec: "E-glass roving · CFM" },
+            { x: 84, n: 1, name: "Fiber creel", spec: "continuous reinforcement" },
             { x: 197, n: 2, name: "Guide plates", spec: "spatial alignment" },
-            { x: 296, n: 3, name: "Resin injection", spec: "3–8 bar · ±1%" },
-            { x: 422, n: 4, name: "Heated die", spec: "3 zones · 120–180 °C" },
-            { x: 630, n: 5, name: "Puller", spec: "0.3–1.5 m/min" },
-            { x: 800, n: 6, name: "Flying cut-off", spec: "±0.5 mm" },
+            { x: 296, n: 3, name: "Resin injection", spec: "metered resin feed" },
+            { x: 422, n: 4, name: "Heated die", spec: "controlled heating" },
+            { x: 630, n: 5, name: "Puller", spec: "continuous traction" },
+            { x: 800, n: 6, name: "Flying cut-off", spec: "travels with profile" },
           ].map((s) => (
             <a key={s.n} href={`#step-${s.n}`} aria-label={`Read about stage ${s.n}: ${s.name}`}>
               <g className="pa-label">
@@ -541,6 +554,7 @@ export default function PultrusionAnimation() {
             .pa-scene.pa-paused .pa-rot { animation-play-state: paused !important; }
             @media (prefers-reduced-motion: reduce) {
               .pa-scene * { animation: none !important; }
+              .pa-scene .pa-sparks, .pa-scene .pa-shimmer { opacity: 0; }
             }
 
             @keyframes pa-spin { to { transform: rotate(360deg); } }
@@ -563,9 +577,9 @@ export default function PultrusionAnimation() {
               20%, 100% { transform: translateX(230px); opacity: 0; }
             }
             @keyframes pa-carriage {
-              0%, 80% { transform: translateX(0); }
-              96% { transform: translateX(38px); }
-              100% { transform: translateX(0); }
+              0% { transform: translateX(38px); }
+              10%, 81% { transform: translateX(0); }
+              100% { transform: translateX(38px); }
             }
             @keyframes pa-sawhead {
               0%, 80% { transform: translateY(0); }
@@ -583,8 +597,8 @@ export default function PultrusionAnimation() {
       </div>
 
       <p className="border-t border-border-default px-[14px] py-[10px] text-f14 text-t2">
-        Cutaway of our standard injection pultrusion process, with simplified proportions and
-        typical parameters. Select a numbered station to read about that stage below.
+        Conceptual injection pultrusion line with simplified proportions. Heating, pressure and
+        line speed depend on the material and profile. Select a numbered station to read about that stage below.
       </p>
     </div>
   );

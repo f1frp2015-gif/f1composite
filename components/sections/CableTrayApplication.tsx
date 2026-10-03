@@ -115,7 +115,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       updated={page.lastModified}
       title={page.h1}
       description={page.description}
-      figure={<Figure number={1} title="Cable ladder at a treatment plant" bleed><div className="relative aspect-[16/10]"><Image src="/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp" alt="FRP cable ladder carrying power cables on pultruded supports beside water treatment basins" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload /></div></Figure>}
+      figure={<Figure number={1} title="Cable ladder at a treatment plant" caption="Cables bear on rungs; ladder side rails transfer load through brackets into the supporting structure. Rung spacing, support spans, splice positions and cable restraint follow the qualified system design." bleed><Image src="/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp" alt="Cables resting on ladder rungs between pultruded side rails, with brackets on vertical supports beside treatment basins" width={1672} height={941} sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" preload /></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications", href: "/applications" }, { label: "FRP cable trays & cable ladders" }]}
       actions={{ primary: { label: "Discuss your cable route", href: rfqHref }, secondary: { label: "Specification checklist", href: "#specification", variant: "secondary" }, note: "Start with your name and email. Route drawings and details can follow.", stickyMobile: true }}
     />

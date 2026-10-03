@@ -134,8 +134,8 @@ export const resourceCovers = {
 
 export const applicationCovers: Record<string, Cover> = Object.fromEntries(
   [
-    ...applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote }]),
-    ...specialistProductIndex.map((page) => [`/products/${page.slug}`, { src: page.image, alt: page.imageAlt, note: "Component schematic" }]),
+    ...applicationPages.map((page) => [`/applications/${page.slug}`, { src: page.image, alt: page.imageAlt, note: page.imageNote, ...(page.image.endsWith(".svg") ? { fit: "contain" as const } : {}) }]),
+    ...specialistProductIndex.map((page) => [`/products/${page.slug}`, { src: page.image, alt: page.imageAlt, note: "Component schematic", fit: "contain" as const }]),
   ],
 );
 

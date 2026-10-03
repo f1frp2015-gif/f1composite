@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ApplicationArtwork from "@/components/ui/ApplicationArtwork";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
@@ -77,7 +77,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
         }}
         figure={
           <Figure number={1} title={page.name} note="Application schematic · not to scale" caption={page.imageCaption} bleed>
-            <Image src={page.image} alt={page.imageAlt} width={1200} height={800} sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" preload />
+            <ApplicationArtwork src={page.image} alt={page.imageAlt} />
           </Figure>
         }
       />

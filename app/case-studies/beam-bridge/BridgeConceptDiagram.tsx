@@ -203,11 +203,13 @@ function BoxGirder({
   length,
   width,
   depth,
+  showStartSection = true,
 }: {
   origin: Point;
   length: Point;
   width: Point;
   depth: number;
+  showStartSection?: boolean;
 }) {
   const end = add(origin, length);
   const near = add(origin, width);
@@ -233,29 +235,33 @@ function BoxGirder({
         stroke="#72aeb5"
         strokeWidth=".9"
       />
-      <polygon
-        points={points(
-          section(0, 0),
-          section(1, 0),
-          section(1, 1),
-          section(0, 1),
-        )}
-        fill="#d9ecee"
-      />
-      {Array.from({ length: 5 }, (_, i) => (
-        <polygon
-          key={i}
-          points={points(
-            section(i / 5 + 0.018, 0.14),
-            section((i + 1) / 5 - 0.018, 0.14),
-            section((i + 1) / 5 - 0.018, 0.88),
-            section(i / 5 + 0.018, 0.88),
-          )}
-          fill="#f9feff"
-          stroke="#58748e"
-          strokeWidth="1"
-        />
-      ))}
+      {showStartSection ? (
+        <>
+          <polygon
+            points={points(
+              section(0, 0),
+              section(1, 0),
+              section(1, 1),
+              section(0, 1),
+            )}
+            fill="#d9ecee"
+          />
+          {Array.from({ length: 5 }, (_, i) => (
+            <polygon
+              key={i}
+              points={points(
+                section(i / 5 + 0.018, 0.14),
+                section((i + 1) / 5 - 0.018, 0.14),
+                section((i + 1) / 5 - 0.018, 0.88),
+                section(i / 5 + 0.018, 0.88),
+              )}
+              fill="#f9feff"
+              stroke="#58748e"
+              strokeWidth="1"
+            />
+          ))}
+        </>
+      ) : null}
     </g>
   );
 }
@@ -351,6 +357,7 @@ function ModularBridge() {
               length={length}
               width={width}
               depth={20}
+              showStartSection={i === 0}
             />
             <Deck origin={point} length={length} width={width} planks={13} />
             <Railing origin={point} length={length} width={width} count={5} />
@@ -677,12 +684,12 @@ function CurvedBridge() {
         12 m along the curve
       </text>
       <path
-        d="M 451 295 L 498 357 H 647"
+        d="M 451 245 L 498 357 H 647"
         stroke={callout}
         strokeWidth="1.1"
         fill="none"
       />
-      <circle cx="451" cy="295" r="3" fill={callout} />
+      <circle cx="451" cy="245" r="3" fill={callout} />
       <text x="496" y="383" fill={ink} fontSize="14">
         Custom mould + laminate
       </text>

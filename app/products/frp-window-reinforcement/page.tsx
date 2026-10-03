@@ -159,7 +159,7 @@ export default function WindowReinforcementProfilesPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="Steel insert vs GRP core" caption="Both cores do the same structural job inside the same uPVC chamber. The steel one re-installs the thermal bridge the plastic frame was supposed to avoid; the pultruded core does not.">
+          <Figure number={1} title="Steel insert vs GRP core" caption="Candidate inserts in a uPVC chamber. A lower-conductivity GRP core can reduce the insert’s contribution to heat transfer; heat still passes through the assembly. Section stiffness, connections and whole-frame U-value need separate verification. Arrows are qualitative.">
             <SteelVsFrpChamberCore bare />
           </Figure>
         }

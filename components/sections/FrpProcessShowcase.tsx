@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { AnimatedConcept } from "@/components/ui/AnimatedConcept";
 import PageSection from "@/components/layout/PageSection";
 import { company } from "@/content/data/company";
 
 /**
  * Animated icon showcase of the six FRP manufacturing processes.
- * Pure inline SVG with SMIL animations — no JS, no animation library,
- * nothing render-blocking. The pultrusion card is the funnel: it is the
+ * Inline SVG with opt-in SMIL animation controlled by AnimatedConcept. The pultrusion card is the funnel: it is the
  * process F1 actually runs, so it links to the process page and product hub.
  */
 
@@ -25,22 +25,22 @@ export function PultrusionIcon() {
         "M4 64 L46 46",
       ].map((d) => (
         <path key={d} d={d} stroke={GRAY} strokeWidth="1.6" fill="none" strokeDasharray="4 3">
-          <animate attributeName="stroke-dashoffset" values="7;0" dur="0.7s" repeatCount="indefinite" />
+          <animate attributeName="stroke-dashoffset" values="7;0" dur="0.7s" repeatCount="indefinite"  begin="indefinite" />
         </path>
       ))}
       {/* heated die */}
       <rect x="46" y="26" width="22" height="28" rx="2" fill={DARK} />
       <rect x="46" y="26" width="22" height="4" fill={TEAL}>
-        <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"  begin="indefinite" />
       </rect>
       <rect x="46" y="50" width="22" height="4" fill={TEAL}>
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"  begin="indefinite" />
       </rect>
-      {/* emerging I-beam profile, sliding right */}
-      <g>
-        <animateTransform attributeName="transform" type="translate" values="0 0; 10 0; 0 0" dur="2.4s" repeatCount="indefinite" />
-        <path d="M72 30 h30 v5 h-11 v10 h11 v5 h-30 v-5 h11 v-10 h-11 z" fill={TEAL} />
-      </g>
+      {/* Side elevation: continuous profile stays connected to the die. */}
+      <rect x="68" y="35" width="35" height="10" fill={TEAL} />
+      <path d="M68 40H103" stroke="white" strokeWidth="1.3" strokeDasharray="4 3" opacity="0.65">
+        <animate attributeName="stroke-dashoffset" values="0;-7" dur="0.7s" repeatCount="indefinite"  begin="indefinite" />
+      </path>
       {/* pull direction arrow */}
       <path d="M104 40 h9 m0 0 l-4 -3 m4 3 l-4 3" stroke={DARK} strokeWidth="1.6" fill="none" strokeLinecap="round" />
     </svg>
@@ -55,18 +55,18 @@ export function FilamentWindingIcon() {
       {/* helical winding, dashes flowing */}
       {["M22 48 L46 32", "M42 48 L66 32", "M62 48 L86 32", "M82 48 L100 34"].map((d) => (
         <path key={d} d={d} stroke={TEAL} strokeWidth="2" fill="none" strokeDasharray="5 3">
-          <animate attributeName="stroke-dashoffset" values="8;0" dur="0.9s" repeatCount="indefinite" />
+          <animate attributeName="stroke-dashoffset" values="8;0" dur="0.9s" repeatCount="indefinite"  begin="indefinite" />
         </path>
       ))}
       {/* traversing fiber carriage */}
       <g>
-        <animateTransform attributeName="transform" type="translate" values="0 0; 56 0; 0 0" dur="3.6s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="translate" values="0 0; 56 0; 0 0" dur="3.6s" repeatCount="indefinite"  begin="indefinite" />
         <rect x="20" y="14" width="10" height="7" rx="1.5" fill={DARK} />
         <line x1="25" y1="21" x2="25" y2="30" stroke={GRAY} strokeWidth="1.4" />
       </g>
       {/* rotation hint */}
       <path d="M10 40 a8 8 0 0 1 6 -8 m0 16 a8 8 0 0 1 -6 -8" stroke={GRAY} strokeWidth="1.4" fill="none" strokeLinecap="round">
-        <animateTransform attributeName="transform" type="rotate" values="0 14 40; 360 14 40" dur="3s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="rotate" values="0 14 40; 360 14 40" dur="3s" repeatCount="indefinite"  begin="indefinite" />
       </path>
     </svg>
   );
@@ -76,21 +76,21 @@ function HandLayupIcon() {
   return (
     <svg viewBox="0 0 120 80" className="h-[104px] w-full" aria-hidden="true">
       {/* mold */}
-      <path d="M14 62 Q60 40 106 62" stroke={DARK} strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <path d="M14 58H106" stroke={DARK} strokeWidth="2.5" fill="none" strokeLinecap="round" />
       {/* laminate layer */}
-      <path d="M22 58 Q60 38 98 58" stroke={TEAL} strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.6" />
+      <path d="M22 55H98" stroke={TEAL} strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.6" />
       {/* Roller traveling along the mold. */}
       <g>
         <animateTransform
           attributeName="transform"
           type="translate"
-          values="-24 6; 24 -2; -24 6"
+          values="-24 0; 24 0; -24 0"
           keyTimes="0; 0.5; 1"
           dur="3s"
           repeatCount="indefinite"
-        />
-        <circle cx="60" cy="42" r="6" fill="none" stroke={DARK} strokeWidth="2" />
-        <line x1="64" y1="37" x2="76" y2="22" stroke={DARK} strokeWidth="2" strokeLinecap="round" />
+         begin="indefinite" />
+        <circle cx="60" cy="47.5" r="6" fill="none" stroke={DARK} strokeWidth="2" />
+        <line x1="64" y1="42.5" x2="76" y2="27.5" stroke={DARK} strokeWidth="2" strokeLinecap="round" />
       </g>
     </svg>
   );
@@ -106,19 +106,19 @@ function CompressionMoldingIcon() {
         <animateTransform
           attributeName="transform"
           type="translate"
-          values="0 0; 0 14; 0 14; 0 0"
-          keyTimes="0; 0.35; 0.65; 1"
+          values="0 0; 0 18; 0 22; 0 22; 0 0"
+          keyTimes="0; 0.3; 0.45; 0.7; 1"
           dur="2.6s"
           repeatCount="indefinite"
-        />
+         begin="indefinite" />
         <rect x="30" y="14" width="60" height="12" rx="2" fill={DARK} />
       </g>
       {/* charge being compressed */}
       <rect x="42" y="44" width="36" height="10" rx="3" fill={TEAL}>
-        <animate attributeName="height" values="10;6;6;10" keyTimes="0;0.35;0.65;1" dur="2.6s" repeatCount="indefinite" />
-        <animate attributeName="y" values="44;48;48;44" keyTimes="0;0.35;0.65;1" dur="2.6s" repeatCount="indefinite" />
-        <animate attributeName="width" values="36;48;48;36" keyTimes="0;0.35;0.65;1" dur="2.6s" repeatCount="indefinite" />
-        <animate attributeName="x" values="42;36;36;42" keyTimes="0;0.35;0.65;1" dur="2.6s" repeatCount="indefinite" />
+        <animate attributeName="height" values="10;10;6;6;6" keyTimes="0;0.3;0.45;0.7;1" dur="2.6s" repeatCount="indefinite"  begin="indefinite" />
+        <animate attributeName="y" values="44;44;48;48;48" keyTimes="0;0.3;0.45;0.7;1" dur="2.6s" repeatCount="indefinite"  begin="indefinite" />
+        <animate attributeName="width" values="36;36;60;60;60" keyTimes="0;0.3;0.45;0.7;1" dur="2.6s" repeatCount="indefinite"  begin="indefinite" />
+        <animate attributeName="x" values="42;42;30;30;30" keyTimes="0;0.3;0.45;0.7;1" dur="2.6s" repeatCount="indefinite"  begin="indefinite" />
       </rect>
       {/* bottom die */}
       <rect x="30" y="54" width="60" height="12" rx="2" fill={DARK} />
@@ -134,19 +134,19 @@ function VacuumInfusionIcon() {
       {/* vacuum bag */}
       <path d="M12 52 Q18 36 34 36 L86 36 Q102 36 108 52" stroke={GRAY} strokeWidth="1.8" fill="none" />
       {/* resin front advancing through the laminate */}
-      <rect x="16" y="42" width="0" height="10" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="1">
-        <animate attributeName="width" values="0;88;88;0" keyTimes="0;0.6;0.85;1" dur="3.2s" repeatCount="indefinite" />
+      <rect x="16" y="42" width="88" height="10" rx="2" fill={TEAL_SOFT} stroke={TEAL} strokeWidth="1">
+        <animate attributeName="width" values="0;88;88" keyTimes="0;0.6;1" dur="3.2s" repeatCount="indefinite"  begin="indefinite" />
       </rect>
       {/* inlet drop */}
       <circle cx="16" cy="30" r="3" fill={TEAL}>
-        <animate attributeName="cy" values="26;38" dur="0.8s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="1;0" dur="0.8s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="26;38" dur="0.8s" repeatCount="indefinite"  begin="indefinite" />
+        <animate attributeName="opacity" values="1;0" dur="0.8s" repeatCount="indefinite"  begin="indefinite" />
       </circle>
       {/* vacuum port with suction ticks */}
       <rect x="102" y="26" width="5" height="14" rx="2" fill={GRAY} />
       {[0, 1].map((i) => (
         <line key={i} x1={96 - i * 6} y1={30 + i * 4} x2={100 - i * 6} y2={30 + i * 4} stroke={GRAY} strokeWidth="1.4">
-          <animate attributeName="opacity" values="0;1;0" dur="1.2s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite" begin="indefinite" />
         </line>
       ))}
     </svg>
@@ -159,12 +159,12 @@ function RtmIcon() {
       {/* closed matched mold */}
       <path d="M24 34 h72 q6 0 6 6 v4 q0 6 -6 6 h-72 q-6 0 -6 -6 v-4 q0 -6 6 -6 z" fill="none" stroke={DARK} strokeWidth="2.4" />
       {/* resin filling the cavity */}
-      <rect x="24" y="38" width="0" height="8" rx="3" fill={TEAL}>
-        <animate attributeName="width" values="0;72;72;0" keyTimes="0;0.55;0.85;1" dur="3s" repeatCount="indefinite" />
+      <rect x="24" y="38" width="72" height="8" rx="3" fill={TEAL}>
+        <animate attributeName="width" values="0;72;72" keyTimes="0;0.55;1" dur="3s" repeatCount="indefinite"  begin="indefinite" />
       </rect>
       {/* injection inlet */}
       <path d="M8 42 h8 m0 0 l-3.5 -2.5 m3.5 2.5 l-3.5 2.5" stroke={TEAL} strokeWidth="2" fill="none" strokeLinecap="round">
-        <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"  begin="indefinite" />
       </path>
       {/* clamp bolts */}
       {[36, 60, 84].map((x) => (
@@ -214,8 +214,9 @@ export default function FrpProcessShowcase({ tone = "white" }: { tone?: "white" 
       id="processes"
       title="How is FRP made? Six processes at a glance"
       tone={tone}
-      intro="The same glass-fiber-plus-resin material becomes very different products depending on how it is formed. Six processes cover most of the FRP world, and one of them, pultrusion, is the route to every structural profile, window frame and grating on this site."
+      intro="Glass fiber and resin can be formed by several processes. Pultrusion produces constant-section profiles; molded grating and other shaped parts use different routes. These simplified loops illustrate material flow and tool motion, with each batch process resetting for a new part."
     >
+      <AnimatedConcept label="FRP manufacturing process diagrams">
       <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-3">
         {/* Pultrusion: the process F1 runs, so its card leads to the process page */}
         <li className="sm:col-span-2 lg:col-span-1">
@@ -252,6 +253,7 @@ export default function FrpProcessShowcase({ tone = "white" }: { tone?: "white" 
           </li>
         ))}
       </ul>
+      </AnimatedConcept>
 
       <ul className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[4px] text-f14 font-semibold">
         {[

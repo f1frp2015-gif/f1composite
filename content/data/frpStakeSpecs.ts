@@ -66,7 +66,7 @@ export const frpStakeReferenceSizes = [
 export const frpStakeImageAssets = {
   hero: "/images/products/fiberglass-stakes/fiberglass-stakes-size-range.webp",
   vineyard: "/images/products/fiberglass-stakes/frp-stakes-vineyard-training.webp",
-  nursery: "/images/products/fiberglass-stakes/fiberglass-tree-stakes-nursery.webp",
+  nursery: "/images/products/fiberglass-stakes/fiberglass-tree-stakes-loose-ties-concept.webp",
 } as const;
 
 export const frpStakeApplications = [

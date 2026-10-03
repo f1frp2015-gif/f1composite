@@ -6,13 +6,18 @@
 <rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Pulp and paper corrosion zones</text><text x="42" y="89" font-size="21">Separate access framing from hot process equipment</text>
 
 <rect x="710" y="240" width="250" height="290" rx="48" fill="#d9e1e8" stroke="#738193" stroke-width="5"/><ellipse cx="835" cy="240" rx="125" ry="30" fill="#edf1f4" stroke="#738193" stroke-width="5"/>
-<path d="M835 210V175H590V320" class="steel"/><text x="772" y="400" class="label">PROCESS</text><text x="780" y="434" class="label">VESSEL</text>
+<path d="M835 210V175H985V395" class="steel"/><text x="772" y="400" class="label">PROCESS</text><text x="780" y="434" class="label">VESSEL</text>
+<path d="M764 525V580M905 525V580" stroke="#81909e" stroke-width="14"/>
+<g fill="#d9e1e8" stroke="#81909e" stroke-width="3"><rect x="188" y="586" width="74" height="42"/><rect x="593" y="586" width="74" height="42"/><rect x="738" y="586" width="196" height="42"/></g>
 <path d="M180 432H684M225 432V580M630 432V580M225 568L630 443" stroke="#00a199" stroke-width="20" fill="none"/>
 <path d="M170 416H700M180 292H685M180 350H685M188 280V415M440 280V415M685 280V415" stroke="#031697" stroke-width="8" fill="none"/>
-<path d="M200 418l28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15m15 15 28 -15" stroke="#031697" stroke-width="8"/>
-<path d="M437 455V530H480" class="leader"/><text x="472" y="568" class="label">Support bracing</text>
-<text x="176" y="246" class="label">Access system</text><path d="M730 578H991" stroke="#edb529" stroke-width="6" stroke-dasharray="14 12"/>
-<text x="747" y="620" class="small">SEPARATE PROCESS DUTY</text>
+<path d="M180 422H684" stroke="#031697" stroke-width="6" stroke-dasharray="16 8"/>
+<path d="M200 582h50M605 582h50M746 582h36M887 582h36" stroke="#233a50" stroke-width="8"/>
+<path d="M209 578v31M241 578v31M614 578v31M646 578v31M756 578v31M773 578v31M896 578v31M916 578v31" stroke="#657c8e" stroke-width="4"/>
+<path d="M437 502V551H320" class="leader"/><text x="309" y="574" class="small">Bracing</text>
+<text x="176" y="246" class="label">Access system</text>
+<text x="145" y="661" class="small">ANCHORED FRAME</text><text x="748" y="661" class="small">SEPARATE VESSEL SUPPORTS</text>
+<path d="M170 410H700" stroke="#031697" stroke-width="12"/><path d="M715 265V570" stroke="#edb529" stroke-width="3" stroke-dasharray="9 9"/>
 <rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
 <text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Map the exposure</text><text x="38" y="769" style="fill:#fff;font-size:19px">Splash • vapour • washdown • temperature</text>
 <text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Keep the load path clear</text><text x="625" y="769" style="fill:#fff;font-size:19px">Grating → beam → support → foundation</text>
