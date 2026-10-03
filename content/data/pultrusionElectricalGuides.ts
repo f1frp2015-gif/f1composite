@@ -31,7 +31,7 @@ const railStandards: PultrusionGuide["standards"] = [
 
 const toolSources: PultrusionGuide["sources"] = [
   { id: "tencom-tool", title: "Tencom: fiberglass tool handles for linework", url: "https://www.tencom.com/blog/what-makes-fiberglass-tool-handles-safer-for-linework", kind: "industry", note: "Application-discovery source for pultruded fiberglass tool components. Supplier performance claims are not used as F1 qualification evidence." },
-  { id: "astm-f711", title: "ASTM F711-26: FRP rod and tube used in live-line tools", url: "https://store.astm.org/standards/f711", kind: "authority", note: "Current ASTM catalog edition checked October 2026. Covers solid rods and foam-filled tubes; fittings and complete-tool attachments are outside its scope." },
+  { id: "astm-f711", title: "ASTM F711-26: FRP rod and tube used in live-line tools", url: "https://store.astm.org/f0711-26.html", kind: "authority", note: "Current edition, published March 2026. Covers solid rods and foam-filled tubes; fittings and complete-tool attachments are outside its scope." },
   { id: "iec-live-working", title: "IEC 60855-1:2016: insulating foam-filled tubes and solid rods", url: "https://webstore.iec.ch/en/publication/24654", kind: "authority", note: "Official scope for circular-section glass-reinforced components intended for live-working equipment on systems above 1 kV." },
   { id: "osha-tools", title: "OSHA 29 CFR 1910.269(j): live-line tools", url: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.269", kind: "authority", note: "United States workplace rule covering tool design and condition. Its current note names ASTM F711-02 (2007), distinct from ASTM's current edition." },
   { id: "osha-interpretation", title: "OSHA: clarification of live-line tool examination and testing", url: "https://www.osha.gov/laws-regs/standardinterpretations/1995-02-02", kind: "authority", note: "Explains the employer's responsibility and distinctions among rod, hollow-tube and foam-filled constructions. Read with the current regulation." },
@@ -40,7 +40,7 @@ const toolSources: PultrusionGuide["sources"] = [
 const toolStandards: PultrusionGuide["standards"] = [
   { name: "ASTM F711-26", category: "Standard", jurisdiction: "Procurement and qualification programs specifying ASTM requirements; not independently a universal legal requirement.", applies: "Technical characteristics and tests for FRP insulating solid rods and foam-filled tubes intended for live-line tools. The official catalog identifies design, sample, routine and acceptance testing.", limits: "Fittings and attachments for complete tools are excluded. Ordinary hollow tube, a material datasheet or an individual electrical test cannot establish compliance of a finished tool. This page makes no F1 conformity claim.", sourceIds: ["astm-f711"] },
   { name: "IEC 60855-1:2016", category: "Standard", jurisdiction: "Countries and contracts adopting this IEC component standard or its national implementation.", applies: "Circular-section fiberglass-reinforced solid rods and insulating foam-filled tubes for manufacture of live-working tools and equipment on electrical systems above 1 kV.", limits: "The scope does not automatically cover every cross-section, construction or complete tool. Its intended system-voltage scope is not a working-voltage rating for an unqualified component.", sourceIds: ["iec-live-working"] },
-  { name: "29 CFR 1910.269(j)", category: "Regulation", jurisdiction: "United States workplaces and activities within OSHA's electric-power generation, transmission and distribution rule.", applies: "Live-line tool design and condition, including daily cleaning and visual inspection and the periodic examination regime for tools used for primary employee protection. The current regulatory note references ASTM F711-02 (2007).", limits: "ASTM's current F711-26 catalog edition does not rewrite the regulation's referenced edition. Employers must follow the actual applicable rule; a component purchase does not establish a safe work method.", sourceIds: ["osha-tools"] },
+  { name: "29 CFR 1910.269(j)", category: "Regulation", jurisdiction: "United States workplaces and activities within OSHA's electric-power generation, transmission and distribution rule. Construction work on such systems falls under the parallel rule at 29 CFR 1926.957 (Subpart V).", applies: "Live-line tool design and condition, including daily cleaning and visual inspection and the periodic examination regime for tools used for primary employee protection. The current regulatory note references ASTM F711-02 (2007).", limits: "ASTM's current F711-26 catalog edition does not rewrite the regulation's referenced edition. Employers must follow the actual applicable rule; a component purchase does not establish a safe work method.", sourceIds: ["osha-tools"] },
 ];
 
 export const electricalGuides: PultrusionGuide[] = [
@@ -67,10 +67,10 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["roechling-transformer", "roechling-profiles"],
       },
       {
-        id: "material-temperature",
+        id: "material-and-temperature",
         title: "Select the material against the local temperature history",
         paragraphs: [
-          "Ask for the temperature at the support itself, including continuous duty, expected overload periods, cooling interruptions and thermal cycles. Ambient room temperature alone is insufficient when a part sits beside a winding. Agree the conditioning and temperature at which mechanical and electrical properties will be demonstrated. A room-temperature property sheet can help compare candidates, but it does not establish retention of stiffness or contact pressure during hot service.",
+          "Ask for the temperature at the support itself, including continuous duty, expected overload periods, cooling interruptions and thermal cycles. Ambient room temperature alone is insufficient when a part sits beside a winding. Agree on the conditioning and temperature at which mechanical and electrical properties will be demonstrated. A room-temperature property sheet can help compare candidates, but it does not establish retention of stiffness or contact pressure during hot service.",
           "Keep the terms distinct: resin glass-transition temperature, a material's thermal endurance designation, the complete electrical insulation system's thermal class and the transformer's permitted temperature rise describe different things. IEC 60085 expressly distinguishes insulating materials from insulation systems. Select a specific resin and reinforcement package against the OEM's requirements; a generic polyester, vinyl ester or epoxy family name cannot establish class F or H suitability. Any surface coating, adhesive or sealant also belongs in the review.",
         ],
         sourceIds: ["iec-thermal", "iec-transformer"],
@@ -85,7 +85,7 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["iec-short-circuit", "iec-thermal"],
       },
       {
-        id: "cooling-insulation",
+        id: "cooling-and-insulation",
         title: "Preserve cooling passages and electrical separation",
         paragraphs: [
           "Support geometry participates in the cooling arrangement. Increasing a bearing face may reduce contact stress while occupying more of an air passage; reducing a spacer can improve access for air while increasing local loading. Show the minimum passage dimensions and acceptable tolerance stack on the assembly drawing. Have the transformer designer review temperature performance in the final layout rather than treating a thicker support as an automatic improvement.",
@@ -94,7 +94,7 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["iec-transformer"],
       },
       {
-        id: "fabrication-assembly",
+        id: "fabrication-and-assembly",
         title: "Control the details that change during fabrication and assembly",
         paragraphs: [
           "Use functional datums for width, contact-face flatness, straightness, twist, cut length and hole position. Identify which surfaces contact the winding and which dimensions maintain cooling or insulation space. A tolerance acceptable for a building profile may be unsuitable for a tightly packed transformer assembly. Review cutter access, edge finishing and inspection methods before releasing the die, especially where the profile requires narrow radii or thin webs near a load-bearing region.",
@@ -106,13 +106,13 @@ export const electricalGuides: PultrusionGuide[] = [
         id: "qualification",
         title: "Separate component acceptance from transformer qualification",
         paragraphs: [
-          "Agree the evidence plan before treating a material as approved. It should identify the formulation and reinforcement, profile drawing revision, conditioning, specimen orientation, required tests, acceptance limits and the party that approves the results. First-article dimensional inspection, representative material testing and assembly verification answer different questions. Keep their records connected through a material and production batch identity so a future investigation can establish exactly what was installed.",
+          "Agree on the evidence plan before treating a material as approved. It should identify the formulation and reinforcement, profile drawing revision, conditioning, specimen orientation, required tests, acceptance limits and the party that approves the results. First-article dimensional inspection, representative material testing and assembly verification answer different questions. Keep their records connected through a material and production batch identity so a future investigation can establish exactly what was installed. North American contracts typically specify IEEE C57.12.01 for the dry-type transformer and UL 1446 for its insulation system, so confirm the OEM's governing standards before planning tests.",
           "Define what triggers renewed review: a resin or reinforcement change, a different surface layer, revised contact geometry, new machining or an altered curing process may affect the basis of approval. The purchase order should distinguish development samples from parts released for series use. For projects specifying IEC 60076-11, the equipment manufacturer's overall qualification remains necessary; the standard's scope and exclusions must be checked before applying it to a special transformer.",
         ],
         sourceIds: ["iec-transformer", "iec-thermal"],
       },
       {
-        id: "inspection-failure",
+        id: "inspection-and-failure",
         title: "Make deterioration observable during equipment maintenance",
         paragraphs: [
           "Plan access for inspection within the transformer's maintenance procedure. Useful observations include support movement, loose interfaces, cracking, separation of layers, heat discoloration, carbonized tracks and deposits that obstruct air passages. Record the location and operating context rather than replacing a failed part with an apparently similar shape. A changed duty cycle, loose clamp or blocked cooling route can make a replacement fail for the same underlying reason.",
@@ -136,15 +136,15 @@ export const electricalGuides: PultrusionGuide[] = [
       "Qualification and batch-acceptance plan, material-change control, traceability, first-article quantities and series forecast.",
     ],
     faqs: [
-      { question: "Is a dog-bone profile suitable for every dry-type transformer?", answer: "Its shape can provide useful winding support and spacing, but suitability depends on contact loads, local temperature, cooling, electrical separation and the OEM's qualification. Use the existing dog-bone product page for geometry inquiries and this guide for the equipment-level specification." },
+      { question: "Is a dog-bone profile suitable for every dry-type transformer?", answer: "Its shape can provide useful winding support and spacing, but suitability depends on contact loads, local temperature, cooling, electrical separation and the OEM's qualification. Use the fiberglass dog-bone product page for profile geometry and this guide for the equipment-level specification." },
       { question: "Can a resin's glass-transition temperature prove class H insulation?", answer: "No. Tg, material thermal endurance and insulation-system thermal class are different properties. The equipment manufacturer must establish the applicable system classification and verify the selected component within that system." },
       { question: "Does this guide include oil-filled transformer insulation?", answer: "Its scope is pultruded supports for dry-type equipment. Oil-filled equipment introduces fluid compatibility, impregnation and insulation-system requirements that need a separate review. Laminated transformer wood and machined sheet components should not be described as pultruded GFRP." },
     ],
     sources: transformerSources,
     related: [
       { href: "/products/fiberglass-dog-bone", label: "Fiberglass dog-bone profile geometry" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profile development" },
-      { href: "/industries/energy", label: "Energy and electrical applications" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+      { href: "/industries/energy", label: "Energy and power industry" },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["roechling-rail", "en-fixed-rail"],
       },
       {
-        id: "geometry-supports",
+        id: "cover-and-supports",
         title: "Design the cover and its supports as one assembly",
         paragraphs: [
           "Map straight runs, joints, curves, conductor ends, transitions and removable maintenance sections. Put the cover's support points and fixing geometry on the same drawing as the protected equipment. Supplied profile length and permissible unsupported span are separate decisions. Identify where the assembly fixes longitudinal position and where it permits the movement required by temperature changes, so neither uncontrolled migration nor restrained expansion is left to the installer to resolve.",
@@ -179,7 +179,7 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["foster-coverboards", "roechling-profiles"],
       },
       {
-        id: "loads-exposure",
+        id: "loads-and-exposure",
         title: "Define location-specific loads and exposure",
         paragraphs: [
           "Prepare a load schedule for the actual installation. Outdoor elevated track can require a different wind and ice assessment from a sheltered tunnel, while debris, handling impacts and maintenance activities introduce localized loads. Have the owner state whether accidental foot loading is a design case. A coverboard should never be advertised as a walking surface merely because a strong laminate is proposed. Check displacement as well as failure, because deflection can create interference before a member breaks.",
@@ -188,25 +188,25 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["foster-coverboards", "en-fixed-rail"],
       },
       {
-        id: "electrical-fire",
+        id: "electrical-and-fire",
         title: "Keep electrical protection and fire qualification separate",
         paragraphs: [
           "Ask the railway electrical designer to identify the cover's insulation function, the required tests and relevant interfaces. The laminate's electrical properties do not remove the need to consider contaminated surfaces, accumulated moisture, metal fixings and the surrounding protection arrangement. The designer also establishes what clearances and bonding provisions apply elsewhere in the assembly. A material dielectric-strength number cannot be translated directly into an approved system operating voltage or permission to contact the cover.",
-          "Set fire and smoke requirements for the actual location and authority. NFPA 130 addresses transit-system fire and life safety where adopted, while EN 45545-2 addresses materials and components on railway vehicles. A contract may deliberately specify tests from another framework, but that choice should be explicit. Agree the formulation, thickness, surface treatment and specimen or assembly arrangement covered by each report; a generic flame-retardant label does not define those boundaries.",
+          "Set fire and smoke requirements for the actual location and authority. NFPA 130 addresses transit-system fire and life safety where adopted, while EN 45545-2 addresses materials and components on railway vehicles. A contract may deliberately specify tests from another framework, but that choice should be explicit. Agree on the formulation, thickness, surface treatment and specimen or assembly arrangement covered by each report; a generic flame-retardant label does not define those boundaries.",
         ],
         sourceIds: ["en-fixed-rail", "nfpa-transit", "en-rail-vehicle-fire"],
       },
       {
-        id: "manufacturing-installation",
+        id: "manufacturing-and-installation",
         title: "Make the installed geometry reproducible",
         paragraphs: [
-          "Specify the functional section dimensions, wall thickness, straightness, twist, cut length and hole positions against the approved drawing. The tolerance stack includes the support system and track installation, not only the pultrusion. Use fabrication methods that preserve the qualified edges and surfaces, and agree inspection criteria for cracks, void indications, exposed fibers and machining damage. A dimensional pass should not override a surface defect affecting an electrical or load-bearing region.",
+          "Specify the functional section dimensions, wall thickness, straightness, twist, cut length and hole positions against the approved drawing. The tolerance stack includes the support system and track installation, not only the pultrusion. Use fabrication methods that preserve the qualified edges and surfaces, and agree on inspection criteria for cracks, void indications, exposed fibers and machining damage. A dimensional pass should not override a surface defect affecting an electrical or load-bearing region.",
           "Installation belongs under the operator's isolation, access and work-permit procedures. Trial-fit a representative track section before series installation, checking support spacing, joint movement, end details and collector clearance. The approved installation instructions should define fastening, identification, permitted adjustment and final inspection. If parts do not fit, resolve the drawing or tolerance issue; unapproved field notching, drilling or forced assembly can invalidate both the geometry and the evidence supporting it.",
         ],
         sourceIds: ["roechling-profiles", "en-fixed-rail"],
       },
       {
-        id: "qualification-release",
+        id: "qualification-and-release",
         title: "Use a staged qualification and release process",
         paragraphs: [
           "Begin with a requirements matrix listing the operator, installation environment, standards and their adopted editions, test methods, acceptance criteria and responsible approver. Follow with profile feasibility, representative material and connection evidence, first-article inspection, trial installation and the system checks required by the owner. State which checks apply to raw profile, fabricated cover and installed assembly. None of these stages should be silently replaced by a generic certificate from a different material or thickness.",
@@ -242,8 +242,8 @@ export const electricalGuides: PultrusionGuide[] = [
     sources: railSources,
     related: [
       { href: "/products/frp-third-rail-coverboards", label: "Specify a third-rail coverboard profile" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom section development" },
-      { href: "/industries/infrastructure", label: "FRP in transport infrastructure" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+      { href: "/industries/infrastructure", label: "Infrastructure industry" },
     ],
   },
   {
@@ -278,11 +278,11 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["astm-f711", "iec-live-working"],
       },
       {
-        id: "mechanics-interfaces",
+        id: "mechanics-and-interfaces",
         title: "Check the mechanics of the tool and its end interfaces",
         paragraphs: [
           "Obtain load cases from the tool designer, including the tool head, handling geometry and any intended axial, bending or torsional action. A long component can meet a strength target while deflecting too much for the intended tool function. Discuss stiffness, component mass, straightness and the load introduction at each end together. Use the actual reinforcement orientation and construction when establishing the assessment; a generic longitudinal tensile value does not cover every failure mode.",
-          "Holes, machined ends, threaded inserts, clamps, bonded ferrules and telescoping interfaces can change performance locally. Agree the joint geometry, preparation and assembly controls with the tool manufacturer, then qualify the applicable final configuration. Changing a head or increasing overlap does not automatically preserve the original basis of approval. The rod-and-tube standard's scope limit is especially relevant here: evidence for the insulating length does not by itself establish the strength or electrical behavior of attachments.",
+          "Holes, machined ends, threaded inserts, clamps, bonded ferrules and telescoping interfaces can change performance locally. Agree on the joint geometry, preparation and assembly controls with the tool manufacturer, then qualify the applicable final configuration. Changing a head or increasing overlap does not automatically preserve the original basis of approval. The rod-and-tube standard's scope limit is especially relevant here: evidence for the insulating length does not by itself establish the strength or electrical behavior of attachments.",
         ],
         sourceIds: ["astm-f711"],
       },
@@ -299,13 +299,13 @@ export const electricalGuides: PultrusionGuide[] = [
         id: "production-release",
         title: "Carry qualification controls into production and assembly",
         paragraphs: [
-          "Freeze the drawing, material construction, surface system, approved machining and marking locations before the first production release. Agree the inspection methods for dimensions, straightness and visible damage, as well as the test records required by the selected standard and purchase contract. Development samples should be clearly distinguished from released components. Identify how the component batch will remain traceable after cutting, fabrication and integration into a complete tool.",
+          "Freeze the drawing, material construction, surface system, approved machining and marking locations before the first production release. Agree on the inspection methods for dimensions, straightness and visible damage, as well as the test records required by the selected standard and purchase contract. Development samples should be clearly distinguished from released components. Identify how the component batch will remain traceable after cutting, fabrication and integration into a complete tool.",
           "Review proposed changes before implementing them. A different reinforcement, resin, core, coating, end closure or fabrication process can affect the assumptions used during qualification. Packaging should preserve the qualified surfaces and prevent mix-ups with ordinary structural fiberglass products. The receiving tool manufacturer should verify identification and the agreed acceptance documents before assembly, then perform the further checks needed for its complete tool. Supplier documentation is an input to this process, not a substitute for it.",
         ],
         sourceIds: ["astm-f711", "iec-live-working"],
       },
       {
-        id: "daily-periodic-care",
+        id: "daily-and-periodic-care",
         title: "Distinguish daily condition checks from periodic examination",
         paragraphs: [
           "For work within its scope, OSHA 1910.269(j) requires live-line tools to be wiped clean and visually inspected before each day's use. A defect or contamination that could affect insulation or mechanical integrity triggers removal from service and the prescribed evaluation. The employer's procedure should make identification, condition reporting and segregation of suspect tools practical. Useful observations include cracks, surface damage, persistent deposits and loose interfaces; the manufacturer's instructions govern the actual inspection and care process.",
@@ -334,15 +334,15 @@ export const electricalGuides: PultrusionGuide[] = [
       "First-article quantities, production forecast, traceability and explicit identification of development parts not released for field use.",
     ],
     faqs: [
-      { question: "Can an ordinary hollow fiberglass tube be used as a hot-stick component?", answer: "Do not infer that from the material name. ASTM F711 and IEC 60855-1 have defined construction and qualification scopes, including solid rods and foam-filled tubes. The tool manufacturer must select and validate the appropriate construction and complete tool." },
+      { question: "Can an ordinary hollow fiberglass tube be used as a hot-stick component?", answer: "Do not infer that from the material name. ASTM F711 and IEC 60855-1 cover solid rods and foam-filled tubes. Insulating hollow tubes have their own IEC standard, IEC 61235, and complete insulating sticks are covered by IEC 60832-1. The tool manufacturer must select and validate the appropriate construction and complete tool." },
       { question: "Does ASTM F711 qualification cover the tool head and attachments?", answer: "The standard's public scope excludes fittings and attachments for complete tools. Their design, fabrication and integration need the applicable further assessment. Rod or tube evidence cannot be presented as complete-tool approval." },
       { question: "Why are two ASTM F711 editions mentioned?", answer: "ASTM's catalog currently lists F711-26, while the current note in OSHA 1910.269(j) names F711-02 (2007). A current standards catalog does not amend the regulation. The purchaser and responsible employer must determine how their specific requirements will be met." },
     ],
     sources: toolSources,
     related: [
       { href: "/products/fiberglass-live-line-tool-tubes-rods", label: "Specify insulating rod and tube components" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion feasibility" },
-      { href: "/industries/energy", label: "Electrical component applications" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+      { href: "/industries/energy", label: "Energy and power industry" },
     ],
   },
   {
@@ -368,7 +368,7 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["roechling-rail", "roechling-profiles"],
       },
       {
-        id: "geometry-tolerances",
+        id: "geometry-and-tolerances",
         title: "Specify functional datums, fit and tolerances",
         paragraphs: [
           "Dimension mounting width, internal clearances, wall thickness, returns, radii and the features controlling engagement with the bracket. Define the measurement datums and agreed inspection condition. Include cut length, end squareness, straightness, twist and hole or slot position where relevant. These requirements should be derived from the assembly tolerance budget; a generic pultrusion tolerance does not prove that a long cover will fit a particular track installation.",
@@ -386,19 +386,19 @@ export const electricalGuides: PultrusionGuide[] = [
         sourceIds: ["nfpa-transit", "en-fixed-rail", "en-rail-vehicle-fire"],
       },
       {
-        id: "fabrication-acceptance",
-        title: "Agree fabrication and acceptance at the finished-part level",
+        id: "fabrication-and-acceptance",
+        title: "Agree on fabrication and acceptance at the finished-part level",
         paragraphs: [
-          "The fabrication drawing should control cut ends, drilled features, any specified edge finish and identification. Agree how cracks, separation of layers, local damage and exposed fibers will be evaluated, especially in mounting or electrically functional regions. Where a repair is allowed, its approval and inspection route should be documented before the batch is accepted. A conforming overall dimension does not override a defect that affects the intended function.",
+          "The fabrication drawing should control cut ends, drilled features, any specified edge finish and identification. Agree on how cracks, separation of layers, local damage and exposed fibers will be evaluated, especially in mounting or electrically functional regions. Where a repair is allowed, its approval and inspection route should be documented before the batch is accepted. A conforming overall dimension does not override a defect that affects the intended function.",
           "An acceptance package can include the approved drawing revision, material identity, batch record, dimensional inspection, agreed test reports and a first-article fit record. Define sampling, witness points and responsibility in the purchase order. Development samples should remain clearly identified until the operator or designated approver releases the component. Packaging and handling instructions should protect long edges and prevent distortion or impact damage during transport and unloading.",
         ],
         sourceIds: ["roechling-profiles", "en-fixed-rail"],
       },
       {
-        id: "supply-qualification",
+        id: "supply-and-qualification",
         title: "Separate feasibility, first article and approved series supply",
         paragraphs: [
-          "Begin with a feasibility review of geometry, material requirements and the tests needed. Then agree a first-article scope, representative brackets and the review needed before any series order. Tooling approval is a manufacturing milestone, not railway approval. If the qualification route requires testing or acceptance that has not been completed, the commercial documents should say so and identify the remaining responsibilities and release conditions.",
+          "Begin with a feasibility review of geometry, material requirements and the tests needed. Then agree on a first-article scope, representative brackets and the review needed before any series order. Tooling approval is a manufacturing milestone, not railway approval. If the qualification route requires testing or acceptance that has not been completed, the commercial documents should say so and identify the remaining responsibilities and release conditions.",
           "For repeat orders, reference the accepted configuration and control changes to the profile, surface, machining or attachment interface. Retain batch identification through installation where the operator requires it. Spare parts should restore the approved geometry and material system. A visually similar replacement is not enough when the existing qualification depends on a particular wall, fixing detail or tested fire package.",
         ],
         sourceIds: ["en-fixed-rail", "nfpa-transit"],
@@ -421,7 +421,7 @@ export const electricalGuides: PultrusionGuide[] = [
     sources: railSources,
     related: [
       { href: "/applications/frp-third-rail-protection", label: "Third-rail system design and qualification" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom profile development process" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
     ],
   },
   {
@@ -442,12 +442,12 @@ export const electricalGuides: PultrusionGuide[] = [
         title: "Choose the construction covered by the qualification route",
         paragraphs: [
           "The inquiry should identify solid rod or foam-filled tube, the applicable standard and exact edition, and the intended component function. ASTM F711-26 covers these FRP insulating constructions for live-line tools. IEC 60855-1:2016 specifies circular-section fiberglass-reinforced rods and foam-filled tubes within its stated scope. An ordinary hollow structural tube cannot be relabeled as a component meeting either specification simply because it uses a similar resin and reinforcement.",
-          "For a tube, include the wall, core and end-closure arrangement in the proposed construction. For either form, describe the intended surface and the subsequent fabrication operations. Agree which party is responsible for design qualification, manufacturing controls and complete-tool integration. This page supports that inquiry; it does not present a qualified F1 material grade, an approved tooling range or a ready-to-use energized-work product.",
+          "For a tube, include the wall, core and end-closure arrangement in the proposed construction. For either form, describe the intended surface and the subsequent fabrication operations. Agree on which party is responsible for design qualification, manufacturing controls and complete-tool integration. This page supports that inquiry; it does not present a qualified F1 material grade, an approved tooling range or a ready-to-use energized-work product.",
         ],
         sourceIds: ["astm-f711", "iec-live-working"],
       },
       {
-        id: "dimensions-interfaces",
+        id: "dimensions-and-interfaces",
         title: "Dimension the profile around its function and interfaces",
         paragraphs: [
           "Provide diameter, tube wall where applicable, cut length, straightness and any required roundness or mass limits. Mark the functional datums and inspection condition. Show the surfaces involved in gripping, sliding or locating inside another component, together with the tolerances needed for those functions. Supply the tool-head or ferrule drawing so that local fit is considered before deciding the component dimensions and secondary operations.",
@@ -459,22 +459,22 @@ export const electricalGuides: PultrusionGuide[] = [
         id: "qualification-records",
         title: "Specify the qualification evidence before ordering samples",
         paragraphs: [
-          "List the tests, conditioning, acceptance criteria and reporting responsibilities required by the adopted standard and tool maker. ASTM's official scope distinguishes design, sample, routine and acceptance tests; these serve different purposes. A small set of development samples, an isolated dielectric result or a general pultrusion property sheet does not establish that the production component meets the required program. Agree the sample identity and construction so results remain connected to the intended series product.",
+          "List the tests, conditioning, acceptance criteria and reporting responsibilities required by the adopted standard and tool maker. ASTM's official scope distinguishes design, sample, routine and acceptance tests; these serve different purposes. A small set of development samples, an isolated dielectric result or a general pultrusion property sheet does not establish that the production component meets the required program. Agree on the sample identity and construction so results remain connected to the intended series product.",
           "Confirm the edition explicitly. The ASTM catalog currently lists F711-26, while the current note in OSHA 1910.269(j) references F711-02 (2007). The customer and responsible employer must determine the applicable contractual and regulatory basis; a later catalog edition does not silently amend the rule. Neither a material test voltage nor the voltage scope of an IEC standard establishes a working rating for the unqualified component offered for review.",
         ],
         sourceIds: ["astm-f711", "iec-live-working", "osha-tools"],
       },
       {
-        id: "finished-acceptance",
+        id: "finished-part-acceptance",
         title: "Accept the finished component and preserve its identity",
         paragraphs: [
-          "Agree dimensional inspection, surface condition criteria, approved fabrication and the required production test records. Record the material construction, drawing revision and batch identity in the acceptance package. Marking location and method should be part of the approved specification so identification does not damage a critical surface. Keep unreleased development pieces distinguishable from accepted components and from ordinary structural rods or tubes in both documentation and packaging.",
+          "Agree on dimensional inspection, surface condition criteria, approved fabrication and the required production test records. Record the material construction, drawing revision and batch identity in the acceptance package. Marking location and method should be part of the approved specification so identification does not damage a critical surface. Keep unreleased development pieces distinguishable from accepted components and from ordinary structural rods or tubes in both documentation and packaging.",
           "A receiving check should confirm identity, transport condition and the agreed records before tool assembly. Establish how scratches, impact damage, exposed reinforcement, suspect closures or fabrication defects will be assessed. Packaging should protect the surface and ends and prevent mix-ups among constructions. A visually clean component still requires its qualification evidence, while a compliant document does not override physical damage observed on delivery.",
         ],
         sourceIds: ["astm-f711", "iec-live-working"],
       },
       {
-        id: "release-changes",
+        id: "release-and-changes",
         title: "Control release to the tool manufacturer and later changes",
         paragraphs: [
           "Separate feasibility review, first-article testing, component production approval and complete-tool release in the supply agreement. Identify the evidence and approving party for each stage. Where suitable tests or production controls have yet to be established, describe the supply as development work. No part should be represented as ready for energized service on the strength of this product description or the general insulating behavior of fiberglass.",
@@ -501,7 +501,7 @@ export const electricalGuides: PultrusionGuide[] = [
     sources: toolSources,
     related: [
       { href: "/applications/frp-live-line-tool-components", label: "Live-line component qualification workflow" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom profile feasibility review" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
     ],
   },
 ];

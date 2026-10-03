@@ -78,7 +78,7 @@ export const industryPages = {
       { area: "Substations and switchyards", exposure: "Steel frames need grounding and bonding, and corrode in coastal or industrial air", parts: "Equipment stands, frames and trench covers from standard profiles", check: "Clearances, dielectric data for the specified laminate, UV exposure and any fire classification" },
       { area: "Cable routes in plants", exposure: "Steel trays and supports rust in damp, chemical or coastal areas", parts: "Channels, angles and brackets for cable supports; custom tray sections", check: "Cable weight, support spacing, fire-retardant resin where required, the electrical design basis" },
       { area: "Solar mounting", exposure: "Zinc coatings wear on coastal, agricultural and floating sites; many roofs have little spare capacity", parts: "Rails, posts, clamps and PV module frame profiles", check: "Wind and snow loads, UV-stabilised resin and surface veil, connections and roof capacity" },
-      { area: "Wind energy", exposure: "Blade reinforcement needs light laminates with documented fatigue behaviour", parts: "Pultruded spar-cap panels in glass, carbon or hybrid laminates", check: "The laminate data sheet and the blade designer's qualification route" },
+      { area: "Wind energy", exposure: "Blade reinforcement needs light laminates with documented fatigue behavior", parts: "Pultruded spar-cap panels in glass, carbon or hybrid laminates", check: "The laminate data sheet and the blade designer's qualification route" },
       { area: "Transformers and switchgear", exposure: "Metal parts near high-current conductors can heat by induction", parts: "Custom insulating spacers, standoffs and supports", check: "Temperature class of the resin, and dielectric and thermal test data for the specific part" },
     ],
     products: [
@@ -255,7 +255,7 @@ export const industryPages = {
       { area: "Docks and marinas", exposure: "Steel corrodes in the splash zone and timber decays", parts: "Grating, deck panels, frames and handrails", check: "Berthing, crowd and point loads, fixings and UV exposure" },
       { area: "Offshore platforms", exposure: "Corrosion maintenance is costly offshore, and weight matters", parts: "Grating, handrails, ladders and cable supports", check: "The operator's fire and approval requirements, and the loads" },
       { area: "Coastal walkways and piers", exposure: "Salt spray on wet walking surfaces", parts: "Gritted grating, stair treads and handrails", check: "Slip resistance, drainage, anchors and fixings" },
-      { area: "Aquaculture and fishery PV", exposure: "Immersion or splash with strong UV", parts: "Frames, mounts and structural profiles", check: "Immersion behaviour of the resin and sealed cut edges" },
+      { area: "Aquaculture and fishery PV", exposure: "Immersion or splash with strong UV", parts: "Frames, mounts and structural profiles", check: "Immersion behavior of the resin and sealed cut edges" },
       { area: "Tie-rods and anchors", exposure: "Steel rods corrode in seawater", parts: "Solid FRP rods", check: "Design tensile values for the diameter and resin, and the anchorage" },
     ],
     products: [
@@ -305,8 +305,8 @@ export const industryPages = {
     slug: "vehicle",
     path: "/industries/vehicle",
     name: "Automotive & rail",
-    updated: "2026-10-02",
-    h1: "FRP Profiles for Automotive, Bus & Transport Components",
+    updated: "2026-10-03",
+    h1: "FRP Profiles for Automotive, Bus & Rail Components",
     intro:
       "Explore custom pultruded FRP profiles for selected passenger-car reinforcements, EV battery-pack details, bus and coach bodies, commercial vehicles and rail interiors. Long, constant-section parts are evaluated against the vehicle program's loads, joints, environment and approval requirements; a candidate location is not a qualified replacement part.",
     image: {
@@ -314,7 +314,7 @@ export const industryPages = {
       alt: "Bus body showing candidate roof and ceiling support-profile locations",
       caption: "Candidate roof and ceiling rail locations in a bus body; final components require vehicle-maker design and approval.",
     },
-    areasIntro: "Start with the component's function and installation interface. These are candidate locations for long, constant-section FRP parts; the vehicle maker defines the acceptance basis and approves the installed component.",
+    areasIntro: "Start with the component's function and installation interface. These are candidate locations for long, constant-section FRP parts, each with its own acceptance basis.",
     areas: [
       { area: "Bus and coach bodies", exposure: "Long body details exposed to vibration, passenger use, weather and cleaning", parts: "Side-skirt edges, luggage-rack rails, ceiling supports, duct and hatch framing", check: "Fixture and access loads, joint fatigue, finish and applicable bus fire rules" },
       { area: "Passenger cars", exposure: "Mass and packaging constraints around crash and occupant load paths", parts: "Candidate bumper, sill, seat-crossmember or seat-frame sections", check: "OEM crash and restraint load cases, joint performance and production variation" },
@@ -333,16 +333,17 @@ export const industryPages = {
     reading: [
       { label: "FRP vs steel, aluminum and timber", href: "/technology/frp-vs-traditional-materials" },
       { label: "Pultrusion resin systems", href: "/technology/pultrusion-resin-systems" },
+      { label: "Rail interior and secondary profiles", href: "/applications/frp-rail-interior-profiles" },
     ],
     documentPaths: ["/products/custom-pultruded-profiles", "/products/fiberglass-structural-shapes"],
     faqs: [
       { question: "Can a pultruded FRP profile replace a steel bumper beam or side sill?", answer: "It can be evaluated as a candidate, but a drawing substitution is insufficient. The OEM must compare the complete crash pulse, energy absorption, intrusion, attachment loads, environmental aging and repair behavior of the proposed part and its joints. F1 can discuss a custom constant-section profile; qualification of a crash or occupant-safety component belongs to the vehicle program." },
-      { question: "Are seat crossmembers or seat back frames suitable for pultrusion?", answer: "Constant-section members can be investigated; controlled curvature needs a separate manufacturing review, while complex three-dimensional shells may need another process. Seat and restraint load paths are safety-critical. The vehicle and seat-system engineers must set the static, dynamic, fatigue, anchorage and misuse cases before a material or cross-section is chosen." },
+      { question: "Are seat crossmembers or seat back frames suitable for pultrusion?", answer: "Constant-section members can be investigated, but seat and restraint load paths are safety-critical. The vehicle and seat-system engineers must set the static, dynamic, fatigue, anchorage and misuse cases before a material or cross-section is chosen." },
       { question: "Can one FRP material serve every EV battery-pack part?", answer: "No. A pack rail, cell restraint, cover edge and underbody-shield edge have different loads and thermal, fire, sealing and electrical duties. Moisture, conductive inserts and nearby metal can change the insulation behavior of the assembled part. Define the location and pack-level acceptance tests before selecting a laminate or claiming an electrical benefit." },
       { question: "How should a vehicle weight saving be calculated?", answer: "Compare parts that meet the same performance targets, including the redesigned section, inserts, adhesive, fasteners and protective finish. A same-volume density comparison is only a material comparison: composite stiffness, joining and crash behavior can change the geometry and installed mass." },
-      { question: "Which fire requirements apply to bus and rail interiors?", answer: "The customer identifies the vehicle class, part location and governing market. Bus materials may have requirements under UN R118 or local rules; rail projects may specify EN 45545-2 requirement sets and hazard levels. Resin type alone does not establish compliance. Review reports for the offered formulation and finished configuration against the exact project requirement." },
-      { question: "Will fiberglass sideposts reduce a refrigerated body's energy use?", answer: "A fiberglass sidepost can reduce a conductive path within an insulated wall, but whole-body performance also depends on insulation, skins, doors, joints and air leakage. Compare wall or body assemblies under the same test conditions, and check cargo impact, fastening, sealing and condensation before predicting refrigeration energy use." },
-      { question: "What evidence is needed before series supply?", answer: "The listed parts are engineering candidates, not claims of F1 supply to a vehicle program or an OEM partnership. Before series supply, agree the drawing, laminate, interfaces, component tests, dimensional and visual inspection, traceability and the vehicle maker's approval route. The exact evidence follows the part's safety function and governing market." },
+      { question: "Which fire requirements apply to bus and rail interiors?", answer: "The customer identifies the vehicle class, part location and governing market. Bus materials may have requirements under UN Regulation No. 118 or local rules; rail projects may specify EN 45545-2 requirement sets and hazard levels. Resin type alone does not establish compliance. Review reports for the offered formulation and finished configuration against the exact project requirement." },
+      { question: "Will fiberglass sideposts reduce a refrigerated body's energy use?", answer: "A fiberglass sidepost conducts less heat than a metal one and reduces the thermal bridge through an insulated wall, but whole-body performance also depends on insulation, skins, doors, joints and air leakage. Compare wall or body assemblies under the same test conditions, and check cargo impact, fastening, sealing and condensation before predicting refrigeration energy use." },
+      { question: "What evidence is needed before series supply?", answer: "The listed parts are engineering candidates, not claims of F1 supply to a vehicle program or an OEM partnership. Before series supply, agree on the drawing, laminate, interfaces, component tests, dimensional and visual inspection, traceability and the vehicle maker's approval route. The exact evidence follows the part's safety function and governing market." },
     ],
     request: [
       { title: "Part geometry and function", text: "Vehicle type, marked component location, section envelope and length; send 2D/3D drawings and identify the load path and adjacent parts." },

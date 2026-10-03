@@ -352,7 +352,7 @@ export const industryGuides = {
           lead: "A bumper reinforcement, side sill or seat crossmember may have a long, fairly constant section, making pultrusion a process candidate. Geometry alone does not establish crash or occupant-safety suitability.",
           paragraphs: [
             "A bumper beam works with crush cans, mounts and surrounding body structure. A side sill contributes to side-impact and underbody load paths. For either candidate, the OEM must set target force-displacement behavior, intrusion limits, failure mode, attachment loads and repair rules, then validate the installed system through its vehicle program.",
-            "Seat crossmembers and selected backrest rails add occupant and restraint loads, repeated adjustment or vibration, and local fastening demands. A controlled curved constant-section member needs a separate manufacturing review; a complex three-dimensional shell may require another process. Inserts, drilled holes and bond lines often govern the usable strength more than a coupon result; review them with the proposed laminate and production tolerances.",
+            "Seat crossmembers and selected backrest rails add occupant and restraint loads, repeated adjustment or vibration, and local fastening demands. Inserts, drilled holes and bond lines often govern the usable strength more than a coupon result; review them with the proposed laminate and production tolerances.",
           ],
           image: { src: "/images/industries/vehicle-passenger-car-profiles.svg", alt: "Technical illustration marking candidate bumper, side-sill and seat reinforcement locations on a passenger car; conceptual, not an F1-supplied vehicle" },
           components: ["Front or rear bumper reinforcement profiles", "Side-sill and door-opening reinforcement sections", "Seat crossmember or backrest-rail candidates"],
@@ -360,7 +360,7 @@ export const industryGuides = {
           checks: ["Crash pulse, intrusion and energy absorption in the assembled load path", "Seat and restraint loads, fatigue and misuse cases where applicable", "Bonded or bolted joints, inserts, tolerances and repair method"],
           links: [
             { label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" },
-            { label: "Pultruded-profile performance", href: "/technology/pultruded-profile-performance" },
+            { label: "Pultruded profile performance", href: "/technology/pultruded-profile-performance" },
           ],
         },
         {
@@ -373,13 +373,13 @@ export const industryGuides = {
             "Treat these as separate specifications. Cross members require pack-level bending, crush and attachment checks. Cell restraints need controlled clamp load and long-term dimensional stability. Cover-edge or floor-shield edging must fit the seal, drainage and service-opening design. A pultruded profile should be compared with the complete installed alternative, including metal inserts and fasteners.",
             "Glass FRP can be considered where an insulating section is useful, but laminate data alone do not qualify a high-voltage boundary. Moisture, coolant, contamination, metallic hardware and temperature cycling affect the assembly. The battery-system team defines dielectric, fire, venting, thermal-runaway and impact requirements for the actual location before selecting the material system.",
           ],
-          image: { src: "/images/industries/vehicle-ev-battery-pack-profiles.svg", alt: "Technical illustration marking candidate rails, end members, restraint bars and edge profiles in an EV battery pack; conceptual, not an F1-supplied pack" },
+          image: { src: "/images/industries/vehicle-ev-battery-pack-profiles.svg", alt: "Technical illustration marking candidate perimeter-rail, crossmember, edge-frame and tray-interface zones in an EV battery enclosure; conceptual, not an F1-supplied pack" },
           components: ["Battery-pack cross rails and end members", "Cell restraint or compression-bar profiles", "Cover-edge and underbody-shield edge profiles"],
           checksTitle: "Pack-level checks",
           checks: ["Crush, impact, vibration and attachment load paths", "Sealing, thermal movement, coolant and moisture exposure", "Electrical insulation and fire behavior of the assembled configuration"],
           links: [
             { label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" },
-            { label: "Pultruded-profile performance", href: "/technology/pultruded-profile-performance" },
+            { label: "Pultruded profile performance", href: "/technology/pultruded-profile-performance" },
           ],
         },
         {
@@ -390,7 +390,7 @@ export const industryGuides = {
           lead: "Truck and trailer bodies have long roof, floor and wall details. A refrigerated body adds insulation and sealing, so its sideposts must be assessed as part of the complete wall rather than as isolated profiles.",
           paragraphs: [
             "Candidates include box-body roof and floor edge rails, wall sideposts, liner fixing rails and door-edge details. A chassis crossmember or other primary vehicle member carries different safety and durability duties and needs a separate OEM-led program. For the body details, set cargo-restraint and handling loads, repeated door cycles, support spacing and replacement strategy before choosing a section.",
-            "In a refrigerated wall, the sidepost geometry must suit panel spacing, insulation thickness and liner fastening. A fiberglass post may reduce a conductive path compared with a metal post, but energy use cannot be inferred from the profile alone. Compare complete wall or body assemblies under the same test method, including skins, foam, joints, doors and air leakage. Validate cargo impact, fastener pull-through, moisture ingress and temperature cycling alongside thermal performance.",
+            "In a refrigerated wall, the sidepost geometry must suit panel spacing, insulation thickness and liner fastening. A fiberglass post conducts less heat than a metal post and reduces the thermal bridge through the wall, but energy use cannot be inferred from the profile alone. Compare complete wall or body assemblies under the same test method, including skins, foam, joints, doors and air leakage. Validate cargo impact, fastener pull-through, moisture ingress and temperature cycling alongside thermal performance.",
           ],
           image: { src: "/images/industries/vehicle-reefer-body-cutaway.webp", alt: "Cutaway of a refrigerated trailer wall showing fiberglass sideposts, insulated panels and an interior liner" },
           components: ["Truck-body roof, floor and wall edge rails", "Insulated-wall sideposts and liner fixing rails", "Door-edge, corner and panel-support details"],
@@ -405,7 +405,7 @@ export const industryGuides = {
           id: "rail",
           label: "Rail vehicles",
           summary: "Exterior and interior secondary parts with a defined fire test route.",
-          title: "Exterior and interior secondary parts with a defined fire test route",
+          title: "Assign the fire requirement to each component before choosing the resin",
           lead: "Railcar body details need repeatable dimensions, a durable surface and clear installation interfaces. Pultruded profiles can be evaluated for roof-edge and skirt details, window reveals, interior ceiling supports, luggage-rack elements and cable covers.",
           paragraphs: [
             "These parts may be bonded or mechanically fixed to a metal carbody. The joint must transfer the specified service loads and accommodate tolerances, temperature movement, vibration and maintenance access. For exterior pieces, review weathering, cleaning agents and finish repair. For interior pieces, include passenger contact, fixture loads and the complete installed configuration in the design review.",
@@ -417,18 +417,19 @@ export const industryGuides = {
           checks: ["Applicable fire requirement set, hazard level and tested configuration", "Bonded or bolted joint evidence and fatigue loads", "Exterior weathering or interior wear and cleaning regime"],
           links: [
             { label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" },
-            { label: "Pultrusion resin systems", href: "/technology/pultrusion-resin-systems" },
+            { label: "Rail interior profile guide", href: "/applications/frp-rail-interior-profiles" },
+            { label: "Fire-retardant rail profile components", href: "/products/fire-retardant-rail-profiles" },
           ],
         },
         {
           id: "specialty",
           label: "Specialty vehicles",
           summary: "Equipment enclosures and service-body details exposed to hard use.",
-          title: "Equipment enclosures and service-body details exposed to hard use",
+          title: "Separate access-panel details from safety-critical load paths",
           lead: "Utility, maintenance and other specialty fleets carry equipment in wet, dirty and frequently washed compartments. FRP profiles can be considered for equipment-door frames, removable panel edges, cable-protection covers and secondary mounting rails.",
           paragraphs: [
             "The useful boundary is the component and its function. A profile that supports an access panel is different from a crash member, occupant restraint anchor or lifting point. The vehicle designer must identify those safety-critical load paths and approve any material change before supply.",
-            "Define the actual exposure: road salt, detergents, oil mist, sunlight, standing water or chemical splash. Resin selection, finish, drainage and compatible hardware follow from that service profile. Where field repair matters, agree a replaceable joint and inspection method early in the design.",
+            "Define the actual exposure: road salt, detergents, oil mist, sunlight, standing water or chemical splash. Resin selection, finish, drainage and compatible hardware follow from that service profile. Where field repair matters, agree on a replaceable joint and inspection method early in the design.",
           ],
           image: { src: "/images/industries/vehicle-specialty-body-compartment.webp", alt: "Service vehicle equipment compartment with fiberglass panel edging and secondary support rails" },
           components: ["Equipment-door and removable-panel frames", "Cable-protection covers and compartment edging", "Secondary rails for approved equipment attachments"],
@@ -451,19 +452,19 @@ export const industryGuides = {
         { need: "EV pack rail, cell restraint or cover edge", product: "Custom rail, bar or edge profile", href: "/products/custom-pultruded-profiles", check: "Pack crush; clamp retention; seal; electrical and fire duty" },
         { need: "Truck body or refrigerated-wall sidepost", product: "Custom rail or sidepost matched to the wall stack", href: "/products/custom-pultruded-profiles", check: "Cargo impact; fastening; sealing; complete-wall thermal test" },
         { need: "Rail exterior or interior detail", product: "Custom rail, cover or formed edge profile", href: "/products/custom-pultruded-profiles", check: "Fire requirement set; joint fatigue; finish and access" },
-        { need: "Specialty body compartment", product: "Custom section or checked standard tube or angle", href: "/products/fiberglass-structural-shapes", check: "Equipment loads; exposure; service replacement" },
+        { need: "Specialty body compartment", product: "Custom section, or a standard tube or angle verified for the duty", href: "/products/fiberglass-structural-shapes", check: "Equipment loads; exposure; service replacement" },
       ],
       notes: [
         { title: "Specify the supplied state", text: "State whether the order covers raw lengths, cut and drilled parts, coated pieces or an assembly. The drawing should identify critical dimensions, appearance, inserts and the inspection points needed for that state." },
-        { title: "Keep vehicle approval with the program", text: "The OEM or responsible system supplier defines crash, restraint, high-voltage and fire acceptance. For refrigerated bodies, compare finished walls or bodies for thermal performance; for rail, specify the component's fire requirement set and hazard level." },
+        { title: "State the acceptance basis per component", text: "Crash, restraint and high-voltage parts follow the OEM's or system supplier's tests. For refrigerated bodies, compare finished walls or bodies for thermal performance; for rail, specify the component's fire requirement set and hazard level." },
       ],
     },
     references: {
-      intro: "Public context for lightweighting and location-specific fire requirements. These sources do not certify an F1 profile, establish an installed-part weight saving or replace the customer's acceptance plan.",
+      intro: "Public context for lightweighting and location-specific fire requirements. Crash, restraint and battery-system acceptance references are set by each OEM program and are not listed here. These sources do not certify an F1 profile, establish an installed-part weight saving or replace the customer's acceptance plan.",
       links: [
         { source: "U.S. DOE", label: "Lightweight materials for cars and trucks", href: "https://www.energy.gov/cmei/vehicles/lightweight-materials-cars-and-trucks", text: "Background on vehicle lightweighting; installed-part savings still require a like-for-like design comparison." },
-        { source: "BSI", label: "EN 45545-2: fire behavior of railway materials", href: "https://landingpage.bsigroup.com/LandingPage/Undated?UPI=000000000030334174", text: "Rail fire requirements are assigned to the part and operating context by the customer." },
-        { source: "EUR-Lex", label: "UN Regulation No. 118: burning behavior of vehicle materials", href: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AL_202600535", text: "Applies to specified categories and material locations; confirm scope and version for the bus program." },
+        { source: "BSI", label: "EN 45545-2:2020+A1:2023: fire behavior of materials and components for railway vehicles", href: "https://landingpage.bsigroup.com/LandingPage/Undated?UPI=000000000030334174", text: "Rail fire requirements are assigned to the part and operating context by the customer." },
+        { source: "EUR-Lex", label: "UN Regulation No. 118: burning behavior of materials in buses (EU Official Journal text)", href: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AL_202600535", text: "Applies to M3 Class II and III buses and specified material locations; confirm the series of amendments in force for the bus program." },
       ],
     },
     resources: [

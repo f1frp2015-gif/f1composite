@@ -15,7 +15,7 @@ import { coverFor } from "@/lib/covers";
 import { buildPageMetadata } from "@/lib/seo";
 
 const description =
-  "Explore pultruded FRP and CFRP applications in water treatment, power, rail, paper mills and industrial equipment, with design and specification guidance.";
+  "Pultruded FRP and CFRP applications in power, water treatment, rail, civil and ground works, fencing, pools and precision machines, with specification guidance.";
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profile Applications | Components & Selection",
   description,

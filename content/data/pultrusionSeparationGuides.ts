@@ -87,15 +87,15 @@ const separationSources: GuideSource[] = [
   },
   {
     id: "astm-d543",
-    title: "ASTM D543-21: evaluating plastics in chemical reagents",
+    title: "ASTM D543-21: evaluating the resistance of plastics to chemical reagents",
     url: "https://store.astm.org/d0543-21.html",
     kind: "authority",
     note: "Exposure conditions, stress and retained properties must match the question being tested. Laboratory results have stated limits.",
   },
   {
     id: "astm-d3917",
-    title: "ASTM: D3917-23 pultruded-shape dimensional tolerances",
-    url: "https://www.astm.org/get-involved/technical-committees/committee-d20/subcommittee-d20/jurisdiction-d2018",
+    title: "ASTM D3917-23: dimensional tolerances of pultruded shapes",
+    url: "https://store.astm.org/d3917-23.html",
     kind: "authority",
     note: "ASTM lists the active dimensional-tolerance specification. A demister fit drawing must separately identify its critical interface tolerances.",
   },
@@ -156,7 +156,7 @@ const separationStandards: GuideStandard[] = [
     name: "ASTM C581-26 and ASTM D543-21",
     category: "Standard",
     jurisdiction: "Material qualification when contractually specified",
-    applies: "Chemical-exposure test planning: identify the resin, laminate, reagent, temperature, time and properties to evaluate. C581 addresses unstressed reinforced thermoset specimens for liquid service.",
+    applies: "Chemical-exposure test planning: identify the resin, laminate, reagent, temperature, time and properties to evaluate. C581 addresses unstressed reinforced thermoset specimens for liquid service. European vessels designed to EN 13121-3 normally take laminate chemical-resistance evidence from EN 13121-2; confirm which route the vessel designer requires.",
     limits: "Different methods answer different questions. These tests alone do not qualify wet gas, hot dry excursions, sustained structural loading or a finished demister assembly.",
     sourceIds: ["astm-c581", "astm-d543"],
   },
@@ -177,7 +177,7 @@ const separationStandards: GuideStandard[] = [
     sourceIds: ["en-13121"],
   },
   {
-    name: "Air-emissions permits and monitoring conditions",
+    name: "Facility air permits (U.S.: 40 CFR Parts 70/71 Title V; Part 64 CAM)",
     category: "Regulation",
     jurisdiction: "Facility jurisdiction; U.S. Title V/CAM where applicable",
     applies: "The operator identifies the applicable emissions limit, monitoring, reporting and replacement-change requirements for the source and its control device.",
@@ -248,7 +248,7 @@ export const separationGuides: PultrusionGuide[] = [
         title: "Use pultrusion where the geometry remains constant",
         paragraphs: [
           "Pultrusion can form a repeatable cross-section along the member's length. A curved or zigzag cross-section can therefore be a candidate if it remains unchanged along that length and the reinforcement, thickness and tooling are feasible. Three-dimensional transitions, changing drainage pockets and integral end fittings can call for molding, assembly or another process. Review each feature before labeling an entire demister module as pultruded.",
-          "For a replacement vane, establish which dimensions control the flow passage and which simply locate the part. Thickness variation, twist or accumulated pitch error can change a bank even when individual pieces appear similar. Agree inspection datums and a representative assembled-module trial. For support rails, define the bearing face and the vessel attachment independently from the vane geometry.",
+          "For a replacement vane, establish which dimensions control the flow passage and which simply locate the part. Thickness variation, twist or accumulated pitch error can change a bank even when individual pieces appear similar. Agree on inspection datums and a representative assembled-module trial. For support rails, define the bearing face and the vessel attachment independently from the vane geometry.",
           "A sample records the existing installation but may also contain wear, permanent deformation or an undocumented repair. Pair it with the approved drawing and a measured survey. Any geometry change that alters open area, drainage or edge sealing goes back to the equipment designer for review before tooling release.",
         ],
         sourceIds: ["roechling-pultrusion", "sulzer-chevron", "astm-d3917"],
@@ -288,7 +288,7 @@ export const separationGuides: PultrusionGuide[] = [
         title: "Make cleaning access and replacement part of the layout",
         paragraphs: [
           "Ask the operator which deposits develop, where they accumulate and what removes them. Gypsum, salts or sticky solids can narrow passages and increase retained mass. Work with the OEM on nozzle coverage, upstream and downstream access, available wash-water quality and the required cleaning sequence. A wash line that cannot reach the rear of a module leaves a predictable maintenance problem.",
-          "Agree compatible cleaning chemicals and the permitted mechanical cleaning method for the actual laminate. Specify any limits on jet pressure, stand-off, temperature and tools through a supplier-approved procedure or representative trial; this page provides no universal pressure-washing setting. Inspect for exposed reinforcement, chipped edges, loosened locators and obstructed drains after cleaning rather than judging success only by surface appearance.",
+          "Agree on compatible cleaning chemicals and the permitted mechanical cleaning method for the actual laminate. Specify any limits on jet pressure, stand-off, temperature and tools through a supplier-approved procedure or representative trial; this page provides no universal pressure-washing setting. Inspect for exposed reinforcement, chipped edges, loosened locators and obstructed drains after cleaning rather than judging success only by surface appearance.",
           "Survey manways, lifting routes and module dimensions before ordering. Plan how a damaged section can be removed without cutting neighboring members. Internal work requires the plant's isolation and entry arrangements, including control of fans, pumps, automatic wash cycles and connected process flows. Record module positions and material batches so replacement parts can be matched to the approved configuration.",
         ],
         sourceIds: ["munters-washing", "vdi-3679", "osha-146", "osha-147"],
@@ -395,7 +395,7 @@ export const separationGuides: PultrusionGuide[] = [
       },
       {
         id: "qualification-record",
-        title: "Agree evidence that can be tied to the supplied construction",
+        title: "Agree on evidence that can be tied to the supplied construction",
         paragraphs: [
           "A useful qualification package identifies the resin and reinforcement system, profile revision, relevant test specimens, manufacturing route and acceptance criteria. Keep material evidence, component calculations and routine production inspection as distinct records. Changes to the surface veil, conductive additive, coating or thickness should trigger review of the evidence affected by that change.",
           "Where the plant requires fire or electrostatic properties, specify the exact method and configuration to test. An ordinary glass-fiber profile must not be relabeled as antistatic because the assembly has a grounding lug. The system integrator determines the required charge-control arrangement and legal conformity responsibilities for the intended hazardous-area use.",
@@ -406,7 +406,7 @@ export const separationGuides: PultrusionGuide[] = [
         id: "delivery-acceptance",
         title: "Set measurable incoming and assembly checks",
         paragraphs: [
-          "Agree a lot inspection plan before production. Identify which dimensions require a report, which surfaces require visual inspection and how material batches are linked to component labels. Record acceptable appearance and repair criteria so exposed reinforcement, splitting or a damaged connection feature is not accepted by informal comparison with an old part.",
+          "Agree on a lot inspection plan before production. Identify which dimensions require a report, which surfaces require visual inspection and how material batches are linked to component labels. Record acceptable appearance and repair criteria so exposed reinforcement, splitting or a damaged connection feature is not accepted by informal comparison with an old part.",
           "For a representative assembly, verify hole alignment, support contact, module clearances, hold-down engagement and unobstructed drains. Identify any gauges or fixtures used and record the drawing revision. The plant performance test remains a separate acceptance activity after installation; dimensional conformity is necessary evidence of fit, not a removal-efficiency certificate.",
         ],
         sourceIds: ["astm-d3917", "sulzer-chevron", "vdi-3679", "epa-permit"],

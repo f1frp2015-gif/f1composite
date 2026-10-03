@@ -10,7 +10,7 @@ const description =
   "Pultruded FRP profiles for buses, passenger cars, EV battery enclosures, truck bodies and rail. Explore candidate parts, design checks and qualification.";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Profiles for Automotive, Bus & Transport Components",
+  title: "FRP Profiles for Automotive, Bus & Rail Components",
   description,
   path: industry.path,
   image: "/industries/vehicle/opengraph-image",

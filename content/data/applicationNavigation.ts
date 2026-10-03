@@ -28,7 +28,7 @@ export const applicationNavigation = [
   },
   {
     id: "transport-civil", label: "Transport & civil works", href: "/applications#transport-civil",
-    description: "Coordinate the profile with railway equipment, the civil structure and the responsible design team.",
+    description: "Coordinate the profile with the railway, civil or ground structure it serves and the responsible design team.",
     links: [
       { label: "Third-rail protection", href: "/applications/frp-third-rail-protection" },
       { label: "Rail vehicle interiors", href: "/applications/frp-rail-interior-profiles" },

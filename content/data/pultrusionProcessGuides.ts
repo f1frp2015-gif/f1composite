@@ -31,10 +31,10 @@ const processSource = {
   },
   xylem: {
     id: "xylem-clarification",
-    title: "Xylem: chain and scraper applications and maintenance",
+    title: "Xylem: getting clarity on clarification (chain-and-scraper collectors)",
     url: "https://www.xylem.com/en-us/resources/articles/getting-clarity-on-clarification/",
     kind: "industry" as const,
-    note: "Equipment manufacturer guidance on chain alignment and wear interfaces; obtain the actual collector's operating manual for procedures and limits.",
+    note: "Equipment manufacturer article on rectangular chain-and-scraper collectors and their nonmetallic components. Obtain the actual collector's operating manual for alignment, wear and adjustment procedures.",
   },
   bedfordPaper: {
     id: "bedford-paper",
@@ -45,7 +45,7 @@ const processSource = {
   },
   astm543: {
     id: "astm-d543",
-    title: "ASTM D543-21: resistance of plastics to chemical reagents",
+    title: "ASTM D543-21: evaluating the resistance of plastics to chemical reagents",
     url: "https://store.astm.org/d0543-21.html",
     kind: "authority" as const,
     note: "Public scope and limitations checked. Chemical testing must represent the relevant exposure; short exposure does not establish long-term immersion performance.",
@@ -65,18 +65,18 @@ const processSource = {
     note: "Statistical material-property practice for civil structural applications; not a collector design standard or a complete assembly approval.",
   },
   awwa: {
-    id: "awwa-process-scope",
-    title: "AWWA: wastewater standards and their manufacturing scopes",
-    url: "https://www.awwa.org/resource/wastewater/",
+    id: "awwa-f101",
+    title: "ANSI/AWWA F101-25: contact-molded FRP wash-water troughs and launders",
+    url: "https://store.awwa.org/AWWA-F101-25-Contact-Molded-Fiberglass-Reinforced-Plastic-Wash-Water-Troughs-and-Launders",
     kind: "authority" as const,
-    note: "F101 concerns contact-molded troughs/launders; F102 concerns matched-die-molded weir plates, baffles and associated parts.",
+    note: "Water-industry plant-equipment standard, published August 2025, for troughs and launders made by contact molding. It does not cover pultruded profiles or moving collector parts.",
   },
   awwaList: {
-    id: "awwa-editions",
-    title: "AWWA standards list: F101-25 and F102-25",
-    url: "https://www.awwa.org/standards/standards-list/",
+    id: "awwa-f102",
+    title: "ANSI/AWWA F102-25: matched-die-molded FRP weir plates, scum baffles and mounting brackets",
+    url: "https://store.awwa.org/AWWA-F102-25-Matched-Die-Molded-Fiberglass-Reinforced-Plastic-Weir-Plates-Baffles-and-Brackets-PDF",
     kind: "authority" as const,
-    note: "The list identifies the published editions; a project's specified edition and approved deviations must be established contractually.",
+    note: "Water-industry plant-equipment standard for weir plates, scum baffles and brackets made by matched-die molding. A project's specified edition and approved deviations are set by contract.",
   },
   nsf: {
     id: "nsf-61",
@@ -153,10 +153,10 @@ export const processGuides: PultrusionGuide[] = [
         title: "Specify the laminate and identify how each part is made",
         paragraphs: [
           "Pultrusion suits a continuous cross-section. Flights may combine a structural web with flanges or a scraping feature; flat pultrusions may be machined into a specified weir pattern. Curved troughs, changing sections and large closed ends can need a different composite manufacturing process. Ask for the process used for each item rather than assigning one manufacturing label to the entire basin.",
-          "Create an exposure schedule covering normal wastewater, exceptional industrial discharges, grit, grease, cleaning agents, temperature and dry periods. Distinguish continuous immersion from occasional splash. Review cut surfaces, drilled holes, seals and hardware along with the laminate. When compatibility evidence is incomplete, agree representative exposure and retained-property evaluation before approving production; a generic chemical-resistance chart is a screening input.",
+          "Create an exposure schedule covering normal wastewater, exceptional industrial discharges, grit, grease, cleaning agents, temperature and dry periods. Distinguish continuous immersion from occasional splash. Review cut surfaces, drilled holes, seals and hardware along with the laminate. When compatibility evidence is incomplete, agree on representative exposure and retained-property evaluation before approving production; a generic chemical-resistance chart is a screening input.",
           "The distinction matters contractually. AWWA F101 addresses contact-molded troughs and launders, while F102 addresses matched-die-molded weir and baffle components. If a specification names either and a supplier proposes a pultruded alternative, document the manufacturing difference and obtain the project's acceptance of the proposed qualification route. Similar function does not establish identical standard scope.",
         ],
-        sourceIds: ["ccg-flights", "ccg-weirs", "ccg-troughs", "astm-d543", "awwa-process-scope", "awwa-editions"],
+        sourceIds: ["ccg-flights", "ccg-weirs", "ccg-troughs", "astm-d543", "awwa-f101", "awwa-f102"],
       },
       {
         id: "loads-and-interfaces",
@@ -183,8 +183,8 @@ export const processGuides: PultrusionGuide[] = [
         title: "Investigate the mechanism behind a damaged component",
         paragraphs: [
           "A replacement flight is only one part of the maintenance decision. Examine whether wear is uniform, concentrated at a shoe, associated with a fastener or accompanied by chain misalignment. Photograph the component in place and retain its identification before removal. The location of damage often helps distinguish a material problem from interference, incorrect assembly or a changing equipment interface.",
-          "Xylem's equipment guidance highlights chain alignment and tension, shoes, supporting wear strips and sprocket condition. Use that as a reminder to review the whole collector, then follow the actual machine's instructions for measurements and adjustment. Temperature during a drained inspection can affect nonmetallic chain behavior, so record conditions when comparing observations. Do not resolve an overload trip by simply increasing the protection setting.",
-          "For stationary components, inspect attachment security, plate alignment, joint condition and any route allowing water to bypass the intended crest. Observe deposits and cleaning access as well as visible laminate damage. Agree intervention criteria with the designer and operator: a small cosmetic change and a crack at a highly loaded fixing do not have the same significance. Base inspection intervals on plant duty and operating experience.",
+          "A nonmetallic chain-and-scraper collector depends on chain alignment and tension, shoes, supporting wear strips and sprocket condition. Review the whole collector, then follow the actual machine's instructions for measurements and adjustment. Temperature during a drained inspection can affect nonmetallic chain behavior, so record conditions when comparing observations. Do not resolve an overload trip by simply increasing the protection setting.",
+          "For stationary components, inspect attachment security, plate alignment, joint condition and any route allowing water to bypass the intended crest. Observe deposits and cleaning access as well as visible laminate damage. Agree on intervention criteria with the designer and operator: a small cosmetic change and a crack at a highly loaded fixing do not have the same significance. Base inspection intervals on plant duty and operating experience.",
         ],
         sourceIds: ["xylem-clarification", "ccg-weirs", "osha-147"],
       },
@@ -203,7 +203,7 @@ export const processGuides: PultrusionGuide[] = [
         title: "Illustrative workflow: replacing flights in an existing basin",
         paragraphs: [
           "This is an illustrative procurement scenario, not an F1 project record. An operator reports repeated flight damage in one rectangular basin. The first package contains the collector maker and model, the latest arrangement drawing, damage photographs, service history and a measured interface sketch. The plant and equipment designer investigate the operating cause before a replacement section is chosen.",
-          "Next, the parties agree a trial component, the profile and drilling drawings, accessory responsibility and the inspection plan. A trial fit verifies attachment and wear-shoe interfaces; any required structural or operational qualification is completed before the bulk release. The purchase order distinguishes raw profiles, fabricated flights and separately sourced mechanism parts so missing interfaces cannot disappear between suppliers.",
+          "Next, the parties agree on a trial component, the profile and drilling drawings, accessory responsibility and the inspection plan. A trial fit verifies attachment and wear-shoe interfaces; any required structural or operational qualification is completed before the bulk release. The purchase order distinguishes raw profiles, fabricated flights and separately sourced mechanism parts so missing interfaces cannot disappear between suppliers.",
           "At handover, the operator receives the accepted revisions, component identities, inspection records and the collector supplier's commissioning requirements. Baseline observations document alignment and running behavior. Subsequent maintenance compares like conditions and feeds findings into the spares schedule. The outcome is a traceable replacement package, rather than an unsupported promise that changing material will solve every basin problem.",
         ],
         sourceIds: ["ccg-flights", "xylem-clarification"],
@@ -212,9 +212,9 @@ export const processGuides: PultrusionGuide[] = [
     standards: [
       { name: "ASTM D3917-23", category: "Standard", jurisdiction: "Contract-specified pultruded profile supply", applies: "Defines dimensional tolerances for standard thermoset glass-reinforced pultrusions.", limits: "Critical special-purpose interfaces may need separately agreed tolerances; this is not a strength or collector-system approval.", sourceIds: ["astm-d3917"] },
       { name: "ASTM D543-21", category: "Standard", jurisdiction: "Contract-specified chemical evaluation", applies: "Provides chemical-resistance test practices relevant to a specified material and exposure.", limits: "Test conditions must represent the application. A short immersion result cannot establish an unrestricted service life.", sourceIds: ["astm-d543"] },
-      { name: "AWWA F101-25 / F102-25", category: "Standard", jurisdiction: "Projects that invoke these water-industry standards", applies: "Respectively address contact-molded troughs/launders and matched-die-molded weir/baffle parts.", limits: "Their process scopes do not automatically cover pultruded substitutes or moving flights; resolve the proposed route with the project specifier.", sourceIds: ["awwa-process-scope", "awwa-editions"] },
-      { name: "OSHA 29 CFR 1910.147 and 1910.146", category: "Regulation", jurisdiction: "U.S. workplaces within each rule's scope", applies: "Address hazardous energy during servicing and evaluation of permit-required confined spaces.", limits: "The employer applies site procedures and the rule's scope; composite material selection does not make a basin safe for entry.", sourceIds: ["osha-147", "osha-146"] },
-      { name: "NSF/ANSI/CAN 61", category: "Assessment route", jurisdiction: "Drinking-water contact where required by the authority or specification", applies: "Evaluates health effects from substances imparted by water-system components.", limits: "Not a generic wastewater requirement, a structural rating or an F1 certification claim.", sourceIds: ["nsf-61"] },
+      { name: "AWWA F101-25 / F102-25", category: "Standard", jurisdiction: "Projects that invoke these water-industry standards", applies: "Respectively address contact-molded troughs/launders and matched-die-molded weir/baffle parts.", limits: "Their process scopes do not automatically cover pultruded substitutes or moving flights; resolve the proposed route with the project specifier.", sourceIds: ["awwa-f101", "awwa-f102"] },
+      { name: "OSHA 29 CFR 1910.146 and 1910.147", category: "Regulation", jurisdiction: "U.S. workplaces within each rule's scope", applies: "Address permit-required confined spaces and the control of hazardous energy during servicing.", limits: "The employer applies site procedures and the rule's scope; composite material selection does not make a basin safe for entry.", sourceIds: ["osha-147", "osha-146"] },
+      { name: "NSF/ANSI/CAN 61", category: "Standard", jurisdiction: "Drinking-water contact where required by the authority or specification", applies: "Evaluates health effects from substances imparted by water-system components.", limits: "Not a generic wastewater requirement, a structural rating or an F1 certification claim.", sourceIds: ["nsf-61"] },
     ],
     specification: [
       "Plant location, owner requirements, process stage and municipal or industrial wastewater duty",
@@ -231,7 +231,7 @@ export const processGuides: PultrusionGuide[] = [
     faqs: [
       { question: "Can an FRP flight replace the existing part using only its overall dimensions?", answer: "Overall dimensions are insufficient. Match attachment spacing, hole locations, wear-shoe interfaces, stiffness, travel clearances and the collector's operating loads. Have the equipment designer approve the substitution and any necessary qualification." },
       { question: "Are all composite clarifier components pultruded?", answer: "No. Constant-section flights and flat profiles can be pultruded; troughs and complex fittings may use contact molding or other processes. Specify each item's manufacturing route and check the scope of any cited standard." },
-      { question: "Does NSF 61 prove that a clarifier component works structurally?", answer: "No. It addresses drinking-water health effects within the certification scope. Structural design, mechanism compatibility and treatment performance require different evidence, and any required listing must be verified for the actual supplied product." },
+      { question: "Does NSF/ANSI/CAN 61 prove that a clarifier component works structurally?", answer: "No. It addresses drinking-water health effects within the certification scope. Structural design, mechanism compatibility and treatment performance require different evidence, and any required listing must be verified for the actual supplied product." },
     ],
     sources: [processSource.bedfordWater, processSource.ccgFlights, processSource.ccgWeirs, processSource.ccgTroughs, processSource.xylem, processSource.astm543, processSource.astm3917, processSource.astm7290, processSource.awwa, processSource.awwaList, processSource.nsf, processSource.osha147, processSource.osha146],
     related: [
@@ -262,7 +262,7 @@ export const processGuides: PultrusionGuide[] = [
         paragraphs: [
           "Begin with a marked plant layout, not a blanket requirement for corrosion-resistant material. A route beside stock preparation may face persistent water, fibers and cleaning operations. Access around chemical dosing or bleaching equipment has a different exposure schedule. A structure close to hot process equipment needs its own temperature assessment, including radiated heat and foreseeable leakage. One material choice need not suit all three locations.",
           "Describe what the component enables an operator to do: reach a valve, remove a pump, inspect an instrument or cross a process line. The route should provide the required working space without blocking isolation points, ventilation, emergency equipment or a lifting operation. A platform that is comfortable during normal operation may be too narrow when a maintenance team brings tools and a replacement component.",
-          "Bedford identifies pulp and paper access structures as an FRP application. The planning method here extends that application into a project brief; it does not adopt another supplier's lifetime, conductivity or corrosion claims. Keep process-contact equipment and ordinary access components distinct so the inquiry reaches the correct specialist review.",
+          "Bedford identifies pulp and paper access structures as an FRP application. Lifetime, conductivity and corrosion claims made for another supplier's products do not transfer to this mill's brief. Keep process-contact equipment and ordinary access components distinct so the inquiry reaches the correct specialist review.",
         ],
         sourceIds: ["bedford-paper", "osha-261"],
       },
@@ -270,7 +270,7 @@ export const processGuides: PultrusionGuide[] = [
         id: "exposure-and-laminate",
         title: "Build an exposure schedule before selecting the resin",
         paragraphs: [
-          "Obtain chemical names, working concentrations and temperature ranges from the mill. Record cleaning solutions and occasional upset conditions as well as routine production. Include contact mode: airborne mist, splash, trapped deposits or sustained wet contact can create different conditions at the same location. A process-area name such as bleach plant is not enough information to select a laminate.",
+          "Obtain chemical names, working concentrations and temperature ranges from the mill. Typical entries include bleach-plant oxidants such as chlorine dioxide, hydrogen peroxide and hypochlorite, sodium hydroxide in extraction stages, sulfuric acid, white or black liquor and hot washdown water. Record cleaning solutions and occasional upset conditions as well as routine production. Include contact mode: airborne mist, splash, trapped deposits or sustained wet contact can create different conditions at the same location. A process-area name such as bleach plant is not enough information to select a laminate.",
           "Ask the material supplier to identify the evidence supporting the offered formulation. Match the evaluated exposure to the intended duty and record any unresolved conditions. If a special chemical assessment is required, define the exposure and the properties to be examined before and after it. ASTM D543 provides a framework, but the project must still choose relevant conditions; the standard's name alone is not a chemical-compatibility result.",
           "Evaluate the surface package and fabrication as well as the resin. Holes, cut ends, bonded interfaces, fasteners and trapped liquid around brackets can become important service locations. State how field cuts will be protected and who supplies compatible repair materials. Keep heat resistance, fire behavior and chemical resistance as separate questions; evidence for one does not answer the other two.",
         ],
@@ -297,7 +297,7 @@ export const processGuides: PultrusionGuide[] = [
         sourceIds: ["astm-d7290", "astm-d3917", "osha-22"],
       },
       {
-        id: "shutdown-installation",
+        id: "shutdown-and-installation",
         title: "Plan fabrication and installation around the shutdown",
         paragraphs: [
           "Measure the location while relevant equipment is accessible, and reconcile the measurements with the controlled drawing revision. Survey pipe clearances, obstructions, support elevations and the path for bringing long members into the mill. Off-site cutting and drilling can reduce work inside a congested area, but only when the interface data is dependable. Include a defined method for resolving discrepancies discovered during installation.",
@@ -330,7 +330,7 @@ export const processGuides: PultrusionGuide[] = [
     standards: [
       { name: "OSHA 29 CFR 1910.261", category: "Regulation", jurisdiction: "U.S. pulp, paper and paperboard mills", applies: "Contains industry-specific workplace requirements; paragraph (h) addresses bleaching operations and includes guarded platform interfaces.", limits: "Apply provisions to the actual equipment and process. This rule does not certify an FRP resin or provide a complete composite structural design method.", sourceIds: ["osha-261"] },
       { name: "OSHA 29 CFR 1910.22 and 1910.29", category: "Regulation", jurisdiction: "U.S. general industry within the applicable scope", applies: "Address walking-surface condition and fall-protection system criteria relevant to installed access structures.", limits: "Compliance concerns the complete installation, including supports and anchors; a profile datasheet is insufficient.", sourceIds: ["osha-22", "osha-29"] },
-      { name: "OSHA 29 CFR 1910.147 and 1910.146", category: "Regulation", jurisdiction: "U.S. servicing and entry activities within each rule's scope", applies: "Require evaluation and control of applicable machinery-energy and confined-space hazards.", limits: "The mill establishes site procedures. Material substitution is not an exemption from isolation or entry requirements.", sourceIds: ["osha-147", "osha-146"] },
+      { name: "OSHA 29 CFR 1910.146 and 1910.147", category: "Regulation", jurisdiction: "U.S. servicing and entry activities within each rule's scope", applies: "Require evaluation and control of applicable machinery-energy and confined-space hazards.", limits: "The mill establishes site procedures. Material substitution is not an exemption from isolation or entry requirements.", sourceIds: ["osha-147", "osha-146"] },
       { name: "ASTM D543-21", category: "Standard", jurisdiction: "Where specified for the project material assessment", applies: "Can organize evaluation of the laminate against identified chemical exposures.", limits: "It supplies test practices, not a universal approval for bleach chemicals, hot cleaning or all mill locations.", sourceIds: ["astm-d543"] },
       { name: "ASTM D7290-06(2022)", category: "Standard", jurisdiction: "Civil structural composite design using an accepted characteristic-value basis", applies: "Provides a statistical basis for material property values used by the structural designer.", limits: "Does not replace checks for members, connections, environment, fire or the installed workplace assembly.", sourceIds: ["astm-d7290"] },
     ],
@@ -353,7 +353,7 @@ export const processGuides: PultrusionGuide[] = [
     ],
     sources: [processSource.bedfordPaper, processSource.astm543, processSource.astm3917, processSource.astm7290, processSource.osha261, processSource.osha22, processSource.osha29, processSource.osha147, processSource.osha146],
     related: [
-      { href: "/industries/industrial", label: "Industrial and chemical applications" },
+      { href: "/industries/industrial", label: "Industrial and chemical industry" },
       { href: "/applications/frp-chemical-plant-platforms", label: "Chemical plant platform planning" },
       { href: "/products/frp-gratings", label: "Pultruded grating" },
       { href: "/products/frp-handrail-systems", label: "Industrial handrail systems" },
@@ -390,17 +390,17 @@ export const processGuides: PultrusionGuide[] = [
         title: "Ask for the evidence needed by the equipment designer",
         paragraphs: [
           "Provide the design loads, attachment spacing and restraint arrangement rather than requesting the strongest available material. The review should consider how bending and twisting interact with the profile, the drilling and the local connections. A stiffer replacement can change how forces reach neighboring components, so the substitution belongs in an equipment review. State whether repeated operation or an abnormal operating case requires specific evaluation.",
-          "Identify the laminate and the property data used for design. Where a structural characteristic-value approach is specified, agree the applicable basis and the supporting report; do not substitute a catalog average for a required characteristic value. Decide with the designer whether representative fabricated-member testing is needed to address an interface or load case that a coupon result cannot resolve.",
+          "Identify the laminate and the property data used for design. Where a structural characteristic-value approach is specified, agree on the applicable basis and the supporting report; do not substitute a catalog average for a required characteristic value. Decide with the designer whether representative fabricated-member testing is needed to address an interface or load case that a coupon result cannot resolve.",
           "Supply wastewater and cleaning exposure details with the mechanical brief. Ask for compatibility evidence relevant to the actual formulation, including cut and drilled surfaces. Any chemical evaluation must identify its conditions and acceptance criteria. A material description such as polyester or vinyl ester does not itself demonstrate suitability for every industrial influent.",
         ],
         sourceIds: ["astm-d7290", "astm-d543", "ccg-flights"],
       },
       {
-        id: "fabrication-acceptance",
-        title: "Agree fabrication, inspection and the first-piece release",
+        id: "fabrication-and-acceptance",
+        title: "Agree on fabrication, inspection and the first-piece release",
         paragraphs: [
           "A purchase specification should connect the drawing revision to the laminate, fabrication operations and inspection record. Define how hole position, orientation and overall dimensions will be checked. Identify the surfaces that need protection after machining and the approved materials for that work. Record whether accessories are included, supplied by the collector manufacturer or retained from the existing assembly.",
-          "For a new replacement design, agree a first-piece review before releasing the full quantity. A trial fit checks physical compatibility; it is not automatically a load or endurance qualification. Keep those acceptance milestones distinct. If an interface changes during the trial, revise the controlled drawings and assess the effect on performance before reproducing the change across the order.",
+          "For a new replacement design, agree on a first-piece review before releasing the full quantity. A trial fit checks physical compatibility; it is not automatically a load or endurance qualification. Keep those acceptance milestones distinct. If an interface changes during the trial, revise the controlled drawings and assess the effect on performance before reproducing the change across the order.",
           "At delivery, inspect for handling damage and confirm identification, quantity and fabrication revision. Package and support long members so their critical surfaces and drilled ends are protected in transit. The owner should retain accepted records and a traceable spare-part description. Installation, adjustment and commissioning continue under the collector supplier's procedures rather than a generic profile installation sheet.",
         ],
         sourceIds: ["astm-d3917", "xylem-clarification"],
@@ -413,13 +413,13 @@ export const processGuides: PultrusionGuide[] = [
           "Manufacturing standards also need careful reading. AWWA F101 addresses contact-molded troughs, and F102 addresses matched-die-molded weir and baffle parts. Neither title establishes a certification for a pultruded moving flight. Where a project requires one of these standards for an adjacent component, have the specifier resolve the proposed manufacturing route and any additional evidence before substitution.",
           "When damage prompts an order, include the surrounding mechanism in the investigation. Worn guide interfaces, skewed travel or a changed operating condition may persist after fitting a new member. Confirm the cause and the approved replacement basis so purchasing does not repeatedly replace the symptom. Use the application guide for the broader basin survey and maintenance workflow.",
         ],
-        sourceIds: ["ccg-weirs", "awwa-process-scope", "xylem-clarification"],
+        sourceIds: ["ccg-weirs", "awwa-f101", "xylem-clarification"],
       },
     ],
     standards: [
       { name: "ASTM D3917-23", category: "Standard", jurisdiction: "When invoked in the profile purchase specification", applies: "Provides the dimensional-tolerance basis for standard pultruded glass-reinforced shapes.", limits: "Define special fit requirements separately. Dimensional conformance does not establish load capacity or compatibility with a collector brand.", sourceIds: ["astm-d3917"] },
       { name: "ASTM D7290-06(2022)", category: "Standard", jurisdiction: "Where a civil structural material-characteristic basis is accepted", applies: "Can support the stated statistical basis of required composite properties.", limits: "Not a moving-machinery design standard, operating limit or finished-flight certification.", sourceIds: ["astm-d7290"] },
-      { name: "AWWA F101 / F102 manufacturing scopes", category: "Guidance", jurisdiction: "Water-industry purchasing documents that cite these standards", applies: "Help distinguish contact-molded troughs from matched-die-molded weir and baffle products.", limits: "Do not use either number as a blanket approval of a pultruded collector flight.", sourceIds: ["awwa-process-scope"] },
+      { name: "AWWA F101-25 / F102-25", category: "Standard", jurisdiction: "Water-industry purchasing documents that cite these standards", applies: "Distinguish contact-molded troughs and launders from matched-die-molded weir plates, scum baffles and brackets.", limits: "Do not use either number as a blanket approval of a pultruded collector flight.", sourceIds: ["awwa-f101"] },
     ],
     specification: [
       "Collector maker/model and the responsible equipment designer",
@@ -438,11 +438,11 @@ export const processGuides: PultrusionGuide[] = [
       { question: "Can F1 supply only the pultruded length?", answer: "The inquiry can cover raw lengths or agreed fabrication. Confirm cutting, drilling, accessories, identification and acceptance responsibilities as separate quotation items." },
       { question: "Is a successful trial fit enough to release the full order?", answer: "It proves only the fit items actually checked. Complete any required mechanical, exposure or operating qualification and approve the controlled drawing before production release." },
     ],
-    sources: [processSource.ccgFlights, processSource.ccgWeirs, processSource.xylem, processSource.astm3917, processSource.astm7290, processSource.astm543, processSource.awwa],
+    sources: [processSource.ccgFlights, processSource.ccgWeirs, processSource.xylem, processSource.astm3917, processSource.astm7290, processSource.astm543, processSource.awwa, processSource.awwaList],
     related: [
       { href: "/applications/frp-wastewater-clarifier-components", label: "Clarifier application and maintenance guide" },
-      { href: "/products/custom-pultruded-profiles", label: "Custom profile manufacturing" },
-      { href: "/industries/water-wastewater", label: "Water and wastewater applications" },
+      { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+      { href: "/industries/water-wastewater", label: "Water and wastewater industry" },
       { href: "/technology/quality-testing", label: "Quality and testing evidence" },
     ],
   },
