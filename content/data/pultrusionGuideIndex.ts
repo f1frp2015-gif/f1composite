@@ -28,7 +28,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "ASTM D3917-23",
       "ASTM D543-21",
       "AWWA F101-25 / F102-25",
-      "OSHA 29 CFR 1910.147 and 1910.146",
+      "OSHA 29 CFR 1910.146 and 1910.147",
       "NSF/ANSI/CAN 61"
     ],
     "designChecks": [],
@@ -88,7 +88,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "standards": [
       "OSHA 29 CFR 1910.261",
       "OSHA 29 CFR 1910.22 and 1910.29",
-      "OSHA 29 CFR 1910.147 and 1910.146",
+      "OSHA 29 CFR 1910.146 and 1910.147",
       "ASTM D543-21",
       "ASTM D7290-06(2022)"
     ],
@@ -108,7 +108,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "related": [
       {
         "href": "/industries/industrial",
-        "label": "Industrial and chemical applications"
+        "label": "Industrial and chemical industry"
       },
       {
         "href": "/applications/frp-chemical-plant-platforms",
@@ -171,11 +171,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile development"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/energy",
-        "label": "Energy and electrical applications"
+        "label": "Energy and power industry"
       }
     ]
   },
@@ -222,11 +222,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom section development"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/infrastructure",
-        "label": "FRP in transport infrastructure"
+        "label": "Infrastructure industry"
       }
     ]
   },
@@ -273,11 +273,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultrusion feasibility"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/energy",
-        "label": "Electrical component applications"
+        "label": "Energy and power industry"
       }
     ]
   },
@@ -301,7 +301,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "Narrow strips considered for near-surface-mounted reinforcement",
       "Project-specific cut lengths and prepared bonding faces"
     ],
-    "resinSystem": "Project-qualified carbon-fibre laminate, typically with an epoxy matrix; compatible adhesive and substrate repair system selected as an assembly.",
+    "resinSystem": "Project-qualified carbon-fiber laminate, typically with an epoxy matrix; compatible adhesive and substrate repair system selected as an assembly.",
     "standards": [
       "ACI PRC-440.2-23",
       "ACI CODE-440.13-24",
@@ -325,11 +325,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile inquiries"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/infrastructure",
-        "label": "Infrastructure applications"
+        "label": "Infrastructure industry"
       }
     ]
   },
@@ -338,10 +338,10 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "calculator": false,
     "lastModified": "2026-10-03",
     "title": "Carbon-Fiber Industrial Rollers | Web Handling Guide",
-    "shortTitle": "Carbon-fibre industrial rollers",
-    "description": "Define carbon roller requirements for film, printing and nonwoven lines: load paths, rotor behaviour, surfaces, end fittings, commissioning and qualification.",
-    "h1": "Carbon-fibre components for industrial rollers",
-    "intro": "A light tube is only the starting point for a production roller. The working surface, end connections, bearings and rotating assembly must deliver the required web handling, dimensional accuracy and machine behaviour together.",
+    "shortTitle": "Carbon-fiber industrial rollers",
+    "description": "Define carbon roller requirements for film, printing and nonwoven lines: load paths, rotor behavior, surfaces, end fittings, commissioning and qualification.",
+    "h1": "Carbon-fiber components for industrial rollers",
+    "intro": "A light tube is only the starting point for a production roller. The working surface, end connections, bearings and rotating assembly must deliver the required web handling, dimensional accuracy and machine behavior together.",
     "environment": "F1 can review a CFRP component feasibility and qualification inquiry. Precision finishing, end fittings, balancing, bearings and qualification of a finished roller must be separately defined and confirmed; they are not assumed supply capabilities.",
     "supplyScope": "F1 can review a CFRP component feasibility and qualification inquiry. Precision finishing, end fittings, balancing, bearings and qualification of a finished roller must be separately defined and confirmed; they are not assumed supply capabilities.",
     "image": "/images/applications/guides/carbon-fiber-industrial-rollers.svg",
@@ -353,9 +353,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "Longitudinal reinforcement for an engineered hybrid shell",
       "Tube components with agreed machining and surface allowances"
     ],
-    "resinSystem": "Application-specific CFRP tube construction, potentially requiring transverse or angled reinforcement as well as longitudinal fibres.",
+    "resinSystem": "Application-specific CFRP tube construction, potentially requiring transverse or angled reinforcement as well as longitudinal fibers.",
     "standards": [
-      "ISO 21940-11:2016 with Amd 1:2022",
+      "ISO 21940-11:2016/Amd 1:2022",
       "ISO 21940-12:2016",
       "ISO 12100:2010",
       "29 CFR 1910.212"
@@ -378,11 +378,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom component inquiries"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/industrial",
-        "label": "Industrial applications"
+        "label": "Industrial and chemical industry"
       }
     ]
   },
@@ -394,7 +394,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "shortTitle": "Rail interior and secondary profiles",
     "description": "Plan railway interior and secondary pultruded profiles with a defined component function, EN 45545 fire evidence, connections, traceability and change control.",
     "h1": "Pultruded profiles for rail interiors and secondary components",
-    "intro": "A railway profile needs a defined job, an agreed material construction and evidence for its actual installation. Fire behaviour, mechanical retention, surface finish and service access should be specified together before choosing a section.",
+    "intro": "A railway profile needs a defined job, an agreed material construction and evidence for its actual installation. Fire behavior, mechanical retention, surface finish and service access should be specified together before choosing a section.",
     "environment": "F1 can review custom-profile qualification inquiries against an OEM specification. Railway acceptance, requirement sets, hazard levels and test coverage must be confirmed for the offered component; no vehicle approval or HL classification is implied.",
     "supplyScope": "F1 can review custom-profile qualification inquiries against an OEM specification. Railway acceptance, requirement sets, hazard levels and test coverage must be confirmed for the offered component; no vehicle approval or HL classification is implied.",
     "image": "/images/applications/guides/frp-rail-interior-profiles.svg",
@@ -404,16 +404,16 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "recommendedProfiles": [
       "Interior-panel and ceiling support rails",
       "Secondary cover and service-hatch framing",
-      "Cable-protection covers and approved equipment enclosure edges"
+      "Cable-protection covers and equipment-enclosure edge profiles"
     ],
-    "resinSystem": "Project-defined glass-fibre laminate and fire-retardant resin, including every surface layer and bonded interface relevant to the component evaluation.",
+    "resinSystem": "Project-defined glass-fiber laminate and fire-retardant resin, including every surface layer and bonded interface relevant to the component evaluation.",
     "standards": [
       "EN 45545-2:2020+A1:2023",
       "IEC 61373:2026"
     ],
     "designChecks": [],
     "rfqInputs": [
-      "Country, vehicle programme, OEM specification versions and the authority accepting the component.",
+      "Country, vehicle program, OEM specification versions and the authority accepting the component.",
       "Installed location, part function, neighboring materials, exposed faces and consequences of detachment.",
       "Fire standard edition, component requirement set and hazard level provided by the customer.",
       "Section drawing, wall thickness, length, finish, coating, adhesive and relevant assembly construction.",
@@ -429,11 +429,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom profile development"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/vehicle",
-        "label": "Vehicle and transportation applications"
+        "label": "Automotive and rail industry"
       }
     ]
   },
@@ -463,7 +463,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "IEC 62271-1:2017+AMD1:2021",
       "IEC 62271-200:2021+AMD1:2024",
       "IEC 60664-1:2020+AMD1:2025",
-      "IEC 60112:2025, corrected 2026-02",
+      "IEC 60112:2025",
       "Regulation (EU) 2024/573: switchgear provisions"
     ],
     "designChecks": [],
@@ -484,15 +484,15 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/applications/frp-transformer-insulation-supports",
-        "label": "Dry-transformer insulation supports"
+        "label": "Dry-type transformer insulation supports"
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile development"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/industries/energy",
-        "label": "Energy and electrical applications"
+        "label": "Energy and power industry"
       }
     ]
   },
@@ -504,7 +504,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "shortTitle": "Composite cores for overhead conductors",
     "description": "Evaluate composite cores for overhead conductors: material architecture, heat and creep, bending, fittings, sag-tension, installation and qualification.",
     "h1": "Composite overhead conductor cores: from rod to qualified line",
-    "intro": "The composite core is one element in a conductor, fitting and line system. Its value depends on retained strength and dimensional behavior through manufacture, installation and operation—not simply the tensile strength of a new straight specimen.",
+    "intro": "The composite core is one element in a high-temperature low-sag (HTLS) conductor, fitting and line system. Its value depends on retained strength and dimensional behavior through manufacture, installation and operation, not only on the tensile strength of a new straight specimen.",
     "environment": "This guide supports technical feasibility and qualification inquiries only. F1 does not claim a utility-approved conductor core, licensed proprietary conductor system, demonstrated ampacity increase or established maximum service temperature on the basis of this page.",
     "supplyScope": "This guide supports technical feasibility and qualification inquiries only. F1 does not claim a utility-approved conductor core, licensed proprietary conductor system, demonstrated ampacity increase or established maximum service temperature on the basis of this page.",
     "image": "/images/applications/guides/composite-overhead-conductor-cores.svg",
@@ -542,11 +542,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/applications/frp-switchgear-insulation-components",
-        "label": "Switchgear insulating components"
+        "label": "Switchgear insulation and mechanism components"
       },
       {
         "href": "/industries/energy",
-        "label": "Energy and grid applications"
+        "label": "Energy and power industry"
       }
     ]
   },
@@ -556,7 +556,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "lastModified": "2026-10-03",
     "title": "CFRP Robot Beams & Struts | Engineering Guide",
     "shortTitle": "CFRP robotic beams and struts",
-    "description": "Specify carbon-fibre robot beams and struts: stiffness, joints, buckling, fatigue, positioning, machine safety and a staged component qualification plan.",
+    "description": "Specify carbon-fiber robot beams and struts: stiffness, joints, buckling, fatigue, positioning, machine safety and a staged component qualification plan.",
     "h1": "CFRP beams and struts for industrial robots",
     "intro": "Lower moving mass can help a robot or handling gantry only when the complete member remains stiff, dimensionally stable and securely connected through its operating cycle. Specify the beam, end joints and machine response together.",
     "environment": "F1 can review a component qualification inquiry for a constant-section carbon profile against an OEM specification. Finished robot arms, precision end fittings, bonded assemblies and machine validation require an agreed scope and evidence before any supply commitment.",
@@ -570,18 +570,18 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "Round or shaped tubes for parallel robot links",
       "Constant-section strut bodies with separately engineered end interfaces"
     ],
-    "resinSystem": "Carbon-fibre thermoset profiles with an architecture selected for axial, bending, transverse and torsional loads; any added reinforcement or hybrid manufacture must be specified.",
+    "resinSystem": "Carbon-fiber thermoset profiles with an architecture selected for axial, bending, transverse and torsional loads; any added reinforcement or hybrid manufacture must be specified.",
     "standards": [
       "ISO 12100:2010",
       "ISO 10218-1:2025 and ISO 10218-2:2025",
       "ISO 9283:1998",
-      "EU machinery legislation: 2027 transition"
+      "Regulation (EU) 2023/1230 (Machinery Regulation)"
     ],
     "designChecks": [],
     "rfqInputs": [
       "Machine type, intended use, installation country and responsible OEM or integrator.",
       "Payload, moving accessories, load positions, motion history and expected operating life.",
-      "Beam span or joint-centre length, cross-section envelope, restraints and interface drawings.",
+      "Beam span or joint-center length, cross-section envelope, restraints and interface drawings.",
       "Direction-specific stiffness requirements, deflection limits, buckling and torsional load cases.",
       "Fitting materials, alignment datums, adhesive or mechanical joint scope and inspection access.",
       "Temperature, moisture, cleaning agents, impact exposure and conductive-material constraints.",
@@ -591,11 +591,11 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "related": [
       {
         "href": "/products/carbon-fiber-robotic-beams",
-        "label": "Carbon-fibre beam component specification"
+        "label": "Carbon-fiber beam component specification"
       },
       {
         "href": "/applications/carbon-fiber-industrial-rollers",
-        "label": "Carbon-fibre rotating components"
+        "label": "Carbon-fiber rotating components"
       },
       {
         "href": "/products/custom-pultruded-profiles",
@@ -623,7 +623,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "Profile blanks for equipment support rails",
       "Drawing-specific structural members outside or adjacent to an imaging region"
     ],
-    "resinSystem": "Candidate glass-fibre or carbon-fibre thermoset construction selected and evaluated for the actual scanner, component location, load and exposure; no universal MR-safe material designation is assumed.",
+    "resinSystem": "Candidate glass-fiber or carbon-fiber thermoset construction selected and evaluated for the actual scanner, component location, load and exposure; no universal MR-safe material designation is assumed.",
     "standards": [
       "FDA MR testing and labeling guidance, October 2023",
       "ASTM F2503-26",
@@ -650,7 +650,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom profile development"
+        "label": "Custom pultruded profiles"
       },
       {
         "href": "/applications/cfrp-robotic-beams-struts",
@@ -685,7 +685,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
       "ASTM C581-26 and ASTM D543-21",
       "ASTM D3917-23",
       "EN 13121-3:2016",
-      "Air-emissions permits and monitoring conditions",
+      "Facility air permits (U.S.: 40 CFR Parts 70/71 Title V; Part 64 CAM)",
       "Directive 2014/34/EU (ATEX)",
       "IEC TS 60079-32-1:2013+A1:2017",
       "OSHA 29 CFR 1910.146 and 1910.147"
@@ -757,7 +757,7 @@ export const specialistProductIndex = [
   },
   {
     "slug": "carbon-fiber-roller-tubes",
-    "name": "Carbon-fibre roller tube components",
+    "name": "Carbon-fiber roller tube components",
     "title": "Carbon-Fiber Roller Tubes | Component Procurement Guide",
     "description": "Specify CFRP roller tube geometry, reinforcement, machining allowances, end interfaces and inspection without assuming finished-roller qualification.",
     "image": "/images/applications/guides/carbon-fiber-industrial-rollers.svg",
@@ -781,7 +781,7 @@ export const specialistProductIndex = [
   },
   {
     "slug": "composite-conductor-core-rods",
-    "name": "Composite conductor core development",
+    "name": "Composite conductor core rods",
     "title": "Composite Conductor Core Rods | Development Inquiry",
     "description": "Plan a composite conductor core qualification inquiry: architecture, protected interfaces, reel handling, testing, traceability and conductor integration.",
     "image": "/images/applications/guides/composite-overhead-conductor-cores.svg",
@@ -789,17 +789,17 @@ export const specialistProductIndex = [
   },
   {
     "slug": "carbon-fiber-robotic-beams",
-    "name": "Carbon-fibre robotic beam components",
+    "name": "Carbon-fiber robotic beam components",
     "title": "Carbon-Fiber Robotic Beams | Component Specification",
-    "description": "Prepare an OEM enquiry for carbon-fibre robot beams and struts, covering section geometry, reinforcement, end joints, tolerances and qualification evidence.",
+    "description": "Prepare an OEM inquiry for carbon-fiber robot beams and struts, covering section geometry, reinforcement, end joints, tolerances and qualification evidence.",
     "image": "/images/applications/guides/cfrp-robotic-beams-struts.svg",
     "imageAlt": "Side elevation of a CFRP cantilever beam with a fixed root, bonded sleeve overlaps and a downward tool load."
   },
   {
     "slug": "composite-medical-support-profiles",
     "name": "Composite medical support profile components",
-    "title": "Composite Medical Support Profiles | OEM Enquiries",
-    "description": "Prepare a qualification enquiry for composite medical support profiles with controlled materials, interfaces, MR assessment, cleaning and OEM traceability.",
+    "title": "Composite Medical Support Profiles | OEM Inquiries",
+    "description": "Prepare a qualification inquiry for composite medical support profiles with controlled materials, interfaces, MR assessment, cleaning and OEM traceability.",
     "image": "/images/applications/guides/composite-mri-patient-supports.svg",
     "imageAlt": "Longitudinal MRI scanner section showing a patient table entering the open bore with housing clearance and pedestal support."
   },
@@ -864,7 +864,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile development"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -882,7 +882,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom section development"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -900,7 +900,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultrusion feasibility"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -918,13 +918,13 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile inquiries"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
   {
-    "label": "Carbon-fibre industrial rollers",
-    "description": "Define carbon roller requirements for film, printing and nonwoven lines: load paths, rotor behaviour, surfaces, end fittings, commissioning and qualification.",
+    "label": "Carbon-fiber industrial rollers",
+    "description": "Define carbon roller requirements for film, printing and nonwoven lines: load paths, rotor behavior, surfaces, end fittings, commissioning and qualification.",
     "href": "/applications/carbon-fiber-industrial-rollers",
     "products": [
       "custom"
@@ -936,7 +936,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom component inquiries"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -954,7 +954,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom profile development"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -972,7 +972,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom pultruded profile development"
+        "label": "Custom pultruded profiles"
       }
     ]
   },
@@ -992,7 +992,7 @@ export const specialistApplicationGroups = [
   },
   {
     "label": "CFRP robotic beams and struts",
-    "description": "Specify carbon-fibre robot beams and struts: stiffness, joints, buckling, fatigue, positioning, machine safety and a staged component qualification plan.",
+    "description": "Specify carbon-fiber robot beams and struts: stiffness, joints, buckling, fatigue, positioning, machine safety and a staged component qualification plan.",
     "href": "/applications/cfrp-robotic-beams-struts",
     "products": [
       "custom"
@@ -1000,7 +1000,7 @@ export const specialistApplicationGroups = [
     "links": [
       {
         "href": "/products/carbon-fiber-robotic-beams",
-        "label": "Carbon-fibre beam component specification"
+        "label": "Carbon-fiber beam component specification"
       },
       {
         "href": "/products/custom-pultruded-profiles",
@@ -1022,7 +1022,7 @@ export const specialistApplicationGroups = [
       },
       {
         "href": "/products/custom-pultruded-profiles",
-        "label": "Custom profile development"
+        "label": "Custom pultruded profiles"
       }
     ]
   },

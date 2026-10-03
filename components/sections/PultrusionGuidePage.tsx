@@ -10,9 +10,22 @@ import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { pultrusionGuidePath, pultrusionGuideReviewed, type PultrusionGuide } from "@/content/data/pultrusionGuideTypes";
 import { absoluteUrl } from "@/lib/seo";
+import { formatShortDate } from "@/lib/dates";
 import { buildRfqHref } from "@/lib/rfq";
 
 const sourceLink = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+
+// Section ids double as in-page navigation labels; keep acronyms upper case.
+const ACRONYMS: Record<string, string> = { mr: "MR", oem: "OEM", frp: "FRP", gfrp: "GFRP", cfrp: "CFRP" };
+function navLabel(id: string) {
+  const words = id.split("-").map((word) => ACRONYMS[word] ?? word);
+  return words.join(" ").replace(/^./, (letter) => letter.toUpperCase());
+}
+
+// Keep acronyms and brand capitals in a sentence: "composite MRI patient supports".
+function inSentence(name: string) {
+  return /^[A-Z][a-z]/.test(name) ? name[0].toLowerCase() + name.slice(1) : name;
+}
 
 function SourceRefs({ page, ids }: { page: PultrusionGuide; ids: string[] }) {
   if (!ids.length) return null;
@@ -34,11 +47,11 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
     source: `pultrusion-guide-${page.slug}`,
     product: page.name,
     productPath: path,
-    message: `Please review ${page.name.toLowerCase()} for my project. I will provide the drawings, operating conditions, governing specification and qualification requirements.`,
+    message: `Please review ${inSentence(page.name)} for my project. I will provide the drawings, operating conditions, governing specification and qualification requirements.`,
   });
   const nav = [
     { id: "scope", label: "Scope & material" },
-    ...page.sections.map((section) => ({ id: section.id, label: section.id.replaceAll("-", " ").replace(/^./, (letter) => letter.toUpperCase()) })),
+    ...page.sections.map((section) => ({ id: section.id, label: navLabel(section.id) })),
     { id: "standards", label: "Standards & regulations" },
     { id: "faq", label: "Questions" },
     { id: "sources", label: "Sources" },
@@ -49,7 +62,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
     <>
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@type": isApplication ? "TechArticle" : "WebPage",
+        "@type": "TechArticle",
         headline: page.heading,
         name: page.name,
         description: page.description,
@@ -76,7 +89,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title={page.name} note="Application schematic · not to scale" caption={page.imageCaption} bleed>
+          <Figure number={1} title={page.name} note={`${isApplication ? "Application" : "Component"} schematic · not to scale`} caption={page.imageCaption} bleed>
             <ApplicationArtwork src={page.image} alt={page.imageAlt} />
           </Figure>
         }
@@ -140,7 +153,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
             </article>
           ))}
         </div>
-        <p className="mt-[20px] max-w-[880px] text-f14 leading-relaxed text-t3">Public source scopes were reviewed on {pultrusionGuideReviewed}. These references do not establish certification of an F1 product. Agree the offered grade, finished component, test specimen and acceptance criteria in the project specification.</p>
+        <p className="mt-[20px] max-w-[880px] text-f14 leading-relaxed text-t3">Public source scopes were reviewed on <time dateTime={pultrusionGuideReviewed}>{formatShortDate(pultrusionGuideReviewed)}</time>. These references do not establish certification of an F1 product. Agree the offered grade, finished component, test specimen and acceptance criteria in the project specification.</p>
       </PageSection>
 
       <PageSection id="faq" title={`${page.name}: practical questions`}>

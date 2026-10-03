@@ -42,7 +42,7 @@
   {
     "path": "/applications",
     "title": "FRP Profile Applications",
-    "description": "Explore pultruded FRP and CFRP applications in water treatment, power, rail, paper mills and industrial equipment, with design and specification guidance.",
+    "description": "Pultruded FRP and CFRP applications in power, water treatment, rail, civil and ground works, fencing, pools and precision machines, with specification guidance.",
     "aliases": [
       "Find FRP profiles by application",
       "FRP Profile Applications | Components & Selection"
@@ -232,7 +232,7 @@
   },
   {
     "path": "/industries/vehicle",
-    "title": "FRP Profiles for Automotive, Bus & Transport Components",
+    "title": "FRP Profiles for Automotive, Bus & Rail Components",
     "description": "Pultruded FRP profiles for buses, passenger cars, EV battery enclosures, truck bodies and rail. Explore candidate parts, design checks and qualification."
   },
   {

@@ -2,6 +2,7 @@ import { evidenceRevision } from "@/content/data/engineeringEvidence";
 import { reportVerifications, verificationPath } from "@/content/data/reportVerification";
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
+import { customProductUpdated } from "@/content/data/customProductPages";
 import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { pultrusionGuideReviewed } from "@/content/data/pultrusionGuideTypes";
@@ -56,11 +57,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/sourcing/stitched-fiberglass-fabrics`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/gelcoat-resins`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
 
-    { url: `${BASE}/products/fiberglass-square-rods`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE}/products/fiberglass-t-profiles`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE}/products/frp-sheet-piling`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE}/products/frp-rock-bolts`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE}/products/frp-fencing`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/fiberglass-square-rods`, lastModified: customProductUpdated, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/fiberglass-t-profiles`, lastModified: customProductUpdated, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-sheet-piling`, lastModified: customProductUpdated, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-rock-bolts`, lastModified: customProductUpdated, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-fencing`, lastModified: customProductUpdated, changeFrequency: "monthly", priority: 0.75 },
 
     { url: BASE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/technology/pultruded-profile-performance`, lastModified: performanceReviewed, changeFrequency: "monthly", priority: 0.8 },

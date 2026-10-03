@@ -1,7 +1,13 @@
 export interface CustomProductPage {
-  slug: string; name: string; title: string; description: string; intro: string; use: string; image: string; imageAlt: string; status: string;
+  slug: string; name: string; title: string; description: string; intro: string; use: string; image: string; imageAlt: string;
+  /** Describes the drawing and what it does not establish. */
+  imageCaption: string;
+  status: string;
   options: string[][]; checks: string[][]; rfq: string[]; faq: string[][]; related: string[][];
 }
+
+/** One review date for the five custom product pages, shown on each page and in the sitemap. */
+export const customProductUpdated = "2026-10-03";
 
 export const customProductPages: CustomProductPage[] = [
   {
@@ -36,7 +42,7 @@ export const customProductPages: CustomProductPage[] = [
       ],
       [
         "Qualification",
-        "Agree dimensional inspection, straightness, surface acceptance and the relevant mechanical or electrical tests on the offered section before releasing a production order."
+        "Agree on dimensional inspection, straightness, surface acceptance and the relevant mechanical or electrical tests on the offered section before releasing a production order."
       ]
     ],
     rfq: [
@@ -71,6 +77,7 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/fiberglass-square-rods.svg",
+    imageCaption: "Solid square section with flat faces on every side. Side length, corner radius and tolerances are set by the approved drawing.",
     imageAlt: "Schematic of fiberglass square rods; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
   },
@@ -141,7 +148,8 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/fiberglass-t-profiles.svg",
-    imageAlt: "Schematic of fiberglass t profiles; conceptual geometry, not a production drawing",
+    imageCaption: "Flange and stem of a pultruded tee. Dimensions, wall thicknesses and radii are set by the approved section drawing.",
+    imageAlt: "Schematic of fiberglass T profiles; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
   },
   {
@@ -211,7 +219,8 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/frp-sheet-piling.svg",
-    imageAlt: "Schematic of frp sheet piling; conceptual geometry, not a production drawing",
+    imageCaption: "Interlocking sheet-pile section with its repeating wall width. Section depth, interlock detail and embedment are not established by the drawing.",
+    imageAlt: "Schematic of FRP sheet piling; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
   },
   {
@@ -238,11 +247,11 @@ export const customProductPages: CustomProductPage[] = [
     checks: [
       [
         "System capacity",
-        "Evaluate tensile rupture, thread stripping, plate bearing, bond failure and displacement. The nominal tensile strength of a bar alone is insufficient to specify the anchor."
+        "Evaluate tensile rupture, bar shear across joints or bedding planes, thread stripping, plate bearing, bond failure and displacement. The nominal tensile strength of a bar alone is insufficient to specify the anchor."
       ],
       [
         "Temporary or permanent support",
-        "State service duration, sustained load, groundwater chemistry and temperature. Creep and durability evidence must cover the proposed use."
+        "State service duration, sustained load, groundwater chemistry and temperature. For permanent support, expect a sustained-stress limit well below the short-term tensile strength and request creep-rupture evidence (ASTM D7337/D7337M) for the offered bar."
       ],
       [
         "Project acceptance",
@@ -276,12 +285,13 @@ export const customProductPages: CustomProductPage[] = [
         "/products/frp-rebar"
       ],
       [
-        "Fasteners & fittings",
-        "/products/frp-fasteners-fittings"
+        "Solid pultruded rods",
+        "/products/fiberglass-structural-shapes/frp-rod"
       ]
     ],
     image: "/images/products/custom-range/frp-rock-bolts.svg",
-    imageAlt: "Schematic of frp rock bolts; conceptual geometry, not a production drawing",
+    imageCaption: "Bar, bond interface, plate and nut shown as one assembly. The drawing does not establish bar size, thread form or assembly capacity.",
+    imageAlt: "Schematic of FRP rock bolts; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
   },
   {
@@ -351,7 +361,8 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/frp-fencing.svg",
-    imageAlt: "Schematic of frp fencing; conceptual geometry, not a production drawing",
+    imageCaption: "Posts, rails and picket infill. Post spacing, foundations and gate hardware are not established by the drawing.",
+    imageAlt: "Schematic of FRP fencing; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
   }
 ];

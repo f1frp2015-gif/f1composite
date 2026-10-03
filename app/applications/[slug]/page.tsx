@@ -78,10 +78,10 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: page.title,
+    headline: page.h1,
     description: page.description,
     url: absoluteUrl(path),
-    about: page.shortTitle,
+    about: { "@type": "Thing", name: page.shortTitle },
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     mainEntityOfPage: absoluteUrl(path),
     dateModified: page.lastModified,
@@ -104,6 +104,8 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
   const quoteHref = bridge ? bridgeRfqHref : buildRfqHref({ source: `application-${page.slug}`, product: page.shortTitle, productPath: path });
   const calculator = PROFILE_CALC_LINK[page.slug] ?? "/frp-profile-calculator";
   const products = page.related.filter((link) => coverFor(link.href));
+  // Links already shown as product covers in the first section are not repeated at the foot of the page.
+  const otherRelated = page.related.filter((link) => !coverFor(link.href));
 
   const sections: { id: string; label: string; title: string; intro?: React.ReactNode; count?: string; content: (tone: Tone) => React.ReactNode }[] = [
     {
@@ -156,13 +158,13 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
             <h3 className="text-f18 font-bold text-t1">Resin</h3>
             <p className="mt-[8px] text-f16 leading-golden text-t2">{page.resinSystem}</p>
             <h3 className="mt-[20px] border-t border-border-default pt-[16px] text-f16 font-bold text-t1">{page.standards.length ? "Standards commonly referenced" : "Project acceptance criteria"}</h3>
-            <ul className="mt-[10px] flex flex-wrap gap-[6px]">
+            {page.standards.length ? <ul className="mt-[10px] flex flex-wrap gap-[6px]">
               {page.standards.map((standard) => (
                 <li key={standard} className="rounded-tag border border-border-default bg-white px-[8px] py-[3px] text-f12 font-medium text-t1">
                   {standard}
                 </li>
               ))}
-            </ul>
+            </ul> : null}
             <p className="mt-[10px] text-f14 leading-golden text-t3">{page.standards.length ? "Specification and test references, not certifications of a product." : "Provide the governing project specification and required test methods. Agree the evidence and acceptance criteria for the offered grade and complete assembly."}</p>
           </div>
         </div>
@@ -258,7 +260,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
       <RelatedLinks
         background={tone(sections.length) === "white" ? "white" : "bg2"}
         groups={[
-          { title: "Related product pages", links: page.related },
+          ...(otherRelated.length ? [{ title: "Related pages", links: otherRelated }] : []),
           {
             title: "Core resources",
             links: [
