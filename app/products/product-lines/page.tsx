@@ -1,4 +1,7 @@
 import { customProductPages } from "@/content/data/customProductPages";
+import PageNav from "@/components/layout/PageNav";
+import { specialistProductCategories } from "@/content/data/applicationNavigation";
+import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
@@ -49,6 +52,7 @@ export default function ProductsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
 
+      <PageNav items={[{ id: "families", label: "Product families" }, { id: "specialist-components", label: "Specialist components" }, { id: "applications", label: "Applications" }, { id: "custom-components", label: "Custom shapes" }]} />
       <PageSection id="families" title="Choose your product family" count={`${productFamilies.length} families`}>
         <ProductFamilyCards />
         <aside className="mt-[24px] grid grid-cols-1 gap-[16px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[40px]">
@@ -62,6 +66,22 @@ export default function ProductsPage() {
             The product-line names F1-STRUX, F1-FORM, F1-THERM and F1-GRID correspond respectively to standard profiles, custom profiles, windows and doors, and grating. Product specifications and supply scope are confirmed separately for each order.
           </p>
         </aside>
+      </PageSection>
+
+      <PageSection id="specialist-components" title="Specialist component selection" count={`${specialistProductIndex.length} guides`} intro="Compare the drawing inputs, material choices, interfaces and qualification required for dedicated FRP and CFRP components. Supply feasibility and the evidence for each configuration are confirmed during technical review.">
+        <div className="grid gap-[36px]">
+          {specialistProductCategories.map((category) => (
+            <section key={category.id} id={category.id} aria-labelledby={`${category.id}-heading`} className="scroll-mt-[48px]">
+              <h3 id={`${category.id}-heading`} className="mb-[16px] text-f20 font-bold text-t1">{category.label}</h3>
+              <ul className="grid gap-[16px] md:grid-cols-2 lg:grid-cols-3">
+                {category.slugs.map((slug) => {
+                  const page = specialistProductIndex.find((page) => page.slug === slug);
+                  return page ? <li key={slug}><CoverCard href={`/products/${slug}`} cover={coverFor(`/products/${slug}`)!} title={page.name} text={page.description} /></li> : null;
+                })}
+              </ul>
+            </section>
+          ))}
+        </div>
       </PageSection>
 
       <PageSection

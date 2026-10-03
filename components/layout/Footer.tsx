@@ -7,10 +7,10 @@ import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
 import { whatsappHref, whatsappMessage } from "@/lib/contact";
 import { footerNav, type NavLink } from "@/content/data/navigation";
 
-// One column per main menu, in the same order.
+// Keep industry and application hubs together in a compact footer.
 const columns = [
   { title: "Products", links: footerNav.products },
-  { title: "Industries", links: footerNav.industries },
+  { title: "Applications & industries", links: footerNav.industries },
   { title: "Tools", links: footerNav.tools },
   { title: "Resources", links: footerNav.resources },
   { title: "Company", links: footerNav.company },
@@ -94,8 +94,8 @@ export default function Footer() {
           </div>
 
           {columns.map((column) => (
-            <section key={column.title} aria-labelledby={`footer-${column.title.toLowerCase()}`}>
-              <h2 id={`footer-${column.title.toLowerCase()}`} className="text-f14 font-bold text-t1">
+            <section key={column.title} aria-labelledby={`footer-${column.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+              <h2 id={`footer-${column.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="text-f14 font-bold text-t1">
                 {column.title}
               </h2>
               <FooterLinks links={column.links} />

@@ -3,6 +3,8 @@ import { reportVerifications, verificationPath } from "@/content/data/reportVeri
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
+import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
+import { pultrusionGuideReviewed } from "@/content/data/pultrusionGuideTypes";
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
 import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
 
@@ -39,6 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    ...specialistProductIndex.map((page) => ({ url: `${BASE}/products/${page.slug}`, lastModified: pultrusionGuideReviewed, changeFrequency: "monthly" as const, priority: 0.75 })),
     { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/pultrusion-machines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },

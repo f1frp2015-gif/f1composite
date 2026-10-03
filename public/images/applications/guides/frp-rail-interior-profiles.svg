@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Railway secondary profile interfaces</title><desc id="desc">Freeze the installed construction before fire qualification. Location • function • load path • attachment. Resin • reinforcement • thickness • finish • adhesive. Schematic, not to scale.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
+<rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
+<rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Railway secondary profile interfaces</text><text x="42" y="89" font-size="21">Freeze the installed construction before fire qualification</text>
+
+<path d="M213 559V277Q600 82 987 277V559" stroke="#81909e" stroke-width="17" fill="none"/><path d="M278 548V320Q600 188 922 320V548" stroke="#c8d2da" stroke-width="10" fill="none"/>
+<path d="M305 302H892M376 284V420M827 286V420" stroke="#00a199" stroke-width="19" fill="none"/>
+<path d="M324 420H878V444H324Z" fill="#dbe2e8" stroke="#8b99a6" stroke-width="4"/>
+<rect x="585" y="325" width="156" height="79" rx="8" fill="#e5ba4e"/>
+<path d="M373 336H175V399" class="leader"/><text x="125" y="443" class="label">Support rail</text>
+<path d="M789 447V548H811" class="leader"/><text x="736" y="598" class="label">Interior panel</text>
+<path d="M664 326V253H800" class="leader"/><text x="830" y="247" class="label">Equipment</text>
+<text x="325" y="553" class="small">SECONDARY COMPONENTS — NOT PRIMARY CARBODY STRUCTURE</text>
+<rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
+<text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Specify the exact component</text><text x="38" y="769" style="fill:#fff;font-size:19px">Location • function • load path • attachment</text>
+<text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Control the tested construction</text><text x="625" y="769" style="fill:#fff;font-size:19px">Resin • reinforcement • thickness • finish • adhesive</text>
+</svg>

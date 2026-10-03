@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Third-rail cover interfaces</title><desc id="desc">Cover, brackets and collector envelope must be coordinated. Section • supports • joints • thermal movement. Collector clearance • deflection • end transitions. Schematic, not to scale.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
+<rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
+<rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Third-rail cover interfaces</text><text x="42" y="89" font-size="21">Cover, brackets and collector envelope must be coordinated</text>
+
+<path d="M170 579H1040" class="steel"/><path d="M523 558V480H655V558" fill="#d9e1e8" stroke="#738193" stroke-width="8"/>
+<path d="M549 479V315H510V280H668V315H628V479Z" fill="#8d9dac" stroke="#516373" stroke-width="5"/>
+<path d="M403 446V220H783V307" stroke="#00a199" stroke-width="26" fill="none"/>
+<path d="M429 425H474V539H511" stroke="#031697" stroke-width="12" fill="none"/>
+<path d="M688 325H930V443H685" stroke="#b56b2c" stroke-width="4" fill="none" stroke-dasharray="14 12"/>
+<path d="M807 207V165H979" class="leader"/><text x="729" y="142" class="label">Pultruded cover</text>
+<path d="M423 357H209" class="leader"/><text x="161" y="332" class="label">Support interface</text>
+<text x="744" y="378" class="small">COLLECTOR</text><text x="744" y="408" class="small">ENVELOPE</text>
+<text x="402" y="625" class="small">GENERIC RELATIONSHIP — CONTACT ARRANGEMENT IS PROJECT-SPECIFIC</text>
+<rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
+<text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Define the cover assembly</text><text x="38" y="769" style="fill:#fff;font-size:19px">Section • supports • joints • thermal movement</text>
+<text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Verify the operating envelope</text><text x="625" y="769" style="fill:#fff;font-size:19px">Collector clearance • deflection • end transitions</text>
+</svg>

@@ -1,4 +1,4 @@
-import { loadTestData } from "./load-test-data.mjs";
+import { loadProjectModule } from "./load-project-module.mjs";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
@@ -22,12 +22,12 @@ async function fileExists(filePath) {
   }
 }
 
-test("five menus: products by family, industries, tools, resources and company", async () => {
-  const { mainNav, pultrudedOverviewLink, productShortcuts } = await loadTestData("content/data/navigation.ts");
+test("six menus separate product families, applications and industries", async () => {
+  const { mainNav, pultrudedOverviewLink, productShortcuts } = loadProjectModule("content/data/navigation.ts");
   assert.equal(pultrudedOverviewLink.href, "/pultruded-frp-profiles");
-  assert.deepEqual(mainNav.map(item => item.label), ["Products", "Industries", "Tools", "Resources", "Company"]);
+  assert.deepEqual(mainNav.map(item => item.label), ["Products", "Applications", "Industries", "Tools", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Grating & stair treads", "Windows & doors", "GFRP rebar & mesh", "Fasteners & fittings", "Custom profiles"]);
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Grating & stair treads", "Windows & doors", "GFRP rebar & mesh", "Fasteners & fittings", "Custom profiles", "Specialist components"]);
   const destinations = (sections) => sections.flatMap(section => [...(section.href ? [section.href] : []), ...section.links.map(link => link.href)]);
   const productLinks = destinations(mainNav[0].sections);
   for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
@@ -35,8 +35,9 @@ test("five menus: products by family, industries, tools, resources and company",
   assert.ok(mainNav[0].sections[0].links.every(link => link.glyph), "every standard profile shows its section glyph");
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...destinations(item.sections)])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
-  // Equipment and materials sit under Know-How, keeping the five-menu layout.
-  assert.ok(allLinks.length <= 85, "keep a bounded desktop and mobile menu");
+  // Bound each menu while giving every application a named, grouped entry.
+  assert.ok(allLinks.length <= 115, "keep a bounded desktop and mobile menu");
+  for (const item of mainNav) assert.ok(destinations(item.sections).length <= 40, item.id);
   // The Products side panel repeats a few libraries as shortcuts; they must also have their own place.
   for (const shortcut of [productShortcuts.finder, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
   const tools = mainNav.find(item => item.id === "tools").sections.flatMap(section => section.links.map(link => link.href));
@@ -56,7 +57,7 @@ test("footer is a concise set of hubs instead of a second mega menu", async () =
   for (const key of ["products", "industries", "tools", "resources", "company"]) {
     assert.match(footerNavigation, new RegExp(`  ${key}: \\[`));
   }
-  for (const title of ["Products", "Industries", "Tools", "Resources", "Company"]) {
+  for (const title of ["Products", "Applications & industries", "Tools", "Resources", "Company"]) {
     assert.match(footer, new RegExp(`title: "${title}"`));
   }
 
@@ -117,11 +118,17 @@ test("desktop and mobile navigation use controlled, route-aware disclosures", as
 });
 
 test("every navigation data route resolves to a real page or registered application", async () => {
-  const [navigation, applications] = await Promise.all([
-    read("content/data/navigation.ts"),
-    read("lib/applicationPages.ts"),
+  const { mainNav, footerNav } = loadProjectModule("content/data/navigation.ts");
+  const { applicationPages } = loadProjectModule("lib/applicationPages.ts");
+  const { specialistProductIndex } = loadProjectModule("content/data/pultrusionGuideIndex.ts");
+  const dynamicRoutes = new Set([
+    ...applicationPages.map(page => `/applications/${page.slug}`),
+    ...specialistProductIndex.map(page => `/products/${page.slug}`),
   ]);
-  const routes = [...new Set(extractHrefs(navigation))];
+  const routes = [...new Set([
+    ...mainNav.flatMap(item => [item.href, ...item.sections.flatMap(section => [...(section.href ? [section.href] : []), ...section.links.map(link => link.href)])]),
+    ...Object.values(footerNav).flat().map(link => link.href),
+  ])];
 
   for (const route of routes) {
     assert.match(route, /^\/[a-z0-9/?=&#.-]+$/i, `unexpected navigation route format: ${route}`);
@@ -129,11 +136,7 @@ test("every navigation data route resolves to a real page or registered applicat
     const directPage = path.join(root, "app", pathname.slice(1), "page.tsx");
     if (await fileExists(directPage)) continue;
 
-    if (pathname.startsWith("/applications/")) {
-      const slug = pathname.slice("/applications/".length);
-      assert.match(applications, new RegExp(`slug: "${slug}"`), `unregistered application route: ${route}`);
-      continue;
-    }
+    if (dynamicRoutes.has(pathname)) continue;
 
     assert.fail(`navigation route has no page: ${route}`);
   }

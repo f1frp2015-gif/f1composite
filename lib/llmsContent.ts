@@ -75,6 +75,10 @@ ${keyFacts({ withRelationship: false })}
 ## Products
 ${families}
 
+## Specialist component specifications
+${knowledge.specialistComponentGuides.map((page) => `- [${page.name}](${page.url}): ${page.description}`).join("\n")}
+These are project qualification guides; availability and certification require evidence for the offered component.
+
 ## Applications
 ${applications}
 

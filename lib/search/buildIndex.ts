@@ -12,6 +12,7 @@ import { reportVerifications, verificationDescription, verificationPath, verific
 import { glossaryTerms } from "@/content/data/glossary";
 import { productFamilies } from "@/content/data/productTaxonomy";
 import { applicationPages } from "@/lib/applicationPages";
+import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { authors } from "@/lib/authors";
 import { CAD_SLUGS } from "@/lib/cadManifest";
 import { PROFILE_FAMILIES } from "@/lib/catalog/profileFamilies";
@@ -143,6 +144,15 @@ function documentEntries(): SearchEntry[] {
 
 export function buildSearchIndex(): SearchEntry[] {
   const entries: SearchEntry[] = [
+    ...specialistProductIndex.map((page): SearchEntry => ({
+      id: `specialist-product:${page.slug}`,
+      kind: "product",
+      title: page.name,
+      url: `/products/${page.slug}`,
+      summary: page.description,
+      keywords: page.title,
+      badge: "Component specification",
+    })),
     ...sizeEntries(),
     ...pageEntries(),
     ...blogPosts.map((post): SearchEntry => ({

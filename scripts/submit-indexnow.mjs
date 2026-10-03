@@ -152,6 +152,20 @@ function addAllRecordRoutes(paths, source, prefix) {
   for (const slug of parseSlugBlocks(source).keys()) addPath(paths, `${prefix}/${slug}`);
 }
 
+// Read the generated JSON list without evaluating TypeScript or imported modules.
+export function parseSpecialistGuideRoutes(source) {
+  const list = source.match(/export const specialistGuideRoutes = (\[[\s\S]*?\]);/);
+  if (!list) return [];
+  return JSON.parse(list[1]).filter((route) => typeof route === "string" && /^\/(applications|products)\/[a-z0-9-]+$/.test(route));
+}
+
+export function affectsSpecialistGuides(file) {
+  return /^content\/data\/pultrusion.*\.ts$/.test(file)
+    || file === "components/sections/PultrusionGuidePage.tsx"
+    || file === "app/products/[slug]/page.tsx"
+    || file === "app/applications/[slug]/page.tsx";
+}
+
 export function collectChangedPaths(beforeRef, afterRef) {
   const changes = parseNameStatus(
     git(["diff", "--name-status", "--find-renames", beforeRef, afterRef, "--"]),
@@ -195,6 +209,15 @@ export function collectChangedPaths(beforeRef, afterRef) {
   }
   if (changedFiles.has("app/applications/[slug]/page.tsx")) {
     addAllRecordRoutes(paths, afterApplications || beforeApplications, "/applications");
+  }
+
+  if ([...changedFiles].some(affectsSpecialistGuides)) {
+    const indexFile = "content/data/pultrusionGuideIndex.ts";
+    for (const ref of [beforeRef, afterRef]) {
+      for (const route of parseSpecialistGuideRoutes(sourceAt(ref, indexFile))) addPath(paths, route);
+    }
+    addPath(paths, "/applications");
+    addPath(paths, "/products/product-lines");
   }
 
   if ([...changedFiles].some(affectsDatasheetPages)) {

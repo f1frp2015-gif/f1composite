@@ -462,6 +462,8 @@ export default function CustomPultrusionsPage() {
               { href: "/industries/energy", label: "EV battery trays and solar" },
               { href: "/applications/frp-utility-crossarms", label: "Utility crossarm assemblies" },
               { href: "/industries/vehicle", label: "Rail and transport profiles" },
+              { href: "/applications/cfrp-concrete-strengthening", label: "CFRP strengthening system qualification" },
+              { href: "/applications/carbon-fiber-industrial-rollers", label: "Industrial roller component specification" },
               { href: "/regions/frp-pultrusion-supplier-usa", label: "FRP pultrusion supplier for US projects" },
               { href: "/regions/pultruded-frp-solar-mounting-australia", label: "Solar mounting profiles, Australia" },
               { href: "/case-studies", label: "Project case studies" },

@@ -20,6 +20,8 @@ import { applicationPages, getApplicationPage } from "@/lib/applicationPages";
 import { coverFor } from "@/lib/covers";
 import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { getPultrusionGuide } from "@/content/data/pultrusionGuides";
+import PultrusionGuidePage from "@/components/sections/PultrusionGuidePage";
 
 /* Pre-filled FRP profile calculator deep links — a typical span / load /
    environment per application so each page opens the tool already scoped. */
@@ -68,6 +70,9 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
   if (!page) {
     notFound();
   }
+
+  const specialist = getPultrusionGuide("application", slug);
+  if (specialist) return <PultrusionGuidePage page={specialist} />;
 
   const path = `/applications/${page.slug}`;
   const schema = {

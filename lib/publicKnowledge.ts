@@ -7,6 +7,7 @@ import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/conten
 import { verificationForEvidence, verificationPath } from "@/content/data/reportVerification";
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
+import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 
 const SITE = "https://www.f1composite.com";
 
@@ -17,6 +18,7 @@ export function buildPublicKnowledge() {
     taxonomyRevision,
     commercialProductFamilies: commercialFamilies.map(family => ({ id: family.id, name: family.label, description: family.description, url: `${SITE}${family.href}`, products: family.links.map(link => ({ name: link.label, url: `${SITE}${link.href}` })) })),
     applicationDirectory: applicationGroups.map(group => ({ name: group.label, description: group.description, url: `${SITE}${group.href}`, productFamilies: group.products })),
+    specialistComponentGuides: specialistProductIndex.map(page => ({ name: page.name, description: page.description, url: `${SITE}/products/${page.slug}`, scope: "Component specification and project qualification; availability and certification require project-specific evidence." })),
     rebarPurchasing: { url: `${SITE}${rebarCatalog.path}`, revision: rebarCatalog.revision, description: rebarCatalog.description, diameters: rebarCatalog.diameters, sizeBasis: "Supplier-listed nominal diameters in mm; grade, measured properties, availability and qualification require quotation review.", forms: rebarCatalog.forms.map(form => ({ name: form.title, description: form.body, inquiryInputs: form.inputs })) },
     windowPurchasingRoutes: Object.values(windowProcurement).map(page => ({ name: page.h1, url: `${SITE}${page.path}`, description: page.intro, supply: page.supply, buyer: page.buyer, quotationInputs: page.checklist })),
     description:

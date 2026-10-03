@@ -1,3 +1,5 @@
+import { specialistApplicationPages } from "@/content/data/pultrusionGuideIndex";
+
 export interface ApplicationPage {
   slug: string;
   calculator?: false;
@@ -26,6 +28,7 @@ export interface ApplicationPage {
 }
 
 export const applicationPages: ApplicationPage[] = [
+  ...specialistApplicationPages,
   {
     slug: "frp-waterfront-retaining-walls",
     shortTitle: "Waterfront retaining walls",
