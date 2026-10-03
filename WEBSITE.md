@@ -1,6 +1,6 @@
 # F1 Composite 网站总览
 
-> 最后更新: 2026-10-02（自有照片水印与版权信息、商标方案）
+> 最后更新: 2026-10-03（新上线应用页与产品页审核）
 
 ---
 
@@ -286,6 +286,8 @@ f1composite.com
 - **文案检查**：`npm run check:copy`（CI 中运行）会拦截已撤回的说法，并提示破折号密度和"不是 X——而是 Y"句式。
 - **内链归属**：`content/data/seoQueryTargets.ts` 为每个核心搜索词指定一个主页面，列在 `supportingUrls` 里的辅助页必须在正文里链回主页面。`npm run check:owner-links`（CI 在构建后运行）检查这一点；新增辅助页或改动相关链接时同步更新这个文件。
 - **页头日期**：`PageHeader` 的 `updated` 显示 "Last updated"，必须和该页 JSON-LD 的 `dateModified` 用同一个常量（`scripts/geo-citability.test.mjs` 检查）。只有改写文案、增删内容区块时才更新日期；只加链接不算。
+- **标准版次**：页面写的标准版次以发布机构或标准商店的当前记录为准。审核时先检索核实，不得凭记忆把较新的版次改回旧版；2026-10-03 审核中 IEC 60112:2025、ASTM B987-25、F711-26、F2503-26、ISO 10993-1:2025 等都被审核代理误判为不存在。已撤销的标准不得引用（如 ASTM D4435、D4436，2022 年撤销）。审核记录见 `docs/audits/2026-10-03-applications-products-review.md`。
+- **专业指南**（`content/data/pultrusion*Guides.ts`）：页内导航由 section id 生成，缩写自动大写（MR、OEM、GFRP、CFRP、FRP），id 写成可读的 `x-and-y` 形式；改了指南后运行 `npm run guides:index` 并提交 `pultrusionGuideIndex.ts`。同一路由的链接文字全站统一（定制型材页写 “Custom pultruded profiles”，行业页写行业名）。全站用美式拼写和 “agree on X”。
 - **检测报告数据**：证据页（`/resources/evidence`）的结果表来自 `content/data/engineeringEvidence.ts` 的 `reportedResults`；光伏边框和 UL 94 报告的数据在 `content/data/pvFrameEvidence.ts`，光伏页和证据库共用。TÜV Rheinland 和 Intertek 报告限制摘录复制，结果表只写报告结论，不新增测量值摘录（测试检查）。
 - **报告核验页与原件**：每份第三方报告/证书在 `/resources/evidence/[slug]` 有核验页，数据在 `content/data/reportVerification.ts`（持证方、报告号、机构印在报告上的核验方式，全部照原文）。实验室原件必须原样发布，不加水印、不改字节：多份带数字签名，Intertek 和无锡检测院写明涂改无效；`scripts/evidence-protection.test.mjs` 锁定原件哈希。F1 的英文注释副本可以加注，用 `scripts/stamp-annotated-reports.py` 在右侧注释栏底部写持证方和核验网址。核验页的 SHA-256 和文件大小在构建时从 `public/` 读取。
 - **价格与目录接口**：`/api/profile-price` 只接受本站页面的请求（`lib/browserRequest.ts` 同源校验），每个 IP 5 分钟 90 次、每天 400 次；`/api/catalog` 每个 IP 10 分钟 30 次。限流计数在单个实例内存中（`lib/rateLimit.ts`），要全局生效需换 Upstash 或 Vercel KV。
@@ -463,5 +465,8 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 中 | 核验页写明 Fengdu New Material (Yancheng) Co., Ltd.（Intertek 报告申请方）和 Chongqing Fengdu New Material Co., Ltd.（TÜV 报告委托方）属于风渡集团，请确认 | 待确认 |
 | 中 | PHI 证书 2491wi03 有效期到 2026-12-31，续证后替换 PDF、`reportVerification.ts` 和测试中的哈希 | 2026-12 前 |
 | 中 | 价格接口的人机验证：可在 Vercel 后台开启防火墙的机器人防护或接入 BotID，需在预览环境确认估算器仍能出价后再上线 | 待操作 |
+| 中 | 锚杆供货方式：F1 拉挤杆体、螺纹和螺母托板外购组装，还是整套外购？`/products/frp-rock-bolts` 和矿山隧道应用页目前只写“采购与验证评审”，并链到实心圆棒页。确认后写明 | 待确认 |
+| 低 | 汽车与轨道页引用的美国能源部轻量化页面网址为 `/cmei/` 路径（2025 年机构调整后），云端无法打开核实；打不开时改回 `/eere/vehicles/vehicle-technologies-office-lightweight-materials-cars-and-trucks` | 待核实 |
+| 低 | CFRP 加固页写的 ACI CODE-440.13-24 适用范围（不含砌体、B–F 抗震类别）和 EAD 160086-01-0301 的限制（不含现场裁切、抗震加固）无法从公开渠道核实，请对照原文 | 待核实 |
 | 中 | 德国和英国地区页的法规表述（GEG 2024、Future Homes Standard）需按 2026 年新情况核实更新 | 待核实 |
 | 中 | 阶段 2 菜单结构按改版方案图 19 调整（产品、行业、工具、资源、公司；技术文章并入资源的知识库，质量体系和技术服务放在公司下），请确认或提出修改 | 待确认 |

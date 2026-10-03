@@ -52,7 +52,7 @@ export default function ProductsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
 
-      <PageNav items={[{ id: "families", label: "Product families" }, { id: "specialist-components", label: "Specialist components" }, { id: "applications", label: "Applications" }, { id: "custom-components", label: "Custom shapes" }]} />
+      <PageNav items={[{ id: "families", label: "Product families" }, { id: "specialist-components", label: "Specialist components" }, { id: "applications", label: "Panel & application profiles" }, { id: "custom-components", label: "Custom shapes" }]} />
       <PageSection id="families" title="Choose your product family" count={`${productFamilies.length} families`}>
         <ProductFamilyCards />
         <aside className="mt-[24px] grid grid-cols-1 gap-[16px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[40px]">
@@ -88,7 +88,7 @@ export default function ProductsPage() {
         id="applications"
         title="Panel profiles & application-specific components"
         tone="muted"
-        intro="Browse existing commercial pages by use. Deck panels are profiles; molded grating uses a different manufacturing process. Concrete reinforcing bars have their own specification and are not interchangeable with ordinary solid rods."
+        intro="Browse product pages by use. Deck panels are profiles; molded grating uses a different manufacturing process. Concrete reinforcing bars have their own specification and are not interchangeable with ordinary solid rods."
       >
         <ul className="grid grid-cols-1 gap-[10px] md:grid-cols-3">
           {panelProfiles.map((item) => (

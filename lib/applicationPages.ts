@@ -80,22 +80,23 @@ export const applicationPages: ApplicationPage[] = [
       }
     ],
     deepDive: {
-      heading: "Keep the wall and the deck as separate design packages",
+      heading: "Design the wall for stiffness, sustained pressure and its exposed face",
       paragraphs: [
-        "A boardwalk deck carries people above the water. A retaining wall resists earth and water pressure and interacts with the ground. They may share a site, but they need different design inputs and acceptance checks.",
-        "Define interfaces between the wall cap, deck supports and any railing. Agree how loads transfer into the wall, whether connections accommodate movement and which party designs each interface. A lighter panel does not establish the capacity of the complete wall."
+        "Serviceability usually governs a composite wall. The longitudinal modulus of an EN 13706 E23 laminate is 23 GPa, about one-ninth of structural steel, so wall deflection and anchor movement need checking before strength. Earth and water pressure act for the whole service life, which brings creep deflection and a sustained-stress limit into the design; request creep evidence for the offered section rather than relying on short-term coupon values.",
+        "Interlocks transfer shear between piles and control seepage, and the zone between low water and the cap sees UV, abrasion, impact and wet-dry cycling. Review durability evidence for the submerged and the exposed portions separately, and confirm the driving method, since thin-walled sections often need a mandrel or guide frame.",
+        "Where a boardwalk or deck meets the wall, define the interface between the wall cap, deck supports and any railing: how loads transfer into the wall, whether connections accommodate movement and which party designs each interface."
       ]
     },
-    lastModified: "2026-10-02",
+    lastModified: "2026-10-03",
     image: "/images/applications/frp-waterfront-retaining-walls.svg",
-    imageAlt: "Diagram of waterfront retaining walls with labeled component interfaces",
+    imageAlt: "Section through a waterfront retaining wall showing retained ground, the water level and an interlocking FRP sheet-pile wall",
     imageNote: "Concept diagram",
-    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageCaption: "Retained ground, water level and the interlocking wall. The drawing does not establish embedment, section size or anchor layout.",
     imageSize: {
       width: 900,
       height: 600
     },
-    standards: [],
+    standards: ["ASCE/SEI 74-23 · pultruded members", "CEN/TS 19101:2022 · FRP structures", "ASTM D7290 · characteristic values", "EN 1997-1 · geotechnical design", "USACE EM 1110-2-2504 · sheet pile walls"],
     calculator: false
   },
   {
@@ -108,7 +109,7 @@ export const applicationPages: ApplicationPage[] = [
     environment: "Tunnel face reinforcement and selected mine or underground civil works where the project design permits qualified GFRP components.",
     supplyScope: "Submit rock-bolt assemblies for a sourcing and qualification review. Access profiles, grating and cable-support components can be reviewed as separate packages. Ground-support design and site installation responsibilities must be assigned explicitly.",
     recommendedProfiles: [
-      "Qualified GFRP rock-bolt assemblies with matching nuts and bearing plates",
+      "GFRP rock-bolt assemblies with matching nuts and bearing plates, qualified as a system for the project",
       "Grating and support sections for agreed underground access areas",
       "Cable-support profiles with the required fire and environmental evidence"
     ],
@@ -146,25 +147,30 @@ export const applicationPages: ApplicationPage[] = [
       {
         label: "Pultruded grating",
         href: "/products/frp-gratings"
+      },
+      {
+        label: "Solid pultruded rods",
+        href: "/products/fiberglass-structural-shapes/frp-rod"
       }
     ],
     deepDive: {
       heading: "Qualify the assembly before scheduling bulk supply",
       paragraphs: [
-        "A bolt’s longitudinal tensile result describes only one possible limit. Nut engagement, plate bearing, grout bond and installation quality may govern the installed support. Agree test methods and acceptance criteria for the full assembly.",
+        "A bolt’s longitudinal tensile result describes only one possible limit. Nut engagement, plate bearing, grout bond and installation quality may govern the installed support. Define test methods and acceptance criteria for the full assembly.",
+        "Permanent support carries sustained load for its whole service life, so creep rupture must be covered. ASTM D7337/D7337M tests FRP bars for it, and concrete design codes limit sustained stress in GFRP to a fraction of the design tensile strength (0.30 in ACI 440.11-22).",
         "Keep trial quantities and production release as separate milestones. Record the exact bar, accessories and installation materials used in qualification so a later substitution does not silently change the approved system."
       ]
     },
-    lastModified: "2026-10-02",
+    lastModified: "2026-10-03",
     image: "/images/applications/frp-mining-tunneling.svg",
-    imageAlt: "Diagram of mining & tunneling support with labeled component interfaces",
+    imageAlt: "Diagram of a GFRP ground-support assembly in rock, labeled as qualified as a system",
     imageNote: "Concept diagram",
-    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageCaption: "Bolt, plate and nut in grouted ground, shown as one assembly to qualify. The drawing does not establish a support pattern or bolt capacity.",
     imageSize: {
       width: 900,
       height: 600
     },
-    standards: [],
+    standards: ["ASTM D7205/D7205M · bar tensile", "ASTM D7337/D7337M · creep rupture", "ISO 10406-1:2025 · FRP bar test methods"],
     calculator: false
   },
   {
@@ -205,7 +211,7 @@ export const applicationPages: ApplicationPage[] = [
     ],
     related: [
       {
-        label: "FRP fencing components",
+        label: "FRP fencing",
         href: "/products/frp-fencing"
       },
       {
@@ -224,16 +230,16 @@ export const applicationPages: ApplicationPage[] = [
         "Gate leaves concentrate loads at hinges and posts. Include operating loads, latch alignment and the surrounding foundation in the review, with replacement and inspection access for moving parts."
       ]
     },
-    lastModified: "2026-10-02",
+    lastModified: "2026-10-03",
     image: "/images/applications/frp-utility-fencing.svg",
-    imageAlt: "Diagram of utility & industrial fencing with labeled component interfaces",
+    imageAlt: "Diagram of a fiberglass fence panel with posts, rails and pickets",
     imageNote: "Concept diagram",
-    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageCaption: "Posts, rails and picket infill. Post spacing, foundations and electrical clearances are not established by the drawing.",
     imageSize: {
       width: 900,
       height: 600
     },
-    standards: [],
+    standards: ["ASCE 7-22 Ch. 29 · wind on freestanding walls", "EN 1991-1-4 §7.4 · wind on fences", "IEC 61936-1 / EN 50522 · substation fences and earthing", "OSHA 1910.29 · guardrails"],
     calculator: false
   },
   {
@@ -262,7 +268,7 @@ export const applicationPages: ApplicationPage[] = [
       },
       {
         title: "Electrical and access",
-        body: "Coordinate the pool bonding and earthing system independently. GFRP reinforcement does not provide the conductive path of steel; metallic equipment and accessories still need the project electrical design."
+        body: "A GFRP-reinforced shell has no reinforcing steel to serve as the bonding grid, so the electrical design must provide its own equipotential bonding, such as the copper grid of NEC 680.26(B)(1)(b) or the supplementary bonding of IEC 60364-7-702. Metallic equipment and accessories still need the project electrical design."
       }
     ],
     rfqInputs: [
@@ -278,7 +284,7 @@ export const applicationPages: ApplicationPage[] = [
         href: "/products/frp-rebar"
       },
       {
-        label: "Molded grating",
+        label: "Molded FRP grating",
         href: "/products/molded-frp-grating"
       },
       {
@@ -290,19 +296,19 @@ export const applicationPages: ApplicationPage[] = [
       heading: "Separate public poolside finishes from maintenance access",
       paragraphs: [
         "Maintenance staff in footwear and barefoot visitors interact with surfaces differently. Define the user, cleaning regime and wet slip criteria for every area rather than extending one industrial grating specification throughout the facility.",
-        "For concrete reinforcement, agree the complete bar schedule before manufacture. Factory-formed bends, laps, supports and placement details must be coordinated with the pool design; do not improvise field bending of cured GFRP bars."
+        "For concrete reinforcement, fix the complete bar schedule before manufacture. Factory-formed bends, laps, supports and placement details must be coordinated with the pool design; do not improvise field bending of cured GFRP bars."
       ]
     },
-    lastModified: "2026-10-02",
+    lastModified: "2026-10-03",
     image: "/images/applications/frp-swimming-pool-facilities.svg",
-    imageAlt: "Diagram of swimming pool facilities with labeled component interfaces",
+    imageAlt: "Section through a pool shell with reinforcement placed to an engineered schedule",
     imageNote: "Concept diagram",
-    imageCaption: "Illustrative component layout; final dimensions, loads and acceptance requirements are defined by the project.",
+    imageCaption: "Pool shell with reinforcement to an engineered schedule. Bar size, cover and the bonding arrangement are not established by the drawing.",
     imageSize: {
       width: 900,
       height: 600
     },
-    standards: [],
+    standards: ["EN 15288-1/-2 · public pools", "EN 16165 Annex A · barefoot slip", "NEC Art. 680 / IEC 60364-7-702 · bonding", "ACI 440.11-22 · GFRP-reinforced concrete"],
     calculator: false
   },
   {

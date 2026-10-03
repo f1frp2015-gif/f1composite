@@ -45,7 +45,7 @@ export const industries: Industry[] = [
   {
     slug: "vehicle",
     title: "Automotive & Rail",
-    description: "Pultruded profiles to evaluate for buses, EV battery enclosures, commercial bodies and selected rail components.",
+    description: "Pultruded profiles to evaluate for passenger cars, buses, EV battery enclosures, commercial bodies and selected rail components.",
     icon: "vehicle",
     href: "/industries/vehicle",
   },
