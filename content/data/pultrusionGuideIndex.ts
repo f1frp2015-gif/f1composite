@@ -14,9 +14,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can assess drawings for pultruded flights, flat profiles and support sections, with agreed cutting and drilling. Hydraulic design, collector drives, chains, controls, installation and complete treatment performance require separately assigned responsibilities and qualification.",
     "supplyScope": "F1 can assess drawings for pultruded flights, flat profiles and support sections, with agreed cutting and drilling. Hydraulic design, collector drives, chains, controls, installation and complete treatment performance require separately assigned responsibilities and qualification.",
     "image": "/images/applications/guides/frp-wastewater-clarifier-components.svg",
-    "imageAlt": "Clarifier schematic showing moving collector flights, wear interfaces, a scum baffle and an overflow weir",
+    "imageAlt": "Longitudinal clarifier section with separate flights on upper and lower chain runs, a sludge hopper, scum trough, fixed baffle and overflow weir.",
     "imageNote": "Application schematic",
-    "imageCaption": "A collector flight moves with the chain system; weirs and baffles are fixed hydraulic components. The drawing identifies interfaces, not a complete clarifier design.",
+    "imageCaption": "Upper flights move scum toward collection; lower flights move sludge toward the hopper. Water passes below the fixed baffle and over the weir. Inlet and drive layout are outside this component section.",
     "recommendedProfiles": [
       "Custom constant-section collector flights",
       "Flat profiles machined as weirs or scum baffles",
@@ -75,9 +75,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can assess pultruded beams, channels, tubes, angles and grating components for an agreed access or support package. Process vessels, pressure equipment, paper-machine internals, machinery certification and plant installation require separate specialist scopes.",
     "supplyScope": "F1 can assess pultruded beams, channels, tubes, angles and grating components for an agreed access or support package. Process vessels, pressure equipment, paper-machine internals, machinery certification and plant installation require separate specialist scopes.",
     "image": "/images/applications/guides/frp-pulp-paper-mill-components.svg",
-    "imageAlt": "Paper mill access platform schematic with grating, support beams and bracing beside separate process equipment",
+    "imageAlt": "Braced FRP access platform with anchored footings beside independently supported process equipment.",
     "imageNote": "Application schematic",
-    "imageCaption": "Access framing is specified for its local exposure and loads. The process vessel and piping shown beside it are separate equipment scopes.",
+    "imageCaption": "Follow platform loads through the grating, beams, braced columns and anchored bases. The vessel has its own supports, and the pipework clears the access platform.",
     "recommendedProfiles": [
       "I-beams and channels for access framing",
       "Tubes and angles for bracing and guardrail components",
@@ -140,9 +140,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "Send a component drawing and equipment qualification requirements for feasibility review. This guide concerns pultruded support components; it does not establish an F1 thermal class, transformer approval or validated insulation system.",
     "supplyScope": "Send a component drawing and equipment qualification requirements for feasibility review. This guide concerns pultruded support components; it does not establish an F1 thermal class, transformer approval or validated insulation system.",
     "image": "/images/applications/guides/frp-transformer-insulation-supports.svg",
-    "imageAlt": "Transformer schematic showing shaped insulating supports, windings, core and an air cooling path",
+    "imageAlt": "Transverse winding section with a dogbone composite spacer and axial cooling ducts indicated out of the page.",
     "imageNote": "Application schematic",
-    "imageCaption": "Support geometry must coordinate winding restraint, electrical separation and cooling. Positions shown are conceptual interfaces for OEM review.",
+    "imageCaption": "The dogbone spacer separates adjacent winding sections. Its length and the cooling flow run out of the page; circle-dot symbols identify the axial ducts.",
     "recommendedProfiles": [
       "Dog-bone winding spacers",
       "Insulating channels and angles",
@@ -191,9 +191,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review a drawing-led coverboard component inquiry and the evidence required for qualification. No standard stock cover, approved railway system or safe-access condition is asserted by this guide.",
     "supplyScope": "F1 can review a drawing-led coverboard component inquiry and the evidence required for qualification. No standard stock cover, approved railway system or safe-access condition is asserted by this guide.",
     "image": "/images/applications/guides/frp-third-rail-protection.svg",
-    "imageAlt": "Third rail cover schematic showing the cover profile, support interface and a separate collector movement envelope",
+    "imageAlt": "Side-contact conductor rail on an insulating support beneath an FRP cover, with a separate cover bracket and collector shoe envelope.",
     "imageNote": "Application schematic",
-    "imageCaption": "Generic cover-to-rail relationship. The operator's contact arrangement and collector envelope determine the approved cross-section, brackets and clearances.",
+    "imageCaption": "Side-contact example: the shoe meets the rail beside its insulating support. The cover bracket is a separate component, and the dashed outline marks collector travel.",
     "recommendedProfiles": [
       "Custom open cover sections",
       "Returned-edge coverboards",
@@ -242,9 +242,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "This is a component feasibility and qualification inquiry. F1 has not established a dedicated live-line tool qualification through this page. It is not an offer of an approved complete tool, a working-voltage rating or instructions for energized work.",
     "supplyScope": "This is a component feasibility and qualification inquiry. F1 has not established a dedicated live-line tool qualification through this page. It is not an offer of an approved complete tool, a working-voltage rating or instructions for energized work.",
     "image": "/images/applications/guides/frp-live-line-tool-components.svg",
-    "imageAlt": "Insulating tool component schematic distinguishing the rod or foam-filled tube from fittings and end interfaces",
+    "imageAlt": "Insulating component between metal fittings, with an exposed-section dimension and separate solid-rod and foam-filled-tube cross-sections.",
     "imageNote": "Application schematic",
-    "imageCaption": "Solid rods and foam-filled tubes are component configurations. End fittings and the complete tool require their own applicable qualification; no working-voltage rating is implied.",
+    "imageCaption": "The dimension spans exposed insulation between fitting edges. The two sections distinguish a solid rod from an FRP wall around foam; this is not a working-distance specification.",
     "recommendedProfiles": [
       "Solid insulating rods",
       "Circular foam-filled insulating tubes",
@@ -293,9 +293,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review a component qualification inquiry for pultruded reinforcement against a supplied specification. An accepted strengthening kit, structural design, adhesive selection and site installation require identified specialist responsibilities and project evidence.",
     "supplyScope": "F1 can review a component qualification inquiry for pultruded reinforcement against a supplied specification. An accepted strengthening kit, structural design, adhesive selection and site installation require identified specialist responsibilities and project evidence.",
     "image": "/images/applications/guides/cfrp-concrete-strengthening.svg",
-    "imageAlt": "Concrete beam schematic with a bonded CFRP strip, adhesive bond line and end load-transfer zone",
+    "imageAlt": "Simply supported concrete beam with downward loading, an adhesive layer, a soffit CFRP strip and marked end-transfer regions.",
     "imageNote": "Application schematic",
-    "imageCaption": "External bonding transfers load through the substrate and adhesive into the laminate. The drawing shows the system interfaces, not a reinforcement design or installation detail.",
+    "imageCaption": "For this positive-bending case, the CFRP strip sits on the beam's tension face. The adhesive transfers load into the strip, with transfer regions marked at both ends.",
     "recommendedProfiles": [
       "Flat CFRP strips for externally bonded reinforcement",
       "Narrow strips considered for near-surface-mounted reinforcement",
@@ -345,9 +345,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review a CFRP component feasibility and qualification inquiry. Precision finishing, end fittings, balancing, bearings and qualification of a finished roller must be separately defined and confirmed; they are not assumed supply capabilities.",
     "supplyScope": "F1 can review a CFRP component feasibility and qualification inquiry. Precision finishing, end fittings, balancing, bearings and qualification of a finished roller must be separately defined and confirmed; they are not assumed supply capabilities.",
     "image": "/images/applications/guides/carbon-fiber-industrial-rollers.svg",
-    "imageAlt": "Industrial roller schematic with a composite shell, web path, journal interface and bearing supports",
+    "imageAlt": "Axial roller section with bonded end plugs, journals and bearing supports, beside an end view of a tangent 90-degree web wrap.",
     "imageNote": "Application schematic",
-    "imageCaption": "The tube shell, journals, bearings and surface form a rotating assembly. Span, web loading, speed and balance requirements must be assessed together.",
+    "imageCaption": "The axial section connects shell, plugs, journals, bearings and frame. The separate end view shows tangent web entry and exit around a quarter-turn wrap.",
     "recommendedProfiles": [
       "Candidate CFRP roller shells",
       "Longitudinal reinforcement for an engineered hybrid shell",
@@ -398,9 +398,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review custom-profile qualification inquiries against an OEM specification. Railway acceptance, requirement sets, hazard levels and test coverage must be confirmed for the offered component; no vehicle approval or HL classification is implied.",
     "supplyScope": "F1 can review custom-profile qualification inquiries against an OEM specification. Railway acceptance, requirement sets, hazard levels and test coverage must be confirmed for the offered component; no vehicle approval or HL classification is implied.",
     "image": "/images/applications/guides/frp-rail-interior-profiles.svg",
-    "imageAlt": "Rail vehicle interior schematic showing secondary support rails, an interior panel and equipment attachment interfaces",
+    "imageAlt": "Rail interior section with secondary FRP supports attached to the carbody, bracket-mounted equipment and a retained ceiling panel.",
     "imageNote": "Application schematic",
-    "imageCaption": "Candidate secondary profile interfaces inside a rail vehicle. The installed construction and attachment arrangement define the mechanical and fire evidence required by the OEM.",
+    "imageCaption": "Carbody brackets support the secondary FRP frame. Separate brackets carry equipment, while fasteners retain the ceiling panel; primary vehicle structure is outside the profile scope.",
     "recommendedProfiles": [
       "Interior-panel and ceiling support rails",
       "Secondary cover and service-hatch framing",
@@ -449,9 +449,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 welcomes drawing-led feasibility and qualification inquiries for pultruded insulating components. This page does not establish an approved electrical grade, a switchgear voltage rating, an arc classification or a complete operating mechanism supplied by F1.",
     "supplyScope": "F1 welcomes drawing-led feasibility and qualification inquiries for pultruded insulating components. This page does not establish an approved electrical grade, a switchgear voltage rating, an arc classification or a complete operating mechanism supplied by F1.",
     "image": "/images/applications/guides/frp-switchgear-insulation-components.svg",
-    "imageAlt": "Switchgear schematic separating insulating support rails from an operating linkage inside the equipment enclosure",
+    "imageAlt": "Two switchgear details showing an FRP support between a metal frame and live busbar, and an insulating operating link between a moving contact and drive.",
     "imageNote": "Application schematic",
-    "imageCaption": "Static supports and moving operating links have different loads and electrical interfaces. The drawing does not specify phase spacing, a voltage rating or an approved switching arrangement.",
+    "imageCaption": "Separate support and operating-link details: teal identifies composite insulation, ochre identifies conductive parts, and grey identifies the frame and fittings.",
     "recommendedProfiles": [
       "Insulating support angles and channels",
       "Constant-section frame and guide members",
@@ -508,9 +508,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "This guide supports technical feasibility and qualification inquiries only. F1 does not claim a utility-approved conductor core, licensed proprietary conductor system, demonstrated ampacity increase or established maximum service temperature on the basis of this page.",
     "supplyScope": "This guide supports technical feasibility and qualification inquiries only. F1 does not claim a utility-approved conductor core, licensed proprietary conductor system, demonstrated ampacity increase or established maximum service temperature on the basis of this page.",
     "image": "/images/applications/guides/composite-overhead-conductor-cores.svg",
-    "imageAlt": "Conductor cross-section with a central composite tensile core, surrounding conducting strands and a separate end-fitting interface",
+    "imageAlt": "Conductor cross-section showing a central composite tensile core and two segmented aluminum layers.",
     "imageNote": "Application schematic",
-    "imageCaption": "Generic core, conducting strands and fitting interfaces. Actual core construction, strand arrangement, bend limits and fittings belong to the qualified conductor system.",
+    "imageCaption": "The center carries tensile load; the surrounding aluminum provides the current path. Layer geometry and strand count are illustrative and vary with conductor technology.",
     "recommendedProfiles": [
       "Monolithic composite supporting cores",
       "Individual composite wires for a separately designed stranded core",
@@ -562,9 +562,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review a component qualification inquiry for a constant-section carbon profile against an OEM specification. Finished robot arms, precision end fittings, bonded assemblies and machine validation require an agreed scope and evidence before any supply commitment.",
     "supplyScope": "F1 can review a component qualification inquiry for a constant-section carbon profile against an OEM specification. Finished robot arms, precision end fittings, bonded assemblies and machine validation require an agreed scope and evidence before any supply commitment.",
     "image": "/images/applications/guides/cfrp-robotic-beams-struts.svg",
-    "imageAlt": "Composite robot beam with a hollow section, end attachment and directions indicating mechanical loading",
+    "imageAlt": "Side elevation of a CFRP cantilever beam with a fixed root, bonded sleeve overlaps and a downward tool load.",
     "imageNote": "Application schematic",
-    "imageCaption": "A beam and its end joint must be assessed together for the motion cycle, stiffness and fatigue duty. This is an interface schematic, not a rated robot structure.",
+    "imageCaption": "One cantilever bending case: follow the load from the tool adapter through the beam and bonded sleeve to the fixed machine root. Torsion and dynamic cases require separate checks.",
     "recommendedProfiles": [
       "Closed rectangular beams for moving gantries",
       "Round or shaped tubes for parallel robot links",
@@ -615,9 +615,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can review an OEM component qualification inquiry for a profile or machined structural blank. This page does not establish a medical-device supply history, MR classification, biological evaluation, regulatory clearance or medical quality-system certification for F1.",
     "supplyScope": "F1 can review an OEM component qualification inquiry for a profile or machined structural blank. This page does not establish a medical-device supply history, MR classification, biological evaluation, regulatory clearance or medical quality-system certification for F1.",
     "image": "/images/applications/guides/composite-mri-patient-supports.svg",
-    "imageAlt": "Conceptual MRI table showing a composite patient-support member and the separate scanner equipment envelope",
+    "imageAlt": "Longitudinal MRI scanner section showing a patient table entering the open bore with housing clearance and pedestal support.",
     "imageNote": "Application schematic",
-    "imageCaption": "Patient load, cleaning and mechanical interfaces are specified alongside the OEM's MR test conditions. No MR safety classification or medical-device approval is implied by the drawing.",
+    "imageCaption": "Longitudinal section: the patient and sliding top travel along the open bore. The clearance bracket marks the gap below the support; conductive CFRP and connected hardware require OEM MR assessment.",
     "recommendedProfiles": [
       "Straight patient-table longitudinal supports",
       "Profile blanks for equipment support rails",
@@ -670,9 +670,9 @@ export const specialistApplicationPages: ApplicationPage[] = [
     "environment": "F1 can assess constant-section glass-fiber composite profiles, support members, locator rails and approved secondary machining from an OEM or project drawing. Separator sizing, wash-system design, vessel integrity and emissions guarantees require the responsible equipment and plant designers.",
     "supplyScope": "F1 can assess constant-section glass-fiber composite profiles, support members, locator rails and approved secondary machining from an OEM or project drawing. Separator sizing, wash-system design, vessel integrity and emissions guarantees require the responsible equipment and plant designers.",
     "image": "/images/applications/guides/frp-scrubber-demister-profiles.svg",
-    "imageAlt": "Scrubber schematic distinguishing separation blades, a support beam and the gas flow path",
+    "imageAlt": "Vertical-flow vane-pack section with an open support grid, shell ledges, upward gas flow and downward liquid drainage.",
     "imageNote": "Application schematic",
-    "imageCaption": "Separation geometry controls collection and drainage; support members carry specified loads. The drawing does not establish separation efficiency, pressure drop or an emissions approval.",
+    "imageCaption": "Gas passes through the vane pack while collected liquid drains downward; the carrier transfers pack loads to the shell ledges.",
     "recommendedProfiles": [
       "Custom constant-section lamella candidates",
       "Demister module support beams and frames",
@@ -729,7 +729,7 @@ export const specialistProductIndex = [
     "title": "FRP Sludge Collector Flights | Component Specification",
     "description": "Prepare a drawing-based inquiry for FRP collector flights: section geometry, drilling, wear-shoe interfaces, laminate evidence, tolerances and acceptance scope.",
     "image": "/images/applications/guides/frp-wastewater-clarifier-components.svg",
-    "imageAlt": "Clarifier schematic showing moving collector flights, wear interfaces, a scum baffle and an overflow weir"
+    "imageAlt": "Longitudinal clarifier section with separate flights on upper and lower chain runs, a sludge hopper, scum trough, fixed baffle and overflow weir."
   },
   {
     "slug": "frp-third-rail-coverboards",
@@ -737,7 +737,7 @@ export const specialistProductIndex = [
     "title": "FRP Third-Rail Coverboards | Component Specification",
     "description": "Specify FRP third-rail coverboards with section geometry, bracket interfaces, material requirements, fabrication tolerances and batch acceptance evidence.",
     "image": "/images/applications/guides/frp-third-rail-protection.svg",
-    "imageAlt": "Third rail cover schematic showing the cover profile, support interface and a separate collector movement envelope"
+    "imageAlt": "Side-contact conductor rail on an insulating support beneath an FRP cover, with a separate cover bracket and collector shoe envelope."
   },
   {
     "slug": "fiberglass-live-line-tool-tubes-rods",
@@ -745,7 +745,7 @@ export const specialistProductIndex = [
     "title": "Fiberglass Live-Line Tool Rods & Tubes | Specification",
     "description": "Specify fiberglass solid rods and foam-filled tubes for live-line tool development, covering geometry, interfaces, qualification and acceptance records.",
     "image": "/images/applications/guides/frp-live-line-tool-components.svg",
-    "imageAlt": "Insulating tool component schematic distinguishing the rod or foam-filled tube from fittings and end interfaces"
+    "imageAlt": "Insulating component between metal fittings, with an exposed-section dimension and separate solid-rod and foam-filled-tube cross-sections."
   },
   {
     "slug": "pultruded-cfrp-strengthening-strips",
@@ -753,7 +753,7 @@ export const specialistProductIndex = [
     "title": "Pultruded CFRP Strengthening Strips | Specification",
     "description": "Prepare a CFRP strip qualification inquiry with section geometry, laminate data, bonding-face requirements, batch evidence and system compatibility.",
     "image": "/images/applications/guides/cfrp-concrete-strengthening.svg",
-    "imageAlt": "Concrete beam schematic with a bonded CFRP strip, adhesive bond line and end load-transfer zone"
+    "imageAlt": "Simply supported concrete beam with downward loading, an adhesive layer, a soffit CFRP strip and marked end-transfer regions."
   },
   {
     "slug": "carbon-fiber-roller-tubes",
@@ -761,7 +761,7 @@ export const specialistProductIndex = [
     "title": "Carbon-Fiber Roller Tubes | Component Procurement Guide",
     "description": "Specify CFRP roller tube geometry, reinforcement, machining allowances, end interfaces and inspection without assuming finished-roller qualification.",
     "image": "/images/applications/guides/carbon-fiber-industrial-rollers.svg",
-    "imageAlt": "Industrial roller schematic with a composite shell, web path, journal interface and bearing supports"
+    "imageAlt": "Axial roller section with bonded end plugs, journals and bearing supports, beside an end view of a tangent 90-degree web wrap."
   },
   {
     "slug": "fire-retardant-rail-profiles",
@@ -769,7 +769,7 @@ export const specialistProductIndex = [
     "title": "Fire-Retardant Rail Profiles | Component Specification",
     "description": "Prepare a railway profile inquiry with a controlled cross-section, material and finish schedule, fire-test coverage, first-article inspection and traceability.",
     "image": "/images/applications/guides/frp-rail-interior-profiles.svg",
-    "imageAlt": "Rail vehicle interior schematic showing secondary support rails, an interior panel and equipment attachment interfaces"
+    "imageAlt": "Rail interior section with secondary FRP supports attached to the carbody, bracket-mounted equipment and a retained ceiling panel."
   },
   {
     "slug": "frp-switchgear-insulating-profiles",
@@ -777,7 +777,7 @@ export const specialistProductIndex = [
     "title": "FRP Switchgear Insulating Profiles | Qualification",
     "description": "Drawing-led inquiries for FRP switchgear support profiles and linkage blanks, with functional tolerances, material evidence, machining and release requirements.",
     "image": "/images/applications/guides/frp-switchgear-insulation-components.svg",
-    "imageAlt": "Switchgear schematic separating insulating support rails from an operating linkage inside the equipment enclosure"
+    "imageAlt": "Two switchgear details showing an FRP support between a metal frame and live busbar, and an insulating operating link between a moving contact and drive."
   },
   {
     "slug": "composite-conductor-core-rods",
@@ -785,7 +785,7 @@ export const specialistProductIndex = [
     "title": "Composite Conductor Core Rods | Development Inquiry",
     "description": "Plan a composite conductor core qualification inquiry: architecture, protected interfaces, reel handling, testing, traceability and conductor integration.",
     "image": "/images/applications/guides/composite-overhead-conductor-cores.svg",
-    "imageAlt": "Conductor cross-section with a central composite tensile core, surrounding conducting strands and a separate end-fitting interface"
+    "imageAlt": "Conductor cross-section showing a central composite tensile core and two segmented aluminum layers."
   },
   {
     "slug": "carbon-fiber-robotic-beams",
@@ -793,7 +793,7 @@ export const specialistProductIndex = [
     "title": "Carbon-Fiber Robotic Beams | Component Specification",
     "description": "Prepare an OEM inquiry for carbon-fiber robot beams and struts, covering section geometry, reinforcement, end joints, tolerances and qualification evidence.",
     "image": "/images/applications/guides/cfrp-robotic-beams-struts.svg",
-    "imageAlt": "Composite robot beam with a hollow section, end attachment and directions indicating mechanical loading"
+    "imageAlt": "Side elevation of a CFRP cantilever beam with a fixed root, bonded sleeve overlaps and a downward tool load."
   },
   {
     "slug": "composite-medical-support-profiles",
@@ -801,7 +801,7 @@ export const specialistProductIndex = [
     "title": "Composite Medical Support Profiles | OEM Inquiries",
     "description": "Prepare a qualification inquiry for composite medical support profiles with controlled materials, interfaces, MR assessment, cleaning and OEM traceability.",
     "image": "/images/applications/guides/composite-mri-patient-supports.svg",
-    "imageAlt": "Conceptual MRI table showing a composite patient-support member and the separate scanner equipment envelope"
+    "imageAlt": "Longitudinal MRI scanner section showing a patient table entering the open bore with housing clearance and pedestal support."
   },
   {
     "slug": "frp-demister-support-profiles",
@@ -809,7 +809,7 @@ export const specialistProductIndex = [
     "title": "FRP Demister Support Profiles | Specification Guide",
     "description": "Plan FRP demister beams, locator rails and scrubber support profiles with defined geometry, chemistry, loading, machining and acceptance requirements.",
     "image": "/images/applications/guides/frp-scrubber-demister-profiles.svg",
-    "imageAlt": "Scrubber schematic distinguishing separation blades, a support beam and the gas flow path"
+    "imageAlt": "Vertical-flow vane-pack section with an open support grid, shell ledges, upward gas flow and downward liquid drainage."
   }
 ];
 

@@ -175,7 +175,7 @@ export default function CalculatorPage() {
       >
         <div className="grid gap-[32px] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
           <div>
-            <Figure number={1} title="Beam deflection" caption="Deflection, not strength, usually governs FRP design. The calculator solves δ, the bending stress and the check against your deflection limit for F1 sections.">
+            <Figure number={1} title="Beam deflection" caption="An illustrative central point-load case with pin and roller supports. Deflection is exaggerated; the drawing is not a computed deformation or load rating. Check strength, stability, connections and serviceability separately.">
               <BeamDeflection bare />
             </Figure>
             <h3 className="mt-[24px] text-f18 font-bold text-t1">Input example: walkway beam</h3>

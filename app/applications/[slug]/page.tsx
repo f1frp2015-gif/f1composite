@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ApplicationArtwork from "@/components/ui/ApplicationArtwork";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
@@ -235,9 +235,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         description={page.intro}
         figure={
           <Figure number={1} title={page.shortTitle} note={page.imageNote} caption={page.imageCaption ?? `Application context for ${page.shortTitle}. Final member sizes, laminate, connections and code checks remain project-specific.`} bleed>
-            <div className="relative aspect-[3/2]">
-              <Image src={page.image} alt={page.imageAlt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload />
-            </div>
+            <ApplicationArtwork src={page.image} alt={page.imageAlt} width={page.imageSize?.width} height={page.imageSize?.height} />
           </Figure>
         }
         actions={{

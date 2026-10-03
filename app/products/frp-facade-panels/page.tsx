@@ -42,19 +42,21 @@ const requestItems = [
 const card = "rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]";
 
 // Each orientation shown with the facade image of that blade arrangement.
-const orientationImages: Record<"Vertical fins" | "Horizontal louvers", { src: string; alt: string; width: number; height: number; note?: string }> = {
+const orientationImages: Record<"Vertical fins" | "Horizontal louvers", { src: string; alt: string; width: number; height: number; note?: string; caption: string }> = {
   "Vertical fins": {
     src: "/images/products/facade-sunshade/frp-facade-sunshade-vertical-fins-curtain-wall.webp",
     alt: "Vertical fin sunshade array on a curtain wall facade",
     width: 1232,
     height: 928,
+    note: "Reference image",
+    caption: "Vertical fin orientation reference. The image does not identify the blade material or establish F1 project supply or performance.",
   },
   "Horizontal louvers": {
-    src: "/images/products/facade-sunshade/frp-facade-sunshade-angled-louver-blades.webp",
-    alt: "Angled louver blades across a glazed facade, seen from below",
-    width: 2048,
-    height: 1536,
-    note: "Reference photo",
+    src: "/images/products/facade-sunshade/frp-horizontal-louvers-concept.webp",
+    alt: "Horizontal sunshade blades supported at their ends by brackets on exterior vertical rails, clear of the glazing",
+    width: 1448,
+    height: 1086,
+    caption: "Horizontal blades span between end brackets on exterior supports. Section, bracket spacing, anchors, wind loads and solar shading are project-specific; the image is not an E40 section or installation detail.",
   },
 };
 
@@ -509,10 +511,8 @@ export default function FacadeSunshadePanelsPage() {
             const image = orientationImages[o.name as keyof typeof orientationImages];
             return (
               <div key={o.name}>
-                <Figure number={index + 2} title={o.name} note={image.note} bleed>
-                  <div className="relative aspect-[16/9]">
-                    <Image src={image.src} alt={image.alt} fill sizes="(max-width: 1023px) 94vw, 50vw" className="object-cover" />
-                  </div>
+                <Figure number={index + 2} title={o.name} note={image.note} caption={image.caption} bleed>
+                  <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 1023px) 94vw, 50vw" className="h-auto w-full" />
                 </Figure>
                 <p className="mt-[14px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">{o.loads}</p>
                 <p className="mt-[6px] text-f14 leading-golden text-t2">{o.detail}</p>

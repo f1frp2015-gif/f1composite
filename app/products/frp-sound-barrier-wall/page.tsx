@@ -204,7 +204,7 @@ export default function FrpSoundBarrierWallPage() {
           stickyMobile: true,
         }}
         figure={
-          <Figure number={1} title="FRP noise barrier along a highway" caption="Panel layout, posts and acoustic build-up follow the approved shop drawing; acoustic ratings apply only to the tested assembly." bleed>
+          <Figure number={1} title="FRP noise barrier along a highway" caption="Post-and-panel arrangement illustrating a possible roadside barrier. Panel joints, base seals, post embedment and foundations require project details; acoustic ratings apply only to the tested assembly and cannot be read from this image." bleed>
             <div className="relative aspect-[3/2]">
               <Image
                 src={frpSoundBarrierImageAssets.hero}

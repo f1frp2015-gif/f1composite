@@ -82,16 +82,16 @@ export const applicationPages: ApplicationPage[] = [
     deepDive: {
       heading: "Design the wall for stiffness, sustained pressure and its exposed face",
       paragraphs: [
-        "Serviceability usually governs a composite wall. The longitudinal modulus of an EN 13706 E23 laminate is 23 GPa, about one-ninth of structural steel, so wall deflection and anchor movement need checking before strength. Earth and water pressure act for the whole service life, which brings creep deflection and a sustained-stress limit into the design; request creep evidence for the offered section rather than relying on short-term coupon values.",
+        "Serviceability usually governs a composite wall. EN 13706 grade E23 sets a minimum longitudinal modulus of 23 GPa; use verified properties for the offered section when checking wall deflection and anchor movement. Earth and water pressure act for the whole service life, which brings creep deflection and a sustained-stress limit into the design; request creep evidence for the offered section rather than relying on short-term coupon values.",
         "Interlocks transfer shear between piles and control seepage, and the zone between low water and the cap sees UV, abrasion, impact and wet-dry cycling. Review durability evidence for the submerged and the exposed portions separately, and confirm the driving method, since thin-walled sections often need a mandrel or guide frame.",
         "Where a boardwalk or deck meets the wall, define the interface between the wall cap, deck supports and any railing: how loads transfer into the wall, whether connections accommodate movement and which party designs each interface."
       ]
     },
     lastModified: "2026-10-03",
     image: "/images/applications/frp-waterfront-retaining-walls.svg",
-    imageAlt: "Section through a waterfront retaining wall showing retained ground, the water level and an interlocking FRP sheet-pile wall",
-    imageNote: "Concept diagram",
-    imageCaption: "Retained ground, water level and the interlocking wall. The drawing does not establish embedment, section size or anchor layout.",
+    imageAlt: "Anchored sheet-pile wall section showing a buried tie rod, anchor block, waler, water and bed levels, and embedment below the bed.",
+    imageNote: "Anchored-wall section",
+    imageCaption: "The buried tie connects the wall waler to an anchor block. Bed and water levels distinguish exposed wall height from embedment; ground, scour and water-pressure conditions govern the project design.",
     imageSize: {
       width: 900,
       height: 600
@@ -157,15 +157,15 @@ export const applicationPages: ApplicationPage[] = [
       heading: "Qualify the assembly before scheduling bulk supply",
       paragraphs: [
         "A bolt’s longitudinal tensile result describes only one possible limit. Nut engagement, plate bearing, grout bond and installation quality may govern the installed support. Define test methods and acceptance criteria for the full assembly.",
-        "Permanent support carries sustained load for its whole service life, so creep rupture must be covered. ASTM D7337/D7337M tests FRP bars for it, and concrete design codes limit sustained stress in GFRP to a fraction of the design tensile strength (0.30 in ACI 440.11-22).",
+        "Permanent support carries sustained load for its whole service life, so creep rupture must be covered. ASTM D7337/D7337M provides a test method for FRP bars; define the permitted sustained load from the ground-support design and qualification evidence. ACI 440.11 covers GFRP-reinforced concrete and does not establish an allowable load for a rock-bolt assembly.",
         "Keep trial quantities and production release as separate milestones. Record the exact bar, accessories and installation materials used in qualification so a later substitution does not silently change the approved system."
       ]
     },
     lastModified: "2026-10-03",
     image: "/images/applications/frp-mining-tunneling.svg",
-    imageAlt: "Diagram of a GFRP ground-support assembly in rock, labeled as qualified as a system",
-    imageNote: "Concept diagram",
-    imageCaption: "Bolt, plate and nut in grouted ground, shown as one assembly to qualify. The drawing does not establish a support pattern or bolt capacity.",
+    imageAlt: "Longitudinal grouted GFRP rock-bolt detail showing surrounding rock, grout annulus, bar, bearing plate and nut at the excavation face.",
+    imageNote: "Grouted-bolt longitudinal detail",
+    imageCaption: "The bar lies within the grouted borehole, and the nut bears against a plate at the rock face. Bar strength, grout bond and the face assembly form one support system.",
     imageSize: {
       width: 900,
       height: 600
@@ -232,9 +232,9 @@ export const applicationPages: ApplicationPage[] = [
     },
     lastModified: "2026-10-03",
     image: "/images/applications/frp-utility-fencing.svg",
-    imageAlt: "Diagram of a fiberglass fence panel with posts, rails and pickets",
-    imageNote: "Concept diagram",
-    imageCaption: "Posts, rails and picket infill. Post spacing, foundations and electrical clearances are not established by the drawing.",
+    imageAlt: "FRP picket fence with rail-to-post brackets and base plates anchored into concrete foundations.",
+    imageNote: "Surface-mounted fence bay",
+    imageCaption: "Rail brackets transfer fence loads to posts; base plates and embedded anchors connect the posts to concrete foundations. Hardware and electrical interfaces are project-specific.",
     imageSize: {
       width: 900,
       height: 600
@@ -301,9 +301,9 @@ export const applicationPages: ApplicationPage[] = [
     },
     lastModified: "2026-10-03",
     image: "/images/applications/frp-swimming-pool-facilities.svg",
-    imageAlt: "Section through a pool shell with reinforcement placed to an engineered schedule",
-    imageNote: "Concept diagram",
-    imageCaption: "Pool shell with reinforcement to an engineered schedule. Bar size, cover and the bonding arrangement are not established by the drawing.",
+    imageAlt: "Concrete pool-shell section showing GFRP bars within the concrete cover, factory-formed corner bars and lap regions.",
+    imageNote: "Pool-shell reinforcement section",
+    imageCaption: "Bars sit inside the concrete shell with cover. Factory-formed corner bars overlap the straight bars at the marked lap regions; placement follows the engineered reinforcement schedule.",
     imageSize: {
       width: 900,
       height: 600
@@ -398,9 +398,9 @@ export const applicationPages: ApplicationPage[] = [
     intro: "Plan a fiberglass crossarm around the complete pole assembly. Start with conductor arrangement, structural actions and electrical clearances, then define the profile, holes, brackets, insulators and evidence required by the utility.",
     environment: "Overhead distribution pole replacements, new lines and coastal or humid networks where a qualified composite crossarm may reduce exposure to timber decay or steel corrosion.",
     image: "/images/applications/frp-utility-crossarm-schematic.svg",
-    imageAlt: "Schematic utility pole with a rectangular FRP crossarm, three insulators, conductors, center mount and braces",
-    imageNote: "Concept schematic · not a construction drawing",
-    imageCaption: "Typical tangent-pole arrangement. Insulator positions, hardware and member capacity depend on the approved utility drawing and tested assembly.",
+    imageAlt: "End-on FRP crossarm with separate phase A, B and C conductors, individual insulators, a center pole mount and two braces.",
+    imageNote: "End-on distribution schematic",
+    imageCaption: "The three phase conductors run into and out of the page, each on its own insulator. Leaders identify the crossarm member, center pole mount and brace connections.",
     recommendedProfiles: ["Pultruded rectangular or square hollow crossarm profile to an approved drawing", "Factory-cut and drilled members with specified end treatment", "Braces, mounts and hardware only when included in the agreed supply scope"],
     resinSystem: "Specify the actual glass reinforcement, resin, surface protection, moisture control and cut-edge treatment for the site. Request electrical and weathering evidence for the offered laminate and assembly; a material name is not a voltage rating.",
     standards: ["ASTM D8019 · assembled flexure", "ASTM D2303 · tracking and erosion", "ASTM G154 · UV exposure", "Utility / local line code"],
@@ -432,7 +432,7 @@ export const applicationPages: ApplicationPage[] = [
     imageAlt:
       "Cooling tower access walkway with FRP grating, yellow handrails and structural supports above the water basin",
     imageSize: { width: 1536, height: 1024 },
-    imageCaption: "Cooling tower access above the water basin. Member sizes, resin and connections require project design.",
+    imageCaption: "Access walkway above a cooling-tower basin. Grating loads pass into support framing; the fan, fill pack and process equipment have separate supports. The image does not establish member sizes, material grades or a completed F1 installation.",
     recommendedProfiles: [
       "I-beams and channels for primary support members",
       "Square tubes for frames, posts, and bracing",
@@ -495,7 +495,7 @@ export const applicationPages: ApplicationPage[] = [
       "Gray closed-top FRP deck panels with an anti-slip surface on a coastal pedestrian bridge leading to a marina and vessel-access gangway",
     imageSize: { width: 1672, height: 941 },
     imageCaption:
-      "Closed-top FRP decking for coastal pedestrian bridges, marina walkways and vessel access. Final panel sizes, supports and connections require project-specific engineering.",
+      "Closed-top decking concept for pedestrian access. Panel spanning direction, supporting beams, bearing, uplift fixings and guardrail connections need coordinated design. This image does not establish a vehicle load rating or an installed project.",
     recommendedProfiles: [
       "Closed-top deck panels for continuous walking surfaces",
       "Pultruded gratings for drainage and ventilation",
@@ -620,7 +620,7 @@ export const applicationPages: ApplicationPage[] = [
     imageAlt:
       "Chemical tank access platform with FRP grating, yellow handrails, stair and structural supports",
     imageSize: { width: 1536, height: 1024 },
-    imageCaption: "Tank access platform with grating, handrails and a stair. Members, connections and resin are confirmed by project design.",
+    imageCaption: "Platform grating, edge protection and stair supported by a braced or otherwise engineered frame. The process tank and pipework require their own supports. The image does not identify material grades or demonstrate structural or fall-protection compliance.",
     recommendedProfiles: [
       "FRP I-beams and channels for primary and secondary framing",
       "Molded or pultruded FRP gratings for walking surfaces",

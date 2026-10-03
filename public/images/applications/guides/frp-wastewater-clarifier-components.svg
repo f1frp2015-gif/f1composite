@@ -5,15 +5,24 @@
 <rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
 <rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Clarifier component interfaces</text><text x="42" y="89" font-size="21">Moving collector flights and static overflow components</text>
 
-<path d="M150 205V550H1040V205" class="steel"/><path d="M165 280H1025V530H165Z" fill="#e2f1f5"/>
-<path d="M250 360H840Q905 360 905 425Q905 490 840 490H250Q185 490 185 425Q185 360 250 360Z" fill="none" stroke="#929da8" stroke-width="12"/>
-<g fill="#00a199"><rect x="300" y="343" width="18" height="167"/><rect x="515" y="343" width="18" height="167"/><rect x="730" y="343" width="18" height="167"/></g>
-<path d="M995 255V440" stroke="#031697" stroke-width="18"/><path d="M1030 268l17 -25 17 25 17 -25" fill="none" stroke="#031697" stroke-width="9"/>
-<path d="M374 398H478" class="arrow"/><text x="344" y="327" class="small">COLLECTOR DIRECTION</text>
-<path d="M523 350V240H450" class="leader"/><text x="282" y="225" class="label">Pultruded flight</text>
-<path d="M993 425H920V590" class="leader"/><text x="737" y="620" class="label">Scum baffle</text>
-<path d="M1060 246V205H922" class="leader"/><text x="827" y="189" class="label">Overflow weir</text>
-<path d="M310 507V590H235" class="leader"/><text x="148" y="620" class="label">Wear interface</text>
+<path d="M145 300H1030V535H295L240 595H180L145 535Z" fill="#e2f1f5"/>
+<path d="M140 260V535L180 600H240L295 535H1040V300H1120V405" class="steel"/>
+<path d="M145 300H1025" stroke="#72b7cf" stroke-width="3"/>
+<path d="M330 312H840Q870 312 870 342V475Q870 505 840 505H330Q300 505 300 475V342Q300 312 330 312Z" fill="none" stroke="#81909e" stroke-width="7"/>
+<g fill="#d9e1e8" stroke="#657c8e" stroke-width="4"><circle cx="330" cy="342" r="30"/><circle cx="840" cy="342" r="30"/><circle cx="330" cy="475" r="30"/><circle cx="840" cy="475" r="30"/></g>
+<g fill="#00a199"><path d="M405 286h16v47h-16zM565 286h16v47h-16zM725 286h16v47h-16zM405 488h16v43h-16zM565 488h16v43h-16zM725 488h16v43h-16z"/></g>
+<path d="M365 535H810" stroke="#233a50" stroke-width="5"/><path d="M398 531h31M558 531h31M718 531h31" stroke="#edb529" stroke-width="7"/>
+<path d="M470 260H645" class="arrow"/><path d="M675 465H480" class="arrow"/><text x="458" y="235" class="small">SURFACE SCUM →</text><text x="468" y="435" class="small">SLUDGE TO HOPPER</text>
+<path d="M210 598V635H300" fill="none" stroke="#81909e" stroke-width="10"/>
+<path d="M900 285v25q18 22 36 0v-25" fill="#d9e1e8" stroke="#657c8e" stroke-width="5"/>
+<path d="M970 275V380" stroke="#031697" stroke-width="12"/><path d="M1036 301V391" stroke="#031697" stroke-width="8"/>
+<path d="M915 398H1000V310H1085V360" fill="none" stroke="#72b7cf" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="76" y="192" class="label">Flight (end view)</text><path d="M282 200H414V284" class="leader"/>
+<text x="720" y="174" class="small">Scum trough</text><path d="M858 180H917V280" class="leader"/>
+<text x="964" y="215" class="small">Fixed weir</text><path d="M1036 223V292" class="leader"/>
+<text x="855" y="584" class="label">Scum baffle</text><path d="M970 567V384" class="leader"/>
+<text x="353" y="600" class="small">Wear shoe / rail</text><path d="M575 592V538" class="leader"/>
+<text x="85" y="663" class="small">Sludge outlet</text><text x="678" y="659" class="small">LONGITUDINAL SECTION · NOT TO SCALE</text>
 <rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
 <text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Moving assembly</text><text x="38" y="769" style="fill:#fff;font-size:19px">Flight • attachment • wear shoe • chain</text>
 <text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Static hydraulic parts</text><text x="625" y="769" style="fill:#fff;font-size:19px">Weir crest • baffle • supports • seals</text>

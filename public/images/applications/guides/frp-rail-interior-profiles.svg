@@ -1,18 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-<title id="title">Railway secondary profile interfaces</title><desc id="desc">Freeze the installed construction before fire qualification. Location • function • load path • attachment. Resin • reinforcement • thickness • finish • adhesive. Schematic, not to scale.</desc>
+<title id="title">Railway secondary profile interfaces</title><desc id="desc">Transverse rail interior schematic with carbody attachments, secondary FRP support profiles, attached equipment and a mechanically retained interior panel. The connected load path leads into the primary carbody. No vehicle approval is implied.</desc>
 <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8eef2" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#00a199" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:Arial,sans-serif;fill:#233a50}.label{font-size:25px;font-weight:600}.small{font-size:19px;letter-spacing:.7px}.leader{fill:none;stroke:#657c8e;stroke-width:2.5}.steel{fill:none;stroke:#81909e;stroke-width:10}.arrow{fill:none;stroke:#00a199;stroke-width:5;marker-end:url(#arrow)}</style>
 <rect width="1200" height="800" fill="#f8fafb"/><rect y="118" width="1200" height="560" fill="url(#grid)"/>
 <rect x="0" width="12" height="118" fill="#00a199"/><text x="42" y="53" font-size="31" font-weight="700">Railway secondary profile interfaces</text><text x="42" y="89" font-size="21">Freeze the installed construction before fire qualification</text>
 
-<path d="M213 559V277Q600 82 987 277V559" stroke="#81909e" stroke-width="17" fill="none"/><path d="M278 548V320Q600 188 922 320V548" stroke="#c8d2da" stroke-width="10" fill="none"/>
-<path d="M305 302H892M376 284V420M827 286V420" stroke="#00a199" stroke-width="19" fill="none"/>
-<path d="M324 420H878V444H324Z" fill="#dbe2e8" stroke="#8b99a6" stroke-width="4"/>
-<rect x="585" y="325" width="156" height="79" rx="8" fill="#e5ba4e"/>
-<path d="M373 336H175V399" class="leader"/><text x="125" y="443" class="label">Support rail</text>
-<path d="M789 447V548H811" class="leader"/><text x="736" y="598" class="label">Interior panel</text>
-<path d="M664 326V253H800" class="leader"/><text x="830" y="247" class="label">Equipment</text>
-<text x="325" y="553" class="small">SECONDARY COMPONENTS — NOT PRIMARY CARBODY STRUCTURE</text>
+<!-- Transverse interior section with real attachment path into carbody. -->
+<path d="M206 555V281Q600 87 994 281V555" stroke="#81909e" stroke-width="17" fill="none"/>
+<path d="M285 248V295H330M915 248V295H870" stroke="#657c8e" stroke-width="14" fill="none"/>
+<circle cx="285" cy="248" r="9" fill="#f8fafb" stroke="#657c8e" stroke-width="4"/><circle cx="915" cy="248" r="9" fill="#f8fafb" stroke="#657c8e" stroke-width="4"/>
+<rect x="310" y="287" width="580" height="24" fill="#00a199" stroke="#0d675f" stroke-width="3"/>
+<path d="M368 311V451H405M832 311V451H795" stroke="#00a199" stroke-width="16" fill="none"/>
+<path d="M536 311V352H551M689 311V352H674" stroke="#657c8e" stroke-width="9" fill="none"/>
+<rect x="544" y="349" width="139" height="69" rx="5" fill="#e5ba4e" stroke="#8b763c" stroke-width="3"/>
+<rect x="322" y="451" width="556" height="23" fill="#dbe2e8" stroke="#8b99a6" stroke-width="3"/>
+<path d="M388 443V483M812 443V483" stroke="#657c8e" stroke-width="5"/>
+<circle cx="388" cy="483" r="6" fill="#657c8e"/><circle cx="812" cy="483" r="6" fill="#657c8e"/>
+<text x="68" y="176" class="label">Carbody attachment</text><path d="M289 190V237" class="leader"/>
+<text x="806" y="176" class="label">Primary carbody</text><path d="M929 191V250" class="leader"/>
+<text x="64" y="405" class="label">FRP support</text><text x="64" y="435" class="label">profiles</text><path d="M232 397H368" class="leader"/>
+<text x="893" y="396" class="label">Equipment</text><path d="M881 386H683" class="leader"/>
+<text x="459" y="549" class="label">Retained interior panel</text><path d="M602 520V474" class="leader"/>
+<text x="234" y="610" class="small">Panel / equipment → secondary supports → attachments → carbody</text>
+<text x="302" y="643" class="small">Candidate secondary components • no rail approval implied</text>
 <rect y="687" width="1200" height="113" fill="#031e35"/><path d="M599 708V778" stroke="#426174"/>
 <text x="38" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Specify the exact component</text><text x="38" y="769" style="fill:#fff;font-size:19px">Location • function • load path • attachment</text>
 <text x="625" y="729" style="fill:#79d8ce;font-size:22px;font-weight:700">Control the tested construction</text><text x="625" y="769" style="fill:#fff;font-size:19px">Resin • reinforcement • thickness • finish • adhesive</text>

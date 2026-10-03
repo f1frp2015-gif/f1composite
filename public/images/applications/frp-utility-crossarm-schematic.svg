@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
   <title id="title">FRP crossarm on a distribution pole</title>
-  <desc id="desc">Concept schematic showing three line insulators, conductors, a rectangular composite crossarm, pole center mount and two braces.</desc>
+  <desc id="desc">End-on schematic showing three electrically separate phase conductors perpendicular to an FRP crossarm, each supported by its own line insulator. Leaders identify the crossarm, center mount and a brace. Not to scale.</desc>
   <defs>
     <linearGradient id="sky" x2="0" y2="1">
       <stop stop-color="#e7f1f4"/>
@@ -21,8 +21,7 @@
   <rect width="1200" height="750" fill="url(#grid)" opacity=".46"/>
   <path d="M0 626C190 597 314 636 482 618S810 586 1200 621V750H0Z" fill="#dce9df"/>
   <path d="M0 660C250 639 365 677 560 650S920 642 1200 671V750H0Z" fill="#cbded1" opacity=".65"/>
-  <path d="M0 243C112 249 166 251 260 243S488 238 600 243 818 250 940 243 1108 238 1200 242" fill="none" stroke="#3b4d56" stroke-width="5"/>
-  <path d="M0 257C124 251 178 250 260 257S489 262 600 257 832 252 940 257 1097 262 1200 257" fill="none" stroke="#64747c" stroke-width="2" opacity=".55"/>
+  <!-- End-on view: the three phase conductors run perpendicular to the crossarm. -->
   <path d="M556 294H644L635 750H565Z" fill="url(#pole)" stroke="#78878a" stroke-width="3"/>
   <path d="M572 301H582L588 750H578Z" fill="#d8dcda" opacity=".45"/>
   <path d="M445 365L588 508M755 365L612 508" fill="none" stroke="#667c81" stroke-width="13" stroke-linecap="round"/>
@@ -33,13 +32,15 @@
   <rect x="562" y="313" width="76" height="67" rx="5" fill="none" stroke="#5b676c" stroke-width="9"/>
   <circle cx="579" cy="345" r="5" fill="#d3d9d8"/><circle cx="621" cy="345" r="5" fill="#d3d9d8"/>
   <g fill="#e5ebea" stroke="#65777d" stroke-width="3">
-    <path d="M247 319v-55h26v55zM587 319v-55h26v55zM927 319v-55h26v55z"/>
+    <path d="M247 319v-64h26v64zM587 319v-64h26v64zM927 319v-64h26v64z"/>
     <path d="M237 279h46v8h-46zM577 279h46v8h-46zM917 279h46v8h-46z"/>
     <path d="M241 292h38v8h-38zM581 292h38v8h-38zM921 292h38v8h-38z"/>
     <path d="M245 305h30v8h-30zM585 305h30v8h-30zM925 305h30v8h-30z"/>
   </g>
-  <g fill="#405760"><circle cx="260" cy="244" r="7"/><circle cx="600" cy="244" r="7"/><circle cx="940" cy="244" r="7"/></g>
-  <g fill="none" stroke="#47747b" stroke-width="2"><path d="M338 398h-90v-48"/><path d="M750 468h146v-90"/><path d="M675 543h165"/></g>
+  <g fill="#405760" stroke="#ffffff" stroke-width="2"><circle cx="260" cy="244" r="12"/><circle cx="600" cy="244" r="12"/><circle cx="940" cy="244" r="12"/></g>
+  <g fill="#344d56" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle"><text x="260" y="216">Phase A</text><text x="600" y="216">Phase B</text><text x="940" y="216">Phase C</text></g>
+  <text x="600" y="158" fill="#344d56" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle">End-on view: three separate conductors run into / out of the page</text>
+  <g fill="none" stroke="#47747b" stroke-width="2"><path d="M338 398h-90v-48"/><path d="M896 459H793V345H638"/><path d="M840 546H745V414H706"/></g>
   <g fill="#ffffff" stroke="#cadfdf" stroke-width="2"><rect x="68" y="383" width="270" height="79" rx="7"/><rect x="896" y="420" width="234" height="80" rx="7"/><rect x="840" y="507" width="290" height="80" rx="7"/></g>
   <g fill="#176268" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1"><text x="89" y="409">PULTRUDED FRP</text><text x="917" y="446">POLE INTERFACE</text><text x="861" y="533">BRACE &amp; HARDWARE</text></g>
   <g fill="#344d56" font-family="Arial, Helvetica, sans-serif" font-size="16"><text x="89" y="437">Rectangular crossarm member</text><text x="917" y="474">Center mount and bolts</text><text x="861" y="561">Project-specific connections</text></g>

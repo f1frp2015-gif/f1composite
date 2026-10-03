@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ApplicationArtwork from "@/components/ui/ApplicationArtwork";
 import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
@@ -73,7 +73,7 @@ export default function UtilityCrossarmApplication({ page }: { page: Application
       title={page.h1}
       description={page.intro}
       figure={<Figure number={1} title="Distribution pole crossarm arrangement" note="Concept schematic · not to scale" caption={page.imageCaption} bleed>
-        <div className="relative aspect-[16/10]"><Image src={page.image} alt={page.imageAlt} fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" unoptimized preload /></div>
+        <ApplicationArtwork src={page.image} alt={page.imageAlt} width={page.imageSize?.width} height={page.imageSize?.height} />
       </Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications", href: "/applications" }, { label: "FRP utility crossarms" }]}
       actions={{ primary: { label: "Discuss a crossarm", href: quoteHref }, secondary: { label: "View specification inputs", href: "#specification", variant: "secondary" }, stickyMobile: true }}
