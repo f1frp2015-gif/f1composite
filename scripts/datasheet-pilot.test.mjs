@@ -71,7 +71,7 @@ test("family size tables and the span tables link sizes to their datasheets", ()
     assert.match(page, /await loadFamilySizes\("[a-z-]+"\)/, `${family} loads its sizes with loadFamilySizes`);
     assert.match(page, /<FamilySizeTable\b/, `${family} shows its sizes in FamilySizeTable`);
   }
-  assert.match(read("lib/catalog/familySizes.ts"), /datasheet: datasheetHrefForModel\(model\)/);
+  assert.match(read("lib/catalog/familySizes.ts"), /datasheet: `\/datasheets\/\$\{slug\}`/);
   assert.match(read("components/products/FamilySizeTable.tsx"), /<Link href=\{row\.datasheet\}/);
   assert.match(read("app/frp-span-tables/page.tsx"), /datasheetHrefs=\{datasheetHrefs\}/);
 });

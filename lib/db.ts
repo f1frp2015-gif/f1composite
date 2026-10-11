@@ -1,4 +1,5 @@
 import postgres from "postgres";
+import { acquisitionReferrer, parseAcquisition, type Acquisition } from "@/lib/acquisition";
 
 // Lazy, build-safe DB access.
 //
@@ -55,6 +56,10 @@ async function ensureTable(sql: NonNullable<ReturnType<typeof getSql>>) {
   await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS realized_margin NUMERIC`;     // gross margin % on won deals
   await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS loss_reason     TEXT`;        // price | lead_time | spec | trust | other | null
   await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS outcome_note    TEXT`;
+  await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS acquisition JSONB`;
+  await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS qualification_status TEXT`;
+  await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS qualification_at TIMESTAMPTZ`;
+  await sql`ALTER TABLE f1composite_inquiries ADD COLUMN IF NOT EXISTS qualification_note TEXT`;
   tableReady = true;
 }
 
@@ -68,6 +73,7 @@ export interface InquiryInput {
   message: string;
   source?: string | null;
   context?: unknown;
+  acquisition?: Acquisition | null;
   userAgent?: string | null;
   referer?: string | null;
 }
@@ -78,13 +84,15 @@ export async function insertInquiry(input: InquiryInput): Promise<number | null>
   if (!sql) return null;
   await ensureTable(sql);
   const contextJson = input.context == null ? null : JSON.stringify(input.context);
+  const acquisition = parseAcquisition(input.acquisition);
+  const acquisitionJson = acquisition ? JSON.stringify(acquisition) : null;
   const rows = await sql`
     INSERT INTO f1composite_inquiries
-      (name, email, company, phone, country, inquiry_type, message, source, context, user_agent, referer)
+      (name, email, company, phone, country, inquiry_type, message, source, context, acquisition, user_agent, referer)
     VALUES
       (${input.name}, ${input.email}, ${input.company ?? null}, ${input.phone ?? null},
        ${input.country ?? null}, ${input.inquiryType ?? null}, ${input.message},
-       ${input.source ?? null}, ${contextJson}::jsonb, ${input.userAgent ?? null}, ${input.referer ?? null})
+       ${input.source ?? null}, ${contextJson}::jsonb, ${acquisitionJson}::jsonb, ${input.userAgent ?? null}, ${acquisitionReferrer(input.referer)})
     RETURNING id
   `;
   return (rows[0]?.id as number) ?? null;
@@ -108,6 +116,10 @@ export interface InquiryRow {
   message: string;
   source: string | null;
   context: unknown;
+  acquisition: Acquisition | null;
+  qualification_status: QualificationStatus | null;
+  qualification_at: string | null;
+  qualification_note: string | null;
   email_sent: boolean;
   outcome: string | null;          // won | lost | pending | null
   outcome_at: string | null;
@@ -131,7 +143,8 @@ export async function listInquiries(opts: {
   const limit = Math.min(Math.max(opts.limit ?? 200, 1), 500);
   const rows = await sql`
     SELECT id, created_at, name, email, company, phone, country,
-           inquiry_type, message, source, context, email_sent,
+           inquiry_type, message, source, context, acquisition, email_sent,
+           qualification_status, qualification_at, qualification_note,
            outcome, outcome_at, realized_margin, loss_reason, outcome_note
     FROM f1composite_inquiries
     WHERE id > ${sinceId}
@@ -149,6 +162,25 @@ export async function listInquiries(opts: {
 
 const VALID_OUTCOME = new Set(["won", "lost", "pending"]);
 const VALID_LOSS_REASON = new Set(["price", "lead_time", "spec", "trust", "other"]);
+
+export type QualificationStatus = "unreviewed" | "qualified" | "quotable" | "not-fit";
+export const QUALIFICATION_STATUSES: readonly QualificationStatus[] = ["unreviewed", "qualified", "quotable", "not-fit"];
+
+/** Sales must verify the specification before setting quotable; never inferred from message length. */
+export async function setInquiryQualification(id: number, status: QualificationStatus, note: string | null): Promise<{ ok: boolean; error?: string }> {
+  if (!QUALIFICATION_STATUSES.includes(status)) return { ok: false, error: "qualificationStatus must be unreviewed | qualified | quotable | not-fit" };
+  if (note !== null && note.length > 2000) return { ok: false, error: "qualificationNote is too long" };
+  if (status === "quotable" && !note?.trim()) return { ok: false, error: "Record the confirmed specification and remaining conditions in qualificationNote before marking quotable" };
+  const sql = getSql();
+  if (!sql) return { ok: false, error: "DB not configured" };
+  await ensureTable(sql);
+  const rows = await sql`
+    UPDATE f1composite_inquiries
+       SET qualification_status = ${status}, qualification_at = now(), qualification_note = ${note?.trim() || null}
+     WHERE id = ${id} RETURNING id
+  `;
+  return rows.length ? { ok: true } : { ok: false, error: "inquiry not found" };
+}
 
 /** Set the deal outcome on one inquiry. Returns {ok:false,error} on bad input / no row. */
 export async function setInquiryOutcome(
@@ -187,6 +219,8 @@ export interface InquiryMetrics {
   loss_reasons: { loss_reason: string | null; n: number }[];
   by_country: { country: string | null; total: number; won: number; lost: number; win_rate: number | null }[];
   by_source: { source: string | null; total: number; won: number; lost: number; win_rate: number | null }[];
+  by_acquisition: { utm_source: string | null; referrer_origin: string | null; total: number; qualified: number; quotable: number; won: number }[];
+  qualification: { status: string; total: number }[];
 }
 
 const winRate = (won: number, lost: number): number | null =>
@@ -233,15 +267,28 @@ export async function inquiryMetrics(opts: { weeks?: number } = {}): Promise<Inq
     FROM f1composite_inquiries GROUP BY country ORDER BY total DESC LIMIT 30
   `) as { country: string | null; total: number; won: number; lost: number }[];
 
-  // Attribution by lead source (contact / calculator / ai-chat / ai-sourcing …)
-  // so the inquiry→deal value of each acquisition surface — the calculator in
-  // particular — can be measured, not guessed.
+  // On-site entry source, separate from observed external acquisition below.
   const sourceRows = (await sql`
     SELECT source, count(*)::int AS total,
            count(*) FILTER (WHERE outcome = 'won')::int  AS won,
            count(*) FILTER (WHERE outcome = 'lost')::int AS lost
     FROM f1composite_inquiries GROUP BY source ORDER BY total DESC LIMIT 30
   `) as { source: string | null; total: number; won: number; lost: number }[];
+
+  const acquisitionRows = (await sql`
+    SELECT acquisition->'sessionTouch'->'utm'->>'source' AS utm_source,
+           acquisition->'sessionTouch'->>'referrerOrigin' AS referrer_origin,
+           count(*)::int AS total,
+           count(*) FILTER (WHERE qualification_status IN ('qualified', 'quotable'))::int AS qualified,
+           count(*) FILTER (WHERE qualification_status = 'quotable')::int AS quotable,
+           count(*) FILTER (WHERE outcome = 'won')::int AS won
+    FROM f1composite_inquiries
+    GROUP BY 1, 2 ORDER BY total DESC LIMIT 100
+  `) as InquiryMetrics["by_acquisition"];
+  const qualificationRows = (await sql`
+    SELECT coalesce(qualification_status, 'unreviewed') AS status, count(*)::int AS total
+    FROM f1composite_inquiries GROUP BY 1 ORDER BY total DESC
+  `) as InquiryMetrics["qualification"];
 
   return {
     decided: totals.won + totals.lost,
@@ -254,5 +301,7 @@ export async function inquiryMetrics(opts: { weeks?: number } = {}): Promise<Inq
     loss_reasons: lossRows,
     by_country: countryRows.map((r) => ({ ...r, win_rate: winRate(r.won, r.lost) })),
     by_source: sourceRows.map((r) => ({ ...r, win_rate: winRate(r.won, r.lost) })),
+    by_acquisition: acquisitionRows,
+    qualification: qualificationRows,
   };
 }

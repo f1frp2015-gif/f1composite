@@ -8,6 +8,7 @@ import { FAMILY_ORDER, PROFILE_FAMILIES } from "@/lib/catalog/profileFamilies";
 import type { ShapeId } from "@/lib/catalog/shapes";
 import type { FinderRow } from "@/lib/profileFinder";
 import { buildRfqHref } from "@/lib/rfq";
+import { catalogRfqContext, catalogEvidenceHref } from "@/lib/catalog/identity";
 
 const MAX_COMPARE = 4;
 
@@ -58,7 +59,7 @@ function parse(search: string): Filters {
     ixMin: text("ix"),
     sort: sort in SORTS ? (sort as SortKey) : "size",
     desc: direction === "desc",
-    compare: (params.get("cmp") ?? "").split(",").filter(Boolean).slice(0, MAX_COMPARE),
+    compare: [...new Set((params.get("cmp") ?? "").split(",").filter(Boolean))].slice(0, MAX_COMPARE),
   };
 }
 
@@ -80,7 +81,7 @@ const toNumber = (text: string) => {
 };
 
 const dimension = (value: number | null) => (value == null ? "—" : value.toLocaleString("en-US", { maximumFractionDigits: 1 }));
-const mass = (value: number) => value.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+const mass = (value: number | null) => value == null ? "—" : value.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 2 });
 const property = (value: number) =>
   value >= 10
     ? value.toLocaleString("en-US", { maximumFractionDigits: 1 })
@@ -94,8 +95,8 @@ const CHIP_LABELS: Record<ShapeId, string> = { i_beam: "I-beam", channel: "Chann
 const inputClass = "min-h-[40px] w-full rounded-control border border-border-default bg-white px-[10px] text-f14 text-t1 placeholder:text-t3";
 const labelClass = "font-mono text-f12 text-t3";
 
-export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
-  const search = useSyncExternalStore(subscribe, () => window.location.search, () => "");
+export default function ProfileFinder({ rows, initialSearch = "" }: { rows: FinderRow[]; initialSearch?: string }) {
+  const search = useSyncExternalStore(subscribe, () => window.location.search, () => initialSearch);
   const filters = useMemo(() => parse(search), [search]);
 
   function update(patch: Partial<Filters>) {
@@ -111,11 +112,11 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
         (!filters.shapes.length || filters.shapes.includes(row.shape)) &&
         (dMin == null || row.d >= dMin) &&
         (dMax == null || row.d <= dMax) &&
-        (massMax == null || row.mass <= massMax) &&
+        (massMax == null || (row.mass != null && row.mass <= massMax)) &&
         (ixMin == null || row.Ix >= ixMin),
     );
     const key = filters.sort;
-    const sorted = key === "size" ? matching : [...matching].sort((a, b) => a[key] - b[key]);
+    const sorted = key === "size" ? matching : [...matching].sort((a, b) => (a[key] ?? Number.POSITIVE_INFINITY) - (b[key] ?? Number.POSITIVE_INFINITY));
     return filters.desc ? [...sorted].reverse() : sorted;
   }, [rows, filters]);
 
@@ -132,7 +133,8 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
   const quoteHref = buildRfqHref({
     source: "profile-finder",
     product: "Standard FRP profiles",
-    specification: selected.map((row) => row.model).join(", "),
+    specification: selected.map((row) => `${row.model} (${row.configuration.formulationCode ?? "material to confirm"})`).join(", "),
+    context: catalogRfqContext(selected.map((row) => row.configuration)),
     message: `Please quote these standard profiles: ${selected.map((row) => row.model).join(", ")}. Length per piece, quantity, resin and color:`,
   });
 
@@ -152,6 +154,7 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
       <Link href={`/datasheets/${row.slug}`} prefetch={false} className="font-semibold text-teal-text hover:underline">
         Datasheet
       </Link>
+      {" · "}<Link href={catalogEvidenceHref(row.configuration, row.categorySlug)} prefetch={false} className="font-semibold text-teal-text hover:underline">Evidence scope</Link>
       {row.dxf ? (
         <>
           {" · "}
@@ -165,6 +168,7 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
 
   return (
     <div className={selected.length ? "pb-[96px]" : undefined}>
+      <p className="mb-[18px] text-f14 leading-golden text-t2">Rows use each section&apos;s default material dataset. Material values are references unless an applicable report is identified; availability needs engineering confirmation. Internal catalog references are website IDs, not manufacturer SKUs.</p>
       <div className="grid gap-[28px] lg:grid-cols-[260px_minmax(0,1fr)]">
         <details open className="group self-start rounded-card border border-border-default bg-bg2 p-[16px] lg:sticky lg:top-[96px]">
           <summary className="cursor-pointer text-f16 font-bold text-t1 lg:pointer-events-none lg:list-none">
@@ -354,6 +358,10 @@ export default function ProfileFinder({ rows }: { rows: FinderRow[] }) {
                 {(
                   [
                     ["Family", (row: FinderRow) => row.family],
+                    ["Internal catalog reference", (row: FinderRow) => row.configuration.sectionId ?? "Not assigned"],
+                    ["Material dataset", (row: FinderRow) => row.configuration.formulationCode ?? "To confirm"],
+                    ["Evidence scope", (row: FinderRow) => row.configuration.evidence.summary],
+                    ["Catalog revision", (row: FinderRow) => row.configuration.catalogRevision],
                     ["D (mm)", (row: FinderRow) => dimension(row.d)],
                     ["B (mm)", (row: FinderRow) => dimension(row.b)],
                     ["t (mm)", (row: FinderRow) => dimension(row.t)],

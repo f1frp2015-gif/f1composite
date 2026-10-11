@@ -196,7 +196,8 @@ export default async function TubePage() {
             { key: "Wx", label: "Wx", unit: "cm³" },
           ]}
         />
-        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t2">The internal catalog references identify nominal cross-sections on this website, not manufacturer SKUs or mold numbers. Each row uses its displayed default material dataset and published catalog mass; another resin needs its own mass and evidence review. No public report is mapped to an exact round-tube and formulation combination. <Link href="/resources/evidence?category=round-tube" className="font-semibold text-teal-text underline">Check evidence scope</Link>.</p>
+        <p className="mt-[10px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
         <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           <Link href="/frp-span-tables#round-tube" className="underline underline-offset-4 hover:text-teal">
             Allowable loads by span

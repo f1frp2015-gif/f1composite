@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -7,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import SearchPalette from "@/components/search/SearchPalette";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/consent/CookieConsent";
+import AcquisitionTracker from "@/components/analytics/AcquisitionTracker";
 import ContactClickTracker from "@/components/contact/ContactClickTracker";
 import MobileContactBar from "@/components/contact/MobileContactBar";
 import JsonLd from "@/components/seo/JsonLd";
@@ -140,6 +142,7 @@ export default function RootLayout({
         {/* GA4 + Google Ads use the unified gtag() initialization above; the
             banner records the visitor's choice and updates consent. */}
         <CookieConsent />
+        <Suspense fallback={null}><AcquisitionTracker /></Suspense>
         {/* WhatsApp / email / phone click events, and the mobile quote + WhatsApp bar. */}
         <ContactClickTracker />
         <MobileContactBar />

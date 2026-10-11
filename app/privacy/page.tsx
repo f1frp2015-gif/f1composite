@@ -22,6 +22,8 @@ const cookies = [
   { name: "_ga, _ga_*", provider: "Google Analytics", purpose: "Tells visits apart so pages and visits can be counted", lasts: "Up to 2 years" },
   { name: "_gcl_au", provider: "Google Ads", purpose: "Links an ad click to a later enquiry", lasts: "90 days" },
   { name: "f1c_consent (local storage)", provider: "This site", purpose: "Remembers your cookie choice", lasts: "12 months" },
+  { name: "f1c_acquisition_first (local storage)", provider: "This site", purpose: "Remembers the first permitted landing page, referral origin and campaign tags", lasts: "90 days; removed when analytics is rejected" },
+  { name: "f1c_acquisition_session (session storage)", provider: "This site", purpose: "Links the current visit's landing page and source to an enquiry", lasts: "30 minutes of inactivity or until the tab closes" },
   { name: "f1_datasheet_lead_email (local storage)", provider: "This site", purpose: "Remembers that you already gave an email for datasheet downloads", lasts: "Until you clear it" },
   { name: "Drafts (session storage)", provider: "This site", purpose: "Keeps grating and rebar schedule drafts while you work", lasts: "Until you close the tab" },
 ];
@@ -34,7 +36,7 @@ export default function PrivacyPage() {
         tag="Legal"
         title="Privacy policy"
         description="How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
-        updated="2026-09-24"
+        updated="2026-10-11"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Privacy policy" },
@@ -66,6 +68,14 @@ export default function PrivacyPage() {
                 you came from. The enquiry is stored in our database and emailed to our sales team. We use it to reply,
                 prepare a quotation and follow up on the project. When a quotation or order needs production input, the
                 details may be shared within our group (FengDu New Material and its production companies).
+              </p>
+              <p className="mb-[12px]">
+                When analytics is allowed, we also link the first and current visit&apos;s landing page, referring site
+                origin and campaign identifiers to your enquiry. We keep page paths, not full URL queries, search text
+                or fragments; campaign values must be short identifiers. The browser record expires after 90 days
+                and the current visit resets after 30 minutes of inactivity. Rejecting analytics removes these browser
+                records and stops collection. Previously submitted enquiry records remain under the enquiry retention
+                policy below. Missing sources remain unknown; we do not infer that a visit came from an AI assistant.
               </p>
               <h3 className={h3}>Datasheet downloads</h3>
               <p>

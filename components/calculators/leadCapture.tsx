@@ -2,13 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
+import { appendAcquisition } from "@/lib/acquisitionClient";
 
 export const track = trackEvent;
 
-/* Result-moment lead capture shared by the engineering calculators. The
-   single-field "email me this" converts the calc aha-moment without a page jump:
-   it POSTs to the same inquiry pipeline as the contact form (source-tagged, with
-   the full computed spec attached as JSONB context). */
+/* Send a review request with the calculator context through the inquiry pipeline.
+   Acceptance does not mean an automated result email or quotation was sent. */
 export function ResultLeadCapture({
   context,
   summary,
@@ -42,6 +41,7 @@ export function ResultLeadCapture({
       fd.set("message", summary);
       fd.set("source", source);
       fd.set("context", JSON.stringify(context));
+      appendAcquisition(fd);
       const res = await fetch("/api/contact", { method: "POST", body: fd });
       const j = await res.json().catch(() => ({}));
       if (res.ok && j.accepted === true && j.receiptId) {
@@ -61,15 +61,15 @@ export function ResultLeadCapture({
   if (status === "ok") {
     return (
       <div className="rounded-control border border-teal/30 bg-teal-bg p-[13px] text-f14 text-teal-text">
-        ✓ Sent. Our engineering team has your calculation and will acknowledge your requirements within one business day. A quotation follows specification review.
+        ✓ Review request received. Your calculation is attached for our engineering team. The team will reply to the email you provided after reviewing your requirements; no automatic result email or quotation has been issued.
       </div>
     );
   }
 
   return (
     <form onSubmit={submit} className="rounded-control border border-teal-border bg-teal-bg p-[13px]">
-      <div className="text-f14 font-semibold text-t1">Email me this result and a matching quote</div>
-      <p className="mt-[3px] text-f12 text-t3">Your inputs and results attach automatically — just add your email.</p>
+      <div className="text-f14 font-semibold text-t1">Send this calculation for engineering review</div>
+      <p className="mt-[3px] text-f12 text-t3">The calculation details attach to your request. Add your email for the team’s reply; quotation follows specification review.</p>
       <div className="mt-[8px] flex gap-[8px]">
         <input
           type="email"
@@ -85,7 +85,7 @@ export function ResultLeadCapture({
           disabled={status === "sending"}
           className="whitespace-nowrap rounded-control bg-teal px-[16px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : "Send"}
+          {status === "sending" ? "Sending…" : "Request review"}
         </button>
       </div>
       {status === "error" && <p className="mt-[5px] text-f12 text-fail">{err}</p>}

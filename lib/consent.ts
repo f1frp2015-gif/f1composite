@@ -39,6 +39,11 @@ const EXTRA_CONSENT_TIMEZONES = new Set([
 
 export type ConsentChoice = { analytics: boolean; ads: boolean };
 
+// Also remember this page's choice if browser storage is unavailable.
+let visitConsent: ConsentChoice | null = null;
+export function getVisitConsent(): ConsentChoice | null { return visitConsent; }
+export function setVisitConsent(choice: ConsentChoice | null): void { visitConsent = choice; }
+
 /** Should the banner ask this visitor? Unknown time zone: ask. */
 export function isConsentTimeZone(timeZone: string | undefined): boolean {
   if (!timeZone) return true;

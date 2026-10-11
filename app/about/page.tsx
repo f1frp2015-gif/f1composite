@@ -25,9 +25,10 @@ const milestones = [
   { year: "2017", event: "First export shipment: profiles to Southeast Asia" },
   { year: "2019", event: "KNOWHOW technical services start for custom profile development" },
   { year: "2021", event: "Catalog passes 100 standard pultruded profile types" },
-  { year: "2023", event: "Window and door systems division set up; PHI component certificate issued for the 90 series" },
+  { year: "2023", event: "Window and door systems division set up" },
   { year: "2024", event: "90-series windows supplied for Qinling Station, Antarctica" },
-  { year: "2025", event: "More than 200 engineered profiles, with customers on five continents" },
+  // PHI's public database for component 2491wi03 records certified since 25 July 2025.
+  { year: "2025", event: "Fengdu Passive GFRP 90 Series component listed by PHI as certified since 25 July 2025; more than 200 engineered profiles, with customers on five continents" },
 ];
 
 const publishedReports = [

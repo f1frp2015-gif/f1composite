@@ -1,6 +1,5 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 
 import { calculateThermalMovement, thermalMovementError, THERMAL_MATERIALS } from "../lib/thermalMovement.ts";
 import { buildProducts, nearestStandardProfile } from "../lib/catalog/standardProfiles.ts";
@@ -119,8 +118,8 @@ test("span tables use the shared basis and deep-link to a calculator pairing it 
   near(i200.cells[4].w, 5.51, 0.01);
   assert.match(i200.calculatorHref, /material=frp-e23/);
   assert.match(i200.calculatorHref, /method=lrfd-asce/);
-  const calculator = readFileSync(new URL("../app/frp-profile-calculator/ProfileCalculator.tsx", import.meta.url), "utf8");
-  assert.match(calculator, /"lrfd-asce": \["frp-asce-std", "frp-asce-high", "frp-e17", "frp-e23"\]/, "the span-table link must open without a method/material error");
+  const { METHOD_MATERIALS } = loadProjectModule("lib/profileCalculation.ts");
+  assert.ok(METHOD_MATERIALS["lrfd-asce"].includes("frp-e23"), "the span-table link must open without a method/material error");
 });
 
 test("guardrail check: OSHA point load, IBC line load and EN ISO 14122-3 test load", () => {

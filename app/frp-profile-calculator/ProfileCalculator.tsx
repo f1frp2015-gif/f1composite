@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import SectionTag from "@/components/ui/SectionTag";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import SectionPreview from "@/components/calculators/section/SectionPreview";
-import { calcArea, calcIx, calcShearArea, calcWx, getSectionDimensionError } from "@/lib/frpSectionProperties";
+import type { FrpSectionShape } from "@/lib/frpSectionProperties";
+import { METHOD_MATERIALS, PROFILE_LOAD_CASES, DEFAULT_BEAM_INPUTS, DEFAULT_EQ_INPUTS, calculateBeam, calculateEquivalence, type BeamInputs, type EquivalenceInputs, type ProfileInputs, type ProfileLoadType } from "@/lib/profileCalculation";
+import { createProfileSnapshot, parseProfileSnapshot, type ProfileCalculationSnapshot } from "@/lib/profileCalculationSnapshot";
+import { buildRfqHref } from "@/lib/rfq";
 import { findStandardProfile, nearestStandardProfile } from "@/lib/catalog/standardProfiles";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 import {
@@ -13,7 +16,6 @@ import {
   ENV_FACTORS,
   LOAD_DURATIONS,
   designResistance,
-  shearModulus,
   type DesignMaterial,
   type DesignMethod,
 } from "@/lib/frpDesignBasis";
@@ -34,11 +36,8 @@ import {
 type Material = DesignMaterial;
 const materials = DESIGN_MATERIALS;
 
-/* User-defined ("custom") FRP grade. Lets the user enter a grade that isn't in
-   the preset table — e.g. E40 (Austroads ATS5880's bridge-loadbearing tier;
-   above the EN 13706 E17/E23 range, needs high glass content or carbon hybrid).
-   These are the USER's own numbers, treated as a characteristic-level FRP grade;
-   not a published standard row. Defaults are an E40-representative starting point. */
+/* Editable characteristic inputs. Initial values are examples rather than a
+   qualified material grade; no parameters are inferred from an E-grade label. */
 type CustomMat = {
   E: number; E_T: number; G_LT: number; sigma: number; sigma_c: number; tau: number; density: number;
 };
@@ -88,9 +87,8 @@ function CustomGradeInputs({
       </div>
       <p className="text-f12 text-t3">
         These are your own characteristic values — not a published standard row.
-        E40 example: E_L ≈ 40 GPa (Austroads ATS5880 bridge-loadbearing tier; above
-        EN 13706 E17/E23, needs high glass content or a carbon hybrid). Confirm with
-        F1 Composite engineering before design use.
+        The starting values are editable examples, not a qualified material grade.
+        Replace every property with project-specific evidence and confirm with engineering before design use.
       </p>
     </div>
   );
@@ -101,12 +99,6 @@ const designMethods = DESIGN_METHODS;
 /* EN 13706 is a product standard, so its grade minimums can serve as the
    characteristic inputs of either design method. GB datasets stay with GB
    factors; the custom grade stays on the ASD screen. */
-const METHOD_MATERIALS: Record<DesignMethod, string[]> = {
-  "lrfd-asce": ["frp-asce-std", "frp-asce-high", "frp-e17", "frp-e23"],
-  "lrfd-cents19101": ["frp-e17", "frp-e23"],
-  "lrfd-gb50608": ["frp-gb50608-i", "frp-gb50608-ii"],
-  "asd": ["frp-e17", "frp-e23", "frp-gb50608-i", "frp-gb50608-ii", "frp-asce-std", "frp-asce-high", "custom"],
-};
 
 const DEFAULT_MATERIAL_BY_METHOD: Record<DesignMethod, string> = {
   "lrfd-asce": "frp-asce-std",
@@ -121,12 +113,7 @@ const envFactors = ENV_FACTORS;
    δ_shear/δ_bending = c·E·I / (G·A_v·L²), derived from each case's closed-form
    δ_s (UDL midspan: wL²/8GA_v ÷ 5wL⁴/384EI → 9.6; midspan point: 12;
    cantilever tip point: 3; cantilever UDL: 4). */
-const loadTypes = [
-  { id: "udl", label: "Uniform Distributed Load (UDL)", factor_M: 1 / 8, factor_d: 5 / 384, factor_V: 0.5, factor_s: 9.6 },
-  { id: "point-mid", label: "Point Load at Midspan", factor_M: 1 / 4, factor_d: 1 / 48, factor_V: 0.5, factor_s: 12 },
-  { id: "cantilever-point", label: "Cantilever — Point Load at Tip", factor_M: 1, factor_d: 1 / 3, factor_V: 1.0, factor_s: 3 },
-  { id: "cantilever-udl", label: "Cantilever — Uniform Load", factor_M: 1 / 2, factor_d: 1 / 8, factor_V: 1.0, factor_s: 4 },
-];
+const loadTypes = PROFILE_LOAD_CASES;
 
 const profileShapes = [
   { id: "i-beam", label: "I-Beam / Wide Flange" },
@@ -161,20 +148,6 @@ const PRESETS: Preset[] = [
   { id: "platform", label: "Platform bearer", shape: "i-beam", span: 1800, load: 10, loadType: "udl", matKey: "frp-asce-std", envKey: "outdoor", deflLimit: 360, dimH: 200, dimB: 100, dimTw: 10, dimTf: 10, designMethod: "lrfd-asce" },
 ];
 
-// Wall-slenderness advisory for local-buckling review. Outstanding (one-edge-
-// supported) elements — I/C flanges, angle legs — use b/t ≤ ~18 per ASCE/SEI
-// 74-23 Ch.3 / CEN/TS 19101 §6 for E-glass pultrusions. Box flats are supported
-// on both edges and round tubes are shells, so both get a separate ~40 advisory
-// limit (D/t for tubes). Round tube deliberately ignores B (hidden input).
-function slendernessCheck(shape: string, h: number, b: number, tw: number, tf: number): { ratio: number; limit: number; label: string } {
-  if (shape === "i-beam") return { ratio: b / 2 / tf, limit: 18, label: "outstanding flange b/t" };
-  if (shape === "channel") return { ratio: b / tf, limit: 18, label: "outstanding flange b/t" };
-  if (shape === "angle") return { ratio: Math.max(h, b) / tw, limit: 18, label: "leg b/t" };
-  if (shape === "square-tube") return { ratio: (Math.max(h, b) - 2 * tw) / tw, limit: 40, label: "box flat-width b/t" };
-  if (shape === "round-tube") return { ratio: h / tw, limit: 40, label: "tube D/t" };
-  return { ratio: 0, limit: 18, label: "b/t" };
-}
-
 /* Standard wall thicknesses (mm) offered as quick-select, per material family.
    Steel/aluminum feed the SOURCE profile; FRP feeds the equivalence TARGET
    (a chosen FRP wall then reverse-solves the H×B — FRP is sold in specific
@@ -185,28 +158,12 @@ const STD_WALLS = {
   frp: [3, 4, 5, 6, 8, 10, 12],
 };
 
-/* Reverse-solve the minimum section height H (walls fixed at t, width B = k·H)
-   whose section property (Ix or Wx) reaches `target`. Ix and Wx increase
-   monotonically with H, so a bisection converges. Used by the equivalence mode
-   when the user pins the target FRP wall thickness. */
-function solveHForProperty(
-  shape: string, target: number, prop: "Ix" | "Wx", t: number, k: number,
-): number {
-  const propAt = (H: number): number => {
-    const B = shape === "round-tube" || shape === "square-tube" ? H : Math.max(k * H, 2 * t + 2);
-    const Ix = calcIx(shape, H, B, t, t);
-    return prop === "Ix" ? Ix : calcWx(Ix, H, shape, B, t);
-  };
-  let lo = 2 * t + 2;
-  let hi = 20000; // mm — generous ceiling
-  if (propAt(hi) < target) return hi; // unreachable even at ceiling (degenerate)
-  for (let i = 0; i < 50; i++) {
-    const mid = (lo + hi) / 2;
-    if (propAt(mid) >= target) hi = mid;
-    else lo = mid;
-  }
-  return hi;
+function screenSnapshot(inputs: ProfileInputs): { snapshot: ProfileCalculationSnapshot | null; error: string | null } {
+  try { return { snapshot: createProfileSnapshot(inputs), error: null }; }
+  catch (error) { return { snapshot: null, error: error instanceof Error ? error.message : "Unsupported calculation inputs." }; }
 }
+const FALLBACK_BEAM = calculateBeam(DEFAULT_BEAM_INPUTS);
+const FALLBACK_EQ = calculateEquivalence(DEFAULT_EQ_INPUTS);
 
 type Mode = "beam" | "equivalence";
 
@@ -243,6 +200,7 @@ export default function ProfileCalculator() {
   // pin the FRP wall and reverse-solve H×B to meet the equivalence at that wall.
   const [eqTargetWall, setEqTargetWall] = useState<number | "auto">("auto");
   const [shareState, setShareState] = useState<"idle" | "copied" | "error">("idle");
+  const [restoreError, setRestoreError] = useState("");
 
   /* Deep-link presets: prefer #shape&span&load&... so presets do not create
      crawlable URL variants; legacy query-string links remain supported. */
@@ -254,6 +212,27 @@ export default function ProfileCalculator() {
     /* eslint-disable react-hooks/set-state-in-effect */
     const sp = readToolStateParams(window.location);
     if ([...sp.keys()].length === 0) return;
+    const snapshotParam = sp.get("snapshot");
+    if (snapshotParam) {
+      try {
+        const snapshot = parseProfileSnapshot(JSON.parse(snapshotParam));
+        const input = snapshot.inputs, g = input.geometry;
+        setMode(input.mode);
+        if (input.customMaterial) setCustomMat(input.customMaterial);
+        if (input.mode === "beam") {
+          setShape(g.shape); setDimH(g.h); setDimB(g.b); setDimTw(g.tw); setDimTf(g.tf);
+          setMatKey(input.materialId); setDesignMethod(input.method); setEnvKey(input.environmentId);
+          setDurationKey(input.durationId); setLoadType(input.loadType); setSpan(input.spanMm);
+          setLoad(input.serviceLoad); setDeflLimit(input.deflectionLimit);
+        } else {
+          setEqShape(g.shape); setEqH(g.h); setEqB(g.b); setEqTw(g.tw); setEqTf(g.tf);
+          setEqSourceMat(input.sourceMaterialId); setEqTargetMat(input.targetMaterialId); setEqTargetWall(input.targetWallMm);
+        }
+      } catch (error) {
+        setRestoreError(error instanceof Error ? error.message : "The shared calculation could not be restored.");
+      }
+      return;
+    }
     const num = (k: string, set: (n: number) => void) => {
       const v = sp.get(k);
       if (v != null && v !== "" && Number.isFinite(+v)) set(+v);
@@ -309,35 +288,9 @@ export default function ProfileCalculator() {
   }
 
   async function copyShareLink() {
-    const sp = mode === "beam"
-      ? new URLSearchParams({
-          mode: "beam",
-          shape, material: matKey, env: envKey, load_type: loadType, method: designMethod, duration: durationKey,
-          span: String(span), load: String(load), defl: String(deflLimit),
-          h: String(dimH), b: String(dimB), tw: String(dimTw), tf: String(dimTf),
-        })
-      : new URLSearchParams({
-          mode: "equivalence",
-          eq_source: eqSourceMat,
-          eq_target: eqTargetMat,
-          eq_shape: eqShape,
-          eq_h: String(eqH),
-          eq_b: String(eqB),
-          eq_tw: String(eqTw),
-          eq_tf: String(eqTf),
-          eq_wall: String(eqTargetWall),
-        });
-    // Carry the user-defined grade params so a shared custom calc restores exactly.
-    if ((mode === "beam" ? matKey : eqTargetMat) === "custom") {
-      sp.set("cE", String(customMat.E)); sp.set("cET", String(customMat.E_T));
-      sp.set("cG", String(customMat.G_LT)); sp.set("cFt", String(customMat.sigma));
-      sp.set("cFc", String(customMat.sigma_c)); sp.set("cFv", String(customMat.tau));
-      sp.set("cRho", String(customMat.density));
-    }
-    const href = buildToolStateHref(
-      "/frp-profile-calculator",
-      Object.fromEntries(sp.entries()),
-    );
+    const snapshot = mode === "beam" ? beamSnapshot : eqSnapshot;
+    if (!snapshot) return;
+    const href = buildToolStateHref("/frp-profile-calculator", { snapshot: JSON.stringify(snapshot) });
     const url = `${window.location.origin}${href}`;
     window.history.replaceState(null, "", href);
     try {
@@ -358,7 +311,7 @@ export default function ProfileCalculator() {
   /* ── Beam calculation ── */
   const mat: Material =
     matKey === "custom"
-      ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined (e.g. E40)", ...customMat }
+      ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined characteristic inputs; not a certified grade", ...customMat }
       : materials[matKey];
   const lt = loadTypes.find((l) => l.id === loadType)!;
   const dm = designMethods[designMethod];
@@ -369,154 +322,41 @@ export default function ProfileCalculator() {
   const resistance = designResistance({ material: mat, method: designMethod, envId: envKey, durationId: durationKey });
   const sectionLook = isFRP ? "frp" : matKey.startsWith("alu") ? "alu" : "steel";
 
-  const dimensionError = getSectionDimensionError(shape, dimH, dimB, dimTw, dimTf);
-  const methodCompatible = METHOD_MATERIALS[designMethod].includes(matKey);
-  const customMaterialError = matKey === "custom" && !Object.values(customMat).every((value) => Number.isFinite(value) && value > 0)
-    ? "Every custom material property must be a finite number greater than zero."
-    : null;
-  const beamInputError = dimensionError
-    ?? (!Number.isFinite(span) || span <= 0 ? "Span must be a finite number greater than zero." : null)
-    ?? (!Number.isFinite(load) || load <= 0 ? "Service load must be a finite number greater than zero." : null)
-    ?? (!Number.isFinite(deflLimit) || deflLimit <= 0 ? "Deflection limit denominator n must be greater than zero." : null)
-    ?? (!methodCompatible ? "The selected material dataset is not compatible with this screening method. Choose one of the method-specific datasets." : null)
-    ?? customMaterialError;
-  const beamInputsOk = beamInputError === null;
-  const Ix = calcIx(shape, dimH, dimB, dimTw, dimTf);
-  const Wx = calcWx(Ix, dimH, shape, dimB, dimTw);
-  const area = calcArea(shape, dimH, dimB, dimTw, dimTf);
-  const Aw = calcShearArea(shape, dimH, dimB, dimTw, dimTf);
-
-  const isDistributed = loadType === "udl" || loadType === "cantilever-udl";
-  const spanM = span / 1000;
-  const totalForce = isDistributed ? load * spanM : load;
-
-  // Service-level moment / shear (no load factor — for deflection at serviceability)
-  const M_service_Nmm = isDistributed ? lt.factor_M * load * spanM * spanM * 1e6 : lt.factor_M * load * span * 1000;
-  const V_service_N = lt.factor_V * (isDistributed ? load * spanM * 1000 : load * 1000);
-
-  // Factored (LRFD) moment / shear for strength checks. The ASCE path takes
-  // the ASCE 7-22 factor of the selected load duration.
-  const loadFactor = resistance.loadFactor;
-  const M_factored_Nmm = M_service_Nmm * loadFactor;
-  const V_factored_N = V_service_N * loadFactor;
-
-  // Stresses (factored for strength check)
-  const sigma_max = Wx > 0 ? M_factored_Nmm / Wx : 0;        // MPa
-  const tau_max = Aw > 0 ? V_factored_N / Aw : 0;            // MPa (V/A_web average)
-
-  // Allowables: resistance factor, λ (ASCE path) and, for FRP, the
-  // environmental knockdown. Bending uses min(F_tL, F_cL) because pultruded
-  // FRP typically fails on the compression face first.
-  const F_b_allow = resistance.bendingAllowable;
-  const F_v_allow = resistance.shearAllowable;
-
-  // Deflection — bending + shear (Timoshenko). Exact per load case:
-  // δ_shear/δ_bending = c·E·I / (G·A_v·L²) with c = lt.factor_s (9.6 UDL,
-  // 12 midspan point, 3 cantilever tip, 4 cantilever UDL) and A_v = the
-  // shear area already computed (web for I/C, walls for tubes, k = 1).
-  // Wet service also lowers FRP stiffness (resistance.envStiffness).
-  const E_mpa = mat.E * 1000 * resistance.envStiffness;
-  const G_mpa = shearModulus(mat) * 1000 * resistance.envStiffness; // metals: ν≈0.3 → G = E/2.6
-  const defl_bending = isDistributed
-    ? (lt.factor_d * load * span ** 4) / (E_mpa * Ix)
-    : (lt.factor_d * load * 1000 * span ** 3) / (E_mpa * Ix);
-  const shearCorrection = Aw > 0 && span > 0 ? 1 + (lt.factor_s * E_mpa * Ix) / (G_mpa * Aw * span ** 2) : 1;
-  const defl = defl_bending * shearCorrection;
-  const deflShearPct = ((shearCorrection - 1) * 100);
-  const deflRatio = span / (defl || 1);
-  // Exact catalog size (any material), used for the product suggestion; its
-  // published kg/m applies only to the standard E23 E-glass/polyester grade.
-  const exactCatalogProfile = findStandardProfile({ shape: shape as "i-beam" | "channel" | "angle" | "square-tube" | "round-tube", h: dimH, b: dimB, tw: dimTw, tf: dimTf });
-  const catalogProfile = matKey === "frp-e23" ? exactCatalogProfile : null;
-  const weightPerM = catalogProfile?.weight ?? (area * mat.density) / 1000; // mm² × g/cm³ → kg/m
-
-  // Checks
-  const stressOk = sigma_max <= F_b_allow;
-  const shearOk = tau_max <= F_v_allow;
-  const deflOk = deflRatio >= deflLimit;
-
-  // Local-buckling slenderness warning (advisory)
-  const slender = slendernessCheck(shape, dimH, dimB, dimTw, dimTf);
-  const slenderWarn = isFRP && beamInputsOk && slender.ratio > slender.limit;
-
-  /* ── Equivalence calculation ── */
-  const srcMat = materials[eqSourceMat];
-  // Equivalence target can also be the user-defined custom recipe (same customMat
-  // as beam mode) — e.g. compute a steel → E40-FRP replacement.
-  const tgtMat: Material =
-    eqTargetMat === "custom"
-      ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined (e.g. E40)", ...customMat }
-      : materials[eqTargetMat];
-  const eqDimensionError = getSectionDimensionError(eqShape, eqH, eqB, eqTw, eqTf);
-  const eqMaterialError = eqTargetMat === "custom" && !Object.values(customMat).every((value) => Number.isFinite(value) && value > 0)
-    ? "Every custom FRP property must be a finite number greater than zero."
-    : null;
-  const eqInputError = eqDimensionError ?? eqMaterialError;
-  const eqInputsOk = eqInputError === null;
-  const srcIx = calcIx(eqShape, eqH, eqB, eqTw, eqTf);
-  const srcWx = calcWx(srcIx, eqH, eqShape, eqB, eqTw);
-  const srcArea = calcArea(eqShape, eqH, eqB, eqTw, eqTf);
-
-  // FRP strength for the equal-strength comparison = min(F_tL, F_cL) — the
-  // compression face governs pultruded bending. Still characteristic-level
-  // (metal yield vs FRP characteristic, no φ/env factors) — disclosed below.
-  const tgtSigma = Math.min(tgtMat.sigma, tgtMat.sigma_c ?? tgtMat.sigma);
-  const reqWx = srcWx * (srcMat.sigma / tgtSigma);
-  const reqIx = srcIx * (srcMat.E / tgtMat.E);
-
-  const stiffnessScale = Math.pow(srcMat.E / tgtMat.E, 1 / 4);
-  const strengthScale = Math.pow(srcMat.sigma / tgtSigma, 1 / 3);
-
-  // Wall-thickness mode: "auto" scales all dims proportionally (legacy); a pinned
-  // FRP wall reverse-solves H (walls = tWall, width = aspect·H) to reach the
-  // required Ix (stiffness) / Wx (strength) — a manufacturable FRP section.
-  const fixedWall = eqTargetWall !== "auto";
-  const tWall = fixedWall ? (eqTargetWall as number) : 0;
-  const aspectK = eqH > 0 ? eqB / eqH : 1;
-  const bFromH = (H: number): number =>
-    eqShape === "round-tube" || eqShape === "square-tube" ? H : Math.round(aspectK * H);
-
-  const stiffH = fixedWall
-    ? Math.ceil(solveHForProperty(eqShape, reqIx, "Ix", tWall, aspectK))
-    : Math.round(eqH * stiffnessScale);
-  const stiffB = fixedWall ? bFromH(stiffH) : Math.round(eqB * stiffnessScale);
-  const stiffTw = fixedWall ? tWall : Math.max(1, Math.round(eqTw * stiffnessScale));
-  const stiffTf = fixedWall ? tWall : Math.max(1, Math.round(eqTf * stiffnessScale));
-
-  const strengthH = fixedWall
-    ? Math.ceil(solveHForProperty(eqShape, reqWx, "Wx", tWall, aspectK))
-    : Math.round(eqH * strengthScale);
-  const strengthB = fixedWall ? bFromH(strengthH) : Math.round(eqB * strengthScale);
-  const strengthTw = fixedWall ? tWall : Math.max(1, Math.round(eqTw * strengthScale));
-  const strengthTf = fixedWall ? tWall : Math.max(1, Math.round(eqTf * strengthScale));
-
-  // Which criterion governs: for fixed-wall, the larger solved H; for auto, the
-  // larger scale factor. (Both reduce to "the section that satisfies both".)
-  const stiffGoverns = fixedWall ? stiffH >= strengthH : stiffnessScale >= strengthScale;
-  const governingScale = Math.max(stiffnessScale, strengthScale);
-  const governingCriterion = stiffGoverns ? "Stiffness (EI)" : "Strength (σW)";
-
-  const srcWeight = (srcArea * srcMat.density) / 1000; // mm² × g/cm³ → kg/m
-  const stiffArea = calcArea(eqShape, stiffH, stiffB, stiffTw, stiffTf);
-  const strengthArea = calcArea(eqShape, strengthH, strengthB, strengthTw, strengthTf);
-  const stiffWeight = (stiffArea * tgtMat.density) / 1000;
-  const strengthWeight = (strengthArea * tgtMat.density) / 1000;
-  const tgtWeight = stiffGoverns ? stiffWeight : strengthWeight;
-  const weightSaving = srcWeight > 0 ? ((1 - tgtWeight / srcWeight) * 100) : 0;
-
-  // Shared spec payload for beam-mode RFQ surfaces (quote button + email capture).
-  const specContext = {
-    standard: mat.standard, designMethod: dm.label, environment: env.label, material: mat.label,
-    loadDuration: isAsce ? `${duration.label} (λ ${duration.lambda})` : null,
-    shape, H_mm: dimH, B_mm: dimB, tw_mm: dimTw, tf_mm: dimTf, span_mm: span, load,
-    Ix_cm4: +(Ix / 1e4).toFixed(1), Wx_cm3: +(Wx / 1e3).toFixed(1),
-    bending_MPa: +sigma_max.toFixed(1), bending_allow_MPa: +F_b_allow.toFixed(1),
-    shear_MPa: +tau_max.toFixed(1), shear_allow_MPa: +F_v_allow.toFixed(1),
-    defl_mm: +defl.toFixed(1), weight_kg_m: +weightPerM.toFixed(2),
-    weight_basis: catalogProfile ? `published catalog (${catalogProfile.model})` : "nominal area × density",
+  const beamInputs: BeamInputs = {
+    mode: "beam", geometry: { shape: shape as FrpSectionShape, h: dimH, b: dimB, tw: dimTw, tf: dimTf },
+    materialId: matKey, ...(matKey === "custom" ? { customMaterial: customMat } : {}),
+    method: designMethod, environmentId: envKey, durationId: durationKey, loadType: loadType as ProfileLoadType,
+    spanMm: span, serviceLoad: load, deflectionLimit: deflLimit,
   };
+  const { snapshot: beamSnapshot, error: beamInputError } = screenSnapshot(beamInputs);
+  const beamInputsOk = beamSnapshot !== null && !restoreError;
+  // Fallback values are used only to keep the render total; invalid results and RFQ actions are hidden.
+  const { Ix, Wx, Aw, isDistributed, totalForce, M_factored_Nmm, V_factored_N,
+    loadFactor, sigma_max, tau_max, F_b_allow, F_v_allow, defl, deflShearPct, deflRatio,
+    weightPerM, stressOk, shearOk, deflOk, slender, slenderWarn } =
+    (beamSnapshot?.results ?? FALLBACK_BEAM) as ReturnType<typeof calculateBeam>;
+  const exactCatalogProfile = findStandardProfile(beamInputs.geometry);
+  const catalogProfile = matKey === "frp-e23" ? exactCatalogProfile : null;
+
+  const srcMat = materials[eqSourceMat];
+  const tgtMat: Material = eqTargetMat === "custom"
+    ? { label: "Custom FRP grade (user-defined)", group: "FRP", standard: "User-defined characteristic inputs; not a certified grade", ...customMat }
+    : materials[eqTargetMat];
+  const tgtSigma = Math.min(tgtMat.sigma, tgtMat.sigma_c ?? tgtMat.sigma);
+  const eqInputs: EquivalenceInputs = {
+    mode: "equivalence", geometry: { shape: eqShape as FrpSectionShape, h: eqH, b: eqB, tw: eqTw, tf: eqTf },
+    sourceMaterialId: eqSourceMat, targetMaterialId: eqTargetMat,
+    ...(eqTargetMat === "custom" ? { customMaterial: customMat } : {}), targetWallMm: eqTargetWall,
+  };
+  const { snapshot: eqSnapshot, error: eqInputError } = screenSnapshot(eqInputs);
+  const eqInputsOk = eqSnapshot !== null && !restoreError;
+  const { srcIx, srcWx, reqWx, reqIx, stiffnessScale, strengthScale, fixedWall, tWall,
+    stiffH, stiffB, stiffTw, stiffTf, strengthH, strengthB, strengthTw, strengthTf, governingScale, governingCriterion,
+    srcWeight, tgtWeight, weightSaving, eqFrpH, eqFrpB, eqFrpWall, eqFrpTf } =
+    (eqSnapshot?.results ?? FALLBACK_EQ) as ReturnType<typeof calculateEquivalence>;
+  const specContext = { calculatorSnapshot: beamSnapshot };
   const specMessage =
-    `Please review this preliminary FRP profile calculation:\n\n` +
+    `Please review this preliminary FRP profile calculation:\nCalculation ID: ${beamSnapshot?.calculationId} · Engine: ${beamSnapshot?.engineVersion}\nFull inputs, units, coefficients and unrounded results are attached.\n\n` +
     `Standard: ${mat.standard}\n` +
     `Design method: ${dm.label}\n` +
     `Environment: ${env.label} (strength ×${env.factor}, stiffness ×${env.stiffness})\n` +
@@ -529,26 +369,17 @@ export default function ProfileCalculator() {
     `- Ix = ${(Ix / 1e4).toFixed(1)} cm⁴ · Wx = ${(Wx / 1e3).toFixed(1)} cm³ · A_w = ${(Aw / 100).toFixed(1)} cm²\n` +
     `- Bending (factored): ${sigma_max.toFixed(1)} MPa vs ${F_b_allow.toFixed(1)} MPa allowable (${stressOk ? "OK" : "EXCEEDS"})\n` +
     `- Shear (factored): ${tau_max.toFixed(1)} MPa vs ${F_v_allow.toFixed(1)} MPa allowable (${shearOk ? "OK" : "EXCEEDS"})\n` +
-    `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS"}); shear share ${deflShearPct.toFixed(1)}%\n` +
+    `- Deflection: ${defl.toFixed(1)} mm = L/${deflRatio.toFixed(0)} (${deflOk ? "OK" : "EXCEEDS"}); increase over bending-only deflection from shear ${deflShearPct.toFixed(1)}%\n` +
     `- Weight: ${weightPerM.toFixed(2)} kg/m\n` +
     (slenderWarn ? `- ⚠ Local-buckling advisory: ${slender.label} = ${slender.ratio.toFixed(1)} > ${slender.limit}\n` : "") +
     `\nApplication context (please add): ____\n` +
     `Project location / corrosion environment: ____\n\nThanks.`;
 
-  // Equivalence-mode RFQ payload.
-  const eqFrpH = stiffGoverns ? stiffH : strengthH;
-  const eqFrpB = stiffGoverns ? stiffB : strengthB;
-  const eqFrpWall = fixedWall ? tWall : stiffGoverns ? stiffTw : strengthTw;
-  const eqContext = {
-    mode: "equivalence", replacing: srcMat.label, targetFRP: tgtMat.label, shape: eqShape,
-    source_H_mm: eqH, source_B_mm: eqB, governing: governingCriterion, frp_wall_mm: eqFrpWall,
-    frp_H_mm: eqFrpH, frp_B_mm: eqFrpB, weight_saving_pct: +weightSaving.toFixed(0),
-    source_weight_kg_m: +srcWeight.toFixed(2), frp_weight_kg_m: +tgtWeight.toFixed(2),
-  };
+  const eqContext = { calculatorSnapshot: eqSnapshot };
   const eqMessage =
-    `FRP equivalence — replacing ${srcMat.label} with ${tgtMat.label}:\n\n` +
-    `Source ${eqShape}: H=${eqH}mm, B=${eqB}mm, wall=${eqTw}mm (${srcWeight.toFixed(2)} kg/m)\n` +
-    `FRP equivalent (${governingCriterion} governs): H≈${eqFrpH}mm, B≈${eqFrpB}mm, wall=${eqFrpWall}mm${fixedWall ? " (wall pinned)" : " (proportional)"} (${tgtWeight.toFixed(2)} kg/m)\n` +
+    `Preliminary FRP sizing — replacing ${srcMat.label} with ${tgtMat.label}:\nCalculation ID: ${eqSnapshot?.calculationId} · Engine: ${eqSnapshot?.engineVersion}\nFull inputs, units, coefficients and unrounded results are attached.\n\n` +
+    `Source ${eqShape}: H=${eqH}mm, B=${eqB}mm, tw=${eqTw}mm, tf=${eqTf}mm (${srcWeight.toFixed(2)} kg/m)\n` +
+    `FRP sizing candidate (${governingCriterion} governs; detailed recalculation required): H≈${eqFrpH}mm, B≈${eqFrpB}mm, tw=${eqFrpWall}mm, tf=${eqFrpTf}mm${fixedWall ? " (wall pinned)" : " (proportional)"} (${tgtWeight.toFixed(2)} kg/m)\n` +
     `Weight saving: ${weightSaving.toFixed(0)}%\n\n` +
     `Application / corrosion environment (please add): ____\n\nThanks.`;
 
@@ -575,6 +406,7 @@ export default function ProfileCalculator() {
         }
       `}</style>
       <div className="site-container">
+        {restoreError && <div role="alert" className="mb-[16px] rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail">Shared calculation was not restored: {restoreError} The fields below show the default screen. <button type="button" className="underline" onClick={() => setRestoreError("")}>Start a new calculation</button></div>}
         {/* Mode tabs */}
         <div className="calculator-mode-tabs mb-[20px] flex gap-[8px]">
           <button
@@ -739,7 +571,7 @@ export default function ProfileCalculator() {
 
               {!beamInputsOk ? (
                 <div className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail">
-                  {beamInputError} Results are hidden until all inputs and the method/material pairing are valid.
+                  {restoreError ? "A shared calculation could not be restored; start a new calculation above to continue." : beamInputError} Results are hidden until the calculation inputs are valid.
                 </div>
               ) : (<>
 
@@ -767,6 +599,7 @@ export default function ProfileCalculator() {
                 )}
               </div>
 
+              <p className="text-f12 text-t3">Calculation {beamSnapshot?.calculationId} · Engine {beamSnapshot?.engineVersion}. Shares and review requests include the complete replay snapshot; this is a preliminary screen.</p>
               {/* Section properties */}
               <div className="rounded-control bg-white p-[12px]">
                 <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Section Properties</div>
@@ -776,7 +609,7 @@ export default function ProfileCalculator() {
                   <div><div className="text-f16 font-bold text-t1">{(Aw / 100).toFixed(1)}</div><div className="text-f12 text-t3">A_w (cm²)</div></div>
                   <div>
                     <div className="text-f16 font-bold text-t1">{weightPerM.toFixed(2)}</div>
-                    <div className="text-f12 text-t3">kg/m · {catalogProfile ? `published ${catalogProfile.model}` : "nominal calc."}</div>
+                    <div className="text-f12 text-t3">kg/m · {catalogProfile ? `engine dataset ${catalogProfile.model}` : "nominal calc."}</div>
                   </div>
                 </div>
               </div>
@@ -810,7 +643,7 @@ export default function ProfileCalculator() {
                 </div>
                 {isFRP && (
                   <div className="border-t border-border-default pt-[4px]">
-                    <span className="text-t3">Shear deformation share of total deflection:</span>{" "}
+                    <span className="text-t3">Increase over bending-only deflection from shear:</span>{" "}
                     <span className="font-bold text-t1">{deflShearPct.toFixed(1)}%</span>{" "}
                     <span className="text-t3">(via Timoshenko correction; E_L/G_LT ratio governs)</span>
                   </div>
@@ -834,12 +667,12 @@ export default function ProfileCalculator() {
                     onClick={() => track("calculator_product_click", { shape, slug: prod.slug })}
                     className="block rounded-control border border-teal/30 bg-white p-[12px] transition-colors hover:border-teal"
                   >
-                    <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">F1 makes this profile</div>
+                    <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Engine dataset candidate — recalculate before selection</div>
                     <div className="mt-[3px] text-f14 text-t2">
                       {near ? (
-                        <>{exactCatalogProfile ? "Your section is the catalog size" : "Closest catalog size to your section"}: <strong className="text-t1">{near.model}</strong> ({near.weight} kg/m). </>
+                        <>{exactCatalogProfile ? "Nominal geometry matches" : "Nearest catalog geometry"}: <strong className="text-t1">{near.model}</strong> ({near.weight} kg/m). </>
                       ) : null}
-                      View the {prod.family} <span aria-hidden>→</span>
+                      This candidate comes from engine dataset {beamSnapshot?.engineVersion}, not the live catalog or a qualified configuration. The screen above applies to your entered section and material. Confirm current dimensions, mass and material, then recalculate. View the {prod.family} <span aria-hidden>→</span>
                     </div>
                   </a>
                 );
@@ -848,7 +681,7 @@ export default function ProfileCalculator() {
               {/* Send-to-engineer actions */}
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <a
-                  href={`/contact?source=calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
+                  href={buildRfqHref({ source: "calculator", context: specContext, message: specMessage })}
                   onClick={() => track("calculator_quote_click", { shape })}
                   className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
@@ -856,7 +689,7 @@ export default function ProfileCalculator() {
                 </a>
                 <a
                   href={`/ask?prefill=${encodeURIComponent(
-                    `I just used the FRP profile calculator. Standard: ${mat.standard}. Design method: ${dm.label}. Environment: ${env.label}. Material: ${mat.label}. ${shape} ${dimH}×${dimB}mm spanning ${span}mm under ${load} ${isDistributed ? "kN/m" : "kN"}. Bending ${sigma_max.toFixed(1)}/${F_b_allow.toFixed(1)} MPa, shear ${tau_max.toFixed(1)}/${F_v_allow.toFixed(1)} MPa, deflection ${defl.toFixed(1)} mm (${deflShearPct.toFixed(0)}% shear share). Is this sized correctly? What grade/resin should I specify for [my application]?`
+                    `I just used the FRP profile calculator. Standard: ${mat.standard}. Design method: ${dm.label}. Environment: ${env.label}. Material: ${mat.label}. ${shape} ${dimH}×${dimB}mm spanning ${span}mm under ${load} ${isDistributed ? "kN/m" : "kN"}. Bending ${sigma_max.toFixed(1)}/${F_b_allow.toFixed(1)} MPa, shear ${tau_max.toFixed(1)}/${F_v_allow.toFixed(1)} MPa, deflection ${defl.toFixed(1)} mm (${deflShearPct.toFixed(0)}% increase over bending-only deflection from shear). Is this sized correctly? What grade/resin should I specify for [my application]?`
                   )}`}
                   onClick={() => track("calculator_ai_click", { shape })}
                   className="rounded-control border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f14 font-bold text-teal-text transition-colors hover:bg-teal-bg2"
@@ -866,7 +699,7 @@ export default function ProfileCalculator() {
               </div>
 
               {/* Result-moment email capture — convert at the aha-moment, no page jump */}
-              <ResultLeadCapture source="calculator" summary={specMessage} context={specContext} />
+              <ResultLeadCapture key={beamSnapshot?.calculationId} source="calculator" summary={specMessage} context={specContext} />
 
               {/* Share + print/PDF actions keep the computed result portable. */}
               <div className="calculator-print-hide grid gap-[8px] sm:grid-cols-2">
@@ -1030,14 +863,15 @@ export default function ProfileCalculator() {
 
             {/* Results */}
             <div className="space-y-[12px] rounded-card border border-border-default bg-bg2 p-[20px]">
-              <SectionTag>FRP Equivalent</SectionTag>
+              <SectionTag>FRP Sizing Candidates</SectionTag>
 
               {!eqInputsOk ? (
                 <div className="rounded-control border border-fail-border bg-fail-bg p-[12px] text-f14 text-fail">
-                  {eqInputError} Results are hidden until the source geometry and target properties are valid.
+                  {restoreError ? "A shared calculation could not be restored; start a new calculation above to continue." : eqInputError} Results are hidden until the calculation inputs are valid.
                 </div>
               ) : (<>
 
+              <p className="text-f12 text-t3">Calculation {eqSnapshot?.calculationId} · Engine {eqSnapshot?.engineVersion}. Dimensions are rounded sizing candidates, requiring detailed recalculation.</p>
               <div className="overflow-x-auto rounded-control bg-white">
                 <table className="w-full text-left text-f14">
                   <thead>
@@ -1059,22 +893,22 @@ export default function ProfileCalculator() {
 
               <div className="grid gap-[8px] sm:grid-cols-2">
                 <div className="rounded-control bg-white border border-border-default p-[12px]">
-                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Equal Stiffness (EI)</div>
+                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">EI Sizing Estimate</div>
                   <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f14">
                     <div>H: <span className="font-bold text-t1">{stiffH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{stiffB} mm</span></div>
-                    <div>t: <span className="font-bold text-t1">{stiffTw} mm</span></div>
+                    <div>tw / tf: <span className="font-bold text-t1">{stiffTw} / {stiffTf} mm</span></div>
                   </div>
                   <p className="mt-[4px] text-f12 text-t3">
                     {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Ix` : <>k = (E_src/E_tgt)<sup>1/4</sup> = ×{stiffnessScale.toFixed(2)}</>}
                   </p>
                 </div>
                 <div className="rounded-control bg-white border border-border-default p-[12px]">
-                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Equal Strength (σW)</div>
+                  <div className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">σW Sizing Estimate</div>
                   <div className="mt-[8px] grid grid-cols-3 gap-[8px] text-f14">
                     <div>H: <span className="font-bold text-t1">{strengthH} mm</span></div>
                     <div>B: <span className="font-bold text-t1">{strengthB} mm</span></div>
-                    <div>t: <span className="font-bold text-t1">{strengthTw} mm</span></div>
+                    <div>tw / tf: <span className="font-bold text-t1">{strengthTw} / {strengthTf} mm</span></div>
                   </div>
                   <p className="mt-[4px] text-f12 text-t3">
                     {fixedWall ? `wall t = ${tWall} mm pinned; H solved for required Wx` : <>k = (σ_src/σ_tgt)<sup>1/3</sup> = ×{strengthScale.toFixed(2)}</>}
@@ -1088,7 +922,7 @@ export default function ProfileCalculator() {
                   {governingCriterion}{fixedWall ? ` — FRP ${eqFrpH}×${eqFrpB} mm @ ${tWall} mm wall` : ` — use ×${governingScale.toFixed(2)}`}
                 </div>
                 <p className="mt-[4px] text-f12 text-t3">
-                  The FRP profile must satisfy <em>both</em> limits; the {fixedWall ? "larger reverse-solved section" : "larger scale factor"} governs.
+                  Rounded dimensions are preliminary candidates and must be recalculated for <em>both</em> limits; the {fixedWall ? "larger reverse-solved section" : "larger scale factor"} governs.
                   {srcMat.group === "Metal" && srcMat.label.toLowerCase().includes("alum")
                     ? " For aluminum, stiffness and strength criteria are often comparable — check both before committing to a size."
                     : " For steel, stiffness almost always governs because FRP modulus is ~1/10 of steel."}
@@ -1117,10 +951,11 @@ export default function ProfileCalculator() {
                   onClick={() => track("calculator_product_click", { shape: eqShape, slug: PRODUCT_BY_SHAPE[eqShape].slug, mode: "equivalence" })}
                   className="block rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
-                  View matching {PRODUCT_BY_SHAPE[eqShape].family} <span aria-hidden>→</span>
+                  Browse {PRODUCT_BY_SHAPE[eqShape].family} candidates <span aria-hidden>→</span>
                 </a>
               )}
-              <ResultLeadCapture source="calculator-equivalence" summary={eqMessage} context={eqContext} />
+              <a href={buildRfqHref({ source: "calculator-equivalence", context: eqContext, message: eqMessage })} className="block rounded-control border border-teal-border bg-teal-bg px-[16px] py-[10px] text-center text-f14 font-bold text-teal-text">Send sizing candidates for engineering review</a>
+              <ResultLeadCapture key={eqSnapshot?.calculationId} source="calculator-equivalence" summary={eqMessage} context={eqContext} />
 
               <button
                 type="button"
@@ -1133,8 +968,8 @@ export default function ProfileCalculator() {
               </>)}
 
               <p className="text-f12 text-t3">
-                Geometrically similar scaling with both equal-stiffness (EI) and equal-strength (σW) checks per
-                EN 13706-3, GB 50608-2020 / T/CECS 692-2020, ASCE/SEI 74-23, and CEN/TS 19101:2022 methodology.
+                Preliminary sizing compares EI and σW using the selected characteristic properties.
+                This comparison does not establish compliance with a design standard or confirm a replacement section.
                 The strength comparison is at characteristic level (metal yield vs FRP min(F_tL, F_cL)) with no
                 resistance or environmental factors, and equal EI does not include FRP shear deflection or creep —
                 treat results as sizing guidance and confirm with the factored checks on the beam analysis tab.

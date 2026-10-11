@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { trackInquirySuccess } from "@/lib/analytics";
+import { appendAcquisition } from "@/lib/acquisitionClient";
 import { track } from "@/components/calculators/leadCapture";
 
 /* Reusable email-gated content download. The gate is soft (the file itself
@@ -41,6 +42,7 @@ export function GuideDownloadGate({
       fd.set("inquiry_type", `Content download — ${fileLabel}`);
       fd.set("message", `Requested download: ${fileLabel}`);
       fd.set("source", source);
+      appendAcquisition(fd);
       const res = await fetch("/api/contact", { method: "POST", body: fd });
       const j = await res.json().catch(() => ({}));
       if (res.ok && j.accepted === true && j.receiptId) {

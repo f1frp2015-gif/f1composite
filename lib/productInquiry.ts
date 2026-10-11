@@ -9,12 +9,13 @@ export function tubeInquiryHref(productPath: string, product: string, specificat
 }
 
 /** A quote request for one catalog size, with the details a quotation needs as prompts. */
-export function sizeInquiryHref(productPath: string, product: string, specification: string, source = "size-table"): string {
+export function sizeInquiryHref(productPath: string, product: string, specification: string, source = "size-table", context?: Record<string, unknown>): string {
   return buildRfqHref({
     source,
     product,
     productPath,
     specification,
+    context,
     message: `Please quote ${product}: ${specification}.\n\nCut length and pieces: \nService environment and temperature: \nResin / color / finish: \nDimensional tolerances and machining: \nLoad case and required documents: \nDelivery country / postcode and target date: \nSample requirement: \n\nPlease confirm the minimum production quantity, tooling, packing and lead time.`,
   });
 }

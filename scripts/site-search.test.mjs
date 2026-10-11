@@ -81,7 +81,8 @@ test("the search code runs in older Safari", () => {
 
 test("the profile finder lists every catalog size with its section values", () => {
   const { finderRows } = loadProjectModule("lib/profileFinder.ts");
-  const rows = finderRows();
+  const { buildPublishedCatalog } = loadProjectModule("lib/catalog/published.ts");
+  const rows = finderRows(buildPublishedCatalog().profiles);
   assert.equal(rows.length, 114);
   assert.equal(new Set(rows.map((row) => row.slug)).size, 114);
   const beam = rows.find((row) => row.model === "I 152×76×6.4");

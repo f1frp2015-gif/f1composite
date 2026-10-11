@@ -5,11 +5,12 @@
 
 import { NextResponse } from "next/server";
 import { insertInquiry } from "@/lib/db";
+import { acquisitionReferrer, parseAcquisition } from "@/lib/acquisition";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(request: Request) {
-  let body: { email?: unknown; models?: unknown; ids?: unknown; formulations?: unknown };
+  let body: { email?: unknown; models?: unknown; ids?: unknown; formulations?: unknown; acquisition?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -40,8 +41,9 @@ export async function POST(request: Request) {
       inquiryType: "datasheet-download",
       source: "datasheet-builder",
       context: { ids, models, formulations: formulationCodes },
+      acquisition: parseAcquisition(body.acquisition),
       userAgent: request.headers.get("user-agent"),
-      referer: request.headers.get("referer"),
+      referer: acquisitionReferrer(request.headers.get("referer")),
     });
   } catch (e) {
     // Never block the download on lead-capture failure — log and let it pass.

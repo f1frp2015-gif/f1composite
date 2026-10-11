@@ -4,7 +4,8 @@
 // agrees with the datasheets.
 
 import { CAD_SLUGS } from "@/lib/cadManifest";
-import { modelToSlug } from "@/lib/catalog/public";
+import { modelToSlug } from "@/lib/catalog/identity";
+import { matchesStandardGeometry } from "@/lib/catalog/drawingGeometry";
 import { computeProperties, SHAPES, type ShapeId } from "@/lib/catalog/shapes";
 
 export interface SectionRow {
@@ -58,10 +59,10 @@ function mainDimensions(shape: ShapeId, dims: Record<string, number>): Pick<Sect
 }
 
 /** The row for one size, or null when its dimensions do not describe the shape. */
-export function sectionRow(model: string, shape: ShapeId, dims: Record<string, number>, mass: number | null): SectionRow | null {
-  if (!SHAPES[shape].fields.every((field) => Number.isFinite(dims[field.key]) && dims[field.key] > 0)) return null;
+export function sectionRow(model: string, shape: ShapeId, dims: Record<string, number>, mass: number | null, publishedSlug?: string): SectionRow | null {
+  if (!SHAPES[shape] || !SHAPES[shape].fields.every((field) => Number.isFinite(dims[field.key]) && dims[field.key] > 0)) return null;
   const properties = computeProperties({ kind: "parametric", shape, dims });
-  const slug = modelToSlug(model);
+  const slug = publishedSlug ?? modelToSlug(model);
   return {
     model,
     slug,
@@ -76,6 +77,6 @@ export function sectionRow(model: string, shape: ShapeId, dims: Record<string, n
     Wy: round(properties.Sy / 1e3),
     rx: round(properties.rx),
     ry: round(properties.ry),
-    dxf: CAD_SLUGS.has(slug),
+    dxf: CAD_SLUGS.has(slug) && matchesStandardGeometry(slug, { kind: "parametric", shape, dims }),
   };
 }

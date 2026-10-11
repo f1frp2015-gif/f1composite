@@ -1,17 +1,13 @@
 "use client";
 
-// Datasheet Builder: pick any combination of catalog products, then optionally
-// tick one or more resin systems (formulations) — the PDF renders every
-// selected cross-section once per selected resin system, so a customer can
-// compare e.g. polyester vs vinyl ester vs polyurethane data for the same
-// profile. No resin ticked = the standard formulation for each product.
-// Data comes from /api/catalog (DB-driven); if the catalog is empty or
-// unreachable the whole block hides itself so the downloads page never
-// degrades.
+// Uses the published catalog's stable keys. Alternative material datasets are
+// explicitly reference comparisons, not proof that a tested product exists.
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
+import type { CatalogConfiguration } from "@/lib/catalog/identity";
+import { getAcquisition } from "@/lib/acquisitionClient";
 
 interface CatalogCategory {
   id: number;
@@ -20,7 +16,9 @@ interface CatalogCategory {
 }
 
 interface CatalogProduct {
-  id: number;
+  id: number | null;
+  key: string;
+  configuration: CatalogConfiguration;
   model: string;
   name: string | null;
   categoryId: number | null;
@@ -62,9 +60,10 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
   const [categories, setCategories] = useState<CatalogCategory[]>([]);
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [formulations, setFormulations] = useState<CatalogFormulation[]>([]);
-  const [selected, setSelected] = useState<Set<number>>(new Set());
-  const [selectedF, setSelectedF] = useState<Set<number>>(new Set());
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selectedF, setSelectedF] = useState<Set<string>>(new Set());
   const [loaded, setLoaded] = useState(false);
+  const [revision, setRevision] = useState("");
   const [email, setEmail] = useState("");
   const [emailKnown, setEmailKnown] = useState(false);
   const [gateError, setGateError] = useState("");
@@ -80,6 +79,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
       .then((r) => r.json())
       .then((json) => {
         if (json?.ok && Array.isArray(json.products) && json.products.length > 0) {
+          setRevision(json.revision);
           setCategories(json.categories);
           setProducts(json.products);
           if (Array.isArray(json.formulations)) setFormulations(json.formulations);
@@ -113,7 +113,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
     return groups;
   }, [formulations]);
 
-  const toggle = (id: number) => {
+  const toggle = (id: string) => {
     const next = new Set(selected);
     if (next.has(id)) next.delete(id);
     else next.add(id);
@@ -122,15 +122,15 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
 
   const toggleGroup = (items: CatalogProduct[]) => {
     const next = new Set(selected);
-    const allIn = items.every((p) => next.has(p.id));
+    const allIn = items.every((p) => next.has(p.key));
     for (const p of items) {
-      if (allIn) next.delete(p.id);
-      else next.add(p.id);
+      if (allIn) next.delete(p.key);
+      else next.add(p.key);
     }
     setSelected(next);
   };
 
-  const toggleF = (id: number) => {
+  const toggleF = (id: string) => {
     const next = new Set(selectedF);
     if (next.has(id)) next.delete(id);
     else next.add(id);
@@ -141,8 +141,8 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
   const pageCount = selected.size * Math.max(1, selectedF.size);
   const overLimit = pageCount > MAX_PAGES;
   const href =
-    `/api/datasheet?ids=${[...selected].join(",")}` +
-    (selectedF.size > 0 ? `&f=${[...selectedF].join(",")}` : "");
+    `/api/datasheet?profiles=${encodeURIComponent([...selected].join(","))}&revision=${encodeURIComponent(revision)}` +
+    (selectedF.size > 0 ? `&materials=${encodeURIComponent([...selectedF].join(","))}&reference=1` : "");
   const needsEmail = pageCount > LEAD_GATE_THRESHOLD && !emailKnown;
 
   async function submitLeadAndDownload() {
@@ -154,14 +154,17 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
     }
     setSubmitting(true);
     try {
-      const chosen = products.filter((p) => selected.has(p.id));
-      const chosenF = formulations.filter((f) => selectedF.has(f.id));
+      const chosen = products.filter((p) => selected.has(p.key));
+      const chosenF = formulations.filter((f) => selectedF.has(f.code));
       await fetch("/api/datasheet-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: trimmed,
-          ids: [...selected],
+          ids: chosen.flatMap((product) => product.id == null ? [] : [product.id]),
+          catalogKeys: chosen.map((product) => product.key),
+          catalogRevision: revision,
+          acquisition: getAcquisition(),
           models: chosen.map((p) => p.model),
           formulations: chosenF.map((f) => f.code),
         }),
@@ -188,7 +191,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
       id="datasheet-builder"
       title="Build your own datasheet or catalog PDF"
       tone={tone}
-      intro="Pick one profile for a single-page datasheet, a whole family, or any mix for a multi-page catalog extract. Then tick one or more resin systems to get the same cross-section with each formulation's mechanical data: polyester, vinyl ester and polyurethane side by side. Every page carries the cross-section drawing and exact section properties, generated from our engineering database."
+      intro="Select published cross-sections and their default material data, or compare alternative material reference datasets. Each PDF identifies the section, material code, catalog revision and evidence scope. A generated comparison does not confirm supply, certification or tested performance of that combination."
     >
       {!loaded ? (
         <p className="min-h-[120px] text-f14 text-t3" aria-live="polite">Loading the profile catalog…</p>
@@ -203,7 +206,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
         <h3 className="mt-[4px] text-f18 font-bold text-t1">Select profiles</h3>
         <div className="mt-[12px] grid gap-[12px] md:grid-cols-2 lg:grid-cols-3">
           {byCategory.map(({ category, items }) => {
-            const allIn = items.every((p) => selected.has(p.id));
+            const allIn = items.every((p) => selected.has(p.key));
             return (
               <div key={category?.id ?? "other"} className={`rounded-card border border-border-default p-[20px] ${card}`}>
                 <div className="flex items-center justify-between gap-[12px]">
@@ -214,9 +217,9 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
                 </div>
                 <div className="mt-[8px] max-h-[220px] space-y-[4px] overflow-y-auto pr-[8px]">
                   {items.map((p) => (
-                    <label key={p.id} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
-                      <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggle(p.id)} className="accent-teal-text" />
-                      <span className="flex-1">{p.model}</span>
+                    <label key={p.key} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
+                      <input type="checkbox" checked={selected.has(p.key)} onChange={() => toggle(p.key)} className="accent-teal-text" />
+                      <span className="flex-1">{p.model}{p.configuration.sectionId ? <span className="block text-f12 text-t3">Internal ref: {p.configuration.sectionId} · {p.configuration.formulationCode ?? "Material to confirm"}</span> : null}</span>
                       {p.weightPerM != null && <span className="text-f12 tabular-nums text-t3">{p.weightPerM} kg/m</span>}
                     </label>
                   ))}
@@ -231,8 +234,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
             <p className={`mt-[32px] ${mono}`}>Step 2 · Optional</p>
             <h3 className="mt-[4px] text-f18 font-bold text-t1">Resin system</h3>
             <p className="mt-[4px] max-w-[760px] text-f14 leading-golden text-t2">
-              Leave everything unticked for each profile&apos;s standard formulation, or tick several
-              to compare the same cross-section across resin systems, one page per profile per system.
+              Leave everything unticked for each profile&apos;s default dataset. Selecting alternatives enables reference comparison mode, one page per section and dataset. A material code is not evidence that this cross-section has been manufactured or tested in that resin. Default catalog mass is not transferred to another formulation.
             </p>
             <div className={`mt-[12px] grid gap-[12px] rounded-card border border-border-default p-[20px] md:grid-cols-2 lg:grid-cols-3 ${card}`}>
               {formulationGroups.map(({ label, items }) => (
@@ -240,8 +242,8 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
                   <p className={mono}>{label}</p>
                   <div className="mt-[8px] space-y-[4px]">
                     {items.map((f) => (
-                      <label key={f.id} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
-                        <input type="checkbox" checked={selectedF.has(f.id)} onChange={() => toggleF(f.id)} className="accent-teal-text" />
+                      <label key={f.code} className="flex min-h-[28px] items-center gap-[8px] text-f14 text-t2">
+                        <input type="checkbox" checked={selectedF.has(f.code)} onChange={() => toggleF(f.code)} className="accent-teal-text" />
                         <span className="flex-1">{f.name}</span>
                         {f.grade && (
                           <span className="rounded-tag border border-border-default bg-white px-[6px] py-[1px] text-f12 font-medium text-t1">{f.grade}</span>
@@ -255,6 +257,7 @@ export default function DatasheetBuilder({ tone = "white" }: { tone?: "white" | 
           </>
         )}
 
+        <p className="mt-[20px] max-w-[840px] text-f14 leading-golden text-t2">{selectedF.size ? "Reference comparison selected. Confirm feasibility, finished-product mass and applicable test reports with engineering before specifying these combinations." : "Default catalog datasets are preliminary references. Consult the evidence scope on each datasheet before specifying a product."} <Link href="/resources/evidence" className="font-semibold text-teal-text underline">Review evidence scope</Link>.</p>
         <div className="mt-[24px] flex flex-wrap items-center gap-[12px]">
           {selected.size === 0 ? (
             <span className={idle}>Select profiles to generate a PDF</span>

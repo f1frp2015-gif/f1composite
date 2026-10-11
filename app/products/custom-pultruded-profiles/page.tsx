@@ -22,7 +22,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-09-27";
+const updatedAt = "2026-10-11";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 const { firstRun, repeat } = supplyTerms.customMoqMeters;
@@ -139,7 +139,7 @@ const faqItems = [
   {
     question: "How much does custom pultrusion tooling cost?",
     answer:
-      `Tooling costs depend on the complexity and size of the cross-section. Simple single-cavity dies for small profiles start at approximately ${usdRange(supplyTerms.dieCostUsd.singleCavity)}, while large or complex multi-cavity dies can range from ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)}. Tooling is a one-time investment that we maintain and store at our facility for the life of the product. For high-volume programs, the tooling cost per linear meter becomes negligible within the first production run.`,
+      `Tooling costs depend on the complexity and size of the cross-section. Simple single-cavity dies for small profiles start at approximately ${usdRange(supplyTerms.dieCostUsd.singleCavity)}, while large or complex multi-cavity dies can range from ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)}. These are planning ranges, not an offer. Divide the quoted tooling charge by the actual order length to calculate its share per meter. Tooling, profile production, trials, secondary processing and delivery are quoted separately; confirm ownership, maintenance and modification terms with the approved drawing.`,
   },
   {
     question: "What is the minimum order quantity for custom profiles?",
@@ -320,7 +320,7 @@ export default function CustomPultrusionsPage() {
           <div>
             <h3 className="text-f20 font-bold text-t1">Dimensional range</h3>
             <p className="mt-[10px] text-f16 leading-golden text-t2">
-              Limits of the current lines; other lengths on request. A section near a limit is still worth sending: the feasibility review says what would have to change.
+              These are separate capability ranges, not a guarantee that all limits can be combined. Feasibility and tolerances depend on section geometry, wall thickness, reinforcement, resin and length. Send the drawing and critical interfaces for review; we confirm the achievable dimensions and inspection method before tooling.
             </p>
           </div>
           <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
@@ -419,7 +419,7 @@ export default function CustomPultrusionsPage() {
               </div>
             </dl>
             <p className="mt-[14px] text-f14 leading-golden text-t2">
-              The die stays at our plant, maintained at our cost, for the life of your product. On a typical production run the amortized tooling share of the per-meter price becomes negligible within the first order.
+              Tooling share per meter is the quoted die charge divided by the order length. For example, a USD 5,000 die over a 500 m order adds USD 10/m before profile production, trials and delivery. This is an arithmetic example, not a quotation. Confirm ownership, storage, maintenance and modification terms in the tooling agreement.
             </p>
           </article>
           <article className="rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
