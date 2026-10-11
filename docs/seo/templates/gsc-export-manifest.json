@@ -1,0 +1,19 @@
+{
+  "templateKind": "blank-input-provenance-not-an-observation",
+  "property": null,
+  "searchType": null,
+  "dimensions": ["query", "page", "country", "device", "date"],
+  "aggregationType": null,
+  "responseAggregationType": null,
+  "dataState": null,
+  "startDate": null,
+  "endDate": null,
+  "dateTimezone": null,
+  "filters": null,
+  "exportedAtUtc": null,
+  "exportMethod": null,
+  "paginationAndTruncationNotes": null,
+  "privacyFilteringAndCoverageNotes": null,
+  "sourceFilesAndSha256": [],
+  "reviewer": null
+}

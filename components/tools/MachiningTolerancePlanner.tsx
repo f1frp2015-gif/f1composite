@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { machiningLimits } from "@/lib/machiningTolerance";
 import { buildRfqHref } from "@/lib/rfq";
+import { trackProcurement } from "@/lib/analytics";
 
 export default function MachiningTolerancePlanner() {
   const [feature, setFeature] = useState("Cut length");
@@ -35,6 +36,6 @@ export default function MachiningTolerancePlanner() {
       {limits ? <dl className="grid gap-[12px] sm:grid-cols-3">{[["Lower limit", limits.lower], ["Upper limit", limits.upper], ["Total tolerance band", limits.band]].map(([label, value]) => <div key={label} className="rounded-control border border-border-default bg-white p-[16px]"><dt className="text-f14 text-t2">{label}</dt><dd className="mt-[4px] text-f20 font-bold text-t1">{value} mm</dd></div>)}</dl> : <p role="alert" className="text-f14 text-t1">Enter finite values, a positive nominal dimension up to 100,000 mm, a positive lower limit and an upper deviation at least equal to the lower deviation. A nonzero band must be distinguishable at the displayed precision.</p>}
     </div>
     <p className="mt-[12px] text-f14 leading-relaxed text-t2">Formula: lower/upper limit = nominal + lower/upper deviation. For example, 100 mm with −0.5 / +0.5 mm deviations gives 99.5–100.5 mm. Geometric position, angular tolerances and measurement uncertainty need separate review.</p>
-    {href ? <Link href={href} className="mt-[20px] inline-flex min-h-[44px] items-center rounded-control bg-teal px-[18px] py-[10px] text-f14 font-semibold text-white hover:bg-teal-text">Include this requirement in an RFQ →</Link> : null}
+    {href ? <Link href={href} onClick={() => trackProcurement({ action: "machining_rfq", feature })} className="mt-[20px] inline-flex min-h-[44px] items-center rounded-control bg-teal px-[18px] py-[10px] text-f14 font-semibold text-white hover:bg-teal-text">Include this requirement in an RFQ →</Link> : null}
   </div>;
 }

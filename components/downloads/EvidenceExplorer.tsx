@@ -6,11 +6,12 @@ import { engineeringEvidence } from "@/content/data/engineeringEvidence";
 import { reportVerifications, verificationPath } from "@/content/data/reportVerification";
 import { buildRfqHref } from "@/lib/rfq";
 import { trackEvent } from "@/lib/analytics";
+import { catalogRfqContext, type CatalogConfiguration } from "@/lib/catalog/identity";
 import { applicabilityRevision, assessDocumentApplicability, catalogEvidenceProductPath, documentApplicabilityLabels, documentScope, type CatalogEvidenceInput } from "@/content/data/evidenceApplicability";
 
 const verificationHrefs = new Map(reportVerifications.map((item) => [item.evidenceId, verificationPath(item.slug)]));
 
-export default function EvidenceExplorer({ target = null, asOf }: { target?: CatalogEvidenceInput | null; asOf: string }) {
+export default function EvidenceExplorer({ target = null, configuration, asOf }: { target?: CatalogEvidenceInput | null; configuration?: CatalogConfiguration; asOf: string }) {
   const [kind, setKind] = useState("All");
   const [product, setProduct] = useState("All");
   const records = engineeringEvidence.filter((item) => (kind === "All" || item.kind === kind) && (product === "All" || item.productLabel === product));
@@ -38,7 +39,7 @@ export default function EvidenceExplorer({ target = null, asOf }: { target?: Cat
         {verificationHrefs.has(item.id) && <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={verificationHrefs.get(item.id)!}>Verify this document</Link>}
         {item.contextHref && <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={item.contextHref}>Read test results and scope notes</Link>}
         <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={item.product}>{item.productLabel}</Link>
-        <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={buildRfqHref({ source: "evidence-library", evidenceId: item.id, product: target ? `${target.categorySlug} configuration` : item.productLabel, productPath: target ? catalogEvidenceProductPath(target.categorySlug) : item.product, ...(target ? { context: { evidenceRequest: { ...target, evidenceId: item.id, status: assessment?.status, scopeRevision: applicabilityRevision } } } : {}), message: `Please confirm whether ${item.reference} applies to my proposed ${target ? `${target.categorySlug}, catalog section ${target.sectionId ?? "to confirm"}, formulation ${target.formulationCode ?? "to confirm"}` : item.productLabel.toLowerCase()} configuration. I will provide the dimensions, quantity and project requirements below.` })}>Check applicability to my project</Link>
+        <Link className="inline-flex min-h-[44px] items-center underline underline-offset-4" href={buildRfqHref({ source: "evidence-library", evidenceId: item.id, product: target ? `${target.categorySlug} configuration` : item.productLabel, productPath: target ? catalogEvidenceProductPath(target.categorySlug) : item.product, ...(target ? { context: { ...(configuration ? catalogRfqContext([configuration]) : {}), evidenceRequest: { ...target, ...(configuration ? { catalogKey: configuration.catalogKey, catalogRevision: configuration.catalogRevision } : {}), evidenceId: item.id, status: assessment?.status, scopeRevision: applicabilityRevision } } } : {}), message: `Please confirm whether ${item.reference} applies to my proposed ${target ? `${target.categorySlug}, catalog section ${configuration?.catalogKey ?? target.sectionId ?? "to confirm"}, formulation ${target.formulationCode ?? "to confirm"}` : item.productLabel.toLowerCase()} configuration. I will provide the dimensions, quantity and project requirements below.` })}>Check applicability to my project</Link>
       </div>
     </article>; })}</div>
   </>;

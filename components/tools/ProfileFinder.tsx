@@ -9,6 +9,7 @@ import type { ShapeId } from "@/lib/catalog/shapes";
 import type { FinderRow } from "@/lib/profileFinder";
 import { buildRfqHref } from "@/lib/rfq";
 import { catalogRfqContext, catalogEvidenceHref } from "@/lib/catalog/identity";
+import { trackProcurement } from "@/lib/analytics";
 
 const MAX_COMPARE = 4;
 
@@ -125,8 +126,18 @@ export default function ProfileFinder({ rows, initialSearch = "" }: { rows: Find
   const full = selected.length >= MAX_COMPARE;
   const active = [filters.shapes.length > 0, filters.dMin, filters.dMax, filters.massMax, filters.ixMin].filter(Boolean).length;
 
-  const toggle = (slug: string) =>
-    update({ compare: filters.compare.includes(slug) ? filters.compare.filter((item) => item !== slug) : full ? filters.compare : [...filters.compare, slug] });
+  const toggle = (slug: string) => {
+    const row = bySlug.get(slug);
+    if (!row) return;
+    const current = selected.map(item => item.slug);
+    const removing = current.includes(slug);
+    if (!removing && full) return;
+    const compare = removing ? current.filter(item => item !== slug) : [...current, slug];
+    update({ compare });
+    trackProcurement({ action: removing ? "shortlist_remove" : "shortlist_add", category: row.shape, count: compare.length });
+  };
+  const trackSelection = (action: "compare" | "profile_rfq") =>
+    trackProcurement({ action, count: selected.length, categoryCount: new Set(selected.map(row => row.shape)).size });
   const toggleShape = (shape: ShapeId) =>
     update({ shapes: filters.shapes.includes(shape) ? filters.shapes.filter((item) => item !== shape) : FAMILY_ORDER.filter((item) => item === shape || filters.shapes.includes(item)) });
 
@@ -418,11 +429,11 @@ export default function ProfileFinder({ rows, initialSearch = "" }: { rows: Find
             ))}
             <span className="ml-auto flex gap-[8px]">
               {selected.length >= 2 ? (
-                <a href="#finder-compare" className="rounded-control border border-border-default bg-white px-[14px] py-[8px] text-f14 font-bold text-t1 hover:border-teal-border hover:text-teal-text">
+                <a href="#finder-compare" onClick={() => trackSelection("compare")} className="rounded-control border border-border-default bg-white px-[14px] py-[8px] text-f14 font-bold text-t1 hover:border-teal-border hover:text-teal-text">
                   Compare
                 </a>
               ) : null}
-              <Link href={quoteHref} className="rounded-control bg-teal-text px-[14px] py-[8px] text-f14 font-bold text-white hover:bg-teal">
+              <Link href={quoteHref} onClick={() => trackSelection("profile_rfq")} className="rounded-control bg-teal-text px-[14px] py-[8px] text-f14 font-bold text-white hover:bg-teal">
                 Quote {selected.length === 1 ? "this size" : "selected"}
               </Link>
             </span>

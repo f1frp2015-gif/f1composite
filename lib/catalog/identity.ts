@@ -62,7 +62,7 @@ export function catalogRfqContext(configurations: CatalogConfiguration[]): Recor
 }
 
 export function catalogEvidenceHref(configuration: CatalogConfiguration, categorySlug: string): string {
-  const params = new URLSearchParams({ category: categorySlug });
+  const params = new URLSearchParams({ category: categorySlug, profile: configuration.catalogKey, revision: configuration.catalogRevision });
   if (configuration.sectionId) params.set("section", configuration.sectionId);
   if (configuration.formulationCode) params.set("formulation", configuration.formulationCode);
   return `/resources/evidence?${params.toString()}`;

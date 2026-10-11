@@ -40,7 +40,7 @@ const reviewHref = buildRfqHref({ source: "quality-testing", message: "Please re
 export default function QualityTestingPage() {
   return <>
     <PageHeader tag="Quality & testing" title="Evidence for the product you are specifying" description="Use the original report and an agreed inspection plan to connect a product claim to the material or assembly being supplied." breadcrumbs={[{ label: "Home", href: "/" }, { label: "Technology", href: "/technology" }, { label: "Quality & Testing" }]} figure={<Figure number={1} title="Materials testing" note="Illustrative photo" caption="Illustrative photo. The records for an order are the reports and inspection plan agreed for it." bleed><div className="relative aspect-[16/10]"><Image src="/images/technology/f1-composite-quality-testing-laboratory.webp" alt="Technician at work in a materials testing laboratory" fill sizes="(max-width: 1023px) 94vw, 44vw" className="object-cover" preload /></div></Figure>} actions={{ primary: { label: "Browse reports and documents", href: "/resources/evidence" }, secondary: { label: "Request an evidence review", href: reviewHref, variant: "secondary" } }} />
-    <PageNav items={[{ id: "scope", label: "Document scope" }, { id: "checks", label: "Four checks" }, { id: "machining-records", label: "Record checklist" }, { id: "references", label: "Public references" }]} />
+    <PageNav items={[{ id: "scope", label: "Document scope" }, { id: "checks", label: "Four checks" }, { id: "machining-records", label: "Blank record & CSV" }, { id: "references", label: "Public references" }]} />
 
     <PageSection id="scope" title="Start with document scope">
       <div className="max-w-[820px] space-y-[12px] text-f16 leading-golden text-t2">
@@ -54,6 +54,7 @@ export default function QualityTestingPage() {
     </PageSection>
 
     <PageSection id="machining-records" title="A dimensional inspection record you can specify" intro="Blank planning example — no part has been measured, accepted or certified by this table. Agree the fields and inspection scope for the actual order.">
+      <p className="mb-[20px] max-w-[900px] text-f16 leading-golden text-t2"><a href="/downloads/frp-first-article-inspection-template.csv" download className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Download the blank first-article inspection template (CSV)</a>. It is an editable record structure, not a completed first article, test report or certificate. Keep requirements separate from actual values and approval when completing it for an identified sample.</p>
       <div className="overflow-x-auto rounded-card border border-border-default bg-white">
         <table className="w-full border-collapse text-left text-f14">
           <caption className="px-[16px] py-[12px] text-left font-semibold text-t1">Blank inspection record: fields to complete for each identified part or sample</caption>

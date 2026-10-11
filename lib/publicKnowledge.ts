@@ -12,6 +12,7 @@ import type { PublishedCatalog } from "@/lib/catalog/published";
 import { catalogPublicPayload } from "@/lib/catalog/publicPayload";
 import { materialComparisonContext } from "@/content/data/materialComparison";
 import { machiningGuide, machiningControlLevels } from "@/content/data/frpMachining";
+import { firstArticleTemplatePath, procurementRevision } from "@/lib/catalog/procurement";
 
 const SITE = "https://www.f1composite.com";
 
@@ -20,6 +21,15 @@ export function buildPublicKnowledge(catalog?: PublishedCatalog) {
     "@context": "https://schema.org",
     version: evidenceRevision,
     taxonomyRevision,
+    evidenceUse: {
+      version: procurementRevision,
+      url: `${SITE}/resources/evidence#use-evidence`,
+      scope: "A result belongs to its named specimen or configuration, method and conditions. Similar dimensions or a shared resin grade do not establish equivalence.",
+      identifiers: ["catalog key", "formulation code", "catalog revision", "approved drawing number and revision", "report number and original issue date"],
+      valueTypes: ["reported specimen result", "reference material value", "calculated screening result", "approved project design value"],
+      releaseBoundary: "Catalog references are not manufacturer SKUs, confirmed stock, approved manufacturing drawings or configuration certification. No measured first-article result is currently published for catalog selections.",
+      blankInspectionTemplate: { url: `${SITE}${firstArticleTemplatePath}`, status: "blank-template-not-a-test-result" },
+    },
     catalogDiscovery: {
       url: `${SITE}/api/catalog`,
       method: "GET",
