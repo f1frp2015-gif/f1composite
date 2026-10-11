@@ -23,7 +23,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-handrail-systems";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-09-24";
+const updatedAt = "2026-10-11";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -57,7 +57,7 @@ const specificationInputs = [
   },
   {
     title: "Approved release set",
-    body: "Release the post schedule, tube system, fitting types, splice locations, base details, anchor schedule and BOM before production or field drilling.",
+    body: "Agree the layout revision, post schedule, tube system, fittings, splices, bases and BOM before production or field drilling. Identify who designs and supplies anchors, and which acceptance records are included.",
   },
 ] as const;
 
@@ -90,7 +90,7 @@ const faqItems = [
   {
     question: "What information is needed for an industrial FRP handrail quote?",
     answer:
-      "Send total run, plan and elevations, stair slopes, height and post-spacing limits, governing load standard, base substrate, kick-plate requirement, exposure, color, gates and delivery destination. A marked drawing lets F1 return a coordinated post, rail, fitting, base and anchor schedule.",
+      "Send total run, plan and elevations, stair slopes, height and post-spacing limits, governing load standard, base substrate, kick-plate requirement, exposure, color, gates and delivery destination. State whether you need component supply or a coordinated package. Agree the BOM, layout revision, design responsibility and included acceptance documents in the quotation; a tube catalog does not establish system certification or report availability.",
   },
 ];
 
@@ -101,6 +101,21 @@ const requestItems = [
   { title: "Bases and kick plates", text: "Base substrate and fixing conditions, and whether a kick plate is required." },
   { title: "Exposure and delivery", text: "Chemical, outdoor and electrical exposure, color, quantity and destination." },
 ];
+
+const handoffDocuments = [
+  {
+    title: "Marked layout and BOM",
+    body: "Identify each run, post, rail, fitting, splice, gate and kick plate with a part mark and quantity. Record the selected square or round system, cut lengths, holes, drawing revision and interfaces with stairs or platforms. Mark anchors and other items supplied by others.",
+  },
+  {
+    title: "Design and release responsibility",
+    body: "Name the party approving loads, post spacing, connections, bases and substrate fixings. Agree the fabrication tolerances and inspection points before release. Component supply does not automatically include anchor design, installation or approval of the supporting structure.",
+  },
+  {
+    title: "Acceptance and delivery records",
+    body: "List the required material / batch records, dimensional checks, part identification, packing list and installation instructions in the order. Confirm which documents are available and included. Any required load test or certification must match the offered assembly; additional qualification work needs a separate agreement.",
+  },
+] as const;
 
 const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 
@@ -168,7 +183,7 @@ export default function HandrailSystemsPage() {
         facts={[
           { label: "Systems", value: "Square and round tube" },
           { label: "Parts", value: "Posts, rails, fittings, bases" },
-          { label: "Post spacing", value: "Up to 1,500 mm" },
+          { label: "Catalog spacing", value: "Up to 1,500 mm" },
           { label: "Release", value: "Approved BOM" },
         ]}
         actions={{
@@ -203,6 +218,7 @@ export default function HandrailSystemsPage() {
           { id: "specifications", label: "Specifications" },
           { id: "components", label: "Components" },
           { id: "inputs", label: "Inputs" },
+          { id: "handoff", label: "Order documents" },
           { id: "faq", label: "FAQ" },
           { id: "related", label: "Related" },
           { id: "quote", label: "Quote" },
@@ -216,7 +232,7 @@ export default function HandrailSystemsPage() {
               A fiberglass railing is not qualified by a tube size alone. The finished assembly transfers top-rail and intermediate-member loads through posts, splices, corner fittings, bases, anchors and the supporting substrate. F1 therefore keeps the catalog geometry visible while making the project load basis and release drawing explicit.
             </p>
             <p>
-              This page owns the industrial handrail and guardrail intent. For vertical access, use the separate{" "}
+              For vertical access, use the separate{" "}
               <Link href="/products/frp-ladders" className={link}>
                 fiberglass fixed ladder systems
               </Link>{" "}
@@ -299,6 +315,22 @@ export default function HandrailSystemsPage() {
         </p>
       </PageSection>
 
+      <PageSection
+        id="handoff"
+        title="Agree the documents before releasing a handrail order"
+        intro="Keep the layout, component list and acceptance requirements on the same revision. The quotation identifies which components, engineering tasks and documents are included."
+      >
+        <ol className="grid grid-cols-1 gap-[16px] lg:grid-cols-3">
+          {handoffDocuments.map((document, index) => (
+            <li key={document.title} className="rounded-card border border-border-default bg-bg2 p-[20px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Handoff {index + 1}</p>
+              <h3 className="mt-[4px] text-f18 font-bold text-t1">{document.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{document.body}</p>
+            </li>
+          ))}
+        </ol>
+      </PageSection>
+
       <PageSection id="faq" title="Questions buyers ask">
         <FAQList items={faqItems} />
       </PageSection>
@@ -345,9 +377,9 @@ export default function HandrailSystemsPage() {
           productPath={pagePath}
           quoteHref={quoteHref}
           items={requestItems}
-          intro="Send the platform or stair layout, the load basis, the bases and the destination."
+          intro="Send the platform or stair layout, load basis, bases and destination. Identify component-only or coordinated supply and any required acceptance documents."
           links={[{ label: "Check a handrail load first", href: "/tools/handrail-load-calculator" }]}
-          advisorPrompt="I need an industrial fiberglass handrail / guardrail system: total run and layout [attach plan/elevation], straight/stair/corner/gate conditions, governing load standard, target height and post-spacing limit, base substrate, kick-plate requirement, environment, color and destination. Compare square and round systems and list the drawing/BOM checks required before release."
+          advisorPrompt="I need an industrial fiberglass handrail / guardrail system: total run and layout [attach plan/elevation], straight/stair/corner/gate conditions, governing load standard, target height and post-spacing limit, base substrate, kick-plate requirement, environment, color and destination. Compare square and round systems and list the drawing/BOM checks required before release. Confirm component-only or coordinated supply, anchor and design responsibility, and the acceptance documents available for the offered configuration."
         />
       </PageSection>
     </>

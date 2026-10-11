@@ -28,31 +28,31 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Pultruded fiberglass flat bars, 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass content, EN 13706, and ASTM D3917. DDP USA quotes.";
+  "Compare fiberglass flat bar sizes and catalog weights. Specify cut lengths, fit and machining for spacers, stiffeners and fabricated parts; request a quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-flat-bar";
 
-const LAST_UPDATED = "2026-09-26";
+const LAST_UPDATED = "2026-10-11";
 
 const faqItems = [
   {
     question: "What are pultruded FRP flat bars used for?",
     answer:
-      "FRP flat bars are used as stiffeners, splice plates, wear strips, spacer elements, and rebar replacements in corrosive environments. High-modulus pultruded flat bars (up to 70% glass content) are also used in concrete reinforcement and pre-stressed structural applications where steel rebar would corrode.",
+      "Flat bars provide rectangular profile lengths for spacers, stiffeners and fabricated parts. State whether the part carries load, controls a fit or contacts a moving surface so its geometry, material and acceptance requirements can be reviewed. Structural splice plates and wear components need application-specific checks beyond a catalog width and thickness.",
   },
   {
     question: "How does FRP flat bar compare to steel flat bar?",
     answer:
-      "Pultruded FRP flat bar is approximately 75% lighter than equivalent steel flat bar (1.9 g/cm³ vs 7.85 g/cm³), does not rust, and is non-conductive and non-magnetic. Tensile strength is comparable to mild steel (240–400 MPa for FRP vs 400 MPa for A36), so per kilogram FRP is stronger. Stiffness is roughly 1/10 that of steel, so deflection often governs design.",
+      "Compare sections selected for the same loading, span, orientation and connection requirements. The table lists published catalog mass and nominal geometry, while stiffness and strength require data for the proposed laminate. Equal width and thickness do not establish an equivalent replacement for a steel part.",
   },
   {
     question: "What tolerances do F1 Composite flat bars hold?",
     answer:
-      "Standard tolerances are ±0.25 mm on thickness and ±0.5 mm on width, in line with EN 13706 and ASTM D3917. Lengths are typically supplied at 6 m (or per cut order) with ±5 mm length tolerance. Tighter tolerances are available for precision applications on request.",
+      "Specify width, thickness, cut length, straightness and flatness where they affect fit. Include the mating detail and inspection method for critical dimensions. The drawing and quotation establish the agreed tolerances and any machining needed; a single fixed tolerance does not apply to every catalog size.",
   },
   {
     question: "Can FRP flat bars replace steel rebar in concrete?",
     answer:
-      "Yes. Pultruded FRP flat bars and rods with 65–70% unidirectional glass roving are used as non-corrosive reinforcement in concrete, especially in marine structures, parking decks, MRI rooms, and chemically exposed slabs. They cannot rust, so they remove corrosion-induced cracking; the design life comes from the project's design and exposure. Sand-coated or helically wound surfaces improve concrete bond.",
+      "Use the dedicated FRP rebar route for concrete reinforcement. A reinforcement or prestressing product needs a defined bond surface or anchorage, material properties and project acceptance criteria. A standard flat bar is not qualified for those roles by its shape or glass content alone.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default async function FlatBarPage() {
           path: pagePath,
           image: "/products/fiberglass-structural-shapes/frp-flat-bar/opengraph-image",
           category: "Pultruded FRP Structural Profiles",
-          material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          material: ["Glass-fiber-reinforced thermoset"],
           productLine: "F1-STRUX",
           dateModified: LAST_UPDATED,
         })}
@@ -84,10 +84,10 @@ export default async function FlatBarPage() {
         line={{ name: "F1-STRUX", label: "Flat bar" }}
         updated={LAST_UPDATED}
         title="Fiberglass flat bars (FRP bar stock)"
-        description="Solid rectangular pultruded fiberglass bars from 12×3 mm to 305×25 mm, held to ±0.25 mm on thickness. Used as stiffeners, splice plates, wear strips and spacers."
+        description="Solid rectangular pultruded fiberglass bar stock for spacers, stiffeners and fabricated parts. Compare catalog sections, then specify cut lengths, tolerances, machining and the service requirements for your part."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Width", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
-          { label: "Tolerance", value: "±0.25 mm thickness" },
+          { label: "Section", value: "Solid rectangular" },
         ]}
         actions={{
           primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP flat bars", productPath: pagePath }) },
@@ -129,10 +129,13 @@ export default async function FlatBarPage() {
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              FRP flat bars serve as stiffeners, splice plates, wear strips and spacers. High-modulus bars with up to 70% glass are used for concrete reinforcement and pre-stressed work. Tolerances of ±0.25 mm on thickness and ±0.5 mm on width give a reliable fit-up.
+              Select flat bar stock by width, thickness and installed orientation. For a spacer or fitted part, identify the mating faces and required clearance. For a stiffener or splice, include the loads, holes and bearing details so the member and its connections can be assessed together.
+            </p>
+            <p>
+              Agree dimensional tolerances and any machining on the part drawing. Concrete reinforcement belongs in the dedicated rebar inquiry route, with its own material, bond and acceptance requirements.
             </p>
             <ul className="flex flex-wrap gap-[8px] pt-[4px]">
-              {["±0.25 mm on thickness", "Up to 70% glass", "EN 13706 and ASTM D3917", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+              {["Solid rectangular stock", "Specify fit and tolerances", "Machining to agreed drawing", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
                   {chip}
                 </li>
@@ -140,11 +143,11 @@ export default async function FlatBarPage() {
             </ul>
           </div>
           <UseList
+            title="Applications and buying routes"
             items={[
-              { label: "Wear strips and stiffeners", href: "/industries/industrial" },
-              { label: "Solar module clamps", href: "/industries/energy" },
-              { label: "Splice plates", href: "/industries/infrastructure" },
-              { label: "Rooftop supports", href: "/industries/construction" },
+              { label: "Industrial spacers and stiffeners", href: "/industries/industrial" },
+              { label: "Custom fabricated-part inquiries", href: "/products/custom-pultruded-profiles" },
+              { label: "Concrete reinforcement: FRP rebar", href: "/products/frp-rebar" },
               { label: "Fiberglass sheets for wider flat stock", href: "/products/fiberglass-sheets" },
             ]}
           />
@@ -156,7 +159,7 @@ export default async function FlatBarPage() {
         title="Sizes"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
-        intro="Dimensions in mm, mass in kg/m. A, Ix and Iy are calculated from the nominal section: Ix for the bar standing on edge, Iy for the bar lying flat."
+        intro="Dimensions in mm, published catalog mass in kg/m. A, Ix and Iy are calculated from the nominal section: Ix for the bar standing on edge, Iy for the bar lying flat. Confirm tolerances and material requirements for the ordered part."
         aside={
           <Link href="/tools/profile-finder?shape=flat" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Filter and compare in the profile finder
@@ -189,7 +192,7 @@ export default async function FlatBarPage() {
       </ProductSection>
 
       <ProductSection id="properties" title="Properties">
-        <LaminateProperties />
+        <LaminateProperties note="Match the material data to the proposed flat bar and its installed orientation. Fabricated joints, wearing surfaces and fitted parts require acceptance criteria for their specific function." />
       </ProductSection>
 
       <ProductSection id="applications" title="Applications" tone="muted">
@@ -224,7 +227,7 @@ export default async function FlatBarPage() {
       </ProductSection>
 
       <ProductSection id="quote" title="Quote FRP flat bars" tone="deep">
-        <ProductRfq product="FRP flat bars" productPath={pagePath} />
+        <ProductRfq product="FRP flat bars" productPath={pagePath} intro="Send the width, thickness, cut lengths and quantities, with the fit, machining and service requirements for the part." />
       </ProductSection>
     </>
   );

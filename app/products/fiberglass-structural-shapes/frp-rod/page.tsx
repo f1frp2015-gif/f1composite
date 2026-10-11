@@ -28,31 +28,31 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Rod — Pultruded Solid FRP Round Rod Ø6–50 mm";
 const pageDescription =
-  "Pultruded fiberglass rod Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive solid FRP rods. Soil nails, rock bolts, tie-rods. DDP USA.";
+  "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-rod";
 
-const LAST_UPDATED = "2026-09-26";
+const LAST_UPDATED = "2026-10-11";
 
 const faqItems = [
   {
     question: "What are pultruded FRP round rods used for?",
     answer:
-      "Pultruded FRP solid round rods are used for soil nails, rock bolts, ground anchors, marine tie-rods, FRP rebar in concrete, electrical insulator cores, antenna masts, and tooling shafts. The combination of high tensile strength, non-magnetic and non-conductive properties, and zero corrosion makes them the standard choice in environments where steel cannot survive.",
+      "This page covers solid round profile lengths and blanks for further fabrication. Specify the diameter, cut length, fit, end details and service conditions for your part. Plant stakes, concrete reinforcement, rock bolts and electrical components have their own purchasing and qualification requirements; use the linked product routes for those inquiries.",
   },
   {
-    question: "What is the tensile strength of FRP round rods?",
+    question: "Which material properties should I request for an FRP rod?",
     answer:
-      "Pultruded FRP round rods with 65–70% unidirectional glass roving have axial tensile strength of 700–1100 MPa — significantly higher than mild steel (400 MPa) on a strength-per-weight basis. Modulus is 40–55 GPa. Specific values depend on resin system and fiber loading; full datasheets available on request.",
+      "Request properties for the proposed rod, reinforcement and resin formulation, including the test direction and specimen conditions. The E23-ISO table on this page is a material reference, not measured performance for every catalog diameter. Agree the relevant strength, stiffness and acceptance evidence before using values for final design.",
   },
   {
-    question: "Are FRP rods non-magnetic and non-conductive?",
+    question: "Can a standard rod be ordered as an electrical insulation core?",
     answer:
-      "Yes. Glass-reinforced pultruded FRP rods are electrically non-conductive (volume resistivity > 10¹² Ω·cm), magnetically transparent, and RF-transparent. This makes them the preferred choice for MRI room reinforcement, transformer spacers, electrified railway tie-rods, and antenna structural elements where steel would short, arc, or distort EM fields.",
+      "An insulation core or live-line tool component requires its own material, surface, end-fitting and test requirements. A catalog diameter or a generic non-conductive material description does not establish suitability. Send the component drawing and qualification basis through the relevant electrical product route.",
   },
   {
     question: "Can FRP round rods be used as rebar in concrete?",
     answer:
-      "Yes. Sand-coated or helically wound FRP rods are used as non-corrosive concrete reinforcement, particularly in marine structures, bridge decks, parking decks, and chemically aggressive slabs. They remove the cause of corrosion-induced concrete spalling, which extends the service life of the structure. Bond strength is comparable to deformed steel rebar when surface treatment is specified correctly.",
+      "Concrete reinforcement should be specified through the FRP rebar route. Rebar requires an identified reinforcement product, bond surface, mechanical properties and acceptance basis. Adding a coating or winding to an ordinary rod does not by itself qualify it as rebar. Rock bolts likewise need an agreed anchoring assembly and project requirements.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default async function RodPage() {
           path: pagePath,
           image: "/products/fiberglass-structural-shapes/frp-rod/opengraph-image",
           category: "Pultruded FRP Structural Profiles",
-          material: ["Unidirectional glass roving", "Polyester resin", "Vinyl ester resin"],
+          material: ["Glass-fiber-reinforced thermoset"],
           productLine: "F1-STRUX",
           dateModified: LAST_UPDATED,
         })}
@@ -84,10 +84,10 @@ export default async function RodPage() {
         line={{ name: "F1-STRUX", label: "Round rod" }}
         updated={LAST_UPDATED}
         title="Fiberglass rods (solid FRP)"
-        description="Solid pultruded fiberglass rods from Ø6 to Ø50 mm with 65–70% unidirectional glass. Non-magnetic and non-conductive, for soil nails, rock bolts, tie-rods and plant stakes."
+        description="Solid pultruded fiberglass round rods for cut lengths and fabricated blanks. Compare catalog diameters and weights, then specify the fit, end machining, material and service conditions for your part."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Diameter", values: sizes.map((size) => size.d), prefix: "Ø", weights: sizes.map((size) => size.mass ?? NaN) }),
-          { label: "Glass", value: "65–70% unidirectional" },
+          { label: "Section", value: "Solid round" },
         ]}
         actions={{
           primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP round rods", productPath: pagePath }) },
@@ -129,10 +129,13 @@ export default async function RodPage() {
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              Rods are pultruded with 65–70% unidirectional glass roving, so nearly all of their strength runs along the axis. They serve as soil nails, rock bolts, guy-wire replacements and marine tie-rods, where a non-magnetic, non-conductive rod that cannot rust has the edge over steel.
+              A solid round rod provides a constant-section blank for a fabricated part. Start with its diameter and cut length, then identify the surfaces that control fit, any drilled or machined ends, and the loads and environment it will see.
+            </p>
+            <p>
+              State whether you need a plain length or a finished component. Use the purpose-specific routes alongside this page for stakes, reinforcement, anchoring and electrical parts, where the surface, fittings and acceptance requirements form part of the product specification.
             </p>
             <ul className="flex flex-wrap gap-[8px] pt-[4px]">
-              {["65–70% unidirectional glass", "Non-magnetic", "Smooth, sand-coated or wound", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+              {["Solid round section", "Specify diameter and fit", "Machining to agreed drawing", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
                   {chip}
                 </li>
@@ -140,12 +143,14 @@ export default async function RodPage() {
             </ul>
           </div>
           <UseList
+            title="Purpose-specific rod inquiries"
             items={[
               { label: "Fiberglass stakes for plants and trees", href: "/products/fiberglass-stakes" },
               { label: "FRP rebar for concrete", href: "/products/frp-rebar" },
-              { label: "Soil nails and rock bolts", href: "/industries/infrastructure" },
-              { label: "Marine tie-rods", href: "/industries/marine" },
-              { label: "Solar tracker shafts", href: "/industries/energy" },
+              { label: "FRP rock bolts and anchoring", href: "/products/frp-rock-bolts" },
+              { label: "Live-line tool rods and tubes", href: "/products/fiberglass-live-line-tool-tubes-rods" },
+              { label: "Switchgear insulating components", href: "/products/frp-switchgear-insulating-profiles" },
+              { label: "Composite conductor core development", href: "/products/composite-conductor-core-rods" },
             ]}
           />
         </div>
@@ -156,7 +161,7 @@ export default async function RodPage() {
         title="Sizes"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
-        intro="Diameter in mm, mass in kg/m. A and Ix are calculated from the nominal section. Surface options: smooth, sand-coated or helically wound, selected to suit the bond you need."
+        intro="Diameter in mm, published catalog mass in kg/m. A and Ix are calculated from the nominal section. Confirm the proposed material, finished diameter, tolerances and surface condition in the quotation."
         aside={
           <Link href="/tools/profile-finder?shape=rod" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Filter and compare in the profile finder
@@ -184,7 +189,7 @@ export default async function RodPage() {
       </ProductSection>
 
       <ProductSection id="properties" title="Properties">
-        <LaminateProperties note="Rods are mostly unidirectional roving, so their axial strength and modulus run well above these grade minimums. Ask for measured values for the diameter and resin you need." />
+        <LaminateProperties note="For a rod inquiry, identify the diameter, reinforcement, resin and surface condition together. Request the data and acceptance criteria that apply to that configuration and the finished part." />
       </ProductSection>
 
       <ProductSection id="applications" title="Applications" tone="muted">
@@ -219,7 +224,17 @@ export default async function RodPage() {
       </ProductSection>
 
       <ProductSection id="quote" title="Quote FRP round rods" tone="deep">
-        <ProductRfq product="FRP round rods" productPath={pagePath} />
+        <ProductRfq
+          product="FRP round rods"
+          productPath={pagePath}
+          intro="Send the rod diameter, cut lengths, quantities and part drawing, with the intended service and delivery destination."
+          items={[
+            { title: "Diameter and fit", text: "Nominal diameter, tolerance, straightness and mating-part requirements." },
+            { title: "Cut length and machining", text: "Lengths, end details, holes and responsibility for further fabrication." },
+            { title: "Material and acceptance", text: "Loads, environment and the properties or inspections required for the part." },
+            { title: "Quantity and destination", text: "Quantity by length, repeat demand and delivery location." },
+          ]}
+        />
       </ProductSection>
     </>
   );

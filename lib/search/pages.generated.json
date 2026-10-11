@@ -324,7 +324,7 @@
   {
     "path": "/products/fiberglass-structural-shapes",
     "title": "Fiberglass Structural Shapes — FRP Sizes & Weights",
-    "description": "F1 Composite's standard fiberglass structural shapes are pultruded I-beams from 76×38 to 305×305 mm, channels from 38×13 to 360×108 mm, angles from 25×25 to 152×152 mm, square and rectangular tubes from 25×25 to 240×240 mm, round tubes from 25 to 150 mm OD, flat bars and rods, supplied in 6 m standard lengths to EN 13706 E17/E23 and ASTM D3917 requirements. Each family lists dimensions and weights, with datasheets and DXF drawings for catalog sizes. Catalog sizes are standard options, not live stock: confirm resin, quantity and production timing in the quotation.",
+    "description": "Compare pultruded fiberglass I-beams, channels, angles, square and rectangular tubes, round tubes, flat bars and rods. Choose a family for the member's task, then compare dimensions, weights, drawings and material evidence. Catalog sections can be quoted as standard lengths or processed parts; a new cross-section starts from your drawing. Confirm the laminate, tolerances, quantity and production timing for the order.",
     "aliases": [
       "Fiberglass structural shapes & sizes"
     ]
@@ -332,7 +332,7 @@
   {
     "path": "/products/fiberglass-structural-shapes/frp-angle",
     "title": "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer",
-    "description": "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.",
+    "description": "Compare equal-leg fiberglass angle sizes and catalog weights. Request custom unequal-leg sections or fabricated cleats with your drawing and connection details.",
     "aliases": [
       "Fiberglass angle (FRP) profiles"
     ]
@@ -340,7 +340,7 @@
   {
     "path": "/products/fiberglass-structural-shapes/frp-channel",
     "title": "Fiberglass Channel — Pultruded FRP C & U Channels",
-    "description": "Pultruded fiberglass C and U channels, 38×13–360×108 mm. EN 13706 and ASTM D3917; 75% lighter than steel and nonconductive. DDP USA quotes.",
+    "description": "Compare pultruded fiberglass C and U channel sizes and catalog weights. Specify cut lengths, drilled supports and connection details for a project quote.",
     "aliases": [
       "Fiberglass channel (FRP) profiles"
     ]
@@ -348,7 +348,7 @@
   {
     "path": "/products/fiberglass-structural-shapes/frp-flat-bar",
     "title": "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer",
-    "description": "Pultruded fiberglass flat bars, 12×3–305×25 mm. ±0.25 mm tolerance, 70% glass content, EN 13706, and ASTM D3917. DDP USA quotes.",
+    "description": "Compare fiberglass flat bar sizes and catalog weights. Specify cut lengths, fit and machining for spacers, stiffeners and fabricated parts; request a quote.",
     "aliases": [
       "Fiberglass flat bars (FRP bar stock)"
     ]
@@ -356,7 +356,7 @@
   {
     "path": "/products/fiberglass-structural-shapes/frp-i-beam",
     "title": "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes",
-    "description": "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, about 75% lighter than steel, EN 13706 E23. Size and steel-weight table, DDP USA.",
+    "description": "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.",
     "aliases": [
       "Fiberglass I-beam (FRP) profiles"
     ]
@@ -364,17 +364,18 @@
   {
     "path": "/products/fiberglass-structural-shapes/frp-rod",
     "title": "Fiberglass Rod — Pultruded Solid FRP Round Rod Ø6–50 mm",
-    "description": "Pultruded fiberglass rod Ø6–Ø50 mm with 65–70% unidirectional glass. Non-magnetic, non-conductive solid FRP rods. Soil nails, rock bolts, tie-rods. DDP USA.",
+    "description": "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.",
     "aliases": [
       "Fiberglass rods (solid FRP)"
     ]
   },
   {
     "path": "/products/fiberglass-structural-shapes/frp-square-tube",
-    "title": "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS",
+    "title": "Fiberglass Square & Rectangular Tube",
     "description": "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.",
     "aliases": [
-      "Fiberglass square and rectangular tubes (FRP)"
+      "Fiberglass square and rectangular tubes (FRP)",
+      "Fiberglass Square & Rectangular Tube | Pultruded FRP"
     ]
   },
   {
@@ -603,7 +604,7 @@
   {
     "path": "/regions/frp-cable-tray-uae-oil-gas",
     "title": "FRP Cable Tray Supplier UAE — Oil & Gas Projects",
-    "description": "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.",
+    "description": "FRP cable tray and support inquiries for UAE oil and gas projects: define load/span evidence, component scope and delivery via Jebel Ali or Khalifa Port.",
     "aliases": [
       "FRP cable tray supplier for UAE oil and gas"
     ]

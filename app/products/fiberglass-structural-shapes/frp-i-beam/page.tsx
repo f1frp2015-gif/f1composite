@@ -27,10 +27,10 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes";
 const pageDescription =
-  "Pultruded fiberglass I-beams (FRP) 76×38–305×305 mm, 1.2–16 kg/m, about 75% lighter than steel, EN 13706 E23. Size and steel-weight table, DDP USA.";
+  "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-i-beam";
 
-const LAST_UPDATED = "2026-09-26";
+const LAST_UPDATED = "2026-10-11";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", href: "/about/authors/yifan-liu" };
 
 export const metadata: Metadata = buildPageMetadata({
@@ -40,51 +40,37 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/products/fiberglass-structural-shapes/frp-i-beam/opengraph-image",
 });
 
-// Standard European steel sections (IPE, UB, UC) at the same nominal depth:
-// reference masses for the weight comparison, not supplied by F1 Composite.
-const steelAtSameDepth: Record<string, { section: string; mass: number }> = {
-  "I 76×38×6.4": { section: "IPE 80", mass: 6.0 },
-  "I 100×50×6": { section: "IPE 100", mass: 8.1 },
-  "I 120×60×6": { section: "IPE 120", mass: 10.4 },
-  "I 152×76×6.4": { section: "UB 152×89", mass: 16.0 },
-  "I 160×80×8": { section: "IPE 160", mass: 15.8 },
-  "I 200×100×10": { section: "IPE 200", mass: 22.4 },
-  "I 240×120×12": { section: "IPE 240", mass: 30.7 },
-  "I 300×150×15": { section: "IPE 300", mass: 42.2 },
-  "I 305×305×12.7": { section: "UC 305×305", mass: 96.9 },
-};
-
 const specifyFrp = [
-  "Corrosive service: coastal, chemical, wastewater, de-icing salt",
-  "Electrical insulation or a non-magnetic structure is required",
-  "Crews lift members by hand, with no crane or hot work",
-  "Decades of service without recoating",
+  "Exposure conditions justify reviewing a corrosion-resistant material",
+  "Electrical or magnetic requirements can be assessed for the proposed laminate and assembly",
+  "Member weight and a bolted assembly could improve the handling plan",
+  "The available section depth and connections suit the required stiffness",
 ];
 
-const stayWithSteel = [
-  "Dry, inland service with a horizon under 15 years",
-  "Long spans that would need a very deep FRP section",
-  "Continuous service above about 60 °C",
-  "The certifying authority does not accept FRP for the element",
+const compareAlternatives = [
+  "Section depth is restricted or span and deflection requirements are demanding",
+  "Temperature or fire requirements exceed the available material evidence",
+  "The proposed connection or support detail cannot be qualified",
+  "Project approvals, installed cost and maintenance favour another material",
 ];
 
-// Four checks, in the order that usually decides an FRP beam.
+// Preliminary member selection still requires the project's full design checks.
 const sizingSteps = [
   {
     title: "Deflection first",
-    body: "FRP modulus is 17–28 GPa, about a tenth of steel. A section that meets L/240 or L/360 usually has a large margin in bending and shear.",
+    body: "Use the proposed laminate's stiffness, the actual span and the project's deflection limit. Check bending and shear resistance separately; meeting a deflection limit does not establish either capacity.",
   },
   {
     title: "Add shear deflection",
-    body: "With a shear modulus of about 3 GPa, shear adds 15–25% to bending deflection on short spans. 5wL⁴/384EI alone under-predicts; the calculator includes shear.",
+    body: "Evaluate bending and shear deformation with the relevant moduli and section geometry. Their relative contributions change with the span, support and load case; a fixed percentage is not a reliable allowance.",
   },
   {
-    title: "Check flange buckling",
-    body: "Thin flanges can buckle before the bending capacity is reached. Keep the outstanding flange b/t at or below about 18; check to ASCE/SEI 74-23 Ch. 3 or CEN/TS 19101 §6.",
+    title: "Check stability and sustained load",
+    body: "Review flange and web slenderness, lateral restraint, local bearing and the effects of sustained loading. Apply the design basis and material data accepted for the project.",
   },
   {
     title: "Detail the connections",
-    body: "Transverse strength is about a quarter of longitudinal: edge distance and spacing of at least 4 bolt diameters, oversized washers, snug-tight A4-316 bolts.",
+    body: "Define supports, holes, fasteners, bearing areas and edge distances from the actual connection forces. Include the mating structure and exposure when specifying hardware and installation details.",
   },
 ];
 
@@ -93,38 +79,38 @@ const crosswalk = [
   { topic: "Profile grade / tolerance", eu: "EN 13706 E17 / E23", na: "ASTM D3917", cn: "GB/T 31539" },
   { topic: "Tensile test", eu: "EN ISO 527-4", na: "ASTM D638", cn: "GB/T 1447" },
   { topic: "Flexural test", eu: "EN ISO 14125", na: "ASTM D790", cn: "GB/T 1449" },
-  { topic: "Fire — surface flame spread", eu: "EN 13501-1", na: "ASTM E84", cn: "GB 8624" },
+  { topic: "Fire classification / test", eu: "EN 13501-1", na: "ASTM E84", cn: "GB 8624" },
 ];
 
 const faqItems = [
   {
-    question: "How much lighter are FRP I-beams compared to steel?",
+    question: "How should I compare FRP and steel I-beams?",
     answer:
-      "At the same nominal depth, a pultruded FRP I-beam weighs about 68–83% less than the steel section. An FRP I 200×100×10 is 5.8 kg/m against 22.4 kg/m for a steel IPE 200, a 74% cut in lifting weight and dead load. Because FRP modulus is about a tenth of steel, a deflection-equal FRP member is usually one or two depths larger than the steel it replaces; the installed weight still drops by roughly 70%.",
+      "Compare the mass of sections selected for the same span, loads, deflection limit and design basis. Matching nominal depth alone does not establish equal stiffness or capacity. The table gives published FRP catalog mass per metre, not a tested steel-replacement saving. Include connections, bracing and handling requirements in the final assembly comparison.",
   },
   {
     question: "Where do I get the section properties (Ix, Sx) for design?",
     answer:
-      "The size table lists A, Ix and Wx (the elastic section modulus, also written Sx) for every size, calculated from the nominal, sharp-cornered section. Each size's datasheet adds Iy, the radii of gyration and the torsion constant. Use them for preliminary sizing, and confirm the section properties on the production datasheet of the profile you order: corner radii and wall tolerances change them slightly.",
+      "The size table lists Ix and Wx (the elastic section modulus, also written Sx), calculated from nominal section geometry. Linked datasheets provide further section information. Use the catalog for preliminary selection, then confirm the production geometry, tolerances and applicable material data for design; geometric properties alone do not give a load rating.",
   },
   {
     question: "Can FRP I-beams be used as primary structural members?",
     answer:
-      "Yes: for walkways, pedestrian bridges, platforms, cooling towers and building frames. Because the elastic modulus is about a tenth of steel, deflection usually governs the design rather than strength. F1 Composite supplies the E23 laminate data, span and load calculation support, and connection detailing.",
+      "An I-beam can be evaluated for a primary-member role once the span, loads, environment, restraints and connections are defined. The design must address stiffness, strength, stability, sustained loading and the complete load path. Agree the component supply and engineering scope in the quotation, including the project engineer's approval requirements.",
   },
   {
     question: "What resin systems are available for I-beams?",
     answer:
-      "Isophthalic polyester for general structural use, vinyl ester for aggressive chemical, chlorine or marine service, polyurethane for toughness, and phenolic for fire-critical or rail (EN 45545-2) applications. Resin choice drives chemical resistance and fire performance, not stiffness.",
+      "The material guide describes polyester, vinyl ester, polyurethane and phenolic routes for review. Availability and properties must be confirmed for the selected section and formulation. Provide the chemical exposure, temperature and fire requirements so relevant material evidence can be identified; a resin family name alone does not establish performance or certification.",
   },
   {
-    question: "Which standards do F1 Composite I-beams meet?",
+    question: "Which standards and reports should an I-beam inquiry specify?",
     answer:
-      "Profiles are produced to EN 13706 grade E23 (a longitudinal modulus of at least 23 GPa) with dimensional tolerances to ASTM D3917. Fire-retardant grades are available, with ASTM E84 flame-spread reports on request, as is the ISO 9001 certificate. Design references: ASCE/SEI 74-23 (US LRFD), CEN/TS 19101 (EU), GB 50608 / CECS 692 (China).",
+      "State the project design basis, profile grade, dimensional tolerances and required material or fire tests. EN 13706 and ASTM D3917 are references for different parts of that specification. Ask which documents apply to the offered section, formulation and test scope. A material-grade reference or company certificate does not establish the capacity or approval of a finished beam assembly.",
   },
   {
     question: "What is the lead time and minimum order for FRP I-beams?",
-    answer: `Catalog sections ship in ${weeks(supplyTerms.catalogLeadTimeWeeks)}; a variant on an existing die takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)} and a new die ${weeks(supplyTerms.newDieLeadTimeWeeks)}. A first custom run starts at ${supplyTerms.customMoqMeters.firstRun} m and repeats at ${supplyTerms.customMoqMeters.repeat} m; catalog quantities are confirmed per order. Beams come in ${supplyTerms.standardLengthM} m lengths or cut to your length.`,
+    answer: `Published planning ranges are ${weeks(supplyTerms.catalogLeadTimeWeeks)} for catalog sections, ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)} for an existing-die variant and ${weeks(supplyTerms.newDieLeadTimeWeeks)} for a new die. The published custom-run quantities are ${supplyTerms.customMoqMeters.firstRun} m for a first run and ${supplyTerms.customMoqMeters.repeat} m for repeats. Confirm quantity, tooling, formulation and schedule in the quotation. Standard lengths are ${supplyTerms.standardLengthM} m, with cut lengths reviewed against the order.`,
   },
 ];
 
@@ -159,11 +145,6 @@ const applications = [
 
 export default async function IBeamPage() {
   const sizes = await loadFamilySizes("i-beam");
-  const rows = sizes.map((size) => {
-    const steel = steelAtSameDepth[size.model];
-    const saving = steel && size.mass ? Math.round((1 - size.mass / steel.mass) * 100) : null;
-    return { ...size, extra: steel ? { steel: steel.section, steelMass: steel.mass.toFixed(1), saving: saving == null ? "—" : `${saving}%` } : undefined };
-  });
 
   return (
     <>
@@ -174,7 +155,7 @@ export default async function IBeamPage() {
           path: pagePath,
           image: "/images/products/i-beam/frp-i-beam-profile-200x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
-          material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin", "Phenolic resin"],
+          material: ["Glass-fiber-reinforced thermoset"],
           productLine: "F1-STRUX",
           dateModified: LAST_UPDATED,
           reviewedBy: { name: REVIEWER.name, jobTitle: REVIEWER.title, path: REVIEWER.href },
@@ -186,10 +167,10 @@ export default async function IBeamPage() {
         updated={LAST_UPDATED}
         reviewer={REVIEWER}
         title="Fiberglass I-beam (FRP) profiles"
-        description="Wide-flange pultruded fiberglass I-beams from 76×38 to 305×305 mm, 68–83% lighter than a steel section of the same depth. They do not rust, and deflection rather than strength usually decides the size."
+        description="Wide-flange pultruded fiberglass I-beams for project-specific member selection. Compare catalog dimensions, weights and nominal section properties, then define the loads, span, restraints, connections and material requirements."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
-          { label: "Grade", value: "EN 13706 E23" },
+          { label: "Section", value: "I / wide flange" },
         ]}
         actions={{
           primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP I-beams", productPath: pagePath }) },
@@ -231,13 +212,13 @@ export default async function IBeamPage() {
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              A pultruded FRP I-beam is a constant-section fiberglass wide-flange beam, pulled through resin and a heated die. Roving in the flanges gives bending stiffness, mat in the web carries shear, and a surface veil forms a resin-rich outer layer.
+              A pultruded FRP I-beam is a constant-section fiberglass profile with flanges and a web. Its geometry and laminate work together to resist the specified member loads; the proposed reinforcement, resin and surface finish belong in the material definition.
             </p>
             <p>
-              It carries bending like a steel I-beam at a fraction of the weight, without rust. With about a tenth of the modulus of steel, it is sized by deflection.
+              For a steel-replacement study, compare sections selected against the same load cases, span and deflection limit. Matching the depth or comparing mass per metre alone does not establish equivalent performance. Include supports, bracing and connection components when comparing the finished assemblies.
             </p>
             <ul className="flex flex-wrap gap-[8px] pt-[4px]">
-              {["EN 13706 E23", "ASTM D3917 tolerances", `${supplyTerms.standardLengthM} m lengths or cut to size`, "Polyester, vinyl ester, PU, phenolic"].map((chip) => (
+              {["Nominal section properties", "Published catalog mass", `${supplyTerms.standardLengthM} m lengths or cut to size`, "Material and tolerances by specification"].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
                   {chip}
                 </li>
@@ -246,7 +227,7 @@ export default async function IBeamPage() {
           </div>
           <div className="grid gap-[12px] sm:grid-cols-2">
             <div className="rounded-card border border-teal-border bg-teal-bg p-[18px]">
-              <h3 className="text-f16 font-bold text-teal-text">Specify FRP when</h3>
+              <h3 className="text-f16 font-bold text-teal-text">Consider FRP when</h3>
               <ul className="mt-[8px] space-y-[8px] text-f14 leading-golden text-t2">
                 {specifyFrp.map((item) => (
                   <li key={item}>{item}</li>
@@ -254,9 +235,9 @@ export default async function IBeamPage() {
               </ul>
             </div>
             <div className="rounded-card border border-border-default bg-bg2 p-[18px]">
-              <h3 className="text-f16 font-bold text-t1">Stay with steel when</h3>
+              <h3 className="text-f16 font-bold text-t1">Compare alternatives when</h3>
               <ul className="mt-[8px] space-y-[8px] text-f14 leading-golden text-t2">
-                {stayWithSteel.map((item) => (
+                {compareAlternatives.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -276,7 +257,7 @@ export default async function IBeamPage() {
         title="Sizes"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
-        intro="Dimensions in mm, mass in kg/m. Ix and Wx are calculated from the nominal section, for preliminary sizing; the steel columns compare IPE, UB and UC sections of the same depth, for reference."
+        intro="Dimensions in mm, published catalog mass in kg/m. Ix and Wx are calculated from nominal section geometry for preliminary selection. Confirm finished-member dimensions, mass and material data for the proposed order."
         aside={
           <Link href="/tools/profile-finder?shape=i_beam" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Filter and compare in the profile finder
@@ -284,26 +265,21 @@ export default async function IBeamPage() {
         }
       >
         <FamilySizeTable
-          rows={rows}
-          caption="FRP I-beam catalog sizes with nominal section properties and the steel section of the same depth"
+          rows={sizes}
+          caption="FRP I-beam catalog sizes, published mass and nominal section properties"
           product="FRP I-beam"
           productPath={pagePath}
           columns={[
             { key: "d", label: "H", unit: "mm" },
             { key: "b", label: "B", unit: "mm" },
             { key: "t", label: "t", unit: "mm" },
-            { key: "mass", label: "Mass", unit: "kg/m" },
+            { key: "mass", label: "Catalog mass", unit: "kg/m" },
             { key: "Ix", label: "Ix", unit: "cm⁴" },
             { key: "Wx", label: "Wx", unit: "cm³" },
           ]}
-          extras={[
-            { key: "steel", label: "Steel, same depth" },
-            { key: "steelMass", label: "Steel", unit: "kg/m" },
-            { key: "saving", label: "Lighter" },
-          ]}
         />
         <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">
-          A deflection-equal FRP section is usually one or two depths larger than the steel it replaces, and still about 70% lighter installed. {commercialFacts.availability}
+          For a replacement inquiry, include the existing steel section, loads, span and available construction depth. The selected FRP member and connection details determine the final mass comparison. {commercialFacts.availability}
         </p>
         <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           <Link href="/frp-span-tables#i-beam" className="underline underline-offset-4 hover:text-teal">
@@ -316,7 +292,7 @@ export default async function IBeamPage() {
       </ProductSection>
 
       <ProductSection id="properties" title="Properties and design">
-        <LaminateProperties />
+        <LaminateProperties note="Use properties accepted for the proposed I-beam laminate and the project's design basis. Confirm the section and connection details before treating a preliminary calculation as a design input." />
         <div className="mt-[40px]">
           <h3 className="text-f18 font-bold text-t1">Sizing an FRP I-beam</h3>
           <ol className="mt-[12px] grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
@@ -333,13 +309,16 @@ export default async function IBeamPage() {
               href="/frp-profile-calculator#shape=i-beam&span=3000&load=5&env=outdoor&material=frp-e23&load_type=udl&defl=360"
               eyebrow="Worked example · 3 m walkway beam"
               title="Size a 3 m walkway I-beam at 5 kN/m, L/360, outdoor"
-              sub="Opens the calculator with this load case on an E23 I-beam: which check governs, the steel-equivalent section and the deflection with shear included."
+              sub="An illustrative load case using the calculator's E23 reference material. Replace the example inputs with your project requirements; the result is a preliminary member check."
             />
             <details className="group rounded-card border border-border-default bg-white">
               <summary className="flex min-h-[48px] cursor-pointer list-none items-center justify-between gap-[12px] px-[16px] text-f16 font-bold text-t1 [&::-webkit-details-marker]:hidden">
-                Standards by region: EU, US, China
+                Reference standards by region: EU, US, China
                 <span aria-hidden className="text-teal-text transition-transform group-open:rotate-45">+</span>
               </summary>
+              <p className="border-t border-border-default px-[16px] py-[12px] text-f14 leading-golden text-t3">
+                These references cover different scopes and are not interchangeable approvals. Confirm the applicable edition, test method and acceptance criteria with the project engineer.
+              </p>
               <div className="relative overflow-x-auto border-t border-border-default">
                 <table className="w-full border-collapse text-left text-f14">
                   <thead>
@@ -371,6 +350,9 @@ export default async function IBeamPage() {
       <ProductSection id="applications" title="Applications" tone="muted">
         <ApplicationCards cards={applications} />
         <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/applications/frp-cooling-tower-profiles" className="underline underline-offset-4 hover:text-teal">
+            Cooling tower replacement and OEM members
+          </Link>
           <Link href="/industries/infrastructure" className="underline underline-offset-4 hover:text-teal">
             Infrastructure and bridges
           </Link>
@@ -411,7 +393,18 @@ export default async function IBeamPage() {
       </ProductSection>
 
       <ProductSection id="quote" title="Quote FRP I-beams" tone="deep">
-        <ProductRfq product="FRP I-beams" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+        <ProductRfq
+          product="FRP I-beams"
+          productPath={pagePath}
+          intro="Send the selected section or existing framing drawing, spans, loads and service conditions, with quantities and the delivery destination."
+          items={[
+            { title: "Section and quantity", text: "Catalog model or available envelope, cut lengths and quantities." },
+            { title: "Loads and restraints", text: "Span, load cases, support arrangement, lateral restraint and deflection limit." },
+            { title: "Connections and fabrication", text: "Hole patterns, bearing details, hardware and the agreed engineering scope." },
+            { title: "Material and acceptance", text: "Exposure, temperature, required design basis and applicable material records." },
+          ]}
+          links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]}
+        />
       </ProductSection>
     </>
   );

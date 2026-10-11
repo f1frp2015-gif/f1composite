@@ -33,7 +33,8 @@ const pageDescription =
 const pagePath = "/products/fiberglass-structural-shapes/frp-tube";
 const product = "Pultruded fiberglass round tubing";
 
-const LAST_UPDATED = "2026-09-26";
+const LAST_UPDATED = "2026-10-11";
+const quoteMessage = "Please review my fiberglass round tube requirements.\nOutside diameter / required inside diameter / wall thickness (with units):\nFinished length and piece count:\nFit, end cuts, holes or inserts (drawing reference):\nApplication, span and loads:\nResin or service environment and required evidence:\nDestination and target date:";
 
 const faqItems = [
   {
@@ -47,7 +48,12 @@ const faqItems = [
   {
     question: "What are pultruded FRP round tubes used for?",
     answer:
-      "Pultruded FRP round tubes are used as members in handrail systems, structural columns, antenna masts, conduits and insulating stand-offs. Their low density, resin-selected corrosion resistance and dielectric material properties can suit marine, chemical and electrical service, but the finished assembly, exposure and any metal hardware still require project review.",
+      "Pultruded FRP round tubes are used as members in handrail systems, structural columns and antenna masts. Select the section, laminate and connections for the loads and exposure. Pressure service, electrical conduit and insulating equipment each need their own specification and qualification; a structural tubing size does not establish those capabilities.",
+  },
+  {
+    question: "How do I specify the inside diameter of fiberglass tubing?",
+    answer:
+      "For a nominal circular tube with a uniform wall, ID = OD − 2 × wall thickness. This is a geometry calculation, not a guaranteed fit. If the tube must accept a sleeve, insert or cable assembly, send the required clearance, mating-part drawing and tolerances for review, including any limits on ovality or straightness.",
   },
   {
     question: "FRP round tube vs FRP square tube — which should I use?",
@@ -94,13 +100,13 @@ export default async function TubePage() {
         line={{ name: "F1-STRUX", label: "Round tube" }}
         updated={LAST_UPDATED}
         title="Fiberglass round tubes and tubing (FRP)"
-        description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD, for handrails, guardrails, masts and conduit. The dimensions define a structural section, not a pressure rating."
+        description="Circular hollow section pultruded fiberglass tubing from 25 mm to 150 mm OD, for handrails, guardrails and masts. Compare outside diameter and wall, then specify the bore fit, cut lengths and connection details for your project."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Outside diameter", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
-          { label: "Grade", value: "EN 13706 E23" },
+          { label: "Catalog material reference", value: "EN 13706 E23" },
         ]}
         actions={{
-          primary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product, productPath: pagePath }) },
+          primary: { label: "Request a quote", href: buildRfqHref({ source: "tube-product-header", product, productPath: pagePath, message: quoteMessage }) },
           secondary: { label: "Find a size", href: "#sizes", variant: "secondary" },
           stickyMobile: true,
         }}
@@ -139,19 +145,19 @@ export default async function TubePage() {
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              Pultruded FRP round tubes are members in handrail systems, guardrails and structures that need a circular section; the smooth bore also suits conduit. Electrical and corrosion performance depend on the specified laminate, the exposure and the complete assembly, and catalog tube data do not qualify a finished safety system.
+              Pultruded FRP round tubes suit members that need a circular grip or cross-section, including handrails, guardrails and masts. Start with the member load and connections, then select the diameter, wall and laminate. For flat mounting faces or frame joints, compare the <Link href="/products/fiberglass-structural-shapes/frp-square-tube" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">square and rectangular tube range</Link>.
             </p>
             <div className="rounded-card border border-border-default bg-bg2 px-[16px] py-[12px]">
               <h3 className="text-f16 font-bold text-t1">GRP tube for structural applications</h3>
               <p className="mt-[6px] text-f14 leading-golden text-t2">
-                GRP tube and fiberglass round tubing refer to the glass-reinforced pultrusions in this range. Select outside diameter, wall thickness and resin against the design load. Structural tube dimensions do not establish a pressure rating; pressure pipe needs a separately qualified specification.{" "}
+                GRP tube and fiberglass round tubing refer to the glass-reinforced pultrusions in this range. Pressure pipe needs a separately qualified specification. For electrical conduit or an insulating equipment part, provide the applicable product standard, voltage duty, environment and assembly details; a hollow shape or material property alone does not qualify the finished part.{" "}
                 <Link href="/what-is-frp#terminology" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
                   FRP, GRP and GFRP explained
                 </Link>
               </p>
             </div>
             <ul className="flex flex-wrap gap-[8px]">
-              {["EN 13706 E23", "Handrails and guardrails", "Smooth bore", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+              {["E23 material reference", "Handrails and guardrails", "Smooth bore", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
                   {chip}
                 </li>
@@ -163,7 +169,7 @@ export default async function TubePage() {
               { label: "Complete fiberglass handrail systems", href: "/products/frp-handrail-systems" },
               { label: "Marine handrails and antennas", href: "/industries/marine" },
               { label: "Handrails and guardrails", href: "/industries/construction" },
-              { label: "Non-conductive standoffs", href: "/industries/energy" },
+              { label: "Electrical component qualification", href: "/applications/frp-switchgear-insulation-components" },
               { label: "Infrastructure handrails", href: "/industries/infrastructure" },
             ]}
           />
@@ -196,6 +202,18 @@ export default async function TubePage() {
             { key: "Wx", label: "Wx", unit: "cm³" },
           ]}
         />
+        <div className="mt-[20px] grid gap-[12px] md:grid-cols-3">
+          {[
+            { title: "Outside diameter (OD)", text: "Use the table OD to shortlist a section. For a clamp or external fitting, send the mating dimensions and required fit with the drawing." },
+            { title: "Inside diameter (ID) and wall", text: "Nominal ID = OD − 2 × wall. If an insert or sleeve must fit, specify the required clearance and tolerances; calculated ID is not an inspected bore dimension." },
+            { title: "Cut length and end details", text: "List finished length and quantity for each part. Mark end angles, hole positions, inserts and cut-edge treatment, and identify dimensions that control assembly fit." },
+          ].map((item) => (
+            <div key={item.title} className="rounded-card border border-border-default bg-white px-[16px] py-[14px]">
+              <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[6px] text-f14 leading-golden text-t2">{item.text}</p>
+            </div>
+          ))}
+        </div>
         <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t2">The internal catalog references identify nominal cross-sections on this website, not manufacturer SKUs or mold numbers. Each row uses its displayed default material dataset and published catalog mass; another resin needs its own mass and evidence review. No public report is mapped to an exact round-tube and formulation combination. <Link href="/resources/evidence?category=round-tube" className="font-semibold text-teal-text underline">Check evidence scope</Link>.</p>
         <p className="mt-[10px] max-w-[900px] text-f14 leading-golden text-t3">{commercialFacts.availability}</p>
         <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
@@ -252,7 +270,19 @@ export default async function TubePage() {
       </ProductSection>
 
       <ProductSection id="quote" title="Quote FRP round tubes" tone="deep">
-        <ProductRfq product="FRP round tubes" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+        <ProductRfq
+          product="FRP round tubes"
+          productPath={pagePath}
+          quoteHref={buildRfqHref({ source: "tube-product-rfq", product, productPath: pagePath, message: quoteMessage })}
+          intro="Send the selected catalog row or a dimensioned drawing, with the bore fit and finished-part requirements."
+          items={[
+            { title: "OD, ID and wall", text: "Include units, required clearances and mating-part dimensions. Mark which dimensions and tolerances are critical to fit." },
+            { title: "Cut list and end processing", text: "Give finished lengths and piece counts, end cuts, holes, inserts and cut-edge treatment. State whether you need plain lengths or processed parts." },
+            { title: "Service and evidence", text: "Describe loads, supports, chemicals, temperature and outdoor exposure. Identify any fire, pressure or electrical requirements for a separate applicability review." },
+            { title: "Quantity and delivery", text: "Include trial and repeat quantities, destination and target date. Confirm tooling, material, sample arrangements, inspection documents and production timing in the quotation." },
+          ]}
+          links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]}
+        />
       </ProductSection>
     </>
   );

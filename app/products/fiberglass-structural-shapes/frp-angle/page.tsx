@@ -29,10 +29,10 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer";
 const pageDescription =
-  "Pultruded fiberglass angle (FRP L-profiles) 25×25–152×152 mm, equal & unequal. EN 13706 / ASTM D3917. Bracing, ledgers, stiffeners. DDP USA · Section 301.";
+  "Compare equal-leg fiberglass angle sizes and catalog weights. Request custom unequal-leg sections or fabricated cleats with your drawing and connection details.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-angle";
 
-const LAST_UPDATED = "2026-09-26";
+const LAST_UPDATED = "2026-10-11";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -45,12 +45,17 @@ const faqItems = [
   {
     question: "Are unequal-leg FRP angles available?",
     answer:
-      "Yes. In addition to our standard equal-leg range, we can produce unequal-leg angles via custom pultrusion. Common unequal-leg sizes include 75×50, 100×75, and 150×100 mm. Contact our engineering team for custom specifications.",
+      "The table lists catalog sections. An unequal-leg or unlisted angle can be submitted for custom pultrusion review with leg dimensions, thickness, radii, tolerances, material and expected quantity. Tooling availability, feasibility and sample requirements are confirmed against that drawing before a production offer.",
+  },
+  {
+    question: "Does a catalog angle qualify as a structural connection cleat?",
+    answer:
+      "A catalog angle defines a section, while a cleat also needs cut length, holes, fasteners, bearing surfaces and a load case. The connection review must cover the actual load path, including local bearing, pull-through and loads applied away from the section centre. Include the mating parts and required acceptance basis with your inquiry.",
   },
   {
     question: "Can FRP angles be used in concrete-embedded connections?",
     answer:
-      "They can, but the detail needs design. Along the profile, pultruded GFRP expands about 7–9 × 10⁻⁶/°C, close to concrete and steel (about 10–12 × 10⁻⁶/°C); across the profile it expands two to three times as much, and FRP is far less stiff than steel. Check anchorage, bearing and edge distances, and choose a resin suited to the alkaline concrete environment, usually vinyl ester. Send us the detail and we will review it.",
+      "An embedded detail requires assessment of anchorage, concrete bearing, movement and the proposed laminate's compatibility with the exposure. Send the concrete and angle geometry, load directions and environmental conditions. Use material data and connection evidence relevant to that detail instead of assuming that a standard angle or resin name qualifies the assembly.",
   },
 ];
 
@@ -65,7 +70,7 @@ export default async function AnglePage() {
           path: pagePath,
           image: "/images/products/angle/frp-angle-profile-100x100x10mm.webp",
           category: "Pultruded FRP Structural Profiles",
-          material: ["E-glass fiber", "Polyester resin", "Vinyl ester resin"],
+          material: ["Glass-fiber-reinforced thermoset"],
           productLine: "F1-STRUX",
           dateModified: LAST_UPDATED,
         })}
@@ -75,10 +80,10 @@ export default async function AnglePage() {
         line={{ name: "F1-STRUX", label: "Angle" }}
         updated={LAST_UPDATED}
         title="Fiberglass angle (FRP) profiles"
-        description="Equal-leg pultruded fiberglass L-profiles from 25×25 mm to 152×152 mm, with unequal legs made to order. Used as stiffeners, bracing, ledgers and connection angles where steel would corrode."
+        description="Equal-leg pultruded fiberglass L-profiles for bracing, ledgers and fabricated supports. Compare catalog sections, or submit an unequal-leg drawing for custom review. Define holes and load transfer separately for connection cleats."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Leg", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
-          { label: "Grade", value: "EN 13706 E23" },
+          { label: "Section", value: "L-profile" },
         ]}
         actions={{
           primary: { label: "Request a quote", href: buildRfqHref({ source: "product-header", product: "FRP angles", productPath: pagePath }) },
@@ -120,10 +125,13 @@ export default async function AnglePage() {
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              FRP angles serve as stiffeners, bracing members, ledger supports and connection elements in structural and architectural work. A balanced fiber architecture gives both legs near-equal properties, so bolted connections transfer load consistently.
+              FRP angles can form bracing members, edge supports and ledgers when the section and connections are designed for the application. Choose the leg dimensions and thickness, then define how each leg bears against or attaches to the surrounding structure.
+            </p>
+            <p>
+              A cut or drilled angle used as a cleat needs its own fabrication drawing and connection check. For unequal legs or an unlisted section, send the required geometry and quantity so tooling and manufacture can be reviewed.
             </p>
             <ul className="flex flex-wrap gap-[8px] pt-[4px]">
-              {["EN 13706 E23", "Equal legs; unequal to order", "Non-conductive", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
+              {["Equal-leg catalog sections", "Unequal legs: custom review", "Specify cleat and hole details", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
                   {chip}
                 </li>
@@ -133,9 +141,9 @@ export default async function AnglePage() {
           <UseList
             items={[
               { label: "Construction bracing and stiffeners", href: "/industries/construction" },
-              { label: "Industrial frames", href: "/industries/industrial" },
-              { label: "Energy and solar mounting", href: "/industries/energy" },
-              { label: "Infrastructure", href: "/industries/infrastructure" },
+              { label: "Platform ledgers and edge supports", href: "/applications/frp-chemical-plant-platforms" },
+              { label: "Cable-support cleats and bracing", href: "/applications/frp-cable-tray-supports" },
+              { label: "Unequal-leg and custom sections", href: "/products/custom-pultruded-profiles" },
             ]}
           />
         </div>
@@ -176,13 +184,13 @@ export default async function AnglePage() {
       </ProductSection>
 
       <ProductSection id="properties" title="Properties">
-        <LaminateProperties />
+        <LaminateProperties note="For a connection angle, confirm the proposed laminate and assess the fasteners, holes, bearing surfaces and load direction together. Nominal section properties alone do not establish cleat capacity." />
         <div className="mt-[24px] max-w-[640px]">
           <CalculatorCTA
             href="/frp-profile-calculator#shape=angle"
             eyebrow="Free tool · angle preset"
             title="Size an FRP angle: bending, shear and deflection"
-            sub="Opens the profile calculator on an angle. Check bending, shear and deflection with shear included against your span and load, and find the steel-equivalent section."
+            sub="Enter your span and loads for a preliminary member check. Cleats, eccentric loading, fasteners and anchorage need a connection-specific assessment."
           />
         </div>
       </ProductSection>
@@ -219,7 +227,18 @@ export default async function AnglePage() {
       </ProductSection>
 
       <ProductSection id="quote" title="Quote FRP angles" tone="deep">
-        <ProductRfq product="FRP angles" productPath={pagePath} links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]} />
+        <ProductRfq
+          product="FRP angles"
+          productPath={pagePath}
+          intro="Send the catalog section or custom leg dimensions, cut lengths and quantities, with a drawing for any fabricated connection."
+          items={[
+            { title: "Catalog or custom section", text: "Leg dimensions, thickness, radii and dimensional tolerances." },
+            { title: "Fabrication drawing", text: "Cut length, holes, edge distances and mating components." },
+            { title: "Connection and service", text: "Loads on each leg, bearing surfaces, fasteners and exposure." },
+            { title: "Quantity and acceptance", text: "Quantity by part, material requirements, required records and destination." },
+          ]}
+          links={[{ label: "Estimate a price first", href: "/fiberglass-pultruded-profile-price" }]}
+        />
       </ProductSection>
     </>
   );

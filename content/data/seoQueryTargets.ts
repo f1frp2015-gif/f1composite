@@ -164,10 +164,119 @@ export const seoQueryTargets = [
     targetUrl: "/products/fiberglass-structural-shapes/frp-square-tube",
     primaryQuery: "fiberglass square tube",
     intent: "commercial",
-    title: "Fiberglass Square Tube & Tubing — Pultruded FRP SHS & RHS",
+    title: "Fiberglass Square & Rectangular Tube | Pultruded FRP",
     description:
       "Compare pultruded fiberglass square tube and rectangular tubing sizes, walls and weights. Select a section and request cut lengths, resin options and a quote.",
     supportingUrls: ["/what-is-frp", "/products/fiberglass-structural-shapes", "/frp-span-tables", "/products/custom-pultruded-profiles"],
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-rod",
+    primaryQuery: "fiberglass rods",
+    intent: "commercial",
+    title: "Fiberglass Rod — Pultruded Solid FRP Round Rod Ø6–50 mm",
+    description: "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-i-beam",
+    primaryQuery: "fiberglass I beam",
+    intent: "commercial",
+    title: "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes",
+    description: "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-channel",
+    primaryQuery: "fiberglass channel",
+    intent: "commercial",
+    title: "Fiberglass Channel — Pultruded FRP C & U Channels",
+    description: "Compare pultruded fiberglass C and U channel sizes and catalog weights. Specify cut lengths, drilled supports and connection details for a project quote.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-angle",
+    primaryQuery: "fiberglass angle",
+    intent: "commercial",
+    title: "Fiberglass Angle — Pultruded FRP L-Profile Manufacturer",
+    description: "Compare equal-leg fiberglass angle sizes and catalog weights. Request custom unequal-leg sections or fabricated cleats with your drawing and connection details.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-flat-bar",
+    primaryQuery: "fiberglass flat bar",
+    intent: "commercial",
+    title: "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer",
+    description: "Compare fiberglass flat bar sizes and catalog weights. Specify cut lengths, fit and machining for spacers, stiffeners and fabricated parts; request a quote.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/applications/frp-cooling-tower-profiles",
+    primaryQuery: "FRP cooling tower profiles",
+    intent: "commercial",
+    title: "FRP Cooling Tower Profiles | Replacement & OEM Supply",
+    description: "Specify FRP cooling tower profiles for replacement, new-tower OEM or maintenance access: member drawings, loads, water chemistry and component supply scope.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes/frp-square-tube",
+      "/products/fiberglass-structural-shapes/frp-i-beam",
+      "/products/fiberglass-structural-shapes/frp-channel",
+      "/products/fiberglass-structural-shapes/frp-angle",
+      "/products/fiberglass-structural-shapes"
+    ]
+  },
+  {
+    targetUrl: "/applications/frp-cable-tray-supports",
+    primaryQuery: "FRP cable tray",
+    intent: "commercial",
+    title: "FRP Cable Trays & Cable Ladders | Selection Guide",
+    description: "Compare FRP cable trays and cable ladders for corrosive environments. Define tray bases, ladder rungs, resins, supports, fittings and project requirements.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes/frp-channel",
+      "/products/fiberglass-structural-shapes/frp-angle",
+      "/regions/frp-cable-tray-uae-oil-gas"
+    ]
+  },
+  {
+    targetUrl: "/applications/frp-chemical-plant-platforms",
+    primaryQuery: "FRP chemical plant platforms",
+    intent: "commercial",
+    title: "FRP Chemical Plant Platforms - Beams, Gratings and Handrails",
+    description: "Plan FRP chemical plant platforms and walkways: distinguish grating supply from coordinated framing, stairs and handrails; define exposure, loads and scope.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes/frp-i-beam",
+      "/products/fiberglass-structural-shapes/frp-square-tube",
+      "/products/fiberglass-structural-shapes/frp-tube",
+      "/products/fiberglass-structural-shapes/frp-flat-bar"
+    ]
+  },
+  {
+    targetUrl: "/applications/frp-switchgear-insulation-components",
+    primaryQuery: "FRP switchgear insulation",
+    intent: "technical",
+    title: "FRP Switchgear Insulation | Supports & Mechanisms",
+    description: "Specify pultruded FRP switchgear supports and operating parts: insulation paths, fault loads, cycling, thermal duty, material tests and OEM qualification.",
+    supportingUrls: [
+      "/products/frp-switchgear-insulating-profiles"
+    ]
+  },
+  {
+    targetUrl: "/products/frp-switchgear-insulating-profiles",
+    primaryQuery: "FRP switchgear insulating profiles",
+    intent: "commercial",
+    title: "FRP Switchgear Insulating Profiles | Qualification",
+    description: "Drawing-led inquiries for FRP switchgear support profiles and linkage blanks, with functional tolerances, material evidence, machining and release requirements.",
+    supportingUrls: [
+      "/applications/frp-switchgear-insulation-components"
+    ]
   },
   {
     targetUrl: "/products/fiberglass-sheets",
@@ -259,9 +368,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-window-frames",
     primaryQuery: "FRP window frames",
     intent: "commercial",
-    title: "FRP Window Frames — Pultruded Profiles & Finished Units",
+    title: "FRP Window Frames & System Profiles | F1 Composite",
     description:
-      "Explore FRP window frames by series and supply route. Compare profiles for fabricators with finished fiberglass windows and doors, with scoped technical data.",
+      "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.",
     supportingUrls: [
       "/resources/frp-windows-guide",
       "/technology/polyurethane-pultrusion-windows",

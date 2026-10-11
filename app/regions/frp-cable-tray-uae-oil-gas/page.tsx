@@ -17,7 +17,7 @@ import { blogCover, coverFor, regionCovers, type Cover } from "@/lib/covers";
 const pageTitle =
   "FRP Cable Tray Supplier UAE — Oil & Gas Projects";
 const pageDescription =
-  "FRP cable trays and ladders for UAE oil and gas projects: vinyl ester for sour service, NEMA FG 1 / IEC 61537 references, Jebel Ali or Khalifa Port delivery.";
+  "FRP cable tray and support inquiries for UAE oil and gas projects: define load/span evidence, component scope and delivery via Jebel Ali or Khalifa Port.";
 const pagePath = "/regions/frp-cable-tray-uae-oil-gas";
 
 const cover: Cover = regionCovers[pagePath];
@@ -30,64 +30,63 @@ export const metadata: Metadata = buildPageMetadata({
 
 const faqs = [
   {
-    question: "Why is FRP cable tray preferred over galvanized steel in UAE oil and gas service?",
+    question: "When should a UAE oil and gas project evaluate FRP cable tray?",
     answer:
-      "UAE oil and gas sites combine three things that wear out galvanized steel cable tray: salty coastal air across Abu Dhabi, Dubai, Ras Al Khaimah and Fujairah; H₂S and CO₂ on sour-service upstream and midstream assets; and chemical splash and oil mist on process platforms. FRP cable tray does not rust, and a vinyl ester resin handles most of this exposure without coatings. Galvanized steel tray in the same service can need partial or full replacement within the asset's first major shutdown cycle. Design life for FRP still depends on the resin, UV protection and inspection.",
+      "Evaluate FRP where the project has identified corrosion or maintenance constraints, then provide the actual salt, chemical, temperature, UV and cleaning exposure. For sour-service locations, include the specified exposure and material-qualification criteria. A vinyl ester label alone does not establish suitability; the offered laminate, hardware, fire performance and installation must be reviewed against the project requirements.",
   },
   {
-    question: "Which standards do ADNOC and UAE EPC contractors specify for FRP cable tray?",
+    question: "What standards and evidence should be included in a UAE cable tray RFQ?",
     answer:
-      "UAE project specifications usually reference NEMA FG 1 (fiberglass cable tray, with load/span classes), IEC 61537 (cable tray and cable ladder systems), ASTM E84 flame spread (Class 1 / Class A), UL 568 for nonmetallic cable tray where a listing is required, and the operator's own material selection specifications for cable management in process areas. We supply FRP cable tray in vinyl ester or isophthalic polyester resin, with batch mill test certificates; fire, chemical and load test reports are provided on request.",
+      "Send the operator or EPC specification and its required editions, load/span criteria, fire requirements and acceptance documents. If it cites NEMA FG 1, IEC 61537, ASTM E84 or a UL listing, identify the exact requirement. F1 must confirm whether evidence exists for the offered configuration and what is included in the quotation. Listing a standard on this page is not a product certification, operator approval or promise that every report is available.",
   },
   {
-    question: "What FRP cable tray cross-sections and load classes are most commonly ordered for UAE projects?",
+    question: "Does the quotation cover supports, tray components or a complete system?",
     answer:
-      "The most common order for UAE oil and gas projects is pultruded FRP ladder-type cable tray, 100, 150, 300 or 600 mm wide and 100 or 150 mm deep, NEMA Class 16C or 20C, in vinyl ester resin, with 6 m or 12 m straight lengths and matching elbows, tees, crosses and reducers. Solid-bottom ventilated tray is specified where smaller instrument cables run. Cable ladders are preferred over solid-bottom tray in process areas so that oil and water drain away. Offshore and sour-service onshore projects specify vinyl ester or polyurethane resin; less aggressive service uses isophthalic polyester.",
+      "State the scope explicitly: raw support profiles, cut or drilled brackets, cable-carrying side rails and rungs, or a coordinated tray / ladder package. List straight sections, bends, tees, reducers, splices, covers, clamps and fasteners separately. Width, depth, length and load class are project inputs, not evidence of stock or a previously qualified system. Availability, fabrication and design responsibility are confirmed in the quotation.",
   },
   {
-    question: "How does FRP cable tray weight reduction affect installation cost on UAE process plants?",
+    question: "How should FRP and steel installation weight be compared?",
     answer:
-      "Pultruded FRP cable tray weighs roughly half as much as galvanized steel tray of the same load class. On a process platform with more than 2,000 m of tray, that is 8–12 tonnes less to lift. Most sizes can be carried and fitted by two people without mechanical lifting, and there is less rigging and no hot work. FRP costs more per meter than galvanized steel, so whether the installed cost comes out lower depends on quantities, support spacing and site labor; we can price both options for your layout.",
+      "Compare complete BOMs at the same supported load, span, deflection criteria and route geometry. Include fittings, brackets, fasteners and lifting units, using confirmed component masses. A material-density comparison alone does not establish equal capacity, lifting requirements or installed-cost savings. The site contractor determines handling, access and permit requirements for the actual work.",
   },
   {
-    question: "Does FRP cable tray meet UAE Civil Defence fire safety requirements?",
+    question: "Does a fire-test reference establish UAE project acceptance?",
     answer:
-      "It can, with the right resin and test evidence. Fire-retardant formulations are tested for ASTM E84 flame spread (Class 1 / Class A: FSI ≤ 25, smoke developed ≤ 450), and higher-performance grades for EN 13501-1 and BS 476 Part 7 where a project calls for European or UK classifications. UAE Civil Defence (DCD / Abu Dhabi CD) acceptance depends on the building type and route, so confirm the required classification with the consultant. Fire test reports for the supplied formulation are provided on request.",
+      "No. Ask the project's responsible consultant to identify the fire, smoke and approval requirements for the installation. Any proposed evidence must identify the tested formulation, specimen or assembly, method and applicable scope. Confirm report availability and whether further testing or approval is needed before ordering; a general FRP material description does not establish Civil Defence or operator acceptance.",
   },
   {
     question: "What lead times and ports apply for UAE oil and gas FRP cable tray orders?",
     answer:
-      "Sea freight from Shanghai or Ningbo takes 18–22 days to Jebel Ali in Dubai and 19–24 days to Khalifa Port or Mussafah Port in Abu Dhabi. Direct calls are also available to Mina Zayed and Khor Fakkan. F1 Composite typically quotes CIF Jebel Ali for projects staged through Dubai or Sharjah and DAP to the project site for ADNOC Onshore destinations. Standard cable tray reaches the port 5–7 weeks after the purchase order; custom widths or project-specific coatings add 2–4 weeks. For multi-container orders, container planning begins 6–8 weeks before installation to avoid storage charges at Jebel Ali.",
+      "Name Jebel Ali, Khalifa Port or the required receiving point, and state the requested Incoterm and site address. Production lead time starts from the agreed drawing, material and order release conditions; the quotation must separately confirm fabrication, inspection, booking and current freight estimates. Site access, receiving windows, unloading and any customs or inland-delivery scope need explicit agreement. No fixed arrival date is established by this page.",
   },
 ];
 
-const loadClasses = [
-  { nemaClass: "8A / 8B / 8C", span: "8 ft (2.4 m)", use: "Light cable, instrument runs" },
-  { nemaClass: "12A / 12B / 12C", span: "12 ft (3.7 m)", use: "General process and utility runs" },
-  { nemaClass: "16A / 16B / 16C", span: "16 ft (4.9 m)", use: "Main process trays" },
-  { nemaClass: "20A / 20B / 20C", span: "20 ft (6.1 m)", use: "Heavy power cable, refinery mains" },
-  { nemaClass: "24A / 24B / 24C", span: "24 ft (7.3 m)", use: "High-load mains and pipe-rack runs" },
+const loadRequirements = [
+  { item: "Cable load and span", input: "Cable mass per meter, future fill, concentrated loads and support locations", confirmation: "Offered section, deflection limit and applicable load evidence" },
+  { item: "System geometry", input: "Width, depth, rung spacing, straight lengths and splice locations", confirmation: "Match between the supplied assembly and the tested / calculated configuration" },
+  { item: "Supports and connections", input: "Bracket projection, fixing substrate, clamps and anchor interfaces", confirmation: "Connection design responsibility and local bearing / fixing checks" },
+  { item: "Standard or load class", input: "Governing edition, project class and required acceptance method", confirmation: "Document availability, scope and any remaining qualification work" },
 ];
 
 const components = [
-  { name: "Ladder cable tray", note: "Open rungs, 100, 150, 300 and 600 mm wide" },
-  { name: "Solid-bottom tray", note: "Ventilated or solid, for instrument cable runs" },
-  { name: "Fittings", note: "Elbows, tees, crosses, reducers and dropouts" },
-  { name: "Support hardware", note: "Pultruded FRP brackets and clamps" },
+  { name: "Support profiles", note: "Channels, angles or tubes; identify cut lengths, holes and brackets." },
+  { name: "Tray / ladder members", note: "State side rails, rungs or base type and the required width and depth." },
+  { name: "Route fittings", note: "Schedule bends, tees, reducers, splices and covers for configuration review." },
+  { name: "Fixings and interfaces", note: "Identify clamps, fasteners, bases and anchors, including items supplied by others." },
 ];
 
 const steps = [
   {
     title: "RFQ and quote",
-    body: `Send the tray layout or cable schedule, widths, load class, resin and delivery terms. We reply within ${supplyTerms.responseTime}, then quote CIF Jebel Ali or DAP to site with a list of included documents.`,
+    body: `Send the route drawing, cable loads, component scope, operator specification and destination. We reply within ${supplyTerms.responseTime}; the quotation identifies offered items, exclusions, required approvals and available documents.`,
   },
   {
-    title: "Production and documents",
-    body: "Trays, fittings and supports are made in FengDu's production network. Batch mill test certificates ship with each order; fire, chemical and load test reports are provided on request.",
+    title: "Release and inspection",
+    body: "Agree the BOM, drawing revision, material, fabrication tolerances and inspection plan before release. Confirm which batch records and applicable test reports are included, and resolve any required qualification work before production.",
   },
   {
     title: "Sea freight and delivery",
-    body: "Standard cable tray reaches Jebel Ali 5–7 weeks after the purchase order, and custom widths or coatings add 2–4 weeks. DAP delivery covers onshore sites such as Habshan, Bab, Bu Hasa and Ruwais.",
+    body: "Confirm the named port or site, requested Incoterm, package lengths and receiving / unloading conditions. Quote current freight and production estimates separately; inland delivery and site access are subject to the agreed scope.",
   },
 ];
 
@@ -115,7 +114,7 @@ export default function UAECableTrayPage() {
       <PageHeader
         tag="United Arab Emirates"
         title="FRP cable tray supplier for UAE oil and gas"
-        description="Pultruded fiberglass cable trays and ladders for onshore and offshore oil and gas projects in the UAE, with vinyl ester resin for sour service, NEMA FG 1 and IEC 61537 references, and CIF Jebel Ali or DAP delivery to site."
+        description="Prepare a UAE oil and gas RFQ for FRP supports, tray components or an agreed cable-ladder package. Define the route, loads, exposure and required evidence, then confirm supply and delivery scope for the offered configuration."
         figure={
           <Figure number={1} title="Cable ladder in a process plant" note={cover.note} bleed>
             <div className="relative aspect-[16/10]">
@@ -125,7 +124,7 @@ export default function UAECableTrayPage() {
         }
         actions={{
           primary: { label: "Request a UAE cable tray quote", href: quoteHref },
-          secondary: { label: "See the load classes", href: "#load-classes", variant: "secondary" },
+          secondary: { label: "Review load requirements", href: "#load-classes", variant: "secondary" },
           stickyMobile: true,
         }}
         breadcrumbs={[
@@ -134,40 +133,36 @@ export default function UAECableTrayPage() {
           { label: "United Arab Emirates" },
         ]}
       />
-      <PageNav items={[{ id: "why", label: "Why FRP" }, { id: "load-classes", label: "Load classes" }, { id: "components", label: "Components" }, { id: "logistics", label: "Logistics" }, { id: "faq", label: "FAQ" }, { id: "evidence", label: "Evidence" }]} />
+      <PageNav items={[{ id: "why", label: "Project exposure" }, { id: "load-classes", label: "Load requirements" }, { id: "components", label: "Components" }, { id: "logistics", label: "Logistics" }, { id: "faq", label: "FAQ" }, { id: "evidence", label: "Evidence" }]} />
 
-      <PageSection id="why" title="Why galvanized cable tray wears out in UAE service" tone="white">
+      <PageSection id="why" title="Define the exposure and the package for your UAE site" tone="white">
         <div className="grid gap-[32px] lg:grid-cols-2">
           <div className="space-y-[20px] text-f16 leading-golden text-t2">
             <p>
-              UAE upstream, refining and gas plants run cable management in one of the
-              hardest corrosion environments in the industry: 45–50°C summer air, salty
-              Gulf coastal air, H₂S and CO₂ in sour-service operations, and chemical
-              splash and oil mist on process platforms.
+              A coastal UAE installation, an inland process unit and an offshore route
+              can require different material and access decisions. Provide the actual
+              salt, chemical splash, temperature, UV and cleaning exposure, including
+              sour-service requirements where the project specifies them.
             </p>
             <p>
-              Under these combined conditions galvanized steel cable tray can need
-              replacement long before the plant does. Zinc is lost first in the splash
-              zone, then the steel corrodes fastest at field-cut ends and field-welded
-              supports where the galvanizing was not properly restored. Replacement
-              needs shutdown windows, scaffold access, hot-work permits and crew
-              mobilization.
+              For replacement work, mark retained supports and interfaces on the route
+              drawing. Include current cable loads, future fill, available access and
+              the shutdown window. The project engineer must check the complete
+              load path and the condition of the retained structure.
             </p>
           </div>
           <div className="space-y-[20px] text-f16 leading-golden text-t2">
             <p>
-              Pultruded FRP cable tray in vinyl ester resin does not rust and handles most
-              of this exposure without coatings. FRP cable management has been used on
-              Gulf oil and gas projects for many years; maintenance is mainly cleaning and
-              inspection during scheduled shutdowns.
+              Choose raw support profiles, fabricated components or a coordinated
+              cable-tray package as distinct supply scopes. Resin, fire behavior,
+              electrical requirements and metal hardware need review for the offered
+              assembly. Material selection alone does not establish operator approval.
             </p>
             <p>
-              We supply FRP cable tray made in China with NEMA FG 1 and IEC 61537
-              references, and test reports (including ASTM E84) on request against the
-              operator&apos;s project requirements. CIF Jebel Ali is the most common
-              Incoterm for projects staged through Dubai or Sharjah. DAP to site suits
-              onshore locations such as Habshan, Bab and Bu Hasa, the Ruwais refinery
-              area, and offshore work supported through Mussafah Port.
+              For delivery planning, name Jebel Ali, Khalifa Port or the actual
+              receiving site and your requested terms. Onshore or offshore access,
+              receiving appointments, onward transport and unloading need separate
+              confirmation. Port choice does not establish a production or arrival date.
             </p>
           </div>
         </div>
@@ -175,25 +170,25 @@ export default function UAECableTrayPage() {
 
       <PageSection
         id="load-classes"
-        title="NEMA load classes for UAE project specifications"
-        intro="The class number is the support span in feet and the letter the uniformly distributed load: A is 50 lb/ft (74 kg/m), B 75 lb/ft (112 kg/m) and C 100 lb/ft (149 kg/m). Specifications usually call for 16C or 20C on main process trays."
+        title="Load, span and evidence to confirm before ordering"
+        intro="If your specification cites a NEMA class or IEC 61537, send the edition and acceptance criteria. No class, certification or operator approval is claimed for a complete system without evidence for its actual configuration."
         tone="muted"
       >
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full min-w-[560px] border-collapse text-left text-f14">
             <thead>
               <tr className="border-b border-border-default bg-bg2">
-                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">NEMA class</th>
-                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Support span</th>
-                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Typical UAE application</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Requirement</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Provide with RFQ</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Confirm for the offer</th>
               </tr>
             </thead>
             <tbody>
-              {loadClasses.map((row) => (
-                <tr key={row.nemaClass} className="border-b border-border-default align-top last:border-b-0">
-                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.nemaClass}</th>
-                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.span}</td>
-                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.use}</td>
+              {loadRequirements.map((row) => (
+                <tr key={row.item} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.item}</th>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.input}</td>
+                  <td className="px-[14px] py-[10px] leading-golden text-t2">{row.confirmation}</td>
                 </tr>
               ))}
             </tbody>
@@ -201,7 +196,7 @@ export default function UAECableTrayPage() {
         </div>
       </PageSection>
 
-      <PageSection id="components" title="Cable tray system components" tone="white">
+      <PageSection id="components" title="Mark the components included in your inquiry" intro="Availability and fabrication are confirmed item by item. Supplying profiles or brackets does not automatically include the complete cable-carrying system." tone="white">
         <ul className="grid gap-[12px] sm:grid-cols-2 lg:grid-cols-4">
           {components.map((item) => (
             <li key={item.name} className="rounded-card border border-border-default bg-bg2 p-[20px]">
@@ -212,7 +207,7 @@ export default function UAECableTrayPage() {
         </ul>
       </PageSection>
 
-      <PageSection id="logistics" title="From FengDu's plants to your UAE site" intro="One quote lists the trays, fittings, freight, delivery terms and the documents included, so the landed cost is known before the order." tone="muted">
+      <PageSection id="logistics" title="From scope confirmation to UAE delivery planning" intro="Use the quotation to agree included components, document scope, production release conditions and the named delivery point." tone="muted">
         <ol className="grid gap-[12px] lg:grid-cols-3">
           {steps.map((step, index) => (
             <li key={step.title} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
@@ -228,7 +223,7 @@ export default function UAECableTrayPage() {
         <FAQList items={faqs} />
       </PageSection>
 
-      <PageSection id="evidence" title="Evidence and further reading" tone="muted">
+      <PageSection id="evidence" title="Evidence and further reading" intro="These references help define a request. They do not establish approval of a particular UAE project or the availability of a test report for your configuration." tone="muted">
         <ul className="grid gap-[12px] md:grid-cols-3">
           <li>
             <CoverCard href="/applications/frp-cable-tray-supports" cover={coverFor("/applications/frp-cable-tray-supports")!} label={<span className={mono}>Application</span>} title="FRP cable trays and cable ladders" text="Support spacing, fire and electrical scope, and connections, for selecting a tray system." sizes="(max-width: 767px) 94vw, 390px" />
@@ -275,9 +270,9 @@ export default function UAECableTrayPage() {
       />
 
       <InnerCTA
-        title="Request a CIF Jebel Ali or DAP UAE quote for FRP cable tray"
+        title="Request a UAE quote for FRP cable tray or support components"
         quoteHref={quoteHref}
-        text="Send the tray layout or cable schedule, widths, load class and delivery terms."
+        text="Send the route drawing, component scope, load and evidence requirements, plus the named port or site and requested delivery terms."
       />
     </>
   );

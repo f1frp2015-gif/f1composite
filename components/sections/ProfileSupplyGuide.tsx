@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SectionTag from "@/components/ui/SectionTag";
-import { supplyTerms, weeks } from "@/content/data/company";
+import { supplyTerms } from "@/content/data/company";
 
 interface ProfileSupplyGuideProps {
   sheet?: boolean;
@@ -18,19 +18,19 @@ export function profileSupplyItems({ sheet = false }: { sheet?: boolean } = {}) 
         }
       : {
           title: "Lengths & tolerances",
-          text: `Catalog sections come in ${supplyTerms.standardLengthM} m lengths or cut to your length. Give the piece length and count, say whether ASTM D3917 or EN 13706 tolerances apply, and mark any tighter tolerances, holes or end cuts on the drawing.`,
+          text: `Use ${supplyTerms.standardLengthM} m as the standard-length inquiry reference or specify cut lengths and counts. Identify the required tolerance standard, holes and end cuts on your drawing; available lengths and dimensional acceptance are confirmed for the selected section.`,
         },
     {
       title: "Resin & surface",
-      text: "Polyester suits general structural use; vinyl ester is the usual choice for chemicals, seawater and wastewater. Tell us the chemicals, concentration, temperature, outdoor exposure, color and any fire requirement, and we will confirm the resin and surface veil.",
+      text: "Give the chemicals, concentrations, temperature, outdoor exposure, color and fire requirements. Review the proposed resin, reinforcement and surface treatment against those conditions and the evidence for the offered material.",
     },
     {
       title: "Quantity & samples",
-      text: `Catalog sections ship in ${weeks(supplyTerms.catalogLeadTimeWeeks)}. Give the trial quantity and the expected repeat demand; minimum quantities and samples are confirmed for the section and resin you choose.`,
+      text: "Give the trial quantity, expected repeat demand and target delivery date. Minimum quantities, sample arrangements and the production schedule are confirmed for the section, material and fabrication scope in the quotation.",
     },
     {
       title: "Documents & delivery",
-      text: "Each production batch ships with a mill test certificate. Include the destination and target date, and we will quote FOB or DDP with the packing method and shipping schedule.",
+      text: "List the required drawings, material reports and batch inspection records. Confirm which documents cover the offered product, any additional testing, the packing method and available delivery terms for your destination.",
     },
   ];
 }
