@@ -22,6 +22,7 @@ import {
   View,
 } from "@react-pdf/renderer";
 import type { CategoryRow, FormulationRow, ProductRow } from "@/lib/catalog/db";
+import type { CatalogConfiguration } from "@/lib/catalog/identity";
 import type { SectionProperties } from "@/lib/catalog/section";
 import { sig } from "@/lib/catalog/section";
 import {
@@ -221,12 +222,14 @@ function ProductPage({
   category,
   docId,
   generated,
+  configuration,
 }: {
   product: ProductRow;
   formulation: FormulationRow | null;
   category: CategoryRow | null;
   docId: string;
   generated: string;
+  configuration?: CatalogConfiguration;
 }) {
   const density = formulation ? num(formulation.density_g_cm3) : null;
   const props = product.geometry
@@ -234,7 +237,7 @@ function ProductPage({
     : null;
   const desig = product.geometry ? designation(product.geometry) : null;
   const dims = product.geometry ? dimensionRows(product.geometry) : [];
-  const publishedW = num(product.weight_per_m);
+  const publishedW = configuration ? configuration.publishedMassKgPerM : num(product.weight_per_m);
   const mech = mechRows(formulation);
   // product.standards is written for the product's default formulation (e.g.
   // "EN 13706 Grade E23") — hide it on compare pages rendered with a different
@@ -259,6 +262,14 @@ function ProductPage({
           </Text>
         </View>
       </View>
+
+      {configuration ? (
+        <View style={{ marginTop: 8 }}>
+          <Text style={styles.small}>Internal catalog ref: {configuration.sectionId ?? configuration.catalogKey} (website reference, not a manufacturer SKU). Material: {configuration.formulationCode ?? "unconfirmed"}. Revision: {configuration.catalogRevision}.</Text>
+          <Text style={styles.small}>Evidence scope: {pdfSafe(configuration.evidence.summary)}</Text>
+          <Text style={styles.small}>{pdfSafe(configuration.massBasis)} Supply and project suitability require engineering confirmation.</Text>
+        </View>
+      ) : null}
 
       {/* drawing + dimensions + section properties */}
       <View style={{ flexDirection: "row", marginTop: 12, gap: 14 }}>
@@ -341,7 +352,7 @@ function ProductPage({
         </View>
       ))}
       {formulation && (
-        <View style={{ flexDirection: "row", marginTop: 6, gap: 14 }}>
+        <View style={{ marginTop: 6, gap: 2 }}>
           <Text style={styles.small}>Resin: {pdfSafe(formulation.resin) || "—"}</Text>
           <Text style={styles.small}>Glass content: {pdfSafe(formulation.glass_content) || "—"}</Text>
           <Text style={styles.small}>
@@ -390,6 +401,7 @@ function ProductPage({
 export interface DatasheetPage {
   product: ProductRow;
   formulation: FormulationRow | null;
+  configuration?: CatalogConfiguration;
 }
 
 export interface DatasheetData {
@@ -468,7 +480,7 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
           <Footer docId={docId} />
         </Page>
       )}
-      {data.pages.map(({ product: p, formulation: f }) => (
+      {data.pages.map(({ product: p, formulation: f, configuration }) => (
         <ProductPage
           key={`${p.id}-${f?.id ?? "default"}`}
           product={p}
@@ -476,6 +488,7 @@ export function DatasheetDocument({ data }: { data: DatasheetData }) {
           category={(p.category_id != null && data.categories.get(p.category_id)) || null}
           docId={docId}
           generated={generated}
+          configuration={configuration}
         />
       ))}
     </Document>

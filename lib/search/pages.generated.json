@@ -1047,7 +1047,7 @@
   },
   {
     "path": "/tools/profile-finder",
-    "title": "FRP Profile Finder — Filter 114 Standard Sizes",
+    "title": "FRP Profile Finder — Compare Standard Sizes",
     "description": "Filter F1 Composite's standard pultruded FRP profiles by shape, depth, mass and stiffness, compare up to four sizes and send them for one quotation.",
     "aliases": [
       "FRP profile finder"

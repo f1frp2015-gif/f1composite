@@ -4,10 +4,12 @@ import { insertInquiry, markInquiryEmailed } from "@/lib/db";
 import { NOTIFY_EMAILS } from "@/lib/notify";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 import { inquiryReceipt } from "@/lib/inquiryReceipt";
+import { ACQUISITION_MAX_BYTES, acquisitionReferrer, parseAcquisition } from "@/lib/acquisition";
 
 import { MAX_ATTACHMENT_BYTES, ALLOWED_ATTACHMENT_EXTENSIONS, validateContactAttachment } from "@/lib/contactAttachment";
 import { parseWindowInquiry, mergeWindowContext, windowInquirySummary } from "@/lib/windowInquiry";
 import { parseRebarInquiry, rebarInquirySummary } from "@/lib/rebarInquiry";
+import { parseProfileSnapshot } from "@/lib/profileCalculationSnapshot";
 
 export const runtime = "nodejs";
 
@@ -62,7 +64,7 @@ export async function POST(request: NextRequest) {
   for (const [key, value] of formData.entries()) {
     if (typeof value === "string") textBytes += Buffer.byteLength(value, "utf8");
     if (typeof value !== "string" && key !== "attachment") return NextResponse.json({ message: "Unexpected file field." }, { status: 400 });
-    if (typeof value === "string" && value.length > (key === "context" || key === "window_inquiry" || key === "rebar_inquiry" || key === "message" ? 20000 : 500)) return NextResponse.json({ message: "An inquiry field is too long." }, { status: 400 });
+    if (typeof value === "string" && value.length > (key === "acquisition" ? ACQUISITION_MAX_BYTES : key === "context" || key === "window_inquiry" || key === "rebar_inquiry" || key === "message" ? 20000 : 500)) return NextResponse.json({ message: "An inquiry field is too long." }, { status: 400 });
   }
   if (textBytes > 64 * 1024) return NextResponse.json({ message: "Please shorten the inquiry text or attach a schedule." }, { status: 400 });
   if (formData.getAll("attachment").filter(value => value instanceof File && value.size > 0).length > 1) return NextResponse.json({ message: "Please attach one file or a single ZIP bundle." }, { status: 400 });
@@ -75,6 +77,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ accepted: false, message: "We could not accept this submission. Please email inquiry@f1composite.com instead." }, { status: 400 });
   }
   let context = parseContext(text("context"));
+  const acquisition = parseAcquisition(text("acquisition"));
+  if (context && typeof context === "object" && !Array.isArray(context) && "calculatorSnapshot" in context) {
+    try {
+      context = { ...context, calculatorSnapshot: parseProfileSnapshot(context.calculatorSnapshot) };
+    } catch {
+      return NextResponse.json({ message: "The calculator snapshot is invalid or outdated. Recalculate the profile result and try again." }, { status: 400 });
+    }
+  }
   let windowInquiry;
   try {
     const raw = text("window_inquiry");
@@ -165,8 +175,9 @@ export async function POST(request: NextRequest) {
       message: attachmentName ? `${message!}\n\nAttachment: ${attachmentName}` : message!,
       source: (formData.get("source") as string | null) || "contact",
       context,
+      acquisition,
       userAgent: request.headers.get("user-agent"),
-      referer: request.headers.get("referer"),
+      referer: acquisitionReferrer(request.headers.get("referer")),
     });
   } catch (dbErr) {
     console.error("Inquiry DB insert failed:", dbErr);
@@ -191,6 +202,7 @@ export async function POST(request: NextRequest) {
         <div style="font-family: -apple-system, sans-serif; max-width: 600px; color: #1a1a1a;">
           <h2 style="color: #00A199; margin-bottom: 24px;">New Inquiry from f1composite.com</h2>
           <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Inquiry reference</td><td style="padding: 8px 12px;">${esc(inquiryId == null ? "Email delivery only; no database reference" : `F1-${inquiryId}`)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; width: 120px; vertical-align: top;">Name</td><td style="padding: 8px 12px;">${esc(name)}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Company</td><td style="padding: 8px 12px;">${esc(company)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Email</td><td style="padding: 8px 12px;"><a href="mailto:${encodeURIComponent(email!)}" style="color: #00A199;">${esc(email)}</a></td></tr>
@@ -199,6 +211,7 @@ export async function POST(request: NextRequest) {
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Source / context</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(String(formData.get("source") ?? "contact"))}<br />${esc(context == null ? "" : JSON.stringify(context))}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Acquisition</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(acquisition ? JSON.stringify(acquisition) : "Unknown / unavailable")}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
           </table>
           <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>

@@ -5,6 +5,7 @@ import { DefaultChatTransport } from "ai";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useRef, useEffect, useMemo } from "react";
+import { getAcquisition } from "@/lib/acquisitionClient";
 
 function renderMarkdown(text: string) {
   const out: string[] = [];
@@ -152,6 +153,7 @@ export default function ChatPanel({ fullPage = false, initialPrompt, suggestions
           body: {
             ...body,
             messages,
+            acquisition: getAcquisition(),
             pageContext:
               typeof window !== "undefined"
                 ? {

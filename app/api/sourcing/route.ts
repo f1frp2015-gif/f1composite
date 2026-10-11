@@ -4,6 +4,7 @@ import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
+import { parseAcquisition } from "@/lib/acquisition";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 import { getAIGatewayModel, logAIGatewayStreamError } from "@/lib/aiGateway";
 
@@ -77,7 +78,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { prompt }: { prompt: string } = await req.json();
+    const { prompt, acquisition: rawAcquisition }: { prompt: string; acquisition?: unknown } = await req.json();
 
     if (!prompt || typeof prompt !== "string" || prompt.trim().length < 10) {
       return new Response(
@@ -128,6 +129,7 @@ export async function POST(req: Request) {
               message: trimmedPrompt.slice(0, 8000),
               source: "ai-sourcing",
               context: { kind: "sourcing" },
+              acquisition: parseAcquisition(rawAcquisition),
               userAgent,
               referer,
             });

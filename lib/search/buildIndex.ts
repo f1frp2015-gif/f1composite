@@ -16,7 +16,7 @@ import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { authors } from "@/lib/authors";
 import { CAD_SLUGS } from "@/lib/cadManifest";
 import { PROFILE_FAMILIES } from "@/lib/catalog/profileFamilies";
-import { modelToSlug } from "@/lib/catalog/public";
+import { modelToSlug } from "@/lib/catalog/identity";
 import { computeProperties, type ShapeId } from "@/lib/catalog/shapes";
 import { buildProducts } from "@/lib/catalog/standardProfiles";
 import { datasheetHrefForModel } from "@/lib/datasheetContent";

@@ -16,7 +16,6 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import Figure from "@/components/ui/Figure";
-import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import SectionSvg from "@/components/datasheets/SectionSvg";
 import { FAQList } from "@/components/ui/FAQ";
@@ -30,7 +29,6 @@ import {
   dimensionLabel,
   formatLoad,
   isIndexedDatasheet,
-  relatedSizes,
   spanLoads,
   spanRowForModel,
 } from "@/lib/datasheetContent";
@@ -40,13 +38,15 @@ import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
 import { sig } from "@/lib/catalog/section";
 import { CAD_SLUGS } from "@/lib/cadManifest";
+import { matchesStandardGeometry } from "@/lib/catalog/drawingGeometry";
 import type { FormulationRow } from "@/lib/catalog/db";
+import { catalogRfqContext, catalogEvidenceHref } from "@/lib/catalog/identity";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  // Build-safe: empty DB → no prerendered params; pages render on demand.
+  // Build-safe: the published seed remains available when the DB is empty.
   const all = await getAllDatasheetPages();
   return all.map((d) => ({ slug: d.slug }));
 }
@@ -83,7 +83,7 @@ export async function generateMetadata({
     return {
       ...buildPageMetadata({
         title: datasheetSeoTitle(data.product.model, shape),
-        description: datasheetSeoDescription(data.product.model, shape, weight, CAD_SLUGS.has(slug)),
+        description: datasheetSeoDescription(data.product.model, shape, weight, CAD_SLUGS.has(slug) && matchesStandardGeometry(slug, data.product.geometry)),
         path: `/datasheets/${slug}`,
       }),
       robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
@@ -119,17 +119,21 @@ export default async function DatasheetPage({
   const { slug } = await params;
   const data = await getDatasheetPage(slug);
   if (!data) notFound();
-  const { product, formulation, category, source } = data;
+  const { product, formulation, category, configuration } = data;
   const shape = product.geometry?.kind === "parametric" ? product.geometry.shape : undefined;
   const family = datasheetFamily(shape);
   // Shapes the price estimator accepts (lib/pricing profile types).
   const priceEstimate = shape != null && ["i_beam", "channel", "angle", "shs", "rhs", "tube"].includes(shape);
   const sizeLabel = `${dimensionLabel(product.model)} mm`;
   const inchSize = approximateInchSize(product.model);
-  const hasCad = CAD_SLUGS.has(slug);
-  const spanRow = spanRowForModel(product.model);
+  const geometryMatchesReference = matchesStandardGeometry(slug, product.geometry);
+  const hasCad = CAD_SLUGS.has(slug) && geometryMatchesReference;
+  const spanRow = geometryMatchesReference ? spanRowForModel(product.model) : null;
   const loads = spanRow ? spanLoads(spanRow) : [];
-  const siblings = relatedSizes(shape);
+  const all = await getAllDatasheetPages();
+  const siblings = all.filter((profile) => profile.category?.slug === category?.slug).map((profile) => ({
+    model: profile.product.model, slug: profile.slug, weight: profile.product.weight_per_m,
+  }));
   const hubHref = "/products/fiberglass-structural-shapes";
 
   const density = formulation ? num(formulation.density_g_cm3) : null;
@@ -192,7 +196,7 @@ export default async function DatasheetPage({
     .split(" ")
     .map((word) => (/^[A-Z]-/.test(word) ? word[0] + word.slice(1).toLowerCase() : word.toLowerCase()))
     .join(" ");
-  const quoteHref = buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model });
+  const quoteHref = buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, context: catalogRfqContext([configuration]) });
   const hasLoads = spanRow != null && loads.length > 0;
   const link = "font-semibold text-teal-text hover:underline";
   const th = "px-[14px] py-[8px] font-semibold text-t1";
@@ -306,17 +310,9 @@ export default async function DatasheetPage({
               ) : null}
             </p>
             <div className="mt-[20px] flex flex-wrap gap-[12px]">
-              {source === "database" ? (
-                <a href={`/api/datasheet?ids=${product.id}`} target="_blank" rel="noopener" className={`${buttonBase} bg-teal-text text-white hover:bg-teal`}>
-                  Download the PDF datasheet
-                </a>
-              ) : (
-                <Button
-                  href={buildRfqHref({ source: "datasheet", product: product.model, productPath: `/datasheets/${slug}`, specification: desig ?? product.model, message: `Please confirm the applicable product data and inspection evidence for ${product.model}.` })}
-                >
-                  Request product data
-                </Button>
-              )}
+              <a href={`/api/datasheet?profiles=${encodeURIComponent(data.catalogKey)}&revision=${encodeURIComponent(configuration.catalogRevision)}`} target="_blank" rel="noopener" className={`${buttonBase} bg-teal-text text-white hover:bg-teal`}>
+                Download the PDF datasheet
+              </a>
               {hasCad && (
                 <a
                   href={`/cad/${slug}.dxf`}
@@ -382,6 +378,12 @@ export default async function DatasheetPage({
         intro={formulation ? `Laminate ${formulation.name}. Test methods are those of EN 13706 and the ISO and ASTM methods it cites.` : undefined}
         tone={toneOf("properties")}
       >
+        <div className="mb-[20px] max-w-[960px] rounded-card border border-border-default bg-bg2 p-[20px] text-f14 leading-golden text-t2">
+          <p><strong>Internal catalog reference:</strong> {configuration.sectionId ?? data.catalogKey} (website reference, not a manufacturer SKU). <strong>Material dataset:</strong> {configuration.formulationCode ?? "To confirm"}. <strong>Revision:</strong> {configuration.catalogRevision}.</p>
+          <p className="mt-[8px]">{configuration.evidence.summary} {configuration.massBasis}</p>
+          <p className="mt-[8px]">The methods below identify measurement standards, not proof that this section was tested. Confirm manufacturing, required performance and the applicable report before specification.</p>
+          <Link href={catalogEvidenceHref(configuration, category?.slug ?? "")} className="mt-[8px] inline-block font-semibold text-teal-text underline">Check evidence for this configuration</Link>
+        </div>
         <div className="relative max-w-[960px] overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full text-left text-f14">
             <caption className="sr-only">Mechanical and physical properties of the {product.model} laminate</caption>

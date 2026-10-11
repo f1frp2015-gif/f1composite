@@ -2,7 +2,7 @@ import { e40EvidenceHref, e40ReportDate, e40Reports, e40ReportScope, e40TestMeth
 import { pvFrameReports } from "./pvFrameEvidence";
 
 /** Public document index. A listed file is not a blanket certification claim. */
-export const evidenceRevision = "2026-10-01";
+export const evidenceRevision = "2026-10-11";
 
 export const commercialFacts = {
   response: "We will acknowledge your requirements within one business day and confirm the next step. A formal quotation follows specification and delivery review.",

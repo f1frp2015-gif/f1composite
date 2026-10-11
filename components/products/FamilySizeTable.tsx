@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { approximateInches, sizeInquiryHref } from "@/lib/productInquiry";
+import { catalogRfqContext, type CatalogConfiguration } from "@/lib/catalog/identity";
 
 type NumericKey = "d" | "b" | "t" | "mass" | "A" | "Ix" | "Wx" | "Iy" | "Wy";
 
@@ -20,6 +21,7 @@ export interface SizeTableRow {
   Wy: number;
   dxf: boolean;
   datasheet: string | null;
+  configuration?: CatalogConfiguration;
   /** Page-specific columns, such as the steel section at the same depth. */
   extra?: Record<string, string>;
 }
@@ -122,6 +124,7 @@ export default function FamilySizeTable({
                   ) : (
                     row.model
                   )}
+                  {row.configuration?.sectionId ? <span className="mt-[3px] block text-f12 font-normal text-t3">Internal catalog ref: {row.configuration.sectionId}<br />Material dataset: {row.configuration.formulationCode ?? "To confirm"}</span> : null}
                 </th>
                 {columns.map((column) => (
                   <td key={column.key} className={`px-[12px] py-[10px] group-hover:bg-bg2 ${column.key === "mass" ? "font-semibold text-t1" : "text-t2"}`}>
@@ -149,7 +152,7 @@ export default function FamilySizeTable({
                       </a>
                     ) : null}
                     <Link
-                      href={sizeInquiryHref(productPath, product, specification, quoteSource)}
+                      href={sizeInquiryHref(productPath, product, specification, quoteSource, row.configuration ? catalogRfqContext([row.configuration]) : undefined)}
                       prefetch={false}
                       aria-label={`Quote ${row.model}`}
                       className="inline-flex min-h-[36px] items-center rounded-control border border-teal-border px-[10px] text-f14 font-semibold text-teal-text hover:bg-teal-bg"

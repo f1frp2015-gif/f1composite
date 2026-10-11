@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { experimental_useObject as useObject } from "@ai-sdk/react";
 import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
+import { getAcquisition } from "@/lib/acquisitionClient";
 
 interface Example {
   label: string;
@@ -66,7 +67,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
 
   const handleSubmit = (prompt: string) => {
     if (prompt.trim().length < 10) return;
-    submit({ prompt: prompt.trim() });
+    submit({ prompt: prompt.trim(), acquisition: getAcquisition() });
   };
 
   const hasResult = !!object && Object.keys(object).length > 0;

@@ -11,7 +11,8 @@ import dynamic from "next/dynamic";
 const GratingInquiryReview = dynamic(() => import("./GratingInquiryReview"));
 import Button from "@/components/ui/Button";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
-import { attributionPath, attributionToken } from "@/lib/rfq";
+import { attributionPath, attributionToken, parseRfqFragment, applyRfqFragment, contactPrefillKey } from "@/lib/rfq";
+import { appendAcquisition } from "@/lib/acquisitionClient";
 
 const countries = [
   "United States",
@@ -61,6 +62,7 @@ const initialState: FormState = { success: false, message: "" };
 
 async function submitForm(_prev: FormState, formData: FormData): Promise<FormState> {
   try {
+    appendAcquisition(formData);
     const res = await fetch("/api/contact", {
       method: "POST",
       body: formData,
@@ -88,10 +90,25 @@ const inputCls =
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
-  return <ContactFormContent key={searchParams.toString()} />;
+  return <ContactFormPrefill key={contactPrefillKey(searchParams)} />;
 }
 
-function ContactFormContent() {
+function ContactFormPrefill() {
+  const [loaded, setLoaded] = useState({ fragment: "", formKey: "" });
+  useEffect(() => {
+    const update = () => {
+      const hash = window.location.hash;
+      startTransition(() => setLoaded(previous => applyRfqFragment(previous, hash)));
+    };
+    update();
+    window.addEventListener("hashchange", update);
+    window.addEventListener("popstate", update);
+    return () => { window.removeEventListener("hashchange", update); window.removeEventListener("popstate", update); };
+  }, []);
+  return <ContactFormContent key={loaded.formKey} fragment={loaded.fragment} />;
+}
+
+function ContactFormContent({ fragment }: { fragment: string }) {
   const [state, formAction, isPending] = useActionState(submitForm, initialState);
   const [attachmentName, setAttachmentName] = useState("");
   const started = useRef(false);
@@ -133,7 +150,8 @@ function ContactFormContent() {
   const prefillCompany = searchParams.get("company") ?? "";
   const prefillCountry = searchParams.get("country") ?? "";
   const prefillInquiryType = searchParams.get("inquiry_type") ?? "";
-  const prefillMessage = searchParams.get("message") ?? "";
+  const fragmentPrefill = parseRfqFragment(fragment);
+  const prefillMessage = fragmentPrefill.error ? "" : fragmentPrefill.message || searchParams.get("message") || "";
   const gratingProject = searchParams.get("grating_project") === "1";
   const messageRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
@@ -149,8 +167,10 @@ function ContactFormContent() {
   const productPath = attributionPath(searchParams.get("product_path") ?? "");
   const specification = searchParams.get("specification") ?? "";
   const evidenceId = searchParams.get("evidence_id") ?? "";
-  let inheritedContext: unknown = null;
-  try { inheritedContext = prefillContext ? JSON.parse(prefillContext) : null; } catch { inheritedContext = { raw: prefillContext }; }
+  let inheritedContext: unknown = fragmentPrefill.context;
+  if (!inheritedContext && !fragmentPrefill.error) {
+    try { inheritedContext = prefillContext ? JSON.parse(prefillContext) : null; } catch { inheritedContext = { raw: prefillContext }; }
+  }
   const context = JSON.stringify({ ...(inheritedContext && typeof inheritedContext === "object" && !Array.isArray(inheritedContext) ? inheritedContext : { inheritedContext }), product, productPath, specification, evidenceId });
   const isFromAiSourcing = prefillRef === "ai-sourcing";
 
@@ -177,6 +197,7 @@ function ContactFormContent() {
       setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
     }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[20px] rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
+      {fragmentPrefill.error && <p role="alert" className="rounded-control border border-warn-border bg-warn-bg p-4 text-f14 text-t1">Shared details were not included. {fragmentPrefill.error} Any details you already typed have been kept; review them before sending.</p>}
       <input type="hidden" name="source" defaultValue={prefillSource} />
       {/* Spam trap: off-screen and out of the tab order, so only bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">

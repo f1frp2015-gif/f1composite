@@ -13,7 +13,7 @@
 
 import { supplyTerms, weeks } from "@/content/data/company";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
-import { modelToSlug } from "@/lib/catalog/public";
+import { modelToSlug } from "@/lib/catalog/identity";
 import { buildProducts } from "@/lib/catalog/standardProfiles";
 import { approximateInches } from "@/lib/productInquiry";
 import { buildSpanTables, SPANS_MM, type SpanRow } from "@/lib/spanTables";

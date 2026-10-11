@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "node:crypto";
-import { dbConfigured, listInquiries, inquiryMetrics, setInquiryOutcome } from "@/lib/db";
+import { dbConfigured, listInquiries, inquiryMetrics, setInquiryOutcome, setInquiryQualification, QUALIFICATION_STATUSES, type QualificationStatus } from "@/lib/db";
 
 // Read API for pulling inquiries into the F1 Cockpit desktop app.
 // Protected by a static bearer token (INQUIRY_API_TOKEN). The cockpit polls
@@ -62,7 +62,8 @@ export async function GET(req: NextRequest) {
 }
 
 // PATCH /api/inquiries  { id, outcome:"won"|"lost"|"pending", realizedMargin?, lossReason?, note? }
-// Records the deal outcome so the inquiry→deal loop can be measured. Same bearer auth.
+// Or { id, qualificationStatus, qualificationNote? }, independent of won/lost outcome.
+// Records sales review on the existing inquiry. Same bearer auth.
 export async function PATCH(req: NextRequest) {
   const expected = process.env.INQUIRY_API_TOKEN;
   if (!expected) {
@@ -85,18 +86,31 @@ export async function PATCH(req: NextRequest) {
   let body: Record<string, unknown>;
   try {
     body = (await req.json()) as Record<string, unknown>;
+    if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Invalid body");
   } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
   const id = Number(body.id);
-  if (!Number.isFinite(id) || id <= 0) {
+  if (!Number.isSafeInteger(id) || id <= 0) {
     return NextResponse.json({ error: "Valid numeric id required" }, { status: 400 });
   }
 
   const rawMargin = body.realizedMargin ?? body.realized_margin;
   const rawLoss = body.lossReason ?? body.loss_reason;
   try {
+    const qualification = body.qualificationStatus ?? body.qualification_status;
+    if (qualification !== undefined) {
+      if (body.outcome !== undefined) return NextResponse.json({ error: "Update qualification and outcome separately" }, { status: 400 });
+      if (typeof qualification !== "string" || !QUALIFICATION_STATUSES.includes(qualification as QualificationStatus)) {
+        return NextResponse.json({ error: "qualificationStatus must be unreviewed | qualified | quotable | not-fit" }, { status: 400 });
+      }
+      const note = body.qualificationNote ?? body.qualification_note;
+      if (note != null && typeof note !== "string") return NextResponse.json({ error: "qualificationNote must be text" }, { status: 400 });
+      const res = await setInquiryQualification(id, qualification as QualificationStatus, note == null ? null : String(note));
+      if (!res.ok) return NextResponse.json({ error: res.error }, { status: 400 });
+      return NextResponse.json({ ok: true, id, qualificationStatus: qualification });
+    }
     const res = await setInquiryOutcome(id, {
       outcome: String(body.outcome ?? ""),
       realizedMargin: rawMargin == null ? null : Number(rawMargin),

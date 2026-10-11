@@ -20,6 +20,8 @@ function mockRoute({ db = null, mail = null, dbThrows = false, mailThrows = fals
     "@/lib/rebarInquiry": loadProjectModule("lib/rebarInquiry.ts"),
     "@/lib/windowInquiry": loadProjectModule("lib/windowInquiry.ts"),
     "@/lib/contactAttachment": loadProjectModule("lib/contactAttachment.ts"),
+    "@/lib/acquisition": loadProjectModule("lib/acquisition.ts"),
+    "@/lib/profileCalculationSnapshot": loadProjectModule("lib/profileCalculationSnapshot.ts"),
   };
   const exports = {};
   new Function("require", "exports", compiled)((id) => { if (!mocks[id]) throw new Error(`Unmocked dependency ${id}`); return mocks[id]; }, exports);
@@ -49,6 +51,58 @@ test("contact endpoint preserves drawing context and warns when only attachment 
   assert.equal(route.state.stored.context.specification, "152×76×6.4");
   assert.equal(route.state.stored.source, "evidence-library");
   assert.equal(route.state.marked, null);
+});
+
+test("acquisition is sanitized, linked to the accepted receipt, and independent of entry source", async () => {
+  const { createAcquisitionTouch } = loadProjectModule("lib/acquisition.ts");
+  const touch = createAcquisitionTouch("https://www.f1composite.com/frp-profile-calculator?utm_source=chatgpt.com&utm_medium=referral&email=secret@example.com", "https://chatgpt.com/c/private");
+  const acquisition = { version: 1, consent: "explicit", firstTouch: touch, sessionTouch: touch, privateQuery: "secret" };
+  const route = mockRoute({ db: 42, mail: "mock-mail" });
+  const response = await route.POST(request(false, { acquisition: JSON.stringify(acquisition), source: "calculator" }));
+  assert.equal((await response.json()).receiptId, "F1-42");
+  assert.equal(route.state.stored.source, "calculator");
+  assert.equal(route.state.stored.acquisition.sessionTouch.utm.source, "chatgpt.com");
+  assert.equal(route.state.stored.acquisition.firstTouch.landingPath, "/frp-profile-calculator");
+  assert.match(route.state.mailed.html, /chatgpt.com/);
+  assert.match(route.state.mailed.html, /F1-42/);
+  assert.doesNotMatch(JSON.stringify(route.state.stored.acquisition), /secret|private/);
+  const legacy = mockRoute({ db: 43, mail: "mock-mail" });
+  assert.equal((await legacy.POST(request())).status, 200);
+  assert.equal(legacy.state.stored.acquisition, null);
+  const malformed = mockRoute({ db: 44, mail: "mock-mail" });
+  assert.equal((await malformed.POST(request(false, { acquisition: "{broken" }))).status, 200);
+  assert.equal(malformed.state.stored.acquisition, null);
+});
+
+test("forged calculator snapshots are rejected before persistence or mail", async () => {
+  const route = mockRoute({ db: 42, mail: "mock-mail" });
+  const response = await route.POST(request(false, { context: JSON.stringify({ calculatorSnapshot: { schemaVersion: 1, result: "pass" } }) }));
+  assert.equal(response.status, 400);
+  assert.equal(route.state.stored, null);
+  assert.equal(route.state.mailed, null);
+});
+
+test("a replayable calculator snapshot and acquisition reach the same inquiry ID unchanged", async () => {
+  const { DEFAULT_BEAM_INPUTS } = loadProjectModule("lib/profileCalculation.ts");
+  const { createProfileSnapshot } = loadProjectModule("lib/profileCalculationSnapshot.ts");
+  const { createAcquisitionTouch } = loadProjectModule("lib/acquisition.ts");
+  const snapshot = createProfileSnapshot(DEFAULT_BEAM_INPUTS);
+  const touch = createAcquisitionTouch("https://www.f1composite.com/frp-profile-calculator?utm_source=google", "https://www.google.com/search?q=beam");
+  const acquisition = { version: 1, consent: "explicit", firstTouch: touch, sessionTouch: touch };
+  const route = mockRoute({ db: 45, mail: "mock-mail" });
+  const response = await route.POST(request(false, { source: "calculator", context: JSON.stringify({ calculatorSnapshot: snapshot }), acquisition: JSON.stringify(acquisition) }));
+  assert.equal((await response.json()).receiptId, "F1-45");
+  assert.deepEqual(route.state.stored.context.calculatorSnapshot, snapshot);
+  assert.deepEqual(route.state.stored.acquisition, acquisition);
+  assert.match(route.state.mailed.html, new RegExp(snapshot.calculationId));
+});
+
+test("canonical self-referral is excluded before storage", async () => {
+  const route = mockRoute({ db: 46, mail: "mock-mail" });
+  const req = request();
+  req.headers.set("referer", "https://www.f1composite.com/contact?email=secret@example.com&context=private");
+  assert.equal((await route.POST(req)).status, 200);
+  assert.equal(route.state.stored.referer, null);
 });
 test("contact endpoint accepts email-only delivery and marks persisted successful notification", async () => {
   for (const db of [null, 42]) {

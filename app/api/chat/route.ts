@@ -4,6 +4,7 @@ import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { after } from "next/server";
 import { notifyTeam, escapeHtml, extractContact } from "@/lib/notify";
 import { insertInquiry, dbConfigured } from "@/lib/db";
+import { parseAcquisition } from "@/lib/acquisition";
 import { rateLimit, tooManyRequests } from "@/lib/rateLimit";
 import {
   AI_UNAVAILABLE_MESSAGE,
@@ -387,7 +388,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { messages, pageContext }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string } } =
+    const { messages, pageContext, acquisition: rawAcquisition }: { messages: UIMessage[]; pageContext?: { path?: string; title?: string }; acquisition?: unknown } =
       await req.json();
 
     if (!Array.isArray(messages) || messages.length === 0) {
@@ -468,6 +469,7 @@ export async function POST(req: Request) {
                 message: transcriptText.slice(0, 8000),
                 source: "ai-chat",
                 context: { page },
+                acquisition: parseAcquisition(rawAcquisition),
                 userAgent,
                 referer,
               });
