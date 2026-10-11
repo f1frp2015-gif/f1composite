@@ -16,7 +16,7 @@ import { fastenerInquiryHref } from "@/lib/fastenerInquiry";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-09-21";
+const updatedAt = "2026-10-11";
 
 const target = getSeoQueryTarget(fastenersPath);
 const imageBase = "/images/products/frp-fasteners-fittings/";
@@ -95,6 +95,16 @@ export default function FastenersFittingsPage() {
         <p className="max-w-[820px] text-f18 leading-golden text-t1">
           FRP / GRP hardware brings composite material options to profile connections, equipment supports and access assemblies. Start with the component family, then define the dimensions and service conditions of the whole connection.
         </p>
+      </PageSection>
+
+      <PageSection id="connection-acceptance" title="Confirm the connection, then agree the release records" tone="muted">
+        <div className="grid gap-[16px] md:grid-cols-3">{[
+          ["Thread and mating components", "Specify thread form, pitch, tolerance, engagement and the matching nut. Agree the gauge or mating-part check; a nominal rod diameter is not an acceptance plan."],
+          ["Material and joint function", "Match the resin and reinforcement to tension, shear, bearing and exposure requirements. A rod material value does not establish the capacity of its threads, nut, washer or complete connection."],
+          ["Assembly and inspection", "Agree the finished dimensions, lot identity, sample or first-article checks and available test records. Tightening procedure and any torque must come from the qualified connection specification."],
+        ].map(([title, body]) => <div key={title} className="rounded-card border border-border-default bg-white p-[20px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[8px] text-f14 leading-relaxed text-t2">{body}</p></div>)}</div>
+        <p className="mt-[16px] text-f14 leading-relaxed text-t2">Confirm required test data and its applicability before approval. This page does not publish a universal connection load or installation torque.</p>
+        <Link href="/technology/frp-profile-machining#inspection" className="mt-[16px] inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text underline underline-offset-4">Plan mating holes, datums and first-article inspection →</Link>
       </PageSection>
 
       <PageSection id="product-range" title="Find the right fastening components" tone="muted" intro="Catalog sizes provide a starting point for your inquiry. Availability, resin grade and finished geometry are confirmed for each order.">

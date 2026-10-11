@@ -20,6 +20,12 @@ export const metadata: Metadata = buildPageMetadata({
 
 const areas = [
   {
+    tag: "Fabrication",
+    title: "FRP profile machining",
+    description: "Illustrated cutting, drilling, slots and notches. Define feature tolerances, datums, first-article checks and the records needed for a machined-profile inquiry.",
+    href: "/technology/frp-profile-machining",
+  },
+  {
     tag: "Performance",
     title: "Pultruded profile performance",
     description:
@@ -51,7 +57,7 @@ const areas = [
     tag: "Materials",
     title: "Pultrusion resin systems",
     description:
-      "Polyester, vinyl ester, polyurethane, epoxy, or phenolic? The resin matrix decides corrosion, fire, and temperature behavior. Compare all five systems with an interactive selection matrix and typical property ranges.",
+      "Compare polyester, vinyl ester, polyurethane, epoxy and phenolic resin families. Define chemical concentration, temperature, exposure, UV and the evidence needed for a specific formulation.",
     href: "/technology/pultrusion-resin-systems",
   },
   {

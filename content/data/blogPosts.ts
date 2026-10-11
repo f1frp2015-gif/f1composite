@@ -1868,36 +1868,36 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
     masterComparison: {
       label: "FRP vs Steel Gratings — full comparison",
       href: "/technology/frp-vs-steel-gratings",
-      note: "This article focuses on lifecycle cost math. For the complete FRP-vs-steel grating comparison (load, safety, corrosion, installation), see the master comparison page.",
+      note: "This article focuses on the inputs for a lifecycle cost comparison. For load, safety, corrosion and installation decisions, see the master comparison page.",
     },
-    title: "FRP Grating Lifecycle Cost: A Worked Comparison with Galvanized Steel",
-    seoTitle: "FRP Grating Lifecycle Cost — Worked Example vs Steel",
+    title: "FRP Grating Lifecycle Cost: Compare Complete Systems with Steel",
+    seoTitle: "FRP Grating Lifecycle Cost — Project Comparison vs Steel",
     answerBox:
-      "Molded FRP grating needs no recoating in chlorinated, saltwater and acid-splash service, where hot-dip galvanized steel grating can need replacing within 5–8 years. Installation is faster because there is no welding or hot work, and over the service life FRP often costs less in chemical-plant and wastewater applications once recoating and downtime are counted. This article works through the cost model.",
+      "Compare FRP and steel grating only after both systems meet the same load, span, deflection and service requirements. Use quoted panel and support costs, an installation method, and an owner-approved inspection, repair and replacement plan. Material density alone does not predict installed weight or lifecycle savings.",
     category: "Industrial Systems",
     date: "2024-04-15",
-    updatedAt: "2026-09-27",
-    readTime: "9 min",
+    updatedAt: "2026-10-11",
+    readTime: "5 min",
     excerpt:
-      "A detailed engineering comparison of molded FRP grating and hot-dip galvanized steel grating across weight, corrosion resistance, installation cost, and 20-year lifecycle economics.",
+      "Build an FRP-versus-steel grating lifecycle comparison using equivalent performance, panel weights, installation quotations and explicit maintenance assumptions.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
-    reviewedBy: "F1 Composite engineering team",
-    standards: ["ASTM E84", "OSHA 1910.23", "EN ISO 14122", "ASTM D6272"],
+    reviewedBy: "Editorial source check",
+    standards: [],
     coverImage: "/images/regions/frp-grating-saudi-arabia-petrochemical.jpg",
     coverAlt: "Galvanized steel bar grating panels set in a concrete frame, with fallen leaves",
     coverNote: "Illustrative photo",
     supportingImage: "/images/case-studies/frp-coastal-marina-walkway-grating-system.jpg",
     supportingAlt: "FRP grating walkway used in a corrosive coastal application",
     supportingCaption:
-      "FRP grating is often selected not because it is cheaper on day one, but because it avoids corrosion shutdowns, hot-work permits, and repeated replacement cycles.",
+      "A coastal walkway is a useful setting for comparing exposure, access for maintenance and the complete installed grating system. The photo is not evidence of a cost saving.",
     highlights: [
-      "Roughly 75 percent lighter than steel grating",
-      "No galvanizing breakdown in corrosive service",
-      "Faster field cutting and installation",
+      "Compare delivered panel and support weights",
+      "Match the resin or coating to the exposure",
+      "Price the approved installation method",
     ],
     ogDescription:
-      "Molded FRP vs galvanized steel grating: weight, corrosion, installation cost, lifecycle economics. Side-by-side data for chemical, marine, and wastewater.",
+      "Compare FRP and galvanized steel grating with equivalent load performance, quoted costs and documented inspection, maintenance and replacement assumptions.",
     ogChips: ["Grating", "Lifecycle cost", "Corrosion resistance"],
     relatedLinks: [
       { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
@@ -1905,33 +1905,51 @@ F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and
       { label: "Industrial", href: "/industries/industrial" },
       { label: "Marine", href: "/industries/marine" },
     ],
-    content: `Industrial grating is one of the most widely specified structural components in chemical plants, offshore platforms, water treatment facilities, and heavy manufacturing environments. For decades, hot-dip galvanized steel grating has been the default specification. But molded and pultruded FRP grating is now the preferred choice in corrosive, weight-sensitive, and maintenance-heavy environments.
+    sourceLinks: [
+      { label: "Strongwell: FRP fabrication and repair manual", href: "https://www.strongwell.com/wp-content/uploads/2024/10/Strongwell-Fabrication-and-Repair-Manual.pdf" },
+      { label: "Exel: machining, installation and maintenance considerations", href: "https://exelcomposites.com/knowledge-center/working-with-composites/" },
+    ],
+    content: `A lifecycle comparison is useful only when both grating options satisfy the same project requirements. Start with the load, clear span, support arrangement, deflection limit, walking surface, fire requirements and exposure. Then price the offered FRP and steel systems, including their supports, clips and installation work.
 
-## Weight Comparison
+## Compare the installed weight
 
-Steel has a density of 7.85 grams per cubic centimeter. Molded FRP grating is typically around 1.8 grams per cubic centimeter. This makes FRP grating roughly 75 percent lighter than steel grating of similar panel size. That weight advantage reduces support demand, simplifies manual handling, and lowers transport cost.
+The density of a laminate or a metal is not the weight of a grating panel. Bar depth, thickness, spacing, mesh and required supports affect the result. Use the offered panel's mass per square metre and the actual area, then add clips, framing and other accessories. A material-density ratio does not establish a 75% reduction for two load-equivalent systems.
 
-## Corrosion Resistance
+Handling costs also depend on panel size, lifting access, cutting requirements and the site's work plan. Request the packing and lifting information for the proposed panels before assigning an installation saving.
 
-Galvanized steel works well initially, but the zinc layer is still a consumable protection system. In chloride-rich, acidic, alkaline, or wet process environments, the coating can degrade rapidly and create a recurring maintenance burden. FRP grating does not rust and does not require recoating cycles to remain functional. That is a major operational advantage in offshore, coastal, bleach, acid, and wastewater service.
+## Match protection to the environment
 
-## Installation Advantages
+FRP does not rely on a zinc coating for corrosion protection, but the selected resin, reinforcement protection and exposed edges still need review against chemicals, concentration, temperature and duration of exposure. For steel, specify the coating or alloy and assess the same conditions. Neither option has a universal maintenance or replacement interval.
 
-FRP grating can be cut with standard carbide tools and assembled with clip systems. No welding, no grinding, no hot-work permits, and no fire watch. On an operating plant, that often matters more than people expect. Installation planning can be simpler, faster, and safer because the crew can trim panels in the field without turning the task into a metal fabrication job.
+Inspection remains part of the plan for both systems. Include walking-surface condition, damaged panels, supports, clips and cut edges. Use the manufacturer's instructions and the owner's site experience to define the work and frequency; do not assume that FRP needs no upkeep or that steel must be replaced after a fixed number of years.
 
-## Slip Resistance and Electrical Safety
+## Price the installation method
 
-Molded FRP grating naturally provides a slip-resistant walking surface, and gritted options are available for extreme conditions. It is also non-conductive, which is useful around electrical equipment and wet service areas where metallic platforms create additional grounding and touch-safety considerations.
+Identify which parts arrive cut and drilled, the permitted field operations, required equipment, dust control, access and fixing method. A mechanically fixed FRP layout may reduce some on-site fabrication tasks. Any permit, fire-watch or shutdown requirement follows the actual site method and rules, so deleting these costs automatically would overstate a saving.
 
-## Lifecycle Cost
+For prepared components, include the machining and edge-treatment scope in the quotation. The [FRP profile machining guide](/technology/frp-profile-machining) explains how to define finished features and inspection requirements; use the grating supplier's own instructions for panel fabrication.
 
-FRP grating usually costs more to purchase than galvanized steel grating. But over 15 to 20 years in corrosive duty, the total installed and operating cost is often lower because FRP avoids repeated coating renewal, panel replacement, and shutdown-driven maintenance work. The harsher the service environment, the stronger the FRP lifecycle case.
+## Keep safety requirements in the comparison
 
-## When Steel Is Still the Better Answer
+Specify the walking-surface finish and slip evidence for the expected wet or contaminated condition. Do not infer slip performance from the word molded, or electrical suitability from the word FRP. Confirm the actual system's fire, electrical and structural evidence where the application requires it.
 
-Steel remains appropriate in very high-temperature service, in applications dominated by high point impact loads, or where the project is strictly optimizing for lowest possible first cost in a non-corrosive environment. Material choice should follow the service condition, not brand preference.
+## Build a transparent cost model
 
-F1 Composite supplies molded and pultruded FRP grating systems for industrial, marine, and infrastructure projects where long-term durability is worth more than short-term price optics.`,
+Use the same evaluation period and cost basis for both options. Record:
+
+- Quoted panels, supports, fasteners, freight and installation.
+- Inspection, cleaning, repairs and coating work, with their timing and quantities.
+- Access, shutdown and replacement costs only where supported by the owner's plan or a stated scenario.
+- The discount rate and treatment of inflation, if future costs are discounted.
+- End-of-period removal or residual value, if included for either option.
+
+For an undiscounted comparison, add the initial installed cost and the scheduled costs over the chosen period. For a discounted comparison, apply the same present-value method to both options. Run a sensitivity case with less severe exposure or lower steel maintenance, as well as the planned case. A result that changes with those assumptions should be presented as conditional.
+
+The [lifecycle cost calculator](/tools/frp-life-cycle-cost-calculator) can help organize a scenario. Check its assumptions and replace planning inputs with project quotations; its output is not a prediction of either material's service life.
+
+## Make the decision from the project
+
+Where both systems meet the performance requirement, the result may favor either material. The useful deliverable is a bill of materials, a documented service and inspection plan, and a comparison whose assumptions the owner can review. For product selection, continue to the [FRP versus steel grating comparison](/technology/frp-vs-steel-gratings) or [grating product guide](/products/grating).`,
   },
   {
     slug: "frp-cable-tray-specifications-advantages",
@@ -5563,10 +5581,10 @@ To choose the grating itself, compare [molded and pultruded fiberglass grating](
     slug: "how-to-read-frp-grating-load-table",
     title: "How to Read an FRP Grating Load Table: Span, Load Type and Deflection",
     seoTitle: "How to Read an FRP Grating Load Table (Span & Deflection)",
-    answerBox: "An FRP grating load table lists, for one grating type and depth, the deflection or allowable load at each clear span, usually for a uniform load in kPa or lb/ft² and for a concentrated load at midspan. Find the clear span, read across to the design load, and compare the deflection with the project limit. Deflection usually governs FRP because its stiffness is far below steel's. Tables assume simple supports, room temperature and, for pultruded grating, bearing bars spanning the supports.",
+    answerBox: "An FRP grating load table lists, for one grating type and depth, the deflection or allowable load at each clear span, usually for a uniform load in kPa or lb/ft² and for a concentrated load at midspan. Find the clear span, read across to the design load, and compare the deflection with the project limit. Deflection usually governs FRP because its stiffness is far below steel's. Read the table's stated support, temperature and orientation assumptions; for pultruded grating, identify the bearing-bar direction.",
     category: "Grating",
     date: "2026-09-24",
-    updatedAt: "2026-09-24",
+    updatedAt: "2026-10-11",
     readTime: "8 min",
     excerpt: "What an FRP grating load table assumes, how uniform and concentrated loads are shown, how to check deflection, and what to ask a supplier for.",
     authorName: "F1 Composite Editorial Team",
@@ -5616,19 +5634,19 @@ To choose the grating itself, compare [molded and pultruded fiberglass grating](
         },
         {
           question: "Why does FRP grating deflect more than steel grating?",
-          answer: "Glass-fiber composites are far less stiff than steel: an EN 13706 grade E23 pultruded profile has a longitudinal modulus of 23 GPa against about 200 GPa for steel. At the same depth and span, FRP grating deflects more, so deeper bars or closer supports are the usual answer.",
+          answer: "Glass-fiber composites generally have a lower elastic modulus than steel, so deflection needs explicit checking. The actual panel response also depends on bar geometry, mesh, reinforcement direction and support layout. Compare the offered panel tables; nominal depth alone does not establish equivalent performance.",
         },
         {
           question: "Do load tables apply at high temperature?",
-          answer: "No. Published tables are normally for room temperature. Stiffness falls as the service temperature approaches the resin's heat-distortion or glass transition temperature, so ask for reduced values or retained-property data for hot areas.",
+          answer: "Only if the table or a documented adjustment covers the service temperature. Check its stated temperature basis and ask for retained-property data or an applicable reduced-load table for hot areas.",
         },
         {
           question: "Where can I get a load table for F1 grating?",
-          answer: "Send the grating series or mesh, clear span, support width, load type, deflection limit, resin and service conditions from the grating pages. F1 returns the applicable load and deflection table with the product documents.",
+          answer: "Send the grating series or mesh, clear span, support width, load type, deflection limit, resin and service conditions. F1 will confirm whether an applicable table is available for the proposed configuration and identify any calculation or testing needed. Agree the document scope before ordering; a table for another series is not a substitute.",
         },
       ],
     },
-    content: `Every grating supplier publishes load tables, and most specification errors with FRP grating start with one of them being read wrong. The table itself is simple. The assumptions behind it, which live in the column headings and the footnotes, are what make a panel pass or fail on site.
+    content: `An FRP grating load table is useful only when its product and assumptions match the proposed installation. Check availability for the offered configuration first, then read the column headings and footnotes before selecting a span or load.
 
 ## One table, one product
 
@@ -5638,11 +5656,11 @@ A load table belongs to one grating type, one depth, and usually one resin syste
 
 **Clear span.** The span is the clear distance between supports, not the panel length. Panels bear on the supports beyond it.
 
-**Simple supports.** Values assume the panel rests on its supports without continuity. Continuity over a middle support helps, but tables do not count on it.
+**Supports.** Check whether the table assumes a single, simply supported span or a continuous layout. Match the bearing width and restraint to the approved installation; do not claim a continuity benefit without the appropriate design basis.
 
 **Direction.** For pultruded grating, the bearing bars span between the supports. The table does not apply to a panel laid the other way.
 
-**Temperature and resin.** Values are for room temperature and the resin named on the table.
+**Temperature and resin.** Match the table's stated temperature and resin to the proposed service. Room-temperature values need an applicable adjustment or separate evidence for hot service.
 
 **Safety factor.** Some manufacturers derive recommended loads by dividing the ultimate capacity by a safety factor, 2.5 for example. The note under the table says which factor was used, if any.
 
@@ -5654,7 +5672,7 @@ For comparison with marine and offshore requirements, ASTM F3059 frames its FRP 
 
 ## Deflection usually governs
 
-Glass-fiber composites are far less stiff than steel. A pultruded profile to EN 13706 grade E23 has a longitudinal modulus of 23 GPa, against about 200 GPa for steel, so an FRP panel that is strong enough can still bend too much underfoot. That is why many FRP tables show deflection at each load and span rather than a single allowable load. The limit comes from the project. Metal bar grating practice commonly caps deflection under the design uniform load at 1/4 in (6 mm) for pedestrian comfort, and many FRP specifications borrow that figure; others use a span ratio. Whatever the limit, write it into the specification so everyone checks the same number.
+An FRP panel that is strong enough can still bend too much underfoot. Its deflection depends on the material stiffness, panel geometry, reinforcement direction and support arrangement. That is why many FRP tables show deflection at each load and span rather than a single allowable load. The limit comes from the project. Metal bar grating practice commonly caps deflection under the design uniform load at 1/4 in (6 mm) for pedestrian comfort, and many FRP specifications borrow that figure; others use a span ratio. Whatever the limit, write it into the specification so everyone checks the same number.
 
 ## Reading the table, step by step
 
@@ -5670,11 +5688,11 @@ If the panel fails the check, the usual fixes are a deeper panel, a stiffer seri
 
 ## Temperature, chemicals and resin
 
-Stiffness falls as the service temperature approaches the resin's heat-distortion or glass transition temperature. Tables are room-temperature values, so hot areas near process equipment or in direct sun in hot climates need reduced values or retained-property data from the supplier. The resin also sets chemical resistance: vinyl ester for most chemical service, phenolic where fire behavior governs. Our guide to [pultrusion resin systems](/technology/pultrusion-resin-systems) compares them.
+Stiffness falls as the service temperature approaches the resin's heat-distortion or glass transition temperature. Check the temperature basis of the table; hot areas near process equipment or in direct sun may require reduced values or retained-property data from the supplier. Resin selection also needs the actual chemicals, concentrations, temperatures and any fire requirements. Our guide to [pultrusion resin systems](/technology/pultrusion-resin-systems) compares them.
 
 ## What to ask a supplier for
 
-Ask for the table for the exact series, depth, mesh and resin; its load definitions, including plate size for point loads; the safety factor; whether the values come from tests or calculation; the temperature basis; and the support width assumed. With F1 grating, send the series or mesh, clear span, support width, load type and deflection limit, resin and service conditions through the [grating page](/products/grating), and the applicable load and deflection table comes back with the product documents. Installation details, including bearing and clip layout, are in [how to install FRP grating](/resources/blog/how-to-install-frp-grating).`,
+Ask for the table for the exact series, depth, mesh and resin; its load definitions, including plate size for point loads; the safety factor; whether the values come from tests or calculation; the temperature basis; and the support width assumed. With F1 grating, send the series or mesh, clear span, support width, load type and deflection limit, resin and service conditions through the [grating page](/products/grating). F1 will check which documents apply and whether further calculation or testing is needed. Confirm availability and the agreed evidence package before ordering; do not substitute an unrelated series table when matching evidence is missing. Installation details, including bearing and clip layout, are in [how to install FRP grating](/resources/blog/how-to-install-frp-grating).`,
   },
   {
     slug: "how-to-install-frp-cable-tray",

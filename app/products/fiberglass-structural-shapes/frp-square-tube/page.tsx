@@ -223,6 +223,7 @@ export default async function SquareTubePage() {
           ))}
         </div>
         <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-profile-machining" className="underline underline-offset-4 hover:text-teal">Specify cutting, drilled holes and machining tolerances</Link>
           <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">Review fabrication and connection guidance</Link>
           <Link href="/applications/frp-cooling-tower-profiles" className="underline underline-offset-4 hover:text-teal">Cooling tower specification inputs</Link>
         </p>

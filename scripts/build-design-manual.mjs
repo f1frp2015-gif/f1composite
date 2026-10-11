@@ -400,7 +400,7 @@ page(`
   ${table({ head: ["Length", "Note"], widths: ["18mm", "auto"], cls: "small", body: STOCK_OPTIONS.map((o) => [esc(o.label), esc(o.note)]) })}
   ${h3("Colors, surface and tolerances")}
   ${p(`Standard colors are gray and safety yellow; custom RAL colors are available for orders that meet the minimum quantity, typically 200 linear meters. Standard profiles are pultruded with a surface veil that forms a resin-rich outer layer; UV-stabilized resin and a compatible coating can be specified for exposed service (Section 7).`)}
-  ${p(`Dimensional tolerances follow ASTM D3917 unless the drawing calls up EN 13706-2 or GB/T 31539 classes. There is no single ± value for every shape: agree the size band, the datum, the wall and corner limits, straightness over a stated gauge length, twist and cut length on the approved drawing (Section 9). Flat bars are held to ±0.25 mm on thickness and ±0.5 mm on width, with ±5 mm on a 6 m length.`)}
+  ${p(`Identify the applicable tolerance standard, edition and class on the approved drawing: ASTM D3917, EN 13706-2 or GB/T 31539 where applicable. Agree the size band, datums, wall and corner limits, straightness over a stated gauge length, twist and cut length (Section 9). Raw-profile tolerances and finished machining tolerances are separate; no universal flat-bar or cut-length tolerance is promised.`)}
   </div>
   ${note(`<strong>Resin is chosen per production run.</strong> The same die runs isophthalic polyester, fire-retardant polyester, vinyl ester, polyurethane, epoxy or phenolic; the resin system becomes part of the quoted specification and is recorded on the mill certificate. State chemicals, temperature, fire code and UV exposure in the inquiry.`)}
   ${h3("Standards the range is specified against")}
@@ -668,9 +668,9 @@ page(`
   ${h3("Bolted connections")}
   ${p(`Bearing at the hole is the usual limit. EN 13706 E23 guarantees a pin-bearing strength of ${E23_MIN.pin_bearing_l_mpa} MPa along the profile and ${E23_MIN.pin_bearing_t_mpa} MPa across it (${esc(PROPERTY_ROWS.find((r) => r.key === "pin_bearing_l_mpa").method)}). The design bearing stress takes the connection resistance factor of the project code (ASCE/SEI 74-23 Chapter 8, lower than the flexural φ used for members, with λ and the environment factor; CEN/TS 19101 its own γ<sub>M</sub>), which is why this manual tabulates no bolt capacities. Detail with:`)}
   ${ul([
-    "Edge and end distance at least 3d for through-bolts and 4d for blind fasteners (F1 detailing minimums from the connection design guide, stricter than typical code minimums; confirm the end and side distances of the project code); hole clearance as for steel, never slotted in the bearing direction.",
-    "Flat washers under head and nut, large enough to spread the clamping force over the laminate, and snug-tight torque: an over-torqued bolt crushes the laminate through the thickness and the joint loses its preload.",
-    "Load along the profile wherever the detail allows; a transverse bearing load has less than half the capacity.",
+    "Specify edge distance, end distance, hole clearance and any slots on the approved connection drawing. Their limits depend on load direction, laminate, fastener and project code; do not assume steel detailing or one bolt-diameter multiplier applies to every FRP joint.",
+    "Use the specified washers and any sleeves or backing plates to distribute clamping force. Follow the approved tightening method for the joint and hardware; excessive clamping can crush the laminate. This manual gives no universal torque or preload.",
+    "Check the specified load direction: transverse and longitudinal pin-bearing strengths differ.",
     "Stainless-steel (A2/A4) or FRP fasteners. Where carbon-steel hardware is unavoidable, isolate it with sleeves and washers and keep water out of the joint: \"FRP corrosion\" at a joint is normally an unprotected steel fastener rusting in trapped moisture or a galvanic couple between dissimilar metals; the laminate itself is an insulator.",
     "Net-section tension, shear-out and block-shear checks to ASCE/SEI 74-23 Chapter 8 or CEN/TS 19101 for the governing case; this manual does not tabulate bolt-group capacities.",
   ])}
@@ -733,7 +733,7 @@ openSection("04", "Section tables",
     `<strong>Inch sizes.</strong> ${esc(byShape("angle").filter((r) => r.model.includes("152")).length ? "Sizes such as 76×38×6.4, 152×152×12.7 and 305×305×12.7 are the imperial 3, 6 and 12 in sections; the website unit converter matches an inch size to the nearest catalog size." : "")}`,
   ])}
   ${h3("Tolerances and drawings")}
-  ${p(`The properties are nominal. Production tolerances to ASTM D3917 (or the EN 13706-2 or GB/T 31539 class on the drawing) change thin-wall properties by a few percent; confirm them on the production datasheet before a final capacity is accepted. DXF drawings (●) are the nominal outline for CAD; STEP models are supplied on request.`)}
+  ${p(`The properties are nominal. Confirm the applicable tolerance standard, edition and class, and evaluate the permitted dimensions before accepting a final capacity. Raw-profile limits do not establish finished-hole or cut-length tolerances. DXF drawings (●) are the nominal outline for CAD; STEP models are supplied on request.`)}
   </div>
   ${fig(nextFig(), "I-beams", sectionDrawing("i_beam", SECTION_COLS.i_beam.drawing.dims, { maxMm: 44 }) + `<div class="fig-text">${sectionIntro.i_beam}</div>`, "")}
   ${sectionTable("i_beam")}`);
@@ -762,7 +762,7 @@ page(`${h2("Solid rods", `${byShape("rod").length} sizes`)}
 page(`${h2("Flat bars", `${byShape("flat").length} sizes`)}
   ${fig(nextFig(), "Flat bar", sectionDrawing("flat", SECTION_COLS.flat.drawing.dims, { maxMm: 36 }) + `<div class="fig-text">${sectionIntro.flat}</div>`)}
   ${sectionTable("flat")}
-  ${p(`<span class="small">Flat bars are held to ±0.25 mm on thickness and ±0.5 mm on width. Thicker plate and sheet (fiberglass sheets and plates) are a separate product with their own size list.</span>`)}`);
+  ${p(`<span class="small">Confirm flat-bar thickness, width, straightness and cut-length limits on the approved drawing and quotation. Thicker plate and sheet are a separate product with their own size list.</span>`)}`);
 
 // ───────────────────────────────────────────────────────────────────────────
 // 05 · Span tables
@@ -945,33 +945,33 @@ page(`
 // 08 · Fabrication, installation, maintenance
 // ───────────────────────────────────────────────────────────────────────────
 openSection("08", "Fabrication, installation and maintenance",
-  `Pultruded profiles are cut, drilled and bolted with ordinary tools and no hot work, which is why a four-person crew assembled the factory staircase in Section 6 without welding or a crane. Dust control, edge sealing and fastener practice decide the quality of the result.`,
+  `Plan cutting, drilling and assembly from the approved finished-part drawing. Confirm tooling, support, datums, tolerances, edge treatment and inspection for the actual laminate and section before production. The illustrated machining guide at ${SITE.replace("https://", "")}/technology/frp-profile-machining explains the RFQ and first-article requirements.`,
   `
   ${h3("Cutting and drilling")}
   ${table({ head: ["Operation", "Tool", "Practice"], widths: ["26mm", "58mm", "auto"], cls: "small", body: [
-    ["Straight cuts", "Circular saw with a carbide-tipped or diamond (continuous-rim) blade", "Support both sides of the cut; feed steadily; a fine-tooth blade leaves the cleanest edge. Coolant is not required."],
-    ["Curves and notches", "Jigsaw or band saw, carbide or diamond-grit blade", "Drill a relief hole at inside corners; do not notch the tension flange of a beam."],
-    ["Holes", "Carbide-tipped or diamond-coated drill bits; hole saws for large diameters", "Back the exit face to avoid breakout; no countersinking in load-bearing holes. HSS bits work but dull quickly."],
-    ["Finishing", "Abrasive paper or a flap disc", "Chamfer cut edges lightly; do not grind through the veil elsewhere."],
-    ["Dust", "Extraction at the tool; FFP3 (EU) or N95 (US) respirator, goggles, gloves, long sleeves", "Cured FRP dust is a mechanical irritant to skin, eyes and airways. Wash before eating."],
+    ["Straight cuts", "Carbide-tipped or diamond tooling selected for the laminate", "Support stock and offcut. Select speed, feed and cooling for the tool and material; validate on trial pieces."],
+    ["Curves and notches", "Saw or router selected for the feature and access", "Follow approved radii and remaining-section limits. Structural cutouts need an engineering check."],
+    ["Holes", "Sharp drill or hole cutter selected for the material and quantity", "Back the exit face where accessible. Check finished diameter, position and both faces; countersinks require a drawing detail."],
+    ["Finishing", "Abrasive tool matched to the specified edge finish", "Remove loose fibres within drawing limits. Chamfer only as specified; protect adjacent veil and reinforcement."],
+    ["Dust", "Tool extraction and task-appropriate eye, skin and respiratory protection", "Follow the supplied safety data sheet, tool instructions and site risk assessment for FRP dust."],
   ] })}
   <div class="cols2">
-  ${h3("Seal every cut")}
-  ${p(`A cut end or a drilled hole exposes glass that would otherwise be behind the veil. Coat cut ends, holes and notches with a compatible resin or a two-part sealant before assembly, especially outdoors, in wet service and in chemical exposure. Cut-face sealing is part of the machining scope in the quotation when F1 cuts to length.`)}
+  ${h3("Exposed-edge treatment")}
+  ${p(`Agree treatment of cut ends, holes and notches for the resin, service environment and mating surfaces. Where sealing is required, specify compatible material, preparation, cure and inspection in the quotation. Deburring and sealing are separate operations; sealing does not restore damaged reinforcement. Check critical fits in the agreed finished condition.`)}
   </div>
   <div class="cols2 top">
   ${h3("Fasteners")}
   ${ul([
     "Stainless-steel A2 (304) or A4 (316) bolts for most service; A4 in marine and chemical plants; FRP studs and nuts where a non-conductive or non-magnetic joint is required.",
-    "Large flat washers under head and nut; snug-tight torque. Preload beyond snug-tight crushes the laminate and is lost by creep.",
-    "Edge distances of Section 3 (3d through-bolted, 4d blind); holes drilled, not punched.",
+    "Use specified washers, sleeves and backing plates; follow the approved tightening method. Avoid laminate crushing.",
+    "Edge and end distances, hole clearance and slots follow the approved connection drawing (Section 3).",
     "Isolate carbon-steel hardware with sleeves and washers; never let a steel bolt bear directly on FRP in wet service.",
   ], "small")}
   ${h3("Storage and handling")}
   ${ul([
-    `Store flat on level dunnage at 1 m centers or closer for thin sections, in the original packaging, out of direct sun where possible; a ${supplyTerms.standardLengthM} m I-beam sags over two supports.`,
-    "Lift bundles with slings, not chains or hooks; a profile weighs about a quarter of steel, so manual handling is easy, but cut ends are sharp: wear gloves.",
-    "Protect edges from impact; a chipped flange edge is a crack initiator and is repaired with resin before installation.",
+    "Store on level supports spaced for the section, length and bundle weight; agree support points and packaging to control sag and surface damage.",
+    "Use suitable slings and the agreed lifting points. Assess actual bundle mass, length and sharp edges before choosing manual or mechanical handling.",
+    "Protect edges from impact. Quarantine chipped or delaminated parts for disposition; resin coating alone does not repair structural damage.",
     "Keep profiles dry before bonding; abrade and solvent-clean bonding surfaces.",
   ], "small")}
   </div>
@@ -987,16 +987,16 @@ page(`
     "Add secondary beams, stair stringers and landings; drill on site only through members that are drawn for it.",
     "Fit grating, treads and kick plates; grating clips at every bearing, not only at the corners.",
     "Install posts, rails and splices; check rail height and post spacing against the code case in Section 6.",
-    "Tighten all bolts to snug-tight, seal exposed cut edges, remove swarf and dust, and record the inspection.",
+    "Apply the approved tightening and exposed-edge treatment, remove swarf and dust, and record the inspection.",
   ], "small")}
   ${h3("Annual inspection")}
   ${ul([
     "Bolted connections: tightness, washer condition, corrosion of steel hardware, cracking around holes.",
     "Adhesive joints: bond-line cracks, debonding at the edges, discoloration.",
-    "Cut edges, holes and notches: sealing intact, no fiber bloom or wicking.",
+    "Cut edges, holes and notches: specified treatment intact; check exposed fibres and moisture damage.",
     "Surfaces: chalking, fiber bloom, impact damage, wear-through of anti-slip grit on treads and grating.",
     "Members: deflection under the normal load compared with the first inspection; local crushing at bearings; cracks at re-entrant corners.",
-    "Record findings with photographs and repair before the next season: seal exposed fiber with resin, replace damaged members, retorque to snug-tight.",
+    "Record findings with photographs. Follow the engineer's repair or replacement disposition and the approved fastener maintenance procedure.",
   ], "small")}
   ${h3("Repairs")}
   ${p(`<span class="small">Surface damage that has not cut rovings is abraded, cleaned and recoated with a compatible resin or gel coat. Damage that cuts rovings in a load-bearing member is a structural repair: replace the member or splice it to an engineer's detail. Keep a record of repairs with the inspection file.</span>`)}

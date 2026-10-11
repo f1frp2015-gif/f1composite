@@ -9,7 +9,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import LifeCycleCostCalculator from "@/components/tools/LifeCycleCostCalculator";
-import { GALVANIZING_THICKNESS, ZINC_CORROSIVITY } from "@/lib/lifeCycleCost";
+import { GALVANIZING_THICKNESS, ZINC_CORROSIVITY, calculateLcc } from "@/lib/lifeCycleCost";
+import { lifeCycleCostExample } from "@/content/data/lifeCycleCostExample";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/tools/frp-life-cycle-cost-calculator";
@@ -26,31 +27,32 @@ const faqs = [
   {
     question: "How is the life-cycle cost calculated?",
     answer:
-      "Each cost is brought back to today with a real discount rate: a cost C in year t counts as C / (1 + r)^t. The total adds the installed cost, maintenance events, yearly inspection, replacements and the shutdown or access cost of each event, and takes off the unused life left at the end of the study, straight line. This is the present-value method of ISO 15686-5; ASTM E917 and AS/NZS 4536 do the same arithmetic.",
+      "Each cost is brought back to today with a real discount rate: a cost C in year t counts as C / (1 + r)^t. The total adds installed cost, maintenance events, yearly inspection, replacements and the shutdown or access cost of each event. When residual credit is enabled and a replacement life is defined, the model deducts the discounted straight-line value of the unused life at the end of the study. The calculation uses present-value life-cycle costing; the project appraisal defines the assumptions.",
   },
   {
     question: "How long does hot-dip galvanizing last?",
     answer:
-      "Roughly the coating thickness divided by the zinc corrosion rate. ISO 9223 gives a first-year rate for each atmospheric corrosivity category, for example 0.7 to 2.1 µm a year in C3 and 4.2 to 8.4 µm in C5, and ISO 1461 requires at least 85 µm on steel over 6 mm thick. That is 10 to 20 years in C5 and 40 years or more in C3. Zinc usually corrodes more slowly after the first year (ISO 9224), and splash zones, immersion and chemical fumes are outside these categories, so use site experience where you have it.",
+      "Coating thickness divided by a zinc corrosion rate gives an arithmetic screening estimate. ISO 9223 first-year rates include 0.7 to 2.1 µm/year in C3 and 4.2 to 8.4 µm/year in C5. For non-centrifuged steel articles over 6 mm thick, the ISO 1461 minimum mean coating thickness is 85 µm. Using that 85 µm example gives about 10–20 years in C5 and 40–121 years in C3; these are not guaranteed coating or structure lives. First-year rates are not long-term rates, and splash, immersion and specific chemical conditions require a separate assessment.",
   },
   {
     question: "Which discount rate should I use?",
     answer:
-      "The real rate your organization uses to appraise investments, which excludes inflation. Public-sector guidance sets real rates of a few per cent, such as 3.5% in the UK Green Book. A higher rate makes later maintenance count for less and favors the option that is cheaper to install; try two or three rates to see whether the answer changes.",
+      "Use the real rate required by your organization's project appraisal, consistent with the tool's constant-price costs. It excludes inflation. A higher rate reduces the present value of later costs, so compare several rates alongside maintenance and replacement assumptions to see whether the result changes.",
   },
   {
     question: "Does FRP need maintenance?",
     answer:
-      "It needs no corrosion protection, which is where the saving comes from in corrosive sites. Faces exposed to strong sunlight can weather and may need a UV-resistant coat after years of exposure, and every structure needs inspection. The example books one coat at 25 years; enter the interval and cost the supplier recommends for the resin and surface offered.",
+      "FRP requires inspection and a maintenance plan for the offered resin, finish, exposure and connections. Surface renewal or other work may be needed. The example puts a surface-care event at year 25 to demonstrate the arithmetic, not to predict a coating life. Replace it with the interval and cost supported for your project.",
   },
   {
     question: "When is steel the cheaper choice?",
     answer:
-      "In mild, dry environments such as C2 and C3, where galvanizing outlasts the study period and nothing is spent after installation, galvanized steel usually costs less over its life as well as on day one. The case for FRP grows with the corrosivity of the site, the cost of access and shutdowns, and where weight or electrical insulation matters.",
+      "Steel can be cheaper when its installed quote is lower and the project's future maintenance and replacement costs do not offset that difference. Test both options using equivalent performance and scope, then vary maintenance timing, access costs and the discount rate. An atmospheric category alone does not decide the result.",
   },
 ];
 
 export default function LifeCycleCostPage() {
+  const example = calculateLcc(lifeCycleCostExample)!;
   return (
     <>
       <JsonLd
@@ -78,16 +80,37 @@ export default function LifeCycleCostPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Life-cycle cost" }]}
       />
 
-      <PageNav items={[{ id: "tool", label: "Calculator" }, { id: "galvanizing", label: "Galvanizing life" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "tool", label: "Calculator" }, { id: "basis", label: "Comparison basis" }, { id: "example", label: "Worked example" }, { id: "galvanizing", label: "Galvanizing life" }, { id: "faq", label: "FAQ" }]} />
 
       <ToolSection label="FRP vs steel life-cycle cost calculator">
         <LifeCycleCostCalculator />
       </ToolSection>
 
+      <PageSection id="basis" title="Compare two options that deliver the same function" tone="white">
+        <p className="text-f16 leading-golden text-t2">First establish equivalent usable area or member duty, span, loads, deflection, environment and required service period. Each quote should include its own designed supports, fixings, fabrication, protection, transport and installation. This cost tool does not establish structural equivalence.</p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">Use one currency and one price-date basis. The model adds installed cost, recurring maintenance, annual inspection, replacement and a common downtime/access cost per event, then optionally credits unused replacement life. Future costs are discounted by C / (1 + r)<sup>t</sup> using a real rate and constant-price assumptions.</p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">Taxes, financing, inflation, disposal and carbon impacts are not separate model inputs. Replacements repeat the initial installed cost and maintenance pattern; residual credit is straight-line. An event exactly at the end of the study is excluded. Check whether those assumptions suit your appraisal and compare sensitivities.</p>
+      </PageSection>
+
+      <PageSection id="example" title="Worked example using the tool's starting cost index" tone="muted" intro="These are chosen arithmetic inputs, not market quotations, supplier maintenance recommendations or a completed project.">
+        <div className="overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[560px] border-collapse text-left text-f14">
+            <thead><tr className="border-b border-border-default bg-bg2"><th scope="col" className="px-[14px] py-[10px]">Input or result</th><th scope="col" className="px-[14px] py-[10px]">FRP option</th><th scope="col" className="px-[14px] py-[10px]">Steel option</th></tr></thead>
+            <tbody>{[
+              ["Installed cost index", lifeCycleCostExample.frp.initial, lifeCycleCostExample.steel.initial],
+              ["Maintenance cost per event", lifeCycleCostExample.frp.maintenanceCost, lifeCycleCostExample.steel.maintenanceCost],
+              ["Maintenance years within the study", example.frp.events.map(event => event.year).join(", "), example.steel.events.map(event => event.year).join(", ")],
+              ["Present-value total cost index", example.frp.total.toFixed(2), example.steel.total.toFixed(2)],
+            ].map(([label, frp, steel]) => <tr key={label} className="border-b border-border-default last:border-b-0"><th scope="row" className="px-[14px] py-[12px] font-semibold text-t1">{label}</th><td className="px-[14px] py-[12px] text-t2">{frp}</td><td className="px-[14px] py-[12px] text-t2">{steel}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] text-f14 leading-golden text-t2">Study: {lifeCycleCostExample.studyYears} years; real discount rate: {lifeCycleCostExample.discountPercent}%; annual inspection and downtime costs: zero; no replacement within the study, hence no residual credit. FRP total = 130 + 10 / 1.03²⁵. Steel total = 100 + 40 / 1.03¹³ + 40 / 1.03²⁸. Those assumptions make FRP lower by {example.saving.toFixed(2)} index points. Change the inputs above to see whether the conclusion holds for your project.</p>
+      </PageSection>
+
       <PageSection
         id="galvanizing"
         title="Galvanizing life by corrosivity category"
-        intro="Coating thickness divided by the ISO 9223 first-year zinc corrosion rate, for the ISO 1461 minimum coatings. The range runs from the fastest to the slowest rate in each category."
+        intro="Coating thickness divided by the ISO 9223 first-year zinc corrosion rate, using ISO 1461 minimum mean coatings for non-centrifuged steel articles. The range runs from the fastest to the slowest rate in each category."
         tone="muted"
       >
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
@@ -120,8 +143,8 @@ export default function LifeCycleCostPage() {
           </table>
         </div>
         <p className="mt-[16px] max-w-[820px] text-f14 leading-golden text-t2">
-          ISO 1461 minimums: 85 µm on steel over 6 mm, 70 µm over 3 up to 6 mm, 55 µm from 1.5 to 3 mm. Actual coatings are often
-          thicker, which lengthens the life in proportion. For the FRP side, see the{" "}
+          ISO 1461 minimum mean coatings for non-centrifuged steel articles: 85 µm over 6 mm thick, 70 µm over 3 up to 6 mm, 55 µm from 1.5 to 3 mm. See the <a href="https://galvanizing.org.uk/galvanizing-standards/iso-1461/" className="font-semibold text-teal-text hover:underline">Galvanizers Association scope and table</a>. Actual coatings can be
+          thicker, which lengthens this arithmetic estimate in proportion. First-year rates do not predict a whole structure&apos;s life; splash, immersion and chemical fumes require a different review. For the FRP side, see the{" "}
           <Link href="/technology/frp-vs-steel-gratings" className="font-semibold text-teal-text hover:underline">FRP vs steel grating comparison</Link>{" "}
           and the{" "}
           <Link href="/resources/blog/frp-grating-vs-steel-grating-cost-comparison" className="font-semibold text-teal-text hover:underline">worked grating cost example</Link>.
@@ -155,7 +178,7 @@ export default function LifeCycleCostPage() {
       <InnerCTA
         title="Replace the example with a real FRP quote"
         quoteHref="/contact?source=tool-life-cycle-cost&inquiry_type=rfq"
-        text="Send the steel scope you are pricing; we quote the FRP equivalent so both columns hold real numbers."
+        text="Send the steel scope, loads and environment you are pricing. We can review an FRP option and define the supply and evidence needed for a comparable quote."
       />
     </>
   );

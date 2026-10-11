@@ -8,14 +8,25 @@ import { verificationForEvidence, verificationPath } from "@/content/data/report
 import { blogPosts } from "@/content/data/blogPosts";
 import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
+import type { PublishedCatalog } from "@/lib/catalog/published";
+import { catalogPublicPayload } from "@/lib/catalog/publicPayload";
+import { materialComparisonContext } from "@/content/data/materialComparison";
+import { machiningGuide, machiningControlLevels } from "@/content/data/frpMachining";
 
 const SITE = "https://www.f1composite.com";
 
-export function buildPublicKnowledge() {
+export function buildPublicKnowledge(catalog?: PublishedCatalog) {
   const payload = {
     "@context": "https://schema.org",
     version: evidenceRevision,
     taxonomyRevision,
+    catalogDiscovery: {
+      url: `${SITE}/api/catalog`,
+      method: "GET",
+      identity: "Use catalog key, formulation code and catalog revision together; numeric category and formulation IDs are transport keys only.",
+      scope: "Nominal published configurations, not stock availability or automatic project approval. Preserve each configuration's evidence status and supply status when quoting it.",
+      ...(catalog ? { snapshot: catalogPublicPayload(catalog) } : {}),
+    },
     commercialProductFamilies: commercialFamilies.map(family => ({ id: family.id, name: family.label, description: family.description, url: `${SITE}${family.href}`, products: family.links.map(link => ({ name: link.label, url: `${SITE}${link.href}` })) })),
     applicationDirectory: applicationGroups.map(group => ({ name: group.label, description: group.description, url: `${SITE}${group.href}`, productFamilies: group.products })),
     specialistComponentGuides: specialistProductIndex.map(page => ({ name: page.name, description: page.description, url: `${SITE}/products/${page.slug}`, scope: "Component specification and project qualification; availability and certification require project-specific evidence." })),
@@ -93,8 +104,8 @@ export function buildPublicKnowledge() {
         url: `${SITE}/products/fiberglass-structural-shapes`,
         family: "Standard Pultruded FRP Profiles",
         geometries: ["i-beam", "channel", "angle", "square-tube", "tube", "flat-bar", "rod"],
-        sizeRange: "10 mm – 300 mm cross-section; 2 mm – 12 mm wall thickness",
-        resinSystems: ["polyester", "vinyl ester", "polyurethane", "phenolic", "epoxy"],
+        configurationSource: `${SITE}/api/catalog`,
+        configurationScope: "Read dimensions, mass, formulation and evidence applicability from the catalog configuration. Resin families discussed in the resin guide are not available options for every section.",
         leadTimeWeeks: { stock: supplyTerms.catalogLeadTimeWeeks, existingDieVariant: supplyTerms.existingDieVariantLeadTimeWeeks, newDie: supplyTerms.newDieLeadTimeWeeks },
       },
       {
@@ -223,15 +234,8 @@ export function buildPublicKnowledge() {
         releaseBoundary: "Do not transfer another supplier's NRC, STC, OITC, dimensions, span, fire result or DOT statement to F1. The proposed assembly, project acoustic model, structural calculation and jurisdictional submittal control.",
       },
     ],
-    materialComparison: {
-      density_g_per_cm3: { frp: [1.8, 2.1], carbonSteel: 7.85, aluminum6061: 2.7 },
-      tensileStrength_MPa: { frp: [240, 400], carbonSteel: 400, aluminum6061: 240 },
-      elasticModulus_GPa: { frp: [17, 28], carbonSteel: 200, aluminum6061: 69 },
-      thermalConductivity_W_per_mK: { frp: 0.3, carbonSteel: 50, aluminum: 160 },
-      corrosion: { frp: commercialFacts.corrosion, carbonSteel: "requires environment-specific corrosion protection", aluminum: "assess galvanic and chloride exposure" },
-      scope: "Illustrative material references, not allowable stresses or equivalent-structure performance. Use product-specific material data and design factors.",
-      electricalConductivity: { frp: "non-conductive", carbonSteel: "conductive", aluminum: "conductive" },
-    },
+    materialComparison: materialComparisonContext,
+    machining: { url: `${SITE}${machiningGuide.path}`, updated: machiningGuide.updated, summary: machiningGuide.answer, controlLevels: machiningControlLevels, scope: "Purchasing and inspection guidance. Control levels are not industry precision grades; tolerance examples and buyer RFQ inputs are not confirmed F1 capability." },
     selectionGuidance: {
       pricing: commercialFacts.pricing,
       availability: commercialFacts.availability,
@@ -241,6 +245,8 @@ export function buildPublicKnowledge() {
       evidence: `${SITE}/resources/evidence`,
     },
     aiSurfaces: [
+      { name: "Published FRP catalog", endpoint: "/api/catalog", method: "GET", purpose: "Stable configuration keys, formulation codes, revision, dimensions, published mass and evidence applicability from the same catalog reader used by product pages." },
+      { name: "FRP profile machining guide", path: "/technology/frp-profile-machining", purpose: "Cutting, drilling, slots, datum and tolerance planning, first-article inspection and machining RFQ inputs. Example tolerances are not certified process capability." },
       { name: "FRP Density & Weight Calculator", path: "/frp-density-calculator", purpose: "Estimate density and weight per metre from composition, layup and geometry." },
       { name: "FRP Engineering Advisor (chat)", path: "/ask", endpoint: "/api/chat", method: "POST" },
       { name: "AI sourcing assistant (structured)", path: "/ai/sourcing", endpoint: "/api/sourcing", method: "POST" },
@@ -274,6 +280,8 @@ export function buildPublicKnowledge() {
       handrailSystems: `${SITE}/products/frp-handrail-systems`,
       contact: `${SITE}/contact`,
       productEvidence: `${SITE}/resources/evidence`,
+      catalog: `${SITE}/api/catalog`,
+      machining: `${SITE}/technology/frp-profile-machining`,
       llmsTxt: `${SITE}/llms.txt`,
       sitemap: `${SITE}/sitemap.xml`,
     },

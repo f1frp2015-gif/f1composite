@@ -16,6 +16,12 @@ export interface SeoQueryTarget {
 
 export const seoQueryTargets = [
   {
+    targetUrl: "/technology/frp-profile-machining", primaryQuery: "FRP profile machining", intent: "technical",
+    title: "FRP Profile Machining: Cutting, Drilling & Tolerances",
+    description: "Specify FRP profile cutting, drilling, slots and CNC machining with illustrated datum, tolerance and first-article inspection guidance for fiberglass parts.",
+    supportingUrls: ["/products/custom-pultruded-profiles", "/technology/quality-testing", "/resources/design-guides", "/products/fiberglass-structural-shapes/frp-tube", "/products/fiberglass-structural-shapes/frp-square-tube"],
+  },
+  {
     targetUrl: "/products/frp-door-frames", primaryQuery: "frp door frame", intent: "commercial",
     title: "FRP Door Frame & Fiberglass Door Frame | F1 Composite",
     description: "Custom FRP door frame profiles for fabricators. Develop a pultruded fiberglass door frame with matched jambs, heads, seals and hardware. Request a quote.",
@@ -361,8 +367,8 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Custom Pultruded Profiles | FRP Pultrusion Manufacturer",
     description:
-      "Custom pultruded profiles from an FRP pultrusion manufacturer with in-house tooling, material selection and production up to 600×300 mm.",
-    supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process"],
+      "Develop custom pultruded FRP profiles with drawing review, resin selection, tooling, agreed tolerances, first-article inspection and machining.",
+    supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process", "/technology/frp-profile-machining", "/technology/quality-testing"],
   },
   {
     targetUrl: "/products/frp-window-frames",
