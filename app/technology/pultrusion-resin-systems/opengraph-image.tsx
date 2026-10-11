@@ -8,7 +8,7 @@ export default function OpenGraphImage() {
     eyebrow: "Materials Science",
     title: "Pultrusion Resin Systems: Choosing the Right Matrix",
     description:
-      "Polyester, vinyl ester, polyurethane, epoxy, phenolic — compare HDT, corrosion, fire, and cost with an interactive resin selection matrix.",
+      "Compare resin families through chemical exposure, UV protection, temperature, fire evidence and the offered formulation.",
     accent: "#c77f1e",
     chips: ["Resin matrix", "Vinyl ester vs polyester", "EN 13706"],
   });

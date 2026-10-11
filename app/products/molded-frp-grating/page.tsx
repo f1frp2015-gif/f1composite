@@ -1,5 +1,6 @@
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
+import GratingLoadDataRequirements from "@/components/sections/GratingLoadDataRequirements";
 import Image from "next/image";
 import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
@@ -275,6 +276,8 @@ export default function MoldedFrpGratingPage() {
       <GratingSelectionCriteria figure={6} tone="white" />
       <GratingClipGuide family="molded" tone="muted" />
       <GratingBuyingGuide family="molded" tones={["white", "muted"]} />
+
+      <GratingLoadDataRequirements family="molded" />
 
       <PageSection id="grating-faq" title="Molded FRP grating questions">
         <FAQList items={faqItems} />

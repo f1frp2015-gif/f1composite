@@ -117,6 +117,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/wind-turbine-blade-panels`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/products/product-lines`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/technology/frp-profile-machining`, lastModified: "2026-10-11", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/pultrusion-process`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/technology/pultrusion-resin-systems`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/technology/frp-vs-traditional-materials`, changeFrequency: "monthly", priority: 0.9 },

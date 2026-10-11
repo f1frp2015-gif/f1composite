@@ -38,7 +38,7 @@ const quoteHref = buildRfqHref({
   source: "custom-pultruded-profiles",
   product: "Custom pultruded FRP profile",
   productPath: pagePath,
-  message: "Please review my custom pultruded profile. I will send the section drawing, loads, service environment, length and annual quantity.",
+  message: "Please review my custom pultruded profile.\nDrawing / revision and units: \nCritical dimensions, tolerances and datums: \nCutting / holes / slots / notches: \nLoads and service environment: \nLength and quantity: \nFirst-article and inspection records required: ",
 });
 
 const processSteps = [
@@ -50,27 +50,27 @@ const processSteps = [
   },
   {
     number: "02",
-    title: "Engineering and simulation",
+    title: "Drawing and material review",
     duration: "5–10 days",
-    brief: "Fiber architecture, FEA checks, resin selection and the quality plan for the section.",
+    brief: "Agree the material, drawing revision, critical dimensions, datums and inspection plan. Confirm any calculation or qualification work needed.",
   },
   {
     number: "03",
     title: "Tooling manufacture",
     duration: weeks(supplyTerms.dieManufactureWeeks),
-    brief: "CNC-machined steel dies, guide plates and preformers, designed and built in-house.",
+    brief: "Confirm the die, guide plates and preformers with the production team, including ownership, maintenance and modification terms.",
   },
   {
     number: "04",
     title: "Trial and validation",
     duration: "1–2 weeks",
-    brief: "A production-grade trial run with mechanical testing. You approve the profile before production starts.",
+    brief: "Review a first article against the approved drawing and inspection plan. Agree any material testing and resolve deviations before releasing the production run.",
   },
   {
     number: "05",
     title: "Production and delivery",
     duration: "Ongoing",
-    brief: "Series production with batch testing and certificates on request. The die is stored for repeat orders.",
+    brief: "Produce to the released revision and agreed checks. Confirm batch identification, document delivery and approval of changes for repeat orders.",
   },
 ];
 
@@ -79,7 +79,7 @@ const dimensions = [
   { label: "Minimum wall thickness", value: "1.5 mm" },
   { label: "Maximum wall thickness", value: "30 mm" },
   { label: "Maximum profile length", value: "14 m standard" },
-  { label: "Dimensional tolerance", value: "±0.25 mm typical" },
+  { label: "Dimensional tolerance", value: "Agreed by feature and drawing revision" },
 ];
 
 // The four choices that define the laminate, from the fiber core out to the finish.
@@ -144,7 +144,7 @@ const faqItems = [
   {
     question: "What is the minimum order quantity for custom profiles?",
     answer:
-      `The minimum order quantity for a first production run is typically ${firstRun} linear meters, which is the minimum length required to validate process parameters and ensure consistent quality across the batch. Repeat orders can be as low as ${repeat} linear meters. For prototype or development quantities below these thresholds, we offer trial run packages that include a limited quantity of validated profile along with full mechanical test data.`,
+      `Planning quantities are typically ${firstRun} linear meters for a first production run and ${repeat} linear meters for a repeat order. Confirm the minimum for the proposed section, material and tooling. For development quantities, ask for a separately scoped trial; sample quantity, inspection and material tests must be agreed rather than assumed to be included.`,
   },
   {
     question: "Can you match an existing steel or aluminum cross-section?",
@@ -156,13 +156,17 @@ const faqItems = [
     answer:
       `For a new custom profile with no existing tooling, the typical lead time from approved design to first delivery is ${weeks(supplyTerms.newDieLeadTimeWeeks)}. This includes tooling manufacture (${weeks(supplyTerms.dieManufactureWeeks)}), trial run and validation (1–2 weeks), and production of the first order (1–2 weeks). We can compress this timeline for urgent projects by running parallel workstreams, though expedited fees may apply. Repeat orders with existing tooling typically ship within ${weeks(supplyTerms.catalogLeadTimeWeeks)}.`,
   },
+  {
+    question: "Can you guarantee the same tolerance on every feature?",
+    answer: "Tolerances are confirmed against the drawing, material, section geometry and machining route. Separate the as-pultruded cross-section from cut lengths, holes and slots. Identify the critical fit dimensions and datums, then agree the measurement method and first-article requirements. A first-article result applies to that sample; any repeat-production capability claim needs relevant production evidence.",
+  },
 ];
 
 const requestItems = [
-  { title: "Section drawing", text: "A DWG, DXF, STEP or PDF of the cross-section, or a sketch with the critical dimensions and tolerances." },
+  { title: "Drawing and interfaces", text: "DWG, DXF, STEP or PDF with revision, units, critical dimensions, tolerances and datums. Identify mating parts and include any hole, slot or notch schedule." },
   { title: "Loads and service", text: "Spans and loads, the environment (chemicals, UV, temperature) and any fire or electrical requirement." },
   { title: "Material and finish", text: "Preferred fiber, resin, surface and color, or the performance you need so we can propose them." },
-  { title: "Quantities and delivery", text: `Cut length, first-run and annual quantity (first runs from ${firstRun} m), destination and target date.` },
+  { title: "Quantities and release", text: `Cut lengths, first-run and annual quantities, destination and target date. Include first-article, sampling and inspection record requirements; ${firstRun} m is a first-run planning quantity.` },
 ];
 
 export default function CustomPultrusionsPage() {
@@ -172,7 +176,7 @@ export default function CustomPultrusionsPage() {
     serviceType: "Custom fiberglass pultrusion services",
     name: "Custom Pultrusion Services",
     description:
-      `End-to-end custom pultruded FRP profile design, tooling, and production — cross-sections up to 600×300 mm, tolerances per EN 13706 / ASTM D3917, MOQ ${firstRun} m first run / ${repeat} m repeat.`,
+      "Custom pultruded FRP profile development, tooling and production with material, drawing tolerances, secondary machining and inspection scope confirmed for the order.",
     url: absoluteUrl(pagePath),
     provider: {
       "@id": `https://www.f1composite.com/#organization`,
@@ -191,23 +195,11 @@ export default function CustomPultrusionsPage() {
     "@type": "HowTo",
     name: "How to develop a custom pultruded FRP profile — from inquiry to series production",
     description:
-      "F1 Composite's five-stage process for engineering, tooling, validating, and producing a bespoke pultruded FRP profile to EN 13706 / ASTM D3917 specifications.",
-    totalTime: `P${supplyTerms.newDieLeadTimeWeeks[1]}W`,
-    estimatedCost: {
-      "@type": "MonetaryAmount",
-      currency: "USD",
-      value: "5000-40000",
-    },
+      "A five-stage development process covering feasibility, drawing review, tooling, first-article approval and production to an agreed specification.",
     supply: [
       { "@type": "HowToSupply", name: "Application drawing or geometry brief (loads, environment, length, finish)" },
       { "@type": "HowToSupply", name: "Reinforcement (E-glass, S-glass, carbon, basalt, or aramid roving + mat)" },
       { "@type": "HowToSupply", name: "Resin system (polyester, vinyl ester, epoxy, polyurethane, or phenolic)" },
-    ],
-    tool: [
-      { "@type": "HowToTool", name: "CNC-machined chrome-plated steel pultrusion die" },
-      { "@type": "HowToTool", name: "FEA simulation for fiber architecture and section optimization" },
-      { "@type": "HowToTool", name: "Pultrusion line with EN 13706 / ASTM D3917 process control" },
-      { "@type": "HowToTool", name: "In-house mechanical test lab (ASTM D638, D790, D695, D2344)" },
     ],
     step: processSteps.map((s, i) => ({
       "@type": "HowToStep",
@@ -215,7 +207,6 @@ export default function CustomPultrusionsPage() {
       name: s.title,
       text: s.brief,
       url: `${absoluteUrl(pagePath)}#step-${s.number}`,
-      timeRequired: s.duration,
     })),
   };
 
@@ -272,7 +263,7 @@ export default function CustomPultrusionsPage() {
         tag="Custom profiles"
         line={{ name: "F1-FORM", label: "Custom profiles" }}
         title="Custom pultruded profiles, engineered to your specification"
-        description="Cross-sections up to 600 × 300 mm and walls from 1.5 mm, in E-glass, carbon, basalt or aramid fiber with polyester, vinyl ester, epoxy or polyurethane resin. Each profile gets its own die, a trial run and test data before series production."
+        description="Develop the section, material and delivery scope around your application. Confirm tooling, critical dimensions, secondary machining and first-article requirements before series production."
         facts={[
           { label: "Max section", value: "600 × 300 mm" },
           { label: "Wall", value: "1.5–30 mm" },
@@ -309,6 +300,7 @@ export default function CustomPultrusionsPage() {
           { id: "capabilities", label: "Capabilities" },
           { id: "existing-dies", label: "Existing dies" },
           { id: "process", label: "Process" },
+          { id: "tolerances", label: "Tolerances & approval" },
           { id: "cost", label: "Cost" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
@@ -384,7 +376,7 @@ export default function CustomPultrusionsPage() {
         </p>
       </PageSection>
 
-      <PageSection id="process" title="From inquiry to series production" intro={`About ${weeks(supplyTerms.newDieLeadTimeWeeks)} from an approved drawing to the first delivery. The die is the longest step.`}>
+      <PageSection id="process" title="From inquiry to series production" intro={`Allow ${weeks(supplyTerms.newDieLeadTimeWeeks)} as a planning range from an approved drawing to first delivery. Confirm the schedule, trials and required testing in the quotation.`}>
         <ol className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step, index) => (
             <li key={step.number} id={`step-${step.number}`} className="scroll-mt-[128px] rounded-card border border-border-default bg-white p-[20px]">
@@ -400,6 +392,28 @@ export default function CustomPultrusionsPage() {
         <p className="mt-[20px] text-f14 leading-golden text-t2">
           How the line itself works (creel, resin bath, heated die and puller) is explained in the{" "}
           <Link href="/technology/pultrusion-process" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultrusion process guide</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="tolerances" title="Define fit before committing to tooling" tone="muted" intro="A profile drawing sets the requirement. An inspection record shows what was measured. Repeat-production capability needs evidence for the relevant material, feature and process.">
+        <ol className="grid gap-[12px] md:grid-cols-2">
+          {[
+            { title: "Separate profile and machining dimensions", text: "Specify section geometry, wall thickness, straightness and twist separately from cut length, end angle, finished hole diameter, hole pattern and slot dimensions. Flag the features that control fit." },
+            { title: "Agree datums and inspection", text: "Identify the reference faces or axes, support condition for long profiles, measurement method, sampling and acceptance limits. Define whether dimensions are checked before or after edge treatment." },
+            { title: "Approve the first article", text: "Match the sample and inspection record to the drawing revision and material. Record deviations and their disposition before releasing production; do not treat one measured sample as proof of every future part." },
+            { title: "Control later changes", text: "A changed drawing, resin, reinforcement, die or machining setup may affect fit or performance. Agree which changes need customer approval, another sample, repeat inspection or additional qualification." },
+          ].map((item, index) => (
+            <li key={item.title} className="rounded-card border border-border-default bg-white p-[20px]">
+              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Review {index + 1}</p>
+              <h3 className="mt-[6px] text-f18 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[8px] text-f14 leading-golden text-t2">{item.text}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[20px] text-f16 leading-golden text-t2">
+          For drawing inputs and illustrated feature types, read the{" "}
+          <Link href="/technology/frp-profile-machining" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP cutting, drilling and machining guide</Link>. Agree the record package using the{" "}
+          <Link href="/technology/quality-testing#machining-records" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">inspection record checklist</Link>.
         </p>
       </PageSection>
 
@@ -473,6 +487,7 @@ export default function CustomPultrusionsPage() {
             title: "Technical resources",
             links: [
               { href: "/technology/pultrusion-process", label: "Pultrusion process explained" },
+              { href: "/technology/frp-profile-machining", label: "Cutting, drilling and machining requirements" },
               { href: "/technology/knowhow-services", label: "KNOWHOW transfer services" },
               { href: "/technology/quality-testing", label: "Quality testing (EN 13706)" },
               { href: "/resources/design-guides", label: "Design guides" },

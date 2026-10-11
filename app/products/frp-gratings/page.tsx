@@ -1,5 +1,6 @@
 import MaterialTerminologyNote from "@/components/sections/MaterialTerminologyNote";
 import type { Metadata } from "next";
+import GratingLoadDataRequirements from "@/components/sections/GratingLoadDataRequirements";
 import Image from "next/image";
 import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
@@ -327,6 +328,8 @@ export default function PultrudedGratingsPage() {
       </PageSection>
 
       <GratingBuyingGuide family="pultruded" tones={["white", "muted"]} />
+
+      <GratingLoadDataRequirements family="pultruded" />
 
       <PageSection id="grating-faq" title="Pultruded FRP grating questions">
         <FAQList items={faqItems} />

@@ -176,6 +176,7 @@ export const technologyCovers = {
   "/technology/pultrusion-process": { src: "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp", alt: "Parallel pultrusion lines in production at an F1 Composite plant", note: "Production photo" },
   "/technology/frp-vs-traditional-materials": { src: "/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg", alt: "Surfaces of FRP, steel, timber and galvanized steel side by side", note: ILLUSTRATIVE },
   "/technology/fiberglass-rebar-vs-steel": { src: "/images/products/frp-rebar/gfrp-straight-bars.webp", alt: "Helically surfaced GFRP reinforcing bars", note: "Supplier photo" },
+  "/technology/frp-profile-machining": { src: "/images/technology/frp-machining/machining-overview.svg", alt: "Original schematic of machined FRP profile holes, slot and prepared end", note: "Schematic · not to scale", fit: "contain" },
   "/technology/pultrusion-resin-systems": { src: "/images/technology/resin-formulation-laboratory-testing.jpg", alt: "Resin samples dispensed into test tubes in a laboratory", note: ILLUSTRATIVE },
   "/technology/polyurethane-pultrusion-windows": { src: "/images/products/window-door/frp-window-frame-90-series-corner-section.webp", alt: "Corner section of a 90-series GFRP-PU window frame with triple glazing", fit: "contain" },
   "/technology/quality-testing": { src: "/images/technology/f1-composite-quality-testing-laboratory.webp", alt: "Technician at work in a materials testing laboratory", note: ILLUSTRATIVE },

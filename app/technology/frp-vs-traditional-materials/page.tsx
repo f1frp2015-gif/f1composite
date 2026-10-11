@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
 import Figure from "@/components/ui/Figure";
@@ -7,437 +8,74 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import { FAQList } from "@/components/ui/FAQ";
-import ReadMore from "@/components/ui/ReadMore";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-
-/* ═══════════════════════════════════════════════════════
-   Page metadata
-   ═══════════════════════════════════════════════════════ */
+import { materialComparisonContext as comparison, equalStiffnessExample as example, equalStiffnessResults as result } from "@/content/data/materialComparison";
 
 const pagePath = "/technology/frp-vs-traditional-materials";
 const seoTarget = getSeoQueryTarget(pagePath);
-const pageTitle = seoTarget.title;
-const pageDescription = seoTarget.description;
-const publishedAt = "2024-03-22";
-const updatedAt = "2026-09-25";
-const referencedStandards = ["EN 13706", "ASTM D638", "ASTM D790", "ASTM G154"];
+const updatedAt = "2026-10-11";
+export const metadata: Metadata = buildPageMetadata({ title: seoTarget.title, description: seoTarget.description, path: pagePath, image: `${pagePath}/opengraph-image` });
 
-export const metadata: Metadata = buildPageMetadata({
-  title: pageTitle,
-  description: pageDescription,
-  path: pagePath,
-  image: "/technology/frp-vs-traditional-materials/opengraph-image",
-});
-
-/* ═══════════════════════════════════════════════════════
-   Materials — color & label
-   ═══════════════════════════════════════════════════════ */
-
-const materials = ["FRP", "Steel", "Aluminum", "Timber", "Concrete"] as const;
-type Material = (typeof materials)[number];
-
-// FRP is the subject of every chart, so it alone is teal; the materials it is
-// compared with share one neutral. Each bar is labelled with its material.
-const matColors: Record<Material, string> = {
-  FRP: "bg-teal",
-  Steel: "bg-t3/45",
-  Aluminum: "bg-t3/45",
-  Timber: "bg-t3/45",
-  Concrete: "bg-t3/45",
-};
-
-const matLabels: Record<Material, string> = {
-  FRP: "Pultruded FRP (E-glass/polyester)",
-  Steel: "Structural steel (A36/S275)",
-  Aluminum: "Aluminum (6061-T6)",
-  Timber: "Structural softwood",
-  Concrete: "Reinforced concrete (C30/37)",
-};
-
-/* ═══════════════════════════════════════════════════════
-   §1  Comparison Table — data
-   ═══════════════════════════════════════════════════════ */
-
-interface CompRow {
-  property: string;
-  unit?: string;
-  values: Record<Material, string>;
-  frpHighlight?: boolean; // teal highlight for FRP cell
-}
-
-const comparisonData: CompRow[] = [
-  { property: "Density", unit: "g/cm³", values: { FRP: "1.8–2.1", Steel: "7.85", Aluminum: "2.70", Timber: "0.4–0.6", Concrete: "2.40" }, frpHighlight: true },
-  { property: "Tensile strength", unit: "MPa", values: { FRP: "350–700", Steel: "400–550", Aluminum: "260–310", Timber: "50–100", Concrete: "2–5" } },
-  { property: "Elastic modulus", unit: "GPa", values: { FRP: "20–40", Steel: "200", Aluminum: "69", Timber: "8–14", Concrete: "30" } },
-  { property: "Strength-to-weight", values: { FRP: "Excellent", Steel: "Moderate", Aluminum: "Good", Timber: "Good", Concrete: "Poor" }, frpHighlight: true },
-  { property: "Corrosion resistance", values: { FRP: "No rust; resin-dependent chemical resistance", Steel: "Poor: requires coating", Aluminum: "Moderate: pitting", Timber: "Poor: rots", Concrete: "Moderate: rebar corrodes" }, frpHighlight: true },
-  { property: "Thermal conductivity", unit: "W/m·K", values: { FRP: "0.3–0.5", Steel: "50", Aluminum: "167", Timber: "0.1–0.2", Concrete: "1.7" }, frpHighlight: true },
-  { property: "Electrical insulation", values: { FRP: "Excellent", Steel: "None", Aluminum: "None", Timber: "Moderate (dry)", Concrete: "Poor (wet)" }, frpHighlight: true },
-  { property: "Maintenance (30 yr)", values: { FRP: "Minimal: no painting", Steel: "High: repaint 8–15 yr", Aluminum: "Low–moderate", Timber: "High: reseal 3–5 yr", Concrete: "Moderate: crack repair" }, frpHighlight: true },
-  { property: "Lifecycle cost (30 yr)", values: { FRP: "Often lowest in corrosive sites", Steel: "High", Aluminum: "Moderate", Timber: "High", Concrete: "Moderate–high" }, frpHighlight: true },
-  { property: "CO₂ footprint", unit: "kg CO₂/kg", values: { FRP: "3.1–5.0", Steel: "1.8–2.5", Aluminum: "8.0–12.0", Timber: "0.3–0.5", Concrete: "0.1–0.2" } },
+const materials = ["Pultruded glass FRP", "Steel", "Aluminum", "Timber", "Concrete"];
+const comparisonRows = [
+  ["Structural behavior", "Directional laminate properties; review deflection, creep and connections.", "Review grade, section, stability and connection design.", "Review alloy, temper, section and welded-zone properties.", "Review species, grade, moisture, grain direction and connection details.", "Review concrete and reinforcement grades, cracking, creep and detailing."],
+  ["Weight", "Use the selected section's published mass and complete BOM.", "Use the selected section, coating and connections.", "Use the selected section and fabrication details.", "Use the designed member size and moisture basis.", "Use the designed volume, reinforcement and connections."],
+  ["Exposure", "Match resin, surface and cut-edge treatment to chemical and outdoor duty.", "Specify a compatible protection system and inspect damaged areas.", "Review chloride, galvanic and surface-finish conditions.", "Review moisture, decay, insects and required treatment.", "Review permeability, cracking, chemicals and reinforcement corrosion."],
+  ["Electrical and thermal duty", "Use evidence for the offered material and assembly; conductive additives or hardware matter.", "Conductive metal; coordinate thermal breaks, bonding and grounding.", "Conductive metal; coordinate thermal breaks, bonding and grounding.", "Properties depend on moisture and build-up; qualify the assembly.", "Properties depend on moisture, reinforcement and build-up."],
+  ["Fire", "Tested formulation and assembly determine applicable performance.", "Non-combustible material; member fire resistance still requires design.", "Non-combustible material; strength retention and assembly still require design.", "Combustibility, charring and assembly design require review.", "Section, cover, moisture and assembly determine fire resistance."],
+  ["Whole-life cost", "Quote the same function and include inspection, surface care and replacement assumptions.", "Include protection, inspection, access and future repair assumptions.", "Include finish, connections, inspection and repair assumptions.", "Include treatment, inspection, repair and replacement assumptions.", "Include inspection, crack repair and access assumptions."],
 ];
-
-/* ═══════════════════════════════════════════════════════
-   §2  Visual Bar Charts — data
-   Each chart compares a numeric property across materials.
-   `pct` = bar width as percentage (normalized to the max).
-   `highlight` marks FRP advantage (lower-is-better or higher-is-better).
-   ═══════════════════════════════════════════════════════ */
-
-interface BarEntry {
-  material: Material;
-  value: string;
-  pct: number; // 0–100
-}
-
-interface BarChart {
-  title: string;
-  unit: string;
-  note: string; // e.g. "lower is better"
-  bars: BarEntry[];
-}
-
-const barCharts: BarChart[] = [
-  {
-    title: "Density",
-    unit: "g/cm³",
-    note: "Lower is better: lighter profiles, easier handling",
-    bars: [
-      { material: "FRP", value: "1.9", pct: 24 },
-      { material: "Steel", value: "7.85", pct: 100 },
-      { material: "Aluminum", value: "2.70", pct: 34 },
-      { material: "Timber", value: "0.5", pct: 6 },
-      { material: "Concrete", value: "2.40", pct: 31 },
-    ],
-  },
-  {
-    title: "Tensile strength",
-    unit: "MPa",
-    note: "Higher is better: FRP is in the range of structural steel",
-    bars: [
-      { material: "FRP", value: "525", pct: 75 },
-      { material: "Steel", value: "475", pct: 68 },
-      { material: "Aluminum", value: "285", pct: 41 },
-      { material: "Timber", value: "75", pct: 11 },
-      { material: "Concrete", value: "3.5", pct: 1 },
-    ],
-  },
-  {
-    title: "Thermal conductivity",
-    unit: "W/m·K",
-    note: "Lower is better: FRP is a natural thermal break",
-    bars: [
-      { material: "FRP", value: "0.4", pct: 0.24 },
-      { material: "Steel", value: "50", pct: 30 },
-      { material: "Aluminum", value: "167", pct: 100 },
-      { material: "Timber", value: "0.15", pct: 0.09 },
-      { material: "Concrete", value: "1.7", pct: 1 },
-    ],
-  },
-  {
-    title: "Elastic modulus",
-    unit: "GPa",
-    note: "Higher means stiffer: FRP compensates with deeper sections",
-    bars: [
-      { material: "FRP", value: "30", pct: 15 },
-      { material: "Steel", value: "200", pct: 100 },
-      { material: "Aluminum", value: "69", pct: 35 },
-      { material: "Timber", value: "11", pct: 6 },
-      { material: "Concrete", value: "30", pct: 15 },
-    ],
-  },
-];
-
-/* ═══════════════════════════════════════════════════════
-   §3  Property Deep-Dive — data (collapsible)
-   ═══════════════════════════════════════════════════════ */
-
-interface PropertyCard {
-  title: string;
-  headline: string; // one-line key takeaway
-  detail: string[]; // paragraphs (shown on expand)
-}
-
-const propertyCards: PropertyCard[] = [
-  {
-    title: "Density and weight",
-    headline: "About a quarter of the weight of steel, volume for volume",
-    detail: [
-      "Pultruded FRP has a density of 1.8–2.1 g/cm³, approximately one quarter that of steel (7.85 g/cm³) and roughly 70% of aluminum (2.70 g/cm³). Because FRP is less stiff, a replacement section is often deeper than the steel one, so the weight saving on a member is smaller than the density ratio suggests, but it usually remains large.",
-      "This weight reduction cascades: lighter members require smaller foundations, lower-capacity cranes (or no crane at all; many FRP profiles can be carried by two workers), fewer transport loads, and less energy during installation. For bridge decks, building facades, and offshore platforms, weight savings translate directly into cost savings and expanded design possibilities.",
-    ],
-  },
-  {
-    title: "Tensile strength",
-    headline: "Up to 700 MPa along the fibers, in the range of structural steel",
-    detail: [
-      "The tensile strength of pultruded E-glass FRP ranges from 350 to 700 MPa in the longitudinal (fiber) direction, which overlaps with and often exceeds the yield strength of structural steel (250–350 MPa). Carbon fiber reinforcement pushes tensile strengths above 1,000 MPa.",
-      "The key distinction is directionality: pultrusion produces primarily unidirectional reinforcement, so transverse strength is lower (50–100 MPa). For multi-directional loads, we incorporate continuous filament mat and multi-axial fabrics. We optimize fiber architecture for each application.",
-    ],
-  },
-  {
-    title: "Elastic modulus",
-    headline: "20–40 GPa, so deflection usually governs the design",
-    detail: [
-      "The elastic modulus of E-glass FRP is 20–40 GPa, roughly one fifth to one tenth that of steel (200 GPa). For a given cross-section, an FRP member deflects more than steel under the same load.",
-      "In deflection-governed designs, this is addressed by increasing the moment of inertia (deeper profiles, wider flanges, or hollow box shapes) or by using carbon fiber (100–150 GPa modulus). Because FRP is so much lighter, dead-load deflection is significantly lower, partially offsetting the modulus difference in real-world designs.",
-    ],
-  },
-  {
-    title: "Corrosion resistance",
-    headline: "No rust; the resin is matched to the chemical exposure",
-    detail: [
-      "Corrosion resistance is the most compelling advantage of FRP over metals. Carbon steel rusts in humid air, accelerates in salt spray, and suffers severe degradation in chemical environments, requiring continuous expenditure on coatings, cathodic protection, and periodic replacement.",
-      "FRP is inherently immune to electrochemical corrosion because it contains no metal. Vinyl ester and epoxy resin systems resist a wide range of acids, alkalis, solvents, and salt solutions at elevated temperatures. In chemical plants, wastewater facilities, marine structures and coastal buildings, FRP profiles need no corrosion protection. Where the resin is matched to the exposure and the surface is protected from UV, the recoating avoided often offsets the higher initial cost.",
-    ],
-  },
-  {
-    title: "Thermal insulation",
-    headline: "About 500× lower conductivity than aluminum, so far less thermal bridging",
-    detail: [
-      "FRP has a thermal conductivity of 0.3–0.5 W/m·K, roughly 100× lower than steel and about 500× lower than aluminum. This makes FRP an inherent thermal break.",
-      "In fenestration, FRP frames remove most of the thermal bridging that makes metal-framed openings the weak point of an envelope; how much energy that saves depends on the glazing, spacer and installation, so compare whole-window Uw values. In cold stores, LNG facilities and cryogenic environments, FRP reduces the condensation and ice formation that affect steel structures.",
-    ],
-  },
-  {
-    title: "Electrical insulation",
-    headline: "Dielectric strength of 12–20 kV/mm; non-conductive and non-magnetic",
-    detail: [
-      "Glass-fiber FRP is an electrical insulator with a dielectric strength of 12–20 kV/mm, making it intrinsically non-conductive. This is critical for electrical utility applications (crossarms, switchgear enclosures), railway electrification, and worker safety.",
-      "Glass-fiber FRP is also non-magnetic, which matters for MRI room construction, EMC enclosures and radar-transparent applications. No metal combines this with electrical insulation.",
-    ],
-  },
-  {
-    title: "Lifecycle cost",
-    headline: "Often the lowest whole-life cost where steel needs repeated recoating",
-    detail: [
-      "Steel structures in corrosive environments require full repainting every 8–15 years at USD 30–60 per m² per cycle. Over 50 years, a steel structure may be repainted 3–5 times, adding 60–100% to the initial material cost. Timber requires resealing every 3–5 years and is subject to insect damage, rot, and fire.",
-      "FRP profiles need no corrosion painting, cathodic protection or preservative treatment. Surface care is limited to UV protection where the exposure calls for it, and inspection is the same as for any structure. When the full lifecycle cost is calculated, including installation, maintenance, downtime and disposal, FRP often has the lowest total cost in corrosive, marine and high-maintenance environments.",
-    ],
-  },
-  {
-    title: "CO₂ and sustainability",
-    headline: "Higher carbon per kilogram, often comparable per functional unit",
-    detail: [
-      "Embodied carbon of pultruded FRP (3.1–5.0 kg CO₂/kg) is higher than steel (1.8–2.5 kg CO₂/kg) per kilogram. However, because an FRP member is usually much lighter than the steel member it replaces, the CO₂ per functional unit (per meter of railing, per m² of grating) is often comparable to or lower than steel.",
-      "When avoided emissions from eliminated maintenance cycles and reduced transport energy are included in a full LCA, FRP frequently achieves a net carbon advantage over the service period. Aluminum carries the highest embodied carbon at 8–12 kg CO₂/kg, reflecting the energy of smelting.",
-    ],
-  },
-];
-
-/* ═══════════════════════════════════════════════════════
-   §4  FAQ — data
-   ═══════════════════════════════════════════════════════ */
-
+const reference = comparison.frpReference;
+const grade = reference.gradeMinimums;
 const faqItems = [
-  {
-    question: "Is FRP stronger than steel?",
-    answer: "On a strength-to-weight basis, pultruded FRP is significantly stronger than structural steel. E-glass/polyester pultrusions achieve a tensile strength-to-density ratio roughly four times that of A36 structural steel. However, steel has a higher absolute elastic modulus (200 GPa vs 20–40 GPa for glass FRP), meaning it is stiffer per unit area. For applications where deflection governs the design, FRP profiles may need deeper sections or carbon fiber reinforcement.",
-  },
-  {
-    question: "What are the advantages of fiberglass over aluminum?",
-    answer: "FRP does not corrode in salt spray or in acidic or alkaline environments, while aluminum suffers pitting and galvanic corrosion. FRP is electrically non-conductive and thermally insulating, ideal for window frames (eliminating thermal bridging) and electrical enclosures. FRP also has lower embodied energy per kilogram when lifecycle impacts are considered.",
-  },
-  {
-    question: "What are the main advantages of pultrusion over traditional materials?",
-    answer: "Pultruded FRP combines five key advantages no single traditional material can match: (1) No rusting, with chemical resistance set by the resin; (2) About a quarter of the weight of steel, volume for volume; (3) Electrical and thermal insulation; (4) Dimensional stability; (5) Design freedom through fiber architecture selection. These can lower installation and maintenance costs, particularly where steel would need recoating.",
-  },
-  {
-    question: "How does FRP compare to concrete for structural applications?",
-    answer: "FRP is lighter than concrete by volume (1.8–2.1 g/cm³ against about 2.4), and a thin-walled FRP member weighs far less than a concrete member doing the same job, which reduces foundation loads, transport and installation effort. Unlike concrete, FRP does not crack under tensile loading and has no steel reinforcement to corrode. FRP is electrically insulating and non-magnetic. Concrete retains advantages in compressive-load-dominated applications and where fire resistance beyond 2 hours is required.",
-  },
-  {
-    question: "What is the lifespan of pultruded FRP profiles?",
-    answer: "Service life depends on the resin system, UV protection, loads, exposure, connections and inspection plan, so no single figure applies to every profile. UV-stabilized resin with a surfacing veil or coating protects outdoor profiles, and vinyl ester or epoxy systems are used for aggressive chemicals. Ask for durability evidence for the resin and exposure in your project.",
-  },
+  { question: "Is FRP stronger than steel?", answer: "There is no universal member-level ranking. FRP tensile strength is directional, while steel design may be governed by yielding, stability or deflection. Compare design values and the complete section for the same loads, spans, deflection and connection requirements. A tensile-strength-to-density ratio is not a replacement-member check." },
+  { question: "What are the advantages of fiberglass over aluminum?", answer: "Glass FRP can offer low thermal conductivity and a compatible nonmetallic solution for some chemical or electrical duties. Aluminum may suit other stiffness, fabrication or fire requirements. Check the actual laminate or alloy, surface, connections and assembly; glass FRP does not resist every acid or alkali." },
+  { question: "Can an FRP beam replace a steel beam of the same dimensions?", answer: "Only after structural review. Lower elastic modulus can make deflection govern even when a strength comparison looks favorable. Review shear deformation, creep, local buckling, environmental factors and connections as well as bending. The example on this page isolates bending stiffness and does not approve a substitution." },
+  { question: "How should I compare FRP with timber or concrete?", answer: "Define the same installed function first, then compare designed member sizes, foundations, connections, exposure, fire requirements and maintenance. Material density alone cannot establish the weight or cost of an equivalent structure. Timber grade and moisture, and concrete reinforcement and cracking, belong in the comparison." },
+  { question: "Does FRP always have the lowest life-cycle cost or carbon footprint?", answer: "No. Cost depends on actual quotations, installation, inspection, maintenance, access, replacement and discount assumptions. Carbon comparisons need compatible EPD or LCA boundaries for the same function and service period. Neither result follows from the material name." },
 ];
-
-/* ═══════════════════════════════════════════════════════
-   Page Component
-   ═══════════════════════════════════════════════════════ */
+const cell = "px-[14px] py-[12px] align-top text-t2";
 
 export default function FrpVsTraditionalPage() {
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    headline: pageTitle,
-    description: pageDescription,
-    url: absoluteUrl(pagePath),
-    image: absoluteUrl("/technology/frp-vs-traditional-materials/opengraph-image"),
-    datePublished: publishedAt,
-    dateModified: updatedAt,
-    author: { "@id": "https://www.f1composite.com/#organization" },
-    publisher: { "@id": "https://www.f1composite.com/#organization" },
-    citation: referencedStandards,
-  };
-
-  return (
-    <>
-      <JsonLd data={articleSchema} />
-      <PageHeader
-        updated={updatedAt}
-        tag="Material Comparison"
-        title="FRP vs steel, aluminum, timber and concrete"
-        description="Pultruded glass-fiber FRP weighs about a quarter as much as steel (1.8–2.1 g/cm³ against 7.85) and reaches 350–700 MPa tensile strength, in the range of structural steel. Its elastic modulus is only 20–40 GPa, against 200 GPa for steel and 69 GPa for aluminum, so deflection usually governs an FRP design. FRP does not rust or conduct electricity and conducts little heat, but its resin softens at high temperature, so fire exposure needs separate review."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Technology", href: "/technology" },
-          { label: "FRP vs Traditional Materials" },
-        ]}
-      />
-      <PageNav items={[{ id: "why-frp", label: "Why FRP" }, { id: "visual-comparison", label: "At a glance" }, { id: "properties-table", label: "Properties" }, { id: "detailed-analysis", label: "How to read them" }, { id: "faq", label: "FAQ" }]} />
-
-      {/* ── Why FRP — brief intro ── */}
-      <PageSection id="why-frp" title="Why FRP differs from traditional structural materials" tone="white">
-        <Figure number={1} title="Material surfaces" note="Illustrative photo" className="mb-[24px]" bleed>
-          <Image
-            src="/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg"
-            alt="Five material surfaces side by side: dark metal bars, painted profiles, rusted steel rebar, sawn timber and galvanized steel beams"
-            width={1280}
-            height={500}
-            sizes="(max-width: 1280px) 94vw, 1216px"
-            className="h-auto w-full"
-            preload
-          />
-        </Figure>
-        <p className="text-f16 leading-golden text-t2">
-          Steel rusts. Aluminum conducts heat and electricity. Timber rots and burns.
-          Concrete cracks under tension. Pultruded FRP avoids each of these problems, with limits of its own:
-          lower stiffness than steel, and a resin that softens in fire.
-        </p>
-
-        <ul className="mt-[24px] grid grid-cols-2 gap-[12px] lg:grid-cols-4">
-          {[
-            { value: "75%", label: "Lighter than steel" },
-            { value: "500×", label: "Less heat conducted than aluminum" },
-            { value: "E23", label: "EN 13706 grade, standard profiles" },
-            { value: "No rust", label: "In salt, chemical or wet service" },
-          ].map((stat) => (
-            <li key={stat.label} className="rounded-card border border-border-default bg-bg2 p-[16px] sm:p-[20px]">
-              <p className="text-f32 font-extrabold leading-none tracking-[-0.02em] text-t1">{stat.value}</p>
-              <p className="mt-[8px] text-f14 font-bold text-t1">{stat.label}</p>
-            </li>
-          ))}
-        </ul>
-      </PageSection>
-
-      {/* ── §1  Visual Bar Charts ── */}
-      <PageSection id="visual-comparison" title="FRP vs steel and aluminum: key properties at a glance" tone="muted" intro="Typical values for each material, on one scale per chart. FRP is the teal bar.">
-        <div className="grid gap-[12px] lg:grid-cols-2">
-          {barCharts.map((chart) => (
-            <figure key={chart.title} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
-              <figcaption>
-                <h3 className="text-f16 font-bold text-t1">
-                  {chart.title} <span className="font-normal text-t3">({chart.unit})</span>
-                </h3>
-                <p className="mt-[4px] text-f14 text-t2">{chart.note}</p>
-              </figcaption>
-              <ul className="mt-[16px] space-y-[8px]">
-                {chart.bars.map((bar) => (
-                  <li key={bar.material} className="grid grid-cols-[76px_minmax(0,1fr)_64px] items-center gap-[10px] text-f14">
-                    <span className={bar.material === "FRP" ? "font-semibold text-t1" : "text-t2"}>{bar.material}</span>
-                    <span className="relative h-[16px]">
-                      <span className={`absolute inset-y-0 left-0 rounded-r-tag ${matColors[bar.material]}`} style={{ width: `${Math.max(bar.pct, 2)}%` }} />
-                    </span>
-                    <span className={`text-right tabular-nums ${bar.material === "FRP" ? "font-semibold text-t1" : "text-t2"}`}>{bar.value}</span>
-                  </li>
-                ))}
-              </ul>
-            </figure>
-          ))}
-        </div>
-      </PageSection>
-
-      {/* ── §2  Comparison Table (data-driven) ── */}
-      <PageSection id="properties-table" title="FRP vs traditional materials: full property comparison" tone="white" intro="Typical values; bold marks the properties where FRP leads.">
-        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
-          <table className="w-full min-w-[800px] border-collapse text-left text-f14">
-            <thead>
-              <tr className="border-b border-border-default bg-bg2">
-                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Property</th>
-                {materials.map((m) => (
-                  <th key={m} scope="col" className={`px-[14px] py-[8px] font-semibold ${m === "FRP" ? "bg-teal-bg2 text-teal-text" : "text-t1"}`}>
-                    {matLabels[m]}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonData.map((row) => (
-                <tr key={row.property} className="border-b border-border-default align-top last:border-b-0">
-                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">
-                    {row.property}
-                    {row.unit && <span className="ml-[4px] font-normal text-t3">({row.unit})</span>}
-                  </th>
-                  {materials.map((m) => (
-                    <td key={m} className={`px-[14px] py-[10px] ${m === "FRP" ? `bg-teal-bg ${row.frpHighlight ? "font-semibold text-t1" : "text-t2"}` : "text-t2"}`}>
-                      {row.values[m]}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </PageSection>
-
-      {/* ── §3  Understanding Each Property — visual cards with collapsible detail ── */}
-      <PageSection id="detailed-analysis" title="How to interpret each FRP material property" tone="muted">
-        <ul className="grid items-start gap-[12px] sm:grid-cols-2">
-          {propertyCards.map((card) => (
-            <li key={card.title} className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
-              <h3 className="text-f18 font-bold text-t1">{card.title}</h3>
-              <p className="mt-[4px] text-f16 leading-golden text-t2">{card.headline}</p>
-              <ReadMore className="mt-[4px]">
-                {card.detail.map((paragraph) => (
-                  <p key={paragraph} className="text-f16 leading-golden text-t2">{paragraph}</p>
-                ))}
-              </ReadMore>
-            </li>
-          ))}
-        </ul>
-      </PageSection>
-
-      <PageSection id="faq" title="Frequently asked questions" tone="white">
-        <FAQList items={faqItems} />
-      </PageSection>
-
-      <RelatedLinks background="bg2"
-        groups={[
-          {
-            title: "Comparisons by application",
-            links: [
-              { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
-              { href: "/technology/frp-vs-pvc-windows", label: "FRP vs PVC window frames" },
-              { href: "/technology/frp-vs-steel-gratings", label: "FRP vs steel gratings" },
-              { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel" },
-            ],
-          },
-          {
-            title: "FRP basics",
-            links: [
-              { href: "/what-is-frp", label: "What is FRP?" },
-              { href: "/technology/pultrusion-process", label: "How pultrusion works" },
-              { href: "/technology/quality-testing", label: "Quality and testing standards" },
-              { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell and Exel" },
-            ],
-          },
-          {
-            title: "Products and tools",
-            links: [
-              { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles" },
-              { href: "/fiberglass-pultruded-profile-price", label: "Profile price estimator" },
-              { href: "/technology/knowhow-services", label: "Know-how transfer services" },
-              { href: "/industries", label: "Industry applications" },
-            ],
-          },
-        ]}
-      />
-
-      <InnerCTA title="Need help selecting the right material for your project?" />
-    </>
-  );
+  return <>
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "TechArticle", headline: seoTarget.title, description: seoTarget.description, url: absoluteUrl(pagePath), datePublished: "2024-03-22", dateModified: updatedAt, author: { "@id": "https://www.f1composite.com/#organization" }, publisher: { "@id": "https://www.f1composite.com/#organization" }, citation: [comparison.materialData, reference.evidenceUrl] }} />
+    <PageHeader updated={updatedAt} tag="Material comparison" title="FRP vs steel, aluminum, timber and concrete" description="Compare materials for the same job: span, loads, deflection, exposure, connections and service period. Use the designed member and installed cost to choose an option; a material property or density ratio is only one input." breadcrumbs={[{ label: "Home", href: "/" }, { label: "Technology", href: "/technology" }, { label: "FRP vs traditional materials" }]} />
+    <PageNav items={[{ id: "why-frp", label: "Comparison basis" }, { id: "properties-table", label: "Material choices" }, { id: "visual-comparison", label: "E23 reference" }, { id: "detailed-analysis", label: "Worked example" }, { id: "lifecycle", label: "Cost and carbon" }, { id: "faq", label: "FAQ" }]} />
+    <PageSection id="why-frp" title="Define an equivalent function before comparing materials" tone="white">
+      <Figure number={1} title="Material surfaces" note="Illustrative photo" className="mb-[24px]" bleed><Image src="/images/technology/frp-vs-steel-aluminum-timber-concrete-material-comparison.jpg" alt="Metal, timber and composite material surfaces" width={1280} height={500} sizes="(max-width: 1280px) 94vw, 1216px" className="h-auto w-full" preload /></Figure>
+      <ol className="grid gap-[12px] text-f16 leading-golden text-t2 md:grid-cols-2">{[
+        ["1. Freeze the duty", "Use the same span, support conditions, loads, deflection limit, environment and required service period."],
+        ["2. Design each option", "Let each material use an appropriate section and connection. Equal outer dimensions or equal mass do not mean equal capacity."],
+        ["3. Compare the installed package", "Include supports, foundations, fabrication, fasteners, protection, transport and installation access."],
+        ["4. Review evidence and future work", "Match material properties to their basis, then compare inspection, maintenance, replacement and end-of-life assumptions."],
+      ].map(([title, body]) => <li key={title} className="rounded-card border border-border-default bg-bg2 p-[20px]"><h3 className="font-bold text-t1">{title}</h3><p className="mt-[8px]">{body}</p></li>)}</ol>
+    </PageSection>
+    <PageSection id="properties-table" title="What changes when the material changes?" tone="muted" intro="These are design and procurement checks, not a ranking of interchangeable members.">
+      <div className="overflow-x-auto rounded-card border border-border-default bg-white"><table className="w-full min-w-[1080px] border-collapse text-left text-f14"><thead><tr className="border-b border-border-default bg-bg2"><th scope="col" className={cell}>Review</th>{materials.map(material => <th key={material} scope="col" className={cell}>{material}</th>)}</tr></thead><tbody>{comparisonRows.map(([property, ...values]) => <tr key={property} className="border-b border-border-default last:border-b-0"><th scope="row" className={`${cell} font-semibold`}>{property}</th>{values.map((value, index) => <td key={index} className={cell}>{value}</td>)}</tr>)}</tbody></table></div>
+    </PageSection>
+    <PageSection id="visual-comparison" title="A defined FRP reference: the published E23-ISO laminate" tone="white" intro="Keep grade requirements separate from measured product performance. These values come from the same material data used by the F1 technical-data page.">
+      <div className="overflow-x-auto rounded-card border border-border-default"><table className="w-full min-w-[600px] border-collapse text-left text-f14"><thead><tr className="border-b border-border-default bg-bg2">{["Property", "Value", "Basis"].map(label => <th key={label} scope="col" className={cell}>{label}</th>)}</tr></thead><tbody>{[
+        ["Density", `${reference.publishedDensityGPerCm3} g/cm³`, "Published nominal E23-ISO laminate value; not a batch result."],
+        ["Longitudinal tensile modulus", `${grade.longitudinalTensileModulusGPa} GPa`, "EN 13706 E23 minimum; EN ISO 527-4 test reference."],
+        ["Transverse tensile modulus", `${grade.transverseTensileModulusGPa} GPa`, "EN 13706 E23 minimum; EN ISO 527-4 test reference."],
+        ["Longitudinal tensile strength", `${grade.longitudinalTensileStrengthMPa} MPa`, "EN 13706 E23 minimum; not an allowable design stress."],
+        ["Transverse tensile strength", `${grade.transverseTensileStrengthMPa} MPa`, "EN 13706 E23 minimum; do not replace with the longitudinal value."],
+      ].map(([property, value, basis]) => <tr key={property} className="border-b border-border-default last:border-b-0"><th scope="row" className={`${cell} font-semibold`}>{property}</th><td className={cell}>{value}</td><td className={cell}>{basis}</td></tr>)}</tbody></table></div>
+      <p className="mt-[16px] text-f14 leading-golden text-t2">Source: EN 13706-3:2002 Table 1 as documented in <Link href="/resources/technical-data" className="font-semibold text-teal-text underline underline-offset-4">F1 technical data</Link>. Confirm the offered formulation and <Link href="/resources/evidence" className="font-semibold text-teal-text underline underline-offset-4">applicable reports</Link>; these reference values do not certify every catalog section.</p>
+    </PageSection>
+    <PageSection id="detailed-analysis" title="Worked example: equal bending stiffness, not equal outer dimensions" tone="muted" intro="This illustrative calculation compares a simply supported beam under the same uniform line load. It selects no commercial section and is not a completed design.">
+      <div className="grid gap-[20px] lg:grid-cols-2"><div className="rounded-card border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">Chosen inputs</h3><ul className="mt-[12px] space-y-[8px] text-f16 text-t2"><li>Span L = {example.spanMm} mm; uniform load w = {example.uniformLoadNPerMm} N/mm (1 kN/m).</li><li>Steel E = {example.steelModulusGPa} GPa; I = {example.steelInertiaMm4.toLocaleString("en-US")} mm⁴. Both are example inputs.</li><li>FRP longitudinal E = {example.frpModulusGPa} GPa, using the E23 grade reference above.</li><li>Bending-only equation: δ = 5wL⁴ / (384EI).</li></ul></div><div className="rounded-card border border-teal-border bg-teal-bg p-[24px]"><h3 className="text-f18 font-bold text-t1">Calculated result</h3><p className="mt-[12px] text-f16 leading-golden text-t2">With the same I, bending deflection is {result.steelBendingDeflectionMm.toFixed(2)} mm for the steel input and {result.sameSectionFrpBendingDeflectionMm.toFixed(2)} mm for the FRP input. Matching EI requires FRP I = {Math.round(result.requiredFrpInertiaMm4).toLocaleString("en-US")} mm⁴, or {result.inertiaRatio.toFixed(2)} times the example steel I.</p><p className="mt-[12px] text-f16 leading-golden text-t2">A larger I does not identify a suitable section or determine its mass. The next step is to check actual candidate geometries, strength, connections and service conditions.</p></div></div>
+      <p className="mt-[16px] text-f14 leading-golden text-t2">Excluded here: shear deflection, creep, local buckling, connections, temperature and durability factors, strength checks and self-weight differences. Use the <Link href="/frp-profile-calculator" className="font-semibold text-teal-text underline underline-offset-4">profile calculator</Link> for a broader preliminary screen, followed by project engineering review.</p>
+    </PageSection>
+    <PageSection id="lifecycle" title="Compare costs and environmental impacts for the same installed function" tone="white">
+      <p className="text-f16 leading-golden text-t2">Use dated quotations in the same currency and scope. Include fabrication, supports, installation, inspection, surface care, access, downtime, replacement and disposal where relevant. Record the source of each maintenance interval; a generic coating life is not a site survey.</p>
+      <p className="mt-[12px] text-f16 leading-golden text-t2">The <Link href="/tools/frp-life-cycle-cost-calculator" className="font-semibold text-teal-text underline underline-offset-4">life-cycle cost calculator</Link> discounts your assumptions over a common study period and can return either material as the lower-cost option. Its example costs are an index, not market prices.</p>
+      <p className="mt-[12px] text-f16 leading-golden text-t2">For carbon, compare compatible EPD or LCA data per equivalent installed function, using the same boundaries and service period. Manufacturing, transport, replacement and end-of-life assumptions can change the outcome. This page assigns no generic carbon footprint or environmental winner.</p>
+    </PageSection>
+    <PageSection id="faq" title="Frequently asked questions" tone="muted"><FAQList items={faqItems} /></PageSection>
+    <RelatedLinks background="white" groups={[{ title: "By application", links: [{ href: "/technology/frp-vs-aluminum-windows", label: "Window assembly comparison" }, { href: "/technology/frp-vs-steel-gratings", label: "Grating selection and load evidence" }, { href: "/technology/fiberglass-rebar-vs-steel", label: "Reinforcement comparison" }] }, { title: "Material and evidence", links: [{ href: "/what-is-frp", label: "FRP, fiberglass and GRP explained" }, { href: "/technology/pultrusion-resin-systems", label: "Chemical and UV review" }, { href: "/resources/technical-data", label: "Published laminate data" }, { href: "/resources/evidence", label: "Report applicability" }] }, { title: "Choose an option", links: [{ href: "/products/fiberglass-structural-shapes", label: "Standard structural shapes" }, { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost assumptions" }, { href: "/products/custom-pultruded-profiles", label: "Custom section review" }] }]} />
+    <InnerCTA title="Send the same loads, exposure and supply scope for a comparable quotation" />
+  </>;
 }

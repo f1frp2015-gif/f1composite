@@ -6,6 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 
 const faqs = [
@@ -22,7 +23,7 @@ const faqs = [
   {
     question: "How do you keep these guides current with code updates?",
     answer:
-      "Each guide carries a revision date. We re-issue a guide when a standard it relies on is revised, and the revision date changes with it. Ask for the current revision when you request a guide.",
+      "Check the date, revision and cited standard editions on the document you use. Ask us to confirm the current reference and its applicability to your project; a published guide does not automatically incorporate later code changes.",
   },
 ];
 
@@ -39,11 +40,19 @@ const guides: Array<{
   description: string;
   status: "Available" | "On request" | "In preparation";
   file?: string;
+  href?: string;
 }> = [
+  {
+    title: "FRP profile machining: cutting, drilling, slots and notches",
+    description:
+      "Illustrated HTML guide to specifying finished features, datums, tolerances, support and edge treatment. Build a drawing review brief and agree first-article and inspection requirements before ordering machined profiles.",
+    status: "Available",
+    href: "/technology/frp-profile-machining",
+  },
   {
     title: "FRP profile design manual (DOC-PF-2026-EN Rev. B)",
     description:
-      "46-page reference generated from the website's data: the EN 13706 E23 laminate beside the grade minimums, resin systems, the design basis behind the calculator and span tables (ASCE/SEI 74-23, CEN/TS 19101, GB 50608 screening factors), section properties of all 114 catalog sizes, allowable uniform-load tables, application guides, handrail and ladder data, durability by resin formulation, fabrication and inspection. Supersedes the withdrawn Rev. A.",
+      "Reference compiled from the website's data: material references, resin systems, the calculator's screening basis, catalog section properties, uniform-load examples, applications, fabrication and inspection. Read the assumptions and evidence scope alongside every table; a catalog reference is not a report for each listed configuration. Supersedes the withdrawn Rev. A.",
     status: "Available",
     file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
   },
@@ -56,7 +65,7 @@ const guides: Array<{
   {
     title: "Connection design for FRP structures",
     description:
-      "Detailed guidance on bolted, bonded, and hybrid connections for pultruded FRP profiles, with worked examples and capacity tables per EN 13706.",
+      "Request the available details for your bolted, bonded or hybrid joint. Supply load direction, member geometry, fasteners, edge distances and service conditions so the relevant calculation or test evidence can be identified.",
     status: "On request",
   },
   {
@@ -79,12 +88,15 @@ export default function DesignGuidesPage() {
     "@type": "CollectionPage",
     name: "F1 Composite Design Guides",
     url: absoluteUrl("/resources/design-guides"),
-    hasPart: guides.map((guide) => ({
-      "@type": "TechArticle",
-      headline: guide.title,
-      description: guide.description,
-      ...(guide.file ? { url: absoluteUrl(guide.file) } : {}),
-    })),
+    hasPart: guides.flatMap((guide) => {
+      const href = guide.href ?? guide.file;
+      return guide.status === "Available" && href ? [{
+        "@type": "TechArticle",
+        headline: guide.title,
+        description: guide.description,
+        url: absoluteUrl(href),
+      }] : [];
+    }),
   };
 
   return (
@@ -93,7 +105,8 @@ export default function DesignGuidesPage() {
       <PageHeader
         tag="Design Guides"
         title="Engineering design resources"
-        description="Practical design guidance developed by our engineering team to help you specify and detail FRP composite structures with confidence."
+        description="Start with the task: select a section, define machining details, check a load table or agree the evidence needed for an order. Each resource has its own assumptions and product scope."
+        actions={{ primary: { label: "Read the machining guide", href: "/technology/frp-profile-machining" }, secondary: { label: "Browse design resources", href: "#guides", variant: "secondary" } }}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
@@ -106,16 +119,16 @@ export default function DesignGuidesPage() {
       <PageSection id="overview" title="Engineering guidance for pultruded FRP specification" tone="white">
         <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
           <p>
-            Specifying pultruded FRP is not the same as specifying steel or aluminum. The material is highly anisotropic (longitudinal modulus can be 4–6× the transverse), so the connection detail, not the cross-section, often decides whether a structure performs. The guidance is written by F1 Composite&apos;s engineering team and reviewed against field problems our engineers have investigated. It assumes a structural engineer or fabricator who knows steel or aluminum and is approaching FRP for the first or second time.
+            Pultruded FRP properties depend on reinforcement direction, resin and section geometry. Select a resource for the decision you need to make, then confirm the material, load case and configuration it covers. The project engineer sets the design and acceptance requirements.
           </p>
           <p>
-            <strong className="text-t1">Connection design</strong> covers bolted, bonded and hybrid joints with minimum edge distances (3d for through-bolts, 4d for blind fasteners), bearing strength factors per fiber direction, and when to bond as well as bolt (for fatigue-loaded joints; mostly static joints do not need it). <strong className="text-t1">Load tables</strong> give allowable loads (deflection-limited at L/180, L/240 and L/360) and ultimate capacity for the standard wide-flange beams, channels, angles, square and round tubes and flat bars. <strong className="text-t1">Corrosion-zone specification language</strong> provides clauses to drop into chemical-plant specifications.
+            <strong className="text-t1">Define a machined part.</strong> Use the <Link href="/technology/frp-profile-machining" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">cutting, drilling and machining guide</Link> for cut lengths, holes, slots, notches, datums and edge treatment. Send a drawing revision and identify the dimensions that control fit.
           </p>
           <p>
-            <strong className="text-t1">FRP-to-steel galvanic isolation</strong> covers isolation washer types, sleeve specifications and acceptance criteria: most &ldquo;FRP corrosion&rdquo; complaints trace to a galvanic path through an unprotected steel fastener, not to the FRP. <strong className="text-t1">Fenestration engineering</strong> for AS 2047 (Australia) and PHI (Passive House) is the working document behind the Yancheng talent apartment and Qinling Station deliveries: frame composition, transverse reinforcement, thermal-break detail, glazing rebate, and air, water and wind test procedures.
+            <strong className="text-t1">Review a section or connection.</strong> Start with the <Link href="/frp-profile-calculator" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">profile calculator</Link> for its stated preliminary checks. Hole spacing, edge distance, bearing, fasteners and any adhesive contribution need a connection-specific review. A section calculation does not verify a joint, and generic glass-fiber and carbon-fiber composites do not have interchangeable electrical behavior.
           </p>
           <p>
-            <strong className="text-t1">Solar mounting profile design</strong> covers wind uplift load paths, expansion joint spacing for racks over 12 m, UV-stable resin selection and AS/NZS 1170 wind loading. <strong className="text-t1">Bridge deck connection</strong> covers bonded panel-to-panel splice plates, mechanical lap splices and the moisture-management detail at the deck-to-girder interface.
+            <strong className="text-t1">Check product evidence.</strong> Match test reports to the offered material and assembly in the <Link href="/resources/evidence" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">evidence library</Link>. Use the <Link href="/technology/quality-testing#machining-records" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">blank inspection checklist</Link> to agree first-article and production records. For grating, read the <Link href="/resources/blog/how-to-read-frp-grating-load-table" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">load-table guide</Link> before applying a span or load value.
           </p>
         </div>
       </PageSection>
@@ -127,12 +140,16 @@ export default function DesignGuidesPage() {
               <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{guide.status}</p>
               <h3 className="mt-[4px] text-f18 font-bold text-t1">{guide.title}</h3>
               <p className="mt-[8px] text-f14 leading-golden text-t2">{guide.description}</p>
-              {guide.file ? (
+              {guide.href ? (
+                <Link href={guide.href} className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
+                  Read the illustrated guide <span aria-hidden="true" className="ml-[4px]">→</span>
+                </Link>
+              ) : guide.file ? (
                 <a href={guide.file} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
                   Download the PDF <span aria-hidden="true" className="ml-[4px]">→</span>
                 </a>
               ) : guide.status === "On request" ? (
-                <Link href={`/contact?source=design-guides&inquiry_type=technical&message=${encodeURIComponent(`Please send the ${guide.title}.\nProject: `)}`} className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
+                <Link href={buildRfqHref({ source: "design-guides", message: `Please confirm the available ${guide.title}.\nProject: \nDrawing / revision: \nRequired standard and edition: ` })} className="mt-auto inline-flex min-h-[44px] items-center pt-[8px] text-f14 font-semibold text-teal-text hover:underline">
                   Request this guide <span aria-hidden="true" className="ml-[4px]">→</span>
                 </Link>
               ) : null}
@@ -141,11 +158,11 @@ export default function DesignGuidesPage() {
         </ul>
       </PageSection>
 
-      <PageSection id="standards" title="Standards and code references" tone="white" intro="The guides cite specific clauses of these documents where they apply.">
+      <PageSection id="standards" title="Standards and code references" tone="white" intro="Confirm the edition and scope applicable to your project. A material specification, a design document and a test method answer different questions; citing one does not certify a product or assembly.">
         <dl className="divide-y divide-border-default border-y border-border-default">
           {[
             ["ASCE/SEI 74-23", "Load and Resistance Factor Design of Pultruded Fiber Reinforced Polymer Structures (builds on the 2010 ASCE Pre-Standard)"],
-            ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (European technical specification, Eurocode expected by 2028)"],
+            ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (European technical specification)"],
             ["EN 13706, parts 1–3", "Reinforced plastics composites: specifications for pultruded profiles"],
             ["ASTM D2344, D790, D695, D2583, D5379", "Material property test methods"],
             ["AS 2047", "Windows and external glazed doors in buildings (Australia)"],

@@ -12,8 +12,9 @@ import {
   type CostOption,
   type LccResult,
 } from "@/lib/lifeCycleCost";
-import { buildRfqHref } from "@/lib/rfq";
+import { lifeCycleCostRfqHref } from "@/lib/lifeCycleCostInquiry";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
+import { lifeCycleCostExample } from "@/content/data/lifeCycleCostExample";
 
 // Series colors: FRP takes the brand teal, steel the next categorical hue.
 // The pair passes the dataviz palette checks on white (CVD ΔE 12, contrast ≥ 3:1).
@@ -35,8 +36,8 @@ const SCENARIOS = [
 
 const money = (value: number) => new Intl.NumberFormat("en-US", { maximumFractionDigits: value >= 100 ? 0 : 1 }).format(value);
 
-const DEFAULT_FRP: CostOption = { label: "FRP", initial: 130, firstMaintenanceYear: 25, maintenanceInterval: 25, maintenanceCost: 10, annualCost: 0, serviceLife: 0 };
-const DEFAULT_STEEL: CostOption = { label: "Steel", initial: 100, firstMaintenanceYear: 13, maintenanceInterval: 15, maintenanceCost: 40, annualCost: 0, serviceLife: 0 };
+const DEFAULT_FRP = lifeCycleCostExample.frp;
+const DEFAULT_STEEL = lifeCycleCostExample.steel;
 
 function NumberInput({ id, label, value, onChange, step = "any" }: { id: string; label: string; value: number; onChange: (value: number) => void; step?: string }) {
   return (
@@ -66,10 +67,10 @@ function OptionFields({ prefix, option, setOption }: { prefix: string; option: C
 }
 
 export default function LifeCycleCostCalculator() {
-  const [studyYears, setStudyYears] = useState(30);
-  const [discountPercent, setDiscountPercent] = useState(3);
-  const [downtime, setDowntime] = useState(0);
-  const [residual, setResidual] = useState(true);
+  const [studyYears, setStudyYears] = useState(lifeCycleCostExample.studyYears);
+  const [discountPercent, setDiscountPercent] = useState(lifeCycleCostExample.discountPercent);
+  const [downtime, setDowntime] = useState(lifeCycleCostExample.downtimePerEvent);
+  const [residual, setResidual] = useState(lifeCycleCostExample.residualValue);
   const [frp, setFrp] = useState<CostOption>(DEFAULT_FRP);
   const [steel, setSteel] = useState<CostOption>(DEFAULT_STEEL);
   const [steelType, setSteelType] = useState<SteelType>("galvanized");
@@ -153,6 +154,9 @@ export default function LifeCycleCostCalculator() {
       `Study ${studyYears} years, real discount rate ${discountPercent}%${steelType === "galvanized" ? `, galvanized steel in ${corrosivity} (${microns} µm)` : ""}\n` +
       `FRP: installed ${frp.initial}, present-value total ${money(result.frp.total)}\n` +
       `Steel: installed ${steel.initial}, present-value total ${money(result.steel.total)}\n` +
+      [frp, steel].map((option) => `${option.label} assumptions: first maintenance ${option.firstMaintenanceYear}, interval ${option.maintenanceInterval}, cost/event ${option.maintenanceCost}, annual inspection ${option.annualCost}, replacement year ${option.serviceLife || "none within study"}`).join("\n") + "\n" +
+      `Downtime/access cost per event ${downtime}; residual credit ${residual ? "enabled" : "disabled"}. Costs use one common currency or index.\n` +
+      "Assumes equivalent installed function; verify span, loads, deflection, exposure and supply scope. Disposal, taxes, financing and carbon are not separately modeled.\n" +
       `Difference: ${result.saving >= 0 ? "FRP lower by" : "steel lower by"} ${money(Math.abs(result.saving))}\n`
     : "";
 
@@ -243,8 +247,8 @@ export default function LifeCycleCostCalculator() {
           </h2>
           <OptionFields prefix="lcc-f" option={frp} setOption={setFrp} />
           <p className="text-f12 text-t3">
-            FRP needs no corrosion protection, but faces in strong sunlight can need a UV coat after years of exposure. The
-            example books one at 25 years; use the interval and cost your supplier recommends.
+            Match maintenance to the offered resin, surface and exposure. The example includes one surface-care event at
+            year 25 only to illustrate the arithmetic; it is not a product-life or coating-life prediction.
           </p>
         </div>
       </div>
@@ -254,13 +258,13 @@ export default function LifeCycleCostCalculator() {
           {error ?? "Check the inputs."}
         </div>
       ) : (
-        <LccResults result={result} studyYears={studyYears} summary={summary} share={share} shareState={shareState} />
+        <LccResults result={result} studyYears={studyYears} rfqHref={lifeCycleCostRfqHref(input, { steelType, corrosivity, coatingMicrons: microns }, summary)} share={share} shareState={shareState} />
       )}
     </div>
   );
 }
 
-function LccResults({ result, studyYears, summary, share, shareState }: { result: LccResult; studyYears: number; summary: string; share: () => void; shareState: "idle" | "copied" | "error" }) {
+function LccResults({ result, studyYears, rfqHref, share, shareState }: { result: LccResult; studyYears: number; rfqHref: string; share: () => void; shareState: "idle" | "copied" | "error" }) {
   const frpLower = result.saving >= 0;
   const rows: { label: string; key: "initial" | "maintenance" | "annual" | "replacement" | "downtime" | "residual" }[] = [
     { label: "Installed cost", key: "initial" },
@@ -360,7 +364,7 @@ function LccResults({ result, studyYears, summary, share, shareState }: { result
 
         <div className="grid gap-[8px] sm:grid-cols-2">
           <a
-            href={buildRfqHref({ source: "life-cycle-cost-calculator", product: "FRP profiles, grating or handrail", productPath: "/products", message: summary + "\nApplication, quantities and site (please add): ____" })}
+            href={rfqHref}
             onClick={() => track("lcc_quote_click", { saving: Math.round(result.saving) })}
             className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
           >

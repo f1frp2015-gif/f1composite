@@ -256,6 +256,7 @@ export default async function TubePage() {
           <Link href="/technology/frp-vs-traditional-materials" className="underline underline-offset-4 hover:text-teal">
             FRP vs steel comparison
           </Link>
+          <Link href="/technology/frp-profile-machining" className="underline underline-offset-4 hover:text-teal">Specify cutting, drilled holes and machining tolerances</Link>
           <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">
             Design guides
           </Link>
