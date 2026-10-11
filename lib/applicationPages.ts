@@ -335,7 +335,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cable-tray-supports",
-    lastModified: "2026-09-21",
+    lastModified: "2026-10-11",
     title: "FRP Cable Trays & Cable Ladders | Selection Guide",
     shortTitle: "FRP cable trays & ladders",
     description:
@@ -343,8 +343,10 @@ export const applicationPages: ApplicationPage[] = [
     h1: "FRP cable trays & cable ladders",
     intro:
       "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the inquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",
+    supplyScope:
+      "Separate tray supports from the cable-carrying assembly. List brackets, posts and clamps; side rails, rungs or tray bases; and bends, tees, splices and covers as distinct BOM items. A complete package, its hardware and any load or fire evidence must be confirmed for the offered configuration in the quotation.",
     environment:
-      "Best fit: substations, tunnels, wastewater plants, chemical plants, coastal utilities, and facilities where non-conductive structural members simplify installation and maintenance.",
+      "Substations, tunnels, wastewater plants, chemical plants and coastal utilities evaluating composite cable-route supports. Electrical isolation, fire behavior and site installation requirements need separate project review.",
     image: "/images/applications/frp-cable-ladder-gray-product.webp",
     imageAlt:
       "Gray pultruded fiberglass cable ladder with channel side rails and transverse rungs",
@@ -366,7 +368,7 @@ export const applicationPages: ApplicationPage[] = [
       },
       {
         title: "Fire and electrical scope",
-        body: "Confirm flame-spread and smoke requirements for the route. FRP supports are electrically non-conductive, but cables, metallic trays, fasteners, bonding, and lightning protection still follow the electrical engineer's design.",
+        body: "Confirm flame-spread, smoke and electrical requirements for the offered material and route. A fiberglass support is not proof of a qualified insulating system; metallic hardware, bonding, static control and lightning protection remain part of the electrical engineer's design.",
       },
       {
         title: "Connections and local loads",
@@ -374,11 +376,12 @@ export const applicationPages: ApplicationPage[] = [
       },
     ],
     rfqInputs: [
-      "Tray width, support spacing, and total route length",
-      "Cable load per meter and any concentrated maintenance loads",
+      "Supply scope: support profiles, fabricated components or a complete tray / ladder package",
+      "Route drawing and BOM: widths, depths, straight lengths, bends, tees, covers and splice positions",
+      "Support spacing, cable load per meter, future fill allowance and concentrated loads",
       "Chemical, humidity, UV, and temperature exposure",
-      "Fire rating or electrical isolation requirements",
-      "Preferred connection method: bolted, bonded, or hybrid",
+      "Governing specification, acceptance criteria and required load, fire or electrical evidence",
+      "Bracket / base details, fixing substrate, quantity, delivery destination and required date",
     ],
     related: [
       { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels" },
@@ -418,14 +421,16 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cooling-tower-profiles",
-    lastModified: "2026-07-30",
-    title: "FRP Cooling Tower Profiles — Corrosion-Resistant",
+    lastModified: "2026-10-11",
+    title: "FRP Cooling Tower Profiles | Replacement & OEM Supply",
     shortTitle: "FRP cooling tower profiles",
     description:
-      "Pultruded FRP cooling tower profiles for wet, chlorinated and high-humidity structures: beams, tubes, louvers, handrails and access members.",
+      "Specify FRP cooling tower profiles for replacement, new-tower OEM or maintenance access: member drawings, loads, water chemistry and component supply scope.",
     h1: "FRP cooling tower profiles for wet and chlorinated service",
     intro:
-      "Cooling towers attack galvanized steel through constant humidity, chlorides, biocides, and wet-dry cycling. F1 Composite supplies pultruded beams, tubes, angles, louvers, and grating supports in fiberglass that keep structural stiffness while removing corrosion-driven maintenance.",
+      "Start with the tower task: replace existing members, supply profiles for a new-tower OEM, or provide maintenance-access components. F1 Composite supplies pultruded beams, tubes and angles to an agreed scope; member selection depends on loads, connections and the actual water-treatment exposure.",
+    supplyScope:
+      "Identify raw lengths, cut or drilled members and any agreed grating or handrail components on the BOM. Confirm custom louver sections separately. Tower thermal performance, fan and fill design, complete structural verification and installation responsibility must be allocated in the project scope.",
     environment:
       "Best fit: industrial cooling towers, power plant cooling systems, HVAC towers, chemical plants, and replacement programs where steel members require repeated recoating.",
     image: "/images/industries/industrial-cooling-tower-walkway.webp",
@@ -437,10 +442,10 @@ export const applicationPages: ApplicationPage[] = [
       "I-beams and channels for primary support members",
       "Square tubes for frames, posts, and bracing",
       "Angles for edge supports and louver framing",
-      "Custom thin-wall pultrusions for drift eliminators and louvers",
+      "Custom louver or casing-support sections subject to drawing and tooling review",
     ],
     resinSystem:
-      "Vinyl ester is recommended for chlorinated water, high humidity, and aggressive cooling tower chemistry. Isophthalic polyester can be used for mild HVAC towers with controlled water treatment.",
+      "Compare the offered polyester or vinyl ester formulation against operating temperature, pH, chemical concentrations, biocide dosing and cleaning cycles. Confirm the relevant exposure evidence and surface / cut-edge treatment; a resin name alone does not establish service life.",
     standards: ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"],
     designChecks: [
       {
@@ -457,11 +462,12 @@ export const applicationPages: ApplicationPage[] = [
       },
     ],
     rfqInputs: [
+      "Task: existing-member replacement, new-tower OEM supply or maintenance access",
       "Cooling tower type and operating temperature range",
       "Water chemistry: chlorides, pH, biocides, and chemical dosing",
-      "Member spans, loads, and deflection limits",
-      "UV exposure and required coating color",
-      "Replacement geometry or existing steel drawings",
+      "Member schedule, spans, load cases, deflection limits and connection reactions",
+      "Existing survey or released OEM drawings, hole patterns, interfaces and revision",
+      "Supply quantities, surface / fire requirements, acceptance documents and delivery or outage date",
     ],
     related: [
       { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
@@ -470,11 +476,11 @@ export const applicationPages: ApplicationPage[] = [
       { href: "/industries/industrial", label: "Industrial applications" },
     ],
     deepDive: {
-      heading: "Why FRP cooling tower profiles work in saturated service",
+      heading: "Three cooling-tower procurement tasks, three drawing packages",
       paragraphs: [
-        "A cooling tower is close to a worst-case environment for coated steel: the structure sits in saturated air at elevated temperature, gets sprayed with chlorinated and chemically dosed water, dries out, and is wetted again — thousands of cycles a year. Galvanizing sacrifices itself, coatings blister at cut edges and bolt holes, and every recoating cycle means a plant outage with confined-space access. Pultruded fiberglass removes the failure mechanism instead of slowing it down: the glass-fiber laminate is immune to electrochemical corrosion, and a vinyl ester matrix resists the chlorides, biocides, and pH swings of open recirculating water.",
-        "The industry recognized this decades ago — fiberglass pultrusions are now the default structural material for new field-erected towers, and the Cooling Technology Institute maintains a dedicated specification (CTI STD-137) for pultruded structural products used in them. Typical member mapping in a tower frame: I-beams and channels for columns, girts, and fan-deck framing; square tubes for diagonal bracing and casing support; angles for louver frames and connection cleats; and thin-wall custom sections for louvers and drift-eliminator supports. All of these come from the same standard families listed in our size catalog, with published weights per meter.",
-        "For replacement programs, the practical route is to match the existing steel member geometry at equal stiffness rather than equal depth — fiberglass runs at roughly a quarter of the weight of the steel it replaces, which usually means the old crane and access plan can be downsized or eliminated. Send the existing framing drawings and water-chemistry report with your RFQ; we return a member-by-member substitution list with section sizes, resin recommendation, and hardware notes, priced per meter.",
+        "Existing-member replacement starts with a site survey, marked framing drawings, member IDs, hole patterns and the condition of retained connections. Include the governing loads and water-treatment history. The project engineer checks the replacement load path, stiffness, buckling and local bearing; matching a steel member's outside dimensions does not establish an equivalent FRP member. Agree access, lifting limits and the outage sequence before releasing fabrication.",
+        "New-tower OEM supply starts with the OEM's controlled profile drawings, material specification, quantities and interface tolerances. Identify fan, fill, casing and bracing reactions, then agree first-article checks, production inspection and revision control. If the specification cites CTI or other standards, identify the edition and required evidence for the offered product; a reference in a specification is not certification of the tower or its thermal performance.",
+        "Maintenance-access work starts with the walkway or stair layout, grating span direction, support spacing, openings and handrail reactions. Define whether the order includes only profiles, cut components or an agreed access package. Confirm who designs the retained structure, bases and anchors, and list the drawings, BOM, inspection records and any project-specific tests required for acceptance. Their availability and scope are confirmed before order release.",
       ],
     },
   },
@@ -606,14 +612,16 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-chemical-plant-platforms",
-    lastModified: "2026-07-30",
+    lastModified: "2026-10-11",
     title: "FRP Chemical Plant Platforms - Beams, Gratings and Handrails",
     shortTitle: "FRP chemical plant platforms",
     description:
-      "FRP chemical plant platforms using pultruded beams, channels, gratings, stair treads and handrails for acid splash and corrosive process areas.",
+      "Plan FRP chemical plant platforms and walkways: distinguish grating supply from coordinated framing, stairs and handrails; define exposure, loads and scope.",
     h1: "FRP chemical plant platforms for corrosive process areas",
     intro:
-      "Chemical plant access platforms fail when steel framing, gratings, and handrails sit in acid splash, caustic washdown, or chloride-rich air. F1 Composite supplies the pultruded beams, channels, gratings, stair treads, and handrail profiles required for corrosion-proof platform assemblies.",
+      "An access platform needs a defined load path and materials suited to the process exposure. F1 Composite supplies FRP profiles and grating, with fabrication and additional access components agreed in the quotation. Start by distinguishing replacement flooring from a coordinated platform or walkway package.",
+    supplyScope:
+      "For grating-only supply, provide panel sizes, bearing supports, cutouts and fixing details. For a platform package, identify beams, bracing, stairs, rails and hardware on a controlled BOM. Agree responsibility for structural design, retained supports, foundations, anchors and installation; these are not included automatically with component supply.",
     environment:
       "Best fit: acid production, fertilizer plants, chlor-alkali units, wastewater treatment, battery materials, petrochemical areas, and any process zone where coating maintenance is expensive or unsafe.",
     image: "/images/industries/industrial-chemical-tank-platform.webp",
@@ -628,7 +636,7 @@ export const applicationPages: ApplicationPage[] = [
       "FRP angles and flat bars for bracing, toe boards, and splice plates",
     ],
     resinSystem:
-      "Vinyl ester is the default resin for chemical exposure. Phenolic or fire-retardant systems can be evaluated when the project combines corrosion resistance with strict flame, smoke, or offshore requirements.",
+      "Select from the offered formulations using chemical concentration, temperature, splash or immersion, and cleaning conditions. Vinyl ester may be considered, but resin name alone does not establish compatibility. Confirm the availability of any required flame, smoke or other safety evidence for the actual product and assembly.",
     standards: ["EN 13706", "ASTM D3917", "ASTM E84", "BS 476"],
     designChecks: [
       {
@@ -645,11 +653,12 @@ export const applicationPages: ApplicationPage[] = [
       },
     ],
     rfqInputs: [
+      "Scope: grating replacement, component supply or a coordinated platform / walkway package",
       "Chemical exposure list, concentration, temperature, and spill frequency",
-      "Platform span, load class, and deflection limit",
-      "Grating type: molded, pultruded, or solid-top",
+      "Layout, elevations, spans, operating / maintenance loads and deflection limits",
+      "Grating type, span direction, bearing, cutouts, fixings and retained support condition",
       "Fire, smoke, and plant safety requirements",
-      "Assembly drawings or existing steel platform dimensions",
+      "Component BOM, connection / anchor responsibility, required acceptance documents and destination",
     ],
     related: [
       { href: "/products/molded-frp-grating", label: "Molded FRP grating" },
@@ -666,8 +675,8 @@ export const applicationPages: ApplicationPage[] = [
       heading: "FRP chemical plant platforms as coordinated access systems",
       paragraphs: [
         "A chemical plant platform combines several FRP product families into one safety-critical access system. I-beams and channels carry the floor, grating distributes pedestrian and maintenance loads, stair stringers establish the access route, and handrail posts transfer guard loads back into the frame. Treating each item as a separate catalog purchase can leave gaps at the connections, so the useful design package includes the framing plan, grating orientation, stair geometry, handrail reactions, base details, and plant load cases together.",
-        "Chemical compatibility must be stated with concentration, temperature, splash or immersion mode, and exposure frequency. Vinyl ester is a common starting point for aggressive process areas, but oxidizers, solvents, high temperature, and mixed cleaning chemicals may require a different formulation or test program. Fire-retardant and phenolic systems solve different hazards and should be selected from the plant's flame, smoke, and toxicity criteria rather than from a generic 'FR' label.",
-        "Factory fabrication can reduce hot work and shutdown time. Profiles can be cut, drilled, labeled, and packed by assembly zone with gratings, stair components, handrail sections, and fastener kits. The engineering handoff should still state allowable site modifications, cut-edge sealing, bolt torque, inspection access, and the boundary between F1's component calculations and the local engineer's foundation and building-structure review.",
+        "Chemical compatibility must be stated with concentration, temperature, splash or immersion mode, and exposure frequency. Vinyl ester can be considered for process areas, but oxidizers, solvents, high temperature and mixed cleaning chemicals need review against the offered formulation. Confirm fire, smoke and any toxicity criteria separately, using evidence for the actual product rather than a generic 'FR' label.",
+        "Agree fabrication, part marking and packing by assembly zone against the released BOM. A grating-only replacement still needs the retained supports, bearing and fixings checked; supplying panels does not establish the capacity of the whole platform. For a coordinated package, record the design responsibility for every interface and the acceptance documents actually included in the quotation. Installation instructions should address allowable site modifications, cut-edge treatment, fastening and inspection for the selected system.",
       ],
     },
   },

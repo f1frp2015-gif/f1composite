@@ -18,7 +18,7 @@ const rfqHref = buildRfqHref({
   source: "cable-tray-application",
   product: "FRP cable trays and cable ladders",
   productPath: "/applications/frp-cable-tray-supports",
-  message: "Please review my FRP cable tray / cable ladder enquiry. Scope (tray, ladder, supports, or complete package): __. Width, depth and route length: __. Tray base / perforations or ladder rung spacing: __. Cable mass and future allowance: __. Support spacing and fixing structure: __. Chemicals and operating temperature: __. Fire / electrical / project standards: __. Fittings, covers and fasteners: __. Quantity, destination and required date: __. Drawings can follow.",
+  message: "Please review my FRP cable tray / cable ladder enquiry. Scope (raw support profiles, fabricated components, tray / ladder sections, or complete package): __. Width, depth and route length: __. Tray base / perforations or ladder rung spacing: __. Cable mass and future allowance: __. Support spacing and fixing structure: __. Chemicals and operating temperature: __. Fire / electrical / project standards and required evidence: __. Fittings, covers and fasteners, including items supplied by others: __. Drawing / BOM revision: __. Quantity, destination and required date: __. Please confirm availability, included documents and design responsibility for the offered configuration. Drawings can follow.",
 });
 
 const productFamilies = [
@@ -72,7 +72,7 @@ const requestItems = [
   { title: "Supply boundary", text: "Profiles, fabricated supports, tray sections or a complete package, and who does engineering and installation." },
   { title: "Route and geometry", text: "Route drawing, tray base or ladder rung spacing, width, loading depth, bends, risers and cable bend radius." },
   { title: "Loads and supports", text: "Cable schedule and mass per meter, future allowance, spans and the supporting structure." },
-  { title: "Exposure and standards", text: "Chemicals, temperature, UV and coastal exposure; fire, electrical and project standards." },
+  { title: "Exposure and acceptance", text: "Chemicals, temperature, UV and coastal exposure; required fire, electrical and project evidence, with document availability confirmed in the offer." },
 ];
 
 function Section({ id, title, children, muted = false }: { id: string; title: string; children: ReactNode; muted?: boolean }) {
@@ -131,11 +131,11 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       <div className="mt-[32px] grid grid-cols-1 gap-[24px] lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-[48px]">
         <div className="space-y-[14px] text-f16 leading-golden text-t2">
           <p className="text-f18 text-t1">FRP cable trays and ladders carry power, control and instrumentation cables through wet, coastal and chemically aggressive environments. Their support channels, brackets and frames complete the load path into the structure.</p>
-          <p>F1 Composite supplies pultruded fiberglass profiles and agreed fabricated components for these routes. Start with the cable arrangement and environment, then define the tray, supports, fittings and evidence needed for your project.</p>
+          <p>{page.intro}</p>
         </div>
         <aside className="self-start rounded-card border border-teal-border bg-teal-bg p-[20px] sm:p-[24px]">
           <h3 className="text-f18 font-bold text-t1">Define what goes in the quotation</h3>
-          <p className="mt-[8px] text-f16 leading-golden text-t2">Specify raw profiles, cut and drilled parts, assembled supports, or a complete cable-management package. Confirm tray-system availability, accessories, test documentation and engineering responsibilities for the offered scope.</p>
+          <p className="mt-[8px] text-f16 leading-golden text-t2">{page.supplyScope}</p>
           <Link href={rfqHref} className="mt-[8px] inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:text-teal">Send your scope <span aria-hidden className="ml-[4px]">→</span></Link>
         </aside>
       </div>
@@ -284,9 +284,9 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         productPath="/applications/frp-cable-tray-supports"
         quoteHref={rfqHref}
         items={requestItems}
-        intro="Start with your name, email and the project scope; a route sketch and cable schedule help refine the quote."
+        intro="Start with your name, email and the supply scope; a route sketch and cable schedule help refine the quote. Confirm included components, design responsibility and available acceptance documents in the offer."
         links={[{ label: "Cable tray installation guide", href: "/resources/blog/how-to-install-frp-cable-tray" }, { label: "Tray, trunking and ladder vs metal", href: "/resources/blog/frp-cable-tray-trunking-ladder-vs-metal" }]}
-        advisorPrompt="I am planning an FRP cable route: [tray / ladder], width [mm], route length [m], cable mass [kg/m], support spacing [m], environment [chemicals, coastal, temperature]. Which construction and support profiles fit, and what does F1 Composite need for a quote?"
+        advisorPrompt="I am planning an FRP cable route: [tray / ladder], width [mm], route length [m], cable mass [kg/m], support spacing [m], environment [chemicals, coastal, temperature]. Scope: [raw support profiles / fabricated components / tray or ladder sections / complete package]. Which construction and support profiles fit? Confirm component availability, design responsibility and the acceptance evidence available for the offered configuration."
       />
     </PageSection>
   </>;

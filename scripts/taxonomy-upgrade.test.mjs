@@ -4,6 +4,8 @@ import test from "node:test";
 import { loadTestData } from "./load-test-data.mjs";
 import { loadProjectModule } from "./load-project-module.mjs";
 const { productFamilies, standardProfileLinks, applicationGroups } = loadProjectModule("content/data/productTaxonomy.ts");
+const { familyApplications } = loadProjectModule("lib/familyApplications.ts");
+const { applicationPages } = loadProjectModule("lib/applicationPages.ts");
 const { windowProcurement } = await loadTestData("content/data/windowProcurement.ts");
 const { seoQueryTargets } = await loadTestData("content/data/seoQueryTargets.ts");
 const { buildRfqHref } = await loadTestData("lib/rfq.ts");
@@ -58,5 +60,26 @@ test("new indexable routes have real pages, unique intent and sitemap entries", 
 test("product and application images resolve to local assets", async () => {
   for (const page of [...productFamilies, ...Object.values(windowProcurement)]) {
     await access(new URL(`../public${page.image}`, import.meta.url));
+  }
+});
+
+test("standard profile recommendations preserve the intended buying route", () => {
+  const square = familyApplications("square-tube");
+  assert.ok(square.some(card => card.href === "/applications/frp-cooling-tower-profiles"), "cooling tower selection must remain visible in the default square-tube cards");
+  assert.ok(familyApplications("rod").every(card => !/mining|crossarm|insulation|switchgear/.test(card.href)), "ordinary rods must not inherit specialist product qualification from a matching word");
+  assert.ok(familyApplications("rod").some(card => card.href === "/applications/agriculture-horticulture-stakes"));
+});
+
+test("curated application cards keep source descriptions, images and scope labels", () => {
+  for (const family of ["i-beam", "channel", "angle", "square-tube", "round-tube", "rod", "flat-bar"]) {
+    const cards = familyApplications(family, 10);
+    assert.equal(new Set(cards.map(card => card.href)).size, cards.length);
+    for (const card of cards.filter(card => card.kind === "Application")) {
+      const page = applicationPages.find(page => `/applications/${page.slug}` === card.href);
+      assert.ok(page, `${card.href}: missing application`);
+      assert.ok(page.recommendedProfiles.some(line => `${line}.` === card.text));
+      assert.equal(card.image, page.image);
+      assert.equal(card.note, page.imageNote);
+    }
   }
 });

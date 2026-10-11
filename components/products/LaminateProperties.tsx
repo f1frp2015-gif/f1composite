@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { E23_ISO_PUBLISHED, PROPERTY_ROWS } from "@/lib/catalog/en13706";
 
-// The longitudinal values a designer checks first, from the laminate every
-// datasheet publishes; the full table lives on /resources/technical-data.
+// Shared E23-ISO reference values, not configuration-specific test results.
+// The full material table lives on /resources/technical-data.
 const KEY_ROWS = ["e_l_gpa", "e_t_gpa", "tensile_l_mpa", "flexural_l_mpa", "shear_mpa", "pin_bearing_l_mpa"] as const;
 
-// Resin systems declared to EN 13706 E23, as in lib/catalog/seed.ts.
+// Material routes for inquiry; availability and evidence depend on the profile.
 const RESINS = [
-  { name: "Isophthalic polyester", use: "Standard laminate for general structural use. Not fire-retardant." },
-  { name: "Fire-retardant polyester", use: "For an ASTM E84 Class 1 requirement in mild chemistry; the test report is issued per profile." },
-  { name: "Vinyl ester", use: "Chemicals, seawater and wastewater; fire-retardant with low smoke." },
-  { name: "Polyurethane", use: "Tough matrix for thin walls and impact." },
-  { name: "Phenolic", use: "Fire-critical enclosed spaces: low flame spread, smoke and toxicity." },
+  { name: "Isophthalic polyester", use: "The E23-ISO reference uses this resin family. Confirm its suitability for the profile and service conditions." },
+  { name: "Fire-retardant polyester", use: "State the required fire test and classification, then confirm evidence for the offered formulation and specimen scope." },
+  { name: "Vinyl ester", use: "A candidate for chemical exposure. Provide the chemicals, concentrations, temperatures and exposure duration; specify fire requirements separately." },
+  { name: "Polyurethane", use: "Review the proposed profile, processing route and mechanical requirements with the supplier." },
+  { name: "Phenolic", use: "A route to evaluate where fire, smoke or toxicity criteria apply. Confirm manufacturability and the relevant test evidence." },
 ];
 
-/** The standard E23 laminate's key values with test methods, and the resin options. */
+/** Published material reference and inquiry routes, with their evidence scope. */
 export default function LaminateProperties({ note }: { note?: React.ReactNode }) {
   const rows = [
     ...KEY_ROWS.map((key) => {
@@ -27,14 +27,17 @@ export default function LaminateProperties({ note }: { note?: React.ReactNode })
   return (
     <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-[48px]">
       <div>
-        <h3 className="text-f18 font-bold text-t1">Standard laminate · EN 13706 E23</h3>
+        <h3 className="text-f18 font-bold text-t1">Material reference · E23-ISO</h3>
+        <p className="mt-[8px] text-f14 leading-golden text-t2">
+          Published reference values for the general-purpose isophthalic polyester laminate. Match the section, formulation and supporting documents before selecting design values for an order.
+        </p>
         <div className="relative mt-[12px] overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full border-collapse text-left text-f14">
             <thead>
               <tr className="border-b border-border-default bg-bg2">
                 <th scope="col" className="px-[12px] py-[8px] font-semibold text-t1">Property</th>
-                <th scope="col" className="px-[12px] py-[8px] text-right font-semibold text-t1">Value</th>
-                <th scope="col" className="px-[12px] py-[8px] font-semibold text-t1 max-sm:hidden">Test method</th>
+                <th scope="col" className="px-[12px] py-[8px] text-right font-semibold text-t1">Reference value</th>
+                <th scope="col" className="px-[12px] py-[8px] font-semibold text-t1 max-sm:hidden">Method reference</th>
               </tr>
             </thead>
             <tbody>
@@ -52,7 +55,7 @@ export default function LaminateProperties({ note }: { note?: React.ReactNode })
           </table>
         </div>
         <p className="mt-[10px] text-f14 leading-golden text-t3">
-          Values of the isophthalic polyester laminate every datasheet lists. Moduli and strengths are the EN 13706-3 E23 minimums; ILSS is published above the 25 MPa minimum. Transverse strength is much lower than longitudinal, so connections need their own check.{" "}
+          The listed moduli, tensile and flexural strengths, and pin-bearing strength use EN 13706-3 E23 minimums. ILSS, density and glass content are the published E23-ISO material references. These values and method names do not constitute a test report for the selected profile.{" "}
           <Link href="/resources/technical-data" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Full property table and test methods
           </Link>
@@ -60,7 +63,7 @@ export default function LaminateProperties({ note }: { note?: React.ReactNode })
         {note ? <p className="mt-[10px] rounded-card border border-teal-border bg-teal-bg px-[14px] py-[10px] text-f14 leading-golden text-t2">{note}</p> : null}
       </div>
       <div>
-        <h3 className="text-f18 font-bold text-t1">Resin options</h3>
+        <h3 className="text-f18 font-bold text-t1">Resin routes to review</h3>
         <ul className="mt-[12px] divide-y divide-border-default rounded-card border border-border-default bg-white">
           {RESINS.map((resin) => (
             <li key={resin.name} className="px-[14px] py-[10px]">
@@ -70,9 +73,14 @@ export default function LaminateProperties({ note }: { note?: React.ReactNode })
           ))}
         </ul>
         <p className="mt-[10px] text-f14 leading-golden text-t3">
-          All are declared to grade E23. Resin decides chemical and fire performance, not stiffness.{" "}
+          A change of resin, reinforcement, pigment or surface finish can change the applicable properties and evidence. Confirm the grade and reports for the offered configuration.{" "}
           <Link href="/technology/pultrusion-resin-systems" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             Compare resin systems
+          </Link>
+        </p>
+        <p className="mt-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/resources/evidence" className="underline underline-offset-4 hover:text-teal">
+            Review available documents and their scope
           </Link>
         </p>
       </div>
