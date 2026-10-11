@@ -131,21 +131,22 @@ export default async function TubePage() {
 
       <ProductPageNav
         items={[
-          { id: "overview", label: "Overview" },
-          { id: "sizes", label: "Sizes", count: sizes.length },
-          { id: "properties", label: "Properties" },
+          { id: "overview", label: "Supply scope" },
+          { id: "sizes", label: "Sizes & units", count: sizes.length },
+          { id: "documents", label: "Drawings & reports" },
+          { id: "properties", label: "Material basis" },
+          { id: "machining", label: "Machining & inspection" },
           { id: "applications", label: "Applications" },
-          { id: "documents", label: "Documents" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
         ]}
       />
 
-      <ProductSection id="overview" title="Overview">
+      <ProductSection id="overview" title="Specify the tube and its supply scope">
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              Pultruded FRP round tubes suit members that need a circular grip or cross-section, including handrails, guardrails and masts. Start with the member load and connections, then select the diameter, wall and laminate. For flat mounting faces or frame joints, compare the <Link href="/products/fiberglass-structural-shapes/frp-square-tube" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">square and rectangular tube range</Link>.
+              Pultruded FRP round tubes suit members that need a circular grip or cross-section, including handrails, guardrails and masts. State whether you need tube lengths or finished parts with cutting, holes and end treatment. Start with the member load and connections, then select the diameter, wall and laminate. For flat mounting faces or frame joints, compare the <Link href="/products/fiberglass-structural-shapes/frp-square-tube" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">square and rectangular tube range</Link>.
             </p>
             <div className="rounded-card border border-border-default bg-bg2 px-[16px] py-[12px]">
               <h3 className="text-f16 font-bold text-t1">GRP tube for structural applications</h3>
@@ -178,7 +179,7 @@ export default async function TubePage() {
 
       <ProductSection
         id="sizes"
-        title="Sizes"
+        title="Select nominal dimensions and units"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
         intro="Nominal millimetres with approximate decimal inches below each value; the inch figures are references, not separate inch tooling or tolerances. Ix and Wx are calculated from the nominal section."
@@ -226,7 +227,14 @@ export default async function TubePage() {
         </p>
       </ProductSection>
 
-      <ProductSection id="properties" title="Properties">
+      <ProductSection id="documents" title="Match the drawing and reports to the selected tube" intro="A catalog drawing describes the nominal section. Check the material dataset and report scope separately before specifying a finished part or a performance requirement.">
+        <p className="mb-[20px] max-w-[900px] text-f16 leading-golden text-t2">
+          <Link href="/resources/evidence?category=round-tube" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Open the round-tube evidence package</Link> to review available references and items still to confirm. Identify the section and formulation where known; another resin or a similar diameter does not inherit an approval. Use the size row&apos;s Quote link to carry its catalog configuration into the inquiry.
+        </p>
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Round tube", datasheetsHref: "/datasheets#round-tube" }} sizes={sizes} />
+      </ProductSection>
+
+      <ProductSection id="properties" title="Review the material basis and load case">
         <LaminateProperties />
         <div className="mt-[24px] max-w-[640px]">
           <CalculatorCTA
@@ -238,12 +246,19 @@ export default async function TubePage() {
         </div>
       </ProductSection>
 
-      <ProductSection id="applications" title="Applications" tone="muted">
-        <ApplicationCards cards={familyApplications("round-tube")} />
+      <ProductSection id="machining" title="Define the finished part and its inspection" tone="muted">
+        <div className="max-w-[900px] space-y-[12px] text-f16 leading-golden text-t2">
+          <p>For cut or drilled tubing, supply a part drawing with its revision, units, cut list and hole or end details. Locate features from agreed datums and identify the bore, sleeve or clamp fit that controls assembly. Separate nominal tube dimensions from the limits required on the finished part.</p>
+          <p>Agree measurement setup, edge treatment, sampling and any first-article fit check before production. A drawing requirement or blank inspection sheet is not an inspected result.</p>
+          <p className="flex flex-wrap gap-x-[24px] gap-y-[8px]">
+            <Link href="/technology/frp-profile-machining" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Prepare cutting and machining requirements</Link>
+            <Link href="/technology/quality-testing#machining-records" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Plan the inspection record</Link>
+          </p>
+        </div>
       </ProductSection>
 
-      <ProductSection id="documents" title="Documents">
-        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Round tube", datasheetsHref: "/datasheets#round-tube" }} sizes={sizes} />
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("round-tube")} />
       </ProductSection>
 
       <ProductSection id="faq" title="Questions buyers ask" tone="muted">

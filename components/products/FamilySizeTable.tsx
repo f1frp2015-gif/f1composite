@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { approximateInches, sizeInquiryHref } from "@/lib/productInquiry";
-import { catalogRfqContext, type CatalogConfiguration } from "@/lib/catalog/identity";
+import { catalogEvidenceHref, catalogRfqContext, type CatalogConfiguration } from "@/lib/catalog/identity";
 
 type NumericKey = "d" | "b" | "t" | "mass" | "A" | "Ix" | "Wx" | "Iy" | "Wy";
 
@@ -76,6 +76,7 @@ export default function FamilySizeTable({
   const shown = sort ? [...rows].sort((a, b) => (sortValue(a, sort.key) - sortValue(b, sort.key)) * sort.direction) : rows;
   const toggle = (key: string) =>
     setSort((current) => (current?.key !== key ? { key, direction: 1 } : current.direction === 1 ? { key, direction: -1 } : null));
+  const evidenceFamily = productPath.endsWith("/frp-tube") ? "round-tube" : productPath.endsWith("/frp-square-tube") ? "square-tube" : null;
 
   const header = (key: string, label: string, unit?: string) => {
     const active = sort?.key === key;
@@ -141,6 +142,7 @@ export default function FamilySizeTable({
                 ))}
                 <td className="whitespace-nowrap px-[12px] py-[6px] group-hover:bg-bg2">
                   <span className="inline-flex items-center gap-[6px]">
+                    {row.configuration && evidenceFamily ? <Link href={catalogEvidenceHref(row.configuration, evidenceFamily)} prefetch={false} aria-label={`Review documents for ${row.model}`} className="inline-flex min-h-[36px] items-center rounded-control border border-border-default px-[10px] text-f14 font-semibold text-teal-text hover:bg-teal-bg">Documents</Link> : null}
                     {row.dxf ? (
                       <a
                         href={`/cad/${row.slug}.dxf`}

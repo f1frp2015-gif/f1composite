@@ -122,22 +122,22 @@ export default async function SquareTubePage() {
 
       <ProductPageNav
         items={[
-          { id: "overview", label: "Overview" },
-          { id: "sizes", label: "Sizes", count: sizes.length },
-          { id: "connections", label: "Connections" },
-          { id: "properties", label: "Properties" },
+          { id: "overview", label: "Supply scope" },
+          { id: "sizes", label: "Sizes & units", count: sizes.length },
+          { id: "documents", label: "Drawings & reports" },
+          { id: "properties", label: "Material basis" },
+          { id: "connections", label: "Machining & inspection" },
           { id: "applications", label: "Applications" },
-          { id: "documents", label: "Documents" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
         ]}
       />
 
-      <ProductSection id="overview" title="Overview">
+      <ProductSection id="overview" title="Specify the tube and its supply scope">
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
-              FRP square and rectangular tubes provide flat faces for posts, frames and equipment supports. Square hollow sections (SHS) have equal outside height and width; rectangular hollow sections (RHS) have unequal sides. Both use the same catalog below, with H, B and wall thickness identified separately. Specify the laminate and complete connection for the service conditions; a hollow structural profile does not establish an electrical conduit rating.
+              FRP square and rectangular tubes provide flat faces for posts, frames and equipment supports. State whether you need tube lengths or finished parts with cutting, holes and end treatment. Square hollow sections (SHS) have equal outside height and width; rectangular hollow sections (RHS) have unequal sides. Both use the same catalog below, with H, B and wall thickness identified separately. Specify the laminate and complete connection for the service conditions; a hollow structural profile does not establish an electrical conduit rating.
             </p>
             <ul className="flex flex-wrap gap-[8px] pt-[4px]">
               {["E23 material reference", "Square and rectangular", "Smooth bore", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
@@ -163,7 +163,7 @@ export default async function SquareTubePage() {
 
       <ProductSection
         id="sizes"
-        title="Sizes"
+        title="Select nominal dimensions and units"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
         intro="Nominal millimetres with approximate decimal inches below each value; the inch figures are references, not separate inch tooling or tolerances. Ix and Wx are calculated from the nominal section, for bending about the axis parallel to B."
@@ -209,27 +209,14 @@ export default async function SquareTubePage() {
         </p>
       </ProductSection>
 
-      <ProductSection id="connections" title="Specify the connections and installation interfaces">
-        <div className="grid gap-[16px] md:grid-cols-3">
-          {[
-            { title: "Holes and fastener access", text: "Send hole positions, diameters and edge distances on a controlled drawing. Show whether the installer can reach both sides of the connection, and whether the joint includes an insert, sleeve or bracket." },
-            { title: "Bearing and clamping", text: "Identify local loads at bolts, bases and clamps. The connection design must check wall bearing and crushing; agree the reinforcement detail and tightening procedure instead of transferring a steel-tube detail unchanged." },
-            { title: "Site work and environment", text: "Separate factory cutting and drilling from work left to the installer. Specify cut-edge treatment, drainage where relevant, hardware compatibility and inspection. For cooling towers, include water chemistry and service temperature." },
-          ].map((item) => (
-            <div key={item.title} className="rounded-card border border-border-default bg-bg2 px-[16px] py-[16px]">
-              <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
-              <p className="mt-[6px] text-f14 leading-golden text-t2">{item.text}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
-          <Link href="/technology/frp-profile-machining" className="underline underline-offset-4 hover:text-teal">Specify cutting, drilled holes and machining tolerances</Link>
-          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">Review fabrication and connection guidance</Link>
-          <Link href="/applications/frp-cooling-tower-profiles" className="underline underline-offset-4 hover:text-teal">Cooling tower specification inputs</Link>
+      <ProductSection id="documents" title="Match the drawing and reports to the selected tube" intro="A catalog drawing describes the nominal section. Check the material dataset and report scope separately before specifying a finished part or a performance requirement.">
+        <p className="mb-[20px] max-w-[900px] text-f16 leading-golden text-t2">
+          <Link href="/resources/evidence?category=square-tube" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Open the square and rectangular tube evidence package</Link> to review available references and items still to confirm. Identify the section and formulation where known; a report for another laminate or assembly is not an approval of this tube. Use the size row&apos;s Quote link to carry its catalog configuration into the inquiry.
         </p>
+        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Square and rectangular tube", datasheetsHref: "/datasheets#square-tube" }} sizes={sizes} />
       </ProductSection>
 
-      <ProductSection id="properties" title="Properties">
+      <ProductSection id="properties" title="Review the material basis and load case">
         <LaminateProperties />
         <div className="mt-[24px] grid grid-cols-1 items-start gap-[16px] lg:grid-cols-2">
           <E40EvidenceLink />
@@ -244,12 +231,30 @@ export default async function SquareTubePage() {
         </div>
       </ProductSection>
 
-      <ProductSection id="applications" title="Applications" tone="muted">
-        <ApplicationCards cards={familyApplications("square-tube")} />
+      <ProductSection id="connections" title="Agree machining, connections and inspection" tone="muted">
+        <div className="grid gap-[16px] md:grid-cols-3">
+          {[
+            { title: "Holes and fastener access", text: "Send hole positions, diameters and edge distances on a controlled drawing. Show whether the installer can reach both sides of the connection, and whether the joint includes an insert, sleeve or bracket." },
+            { title: "Bearing and clamping", text: "Identify local loads at bolts, bases and clamps. The connection design must check wall bearing and crushing; agree the reinforcement detail and tightening procedure instead of transferring a steel-tube detail unchanged." },
+            { title: "Site work and environment", text: "Separate factory cutting and drilling from work left to the installer. Specify cut-edge treatment, drainage where relevant, hardware compatibility and inspection. For cooling towers, include water chemistry and service temperature." },
+          ].map((item) => (
+            <div key={item.title} className="rounded-card border border-border-default bg-bg2 px-[16px] py-[16px]">
+              <h3 className="text-f16 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[6px] text-f14 leading-golden text-t2">{item.text}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-[16px] max-w-[900px] text-f14 leading-golden text-t2">Identify the drawing revision, datum faces and installed orientation for each part. Agree how critical hole positions, cut lengths and fit will be measured, including any first article; a nominal catalog size does not establish finished-part acceptance.</p>
+        <p className="mt-[16px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
+          <Link href="/technology/frp-profile-machining" className="underline underline-offset-4 hover:text-teal">Specify cutting, drilled holes and machining tolerances</Link>
+          <Link href="/technology/quality-testing#machining-records" className="underline underline-offset-4 hover:text-teal">Plan the inspection record</Link>
+          <Link href="/resources/design-guides" className="underline underline-offset-4 hover:text-teal">Review fabrication and connection guidance</Link>
+          <Link href="/applications/frp-cooling-tower-profiles" className="underline underline-offset-4 hover:text-teal">Cooling tower specification inputs</Link>
+        </p>
       </ProductSection>
 
-      <ProductSection id="documents" title="Documents">
-        <ProductDocuments productPaths={[pagePath, "/products/fiberglass-structural-shapes"]} family={{ label: "Square and rectangular tube", datasheetsHref: "/datasheets#square-tube" }} sizes={sizes} />
+      <ProductSection id="applications" title="Applications" tone="muted">
+        <ApplicationCards cards={familyApplications("square-tube")} />
       </ProductSection>
 
       <ProductSection id="faq" title="Questions buyers ask" tone="muted">

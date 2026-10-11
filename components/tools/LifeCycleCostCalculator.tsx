@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { trackProcurement } from "@/lib/analytics";
 import {
   GALVANIZING_THICKNESS,
   ZINC_CORROSIVITY,
@@ -125,7 +125,7 @@ export default function LifeCycleCostCalculator() {
     setSteelType("galvanized");
     setCorrosivity(id);
     applyGalvanizing(id, thicknessId);
-    track("lcc_scenario", { corrosivity: id });
+    trackProcurement({ action: "lcc_scenario", corrosivity: id });
   }
 
   const input = { studyYears, discountPercent, downtimePerEvent: downtime, residualValue: residual, frp: { ...frp, label: "FRP" }, steel: { ...steel, label: "Steel" } };
@@ -146,7 +146,7 @@ export default function LifeCycleCostCalculator() {
       setShareState("error");
     }
     window.setTimeout(() => setShareState("idle"), 2500);
-    track("lcc_share", { corrosivity });
+    trackProcurement({ action: "lcc_share", steelType, corrosivity });
   }
 
   const summary = result
@@ -258,13 +258,13 @@ export default function LifeCycleCostCalculator() {
           {error ?? "Check the inputs."}
         </div>
       ) : (
-        <LccResults result={result} studyYears={studyYears} rfqHref={lifeCycleCostRfqHref(input, { steelType, corrosivity, coatingMicrons: microns }, summary)} share={share} shareState={shareState} />
+        <LccResults result={result} studyYears={studyYears} rfqHref={lifeCycleCostRfqHref(input, { steelType, corrosivity, coatingMicrons: microns }, summary)} onRfq={() => trackProcurement({ action: "lcc_rfq", steelType })} share={share} shareState={shareState} />
       )}
     </div>
   );
 }
 
-function LccResults({ result, studyYears, rfqHref, share, shareState }: { result: LccResult; studyYears: number; rfqHref: string; share: () => void; shareState: "idle" | "copied" | "error" }) {
+function LccResults({ result, studyYears, rfqHref, onRfq, share, shareState }: { result: LccResult; studyYears: number; rfqHref: string; onRfq: () => void; share: () => void; shareState: "idle" | "copied" | "error" }) {
   const frpLower = result.saving >= 0;
   const rows: { label: string; key: "initial" | "maintenance" | "annual" | "replacement" | "downtime" | "residual" }[] = [
     { label: "Installed cost", key: "initial" },
@@ -365,7 +365,7 @@ function LccResults({ result, studyYears, rfqHref, share, shareState }: { result
         <div className="grid gap-[8px] sm:grid-cols-2">
           <a
             href={rfqHref}
-            onClick={() => track("lcc_quote_click", { saving: Math.round(result.saving) })}
+            onClick={onRfq}
             className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
           >
             Get an FRP quote to compare

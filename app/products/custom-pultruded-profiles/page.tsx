@@ -38,7 +38,7 @@ const quoteHref = buildRfqHref({
   source: "custom-pultruded-profiles",
   product: "Custom pultruded FRP profile",
   productPath: pagePath,
-  message: "Please review my custom pultruded profile.\nDrawing / revision and units: \nCritical dimensions, tolerances and datums: \nCutting / holes / slots / notches: \nLoads and service environment: \nLength and quantity: \nFirst-article and inspection records required: ",
+  message: "Please review my custom pultruded profile.\nSupply scope (profile lengths / machined parts): \nDrawing / revision and units: \nMaterial reference and required reports: \nCritical dimensions, tolerances and datums: \nCutting / holes / slots / notches: \nLoads and service environment: \nLength and quantity: \nFirst-article and inspection records required: ",
 });
 
 const processSteps = [
@@ -272,7 +272,7 @@ export default function CustomPultrusionsPage() {
         ]}
         actions={{
           primary: { label: "Request a quote", href: quoteHref },
-          secondary: { label: "See the process", href: "#process", variant: "secondary" },
+          secondary: { label: "Define the supply", href: "#existing-dies", variant: "secondary" },
           stickyMobile: true,
         }}
         figure={
@@ -297,15 +297,38 @@ export default function CustomPultrusionsPage() {
       />
       <PageNav
         items={[
-          { id: "capabilities", label: "Capabilities" },
-          { id: "existing-dies", label: "Existing dies" },
-          { id: "process", label: "Process" },
-          { id: "tolerances", label: "Tolerances & approval" },
+          { id: "existing-dies", label: "Supply scope" },
+          { id: "capabilities", label: "Dimensions & material" },
+          { id: "documents", label: "Drawings & evidence" },
+          { id: "tolerances", label: "Machining & inspection" },
+          { id: "process", label: "Production process" },
           { id: "cost", label: "Cost" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
         ]}
       />
+
+      <PageSection
+        id="existing-dies"
+        title="Define the supply, then check the existing dies"
+        tone="muted"
+        intro={`FengDu's production network holds ${company.production.dieSets.toLocaleString("en-US")}+ die sets. A variant on an existing die (another resin, color or length) takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}; a new die takes ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery. These families already run:`}
+      >
+        <p className="mb-[24px] max-w-[900px] text-f16 leading-golden text-t2">Choose the delivery object: profile lengths from an agreed section, or machined parts identified by their finished-part drawings. A new cross-section may need new tooling; cutting or drilling an existing section is a separate processing scope. Include units, length and quantity for each item.</p>
+        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
+          {existingFamilies.map((family) => (
+            <li key={family.href}>
+              <CoverCard href={family.href} cover={productCovers[family.href]} title={family.title} text={family.text} compact sizes="(max-width: 1024px) 50vw, 300px" />
+            </li>
+          ))}
+        </ul>
+        <p className="mt-[20px] text-f14 leading-golden text-t2">
+          I-beams, channels, angles, rods and flat bars are in the{" "}
+          <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">standard structural shapes</Link>
+          ; every family is listed under{" "}
+          <Link href="/products/product-lines" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">product lines</Link>.
+        </p>
+      </PageSection>
 
       <PageSection id="capabilities" title="What we can pultrude" intro="The dimensional range of the production lines, then the four material choices that define a profile, from the fiber core out to the finish.">
         <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-[48px]">
@@ -355,44 +378,15 @@ export default function CustomPultrusionsPage() {
         </ol>
       </PageSection>
 
-      <PageSection
-        id="existing-dies"
-        title="Check the existing dies first"
-        tone="muted"
-        intro={`FengDu's production network holds ${company.production.dieSets.toLocaleString("en-US")}+ die sets. A variant on an existing die (another resin, color or length) takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}; a new die takes ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery. These families already run:`}
-      >
-        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
-          {existingFamilies.map((family) => (
-            <li key={family.href}>
-              <CoverCard href={family.href} cover={productCovers[family.href]} title={family.title} text={family.text} compact sizes="(max-width: 1024px) 50vw, 300px" />
-            </li>
-          ))}
-        </ul>
-        <p className="mt-[20px] text-f14 leading-golden text-t2">
-          I-beams, channels, angles, rods and flat bars are in the{" "}
-          <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">standard structural shapes</Link>
-          ; every family is listed under{" "}
-          <Link href="/products/product-lines" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">product lines</Link>.
-        </p>
-      </PageSection>
-
-      <PageSection id="process" title="From inquiry to series production" intro={`Allow ${weeks(supplyTerms.newDieLeadTimeWeeks)} as a planning range from an approved drawing to first delivery. Confirm the schedule, trials and required testing in the quotation.`}>
-        <ol className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-5">
-          {processSteps.map((step, index) => (
-            <li key={step.number} id={`step-${step.number}`} className="scroll-mt-[128px] rounded-card border border-border-default bg-white p-[20px]">
-              <p className="flex items-baseline justify-between gap-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-                <span>Step {index + 1}</span>
-                <span className="text-teal-text">{step.duration}</span>
-              </p>
-              <h3 className="mt-[8px] text-f16 font-bold text-t1">{step.title}</h3>
-              <p className="mt-[6px] text-f14 leading-golden text-t2">{step.brief}</p>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-[20px] text-f14 leading-golden text-t2">
-          How the line itself works (creel, resin bath, heated die and puller) is explained in the{" "}
-          <Link href="/technology/pultrusion-process" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultrusion process guide</Link>.
-        </p>
+      <PageSection id="documents" title="Put the drawing and material evidence in one review package" intro="A requirement, a reference document and an accepted result have different roles. Identify each file before approving tooling or a production sample.">
+        <dl className="grid gap-[20px] md:grid-cols-3">
+          {[
+            ["Drawing identity", "Send the actual section and finished-part drawings with revision, units, length convention and critical interfaces. List any missing files or dimensions to resolve before release."],
+            ["Material and reports", "Identify the resin / reinforcement reference and service conditions. State which mechanical, fire, electrical or exposure evidence the project needs; a similar profile or resin name does not establish applicability."],
+            ["Order deliverables", "List the drawings, first-article measurements, batch records and packing identification required with the order. Confirm what is available, what needs review and what requires new work."],
+          ].map(([title, text]) => <div key={title} className="border-t border-border-default pt-[14px]"><dt className="text-f18 font-bold text-t1">{title}</dt><dd className="mt-[8px] text-f16 leading-golden text-t2">{text}</dd></div>)}
+        </dl>
+        <p className="mt-[20px] max-w-[900px] text-f14 leading-golden text-t2">Use the <Link href="/resources/evidence" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">public evidence library</Link> to identify references for review. It does not approve an unreviewed custom section or formulation.</p>
       </PageSection>
 
       <PageSection id="tolerances" title="Define fit before committing to tooling" tone="muted" intro="A profile drawing sets the requirement. An inspection record shows what was measured. Repeat-production capability needs evidence for the relevant material, feature and process.">
@@ -414,6 +408,26 @@ export default function CustomPultrusionsPage() {
           For drawing inputs and illustrated feature types, read the{" "}
           <Link href="/technology/frp-profile-machining" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP cutting, drilling and machining guide</Link>. Agree the record package using the{" "}
           <Link href="/technology/quality-testing#machining-records" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">inspection record checklist</Link>.
+        </p>
+        <p className="mt-[12px] text-f14 leading-golden text-t2"><a href="/downloads/frp-first-article-inspection-template.csv" download className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Download the blank first-article inspection template (CSV)</a>. Use it to agree the fields before sampling; it contains no measured results or acceptance approval.</p>
+      </PageSection>
+
+      <PageSection id="process" title="From inquiry to series production" intro={`Allow ${weeks(supplyTerms.newDieLeadTimeWeeks)} as a planning range from an approved drawing to first delivery. Confirm the schedule, trials and required testing in the quotation.`}>
+        <ol className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-5">
+          {processSteps.map((step, index) => (
+            <li key={step.number} id={`step-${step.number}`} className="scroll-mt-[128px] rounded-card border border-border-default bg-white p-[20px]">
+              <p className="flex items-baseline justify-between gap-[8px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+                <span>Step {index + 1}</span>
+                <span className="text-teal-text">{step.duration}</span>
+              </p>
+              <h3 className="mt-[8px] text-f16 font-bold text-t1">{step.title}</h3>
+              <p className="mt-[6px] text-f14 leading-golden text-t2">{step.brief}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[20px] text-f14 leading-golden text-t2">
+          How the line itself works (creel, resin bath, heated die and puller) is explained in the{" "}
+          <Link href="/technology/pultrusion-process" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultrusion process guide</Link>.
         </p>
       </PageSection>
 
