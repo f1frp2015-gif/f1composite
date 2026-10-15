@@ -15,6 +15,7 @@ import Figure from "@/components/ui/Figure";
 import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import { ToolNextSteps } from "@/components/tools/ToolNextSteps";
 
 const pagePath = "/frp-profile-calculator";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -161,11 +162,34 @@ export default function CalculatorPage() {
           stickyMobile: true,
         }}
       />
-      <PageNav items={[{ id: "profile-calculator", label: "Calculator" }, { id: "how-to-use", label: "How to use" }, { id: "mistakes", label: "Mistakes to avoid" }, { id: "standards", label: "Standards" }, { id: "embed", label: "Embed and cite" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "profile-calculator", label: "Calculator" }, { id: "next-steps", label: "Next steps" }, { id: "how-to-use", label: "How to use" }, { id: "mistakes", label: "Mistakes to avoid" }, { id: "standards", label: "Standards" }, { id: "embed", label: "Embed and cite" }, { id: "faq", label: "FAQ" }]} />
 
       <div id="profile-calculator" className="scroll-mt-[40px]">
         <ProfileCalculator />
       </div>
+
+      <ToolNextSteps
+        id="next-steps"
+        title="Continue from your beam check"
+        intro="Choose the next calculation for your project. Each tool has a separate scope and needs its own inputs."
+        items={[
+          {
+            href: "/tools/frp-column-calculator",
+            title: "Screen a column under axial load",
+            description: "Check global and local buckling and crushing for I-sections and tubes. Eccentric loads and combined axial force with bending need a separate design check.",
+          },
+          {
+            href: "/frp-density-calculator",
+            title: "Refine profile density and weight",
+            description: "Estimate density from the layup or formulation, or check a weighed sample, then calculate profile weight. Density alone does not establish structural capacity.",
+          },
+          {
+            href: "/tools/frp-life-cycle-cost-calculator",
+            title: "Compare FRP and steel lifetime costs",
+            description: "Compare installed, maintenance and replacement costs in present values using your project inputs. First establish that both options deliver the same function.",
+          },
+        ]}
+      />
 
       <PageSection
         id="how-to-use"

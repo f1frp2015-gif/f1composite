@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 import { calcWindowUw } from "@/lib/windowUValue";
+import { buildRfqHref } from "@/lib/rfq";
 
 import {
   PHI_FRAME_ID,
@@ -671,7 +672,7 @@ export default function UValueCalculator() {
 
                 {/* Quote CTA carrying the computed U-value spec into the RFQ */}
                 <a
-                  href={`/contact?source=u-value-calculator&inquiry_type=rfq&context=${encodeURIComponent(JSON.stringify(specContext))}&message=${encodeURIComponent(specMessage)}`}
+                  href={buildRfqHref({ source: "u-value-calculator", context: specContext, message: specMessage })}
                   onClick={() => track("uvalue_quote_click", { frame })}
                   className="block rounded-control bg-teal-text px-[16px] py-[12px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
                 >
