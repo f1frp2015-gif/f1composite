@@ -3,6 +3,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import ToolSection from "@/components/layout/ToolSection";
+import { ToolNextSteps } from "@/components/tools/ToolNextSteps";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
@@ -181,6 +182,7 @@ export default function UValueCalculatorPage() {
       <PageNav
         items={[
           { id: "tool", label: "Calculator" },
+          { id: "next-steps", label: "Next steps" },
           { id: "how-to", label: "How to use" },
           { id: "mistakes", label: "Specification mistakes" },
           { id: "frames", label: "Frame values" },
@@ -192,6 +194,29 @@ export default function UValueCalculatorPage() {
       <ToolSection label="Window U-value calculator">
         <UValueCalculator />
       </ToolSection>
+
+      <ToolNextSteps
+        id="next-steps"
+        title="Choose your window supply route"
+        intro="Use this simplified U-value result to discuss your target and assembly. It is not finished-window certification; confirm the required rating or test evidence for your project."
+        items={[
+          {
+            href: "/products/window-door-profiles",
+            title: "Profiles for window fabricators",
+            description: "Review FRP profiles for local fabrication and discuss frame series, glazing and assembly requirements.",
+          },
+          {
+            href: "/products/fiberglass-windows-doors",
+            title: "Finished fiberglass windows and doors",
+            description: "Define opening sizes, quantities, project location and required evidence for a finished-unit quotation.",
+          },
+          {
+            href: "/resources/frp-windows-guide",
+            title: "FRP windows buyer guide",
+            description: "Compare supply options and the specification checks to complete before requesting a quote.",
+          },
+        ]}
+      />
 
       <PageSection
         id="how-to"

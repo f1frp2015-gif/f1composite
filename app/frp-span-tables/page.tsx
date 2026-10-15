@@ -15,6 +15,7 @@ import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
 import SpanTablesContent from "@/components/tools/SpanTablesContent";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import { ToolNextSteps } from "@/components/tools/ToolNextSteps";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { buildSpanTables, DESIGN_BASIS } from "@/lib/spanTables";
@@ -110,6 +111,7 @@ export default function SpanTablesPage() {
         items={[
           { id: "basis", label: "Design basis" },
           ...families.map((family) => ({ id: family.id, label: family.title.replace(/^FRP /, "").replace(/ span table$/, "").replace(/^./, (c) => c.toUpperCase()) })),
+          { id: "next-steps", label: "Next steps" },
           { id: "how-to-read", label: "How to read" },
           { id: "embed", label: "Embed and cite" },
           { id: "faq", label: "FAQ" },
@@ -134,6 +136,29 @@ export default function SpanTablesPage() {
       </PageSection>
 
       <SpanTablesContent families={families} datasheetHrefs={datasheetHrefs} variant="page" />
+
+      <ToolNextSteps
+        id="next-steps"
+        title="Take the shortlisted section further"
+        intro="Use a row’s Check link to carry that section into the calculator, and its datasheet for the published dimensions. For other project questions, continue below."
+        items={[
+          {
+            href: "/frp-profile-calculator",
+            title: "Check a different load case",
+            description: "Enter your span, support condition, load and deflection limit for a preliminary beam screen. Buckling, connections and long-term creep still need separate checks.",
+          },
+          {
+            href: "/frp-density-calculator",
+            title: "Estimate section weight",
+            description: "Use net section area and material density to estimate weight per metre or total length. Confirm the density against the actual laminate or a measured sample.",
+          },
+          {
+            href: "/products/fiberglass-structural-shapes",
+            title: "Review standard profile sizes",
+            description: "Compare published structural shapes and dimensions before specifying a section. A catalog size does not replace the project’s structural design checks.",
+          },
+        ]}
+      />
 
       <PageSection id="how-to-read" title="How to read an FRP span chart" tone="muted">
         <div className="grid gap-[32px] lg:grid-cols-2">

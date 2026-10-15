@@ -144,6 +144,27 @@ const profileFamily: Array<{
   },
 ];
 
+const buyingPaths = [
+  {
+    href: "/products/fiberglass-structural-shapes",
+    title: "Match a standard section",
+    description: "Compare I-beams, channels, angles, tubes and solid sections by dimensions and published section properties.",
+    action: "View structural shapes",
+  },
+  {
+    href: "/products/custom-pultruded-profiles",
+    title: "Develop a custom cross-section",
+    description: "Start with a drawing, quantity and service conditions to review tooling, material and sampling requirements.",
+    action: "Review custom profile requirements",
+  },
+  {
+    href: "#applications",
+    title: "Start with an application",
+    description: "Find profiles and systems for access, equipment, energy and other uses when the section is not yet defined.",
+    action: "Browse applications and products",
+  },
+] as const;
+
 // Products built from these profiles for one application.
 const applicationProducts = [
   { href: "/products/fiberglass-dog-bone", title: "Fiberglass dog bone profiles" },
@@ -172,17 +193,17 @@ const resinOptions: Array<{ system: string; use: string; notes: string }> = [
   {
     system: "Polyurethane (PU)",
     use: "High-toughness, fast-cure",
-    notes: "3–5× flexural toughness of polyester. Used in rail interiors and EV trays.",
+    notes: "Review the published PU-GF material data and confirm the proposed laminate and test method.",
   },
   {
     system: "Phenolic",
     use: "Fire-critical (BS 476 / EN 45545-2)",
-    notes: "Low smoke, low toxicity, Class 1 surface spread of flame.",
+    notes: "Match the fire and smoke report to the formulation, specimen and required classification.",
   },
   {
     system: "Epoxy",
     use: "High mechanical performance",
-    notes: "Used when tensile or fatigue properties need to approach steel equivalents.",
+    notes: "Specify the tensile and fatigue requirements, then verify them for the proposed reinforcement and section.",
   },
 ];
 
@@ -257,7 +278,7 @@ const comparisonRows: Array<{
   },
   {
     property: "Electrical conductivity",
-    frp: "Non-conductive",
+    frp: "Verify dielectric performance for the specified laminate and conditions",
     steel: "Conductive",
     aluminum: "Conductive",
   },
@@ -298,7 +319,7 @@ const faqItems = [
   {
     question: "Is FRP more expensive than steel?",
     answer:
-      "On a per-meter basis, pultruded FRP costs 50–100% more than carbon steel. However, installed cost is often comparable or lower due to 40–60% lower freight, no hot-work permits, 20–40% less labor, and no cranes for most members. Over a 30-year period in corrosive environments, published comparisons put FRP lifecycle cost (TCO) 20–40% below steel, mainly because FRP needs no recoating.",
+      "Compare quotations for members that meet the same load, deflection, exposure and delivery requirements. Include tooling, fabrication, freight, installation, inspection and maintenance over the same study period. FRP may reduce some corrosion-related maintenance, but there is no fixed price premium or lifecycle saving across projects. The lifecycle cost calculator lets you compare your own cost and maintenance assumptions.",
   },
   {
     question: "Can FRP profiles be used for primary structural members?",
@@ -342,7 +363,7 @@ const hubGlossary = [
   { term: "Continuous strand mat (CSM)", def: "A randomly-oriented glass mat layered between rovings to build transverse (cross-direction) strength." },
   { term: "Surfacing veil", def: "A thin veil at the surface that creates a resin-rich, UV- and corrosion-resistant outer layer." },
   { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus: 17 GPa (E17) and 23 GPa (E23)." },
-  { term: "ASTM D3917", def: "The dimensional-tolerance standard for pultruded shapes; F1 Composite holds ±0.25 mm." },
+  { term: "ASTM D3917", def: "A dimensional-tolerance specification for pultruded shapes. Confirm the applicable dimension, tolerance class and acceptance criteria on the approved drawing." },
   { term: "Vinyl ester resin", def: "A corrosion-grade resin for acid, alkali, chlorine and marine service, one step up from general-purpose isophthalic polyester." },
   { term: "Barcol hardness", def: "A surface-indentation test (ASTM D2583) used as a quick proxy for adequate cure of a pultruded profile." },
 ];
@@ -356,7 +377,7 @@ const hubDownloads = [
 
 const tools = [
   { href: "/tools/profile-finder", title: "Profile finder", text: "Filter the standard sizes by shape, size, mass and stiffness." },
-  { href: "/frp-profile-calculator", title: "Profile calculator", text: "Bending, shear and deflection to ASCE/SEI 74-23, CEN/TS 19101 or GB 50608." },
+  { href: "/frp-profile-calculator", title: "Profile calculator", text: "Screen bending, shear and deflection using the stated loads, material values and design basis." },
   { href: "/frp-span-tables", title: "Span tables", text: "Allowable uniform loads for every standard I-beam, channel and tube over 1–6 m." },
   { href: "/fiberglass-pultruded-profile-price", title: "Price estimator", text: "A budget price range per meter, with quantity breaks." },
 ] as const;
@@ -426,10 +447,10 @@ export default function PultrudedFRPProfilesHubPage() {
         title="Pultruded FRP & GRP profiles"
         description="Find glass-reinforced plastic (GRP) profiles, also specified as fiberglass or glass-fiber FRP: standard sections and custom cross-sections. Review geometry, materials and supply requirements, then open the detailed specification page."
         facts={[
-          { label: "Glass content", value: "60–70% by weight" },
-          { label: "EN 13706 grades", value: "E17 / E23" },
-          { label: "Tolerance", value: "±0.25 mm" },
-          { label: "Catalog lead time", value: weeks(supplyTerms.catalogLeadTimeWeeks) },
+          { label: "Section options", value: "Standard / custom" },
+          { label: "Structural grades", value: "Specify E17 / E23" },
+          { label: "Tolerances", value: "Drawing-specific" },
+          { label: "Typical catalog lead time", value: weeks(supplyTerms.catalogLeadTimeWeeks) },
         ]}
         actions={{
           primary: { label: "Request a quote", href: quoteHref },
@@ -448,8 +469,8 @@ export default function PultrudedFRPProfilesHubPage() {
       />
       <PageNav
         items={[
-          { id: "overview", label: "Overview" },
           { id: "families", label: "Families" },
+          { id: "overview", label: "Overview" },
           { id: "applications", label: "Applications" },
           { id: "resins", label: "Resins" },
           { id: "comparison", label: "vs steel" },
@@ -460,22 +481,60 @@ export default function PultrudedFRPProfilesHubPage() {
         ]}
       />
 
+      <PageSection
+        id="families"
+        title="Standard sections and custom pultruded profiles"
+        count={`${profileFamily.length} families`}
+        tone="muted"
+        intro="Each family is an F1 manufacturing or drawing-led quotation program. Open one for the published geometry, selection inputs and RFQ data; tooling status, material and production availability are confirmed where the product page says order release is required."
+      >
+        <ul className="mb-[28px] grid grid-cols-1 gap-[12px] md:grid-cols-3">
+          {buyingPaths.map((path) => (
+            <li key={path.href}>
+              <Link href={path.href} className="group flex h-full flex-col rounded-card border border-border-default bg-white p-[20px] transition-colors hover:border-teal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal">
+                <h3 className="text-f18 font-bold text-t1 group-hover:text-teal-text">{path.title}</h3>
+                <p className="mt-[8px] flex-1 text-f14 leading-golden text-t2">{path.description}</p>
+                <span className="mt-[16px] text-f14 font-semibold text-teal-text">{path.action} <span aria-hidden="true">→</span></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
+          {profileFamily.map((item, index) => (
+            <li key={item.slug}>
+              <CoverCard
+                href={item.href}
+                cover={coverFor(item.href)!}
+                label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.keyword}</span>}
+                title={item.name}
+                text={item.summary}
+                facts={[item.sizes]}
+                action="Explore"
+                priority={index < 4}
+                compact
+                sizes="(max-width: 1024px) 50vw, 300px"
+              />
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
       <PageSection id="overview" title="Pultruded FRP profiles: fiberglass structural shapes, continuously manufactured">
         <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-golden text-t2">
             <p className="text-f18 text-t1">
-              Pultrusion is a continuous manufacturing process in which E-glass roving, continuous strand mat, and surfacing veil are pulled through a resin bath and then through a heated steel die. The resin cures inside the die, producing a constant cross-section pultruded fiberglass profile with 60–70% glass content by weight.
+              Pultrusion pulls glass reinforcement and resin through a heated die to make a continuous profile with a constant cross-section. The section geometry, reinforcement and resin determine the properties to check for your project.
             </p>
             <p>
-              Throughput is typically 0.3–1.5 m/min. Profiles can be made to any length; standard lengths are 6 m and 12 m. The same products are also sold as composite pultruded profiles or pultruded fiberglass profiles. F1 Composite supplies them{" "}
-              <Link href="/products/frp-pultrusion-manufacturer-factory-direct" className={link}>direct from the FengDu production network</Link>.
+              F1 Composite supplies profiles{" "}
+              <Link href="/products/frp-pultrusion-manufacturer-factory-direct" className={link}>direct from the FengDu production network</Link>. Confirm the cut lengths, tolerances, material, inspection requirements and delivery scope against the selected product and approved drawing.
             </p>
             <p>
               Looking for <strong className="font-semibold text-t1">GRP profiles</strong>? Our glass-reinforced sections are the products also described as fiberglass structural shapes or GFRP profiles. Match the shape, resin and required performance, rather than the abbreviation. Carbon and carbon-glass hybrid products are identified separately.{" "}
               <Link href="/what-is-frp#terminology" className={link}>Compare FRP, GRP and GFRP terminology</Link>.
             </p>
             <p>
-              Pultruded fiberglass reinforced polymer (also called GRP, glass reinforced plastic, or fiber reinforced plastic) <strong className="font-semibold text-t1">weighs about 75% less than steel</strong>, <strong className="font-semibold text-t1">does not rust</strong>, <strong className="font-semibold text-t1">does not conduct electricity</strong>, and <strong className="font-semibold text-t1">conducts heat about 170 times less than steel</strong>. Pultruded FRP is used in bridges, walkways, cooling towers, offshore platforms, chemical plants, rail, solar farms, and passive-house window systems worldwide.
+              {commercialFacts.corrosion} Electrical insulation and thermal performance must be verified for the specified laminate and service conditions; they are not interchangeable across all FRP products.
             </p>
           </div>
           <aside className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
@@ -495,39 +554,12 @@ export default function PultrudedFRPProfilesHubPage() {
             </dl>
             <p className="mt-[12px] text-f14 leading-golden text-t2">Product-specific pages and approved order documents define the applicable process, material, tooling and standard.</p>
             <ul className="mt-[14px] flex flex-wrap gap-[6px]">
-              {["EN 13706 E17 / E23", "ASTM D3917 ±0.25 mm", "Certificates on request", "ASCE/SEI 74-23 LRFD", "PHI 2491wi03 (90-series window)"].map((item) => (
+              {["Specify grade and tolerances", "Match reports to the product", "Confirm the delivery scope"].map((item) => (
                 <li key={item} className="rounded-tag border border-border-default bg-white px-[8px] py-[3px] text-f12 font-medium text-t1">{item}</li>
               ))}
             </ul>
           </aside>
         </div>
-      </PageSection>
-
-      <PageSection
-        id="families"
-        title="Standard sections and custom pultruded profiles"
-        count={`${profileFamily.length} families`}
-        tone="muted"
-        intro="Each family is an F1 manufacturing or drawing-led quotation program. Open one for the published geometry, selection inputs and RFQ data; tooling status, material and production availability are confirmed where the product page says order release is required."
-      >
-        <ul className="grid grid-cols-2 gap-[10px] sm:gap-[12px] lg:grid-cols-4">
-          {profileFamily.map((item, index) => (
-            <li key={item.slug}>
-              <CoverCard
-                href={item.href}
-                cover={coverFor(item.href)!}
-                label={<span className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.keyword}</span>}
-                title={item.name}
-                text={item.summary}
-                facts={[item.sizes]}
-                action="Explore"
-                priority={index < 4}
-                compact
-                sizes="(max-width: 1024px) 50vw, 300px"
-              />
-            </li>
-          ))}
-        </ul>
       </PageSection>
 
       <PageSection
@@ -565,7 +597,7 @@ export default function PultrudedFRPProfilesHubPage() {
         id="resins"
         title="Five resin systems, chosen by environment and code"
         tone="muted"
-        intro="All pultruded FRP profiles in the F1 Composite range can be produced with the resin system required for your environment. Resin selection drives chemical resistance, fire performance, and long-term stiffness."
+        intro="Use the environment and performance requirements to discuss a resin system. Availability depends on the product, tooling and laminate; confirm chemical compatibility, fire-test scope and design values for the proposed configuration."
       >
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full min-w-[640px] border-collapse text-left text-f14">
