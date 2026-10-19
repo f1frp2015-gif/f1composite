@@ -137,7 +137,16 @@ function weekly(rows, start, index) {
 }
 
 export function loadOwnershipTargets() {
-  return loadProjectModule("content/data/seoQueryTargets.ts").seoQueryTargets;
+  const existing = loadProjectModule("content/data/seoQueryTargets.ts").seoQueryTargets;
+  const { blogKeywordTargets } = loadProjectModule("content/data/blogStrategy.ts");
+  const ownedUrls = new Set(existing.map(target => target.targetUrl));
+  return [...existing, ...blogKeywordTargets
+    .filter(target => !ownedUrls.has(`/resources/blog/${target.slug}`))
+    .map(target => ({
+      targetUrl: `/resources/blog/${target.slug}`, primaryQuery: target.primaryQuery,
+      intent: target.intent,
+      supportingUrls: [`/resources/blog/topics/${target.topic}`, target.nextStep.href],
+    }))];
 }
 
 const queryKey = query => query.trim().replace(/\s+/g, " ").toLowerCase();
@@ -196,7 +205,7 @@ export function reviewQueries(rows, { asOf, ownershipTargets = [] } = {}) {
       coverage: "A row on every date does not prove a complete export. GSC privacy filtering and row limits still apply.",
       actions: "No automatic owner changes, mergers, redirects, rankings or attribution claims.",
     },
-    ownershipSource: "content/data/seoQueryTargets.ts (reference only; no fuzzy query matching)", groups: results,
+    ownershipSource: "content/data/seoQueryTargets.ts + content/data/blogStrategy.ts (reference only; no fuzzy query matching)", groups: results,
   };
 }
 

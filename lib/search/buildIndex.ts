@@ -7,6 +7,7 @@
 import generatedPages from "./pages.generated.json";
 import type { SearchEntry, SearchKind } from "./types";
 import { blogPosts } from "@/content/data/blogPosts";
+import { blogTopics, getBlogTarget } from "@/content/data/blogStrategy";
 import { engineeringEvidence } from "@/content/data/engineeringEvidence";
 import { reportVerifications, verificationDescription, verificationPath, verificationTitle } from "@/content/data/reportVerification";
 import { glossaryTerms } from "@/content/data/glossary";
@@ -155,13 +156,22 @@ export function buildSearchIndex(): SearchEntry[] {
     })),
     ...sizeEntries(),
     ...pageEntries(),
+    ...blogTopics.map((topic): SearchEntry => ({
+      id: `blog-topic:${topic.slug}`,
+      kind: "article",
+      title: topic.title,
+      url: `/resources/blog/topics/${topic.slug}`,
+      summary: topic.description,
+      keywords: topic.questions.join(" "),
+      badge: "Article collection",
+    })),
     ...blogPosts.map((post): SearchEntry => ({
       id: `blog:${post.slug}`,
       kind: "article",
       title: post.title,
       url: `/resources/blog/${post.slug}`,
       summary: clip(post.excerpt, 160),
-      keywords: `${post.category} ${post.seoTitle ?? ""}`.trim(),
+      keywords: `${post.category} ${post.seoTitle ?? ""} ${getBlogTarget(post.slug)?.primaryQuery ?? ""} ${getBlogTarget(post.slug)?.secondaryQueries.join(" ") ?? ""}`.trim(),
       badge: post.category,
     })),
     ...applicationPages.map((page): SearchEntry => ({

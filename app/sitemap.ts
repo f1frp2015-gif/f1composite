@@ -2,6 +2,7 @@ import { evidenceRevision } from "@/content/data/engineeringEvidence";
 import { reportVerifications, verificationPath } from "@/content/data/reportVerification";
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
+import { blogTopics, blogLibraryUpdated, getTopicPosts } from "@/content/data/blogStrategy";
 import { customProductUpdated } from "@/content/data/customProductPages";
 import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
@@ -15,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const latestBlogUpdate =
     [...blogPosts]
       .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]
-      ?.updatedAt ?? "2026-04-02";
+      ?.updatedAt ?? blogLibraryUpdated;
 
   const blogEntries = blogPosts.map((post) => ({
     url: `${BASE}/resources/blog/${post.slug}`,
@@ -42,6 +43,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    ...blogTopics.map((topic) => ({
+      url: `${BASE}/resources/blog/topics/${topic.slug}`,
+      lastModified: getTopicPosts(topic.slug).reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogLibraryUpdated),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    })),
     ...specialistProductIndex.map((page) => ({ url: `${BASE}/products/${page.slug}`, lastModified: pultrusionGuideReviewed, changeFrequency: "monthly" as const, priority: 0.75 })),
     { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
@@ -179,7 +186,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/resources/frp-pultrusion-fob-ddp-export-guide`, changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/resources/design-guides`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/resources/glossary`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/resources/blog`, lastModified: latestBlogUpdate, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE}/resources/blog`, lastModified: latestBlogUpdate > blogLibraryUpdated ? latestBlogUpdate : blogLibraryUpdated, changeFrequency: "weekly", priority: 0.7 },
     ...blogEntries,
     { url: `${BASE}/resources/downloads`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.6 },
