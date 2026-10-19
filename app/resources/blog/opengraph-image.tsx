@@ -6,10 +6,10 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "F1 Composite Blog",
-    title: "Engineering content on pultruded FRP profiles, materials, and applications",
+    title: "FRP engineering, from selection to installation",
     description:
-      "Material comparisons, application engineering, industry analysis, and procurement guides — written by named application engineers, R&D leads, and industry researchers at F1 Composite.",
+      "Browse fiberglass materials, structural design, windows, grating, cable management and reinforcement. Find the guidance for your next project decision.",
     accent: "#0d9a92",
-    chips: ["Named-author E-E-A-T", "Standards-grounded", "Updated 2026"],
+    chips: ["Material selection", "Design checks", "Installation guides"],
   });
 }

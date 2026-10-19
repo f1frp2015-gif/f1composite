@@ -7,67 +7,19 @@ import ArticleSignals from "@/components/sections/ArticleSignals";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
+import ArticleContent, { renderInlineMarkdown } from "@/components/blog/ArticleContent";
+import BlogCard from "@/components/blog/BlogCard";
 import JsonLd from "@/components/seo/JsonLd";
 import FAQ from "@/components/ui/FAQ";
 import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
+import { getBlogTarget, getBlogTopic, getRelatedBlogPosts } from "@/content/data/blogStrategy";
+import { parseBlogContent } from "@/lib/blogContent";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { authorSlugByName, authorsBySlug } from "@/lib/authors";
 import { prefillForBlog } from "@/lib/aiPrefill";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-function renderInlineMarkdown(text: string, keyPrefix: string): React.ReactNode[] {
-  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
-  const nodes: React.ReactNode[] = [];
-  let cursor = 0;
-  let match: RegExpExecArray | null;
-  let part = 0;
-
-  while ((match = pattern.exec(text)) !== null) {
-    if (match.index > cursor) {
-      nodes.push(text.slice(cursor, match.index));
-    }
-
-    const token = match[0];
-    const key = `${keyPrefix}-${part++}`;
-    if (token.startsWith("**")) {
-      nodes.push(<strong key={key} className="text-t1">{token.slice(2, -2)}</strong>);
-    } else {
-      const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      if (link) {
-        const [, label, href] = link;
-        if (href.startsWith("/")) {
-          nodes.push(
-            <Link key={key} href={href} className="font-semibold text-teal-text hover:underline">
-              {label}
-            </Link>,
-          );
-        } else if (/^https?:\/\//.test(href)) {
-          nodes.push(
-            <a
-              key={key}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-teal-text hover:underline"
-            >
-              {label}
-            </a>,
-          );
-        } else {
-          nodes.push(token);
-        }
-      }
-    }
-    cursor = pattern.lastIndex;
-  }
-
-  if (cursor < text.length) {
-    nodes.push(text.slice(cursor));
-  }
-  return nodes;
 }
 
 export async function generateStaticParams() {
@@ -82,6 +34,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Blog Post" };
   }
 
+  const target = getBlogTarget(slug);
+  const topic = target ? getBlogTopic(target.topic) : undefined;
+
   return buildPageMetadata({
     title: post.seoTitle ?? post.title,
     description: post.ogDescription ?? post.excerpt,
@@ -91,14 +46,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.date,
       modifiedTime: post.updatedAt,
       authors: [post.authorName],
-      section: post.category,
+      section: topic?.label ?? post.category,
     },
   });
-}
-
-// Anchors for the article's own headings, used by the contents list beside it.
-function headingId(text: string) {
-  return text.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
 }
 
 // The article's related links, grouped by where they lead.
@@ -114,146 +64,6 @@ function relatedGroups(links: Array<{ label: string; href: string }>) {
     .filter((group) => group.links.length > 0);
 }
 
-function renderArticleContent(content: string) {
-  const blocks = content.split("\n\n");
-  const result: React.ReactNode[] = [];
-  let i = 0;
-
-  while (i < blocks.length) {
-    const paragraph = blocks[i];
-    const index = i;
-
-    // Table: collect consecutive blocks that start with |
-    if (paragraph.startsWith("|")) {
-      const tableLines: string[] = [];
-      let j = i;
-      while (j < blocks.length) {
-        const block = blocks[j];
-        if (block.startsWith("|")) {
-          block.split("\n").forEach((line) => {
-            if (line.trim()) tableLines.push(line.trim());
-          });
-          j++;
-        } else {
-          break;
-        }
-      }
-      i = j;
-
-      // Parse: first line = headers, second = separator (skip), rest = rows
-      const headerCells = tableLines[0].split("|").filter((c) => c.trim()).map((c) => c.trim());
-      const dataRows = tableLines.slice(2).map((line) =>
-        line.split("|").filter((c) => c.trim()).map((c) => c.trim())
-      );
-
-      result.push(
-        <div key={index} className="relative my-[24px] overflow-x-auto rounded-card border border-border-default bg-white">
-          <table className="w-full min-w-[520px] border-collapse text-left text-f14">
-            <thead>
-              <tr className="border-b border-border-default bg-bg2">
-                {headerCells.map((cell, ci) => (
-                  <th key={ci} scope="col" className="px-[14px] py-[8px] font-semibold text-t1">
-                    {renderInlineMarkdown(cell, `table-head-${index}-${ci}`)}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {dataRows.map((row, ri) => (
-                <tr key={ri} className="border-b border-border-default align-top last:border-b-0">
-                  {row.map((cell, ci) =>
-                    ci === 0 ? (
-                      <th key={ci} scope="row" className="px-[14px] py-[10px] font-semibold text-t1">
-                        {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
-                      </th>
-                    ) : (
-                      <td key={ci} className="px-[14px] py-[10px] leading-golden text-t2">
-                        {renderInlineMarkdown(cell, `table-cell-${index}-${ri}-${ci}`)}
-                      </td>
-                    ),
-                  )}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-      continue;
-    }
-
-    i++;
-
-    if (paragraph.startsWith("## ")) {
-      const heading = paragraph.replace("## ", "");
-      result.push(
-        <h2 key={index} id={headingId(heading)} className="mb-[12px] mt-[40px] text-f24 font-bold leading-[1.25] text-t1 first:mt-0">
-          {heading}
-        </h2>
-      );
-      continue;
-    }
-
-    if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
-      result.push(
-        <h3 key={index} className="mb-[8px] mt-[24px] text-f18 font-bold text-t1">
-          {paragraph.replace(/\*\*/g, "")}
-        </h3>
-      );
-      continue;
-    }
-
-    const linkBlockMatch = paragraph.match(/^\[(.+?)\]\((.+?)\)$/);
-    if (linkBlockMatch) {
-      result.push(
-        <p key={index} className="my-[24px]">
-          <a
-            href={linkBlockMatch[2]}
-            target={linkBlockMatch[2].startsWith("/") ? undefined : "_blank"}
-            rel={linkBlockMatch[2].startsWith("/") ? undefined : "noopener noreferrer"}
-            className="inline-flex min-h-[46px] items-center gap-[8px] rounded-control border border-teal-border bg-teal-bg px-[16px] text-f14 font-semibold text-teal-text transition-colors hover:bg-teal-bg2"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-              <path d="M4 14V2h8l2 3v9H4z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-              <path d="M6 9h4M6 11h3" stroke="currentColor" strokeWidth="1.2" />
-            </svg>
-            {linkBlockMatch[1]}
-          </a>
-        </p>
-      );
-      continue;
-    }
-
-    const videoMatch = paragraph.match(/^\[video:(.+?)(?:\|(.+?))?\]$/);
-    if (videoMatch) {
-      result.push(
-        <figure key={index} className="my-[24px] overflow-hidden rounded-card border border-border-default bg-black">
-          <video
-            src={videoMatch[1]}
-            controls
-            playsInline
-            preload="metadata"
-            className="w-full"
-          />
-          {videoMatch[2] && (
-            <figcaption className="border-t border-border-default bg-white px-[14px] py-[10px] text-f14 leading-golden text-t2">
-              {videoMatch[2]}
-            </figcaption>
-          )}
-        </figure>
-      );
-      continue;
-    }
-
-    result.push(
-      <p key={index} className="mb-[16px] text-f16 leading-golden text-t2">
-        {renderInlineMarkdown(paragraph, `paragraph-${index}`)}
-      </p>
-    );
-  }
-
-  return result;
-}
-
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogPostsBySlug[slug];
@@ -262,6 +72,10 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  const target = getBlogTarget(slug);
+  const topic = target ? getBlogTopic(target.topic) : undefined;
+  const relatedPosts = getRelatedBlogPosts(slug, 3);
+  const { blocks, headings } = parseBlogContent(post.content);
   const authorSlug = authorSlugByName(post.authorName);
   const authorHref = authorSlug ? `/about/authors/${authorSlug}` : undefined;
   const authorRecord = authorSlug ? authorsBySlug[authorSlug] : undefined;
@@ -307,6 +121,14 @@ export default async function BlogPostPage({ params }: PageProps) {
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     description: post.excerpt,
     mainEntityOfPage: absoluteUrl(`/resources/blog/${slug}`),
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${absoluteUrl("/resources/blog")}#blog`,
+      url: absoluteUrl("/resources/blog"),
+      name: "F1 Composite FRP Engineering Blog",
+    },
+    articleSection: topic?.label ?? post.category,
+    ...(target ? { about: { "@type": "Thing", name: target.primaryQuery } } : {}),
     citation: [...post.standards, ...(post.sourceLinks?.map((link) => link.href) ?? [])],
     speakable: {
       "@type": "SpeakableSpecification",
@@ -319,10 +141,6 @@ export default async function BlogPostPage({ params }: PageProps) {
       : {}),
   };
 
-  const headings = post.content
-    .split("\n\n")
-    .filter((block) => block.startsWith("## "))
-    .map((block) => block.replace("## ", ""));
   const mono = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
   return (
@@ -336,6 +154,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Blog", href: "/resources/blog" },
+          ...(topic ? [{ label: topic.label, href: `/resources/blog/topics/${topic.slug}` }] : []),
           { label: post.title },
         ]}
       />
@@ -422,8 +241,23 @@ export default async function BlogPostPage({ params }: PageProps) {
               <ArticleSummarizer title={post.title} content={summarizerContent} />
             </div>
 
+            {headings.length >= 2 ? (
+              <details className="mt-[24px] rounded-card border border-border-default bg-bg2 px-[20px] py-[16px] lg:hidden">
+                <summary className="cursor-pointer text-f14 font-semibold text-t1">On this page</summary>
+                <nav aria-label="Article contents" className="mt-[8px]">
+                  <ol className="space-y-[2px]">
+                    {headings.map((heading) => (
+                      <li key={heading.id} className={heading.level === 3 ? "pl-[12px]" : undefined}>
+                        <a href={`#${heading.id}`} className="block py-[6px] text-f14 leading-golden text-t2 hover:text-teal-text">{heading.text}</a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              </details>
+            ) : null}
+
             <article className="prose-f1 mt-[40px]">
-              {renderArticleContent(post.content)}
+              <ArticleContent blocks={blocks} />
               {post.faq ? (
                 <FAQ
                   title={post.faq.title}
@@ -490,9 +324,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <p className={mono}>On this page</p>
                   <ol className="mt-[8px] space-y-[2px]">
                     {headings.map((heading) => (
-                      <li key={heading}>
-                        <a href={`#${headingId(heading)}`} className="block py-[4px] text-f14 leading-golden text-t2 hover:text-teal-text">
-                          {heading}
+                      <li key={heading.id} className={heading.level === 3 ? "pl-[12px]" : undefined}>
+                        <a href={`#${heading.id}`} className="block py-[4px] text-f14 leading-golden text-t2 hover:text-teal-text">
+                          {heading.text}
                         </a>
                       </li>
                     ))}
@@ -513,6 +347,40 @@ export default async function BlogPostPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      {(topic || target) ? (
+        <section aria-label="Continue with this topic" className="border-t border-border-default bg-white py-[32px]">
+          <div className="site-container grid gap-[20px] md:grid-cols-2">
+            {topic ? (
+              <div className="rounded-card border border-border-default bg-bg2 p-[24px]">
+                <p className={mono}>Explore the topic</p>
+                <Link href={`/resources/blog/topics/${topic.slug}`} className="mt-[8px] inline-flex min-h-[44px] items-center text-f18 font-bold text-teal-text hover:underline">
+                  {topic.label} <span aria-hidden="true" className="ml-[8px]">→</span>
+                </Link>
+              </div>
+            ) : null}
+            {target ? (
+              <div className="rounded-card border border-teal-border bg-teal-bg p-[24px]">
+                <p className={mono}>Next step</p>
+                <Link href={target.nextStep.href} className="mt-[8px] inline-flex min-h-[44px] items-center text-f18 font-bold text-teal-text hover:underline">
+                  {target.nextStep.label} <span aria-hidden="true" className="ml-[8px]">→</span>
+                </Link>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      {relatedPosts.length > 0 ? (
+        <section className="border-t border-border-default bg-white py-[40px] md:py-[56px]" aria-labelledby="related-articles-heading">
+          <div className="site-container">
+            <h2 id="related-articles-heading" className="text-f24 font-bold text-t1">Related articles</h2>
+            <div className="mt-[24px] grid gap-[24px] md:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((relatedPost) => <BlogCard key={relatedPost.slug} post={relatedPost} />)}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <RelatedLinks title="Related products, applications and tools" background="bg2" groups={relatedGroups(post.relatedLinks)} />
 
