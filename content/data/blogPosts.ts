@@ -6098,7 +6098,7 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
     slug: "fiberglass-rebar-cost-per-foot",
     title: "Fiberglass Rebar Cost per Foot: How to Compare GFRP Prices on the Same Basis",
     seoTitle: "Fiberglass Rebar Cost per Foot: GFRP Price Guide",
-    answerBox: "Fiberglass (GFRP) rebar is priced by the foot or meter for each bar size, and published US retail listings in October 2026 ran from about $0.30 per foot for a 3/8 in bar to about $0.47 per foot for a 1/2 in bar. A price per foot only compares when the size basis matches: divide it by the certified area or the guaranteed tensile load, and add bends, certification, cutting and freight before comparing GFRP with steel.",
+    answerBox: "Fiberglass (GFRP) rebar is priced by the foot or meter for each bar size, and published US retail listings for 3/8 in to 1/2 in bars fell in a range of roughly $0.30 to $0.50 per foot in October 2026; project prices are confirmed by quotation (RFQ). A price per foot only compares when the size basis matches: divide it by the certified area or the guaranteed tensile load, and add bends, certification, cutting and freight before comparing GFRP with steel.",
     category: "Concrete Reinforcement",
     date: "2026-10-23",
     updatedAt: "2026-10-23",
@@ -6120,7 +6120,7 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
     supportingImageFit: "contain",
     supportingCaption: "Supplier photo of straight GFRP bars. Product illustration only: the certified area, tensile load and surface are confirmed for the bars actually quoted.",
     highlights: [
-      "Published US retail listings in October 2026: about $0.30/ft for a 3/8 in bar and $0.39–$0.47/ft for 1/2 in bars, sold in 20 ft lengths.",
+      "US retail listings for 3/8 in to 1/2 in bars ran roughly $0.30–$0.50 per foot in October 2026; the project price is confirmed by RFQ.",
       "A bar named by outside diameter can have a smaller load-bearing core than the nominal size, so compare price per certified area or per guaranteed tensile load.",
       "Bends, certification, cut lists, packing and freight change the delivered price more than the base price per foot.",
       "Compare GFRP and steel on the redesigned reinforcement and the installed, maintained structure, not on bar price alone.",
@@ -6149,7 +6149,7 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
       items: [
         {
           question: "How much does fiberglass rebar cost per foot?",
-          answer: "Published US retail listings checked on 23 October 2026 showed about $0.30 per foot for a 3/8 in bar and $0.39 to $0.47 per foot for 1/2 in bars, sold in 20 ft lengths. Project prices depend on the size mix, certification, bends, quantity and delivery, so treat retail listings as a reference point and ask for a quotation against your bar schedule.",
+          answer: "US retail listings for 3/8 in to 1/2 in bars fell roughly between $0.30 and $0.50 per foot in October 2026, and larger bars cost more in proportion to their area. Project prices depend on the size mix, certification, bends, quantity and delivery, so the actual price is confirmed by quotation against your bar schedule.",
         },
         {
           question: "Is fiberglass rebar more expensive than steel?",
@@ -6169,23 +6169,23 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
 
 ## What fiberglass rebar costs per foot
 
-Retail listings give a public reference point. On 23 October 2026, a US building-supply retailer listed these bars, priced by the foot and sold in 20 ft lengths:
+Public retail listings give a reference range. In October 2026, US building-supply listings for 3/8 in and 1/2 in fiberglass rebar, priced by the foot and sold in 20 ft lengths, fell between roughly $0.30 and $0.50 per foot. Larger bars cost more per foot, roughly in proportion to their cross-sectional area.
 
-| Listing | Price per foot | Note in the listing |
-| --- | --- | --- |
-| 3/8 in fiberglass rebar | $0.30 | Priced per foot, sold in 20 ft |
-| 1/2 in fiberglass rebar | $0.39 | 1/2 in outside diameter, 7/16 in load-bearing core |
-| 1/2 in fiberglass rebar, second product | $0.47 | Priced per foot, sold in 20 ft |
+| What sets the figure | Range or basis |
+| --- | --- |
+| Reference range, 3/8 in to 1/2 in bars, US retail, October 2026 | About $0.30–$0.50 per foot |
+| Larger bar sizes | Scales roughly with cross-sectional area |
+| Project price | Confirmed by quotation against your bar schedule (RFQ) |
 
-These are retail list prices for one seller on one date, not project quotations. A project order adds certification, cut lengths, bends, packing and freight, and the quantity and size mix move the price in both directions. Use the table to sanity-check a quotation, not to budget a structure.
+The range is a public retail reference on one date, not a quotation. A project order adds certification, cut lengths, bends, packing and freight, and the quantity and size mix move the price in both directions. Use the range to sanity-check a quotation; the actual price is the one in the RFQ response.
 
 ## Why the same size can mean different bars
 
-The second row shows the main trap in comparing per-foot prices. A bar sold as 1/2 in by its outside diameter can have a smaller core once the ribs, wrap or sand coating are excluded. A 7/16 in core has an area of about 0.150 in², while an ASTM D7957 No. 4 bar has a nominal area of 0.20 in². The design strength of a bar is tied to the area and guaranteed tensile load that its certificate states, so a cheaper bar per foot can be the more expensive one per unit of reinforcement.
+Retail listings also show the main trap in comparing per-foot prices. One published 1/2 in listing states a 7/16 in load-bearing core: a bar sold as 1/2 in by its outside diameter can have a smaller core once the ribs, wrap or sand coating are excluded. A 7/16 in core has an area of about 0.150 in², while an ASTM D7957 No. 4 bar has a nominal area of 0.20 in². The design strength of a bar is tied to the area and guaranteed tensile load that its certificate states, so a cheaper bar per foot can be the more expensive one per unit of reinforcement.
 
 Put each offer on the same basis before comparing:
 
-- **Price per certified area:** divide the price per foot by the certified cross-sectional area. At $0.39/ft over 0.150 in², the cost is $2.60 per in² of bar per foot; a bar with the nominal 0.20 in² would match it at $0.52/ft.
+- **Price per certified area:** divide the price per foot by the certified cross-sectional area. A bar with a 0.150 in² core has 25% less area than a 0.20 in² No. 4 bar, so it needs to cost about 25% less per foot just to break even per unit of reinforcement.
 - **Price per guaranteed tensile load:** divide the price per foot by the guaranteed tensile force on the certificate, which reflects both area and strength.
 - **Same standard and edition:** check that both bars are offered against ASTM D7957 (or the standard your project names) and that the reports state the edition they were run against.
 
@@ -6216,7 +6216,7 @@ Our [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel) co
 
 ## Getting a comparable quotation
 
-Send the bar schedule with diameters or bar numbers, cut lengths, quantities, bent shapes, the standard and edition required, the certification you need and the delivery destination. The [bar schedule template](/downloads/f1-rebar-schedule-template.csv) has columns for straight bars and shapes. F1 quotes [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) against the schedule, with the certified area and tensile data of the offered grade, so the price can be compared per foot and per unit of reinforcement.`,
+Send the bar schedule with diameters or bar numbers, cut lengths, quantities, bent shapes, the standard and edition required, the certification you need and the delivery destination. The [bar schedule template](/downloads/f1-rebar-schedule-template.csv) has columns for straight bars and shapes. F1 quotes [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) against the schedule, with the certified area and tensile data of the offered grade, so the price can be compared per foot and per unit of reinforcement. The quoted price, not a reference range, is the basis for the order.`,
   },
   {
     slug: "how-to-cut-fiberglass-rebar",
